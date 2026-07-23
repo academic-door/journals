@@ -1,28 +1,219 @@
-# Architecture
+# Academic Door 产品架构 v1.0
+
+本文是 Academic Door 各项目和 Agent 的共同边界。子项目可以独立迭代，但不得各自发明重复的数据格式、导航、质量标准或发布流程。
+
+## 1. 产品使命
+
+Academic Door 面向中文读者建设开放、可靠、可检索、可复用的经济学学术公共品。产品不是单一公众号自动化脚本，而是由结构化数据、公共网站和内容生产工具组成的学术信息基础设施。
+
+北极星目标：
+
+1. 重要经济学论文和期刊更新不漏报。
+2. 所有中文内容可追溯到官方来源。
+3. 同一份数据同时服务网站、检索、RSS、公众号和其他平台。
+4. 运营者每天只需完成选题、编辑和最终发布，不再维护冗长的中间状态。
+5. 每个子项目可以由独立 Agent 开发，但接入 Academic Door 时遵守同一契约。
+
+## 2. 产品版图
 
 ```text
-Official sources
-→ collectors
-→ normalization and enrichment
-→ translation
-→ quality gate
-→ public issue JSON
-→ journal site / Composer / feeds / project manifest
+Academic Door 主页 / 品牌入口
+├─ NBER Working Papers CN
+├─ Econ Papers Daily
+├─ Journals
+│  ├─ TOP5
+│  ├─ Field Journals
+│  └─ Academic Door Composer
+└─ 共享能力
+   ├─ 统一论文与卷期 Schema
+   ├─ 来源与质量规则
+   ├─ 公共 JSON API / Project Manifest
+   ├─ 统一导航与品牌规范
+   └─ GitHub 协作、测试与隐私规范
 ```
 
-## Source authority
+各层职责：
 
-1. Official issue page: roster and order.
-2. Official article page: title, authors, abstract, DOI.
-3. Crossref: enrichment only.
-4. Other public metadata: explicit fallback with provenance.
+| 层级 | 负责内容 | 不负责内容 |
+|---|---|---|
+| 品牌主页 | 项目导航、品牌说明、统一入口、跨项目发现 | 复制保存各项目全部数据 |
+| 数据项目 | 官方数据采集、标准化、中文整理、质量门、公共接口 | 微信后台发布 |
+| 公共网站 | 浏览、搜索、筛选、归档、来源跳转 | 私有审核状态 |
+| Composer | 选文、编辑、主题预览、复制富文本、导出 | 代替作者判断和微信最终检查 |
+| 公众号运营 | 最终内容判断、平台项检查、发布 | 维护抓取器和中间同步队列 |
 
-## Minimal issue states
+## 3. 默认七项架构决策
 
-- `detected`
-- `incomplete`
-- `ready`
-- `error`
+1. **独立仓库：** `academic-door/journals` 作为期刊主线仓库，不继续堆入旧的公众号生产目录。
+2. **一个引擎：** TOP5 与 Field Journals 共享采集器接口、Schema、质量门和 Composer，不建立两套平行系统。
+3. **静态优先：** Astro 构建静态网站，GitHub Pages 免费托管；第一阶段不引入服务器和数据库。
+4. **官方优先：** 卷期名单与顺序以期刊官网为准，文章页负责作者、摘要和 DOI，Crossref 只用于补充。
+5. **数据与代码分离：** `main` 保存代码、配置和可复现样板；自动更新结果发布到 `data` 分支，部署时叠加。
+6. **人工编辑优先：** Composer 第一阶段采用“网页编辑 → 复制富文本到微信”，不把 Notion 或微信 API 设为必经路径。
+7. **渐进迁移：** 旧工作流继续服务尚未迁移的论文解读；新系统稳定后按栏目逐步下线旧链路，不一次性破坏生产。
 
-The public site may show incomplete data with a visible warning. Composer may
-load it for manual repair. The pipeline must never silently stall.
+## 4. 统一数据流
+
+```text
+期刊官方卷期页
+→ 采集卷期名单和官网顺序
+→ 采集每篇文章详情
+→ 标准化字段和稳定 ID
+→ 中文标题 / 摘要与术语处理
+→ 完整性、顺序、重复和来源质量门
+→ Issue JSON
+→ TOP5 / Field 网站
+→ Composer
+→ 复制到微信后台
+→ 人工最终检查并发布
+```
+
+数据状态只有四类：
+
+- `detected`：发现新卷期，尚未完成采集。
+- `incomplete`：可以浏览，但存在明确列出的缺失字段。
+- `ready`：通过当前栏目要求的全部质量门。
+- `error`：采集或结构异常，需要系统维护，不要求运营者逐篇排查。
+
+禁止“无提示卡住”。所有不完整状态必须同时输出机器可读 `quality_flags` 和用户可见说明。
+
+## 5. 来源权威与字段契约
+
+来源优先级：
+
+1. 官方卷期页：卷、期、目录名单、文章类型、顺序。
+2. 官方文章页：英文标题、作者、英文摘要、DOI、正式链接。
+3. Crossref：仅补齐元数据，不得覆盖冲突的官方字段。
+4. 其他公开来源：只能作为标明出处的 fallback。
+
+每篇论文至少保留：
+
+- 稳定 `paper_id`
+- `sequence` 与 `source_sequence`
+- 中英文标题
+- 作者
+- 中英文摘要
+- DOI 与官方链接
+- 文章类型
+- 字段来源
+- 翻译状态和提示词/术语表版本
+- 质量标记
+
+每个卷期至少保留：
+
+- 稳定 `issue_id`
+- 期刊、卷、期和日期
+- 官网总条目数
+- 研究论文数
+- 被排除条目及原因
+- 详情页失败数
+- 抓取时间
+- 整体质量状态
+
+## 6. 质量门
+
+进入 `ready` 前至少检查：
+
+1. 官网名单数量与解析数量一致。
+2. 研究论文顺序与官网一致且连续。
+3. DOI 和稳定 ID 不重复。
+4. 作者、英文标题、英文摘要和来源链接完整。
+5. 排除的卷首、致辞、勘误、评论等条目留下审计记录。
+6. 中文标题与摘要完整；AI 翻译不得伪造缺失原文。
+7. Schema 验证通过。
+8. 公开数据不含密钥、本机路径、私有稿件或个人账号信息。
+
+站点可以展示 `incomplete` 数据，但必须显式提示；Composer 可以载入它供人工修补，不得把它标为已完成。
+
+## 7. Composer v1
+
+Composer 是运营工作台，不是新的内容管理系统。
+
+必须具备：
+
+- 从 Academic Door JSON 载入卷期。
+- 勾选或取消论文并即时重排。
+- Markdown 编辑和公众号预览同步。
+- 至少三种主题。
+- 本地自动保存与恢复。
+- 复制带内联样式的富文本。
+- 导出 Markdown 和 HTML。
+- 保留论文官网链接、DOI 和来源说明。
+
+第一阶段明确不做：
+
+- Notion 双向同步。
+- 微信 API 自动建草稿。
+- 多人权限系统。
+- 服务端保存私有稿件。
+
+只有当网页复制流程已稳定、每天的编辑时间明显下降后，才评估云端保存和平台 API。
+
+## 8. GitHub 仓库版图
+
+| 仓库 | 职责 |
+|---|---|
+| `academic-door/academic-door.github.io` | 品牌主页与项目导航 |
+| `academic-door/nber-working-papers-cn` | NBER 数据、中文内容与站点 |
+| `academic-door/econ-paper-monitor` | 每日论文监测与站点 |
+| `academic-door/journals` | TOP5、Field Journals、统一期刊引擎与 Composer |
+| `academic-door/.github` | Organization 公开介绍 |
+| `academic-door/agent-workflow-template` | Agent 协作、PR、验收模板 |
+
+每个项目都应公开一个 `project-manifest.json`，让主页读取项目名称、状态、入口、更新时间和健康地址。主页只做聚合，不复制子项目业务逻辑。
+
+## 9. Agent 分工原则
+
+每个 Agent 只拥有一个清晰边界：
+
+- **主页 Agent：** 读取 Manifest、做导航和品牌体验，不改采集规则。
+- **NBER Agent：** 维护 NBER 官方批次与周/月报，不改 Journals Schema。
+- **Econ Papers Daily Agent：** 维护每日论文发现和筛选，不负责公众号排版。
+- **Journals Agent：** 维护期刊适配器、统一 Schema、质量门和站点。
+- **Composer Agent：** 维护编辑、预览、复制兼容和主题，不抓取期刊。
+- **数据质量 Agent：** 维护 fixture、数量/顺序/重复/来源审计，不直接编辑 UI。
+
+跨仓库需求通过 Issue 和 Project Manifest 协作，不允许 Agent 在未说明的情况下顺手重构其他项目。
+
+## 10. 迁移路线
+
+### Phase 1：纵向样板
+
+- AER 官方目录完整采集。
+- TOP5 页面展示。
+- Composer 可编辑、换主题、复制。
+- GitHub Actions 定时更新和 Pages 部署。
+
+### Phase 2：TOP5 完整化
+
+- 接入 JPE、QJE、RES、Econometrica。
+- 建立跨期刊术语表和中文翻译缓存。
+- 增加历史卷期、检索、RSS 和更新提醒。
+
+### Phase 3：Field Journals
+
+- 按领域分批接入，不按“见到一个写一个脚本”扩张。
+- 优先支持发展、劳动、环境、农业、城市与公共经济学。
+- 每种官网平台只写一个可复用适配器。
+
+### Phase 4：内容生产成熟化
+
+- Composer 主题与公众号兼容性回归测试。
+- 建立可复用栏目模板但保留自由编辑。
+- 依据实际节省时间的数据，再决定是否增加云端稿件和平台 API。
+
+## 11. v1 验收标准
+
+v1 纵向样板完成需同时满足：
+
+- 官方 AER 卷期总数、研究论文数、排除项和顺序可解释。
+- 详情页失败数为 0。
+- Schema、单元测试、隐私审计、静态构建全部通过。
+- GitHub Actions 可在云端完成采集、写入 `data`、触发部署。
+- Pages 的首页、TOP5、Composer、状态页和 JSON API 可访问。
+- Composer 可载入真实卷期、编辑、切换主题并复制。
+- 不依赖旧 Notion/微信 API 链路。
+
+## 12. 当前边界
+
+AER 纵向样板已上线。当前英文元数据、目录数量和顺序已通过质量检查；中文标题已有首版，中文摘要尚未完成，因此公开状态保持 `incomplete`。这是明确的下一项内容工程，不是静默故障。

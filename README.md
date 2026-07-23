@@ -64,6 +64,12 @@ python -m unittest discover -s tests -v
 /journals/project-manifest.json
 ```
 
+## 架构与协作
+
+- [Academic Door 产品架构 v1.0](docs/architecture.md)
+- [Academic Door GitHub 子站建设手册](docs/github-site-playbook.md)
+- [新增期刊适配器说明](docs/adding-a-journal.md)
+
 ## 隐私边界
 
 本仓库不得提交 API Key、微信 AppSecret、邮箱密码、Notion/Zotero 数据、本机绝对路径、未发布稿件、论文 PDF 或完整网页缓存。真实凭据只允许放入 GitHub Actions Secrets 或本地 `.env`。
