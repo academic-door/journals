@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://academic-door.github.io/journals/schema/issue-v1.json",
+  "title": "Academic Door Journal Issue",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "issue_id",
+    "journal_id",
+    "journal_name",
+    "volume",
+    "issue",
+    "source_url",
+    "retrieved_at",
+    "expected_article_count",
+    "research_article_count",
+    "status",
+    "articles",
+    "quality"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "issue_id": { "type": "string", "minLength": 3 },
+    "journal_id": { "type": "string", "minLength": 2 },
+    "journal_name": { "type": "string", "minLength": 3 },
+    "volume": { "type": "string" },
+    "issue": { "type": "string" },
+    "publication_date": { "type": "string" },
+    "source_url": { "type": "string", "format": "uri" },
+    "retrieved_at": { "type": "string", "format": "date-time" },
+    "expected_article_count": { "type": "integer", "minimum": 0 },
+    "research_article_count": { "type": "integer", "minimum": 0 },
+    "status": {
+      "enum": ["detected", "incomplete", "ready", "error"]
+    },
+    "development_sample": { "type": "boolean" },
+    "articles": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/article" }
+    },
+    "quality": {
+      "type": "object",
+      "required": [
+        "roster_match",
+        "order_preserved",
+        "doi_complete",
+        "authors_complete",
+        "abstract_en_complete",
+        "translation_complete",
+        "duplicate_count",
+        "flags"
+      ],
+      "properties": {
+        "roster_match": { "type": "boolean" },
+        "order_preserved": { "type": "boolean" },
+        "doi_complete": { "type": "integer", "minimum": 0 },
+        "authors_complete": { "type": "integer", "minimum": 0 },
+        "abstract_en_complete": { "type": "integer", "minimum": 0 },
+        "translation_complete": { "type": "integer", "minimum": 0 },
+        "duplicate_count": { "type": "integer", "minimum": 0 },
+        "flags": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "article": {
+      "type": "object",
+      "required": [
+        "paper_id",
+        "sequence",
+        "article_type",
+        "title_en",
+        "title_cn",
+        "authors",
+        "abstract_en",
+        "abstract_cn",
+        "doi",
+        "source_url",
+        "sources",
+        "translation",
+        "quality_flags"
+      ],
+      "properties": {
+        "paper_id": { "type": "string", "minLength": 3 },
+        "sequence": { "type": "integer", "minimum": 1 },
+        "article_type": { "type": "string" },
+        "title_en": { "type": "string", "minLength": 1 },
+        "title_cn": { "type": "string" },
+        "authors": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "abstract_en": { "type": "string" },
+        "abstract_cn": { "type": "string" },
+        "doi": { "type": "string" },
+        "source_url": { "type": "string", "format": "uri" },
+        "publication_date": { "type": "string" },
+        "sources": { "type": "object" },
+        "translation": { "type": "object" },
+        "quality_flags": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+journals:
+  AER:
+    id: aer
+    name: American Economic Review
+    short_name: AER
+    publisher: American Economic Association
+    collector: aea
+    current_issue_url: https://www.aeaweb.org/journals/aer/current-issue
+    enabled: true
+    collections:
+      - top5
+  JPE:
+    id: jpe
+    name: Journal of Political Economy
+    short_name: JPE
+    publisher: University of Chicago Press
+    collector: pending
+    enabled: false
+    collections:
+      - top5
+  QJE:
+    id: qje
+    name: The Quarterly Journal of Economics
+    short_name: QJE
+    publisher: Oxford University Press
+    collector: pending
+    enabled: false
+    collections:
+      - top5
+  RES:
+    id: res
+    name: The Review of Economic Studies
+    short_name: RES
+    publisher: Oxford University Press
+    collector: pending
+    enabled: false
+    collections:
+      - top5
+  ECTA:
+    id: ecta
+    name: Econometrica
+    short_name: ECTA
+    publisher: Wiley
+    collector: pending
+    enabled: false
+    collections:
+      - top5

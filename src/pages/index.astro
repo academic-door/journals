@@ -1,0 +1,50 @@
+---
+import Layout from "../layouts/Layout.astro";
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+---
+
+<Layout>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">ACADEMIC DOOR JOURNALS</p>
+      <h1>让期刊监测、学术浏览和公众号排版使用同一份可靠数据。</h1>
+      <p class="hero-copy">
+        从官方卷期目录出发，核对论文数量和顺序，补齐元数据与中文内容，
+        再进入公共网站和 Academic Door Composer。
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href={`${base}top5/`}>查看 TOP5</a>
+        <a class="button" href={`${base}composer/`}>打开 Composer</a>
+      </div>
+    </section>
+
+    <section class="feature-grid" aria-label="产品能力">
+      <article>
+        <span>01</span>
+        <h2>统一期刊数据</h2>
+        <p>官网决定卷期名单和顺序，Crossref 只负责补齐，不反向改写本期目录。</p>
+      </article>
+      <article>
+        <span>02</span>
+        <h2>质量状态可见</h2>
+        <p>数量、顺序、DOI、作者、摘要和翻译都有明确检查，不再静默卡住。</p>
+      </article>
+      <article>
+        <span>03</span>
+        <h2>快速进入微信</h2>
+        <p>载入数据、自由修改、选择主题、复制富文本，绕开 Notion 和动态 IP。</p>
+      </article>
+    </section>
+
+    <section class="project-callout">
+      <div>
+        <p class="eyebrow">CURRENT MILESTONE</p>
+        <h2>AER 纵向样板</h2>
+      </div>
+      <p>第一阶段正在打通“官网采集 → 质量门 → TOP5 页面 → Composer → 微信复制”。</p>
+      <a href={`${base}status/`}>查看当前状态</a>
+    </section>
+  </main>
+</Layout>

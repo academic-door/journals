@@ -1,0 +1,321 @@
+---
+import Layout from "../../layouts/Layout.astro";
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+---
+
+<Layout title="Academic Door Composer">
+  <main class="composer-page">
+    <section class="page-heading composer-heading">
+      <div>
+        <p class="eyebrow">ACADEMIC DOOR COMPOSER</p>
+        <h1>从期刊数据到微信公众号</h1>
+        <p>选择论文、修改 Markdown、切换主题并复制富文本。所有修改默认只保存在本机浏览器。</p>
+      </div>
+      <span id="save-status" class="save-status">尚未编辑</span>
+    </section>
+
+    <section class="composer-toolbar" aria-label="Composer 工具栏">
+      <button id="load-aer" class="button button-primary" type="button">载入当前 AER</button>
+      <div class="theme-switcher" aria-label="排版主题">
+        <button class="theme-button active" data-theme="classic" type="button">经典学术</button>
+        <button class="theme-button" data-theme="minimal" type="button">极简论文</button>
+        <button class="theme-button" data-theme="magazine" type="button">期刊杂志</button>
+      </div>
+      <div class="toolbar-actions">
+        <button id="copy-rich" class="button" type="button">复制富文本</button>
+        <button id="copy-markdown" class="button" type="button">复制 Markdown</button>
+        <button id="export-markdown" class="button" type="button">导出 Markdown</button>
+        <button id="export-html" class="button" type="button">导出 HTML</button>
+      </div>
+    </section>
+
+    <section class="composer-grid">
+      <aside class="composer-sidebar">
+        <div class="panel-heading">
+          <p class="eyebrow">SOURCE</p>
+          <h2>本期论文</h2>
+        </div>
+        <p class="sidebar-help">取消勾选后，重新点击“根据选择生成正文”。</p>
+        <div id="article-picker" class="article-picker">
+          <p>载入 AER 后显示论文。</p>
+        </div>
+        <button id="regenerate" class="button sidebar-button" type="button" disabled>根据选择生成正文</button>
+      </aside>
+
+      <section class="editor-panel">
+        <div class="panel-heading">
+          <p class="eyebrow">MARKDOWN</p>
+          <h2>正文编辑</h2>
+        </div>
+        <textarea id="markdown-editor" spellcheck="false" aria-label="Markdown 正文"></textarea>
+      </section>
+
+      <section class="preview-panel">
+        <div class="panel-heading">
+          <p class="eyebrow">WECHAT PREVIEW</p>
+          <h2>手机预览</h2>
+        </div>
+        <div class="phone-shell">
+          <article id="wechat-preview" class="wechat-preview theme-classic"></article>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script define:vars={{ base }}>
+    const STORAGE_KEY = "academic-door-composer-v1";
+    const editor = document.querySelector("#markdown-editor");
+    const preview = document.querySelector("#wechat-preview");
+    const picker = document.querySelector("#article-picker");
+    const regenerateButton = document.querySelector("#regenerate");
+    const saveStatus = document.querySelector("#save-status");
+    let currentIssue = null;
+    let currentTheme = "classic";
+    let saveTimer = null;
+
+    const escapeHtml = (value = "") =>
+      String(value).replace(/[&<>"']/g, (character) => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
+      }[character]));
+
+    const renderInline = (value) =>
+      escapeHtml(value)
+        .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+        .replace(/\[(.+?)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2">$1</a>');
+
+    const renderMarkdown = (markdown) => {
+      const lines = markdown.replace(/\r\n/g, "\n").split("\n");
+      const output = [];
+      let listOpen = false;
+      const closeList = () => {
+        if (listOpen) output.push("</ol>");
+        listOpen = false;
+      };
+      for (const rawLine of lines) {
+        const line = rawLine.trimEnd();
+        if (!line.trim()) {
+          closeList();
+          continue;
+        }
+        const ordered = line.match(/^\s*(\d+)\.\s+(.+)$/);
+        if (ordered) {
+          if (!listOpen) output.push("<ol>");
+          listOpen = true;
+          output.push(`<li>${renderInline(ordered[2])}</li>`);
+          continue;
+        }
+        closeList();
+        if (line.startsWith("### ")) {
+          output.push(`<h3>${renderInline(line.slice(4))}</h3>`);
+        } else if (line.startsWith("## ")) {
+          output.push(`<h2>${renderInline(line.slice(3))}</h2>`);
+        } else if (line.startsWith("# ")) {
+          output.push(`<h1>${renderInline(line.slice(2))}</h1>`);
+        } else if (line.startsWith("> ")) {
+          output.push(`<blockquote>${renderInline(line.slice(2))}</blockquote>`);
+        } else if (line.startsWith("- ")) {
+          output.push(`<p class="bullet">• ${renderInline(line.slice(2))}</p>`);
+        } else {
+          output.push(`<p>${renderInline(line.trim())}</p>`);
+        }
+      }
+      closeList();
+      return output.join("");
+    };
+
+    const updatePreview = () => {
+      preview.innerHTML = renderMarkdown(editor.value);
+      preview.className = `wechat-preview theme-${currentTheme}`;
+    };
+
+    const saveLocal = () => {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        markdown: editor.value,
+        theme: currentTheme,
+        savedAt: new Date().toISOString(),
+      }));
+      saveStatus.textContent = "已自动保存到本机";
+    };
+
+    const scheduleSave = () => {
+      saveStatus.textContent = "正在保存…";
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(saveLocal, 350);
+    };
+
+    const articleMarkdown = (issue, selected) => {
+      const articles = issue.articles.filter((article) => selected.has(article.paper_id));
+      const intro = issue.development_sample
+        ? `> 当前为开发样板，正式发布前请确认完整文章数和摘要。`
+        : `> ${issue.journal_name} Vol. ${issue.volume}, No. ${issue.issue} 共收录 ${articles.length} 篇研究论文。`;
+      const toc = articles.map((article, index) =>
+        `${index + 1}. **${article.title_en}**\n   ${article.title_cn || "中文标题待补全"}\n   ${article.authors.join(", ")}`
+      ).join("\n\n");
+      const abstracts = articles.map((article, index) => [
+        `### ${index + 1}. ${article.title_cn || article.title_en}`,
+        `【作者】${article.authors.join(", ")}`,
+        `【Abstract】${article.abstract_en || "待补全"}`,
+        `【摘要】${article.abstract_cn || "待补全"}`,
+        `【DOI】[${article.doi || "原文"}](${article.source_url})`,
+      ].join("\n\n")).join("\n\n");
+      return [
+        `# ${issue.journal_name} Vol. ${issue.volume}, No. ${issue.issue} 目录与摘要`,
+        intro,
+        "## 一、目录",
+        toc,
+        "## 二、摘要",
+        abstracts,
+        "> 中文内容由 AI 辅助翻译和人工整理，仅供学术交流。论文信息请以原文为准。",
+      ].join("\n\n");
+    };
+
+    const renderPicker = () => {
+      if (!currentIssue) return;
+      picker.innerHTML = currentIssue.articles.map((article) => `
+        <label class="article-choice">
+          <input type="checkbox" value="${escapeHtml(article.paper_id)}" checked />
+          <span>
+            <strong>${article.sequence}. ${escapeHtml(article.title_cn || article.title_en)}</strong>
+            <small>${escapeHtml(article.title_en)}</small>
+          </span>
+        </label>`).join("");
+      regenerateButton.disabled = false;
+    };
+
+    const selectedPaperIds = () =>
+      new Set(Array.from(picker.querySelectorAll('input[type="checkbox"]:checked')).map((input) => input.value));
+
+    const loadAer = async (force = false) => {
+      if (!force && editor.value.trim() && !confirm("载入本期数据会覆盖当前正文，是否继续？")) return;
+      saveStatus.textContent = "正在载入 AER…";
+      currentIssue = await fetch(`${base}api/v1/journals/aer/issues/current.json`)
+        .then((response) => {
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          return response.json();
+        });
+      renderPicker();
+      editor.value = articleMarkdown(currentIssue, new Set(currentIssue.articles.map((article) => article.paper_id)));
+      updatePreview();
+      saveLocal();
+    };
+
+    const download = (name, type, content) => {
+      const url = URL.createObjectURL(new Blob([content], { type }));
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = name;
+      link.click();
+      URL.revokeObjectURL(url);
+    };
+
+    const cloneWithInlineStyles = (root) => {
+      const clone = root.cloneNode(true);
+      const originalNodes = [root, ...root.querySelectorAll("*")];
+      const cloneNodes = [clone, ...clone.querySelectorAll("*")];
+      const properties = [
+        "color", "backgroundColor", "fontFamily", "fontSize", "fontWeight",
+        "fontStyle", "lineHeight", "textAlign", "letterSpacing",
+        "marginTop", "marginRight", "marginBottom", "marginLeft",
+        "paddingTop", "paddingRight", "paddingBottom", "paddingLeft",
+        "borderTop", "borderRight", "borderBottom", "borderLeft",
+        "borderRadius", "display", "textDecoration"
+      ];
+      originalNodes.forEach((node, index) => {
+        const computed = getComputedStyle(node);
+        cloneNodes[index].removeAttribute("class");
+        cloneNodes[index].style.cssText = properties
+          .map((property) => `${property.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`)}:${computed[property]}`)
+          .join(";");
+      });
+      return clone.innerHTML;
+    };
+
+    const copyRichText = async () => {
+      const html = cloneWithInlineStyles(preview);
+      const text = preview.innerText;
+      if (window.ClipboardItem && navigator.clipboard?.write) {
+        await navigator.clipboard.write([
+          new ClipboardItem({
+            "text/html": new Blob([html], { type: "text/html" }),
+            "text/plain": new Blob([text], { type: "text/plain" }),
+          }),
+        ]);
+      } else {
+        const range = document.createRange();
+        range.selectNodeContents(preview);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand("copy");
+        selection.removeAllRanges();
+      }
+      saveStatus.textContent = "富文本已复制，可粘贴到微信后台";
+    };
+
+    editor.addEventListener("input", () => {
+      updatePreview();
+      scheduleSave();
+    });
+    document.querySelector("#load-aer").addEventListener("click", () => loadAer());
+    regenerateButton.addEventListener("click", () => {
+      editor.value = articleMarkdown(currentIssue, selectedPaperIds());
+      updatePreview();
+      saveLocal();
+    });
+    document.querySelectorAll("[data-theme]").forEach((button) => {
+      button.addEventListener("click", () => {
+        currentTheme = button.dataset.theme;
+        document.querySelectorAll("[data-theme]").forEach((item) =>
+          item.classList.toggle("active", item === button)
+        );
+        updatePreview();
+        saveLocal();
+      });
+    });
+    document.querySelector("#copy-rich").addEventListener("click", () =>
+      copyRichText().catch((error) => {
+        saveStatus.textContent = `复制失败：${error.message}`;
+      })
+    );
+    document.querySelector("#copy-markdown").addEventListener("click", async () => {
+      await navigator.clipboard.writeText(editor.value);
+      saveStatus.textContent = "Markdown 已复制";
+    });
+    document.querySelector("#export-markdown").addEventListener("click", () =>
+      download("academic-door-draft.md", "text/markdown;charset=utf-8", editor.value)
+    );
+    document.querySelector("#export-html").addEventListener("click", () => {
+      const html = `<!doctype html><meta charset="utf-8"><article>${cloneWithInlineStyles(preview)}</article>`;
+      download("academic-door-draft.html", "text/html;charset=utf-8", html);
+    });
+
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      try {
+        const state = JSON.parse(saved);
+        editor.value = state.markdown || "";
+        currentTheme = state.theme || "classic";
+        document.querySelectorAll("[data-theme]").forEach((button) =>
+          button.classList.toggle("active", button.dataset.theme === currentTheme)
+        );
+        saveStatus.textContent = "已恢复本机草稿";
+        updatePreview();
+        loadAer(true).then(() => {
+          const restored = JSON.parse(saved);
+          editor.value = restored.markdown || editor.value;
+          currentTheme = restored.theme || currentTheme;
+          updatePreview();
+          saveStatus.textContent = "已恢复本机草稿";
+        }).catch(() => {});
+      } catch {
+        loadAer(true).catch(() => {});
+      }
+    } else {
+      loadAer(true).catch((error) => {
+        saveStatus.textContent = `AER 载入失败：${error.message}`;
+      });
+    }
+  </script>
+</Layout>

@@ -1,0 +1,42 @@
+---
+import Layout from "../../layouts/Layout.astro";
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+---
+
+<Layout title="项目状态 · Academic Door Journals">
+  <main>
+    <section class="page-heading">
+      <p class="eyebrow">PUBLIC STATUS</p>
+      <h1>项目状态</h1>
+      <p>显示最近的数据更新时间与关键质量检查，不再让失败隐藏在后台。</p>
+    </section>
+    <section id="health-card" class="health-card">
+      <p>正在读取状态……</p>
+    </section>
+  </main>
+  <script define:vars={{ base }}>
+    const escapeHtml = (value = "") =>
+      String(value).replace(/[&<>"']/g, (character) => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
+      }[character]));
+    fetch(`${base}api/v1/health.json`)
+      .then((response) => response.json())
+      .then((health) => {
+        document.querySelector("#health-card").innerHTML = `
+          <span class="status-dot ${escapeHtml(health.status)}"></span>
+          <div>
+            <p class="eyebrow">STATUS</p>
+            <h2>${escapeHtml(health.status)}</h2>
+            <p>最近更新：${escapeHtml(health.updated_at)}</p>
+            <ul>${Object.entries(health.checks).map(([key, ok]) =>
+              `<li><strong>${escapeHtml(key)}</strong><span>${ok ? "通过" : "待完成"}</span></li>`
+            ).join("")}</ul>
+          </div>`;
+      })
+      .catch((error) => {
+        document.querySelector("#health-card").textContent = `状态读取失败：${error.message}`;
+      });
+  </script>
+</Layout>

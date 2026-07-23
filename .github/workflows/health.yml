@@ -1,0 +1,48 @@
+name: Public health check
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "45 1 * * *"
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check public endpoints
+        id: health
+        shell: bash
+        run: |
+          set -euo pipefail
+          base="https://academic-door.github.io/journals"
+          curl --fail --retry 3 --silent --show-error "$base/" >/dev/null
+          curl --fail --retry 3 --silent --show-error "$base/top5/" >/dev/null
+          curl --fail --retry 3 --silent --show-error "$base/composer/" >/dev/null
+          curl --fail --retry 3 --silent --show-error "$base/api/v1/health.json" >/dev/null
+          curl --fail --retry 3 --silent --show-error "$base/project-manifest.json" >/dev/null
+
+      - name: Create a visible issue when health check fails
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = "[Health] Academic Door Journals public check failed";
+            const existing = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "open",
+              labels: "health"
+            });
+            if (!existing.data.some((issue) => issue.title === title)) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                labels: ["health"],
+                body: `The scheduled public endpoint check failed.\n\nRun: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
+              });
+            }

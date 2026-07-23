@@ -1,0 +1,80 @@
+name: Update journal data
+
+on:
+  workflow_dispatch:
+    inputs:
+      journal:
+        description: Journal to update
+        required: true
+        default: AER
+        type: choice
+        options:
+          - AER
+  schedule:
+    - cron: "15 0,6 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: journal-data-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: python -m pip install -r requirements.txt
+      - name: Collect and validate
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python scripts/update_journals.py --journal "${{ inputs.journal || 'AER' }}"
+          python -m unittest discover -s tests -v
+          python scripts/audit_privacy.py
+
+      - name: Publish generated public data to data branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          generated="$RUNNER_TEMP/generated-public"
+          data_tree="$RUNNER_TEMP/data-tree"
+          mkdir -p "$generated"
+          cp -R public/. "$generated/"
+
+          if git ls-remote --exit-code origin refs/heads/data >/dev/null 2>&1; then
+            git fetch origin data
+            git worktree add "$data_tree" origin/data
+            cd "$data_tree"
+            git switch -C data
+          else
+            git worktree add --detach "$data_tree"
+            cd "$data_tree"
+            git switch --orphan data
+            git rm -rf .
+          fi
+
+          rm -rf public
+          mkdir -p public
+          cp -R "$generated"/. public/
+          git config user.name "academic-door-bot"
+          git config user.email "academic-door-bot@users.noreply.github.com"
+          git add public
+          if git diff --cached --quiet; then
+            echo "No public data changes."
+            exit 0
+          fi
+          git commit -m "Update journal data"
+          git push origin HEAD:data
+
+      - name: Trigger Pages deployment
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main
