@@ -58,7 +58,7 @@ jobs:
             git worktree add --detach "$data_tree"
             cd "$data_tree"
             git switch --orphan data
-            git rm -rf .
+            git rm -rf --ignore-unmatch .
           fi
 
           rm -rf public
