@@ -6,7 +6,7 @@
 
 Academic Door 的统一经济学期刊数据引擎、TOP5/Field Journals 公共网站与公众号排版工具。
 
-计划公开地址：<https://academic-door.github.io/journals/>
+公开地址：<https://academic-door.github.io/journals/>
 
 ## 产品范围
 
@@ -32,11 +32,11 @@ Academic Door 的统一经济学期刊数据引擎、TOP5/Field Journals 公共�
 
 - [x] 仓库与 Pages 骨架
 - [x] Academic Door Issue Schema v1
-- [x] AER 官方目录采集器初版
-- [x] TOP5 页面骨架
-- [x] Composer 最小可用版
-- [ ] AER 完整中文数据纵向验收
-- [ ] JPE / QJE / RES / Econometrica 适配器
+- [x] AER、JPE、QJE、RES、Econometrica 最新卷期接入
+- [x] TOP5 中英文目录、检索与来源追溯
+- [x] GitHub Models 中文标题与摘要翻译管线
+- [x] Composer 选文、编辑、三主题、富文本复制与导出
+- [x] 数据完整性、翻译数字一致性与隐私质量门
 - [ ] Field Journals 配置化扩展
 
 ## 本地开发
@@ -50,16 +50,23 @@ Python 数据检查：
 
 ```powershell
 python -m pip install -r requirements.txt
-python scripts/update_journals.py --journal AER
+python scripts/update_journals.py --journal ALL --translate
+python scripts/audit_public_data.py
 python -m unittest discover -s tests -v
 ```
 
 ## 公共接口
 
+`main` 中的 `public/` 是便于本地开发和 PR 审核的基线快照；线上自动更新结果以 `data` 分支为准，部署时会覆盖该快照。
+
 ```text
 /journals/api/v1/index.json
 /journals/api/v1/collections/top5.json
 /journals/api/v1/journals/aer/issues/current.json
+/journals/api/v1/journals/jpe/issues/current.json
+/journals/api/v1/journals/qje/issues/current.json
+/journals/api/v1/journals/res/issues/current.json
+/journals/api/v1/journals/ecta/issues/current.json
 /journals/api/v1/health.json
 /journals/project-manifest.json
 ```

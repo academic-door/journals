@@ -1,107 +1,13 @@
 ---
+import Top5Explorer from "../../components/Top5Explorer.astro";
 import Layout from "../../layouts/Layout.astro";
-const base = import.meta.env.BASE_URL.endsWith("/")
-  ? import.meta.env.BASE_URL
-  : `${import.meta.env.BASE_URL}/`;
 ---
 
-<Layout title="TOP5 · Academic Door Journals">
+<Layout
+  title="经济学 TOP5 最新卷期 · Academic Door"
+  description="AER、JPE、QJE、REStud 与 Econometrica 最新卷期中英文目录和摘要"
+>
   <main>
-    <section class="page-heading">
-      <p class="eyebrow">TOP 5 ECONOMICS JOURNALS</p>
-      <h1>经济学 TOP5 最新卷期</h1>
-      <p>官方卷期顺序、来源追踪与中英文摘要。当前为 AER 纵向样板阶段。</p>
-    </section>
-
-    <section class="data-toolbar">
-      <div id="journal-tabs" class="tabs" aria-label="期刊"></div>
-      <label>
-        <span>检索</span>
-        <input id="paper-search" type="search" placeholder="标题、作者、摘要" />
-      </label>
-    </section>
-
-    <section id="issue-summary" class="issue-summary" aria-live="polite">
-      <p>正在载入期刊数据……</p>
-    </section>
-    <section id="article-list" class="article-list"></section>
+    <Top5Explorer />
   </main>
-
-  <script define:vars={{ base }}>
-    const collectionUrl = `${base}api/v1/collections/top5.json`;
-    const state = { issue: null, query: "" };
-
-    const escapeHtml = (value = "") =>
-      value.replace(/[&<>"']/g, (character) => ({
-        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
-      }[character]));
-
-    const render = () => {
-      const summary = document.querySelector("#issue-summary");
-      const list = document.querySelector("#article-list");
-      if (!state.issue) return;
-      const issue = state.issue;
-      const quality = issue.quality;
-      const sampleNotice = issue.development_sample
-        ? '<p class="notice">当前显示开发样板，正式 AER 全量抓取完成后会自动替换。</p>'
-        : "";
-      summary.innerHTML = `
-        ${sampleNotice}
-        <div>
-          <p class="eyebrow">${escapeHtml(issue.journal_id.toUpperCase())}</p>
-          <h2>${escapeHtml(issue.journal_name)}</h2>
-          <p>Vol. ${escapeHtml(issue.volume)}, No. ${escapeHtml(issue.issue)}
-             · ${issue.research_article_count} 篇研究论文</p>
-        </div>
-        <div class="quality-strip">
-          <span>名单 ${quality.roster_match ? "✓" : "待核"}</span>
-          <span>顺序 ${quality.order_preserved ? "✓" : "待核"}</span>
-          <span>DOI ${quality.doi_complete}/${issue.research_article_count}</span>
-          <span>摘要 ${quality.abstract_en_complete}/${issue.research_article_count}</span>
-          <span>中文 ${quality.translation_complete}/${issue.research_article_count}</span>
-        </div>`;
-      const query = state.query.toLocaleLowerCase();
-      const articles = issue.articles.filter((article) =>
-        [article.title_en, article.title_cn, article.authors.join(" "), article.abstract_en, article.abstract_cn]
-          .join(" ").toLocaleLowerCase().includes(query)
-      );
-      list.innerHTML = articles.map((article) => `
-        <article class="paper-card">
-          <span class="paper-index">${article.sequence}</span>
-          <div>
-            <h3>${escapeHtml(article.title_en)}</h3>
-            <p class="title-cn">${escapeHtml(article.title_cn || "中文标题待补全")}</p>
-            <p class="authors">${escapeHtml(article.authors.join(", "))}</p>
-            ${article.abstract_cn ? `<p>${escapeHtml(article.abstract_cn)}</p>` : '<p class="missing">中文摘要待补全</p>'}
-            <details>
-              <summary>Abstract</summary>
-              <p>${escapeHtml(article.abstract_en || "English abstract pending.")}</p>
-            </details>
-            <a class="paper-link" href="${escapeHtml(article.source_url)}" target="_blank" rel="noreferrer">阅读原文</a>
-          </div>
-        </article>`).join("");
-    };
-
-    const loadIssue = async () => {
-      const collection = await fetch(collectionUrl).then((response) => response.json());
-      const tabs = document.querySelector("#journal-tabs");
-      tabs.innerHTML = collection.journals.map((journal) => `
-        <button type="button" ${journal.journal_id !== "aer" ? "disabled" : ""}>
-          ${journal.short_name}
-          <small>${journal.journal_id === "aer" ? "样板" : "待接入"}</small>
-        </button>`).join("");
-      const aer = collection.journals.find((journal) => journal.journal_id === "aer");
-      state.issue = await fetch(aer.latest_issue_url).then((response) => response.json());
-      render();
-    };
-
-    document.querySelector("#paper-search")?.addEventListener("input", (event) => {
-      state.query = event.target.value.trim();
-      render();
-    });
-    loadIssue().catch((error) => {
-      document.querySelector("#issue-summary").innerHTML =
-        `<p class="notice">数据载入失败：${escapeHtml(error.message)}</p>`;
-    });
-  </script>
 </Layout>

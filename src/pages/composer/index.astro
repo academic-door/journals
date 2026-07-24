@@ -5,24 +5,35 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   : `${import.meta.env.BASE_URL}/`;
 ---
 
-<Layout title="Academic Door Composer">
+<Layout title="微信公众号编辑器">
   <main class="composer-page">
     <section class="page-heading composer-heading">
       <div>
-        <p class="eyebrow">ACADEMIC DOOR COMPOSER</p>
-        <h1>从期刊数据到微信公众号</h1>
-        <p>选择论文、修改 Markdown、切换主题并复制富文本。所有修改默认只保存在本机浏览器。</p>
+        <p class="section-kicker">ACADEMIC DOOR</p>
+        <h1>微信公众号编辑器</h1>
       </div>
-      <span id="save-status" class="save-status">尚未编辑</span>
+      <span id="save-status" class="save-status" title="草稿仅保存在当前浏览器，不会上传到服务器">就绪</span>
     </section>
 
     <section class="composer-toolbar" aria-label="Composer 工具栏">
-      <button id="load-aer" class="button button-primary" type="button">载入当前 AER</button>
-      <div class="theme-switcher" aria-label="排版主题">
-        <button class="theme-button active" data-theme="classic" type="button">经典学术</button>
-        <button class="theme-button" data-theme="minimal" type="button">极简论文</button>
-        <button class="theme-button" data-theme="magazine" type="button">期刊杂志</button>
-      </div>
+      <label class="composer-source">
+        <span>期刊</span>
+        <select id="journal-select" aria-label="选择期刊"></select>
+      </label>
+      <label class="composer-source issue-select">
+        <span>卷期</span>
+        <select id="issue-select" aria-label="选择卷期"></select>
+      </label>
+      <button id="load-current" class="button button-primary" type="button">载入</button>
+      <label class="composer-source theme-select">
+        <span>主题</span>
+        <select id="theme-select" aria-label="选择排版主题">
+          <option value="wechat-default">学术传送门经典（默认）</option>
+          <option value="classic">清新学术</option>
+          <option value="minimal">极简论文</option>
+          <option value="magazine">期刊杂志</option>
+        </select>
+      </label>
       <div class="toolbar-actions">
         <button id="copy-rich" class="button" type="button">复制富文本</button>
         <button id="copy-markdown" class="button" type="button">复制 Markdown</button>
@@ -34,19 +45,19 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     <section class="composer-grid">
       <aside class="composer-sidebar">
         <div class="panel-heading">
-          <p class="eyebrow">SOURCE</p>
+          <p class="section-kicker">SOURCE</p>
           <h2>本期论文</h2>
         </div>
         <p class="sidebar-help">取消勾选后，重新点击“根据选择生成正文”。</p>
         <div id="article-picker" class="article-picker">
-          <p>载入 AER 后显示论文。</p>
+          <p>载入期刊后显示论文。</p>
         </div>
         <button id="regenerate" class="button sidebar-button" type="button" disabled>根据选择生成正文</button>
       </aside>
 
       <section class="editor-panel">
         <div class="panel-heading">
-          <p class="eyebrow">MARKDOWN</p>
+          <p class="section-kicker">MARKDOWN</p>
           <h2>正文编辑</h2>
         </div>
         <textarea id="markdown-editor" spellcheck="false" aria-label="Markdown 正文"></textarea>
@@ -54,25 +65,29 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
       <section class="preview-panel">
         <div class="panel-heading">
-          <p class="eyebrow">WECHAT PREVIEW</p>
+          <p class="section-kicker">WECHAT PREVIEW</p>
           <h2>手机预览</h2>
         </div>
         <div class="phone-shell">
-          <article id="wechat-preview" class="wechat-preview theme-classic"></article>
+          <article id="wechat-preview" class="wechat-preview theme-wechat-default"></article>
         </div>
       </section>
     </section>
   </main>
 
-  <script define:vars={{ base }}>
+  <script is:inline define:vars={{ base }}>
     const STORAGE_KEY = "academic-door-composer-v1";
     const editor = document.querySelector("#markdown-editor");
     const preview = document.querySelector("#wechat-preview");
     const picker = document.querySelector("#article-picker");
     const regenerateButton = document.querySelector("#regenerate");
     const saveStatus = document.querySelector("#save-status");
+    const journalSelect = document.querySelector("#journal-select");
+    const issueSelect = document.querySelector("#issue-select");
+    const themeSelect = document.querySelector("#theme-select");
+    let collection = null;
     let currentIssue = null;
-    let currentTheme = "classic";
+    let currentTheme = "wechat-default";
     let saveTimer = null;
 
     const escapeHtml = (value = "") =>
@@ -93,13 +108,41 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         if (listOpen) output.push("</ol>");
         listOpen = false;
       };
-      for (const rawLine of lines) {
+      let inToc = false;
+      for (let index = 0; index < lines.length; index += 1) {
+        const rawLine = lines[index];
         const line = rawLine.trimEnd();
         if (!line.trim()) {
           closeList();
           continue;
         }
         const ordered = line.match(/^\s*(\d+)\.\s+(.+)$/);
+        if (inToc && ordered) {
+          closeList();
+          const details = [];
+          let cursor = index + 1;
+          while (cursor < lines.length && details.length < 2) {
+            const detail = lines[cursor].trim();
+            if (!detail) {
+              cursor += 1;
+              continue;
+            }
+            if (/^\s*\d+\.\s+/.test(detail) || detail.startsWith("#")) break;
+            details.push(detail);
+            cursor += 1;
+          }
+          output.push(`
+            <section class="toc-item">
+              <span class="toc-number">${ordered[1]}.</span>
+              <div class="toc-content">
+                <p class="toc-title-en">${renderInline(ordered[2])}</p>
+                ${details[0] ? `<p class="toc-title-cn">${renderInline(details[0])}</p>` : ""}
+                ${details[1] ? `<p class="toc-authors">${renderInline(details[1])}</p>` : ""}
+              </div>
+            </section>`);
+          index = cursor - 1;
+          continue;
+        }
         if (ordered) {
           if (!listOpen) output.push("<ol>");
           listOpen = true;
@@ -108,10 +151,14 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         }
         closeList();
         if (line.startsWith("### ")) {
+          inToc = false;
           output.push(`<h3>${renderInline(line.slice(4))}</h3>`);
         } else if (line.startsWith("## ")) {
-          output.push(`<h2>${renderInline(line.slice(3))}</h2>`);
+          const heading = line.slice(3);
+          inToc = heading.includes("目录");
+          output.push(`<h2>${renderInline(heading)}</h2>`);
         } else if (line.startsWith("# ")) {
+          inToc = false;
           output.push(`<h1>${renderInline(line.slice(2))}</h1>`);
         } else if (line.startsWith("> ")) {
           output.push(`<blockquote>${renderInline(line.slice(2))}</blockquote>`);
@@ -134,9 +181,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       localStorage.setItem(STORAGE_KEY, JSON.stringify({
         markdown: editor.value,
         theme: currentTheme,
+        journalId: currentIssue?.journal_id || journalSelect.value,
         savedAt: new Date().toISOString(),
       }));
-      saveStatus.textContent = "已自动保存到本机";
+      saveStatus.textContent = "已保存";
     };
 
     const scheduleSave = () => {
@@ -187,14 +235,72 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     const selectedPaperIds = () =>
       new Set(Array.from(picker.querySelectorAll('input[type="checkbox"]:checked')).map((input) => input.value));
 
-    const loadAer = async (force = false) => {
-      if (!force && editor.value.trim() && !confirm("载入本期数据会覆盖当前正文，是否继续？")) return;
-      saveStatus.textContent = "正在载入 AER…";
-      currentIssue = await fetch(`${base}api/v1/journals/aer/issues/current.json`)
+    const loadCollection = async () => {
+      collection = await fetch(`${base}api/v1/collections/top5.json`)
         .then((response) => {
           if (!response.ok) throw new Error(`HTTP ${response.status}`);
           return response.json();
         });
+      const journals = collection.journals.filter((journal) => journal.latest_issue_url);
+      journalSelect.innerHTML = journals.map((journal) =>
+        `<option value="${escapeHtml(journal.journal_id)}">${escapeHtml(journal.short_name)}</option>`
+      ).join("");
+      const requested = new URLSearchParams(window.location.search).get("journal");
+      if (requested && journals.some((journal) => journal.journal_id === requested)) {
+        journalSelect.value = requested;
+      }
+      renderIssueOptions();
+    };
+
+    const issueOptionsFor = (journal) => {
+      if (Array.isArray(journal?.issues) && journal.issues.length) {
+        return journal.issues.map((issue, index) => ({
+          id: issue.issue_id || issue.id || `issue-${index}`,
+          url: issue.issue_url || issue.url,
+          label: issue.label || [
+            issue.volume ? `Vol. ${issue.volume}` : "",
+            issue.issue ? `No. ${issue.issue}` : "",
+          ].filter(Boolean).join(" · ") || issue.issue_id || `第 ${index + 1} 期`,
+          latest: issue.latest === true || issue.issue_id === journal.latest_issue_id,
+        })).filter((issue) => issue.url);
+      }
+      return journal?.latest_issue_url ? [{
+        id: journal.latest_issue_id || "current",
+        url: journal.latest_issue_url,
+        label: "最新一期",
+        latest: true,
+      }] : [];
+    };
+
+    const renderIssueOptions = () => {
+      const journal = collection?.journals.find(
+        (item) => item.journal_id === journalSelect.value
+      );
+      const issues = issueOptionsFor(journal);
+      issueSelect.innerHTML = issues.map((issue) =>
+        `<option value="${escapeHtml(issue.url)}">${escapeHtml(issue.label)}${issue.latest && !issue.label.includes("最新") ? "（最新）" : ""}</option>`
+      ).join("");
+      issueSelect.disabled = issues.length <= 1;
+      document.querySelector("#load-current").disabled = issues.length === 0;
+    };
+
+    const loadIssue = async (force = false) => {
+      if (!force && editor.value.trim() && !confirm("载入本期数据会覆盖当前正文，是否继续？")) return;
+      const journal = collection?.journals.find(
+        (item) => item.journal_id === journalSelect.value
+      );
+      const issueUrl = issueSelect.value || journal?.latest_issue_url;
+      if (!issueUrl) throw new Error("该期刊尚无可用数据");
+      saveStatus.textContent = `正在载入 ${journal.short_name}…`;
+      currentIssue = await fetch(issueUrl)
+        .then((response) => {
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          return response.json();
+        });
+      const selectedOption = issueSelect.options[issueSelect.selectedIndex];
+      if (selectedOption && issueSelect.options.length === 1) {
+        selectedOption.textContent = `Vol. ${currentIssue.volume} · No. ${currentIssue.issue}（最新）`;
+      }
       renderPicker();
       editor.value = articleMarkdown(currentIssue, new Set(currentIssue.articles.map((article) => article.paper_id)));
       updatePreview();
@@ -258,21 +364,17 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       updatePreview();
       scheduleSave();
     });
-    document.querySelector("#load-aer").addEventListener("click", () => loadAer());
+    document.querySelector("#load-current").addEventListener("click", () => loadIssue());
+    journalSelect.addEventListener("change", renderIssueOptions);
     regenerateButton.addEventListener("click", () => {
       editor.value = articleMarkdown(currentIssue, selectedPaperIds());
       updatePreview();
       saveLocal();
     });
-    document.querySelectorAll("[data-theme]").forEach((button) => {
-      button.addEventListener("click", () => {
-        currentTheme = button.dataset.theme;
-        document.querySelectorAll("[data-theme]").forEach((item) =>
-          item.classList.toggle("active", item === button)
-        );
-        updatePreview();
-        saveLocal();
-      });
+    themeSelect.addEventListener("change", () => {
+      currentTheme = themeSelect.value;
+      updatePreview();
+      saveLocal();
     });
     document.querySelector("#copy-rich").addEventListener("click", () =>
       copyRichText().catch((error) => {
@@ -291,31 +393,44 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       download("academic-door-draft.html", "text/html;charset=utf-8", html);
     });
 
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
+    const initialize = async () => {
+      await loadCollection();
+      const requestedJournal = new URLSearchParams(window.location.search).get("journal");
+      if (requestedJournal) {
+        await loadIssue(true);
+        return;
+      }
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (!saved) {
+        await loadIssue(true);
+        return;
+      }
       try {
         const state = JSON.parse(saved);
-        editor.value = state.markdown || "";
-        currentTheme = state.theme || "classic";
-        document.querySelectorAll("[data-theme]").forEach((button) =>
-          button.classList.toggle("active", button.dataset.theme === currentTheme)
-        );
-        saveStatus.textContent = "已恢复本机草稿";
+        if (
+          state.journalId
+          && collection.journals.some(
+            (journal) => journal.journal_id === state.journalId && journal.latest_issue_url
+          )
+        ) {
+          journalSelect.value = state.journalId;
+          renderIssueOptions();
+        }
+        await loadIssue(true);
+        editor.value = state.markdown || editor.value;
+        currentTheme = Array.from(themeSelect.options).some(
+          (option) => option.value === state.theme
+        ) ? state.theme : "wechat-default";
+        themeSelect.value = currentTheme;
+        saveStatus.textContent = "已恢复上次草稿";
         updatePreview();
-        loadAer(true).then(() => {
-          const restored = JSON.parse(saved);
-          editor.value = restored.markdown || editor.value;
-          currentTheme = restored.theme || currentTheme;
-          updatePreview();
-          saveStatus.textContent = "已恢复本机草稿";
-        }).catch(() => {});
       } catch {
-        loadAer(true).catch(() => {});
+        await loadIssue(true);
       }
-    } else {
-      loadAer(true).catch((error) => {
-        saveStatus.textContent = `AER 载入失败：${error.message}`;
-      });
-    }
+    };
+
+    initialize().catch((error) => {
+      saveStatus.textContent = `期刊载入失败：${error.message}`;
+    });
   </script>
 </Layout>
