@@ -57,6 +57,8 @@ python -m unittest discover -s tests -v
 
 ## 公共接口
 
+`main` 中的 `public/` 是便于本地开发和 PR 审核的基线快照；线上自动更新结果以 `data` 分支为准，部署时会覆盖该快照。
+
 ```text
 /journals/api/v1/index.json
 /journals/api/v1/collections/top5.json

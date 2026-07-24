@@ -179,6 +179,8 @@ main,
   font-weight: 750;
 }
 .issue-note.complete { color: var(--green); background: var(--green-soft); }
+.issue-note-stack { display: grid; justify-items: end; gap: 7px; }
+.issue-note.warning { max-width: 360px; color: #8a4d12; background: #fff1dc; text-align: right; }
 .loading-copy,
 .empty-state { color: var(--muted); }
 .error-message { color: var(--danger); }
@@ -280,8 +282,7 @@ main,
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(12px);
 }
-.toolbar-actions,
-.theme-switcher { display: flex; flex-wrap: wrap; gap: 8px; }
+.toolbar-actions { display: flex; flex-wrap: wrap; gap: 8px; }
 .toolbar-actions { margin-left: auto; }
 .composer-source { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 0.78rem; font-weight: 750; }
 .composer-source select {
@@ -351,6 +352,42 @@ main,
 .wechat-preview blockquote { margin: 18px 0; padding: 12px 16px; color: #5c6863; background: #f3f6f4; border-left: 3px solid var(--green); }
 .wechat-preview a { color: #296f5e; text-decoration: none; }
 .wechat-preview ol { padding-left: 28px; }
+.toc-item {
+  display: grid;
+  grid-template-columns: 1.7em minmax(0, 1fr);
+  gap: 0;
+  margin: 5px 0 14px;
+  padding: 8px 0;
+  text-align: left;
+}
+.toc-number { font-size: 16px; line-height: 1.8; }
+.toc-content { min-width: 0; }
+.wechat-preview .toc-content p { margin: 0; padding: 0; font-size: 16px; line-height: 1.8; text-align: left; }
+.toc-title-en { color: #000; font-weight: 700; }
+.toc-title-cn { color: #000; }
+.toc-authors { color: grey; }
+.theme-wechat-default {
+  color: #000;
+  font-family: Optima, "Microsoft YaHei", "PingFang SC", serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.theme-wechat-default h1 { color: #000; font-size: 22px; line-height: 1.45; text-align: center; }
+.theme-wechat-default h2 {
+  margin: 30px 30px 15px;
+  padding: 12px 0;
+  color: #000;
+  border: 1px solid #000;
+  font-size: 22px;
+  line-height: 1.2;
+  text-align: center;
+}
+.theme-wechat-default h3 { color: #000; font-size: 20px; line-height: 1.5; }
+.theme-wechat-default blockquote {
+  color: #000;
+  background: rgb(255, 249, 249);
+  border-left-color: rgb(239, 112, 96);
+}
 .theme-classic h2 { padding-bottom: 8px; color: var(--green); border-bottom: 2px solid var(--green); }
 .theme-classic h3 { color: var(--green); }
 .theme-minimal { font-family: Georgia, "Noto Serif SC", serif; color: #222; }
@@ -390,6 +427,8 @@ main,
   .search-field input { width: 100%; margin-top: 10px; }
   .issue-summary { display: block; }
   .issue-note { display: inline-block; margin-top: 14px; }
+  .issue-note-stack { justify-items: start; }
+  .issue-note.warning { text-align: left; }
   .paper-entry { grid-template-columns: 34px minmax(0, 1fr); gap: 12px; }
   .composer-heading { display: block; }
   .save-status { display: inline-block; margin-top: 14px; }

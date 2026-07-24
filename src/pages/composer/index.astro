@@ -5,12 +5,12 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   : `${import.meta.env.BASE_URL}/`;
 ---
 
-<Layout title="Academic Door Composer">
+<Layout title="微信公众号编辑器。">
   <main class="composer-page">
     <section class="page-heading composer-heading">
       <div>
-        <p class="section-kicker">ACADEMIC DOOR COMPOSER</p>
-        <h1>编辑并复制到微信公众号</h1>
+        <p class="section-kicker">ACADEMIC DOOR</p>
+        <h1>微信公众号编辑器。</h1>
         <p>选择论文、调整正文和主题，预览完成后直接复制。草稿只保存在当前浏览器。</p>
       </div>
       <span id="save-status" class="save-status">尚未编辑</span>
@@ -22,11 +22,15 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         <select id="journal-select" aria-label="选择期刊"></select>
       </label>
       <button id="load-current" class="button button-primary" type="button">载入最新一期</button>
-      <div class="theme-switcher" aria-label="排版主题">
-        <button class="theme-button active" data-theme="classic" type="button">经典学术</button>
-        <button class="theme-button" data-theme="minimal" type="button">极简论文</button>
-        <button class="theme-button" data-theme="magazine" type="button">期刊杂志</button>
-      </div>
+      <label class="composer-source theme-select">
+        <span>主题</span>
+        <select id="theme-select" aria-label="选择排版主题">
+          <option value="wechat-default">学术传送门经典（默认）</option>
+          <option value="classic">清新学术</option>
+          <option value="minimal">极简论文</option>
+          <option value="magazine">期刊杂志</option>
+        </select>
+      </label>
       <div class="toolbar-actions">
         <button id="copy-rich" class="button" type="button">复制富文本</button>
         <button id="copy-markdown" class="button" type="button">复制 Markdown</button>
@@ -62,7 +66,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
           <h2>手机预览</h2>
         </div>
         <div class="phone-shell">
-          <article id="wechat-preview" class="wechat-preview theme-classic"></article>
+          <article id="wechat-preview" class="wechat-preview theme-wechat-default"></article>
         </div>
       </section>
     </section>
@@ -76,9 +80,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     const regenerateButton = document.querySelector("#regenerate");
     const saveStatus = document.querySelector("#save-status");
     const journalSelect = document.querySelector("#journal-select");
+    const themeSelect = document.querySelector("#theme-select");
     let collection = null;
     let currentIssue = null;
-    let currentTheme = "classic";
+    let currentTheme = "wechat-default";
     let saveTimer = null;
 
     const escapeHtml = (value = "") =>
@@ -99,13 +104,41 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         if (listOpen) output.push("</ol>");
         listOpen = false;
       };
-      for (const rawLine of lines) {
+      let inToc = false;
+      for (let index = 0; index < lines.length; index += 1) {
+        const rawLine = lines[index];
         const line = rawLine.trimEnd();
         if (!line.trim()) {
           closeList();
           continue;
         }
         const ordered = line.match(/^\s*(\d+)\.\s+(.+)$/);
+        if (inToc && ordered) {
+          closeList();
+          const details = [];
+          let cursor = index + 1;
+          while (cursor < lines.length && details.length < 2) {
+            const detail = lines[cursor].trim();
+            if (!detail) {
+              cursor += 1;
+              continue;
+            }
+            if (/^\s*\d+\.\s+/.test(detail) || detail.startsWith("#")) break;
+            details.push(detail);
+            cursor += 1;
+          }
+          output.push(`
+            <section class="toc-item">
+              <span class="toc-number">${ordered[1]}.</span>
+              <div class="toc-content">
+                <p class="toc-title-en">${renderInline(ordered[2])}</p>
+                ${details[0] ? `<p class="toc-title-cn">${renderInline(details[0])}</p>` : ""}
+                ${details[1] ? `<p class="toc-authors">${renderInline(details[1])}</p>` : ""}
+              </div>
+            </section>`);
+          index = cursor - 1;
+          continue;
+        }
         if (ordered) {
           if (!listOpen) output.push("<ol>");
           listOpen = true;
@@ -114,10 +147,14 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         }
         closeList();
         if (line.startsWith("### ")) {
+          inToc = false;
           output.push(`<h3>${renderInline(line.slice(4))}</h3>`);
         } else if (line.startsWith("## ")) {
-          output.push(`<h2>${renderInline(line.slice(3))}</h2>`);
+          const heading = line.slice(3);
+          inToc = heading.includes("目录");
+          output.push(`<h2>${renderInline(heading)}</h2>`);
         } else if (line.startsWith("# ")) {
+          inToc = false;
           output.push(`<h1>${renderInline(line.slice(2))}</h1>`);
         } else if (line.startsWith("> ")) {
           output.push(`<blockquote>${renderInline(line.slice(2))}</blockquote>`);
@@ -291,15 +328,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       updatePreview();
       saveLocal();
     });
-    document.querySelectorAll("[data-theme]").forEach((button) => {
-      button.addEventListener("click", () => {
-        currentTheme = button.dataset.theme;
-        document.querySelectorAll("[data-theme]").forEach((item) =>
-          item.classList.toggle("active", item === button)
-        );
-        updatePreview();
-        saveLocal();
-      });
+    themeSelect.addEventListener("change", () => {
+      currentTheme = themeSelect.value;
+      updatePreview();
+      saveLocal();
     });
     document.querySelector("#copy-rich").addEventListener("click", () =>
       copyRichText().catch((error) => {
@@ -342,10 +374,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         }
         await loadIssue(true);
         editor.value = state.markdown || editor.value;
-        currentTheme = state.theme || "classic";
-        document.querySelectorAll("[data-theme]").forEach((button) =>
-          button.classList.toggle("active", button.dataset.theme === currentTheme)
-        );
+        currentTheme = Array.from(themeSelect.options).some(
+          (option) => option.value === state.theme
+        ) ? state.theme : "wechat-default";
+        themeSelect.value = currentTheme;
         saveStatus.textContent = "已恢复本机草稿";
         updatePreview();
       } catch {

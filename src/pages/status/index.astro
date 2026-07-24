@@ -37,7 +37,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         const journalRows = (collection.journals || []).map((journal) => {
           const usable = Boolean(journal.latest_issue_url);
           const sourceLabel = journal.data_status === "needs_attention"
-            ? "备用元数据已校验"
+            ? "备用来源（Crossref），待官网核验"
             : "官方源已校验";
           const contentLabel = usable
             ? `中文 ${journal.translation_complete}/${journal.article_count}`

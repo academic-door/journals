@@ -98,6 +98,9 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     const issue = state.issue;
     const quality = issue.quality || {};
     const translated = quality.translation_complete || 0;
+    const provisional = (quality.flags || []).some((flag) =>
+      flag.includes("crossref") || flag.includes("fallback")
+    );
     const total = issue.research_article_count || issue.articles.length;
     const publicationDate = formatDate(issue.publication_date);
     composerLink.href = `${base}composer/?journal=${encodeURIComponent(issue.journal_id)}`;
@@ -112,10 +115,15 @@ const base = import.meta.env.BASE_URL.endsWith("/")
           · ${total} 篇研究论文
         </p>
       </div>
-      <div class="issue-note ${translated === total ? "complete" : ""}">
-        ${translated === total
-          ? "中英文内容已整理完成"
-          : `中文摘要整理中 · ${translated}/${total}`}
+      <div class="issue-note-stack">
+        <div class="issue-note ${translated === total ? "complete" : ""}">
+          ${translated === total
+            ? "中英文内容已整理完成"
+            : `中文摘要整理中 · ${translated}/${total}`}
+        </div>
+        ${provisional
+          ? '<div class="issue-note warning">卷期名单来自 Crossref 备用来源，待官网核验，顺序可能调整。</div>'
+          : ""}
       </div>`;
 
     const query = state.query.toLocaleLowerCase();
