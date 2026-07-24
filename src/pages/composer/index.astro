@@ -31,6 +31,49 @@ const base = import.meta.env.BASE_URL.endsWith("/")
           <option value="wechat-default">学术传送门经典（默认）</option>
         </select>
       </label>
+      <details class="style-settings">
+        <summary class="button">排版设置</summary>
+        <div class="style-settings-panel">
+          <label>
+            <span>正文字号</span>
+            <select id="font-size-select">
+              <option value="14">小（14px）</option>
+              <option value="15">适中（15px）</option>
+              <option value="16">标准（16px）</option>
+              <option value="17">大（17px）</option>
+            </select>
+          </label>
+          <label>
+            <span>行距</span>
+            <select id="line-height-select">
+              <option value="1.65">紧凑</option>
+              <option value="1.75" selected>舒适</option>
+              <option value="1.9">宽松</option>
+            </select>
+          </label>
+          <label>
+            <span>字体</span>
+            <select id="font-family-select">
+              <option value="classic">经典</option>
+              <option value="sans">现代黑体</option>
+              <option value="serif">中文宋体</option>
+            </select>
+          </label>
+          <label>
+            <span>强调色</span>
+            <input id="accent-color" type="color" value="#ef7060" />
+          </label>
+          <details class="custom-css-settings">
+            <summary>自定义 CSS</summary>
+            <label>
+              <span>样式仅作用于正文预览，并在复制时转为行内样式</span>
+              <textarea id="custom-css" rows="7" spellcheck="false" placeholder="例如：&#10;h3 { color: #1f6b57; }&#10;blockquote { border-radius: 8px; }"></textarea>
+            </label>
+            <small id="custom-css-status">支持普通选择器；不加载外部资源。</small>
+          </details>
+          <button id="reset-style" class="button" type="button">恢复经典默认</button>
+        </div>
+      </details>
       <a class="button theme-lab-link" href={`${base}themes/`}>主题实验室</a>
       <div class="toolbar-actions">
         <button id="copy-rich" class="button" type="button">复制富文本</button>
@@ -73,6 +116,8 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     </section>
   </main>
 
+  <style is:inline id="composer-custom-style"></style>
+
   <script is:inline define:vars={{ base }}>
     const STORAGE_KEY = "academic-door-composer-v1";
     const editor = document.querySelector("#markdown-editor");
@@ -83,9 +128,29 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     const journalSelect = document.querySelector("#journal-select");
     const issueSelect = document.querySelector("#issue-select");
     const themeSelect = document.querySelector("#theme-select");
+    const fontSizeSelect = document.querySelector("#font-size-select");
+    const lineHeightSelect = document.querySelector("#line-height-select");
+    const fontFamilySelect = document.querySelector("#font-family-select");
+    const accentColor = document.querySelector("#accent-color");
+    const customCss = document.querySelector("#custom-css");
+    const customCssStatus = document.querySelector("#custom-css-status");
+    const customStyle = document.querySelector("#composer-custom-style");
+    const DEFAULT_STYLE = {
+      fontSize: "14",
+      lineHeight: "1.75",
+      fontFamily: "classic",
+      accent: "#ef7060",
+      customCss: "",
+    };
+    const FONT_FAMILIES = {
+      classic: 'Optima, "Microsoft YaHei", "PingFang SC", serif',
+      sans: '"PingFang SC", "Microsoft YaHei", Arial, sans-serif',
+      serif: '"Noto Serif SC", "Songti SC", SimSun, serif',
+    };
     let collection = null;
     let currentIssue = null;
     let currentTheme = "wechat-default";
+    let styleSettings = { ...DEFAULT_STYLE };
     let saveTimer = null;
 
     const escapeHtml = (value = "") =>
@@ -170,15 +235,68 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       return output.join("");
     };
 
+    const scopedCustomCss = (css) => {
+      if (!css.trim()) return "";
+      if (/@import|@font-face|url\s*\(|image-set\s*\(|expression\s*\(|javascript:|https?:|data:/i.test(css)) {
+        throw new Error("不支持外部资源或可执行样式");
+      }
+      if (/@[a-z-]+/i.test(css)) throw new Error("暂不支持 @ 开头的 CSS 规则");
+      const blocks = css.split("}").map((block) => block.trim()).filter(Boolean);
+      return blocks.map((block) => {
+        const boundary = block.indexOf("{");
+        if (boundary < 1) throw new Error("CSS 规则缺少 { }");
+        const selectors = block.slice(0, boundary).trim().split(",").map((selector) => {
+          const value = selector.trim();
+          if (!value) throw new Error("CSS 选择器不能为空");
+          if (value.includes("#wechat-preview")) return value;
+          if (value === ".wechat-preview" || value === ":root") return "#wechat-preview";
+          return `#wechat-preview ${value}`;
+        });
+        return `${selectors.join(", ")} {${block.slice(boundary + 1)}}`;
+      }).join("\n");
+    };
+
+    const applyStyleSettings = () => {
+      const size = Number(styleSettings.fontSize) || Number(DEFAULT_STYLE.fontSize);
+      preview.style.setProperty("--composer-body-size", `${size}px`);
+      preview.style.setProperty("--composer-line-height", styleSettings.lineHeight);
+      preview.style.setProperty("--composer-font-family", FONT_FAMILIES[styleSettings.fontFamily] || FONT_FAMILIES.classic);
+      preview.style.setProperty("--composer-accent", styleSettings.accent);
+      preview.style.setProperty("--composer-h1-size", `${size + 6}px`);
+      preview.style.setProperty("--composer-h2-size", `${size + 6}px`);
+      preview.style.setProperty("--composer-h3-size", `${size + 3}px`);
+      try {
+        customStyle.textContent = scopedCustomCss(styleSettings.customCss);
+        customCssStatus.textContent = styleSettings.customCss.trim()
+          ? "自定义样式已应用"
+          : "支持普通选择器；不加载外部资源。";
+        customCssStatus.classList.remove("error");
+      } catch (error) {
+        customStyle.textContent = "";
+        customCssStatus.textContent = `未应用：${error.message}`;
+        customCssStatus.classList.add("error");
+      }
+    };
+
+    const syncStyleControls = () => {
+      fontSizeSelect.value = styleSettings.fontSize;
+      lineHeightSelect.value = styleSettings.lineHeight;
+      fontFamilySelect.value = styleSettings.fontFamily;
+      accentColor.value = styleSettings.accent;
+      customCss.value = styleSettings.customCss;
+    };
+
     const updatePreview = () => {
       preview.innerHTML = renderMarkdown(editor.value);
       preview.className = `wechat-preview theme-${currentTheme}`;
+      applyStyleSettings();
     };
 
     const saveLocal = () => {
       localStorage.setItem(STORAGE_KEY, JSON.stringify({
         markdown: editor.value,
         theme: currentTheme,
+        styleSettings,
         journalId: currentIssue?.journal_id || journalSelect.value,
         savedAt: new Date().toISOString(),
       }));
@@ -325,7 +443,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         "marginTop", "marginRight", "marginBottom", "marginLeft",
         "paddingTop", "paddingRight", "paddingBottom", "paddingLeft",
         "borderTop", "borderRight", "borderBottom", "borderLeft",
-        "borderRadius", "display", "textDecoration"
+        "borderRadius", "display", "textDecoration", "boxShadow", "boxSizing",
+        "width", "minWidth", "maxWidth", "height", "minHeight", "maxHeight",
+        "overflowX", "overflowY", "whiteSpace", "listStyleType", "verticalAlign",
+        "opacity"
       ];
       originalNodes.forEach((node, index) => {
         const computed = getComputedStyle(node);
@@ -383,6 +504,30 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       updatePreview();
       saveLocal();
     });
+    [fontSizeSelect, lineHeightSelect, fontFamilySelect, accentColor].forEach((control) => {
+      control.addEventListener("input", () => {
+        styleSettings = {
+          ...styleSettings,
+          fontSize: fontSizeSelect.value,
+          lineHeight: lineHeightSelect.value,
+          fontFamily: fontFamilySelect.value,
+          accent: accentColor.value,
+        };
+        updatePreview();
+        scheduleSave();
+      });
+    });
+    customCss.addEventListener("input", () => {
+      styleSettings = { ...styleSettings, customCss: customCss.value };
+      updatePreview();
+      scheduleSave();
+    });
+    document.querySelector("#reset-style").addEventListener("click", () => {
+      styleSettings = { ...DEFAULT_STYLE };
+      syncStyleControls();
+      updatePreview();
+      saveLocal();
+    });
     document.querySelector("#copy-rich").addEventListener("click", () =>
       copyRichText().catch((error) => {
         saveStatus.textContent = `复制失败：${error.message}`;
@@ -428,7 +573,9 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         currentTheme = Array.from(themeSelect.options).some(
           (option) => option.value === state.theme
         ) ? state.theme : "wechat-default";
+        styleSettings = { ...DEFAULT_STYLE, ...(state.styleSettings || {}) };
         themeSelect.value = currentTheme;
+        syncStyleControls();
         saveStatus.textContent = "已恢复上次草稿";
         updatePreview();
       } catch {
@@ -436,6 +583,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       }
     };
 
+    syncStyleControls();
     initialize().catch((error) => {
       saveStatus.textContent = `期刊载入失败：${error.message}`;
     });

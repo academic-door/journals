@@ -319,6 +319,47 @@ main,
   border-radius: 9px;
   font-weight: 800;
 }
+.style-settings { position: relative; }
+.style-settings > summary { list-style: none; cursor: pointer; }
+.style-settings > summary::-webkit-details-marker { display: none; }
+.style-settings[open] > summary { color: white; background: var(--green); border-color: var(--green); }
+.style-settings-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 30;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+  width: min(420px, calc(100vw - 32px));
+  padding: 16px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 16px 36px rgb(11 47 40 / 16%);
+}
+.style-settings-panel > label,
+.custom-css-settings label { display: grid; gap: 6px; color: var(--muted); font-size: 0.75rem; font-weight: 750; }
+.style-settings-panel select,
+.style-settings-panel input,
+.style-settings-panel textarea {
+  width: 100%;
+  min-height: 38px;
+  padding: 7px 9px;
+  color: var(--ink);
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font: inherit;
+}
+.style-settings-panel input[type="color"] { padding: 4px; cursor: pointer; }
+.custom-css-settings { grid-column: 1 / -1; }
+.custom-css-settings > summary { color: var(--green); cursor: pointer; font-size: 0.78rem; font-weight: 800; }
+.custom-css-settings label { margin-top: 10px; }
+.style-settings-panel textarea { min-height: 116px; resize: vertical; font: 0.76rem/1.55 "Cascadia Code", Consolas, monospace; }
+#custom-css-status { display: block; margin-top: 6px; color: var(--muted); }
+#custom-css-status.error { color: var(--danger); }
+#reset-style { grid-column: 1 / -1; }
 .issue-select select { min-width: 150px; }
 .composer-grid {
   display: grid;
@@ -395,35 +436,40 @@ main,
 .toc-authors { color: grey; }
 .theme-wechat-default {
   color: #000;
-  font-family: Optima, "Microsoft YaHei", "PingFang SC", serif;
-  font-size: 16px;
-  line-height: 1.5;
+  font-family: var(--composer-font-family, Optima, "Microsoft YaHei", "PingFang SC", serif);
+  font-size: var(--composer-body-size, 14px);
+  line-height: var(--composer-line-height, 1.75);
 }
-.theme-wechat-default h1 { color: #000; font-size: 22px; line-height: 1.45; text-align: center; }
+.theme-wechat-default p,
+.theme-wechat-default li { font-size: var(--composer-body-size, 14px); line-height: var(--composer-line-height, 1.75); }
+.theme-wechat-default .toc-number,
+.theme-wechat-default .toc-content p { font-size: var(--composer-body-size, 14px); line-height: var(--composer-line-height, 1.75); }
+.theme-wechat-default a { color: var(--composer-accent, #ef7060); }
+.theme-wechat-default h1 { color: #000; font-size: var(--composer-h1-size, 20px); line-height: 1.45; text-align: center; }
 .theme-wechat-default h2 {
   margin: 30px 30px 15px;
   padding: 12px 0;
   color: #000;
   border: 1px solid #000;
-  font-size: 22px;
+  font-size: var(--composer-h2-size, 20px);
   line-height: 1.2;
   text-align: center;
 }
 .theme-wechat-default h2 .heading-content {
   display: inline-block;
   color: #000;
-  font-size: 22px;
+  font-size: var(--composer-h2-size, 20px);
   font-weight: 700;
   line-height: 1.2;
   text-align: left;
   text-shadow: 0 16px 2px rgb(0 0 0 / 8%);
   -webkit-box-reflect: below 0 linear-gradient(to bottom, transparent, rgb(0 0 0 / 10%));
 }
-.theme-wechat-default h3 { color: #000; font-size: 20px; line-height: 1.5; }
+.theme-wechat-default h3 { color: #000; font-size: var(--composer-h3-size, 17px); line-height: 1.5; }
 .theme-wechat-default blockquote {
   color: #000;
   background: rgb(255, 249, 249);
-  border-left-color: rgb(239, 112, 96);
+  border-left-color: var(--composer-accent, #ef7060);
 }
 .theme-academic-simple {
   color: #202925;
@@ -637,6 +683,7 @@ main,
   .theme-lab-heading { display: block; }
   .theme-lab-heading .button { display: inline-flex; margin-top: 18px; }
   .theme-lab-controls { grid-template-columns: 1fr; }
+  .style-settings-panel { position: fixed; top: 120px; right: 16px; left: 16px; width: auto; }
 }
 
 @media (max-width: 560px) {
