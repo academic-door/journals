@@ -156,7 +156,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         } else if (line.startsWith("## ")) {
           const heading = line.slice(3);
           inToc = heading.includes("目录");
-          output.push(`<h2>${renderInline(heading)}</h2>`);
+          output.push(`<h2><span class="heading-content">${renderInline(heading)}</span></h2>`);
         } else if (line.startsWith("# ")) {
           inToc = false;
           output.push(`<h1>${renderInline(line.slice(2))}</h1>`);
@@ -323,6 +323,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       const properties = [
         "color", "backgroundColor", "fontFamily", "fontSize", "fontWeight",
         "fontStyle", "lineHeight", "textAlign", "letterSpacing",
+        "textShadow", "webkitBoxReflect",
         "marginTop", "marginRight", "marginBottom", "marginLeft",
         "paddingTop", "paddingRight", "paddingBottom", "paddingLeft",
         "borderTop", "borderRight", "borderBottom", "borderLeft",
@@ -332,7 +333,15 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         const computed = getComputedStyle(node);
         cloneNodes[index].removeAttribute("class");
         cloneNodes[index].style.cssText = properties
-          .map((property) => `${property.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`)}:${computed[property]}`)
+          .map((property) => {
+            const cssProperty = property === "webkitBoxReflect"
+              ? "-webkit-box-reflect"
+              : property.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`);
+            const value = property === "webkitBoxReflect"
+              ? computed.getPropertyValue("-webkit-box-reflect")
+              : computed[property];
+            return `${cssProperty}:${value}`;
+          })
           .join(";");
       });
       return clone.innerHTML;

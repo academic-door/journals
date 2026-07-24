@@ -409,6 +409,16 @@ main,
   line-height: 1.2;
   text-align: center;
 }
+.theme-wechat-default h2 .heading-content {
+  display: inline-block;
+  color: #000;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: left;
+  text-shadow: 0 16px 2px rgb(0 0 0 / 8%);
+  -webkit-box-reflect: below 0 linear-gradient(to bottom, transparent, rgb(0 0 0 / 10%));
+}
 .theme-wechat-default h3 { color: #000; font-size: 20px; line-height: 1.5; }
 .theme-wechat-default blockquote {
   color: #000;
