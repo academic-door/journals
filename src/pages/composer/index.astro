@@ -9,15 +9,19 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   <main class="composer-page">
     <section class="page-heading composer-heading">
       <div>
-        <p class="eyebrow">ACADEMIC DOOR COMPOSER</p>
-        <h1>从期刊数据到微信公众号</h1>
-        <p>选择论文、修改 Markdown、切换主题并复制富文本。所有修改默认只保存在本机浏览器。</p>
+        <p class="section-kicker">ACADEMIC DOOR COMPOSER</p>
+        <h1>编辑并复制到微信公众号</h1>
+        <p>选择论文、调整正文和主题，预览完成后直接复制。草稿只保存在当前浏览器。</p>
       </div>
       <span id="save-status" class="save-status">尚未编辑</span>
     </section>
 
     <section class="composer-toolbar" aria-label="Composer 工具栏">
-      <button id="load-aer" class="button button-primary" type="button">载入当前 AER</button>
+      <label class="composer-source">
+        <span>期刊</span>
+        <select id="journal-select" aria-label="选择期刊"></select>
+      </label>
+      <button id="load-current" class="button button-primary" type="button">载入最新一期</button>
       <div class="theme-switcher" aria-label="排版主题">
         <button class="theme-button active" data-theme="classic" type="button">经典学术</button>
         <button class="theme-button" data-theme="minimal" type="button">极简论文</button>
@@ -34,19 +38,19 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     <section class="composer-grid">
       <aside class="composer-sidebar">
         <div class="panel-heading">
-          <p class="eyebrow">SOURCE</p>
+          <p class="section-kicker">SOURCE</p>
           <h2>本期论文</h2>
         </div>
         <p class="sidebar-help">取消勾选后，重新点击“根据选择生成正文”。</p>
         <div id="article-picker" class="article-picker">
-          <p>载入 AER 后显示论文。</p>
+          <p>载入期刊后显示论文。</p>
         </div>
         <button id="regenerate" class="button sidebar-button" type="button" disabled>根据选择生成正文</button>
       </aside>
 
       <section class="editor-panel">
         <div class="panel-heading">
-          <p class="eyebrow">MARKDOWN</p>
+          <p class="section-kicker">MARKDOWN</p>
           <h2>正文编辑</h2>
         </div>
         <textarea id="markdown-editor" spellcheck="false" aria-label="Markdown 正文"></textarea>
@@ -54,7 +58,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
       <section class="preview-panel">
         <div class="panel-heading">
-          <p class="eyebrow">WECHAT PREVIEW</p>
+          <p class="section-kicker">WECHAT PREVIEW</p>
           <h2>手机预览</h2>
         </div>
         <div class="phone-shell">
@@ -64,13 +68,15 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     </section>
   </main>
 
-  <script define:vars={{ base }}>
+  <script is:inline define:vars={{ base }}>
     const STORAGE_KEY = "academic-door-composer-v1";
     const editor = document.querySelector("#markdown-editor");
     const preview = document.querySelector("#wechat-preview");
     const picker = document.querySelector("#article-picker");
     const regenerateButton = document.querySelector("#regenerate");
     const saveStatus = document.querySelector("#save-status");
+    const journalSelect = document.querySelector("#journal-select");
+    let collection = null;
     let currentIssue = null;
     let currentTheme = "classic";
     let saveTimer = null;
@@ -134,6 +140,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       localStorage.setItem(STORAGE_KEY, JSON.stringify({
         markdown: editor.value,
         theme: currentTheme,
+        journalId: currentIssue?.journal_id || journalSelect.value,
         savedAt: new Date().toISOString(),
       }));
       saveStatus.textContent = "已自动保存到本机";
@@ -187,10 +194,30 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     const selectedPaperIds = () =>
       new Set(Array.from(picker.querySelectorAll('input[type="checkbox"]:checked')).map((input) => input.value));
 
-    const loadAer = async (force = false) => {
+    const loadCollection = async () => {
+      collection = await fetch(`${base}api/v1/collections/top5.json`)
+        .then((response) => {
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          return response.json();
+        });
+      const journals = collection.journals.filter((journal) => journal.latest_issue_url);
+      journalSelect.innerHTML = journals.map((journal) =>
+        `<option value="${escapeHtml(journal.journal_id)}">${escapeHtml(journal.short_name)}</option>`
+      ).join("");
+      const requested = new URLSearchParams(window.location.search).get("journal");
+      if (requested && journals.some((journal) => journal.journal_id === requested)) {
+        journalSelect.value = requested;
+      }
+    };
+
+    const loadIssue = async (force = false) => {
       if (!force && editor.value.trim() && !confirm("载入本期数据会覆盖当前正文，是否继续？")) return;
-      saveStatus.textContent = "正在载入 AER…";
-      currentIssue = await fetch(`${base}api/v1/journals/aer/issues/current.json`)
+      const journal = collection?.journals.find(
+        (item) => item.journal_id === journalSelect.value
+      );
+      if (!journal?.latest_issue_url) throw new Error("该期刊尚无可用数据");
+      saveStatus.textContent = `正在载入 ${journal.short_name}…`;
+      currentIssue = await fetch(journal.latest_issue_url)
         .then((response) => {
           if (!response.ok) throw new Error(`HTTP ${response.status}`);
           return response.json();
@@ -258,7 +285,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       updatePreview();
       scheduleSave();
     });
-    document.querySelector("#load-aer").addEventListener("click", () => loadAer());
+    document.querySelector("#load-current").addEventListener("click", () => loadIssue());
     regenerateButton.addEventListener("click", () => {
       editor.value = articleMarkdown(currentIssue, selectedPaperIds());
       updatePreview();
@@ -291,31 +318,43 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       download("academic-door-draft.html", "text/html;charset=utf-8", html);
     });
 
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
+    const initialize = async () => {
+      await loadCollection();
+      const requestedJournal = new URLSearchParams(window.location.search).get("journal");
+      if (requestedJournal) {
+        await loadIssue(true);
+        return;
+      }
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (!saved) {
+        await loadIssue(true);
+        return;
+      }
       try {
         const state = JSON.parse(saved);
-        editor.value = state.markdown || "";
+        if (
+          state.journalId
+          && collection.journals.some(
+            (journal) => journal.journal_id === state.journalId && journal.latest_issue_url
+          )
+        ) {
+          journalSelect.value = state.journalId;
+        }
+        await loadIssue(true);
+        editor.value = state.markdown || editor.value;
         currentTheme = state.theme || "classic";
         document.querySelectorAll("[data-theme]").forEach((button) =>
           button.classList.toggle("active", button.dataset.theme === currentTheme)
         );
         saveStatus.textContent = "已恢复本机草稿";
         updatePreview();
-        loadAer(true).then(() => {
-          const restored = JSON.parse(saved);
-          editor.value = restored.markdown || editor.value;
-          currentTheme = restored.theme || currentTheme;
-          updatePreview();
-          saveStatus.textContent = "已恢复本机草稿";
-        }).catch(() => {});
       } catch {
-        loadAer(true).catch(() => {});
+        await loadIssue(true);
       }
-    } else {
-      loadAer(true).catch((error) => {
-        saveStatus.textContent = `AER 载入失败：${error.message}`;
-      });
-    }
+    };
+
+    initialize().catch((error) => {
+      saveStatus.textContent = `期刊载入失败：${error.message}`;
+    });
   </script>
 </Layout>
