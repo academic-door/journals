@@ -5,15 +5,14 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   : `${import.meta.env.BASE_URL}/`;
 ---
 
-<Layout title="微信公众号编辑器。">
+<Layout title="微信公众号编辑器">
   <main class="composer-page">
     <section class="page-heading composer-heading">
       <div>
         <p class="section-kicker">ACADEMIC DOOR</p>
-        <h1>微信公众号编辑器。</h1>
-        <p>选择论文、调整正文和主题，预览完成后直接复制。草稿只保存在当前浏览器。</p>
+        <h1>微信公众号编辑器</h1>
       </div>
-      <span id="save-status" class="save-status">尚未编辑</span>
+      <span id="save-status" class="save-status" title="草稿仅保存在当前浏览器，不会上传到服务器">就绪</span>
     </section>
 
     <section class="composer-toolbar" aria-label="Composer 工具栏">
@@ -21,7 +20,11 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         <span>期刊</span>
         <select id="journal-select" aria-label="选择期刊"></select>
       </label>
-      <button id="load-current" class="button button-primary" type="button">载入最新一期</button>
+      <label class="composer-source issue-select">
+        <span>卷期</span>
+        <select id="issue-select" aria-label="选择卷期"></select>
+      </label>
+      <button id="load-current" class="button button-primary" type="button">载入</button>
       <label class="composer-source theme-select">
         <span>主题</span>
         <select id="theme-select" aria-label="选择排版主题">
@@ -80,6 +83,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     const regenerateButton = document.querySelector("#regenerate");
     const saveStatus = document.querySelector("#save-status");
     const journalSelect = document.querySelector("#journal-select");
+    const issueSelect = document.querySelector("#issue-select");
     const themeSelect = document.querySelector("#theme-select");
     let collection = null;
     let currentIssue = null;
@@ -180,7 +184,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         journalId: currentIssue?.journal_id || journalSelect.value,
         savedAt: new Date().toISOString(),
       }));
-      saveStatus.textContent = "已自动保存到本机";
+      saveStatus.textContent = "已保存";
     };
 
     const scheduleSave = () => {
@@ -245,6 +249,39 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       if (requested && journals.some((journal) => journal.journal_id === requested)) {
         journalSelect.value = requested;
       }
+      renderIssueOptions();
+    };
+
+    const issueOptionsFor = (journal) => {
+      if (Array.isArray(journal?.issues) && journal.issues.length) {
+        return journal.issues.map((issue, index) => ({
+          id: issue.issue_id || issue.id || `issue-${index}`,
+          url: issue.issue_url || issue.url,
+          label: issue.label || [
+            issue.volume ? `Vol. ${issue.volume}` : "",
+            issue.issue ? `No. ${issue.issue}` : "",
+          ].filter(Boolean).join(" · ") || issue.issue_id || `第 ${index + 1} 期`,
+          latest: issue.latest === true || issue.issue_id === journal.latest_issue_id,
+        })).filter((issue) => issue.url);
+      }
+      return journal?.latest_issue_url ? [{
+        id: journal.latest_issue_id || "current",
+        url: journal.latest_issue_url,
+        label: "最新一期",
+        latest: true,
+      }] : [];
+    };
+
+    const renderIssueOptions = () => {
+      const journal = collection?.journals.find(
+        (item) => item.journal_id === journalSelect.value
+      );
+      const issues = issueOptionsFor(journal);
+      issueSelect.innerHTML = issues.map((issue) =>
+        `<option value="${escapeHtml(issue.url)}">${escapeHtml(issue.label)}${issue.latest && !issue.label.includes("最新") ? "（最新）" : ""}</option>`
+      ).join("");
+      issueSelect.disabled = issues.length <= 1;
+      document.querySelector("#load-current").disabled = issues.length === 0;
     };
 
     const loadIssue = async (force = false) => {
@@ -252,13 +289,18 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       const journal = collection?.journals.find(
         (item) => item.journal_id === journalSelect.value
       );
-      if (!journal?.latest_issue_url) throw new Error("该期刊尚无可用数据");
+      const issueUrl = issueSelect.value || journal?.latest_issue_url;
+      if (!issueUrl) throw new Error("该期刊尚无可用数据");
       saveStatus.textContent = `正在载入 ${journal.short_name}…`;
-      currentIssue = await fetch(journal.latest_issue_url)
+      currentIssue = await fetch(issueUrl)
         .then((response) => {
           if (!response.ok) throw new Error(`HTTP ${response.status}`);
           return response.json();
         });
+      const selectedOption = issueSelect.options[issueSelect.selectedIndex];
+      if (selectedOption && issueSelect.options.length === 1) {
+        selectedOption.textContent = `Vol. ${currentIssue.volume} · No. ${currentIssue.issue}（最新）`;
+      }
       renderPicker();
       editor.value = articleMarkdown(currentIssue, new Set(currentIssue.articles.map((article) => article.paper_id)));
       updatePreview();
@@ -323,6 +365,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       scheduleSave();
     });
     document.querySelector("#load-current").addEventListener("click", () => loadIssue());
+    journalSelect.addEventListener("change", renderIssueOptions);
     regenerateButton.addEventListener("click", () => {
       editor.value = articleMarkdown(currentIssue, selectedPaperIds());
       updatePreview();
@@ -371,6 +414,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
           )
         ) {
           journalSelect.value = state.journalId;
+          renderIssueOptions();
         }
         await loadIssue(true);
         editor.value = state.markdown || editor.value;
@@ -378,7 +422,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
           (option) => option.value === state.theme
         ) ? state.theme : "wechat-default";
         themeSelect.value = currentTheme;
-        saveStatus.textContent = "已恢复本机草稿";
+        saveStatus.textContent = "已恢复上次草稿";
         updatePreview();
       } catch {
         await loadIssue(true);

@@ -50,7 +50,8 @@ main,
   border-bottom: 1px solid var(--line);
 }
 
-.brand { text-decoration: none; }
+.brand { display: inline-flex; align-items: center; text-decoration: none; }
+.brand img { display: block; width: 54px; height: 54px; object-fit: contain; }
 .brand strong,
 .brand small { display: block; line-height: 1.2; }
 .brand strong {
@@ -293,6 +294,7 @@ main,
   border-radius: 9px;
   font-weight: 800;
 }
+.issue-select select { min-width: 150px; }
 .composer-grid {
   display: grid;
   grid-template-columns: minmax(220px, 0.62fr) minmax(380px, 1fr) minmax(390px, 0.95fr);
