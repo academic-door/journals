@@ -5,6 +5,7 @@ journals:
     short_name: AER
     publisher: American Economic Association
     collector: aea
+    issn: 0002-8282
     current_issue_url: https://www.aeaweb.org/journals/aer/current-issue
     enabled: true
     collections:
@@ -14,8 +15,12 @@ journals:
     name: Journal of Political Economy
     short_name: JPE
     publisher: University of Chicago Press
-    collector: pending
-    enabled: false
+    collector: chicago
+    issn: 0022-3808
+    fallback: crossref-repec
+    current_issue_url: https://www.journals.uchicago.edu/toc/jpe/current
+    rss_url: https://www.journals.uchicago.edu/action/showFeed?type=etoc&feed=rss&jc=jpe
+    enabled: true
     collections:
       - top5
   QJE:
@@ -23,8 +28,12 @@ journals:
     name: The Quarterly Journal of Economics
     short_name: QJE
     publisher: Oxford University Press
-    collector: pending
-    enabled: false
+    collector: oup
+    issn: 0033-5533
+    fallback: crossref
+    current_issue_url: https://academic.oup.com/qje/issue
+    rss_url: https://academic.oup.com/rss/site_5504/3365.xml
+    enabled: true
     collections:
       - top5
   RES:
@@ -32,8 +41,12 @@ journals:
     name: The Review of Economic Studies
     short_name: RES
     publisher: Oxford University Press
-    collector: pending
-    enabled: false
+    collector: oup
+    issn: 0034-6527
+    fallback: crossref
+    current_issue_url: https://academic.oup.com/restud/issue
+    rss_url: https://academic.oup.com/rss/site_5508/3369.xml
+    enabled: true
     collections:
       - top5
   ECTA:
@@ -41,7 +54,11 @@ journals:
     name: Econometrica
     short_name: ECTA
     publisher: Wiley
-    collector: pending
-    enabled: false
+    collector: wiley
+    issn: 0012-9682
+    fallback: crossref
+    current_issue_url: https://onlinelibrary.wiley.com/toc/14680262/current
+    rss_url: https://onlinelibrary.wiley.com/feed/14680262/most-recent
+    enabled: true
     collections:
       - top5

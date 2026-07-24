@@ -1,21 +1,37 @@
 name: Update journal data
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/update-journals.yml"
+      - "collectors/**"
+      - "config/**"
+      - "data/translation-cache/**"
+      - "schemas/**"
+      - "scripts/**"
+      - "requirements.txt"
   workflow_dispatch:
     inputs:
       journal:
         description: Journal to update
         required: true
-        default: AER
+        default: ALL
         type: choice
         options:
+          - ALL
           - AER
+          - JPE
+          - QJE
+          - RES
+          - ECTA
   schedule:
     - cron: "15 0,6 * * *"
 
 permissions:
   contents: write
-  actions: write
+  models: read
 
 concurrency:
   group: journal-data-update
@@ -27,6 +43,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Restore last-known-good data baseline
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git ls-remote --exit-code origin refs/heads/data >/dev/null 2>&1; then
+            git fetch origin data
+            git archive origin/data public | tar -x
+            if git cat-file -e origin/data:data/translation-cache 2>/dev/null; then
+              git archive origin/data data/translation-cache | tar -x
+            fi
+          fi
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -36,8 +64,10 @@ jobs:
       - name: Collect and validate
         env:
           PYTHONPATH: ${{ github.workspace }}
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
-          python scripts/update_journals.py --journal "${{ inputs.journal || 'AER' }}"
+          python scripts/update_journals.py --journal "${{ inputs.journal || 'ALL' }}" --translate
+          python scripts/audit_public_data.py
           python -m unittest discover -s tests -v
           python scripts/audit_privacy.py
 
@@ -46,9 +76,12 @@ jobs:
         run: |
           set -euo pipefail
           generated="$RUNNER_TEMP/generated-public"
+          generated_cache="$RUNNER_TEMP/generated-translation-cache"
           data_tree="$RUNNER_TEMP/data-tree"
           mkdir -p "$generated"
+          mkdir -p "$generated_cache"
           cp -R public/. "$generated/"
+          cp -R data/translation-cache/. "$generated_cache/"
 
           if git ls-remote --exit-code origin refs/heads/data >/dev/null 2>&1; then
             git fetch origin data
@@ -62,20 +95,17 @@ jobs:
             git rm -rf --ignore-unmatch .
           fi
 
-          rm -rf public
+          rm -rf public data/translation-cache
           mkdir -p public
+          mkdir -p data/translation-cache
           cp -R "$generated"/. public/
+          cp -R "$generated_cache"/. data/translation-cache/
           git config user.name "academic-door-bot"
           git config user.email "academic-door-bot@users.noreply.github.com"
-          git add public
+          git add public data/translation-cache
           if git diff --cached --quiet; then
             echo "No public data changes."
             exit 0
           fi
           git commit -m "Update journal data"
           git push origin HEAD:data
-
-      - name: Trigger Pages deployment
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh workflow run deploy.yml --ref main

@@ -2,36 +2,69 @@
   "schema_version": "1.0",
   "collection_id": "top5",
   "title": "Top 5 Economics Journals",
-  "updated_at": "2026-07-23T19:58:48+00:00",
+  "updated_at": "2026-07-24T10:52:16+00:00",
+  "data_status": "degraded",
+  "content_status": "complete",
   "journals": [
     {
       "journal_id": "aer",
       "short_name": "AER",
       "name": "American Economic Review",
-      "status": "incomplete",
+      "status": "ready",
+      "data_status": "healthy",
+      "content_status": "complete",
       "latest_issue_id": "aer-116-7",
       "latest_issue_url": "/journals/api/v1/journals/aer/issues/current.json",
-      "article_count": 10
+      "article_count": 10,
+      "translation_complete": 10
     },
     {
       "journal_id": "jpe",
       "short_name": "JPE",
-      "status": "detected"
+      "name": "Journal of Political Economy",
+      "status": "ready",
+      "data_status": "healthy",
+      "content_status": "complete",
+      "latest_issue_id": "jpe-134-7",
+      "latest_issue_url": "/journals/api/v1/journals/jpe/issues/current.json",
+      "article_count": 6,
+      "translation_complete": 6
     },
     {
       "journal_id": "qje",
       "short_name": "QJE",
-      "status": "detected"
+      "name": "The Quarterly Journal of Economics",
+      "status": "ready",
+      "data_status": "healthy",
+      "content_status": "complete",
+      "latest_issue_id": "qje-141-3",
+      "latest_issue_url": "/journals/api/v1/journals/qje/issues/current.json",
+      "article_count": 15,
+      "translation_complete": 15
     },
     {
       "journal_id": "res",
       "short_name": "RES",
-      "status": "detected"
+      "name": "The Review of Economic Studies",
+      "status": "incomplete",
+      "data_status": "needs_attention",
+      "content_status": "complete",
+      "latest_issue_id": "res-93-4",
+      "latest_issue_url": "/journals/api/v1/journals/res/issues/current.json",
+      "article_count": 20,
+      "translation_complete": 20
     },
     {
       "journal_id": "ecta",
       "short_name": "ECTA",
-      "status": "detected"
+      "name": "Econometrica",
+      "status": "incomplete",
+      "data_status": "needs_attention",
+      "content_status": "complete",
+      "latest_issue_id": "ecta-94-4",
+      "latest_issue_url": "/journals/api/v1/journals/ecta/issues/current.json",
+      "article_count": 12,
+      "translation_complete": 12
     }
   ]
 }

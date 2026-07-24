@@ -1,0 +1,195 @@
+---
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+---
+
+<section class="catalog-intro">
+  <div>
+    <p class="section-kicker">TOP 5 ECONOMICS JOURNALS</p>
+    <h1>经济学 TOP5 最新卷期</h1>
+    <p>按期刊官网顺序整理中英文目录与摘要。</p>
+  </div>
+  <a id="composer-link" class="button button-primary" href={`${base}composer/`}>
+    在 Composer 中编辑
+  </a>
+</section>
+
+<section class="journal-toolbar" aria-label="期刊目录工具">
+  <div id="journal-tabs" class="journal-tabs" role="tablist" aria-label="TOP5 期刊"></div>
+  <label class="search-field">
+    <span class="sr-only">检索论文</span>
+    <input id="paper-search" type="search" placeholder="检索标题、作者或摘要" />
+  </label>
+</section>
+
+<section id="issue-summary" class="issue-summary" aria-live="polite">
+  <p class="loading-copy">正在载入最新卷期……</p>
+</section>
+
+<section id="article-list" class="article-list" aria-live="polite"></section>
+
+<script is:inline define:vars={{ base }}>
+  const collectionUrl = `${base}api/v1/collections/top5.json`;
+  const state = {
+    collection: null,
+    activeJournal: null,
+    issue: null,
+    query: "",
+  };
+
+  const escapeHtml = (value = "") =>
+    String(value).replace(/[&<>"']/g, (character) => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#039;",
+    })[character]);
+
+  const formatDate = (value = "") => {
+    if (!value) return "";
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return value;
+    return new Intl.DateTimeFormat("zh-CN", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }).format(date);
+  };
+
+  const enabledJournals = () =>
+    (state.collection?.journals || []).filter((journal) => journal.latest_issue_url);
+
+  const renderTabs = () => {
+    const tabs = document.querySelector("#journal-tabs");
+    tabs.innerHTML = (state.collection?.journals || []).map((journal) => {
+      const enabled = Boolean(journal.latest_issue_url);
+      const active = journal.journal_id === state.activeJournal?.journal_id;
+      return `
+        <button
+          type="button"
+          role="tab"
+          data-journal="${escapeHtml(journal.journal_id)}"
+          aria-selected="${active}"
+          class="${active ? "active" : ""}"
+          ${enabled ? "" : "disabled"}
+        >
+          ${escapeHtml(journal.short_name)}
+          ${enabled ? "" : "<small>接入中</small>"}
+        </button>`;
+    }).join("");
+    tabs.querySelectorAll("button:not(:disabled)").forEach((button) => {
+      button.addEventListener("click", () => {
+        const journal = state.collection.journals.find(
+          (item) => item.journal_id === button.dataset.journal
+        );
+        if (journal) loadIssue(journal);
+      });
+    });
+  };
+
+  const renderIssue = () => {
+    const summary = document.querySelector("#issue-summary");
+    const list = document.querySelector("#article-list");
+    const composerLink = document.querySelector("#composer-link");
+    if (!state.issue) return;
+
+    const issue = state.issue;
+    const quality = issue.quality || {};
+    const translated = quality.translation_complete || 0;
+    const total = issue.research_article_count || issue.articles.length;
+    const publicationDate = formatDate(issue.publication_date);
+    composerLink.href = `${base}composer/?journal=${encodeURIComponent(issue.journal_id)}`;
+
+    summary.innerHTML = `
+      <div class="issue-identity">
+        <p class="section-kicker">${escapeHtml(issue.journal_id.toUpperCase())}</p>
+        <h2>${escapeHtml(issue.journal_name)}</h2>
+        <p>
+          Vol. ${escapeHtml(issue.volume)} · No. ${escapeHtml(issue.issue)}
+          ${publicationDate ? ` · ${escapeHtml(publicationDate)}` : ""}
+          · ${total} 篇研究论文
+        </p>
+      </div>
+      <div class="issue-note ${translated === total ? "complete" : ""}">
+        ${translated === total
+          ? "中英文内容已整理完成"
+          : `中文摘要整理中 · ${translated}/${total}`}
+      </div>`;
+
+    const query = state.query.toLocaleLowerCase();
+    const articles = issue.articles.filter((article) =>
+      [
+        article.title_en,
+        article.title_cn,
+        article.authors.join(" "),
+        article.abstract_en,
+        article.abstract_cn,
+      ].join(" ").toLocaleLowerCase().includes(query)
+    );
+
+    if (!articles.length) {
+      list.innerHTML = '<p class="empty-state">没有找到匹配的论文。</p>';
+      return;
+    }
+
+    list.innerHTML = articles.map((article) => `
+      <article class="paper-entry">
+        <div class="paper-number">${String(article.sequence).padStart(2, "0")}</div>
+        <div class="paper-content">
+          <h3>${escapeHtml(article.title_cn || article.title_en)}</h3>
+          <p class="paper-title-en">${escapeHtml(article.title_en)}</p>
+          <p class="paper-authors">${escapeHtml(article.authors.join(", "))}</p>
+          ${article.abstract_cn
+            ? `<p class="paper-abstract-cn">${escapeHtml(article.abstract_cn)}</p>`
+            : '<p class="translation-pending">中文摘要正在整理，英文原文已可查看。</p>'}
+          <details>
+            <summary>English abstract</summary>
+            <p>${escapeHtml(article.abstract_en || "English abstract pending.")}</p>
+          </details>
+          <div class="paper-meta">
+            ${article.doi ? `<span>DOI ${escapeHtml(article.doi)}</span>` : ""}
+            <a href="${escapeHtml(article.source_url)}" target="_blank" rel="noreferrer">
+              查看期刊原文
+            </a>
+          </div>
+        </div>
+      </article>`).join("");
+  };
+
+  const loadIssue = async (journal) => {
+    state.activeJournal = journal;
+    state.issue = null;
+    renderTabs();
+    document.querySelector("#issue-summary").innerHTML =
+      `<p class="loading-copy">正在载入 ${escapeHtml(journal.short_name)} 最新卷期……</p>`;
+    document.querySelector("#article-list").innerHTML = "";
+    const response = await fetch(journal.latest_issue_url);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    state.issue = await response.json();
+    renderIssue();
+  };
+
+  document.querySelector("#paper-search")?.addEventListener("input", (event) => {
+    state.query = event.target.value.trim();
+    renderIssue();
+  });
+
+  fetch(collectionUrl)
+    .then((response) => {
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return response.json();
+    })
+    .then(async (collection) => {
+      state.collection = collection;
+      const journals = enabledJournals();
+      renderTabs();
+      if (!journals.length) throw new Error("尚无可用期刊数据");
+      await loadIssue(journals[0]);
+    })
+    .catch((error) => {
+      document.querySelector("#issue-summary").innerHTML =
+        `<p class="error-message">目录载入失败：${escapeHtml(error.message)}</p>`;
+    });
+</script>

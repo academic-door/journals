@@ -8,31 +8,52 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 <Layout title="项目状态 · Academic Door Journals">
   <main>
     <section class="page-heading">
-      <p class="eyebrow">PUBLIC STATUS</p>
-      <h1>项目状态</h1>
-      <p>显示最近的数据更新时间与关键质量检查，不再让失败隐藏在后台。</p>
+      <p class="section-kicker">DATA STATUS</p>
+      <h1>数据状态</h1>
+      <p>查看最新同步时间和各期刊内容完整度。</p>
     </section>
     <section id="health-card" class="health-card">
       <p>正在读取状态……</p>
     </section>
   </main>
-  <script define:vars={{ base }}>
+  <script is:inline define:vars={{ base }}>
     const escapeHtml = (value = "") =>
       String(value).replace(/[&<>"']/g, (character) => ({
         "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
       }[character]));
-    fetch(`${base}api/v1/health.json`)
-      .then((response) => response.json())
-      .then((health) => {
+    Promise.all([
+      fetch(`${base}api/v1/health.json`).then((response) => response.json()),
+      fetch(`${base}api/v1/collections/top5.json`).then((response) => response.json()),
+    ])
+      .then(([health, collection]) => {
+        const summary = health.summary || {};
+        const allAvailable = summary.available_journals === summary.enabled_journals;
+        const contentComplete = health.content_status === "complete";
+        const statusLabel = allAvailable && contentComplete
+          ? "TOP5 数据与中文内容已就绪"
+          : allAvailable
+            ? "TOP5 目录可用，中文内容整理中"
+            : "部分期刊正在等待更新";
+        const journalRows = (collection.journals || []).map((journal) => {
+          const usable = Boolean(journal.latest_issue_url);
+          const sourceLabel = journal.data_status === "needs_attention"
+            ? "备用元数据已校验"
+            : "官方源已校验";
+          const contentLabel = usable
+            ? `中文 ${journal.translation_complete}/${journal.article_count}`
+            : "等待最新卷期";
+          return `<li>
+            <strong>${escapeHtml(journal.short_name)}</strong>
+            <span>${escapeHtml(sourceLabel)} · ${escapeHtml(contentLabel)}</span>
+          </li>`;
+        }).join("");
         document.querySelector("#health-card").innerHTML = `
-          <span class="status-dot ${escapeHtml(health.status)}"></span>
+          <span class="status-dot ${allAvailable ? "healthy" : escapeHtml(health.status)}"></span>
           <div>
-            <p class="eyebrow">STATUS</p>
-            <h2>${escapeHtml(health.status)}</h2>
+            <p class="section-kicker">STATUS</p>
+            <h2>${escapeHtml(statusLabel)}</h2>
             <p>最近更新：${escapeHtml(health.updated_at)}</p>
-            <ul>${Object.entries(health.checks).map(([key, ok]) =>
-              `<li><strong>${escapeHtml(key)}</strong><span>${ok ? "通过" : "待完成"}</span></li>`
-            ).join("")}</ul>
+            <ul>${journalRows}</ul>
           </div>`;
       })
       .catch((error) => {
