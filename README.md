@@ -35,7 +35,7 @@ Academic Door 的统一经济学期刊数据引擎、TOP5/Field Journals 公共�
 - [x] AER、JPE、QJE、RES、Econometrica 最新卷期接入
 - [x] TOP5 中英文目录、检索与来源追溯
 - [x] GitHub Models 中文标题与摘要翻译管线
-- [x] Composer 选文、编辑、三主题、富文本复制与导出
+- [x] Composer 选文、编辑、稳定主题、Theme Lab、富文本复制与导出
 - [x] 数据完整性、翻译数字一致性与隐私质量门
 - [ ] Field Journals 配置化扩展
 

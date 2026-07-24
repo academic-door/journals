@@ -144,25 +144,32 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
     list.innerHTML = articles.map((article) => `
       <article class="paper-entry">
-        <div class="paper-number">${String(article.sequence).padStart(2, "0")}</div>
-        <div class="paper-content">
-          <h3>${escapeHtml(article.title_cn || article.title_en)}</h3>
-          <p class="paper-title-en">${escapeHtml(article.title_en)}</p>
-          <p class="paper-authors">${escapeHtml(article.authors.join(", "))}</p>
-          ${article.abstract_cn
-            ? `<p class="paper-abstract-cn">${escapeHtml(article.abstract_cn)}</p>`
-            : '<p class="translation-pending">中文摘要正在整理，英文原文已可查看。</p>'}
-          <details>
-            <summary>English abstract</summary>
-            <p>${escapeHtml(article.abstract_en || "English abstract pending.")}</p>
-          </details>
-          <div class="paper-meta">
-            ${article.doi ? `<span>DOI ${escapeHtml(article.doi)}</span>` : ""}
-            <a href="${escapeHtml(article.source_url)}" target="_blank" rel="noreferrer">
-              查看期刊原文
-            </a>
+        <header class="paper-header">
+          <div class="paper-number">${String(article.sequence).padStart(2, "0")}</div>
+          <div class="paper-content">
+            <h3>${escapeHtml(article.title_cn || article.title_en)}</h3>
+            <p class="paper-title-en">${escapeHtml(article.title_en)}</p>
+            <p class="paper-authors">${escapeHtml(article.authors.join(", "))}</p>
           </div>
+        </header>
+        <div class="abstract-grid">
+          <section class="abstract-panel abstract-en" aria-label="英文摘要">
+            <p class="abstract-label">English Abstract</p>
+            <p>${escapeHtml(article.abstract_en || "English abstract pending.")}</p>
+          </section>
+          <section class="abstract-panel abstract-cn" aria-label="中文摘要">
+            <p class="abstract-label">中文摘要</p>
+            ${article.abstract_cn
+              ? `<p>${escapeHtml(article.abstract_cn)}</p>`
+              : '<p class="translation-pending">中文摘要正在整理。</p>'}
+          </section>
         </div>
+        <footer class="paper-meta">
+          ${article.doi ? `<span>DOI ${escapeHtml(article.doi)}</span>` : ""}
+          <a href="${escapeHtml(article.source_url)}" target="_blank" rel="noreferrer">
+            查看期刊原文
+          </a>
+        </footer>
       </article>`).join("");
   };
 

@@ -1,0 +1,98 @@
+---
+import Layout from "../../layouts/Layout.astro";
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+---
+
+<Layout title="公众号主题实验室 · Academic Door">
+  <main class="theme-lab-page">
+    <section class="page-heading theme-lab-heading">
+      <div>
+        <p class="section-kicker">THEME LAB</p>
+        <h1>公众号主题实验室</h1>
+        <p>使用同一份学术稿件比较候选主题。实验主题不会进入正式编辑器。</p>
+      </div>
+      <a class="button" href={`${base}composer/`}>返回微信编辑器</a>
+    </section>
+
+    <section class="theme-lab-controls" aria-label="选择实验主题">
+      <button class="theme-card active" type="button" data-preview-theme="wechat-default" data-theme-name="学术传送门经典" data-theme-status="正式主题">
+        <span class="theme-status approved">正式</span>
+        <strong>学术传送门经典</strong>
+        <small>旧工作流的稳定样式，保留边框标题与淡倒影。</small>
+      </button>
+      <button class="theme-card" type="button" data-preview-theme="academic-simple" data-theme-name="学术简洁" data-theme-status="实验主题">
+        <span class="theme-status">实验</span>
+        <strong>学术简洁</strong>
+        <small>清晰的绿色标题层级，适合目录与长摘要。</small>
+      </button>
+      <button class="theme-card" type="button" data-preview-theme="grace" data-theme-name="温润精致" data-theme-status="实验主题">
+        <span class="theme-status">实验</span>
+        <strong>温润精致</strong>
+        <small>更柔和的圆角、阴影和分隔线，适合深度解读。</small>
+      </button>
+    </section>
+
+    <section class="theme-lab-stage">
+      <div class="theme-lab-meta">
+        <div>
+          <p class="section-kicker">LIVE PREVIEW</p>
+          <h2 id="active-theme-name">学术传送门经典</h2>
+        </div>
+        <span id="active-theme-status" class="theme-status approved">正式主题</span>
+      </div>
+
+      <div class="phone-shell theme-lab-phone">
+        <article id="theme-preview" class="wechat-preview theme-wechat-default">
+          <h1>American Economic Review Vol. 116, No. 7 目录与摘要</h1>
+          <blockquote><p>本期共收录 10 篇研究论文，以下按期刊官网顺序整理中英文目录与摘要。</p></blockquote>
+
+          <h2><span class="heading-content">一、目录</span></h2>
+          <section class="toc-item">
+            <span class="toc-number">1.</span>
+            <div class="toc-content">
+              <p class="toc-title-en">A Welfare Analysis of Policies Impacting Climate Change</p>
+              <p class="toc-title-cn">影响气候变化政策的福利分析</p>
+              <p class="toc-authors">Robert W. Hahn, Nathaniel Hendren, Robert D. Metcalfe, Ben Sprung-Keyser</p>
+            </div>
+          </section>
+
+          <h2><span class="heading-content">二、摘要</span></h2>
+          <h3>1. 影响气候变化政策的福利分析</h3>
+          <p><strong>【作者】</strong>Robert W. Hahn, Nathaniel Hendren, Robert D. Metcalfe, Ben Sprung-Keyser</p>
+          <p><strong>【Abstract】</strong>We study the welfare impacts of climate-related tax and spending policies and extend the marginal value of public funds framework.</p>
+          <p><strong>【摘要】</strong>本文研究与气候相关的税收和支出政策的福利影响，并拓展公共资金边际价值分析框架。</p>
+          <figure class="theme-sample-figure">
+            <div aria-hidden="true">FIGURE · RESEARCH DESIGN</div>
+            <figcaption>图 1　研究设计示意</figcaption>
+          </figure>
+          <p><strong>【DOI】</strong><a href="#">10.1257/aer.20250166</a></p>
+        </article>
+      </div>
+    </section>
+
+    <p class="theme-attribution">
+      实验主题的结构方向参考
+      <a href="https://github.com/doocs/md" target="_blank" rel="noreferrer">doocs/md</a>，
+      样式由 Academic Door 重新设计并按微信环境调整。
+    </p>
+  </main>
+
+  <script is:inline>
+    const preview = document.querySelector("#theme-preview");
+    const name = document.querySelector("#active-theme-name");
+    const status = document.querySelector("#active-theme-status");
+    document.querySelectorAll("[data-preview-theme]").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll("[data-preview-theme]").forEach((item) =>
+          item.classList.toggle("active", item === button)
+        );
+        preview.className = `wechat-preview theme-${button.dataset.previewTheme}`;
+        name.textContent = button.dataset.themeName;
+        status.textContent = button.dataset.themeStatus;
+        status.classList.toggle("approved", button.dataset.previewTheme === "wechat-default");
+      });
+    });
+  </script>
+</Layout>
