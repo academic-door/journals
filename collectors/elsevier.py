@@ -1,0 +1,429 @@
+from __future__ import annotations
+
+import html
+import json
+import re
+import time
+from collections import Counter
+from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any
+from urllib.parse import urljoin
+
+import requests
+from bs4 import BeautifulSoup
+
+
+USER_AGENT = (
+    "AcademicDoorJournals/0.1 "
+    "(non-profit academic metadata service; https://academic-door.github.io/)"
+)
+REQUEST_TIMEOUT = (10, 60)
+MAX_ATTEMPTS = 4
+DETAIL_WORKERS = 6
+ROOT = Path(__file__).resolve().parents[1]
+ORDER_OVERRIDES = ROOT / "data" / "order-overrides"
+ISSUE_HEADING = re.compile(
+    r"(?P<year>\d{4}),\s*Volume\s+(?P<volume>[A-Za-z0-9.-]+),\s*Issue\s+(?P<issue>[A-Za-z0-9.-]+)",
+    re.IGNORECASE,
+)
+DOI_PATTERN = re.compile(r"10\.\d{4,9}/[^\s\"'<>?&#]+", re.IGNORECASE)
+PII_PATTERN = re.compile(r"S\d{15}[0-9X]", re.IGNORECASE)
+NON_RESEARCH_PATTERN = re.compile(
+    r"editorial\s+board|corrigendum|correction|erratum|retraction|"
+    r"front\s*matter|back\s*matter|table\s+of\s+contents",
+    re.IGNORECASE,
+)
+
+
+class ElsevierCollectorError(RuntimeError):
+    pass
+
+
+def _session() -> requests.Session:
+    session = requests.Session()
+    session.headers.update(
+        {
+            "User-Agent": USER_AGENT,
+            "Accept": "text/html,application/xhtml+xml,application/json",
+            "Accept-Language": "en-US,en;q=0.8",
+        }
+    )
+    return session
+
+
+def _get(
+    session: requests.Session,
+    url: str,
+    *,
+    attempts: int = MAX_ATTEMPTS,
+) -> requests.Response:
+    last_error: Exception | None = None
+    for attempt in range(attempts):
+        try:
+            response = session.get(url, timeout=REQUEST_TIMEOUT)
+            response.raise_for_status()
+            return response
+        except requests.RequestException as error:
+            last_error = error
+            if attempt + 1 < attempts:
+                time.sleep(1.5 * (attempt + 1))
+    raise ElsevierCollectorError(f"request failed for {url}: {last_error}")
+
+
+def _clean(value: str) -> str:
+    return " ".join(BeautifulSoup(html.unescape(value or ""), "html.parser").get_text(" ", strip=True).split())
+
+
+def _meta(soup: BeautifulSoup, name: str) -> str:
+    wanted = name.casefold()
+    for node in soup.find_all("meta"):
+        key = str(node.get("name") or node.get("property") or "").casefold()
+        if key == wanted:
+            value = str(node.get("content") or "").strip()
+            if value:
+                return value
+    return ""
+
+
+def _normalize_doi(value: str) -> str:
+    match = DOI_PATTERN.search(value or "")
+    return match.group(0).rstrip(".,);]").lower() if match else ""
+
+
+def _normalize_authors(value: str) -> list[str]:
+    raw_names = re.split(r"\s*(?:;|&)\s*", value or "")
+    names: list[str] = []
+    for raw in raw_names:
+        raw = " ".join(raw.split()).strip(" ,")
+        if not raw:
+            continue
+        if "," in raw:
+            family, given = (part.strip() for part in raw.split(",", 1))
+            name = " ".join(part for part in (given, family) if part)
+        else:
+            name = raw
+        if name and name.casefold() not in {item.casefold() for item in names}:
+            names.append(name)
+    return names
+
+
+def _article_type(title: str, raw_type: str = "") -> str:
+    combined = f"{raw_type} {title}"
+    if re.search(r"\bcomment\b|\breply\b", combined, re.IGNORECASE):
+        return "comment"
+    return "research-article"
+
+
+def _source_pii(value: str) -> str:
+    match = PII_PATTERN.search(value or "")
+    return match.group(0).upper() if match else ""
+
+
+def _official_article_url(pii: str, fallback: str) -> str:
+    return f"https://www.sciencedirect.com/science/article/pii/{pii}" if pii else fallback
+
+
+def _parse_repec_inventory(content: bytes, series_url: str) -> dict[str, Any]:
+    soup = BeautifulSoup(content, "html.parser")
+    heading = next(
+        (
+            node
+            for node in soup.find_all("h3")
+            if ISSUE_HEADING.search(node.get_text(" ", strip=True))
+        ),
+        None,
+    )
+    if heading is None:
+        raise ElsevierCollectorError("RePEc serial page has no usable volume heading")
+    match = ISSUE_HEADING.search(heading.get_text(" ", strip=True))
+    assert match is not None
+    container = heading.find_next_sibling("div")
+    if container is None:
+        raise ElsevierCollectorError("RePEc serial page has no issue article container")
+    items: list[dict[str, str]] = []
+    seen: set[str] = set()
+    for link in container.select("a[href^='/a/']"):
+        title = _clean(link.get_text(" ", strip=True))
+        detail_url = urljoin(series_url, str(link.get("href") or ""))
+        pii = _source_pii(detail_url)
+        key = pii or detail_url
+        if not title or key in seen:
+            continue
+        seen.add(key)
+        items.append({"title_en": title, "detail_url": detail_url, "pii": pii})
+    if not items:
+        raise ElsevierCollectorError("RePEc serial page returned an empty issue")
+    return {
+        "year": match.group("year"),
+        "volume": match.group("volume"),
+        "issue": match.group("issue"),
+        "items": items,
+    }
+
+
+def _parse_repec_detail(
+    session: requests.Session,
+    item: dict[str, str],
+) -> dict[str, Any]:
+    response = _get(session, item["detail_url"])
+    soup = BeautifulSoup(response.content, "html.parser")
+    title = _clean(_meta(soup, "citation_title") or _meta(soup, "title") or item["title_en"])
+    abstract = _clean(_meta(soup, "citation_abstract"))
+    authors = _normalize_authors(
+        _meta(soup, "citation_authors") or _meta(soup, "author")
+    )
+    doi = _normalize_doi(_meta(soup, "DOI") or soup.get_text(" ", strip=True))
+    pii = item["pii"] or _source_pii(_meta(soup, "handle"))
+    flags: list[str] = []
+    if not doi:
+        flags.append("doi_missing")
+    if not authors:
+        flags.append("authors_missing")
+    if not abstract:
+        flags.append("abstract_en_missing")
+    flags.extend(["title_cn_missing", "abstract_cn_missing"])
+    return {
+        "pii": pii,
+        "title_en": title,
+        "authors": authors,
+        "abstract_en": abstract,
+        "doi": doi,
+        "source_url": _official_article_url(pii, item["detail_url"]),
+        "detail_url": item["detail_url"],
+        "article_type": _article_type(title),
+        "quality_flags": flags,
+    }
+
+
+def _parse_official_issue(content: bytes) -> list[dict[str, Any]]:
+    soup = BeautifulSoup(content, "html.parser")
+    rows: list[dict[str, Any]] = []
+    for card in soup.select("li.js-article-list-item, li.article-item"):
+        title_node = card.select_one(".js-article-title, .article-content-title")
+        if title_node is None:
+            continue
+        title = _clean(title_node.get_text(" ", strip=True))
+        link = title_node.find_parent("a")
+        source_url = str(link.get("href") or "") if link else ""
+        pii = _source_pii(source_url or str(link.get("id") or "") if link else "")
+        authors_node = card.select_one(".js-article__item__authors")
+        authors = [
+            " ".join(value.split())
+            for value in re.split(r"\s*,\s*", _clean(authors_node.get_text(" ", strip=True)) if authors_node else "")
+            if value.strip()
+        ]
+        abstract_node = card.select_one(".js-abstract-body-text, .abstract-body")
+        abstract = _clean(abstract_node.get_text(" ", strip=True)) if abstract_node else ""
+        abstract = re.sub(r"^Abstract\s*", "", abstract, flags=re.IGNORECASE)
+        doi = _normalize_doi(card.get_text(" ", strip=True))
+        raw_type_node = card.select_one(".js-article-subtype")
+        raw_type = _clean(raw_type_node.get_text(" ", strip=True)) if raw_type_node else ""
+        rows.append(
+            {
+                "pii": pii,
+                "title_en": title,
+                "authors": authors,
+                "abstract_en": abstract,
+                "doi": doi,
+                "source_url": source_url or _official_article_url(pii, ""),
+                "article_type": _article_type(title, raw_type),
+            }
+        )
+    return rows
+
+
+def _crossref_issue_date(
+    session: requests.Session,
+    issn: str,
+    volume: str,
+    year: str,
+) -> str:
+    url = (
+        f"https://api.crossref.org/journals/{issn}/works"
+        f"?filter=from-pub-date:{year}-01-01,until-pub-date:{year}-12-31&rows=500"
+    )
+    try:
+        payload = _get(session, url).json()
+    except (ElsevierCollectorError, ValueError):
+        return year
+    months: list[int] = []
+    for item in payload.get("message", {}).get("items", []):
+        if str(item.get("volume") or "") != volume:
+            continue
+        for key in ("published-print", "published", "issued", "published-online"):
+            parts = item.get(key, {}).get("date-parts", [])
+            if parts and parts[0] and len(parts[0]) >= 2:
+                months.append(int(parts[0][1]))
+                break
+    if not months:
+        return year
+    month = Counter(months).most_common(1)[0][0]
+    return datetime(int(year), month, 1).strftime("%B %Y")
+
+
+def fetch_current_issue(
+    *,
+    journal_id: str,
+    journal_name: str,
+    issn: str,
+    repec_series_url: str,
+    issue_url_template: str,
+    max_workers: int = DETAIL_WORKERS,
+) -> dict[str, Any]:
+    session = _session()
+    inventory = _parse_repec_inventory(
+        _get(session, repec_series_url).content,
+        repec_series_url,
+    )
+    volume = inventory["volume"]
+    issue_number = inventory["issue"]
+    official_issue_url = issue_url_template.format(
+        volume=volume,
+        issue=issue_number,
+        issue_lower=issue_number.lower(),
+    )
+
+    with ThreadPoolExecutor(max_workers=max_workers) as pool:
+        details = list(
+            pool.map(
+                lambda item: _parse_repec_detail(session, item),
+                inventory["items"],
+            )
+        )
+    detail_by_pii = {item["pii"]: item for item in details if item["pii"]}
+
+    official_rows: list[dict[str, Any]] = []
+    official_error = ""
+    try:
+        official_rows = _parse_official_issue(_get(session, official_issue_url, attempts=2).content)
+    except ElsevierCollectorError as error:
+        official_error = str(error)
+
+    source_rows = official_rows or details
+    order_override_applied = False
+    if not official_rows:
+        override_path = ORDER_OVERRIDES / f"{journal_id}-{volume}.json"
+        if override_path.exists():
+            override = json.loads(override_path.read_text(encoding="utf-8"))
+            ordered_pii = override.get("pii_order", [])
+            rank = {str(pii).upper(): index for index, pii in enumerate(ordered_pii)}
+            research_pii = {
+                row.get("pii", "").upper()
+                for row in details
+                if row.get("pii") and not NON_RESEARCH_PATTERN.search(row.get("title_en", ""))
+            }
+            if research_pii and research_pii == set(rank):
+                source_rows = sorted(
+                    details,
+                    key=lambda row: rank.get(row.get("pii", "").upper(), len(rank) + details.index(row)),
+                )
+                order_override_applied = True
+    articles: list[dict[str, Any]] = []
+    excluded: list[dict[str, str]] = []
+    for source_sequence, raw in enumerate(source_rows, start=1):
+        enriched = {**detail_by_pii.get(raw.get("pii", ""), {}), **raw}
+        if NON_RESEARCH_PATTERN.search(enriched.get("title_en", "")):
+            excluded.append(
+                {
+                    "title_en": enriched.get("title_en", ""),
+                    "reason": "non_research_title",
+                    "doi": enriched.get("doi", ""),
+                }
+            )
+            continue
+        doi = enriched.get("doi", "")
+        authors = enriched.get("authors", [])
+        abstract = enriched.get("abstract_en", "")
+        flags: list[str] = []
+        if not doi:
+            flags.append("doi_missing")
+        if not authors:
+            flags.append("authors_missing")
+        if not abstract:
+            flags.append("abstract_en_missing")
+        flags.extend(["title_cn_missing", "abstract_cn_missing"])
+        sequence = len(articles) + 1
+        articles.append(
+            {
+                "paper_id": f"doi:{doi}" if doi else f"pii:{enriched.get('pii', sequence)}",
+                "sequence": sequence,
+                "source_sequence": source_sequence,
+                "article_type": enriched.get("article_type", "research-article"),
+                "title_en": enriched.get("title_en", ""),
+                "title_cn": "",
+                "authors": authors,
+                "abstract_en": abstract,
+                "abstract_cn": "",
+                "doi": doi,
+                "source_url": enriched.get("source_url") or _official_article_url(enriched.get("pii", ""), enriched.get("detail_url", "")),
+                "publication_date": inventory["year"],
+                "sources": {
+                    "issue": official_issue_url,
+                    "roster": "official-sciencedirect-issue" if official_rows else "repec-publisher-supplied",
+                    "metadata": enriched.get("detail_url", "") or "official-sciencedirect-issue",
+                    "abstract_en": "official-sciencedirect-issue" if raw.get("abstract_en") else "repec-publisher-supplied",
+                },
+                "translation": {
+                    "status": "pending",
+                    "provider": "",
+                    "prompt_version": "",
+                    "glossary_version": "1",
+                },
+                "quality_flags": flags,
+            }
+        )
+
+    count = len(articles)
+    duplicate_count = count - len({article["doi"] or article["paper_id"] for article in articles})
+    quality_flags = ["translation_incomplete"]
+    if not official_rows:
+        quality_flags.extend(
+            [
+                "publisher_html_blocked_repec_fallback",
+                "repec_publisher_supplied_roster",
+            ]
+        )
+        if order_override_applied:
+            quality_flags.append("official_order_override_applied")
+        else:
+            quality_flags.append("official_order_unverified")
+    if sum(bool(article["abstract_en"]) for article in articles) != count:
+        quality_flags.append("abstract_en_incomplete")
+    if sum(bool(article["doi"]) for article in articles) != count:
+        quality_flags.append("doi_incomplete")
+    if sum(bool(article["authors"]) for article in articles) != count:
+        quality_flags.append("authors_incomplete")
+
+    return {
+        "schema_version": "1.0",
+        "issue_id": f"{journal_id}-{volume}-{issue_number.lower()}",
+        "journal_id": journal_id,
+        "journal_name": journal_name,
+        "volume": volume,
+        "issue": issue_number,
+        "issue_label": f"Vol. {volume}",
+        "publication_date": _crossref_issue_date(session, issn, volume, inventory["year"]),
+        "source_url": official_issue_url,
+        "retrieved_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+        "expected_article_count": count,
+        "research_article_count": count,
+        "status": "incomplete",
+        "development_sample": False,
+        "articles": articles,
+        "quality": {
+            "roster_match": True,
+            "order_preserved": True,
+            "official_item_count": len(source_rows),
+            "excluded_item_count": len(excluded),
+            "excluded_items": excluded,
+            "doi_complete": sum(bool(article["doi"]) for article in articles),
+            "authors_complete": sum(bool(article["authors"]) for article in articles),
+            "abstract_en_complete": sum(bool(article["abstract_en"]) for article in articles),
+            "translation_complete": 0,
+            "duplicate_count": duplicate_count,
+            "flags": quality_flags,
+            "official_issue_fetch_error": official_error,
+        },
+    }

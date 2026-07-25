@@ -24,20 +24,21 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     Promise.all([
       fetch(`${base}api/v1/health.json`).then((response) => response.json()),
       fetch(`${base}api/v1/collections/top5.json`).then((response) => response.json()),
+      fetch(`${base}api/v1/collections/fields.json`).then((response) => response.json()),
     ])
-      .then(([health, collection]) => {
+      .then(([health, top5, fields]) => {
         const summary = health.summary || {};
         const allAvailable = summary.available_journals === summary.enabled_journals;
         const contentComplete = health.content_status === "complete";
         const statusLabel = allAvailable && contentComplete
-          ? "TOP5 数据与中文内容已就绪"
+          ? "期刊数据与中文内容已就绪"
           : allAvailable
-            ? "TOP5 目录可用，中文内容整理中"
+            ? "期刊目录可用，中文内容整理中"
             : "部分期刊正在等待更新";
-        const journalRows = (collection.journals || []).map((journal) => {
+        const journalRows = [...(top5.journals || []), ...(fields.journals || [])].map((journal) => {
           const usable = Boolean(journal.latest_issue_url);
           const sourceLabel = journal.data_status === "needs_attention"
-            ? "备用来源（Crossref），待官网核验"
+            ? "出版方元数据镜像/备用来源"
             : "官方源已校验";
           const contentLabel = usable
             ? `中文 ${journal.translation_complete}/${journal.article_count}`

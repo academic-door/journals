@@ -34,15 +34,32 @@ def main() -> int:
     findings: list[str] = []
     totals = {"journals": 0, "articles": 0, "translated": 0}
 
-    collection = read_json(PUBLIC_API / "collections" / "top5.json")
-    collection_ids = {
-        journal["journal_id"] for journal in collection.get("journals", [])
-    }
-    expected_ids = {journal["id"] for journal in enabled}
-    if collection_ids != expected_ids:
+    collection_config = yaml.safe_load(
+        (ROOT / "config" / "collections.yml").read_text(encoding="utf-8")
+    )["collections"]
+    configured_by_key = config["journals"]
+    collected_ids: set[str] = set()
+    for collection_id, definition in collection_config.items():
+        collection = read_json(PUBLIC_API / "collections" / f"{collection_id}.json")
+        collection_ids = {
+            journal["journal_id"] for journal in collection.get("journals", [])
+        }
+        expected_ids = {
+            configured_by_key[key]["id"]
+            for key in definition.get("journals", [])
+            if key in configured_by_key and configured_by_key[key].get("enabled")
+        }
+        if collection_ids != expected_ids:
+            findings.append(
+                f"{collection_id} collection journal ids differ: "
+                f"expected {sorted(expected_ids)}, got {sorted(collection_ids)}"
+            )
+        collected_ids.update(collection_ids)
+    all_expected_ids = {journal["id"] for journal in enabled}
+    if collected_ids != all_expected_ids:
         findings.append(
-            "collection journal ids differ: "
-            f"expected {sorted(expected_ids)}, got {sorted(collection_ids)}"
+            "enabled journals are not covered exactly once by public collections: "
+            f"expected {sorted(all_expected_ids)}, got {sorted(collected_ids)}"
         )
 
     for journal in enabled:

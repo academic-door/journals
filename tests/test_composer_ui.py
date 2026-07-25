@@ -80,6 +80,21 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn("const DEFAULT_STYLE = Object.freeze({", self.page)
         self.assertIn('value="wechat-default">学术传送门经典（默认）', self.page)
 
+    def test_composer_loads_top5_and_field_collections(self):
+        self.assertIn('fetch(`${base}api/v1/index.json`)', self.page)
+        self.assertIn("collections.flatMap", self.page)
+        fields_page = (ROOT / "src/pages/fields/index.astro").read_text(encoding="utf-8")
+        self.assertIn('collectionId="fields"', fields_page)
+
+    def test_field_collection_contains_first_five_a_tier_journals(self):
+        import yaml
+
+        config = yaml.safe_load((ROOT / "config/collections.yml").read_text(encoding="utf-8"))
+        self.assertEqual(
+            ["JDE", "JPubE", "JEEM", "JUE", "AJAE"],
+            config["collections"]["fields"]["journals"],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

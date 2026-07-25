@@ -104,6 +104,9 @@ main,
   margin: 10px 0 0;
   color: var(--muted);
 }
+.collection-switcher { display: flex; gap: 8px; margin-top: 20px; }
+.collection-switcher .button { min-height: 36px; padding: 8px 14px; }
+.collection-switcher .button.active { color: white; background: var(--green); border-color: var(--green); }
 
 .button,
 .theme-button {
@@ -686,7 +689,7 @@ main,
   .site-header,
   main,
   .site-footer { width: min(100% - 24px, 1080px); }
-  .site-header nav a:nth-child(2) { display: none; }
+  .site-header nav a:nth-child(4) { display: none; }
   .catalog-intro h1 { font-size: 2rem; }
   .paper-header { grid-template-columns: 1fr; }
   .paper-number { padding: 0; }

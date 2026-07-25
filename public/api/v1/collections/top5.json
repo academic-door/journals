@@ -2,14 +2,27 @@
   "schema_version": "1.0",
   "collection_id": "top5",
   "title": "Top 5 Economics Journals",
-  "updated_at": "2026-07-24T10:52:16+00:00",
+  "title_cn": "经济学 TOP5",
+  "updated_at": "2026-07-25T12:21:58+00:00",
   "data_status": "degraded",
   "content_status": "complete",
+  "summary": {
+    "configured_journals": 5,
+    "available_journals": 5,
+    "articles": 64,
+    "translated_articles": 64
+  },
   "journals": [
     {
       "journal_id": "aer",
       "short_name": "AER",
       "name": "American Economic Review",
+      "name_cn": "",
+      "field": "general",
+      "tier": "S",
+      "collections": [
+        "top5"
+      ],
       "status": "ready",
       "data_status": "healthy",
       "content_status": "complete",
@@ -22,18 +35,30 @@
       "journal_id": "jpe",
       "short_name": "JPE",
       "name": "Journal of Political Economy",
+      "name_cn": "",
+      "field": "general",
+      "tier": "S",
+      "collections": [
+        "top5"
+      ],
       "status": "ready",
       "data_status": "healthy",
       "content_status": "complete",
       "latest_issue_id": "jpe-134-7",
       "latest_issue_url": "/journals/api/v1/journals/jpe/issues/current.json",
-      "article_count": 6,
-      "translation_complete": 6
+      "article_count": 7,
+      "translation_complete": 7
     },
     {
       "journal_id": "qje",
       "short_name": "QJE",
       "name": "The Quarterly Journal of Economics",
+      "name_cn": "",
+      "field": "general",
+      "tier": "S",
+      "collections": [
+        "top5"
+      ],
       "status": "ready",
       "data_status": "healthy",
       "content_status": "complete",
@@ -46,6 +71,12 @@
       "journal_id": "res",
       "short_name": "RES",
       "name": "The Review of Economic Studies",
+      "name_cn": "",
+      "field": "general",
+      "tier": "S",
+      "collections": [
+        "top5"
+      ],
       "status": "incomplete",
       "data_status": "needs_attention",
       "content_status": "complete",
@@ -58,6 +89,12 @@
       "journal_id": "ecta",
       "short_name": "ECTA",
       "name": "Econometrica",
+      "name_cn": "",
+      "field": "general",
+      "tier": "S",
+      "collections": [
+        "top5"
+      ],
       "status": "incomplete",
       "data_status": "needs_attention",
       "content_status": "complete",

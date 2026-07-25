@@ -5,11 +5,11 @@
   "journal_name": "Journal of Political Economy",
   "volume": "134",
   "issue": "7",
-  "publication_date": "July 2026",
+  "publication_date": "2026-01-07T05:52:59Z",
   "source_url": "https://www.journals.uchicago.edu/toc/jpe/current",
-  "retrieved_at": "2026-07-24T10:41:15+00:00",
-  "expected_article_count": 6,
-  "research_article_count": 6,
+  "retrieved_at": "2026-07-25T12:17:59+00:00",
+  "expected_article_count": 7,
+  "research_article_count": 7,
   "status": "ready",
   "development_sample": false,
   "articles": [
@@ -214,6 +214,40 @@
         "translated_at": "2026-07-24T10:41:51+00:00"
       },
       "quality_flags": []
+    },
+    {
+      "paper_id": "doi:10.1086/740225",
+      "sequence": 7,
+      "source_sequence": 2215,
+      "article_type": "comment",
+      "title_en": "The Origin of the State: Land Productivity or Appropriability? A Comment",
+      "title_cn": "国家起源：土地生产率还是可攫取性？——评论",
+      "authors": [
+        "Nikolai Cook",
+        "Thibaut Duprey",
+        "Anthony Heyes",
+        "Martino Pelli"
+      ],
+      "abstract_en": "Mayshar, Moav, and Pascali apply an instrumental variables identification strategy to data from nearly 1,000 societies included in the Ethnographic Atlas to claim that cultivation of cereals (appropriable by elites), rather than increased land productivity following the adoption of agriculture, led to the development of the state. We show two things. (1) Evidence for the appropriability theory holds when moving from a tribe-chiefdom to a state and not more broadly. (2) Conclusions are driven by a handful of outliers with statistical significance at the 10% level lost with winsorization at 2.1% (or trimming at 1.2%) of locations by cereal advantage.",
+      "abstract_cn": "Mayshar、Moav和Pascali利用工具变量识别策略，分析《民族志图谱》收录的近1,000个社会，认为与农业出现后土地生产率提高相比，精英能够攫取的谷物种植更能解释国家的形成。本文提出两点修正：（1）可攫取性理论的证据只适用于从部落酋邦向国家转变的情形，并不具有更普遍的解释力；（2）结论主要由少数离群值驱动。当按谷物优势对地点进行2.1%的缩尾处理（或1.2%的截尾处理）后，其在10%水平上的统计显著性消失。",
+      "doi": "10.1086/740225",
+      "source_url": "https://www.journals.uchicago.edu/doi/abs/10.1086/740225?af=R",
+      "publication_date": "2026-05-08T04:00:41Z",
+      "sources": {
+        "issue": "https://www.journals.uchicago.edu/toc/jpe/current",
+        "roster": "https://www.journals.uchicago.edu/action/showFeed?type=etoc&feed=rss&jc=jpe",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/ucp/jpolec/doi10.1086-740225.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "codex-assisted",
+        "prompt_version": "academic-door-abstract-zh-v1",
+        "glossary_version": "1",
+        "model": "gpt-5.6"
+      },
+      "quality_flags": []
     }
   ],
   "quality": {
@@ -223,13 +257,8 @@
     "roster_crosscheck": "crossref",
     "roster_transport": "publisher-rss",
     "rss_url": "https://www.journals.uchicago.edu/action/showFeed?type=etoc&feed=rss&jc=jpe",
-    "excluded_item_count": 4,
+    "excluded_item_count": 3,
     "excluded_items": [
-      {
-        "title_en": "The Origin of the State: Land Productivity or Appropriability? A Comment",
-        "reason": "non_research_title",
-        "doi": "10.1086/740225"
-      },
       {
         "title_en": "JPE Turnaround Times",
         "reason": "non_research_title",
@@ -246,10 +275,10 @@
         "doi": "10.1086/742834"
       }
     ],
-    "doi_complete": 6,
-    "authors_complete": 6,
-    "abstract_en_complete": 6,
-    "translation_complete": 6,
+    "doi_complete": 7,
+    "authors_complete": 7,
+    "abstract_en_complete": 7,
+    "translation_complete": 7,
     "duplicate_count": 0,
     "flags": []
   }

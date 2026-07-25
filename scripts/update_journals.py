@@ -138,6 +138,16 @@ def collector_for(config: dict[str, Any]) -> Callable[[], dict[str, Any]]:
         from collectors.wiley import fetch_current_issue
 
         return lambda: fetch_current_issue(current_url)
+    if collector == "elsevier":
+        from collectors.elsevier import fetch_current_issue
+
+        return lambda: fetch_current_issue(
+            journal_id=config["id"],
+            journal_name=config["name"],
+            issn=str(config["issn"]),
+            repec_series_url=config["repec_series_url"],
+            issue_url_template=config["issue_url_template"],
+        )
     raise ValueError(f"Unknown collector: {collector}")
 
 
@@ -145,6 +155,16 @@ def fallback_collector_for(config: dict[str, Any]) -> Callable[[], dict[str, Any
     fallback = config.get("fallback", "")
     if not fallback:
         return None
+    if fallback == "repec":
+        from collectors.elsevier import fetch_current_issue
+
+        return lambda: fetch_current_issue(
+            journal_id=config["id"],
+            journal_name=config["name"],
+            issn=str(config["issn"]),
+            repec_series_url=config["repec_series_url"],
+            issue_url_template=config["issue_url_template"],
+        )
     from collectors.metadata_fallback import fetch_crossref_current_issue
 
     return lambda: fetch_crossref_current_issue(
@@ -305,7 +325,10 @@ def update_indexes(
     issues: dict[str, dict[str, Any]],
 ) -> None:
     updated_at = now_iso()
-    journals: list[dict[str, Any]] = []
+    collection_config = yaml.safe_load(
+        (ROOT / "config" / "collections.yml").read_text(encoding="utf-8")
+    )["collections"]
+    journal_entries: dict[str, dict[str, Any]] = {}
     checks: dict[str, Any] = {}
     enabled_count = 0
     usable_count = 0
@@ -321,6 +344,10 @@ def update_indexes(
             "journal_id": config["id"],
             "short_name": config["short_name"],
             "name": config["name"],
+            "name_cn": config.get("name_cn", ""),
+            "field": config.get("field", "general"),
+            "tier": config.get("tier", "S"),
+            "collections": config.get("collections", []),
             "status": "unavailable",
         }
         if issue and is_publishable_snapshot(issue):
@@ -354,21 +381,58 @@ def update_indexes(
             )
         else:
             checks[f"{config['id']}_available"] = False
-        journals.append(entry)
+        journal_entries[key] = entry
 
     data_healthy = usable_count == enabled_count and all(
         value is True for value in checks.values()
     )
     content_complete = total_articles > 0 and translated_articles == total_articles
-    top5 = {
-        "schema_version": "1.0",
-        "collection_id": "top5",
-        "title": "Top 5 Economics Journals",
-        "updated_at": updated_at,
-        "data_status": "healthy" if data_healthy else "degraded",
-        "content_status": "complete" if content_complete else "translation_incomplete",
-        "journals": journals,
-    }
+    collection_indexes: list[dict[str, Any]] = []
+    for collection_id, definition in collection_config.items():
+        keys = [
+            key
+            for key in definition.get("journals", [])
+            if key in journal_entries
+        ]
+        entries = [journal_entries[key] for key in keys]
+        collection_usable = sum(
+            bool(entry.get("latest_issue_url")) for entry in entries
+        )
+        collection_translated = sum(
+            int(entry.get("translation_complete", 0)) for entry in entries
+        )
+        collection_articles = sum(int(entry.get("article_count", 0)) for entry in entries)
+        collection_data_healthy = bool(entries) and collection_usable == len(entries) and all(
+            entry.get("data_status") == "healthy" for entry in entries
+        )
+        collection_content_complete = (
+            collection_articles > 0 and collection_translated == collection_articles
+        )
+        payload = {
+            "schema_version": "1.0",
+            "collection_id": collection_id,
+            "title": definition["name"],
+            "title_cn": definition.get("name_cn", ""),
+            "updated_at": updated_at,
+            "data_status": "healthy" if collection_data_healthy else "degraded",
+            "content_status": "complete" if collection_content_complete else "translation_incomplete",
+            "summary": {
+                "configured_journals": len(entries),
+                "available_journals": collection_usable,
+                "articles": collection_articles,
+                "translated_articles": collection_translated,
+            },
+            "journals": entries,
+        }
+        write_json(PUBLIC_API / "collections" / f"{collection_id}.json", payload)
+        collection_indexes.append(
+            {
+                "id": collection_id,
+                "title": definition["name"],
+                "title_cn": definition.get("name_cn", ""),
+                "url": f"/journals/api/v1/collections/{collection_id}.json",
+            }
+        )
     health = {
         "schema_version": "1.0",
         "updated_at": updated_at,
@@ -385,13 +449,7 @@ def update_indexes(
     index = {
         "schema_version": "1.0",
         "updated_at": updated_at,
-        "collections": [
-            {
-                "id": "top5",
-                "title": "Top 5 Economics Journals",
-                "url": "/journals/api/v1/collections/top5.json",
-            }
-        ],
+        "collections": collection_indexes,
     }
     manifest = {
         "project_id": "journals",
@@ -400,27 +458,30 @@ def update_indexes(
         "url": "https://academic-door.github.io/journals/",
         "updated_at": updated_at,
         "status": health["status"],
-        "latest_title": f"TOP5 最新卷期 · {usable_count}/{enabled_count} 家期刊可用",
+        "latest_title": f"期刊最新卷期 · {usable_count}/{enabled_count} 家期刊可用",
         "latest_url": "https://academic-door.github.io/journals/",
         "data_url": "https://academic-door.github.io/journals/api/v1/index.json",
         "feed_url": "",
     }
-    write_json(PUBLIC_API / "collections" / "top5.json", top5)
     write_json(PUBLIC_API / "health.json", health)
     write_json(PUBLIC_API / "index.json", index)
     write_json(ROOT / "public" / "project-manifest.json", manifest)
 
-    readback = read_json(PUBLIC_API / "collections" / "top5.json")
-    if readback is None or len(readback.get("journals", [])) != enabled_count:
-        raise RuntimeError("TOP5 collection write-back verification failed")
+    for collection_id, definition in collection_config.items():
+        readback = read_json(PUBLIC_API / "collections" / f"{collection_id}.json")
+        expected = sum(key in journal_entries for key in definition.get("journals", []))
+        if readback is None or len(readback.get("journals", [])) != expected:
+            raise RuntimeError(f"{collection_id} collection write-back verification failed")
 
 
 def main() -> int:
+    config = yaml.safe_load(JOURNALS_PATH.read_text(encoding="utf-8"))
+    journal_configs = config["journals"]
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--journal",
         default="ALL",
-        choices=["ALL", "AER", "JPE", "QJE", "RES", "ECTA"],
+        choices=["ALL", *journal_configs.keys()],
     )
     parser.add_argument(
         "--translate",
@@ -429,8 +490,6 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    config = yaml.safe_load(JOURNALS_PATH.read_text(encoding="utf-8"))
-    journal_configs = config["journals"]
     selected = [
         key
         for key, journal in journal_configs.items()

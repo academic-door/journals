@@ -9,6 +9,7 @@ on:
       - "collectors/**"
       - "config/**"
       - "data/translation-cache/**"
+      - "data/order-overrides/**"
       - "schemas/**"
       - "scripts/**"
       - "requirements.txt"
@@ -26,6 +27,11 @@ on:
           - QJE
           - RES
           - ECTA
+          - JDE
+          - JPubE
+          - JEEM
+          - JUE
+          - AJAE
   schedule:
     - cron: "15 0,6 * * *"
 

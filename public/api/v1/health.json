@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-07-24T10:52:16+00:00",
+  "updated_at": "2026-07-25T12:21:58+00:00",
   "status": "degraded",
-  "content_status": "complete",
+  "content_status": "translation_incomplete",
   "summary": {
-    "enabled_journals": 5,
-    "available_journals": 5,
-    "articles": 63,
-    "translated_articles": 63
+    "enabled_journals": 10,
+    "available_journals": 10,
+    "articles": 205,
+    "translated_articles": 118
   },
   "checks": {
     "aer_roster_match": true,
@@ -24,6 +24,21 @@
     "res_primary_transport": false,
     "ecta_roster_match": true,
     "ecta_order_preserved": true,
-    "ecta_primary_transport": false
+    "ecta_primary_transport": false,
+    "jde_roster_match": true,
+    "jde_order_preserved": true,
+    "jde_primary_transport": false,
+    "jpube_roster_match": true,
+    "jpube_order_preserved": true,
+    "jpube_primary_transport": false,
+    "jeem_roster_match": true,
+    "jeem_order_preserved": true,
+    "jeem_primary_transport": false,
+    "jue_roster_match": true,
+    "jue_order_preserved": true,
+    "jue_primary_transport": false,
+    "ajae_roster_match": true,
+    "ajae_order_preserved": true,
+    "ajae_primary_transport": false
   }
 }

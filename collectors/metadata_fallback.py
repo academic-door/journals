@@ -3,6 +3,7 @@ from __future__ import annotations
 import html
 import re
 import time
+from collections import Counter
 from datetime import datetime, timezone
 from typing import Any
 from xml.etree import ElementTree
@@ -18,7 +19,7 @@ USER_AGENT = (
 CROSSREF_API = "https://api.crossref.org"
 NON_RESEARCH_PATTERN = re.compile(
     r"front\s*matter|back\s*matter|editorial\s*board|table\s*of\s*contents|"
-    r"recent\s*referees|turnaround\s*times|"
+    r"recent\s*referees|turnaround\s*times|issue\s+information|"
     r"^correction(?:\s+to\b|:|\s*$)|^erratum(?:\s+to\b|:|\s*$)|"
     r"submission\s+of\s+manuscripts",
     re.IGNORECASE,
@@ -150,6 +151,16 @@ def _publication_date(issn: str, volume: str, issue: str, items: list[dict]) -> 
     month = MONTHS_BY_ISSUE.get(issn, {}).get(issue, "")
     if month and year:
         return f"{month} {year}"
+    dated_months: list[int] = []
+    for item in items:
+        for key in ("published-print", "published", "issued", "published-online"):
+            parts = item.get(key, {}).get("date-parts", [])
+            if parts and parts[0] and len(parts[0]) >= 2:
+                dated_months.append(int(parts[0][1]))
+                break
+    if dated_months and year:
+        month_number = Counter(dated_months).most_common(1)[0][0]
+        return datetime(int(year), month_number, 1).strftime("%B %Y")
     return year
 
 

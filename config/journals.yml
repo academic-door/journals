@@ -62,3 +62,82 @@ journals:
     enabled: true
     collections:
       - top5
+  JDE:
+    id: jde
+    name: Journal of Development Economics
+    short_name: JDE
+    name_cn: 发展经济学杂志
+    field: development
+    tier: A
+    publisher: Elsevier
+    collector: elsevier
+    issn: 0304-3878
+    repec_series_url: https://ideas.repec.org/s/eee/deveco.html
+    issue_url_template: https://www.sciencedirect.com/journal/journal-of-development-economics/vol/{volume}/suppl/{issue}
+    current_issue_url: https://www.sciencedirect.com/journal/journal-of-development-economics/issues
+    enabled: true
+    collections:
+      - fields
+  JPubE:
+    id: jpube
+    name: Journal of Public Economics
+    short_name: JPubE
+    name_cn: 公共经济学杂志
+    field: public
+    tier: A
+    publisher: Elsevier
+    collector: elsevier
+    issn: 0047-2727
+    repec_series_url: https://ideas.repec.org/s/eee/pubeco.html
+    issue_url_template: https://www.sciencedirect.com/journal/journal-of-public-economics/vol/{volume}/suppl/{issue}
+    current_issue_url: https://www.sciencedirect.com/journal/journal-of-public-economics/issues
+    enabled: true
+    collections:
+      - fields
+  JEEM:
+    id: jeem
+    name: Journal of Environmental Economics and Management
+    short_name: JEEM
+    name_cn: 环境经济学与管理杂志
+    field: environment
+    tier: A
+    publisher: Elsevier
+    collector: elsevier
+    issn: 0095-0696
+    repec_series_url: https://ideas.repec.org/s/eee/jeeman.html
+    issue_url_template: https://www.sciencedirect.com/journal/journal-of-environmental-economics-and-management/vol/{volume}/suppl/{issue}
+    current_issue_url: https://www.sciencedirect.com/journal/journal-of-environmental-economics-and-management/issues
+    enabled: true
+    collections:
+      - fields
+  JUE:
+    id: jue
+    name: Journal of Urban Economics
+    short_name: JUE
+    name_cn: 城市经济学杂志
+    field: urban
+    tier: A
+    publisher: Elsevier
+    collector: elsevier
+    issn: 0094-1190
+    repec_series_url: https://ideas.repec.org/s/eee/juecon.html
+    issue_url_template: https://www.sciencedirect.com/journal/journal-of-urban-economics/vol/{volume}/suppl/{issue}
+    current_issue_url: https://www.sciencedirect.com/journal/journal-of-urban-economics/issues
+    enabled: true
+    collections:
+      - fields
+  AJAE:
+    id: ajae
+    name: American Journal of Agricultural Economics
+    short_name: AJAE
+    name_cn: 美国农业经济学杂志
+    field: agriculture
+    tier: A
+    publisher: Oxford University Press
+    collector: oup
+    issn: 0002-9092
+    fallback: crossref
+    current_issue_url: https://academic.oup.com/ajae/issue
+    enabled: true
+    collections:
+      - fields

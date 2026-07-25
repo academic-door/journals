@@ -35,12 +35,19 @@ JOURNALS: dict[str, dict[str, str]] = {
         "journal_name": "The Review of Economic Studies",
         "current_issue_url": "https://academic.oup.com/restud/issue",
     },
+    "ajae": {
+        "journal_id": "ajae",
+        "slug": "ajae",
+        "journal_name": "American Journal of Agricultural Economics",
+        "current_issue_url": "https://academic.oup.com/ajae/issue",
+    },
 }
 
 ALIASES = {
     "qje": "qje",
     "res": "restud",
     "restud": "restud",
+    "ajae": "ajae",
 }
 
 TRANSIENT_STATUS_CODES = {403, 408, 425, 429, 500, 502, 503, 504}

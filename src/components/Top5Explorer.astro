@@ -1,4 +1,17 @@
 ---
+interface Props {
+  collectionId?: "top5" | "fields";
+  kicker?: string;
+  heading?: string;
+  description?: string;
+}
+
+const {
+  collectionId = "top5",
+  kicker = "TOP 5 ECONOMICS JOURNALS",
+  heading = "经济学 TOP5 最新卷期",
+  description = "按期刊官网顺序整理中英文目录与摘要。",
+} = Astro.props;
 const base = import.meta.env.BASE_URL.endsWith("/")
   ? import.meta.env.BASE_URL
   : `${import.meta.env.BASE_URL}/`;
@@ -6,9 +19,13 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
 <section class="catalog-intro">
   <div>
-    <p class="section-kicker">TOP 5 ECONOMICS JOURNALS</p>
-    <h1>经济学 TOP5 最新卷期</h1>
-    <p>按期刊官网顺序整理中英文目录与摘要。</p>
+    <p class="section-kicker">{kicker}</p>
+    <h1>{heading}</h1>
+    <p>{description}</p>
+    <nav class="collection-switcher" aria-label="期刊分类">
+      <a class:list={["button", { active: collectionId === "top5" }]} href={base}>TOP5</a>
+      <a class:list={["button", { active: collectionId === "fields" }]} href={`${base}fields/`}>Field Journals</a>
+    </nav>
   </div>
   <a id="composer-link" class="button button-primary" href={`${base}composer/`}>
     在 Composer 中编辑
@@ -30,8 +47,8 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
 <section id="article-list" class="article-list" aria-live="polite"></section>
 
-<script is:inline define:vars={{ base }}>
-  const collectionUrl = `${base}api/v1/collections/top5.json`;
+<script is:inline define:vars={{ base, collectionId }}>
+  const collectionUrl = `${base}api/v1/collections/${collectionId}.json`;
   const state = {
     collection: null,
     activeJournal: null,
@@ -134,7 +151,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         <p class="section-kicker">${escapeHtml(issue.journal_id.toUpperCase())}</p>
         <h2>${escapeHtml(issue.journal_name)}</h2>
         <p>
-          Vol. ${escapeHtml(issue.volume)} · No. ${escapeHtml(issue.issue)}
+          ${escapeHtml(issue.issue_label || `Vol. ${issue.volume} · No. ${issue.issue}`)}
           ${publicationDate ? ` · ${escapeHtml(publicationDate)}` : ""}
           · ${total} 篇学术文章
         </p>
@@ -146,7 +163,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
             : `中文摘要整理中 · ${translated}/${total}`}
         </div>
         ${provisional
-          ? '<div class="issue-note warning">卷期名单来自 Crossref 备用来源，待官网核验，顺序可能调整。</div>'
+          ? '<div class="issue-note warning">当前卷期使用出版方元数据镜像或 Crossref 备用来源，已保留来源提示。</div>'
           : ""}
         <div class="issue-note">中国相关：${issue.articles.filter((article) => chinaRelevance(article).status === "yes").length} 篇</div>
       </div>`;

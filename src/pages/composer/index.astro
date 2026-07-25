@@ -339,7 +339,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         ? `> 当前为开发样板，正式发布前请确认完整文章数和摘要。`
         : [
             period ? `> ${period}` : "",
-            `> ${issue.journal_name} Vol. ${issue.volume}, No. ${issue.issue} 共收录 ${articles.length} 篇学术文章。`,
+            `> ${issue.journal_name} ${issue.issue_label || `Vol. ${issue.volume}, No. ${issue.issue}`} 共收录 ${articles.length} 篇学术文章。`,
             chinaArticles.length ? `> 与中国相关的研究有 ${chinaArticles.length} 篇（第 ${chinaArticles.map((article) => article.sequence).join("、")} 篇）。` : "",
           ].filter(Boolean).join("\n");
       const toc = articles.map((article, index) =>
@@ -353,7 +353,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         `【DOI】[${article.doi || "原文"}](${article.source_url})`,
       ].join("\n\n")).join("\n\n");
       return [
-        `# ${issue.journal_name} Vol. ${issue.volume}, No. ${issue.issue} 目录与摘要`,
+        `# ${issue.journal_name} ${issue.issue_label || `Vol. ${issue.volume}, No. ${issue.issue}`} 目录与摘要`,
         intro,
         "## 一、目录",
         toc,
@@ -380,11 +380,25 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       new Set(Array.from(picker.querySelectorAll('input[type="checkbox"]:checked')).map((input) => input.value));
 
     const loadCollection = async () => {
-      collection = await fetch(`${base}api/v1/collections/top5.json`)
+      const index = await fetch(`${base}api/v1/index.json`)
         .then((response) => {
           if (!response.ok) throw new Error(`HTTP ${response.status}`);
           return response.json();
         });
+      const collections = await Promise.all((index.collections || []).map((item) =>
+        fetch(item.url).then((response) => {
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          return response.json();
+        })
+      ));
+      const seen = new Set();
+      collection = {
+        journals: collections.flatMap((item) => item.journals || []).filter((journal) => {
+          if (seen.has(journal.journal_id)) return false;
+          seen.add(journal.journal_id);
+          return true;
+        }),
+      };
       const journals = collection.journals.filter((journal) => journal.latest_issue_url);
       journalSelect.innerHTML = journals.map((journal) =>
         `<option value="${escapeHtml(journal.journal_id)}">${escapeHtml(journal.short_name)}</option>`
@@ -450,7 +464,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       currentIssue = await fetchIssue(issueUrl);
       const selectedOption = issueSelect.options[issueSelect.selectedIndex];
       if (selectedOption && issueSelect.options.length === 1) {
-        selectedOption.textContent = `Vol. ${currentIssue.volume} · No. ${currentIssue.issue}（最新）`;
+        selectedOption.textContent = `${currentIssue.issue_label || `Vol. ${currentIssue.volume} · No. ${currentIssue.issue}`}（最新）`;
       }
       renderPicker();
       editor.value = articleMarkdown(currentIssue, new Set(currentIssue.articles.map((article) => article.paper_id)));

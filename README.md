@@ -38,7 +38,9 @@ Academic Door 的统一经济学期刊数据引擎、TOP5/Field Journals 公共�
 - [x] Composer 选文、实时预览、主题参数、自定义 CSS、Theme Lab、富文本复制与导出
 - [x] TOP5 卷期预取、issue-level 年月显示、微信兼容目录复制与 Academic Door 标签图标
 - [x] 数据完整性、翻译数字一致性与隐私质量门
-- [ ] Field Journals 配置化扩展
+- [x] 首批 A 级 Field Journals：JDE、JPubE、JEEM、JUE、AJAE
+- [x] TOP5 / Field Journals 统一分类入口与 Composer 数据源
+- [ ] 按 `journal_monitor_list.md` 继续扩展其余 A 级期刊
 
 ## 本地开发
 
@@ -63,11 +65,17 @@ python -m unittest discover -s tests -v
 ```text
 /journals/api/v1/index.json
 /journals/api/v1/collections/top5.json
+/journals/api/v1/collections/fields.json
 /journals/api/v1/journals/aer/issues/current.json
 /journals/api/v1/journals/jpe/issues/current.json
 /journals/api/v1/journals/qje/issues/current.json
 /journals/api/v1/journals/res/issues/current.json
 /journals/api/v1/journals/ecta/issues/current.json
+/journals/api/v1/journals/jde/issues/current.json
+/journals/api/v1/journals/jpube/issues/current.json
+/journals/api/v1/journals/jeem/issues/current.json
+/journals/api/v1/journals/jue/issues/current.json
+/journals/api/v1/journals/ajae/issues/current.json
 /journals/api/v1/health.json
 /journals/project-manifest.json
 ```
