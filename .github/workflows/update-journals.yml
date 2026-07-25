@@ -16,22 +16,10 @@ on:
   workflow_dispatch:
     inputs:
       journal:
-        description: Journal to update
+        description: Journal code to update (ALL, AER, JPE, QJE, RES, ECTA, JDE, JPubE, JEEM, JUE, or AJAE)
         required: true
         default: ALL
-        type: choice
-        options:
-          - ALL
-          - AER
-          - JPE
-          - QJE
-          - RES
-          - ECTA
-          - JDE
-          - JPubE
-          - JEEM
-          - JUE
-          - AJAE
+        type: string
   schedule:
     - cron: "15 0,6 * * *"
 
