@@ -109,6 +109,22 @@ class MetadataFallbackTests(unittest.TestCase):
         )
         self.assertEqual(issue["research_article_count"], 2)
 
+    def test_keeps_scholarly_comments_in_issue_contents(self) -> None:
+        items = [
+            item("The Main Research Paper", "1-10", "10.1/main"),
+            item("The Origin of the State: Land Productivity or Appropriability? A Comment", "11-20", "10.1/comment"),
+        ]
+        issue = fetch_crossref_current_issue(
+            journal_id="jpe",
+            journal_name="Journal of Political Economy",
+            issn="0022-3808",
+            current_issue_url="https://publisher.example/current",
+            session=Session(items),
+        )
+        self.assertEqual(issue["research_article_count"], 2)
+        self.assertEqual(issue["articles"][1]["article_type"], "comment")
+        self.assertEqual(issue["quality"]["excluded_item_count"], 0)
+
     def test_missing_page_research_item_fails_roster_match(self) -> None:
         items = [
             item("First paper", "1-10", "10.1/first"),
