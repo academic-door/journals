@@ -7,9 +7,9 @@
   "issue": "7",
   "publication_date": "July 2026",
   "source_url": "https://www.journals.uchicago.edu/toc/jpe/current",
-  "retrieved_at": "2026-07-25T10:13:13+00:00",
-  "expected_article_count": 6,
-  "research_article_count": 6,
+  "retrieved_at": "2026-07-25T10:37:31+00:00",
+  "expected_article_count": 7,
+  "research_article_count": 7,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
@@ -214,6 +214,41 @@
         "translated_at": "2026-07-24T10:41:51+00:00"
       },
       "quality_flags": []
+    },
+    {
+      "paper_id": "doi:10.1086/740225",
+      "sequence": 7,
+      "source_sequence": 2215,
+      "article_type": "comment",
+      "title_en": "The Origin of the State: Land Productivity or Appropriability? A Comment",
+      "title_cn": "国家起源：土地生产率还是可攫取性？——评论",
+      "authors": [
+        "Nikolai Cook",
+        "Thibaut Duprey",
+        "Anthony Heyes",
+        "Martino Pelli"
+      ],
+      "abstract_en": "Mayshar, Moav, and Pascali apply an instrumental variables identification strategy to data from nearly 1,000 societies included in the Ethnographic Atlas to claim that cultivation of cereals (appropriable by elites), rather than increased land productivity following the adoption of agriculture, led to the development of the state. We show two things. (1) Evidence for the appropriability theory holds when moving from a tribe-chiefdom to a state and not more broadly. (2) Conclusions are driven by a handful of outliers with statistical significance at the 10% level lost with winsorization at 2.1% (or trimming at 1.2%) of locations by cereal advantage.",
+      "abstract_cn": "",
+      "doi": "10.1086/740225",
+      "source_url": "https://doi.org/10.1086/740225",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.journals.uchicago.edu/toc/jpe/current",
+        "roster": "crossref:issn:0022-3808",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/ucp/jpolec/doi10.1086-740225.html"
+      },
+      "translation": {
+        "status": "partial",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
+      },
+      "quality_flags": [
+        "abstract_cn_missing"
+      ]
     }
   ],
   "quality": {
@@ -223,7 +258,7 @@
     "roster_authority": "crossref-provisional",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
-    "excluded_item_count": 4,
+    "excluded_item_count": 3,
     "excluded_items": [
       {
         "title_en": "Front Matter",
@@ -236,20 +271,15 @@
         "doi": "10.1086/742834"
       },
       {
-        "title_en": "The Origin of the State: Land Productivity or Appropriability? A Comment",
-        "reason": "non_research_title",
-        "doi": "10.1086/740225"
-      },
-      {
         "title_en": "JPE Turnaround Times",
         "reason": "non_research_title",
         "doi": "10.1086/742464"
       }
     ],
-    "doi_complete": 6,
-    "authors_complete": 6,
-    "abstract_en_complete": 6,
-    "translation_complete": 6,
+    "doi_complete": 7,
+    "authors_complete": 7,
+    "abstract_en_complete": 7,
+    "translation_complete": 7,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
