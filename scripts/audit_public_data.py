@@ -78,10 +78,14 @@ def main() -> int:
             label = f"{journal['id']}:{article['doi'] or article['paper_id']}"
             if not article["authors"]:
                 findings.append(f"{label}: authors missing")
-            if not article["abstract_en"]:
+            is_comment = article.get("article_type") == "comment"
+            if not article["abstract_en"] and not is_comment:
                 findings.append(f"{label}: English abstract missing")
-            if not article["title_cn"] or not article["abstract_cn"]:
+            if not article["title_cn"] or (not article["abstract_cn"] and not is_comment):
                 findings.append(f"{label}: Chinese content missing")
+                continue
+            if is_comment and not article["abstract_cn"]:
+                totals["translated"] += 1
                 continue
             try:
                 validate_translation(

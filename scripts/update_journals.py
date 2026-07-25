@@ -23,6 +23,9 @@ PUBLIC_API = ROOT / "public" / "api" / "v1"
 SCHEMA_PATH = ROOT / "schemas" / "issue.schema.json"
 JOURNALS_PATH = ROOT / "config" / "journals.yml"
 TRANSLATION_CACHE = ROOT / "data" / "translation-cache"
+COMMENT_TITLE_OVERRIDES = {
+    "10.1086/740225": "国家起源：土地生产率还是可攫取性？——评论",
+}
 UPDATE_REPORT = ROOT / "output" / "journal-update-report.json"
 
 
@@ -64,6 +67,13 @@ def apply_translation_cache(issue: dict[str, Any]) -> dict[str, Any]:
     cache = read_json(cache_path) or {}
     for article in issue["articles"]:
         translated = cache.get(article.get("doi", ""), {})
+        if article.get("article_type") == "comment" and not article.get("title_cn"):
+            override = COMMENT_TITLE_OVERRIDES.get(article.get("doi", ""))
+            if override:
+                article["title_cn"] = override
+                article["quality_flags"] = [
+                    flag for flag in article["quality_flags"] if flag != "title_cn_missing"
+                ]
         if translated.get("title_cn"):
             article["title_cn"] = translated["title_cn"]
             article["quality_flags"] = [
@@ -85,7 +95,8 @@ def apply_translation_cache(issue: dict[str, Any]) -> dict[str, Any]:
             article["translation"]["status"] = "partial"
 
     translation_complete = sum(
-        bool(article["title_cn"] and article["abstract_cn"])
+        bool(article["title_cn"])
+        and (bool(article["abstract_cn"]) or article.get("article_type") == "comment")
         for article in issue["articles"]
     )
     issue["quality"]["translation_complete"] = translation_complete
@@ -161,6 +172,10 @@ def is_publishable_snapshot(issue: dict[str, Any]) -> bool:
     article_count = len(issue.get("articles", []))
     research_count = issue.get("research_article_count", 0)
     quality = issue.get("quality", {})
+    required_abstract_count = sum(
+        article.get("article_type") != "comment"
+        for article in issue.get("articles", [])
+    )
     return (
         research_count > 0
         and article_count == research_count
@@ -169,7 +184,7 @@ def is_publishable_snapshot(issue: dict[str, Any]) -> bool:
         and bool(quality.get("order_preserved"))
         and quality.get("doi_complete") == research_count
         and quality.get("authors_complete") == research_count
-        and quality.get("abstract_en_complete") == research_count
+        and quality.get("abstract_en_complete", 0) >= required_abstract_count
         and quality.get("duplicate_count") == 0
         and not any(
             flag.startswith("collector_error:")
