@@ -47,6 +47,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          main_cache="$RUNNER_TEMP/main-translation-cache"
+          mkdir -p "$main_cache"
+          cp -R data/translation-cache/. "$main_cache/"
           if git ls-remote --exit-code origin refs/heads/data >/dev/null 2>&1; then
             git fetch origin data
             git archive origin/data public | tar -x
@@ -54,6 +57,23 @@ jobs:
               git archive origin/data data/translation-cache | tar -x
             fi
           fi
+          MAIN_CACHE="$main_cache" python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          target_dir = Path("data/translation-cache")
+          target_dir.mkdir(parents=True, exist_ok=True)
+          for override_path in Path(os.environ["MAIN_CACHE"]).glob("*.json"):
+              target_path = target_dir / override_path.name
+              base = json.loads(target_path.read_text(encoding="utf-8")) if target_path.exists() else {}
+              override = json.loads(override_path.read_text(encoding="utf-8"))
+              base.update(override)
+              target_path.write_text(
+                  json.dumps(base, ensure_ascii=False, indent=2) + "\n",
+                  encoding="utf-8",
+              )
+          PY
 
       - uses: actions/setup-python@v7
         with:
