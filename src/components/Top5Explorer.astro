@@ -36,6 +36,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     activeJournal: null,
     issue: null,
     query: "",
+    issueCache: new Map(),
   };
 
   const escapeHtml = (value = "") =>
@@ -48,14 +49,25 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     })[character]);
 
   const formatDate = (value = "") => {
-    if (!value) return "";
-    const date = new Date(value);
-    if (Number.isNaN(date.getTime())) return value;
-    return new Intl.DateTimeFormat("zh-CN", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    }).format(date);
+    const raw = String(value).trim();
+    if (!raw) return "";
+    const iso = raw.match(/^(\d{4})-(\d{2})/);
+    if (iso) return `${iso[1]}年${Number(iso[2])}月`;
+    const month = raw.match(/^(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{4})$/i);
+    if (!month) return raw;
+    const months = { january: 1, february: 2, march: 3, april: 4, may: 5, june: 6, july: 7, august: 8, september: 9, october: 10, november: 11, december: 12 };
+    return `${month[2]}年${months[month[1].toLowerCase()]}月`;
+  };
+
+  const fetchIssue = (journal) => {
+    const url = journal.latest_issue_url;
+    if (!state.issueCache.has(url)) {
+      state.issueCache.set(url, fetch(url).then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      }));
+    }
+    return state.issueCache.get(url);
   };
 
   const enabledJournals = () =>
@@ -180,9 +192,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     document.querySelector("#issue-summary").innerHTML =
       `<p class="loading-copy">正在载入 ${escapeHtml(journal.short_name)} 最新卷期……</p>`;
     document.querySelector("#article-list").innerHTML = "";
-    const response = await fetch(journal.latest_issue_url);
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    state.issue = await response.json();
+    state.issue = await fetchIssue(journal);
     renderIssue();
   };
 
@@ -201,6 +211,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       const journals = enabledJournals();
       renderTabs();
       if (!journals.length) throw new Error("尚无可用期刊数据");
+      journals.forEach((journal) => fetchIssue(journal).catch(() => null));
       await loadIssue(journals[0]);
     })
     .catch((error) => {

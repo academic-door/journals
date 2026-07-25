@@ -295,7 +295,6 @@ main,
 
 .composer-page { width: min(1500px, calc(100% - 28px)); }
 .composer-heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; }
-.save-status { flex: 0 0 auto; padding: 7px 11px; color: var(--green); background: var(--green-soft); border-radius: 8px; font-size: 0.75rem; font-weight: 750; }
 .composer-toolbar {
   position: sticky;
   top: 0;
@@ -421,15 +420,15 @@ main,
 .wechat-preview a { color: #296f5e; text-decoration: none; }
 .wechat-preview ol { padding-left: 28px; }
 .toc-item {
-  display: grid;
-  grid-template-columns: 1.7em minmax(0, 1fr);
-  gap: 0;
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
   margin: 5px 0 14px;
   padding: 8px 0;
   text-align: left;
 }
-.toc-number { font-size: 16px; line-height: 1.8; }
-.toc-content { min-width: 0; }
+.toc-number { width: 1.7em; padding: 8px 0; font-size: 16px; line-height: 1.8; vertical-align: top; }
+.toc-content { min-width: 0; padding: 8px 0; vertical-align: top; }
 .wechat-preview .toc-content p { margin: 0; padding: 0; font-size: 16px; line-height: 1.8; text-align: left; }
 .toc-title-en { color: #000; font-weight: 700; }
 .toc-title-cn { color: #000; }
@@ -675,7 +674,6 @@ main,
     border-left: 0;
   }
   .composer-heading { display: block; }
-  .save-status { display: inline-block; margin-top: 14px; }
   .composer-grid { grid-template-columns: 1fr; }
   .editor-panel, .preview-panel { border-left: 0; border-top: 1px solid var(--line); }
   .site-footer { display: block; }

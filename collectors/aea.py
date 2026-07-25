@@ -20,6 +20,10 @@ NON_RESEARCH_PATTERN = re.compile(
     r"\bnobel lecture\b|^comment on\b|:\s*comment$|^reply to",
     re.IGNORECASE,
 )
+MONTH_YEAR_PATTERN = re.compile(
+    r"\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{4})\b",
+    re.IGNORECASE,
+)
 
 
 def _session() -> requests.Session:
@@ -142,6 +146,13 @@ def fetch_current_issue(current_issue_url: str) -> dict[str, Any]:
     match = re.search(r"Vol\.\s*(\d+),\s*No\.\s*(\d+)", header, flags=re.IGNORECASE)
     volume, issue = match.groups() if match else ("", "")
 
+    publication_date = ""
+    for candidate in [header, *[_text(node) for node in soup.select("h1, h2, h3, title")]]:
+        month_match = MONTH_YEAR_PATTERN.search(candidate)
+        if month_match:
+            publication_date = month_match.group(0)
+            break
+
     ordered_ids: list[str] = []
     for article in soup.select("article.journal-article"):
         classes = set(article.get("class", []))
@@ -204,7 +215,7 @@ def fetch_current_issue(current_issue_url: str) -> dict[str, Any]:
         "journal_name": "American Economic Review",
         "volume": volume,
         "issue": issue,
-        "publication_date": "",
+        "publication_date": publication_date,
         "source_url": current_issue_url,
         "retrieved_at": now,
         "expected_article_count": len(articles),

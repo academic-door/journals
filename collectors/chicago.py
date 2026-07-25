@@ -282,6 +282,13 @@ def _parse_issue_page(html: bytes | str, source_url: str) -> dict[str, Any]:
                 volume, issue = match.groups()
                 break
 
+    header_publication_date = ""
+    for candidate in header_candidates:
+        month_match = MONTH_YEAR_PATTERN.search(candidate)
+        if month_match:
+            header_publication_date = month_match.group(0)
+            break
+
     publication_date = str(
         _meta_content(
             soup,
@@ -291,7 +298,9 @@ def _parse_issue_page(html: bytes | str, source_url: str) -> dict[str, Any]:
             "prism.publicationdate",
         )
     )
-    if not publication_date:
+    if header_publication_date:
+        publication_date = header_publication_date
+    elif not publication_date:
         date_nodes = soup.select(
             ".issue-date, .issue-info__date, "
             "[class*='issue'][class*='date'], .journalMeta"
