@@ -497,7 +497,7 @@ def _parse_article_page(
         ),
         "sequence": seed["source_sequence"],
         "source_sequence": seed["source_sequence"],
-        "article_type": "research-article",
+        "article_type": seed.get("article_type", "research-article"),
         "title_en": title,
         "title_cn": "",
         "authors": authors,
@@ -571,7 +571,7 @@ def _fetch_detail_safe(
             ),
             "sequence": seed["source_sequence"],
             "source_sequence": seed["source_sequence"],
-            "article_type": "unknown",
+            "article_type": seed.get("article_type", "unknown"),
             "title_en": seed["title_en"],
             "title_cn": "",
             "authors": list(seed.get("authors", [])),
@@ -614,10 +614,12 @@ def fetch_current_issue(
             "section": item["section"],
         }
         for item in official_items
-        if item["article_type"] != "research-article"
+        if item["article_type"] not in {"research-article", "comment"}
     ]
-    research_seeds = [
-        item for item in official_items if item["article_type"] == "research-article"
+    publishable_seeds = [
+        item
+        for item in official_items
+        if item["article_type"] in {"research-article", "comment"}
     ]
 
     def fetch(seed: dict[str, Any]) -> dict[str, Any]:
@@ -629,7 +631,7 @@ def fetch_current_issue(
         )
 
     with ThreadPoolExecutor(max_workers=max(1, max_workers)) as pool:
-        articles = list(pool.map(fetch, research_seeds))
+        articles = list(pool.map(fetch, publishable_seeds))
 
     source_order = [article["source_sequence"] for article in articles]
     order_preserved = source_order == sorted(source_order)
@@ -645,7 +647,7 @@ def fetch_current_issue(
     translation_complete = sum(
         bool(article["title_cn"] and article["abstract_cn"]) for article in articles
     )
-    roster_match = len(articles) == len(research_seeds)
+    roster_match = len(articles) == len(publishable_seeds)
 
     flags = list(parsed["flags"])
     if not (volume and issue):
@@ -672,7 +674,7 @@ def fetch_current_issue(
         "publication_date": parsed["publication_date"],
         "source_url": current_issue_url,
         "retrieved_at": now,
-        "expected_article_count": len(research_seeds),
+        "expected_article_count": len(publishable_seeds),
         "research_article_count": len(articles),
         "status": "ready" if not flags else "incomplete",
         "development_sample": False,
