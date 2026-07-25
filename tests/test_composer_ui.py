@@ -57,6 +57,17 @@ class ComposerUiTest(unittest.TestCase):
             )
             self.assertRegex(issue["publication_date"], r"(?:\d{4}-\d{2}|\d{4}年\d+月|[A-Za-z]+\s+\d{4})")
 
+    def test_issue_period_display_uses_spaced_chinese_date(self):
+        self.assertIn("return `${iso[1]} 年 ${Number(iso[2])} 月`;", self.page)
+        self.assertIn("return `${month[2]} 年 ${months[month[1].toLowerCase()]} 月`;", self.page)
+
+    def test_homepage_uses_concise_abstract_labels(self):
+        explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(encoding="utf-8")
+        self.assertIn('class="abstract-label">Abstract</p>', explorer)
+        self.assertIn('class="abstract-label">摘要</p>', explorer)
+        self.assertNotIn('class="abstract-label">English Abstract</p>', explorer)
+        self.assertNotIn('class="abstract-label">中文摘要</p>', explorer)
+
 
 if __name__ == "__main__":
     unittest.main()

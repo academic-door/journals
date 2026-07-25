@@ -166,11 +166,11 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         </header>
         <div class="abstract-grid">
           <section class="abstract-panel abstract-en" aria-label="英文摘要">
-            <p class="abstract-label">English Abstract</p>
+            <p class="abstract-label">Abstract</p>
             <p>${escapeHtml(article.abstract_en || "English abstract pending.")}</p>
           </section>
           <section class="abstract-panel abstract-cn" aria-label="中文摘要">
-            <p class="abstract-label">中文摘要</p>
+            <p class="abstract-label">摘要</p>
             ${article.abstract_cn
               ? `<p>${escapeHtml(article.abstract_cn)}</p>`
               : '<p class="translation-pending">中文摘要正在整理。</p>'}
