@@ -32,6 +32,30 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn("#wechat-preview ${value}", self.page)
         self.assertIn("@import|@font-face|url", self.page)
         self.assertIn("image-set", self.page)
+        self.assertIn('css.includes("\\\\")', self.page)
+
+    def test_wechat_toc_uses_original_hanging_indent_layout(self):
+        self.assertIn('<p class="toc-item">', self.page)
+        self.assertIn('<br/><span class="toc-title-cn">', self.page)
+        self.assertIn('"textIndent"', self.page)
+        self.assertIn('${ordered[1]}. ${renderInline(ordered[2])}', self.page)
+        self.assertNotIn('<span class="toc-number">', self.page)
+        self.assertNotIn('<table class="toc-item"', self.page)
+
+    def test_rich_copy_does_not_freeze_mobile_preview_dimensions(self):
+        properties = self.page.split("const properties = [", 1)[1].split("];", 1)[0]
+        for dimension in ('"width"', '"minWidth"', '"maxWidth"', '"height"', '"minHeight"', '"maxHeight"'):
+            self.assertNotIn(dimension, properties)
+
+    def test_issue_periods_are_present_in_public_snapshots(self):
+        import json
+
+        for journal_id in ("aer", "jpe", "qje", "res", "ecta"):
+            issue = json.loads(
+                (ROOT / "public/api/v1/journals" / journal_id / "issues/current.json")
+                .read_text(encoding="utf-8")
+            )
+            self.assertRegex(issue["publication_date"], r"(?:\d{4}-\d{2}|\d{4}年\d+月|[A-Za-z]+\s+\d{4})")
 
 
 if __name__ == "__main__":
