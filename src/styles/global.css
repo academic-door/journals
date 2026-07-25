@@ -309,6 +309,7 @@ main,
 }
 .toolbar-actions { display: flex; flex-wrap: wrap; gap: 8px; }
 .toolbar-actions { margin-left: auto; }
+.journal-toolbar .button.active { color: white; background: var(--green); border-color: var(--green); }
 .composer-source { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 0.78rem; font-weight: 750; }
 .composer-source select {
   min-height: 40px;

@@ -135,13 +135,13 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     const customCss = document.querySelector("#custom-css");
     const customCssStatus = document.querySelector("#custom-css-status");
     const customStyle = document.querySelector("#composer-custom-style");
-    const DEFAULT_STYLE = {
+    const DEFAULT_STYLE = Object.freeze({
       fontSize: "14",
       lineHeight: "1.75",
       fontFamily: "classic",
       accent: "#ef7060",
       customCss: "",
-    };
+    });
     const FONT_FAMILIES = {
       classic: 'Optima, "Microsoft YaHei", "PingFang SC", serif',
       sans: '"PingFang SC", "Microsoft YaHei", Arial, sans-serif',
@@ -158,6 +158,16 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       String(value).replace(/[&<>"']/g, (character) => ({
         "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
       }[character]));
+
+    const chinaRelevance = (article) => {
+      if (article.china_relevance?.status === "yes") return article.china_relevance;
+      const title = `${article.title_en || ""} ${article.title_cn || ""}`;
+      const abstract = `${article.abstract_en || ""} ${article.abstract_cn || ""}`;
+      const strong = /(?:\b(?:evidence from|in|for|of|among|across)\s+(?:rural\s+)?China\b|\bChinese\s+(?:firms|households|cities|workers|students|manufacturers|exporters|provinces)\b|中国(?:企业|家庭|城市|农村|制造|出口|省份|劳动力|学生))/i;
+      const titleMatch = /\bChina(?:'s|ese)?\b|\bChinese\b|中国|北京|上海|台湾|香港/i.test(title);
+      const abstractMatch = strong.test(abstract);
+      return { status: titleMatch || abstractMatch ? "yes" : "no" };
+    };
 
     const renderInline = (value) =>
       escapeHtml(value)
@@ -239,11 +249,11 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       const raw = String(value).trim();
       if (!raw) return "";
       const iso = raw.match(/^(\d{4})-(\d{2})/);
-      if (iso) return `${iso[1]}年${Number(iso[2])}月`;
+      if (iso) return `${iso[1]} 年 ${Number(iso[2])} 月`;
       const month = raw.match(/^(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{4})$/i);
       if (!month) return raw;
       const months = { january: 1, february: 2, march: 3, april: 4, may: 5, june: 6, july: 7, august: 8, september: 9, october: 10, november: 11, december: 12 };
-      return `${month[2]}年${months[month[1].toLowerCase()]}月`;
+      return `${month[2]} 年 ${months[month[1].toLowerCase()]} 月`;
     };
 
     const scopedCustomCss = (css) => {
@@ -323,12 +333,14 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
     const articleMarkdown = (issue, selected) => {
       const articles = issue.articles.filter((article) => selected.has(article.paper_id));
+      const chinaArticles = articles.filter((article) => chinaRelevance(article).status === "yes");
       const period = formatIssuePeriod(issue.publication_date);
       const intro = issue.development_sample
         ? `> 当前为开发样板，正式发布前请确认完整文章数和摘要。`
         : [
             period ? `> ${period}` : "",
             `> ${issue.journal_name} Vol. ${issue.volume}, No. ${issue.issue} 共收录 ${articles.length} 篇研究论文。`,
+            chinaArticles.length ? `> 与中国相关的研究有 ${chinaArticles.length} 篇（第 ${chinaArticles.map((article) => article.sequence).join("、")} 篇）。` : "",
           ].filter(Boolean).join("\n");
       const toc = articles.map((article, index) =>
         `${index + 1}. **${article.title_en}**\n   ${article.title_cn || "中文标题待补全"}\n   ${article.authors.join(", ")}`
