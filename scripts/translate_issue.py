@@ -14,6 +14,7 @@ import requests
 
 
 GITHUB_MODELS_ENDPOINT = "https://models.github.ai/inference/chat/completions"
+GOOGLE_TRANSLATE_ENDPOINT = "https://translate.googleapis.com/translate_a/single"
 DEFAULT_MODEL = "openai/gpt-4.1"
 PROMPT_VERSION = "academic-door-abstract-zh-v2"
 NUMBER_PATTERN = re.compile(
@@ -66,6 +67,38 @@ def _numbers(value: str) -> list[str]:
 def _source_hash(article: dict[str, Any]) -> str:
     source = f"{article.get('title_en', '')}\n{article.get('abstract_en', '')}"
     return sha256(source.encode("utf-8")).hexdigest()
+
+
+def _alpha_index(index: int) -> str:
+    value = ""
+    current = index
+    while True:
+        current, remainder = divmod(current, 26)
+        value = chr(ord("A") + remainder) + value
+        if current == 0:
+            return value
+        current -= 1
+
+
+def _protect_numbers(value: str) -> tuple[str, dict[str, str]]:
+    replacements: dict[str, str] = {}
+
+    def replace(match: re.Match[str]) -> str:
+        token = f"ATGNUM{_alpha_index(len(replacements))}END"
+        number = match.group("number")
+        if match.group("percent_word") and not number.endswith("%"):
+            number += "%"
+        replacements[token] = number
+        return token
+
+    return NUMBER_PATTERN.sub(replace, value), replacements
+
+
+def _restore_numbers(value: str, replacements: dict[str, str]) -> str:
+    restored = value
+    for token, number in replacements.items():
+        restored = re.sub(re.escape(token), number, restored, flags=re.IGNORECASE)
+    return restored
 
 
 def validate_translation(article: dict[str, Any], translated: dict[str, Any]) -> None:
@@ -165,10 +198,84 @@ def request_translation(
             }
         except (requests.RequestException, KeyError, IndexError, TranslationError) as error:
             last_error = error
+            if (
+                isinstance(error, requests.HTTPError)
+                and error.response is not None
+                and error.response.status_code in {401, 403}
+            ):
+                break
             if attempt + 1 < retries:
                 time.sleep(2**attempt)
     raise TranslationError(
         f"Translation failed after {retries} attempts: {last_error}"
+    )
+
+
+def _google_translate_text(
+    value: str,
+    *,
+    session: requests.Session | None = None,
+    timeout: int = 90,
+) -> str:
+    client = session or requests.Session()
+    protected_value, number_replacements = _protect_numbers(value)
+    response = client.post(
+        GOOGLE_TRANSLATE_ENDPOINT,
+        params={"client": "gtx", "sl": "en", "tl": "zh-CN", "dt": "t"},
+        data={"q": protected_value},
+        headers={"User-Agent": "Academic-Door-Journals/1.0"},
+        timeout=timeout,
+    )
+    response.raise_for_status()
+    body = response.json()
+    try:
+        translated = "".join(
+            str(segment[0]) for segment in body[0] if segment and segment[0]
+        ).strip()
+    except (IndexError, TypeError) as error:
+        raise TranslationError("Google Translate returned an invalid response") from error
+    if not translated:
+        raise TranslationError("Google Translate returned an empty response")
+    restored = _restore_numbers(translated, number_replacements)
+    if re.search(r"ATGNUM[A-Z]+END", restored, flags=re.IGNORECASE):
+        raise TranslationError("Google Translate did not preserve numeric placeholders")
+    return restored
+
+
+def request_google_translation(
+    article: dict[str, Any],
+    *,
+    session: requests.Session | None = None,
+    retries: int = 3,
+    timeout: int = 90,
+) -> dict[str, str]:
+    last_error: Exception | None = None
+    for attempt in range(retries):
+        try:
+            translated = {
+                "title_cn": _google_translate_text(
+                    article["title_en"], session=session, timeout=timeout
+                ),
+                "abstract_cn": _google_translate_text(
+                    article["abstract_en"], session=session, timeout=timeout
+                ),
+            }
+            validate_translation(article, translated)
+            return translated
+        except (requests.RequestException, TranslationError) as error:
+            last_error = error
+            if attempt + 1 < retries:
+                time.sleep(2**attempt)
+    raise TranslationError(
+        f"Google fallback failed after {retries} attempts: {last_error}"
+    )
+
+
+def _write_cache(cache_path: Path, cache: dict[str, Any]) -> None:
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
+    cache_path.write_text(
+        json.dumps(cache, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
     )
 
 
@@ -192,6 +299,7 @@ def translate_missing(
     invalid_cache_count = 0
     upgraded_cache_count = 0
     failures: list[dict[str, str]] = []
+    fallback_count = 0
 
     for article in issue["articles"]:
         doi = article.get("doi", "")
@@ -214,20 +322,31 @@ def translate_missing(
             except TranslationError:
                 invalid_cache_count += 1
         try:
-            translated = request_translation(
-                article,
-                token=auth_token,
-                model=selected_model,
-                endpoint=endpoint,
-                session=session,
-            )
+            provider = "github-models"
+            try:
+                translated = request_translation(
+                    article,
+                    token=auth_token,
+                    model=selected_model,
+                    endpoint=endpoint,
+                    session=session,
+                )
+            except TranslationError as primary_error:
+                try:
+                    translated = request_google_translation(article, session=session)
+                    provider = "google-translate"
+                    fallback_count += 1
+                except TranslationError as fallback_error:
+                    raise TranslationError(
+                        f"Primary provider failed: {primary_error}; {fallback_error}"
+                    ) from fallback_error
             cache[doi] = {
                 **existing,
                 **translated,
                 "source_hash": source_hash,
                 "translation": {
-                    "provider": "github-models",
-                    "model": selected_model,
+                    "provider": provider,
+                    "model": selected_model if provider == "github-models" else "gtx-en-zh-CN",
                     "prompt_version": PROMPT_VERSION,
                     "translated_at": datetime.now(timezone.utc)
                     .replace(microsecond=0)
@@ -235,6 +354,7 @@ def translate_missing(
                 },
             }
             translated_count += 1
+            _write_cache(cache_path, cache)
         except TranslationError as error:
             failures.append(
                 {
@@ -244,17 +364,14 @@ def translate_missing(
                 }
             )
 
-    cache_path.parent.mkdir(parents=True, exist_ok=True)
-    cache_path.write_text(
-        json.dumps(cache, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
-    )
+    _write_cache(cache_path, cache)
     return {
         "journal_id": issue["journal_id"],
         "translated": translated_count,
         "invalid_cache_entries": invalid_cache_count,
         "upgraded_cache_entries": upgraded_cache_count,
         "failed": failures,
+        "fallback_translated": fallback_count,
         "model": selected_model,
         "prompt_version": PROMPT_VERSION,
     }

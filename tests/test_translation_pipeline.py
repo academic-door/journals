@@ -5,9 +5,13 @@ import tempfile
 import unittest
 from pathlib import Path
 
+import requests
+
 from scripts.translate_issue import (
     TranslationError,
     _extract_json,
+    _protect_numbers,
+    _restore_numbers,
     translate_missing,
     validate_translation,
 )
@@ -59,6 +63,40 @@ class ExplodingSession:
         raise AssertionError("valid cache entry must not call the model")
 
 
+class ForbiddenResponse:
+    status_code = 403
+
+    def raise_for_status(self) -> None:
+        error = requests.HTTPError("forbidden")
+        error.response = self
+        raise error
+
+
+class GoogleResponse:
+    def __init__(self, value: str) -> None:
+        self.value = value
+
+    def raise_for_status(self) -> None:
+        return None
+
+    def json(self) -> list:
+        return [[[self.value, "source", None, None]]]
+
+
+class FallbackSession:
+    def post(self, url, *args, **kwargs):
+        if "models.github.ai" in url:
+            return ForbiddenResponse()
+        source = kwargs["data"]["q"]
+        if "A Test of Policy" in source:
+            return GoogleResponse("政策检验")
+        return GoogleResponse(
+            "本文研究ATGNUMAEND项政策，发现排放下降ATGNUMBEND，同时福利提高。"
+            "估计过程完整保留了论文的研究设计、变量定义与结论方向，"
+            "并忠实呈现原始摘要中的经验结果。"
+        )
+
+
 class TranslationPipelineTests(unittest.TestCase):
     def test_extracts_fenced_json(self) -> None:
         data = _extract_json('```json\n{"title_cn":"测试","abstract_cn":"摘要"}\n```')
@@ -105,6 +143,13 @@ class TranslationPipelineTests(unittest.TestCase):
                     ),
                 },
             )
+
+    def test_protects_and_restores_numbers_without_reformatting(self) -> None:
+        source = "We estimate 1.15, 509, 7, and 9.3 percent in 2026."
+        protected, replacements = _protect_numbers(source)
+        self.assertNotIn("1.15", protected)
+        restored = _restore_numbers(protected, replacements)
+        self.assertEqual(restored, "We estimate 1.15, 509, 7, and 9.3% in 2026.")
 
     def test_writes_translation_cache_with_provenance(self) -> None:
         issue = {"journal_id": "test", "articles": [ARTICLE]}
@@ -176,6 +221,24 @@ class TranslationPipelineTests(unittest.TestCase):
         self.assertEqual(result["invalid_cache_entries"], 0)
         self.assertEqual(result["upgraded_cache_entries"], 1)
         self.assertRegex(cache[ARTICLE["doi"]]["source_hash"], r"^[0-9a-f]{64}$")
+
+    def test_falls_back_when_github_models_is_forbidden(self) -> None:
+        issue = {"journal_id": "test", "articles": [ARTICLE]}
+        with tempfile.TemporaryDirectory() as directory:
+            cache_path = Path(directory) / "test.json"
+            result = translate_missing(
+                issue,
+                cache_path,
+                token="forbidden-token",
+                session=FallbackSession(),
+            )
+            cache = json.loads(cache_path.read_text(encoding="utf-8"))
+        self.assertEqual(result["translated"], 1)
+        self.assertEqual(result["fallback_translated"], 1)
+        self.assertEqual(
+            cache[ARTICLE["doi"]]["translation"]["provider"],
+            "google-translate",
+        )
 
 
 if __name__ == "__main__":
