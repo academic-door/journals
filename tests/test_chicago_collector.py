@@ -43,6 +43,9 @@ class ChicagoCollectorTests(unittest.TestCase):
             f"{chicago.CHICAGO_ORIGIN}/doi/10.1086/740219": fixture(
                 "chicago_article_740219.html"
             ),
+            f"{chicago.CHICAGO_ORIGIN}/doi/10.1086/740220": fixture(
+                "chicago_article_740220_comment.html"
+            ),
             f"{chicago.CHICAGO_ORIGIN}/doi/10.1086/740221": fixture(
                 "chicago_article_740221.html"
             ),
@@ -63,18 +66,19 @@ class ChicagoCollectorTests(unittest.TestCase):
         self.assertEqual("7", issue["issue"])
         self.assertEqual("2026-07", issue["publication_date"])
         self.assertEqual(6, issue["quality"]["official_item_count"])
-        self.assertEqual(4, issue["quality"]["excluded_item_count"])
-        self.assertEqual(2, issue["research_article_count"])
+        self.assertEqual(3, issue["quality"]["excluded_item_count"])
+        self.assertEqual(3, issue["research_article_count"])
         self.assertTrue(issue["quality"]["roster_match"])
         self.assertTrue(issue["quality"]["order_preserved"])
 
-        self.assertEqual([1, 2], [item["sequence"] for item in issue["articles"]])
+        self.assertEqual([1, 2, 3], [item["sequence"] for item in issue["articles"]])
         self.assertEqual(
-            [2, 4], [item["source_sequence"] for item in issue["articles"]]
+            [2, 3, 4], [item["source_sequence"] for item in issue["articles"]]
         )
         self.assertEqual(
             [
                 "Training, Communications Patterns, and Spillovers inside Organizations",
+                "Comment on “Training and Spillovers”",
                 "Markets and Measurement",
             ],
             [item["title_en"] for item in issue["articles"]],
@@ -82,7 +86,6 @@ class ChicagoCollectorTests(unittest.TestCase):
         self.assertEqual(
             [
                 "front-matter",
-                "comment",
                 "turnaround-times",
                 "recent-referees",
             ],
@@ -92,7 +95,7 @@ class ChicagoCollectorTests(unittest.TestCase):
             ],
         )
         self.assertEqual(
-            [1, 3, 5, 6],
+            [1, 5, 6],
             [
                 item["source_sequence"]
                 for item in issue["quality"]["excluded_items"]
@@ -101,7 +104,7 @@ class ChicagoCollectorTests(unittest.TestCase):
 
     def test_article_metadata_uses_official_detail_pages(self):
         issue = self.fetch_offline_issue()
-        first, second = issue["articles"]
+        first, comment, second = issue["articles"]
 
         self.assertEqual(
             ["Miguel Espinosa", "Christopher Stanton"], first["authors"]
@@ -110,6 +113,9 @@ class ChicagoCollectorTests(unittest.TestCase):
         self.assertEqual("2026-05-27", first["publication_date"])
         self.assertIn("synthetic test abstract", first["abstract_en"])
         self.assertEqual("official-article-page", first["sources"]["authors"])
+        self.assertEqual("comment", comment["article_type"])
+        self.assertEqual("10.1086/740220", comment["doi"])
+        self.assertIn("synthetic scholarly comment", comment["abstract_en"])
         self.assertEqual(["Ada Example", "Ben Sample"], second["authors"])
         self.assertEqual("10.1086/740221", second["doi"])
         self.assertEqual("2026-07", second["publication_date"])
@@ -195,10 +201,10 @@ class ChicagoCollectorTests(unittest.TestCase):
         with patch.object(chicago, "_get", side_effect=fake_get):
             issue = chicago.fetch_current_issue(CURRENT_URL, max_workers=1)
 
-        self.assertEqual(2, issue["research_article_count"])
-        self.assertEqual(1, issue["quality"]["detail_failure_count"])
+        self.assertEqual(3, issue["research_article_count"])
+        self.assertEqual(2, issue["quality"]["detail_failure_count"])
         self.assertIn("article_detail_fetch_incomplete", issue["quality"]["flags"])
-        self.assertEqual("unknown", issue["articles"][0]["article_type"])
+        self.assertEqual("research-article", issue["articles"][0]["article_type"])
         self.assertEqual(
             ["detail_fetch_failed:Timeout"],
             issue["articles"][0]["quality_flags"],
