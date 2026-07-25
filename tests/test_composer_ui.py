@@ -68,6 +68,18 @@ class ComposerUiTest(unittest.TestCase):
         self.assertNotIn('class="abstract-label">English Abstract</p>', explorer)
         self.assertNotIn('class="abstract-label">中文摘要</p>', explorer)
 
+    def test_china_filter_and_traceable_relevance_hook_exist(self):
+        explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(encoding="utf-8")
+        self.assertIn('id="china-filter"', explorer)
+        self.assertIn("china_relevance", explorer)
+        self.assertIn("state.chinaOnly", explorer)
+        self.assertIn("chinaRelevance(article)", self.page)
+        self.assertIn("与中国相关的研究有", self.page)
+
+    def test_classic_theme_defaults_are_frozen(self):
+        self.assertIn("const DEFAULT_STYLE = Object.freeze({", self.page)
+        self.assertIn('value="wechat-default">学术传送门经典（默认）', self.page)
+
 
 if __name__ == "__main__":
     unittest.main()

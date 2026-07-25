@@ -104,6 +104,16 @@
         "quality_flags": {
           "type": "array",
           "items": { "type": "string" }
+        },
+        "china_relevance": {
+          "type": "object",
+          "properties": {
+            "status": { "enum": ["yes", "no", "uncertain"] },
+            "evidence": { "type": "string" },
+            "matched_terms": { "type": "array", "items": { "type": "string" } },
+            "source": { "type": "string" }
+          },
+          "additionalProperties": false
         }
       }
     }
