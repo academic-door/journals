@@ -34,10 +34,11 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn("image-set", self.page)
         self.assertIn('css.includes("\\\\")', self.page)
 
-    def test_wechat_toc_uses_table_layout_for_copy_compatibility(self):
-        self.assertIn('<table class="toc-item" role="presentation">', self.page)
-        self.assertIn("borderCollapse", self.page)
-        self.assertNotIn('<section class="toc-item">', self.page)
+    def test_wechat_toc_uses_original_hanging_indent_layout(self):
+        self.assertIn('<p class="toc-item">', self.page)
+        self.assertIn('<br/><span class="toc-title-cn">', self.page)
+        self.assertIn('"textIndent"', self.page)
+        self.assertNotIn('<table class="toc-item"', self.page)
 
     def test_issue_periods_are_present_in_public_snapshots(self):
         import json

@@ -196,14 +196,11 @@ const base = import.meta.env.BASE_URL.endsWith("/")
             cursor += 1;
           }
           output.push(`
-            <table class="toc-item" role="presentation"><tbody><tr>
-              <td class="toc-number">${ordered[1]}.</td>
-              <td class="toc-content">
-                <p class="toc-title-en">${renderInline(ordered[2])}</p>
-                ${details[0] ? `<p class="toc-title-cn">${renderInline(details[0])}</p>` : ""}
-                ${details[1] ? `<p class="toc-authors">${renderInline(details[1])}</p>` : ""}
-              </td>
-            </tr></tbody></table>`);
+            <p class="toc-item">
+              <span class="toc-number">${ordered[1]}. </span><span class="toc-title-en">${renderInline(ordered[2])}</span>
+              ${details[0] ? `<br/><span class="toc-title-cn">${renderInline(details[0])}</span>` : ""}
+              ${details[1] ? `<br/><span class="toc-authors">${renderInline(details[1])}</span>` : ""}
+            </p>`);
           index = cursor - 1;
           continue;
         }
@@ -225,7 +222,14 @@ const base = import.meta.env.BASE_URL.endsWith("/")
           inToc = false;
           output.push(`<h1>${renderInline(line.slice(2))}</h1>`);
         } else if (line.startsWith("> ")) {
-          output.push(`<blockquote>${renderInline(line.slice(2))}</blockquote>`);
+          const quotes = [line.slice(2)];
+          let cursor = index + 1;
+          while (cursor < lines.length && lines[cursor].trimStart().startsWith("> ")) {
+            quotes.push(lines[cursor].trimStart().slice(2));
+            cursor += 1;
+          }
+          output.push(`<blockquote>${quotes.map(renderInline).join("<br/>")}</blockquote>`);
+          index = cursor - 1;
         } else if (line.startsWith("- ")) {
           output.push(`<p class="bullet">• ${renderInline(line.slice(2))}</p>`);
         } else {
@@ -327,7 +331,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       const period = formatIssuePeriod(issue.publication_date);
       const intro = issue.development_sample
         ? `> 当前为开发样板，正式发布前请确认完整文章数和摘要。`
-        : `> ${issue.journal_name} ${period ? `${period} ` : ""}Vol. ${issue.volume}, No. ${issue.issue} 共收录 ${articles.length} 篇研究论文。`;
+        : [
+            period ? `> ${period}` : "",
+            `> ${issue.journal_name} Vol. ${issue.volume}, No. ${issue.issue} 共收录 ${articles.length} 篇研究论文。`,
+          ].filter(Boolean).join("\n");
       const toc = articles.map((article, index) =>
         `${index + 1}. **${article.title_en}**\n   ${article.title_cn || "中文标题待补全"}\n   ${article.authors.join(", ")}`
       ).join("\n\n");
@@ -467,7 +474,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         "borderRadius", "display", "textDecoration", "boxShadow", "boxSizing",
         "width", "minWidth", "maxWidth", "height", "minHeight", "maxHeight",
         "overflowX", "overflowY", "whiteSpace", "listStyleType", "verticalAlign",
-        "opacity", "borderCollapse", "tableLayout", "wordBreak"
+        "opacity", "textIndent", "wordBreak"
       ];
       originalNodes.forEach((node, index) => {
         const computed = getComputedStyle(node);
