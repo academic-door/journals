@@ -38,6 +38,8 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn('<p class="toc-item">', self.page)
         self.assertIn('<br/><span class="toc-title-cn">', self.page)
         self.assertIn('"textIndent"', self.page)
+        self.assertIn('${ordered[1]}. ${renderInline(ordered[2])}', self.page)
+        self.assertNotIn('<span class="toc-number">', self.page)
         self.assertNotIn('<table class="toc-item"', self.page)
 
     def test_rich_copy_does_not_freeze_mobile_preview_dimensions(self):

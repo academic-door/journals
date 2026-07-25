@@ -195,12 +195,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
             details.push(detail);
             cursor += 1;
           }
-          output.push(`
-            <p class="toc-item">
-              <span class="toc-number">${ordered[1]}. </span><span class="toc-title-en">${renderInline(ordered[2])}</span>
-              ${details[0] ? `<br/><span class="toc-title-cn">${renderInline(details[0])}</span>` : ""}
-              ${details[1] ? `<br/><span class="toc-authors">${renderInline(details[1])}</span>` : ""}
-            </p>`);
+          output.push(`<p class="toc-item">${ordered[1]}. ${renderInline(ordered[2])}${details[0] ? `<br/><span class="toc-title-cn">${renderInline(details[0])}</span>` : ""}${details[1] ? `<br/><span class="toc-authors">${renderInline(details[1])}</span>` : ""}</p>`);
           index = cursor - 1;
           continue;
         }
