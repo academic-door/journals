@@ -20,10 +20,17 @@ NON_RESEARCH_PATTERN = re.compile(
     r"front\s*matter|back\s*matter|editorial\s*board|table\s*of\s*contents|"
     r"recent\s*referees|turnaround\s*times|"
     r"^correction(?:\s+to\b|:|\s*$)|^erratum(?:\s+to\b|:|\s*$)|"
-    r"\ba\s+comment\b|^comment(?:\s+on)?\b|^reply(?:\s+to)?\b|"
     r"submission\s+of\s+manuscripts",
     re.IGNORECASE,
 )
+COMMENT_PATTERN = re.compile(
+    r"\ba\s+comment\b|^comment(?:\s+on)?\b|^reply(?:\s+to)?\b|:\s*(?:a\s+)?comment\s*$|:\s*reply\s*$",
+    re.IGNORECASE,
+)
+
+
+def _article_type(title: str) -> str:
+    return "comment" if COMMENT_PATTERN.search(title or "") else "research-article"
 MONTHS_BY_ISSUE = {
     "0022-3808": {
         str(index): month
@@ -455,7 +462,7 @@ def fetch_official_rss_issue(
                 "paper_id": f"doi:{doi}" if doi else f"{journal_id}:{sequence}",
                 "sequence": sequence,
                 "source_sequence": _page_start(rss_item["page_start"]),
-                "article_type": "research-article",
+                "article_type": _article_type(title),
                 "title_en": title or _clean_markup(_first(crossref.get("title"))),
                 "title_cn": "",
                 "authors": authors,
@@ -650,7 +657,7 @@ def fetch_crossref_current_issue(
                 "paper_id": f"doi:{doi}" if doi else f"{journal_id}:{sequence}",
                 "sequence": sequence,
                 "source_sequence": _page_start(str(item.get("page", ""))),
-                "article_type": "research-article",
+                "article_type": _article_type(title),
                 "title_en": title,
                 "title_cn": "",
                 "authors": authors,
