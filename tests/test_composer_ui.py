@@ -40,6 +40,11 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn('"textIndent"', self.page)
         self.assertNotIn('<table class="toc-item"', self.page)
 
+    def test_rich_copy_does_not_freeze_mobile_preview_dimensions(self):
+        properties = self.page.split("const properties = [", 1)[1].split("];", 1)[0]
+        for dimension in ('"width"', '"minWidth"', '"maxWidth"', '"height"', '"minHeight"', '"maxHeight"'):
+            self.assertNotIn(dimension, properties)
+
     def test_issue_periods_are_present_in_public_snapshots(self):
         import json
 
