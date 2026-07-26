@@ -27,6 +27,60 @@ NUMBER_PATTERN = re.compile(
     re.IGNORECASE,
 )
 CJK_PATTERN = re.compile(r"[\u3400-\u9fff]")
+# A numeric sentinel is intentionally used because the numeric-protection layer
+# guarantees that the translation service cannot rewrite it.
+GOOGLE_SECTION_MARKER = "9876543210123456789"
+NUMBER_WORDS_ZH = {
+    "zero": "零",
+    "one": "一",
+    "two": "二",
+    "three": "三",
+    "four": "四",
+    "five": "五",
+    "six": "六",
+    "seven": "七",
+    "eight": "八",
+    "nine": "九",
+    "ten": "十",
+    "eleven": "十一",
+    "twelve": "十二",
+    "thirteen": "十三",
+    "fourteen": "十四",
+    "fifteen": "十五",
+    "sixteen": "十六",
+    "seventeen": "十七",
+    "eighteen": "十八",
+    "nineteen": "十九",
+    "twenty": "二十",
+    "first": "第一",
+    "second": "第二",
+    "third": "第三",
+    "fourth": "第四",
+    "fifth": "第五",
+    "sixth": "第六",
+    "seventh": "第七",
+    "eighth": "第八",
+    "ninth": "第九",
+    "tenth": "第十",
+    "hundred": "百",
+    "thousand": "千",
+    "million": "百万",
+    "billion": "十亿",
+}
+MONTH_WORDS_ZH = {
+    "January": "一月",
+    "February": "二月",
+    "March": "三月",
+    "April": "四月",
+    "May": "五月",
+    "June": "六月",
+    "July": "七月",
+    "August": "八月",
+    "September": "九月",
+    "October": "十月",
+    "November": "十一月",
+    "December": "十二月",
+}
 
 
 class TranslationError(RuntimeError):
@@ -91,7 +145,28 @@ def _protect_numbers(value: str) -> tuple[str, dict[str, str]]:
         replacements[token] = number
         return token
 
-    return NUMBER_PATTERN.sub(replace, value), replacements
+    protected = NUMBER_PATTERN.sub(replace, value)
+    month_pattern = re.compile(
+        r"\b(" + "|".join(MONTH_WORDS_ZH) + r")\b(?=\s+ATGNUM[A-Z]+END)"
+    )
+
+    def replace_month(match: re.Match[str]) -> str:
+        token = f"ATGNUM{_alpha_index(len(replacements))}END"
+        replacements[token] = MONTH_WORDS_ZH[match.group(0)]
+        return token
+
+    protected = month_pattern.sub(replace_month, protected)
+    word_pattern = re.compile(
+        r"\b(" + "|".join(sorted(NUMBER_WORDS_ZH, key=len, reverse=True)) + r")\b",
+        re.IGNORECASE,
+    )
+
+    def replace_word(match: re.Match[str]) -> str:
+        token = f"ATGNUM{_alpha_index(len(replacements))}END"
+        replacements[token] = NUMBER_WORDS_ZH[match.group(0).lower()]
+        return token
+
+    return word_pattern.sub(replace_word, protected), replacements
 
 
 def _restore_numbers(value: str, replacements: dict[str, str]) -> str:
@@ -99,6 +174,15 @@ def _restore_numbers(value: str, replacements: dict[str, str]) -> str:
     for token, number in replacements.items():
         restored = re.sub(re.escape(token), number, restored, flags=re.IGNORECASE)
     return restored
+
+
+def _canonicalize_arabic_numbers(source: str, translated: str) -> str:
+    source_numbers = _numbers(source)
+    translated_matches = list(NUMBER_PATTERN.finditer(translated))
+    if len(source_numbers) != len(translated_matches):
+        return translated
+    values = iter(source_numbers)
+    return NUMBER_PATTERN.sub(lambda _match: next(values), translated)
 
 
 def validate_translation(article: dict[str, Any], translated: dict[str, Any]) -> None:
@@ -167,10 +251,19 @@ def request_translation(
     if not token:
         raise TranslationError("GitHub Models token is required")
     client = session or requests.Session()
+    protected_title, title_replacements = _protect_numbers(article["title_en"])
+    protected_abstract, abstract_replacements = _protect_numbers(
+        article["abstract_en"]
+    )
+    protected_article = {
+        **article,
+        "title_en": protected_title,
+        "abstract_en": protected_abstract,
+    }
     payload = {
         "model": model,
         "temperature": 0,
-        "messages": _prompt(article),
+        "messages": _prompt(protected_article),
     }
     headers = {
         "Accept": "application/vnd.github+json",
@@ -191,6 +284,21 @@ def request_translation(
             body = response.json()
             content = body["choices"][0]["message"]["content"]
             translated = _extract_json(content)
+            translated = {
+                "title_cn": _canonicalize_arabic_numbers(
+                    article["title_en"],
+                    _restore_numbers(
+                        str(translated.get("title_cn", "")), title_replacements
+                    ),
+                ),
+                "abstract_cn": _canonicalize_arabic_numbers(
+                    article["abstract_en"],
+                    _restore_numbers(
+                        str(translated.get("abstract_cn", "")),
+                        abstract_replacements,
+                    ),
+                ),
+            }
             validate_translation(article, translated)
             return {
                 "title_cn": translated["title_cn"].strip(),
@@ -237,6 +345,7 @@ def _google_translate_text(
     if not translated:
         raise TranslationError("Google Translate returned an empty response")
     restored = _restore_numbers(translated, number_replacements)
+    restored = _canonicalize_arabic_numbers(value, restored)
     if re.search(r"ATGNUM[A-Z]+END", restored, flags=re.IGNORECASE):
         raise TranslationError("Google Translate did not preserve numeric placeholders")
     return restored
@@ -252,12 +361,24 @@ def request_google_translation(
     last_error: Exception | None = None
     for attempt in range(retries):
         try:
+            combined = (
+                f"{article['title_en']}\n{GOOGLE_SECTION_MARKER}\n"
+                f"{article['abstract_en']}"
+            )
+            combined_cn = _google_translate_text(
+                combined, session=session, timeout=timeout
+            )
+            parts = re.split(
+                GOOGLE_SECTION_MARKER, combined_cn, maxsplit=1, flags=re.IGNORECASE
+            )
+            if len(parts) != 2:
+                raise TranslationError("Google Translate did not preserve section marker")
             translated = {
-                "title_cn": _google_translate_text(
-                    article["title_en"], session=session, timeout=timeout
+                "title_cn": _canonicalize_arabic_numbers(
+                    article["title_en"], parts[0].strip()
                 ),
-                "abstract_cn": _google_translate_text(
-                    article["abstract_en"], session=session, timeout=timeout
+                "abstract_cn": _canonicalize_arabic_numbers(
+                    article["abstract_en"], parts[1].strip()
                 ),
             }
             validate_translation(article, translated)

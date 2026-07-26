@@ -88,9 +88,8 @@ class FallbackSession:
         if "models.github.ai" in url:
             return ForbiddenResponse()
         source = kwargs["data"]["q"]
-        if "A Test of Policy" in source:
-            return GoogleResponse("政策检验")
         return GoogleResponse(
+            "政策检验\n9876543210123456789\n"
             "本文研究ATGNUMAEND项政策，发现排放下降ATGNUMBEND，同时福利提高。"
             "估计过程完整保留了论文的研究设计、变量定义与结论方向，"
             "并忠实呈现原始摘要中的经验结果。"
@@ -145,11 +144,17 @@ class TranslationPipelineTests(unittest.TestCase):
             )
 
     def test_protects_and_restores_numbers_without_reformatting(self) -> None:
-        source = "We estimate 1.15, 509, 7, and 9.3 percent in 2026."
+        source = (
+            "In January 2026 we estimate one effect: "
+            "1.15, 509, 7, and 9.3 percent."
+        )
         protected, replacements = _protect_numbers(source)
         self.assertNotIn("1.15", protected)
         restored = _restore_numbers(protected, replacements)
-        self.assertEqual(restored, "We estimate 1.15, 509, 7, and 9.3% in 2026.")
+        self.assertEqual(
+            restored,
+            "In 一月 2026 we estimate 一 effect: 1.15, 509, 7, and 9.3%.",
+        )
 
     def test_writes_translation_cache_with_provenance(self) -> None:
         issue = {"journal_id": "test", "articles": [ARTICLE]}
