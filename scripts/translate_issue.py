@@ -81,6 +81,38 @@ MONTH_WORDS_ZH = {
     "November": "十一月",
     "December": "十二月",
 }
+NUMBER_WORD_VALUES = {
+    word: index
+    for index, word in enumerate(
+        (
+            "zero",
+            "one",
+            "two",
+            "three",
+            "four",
+            "five",
+            "six",
+            "seven",
+            "eight",
+            "nine",
+            "ten",
+            "eleven",
+            "twelve",
+            "thirteen",
+            "fourteen",
+            "fifteen",
+            "sixteen",
+            "seventeen",
+            "eighteen",
+            "nineteen",
+            "twenty",
+        )
+    )
+}
+NUMBER_VALUES_ZH = {
+    value: NUMBER_WORDS_ZH[word]
+    for word, value in NUMBER_WORD_VALUES.items()
+}
 
 
 class TranslationError(RuntimeError):
@@ -111,6 +143,10 @@ def _extract_json(content: str) -> dict[str, Any]:
 def _numbers(value: str) -> list[str]:
     values: list[str] = []
     for match in NUMBER_PATTERN.finditer(value):
+        # Unit exponents such as ``year−1`` are commonly rendered as “每年” in
+        # Chinese. They describe a denominator, not a reported numeric result.
+        if match.start() > 0 and value[match.start() - 1] == "−":
+            continue
         number = match.group("number")
         if match.group("percent_word") and not number.endswith("%"):
             number += "%"
@@ -136,6 +172,26 @@ def _alpha_index(index: int) -> str:
 
 def _protect_numbers(value: str) -> tuple[str, dict[str, str]]:
     replacements: dict[str, str] = {}
+
+    range_pattern = re.compile(
+        r"(?<![A-Za-z0-9_])"
+        r"(?P<low>[+-]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
+        r"\s*[-–—]\s*"
+        r"(?P<high>[+-]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?%?)"
+        r"(?P<percent_word>\s+(?:percent|per\s+cent))?"
+        r"(?![A-Za-z0-9_])",
+        re.IGNORECASE,
+    )
+
+    def replace_range(match: re.Match[str]) -> str:
+        token = f"ATGNUM{_alpha_index(len(replacements))}END"
+        high = match.group("high")
+        if match.group("percent_word") and not high.endswith("%"):
+            high += "%"
+        replacements[token] = f"{match.group('low')}-{high}"
+        return token
+
+    value = range_pattern.sub(replace_range, value)
 
     def replace(match: re.Match[str]) -> str:
         token = f"ATGNUM{_alpha_index(len(replacements))}END"
@@ -185,14 +241,69 @@ def _canonicalize_arabic_numbers(source: str, translated: str) -> str:
     return NUMBER_PATTERN.sub(lambda _match: next(values), translated)
 
 
+def _normalize_written_number_translations(source: str, translated: str) -> str:
+    """Normalize valid Chinese renderings of English month/number words.
+
+    This prevents a translated ``December`` -> ``12月`` or ``three percent`` ->
+    ``3%`` from being mistaken for an invented Arabic number. Source Arabic
+    numbers remain subject to exact multiset validation.
+    """
+
+    normalized = translated
+    for month_index, (month, month_cn) in enumerate(MONTH_WORDS_ZH.items(), start=1):
+        source_count = len(re.findall(rf"\b{month}\b", source, flags=re.IGNORECASE))
+        for _ in range(source_count):
+            normalized, changed = re.subn(
+                rf"(?<!\d){month_index}\s*月",
+                month_cn,
+                normalized,
+                count=1,
+            )
+            if not changed:
+                break
+
+    words = "|".join(NUMBER_WORD_VALUES)
+    percent_pattern = re.compile(
+        rf"\b(?P<low>{words})(?:\s+to\s+(?P<high>{words}))?"
+        r"\s+(?:percent|per\s+cent)\b",
+        re.IGNORECASE,
+    )
+    written_percent_values: list[int] = []
+    for match in percent_pattern.finditer(source):
+        written_percent_values.append(NUMBER_WORD_VALUES[match.group("low").lower()])
+        if match.group("high"):
+            written_percent_values.append(
+                NUMBER_WORD_VALUES[match.group("high").lower()]
+            )
+    for value in written_percent_values:
+        normalized, _changed = re.subn(
+            rf"(?<![\d.]){value}\s*[%％](?!\d)",
+            f"百分之{NUMBER_VALUES_ZH[value]}",
+            normalized,
+            count=1,
+        )
+    return normalized
+
+
 def validate_translation(article: dict[str, Any], translated: dict[str, Any]) -> None:
     title_cn = str(translated.get("title_cn", "")).strip()
     abstract_cn = str(translated.get("abstract_cn", "")).strip()
-    if not title_cn or not abstract_cn:
+    comment_without_abstract = (
+        article.get("article_type") == "comment"
+        and not article.get("abstract_en")
+    )
+    if not title_cn or (not abstract_cn and not comment_without_abstract):
         raise TranslationError("Chinese title and abstract are both required")
-    if not CJK_PATTERN.search(title_cn) or not CJK_PATTERN.search(abstract_cn):
+    if not CJK_PATTERN.search(title_cn) or (
+        abstract_cn and not CJK_PATTERN.search(abstract_cn)
+    ):
         raise TranslationError("Translation must contain Chinese characters")
-    if len(abstract_cn) < min(80, max(30, int(len(article["abstract_en"]) * 0.15))):
+    minimum = (
+        10
+        if article.get("article_type") == "comment"
+        else min(80, max(30, int(len(article["abstract_en"]) * 0.15)))
+    )
+    if not comment_without_abstract and len(abstract_cn) < minimum:
         raise TranslationError("Chinese abstract is suspiciously short")
     if "```" in title_cn or "```" in abstract_cn:
         raise TranslationError("Translation must not contain Markdown fences")
@@ -251,15 +362,10 @@ def request_translation(
     if not token:
         raise TranslationError("GitHub Models token is required")
     client = session or requests.Session()
-    protected_title, title_replacements = _protect_numbers(article["title_en"])
-    protected_abstract, abstract_replacements = _protect_numbers(
-        article["abstract_en"]
-    )
-    protected_article = {
-        **article,
-        "title_en": protected_title,
-        "abstract_en": protected_abstract,
-    }
+    # Models preserve meaningful source numbers more reliably than opaque
+    # placeholders. Google Translate still uses placeholders below because it
+    # otherwise localizes formats; model output is guarded by exact validation.
+    protected_article = article
     payload = {
         "model": model,
         "temperature": 0,
@@ -287,15 +393,16 @@ def request_translation(
             translated = {
                 "title_cn": _canonicalize_arabic_numbers(
                     article["title_en"],
-                    _restore_numbers(
-                        str(translated.get("title_cn", "")), title_replacements
+                    _normalize_written_number_translations(
+                        article["title_en"],
+                        str(translated.get("title_cn", "")),
                     ),
                 ),
                 "abstract_cn": _canonicalize_arabic_numbers(
                     article["abstract_en"],
-                    _restore_numbers(
+                    _normalize_written_number_translations(
+                        article["abstract_en"],
                         str(translated.get("abstract_cn", "")),
-                        abstract_replacements,
                     ),
                 ),
             }
@@ -424,11 +531,17 @@ def translate_missing(
 
     for article in issue["articles"]:
         doi = article.get("doi", "")
-        if not doi or not article.get("abstract_en"):
+        comment_without_abstract = (
+            article.get("article_type") == "comment"
+            and not article.get("abstract_en")
+        )
+        if not doi or (not article.get("abstract_en") and not comment_without_abstract):
             continue
         existing = cache.get(doi, {})
         source_hash = _source_hash(article)
-        if existing.get("title_cn") and existing.get("abstract_cn"):
+        if existing.get("title_cn") and (
+            existing.get("abstract_cn") or comment_without_abstract
+        ):
             try:
                 validate_translation(article, existing)
                 if (

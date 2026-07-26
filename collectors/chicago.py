@@ -594,6 +594,8 @@ def _fetch_detail_safe(
 def fetch_current_issue(
     current_issue_url: str,
     *,
+    journal_id: str = "jpe",
+    journal_name: str = "Journal of Political Economy",
     timeout: int = DEFAULT_TIMEOUT,
     max_workers: int = 3,
 ) -> dict[str, Any]:
@@ -666,9 +668,9 @@ def fetch_current_issue(
     now = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     return {
         "schema_version": "1.0",
-        "issue_id": f"jpe-{volume or 'unknown'}-{issue or 'current'}",
-        "journal_id": "jpe",
-        "journal_name": "Journal of Political Economy",
+        "issue_id": f"{journal_id}-{volume or 'unknown'}-{issue or 'current'}",
+        "journal_id": journal_id,
+        "journal_name": journal_name,
         "volume": volume,
         "issue": issue,
         "publication_date": parsed["publication_date"],

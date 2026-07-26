@@ -10,6 +10,8 @@ import requests
 from scripts.translate_issue import (
     TranslationError,
     _extract_json,
+    _normalize_written_number_translations,
+    _numbers,
     _protect_numbers,
     _restore_numbers,
     translate_missing,
@@ -154,6 +156,26 @@ class TranslationPipelineTests(unittest.TestCase):
         self.assertEqual(
             restored,
             "In 一月 2026 we estimate 一 effect: 1.15, 509, 7, and 9.3%.",
+        )
+
+    def test_normalizes_months_and_written_percentages_before_validation(self) -> None:
+        source = (
+            "From December 2025, adoption rose from three to six percent "
+            "and later remained below two percent."
+        )
+        translated = "自2025年12月起，采用率从3%上升至6%，随后保持在2%以下。"
+        normalized = _normalize_written_number_translations(source, translated)
+        self.assertEqual(
+            normalized,
+            "自2025年十二月起，采用率从百分之三上升至百分之六，"
+            "随后保持在百分之二以下。",
+        )
+        self.assertEqual(_numbers(source), _numbers(normalized))
+
+    def test_ignores_inverse_unit_exponents_in_numeric_validation(self) -> None:
+        self.assertEqual(
+            _numbers("Carbon losses were 2.3 kt C year−1 and 4 USD year−1."),
+            ["2.3", "4"],
         )
 
     def test_writes_translation_cache_with_provenance(self) -> None:

@@ -882,6 +882,8 @@ def _error_issue(
     error: WileyCollectorError,
     *,
     retrieved_at: str,
+    journal_id: str = JOURNAL_ID,
+    journal_name: str = JOURNAL_NAME,
 ) -> dict[str, Any]:
     error_data: dict[str, Any] = {
         "code": error.code,
@@ -891,9 +893,9 @@ def _error_issue(
         error_data["http_status"] = error.status_code
     return {
         "schema_version": "1.0",
-        "issue_id": f"{JOURNAL_ID}-unknown-current",
-        "journal_id": JOURNAL_ID,
-        "journal_name": JOURNAL_NAME,
+        "issue_id": f"{journal_id}-unknown-current",
+        "journal_id": journal_id,
+        "journal_name": journal_name,
         "volume": "",
         "issue": "",
         "publication_date": "",
@@ -926,6 +928,8 @@ def _error_issue(
 def fetch_current_issue(
     current_issue_url: str,
     *,
+    journal_id: str = JOURNAL_ID,
+    journal_name: str = JOURNAL_NAME,
     attempts: int = DEFAULT_ATTEMPTS,
     timeout: tuple[float, float] = DEFAULT_TIMEOUT,
     max_workers: int = 3,
@@ -954,7 +958,13 @@ def fetch_current_issue(
             response.content, resolved_url
         )
     except WileyCollectorError as exc:
-        return _error_issue(current_issue_url, exc, retrieved_at=now)
+        return _error_issue(
+            current_issue_url,
+            exc,
+            retrieved_at=now,
+            journal_id=journal_id,
+            journal_name=journal_name,
+        )
 
     research_inventory = [item for item in inventory if item.is_research_article]
     excluded_items = [
@@ -1034,12 +1044,12 @@ def fetch_current_issue(
     ):
         flags.append("article_type_metadata_mismatch")
 
-    issue_id = f"{JOURNAL_ID}-{volume or 'unknown'}-{issue or 'current'}"
+    issue_id = f"{journal_id}-{volume or 'unknown'}-{issue or 'current'}"
     return {
         "schema_version": "1.0",
         "issue_id": issue_id,
-        "journal_id": JOURNAL_ID,
-        "journal_name": JOURNAL_NAME,
+        "journal_id": journal_id,
+        "journal_name": journal_name,
         "volume": volume,
         "issue": issue,
         "publication_date": publication_date,

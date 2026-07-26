@@ -86,14 +86,14 @@ class ComposerUiTest(unittest.TestCase):
         fields_page = (ROOT / "src/pages/fields/index.astro").read_text(encoding="utf-8")
         self.assertIn('collectionId="fields"', fields_page)
 
-    def test_field_collection_contains_first_five_a_tier_journals(self):
+    def test_field_collection_contains_all_a_tier_journals(self):
         import yaml
 
         config = yaml.safe_load((ROOT / "config/collections.yml").read_text(encoding="utf-8"))
-        self.assertEqual(
-            ["JDE", "JPubE", "JEEM", "JUE", "AJAE"],
-            config["collections"]["fields"]["journals"],
-        )
+        journals = config["collections"]["fields"]["journals"]
+        self.assertEqual(36, len(journals))
+        self.assertEqual(36, len(set(journals)))
+        self.assertTrue({"JDE", "JPubE", "JEEM", "JUE", "AJAE"}.issubset(journals))
 
 
 if __name__ == "__main__":

@@ -17,9 +17,16 @@ USER_AGENT = (
     "(non-profit academic metadata service; https://academic-door.github.io/)"
 )
 CROSSREF_API = "https://api.crossref.org"
+OPENALEX_API = "https://api.openalex.org"
 NON_RESEARCH_PATTERN = re.compile(
     r"front\s*matter|back\s*matter|editorial\s*board|table\s*of\s*contents|"
     r"recent\s*referees|turnaround\s*times|issue\s+information|"
+    r"^announcements?$|american\s+finance\s+association|annual\s+report|"
+    r"summaries\s+of\s+doctoral\s+dissertations|"
+    r"abstracts\s+of\s+papers\s+presented|editors?[’'＊]?\s+notes?|"
+    r"outstanding\s+doctoral\s+dissertation\s+award|"
+    r"recommendations?\s+for\s+further\s+reading|"
+    r"\baddendum\b|\bby\b.+\bpp\.|"
     r"^correction(?:\s+to\b|:|\s*$)|^erratum(?:\s+to\b|:|\s*$)|"
     r"submission\s+of\s+manuscripts",
     re.IGNORECASE,
@@ -138,6 +145,61 @@ def _page_start(value: str) -> int:
     return int(match.group(0)) if match else 10**9
 
 
+def _locator(item: dict[str, Any]) -> str:
+    """Return a stable page/e-locator used to recognize and sort issue items."""
+
+    return str(
+        item.get("page")
+        or item.get("article-number")
+        or item.get("publisher-id")
+        or ""
+    ).strip()
+
+
+def _abstract_from_inverted_index(value: Any) -> str:
+    if not isinstance(value, dict):
+        return ""
+    positions: list[tuple[int, str]] = []
+    for token, indexes in value.items():
+        if not isinstance(indexes, list):
+            continue
+        for index in indexes:
+            if isinstance(index, int):
+                positions.append((index, str(token)))
+    positions.sort()
+    return " ".join(token for _index, token in positions).strip()
+
+
+def _openalex_metadata(
+    session: requests.Session,
+    doi: str,
+    *,
+    timeout: int,
+) -> tuple[list[str], str, str]:
+    """Fetch missing author/abstract fields from OpenAlex by DOI."""
+
+    if not doi:
+        return [], "", ""
+    url = f"{OPENALEX_API}/works/https://doi.org/{doi}"
+    try:
+        payload = _get_json(session, url, timeout=timeout, attempts=2)
+    except MetadataFallbackError:
+        return [], "", url
+    authors: list[str] = []
+    for authorship in payload.get("authorships", []):
+        if not isinstance(authorship, dict):
+            continue
+        author = authorship.get("author", {})
+        if isinstance(author, dict):
+            name = str(author.get("display_name", "")).strip()
+            if name:
+                authors.append(name)
+    abstract = _abstract_from_inverted_index(
+        payload.get("abstract_inverted_index")
+    )
+    return authors, abstract, url
+
+
 def _date_year(item: dict[str, Any]) -> str:
     for key in ("published-print", "published", "issued", "published-online"):
         parts = item.get(key, {}).get("date-parts", [])
@@ -213,8 +275,11 @@ def _authors(item: dict[str, Any]) -> list[str]:
     return names
 
 
-def _repec_jpe_url(doi: str) -> str:
-    return f"https://ideas.repec.org/a/ucp/jpolec/doi{doi.replace('/', '-')}.html"
+def _repec_doi_url(doi: str, series_code: str = "ucp/jpolec") -> str:
+    return (
+        f"https://ideas.repec.org/a/{series_code.strip('/')}/"
+        f"doi{doi.replace('/', '-')}.html"
+    )
 
 
 def _repec_abstract(
@@ -222,8 +287,9 @@ def _repec_abstract(
     doi: str,
     *,
     timeout: int,
+    series_code: str = "ucp/jpolec",
 ) -> tuple[str, str]:
-    url = _repec_jpe_url(doi)
+    url = _repec_doi_url(doi, series_code)
     response = session.get(
         url,
         timeout=timeout,
@@ -310,6 +376,7 @@ def fetch_official_rss_issue(
     current_issue_url: str,
     rss_url: str,
     repec_jpe: bool = False,
+    repec_series_code: str = "",
     session: requests.Session | None = None,
     timeout: int = 60,
 ) -> dict[str, Any]:
@@ -382,7 +449,7 @@ def fetch_official_rss_issue(
         for key, items in crossref_groups.items()
         if _issue_is_not_future(issn, key[0], key[1], items)
         if sum(
-            bool(item.get("page"))
+            bool(item.get("DOI"))
             and not NON_RESEARCH_PATTERN.search(_first(item.get("title")))
             for item in items
         )
@@ -453,9 +520,14 @@ def fetch_official_rss_issue(
             abstract = rss_description
             abstract_source = "publisher-rss"
         repec_url = ""
-        if not abstract and repec_jpe and doi:
+        if not abstract and (repec_jpe or repec_series_code) and doi:
             try:
-                abstract, repec_url = _repec_abstract(client, doi, timeout=timeout)
+                abstract, repec_url = _repec_abstract(
+                    client,
+                    doi,
+                    timeout=timeout,
+                    series_code=repec_series_code or "ucp/jpolec",
+                )
             except requests.RequestException:
                 abstract = ""
             if abstract:
@@ -576,6 +648,7 @@ def fetch_crossref_current_issue(
     issn: str,
     current_issue_url: str,
     repec_jpe: bool = False,
+    repec_series_code: str = "",
     session: requests.Session | None = None,
     timeout: int = 60,
 ) -> dict[str, Any]:
@@ -601,7 +674,7 @@ def fetch_crossref_current_issue(
         for key, value in groups.items()
         if _issue_is_not_future(issn, key[0], key[1], value)
         if sum(
-            bool(item.get("page"))
+            bool(item.get("DOI"))
             and not NON_RESEARCH_PATTERN.search(_first(item.get("title")))
             for item in value
         )
@@ -624,9 +697,7 @@ def fetch_crossref_current_issue(
     for item in issue_items:
         title = _first(item.get("title"))
         reason = ""
-        if not item.get("page"):
-            reason = "page_missing_or_ancillary_item"
-        elif NON_RESEARCH_PATTERN.search(title):
+        if NON_RESEARCH_PATTERN.search(title):
             reason = "non_research_title"
         if reason:
             excluded_items.append(
@@ -638,7 +709,13 @@ def fetch_crossref_current_issue(
             )
         else:
             research_items.append(item)
-    research_items.sort(key=lambda item: (_page_start(str(item.get("page", ""))), _first(item.get("title"))))
+    research_items.sort(
+        key=lambda item: (
+            _page_start(_locator(item)),
+            _locator(item),
+            _first(item.get("title")),
+        )
+    )
 
     articles: list[dict[str, Any]] = []
     for sequence, item in enumerate(research_items, start=1):
@@ -647,14 +724,29 @@ def fetch_crossref_current_issue(
         abstract = _clean_markup(str(item.get("abstract", "")))
         abstract_source = "crossref" if abstract else ""
         repec_url = ""
-        if not abstract and repec_jpe and doi:
+        if not abstract and (repec_jpe or repec_series_code) and doi:
             try:
-                abstract, repec_url = _repec_abstract(client, doi, timeout=timeout)
+                abstract, repec_url = _repec_abstract(
+                    client,
+                    doi,
+                    timeout=timeout,
+                    series_code=repec_series_code or "ucp/jpolec",
+                )
             except requests.RequestException:
                 abstract = ""
             if abstract:
                 abstract_source = "repec-publisher-supplied"
         authors = _authors(item)
+        openalex_url = ""
+        if doi and (not authors or not abstract):
+            openalex_authors, openalex_abstract, openalex_url = _openalex_metadata(
+                client, doi, timeout=timeout
+            )
+            if not authors and openalex_authors:
+                authors = openalex_authors
+            if not abstract and openalex_abstract:
+                abstract = openalex_abstract
+                abstract_source = "openalex"
         flags = ["title_cn_missing", "abstract_cn_missing"]
         if not doi:
             flags.append("doi_missing")
@@ -667,7 +759,7 @@ def fetch_crossref_current_issue(
             {
                 "paper_id": f"doi:{doi}" if doi else f"{journal_id}:{sequence}",
                 "sequence": sequence,
-                "source_sequence": _page_start(str(item.get("page", ""))),
+                "source_sequence": _page_start(_locator(item)),
                 "article_type": _article_type(title),
                 "title_en": title,
                 "title_cn": "",
@@ -683,6 +775,7 @@ def fetch_crossref_current_issue(
                     "metadata": "crossref",
                     "abstract_en": abstract_source,
                     **({"repec": repec_url} if repec_url else {}),
+                    **({"openalex": openalex_url} if openalex_url else {}),
                 },
                 "translation": {
                     "status": "blocked" if not abstract else "pending",

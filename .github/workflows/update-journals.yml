@@ -16,7 +16,7 @@ on:
   workflow_dispatch:
     inputs:
       journal:
-        description: Journal code to update (ALL, AER, JPE, QJE, RES, ECTA, JDE, JPubE, JEEM, JUE, or AJAE)
+        description: Any configured journal code, or ALL
         required: true
         default: ALL
         type: string

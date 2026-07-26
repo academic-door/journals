@@ -41,6 +41,24 @@ JOURNALS: dict[str, dict[str, str]] = {
         "journal_name": "American Journal of Agricultural Economics",
         "current_issue_url": "https://academic.oup.com/ajae/issue",
     },
+    "ej": {
+        "journal_id": "ej",
+        "slug": "ej",
+        "journal_name": "The Economic Journal",
+        "current_issue_url": "https://academic.oup.com/ej/issue",
+    },
+    "jeea": {
+        "journal_id": "jeea",
+        "slug": "jeea",
+        "journal_name": "Journal of the European Economic Association",
+        "current_issue_url": "https://academic.oup.com/jeea/issue",
+    },
+    "rfs": {
+        "journal_id": "rfs",
+        "slug": "rfs",
+        "journal_name": "The Review of Financial Studies",
+        "current_issue_url": "https://academic.oup.com/rfs/issue",
+    },
 }
 
 ALIASES = {
@@ -48,6 +66,9 @@ ALIASES = {
     "res": "restud",
     "restud": "restud",
     "ajae": "ajae",
+    "ej": "ej",
+    "jeea": "jeea",
+    "rfs": "rfs",
 }
 
 TRANSIENT_STATUS_CODES = {403, 408, 425, 429, 500, 502, 503, 504}

@@ -1,0 +1,770 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "joe-256-pb",
+  "journal_id": "joe",
+  "journal_name": "Journal of Econometrics",
+  "volume": "256",
+  "issue": "PB",
+  "issue_label": "Vol. 256",
+  "publication_date": "July 2026",
+  "source_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/PB",
+  "retrieved_at": "2026-07-26T18:33:17+00:00",
+  "expected_article_count": 22,
+  "research_article_count": 22,
+  "status": "incomplete",
+  "development_sample": false,
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105917",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Semiparametric Bayesian estimation in an ordinal probit model with application to life satisfaction across countries, age and gender",
+      "title_cn": "基于半参数贝叶斯估计的有序Probit模型及其在国家、年龄和性别间生活满意度的应用",
+      "authors": [
+        "Justin L. Tobias",
+        "Timothy N. Bond"
+      ],
+      "abstract_en": "We employ a novel semiparametric Bayesian ordinal probit model to re-examine the relationships between age and life satisfaction (“happiness”) across countries and gender. Within our ordinal choice framework we introduce a new scheme for cutpoint simulation and develop a locally adaptive method for smoothing an otherwise erratic collection of age dummy variable coefficients. We find strong evidence that employment status is deeply intertwined with the reported happiness of men, that employment status is relatively more important for men than it is for women, and that the common use of quadratic models to report ages when happiness is minimized can produce inference that is inaccurate and misleadingly precise. We also find evidence that refines the “U”-shaped pattern between age and happiness that has been reported and/or debated in this literature: For men in most of the European countries we consider, happiness is found to rise sharply before traditional retirement age and then into the beginning of retirement, followed by a flattening or decline in the right-tail of the age distribution. Often-used models that are quadratic in age fail to reproduce this pattern and are frequently at odds with the data.",
+      "abstract_cn": "我们采用一种新颖的半参数贝叶斯有序Probit模型重新审视了不同国家和性别间年龄与生活满意度（“幸福感”）之间的关系。在我们的有序选择框架中，我们引入了一种新的切点模拟方案，并开发了一种局部自适应方法来平滑原本不规则的年龄虚拟变量系数集合。我们发现，男性的就业状态与其报告的幸福感密切相关，且就业状态对男性的重要性相对高于女性，并且常用的二次模型在报告幸福感最小化的年龄时可能产生不准确且误导性精确的推断。我们还发现了一些证据，进一步细化了文献中报告和/或讨论的年龄与幸福感之间的“U”型模式：在我们考虑的大多数欧洲国家中，男性的幸福感在传统退休年龄之前和刚开始退休时急剧上升，随后在年龄分布的右尾部分趋于平稳或下降。常用的关于年龄的二次模型未能重现这一模式，并且常常与数据相悖。",
+      "doi": "10.1016/j.jeconom.2024.105917",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624002689",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/PB",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/econom/v256y2026ipbs0304407624002689.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4o-mini",
+        "translated_at": "2026-07-26T20:05:27+00:00"
+      },
+      "quality_flags": []
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.105955",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Large Bayesian matrix autoregressions",
+      "title_cn": "大型贝叶斯矩阵自回归",
+      "authors": [
+        "Joshua C.C. Chan",
+        "Yaling Qi"
+      ],
+      "abstract_en": "High-dimensional matrix-valued time-series are increasingly common in economics and finance. Prominent examples include large cross-region panels and dynamic economic networks. As the dimensions of the matrix grow, conventional approaches based on vector autoregressions—implemented by vectoring the matrix-valued data—become computationally infeasible. We introduce a class of large Bayesian matrix autoregressions (BMARs) that can accommodate time-varying volatility, non-Gaussian errors and COVID-19 outliers. To tackle parameter proliferation, we propose Minnesota-type shrinkage priors on the MAR coefficients. We develop a unified approach for estimating this class of models, which scales well to high dimensions. The empirical relevance of these new BMARs is illustrated using a US state-level dataset that contains 6 macroeconomic times-series for each of the 50 states, with a total of 300 times-series.",
+      "abstract_cn": "高维矩阵值时间序列在经济学和金融中越来越常见。显著的例子包括大型跨区域面板和动态经济网络。随着矩阵维度的增加，基于向量自回归的传统方法——通过将矩阵值数据向量化实现——变得在计算上不可行。我们引入了一类大型贝叶斯矩阵自回归（BMARs），可以适应时间变化的波动性、非高斯误差和COVID-19异常值。为了解决参数膨胀问题，我们对MAR系数提出了明尼苏达型收缩先验。我们开发了一种统一的方法来估计这一类模型，该方法在高维情况下表现良好。这些新BMARs的实证相关性通过使用一个包含6宏观经济时间序列的美国州级数据集进行说明，该数据集涵盖了50个州，共有300个时间序列。",
+      "doi": "10.1016/j.jeconom.2025.105955",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625000090",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/PB",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/econom/v256y2026ipbs0304407625000090.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4o-mini",
+        "translated_at": "2026-07-26T20:05:36+00:00"
+      },
+      "quality_flags": []
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.105978",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Deviance Information Criterion for Bayesian model selection: Theoretical justification and applications",
+      "title_cn": "贝叶斯模型选择的偏差信息准则：理论依据与应用",
+      "authors": [
+        "Yong Li",
+        "Sushanta K. Mallick",
+        "Nianling Wang",
+        "Jun Yu",
+        "Tao Zeng"
+      ],
+      "abstract_en": "This paper provides a theoretical justification for the Deviance Information Criterion (DIC) as a Bayesian model selection tool using MCMC output. Unlike Akaike Information Criterion (AIC) and Bayesian Information Criterion (BIC), which balance model adequacy against complexity without considering prior information, DIC incorporates priors into this trade-off. The contributions of this paper are two-fold. First, it demonstrates that when a plug-in predictive distribution — obtained by substituting parameter values with their optimal estimates to yield the plug-in estimated sampling distribution — is used under a set of regularity conditions, the DIC serves as an asymptotically unbiased estimator of the expected Kullback–Leibler divergence between the data-generating process and the plug-in predictive distribution. Second, it develops higher-order expansions for DIC and the effective number of parameters, highlighting the effect of the priors. We employ DIC to compare discrete-choice models, stochastic frontier models, and copula models in three empirical applications; the results align with theoretical expectations, showing the utility of DIC as a versatile tool outperforming the traditional model selection criteria. It is found that the logit model is better than the probit model for investigating the marginal effects of parents’ education on children’s completion of high school. Additionally, the stochastic frontier model with an exponential distribution better fits electricity utility data than the normal distribution. Finally, the chosen copula models for S&P index returns exhibit heavy tails and strong tail dependence. By modelling the effect of priors through higher order expansions, we also find the above empirical models outperforming their benchmark counterparts in terms of predictive accuracy.",
+      "abstract_cn": "本文为偏差信息准则（DIC）作为贝叶斯模型选择工具的理论依据提供了支持，使用MCMC输出。与阿卡伊克信息准则（AIC）和贝叶斯信息准则（BIC）不同，后者在不考虑先验信息的情况下平衡模型适 adequacy与复杂性，DIC将先验信息纳入这一权衡中。本文的贡献为二-fold。第一，本文证明，当在一组正则条件下使用通过将参数值替换为其最优估计值以获得插件估计采样分布的插件预测分布时，DIC作为数据生成过程与插件预测分布之间的期望Kullback-Leibler散度的渐近无偏估计量。第二，本文为DIC和有效参数数量发展了高阶展开，突出了先验的影响。我们在三的实证应用中使用DIC比较离散选择模型、随机前沿模型和copula模型；结果与理论预期一致，显示DIC作为一种多功能工具的效用，优于传统模型选择标准。研究发现，logit模型在研究父母教育对孩子高中毕业的边际效应时优于probit模型。此外，具有指数分布的随机前沿模型比正态分布更好地拟合电力公用事业数据。最后，选择的S&P指数收益的copula模型表现出重尾和强尾依赖性。通过高阶展开建模先验的影响，我们还发现上述实证模型在预测准确性方面优于其基准对应物。",
+      "doi": "10.1016/j.jeconom.2025.105978",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625000326",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/PB",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/econom/v256y2026ipbs0304407625000326.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4o-mini",
+        "translated_at": "2026-07-26T20:05:44+00:00"
+      },
+      "quality_flags": []
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106050",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "A Bayesian approach to modeling economic growth: Variable selection and cross-sectional dependence",
+      "title_cn": "一种贝叶斯经济增长建模方法：变量选择与横截面依赖性",
+      "authors": [
+        "Guohua Feng",
+        "Chuan Wang",
+        "Subal C. Kumbhakar"
+      ],
+      "abstract_en": "This paper introduces a Bayesian framework designed to address two critical econometric challenges in empirical growth studies: variable selection and cross-sectional dependence. We first propose a growth regression model that incorporates cross-sectional dependence through a multi-factor structure and accounts for variable selection with sparse coefficients. We then introduce a new Bayesian Adaptive LASSO estimator specifically designed for this model, capable of performing variable selection while simultaneously addressing cross-sectional dependence. To validate this framework, we conduct a Monte Carlo study, demonstrating that our Adaptive Bayesian LASSO growth regression model with a factor structure consistently outperforms three benchmark models across all evaluation metrics. Furthermore, we apply our model to a dataset encompassing 55 candidate variables across 71 countries from 1961 to 2019. Our empirical comparison confirms the superiority of our model over the benchmark models. Additionally, our model identifies five global factors and 16 key growth determinants, with robustness checks using Principal Component Analysis and instrumental variables confirming the reliability of our findings.",
+      "abstract_cn": "本文引入了一种贝叶斯框架，旨在解决实证增长研究中的关键计量经济学挑战：变量选择和横截面依赖性。我们提出了一种增长回归模型，该模型通过多因子结构纳入横截面依赖性，并通过稀疏系数考虑变量选择。接着，我们引入了一种专门为该模型设计的新贝叶斯自适应LASSO估计量，能够在同时解决横截面依赖性的同时进行变量选择。为了验证这一框架，我们进行了蒙特卡洛研究，证明我们的自适应贝叶斯LASSO增长回归模型在所有评估指标上始终优于基准模型。此外，我们将模型应用于一个包含55个候选变量的数据库，该数据库涵盖了71个国家，从1961到2019。我们的实证比较确认了我们的模型优于基准模型。此外，我们的模型识别了五全球因素和16关键增长决定因素，使用主成分分析和工具变量的稳健性检验确认了我们发现的可靠性。",
+      "doi": "10.1016/j.jeconom.2025.106050",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001046",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/PB",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/econom/v256y2026ipbs0304407625001046.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4o-mini",
+        "translated_at": "2026-07-26T20:05:49+00:00"
+      },
+      "quality_flags": []
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106066",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Model uncertainty in the cross-section of stock returns",
+      "title_cn": "股票收益截面中的模型不确定性",
+      "authors": [
+        "Jiantao Huang",
+        "Ran Shi"
+      ],
+      "abstract_en": "We develop a transparent Bayesian framework to measure uncertainty in asset pricing models. By assigning a modified class of g-priors to the risk prices of asset pricing factors, our method quantifies the trade-off between mean–variance efficiency and parsimony for asset pricing models to achieve high posterior probabilities. Model uncertainty is defined as the entropy of these model probabilities. We prove the model selection consistency property of our procedure, which is missing from the classic g-priors. Acknowledging the possibility of omitting true asset pricing factors in real applications, we also characterize the maximum degree of contamination that the omitted factors can introduce to our model uncertainty measure. Empirically, we find that model uncertainty escalates during major market events and carries a significantly negative risk premium of approximately half the magnitude of the market. Positive shocks to model uncertainty predict persistent outflows from US equity funds and inflows to Treasury funds.",
+      "abstract_cn": "我们开发了一个透明的贝叶斯框架来测量资产定价模型中的不确定性。通过将修改后的 g-prior 类分配给资产定价因素的风险价格，我们的方法量化了资产定价模型在实现高后验概率时均值-方差效率与简约性之间的权衡。模型不确定性被定义为这些模型概率的熵。我们证明了我们程序的模型选择一致性特性，这是经典 g-prior 所缺失的。承认在实际应用中可能遗漏真实的资产定价因素，我们还表征了遗漏因素对我们模型不确定性度量所能引入的最大污染程度。从实证上看，我们发现模型不确定性在重大市场事件期间加剧，并且带有大约市场一半幅度的显著负风险溢价。对模型不确定性的正向冲击预测美国股票基金的持续流出和国债基金的流入。",
+      "doi": "10.1016/j.jeconom.2025.106066",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001204",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/PB",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/econom/v256y2026ipbs0304407625001204.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4o-mini",
+        "translated_at": "2026-07-26T20:05:54+00:00"
+      },
+      "quality_flags": []
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106067",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Structural breaks, model uncertainty and factor selection",
+      "title_cn": "结构性断裂、模型不确定性与因子选择",
+      "authors": [
+        "Siddhartha Chib",
+        "Simon C. Smith"
+      ],
+      "abstract_en": "This paper addresses the non-standard problem of detecting multiple structural breaks when the data-generating model in each regime is uncertain, with an application to factor selection in empirical asset pricing. Detection is based on the marginal likelihood of break points, obtained by a novel integration over all possible pairings of models across regimes, from all possible models within regimes. The optimal break points maximize this marginal likelihood. Applying this method to the six Fama–French factors on monthly data from 1963–2023, the analysis identifies three breaks – 1982, 1998, and 2009 – and a shift toward more parsimonious models after 1998. Before 1998, five or six factors are selected, but two afterward. Thus, with breaks, there is a move to parsimony, which has implications for the factor zoo literature. Moreover, within each regime, all omitted factors are spanned by the ones selected. Incorporating breaks also leads to substantially different weight allocations in the maximum Sharpe ratio risk factor portfolio.",
+      "abstract_cn": "本文探讨了在每个状态下数据生成模型不确定时检测多个结构性断裂的非标准问题，并将其应用于实证资产定价中的因子选择。检测基于断裂点的边际似然，通过对各状态下所有可能模型的配对进行新颖的积分来获得。最优断裂点最大化该边际似然。将此方法应用于来自1963-2023的六 Fama–French因子的月度数据，分析识别出三断裂——1982、1998和2009——以及在1998之后向更简约模型的转变。在1998之前，选择五或六因子，但在此之后选择二。因此，随着断裂的出现，向简约性转变，这对因子动物园文献具有重要意义。此外，在每个状态下，所有被省略的因子都被所选因子所涵盖。纳入断裂还导致最大夏普比率风险因子投资组合中的权重配置显著不同。",
+      "doi": "10.1016/j.jeconom.2025.106067",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001216",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/PB",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/econom/v256y2026ipbs0304407625001216.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4o-mini",
+        "translated_at": "2026-07-26T20:06:02+00:00"
+      },
+      "quality_flags": []
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106072",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Bayesian model comparison for large Bayesian VARs after the COVID-19 pandemic",
+      "title_cn": "COVID-19疫情后大型贝叶斯VAR的贝叶斯模型比较",
+      "authors": [
+        "Joshua C.C. Chan",
+        "Xuewen Yu",
+        "Wei Zhang"
+      ],
+      "abstract_en": "There is an increasing interest in applying variational Bayes techniques to estimating large Bayesian vector autoregressions (VARs) with stochastic volatility. However, less attention has been paid to the development of appropriate tools for comparing these high-dimensional models, especially among those designed to address COVID-19 outliers. This paper develops a marginal likelihood estimator that combines importance sampling and variational approximation for comparing large VARs with different time-varying volatility specifications and outlier adjustments. Through a Monte Carlo study, we show that the proposed approach is fast and able to identify the correct models. The effectiveness of the proposed method is further illustrated through an empirical application of comparing a variety of 180-variable VARs.",
+      "abstract_cn": "对应用变分贝叶斯技术估计具有随机波动的大型贝叶斯向量自回归（VAR）模型的兴趣日益增加。然而，对于比较这些高维模型的适当工具的开发关注较少，尤其是在针对COVID-19异常值的模型中。本文开发了一种边际似然估计量，结合重要性抽样和变分近似，用于比较具有不同时间变化波动性规格和异常值调整的大型VAR。通过蒙特卡洛研究，我们表明所提出的方法快速且能够识别正确的模型。通过比较多种180变量VAR的实证应用进一步说明了该方法的有效性。",
+      "doi": "10.1016/j.jeconom.2025.106072",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001265",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/PB",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/econom/v256y2026ipbs0304407625001265.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4o-mini",
+        "translated_at": "2026-07-26T20:06:10+00:00"
+      },
+      "quality_flags": []
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106075",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Bayesian space–time varying coefficient modeling for climate econometrics: A spatial–temporal Gaussian process approach",
+      "title_cn": "气候计量经济学的贝叶斯时空变系数建模：一种时空高斯过程方法",
+      "authors": [
+        "Gyuhyeong Goh",
+        "Jisang Yu",
+        "Myungjin Kim",
+        "Jesse Tack"
+      ],
+      "abstract_en": "Quantifying the economic impacts of weather variables has been a key empirical topic in understanding the impacts of climate change. While panel methods, which utilize cross-sectional differences in within-unit over-time changes in weather variables, have been widely used to credibly identify the average effect of interest, there has been a growing interest in understanding the distribution of potentially heterogeneous weather effects. The heterogeneity of the effects across space and time, which can shed light on the differences in the local capacity of adaptation across regions or its evolution over time, provides important insights into developing climate policies. In this paper, we propose a novel Bayesian hierarchical modeling approach to estimate heterogeneous effects of weather variables using panel data. Our proposed approach models space–time varying coefficients via Gaussian process priors. Using the data of the corn yield from the US corn belt, we show that our proposed model outperforms several alternatives. Our findings are consistent with the literature and also provide additional insights into the localized nuances of climate change adaptation.",
+      "abstract_cn": "量化天气变量的经济影响一直是理解气候变化影响的关键实证主题。虽然面板方法利用单位内随时间变化的天气变量的横截面差异，已被广泛用于可靠识别感兴趣的平均效应，但对潜在异质天气效应分布的理解日益受到关注。跨空间和时间的效应异质性可以揭示不同地区适应能力的差异或其随时间的演变，为制定气候政策提供重要见解。本文提出了一种新颖的贝叶斯层次建模方法，利用面板数据估计天气变量的异质效应。我们提出的方法通过高斯过程先验建模时空变系数。使用美国玉米带的玉米产量数据，我们展示了所提模型优于几种替代方案。我们的发现与文献一致，并为气候变化适应的局部细微差别提供了额外见解。",
+      "doi": "10.1016/j.jeconom.2025.106075",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001290",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/PB",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/econom/v256y2026ipbs0304407625001290.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4o-mini",
+        "translated_at": "2026-07-26T20:06:19+00:00"
+      },
+      "quality_flags": []
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106081",
+      "sequence": 9,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "Bayesian estimation of a semiparametric stochastic frontier model with persistent and transient inefficiencies",
+      "title_cn": "具有持久性和暂时性无效率的半参数随机边界模型的贝叶斯估计",
+      "authors": [
+        "Puguang Nie",
+        "Christopher F. Parmeter",
+        "Valentin Zelenyuk",
+        "Xibin Zhang"
+      ],
+      "abstract_en": "We propose kernel estimators for the densities of persistent and transient inefficiencies in a generalized panel data stochastic frontier model. This approach relaxes the conventional distributional assumptions imposed on the inefficiencies, thereby increasing robustness. A Bayesian sampling algorithm is developed to estimate all model parameters and unobserved entities, as well as the bandwidths needed to construct the densities of persistent and transient inefficiencies. The advantages of our estimator and sampling algorithm are demonstrated through numerical studies based on pseudo-samples. We find that our estimation approach outperforms conventional Bayesian estimation, providing more accurate estimates of firm-level inefficiencies. We also apply the approach to analyze the cost frontier and related characteristics for a panel of large US commercial banks, and discuss differences relative to the traditional Bayesian framework. Our estimator reveals that the high-density region of transient inefficiency varies over time, whereas the conventional approach does not possess such a feature. Moreover, the contribution of persistent inefficiency to the total inefficiency revealed by our approach is slightly more than half of that suggested by the conventional framework.",
+      "abstract_cn": "我们提出了用于持久性和暂时性无效率密度的核估计量，应用于广义面板数据随机边界模型。该方法放宽了对无效率施加的传统分布假设，从而提高了稳健性。我们开发了一种贝叶斯采样算法，以估计所有模型参数和未观察到的实体，以及构建持久性和暂时性无效率密度所需的带宽。通过基于伪样本的数值研究，我们展示了估计量和采样算法的优势。我们发现，我们的估计方法优于传统的贝叶斯估计，提供了更准确的公司层面无效率估计。我们还应用该方法分析了一组大型美国商业银行的成本边界及相关特征，并讨论了与传统贝叶斯框架的差异。我们的估计量揭示，暂时性无效率的高密度区域随时间变化，而传统方法则不具备此特征。此外，我们的方法揭示的持久性无效率对总无效率的贡献略高于传统框架所建议的贡献的一半。",
+      "doi": "10.1016/j.jeconom.2025.106081",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001356",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/PB",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/econom/v256y2026ipbs0304407625001356.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4o-mini",
+        "translated_at": "2026-07-26T20:06:27+00:00"
+      },
+      "quality_flags": []
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106085",
+      "sequence": 10,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "A semiparametric Bayesian estimator of copula density",
+      "title_cn": "半参数贝叶斯估计器的 copula 密度",
+      "authors": [
+        "Qiaoyu Wang",
+        "Ximing Wu",
+        "Taining Wang",
+        "Subal C. Kumbhakar",
+        "Sui Luo"
+      ],
+      "abstract_en": "We propose a semiparametric Bayesian estimator for copula density, formulated as a generalized exponential family that combines a parametric baseline copula with a flexible adjustment modeled by a Gaussian Process (GP). The baseline captures the main features of dependence and accommodates possibly unbounded densities, while the GP component introduces nonparametric refinement. To modulate the influence of the baseline, we further introduce a tuning parameter that adjusts its weight in the final estimate. Both the GP hyperparameters and this tuning parameter are inferred jointly within a Bayesian framework. We also present a posterior sampler based on importance sampling, with the baseline copula serving as a natural approximating distribution. Simulations demonstrate the efficacy of the proposed estimator and the efficiency of the sampler. The method is further illustrated with an application to commodity futures markets.",
+      "abstract_cn": "我们提出了一种半参数贝叶斯估计器用于 copula 密度，形式化为一个广义指数族，结合了一个参数基线 copula 和一个由高斯过程（GP）建模的灵活调整。基线捕捉了依赖关系的主要特征，并适应可能无界的密度，而 GP 组件引入了非参数的细化。为了调节基线的影响，我们进一步引入了一个调节参数，以调整其在最终估计中的权重。GP 超参数和该调节参数在贝叶斯框架内共同推断。我们还基于重要性抽样提出了一个后验采样器，基线 copula 作为自然的近似分布。模拟结果展示了所提估计器的有效性和采样器的效率。该方法还通过对商品期货市场的应用进行了进一步说明。",
+      "doi": "10.1016/j.jeconom.2025.106085",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001393",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/PB",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/econom/v256y2026ipbs0304407625001393.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4o-mini",
+        "translated_at": "2026-07-26T20:06:34+00:00"
+      },
+      "quality_flags": []
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106098",
+      "sequence": 11,
+      "source_sequence": 11,
+      "article_type": "research-article",
+      "title_en": "Bayesian evaluation of mutual fund performance with non-random missing data: Application to the Chinese market",
+      "title_cn": "具有非随机缺失数据的贝叶斯共同基金绩效评估：中国市场的应用",
+      "authors": [
+        "Tianyi Liu",
+        "Qianchao Wang",
+        "Yanping Yi",
+        "Yonghui Zhang"
+      ],
+      "abstract_en": "This paper studies mutual fund performance evaluation, where non-random missing data is an important issue. Ignoring sample selection issues can lead to biased parameter estimates and invalid performance evaluation. Therefore, we propose a novel Beta selection model to characterize this non-random missingness mechanism. We can significantly reduce the bias in alpha estimates, by introducing our Beta selection mechanism into the Noise-Reduced Alpha (NRA) model of Harvey and Liu (2018). A computationally attractive Bayesian estimation procedure is also provided. Simulation results show that our proposed method achieves superior finite-sample performance compared to classical fund-by-fund ordinary least squares (OLS) and the baseline NRA model. Finally, we apply our method to Chinese mutual fund data, and find that: (i) our out-of-sample alpha forecasts exhibit greater predictive accuracy across all tested missingness rates; (ii) approximately 18% of funds exhibit statistically significant positive alphas, suggesting market-beating skill; and (iii) portfolios constructed using our method deliver significantly higher returns than those using alternative approaches.",
+      "abstract_cn": "本文研究了共同基金绩效评估，其中非随机缺失数据是一个重要问题。忽略样本选择问题可能导致参数估计偏差和无效的绩效评估。因此，我们提出了一种新颖的Beta选择模型来表征这种非随机缺失机制。通过将我们的Beta选择机制引入Harvey和Liu（2018）的降噪Alpha（NRA）模型，我们可以显著减少Alpha估计中的偏差。我们还提供了一种计算上具有吸引力的贝叶斯估计程序。模拟结果表明，与经典的逐基金普通最小二乘法（OLS）和基准NRA模型相比，我们提出的方法在有限样本中表现出更优的性能。最后，我们将我们的方法应用于中国共同基金数据，发现：（i）我们的样本外Alpha预测在所有测试的缺失率下都表现出更高的预测准确性；（ii）大约18%的基金表现出统计上显著的正Alpha，表明其具有超越市场的技能；（iii）使用我们的方法构建的投资组合比使用替代方法构建的投资组合带来了显著更高的回报。",
+      "doi": "10.1016/j.jeconom.2025.106098",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001526",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/PB",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/econom/v256y2026ipbs0304407625001526.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "mistral-ai/mistral-medium-2505",
+        "translated_at": "2026-07-26T20:20:10+00:00"
+      },
+      "quality_flags": []
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106107",
+      "sequence": 12,
+      "source_sequence": 12,
+      "article_type": "research-article",
+      "title_en": "Partial identification of structural vector autoregressions with non-centred stochastic volatility",
+      "title_cn": "非中心随机波动下结构向量自回归的部分识别",
+      "authors": [
+        "Helmut Lütkepohl",
+        "Fei Shang",
+        "Luis Uzeda",
+        "Tomasz Woźniak"
+      ],
+      "abstract_en": "We consider structural vector autoregressions that are identified through stochastic volatility under Bayesian estimation. Three contributions emerge from our exercise. First, we show that a non-centred parameterization of stochastic volatility yields a marginal prior for the conditional variances of structural shocks that is centred on homoskedasticity, with strong shrinkage and heavy tails—unlike the common centred parameterization. This feature makes it well suited for assessing partial identification of any shock of interest. Second, Monte Carlo experiments on small and large systems indicate that the non-centred setup estimates structural parameters more precisely and normalizes conditional variances efficiently. Third, revisiting prominent fiscal structural vector autoregressions, we show how the non-centred approach identifies tax shocks that are consistent with estimates reported in the literature.",
+      "abstract_cn": "我们考虑通过贝叶斯估计在随机波动下识别的结构向量自回归。三 贡献源于我们的研究。第一，我们展示了随机波动的非中心参数化如何为结构冲击的条件方差提供一个以同方差性为中心的边际先验，具有强收缩性和重尾特征——这与常见的中心参数化不同。这一特征使其非常适合评估任何感兴趣冲击的部分识别。第二，小型和大型系统的蒙特卡洛实验表明，非中心设置能够更精确地估计结构参数，并有效地标准化条件方差。第三，重新审视显著的财政结构向量自回归，我们展示了非中心方法如何识别与文献中报告的估计一致的税收冲击。",
+      "doi": "10.1016/j.jeconom.2025.106107",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001617",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/PB",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/econom/v256y2026ipbs0304407625001617.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4o-mini",
+        "translated_at": "2026-07-26T20:07:19+00:00"
+      },
+      "quality_flags": []
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106109",
+      "sequence": 13,
+      "source_sequence": 13,
+      "article_type": "research-article",
+      "title_en": "Bayesian nonparametric inference in bank business models with transient and persistent cost inefficiency",
+      "title_cn": "具有瞬时和持久成本低效的银行商业模型的贝叶斯非参数推断",
+      "authors": [
+        "Dimitris Korobilis",
+        "Emmanuel C. Mamatzakis",
+        "Vasileios Pappas"
+      ],
+      "abstract_en": "This paper introduces a novel econometric framework for identifying and modeling bank business models (BBMs), which dynamically evolve in response to changing financial and economic conditions. Building on the stochastic frontier literature, we extend the traditional cost-efficiency models by decomposing inefficiency into persistent and transient components. We propose a Bayesian nonparametric approach that adapts to the data through an infinite mixture model with predictor-dependent clustering, enabling a flexible classification of banks into distinct business models. Our method, based on the Logit Stick-Breaking Process (LSBP), provides a data-driven way to capture the heterogeneity in bank strategies, allowing for dynamic transitions between business models over time. This model offers a significant advancement over existing parametric and kernel-based approaches by combining the scalability of nonparametric methods with efficient computational routines. We apply the model to a dataset of European banks and identify four distinct business model clusters, providing novel insights into the evolution of bank performance and efficiency. Our findings contribute to the growing literature on the identification and measurement of bank business models, offering valuable implications for policy and regulatory frameworks.",
+      "abstract_cn": "本文介绍了一种新颖的计量经济学框架，用于识别和建模银行商业模型（BBMs），这些模型会根据不断变化的金融和经济条件动态演变。在随机前沿文献的基础上，我们通过将低效分解为持久和瞬时成分，扩展了传统的成本效率模型。我们提出了一种贝叶斯非参数方法，该方法通过具有预测因子依赖聚类的无限混合模型适应数据，从而实现对银行进行灵活分类为不同商业模型。我们的方法基于Logit Stick-Breaking Process (LSBP)，提供了一种数据驱动的方式来捕捉银行战略的异质性，允许商业模型在时间上动态转变。该模型在结合非参数方法的可扩展性与高效计算程序方面，相较于现有的参数和基于核的方法提供了显著的进步。我们将该模型应用于一组欧洲银行的数据集，识别出四个不同的商业模型集群，为银行绩效和效率的演变提供了新颖的见解。我们的研究结果为银行商业模型的识别和测量的日益增长的文献做出了贡献，为政策和监管框架提供了有价值的启示。",
+      "doi": "10.1016/j.jeconom.2025.106109",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001630",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/PB",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/econom/v256y2026ipbs0304407625001630.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4o-mini",
+        "translated_at": "2026-07-26T20:07:28+00:00"
+      },
+      "quality_flags": []
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106163",
+      "sequence": 14,
+      "source_sequence": 14,
+      "article_type": "research-article",
+      "title_en": "Text-term selection and analysis: Frequentist and Bayesian strategies and interpretations",
+      "title_cn": "文本术语选择与分析：频率主义和贝叶斯策略及其解释",
+      "authors": [
+        "Cathy Yi-Hsuan Chen",
+        "George Kapetanios",
+        "Wei-Biao Wu"
+      ],
+      "abstract_en": "Economic analysis based on text data has expanded rapidly, yet the ultra-high dimensionality of text data presents substantial challenges for term selection and estimation. We propose the Information-Adaptive Lasso and Information-Adaptive Spike-and-Slab Lasso as novel frequentist and Bayesian approaches to address these challenges. A key theoretical contribution of this study is the establishment of the rate of convergence in term-selection consistency, which we show to be faster than those achieved in the existing Lasso literature. Applying our methods to Federal Open Market Committee (FOMC) statements, we identify and estimate high-impact terms driving fluctuations in monetary policy uncertainty.",
+      "abstract_cn": "基于文本数据的经济分析迅速扩展，但文本数据的超高维度性给术语选择和估计带来了重大挑战。我们提出信息自适应Lasso和信息自适应Spike-and-Slab Lasso作为应对这些挑战的新颖频率主义和贝叶斯方法。本研究的一个关键理论贡献是建立术语选择一致性的收敛速度，我们证明其比现有Lasso文献中实现的速度更快。将我们的方法应用于联邦公开市场委员会（FOMC）声明，我们识别并估计了驱动货币政策不确定性波动的高影响术语。",
+      "doi": "10.1016/j.jeconom.2025.106163",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625002167",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/PB",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/econom/v256y2026ipbs0304407625002167.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4o-mini",
+        "translated_at": "2026-07-26T20:07:35+00:00"
+      },
+      "quality_flags": []
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2026.106190",
+      "sequence": 15,
+      "source_sequence": 15,
+      "article_type": "research-article",
+      "title_en": "Likelihood specification in simultaneous equation models for discrete data",
+      "title_cn": "离散数据的 simultaneousequation 模型中的似然性规范",
+      "authors": [
+        "Ivan Jeliazkov",
+        "Angela Vossmeyer"
+      ],
+      "abstract_en": "In this article, we examine the foundations of a rich and diverse literature in economics and derive the likelihood function of simultaneous equation models for discrete data as the invariant distribution of a suitably specified Markov process. This formulation offers a well-defined reduced form of the model and dispenses with the need for controversial recursivity requirements and ad hoc indeterminacy rules. The derivation resolves puzzling paradoxes highlighted in earlier work and shows that the likelihood is unique, proper, coherent, complete, and theoretically grounded in conditional distribution modeling – a framework that has yet to be popularized in economics. We note possible extensions and relevant links with other models, comment on computational issues, and implement the methodology in three empirical applications involving female labor force participation, the interactions between health and wealth, and the interplay between banks’ lending practices and their reliance on assistance from the lender of last resort during the Great Depression.",
+      "abstract_cn": "在本文中，我们考察了经济学中丰富多样的文献基础，并推导出离散数据 simultaneousequation 模型的似然函数，作为适当指定的马尔可夫过程的不变分布。这种表述提供了模型的明确定义的简化形式，并消除了对有争议的递归要求和临时不确定性规则的需求。推导解决了早期工作中突出的问题悖论，并表明似然是唯一的、适当的、一致的、完整的，并在条件分布建模中理论上扎根——这一框架在经济学中尚未普及。我们注意到可能的扩展和与其他模型的相关联系，评论计算问题，并在 三 实证应用中实施该方法，涉及女性劳动参与、健康与财富之间的相互作用，以及银行贷款实践与在大萧条期间对最后贷款人援助的依赖之间的相互作用。",
+      "doi": "10.1016/j.jeconom.2026.106190",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626000114",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/PB",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/econom/v256y2026ipbs0304407626000114.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4o-mini",
+        "translated_at": "2026-07-26T20:07:43+00:00"
+      },
+      "quality_flags": []
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2026.106230",
+      "sequence": 16,
+      "source_sequence": 16,
+      "article_type": "research-article",
+      "title_en": "Macro-prudential policy under asymmetric risks: A Bayesian structural quantile VAR approach",
+      "title_cn": "不对称风险下的宏观审慎政策：一种贝叶斯结构量化VAR方法",
+      "authors": [
+        "Sulkhan Chavleishvili",
+        "Robert F. Engle",
+        "Stephan Fahr",
+        "Manfred Kremer",
+        "Frederik Lund-Thomsen",
+        "Simone Manganelli",
+        "Bernd Schwaab"
+      ],
+      "abstract_en": "Macro-prudential policymakers face a risk-management problem: they must assess medium-term downside risks to the real economy stemming from financial imbalances and the associated threat of future financial crises, while accounting for the cost of policy interventions in terms of foregone upside potential. This trade-off between limiting downside risks and preserving upside growth is inherently asymmetric and depends on the distribution of future macroeconomic outcomes. We formalize this decision problem by defining novel measures of downside risk and upside potential and by stipulating an explicit loss function for macro-prudential policy. To evaluate policy in this setting, we develop and apply a novel Bayesian structural quantile vector autoregressive model that delivers flexible and potentially asymmetric predictive distributions. Using quantile impulse responses, we assess the scope for macro-prudential policy to reduce growth volatility and negative skewness, infer the macro-prudential policy stance, and characterize the circumstances under which macro-prudential interventions are likely to be beneficial.",
+      "abstract_cn": "宏观审慎政策制定者面临风险管理问题：他们必须评估源于金融失衡的对实体经济的中期下行风险及未来金融危机的相关威胁，同时考虑政策干预在放弃上行潜力方面的成本。这种限制下行风险与保持上行增长之间的权衡本质上是非对称的，并且依赖于未来宏观经济结果的分布。我们通过定义新的下行风险和上行潜力的度量，并规定宏观审慎政策的明确损失函数，来形式化这一决策问题。为了在这一背景下评估政策，我们开发并应用了一种新的贝叶斯结构量化向量自回归模型，该模型提供灵活且可能是非对称的预测分布。通过量化脉冲响应，我们评估宏观审慎政策减少增长波动性和负偏度的潜力，推断宏观审慎政策立场，并描述宏观审慎干预可能带来益处的情境。",
+      "doi": "10.1016/j.jeconom.2026.106230",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626000515",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/PB",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/econom/v256y2026ipbs0304407626000515.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4o-mini",
+        "translated_at": "2026-07-26T20:08:03+00:00"
+      },
+      "quality_flags": []
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2026.106252",
+      "sequence": 17,
+      "source_sequence": 17,
+      "article_type": "research-article",
+      "title_en": "Concentrated MCMC estimation",
+      "title_cn": "集中式MCMC估计",
+      "authors": [
+        "Xuan Xiao",
+        "Xingbai Xu",
+        "Chengwei Tang",
+        "Tuo Liu"
+      ],
+      "abstract_en": "This paper studies a concentrated Markov Chain Monte Carlo (MCMC) estimation method that offers significant computational advantages while delivering valid inference for parameters of interest. By reducing the dimension of parameters to be sampled, this method substantially decreases computational time and memory usage relative to both traditional and some state-of-the-art Bayesian algorithms. Its applicability extends to correctly specified or misspecified likelihood functions, as well as generalized method of moments objective functions. Monte Carlo studies demonstrate that the biases and root mean squared errors of the concentrated MCMC estimators are typically smaller than or comparable to those of conventional Bayesian estimators. Furthermore, this method exhibits reliable model selection performance. We establish the large sample properties of the concentrated MCMC estimator. An empirical application analyzing the network spillover effect of stock returns in the Chinese A-share market further illustrates the advantages of this method.",
+      "abstract_cn": "本文研究了一种集中式马尔可夫链蒙特卡洛（MCMC）估计方法，该方法在提供有效推断感兴趣参数的同时，具有显著的计算优势。通过减少需要采样的参数维度，该方法相较于传统方法和一些最先进的贝叶斯算法，显著降低了计算时间和内存使用。其适用性扩展到正确指定或错误指定的似然函数，以及广义矩方法目标函数。蒙特卡洛研究表明，集中式MCMC估计量的偏差和均方根误差通常小于或可与传统贝叶斯估计量相媲美。此外，该方法表现出可靠的模型选择性能。我们建立了集中式MCMC估计量的大样本性质。对中国A股市场股票收益网络溢出效应的实证应用进一步说明了该方法的优势。",
+      "doi": "10.1016/j.jeconom.2026.106252",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626000734",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/PB",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/econom/v256y2026ipbs0304407626000734.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4o-mini",
+        "translated_at": "2026-07-26T20:08:13+00:00"
+      },
+      "quality_flags": []
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2026.106256",
+      "sequence": 18,
+      "source_sequence": 18,
+      "article_type": "research-article",
+      "title_en": "Bayesian model averaging with non-conjugate priors",
+      "title_cn": "具有非共轭先验的贝叶斯模型平均",
+      "authors": [
+        "Anastasios E. Tasiopoulos",
+        "Efthymios G. Tsionas",
+        "Nikolaos D. Vlastakis"
+      ],
+      "abstract_en": "This paper considers the case of non-conjugate prior distributions for Bayesian model averaging (BMA). Although the natural conjugate setting is the default choice for BMA, mainly for reasons of analytical tractability, it has come under considerable criticism due to its unrealistic assumptions about prior information, among others. In this study, we extend the literature by considering two special cases of the multivariate Student-t distribution. We obtain closed-form solutions using Laplace approximations and apply our techniques to a controlled numerical experiment and cross-country growth regressions. Our results show that, under fine tuning of the hyperparameters, the proposed approach has similar performance to the conjugate alternatives on synthetic datasets, whereas in real data it favors, on average, more parsimonious models than the conjugate alternatives and also exhibits superior predictive performance.",
+      "abstract_cn": "本文考虑了贝叶斯模型平均（BMA）中非共轭先验分布的情况。尽管自然共轭设置是BMA的默认选择，主要是出于分析可处理性的考虑，但由于其对先验信息的不切实际假设等原因，受到了相当大的批评。在本研究中，我们通过考虑多元Student-t分布的二特例来扩展文献。我们使用拉普拉斯近似法获得闭式解，并将我们的技术应用于受控数值实验和跨国增长回归。我们的结果表明，在超参数的精细调整下，所提出的方法在合成数据集上的表现与共轭替代方案相似，而在真实数据中，它平均更倾向于比共轭替代方案更简约的模型，并且还表现出更优越的预测性能。",
+      "doi": "10.1016/j.jeconom.2026.106256",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626000771",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/PB",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/econom/v256y2026ipbs0304407626000771.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4o-mini",
+        "translated_at": "2026-07-26T20:08:22+00:00"
+      },
+      "quality_flags": []
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2026.106269",
+      "sequence": 19,
+      "source_sequence": 19,
+      "article_type": "research-article",
+      "title_en": "Bayesian methods in economics and finance: A unified survey and taxonomy",
+      "title_cn": "经济与金融中的贝叶斯方法：统一综述与分类",
+      "authors": [
+        "Subal C. Kumbhakar",
+        "Sushanta K. Mallick"
+      ],
+      "abstract_en": "This special issue brings together 21 papers that reflect the expanding scope and methodological evolution of Bayesian econometrics. We introduce a new organizing taxonomy that distinguishes between Traditional Bayesian Approaches - rooted in conjugate priors, standard likelihood-based estimation, and established Markov Chain Monte Carlo (MCMC) techniques - and Contemporary Bayesian Frontiers, characterized by nonparametric methods, variational inference, high-dimensional shrinkage, and integration with machine learning. We further classify contributions across two broad domains covering applications in Economics (focusing on macroeconomics, microeconomics, and climate econometrics) and Finance (focusing on asset pricing, volatility, and bank business models). Across these fields, four cross-cutting themes emerge: (1) high-dimensionality, volatility, and time-varying dynamics; (2) structural identification and model uncertainty; (3) semiparametric and nonparametric flexibility; and (4) data quality, granularity, and novel data structures. This survey synthesizes the methodological and empirical contributions of the special issue, proposes a unifying framework for organizing recent advances in Bayesian econometrics, and identifies unresolved challenges and promising directions for future research.",
+      "abstract_cn": "本期特刊汇集了21篇论文，反映了贝叶斯计量经济学不断扩大的范围和方法论的演变。我们提出了一个新的组织分类法，将传统贝叶斯方法（基于共轭先验、标准似然估计和已建立的马尔可夫链蒙特卡洛（MCMC）技术）与当代贝叶斯前沿（以非参数方法、变分推断、高维收缩和与机器学习的整合为特征）区分开来。我们进一步将贡献分为两大领域，涵盖经济学（侧重宏观经济学、微观经济学和气候计量经济学）和金融学（侧重资产定价、波动性和银行业务模型）的应用。在这些领域中，出现了四个跨领域的主题：（1）高维度、波动性和时变动态；（2）结构识别和模型不确定性；（3）半参数和非参数灵活性；（4）数据质量、粒度和新型数据结构。本综述综合了特刊的方法论和实证贡献，提出了一个统一的框架来组织贝叶斯计量经济学的最新进展，并确定了未解决的挑战和未来研究的有希望的方向。",
+      "doi": "10.1016/j.jeconom.2026.106269",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626000904",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/PB",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/econom/v256y2026ipbs0304407626000904.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "mistral-ai/mistral-medium-2505",
+        "translated_at": "2026-07-26T20:20:25+00:00"
+      },
+      "quality_flags": []
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.105949",
+      "sequence": 20,
+      "source_sequence": 20,
+      "article_type": "research-article",
+      "title_en": "Stochastic volatility in mean: Efficient analysis by a generalized mixture sampler",
+      "title_cn": "均值中的随机波动性：通过广义混合采样器的高效分析",
+      "authors": [
+        "Daichi Hiraki",
+        "Siddhartha Chib",
+        "Yasuhiro Omori"
+      ],
+      "abstract_en": "In this paper we consider the simulation-based Bayesian analysis of stochastic volatility in mean (SVM) models. Extending the highly efficient Markov chain Monte Carlo mixture sampler for the SV model proposed in Kim et al. (1998) and Omori et al. (2007), we develop an accurate approximation of the logarithm of the non-central chi-squared distribution as a mixture of thirty normal distributions. Under this mixture representation, we sample the parameters and latent volatilities in one block. We also detail a correction of the small approximation error by using additional Metropolis–Hastings steps. The proposed method is extended to the SVM model with leverage. The methodology and models are applied to excess holding yields and S&P500 returns in empirical studies, and the SVM models are shown to outperform other volatility models based on marginal likelihoods.",
+      "abstract_cn": "本文考虑了基于模拟的随机波动性在均值（SVM）模型的贝叶斯分析。扩展了Kim等人（1998）和Omori等人（2007）提出的SV模型的高效马尔可夫链蒙特卡洛混合采样器，我们开发了非中心卡方分布对数的准确近似，作为三十个正态分布的混合。在这种混合表示下，我们在一块中对参数和潜在波动性进行采样。我们还详细说明了通过使用额外的Metropolis-Hastings步骤来修正小的近似误差。所提出的方法扩展到具有杠杆效应的SVM模型。该方法和模型应用于超额持有收益和S&P500回报的实证研究，结果表明SVM模型在边际似然性方面优于其他波动性模型。",
+      "doi": "10.1016/j.jeconom.2025.105949",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S030440762500003X",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/PB",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/econom/v256y2026ipbs030440762500003x.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4o-mini",
+        "translated_at": "2026-07-26T20:09:10+00:00"
+      },
+      "quality_flags": []
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106146",
+      "sequence": 21,
+      "source_sequence": 21,
+      "article_type": "research-article",
+      "title_en": "A dynamic state-space HAR model",
+      "title_cn": "动态状态空间HAR模型",
+      "authors": [
+        "Mike Tsionas",
+        "Aya Ghalayini",
+        "Marwan Izzeldin",
+        "Lorenzo Trapani"
+      ],
+      "abstract_en": "The Heterogeneous AutoRegressive model for the logs of Realised Volatility (HARL) has established itself as the benchmark specification for modelling and forecasting return volatility, owing to its parsimony and ability to capture the strong persistence typically observed in RV. To address potential concerns such as measurement errors, nonlinearities, and non-spherical residuals, numerous variants of the baseline HARL model have been developed in the literature. This paper contributes to this body of work by proposing a new class of dynamic state-space models with time-varying parameters. The parameter dynamics are assumed to follow an autoregressive process, with or without stochastic volatility, giving rise to two specifications: SHARP and SHARP-SV. Both models are designed to capture the evolving nature of return volatility and are estimated via Bayesian inference using Particle Gibbs sampling. Empirical applications to high-frequency data on SPY, sector ETFs, representative NYSE stocks, and the VIX index demonstrate that our proposed models on average outperform alternative HARL-based specifications in forecasting volatility, particularly at medium- and long-term horizons. An extensive Monte Carlo analysis further illustrates the advantages of our approach in terms of both estimation accuracy and predictive performance.",
+      "abstract_cn": "异质自回归模型（HARL）已成为建模和预测收益波动的基准规范，因其简洁性和捕捉到的收益波动中通常观察到的强持久性。为了解决潜在的测量误差、非线性和非球形残差等问题，文献中开发了许多基线HARL模型的变体。本文通过提出一类具有时间变参数的动态状态空间模型，为这一研究领域做出了贡献。参数动态假设遵循自回归过程，可能带有或不带有随机波动，从而产生二规范：SHARP和SHARP-SV。这两种模型旨在捕捉收益波动的演变特性，并通过使用粒子吉布斯采样的贝叶斯推断进行估计。对SPY、高频数据、行业ETF、代表性NYSE股票和VIX指数的实证应用表明，我们提出的模型在预测波动性方面平均优于替代的基于HARL的规范，特别是在中长期视野下。广泛的蒙特卡洛分析进一步说明了我们的方法在估计准确性和预测性能方面的优势。",
+      "doi": "10.1016/j.jeconom.2025.106146",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S030440762500199X",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/PB",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/econom/v256y2026ipbs030440762500199x.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4o-mini",
+        "translated_at": "2026-07-26T20:09:20+00:00"
+      },
+      "quality_flags": []
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2026.106238",
+      "sequence": 22,
+      "source_sequence": 22,
+      "article_type": "research-article",
+      "title_en": "Testing for differences in high-frequency network connectedness from variance decompositions",
+      "title_cn": "基于方差分解的高频网络连接性差异检验",
+      "authors": [
+        "Mattia Bevilacqua",
+        "Michael Ellington",
+        "Rodrigo Hizmeri"
+      ],
+      "abstract_en": "We develop a Bayesian Wald-type test for detecting temporal differences in connectedness from variance decompositions, and establish the asymptotic normality of impulse response functions and variance decomposition matrices at fixed local time points. The resulting test statistic is asymptotically χ2 distributed under the null hypothesis and performs well in Monte Carlo simulations. Applying our methodology to high-frequency options data on sectoral exchange-traded funds (ETFs) from January 2013 to June 2023, we identify and quantify monetary policy surprises following Federal Open Market Committee (FOMC) announcements. Our empirical results indicate that total connectedness among sectoral ETF implied volatilities increases significantly following FOMC announcements, with these elevated connectedness levels persisting for approximately one hour on days with monetary policy surprises. Our findings indicate more than one-fifth of FOMC announcements surprise financial markets.",
+      "abstract_cn": "我们开发了一种贝叶斯 Wald 类型检验，用于检测方差分解中的时间差异连接性，并建立了在固定的局部时间点上冲击响应函数和方差分解矩阵的渐近正态性。结果的检验统计量在零假设下渐近服从 χ2 分布，并在蒙特卡罗模拟中表现良好。将我们的方法应用于从 2013 年 一月到 2023 年 六月的高频期权数据，涉及部门交易所交易基金（ETF），我们识别并量化联邦公开市场委员会（FOMC）公告后的货币政策惊喜。我们的实证结果表明，FOMC 公告后部门 ETF 暗示波动率之间的总连接性显著增加，这些提高的连接性水平在货币政策惊喜的日子里持续约一小时。我们的发现表明，超过五分之一的 FOMC 公告对金融市场来说是惊喜。",
+      "doi": "10.1016/j.jeconom.2026.106238",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S030440762600059X",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/PB",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/econom/v256y2026ipbs030440762600059x.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "microsoft/phi-4",
+        "translated_at": "2026-07-26T20:54:38+00:00"
+      },
+      "quality_flags": []
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "official_item_count": 22,
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 22,
+    "authors_complete": 22,
+    "abstract_en_complete": 22,
+    "translation_complete": 22,
+    "duplicate_count": 0,
+    "flags": [
+      "publisher_html_blocked_repec_fallback",
+      "repec_publisher_supplied_roster",
+      "official_order_unverified"
+    ],
+    "official_issue_fetch_error": "request failed for https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/PB: 403 Client Error: Forbidden for url: https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/PB"
+  }
+}
