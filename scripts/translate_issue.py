@@ -145,7 +145,11 @@ def _numbers(value: str) -> list[str]:
     for match in NUMBER_PATTERN.finditer(value):
         # Unit exponents such as ``year−1`` are commonly rendered as “每年” in
         # Chinese. They describe a denominator, not a reported numeric result.
-        if match.start() > 0 and value[match.start() - 1] == "−":
+        if (
+            match.start() > 1
+            and value[match.start() - 1] == "−"
+            and value[match.start() - 2].isalpha()
+        ):
             continue
         number = match.group("number")
         if match.group("percent_word") and not number.endswith("%"):

@@ -177,6 +177,7 @@ class TranslationPipelineTests(unittest.TestCase):
             _numbers("Carbon losses were 2.3 kt C year−1 and 4 USD year−1."),
             ["2.3", "4"],
         )
+        self.assertEqual(_numbers("Temperature fell to −5 degrees."), ["5"])
 
     def test_writes_translation_cache_with_provenance(self) -> None:
         issue = {"journal_id": "test", "articles": [ARTICLE]}
