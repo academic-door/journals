@@ -8,12 +8,16 @@ from pathlib import Path
 from typing import Any, Callable
 
 import yaml
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import outputs  # noqa: E402
 from jsonschema import Draft202012Validator, FormatChecker
 
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+from collectors import article_types
 from collectors.aea import fetch_current_issue as fetch_aea
 from scripts.translate_issue import translate_missing
 
@@ -232,14 +236,30 @@ def structural_flags(issue: dict[str, Any]) -> list[str]:
     ]
 
 
+CONTINUOUS_VOLUME_LABELS = {"C", "PA", "PB", "PC", "S", "SUPPL"}
+
+
+def is_continuous_publication(issue: dict[str, Any]) -> bool:
+    """True when the volume has no printed table of contents to verify against.
+
+    Elsevier-style ``vol/187/suppl/C`` volumes are published article by article:
+    the publisher site itself only ever lists them in article-number order, so
+    there is no official issue order that could be re-checked later. Reporting
+    those as "order pending official review" invents a defect that cannot be
+    closed, and it buries the journals whose order genuinely is unverified.
+    """
+
+    return str(issue.get("issue", "")).strip().upper() in CONTINUOUS_VOLUME_LABELS
+
+
 def order_verification_status(issue: dict[str, Any]) -> str:
     """Return the reader-facing issue-order verification level."""
 
     flags = set(issue.get("quality", {}).get("flags", []))
-    if {
-        "official_order_unverified",
-        "crossref_provisional_roster",
-    } & flags:
+    pending = {"official_order_unverified", "crossref_provisional_roster"} & flags
+    if pending and is_continuous_publication(issue):
+        return "continuous_publication"
+    if pending:
         return "pending_official"
     return "official_verified"
 
@@ -301,6 +321,15 @@ def collect_one(
             report["primary_error"] = primary_error
             report["transport"] = "metadata_fallback"
         issue = apply_translation_cache(issue)
+        for item in issue.get("articles", []):
+            if article_types.article_type(item.get("title_en", "")) != "research-article":
+                item["article_type"] = "comment"
+        issue["quality"]["article_type_breakdown"] = article_types.type_breakdown(
+            issue.get("articles", [])
+        )
+        issue["quality"]["abstract_absent_count"] = sum(
+            1 for item in issue.get("articles", []) if not item.get("abstract_en")
+        )
         translation_report: dict[str, Any] | None = None
         if translate:
             translation_report = translate_missing(
@@ -315,6 +344,7 @@ def collect_one(
                 + ", ".join(structural_flags(issue) or ["empty official roster"])
             )
         write_json(target, issue)
+        archive_issue(issue)
         readback = read_json(target)
         if readback is None or readback.get("issue_id") != issue["issue_id"]:
             raise RuntimeError("public issue write-back verification failed")
@@ -346,6 +376,80 @@ def collect_one(
             }
         )
         return previous, report
+
+
+def archive_issue(issue: dict[str, Any]) -> None:
+    """Keep an immutable copy so yesterday's issue survives tomorrow's run."""
+
+    journal_id, filename = outputs.archive_path_parts(issue)
+    write_json(PUBLIC_API / "journals" / journal_id / "issues" / filename, issue)
+
+
+def archived_issues(journal_id: str) -> list[dict[str, Any]]:
+    folder = PUBLIC_API / "journals" / journal_id / "issues"
+    found: list[dict[str, Any]] = []
+    for path in sorted(folder.glob("*.json")):
+        if path.name in {"current.json", "index.json"}:
+            continue
+        payload = read_json(path)
+        if payload:
+            found.append(payload)
+    return found
+
+
+def write_derived_outputs(
+    journal_configs: dict[str, dict[str, Any]],
+    issues: dict[str, dict[str, Any]],
+    collection_config: dict[str, Any],
+    updated_at: str,
+) -> None:
+    """Publish the issue archive index, RSS feeds and the search index."""
+
+    journal_meta: dict[str, dict[str, Any]] = {}
+    for key, config in journal_configs.items():
+        collections = config.get("collections", [])
+        journal_meta[config["id"]] = {
+            "short_name": config["short_name"],
+            "collection": collections[0] if collections else "",
+        }
+        issue = issues.get(key)
+        if not issue:
+            continue
+        write_json(
+            PUBLIC_API / "journals" / config["id"] / "issues" / "index.json",
+            outputs.build_archive_index(
+                config["id"],
+                config["name"],
+                archived_issues(config["id"]),
+                updated_at,
+            ),
+        )
+
+    usable = [issue for issue in issues.values() if issue]
+    write_json(
+        PUBLIC_API / "search-index.json",
+        outputs.build_search_index(usable, journal_meta, updated_at),
+    )
+
+    feeds = {"all": ("Academic Door 期刊更新", usable)}
+    for collection_id, definition in collection_config.items():
+        keys = definition.get("journals", [])
+        feeds[collection_id] = (
+            f"Academic Door · {definition.get('name_cn') or definition['name']}",
+            [issues[key] for key in keys if issues.get(key)],
+        )
+    for feed_id, (title, feed_issues) in feeds.items():
+        path = f"/api/v1/feeds/{feed_id}.xml"
+        xml = outputs.build_feed(
+            title,
+            "经济学期刊最新卷期的中英文目录与摘要。",
+            path,
+            feed_issues,
+            updated_at,
+        )
+        target = PUBLIC_API / "feeds" / f"{feed_id}.xml"
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(xml, encoding="utf-8")
 
 
 def load_available_issues(
@@ -513,11 +617,13 @@ def update_indexes(
         "latest_title": f"期刊最新卷期 · {usable_count}/{enabled_count} 家期刊可用",
         "latest_url": "https://academic-door.github.io/journals/",
         "data_url": "https://academic-door.github.io/journals/api/v1/index.json",
-        "feed_url": "",
+        "feed_url": "https://academic-door.github.io/journals/api/v1/feeds/all.xml",
     }
     write_json(PUBLIC_API / "health.json", health)
     write_json(PUBLIC_API / "index.json", index)
     write_json(ROOT / "public" / "project-manifest.json", manifest)
+
+    write_derived_outputs(journal_configs, issues, collection_config, updated_at)
 
     for collection_id, definition in collection_config.items():
         readback = read_json(PUBLIC_API / "collections" / f"{collection_id}.json")
