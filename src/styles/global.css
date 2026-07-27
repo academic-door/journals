@@ -138,9 +138,21 @@ main,
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(12px);
+  min-width: 0;
 }
 
-.journal-tabs { display: flex; align-items: stretch; gap: 2px; }
+.journal-field-filter,
+.search-field { flex: 0 0 auto; }
+.journal-tabs {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  align-items: stretch;
+  gap: 2px;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+}
 .journal-field-filter select {
   min-height: 40px;
   padding: 8px 32px 8px 11px;
@@ -151,6 +163,7 @@ main,
   font: inherit;
 }
 .journal-tabs button {
+  flex: 0 0 auto;
   min-width: 76px;
   min-height: 42px;
   padding: 7px 10px;

@@ -103,6 +103,12 @@ class ComposerUiTest(unittest.TestCase):
         self.assertEqual(36, len(set(journals)))
         self.assertTrue({"JDE", "JPubE", "JEEM", "JUE", "AJAE"}.issubset(journals))
 
+    def test_many_journal_tabs_scroll_inside_the_toolbar(self):
+        self.assertIn("flex: 1 1 auto;", self.css)
+        self.assertIn("min-width: 0;", self.css)
+        self.assertIn("overflow-x: auto;", self.css)
+        self.assertIn("overscroll-behavior-inline: contain;", self.css)
+
 
 if __name__ == "__main__":
     unittest.main()
