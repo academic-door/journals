@@ -68,6 +68,12 @@ Academic Door 主页 / 品牌入口
 → 人工最终检查并发布
 ```
 
+卷期顺序核验分三档，输出在 collection API 的 `order_verification`：
+
+- `official_verified`：名单与顺序以期刊官网卷期页为准。
+- `pending_official`：编号卷期，但当前名单来自 Crossref/RePEc 备用来源，官网顺序尚未核验。
+- `continuous_publication`：Elsevier 式逐篇上线的卷（`vol/N/suppl/C`），官网本身只按文章编号排列，不存在可复核的官方目录顺序，因此不报为待办。
+
 数据状态只有四类：
 
 - `detected`：发现新卷期，尚未完成采集。
@@ -118,10 +124,12 @@ Academic Door 主页 / 品牌入口
 2. 研究论文顺序与官网一致且连续。
 3. DOI 和稳定 ID 不重复。
 4. 作者、英文标题、英文摘要和来源链接完整。
-5. 排除的卷首、致辞、勘误、评论等条目留下审计记录。
+5. 排除的卷首、致辞、勘误等结构性条目留下审计记录。学术性的评论、回应与讨论属于期刊正式内容，保留在名单内并标注 `article_type: comment`，不计入"排除"。
 6. 中文标题与摘要完整；AI 翻译不得伪造缺失原文。
 7. Schema 验证通过。
 8. 公开数据不含密钥、本机路径、私有稿件或个人账号信息。
+
+条目分类规则由 `collectors/article_types.py` 统一提供，各采集器不得各自发明口径；`quality.article_type_breakdown` 输出类型构成，使"本期 N 篇"始终可解释。
 
 站点可以展示 `incomplete` 数据，但必须显式提示；Composer 可以载入它供人工修补，不得把它标为已完成。为兼顾来源透明与内容页的信息密度，目录内容页只显示一个轻量核验标识：“官网目录已核对”或“目录顺序待官网复核”；备用来源、字段来源和完整 `quality_flags` 统一在状态页与公共 API 披露，不在内容页重复展示 Crossref、RePEc 等技术术语。
 
@@ -154,6 +162,17 @@ Composer 是运营工作台，不是新的内容管理系统。
 - 服务端保存私有稿件。
 
 只有当网页复制流程已稳定、每天的编辑时间明显下降后，才评估云端保存和平台 API。
+
+## 7.1 派生公共产物
+
+同一份卷期数据额外产出三类派生产物，全部随 `data` 分支发布：
+
+- **历史归档**：`api/v1/journals/<id>/issues/<issue_id>.json` 保存不可变副本，
+  `issues/index.json` 列出该刊已归档卷期。没有归档时，新卷期一上线旧卷期即永久消失。
+- **RSS**：`api/v1/feeds/{all,top5,fields}.xml`，中文标题优先，保留官网链接与 DOI。
+- **检索索引**：`api/v1/search-index.json`，供跨刊检索页在浏览器内检索，不引入服务端。
+
+派生产物只在运行时生成，不提交进 `main`；`main` 的 `public/` 仅保留供本地开发与 PR 审核的精简基线。
 
 ## 8. GitHub 仓库版图
 
