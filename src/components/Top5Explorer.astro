@@ -24,7 +24,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     <p>{description}</p>
     <nav class="collection-switcher" aria-label="期刊分类">
       <a class:list={["button", { active: collectionId === "top5" }]} href={base}>TOP5</a>
-      <a class:list={["button", { active: collectionId === "fields" }]} href={`${base}fields/`}>A 级期刊</a>
+      <a class:list={["button", { active: collectionId === "fields" }]} href={`${base}fields/`}>领域顶刊</a>
     </nav>
   </div>
   <a id="composer-link" class="button button-primary" href={`${base}composer/`}>
@@ -38,17 +38,17 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       <span class="sr-only">按研究领域筛选期刊</span>
       <select id="field-filter" aria-label="按研究领域筛选期刊">
         <option value="all">全部领域</option>
-        <option value="general">综合与通识</option>
-        <option value="theory">理论、博弈与产业组织</option>
-        <option value="public_history_international">公共、经济史与国际</option>
-        <option value="finance">金融</option>
-        <option value="development_applied">发展、应用与实证</option>
-        <option value="urban_macro_labor_metrics_environment">城市、宏观、劳动、计量与环境</option>
-        <option value="agriculture_resources">农业、资源与环境</option>
+        <option value="general">综合顶刊</option>
+        <option value="theory">理论与产业组织顶刊</option>
+        <option value="public_history_international">公共、经济史与国际顶刊</option>
+        <option value="finance">金融顶刊</option>
+        <option value="development_applied">发展与应用顶刊</option>
+        <option value="urban_macro_labor_metrics_environment">城市、宏观、劳动、计量与环境顶刊</option>
+        <option value="agriculture_resources">农业与资源环境顶刊</option>
       </select>
     </label>
   )}
-  <div id="journal-tabs" class="journal-tabs" role="tablist" aria-label={collectionId === "fields" ? "A 级期刊" : "TOP5 期刊"}></div>
+  <div id="journal-tabs" class="journal-tabs" role="tablist" aria-label={collectionId === "fields" ? "领域顶刊" : "TOP5 期刊"}></div>
   <label class="search-field">
     <span class="sr-only">检索论文</span>
     <input id="paper-search" type="search" placeholder="检索标题、作者或摘要" />

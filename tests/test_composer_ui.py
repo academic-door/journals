@@ -92,7 +92,8 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn('fetch(`${base}api/v1/index.json`)', self.page)
         self.assertIn("collections.flatMap", self.page)
         fields_page = (ROOT / "src/pages/fields/index.astro").read_text(encoding="utf-8")
-        self.assertIn('collectionId="fields"', fields_page)
+        self.assertIn('FieldJournalExplorer', fields_page)
+        self.assertIn('Econ Field Journals · Academic Door', fields_page)
 
     def test_field_collection_contains_all_a_tier_journals(self):
         import yaml
@@ -103,11 +104,55 @@ class ComposerUiTest(unittest.TestCase):
         self.assertEqual(36, len(set(journals)))
         self.assertTrue({"JDE", "JPubE", "JEEM", "JUE", "AJAE"}.issubset(journals))
 
-    def test_many_journal_tabs_scroll_inside_the_toolbar(self):
-        self.assertIn("flex: 1 1 auto;", self.css)
-        self.assertIn("min-width: 0;", self.css)
-        self.assertIn("overflow-x: auto;", self.css)
-        self.assertIn("overscroll-behavior-inline: contain;", self.css)
+    def test_field_journal_portal_uses_grouped_card_directory(self):
+        explorer = (ROOT / "src/components/FieldJournalExplorer.astro").read_text(
+            encoding="utf-8"
+        )
+        for field_id in (
+            "general",
+            "theory",
+            "public_history_international",
+            "finance",
+            "development_applied",
+            "urban_macro_labor_metrics_environment",
+            "agriculture_resources",
+        ):
+            self.assertIn(f'id: "{field_id}"', explorer)
+        self.assertIn("field-journal-grid", explorer)
+        self.assertIn("repeat(auto-fill, minmax(220px, 1fr))", explorer)
+        self.assertIn('id="directory-back"', explorer)
+        self.assertIn('new URLSearchParams(location.search).get("journal")', explorer)
+        self.assertNotIn('id="field-filter"', explorer)
+
+    def test_field_names_are_consistent_across_config_and_public_api(self):
+        import json
+        import yaml
+
+        config = yaml.safe_load((ROOT / "config/collections.yml").read_text(encoding="utf-8"))
+        index = json.loads((ROOT / "public/api/v1/index.json").read_text(encoding="utf-8"))
+        fields = json.loads(
+            (ROOT / "public/api/v1/collections/fields.json").read_text(encoding="utf-8")
+        )
+        collection = next(
+            item for item in index["collections"] if item["id"] == "fields"
+        )
+        self.assertEqual("Econ Field Journals", config["collections"]["fields"]["name"])
+        self.assertEqual("领域顶刊", config["collections"]["fields"]["name_cn"])
+        self.assertEqual("Econ Field Journals", collection["title"])
+        self.assertEqual("领域顶刊", collection["title_cn"])
+        self.assertEqual("Econ Field Journals", fields["title"])
+        self.assertEqual("领域顶刊", fields["title_cn"])
+
+    def test_field_collection_cards_have_issue_metadata(self):
+        import json
+
+        fields = json.loads(
+            (ROOT / "public/api/v1/collections/fields.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(36, len(fields["journals"]))
+        for journal in fields["journals"]:
+            self.assertTrue(journal["latest_issue_label"], journal["journal_id"])
+            self.assertTrue(journal["publication_date"], journal["journal_id"])
 
 
 if __name__ == "__main__":
