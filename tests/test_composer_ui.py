@@ -68,13 +68,20 @@ class ComposerUiTest(unittest.TestCase):
         self.assertNotIn('class="abstract-label">English Abstract</p>', explorer)
         self.assertNotIn('class="abstract-label">中文摘要</p>', explorer)
 
-    def test_content_page_keeps_one_reader_facing_source_status(self):
+    def test_content_page_keeps_source_status_out_of_reader_view(self):
         explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(encoding="utf-8")
-        self.assertIn("官网目录已核对", explorer)
-        self.assertIn("目录顺序待官网复核", explorer)
+        self.assertNotIn("官网目录已核对", explorer)
+        self.assertNotIn("目录顺序待官网复核", explorer)
         self.assertNotIn("Crossref 备用来源", explorer)
         architecture = (ROOT / "docs/architecture.md").read_text(encoding="utf-8")
-        self.assertIn("轻量核验标识", architecture)
+        self.assertIn("状态页与公共 API", architecture)
+
+    def test_composer_toolbar_stays_on_one_line_on_desktop(self):
+        self.assertIn(".toolbar-actions { display: flex; flex-wrap: nowrap;", self.css)
+        self.assertIn(".composer-toolbar #journal-select { width: 180px;", self.css)
+        self.assertIn(".composer-toolbar #issue-select { width: 180px;", self.css)
+        self.assertIn(".composer-toolbar #theme-select { width: 200px;", self.css)
+        self.assertIn(".toolbar-actions { width: 100%; margin-left: 0; flex-wrap: wrap; }", self.css)
 
     def test_china_filter_and_traceable_relevance_hook_exist(self):
         explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(encoding="utf-8")

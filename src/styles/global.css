@@ -163,7 +163,7 @@ main,
   border-radius: 8px;
   font: inherit;
 }
-#journal-select { width: min(330px, 78vw); }
+.journal-toolbar #journal-select { width: min(330px, 78vw); }
 .journal-tabs button {
   flex: 0 0 auto;
   min-width: 76px;
@@ -336,7 +336,7 @@ main,
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(12px);
 }
-.toolbar-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.toolbar-actions { display: flex; flex-wrap: nowrap; gap: 8px; }
 .toolbar-actions { margin-left: auto; }
 .journal-toolbar .button.active { color: white; background: var(--green); border-color: var(--green); }
 .composer-source { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 0.78rem; font-weight: 750; }
@@ -348,6 +348,9 @@ main,
   border-radius: 9px;
   font-weight: 800;
 }
+.composer-toolbar #journal-select { width: 180px; min-width: 0; }
+.composer-toolbar #issue-select { width: 180px; min-width: 0; }
+.composer-toolbar #theme-select { width: 200px; min-width: 0; }
 .style-settings { position: relative; }
 .style-settings > summary { list-style: none; cursor: pointer; }
 .style-settings > summary::-webkit-details-marker { display: none; }
@@ -675,7 +678,7 @@ main,
   .composer-grid { grid-template-columns: 260px minmax(0, 1fr); }
   .preview-panel { grid-column: 1 / -1; border-left: 0; border-top: 1px solid var(--line); }
   .composer-toolbar { flex-wrap: wrap; }
-  .toolbar-actions { width: 100%; margin-left: 0; }
+  .toolbar-actions { width: 100%; margin-left: 0; flex-wrap: wrap; }
 }
 
 @media (max-width: 800px) {
