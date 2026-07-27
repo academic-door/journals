@@ -22,7 +22,7 @@ Academic Door 主页 / 品牌入口
 ├─ Econ Papers Daily
 ├─ Journals
 │  ├─ TOP5
-│  ├─ Field Journals
+│  ├─ Econ Field Journals
 │  └─ Academic Door Composer
 └─ 共享能力
    ├─ 统一论文与卷期 Schema
@@ -45,7 +45,7 @@ Academic Door 主页 / 品牌入口
 ## 3. 默认七项架构决策
 
 1. **独立仓库：** `academic-door/journals` 作为期刊主线仓库，不继续堆入旧的公众号生产目录。
-2. **一个引擎：** TOP5 与 Field Journals 共享采集器接口、Schema、质量门和 Composer，不建立两套平行系统。
+2. **一个引擎：** TOP5 与 Econ Field Journals 共享采集器接口、Schema、质量门和 Composer，不建立两套平行系统。
 3. **静态优先：** Astro 构建静态网站，GitHub Pages 免费托管；第一阶段不引入服务器和数据库。
 4. **官方优先：** 卷期名单与顺序以期刊官网为准，文章页负责作者、摘要和 DOI，Crossref 只用于补充。
 5. **数据与代码分离：** `main` 保存代码、配置和可复现样板；自动更新结果发布到 `data` 分支，部署时叠加。
@@ -162,7 +162,7 @@ Composer 是运营工作台，不是新的内容管理系统。
 | `academic-door/academic-door.github.io` | 品牌主页与项目导航 |
 | `academic-door/nber-working-papers-cn` | NBER 数据、中文内容与站点 |
 | `academic-door/econ-paper-monitor` | 每日论文监测与站点 |
-| `academic-door/journals` | TOP5、Field Journals、统一期刊引擎与 Composer |
+| `academic-door/journals` | TOP5、Econ Field Journals、统一期刊引擎与 Composer |
 | `academic-door/.github` | Organization 公开介绍 |
 | `academic-door/agent-workflow-template` | Agent 协作、PR、验收模板 |
 
@@ -196,7 +196,7 @@ Composer 是运营工作台，不是新的内容管理系统。
 - 建立跨期刊术语表和中文翻译缓存。
 - 增加历史卷期、检索、RSS 和更新提醒。
 
-### Phase 3：Field Journals
+### Phase 3：Econ Field Journals
 
 - 按领域分批接入，不按“见到一个写一个脚本”扩张。
 - 优先支持发展、劳动、环境、农业、城市与公共经济学。
@@ -224,4 +224,4 @@ v1 纵向样板完成需同时满足：
 
 TOP5 第一版已接入 AER、JPE、QJE、RES 与 Econometrica，并为当前卷期生成中英文标题和摘要。目录完整性、来源、翻译数字一致性与隐私检查均进入自动质量门。
 
-部分出版平台会限制自动访问，或官方 RSS 晚于官网卷期页更新。此时引擎会显式记录 fallback 来源与质量标记，并保留上一份可用数据；不得把 Crossref 等补充来源伪装成已完成的官网验证。下一阶段重点是历史卷期、Field Journals 与 Composer 的公众号兼容性回归。
+部分出版平台会限制自动访问，或官方 RSS 晚于官网卷期页更新。此时引擎会显式记录 fallback 来源与质量标记，并保留上一份可用数据；不得把 Crossref 等补充来源伪装成已完成的官网验证。下一阶段重点是历史卷期、Econ Field Journals 与 Composer 的公众号兼容性回归。

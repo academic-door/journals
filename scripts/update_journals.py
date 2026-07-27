@@ -418,6 +418,9 @@ def update_indexes(
                         f"/journals/api/v1/journals/{config['id']}"
                         "/issues/current.json"
                     ),
+                    "latest_issue_label": issue.get("issue_label")
+                    or f"Vol. {issue.get('volume', '')} · No. {issue.get('issue', '')}",
+                    "publication_date": issue.get("publication_date", ""),
                     "article_count": total,
                     "translation_complete": translated,
                     "order_verification": order_verification_status(issue),

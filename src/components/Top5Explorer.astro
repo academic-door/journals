@@ -43,7 +43,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         <option value="public_history_international">公共、经济史与国际顶刊</option>
         <option value="finance">金融顶刊</option>
         <option value="development_applied">发展与应用顶刊</option>
-        <option value="urban_macro_labor_metrics_environment">宏观、劳动与计量顶刊</option>
+        <option value="urban_macro_labor_metrics_environment">城市、宏观、劳动、计量与环境顶刊</option>
         <option value="agriculture_resources">农业与资源环境顶刊</option>
       </select>
     </label>
@@ -55,11 +55,6 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   </label>
   <button id="china-filter" class="button" type="button">仅看中国相关</button>
 </section>
-
-<style>
-  .journal-toolbar { flex-wrap: wrap; }
-  #china-filter { flex: 0 0 auto; }
-</style>
 
 <section id="issue-summary" class="issue-summary" aria-live="polite">
   <p class="loading-copy">正在载入最新卷期……</p>
