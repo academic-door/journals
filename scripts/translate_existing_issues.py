@@ -1,3 +1,10 @@
+"""Idempotently backfill translations into already-collected issue snapshots.
+
+This is a migration/recovery utility, not the scheduled collection entrypoint.
+It reuses valid cache entries, requests only missing translations, and may be
+run repeatedly without replacing translations that already pass validation.
+"""
+
 from __future__ import annotations
 
 import argparse

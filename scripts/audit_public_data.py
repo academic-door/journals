@@ -54,6 +54,14 @@ def main() -> int:
                 f"{collection_id} collection journal ids differ: "
                 f"expected {sorted(expected_ids)}, got {sorted(collection_ids)}"
             )
+        for journal_entry in collection.get("journals", []):
+            if journal_entry.get("latest_issue_url") and journal_entry.get(
+                "order_verification"
+            ) not in {"official_verified", "pending_official"}:
+                findings.append(
+                    f"{collection_id}:{journal_entry.get('journal_id')}: "
+                    "reader-facing order verification is missing"
+                )
         collected_ids.update(collection_ids)
     all_expected_ids = {journal["id"] for journal in enabled}
     if collected_ids != all_expected_ids:

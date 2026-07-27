@@ -3,7 +3,10 @@ from __future__ import annotations
 import copy
 import unittest
 
-from scripts.update_journals import is_publishable_snapshot
+from scripts.update_journals import (
+    is_publishable_snapshot,
+    order_verification_status,
+)
 
 
 COMPLETE_ISSUE = {
@@ -36,6 +39,16 @@ class PublicationGateTests(unittest.TestCase):
         issue["quality"]["abstract_en_complete"] = 1
         issue["quality"]["duplicate_count"] = 1
         self.assertFalse(is_publishable_snapshot(issue))
+
+    def test_exposes_reader_facing_order_verification_level(self) -> None:
+        issue = copy.deepcopy(COMPLETE_ISSUE)
+        self.assertEqual("official_verified", order_verification_status(issue))
+        issue["quality"]["flags"] = ["official_order_override_applied"]
+        self.assertEqual("official_verified", order_verification_status(issue))
+        issue["quality"]["flags"] = ["official_order_unverified"]
+        self.assertEqual("pending_official", order_verification_status(issue))
+        issue["quality"]["flags"] = ["crossref_provisional_roster"]
+        self.assertEqual("pending_official", order_verification_status(issue))
 
 
 if __name__ == "__main__":

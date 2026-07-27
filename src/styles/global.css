@@ -192,6 +192,8 @@ main,
   font-weight: 750;
 }
 .issue-note.complete { color: var(--green); background: var(--green-soft); }
+.issue-note.verification.verified { color: var(--green); background: var(--green-soft); }
+.issue-note.verification.pending { color: #8a4d12; background: #fff1dc; }
 .issue-note-stack { display: grid; justify-items: end; gap: 7px; }
 .issue-note.warning { max-width: 360px; color: #8a4d12; background: #fff1dc; text-align: right; }
 .loading-copy,

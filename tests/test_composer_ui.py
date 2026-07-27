@@ -68,6 +68,14 @@ class ComposerUiTest(unittest.TestCase):
         self.assertNotIn('class="abstract-label">English Abstract</p>', explorer)
         self.assertNotIn('class="abstract-label">中文摘要</p>', explorer)
 
+    def test_content_page_keeps_one_reader_facing_source_status(self):
+        explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(encoding="utf-8")
+        self.assertIn("官网目录已核对", explorer)
+        self.assertIn("目录顺序待官网复核", explorer)
+        self.assertNotIn("Crossref 备用来源", explorer)
+        architecture = (ROOT / "docs/architecture.md").read_text(encoding="utf-8")
+        self.assertIn("轻量核验标识", architecture)
+
     def test_china_filter_and_traceable_relevance_hook_exist(self):
         explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(encoding="utf-8")
         self.assertIn('id="china-filter"', explorer)

@@ -162,6 +162,9 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     const translated = quality.translation_complete || 0;
     const total = issue.research_article_count || issue.articles.length;
     const publicationDate = formatDate(issue.publication_date);
+    const flags = quality.flags || [];
+    const orderPending = flags.includes("official_order_unverified")
+      || flags.includes("crossref_provisional_roster");
     composerLink.href = `${base}composer/?journal=${encodeURIComponent(issue.journal_id)}`;
 
     summary.innerHTML = `
@@ -179,6 +182,9 @@ const base = import.meta.env.BASE_URL.endsWith("/")
           ${translated === total
             ? "中英文内容已整理完成"
             : `中文摘要整理中 · ${translated}/${total}`}
+        </div>
+        <div class="issue-note verification ${orderPending ? "pending" : "verified"}">
+          ${orderPending ? "目录顺序待官网复核" : "官网目录已核对"}
         </div>
         <div class="issue-note">中国相关：${issue.articles.filter((article) => chinaRelevance(article).status === "yes").length} 篇</div>
       </div>`;

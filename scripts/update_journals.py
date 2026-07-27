@@ -232,6 +232,18 @@ def structural_flags(issue: dict[str, Any]) -> list[str]:
     ]
 
 
+def order_verification_status(issue: dict[str, Any]) -> str:
+    """Return the reader-facing issue-order verification level."""
+
+    flags = set(issue.get("quality", {}).get("flags", []))
+    if {
+        "official_order_unverified",
+        "crossref_provisional_roster",
+    } & flags:
+        return "pending_official"
+    return "official_verified"
+
+
 def is_publishable_snapshot(issue: dict[str, Any]) -> bool:
     article_count = len(issue.get("articles", []))
     research_count = issue.get("research_article_count", 0)
@@ -408,6 +420,7 @@ def update_indexes(
                     ),
                     "article_count": total,
                     "translation_complete": translated,
+                    "order_verification": order_verification_status(issue),
                 }
             )
             checks[f"{config['id']}_roster_match"] = issue["quality"]["roster_match"]
