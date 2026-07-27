@@ -1,0 +1,150 @@
+---
+import Layout from "../../layouts/Layout.astro";
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+---
+
+<Layout
+  title="跨刊检索 · Academic Door"
+  description="在 Academic Door 监测的全部经济学期刊最新卷期中检索标题、作者与 DOI"
+>
+  <main>
+    <section class="catalog-intro">
+      <div>
+        <p class="section-kicker">CROSS-JOURNAL SEARCH</p>
+        <h1>跨刊检索</h1>
+        <p>在 TOP5 与领域顶刊的最新卷期中检索中英文标题、作者与 DOI。</p>
+        <nav class="collection-switcher" aria-label="期刊分类">
+          <a class="button" href={base}>TOP5</a>
+          <a class="button" href={`${base}fields/`}>领域顶刊</a>
+          <a class="button active" href={`${base}search/`} aria-current="page">跨刊检索</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="journal-toolbar" aria-label="检索工具">
+      <label class="search-field">
+        <span class="sr-only">检索论文</span>
+        <input id="q" type="search" placeholder="检索标题、作者或 DOI" autocomplete="off" />
+      </label>
+      <label class="journal-field-filter">
+        <span class="sr-only">按集合筛选</span>
+        <select id="scope" aria-label="按集合筛选">
+          <option value="all">全部期刊</option>
+          <option value="top5">仅 TOP5</option>
+          <option value="fields">仅领域顶刊</option>
+        </select>
+      </label>
+      <p id="count" class="search-count">正在载入检索索引……</p>
+    </section>
+
+    <section id="results" class="search-results" aria-live="polite"></section>
+  </main>
+
+  <style>
+    .search-count { margin: 0; color: var(--muted); font-size: 0.82rem; }
+    .search-results { display: grid; gap: 12px; padding: 26px 0 72px; }
+
+    .search-hit {
+      padding: 18px 22px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgb(16 44 36 / 5%);
+    }
+
+    .search-hit h3 {
+      margin: 0;
+      font-family: Georgia, "Noto Serif SC", serif;
+      font-size: 1.04rem;
+      line-height: 1.4;
+    }
+
+    .search-hit .hit-en { margin: 5px 0 0; color: var(--muted); font-size: 0.82rem; }
+
+    .search-hit .hit-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px 14px;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 0.74rem;
+    }
+
+    .search-hit mark { padding: 0 2px; background: var(--green-soft); border-radius: 3px; }
+    .search-intro { padding: 40px 0; color: var(--muted); }
+  </style>
+
+  <script is:inline define:vars={{ base }}>
+    const input = document.querySelector("#q");
+    const scope = document.querySelector("#scope");
+    const count = document.querySelector("#count");
+    const results = document.querySelector("#results");
+    let records = [];
+
+    const escapeHtml = (value = "") =>
+      String(value).replace(/[&<>"']/g, (character) => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;",
+      })[character]);
+
+    const highlight = (value, query) => {
+      const safe = escapeHtml(value);
+      if (!query) return safe;
+      const index = safe.toLocaleLowerCase().indexOf(query);
+      if (index < 0) return safe;
+      return `${safe.slice(0, index)}<mark>${safe.slice(index, index + query.length)}</mark>${safe.slice(index + query.length)}`;
+    };
+
+    const render = () => {
+      const query = input.value.trim().toLocaleLowerCase();
+      const collection = scope.value;
+      if (!query) {
+        results.innerHTML =
+          '<p class="search-intro">输入关键词开始检索，例如「气候」「China」「inequality」或某个 DOI。</p>';
+        count.textContent = `${records.length} 篇文章可检索`;
+        return;
+      }
+      const hits = records.filter((record) =>
+        (collection === "all" || record.collection === collection) &&
+        [record.title_cn, record.title_en, record.doi, (record.authors || []).join(" ")]
+          .join(" ").toLocaleLowerCase().includes(query)
+      );
+      count.textContent = `命中 ${hits.length} 篇 / 共 ${records.length} 篇`;
+      if (!hits.length) {
+        results.innerHTML = '<p class="empty-state">没有找到匹配的论文。</p>';
+        return;
+      }
+      results.innerHTML = hits.slice(0, 200).map((record) => `
+        <article class="search-hit">
+          <h3>${highlight(record.title_cn || record.title_en, query)}</h3>
+          <p class="hit-en">${highlight(record.title_en, query)}</p>
+          <p class="hit-meta">
+            <span>${escapeHtml(record.short_name)} · ${escapeHtml(record.issue_label)}</span>
+            <span>${highlight((record.authors || []).join(", "), query)}</span>
+            ${record.doi ? `<span>DOI ${highlight(record.doi, query)}</span>` : ""}
+            ${record.url ? `<a href="${escapeHtml(record.url)}" target="_blank" rel="noreferrer">查看原文</a>` : ""}
+          </p>
+        </article>`).join("")
+        + (hits.length > 200 ? '<p class="search-intro">仅显示前 200 条，请缩小关键词范围。</p>' : "");
+    };
+
+    input.addEventListener("input", render);
+    scope.addEventListener("change", render);
+
+    fetch(`${base}api/v1/search-index.json`)
+      .then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      })
+      .then((index) => {
+        records = index.records || [];
+        const params = new URLSearchParams(location.search);
+        if (params.get("q")) input.value = params.get("q");
+        render();
+      })
+      .catch((error) => {
+        count.textContent = `检索索引载入失败：${error.message}`;
+      });
+  </script>
+</Layout>
