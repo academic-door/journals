@@ -28,6 +28,10 @@ COMMENT_TITLE_OVERRIDES = {
 UPDATE_REPORT = ROOT / "output" / "journal-update-report.json"
 
 
+class SourceLagError(RuntimeError):
+    """The detector is ahead of the publisher's current-issue endpoint."""
+
+
 def now_iso() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 
@@ -274,6 +278,8 @@ def collect_one(
     config: dict[str, Any],
     *,
     translate: bool,
+    expected_volume: str = "",
+    expected_issue: str = "",
 ) -> tuple[dict[str, Any] | None, dict[str, Any]]:
     report: dict[str, Any] = {
         "journal": key,
@@ -300,6 +306,16 @@ def collect_one(
             issue = fallback()
             report["primary_error"] = primary_error
             report["transport"] = "metadata_fallback"
+        if expected_volume and str(issue.get("volume", "")) != expected_volume:
+            raise SourceLagError(
+                f"detected volume {expected_volume}, but the deep collector "
+                f"still returns volume {issue.get('volume', '')}"
+            )
+        if expected_issue and str(issue.get("issue", "")) != expected_issue:
+            raise SourceLagError(
+                f"detected issue {expected_issue}, but the deep collector "
+                f"still returns issue {issue.get('issue', '')}"
+            )
         issue = apply_translation_cache(issue)
         translation_report: dict[str, Any] | None = None
         if translate:
@@ -540,6 +556,16 @@ def main() -> int:
         action="store_true",
         help="Translate missing Chinese titles and abstracts through GitHub Models.",
     )
+    parser.add_argument(
+        "--expected-volume",
+        default="",
+        help="Preserve the previous snapshot until the collector reaches this volume.",
+    )
+    parser.add_argument(
+        "--expected-issue",
+        default="",
+        help="Preserve the previous snapshot until the collector reaches this issue.",
+    )
     args = parser.parse_args()
 
     selected = [
@@ -554,6 +580,8 @@ def main() -> int:
             key,
             journal_configs[key],
             translate=args.translate,
+            expected_volume=args.expected_volume,
+            expected_issue=args.expected_issue,
         )
         refreshed[key] = issue
         reports.append(report)

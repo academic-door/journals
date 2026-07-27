@@ -1,32 +1,15 @@
-name: Update journal data
+name: Monitor journal updates
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - ".github/workflows/update-journals.yml"
-      - "collectors/**"
-      - "config/**"
-      - "data/translation-cache/**"
-      - "data/order-overrides/**"
-      - "schemas/**"
-      - "scripts/**"
-      - "requirements.txt"
   workflow_dispatch:
-    inputs:
-      journal:
-        description: Any configured journal code, or ALL
-        required: true
-        default: ALL
-        type: string
   schedule:
-    # Daily full sweep is the safety net. The lightweight monitor runs every
-    # two hours and deep-collects only journals with confirmed changes.
-    - cron: "35 21 * * *"
+    # Every two hours at minute 17. Detection is metadata-only unless a change
+    # is confirmed, so publisher sites are not polled 41 times per cycle.
+    - cron: "17 */2 * * *"
 
 permissions:
   contents: write
+  issues: write
   models: read
 
 concurrency:
@@ -34,12 +17,19 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  update:
+  monitor:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
 
-      - name: Restore last-known-good data baseline
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: python -m pip install -r requirements.txt
+
+      - name: Restore last-known-good public data and monitor state
         shell: bash
         run: |
           set -euo pipefail
@@ -51,6 +41,11 @@ jobs:
             git archive origin/data public | tar -x
             if git cat-file -e origin/data:data/translation-cache 2>/dev/null; then
               git archive origin/data data/translation-cache | tar -x
+            fi
+            if git cat-file -e origin/data:data/monitoring/state.json 2>/dev/null; then
+              mkdir -p data/monitoring
+              git show origin/data:data/monitoring/state.json \
+                > data/monitoring/state.json
             fi
           fi
           MAIN_CACHE="$main_cache" python - <<'PY'
@@ -71,92 +66,63 @@ jobs:
               )
           PY
 
-      - uses: actions/setup-python@v7
-        with:
-          python-version: "3.12"
-          cache: pip
-
-      - run: python -m pip install -r requirements.txt
-      - name: Collect and validate
-        id: collect
-        continue-on-error: true
+      - name: Detect changes and update confirmed journals
+        id: monitor
         env:
           PYTHONPATH: ${{ github.workspace }}
           GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || github.token }}
         run: |
-          python scripts/update_journals.py --journal "${{ inputs.journal || 'ALL' }}" --translate
+          python scripts/journal_monitor.py --run-updates --translate
+
+      - name: Validate last-known-good output
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
           python scripts/audit_public_data.py
           python -m unittest discover -s tests -v
           python scripts/audit_privacy.py
 
-      - name: Publish generated public data to data branch
-        if: steps.collect.outcome == 'success'
+      - name: Publish data and monitoring state
         shell: bash
         run: |
           set -euo pipefail
           generated="$RUNNER_TEMP/generated-public"
           generated_cache="$RUNNER_TEMP/generated-translation-cache"
+          generated_state="$RUNNER_TEMP/monitor-state.json"
           data_tree="$RUNNER_TEMP/data-tree"
-          mkdir -p "$generated"
-          mkdir -p "$generated_cache"
+          mkdir -p "$generated" "$generated_cache"
           cp -R public/. "$generated/"
           cp -R data/translation-cache/. "$generated_cache/"
+          cp data/monitoring/state.json "$generated_state"
 
-          if git ls-remote --exit-code origin refs/heads/data >/dev/null 2>&1; then
-            git fetch origin data
-            git worktree add "$data_tree" origin/data
-            cd "$data_tree"
-            git switch -C data
-          else
-            git worktree add --detach "$data_tree"
-            cd "$data_tree"
-            git switch --orphan data
-            git rm -rf --ignore-unmatch .
-          fi
-
-          rm -rf public data/translation-cache
-          mkdir -p public
-          mkdir -p data/translation-cache
-          cp -R "$generated"/. public/
-          cp -R "$generated_cache"/. data/translation-cache/
-          git config user.name "academic-door-bot"
-          git config user.email "academic-door-bot@users.noreply.github.com"
-          git add public data/translation-cache
-          if git diff --cached --quiet; then
-            echo "No public data changes."
-            exit 0
-          fi
-          git commit -m "Update journal data"
-          git push origin HEAD:data
-
-      - name: Preserve partial translation progress
-        if: steps.collect.outcome == 'failure'
-        shell: bash
-        run: |
-          set -euo pipefail
-          generated_cache="$RUNNER_TEMP/partial-translation-cache"
-          data_tree="$RUNNER_TEMP/partial-data-tree"
-          mkdir -p "$generated_cache"
-          cp -R data/translation-cache/. "$generated_cache/"
           git fetch origin data
           git worktree add "$data_tree" origin/data
           cd "$data_tree"
           git switch -C data
-          rm -rf data/translation-cache
-          mkdir -p data/translation-cache
+          rm -rf public data/translation-cache
+          mkdir -p public data/translation-cache data/monitoring
+          cp -R "$generated"/. public/
           cp -R "$generated_cache"/. data/translation-cache/
+          cp "$generated_state" data/monitoring/state.json
           git config user.name "academic-door-bot"
           git config user.email "academic-door-bot@users.noreply.github.com"
-          git add data/translation-cache
+          git add public data/translation-cache
+          git add -f data/monitoring/state.json
           if git diff --cached --quiet; then
-            echo "No partial translation progress to preserve."
+            echo "No journal or monitor-state changes."
             exit 0
           fi
-          git commit -m "Preserve partial translation progress"
+          git commit -m "Monitor journal updates"
           git push origin HEAD:data
 
-      - name: Sync audited journal issues to private Composer
-        if: steps.collect.outcome == 'success'
+      - name: Open or close deduplicated failure alerts
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/monitor_alerts.py output/journal-monitor-result.json
+
+      - name: Sync audited issues to private Composer
+        continue-on-error: true
         env:
           COMPOSER_DEPLOY_KEY: ${{ secrets.COMPOSER_DEPLOY_KEY }}
         shell: bash
@@ -168,7 +134,7 @@ jobs:
           ssh-keyscan github.com >> ~/.ssh/known_hosts
 
           for attempt in 1 2 3; do
-            target="$RUNNER_TEMP/composer-sync-$attempt"
+            target="$RUNNER_TEMP/composer-monitor-sync-$attempt"
             rm -rf "$target"
             git clone --depth=1 git@github.com:academic-door/academic-door-composer.git "$target"
             python "$target/scripts/build_data.py" \
@@ -180,19 +146,35 @@ jobs:
             git config user.email "academic-door-bot@users.noreply.github.com"
             git add site/data
             if git diff --cached --quiet; then
-              echo "Composer already contains the current audited journal issues."
+              echo "Composer already contains the current audited issues."
               exit 0
             fi
-            git commit -m "Sync audited journal issues"
+            git commit -m "Sync monitored journal issues"
             if git push origin HEAD:main; then
               exit 0
             fi
             cd "$GITHUB_WORKSPACE"
             sleep $((attempt * 5))
           done
-          echo "Composer changed concurrently and could not be updated after three attempts."
           exit 1
 
-      - name: Report validation failure
-        if: steps.collect.outcome == 'failure'
-        run: exit 1
+      - name: Write run summary
+        if: always()
+        shell: bash
+        run: |
+          if [ ! -f output/journal-monitor-result.json ]; then
+            echo "## Journal monitor did not produce a result" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          from pathlib import Path
+
+          result = json.loads(Path("output/journal-monitor-result.json").read_text())
+          print("## Journal monitor")
+          print(f"- Confirmed: {', '.join(result['confirmed_journals']) or 'none'}")
+          print(f"- Pending confirmation: {', '.join(result['pending_journals']) or 'none'}")
+          print(f"- Failed checks: {', '.join(result['failed_journals']) or 'none'}")
+          for item in result.get("deep_updates", []):
+              print(f"- Deep update {item['journal']}: {item['result']}")
+          PY

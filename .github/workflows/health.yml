@@ -23,6 +23,7 @@ jobs:
           curl --fail --retry 3 --silent --show-error "$base/top5/" >/dev/null
           curl --fail --retry 3 --silent --show-error "$base/composer/" >/dev/null
           curl --fail --retry 3 --silent --show-error "$base/api/v1/health.json" >/dev/null
+          curl --fail --retry 3 --silent --show-error "$base/api/v1/monitoring.json" >/dev/null
           curl --fail --retry 3 --silent --show-error "$base/project-manifest.json" >/dev/null
 
       - name: Create a visible issue when health check fails
