@@ -92,7 +92,8 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn('fetch(`${base}api/v1/index.json`)', self.page)
         self.assertIn("collections.flatMap", self.page)
         fields_page = (ROOT / "src/pages/fields/index.astro").read_text(encoding="utf-8")
-        self.assertIn('FieldJournalExplorer', fields_page)
+        self.assertIn('Top5Explorer', fields_page)
+        self.assertIn('collectionId="fields"', fields_page)
         self.assertIn('Econ Field Journals · Academic Door', fields_page)
 
     def test_field_collection_contains_all_a_tier_journals(self):
@@ -104,25 +105,15 @@ class ComposerUiTest(unittest.TestCase):
         self.assertEqual(36, len(set(journals)))
         self.assertTrue({"JDE", "JPubE", "JEEM", "JUE", "AJAE"}.issubset(journals))
 
-    def test_field_journal_portal_uses_grouped_card_directory(self):
-        explorer = (ROOT / "src/components/FieldJournalExplorer.astro").read_text(
+    def test_field_journals_reuse_top5_reader_with_compact_selectors(self):
+        explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(
             encoding="utf-8"
         )
-        for field_id in (
-            "general",
-            "theory",
-            "public_history_international",
-            "finance",
-            "development_applied",
-            "urban_macro_labor_metrics_environment",
-            "agriculture_resources",
-        ):
-            self.assertIn(f'id: "{field_id}"', explorer)
-        self.assertIn("field-journal-grid", explorer)
-        self.assertIn("repeat(auto-fill, minmax(220px, 1fr))", explorer)
-        self.assertIn('id="directory-back"', explorer)
-        self.assertIn('new URLSearchParams(location.search).get("journal")', explorer)
-        self.assertNotIn('id="field-filter"', explorer)
+        self.assertIn('id="field-filter"', explorer)
+        self.assertIn('id="journal-select"', explorer)
+        self.assertIn("select.onchange", explorer)
+        self.assertIn('class="paper-entry"', explorer)
+        self.assertNotIn("field-journal-grid", explorer)
 
     def test_field_names_are_consistent_across_config_and_public_api(self):
         import json

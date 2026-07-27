@@ -48,7 +48,14 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       </select>
     </label>
   )}
-  <div id="journal-tabs" class="journal-tabs" role="tablist" aria-label={collectionId === "fields" ? "领域顶刊" : "TOP5 期刊"}></div>
+  {collectionId === "fields" ? (
+    <label class="journal-field-filter">
+      <span class="sr-only">选择期刊</span>
+      <select id="journal-select" aria-label="选择期刊"></select>
+    </label>
+  ) : (
+    <div id="journal-tabs" class="journal-tabs" role="tablist" aria-label="TOP5 期刊"></div>
+  )}
   <label class="search-field">
     <span class="sr-only">检索论文</span>
     <input id="paper-search" type="search" placeholder="检索标题、作者或摘要" />
@@ -125,6 +132,25 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
   const renderTabs = () => {
     const tabs = document.querySelector("#journal-tabs");
+    const select = document.querySelector("#journal-select");
+    if (select) {
+      const journals = visibleJournals();
+      select.innerHTML = journals.map((journal) => `
+        <option
+          value="${escapeHtml(journal.journal_id)}"
+          ${journal.journal_id === state.activeJournal?.journal_id ? "selected" : ""}
+          ${journal.latest_issue_url ? "" : "disabled"}
+        >${escapeHtml(journal.short_name)} · ${escapeHtml(journal.name_cn || journal.name)}</option>
+      `).join("");
+      select.onchange = () => {
+        const journal = state.collection.journals.find(
+          (item) => item.journal_id === select.value
+        );
+        if (journal) loadIssue(journal);
+      };
+      return;
+    }
+    if (!tabs) return;
     tabs.innerHTML = visibleJournals().map((journal) => {
       const enabled = Boolean(journal.latest_issue_url);
       const active = journal.journal_id === state.activeJournal?.journal_id;
@@ -290,7 +316,9 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       const journals = enabledJournals();
       renderTabs();
       if (!journals.length) throw new Error("尚无可用期刊数据");
-      journals.forEach((journal) => fetchIssue(journal).catch(() => null));
+      if (collection.collection_id === "top5") {
+        journals.forEach((journal) => fetchIssue(journal).catch(() => null));
+      }
       await loadIssue(journals[0]);
     })
     .catch((error) => {

@@ -1,10 +1,15 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import FieldJournalExplorer from "../../components/FieldJournalExplorer.astro";
+import Top5Explorer from "../../components/Top5Explorer.astro";
 ---
 
 <Layout title="Econ Field Journals · Academic Door">
   <main>
-    <FieldJournalExplorer />
+    <Top5Explorer
+      collectionId="fields"
+      kicker="ECON FIELD JOURNALS"
+      heading="经济学领域顶刊最新卷期"
+      description="按研究领域浏览 Academic Door 当前监测的 36 本高水平经济学期刊。"
+    />
   </main>
 </Layout>
