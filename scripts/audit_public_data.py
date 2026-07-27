@@ -57,7 +57,11 @@ def main() -> int:
         for journal_entry in collection.get("journals", []):
             if journal_entry.get("latest_issue_url") and journal_entry.get(
                 "order_verification"
-            ) not in {"official_verified", "pending_official"}:
+            ) not in {
+                "official_verified",
+                "pending_official",
+                "continuous_publication",
+            }:
                 findings.append(
                     f"{collection_id}:{journal_entry.get('journal_id')}: "
                     "reader-facing order verification is missing"
