@@ -4,7 +4,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   : `${import.meta.env.BASE_URL}/`;
 ---
 
-<section class="field-hero">
+<section class="catalog-intro field-hero">
   <div>
     <p class="section-kicker">ECON FIELD JOURNALS</p>
     <h1>经济学领域顶刊</h1>
@@ -111,10 +111,16 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       .map((part, index) => index === 0 ? `Vol. ${part}` : `No. ${part.toUpperCase()}`)
       .join(" · ");
 
-  const verificationLabel = (journal) =>
-    journal.order_verification === "verified"
-      ? "官网目录已核对"
-      : "目录顺序待官网复核";
+  // API 值为 official_verified / pending_official / continuous_publication。
+  // 连续出版卷不显示彩色徽标：它不是待办，只是这类卷期没有可复核的官网顺序。
+  const VERIFICATION = {
+    official_verified: { tone: "verified", label: "官网目录已核对" },
+    continuous_publication: { tone: "", label: "连续出版卷 · 按文章编号排列" },
+    pending_official: { tone: "pending", label: "目录顺序待官网复核" },
+  };
+
+  const verification = (value) =>
+    VERIFICATION[value] || VERIFICATION.pending_official;
 
   const journalById = (journalId) =>
     state.collection?.journals.find((journal) => journal.journal_id === journalId);
@@ -139,7 +145,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
     jumpNav.innerHTML = fieldGroups.map((field) => {
       const count = journals.filter((journal) => journal.field === field.id).length;
-      return `<a href="#field-${escapeHtml(field.id)}">${escapeHtml(field.label)}<span>${count}</span></a>`;
+      return `<a class="button" href="#field-${escapeHtml(field.id)}">${escapeHtml(field.label)}<span>${count}</span></a>`;
     }).join("");
 
     groups.innerHTML = fieldGroups.map((field) => {
@@ -169,9 +175,9 @@ const base = import.meta.env.BASE_URL.endsWith("/")
                     ? `<span>${escapeHtml(formatDate(journal.publication_date))}</span>`
                     : ""}
                   <span>${Number(journal.article_count || 0)} 篇</span>
-                  <span class="${journal.order_verification === "verified" ? "verified" : "pending"}">
-                    ${escapeHtml(verificationLabel(journal))}
-                  </span>
+                  <span class="${verification(journal.order_verification).tone
+                    ? `issue-note verification ${verification(journal.order_verification).tone}`
+                    : ""}">${escapeHtml(verification(journal.order_verification).label)}</span>
                 </span>
               </button>`).join("")}
           </div>
@@ -211,9 +217,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     const chinaCount = issue.articles.filter(
       (article) => chinaRelevance(article).status === "yes"
     ).length;
-    const orderPending = (quality.flags || []).includes("official_order_unverified")
-      || (quality.flags || []).includes("crossref_provisional_roster")
-      || journal.order_verification !== "verified";
+    const order = verification(journal.order_verification);
 
     document.querySelector("#composer-link").href =
       `${base}composer/?journal=${encodeURIComponent(issue.journal_id)}`;
@@ -228,9 +232,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         ${publicationDate ? `<span>${escapeHtml(publicationDate)}</span>` : ""}
         <span>${total} 篇学术文章</span>
         <span>${translated === total ? "中英文已整理" : `中文摘要 ${translated}/${total}`}</span>
-        <span class="${orderPending ? "pending" : "verified"}">
-          ${orderPending ? "目录顺序待官网复核" : "官网目录已核对"}
-        </span>
+        <span class="${order.tone ? `issue-note verification ${order.tone}` : ""}">${escapeHtml(order.label)}</span>
         ${chinaCount ? `<span>中国相关 ${chinaCount} 篇</span>` : ""}
       </p>`;
 
@@ -350,28 +352,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 </script>
 
 <style>
-  .field-hero {
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
-    gap: 30px;
-    padding: 38px 0 26px;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .field-hero h1 {
-    margin: 0;
-    font-family: Georgia, "Noto Serif SC", serif;
-    font-size: clamp(2rem, 4vw, 2.8rem);
-    line-height: 1.15;
-    letter-spacing: -0.025em;
-  }
-
-  .field-hero > div > p:last-of-type {
-    max-width: 650px;
-    margin: 10px 0 0;
-    color: var(--muted);
-  }
+  /* 仅定义 TOP5 页没有的目录结构；hero、按钮、状态徽标一律复用 global.css，
+     避免第二套设计语言。数值取自 global.css 现有尺度：卡片圆角 14px、
+     卡片阴影 0 8px 24px rgb(16 44 36 / 5%)、控件圆角 9px。 */
+  .field-hero { border-bottom: 1px solid var(--line); }
 
   #field-directory { padding: 34px 0 70px; }
 
@@ -384,37 +368,15 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
   .directory-heading h2 {
     margin: 0;
-    font: 700 1.65rem/1.25 Georgia, "Noto Serif SC", serif;
+    font-family: Georgia, "Noto Serif SC", serif;
+    font-size: 1.65rem;
+    line-height: 1.25;
   }
 
-  .directory-heading > p {
-    margin: 0;
-    color: var(--muted);
-    font-size: 0.86rem;
-  }
+  .directory-heading > p { margin: 0; color: var(--muted); font-size: 0.86rem; }
 
-  .field-jump-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 22px 0 36px;
-  }
-
-  .field-jump-nav a {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    padding: 8px 12px;
-    color: var(--ink);
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    font-size: 0.82rem;
-    font-weight: 750;
-    text-decoration: none;
-  }
-
-  .field-jump-nav a:hover { border-color: var(--green); }
+  .field-jump-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 36px; }
+  .field-jump-nav .button { display: inline-flex; align-items: center; gap: 7px; }
   .field-jump-nav span { color: var(--muted); font-variant-numeric: tabular-nums; }
   .field-groups { display: grid; gap: 42px; }
   .field-group { scroll-margin-top: 20px; }
@@ -431,7 +393,9 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
   .field-group-heading h3 {
     margin: 0;
-    font: 700 1.15rem/1.3 Georgia, "Noto Serif SC", serif;
+    font-family: Georgia, "Noto Serif SC", serif;
+    font-size: 1.15rem;
+    line-height: 1.3;
   }
 
   .field-group-heading span { color: var(--muted); font-size: 0.78rem; }
@@ -439,29 +403,27 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   .field-journal-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 14px;
+    gap: 18px;
   }
 
   .field-journal-card {
+    display: block;
     min-width: 0;
-    padding: 18px;
+    padding: 22px 22px 18px;
     color: var(--ink);
     text-align: left;
     background: var(--paper);
     border: 1px solid var(--line);
-    border-radius: 12px;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgb(16 44 36 / 5%);
     cursor: pointer;
-    transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
   }
 
-  .field-journal-card:hover {
-    border-color: color-mix(in srgb, var(--green) 55%, var(--line));
-    box-shadow: 0 8px 22px rgb(16 44 36 / 6%);
-    transform: translateY(-2px);
-  }
+  .field-journal-card:hover:not(:disabled) { border-color: var(--green); }
+  .field-journal-card:disabled { color: var(--muted); cursor: default; box-shadow: none; }
 
   .field-journal-card:focus-visible {
-    outline: 3px solid color-mix(in srgb, var(--green) 30%, transparent);
+    outline: 2px solid var(--green);
     outline-offset: 2px;
   }
 
@@ -474,30 +436,30 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
   .journal-card-topline strong {
     color: var(--green);
-    font-size: 0.9rem;
-    letter-spacing: 0.04em;
+    font-size: 0.7rem;
+    font-weight: 850;
+    letter-spacing: 0.15em;
   }
 
-  .journal-card-topline > span {
-    color: var(--muted);
-    font-size: 0.7rem;
-    line-height: 1.4;
-    text-align: right;
-  }
+  .journal-card-topline > span { color: var(--muted); font-size: 0.72rem; text-align: right; }
 
   .journal-card-cn {
     display: block;
-    margin-top: 18px;
-    font: 700 1.04rem/1.35 Georgia, "Noto Serif SC", serif;
+    margin-top: 16px;
+    font-family: Georgia, "Noto Serif SC", serif;
+    font-size: 1.04rem;
+    font-weight: 700;
+    line-height: 1.35;
   }
 
   .journal-card-en {
     display: -webkit-box;
     min-height: 2.6em;
-    margin-top: 5px;
+    margin-top: 6px;
     overflow: hidden;
     color: var(--muted);
-    font: 0.77rem/1.45 Georgia, "Noto Serif SC", serif;
+    font-size: 0.78rem;
+    line-height: 1.45;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
   }
@@ -505,16 +467,16 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   .journal-card-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px 10px;
+    align-items: center;
+    gap: 6px 10px;
     margin-top: 16px;
-    padding-top: 11px;
+    padding-top: 12px;
     border-top: 1px solid var(--line);
     color: var(--muted);
-    font-size: 0.68rem;
+    font-size: 0.72rem;
   }
 
-  .verified { color: var(--green); }
-  .pending { color: #8a5b14; }
+  .journal-card-meta .issue-note { font-size: 0.68rem; }
 
   #field-detail { padding-bottom: 70px; }
   #field-detail[hidden], #field-directory[hidden] { display: none; }
@@ -527,49 +489,48 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     border-bottom: 1px solid var(--line);
   }
 
-  .back-button,
-  .peer-journals button {
-    color: var(--ink);
-    background: transparent;
-    border: 0;
-    cursor: pointer;
-    font: inherit;
-    font-size: 0.8rem;
-    font-weight: 750;
-  }
-
   .back-button {
     flex: 0 0 auto;
     padding: 8px 0;
     color: var(--green);
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 750;
   }
 
-  .peer-journals {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-  }
+  .peer-journals { display: flex; flex-wrap: wrap; gap: 2px; }
 
   .peer-journals button {
+    min-height: 42px;
     padding: 7px 10px;
-    border: 1px solid transparent;
-    border-radius: 7px;
+    color: inherit;
+    background: transparent;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 850;
   }
 
-  .peer-journals button:hover { border-color: var(--line); }
+  .peer-journals button:hover { background: var(--green-soft); }
   .peer-journals button.active { color: white; background: var(--green); }
 
   .field-paper-tools {
     display: flex;
+    flex-wrap: wrap;
     justify-content: flex-end;
     gap: 10px;
     padding: 18px 0 0;
   }
 
   .field-issue-summary { padding: 30px 0 22px; }
+
   .field-issue-heading h2 {
     margin: 0;
-    font: 700 1.65rem/1.3 Georgia, "Noto Serif SC", serif;
+    font-family: Georgia, "Noto Serif SC", serif;
+    font-size: 1.65rem;
+    line-height: 1.3;
   }
 
   .field-issue-name-cn { margin: 5px 0 0; color: var(--muted); }
@@ -577,9 +538,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   .field-issue-facts {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px 16px;
+    align-items: center;
+    gap: 8px 16px;
     margin: 16px 0 0;
-    padding: 11px 0;
+    padding: 12px 0;
     color: var(--muted);
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
@@ -587,8 +549,6 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   }
 
   @media (max-width: 760px) {
-    .field-hero { display: block; padding-top: 30px; }
-    .field-hero > .button { display: inline-flex; margin-top: 20px; }
     .directory-heading { align-items: start; }
     .field-journal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .field-detail-nav { align-items: start; flex-direction: column; gap: 6px; }
@@ -600,9 +560,5 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     .field-journal-grid { grid-template-columns: 1fr; }
     .field-jump-nav { display: grid; grid-template-columns: 1fr 1fr; }
     .field-jump-nav a { justify-content: space-between; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .field-journal-card { transition: none; }
   }
 </style>
