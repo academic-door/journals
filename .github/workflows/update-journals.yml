@@ -153,6 +153,44 @@ jobs:
           git commit -m "Preserve partial translation progress"
           git push origin HEAD:data
 
+      - name: Sync audited journal issues to private Composer
+        if: steps.collect.outcome == 'success'
+        env:
+          COMPOSER_DEPLOY_KEY: ${{ secrets.COMPOSER_DEPLOY_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          printf '%s\n' "$COMPOSER_DEPLOY_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+          for attempt in 1 2 3; do
+            target="$RUNNER_TEMP/composer-sync-$attempt"
+            rm -rf "$target"
+            git clone --depth=1 git@github.com:academic-door/academic-door-composer.git "$target"
+            python "$target/scripts/build_data.py" \
+              --journals-source "$GITHUB_WORKSPACE/public" \
+              --output "$target/site/data"
+            python "$target/scripts/validate_bundle.py" --site "$target/site"
+            cd "$target"
+            git config user.name "academic-door-bot"
+            git config user.email "academic-door-bot@users.noreply.github.com"
+            git add site/data
+            if git diff --cached --quiet; then
+              echo "Composer already contains the current audited journal issues."
+              exit 0
+            fi
+            git commit -m "Sync audited journal issues"
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            cd "$GITHUB_WORKSPACE"
+            sleep $((attempt * 5))
+          done
+          echo "Composer changed concurrently and could not be updated after three attempts."
+          exit 1
+
       - name: Report validation failure
         if: steps.collect.outcome == 'failure'
         run: exit 1
