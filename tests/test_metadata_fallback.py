@@ -125,7 +125,7 @@ class MetadataFallbackTests(unittest.TestCase):
         self.assertEqual(issue["articles"][1]["article_type"], "comment")
         self.assertEqual(issue["quality"]["excluded_item_count"], 0)
 
-    def test_missing_page_research_item_fails_roster_match(self) -> None:
+    def test_keeps_page_less_research_item_with_stable_doi_locator(self) -> None:
         items = [
             item("First paper", "1-10", "10.1/first"),
             item("Second paper", "11-20", "10.1/second"),
@@ -139,9 +139,9 @@ class MetadataFallbackTests(unittest.TestCase):
             session=Session(items),
         )
         self.assertEqual(issue["expected_article_count"], 3)
-        self.assertEqual(issue["research_article_count"], 2)
-        self.assertFalse(issue["quality"]["roster_match"])
-        self.assertIn("crossref_roster_incomplete", issue["quality"]["flags"])
+        self.assertEqual(issue["research_article_count"], 3)
+        self.assertTrue(issue["quality"]["roster_match"])
+        self.assertNotIn("crossref_roster_incomplete", issue["quality"]["flags"])
 
 
 if __name__ == "__main__":

@@ -141,6 +141,15 @@ main,
 }
 
 .journal-tabs { display: flex; align-items: stretch; gap: 2px; }
+.journal-field-filter select {
+  min-height: 40px;
+  padding: 8px 32px 8px 11px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font: inherit;
+}
 .journal-tabs button {
   min-width: 76px;
   min-height: 42px;
@@ -183,6 +192,8 @@ main,
   font-weight: 750;
 }
 .issue-note.complete { color: var(--green); background: var(--green-soft); }
+.issue-note.verification.verified { color: var(--green); background: var(--green-soft); }
+.issue-note.verification.pending { color: #8a4d12; background: #fff1dc; }
 .issue-note-stack { display: grid; justify-items: end; gap: 7px; }
 .issue-note.warning { max-width: 360px; color: #8a4d12; background: #fff1dc; text-align: right; }
 .loading-copy,
@@ -214,8 +225,8 @@ main,
 }
 .paper-title-en {
   margin: 6px 0 0;
-  color: var(--green);
-  font: 700 1rem/1.5 Georgia, serif;
+  color: var(--muted);
+  font: 500 0.98rem/1.5 Georgia, serif;
 }
 .paper-authors { margin: 9px 0 0; color: var(--muted); font-size: 0.88rem; }
 .abstract-grid {

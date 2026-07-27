@@ -24,7 +24,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     <p>{description}</p>
     <nav class="collection-switcher" aria-label="期刊分类">
       <a class:list={["button", { active: collectionId === "top5" }]} href={base}>TOP5</a>
-      <a class:list={["button", { active: collectionId === "fields" }]} href={`${base}fields/`}>Field Journals</a>
+      <a class:list={["button", { active: collectionId === "fields" }]} href={`${base}fields/`}>A 级期刊</a>
     </nav>
   </div>
   <a id="composer-link" class="button button-primary" href={`${base}composer/`}>
@@ -33,7 +33,22 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 </section>
 
 <section class="journal-toolbar" aria-label="期刊目录工具">
-  <div id="journal-tabs" class="journal-tabs" role="tablist" aria-label="TOP5 期刊"></div>
+  {collectionId === "fields" && (
+    <label class="journal-field-filter">
+      <span class="sr-only">按研究领域筛选期刊</span>
+      <select id="field-filter" aria-label="按研究领域筛选期刊">
+        <option value="all">全部领域</option>
+        <option value="general">综合与通识</option>
+        <option value="theory">理论、博弈与产业组织</option>
+        <option value="public_history_international">公共、经济史与国际</option>
+        <option value="finance">金融</option>
+        <option value="development_applied">发展、应用与实证</option>
+        <option value="urban_macro_labor_metrics_environment">城市、宏观、劳动、计量与环境</option>
+        <option value="agriculture_resources">农业、资源与环境</option>
+      </select>
+    </label>
+  )}
+  <div id="journal-tabs" class="journal-tabs" role="tablist" aria-label={collectionId === "fields" ? "A 级期刊" : "TOP5 期刊"}></div>
   <label class="search-field">
     <span class="sr-only">检索论文</span>
     <input id="paper-search" type="search" placeholder="检索标题、作者或摘要" />
@@ -55,6 +70,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     issue: null,
     query: "",
     chinaOnly: false,
+    field: "all",
     issueCache: new Map(),
   };
 
@@ -102,9 +118,14 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   const enabledJournals = () =>
     (state.collection?.journals || []).filter((journal) => journal.latest_issue_url);
 
+  const visibleJournals = () =>
+    (state.collection?.journals || []).filter(
+      (journal) => state.field === "all" || journal.field === state.field
+    );
+
   const renderTabs = () => {
     const tabs = document.querySelector("#journal-tabs");
-    tabs.innerHTML = (state.collection?.journals || []).map((journal) => {
+    tabs.innerHTML = visibleJournals().map((journal) => {
       const enabled = Boolean(journal.latest_issue_url);
       const active = journal.journal_id === state.activeJournal?.journal_id;
       return `
@@ -139,11 +160,11 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     const issue = state.issue;
     const quality = issue.quality || {};
     const translated = quality.translation_complete || 0;
-    const provisional = (quality.flags || []).some((flag) =>
-      flag.includes("crossref") || flag.includes("fallback")
-    );
     const total = issue.research_article_count || issue.articles.length;
     const publicationDate = formatDate(issue.publication_date);
+    const flags = quality.flags || [];
+    const orderPending = flags.includes("official_order_unverified")
+      || flags.includes("crossref_provisional_roster");
     composerLink.href = `${base}composer/?journal=${encodeURIComponent(issue.journal_id)}`;
 
     summary.innerHTML = `
@@ -162,9 +183,9 @@ const base = import.meta.env.BASE_URL.endsWith("/")
             ? "中英文内容已整理完成"
             : `中文摘要整理中 · ${translated}/${total}`}
         </div>
-        ${provisional
-          ? '<div class="issue-note warning">当前卷期使用出版方元数据镜像或 Crossref 备用来源，已保留来源提示。</div>'
-          : ""}
+        <div class="issue-note verification ${orderPending ? "pending" : "verified"}">
+          ${orderPending ? "目录顺序待官网复核" : "官网目录已核对"}
+        </div>
         <div class="issue-note">中国相关：${issue.articles.filter((article) => chinaRelevance(article).status === "yes").length} 篇</div>
       </div>`;
 
@@ -238,6 +259,25 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     chinaToggle.classList.toggle("active", state.chinaOnly);
     chinaToggle.textContent = state.chinaOnly ? "显示全部" : "仅看中国相关";
     renderIssue();
+  });
+
+  const fieldFilter = document.querySelector("#field-filter");
+  fieldFilter?.addEventListener("change", async (event) => {
+    state.field = event.target.value;
+    const journals = visibleJournals().filter((journal) => journal.latest_issue_url);
+    if (!journals.length) {
+      state.activeJournal = null;
+      renderTabs();
+      document.querySelector("#issue-summary").innerHTML =
+        '<p class="empty-state">该领域的最新卷期正在接入。</p>';
+      document.querySelector("#article-list").innerHTML = "";
+      return;
+    }
+    if (!journals.some((journal) => journal.journal_id === state.activeJournal?.journal_id)) {
+      await loadIssue(journals[0]);
+    } else {
+      renderTabs();
+    }
   });
 
   fetch(collectionUrl)

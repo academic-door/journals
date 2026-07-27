@@ -68,6 +68,14 @@ class ComposerUiTest(unittest.TestCase):
         self.assertNotIn('class="abstract-label">English Abstract</p>', explorer)
         self.assertNotIn('class="abstract-label">中文摘要</p>', explorer)
 
+    def test_content_page_keeps_one_reader_facing_source_status(self):
+        explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(encoding="utf-8")
+        self.assertIn("官网目录已核对", explorer)
+        self.assertIn("目录顺序待官网复核", explorer)
+        self.assertNotIn("Crossref 备用来源", explorer)
+        architecture = (ROOT / "docs/architecture.md").read_text(encoding="utf-8")
+        self.assertIn("轻量核验标识", architecture)
+
     def test_china_filter_and_traceable_relevance_hook_exist(self):
         explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(encoding="utf-8")
         self.assertIn('id="china-filter"', explorer)
@@ -86,14 +94,14 @@ class ComposerUiTest(unittest.TestCase):
         fields_page = (ROOT / "src/pages/fields/index.astro").read_text(encoding="utf-8")
         self.assertIn('collectionId="fields"', fields_page)
 
-    def test_field_collection_contains_first_five_a_tier_journals(self):
+    def test_field_collection_contains_all_a_tier_journals(self):
         import yaml
 
         config = yaml.safe_load((ROOT / "config/collections.yml").read_text(encoding="utf-8"))
-        self.assertEqual(
-            ["JDE", "JPubE", "JEEM", "JUE", "AJAE"],
-            config["collections"]["fields"]["journals"],
-        )
+        journals = config["collections"]["fields"]["journals"]
+        self.assertEqual(36, len(journals))
+        self.assertEqual(36, len(set(journals)))
+        self.assertTrue({"JDE", "JPubE", "JEEM", "JUE", "AJAE"}.issubset(journals))
 
 
 if __name__ == "__main__":

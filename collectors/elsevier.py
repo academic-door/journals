@@ -111,7 +111,7 @@ def _normalize_authors(value: str) -> list[str]:
 
 def _article_type(title: str, raw_type: str = "") -> str:
     combined = f"{raw_type} {title}"
-    if re.search(r"\bcomment\b|\breply\b", combined, re.IGNORECASE):
+    if re.search(r"\bcomment\b|\breply\b|\bdiscussion\b", combined, re.IGNORECASE):
         return "comment"
     return "research-article"
 
@@ -119,6 +119,11 @@ def _article_type(title: str, raw_type: str = "") -> str:
 def _source_pii(value: str) -> str:
     match = PII_PATTERN.search(value or "")
     return match.group(0).upper() if match else ""
+
+
+def _repec_item_id(value: str) -> str:
+    match = re.search(r"/([^/]+)\.html(?:$|\?)", value or "")
+    return match.group(1) if match else ""
 
 
 def _official_article_url(pii: str, fallback: str) -> str:
@@ -166,15 +171,26 @@ def _parse_repec_inventory(content: bytes, series_url: str) -> dict[str, Any]:
 def _parse_repec_detail(
     session: requests.Session,
     item: dict[str, str],
+    doi_template: str = "",
 ) -> dict[str, Any]:
     response = _get(session, item["detail_url"])
     soup = BeautifulSoup(response.content, "html.parser")
     title = _clean(_meta(soup, "citation_title") or _meta(soup, "title") or item["title_en"])
     abstract = _clean(_meta(soup, "citation_abstract"))
+    if re.fullmatch(
+        r"no abstract (?:is )?available(?: for this item)?\.?",
+        abstract,
+        flags=re.IGNORECASE,
+    ):
+        abstract = ""
     authors = _normalize_authors(
         _meta(soup, "citation_authors") or _meta(soup, "author")
     )
     doi = _normalize_doi(_meta(soup, "DOI") or soup.get_text(" ", strip=True))
+    if not doi and doi_template:
+        item_id = _repec_item_id(item["detail_url"])
+        if item_id:
+            doi = _normalize_doi(doi_template.format(id=item_id))
     pii = item["pii"] or _source_pii(_meta(soup, "handle"))
     flags: list[str] = []
     if not doi:
@@ -270,6 +286,7 @@ def fetch_current_issue(
     issn: str,
     repec_series_url: str,
     issue_url_template: str,
+    doi_template: str = "",
     max_workers: int = DETAIL_WORKERS,
 ) -> dict[str, Any]:
     session = _session()
@@ -288,7 +305,11 @@ def fetch_current_issue(
     with ThreadPoolExecutor(max_workers=max_workers) as pool:
         details = list(
             pool.map(
-                lambda item: _parse_repec_detail(session, item),
+                lambda item: _parse_repec_detail(
+                    session,
+                    item,
+                    doi_template=doi_template,
+                ),
                 inventory["items"],
             )
         )
@@ -389,7 +410,13 @@ def fetch_current_issue(
             quality_flags.append("official_order_override_applied")
         else:
             quality_flags.append("official_order_unverified")
-    if sum(bool(article["abstract_en"]) for article in articles) != count:
+    required_abstract_count = sum(
+        article["article_type"] != "comment" for article in articles
+    )
+    if (
+        sum(bool(article["abstract_en"]) for article in articles)
+        < required_abstract_count
+    ):
         quality_flags.append("abstract_en_incomplete")
     if sum(bool(article["doi"]) for article in articles) != count:
         quality_flags.append("doi_incomplete")

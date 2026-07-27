@@ -67,7 +67,7 @@ journals:
     name: Journal of Development Economics
     short_name: JDE
     name_cn: 发展经济学杂志
-    field: development
+    field: development_applied
     tier: A
     publisher: Elsevier
     collector: elsevier
@@ -83,7 +83,7 @@ journals:
     name: Journal of Public Economics
     short_name: JPubE
     name_cn: 公共经济学杂志
-    field: public
+    field: public_history_international
     tier: A
     publisher: Elsevier
     collector: elsevier
@@ -99,7 +99,7 @@ journals:
     name: Journal of Environmental Economics and Management
     short_name: JEEM
     name_cn: 环境经济学与管理杂志
-    field: environment
+    field: urban_macro_labor_metrics_environment
     tier: A
     publisher: Elsevier
     collector: elsevier
@@ -115,7 +115,7 @@ journals:
     name: Journal of Urban Economics
     short_name: JUE
     name_cn: 城市经济学杂志
-    field: urban
+    field: urban_macro_labor_metrics_environment
     tier: A
     publisher: Elsevier
     collector: elsevier
@@ -131,7 +131,7 @@ journals:
     name: American Journal of Agricultural Economics
     short_name: AJAE
     name_cn: 美国农业经济学杂志
-    field: agriculture
+    field: agriculture_resources
     tier: A
     publisher: Oxford University Press
     collector: oup
@@ -141,3 +141,448 @@ journals:
     enabled: true
     collections:
       - fields
+  EJ:
+    id: ej
+    name: The Economic Journal
+    short_name: EJ
+    name_cn: 经济学杂志
+    field: general
+    tier: A
+    publisher: Oxford University Press
+    collector: oup
+    issn: 0013-0133
+    fallback: crossref
+    current_issue_url: https://academic.oup.com/ej/issue
+    enabled: true
+    collections: [fields]
+  JEEA:
+    id: jeea
+    name: Journal of the European Economic Association
+    short_name: JEEA
+    name_cn: 欧洲经济协会杂志
+    field: general
+    tier: A
+    publisher: Oxford University Press
+    collector: oup
+    issn: 1542-4766
+    fallback: crossref
+    current_issue_url: https://academic.oup.com/jeea/issue
+    enabled: true
+    collections: [fields]
+  EER:
+    id: eer
+    name: European Economic Review
+    short_name: EER
+    name_cn: 欧洲经济评论
+    field: general
+    tier: A
+    publisher: Elsevier
+    collector: elsevier
+    issn: 0014-2921
+    repec_series_url: https://ideas.repec.org/s/eee/eecrev.html
+    issue_url_template: https://www.sciencedirect.com/journal/european-economic-review/vol/{volume}/suppl/{issue}
+    current_issue_url: https://www.sciencedirect.com/journal/european-economic-review/issues
+    enabled: true
+    collections: [fields]
+  IER:
+    id: ier
+    name: International Economic Review
+    short_name: IER
+    name_cn: 国际经济评论
+    field: general
+    tier: A
+    publisher: Wiley
+    collector: repec
+    issn: 0020-6598
+    repec_series_url: https://ideas.repec.org/s/wly/iecrev.html
+    current_issue_url: https://onlinelibrary.wiley.com/toc/14682354/current
+    enabled: true
+    collections: [fields]
+  JEP:
+    id: jep
+    name: Journal of Economic Perspectives
+    short_name: JEP
+    name_cn: 经济学展望
+    field: general
+    tier: A
+    publisher: American Economic Association
+    collector: aea
+    issn: 0895-3309
+    fallback: crossref
+    current_issue_url: https://www.aeaweb.org/journals/jep/current-issue
+    enabled: true
+    collections: [fields]
+  AERI:
+    id: aeri
+    name: "American Economic Review: Insights"
+    short_name: "AER: Insights"
+    name_cn: 美国经济评论：洞见
+    field: general
+    tier: A
+    publisher: American Economic Association
+    collector: aea
+    issn: 2640-205X
+    fallback: crossref
+    current_issue_url: https://www.aeaweb.org/journals/aeri/current-issue
+    enabled: true
+    collections: [fields]
+  GEB:
+    id: geb
+    name: Games and Economic Behavior
+    short_name: GEB
+    name_cn: 博弈与经济行为
+    field: theory
+    tier: A
+    publisher: Elsevier
+    collector: elsevier
+    issn: 0899-8256
+    repec_series_url: https://ideas.repec.org/s/eee/gamebe.html
+    issue_url_template: https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/{volume}/suppl/{issue}
+    current_issue_url: https://www.sciencedirect.com/journal/games-and-economic-behavior/issues
+    enabled: true
+    collections: [fields]
+  JET:
+    id: jet
+    name: Journal of Economic Theory
+    short_name: JET
+    name_cn: 经济理论杂志
+    field: theory
+    tier: A
+    publisher: Elsevier
+    collector: elsevier
+    issn: 0022-0531
+    repec_series_url: https://ideas.repec.org/s/eee/jetheo.html
+    issue_url_template: https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/{volume}/suppl/{issue}
+    current_issue_url: https://www.sciencedirect.com/journal/journal-of-economic-theory/issues
+    enabled: true
+    collections: [fields]
+  TE:
+    id: te
+    name: Theoretical Economics
+    short_name: TE
+    name_cn: 理论经济学
+    field: theory
+    tier: A
+    publisher: Wiley
+    collector: repec
+    issn: 1555-7561
+    repec_series_url: https://ideas.repec.org/s/the/publsh.html
+    doi_template: 10.3982/TE{id}
+    current_issue_url: https://onlinelibrary.wiley.com/toc/15557561/current
+    enabled: true
+    collections: [fields]
+  RAND:
+    id: rand
+    name: The RAND Journal of Economics
+    short_name: RAND
+    name_cn: 兰德经济学杂志
+    field: theory
+    tier: A
+    publisher: Wiley
+    collector: repec
+    issn: 0741-6261
+    repec_series_url: https://ideas.repec.org/s/bla/randje.html
+    current_issue_url: https://onlinelibrary.wiley.com/toc/17562171/current
+    enabled: true
+    collections: [fields]
+  AEJMICRO:
+    id: aejmicro
+    name: "American Economic Journal: Microeconomics"
+    short_name: AEJ Micro
+    name_cn: AEJ 微观经济学
+    field: theory
+    tier: A
+    publisher: American Economic Association
+    collector: aea
+    issn: 1945-7669
+    fallback: crossref
+    current_issue_url: https://www.aeaweb.org/journals/mic/current-issue
+    enabled: true
+    collections: [fields]
+  JEBO:
+    id: jebo
+    name: Journal of Economic Behavior & Organization
+    short_name: JEBO
+    name_cn: 经济行为与组织杂志
+    field: theory
+    tier: A
+    publisher: Elsevier
+    collector: elsevier
+    issn: 0167-2681
+    repec_series_url: https://ideas.repec.org/s/eee/jeborg.html
+    issue_url_template: https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/{volume}/suppl/{issue}
+    current_issue_url: https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/issues
+    enabled: true
+    collections: [fields]
+  JEH:
+    id: jeh
+    name: The Journal of Economic History
+    short_name: JEH
+    name_cn: 经济史杂志
+    field: public_history_international
+    tier: A
+    publisher: Cambridge University Press
+    collector: crossref
+    issn: 0022-0507
+    current_issue_url: https://www.cambridge.org/core/journals/journal-of-economic-history/latest-issue
+    enabled: true
+    collections: [fields]
+  JIE:
+    id: jie
+    name: Journal of International Economics
+    short_name: JIE
+    name_cn: 国际经济学杂志
+    field: public_history_international
+    tier: A
+    publisher: Elsevier
+    collector: elsevier
+    issn: 0022-1996
+    repec_series_url: https://ideas.repec.org/s/eee/inecon.html
+    issue_url_template: https://www.sciencedirect.com/journal/journal-of-international-economics/vol/{volume}/suppl/{issue}
+    current_issue_url: https://www.sciencedirect.com/journal/journal-of-international-economics/issues
+    enabled: true
+    collections: [fields]
+  JF:
+    id: jf
+    name: The Journal of Finance
+    short_name: JF
+    name_cn: 金融学杂志
+    field: finance
+    tier: A
+    publisher: Wiley
+    collector: crossref
+    issn: 0022-1082
+    fallback: crossref
+    current_issue_url: https://onlinelibrary.wiley.com/toc/15406261/current
+    enabled: true
+    collections: [fields]
+  JFE:
+    id: jfe
+    name: Journal of Financial Economics
+    short_name: JFE
+    name_cn: 金融经济学杂志
+    field: finance
+    tier: A
+    publisher: Elsevier
+    collector: elsevier
+    issn: 0304-405X
+    repec_series_url: https://ideas.repec.org/s/eee/jfinec.html
+    issue_url_template: https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/{volume}/suppl/{issue}
+    current_issue_url: https://www.sciencedirect.com/journal/journal-of-financial-economics/issues
+    enabled: true
+    collections: [fields]
+  RFS:
+    id: rfs
+    name: The Review of Financial Studies
+    short_name: RFS
+    name_cn: 金融研究评论
+    field: finance
+    tier: A
+    publisher: Oxford University Press
+    collector: oup
+    issn: 0893-9454
+    fallback: crossref
+    current_issue_url: https://academic.oup.com/rfs/issue
+    enabled: true
+    collections: [fields]
+  WD:
+    id: wd
+    name: World Development
+    short_name: World Development
+    name_cn: 世界发展
+    field: development_applied
+    tier: A
+    publisher: Elsevier
+    collector: elsevier
+    issn: 0305-750X
+    repec_series_url: https://ideas.repec.org/s/eee/wdevel.html
+    issue_url_template: https://www.sciencedirect.com/journal/world-development/vol/{volume}/suppl/{issue}
+    current_issue_url: https://www.sciencedirect.com/journal/world-development/issues
+    enabled: true
+    collections: [fields]
+  RESTAT:
+    id: restat
+    name: The Review of Economics and Statistics
+    short_name: REStat
+    name_cn: 经济学与统计学评论
+    field: development_applied
+    tier: A
+    publisher: MIT Press
+    collector: crossref
+    issn: 0034-6535
+    current_issue_url: https://direct.mit.edu/rest/issue
+    enabled: true
+    collections: [fields]
+  AEJAPP:
+    id: aejapp
+    name: "American Economic Journal: Applied Economics"
+    short_name: AEJ Applied
+    name_cn: AEJ 应用经济学
+    field: development_applied
+    tier: A
+    publisher: American Economic Association
+    collector: aea
+    issn: 1945-7782
+    fallback: crossref
+    current_issue_url: https://www.aeaweb.org/journals/app/current-issue
+    enabled: true
+    collections: [fields]
+  AEJPOL:
+    id: aejpol
+    name: "American Economic Journal: Economic Policy"
+    short_name: AEJ Policy
+    name_cn: AEJ 经济政策
+    field: development_applied
+    tier: A
+    publisher: American Economic Association
+    collector: aea
+    issn: 1945-7731
+    fallback: crossref
+    current_issue_url: https://www.aeaweb.org/journals/pol/current-issue
+    enabled: true
+    collections: [fields]
+  QE:
+    id: qe
+    name: Quantitative Economics
+    short_name: QE
+    name_cn: 数量经济学
+    field: development_applied
+    tier: A
+    publisher: Wiley
+    collector: repec
+    issn: 1759-7331
+    repec_series_url: https://ideas.repec.org/s/wly/quante.html
+    current_issue_url: https://onlinelibrary.wiley.com/toc/17597331/current
+    enabled: true
+    collections: [fields]
+  JME:
+    id: jme
+    name: Journal of Monetary Economics
+    short_name: JME
+    name_cn: 货币经济学杂志
+    field: urban_macro_labor_metrics_environment
+    tier: A
+    publisher: Elsevier
+    collector: elsevier
+    issn: 0304-3932
+    repec_series_url: https://ideas.repec.org/s/eee/moneco.html
+    issue_url_template: https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/{volume}/suppl/{issue}
+    current_issue_url: https://www.sciencedirect.com/journal/journal-of-monetary-economics/issues
+    enabled: true
+    collections: [fields]
+  AEJMACRO:
+    id: aejmacro
+    name: "American Economic Journal: Macroeconomics"
+    short_name: AEJ Macro
+    name_cn: AEJ 宏观经济学
+    field: urban_macro_labor_metrics_environment
+    tier: A
+    publisher: American Economic Association
+    collector: aea
+    issn: 1945-7707
+    fallback: crossref
+    current_issue_url: https://www.aeaweb.org/journals/mac/current-issue
+    enabled: true
+    collections: [fields]
+  JLE:
+    id: jle
+    name: Journal of Labor Economics
+    short_name: JLE
+    name_cn: 劳动经济学杂志
+    field: urban_macro_labor_metrics_environment
+    tier: A
+    publisher: University of Chicago Press
+    collector: chicago
+    issn: 0734-306X
+    fallback: crossref
+    repec_series_code: ucp/jlabec
+    current_issue_url: https://www.journals.uchicago.edu/toc/jole/current
+    enabled: true
+    collections: [fields]
+  JOE:
+    id: joe
+    name: Journal of Econometrics
+    short_name: JoE
+    name_cn: 计量经济学杂志
+    field: urban_macro_labor_metrics_environment
+    tier: A
+    publisher: Elsevier
+    collector: elsevier
+    issn: 0304-4076
+    repec_series_url: https://ideas.repec.org/s/eee/econom.html
+    issue_url_template: https://www.sciencedirect.com/journal/journal-of-econometrics/vol/{volume}/suppl/{issue}
+    current_issue_url: https://www.sciencedirect.com/journal/journal-of-econometrics/issues
+    enabled: true
+    collections: [fields]
+  FOODPOLICY:
+    id: foodpolicy
+    name: Food Policy
+    short_name: Food Policy
+    name_cn: 食物政策
+    field: agriculture_resources
+    tier: A
+    publisher: Elsevier
+    collector: elsevier
+    issn: 0306-9192
+    repec_series_url: https://ideas.repec.org/s/eee/jfpoli.html
+    issue_url_template: https://www.sciencedirect.com/journal/food-policy/vol/{volume}/suppl/{issue}
+    current_issue_url: https://www.sciencedirect.com/journal/food-policy/issues
+    enabled: true
+    collections: [fields]
+  JAERE:
+    id: jaere
+    name: Journal of the Association of Environmental and Resource Economists
+    short_name: JAERE
+    name_cn: 环境与资源经济学会会刊
+    field: agriculture_resources
+    tier: A
+    publisher: University of Chicago Press
+    collector: chicago
+    issn: 2333-5955
+    fallback: crossref
+    repec_series_code: ucp/jaerec
+    current_issue_url: https://www.journals.uchicago.edu/toc/jaere/current
+    enabled: true
+    collections: [fields]
+  LANDECON:
+    id: landecon
+    name: Land Economics
+    short_name: Land Economics
+    name_cn: 土地经济学
+    field: agriculture_resources
+    tier: A
+    publisher: University of Wisconsin Press
+    collector: crossref
+    issn: 0023-7639
+    current_issue_url: https://le.uwpress.org/content/current
+    enabled: true
+    collections: [fields]
+  LUP:
+    id: lup
+    name: Land Use Policy
+    short_name: Land Use Policy
+    name_cn: 土地利用政策
+    field: agriculture_resources
+    tier: A
+    publisher: Elsevier
+    collector: elsevier
+    issn: 0264-8377
+    repec_series_url: https://ideas.repec.org/s/eee/lauspo.html
+    issue_url_template: https://www.sciencedirect.com/journal/land-use-policy/vol/{volume}/suppl/{issue}
+    current_issue_url: https://www.sciencedirect.com/journal/land-use-policy/issues
+    enabled: true
+    collections: [fields]
+  ERE:
+    id: ere
+    name: Environmental and Resource Economics
+    short_name: ERE
+    name_cn: 环境与资源经济学
+    field: agriculture_resources
+    tier: A
+    publisher: Springer
+    collector: repec
+    issn: 0924-6460
+    repec_series_url: https://ideas.repec.org/s/kap/enreec.html
+    current_issue_url: https://link.springer.com/journal/10640/volumes-and-issues
+    enabled: true
+    collections: [fields]

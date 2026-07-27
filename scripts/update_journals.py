@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -123,13 +122,22 @@ def collector_for(config: dict[str, Any]) -> Callable[[], dict[str, Any]]:
             current_issue_url=current_url,
             rss_url=config["rss_url"],
             repec_jpe=config.get("fallback") == "crossref-repec",
+            repec_series_code=config.get("repec_series_code", ""),
         )
     if collector == "aea":
-        return lambda: fetch_aea(current_url)
+        return lambda: fetch_aea(
+            current_url,
+            journal_id=config["id"],
+            journal_name=config["name"],
+        )
     if collector == "chicago":
         from collectors.chicago import fetch_current_issue
 
-        return lambda: fetch_current_issue(current_url)
+        return lambda: fetch_current_issue(
+            current_url,
+            journal_id=config["id"],
+            journal_name=config["name"],
+        )
     if collector == "oup":
         from collectors.oup import fetch_current_issue
 
@@ -137,7 +145,11 @@ def collector_for(config: dict[str, Any]) -> Callable[[], dict[str, Any]]:
     if collector == "wiley":
         from collectors.wiley import fetch_current_issue
 
-        return lambda: fetch_current_issue(current_url)
+        return lambda: fetch_current_issue(
+            current_url,
+            journal_id=config["id"],
+            journal_name=config["name"],
+        )
     if collector == "elsevier":
         from collectors.elsevier import fetch_current_issue
 
@@ -147,6 +159,29 @@ def collector_for(config: dict[str, Any]) -> Callable[[], dict[str, Any]]:
             issn=str(config["issn"]),
             repec_series_url=config["repec_series_url"],
             issue_url_template=config["issue_url_template"],
+            doi_template=config.get("doi_template", ""),
+        )
+    if collector == "crossref":
+        from collectors.metadata_fallback import fetch_crossref_current_issue
+
+        return lambda: fetch_crossref_current_issue(
+            journal_id=config["id"],
+            journal_name=config["name"],
+            issn=str(config["issn"]),
+            current_issue_url=current_url,
+            repec_jpe=config.get("fallback") == "crossref-repec",
+            repec_series_code=config.get("repec_series_code", ""),
+        )
+    if collector == "repec":
+        from collectors.elsevier import fetch_current_issue
+
+        return lambda: fetch_current_issue(
+            journal_id=config["id"],
+            journal_name=config["name"],
+            issn=str(config["issn"]),
+            repec_series_url=config["repec_series_url"],
+            issue_url_template=config["current_issue_url"],
+            doi_template=config.get("doi_template", ""),
         )
     raise ValueError(f"Unknown collector: {collector}")
 
@@ -173,6 +208,7 @@ def fallback_collector_for(config: dict[str, Any]) -> Callable[[], dict[str, Any
         issn=str(config["issn"]),
         current_issue_url=config["current_issue_url"],
         repec_jpe=fallback == "crossref-repec",
+        repec_series_code=config.get("repec_series_code", ""),
     )
 
 
@@ -181,11 +217,31 @@ def public_issue_path(journal_id: str) -> Path:
 
 
 def structural_flags(issue: dict[str, Any]) -> list[str]:
-    content_only = {"translation_incomplete"}
+    content_only = {
+        "translation_incomplete",
+        # Provenance warnings remain visible in the status API, but they do not
+        # invalidate an otherwise complete issue snapshot.
+        "publisher_html_blocked_crossref_fallback",
+        "publisher_rss_lag_crossref_fallback",
+        "crossref_provisional_roster",
+        "official_order_unverified",
+    }
     return [
         flag for flag in issue.get("quality", {}).get("flags", [])
         if flag not in content_only
     ]
+
+
+def order_verification_status(issue: dict[str, Any]) -> str:
+    """Return the reader-facing issue-order verification level."""
+
+    flags = set(issue.get("quality", {}).get("flags", []))
+    if {
+        "official_order_unverified",
+        "crossref_provisional_roster",
+    } & flags:
+        return "pending_official"
+    return "official_verified"
 
 
 def is_publishable_snapshot(issue: dict[str, Any]) -> bool:
@@ -247,19 +303,11 @@ def collect_one(
         issue = apply_translation_cache(issue)
         translation_report: dict[str, Any] | None = None
         if translate:
-            if os.environ.get("GITHUB_TOKEN"):
-                translation_report = translate_missing(
-                    issue,
-                    TRANSLATION_CACHE / f"{config['id']}.json",
-                )
-                issue = apply_translation_cache(issue)
-            elif issue["quality"]["translation_complete"] < issue["research_article_count"]:
-                translation_report = {
-                    "journal_id": config["id"],
-                    "translated": 0,
-                    "failed": [],
-                    "skipped": "GITHUB_TOKEN unavailable",
-                }
+            translation_report = translate_missing(
+                issue,
+                TRANSLATION_CACHE / f"{config['id']}.json",
+            )
+            issue = apply_translation_cache(issue)
         validate_issue(issue)
         if not is_publishable_snapshot(issue):
             raise ValueError(
@@ -372,6 +420,7 @@ def update_indexes(
                     ),
                     "article_count": total,
                     "translation_complete": translated,
+                    "order_verification": order_verification_status(issue),
                 }
             )
             checks[f"{config['id']}_roster_match"] = issue["quality"]["roster_match"]

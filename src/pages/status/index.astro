@@ -37,9 +37,12 @@ const base = import.meta.env.BASE_URL.endsWith("/")
             : "部分期刊正在等待更新";
         const journalRows = [...(top5.journals || []), ...(fields.journals || [])].map((journal) => {
           const usable = Boolean(journal.latest_issue_url);
-          const sourceLabel = journal.data_status === "needs_attention"
-            ? "出版方元数据镜像/备用来源"
-            : "官方源已校验";
+          const orderVerified = journal.order_verification === "official_verified";
+          const sourceLabel = orderVerified
+            ? journal.data_status === "needs_attention"
+              ? "官网目录已核对 · 元数据多源补充"
+              : "官网目录已核对 · 官方来源"
+            : "目录顺序待官网复核 · 元数据多源核对";
           const contentLabel = usable
             ? `中文 ${journal.translation_complete}/${journal.article_count}`
             : "等待最新卷期";

@@ -4,14 +4,14 @@
 
 # Academic Door Journals
 
-Academic Door 的统一经济学期刊数据引擎、TOP5/Field Journals 公共网站与公众号排版工具。
+Academic Door 的统一经济学期刊数据引擎、TOP5/A 级期刊公共网站与公众号排版工具。
 
 公开地址：<https://academic-door.github.io/journals/>
 
 ## 产品范围
 
 - `TOP5`：AER、JPE、QJE、RES、Econometrica 的卷期监测与中英文目录。
-- `Field Journals`：在统一引擎上按领域扩展期刊，不重复建设平行系统。
+- `A 级期刊`：36 本国际经济学期刊，按综合、理论、公共与国际、金融、发展与应用、城市与计量、农业与资源七类组织。
 - `Academic Door Composer`：载入结构化期刊数据或 Markdown，编辑、预览、换主题并复制富文本到微信公众号。
 - `Data API`：为主页、RSS、公众号和后续平台输出提供同一份标准数据。
 
@@ -38,9 +38,9 @@ Academic Door 的统一经济学期刊数据引擎、TOP5/Field Journals 公共�
 - [x] Composer 选文、实时预览、主题参数、自定义 CSS、Theme Lab、富文本复制与导出
 - [x] TOP5 卷期预取、issue-level 年月显示、微信兼容目录复制与 Academic Door 标签图标
 - [x] 数据完整性、翻译数字一致性与隐私质量门
-- [x] 首批 A 级 Field Journals：JDE、JPubE、JEEM、JUE、AJAE
-- [x] TOP5 / Field Journals 统一分类入口与 Composer 数据源
-- [ ] 按 `journal_monitor_list.md` 继续扩展其余 A 级期刊
+- [x] 36 本国际 A 级期刊接入统一数据引擎
+- [x] TOP5 / A 级期刊统一分类入口与 Composer 数据源
+- [ ] 单独规划中文 A 级期刊数据引擎
 
 ## 本地开发
 
@@ -71,11 +71,8 @@ python -m unittest discover -s tests -v
 /journals/api/v1/journals/qje/issues/current.json
 /journals/api/v1/journals/res/issues/current.json
 /journals/api/v1/journals/ecta/issues/current.json
-/journals/api/v1/journals/jde/issues/current.json
-/journals/api/v1/journals/jpube/issues/current.json
-/journals/api/v1/journals/jeem/issues/current.json
-/journals/api/v1/journals/jue/issues/current.json
-/journals/api/v1/journals/ajae/issues/current.json
+/journals/api/v1/collections/fields.json
+/journals/api/v1/journals/{journal_id}/issues/current.json
 /journals/api/v1/health.json
 /journals/project-manifest.json
 ```

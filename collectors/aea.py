@@ -137,7 +137,12 @@ def _fetch_detail_safe(pair: tuple[int, str]) -> dict[str, Any]:
         }
 
 
-def fetch_current_issue(current_issue_url: str) -> dict[str, Any]:
+def fetch_current_issue(
+    current_issue_url: str,
+    *,
+    journal_id: str = "aer",
+    journal_name: str = "American Economic Review",
+) -> dict[str, Any]:
     session = _session()
     response = _get(session, current_issue_url)
     soup = BeautifulSoup(response.content, "html.parser")
@@ -206,13 +211,13 @@ def fetch_current_issue(current_issue_url: str) -> dict[str, Any]:
 
     status = "ready" if not flags else "incomplete"
     now = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
-    issue_id = f"aer-{volume or 'unknown'}-{issue or 'current'}"
+    issue_id = f"{journal_id}-{volume or 'unknown'}-{issue or 'current'}"
 
     return {
         "schema_version": "1.0",
         "issue_id": issue_id,
-        "journal_id": "aer",
-        "journal_name": "American Economic Review",
+        "journal_id": journal_id,
+        "journal_name": journal_name,
         "volume": volume,
         "issue": issue,
         "publication_date": publication_date,
