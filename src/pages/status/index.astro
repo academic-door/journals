@@ -10,7 +10,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     <section class="page-heading">
       <p class="section-kicker">DATA STATUS</p>
       <h1>数据状态</h1>
-      <p>查看最新同步时间和各期刊内容完整度。</p>
+      <p>查看最新同步时间和各期刊内容完整度；待官网复核项目由系统每日自动重试，无需读者处理。</p>
     </section>
     <section id="health-card" class="health-card">
       <p>正在读取状态……</p>
@@ -42,7 +42,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
             ? journal.data_status === "needs_attention"
               ? "官网目录已核对 · 元数据多源补充"
               : "官网目录已核对 · 官方来源"
-            : "目录顺序待官网复核 · 元数据多源核对";
+            : "系统每日自动复核中 · 当前目录可用";
           const contentLabel = usable
             ? `中文 ${journal.translation_complete}/${journal.article_count}`
             : "等待最新卷期";

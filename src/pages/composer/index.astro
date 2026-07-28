@@ -160,7 +160,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       }[character]));
 
     const chinaRelevance = (article) => {
-      if (article.china_relevance?.status === "yes") return article.china_relevance;
+      if (article.china_relevance?.status) return article.china_relevance;
       const title = `${article.title_en || ""} ${article.title_cn || ""}`;
       const abstract = `${article.abstract_en || ""} ${article.abstract_cn || ""}`;
       const strong = /(?:\b(?:evidence from|in|for|of|among|across)\s+(?:rural\s+)?China\b|\bChinese\s+(?:firms|households|cities|workers|students|manufacturers|exporters|provinces)\b|中国(?:企业|家庭|城市|农村|制造|出口|省份|劳动力|学生))/i;
@@ -348,8 +348,8 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       const abstracts = articles.map((article, index) => [
         `### ${index + 1}. ${article.title_cn || article.title_en}`,
         `【作者】${article.authors.join(", ")}`,
-        `【Abstract】${article.abstract_en || (article.article_type === "comment" ? "该评论文章未提供英文摘要。" : "待补全")}`,
-        `【摘要】${article.abstract_cn || (article.article_type === "comment" ? "该评论文章暂未提供中文摘要。" : "待补全")}`,
+        `【Abstract】${article.abstract_en || (article.article_type === "comment" ? "This comment has no standalone abstract." : "待补全")}`,
+        `【摘要】${article.abstract_cn || (article.article_type === "comment" ? "该评论未提供独立摘要。" : "待补全")}`,
         `【DOI】[${article.doi || "原文"}](${article.source_url})`,
       ].join("\n\n")).join("\n\n");
       return [

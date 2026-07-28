@@ -16,6 +16,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from collectors.aea import fetch_current_issue as fetch_aea
+from scripts.china_relevance import annotate_issue
 from scripts.translate_issue import translate_missing
 
 
@@ -32,6 +33,28 @@ ARCHIVE_ID_PATTERN = re.compile(r"^[a-z0-9][a-z0-9._-]*$", re.IGNORECASE)
 
 class SourceLagError(RuntimeError):
     """The detector is ahead of the publisher's current-issue endpoint."""
+
+
+ABSTRACT_LABEL_PATTERN = re.compile(
+    r"^\s*(?:Abstract|摘要)\s*(?:[:：.．—-]\s*)?",
+    re.IGNORECASE,
+)
+
+
+def clean_abstract_label(value: Any) -> str:
+    """Remove publisher section labels that are not part of the abstract."""
+
+    text = str(value or "").strip()
+    return ABSTRACT_LABEL_PATTERN.sub("", text, count=1).strip()
+
+
+def normalize_issue_content(issue: dict[str, Any]) -> dict[str, Any]:
+    """Apply deterministic reader-facing cleanup to every current issue."""
+
+    for article in issue.get("articles", []):
+        article["abstract_en"] = clean_abstract_label(article.get("abstract_en"))
+        article["abstract_cn"] = clean_abstract_label(article.get("abstract_cn"))
+    return annotate_issue(issue)
 
 
 def now_iso() -> str:
@@ -71,6 +94,8 @@ def apply_translation_cache(issue: dict[str, Any]) -> dict[str, Any]:
     cache_path = TRANSLATION_CACHE / f"{issue['journal_id']}.json"
     cache = read_json(cache_path) or {}
     for article in issue["articles"]:
+        article["abstract_en"] = clean_abstract_label(article.get("abstract_en"))
+        article["abstract_cn"] = clean_abstract_label(article.get("abstract_cn"))
         translated = cache.get(article.get("doi", ""), {})
         if article.get("article_type") == "comment" and not article.get("title_cn"):
             override = COMMENT_TITLE_OVERRIDES.get(article.get("doi", ""))
@@ -85,7 +110,7 @@ def apply_translation_cache(issue: dict[str, Any]) -> dict[str, Any]:
                 flag for flag in article["quality_flags"] if flag != "title_cn_missing"
             ]
         if translated.get("abstract_cn"):
-            article["abstract_cn"] = translated["abstract_cn"]
+            article["abstract_cn"] = clean_abstract_label(translated["abstract_cn"])
             article["quality_flags"] = [
                 flag
                 for flag in article["quality_flags"]
@@ -422,6 +447,7 @@ def collect_one(
                 TRANSLATION_CACHE / f"{config['id']}.json",
             )
             issue = apply_translation_cache(issue)
+        issue = normalize_issue_content(issue)
         validate_issue(issue)
         if not is_publishable_snapshot(issue):
             raise ValueError(
@@ -478,9 +504,11 @@ def load_available_issues(
             issue = read_json(public_issue_path(config["id"]))
         if issue:
             try:
+                issue = normalize_issue_content(issue)
                 validate_issue(issue)
             except ValueError:
                 continue
+            write_json(public_issue_path(config["id"]), issue)
             available[key] = issue
     return available
 

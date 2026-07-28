@@ -91,6 +91,19 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn("chinaRelevance(article)", self.page)
         self.assertIn("与中国相关的研究有", self.page)
 
+    def test_switching_journals_resets_stale_filters(self):
+        explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(
+            encoding="utf-8"
+        )
+        load_issue = explorer.split("const loadIssue = async (journal) => {", 1)[1].split(
+            "};", 1
+        )[0]
+        self.assertIn('state.query = "";', load_issue)
+        self.assertIn("state.chinaOnly = false;", load_issue)
+        self.assertIn('searchInput.value = "";', load_issue)
+        self.assertIn('chinaToggle.textContent = "仅看中国相关";', load_issue)
+        self.assertIn("本期没有识别到中国相关论文", explorer)
+
     def test_classic_theme_defaults_are_frozen(self):
         self.assertIn("const DEFAULT_STYLE = Object.freeze({", self.page)
         self.assertIn('value="wechat-default">学术传送门经典（默认）', self.page)
