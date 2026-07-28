@@ -21,7 +21,9 @@ on:
         default: ALL
         type: string
   schedule:
-    - cron: "15 0,6 * * *"
+    # Daily full sweep is the safety net. The lightweight monitor runs every
+    # two hours and deep-collects only journals with confirmed changes.
+    - cron: "35 21 * * *"
 
 permissions:
   contents: write

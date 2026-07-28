@@ -70,6 +70,24 @@ def main() -> int:
             f"expected {sorted(all_expected_ids)}, got {sorted(collected_ids)}"
         )
 
+    monitoring_path = PUBLIC_API / "monitoring.json"
+    if not monitoring_path.exists():
+        findings.append("monitoring API is missing")
+    else:
+        monitoring = read_json(monitoring_path)
+        if monitoring.get("schema_version") != "1.0":
+            findings.append("monitoring API schema version is invalid")
+        if monitoring.get("status") not in {"healthy", "degraded"}:
+            findings.append("monitoring API status is invalid")
+        if monitoring.get("summary", {}).get("configured_journals") != len(enabled):
+            findings.append("monitoring API configured journal count is invalid")
+        known_keys = set(config["journals"])
+        surfaced = set(monitoring.get("warning_journals", [])) | set(
+            monitoring.get("failed_journals", [])
+        )
+        if not surfaced <= known_keys:
+            findings.append("monitoring API contains an unknown journal code")
+
     for journal in enabled:
         path = (
             PUBLIC_API

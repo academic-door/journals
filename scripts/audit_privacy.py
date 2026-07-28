@@ -25,6 +25,18 @@ PATTERNS = {
     "github_token": re.compile(r"\b(?:ghp_|gho_|github_pat_)[A-Za-z0-9_]{20,}\b"),
     "wechat_secret": re.compile(r"(?i)(?:appsecret|wechat_app_secret)\s*[:=]\s*['\"]?[A-Za-z0-9]{16,}"),
     "windows_user_path": re.compile(r"(?i)\b[A-Z]:\\Users\\[^\\\s]+\\"),
+    "authorization_header": re.compile(
+        r"(?im)^\s*authorization\s*:\s*(?:bearer|basic)\s+[A-Za-z0-9+/_.=-]{8,}"
+    ),
+    "cookie_header": re.compile(
+        r"(?im)^\s*(?:cookie|set-cookie)\s*:\s*[^\s<][^\r\n]{7,}"
+    ),
+    "session_cookie_assignment": re.compile(
+        r"(?i)\b(?:session_cookie|auth_cookie)\s*=\s*['\"](?!\$\{)[^'\"]{8,}['\"]"
+    ),
+    "ssh_private_key": re.compile(
+        r"-----BEGIN (?:OPENSSH|RSA|EC|DSA) PRIVATE KEY-----"
+    ),
 }
 
 

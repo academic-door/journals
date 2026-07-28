@@ -40,6 +40,9 @@ Academic Door 的统一经济学期刊数据引擎、TOP5/领域顶刊公共网�
 - [x] 数据完整性、翻译数字一致性与隐私质量门
 - [x] 36 本高水平经济学领域期刊接入统一数据引擎
 - [x] TOP5 / 领域顶刊统一分类入口与 Composer 数据源
+- [x] 每两小时增量监测、按需深度采集、连续失败告警与上一版保护
+- [x] 最新卷期不可变历史归档与逐刊卷期索引
+- [x] 本机学校授权补充接口（凭据和全文不进入 GitHub）
 - [ ] 单独规划中文顶级期刊数据引擎
 
 ## 本地开发
@@ -54,6 +57,7 @@ Python 数据检查：
 ```powershell
 python -m pip install -r requirements.txt
 python scripts/update_journals.py --journal ALL --translate
+python scripts/journal_monitor.py
 python scripts/audit_public_data.py
 python -m unittest discover -s tests -v
 ```
@@ -74,6 +78,7 @@ python -m unittest discover -s tests -v
 /journals/api/v1/collections/fields.json
 /journals/api/v1/journals/{journal_id}/issues/current.json
 /journals/api/v1/health.json
+/journals/api/v1/monitoring.json
 /journals/project-manifest.json
 ```
 
@@ -82,6 +87,7 @@ python -m unittest discover -s tests -v
 - [Academic Door 产品架构 v1.0](docs/architecture.md)
 - [Academic Door GitHub 子站建设手册](docs/github-site-playbook.md)
 - [新增期刊适配器说明](docs/adding-a-journal.md)
+- [期刊更新监测与本机授权补充](docs/journal-monitoring.md)
 
 ## 隐私边界
 

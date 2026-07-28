@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -26,6 +27,11 @@ COMMENT_TITLE_OVERRIDES = {
     "10.1086/740225": "国家起源：土地生产率还是可攫取性？——评论",
 }
 UPDATE_REPORT = ROOT / "output" / "journal-update-report.json"
+ARCHIVE_ID_PATTERN = re.compile(r"^[a-z0-9][a-z0-9._-]*$", re.IGNORECASE)
+
+
+class SourceLagError(RuntimeError):
+    """The detector is ahead of the publisher's current-issue endpoint."""
 
 
 def now_iso() -> str:
@@ -216,6 +222,102 @@ def public_issue_path(journal_id: str) -> Path:
     return PUBLIC_API / "journals" / journal_id / "issues" / "current.json"
 
 
+def is_archivable_snapshot(issue: dict[str, Any]) -> bool:
+    quality = issue.get("quality", {})
+    count = int(issue.get("research_article_count", 0))
+    return (
+        is_publishable_snapshot(issue)
+        and count > 0
+        and int(quality.get("translation_complete", 0)) == count
+    )
+
+
+def archive_issue(
+    issue: dict[str, Any],
+    *,
+    api_root: Path = PUBLIC_API,
+) -> Path | None:
+    """Save one immutable, fully validated issue snapshot."""
+
+    journal_id = str(issue.get("journal_id", ""))
+    issue_id = str(issue.get("issue_id", ""))
+    if (
+        not ARCHIVE_ID_PATTERN.fullmatch(journal_id)
+        or not ARCHIVE_ID_PATTERN.fullmatch(issue_id)
+        or not is_archivable_snapshot(issue)
+    ):
+        return None
+    target = api_root / "journals" / journal_id / "issues" / f"{issue_id}.json"
+    existing = read_json(target)
+    if existing is not None:
+        if existing.get("issue_id") != issue_id:
+            raise RuntimeError(f"archive collision at {target}")
+        return target
+    write_json(target, issue)
+    return target
+
+
+def archived_issues(
+    journal_id: str,
+    *,
+    api_root: Path = PUBLIC_API,
+) -> list[dict[str, Any]]:
+    folder = api_root / "journals" / journal_id / "issues"
+    issues: list[dict[str, Any]] = []
+    for path in folder.glob("*.json"):
+        if path.name in {"current.json", "index.json"}:
+            continue
+        payload = read_json(path)
+        if payload and payload.get("journal_id") == journal_id:
+            issues.append(payload)
+    return issues
+
+
+def write_archive_index(
+    journal_id: str,
+    journal_name: str,
+    *,
+    updated_at: str,
+    api_root: Path = PUBLIC_API,
+) -> None:
+    entries = []
+    for issue in archived_issues(journal_id, api_root=api_root):
+        entries.append(
+            {
+                "issue_id": issue["issue_id"],
+                "volume": issue.get("volume", ""),
+                "issue": issue.get("issue", ""),
+                "issue_label": issue.get("issue_label")
+                or f"Vol. {issue.get('volume', '')}",
+                "publication_date": issue.get("publication_date", ""),
+                "retrieved_at": issue.get("retrieved_at", ""),
+                "article_count": issue.get("research_article_count", 0),
+                "url": (
+                    f"/journals/api/v1/journals/{journal_id}/issues/"
+                    f"{issue['issue_id']}.json"
+                ),
+            }
+        )
+    entries.sort(
+        key=lambda entry: (entry["publication_date"], entry["retrieved_at"], entry["issue_id"]),
+        reverse=True,
+    )
+    write_json(
+        api_root / "journals" / journal_id / "issues" / "index.json",
+        {
+            "schema_version": "1.0",
+            "journal_id": journal_id,
+            "journal_name": journal_name,
+            "updated_at": updated_at,
+            "issue_count": len(entries),
+            "current_url": (
+                f"/journals/api/v1/journals/{journal_id}/issues/current.json"
+            ),
+            "issues": entries,
+        },
+    )
+
+
 def structural_flags(issue: dict[str, Any]) -> list[str]:
     content_only = {
         "translation_incomplete",
@@ -274,6 +376,8 @@ def collect_one(
     config: dict[str, Any],
     *,
     translate: bool,
+    expected_volume: str = "",
+    expected_issue: str = "",
 ) -> tuple[dict[str, Any] | None, dict[str, Any]]:
     report: dict[str, Any] = {
         "journal": key,
@@ -300,6 +404,16 @@ def collect_one(
             issue = fallback()
             report["primary_error"] = primary_error
             report["transport"] = "metadata_fallback"
+        if expected_volume and str(issue.get("volume", "")) != expected_volume:
+            raise SourceLagError(
+                f"detected volume {expected_volume}, but the deep collector "
+                f"still returns volume {issue.get('volume', '')}"
+            )
+        if expected_issue and str(issue.get("issue", "")) != expected_issue:
+            raise SourceLagError(
+                f"detected issue {expected_issue}, but the deep collector "
+                f"still returns issue {issue.get('issue', '')}"
+            )
         issue = apply_translation_cache(issue)
         translation_report: dict[str, Any] | None = None
         if translate:
@@ -314,10 +428,13 @@ def collect_one(
                 "collector result failed the publication gate: "
                 + ", ".join(structural_flags(issue) or ["empty official roster"])
             )
+        if previous and previous.get("issue_id") != issue.get("issue_id"):
+            archive_issue(previous)
         write_json(target, issue)
         readback = read_json(target)
         if readback is None or readback.get("issue_id") != issue["issue_id"]:
             raise RuntimeError("public issue write-back verification failed")
+        archive_issue(issue)
         report.update(
             {
                 "result": "updated",
@@ -434,6 +551,13 @@ def update_indexes(
         else:
             checks[f"{config['id']}_available"] = False
         journal_entries[key] = entry
+        if issue:
+            archive_issue(issue)
+            write_archive_index(
+                config["id"],
+                config["name"],
+                updated_at=updated_at,
+            )
 
     data_healthy = usable_count == enabled_count and all(
         value is True for value in checks.values()
@@ -540,6 +664,16 @@ def main() -> int:
         action="store_true",
         help="Translate missing Chinese titles and abstracts through GitHub Models.",
     )
+    parser.add_argument(
+        "--expected-volume",
+        default="",
+        help="Preserve the previous snapshot until the collector reaches this volume.",
+    )
+    parser.add_argument(
+        "--expected-issue",
+        default="",
+        help="Preserve the previous snapshot until the collector reaches this issue.",
+    )
     args = parser.parse_args()
 
     selected = [
@@ -554,6 +688,8 @@ def main() -> int:
             key,
             journal_configs[key],
             translate=args.translate,
+            expected_volume=args.expected_volume,
+            expected_issue=args.expected_issue,
         )
         refreshed[key] = issue
         reports.append(report)
