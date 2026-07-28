@@ -104,6 +104,17 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn('chinaToggle.textContent = "仅看中国相关";', load_issue)
         self.assertIn("本期没有识别到中国相关论文", explorer)
 
+    def test_first_issue_is_embedded_and_other_issues_are_prefetched(self):
+        explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn("readFileSync", explorer)
+        self.assertIn("initialCollection", explorer)
+        self.assertIn("Promise.resolve(initialIssue)", explorer)
+        self.assertNotIn("fetch(collectionUrl)", explorer)
+        self.assertIn('"pointerenter", warmIssue', explorer)
+        self.assertIn('"requestIdleCallback" in window', explorer)
+
     def test_classic_theme_defaults_are_frozen(self):
         self.assertIn("const DEFAULT_STYLE = Object.freeze({", self.page)
         self.assertIn('value="wechat-default">学术传送门经典（默认）', self.page)
