@@ -381,6 +381,19 @@ def _normalize_written_number_translations(source: str, translated: str) -> str:
             normalized,
             count=1,
         )
+    word_pattern = re.compile(
+        r"\b(" + "|".join(sorted(NUMBER_WORD_VALUES, key=len, reverse=True)) + r")\b",
+        re.IGNORECASE,
+    )
+    for match in word_pattern.finditer(source):
+        word = match.group(0).lower()
+        value = NUMBER_WORD_VALUES[word]
+        normalized, _changed = re.subn(
+            rf"(?<!\d){value}(?!\d)",
+            NUMBER_WORDS_ZH[word],
+            normalized,
+            count=1,
+        )
     return normalized
 
 
