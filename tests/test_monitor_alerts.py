@@ -79,6 +79,37 @@ class AlertTests(unittest.TestCase):
         self.assertEqual([], synced["created"])
         self.assertEqual(["GET"], [call[0] for call in session.calls])
 
+    def test_composer_failure_is_visible_and_recovery_closes_it(self):
+        failure_session = FakeSession()
+        failed = sync_alerts(
+            {"alerts": {"newly_alerting": [], "recovered": []}},
+            repository="academic-door/journals",
+            token="test-token",
+            session=failure_session,
+            composer_status="failure",
+        )
+        self.assertEqual(["COMPOSER"], failed["created"])
+        self.assertEqual(["GET", "POST"], [call[0] for call in failure_session.calls])
+
+        recovery_session = FakeSession(
+            [
+                {
+                    "number": 9,
+                    "title": "[journal-monitor] Composer 同步失败",
+                    "body": "old",
+                }
+            ]
+        )
+        recovered = sync_alerts(
+            {"alerts": {"newly_alerting": [], "recovered": []}},
+            repository="academic-door/journals",
+            token="test-token",
+            session=recovery_session,
+            composer_status="success",
+        )
+        self.assertEqual(["COMPOSER"], recovered["closed"])
+        self.assertEqual(["GET", "PATCH"], [call[0] for call in recovery_session.calls])
+
 
 if __name__ == "__main__":
     unittest.main()

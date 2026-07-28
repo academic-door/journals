@@ -74,6 +74,26 @@ jobs:
         run: |
           python scripts/journal_monitor.py --run-updates --translate
 
+      - name: Check whether any issue was updated
+        id: changed
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          result = json.loads(
+              Path("output/journal-monitor-result.json").read_text(encoding="utf-8")
+          )
+          changed = any(
+              item.get("result") == "updated"
+              for item in result.get("deep_updates", [])
+          )
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"has_updates={'true' if changed else 'false'}\n")
+          PY
+
       - name: Validate last-known-good output
         env:
           PYTHONPATH: ${{ github.workspace }}
@@ -115,13 +135,9 @@ jobs:
           git commit -m "Monitor journal updates"
           git push origin HEAD:data
 
-      - name: Open or close deduplicated failure alerts
-        continue-on-error: true
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: python scripts/monitor_alerts.py output/journal-monitor-result.json
-
       - name: Sync audited issues to private Composer
+        id: composer
+        if: steps.changed.outputs.has_updates == 'true'
         continue-on-error: true
         env:
           COMPOSER_DEPLOY_KEY: ${{ secrets.COMPOSER_DEPLOY_KEY }}
@@ -158,6 +174,18 @@ jobs:
           done
           exit 1
 
+      - name: Open or close deduplicated failure alerts
+        if: always()
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          COMPOSER_STATUS: ${{ steps.composer.outcome }}
+        run: |
+          status="${COMPOSER_STATUS:-skipped}"
+          python scripts/monitor_alerts.py \
+            output/journal-monitor-result.json \
+            --composer-status "$status"
+
       - name: Write run summary
         if: always()
         shell: bash
@@ -178,3 +206,4 @@ jobs:
           for item in result.get("deep_updates", []):
               print(f"- Deep update {item['journal']}: {item['result']}")
           PY
+          echo "- Composer sync: ${{ steps.composer.outcome }}" >> "$GITHUB_STEP_SUMMARY"

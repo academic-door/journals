@@ -39,6 +39,8 @@ python scripts/local_authorized_enrichment.py `
 
 确认任务清单后，可安装并登录本机 `paper-fetch`，再移除 `--dry-run`。产物只写入被 Git 忽略的 `data/runtime/local-enrichment/`，不会自动进入网站；须经过字段核对后才能人工导入。
 
+本机补充仅限运营者本人已经通过学校或出版方合法取得访问权限的内容。不得利用本接口绕过验证码、付费墙、访问控制或出版方技术限制；遇到验证码必须由运营者在本机按正常授权流程处理，自动化不得代答或规避。
+
 当前适配基于 `Dictation354/paper-fetch-skill`：
 
 - 审计固定提交：`ee3572b7672af44d274f933aade851c6c50fa744`

@@ -30,6 +30,7 @@ def sync_alerts(
     repository: str,
     token: str,
     session: requests.Session | None = None,
+    composer_status: str = "skipped",
 ) -> dict[str, list[str]]:
     if not token:
         raise RuntimeError("GITHUB_TOKEN is required")
@@ -88,6 +89,31 @@ def sync_alerts(
             },
         )
         closed.append(journal)
+    composer_title = f"{TITLE_PREFIX} Composer 同步失败"
+    composer_issue = open_issues.get(composer_title)
+    if composer_status == "failure" and composer_issue is None:
+        _request(
+            client,
+            "POST",
+            f"{API}/repos/{repository}/issues",
+            json={
+                "title": composer_title,
+                "body": (
+                    "期刊数据已通过审计并写入 data 分支，但同步到私有 Composer "
+                    "仓库失败。公开网站继续部署；请检查本轮 Actions 日志以及 "
+                    "COMPOSER_DEPLOY_KEY 是否仍为该单一仓库的最小权限写入密钥。"
+                ),
+            },
+        )
+        created.append("COMPOSER")
+    elif composer_status == "success" and composer_issue is not None:
+        _request(
+            client,
+            "PATCH",
+            f"{API}/repos/{repository}/issues/{composer_issue['number']}",
+            json={"state": "closed", "state_reason": "completed"},
+        )
+        closed.append("COMPOSER")
     return {"created": created, "closed": closed}
 
 
@@ -97,6 +123,11 @@ def main() -> int:
     parser.add_argument(
         "--repository", default=os.environ.get("GITHUB_REPOSITORY", "")
     )
+    parser.add_argument(
+        "--composer-status",
+        choices=["success", "failure", "skipped"],
+        default="skipped",
+    )
     args = parser.parse_args()
     if not args.repository:
         raise SystemExit("GITHUB_REPOSITORY is required")
@@ -105,6 +136,7 @@ def main() -> int:
         result,
         repository=args.repository,
         token=os.environ.get("GITHUB_TOKEN", ""),
+        composer_status=args.composer_status,
     )
     print(json.dumps(synced, ensure_ascii=False))
     return 0
