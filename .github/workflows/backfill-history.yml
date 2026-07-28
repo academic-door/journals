@@ -1,0 +1,143 @@
+name: Backfill TOP5 history
+
+on:
+  workflow_dispatch:
+    inputs:
+      journal:
+        description: TOP5 journal code
+        required: true
+        default: AER
+        type: choice
+        options: [AER, JPE, QJE, RES, ECTA]
+      year:
+        description: Publication year
+        required: true
+        default: "2025"
+        type: choice
+        options: ["2025", "2026"]
+      max_issues:
+        description: Maximum issues in this resumable batch
+        required: true
+        default: "12"
+        type: string
+      max_translations:
+        description: Maximum new translations per issue
+        required: true
+        default: "50"
+        type: string
+
+permissions:
+  contents: write
+  models: read
+
+concurrency:
+  group: journal-data-update
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: python -m pip install -r requirements.txt
+
+      - name: Restore public data and resumable backfill state
+        shell: bash
+        run: |
+          set -euo pipefail
+          main_cache="$RUNNER_TEMP/main-translation-cache"
+          mkdir -p "$main_cache"
+          cp -R data/translation-cache/. "$main_cache/"
+          if git ls-remote --exit-code origin refs/heads/data >/dev/null 2>&1; then
+            git fetch origin data
+            git archive origin/data public | tar -x
+            for path in data/translation-cache data/backfill-state data/backfill-staging; do
+              if git cat-file -e "origin/data:$path" 2>/dev/null; then
+                git archive origin/data "$path" | tar -x
+              fi
+            done
+          fi
+          MAIN_CACHE="$main_cache" python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          target_dir = Path("data/translation-cache")
+          target_dir.mkdir(parents=True, exist_ok=True)
+          for override_path in Path(os.environ["MAIN_CACHE"]).glob("*.json"):
+              target_path = target_dir / override_path.name
+              base = json.loads(target_path.read_text(encoding="utf-8")) if target_path.exists() else {}
+              base.update(json.loads(override_path.read_text(encoding="utf-8")))
+              target_path.write_text(json.dumps(base, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          PY
+
+      - name: Collect, translate, validate and archive
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+          GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || github.token }}
+        run: |
+          python scripts/backfill_history.py \
+            --journal "${{ inputs.journal }}" \
+            --from-year "${{ inputs.year }}" \
+            --to-year "${{ inputs.year }}" \
+            --translate \
+            --max-issues "${{ inputs.max_issues }}" \
+            --max-translations "${{ inputs.max_translations }}"
+          python scripts/audit_public_data.py
+          python -m unittest discover -s tests -v
+          python scripts/audit_privacy.py
+
+      - name: Publish archives, indexes, cache and checkpoints
+        shell: bash
+        run: |
+          set -euo pipefail
+          generated="$RUNNER_TEMP/generated"
+          mkdir -p "$generated/public" "$generated/data"
+          cp -R public/. "$generated/public/"
+          cp -R data/translation-cache "$generated/data/"
+          [ ! -d data/backfill-state ] || cp -R data/backfill-state "$generated/data/"
+          [ ! -d data/backfill-staging ] || cp -R data/backfill-staging "$generated/data/"
+          git fetch origin data
+          git worktree add "$RUNNER_TEMP/data-tree" origin/data
+          cd "$RUNNER_TEMP/data-tree"
+          git switch -C data
+          rm -rf public data/translation-cache data/backfill-state data/backfill-staging
+          cp -R "$generated/public" public
+          cp -R "$generated/data/." data/
+          git config user.name "academic-door-bot"
+          git config user.email "academic-door-bot@users.noreply.github.com"
+          git add public data/translation-cache
+          git add -f data/backfill-state data/backfill-staging 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No historical data changes."
+            exit 0
+          fi
+          git commit -m "Backfill TOP5 journal history"
+          git push origin HEAD:data
+
+      - name: Sync audited history to private Composer
+        env:
+          COMPOSER_DEPLOY_KEY: ${{ secrets.COMPOSER_DEPLOY_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          printf '%s\n' "$COMPOSER_DEPLOY_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          target="$RUNNER_TEMP/composer-sync"
+          git clone --depth=1 git@github.com:academic-door/academic-door-composer.git "$target"
+          python "$target/scripts/build_data.py" --journals-source "$GITHUB_WORKSPACE/public" --output "$target/site/data"
+          python "$target/scripts/validate_bundle.py" --site "$target/site"
+          cd "$target"
+          git config user.name "academic-door-bot"
+          git config user.email "academic-door-bot@users.noreply.github.com"
+          git add site/data
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Sync audited journal history"
+          git push origin HEAD:main

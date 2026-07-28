@@ -96,6 +96,12 @@ def successful_fake_get(
 
 
 class WileyCollectorTests(unittest.TestCase):
+    def test_articles_and_commentary_are_scholarly_sections(self):
+        self.assertTrue(wiley._is_research_section("Articles"))
+        self.assertTrue(wiley._is_research_section("Research Articles"))
+        self.assertTrue(wiley._is_research_section("Commentary"))
+        self.assertFalse(wiley._is_research_section("Issue Information"))
+
     def test_original_articles_order_and_exclusions_are_auditable(self):
         with patch.object(wiley, "_get", side_effect=successful_fake_get):
             issue = wiley.fetch_current_issue(

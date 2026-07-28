@@ -505,10 +505,12 @@ def request_google_translation(
 
 def _write_cache(cache_path: Path, cache: dict[str, Any]) -> None:
     cache_path.parent.mkdir(parents=True, exist_ok=True)
-    cache_path.write_text(
+    temporary = cache_path.with_suffix(cache_path.suffix + ".tmp")
+    temporary.write_text(
         json.dumps(cache, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
+    os.replace(temporary, cache_path)
 
 
 def translate_missing(
@@ -519,6 +521,7 @@ def translate_missing(
     model: str | None = None,
     endpoint: str = GITHUB_MODELS_ENDPOINT,
     session: requests.Session | None = None,
+    max_translations: int | None = None,
 ) -> dict[str, Any]:
     cache = (
         json.loads(cache_path.read_text(encoding="utf-8"))
@@ -534,6 +537,8 @@ def translate_missing(
     fallback_count = 0
 
     for article in issue["articles"]:
+        if max_translations is not None and translated_count >= max_translations:
+            break
         doi = article.get("doi", "")
         comment_without_abstract = (
             article.get("article_type") == "comment"

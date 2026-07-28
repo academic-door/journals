@@ -8,6 +8,8 @@ from scripts.update_journals import (
     archive_issue,
     archived_issues,
     collect_one,
+    collector_for,
+    fallback_collector_for,
     is_publishable_snapshot,
     order_verification_status,
     write_archive_index,
@@ -64,6 +66,27 @@ def archive_fixture(issue_id: str, volume: str) -> dict:
 
 
 class PublicationGateTests(unittest.TestCase):
+    def test_official_issue_collector_precedes_rss_metadata_fallback(self) -> None:
+        from unittest.mock import patch
+
+        config = {
+            "id": "jpe",
+            "name": "Journal of Political Economy",
+            "collector": "chicago",
+            "issn": "0022-3808",
+            "current_issue_url": "https://www.journals.uchicago.edu/toc/jpe/current",
+            "rss_url": "https://www.journals.uchicago.edu/feed",
+            "fallback": "crossref-repec",
+        }
+        with patch(
+            "collectors.chicago.fetch_current_issue",
+            return_value={"source": "official-issue-page"},
+        ) as official:
+            result = collector_for(config)()
+        self.assertEqual("official-issue-page", result["source"])
+        official.assert_called_once()
+        self.assertIsNotNone(fallback_collector_for(config))
+
     def test_accepts_complete_snapshot(self) -> None:
         self.assertTrue(is_publishable_snapshot(COMPLETE_ISSUE))
 

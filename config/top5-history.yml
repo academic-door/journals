@@ -1,0 +1,53 @@
+schema_version: "1.0"
+years:
+  - 2025
+  - 2026
+journals:
+  AER:
+    archive_url: https://www.aeaweb.org/journals/aer/issues
+    allowed_host: www.aeaweb.org
+    platform: aea
+  JPE:
+    allowed_host: www.journals.uchicago.edu
+    platform: chicago
+    issue_url_template: https://www.journals.uchicago.edu/toc/jpe/{year}/{volume}/{issue}
+    year_ranges:
+      "2025":
+        volume: 133
+        issues: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      "2026":
+        volume: 134
+        issues: [1, 2, 3, 4, 5, 6, 7]
+  QJE:
+    allowed_host: academic.oup.com
+    platform: oup
+    issue_url_template: https://academic.oup.com/qje/issue/{volume}/{issue}
+    year_ranges:
+      "2025":
+        volume: 140
+        issues: [1, 2, 3, 4]
+      "2026":
+        volume: 141
+        issues: [1, 2, 3]
+  RES:
+    allowed_host: academic.oup.com
+    platform: oup
+    issue_url_template: https://academic.oup.com/restud/issue/{volume}/{issue}
+    year_ranges:
+      "2025":
+        volume: 92
+        issues: [1, 2, 3, 4, 5, 6]
+      "2026":
+        volume: 93
+        issues: [1, 2, 3, 4]
+  ECTA:
+    allowed_host: onlinelibrary.wiley.com
+    platform: wiley
+    issue_url_template: https://onlinelibrary.wiley.com/toc/14680262/{year}/{volume}/{issue}
+    year_ranges:
+      "2025":
+        volume: 93
+        issues: [1, 2, 3, 4, 5, 6]
+      "2026":
+        volume: 94
+        issues: [1, 2, 3]
