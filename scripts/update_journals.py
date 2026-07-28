@@ -143,18 +143,6 @@ def apply_translation_cache(issue: dict[str, Any]) -> dict[str, Any]:
 def collector_for(config: dict[str, Any]) -> Callable[[], dict[str, Any]]:
     collector = config["collector"]
     current_url = config["current_issue_url"]
-    if config.get("rss_url"):
-        from collectors.metadata_fallback import fetch_official_rss_issue
-
-        return lambda: fetch_official_rss_issue(
-            journal_id=config["id"],
-            journal_name=config["name"],
-            issn=str(config["issn"]),
-            current_issue_url=current_url,
-            rss_url=config["rss_url"],
-            repec_jpe=config.get("fallback") == "crossref-repec",
-            repec_series_code=config.get("repec_series_code", ""),
-        )
     if collector == "aea":
         return lambda: fetch_aea(
             current_url,
@@ -219,6 +207,18 @@ def collector_for(config: dict[str, Any]) -> Callable[[], dict[str, Any]]:
 
 def fallback_collector_for(config: dict[str, Any]) -> Callable[[], dict[str, Any]] | None:
     fallback = config.get("fallback", "")
+    if config.get("rss_url"):
+        from collectors.metadata_fallback import fetch_official_rss_issue
+
+        return lambda: fetch_official_rss_issue(
+            journal_id=config["id"],
+            journal_name=config["name"],
+            issn=str(config["issn"]),
+            current_issue_url=config["current_issue_url"],
+            rss_url=config["rss_url"],
+            repec_jpe=fallback == "crossref-repec",
+            repec_series_code=config.get("repec_series_code", ""),
+        )
     if not fallback:
         return None
     if fallback == "repec":

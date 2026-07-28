@@ -352,8 +352,13 @@ def _normalise_section(value: str) -> str:
     return re.sub(r"[^a-z0-9]+", " ", value.casefold()).strip()
 
 
-def _is_original_articles_section(section: str) -> bool:
-    return bool(re.fullmatch(r"original articles?", _normalise_section(section)))
+def _is_research_section(section: str) -> bool:
+    return bool(
+        re.fullmatch(
+            r"(?:original |research )?articles?|commentary|comments?|replies",
+            _normalise_section(section),
+        )
+    )
 
 
 def _section_exclusion_reason(section: str, title: str) -> str:
@@ -363,7 +368,7 @@ def _section_exclusion_reason(section: str, title: str) -> str:
         return "front-matter"
     if re.search(r"\bback\s*matter\b|\bbackmatter\b", title_text):
         return "back-matter"
-    if _is_original_articles_section(section):
+    if _is_research_section(section):
         return ""
     if re.search(
         r"\bfront\s*matter\b|\bfrontmatter\b|\bprelims?\b|\bpreliminaries\b",
@@ -385,7 +390,7 @@ def _looks_like_section_heading(node: Tag) -> bool:
         return False
     normalised = _normalise_section(value)
     known = (
-        _is_original_articles_section(value)
+        _is_research_section(value)
         or "front matter" in normalised
         or "frontmatter" in normalised
         or "prelim" in normalised
@@ -506,7 +511,7 @@ def _fallback_anchor_inventory(
     for node in soup.select(selector):
         if node.name in {"h2", "h3", "h4"} and _looks_like_section_heading(node):
             current_section = _text(node)
-            saw_original_section = saw_original_section or _is_original_articles_section(
+            saw_original_section = saw_original_section or _is_research_section(
                 current_section
             )
             continue
@@ -609,14 +614,14 @@ def _parse_issue_inventory(
                 section=current_section,
                 base_url=base_url,
             )
-            saw_original_section = saw_original_section or _is_original_articles_section(
+            saw_original_section = saw_original_section or _is_research_section(
                 item.section
             )
             items.append(item)
             continue
         if _looks_like_section_heading(node):
             current_section = _text(node)
-            saw_original_section = saw_original_section or _is_original_articles_section(
+            saw_original_section = saw_original_section or _is_research_section(
                 current_section
             )
 
@@ -765,7 +770,7 @@ def _article_from_inventory(
         flags.append("detail_volume_mismatch")
     if detail.get("issue") and issue_number and detail["issue"] != issue_number:
         flags.append("detail_issue_mismatch")
-    if detail.get("article_type") and not _is_original_articles_section(
+    if detail.get("article_type") and not _is_research_section(
         detail["article_type"]
     ):
         flags.append("detail_article_type_mismatch")
@@ -782,11 +787,19 @@ def _article_from_inventory(
         "official-article-page" if detail.get("authors") else "official-issue-page"
     )
     doi_source = "official-article-page" if detail.get("doi") else "official-issue-page"
+    article_type = (
+        "comment"
+        if re.fullmatch(
+            r"commentary|comments?|replies",
+            _normalise_section(item.section),
+        )
+        else "research-article"
+    )
     return {
         "paper_id": f"doi:{doi}" if doi else f"wiley:{item.source_sequence}",
         "sequence": 0,
         "source_sequence": item.source_sequence,
-        "article_type": "research-article",
+        "article_type": article_type,
         "title_en": title,
         "title_cn": "",
         "authors": list(authors),

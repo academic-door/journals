@@ -47,6 +47,7 @@ Academic Door 的统一经济学期刊数据引擎、TOP5/领域顶刊公共网�
 - [x] 网站与 Composer 历史卷期选择、最新/全部历史跨刊检索
 - [x] Composer 逐篇勾选、拖动排序、中国相关筛选和本机设置保存
 - [x] 本机学校授权补充接口（凭据和全文不进入 GitHub）
+- [ ] TOP5 2025—2026 年 64 期官方目录断点回填
 - [ ] 单独规划中文顶级期刊数据引擎
 
 ## 本地开发
@@ -65,6 +66,15 @@ python scripts/journal_monitor.py
 python scripts/audit_public_data.py
 python -m unittest discover -s tests -v
 ```
+
+TOP5 历史回填先查看官方卷期计划，再按单刊、单年度小批执行：
+
+```powershell
+python scripts/backfill_history.py --journal ALL --from-year 2025 --to-year 2026 --plan-only
+python scripts/backfill_history.py --journal AER --from-year 2025 --to-year 2025 --translate --max-issues 12 --max-translations 50
+```
+
+历史回填不覆盖 `current.json`、不触发新卷期邮件；翻译和暂存进度可在下一次运行中继续。
 
 ## 公共接口
 
