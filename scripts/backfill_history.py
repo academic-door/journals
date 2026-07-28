@@ -94,6 +94,20 @@ def collector_for_issue(
             journal_name=journal_config["name"],
         )
     if collector == "oup":
+        if (
+            isinstance(issue_ref, HistoricalIssue)
+            and journal_config.get("fallback") == "crossref"
+        ):
+            from collectors.metadata_fallback import fetch_crossref_current_issue
+
+            return lambda: fetch_crossref_current_issue(
+                journal_id=journal_config["id"],
+                journal_name=journal_config["name"],
+                issn=str(journal_config["issn"]),
+                current_issue_url=issue_url,
+                target_volume=issue_ref.volume,
+                target_issue=issue_ref.issue,
+            )
         from collectors.oup import fetch_current_issue
 
         return lambda: fetch_current_issue(journal_config["id"], issue_url)

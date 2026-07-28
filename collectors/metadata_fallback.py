@@ -927,6 +927,8 @@ def fetch_crossref_current_issue(
     current_issue_url: str,
     repec_jpe: bool = False,
     repec_series_code: str = "",
+    target_volume: str | None = None,
+    target_issue: str | None = None,
     session: requests.Session | None = None,
     timeout: int = 60,
 ) -> dict[str, Any]:
@@ -960,10 +962,18 @@ def fetch_crossref_current_issue(
     ]
     if not eligible:
         raise MetadataFallbackError("Crossref returned no usable recent issue")
-    (volume, issue), issue_items = max(
-        eligible,
-        key=lambda group: (_number(group[0][0]), _number(group[0][1])),
-    )
+    if target_volume and target_issue:
+        issue_items = dict(eligible).get((str(target_volume), str(target_issue)))
+        if issue_items is None:
+            raise MetadataFallbackError(
+                f"Crossref returned no usable issue {target_volume}/{target_issue}"
+            )
+        volume, issue = str(target_volume), str(target_issue)
+    else:
+        (volume, issue), issue_items = max(
+            eligible,
+            key=lambda group: (_number(group[0][0]), _number(group[0][1])),
+        )
 
     excluded_items: list[dict[str, Any]] = []
     research_items: list[dict[str, Any]] = []
