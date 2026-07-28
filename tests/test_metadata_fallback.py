@@ -5,6 +5,7 @@ import unittest
 from collectors.metadata_fallback import (
     MetadataFallbackError,
     fetch_crossref_current_issue,
+    fetch_repec_history_issue,
 )
 
 
@@ -24,8 +25,9 @@ def item(title: str, page: str, doi: str, abstract: str = "A complete abstract."
 
 
 class Response:
-    def __init__(self, payload: dict):
+    def __init__(self, payload: dict, content: bytes = b""):
         self.payload = payload
+        self.content = content
 
     def raise_for_status(self) -> None:
         return None
@@ -40,6 +42,36 @@ class Session:
 
     def get(self, url: str, **kwargs) -> Response:
         return Response({"message": {"items": self.items}})
+
+
+class RepecHistorySession:
+    def __init__(self) -> None:
+        self.items = [
+            item("First JPE paper", "1-10", "10.1086/740001", ""),
+            item("Second JPE paper", "11-20", "10.1086/740002", ""),
+        ]
+
+    def get(self, url: str, **kwargs) -> Response:
+        if "api.crossref.org" in url:
+            return Response({"message": {"items": self.items}})
+        if "/s/ucp/jpolec.html" in url:
+            return Response(
+                {},
+                b"""
+                <html><body>
+                  <h3>2025, Volume 133, Issue 1</h3>
+                  <ul>
+                    <li><a href="/a/ucp/jpolec/doi10.1086-740001.html">First JPE paper</a></li>
+                    <li><a href="/a/ucp/jpolec/doi10.1086-740002.html">Second JPE paper</a></li>
+                  </ul>
+                </body></html>
+                """,
+            )
+        if "/a/ucp/jpolec/doi10.1086-740001.html" in url:
+            return Response({}, b"<html><h2>Abstract</h2><p>First abstract from RePEc.</p></html>")
+        if "/a/ucp/jpolec/doi10.1086-740002.html" in url:
+            return Response({}, b"<html><h2>Abstract</h2><p>Second abstract from RePEc.</p></html>")
+        return Response({"authorships": []})
 
 
 class MetadataFallbackTests(unittest.TestCase):
@@ -142,6 +174,25 @@ class MetadataFallbackTests(unittest.TestCase):
         self.assertEqual(issue["research_article_count"], 3)
         self.assertTrue(issue["quality"]["roster_match"])
         self.assertNotIn("crossref_roster_incomplete", issue["quality"]["flags"])
+
+    def test_builds_jpe_history_from_repec_issue_section(self) -> None:
+        issue = fetch_repec_history_issue(
+            journal_id="jpe",
+            journal_name="Journal of Political Economy",
+            issn="0022-3808",
+            volume="133",
+            issue="1",
+            repec_series_code="ucp/jpolec",
+            session=RepecHistorySession(),
+        )
+        self.assertEqual(issue["issue_id"], "jpe-133-1")
+        self.assertEqual(
+            [article["title_en"] for article in issue["articles"]],
+            ["First JPE paper", "Second JPE paper"],
+        )
+        self.assertEqual(issue["articles"][0]["abstract_en"], "First abstract from RePEc.")
+        self.assertEqual(issue["quality"]["roster_transport"], "repec-serial-page")
+        self.assertTrue(issue["quality"]["order_preserved"])
 
 
 if __name__ == "__main__":

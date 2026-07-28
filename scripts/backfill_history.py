@@ -55,9 +55,10 @@ def load_json(path: Path, default: object) -> Any:
 
 
 def collector_for_issue(
-    journal_config: dict[str, Any], issue_url: str
+    journal_config: dict[str, Any], issue_ref: HistoricalIssue
 ) -> Callable[[], dict[str, Any]]:
     collector = journal_config["collector"]
+    issue_url = issue_ref.official_url
     if collector == "aea":
         from collectors.aea import fetch_current_issue
 
@@ -67,6 +68,19 @@ def collector_for_issue(
             journal_name=journal_config["name"],
         )
     if collector == "chicago":
+        if journal_config.get("fallback") == "crossref-repec":
+            from collectors.metadata_fallback import fetch_repec_history_issue
+
+            return lambda: fetch_repec_history_issue(
+                journal_id=journal_config["id"],
+                journal_name=journal_config["name"],
+                issn=str(journal_config["issn"]),
+                volume=issue_ref.volume,
+                issue=issue_ref.issue,
+                repec_series_code=journal_config.get(
+                    "repec_series_code", "ucp/jpolec"
+                ),
+            )
         from collectors.chicago import fetch_current_issue
 
         return lambda: fetch_current_issue(
@@ -122,7 +136,7 @@ def collect_or_resume(
     path = staging_path(issue_ref)
     if path.exists() and not refresh:
         return load_json(path, {})
-    issue = collector_for_issue(journal_config, issue_ref.official_url)()
+    issue = collector_for_issue(journal_config, issue_ref)()
     if (
         str(issue.get("volume", "")) != issue_ref.volume
         or str(issue.get("issue", "")) != issue_ref.issue

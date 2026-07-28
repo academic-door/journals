@@ -4,8 +4,10 @@ import html
 import re
 import time
 from collections import Counter
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from typing import Any
+from urllib.parse import urljoin
 from xml.etree import ElementTree
 
 import requests
@@ -31,6 +33,7 @@ NON_RESEARCH_PATTERN = re.compile(
     r"submission\s+of\s+manuscripts",
     re.IGNORECASE,
 )
+DOI_PATTERN = re.compile(r"10\.\d{4,9}/[^\s?&#\"'<>]+", re.IGNORECASE)
 COMMENT_PATTERN = re.compile(
     r"\ba\s+comment\b|^comment(?:\s+on)?\b|^reply(?:\s+to)?\b|:\s*(?:a\s+)?comment\s*$|:\s*reply\s*$",
     re.IGNORECASE,
@@ -282,6 +285,72 @@ def _repec_doi_url(doi: str, series_code: str = "ucp/jpolec") -> str:
     )
 
 
+def _repec_serial_url(series_code: str = "ucp/jpolec") -> str:
+    return f"https://ideas.repec.org/s/{series_code.strip('/')}.html"
+
+
+def _extract_doi(value: str) -> str:
+    decoded = html.unescape(value or "")
+    match = DOI_PATTERN.search(decoded.replace("-", "/", 1) if decoded.startswith("doi10.") else decoded)
+    if match:
+        return match.group(0).rstrip(".,;:)]}").lower()
+    match = re.search(
+        r"/doi(10\.\d{4,9})-([^/]+)\.html(?:$|\?)",
+        decoded,
+        flags=re.IGNORECASE,
+    )
+    if match:
+        return f"{match.group(1)}/{match.group(2)}".rstrip(".,;:)]}").lower()
+    return ""
+
+
+def _parse_repec_serial_issues(
+    content: bytes | str,
+    serial_url: str,
+) -> list[dict[str, Any]]:
+    soup = BeautifulSoup(content, "html.parser")
+    issues: list[dict[str, Any]] = []
+    heading_pattern = re.compile(
+        r"(?P<year>\d{4}),\s*Volume\s+(?P<volume>[A-Za-z0-9.-]+),\s*"
+        r"Issue\s+(?P<issue>[A-Za-z0-9.-]+)",
+        re.IGNORECASE,
+    )
+    for heading in soup.find_all(["h2", "h3"]):
+        match = heading_pattern.search(heading.get_text(" ", strip=True))
+        if not match:
+            continue
+        items: list[dict[str, str]] = []
+        seen: set[str] = set()
+        for sibling in heading.next_siblings:
+            if getattr(sibling, "name", None) in {"h2", "h3"}:
+                break
+            if not hasattr(sibling, "select"):
+                continue
+            for link in sibling.select("a[href^='/a/']"):
+                detail_url = urljoin(serial_url, str(link.get("href") or ""))
+                title = _clean_markup(link.get_text(" ", strip=True))
+                if not title or detail_url in seen:
+                    continue
+                seen.add(detail_url)
+                items.append(
+                    {
+                        "title": title,
+                        "detail_url": detail_url,
+                        "doi": _extract_doi(detail_url),
+                    }
+                )
+        if items:
+            issues.append(
+                {
+                    "year": match.group("year"),
+                    "volume": match.group("volume"),
+                    "issue": match.group("issue"),
+                    "items": items,
+                }
+            )
+    return issues
+
+
 def _repec_abstract(
     session: requests.Session,
     doi: str,
@@ -319,6 +388,193 @@ def _repec_abstract(
         if text:
             chunks.append(text)
     return " ".join(chunks).strip(), url
+
+
+def fetch_repec_history_issue(
+    *,
+    journal_id: str,
+    journal_name: str,
+    issn: str,
+    volume: str,
+    issue: str,
+    repec_series_code: str = "ucp/jpolec",
+    session: requests.Session | None = None,
+    timeout: int = 60,
+) -> dict[str, Any]:
+    """Build one historical JPE issue from the public RePEc serial page."""
+
+    client = session or _session()
+    serial_url = _repec_serial_url(repec_series_code)
+    response = client.get(
+        serial_url,
+        timeout=timeout,
+        headers={"Accept": "text/html,application/xhtml+xml"},
+    )
+    response.raise_for_status()
+    issues = _parse_repec_serial_issues(response.content, serial_url)
+    target = next(
+        (
+            record
+            for record in issues
+            if str(record["volume"]) == str(volume) and str(record["issue"]) == str(issue)
+        ),
+        None,
+    )
+    if target is None:
+        raise MetadataFallbackError(
+            f"RePEc serial page has no issue {volume}/{issue}"
+        )
+
+    crossref_items = _crossref_items(issn, session=client, timeout=timeout)
+    crossref_by_doi = {
+        str(item.get("DOI", "")).strip().lower(): item
+        for item in crossref_items
+        if str(item.get("volume", "")).strip() == str(volume)
+        and str(item.get("issue", "")).strip() == str(issue)
+        and str(item.get("DOI", "")).strip()
+    }
+
+    excluded_items: list[dict[str, Any]] = []
+    articles: list[dict[str, Any]] = []
+
+    def build_article(entry: dict[str, str]) -> dict[str, Any]:
+        title = entry["title"]
+        doi = entry["doi"]
+        crossref = crossref_by_doi.get(doi, {})
+        authors = _authors(crossref)
+        abstract = _clean_markup(str(crossref.get("abstract", "")))
+        abstract_source = "crossref" if abstract else ""
+        repec_url = ""
+        if not abstract and doi:
+            try:
+                abstract, repec_url = _repec_abstract(
+                    client,
+                    doi,
+                    timeout=timeout,
+                    series_code=repec_series_code,
+                )
+            except requests.RequestException:
+                abstract = ""
+            if abstract:
+                abstract_source = "repec-publisher-supplied"
+        openalex_url = ""
+        if doi and (not authors or not abstract):
+            openalex_authors, openalex_abstract, openalex_url = _openalex_metadata(
+                client, doi, timeout=timeout
+            )
+            if not authors and openalex_authors:
+                authors = openalex_authors
+            if not abstract and openalex_abstract:
+                abstract = openalex_abstract
+                abstract_source = "openalex"
+        flags = ["title_cn_missing", "abstract_cn_missing"]
+        if not doi:
+            flags.append("doi_missing")
+        if not authors:
+            flags.append("authors_missing")
+        if not abstract:
+            flags.append("abstract_en_missing")
+        return {
+            "paper_id": f"doi:{doi}" if doi else f"{journal_id}:{title}",
+            "sequence": 0,
+            "source_sequence": 0,
+            "article_type": _article_type(title),
+            "title_en": title,
+            "title_cn": "",
+            "authors": authors,
+            "abstract_en": abstract,
+            "abstract_cn": "",
+            "doi": doi,
+            "source_url": f"https://doi.org/{doi}" if doi else entry["detail_url"],
+            "publication_date": target["year"],
+            "sources": {
+                "issue": serial_url,
+                "roster": "repec-serial-page",
+                "metadata": "crossref",
+                "abstract_en": abstract_source,
+                **({"repec": repec_url or entry["detail_url"]} if repec_url or entry.get("detail_url") else {}),
+                **({"openalex": openalex_url} if openalex_url else {}),
+            },
+            "translation": {
+                "status": "blocked" if not abstract else "pending",
+                "provider": "",
+                "prompt_version": "",
+                "glossary_version": "1",
+            },
+            "quality_flags": flags,
+        }
+
+    with ThreadPoolExecutor(max_workers=6) as pool:
+        built_items = list(pool.map(build_article, target["items"]))
+
+    for article in built_items:
+        if NON_RESEARCH_PATTERN.search(article["title_en"]):
+            excluded_items.append(
+                {
+                    "title_en": article["title_en"],
+                    "reason": "non_research_title",
+                    "doi": article["doi"],
+                }
+            )
+            continue
+        article["sequence"] = len(articles) + 1
+        article["source_sequence"] = article["sequence"]
+        articles.append(article)
+
+    if not articles:
+        raise MetadataFallbackError(f"RePEc issue {volume}/{issue} has no articles")
+
+    doi_values = [article["doi"] for article in articles if article["doi"]]
+    duplicate_count = len(doi_values) - len(set(doi_values))
+    abstract_complete = sum(bool(article["abstract_en"]) for article in articles)
+    authors_complete = sum(bool(article["authors"]) for article in articles)
+    flags = ["translation_incomplete"]
+    if duplicate_count:
+        flags.append("duplicate_doi")
+    if abstract_complete != len(articles):
+        flags.append("abstract_en_incomplete")
+    if authors_complete != len(articles):
+        flags.append("authors_incomplete")
+    now = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    publication_date = (
+        _publication_date(issn, str(volume), str(issue), list(crossref_by_doi.values()))
+        or (
+            f"{MONTHS_BY_ISSUE.get(issn, {}).get(str(issue), '')} {target['year']}"
+        ).strip()
+        or target["year"]
+    )
+    return {
+        "schema_version": "1.0",
+        "issue_id": f"{journal_id}-{volume}-{issue}",
+        "journal_id": journal_id,
+        "journal_name": journal_name,
+        "volume": str(volume),
+        "issue": str(issue),
+        "publication_date": publication_date,
+        "source_url": serial_url,
+        "retrieved_at": now,
+        "expected_article_count": len(articles),
+        "research_article_count": len(articles),
+        "status": "incomplete",
+        "development_sample": False,
+        "articles": articles,
+        "quality": {
+            "roster_match": True,
+            "order_preserved": True,
+            "roster_transport": "repec-serial-page",
+            "roster_authority": "repec-publisher-supplied",
+            "roster_match_scope": "repec-issue-section",
+            "publisher_page_status": "blocked",
+            "excluded_item_count": len(excluded_items),
+            "excluded_items": excluded_items,
+            "doi_complete": sum(bool(article["doi"]) for article in articles),
+            "authors_complete": authors_complete,
+            "abstract_en_complete": abstract_complete,
+            "translation_complete": 0,
+            "duplicate_count": duplicate_count,
+            "flags": flags,
+        },
+    }
 
 
 def _crossref_items(
