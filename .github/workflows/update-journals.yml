@@ -226,12 +226,9 @@ jobs:
             exit 0
           fi
           state_copy="$RUNNER_TEMP/email-notifications.json"
-          data_tree="$RUNNER_TEMP/email-state-tree"
+          data_tree="$RUNNER_TEMP/data-tree"
           cp "$state" "$state_copy"
-          git fetch origin data
-          git worktree add "$data_tree" origin/data
           cd "$data_tree"
-          git switch -C data
           mkdir -p data/monitoring
           cp "$state_copy" data/monitoring/email-notifications.json
           git config user.name "academic-door-bot"

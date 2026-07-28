@@ -58,6 +58,15 @@ def settings() -> SMTPSettings:
 
 
 class EmailNotificationTests(unittest.TestCase):
+    def test_workflows_reuse_the_published_data_worktree_for_email_state(self):
+        root = Path(__file__).resolve().parents[1]
+        for name in ("monitor-journals.yml", "update-journals.yml"):
+            source = (root / ".github" / "workflows" / name).read_text(
+                encoding="utf-8"
+            )
+            self.assertNotIn("email-state-tree", source)
+            self.assertIn('data_tree="$RUNNER_TEMP/data-tree"', source)
+
     def test_script_entrypoint_runs_without_pythonpath(self):
         result = subprocess.run(
             [sys.executable, "scripts/email_notifications.py", "--help"],
