@@ -58,6 +58,58 @@ def settings() -> SMTPSettings:
 
 
 class EmailNotificationTests(unittest.TestCase):
+    def test_incomplete_but_published_issue_is_in_notification_baseline(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            public = root / "public"
+            state = root / "state.json"
+            write_issue(public, "jde", "jde-182", ["doi:10.1/one"])
+            path = public / "jde" / "issues" / "current.json"
+            issue = json.loads(path.read_text(encoding="utf-8"))
+            issue["status"] = "incomplete"
+            path.write_text(json.dumps(issue), encoding="utf-8")
+            outcome = synchronize(
+                public_root=public,
+                state_path=state,
+                composer_status="success",
+                settings=None,
+            )
+            saved = json.loads(state.read_text(encoding="utf-8"))
+            self.assertEqual("seeded", outcome["status"])
+            self.assertIn("jde", saved["known"])
+
+    def test_old_partial_baseline_is_reseeded_without_bulk_email(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            public = root / "public"
+            state = root / "state.json"
+            write_issue(public, "aer", "aer-116-7", ["doi:10.1/one"])
+            write_issue(public, "jde", "jde-182", ["doi:10.1/two"])
+            state.write_text(
+                json.dumps(
+                    {
+                        "schema_version": "1.0",
+                        "known": {"aer": {"fingerprint": "old"}},
+                        "pending": {},
+                        "sent": {},
+                    }
+                ),
+                encoding="utf-8",
+            )
+            messages = []
+            outcome = synchronize(
+                public_root=public,
+                state_path=state,
+                composer_status="success",
+                settings=settings(),
+                transport=lambda message, smtp: messages.append(message),
+            )
+            saved = json.loads(state.read_text(encoding="utf-8"))
+            self.assertEqual("seeded", outcome["status"])
+            self.assertEqual([], messages)
+            self.assertEqual({"aer", "jde"}, set(saved["known"]))
+            self.assertEqual("1.1", saved["schema_version"])
+
     def test_workflows_reuse_the_published_data_worktree_for_email_state(self):
         root = Path(__file__).resolve().parents[1]
         for name in ("monitor-journals.yml", "update-journals.yml"):

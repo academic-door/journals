@@ -27,6 +27,7 @@ DEFAULT_PUBLIC_ROOT = ROOT / "public" / "api" / "v1" / "journals"
 DEFAULT_STATE = ROOT / "data" / "monitoring" / "email-notifications.json"
 DEFAULT_OUTCOME = ROOT / "output" / "email-notification-result.json"
 SITE_ROOT = "https://academic-door.github.io/journals"
+STATE_SCHEMA_VERSION = "1.1"
 
 
 def now_iso() -> str:
@@ -118,11 +119,7 @@ def load_current_issues(public_root: Path) -> dict[str, dict[str, Any]]:
     snapshots: dict[str, dict[str, Any]] = {}
     for path in sorted(public_root.glob("*/issues/current.json")):
         issue = read_json(path)
-        if (
-            issue.get("status") != "ready"
-            or not issue.get("issue_id")
-            or not issue.get("articles")
-        ):
+        if not issue.get("issue_id") or not issue.get("articles"):
             continue
         snapshot = issue_snapshot(issue, collections)
         snapshots[snapshot["journal_id"]] = snapshot
@@ -248,13 +245,21 @@ def synchronize(
     state = read_json(
         state_path,
         {
-            "schema_version": "1.0",
+            "schema_version": STATE_SCHEMA_VERSION,
             "updated_at": "",
             "known": {},
             "pending": {},
             "sent": {},
         },
     )
+    if state.get("schema_version") != STATE_SCHEMA_VERSION:
+        state = {
+            "schema_version": STATE_SCHEMA_VERSION,
+            "updated_at": "",
+            "known": {},
+            "pending": {},
+            "sent": {},
+        }
     known = state.setdefault("known", {})
     pending = state.setdefault("pending", {})
     sent = state.setdefault("sent", {})
@@ -329,6 +334,7 @@ def synchronize(
         outcome["status"] = "waiting_for_composer"
 
     state["updated_at"] = now_iso()
+    state["schema_version"] = STATE_SCHEMA_VERSION
     write_json(state_path, state)
     return outcome
 
