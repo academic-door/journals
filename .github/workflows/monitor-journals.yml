@@ -47,6 +47,11 @@ jobs:
               git show origin/data:data/monitoring/state.json \
                 > data/monitoring/state.json
             fi
+            if git cat-file -e origin/data:data/monitoring/email-notifications.json 2>/dev/null; then
+              mkdir -p data/monitoring
+              git show origin/data:data/monitoring/email-notifications.json \
+                > data/monitoring/email-notifications.json
+            fi
           fi
           MAIN_CACHE="$main_cache" python - <<'PY'
           import json
@@ -103,6 +108,7 @@ jobs:
           python scripts/audit_privacy.py
 
       - name: Publish data and monitoring state
+        id: publish
         shell: bash
         run: |
           set -euo pipefail
@@ -174,6 +180,65 @@ jobs:
           done
           exit 1
 
+      - name: Send private new-issue email
+        id: email
+        if: always() && steps.publish.outcome == 'success'
+        continue-on-error: true
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_SECURITY: ${{ secrets.SMTP_SECURITY }}
+          SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          SMTP_FROM: ${{ secrets.SMTP_FROM }}
+          NOTIFICATION_EMAIL_TO: ${{ secrets.NOTIFICATION_EMAIL_TO }}
+          COMPOSER_STATUS: ${{ steps.composer.outcome }}
+        shell: bash
+        run: |
+          status="${COMPOSER_STATUS:-skipped}"
+          python scripts/email_notifications.py --composer-status "$status"
+
+      - name: Persist private email notification state
+        if: always() && steps.publish.outcome == 'success'
+        shell: bash
+        run: |
+          set -euo pipefail
+          state="data/monitoring/email-notifications.json"
+          if [ ! -f "$state" ]; then
+            echo "No email notification state was produced."
+            exit 0
+          fi
+          state_copy="$RUNNER_TEMP/email-notifications.json"
+          data_tree="$RUNNER_TEMP/email-state-tree"
+          cp "$state" "$state_copy"
+          git fetch origin data
+          git worktree add "$data_tree" origin/data
+          cd "$data_tree"
+          git switch -C data
+          mkdir -p data/monitoring
+          cp "$state_copy" data/monitoring/email-notifications.json
+          git config user.name "academic-door-bot"
+          git config user.email "academic-door-bot@users.noreply.github.com"
+          git add -f data/monitoring/email-notifications.json
+          if git diff --cached --quiet; then
+            echo "Email notification state is unchanged."
+            exit 0
+          fi
+          git commit -m "Update journal email notification state"
+          git push origin HEAD:data
+
+      - name: Open or close private email failure alert
+        if: always() && steps.publish.outcome == 'success'
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          if [ -f output/email-notification-result.json ]; then
+            python scripts/email_notification_alerts.py \
+              output/email-notification-result.json
+          fi
+
       - name: Open or close deduplicated failure alerts
         if: always()
         continue-on-error: true
@@ -207,3 +272,16 @@ jobs:
               print(f"- Deep update {item['journal']}: {item['result']}")
           PY
           echo "- Composer sync: ${{ steps.composer.outcome }}" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f output/email-notification-result.json ]; then
+            python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          from pathlib import Path
+          result = json.loads(
+              Path("output/email-notification-result.json").read_text(encoding="utf-8")
+          )
+          print(
+              f"- Private email: {result['status']} "
+              f"(sent {result['sent']}, queued {result['queued']})"
+          )
+          PY
+          fi

@@ -12,7 +12,8 @@ Academic Door 的统一经济学期刊数据引擎、TOP5/领域顶刊公共网�
 
 - `TOP5`：AER、JPE、QJE、RES、Econometrica 的卷期监测与中英文目录。
 - `领域顶刊`（Econ Field Journals）：Academic Door 当前监测的 36 本高水平经济学领域期刊，按综合、理论与产业组织、公共与国际、金融、发展与应用、城市宏观劳动计量与环境、农业与资源环境七类组织。
-- `Academic Door Composer`：载入结构化期刊数据或 Markdown，编辑、预览、换主题并复制富文本到微信公众号。
+- `Academic Door Composer`：载入最新或历史卷期，选文、排序、编辑、预览、换主题并复制富文本到微信公众号。
+- `跨刊检索`：检索最新或全部历史卷期的中英文标题、作者、摘要、期刊、领域、年份、卷期与中国相关论文。
 - `Data API`：为主页、RSS、公众号和后续平台输出提供同一份标准数据。
 
 ## 北极星流程
@@ -41,7 +42,10 @@ Academic Door 的统一经济学期刊数据引擎、TOP5/领域顶刊公共网�
 - [x] 36 本高水平经济学领域期刊接入统一数据引擎
 - [x] TOP5 / 领域顶刊统一分类入口与 Composer 数据源
 - [x] 每两小时增量监测、按需深度采集、连续失败告警与上一版保护
+- [x] 新卷期/补录完成质量门与 Composer 同步后的私人邮件通知
 - [x] 最新卷期不可变历史归档与逐刊卷期索引
+- [x] 网站与 Composer 历史卷期选择、最新/全部历史跨刊检索
+- [x] Composer 逐篇勾选、拖动排序、中国相关筛选和本机设置保存
 - [x] 本机学校授权补充接口（凭据和全文不进入 GitHub）
 - [ ] 单独规划中文顶级期刊数据引擎
 
@@ -77,6 +81,10 @@ python -m unittest discover -s tests -v
 /journals/api/v1/journals/ecta/issues/current.json
 /journals/api/v1/collections/fields.json
 /journals/api/v1/journals/{journal_id}/issues/current.json
+/journals/api/v1/journals/{journal_id}/issues/index.json
+/journals/api/v1/journals/{journal_id}/issues/{issue_id}.json
+/journals/api/v1/search/latest.json
+/journals/api/v1/search/all.json
 /journals/api/v1/health.json
 /journals/api/v1/monitoring.json
 /journals/project-manifest.json

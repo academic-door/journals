@@ -3,7 +3,8 @@
 ## Mission
 
 Build the Academic Door unified journal data engine, TOP5/Field Journals
-public site, and Composer. Optimize for a 10–20 minute human publishing flow.
+public site, and Composer. Optimize for a three-minute human publishing flow:
+open the notified issue, make any optional selection, copy, paste, and publish.
 
 ## Required boundaries
 

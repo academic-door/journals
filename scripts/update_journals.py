@@ -16,7 +16,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from collectors.aea import fetch_current_issue as fetch_aea
-from scripts.china_relevance import annotate_issue
+from scripts.china_relevance import annotate_issue, classify_china_relevance
 from scripts.translate_issue import translate_missing
 
 
@@ -339,6 +339,117 @@ def write_archive_index(
                 f"/journals/api/v1/journals/{journal_id}/issues/current.json"
             ),
             "issues": entries,
+        },
+    )
+
+
+def search_record(
+    issue: dict[str, Any],
+    article: dict[str, Any],
+    journal: dict[str, Any],
+) -> dict[str, Any]:
+    relevance = article.get("china_relevance") or classify_china_relevance(article)
+    return {
+        "journal_id": issue["journal_id"],
+        "journal_short_name": journal.get("short_name", issue["journal_id"].upper()),
+        "journal_name": issue.get("journal_name", journal.get("name", "")),
+        "field": journal.get("field", "general"),
+        "tier": journal.get("tier", ""),
+        "issue_id": issue["issue_id"],
+        "volume": issue.get("volume", ""),
+        "issue": issue.get("issue", ""),
+        "issue_label": issue.get("issue_label")
+        or f"Vol. {issue.get('volume', '')} · No. {issue.get('issue', '')}",
+        "publication_date": issue.get("publication_date", ""),
+        "sequence": article.get("sequence", 0),
+        "paper_id": article.get("paper_id", ""),
+        "title_en": article.get("title_en", ""),
+        "title_cn": article.get("title_cn", ""),
+        "authors": article.get("authors", []),
+        "abstract_en": article.get("abstract_en", ""),
+        "abstract_cn": article.get("abstract_cn", ""),
+        "doi": article.get("doi", ""),
+        "source_url": article.get("source_url", ""),
+        "china_related": relevance.get("status") == "yes",
+    }
+
+
+def write_search_indexes(
+    journal_configs: dict[str, dict[str, Any]],
+    issues: dict[str, dict[str, Any]],
+    *,
+    updated_at: str,
+    api_root: Path = PUBLIC_API,
+) -> None:
+    """Write lazy-loaded search datasets without embedding them in page HTML."""
+
+    latest_records: list[dict[str, Any]] = []
+    history_records: list[dict[str, Any]] = []
+    issue_count = 0
+    for key, config in journal_configs.items():
+        if not config.get("enabled"):
+            continue
+        current = issues.get(key)
+        if current and is_publishable_snapshot(current):
+            latest_records.extend(
+                search_record(current, article, config)
+                for article in current.get("articles", [])
+            )
+
+        by_issue_id: dict[str, dict[str, Any]] = {}
+        for archived in archived_issues(config["id"], api_root=api_root):
+            if is_publishable_snapshot(archived):
+                by_issue_id[archived["issue_id"]] = archived
+        if current and is_publishable_snapshot(current):
+            by_issue_id[current["issue_id"]] = current
+        issue_count += len(by_issue_id)
+        for issue in by_issue_id.values():
+            history_records.extend(
+                search_record(issue, article, config)
+                for article in issue.get("articles", [])
+            )
+
+    def record_key(record: dict[str, Any]) -> tuple[str, str, int]:
+        return (
+            str(record.get("publication_date", "")),
+            str(record.get("journal_id", "")),
+            -int(record.get("sequence", 0)),
+        )
+
+    latest_records.sort(key=record_key, reverse=True)
+    history_records.sort(key=record_key, reverse=True)
+    search_root = api_root / "search"
+    write_json(
+        search_root / "latest.json",
+        {
+            "schema_version": "1.0",
+            "scope": "latest",
+            "updated_at": updated_at,
+            "record_count": len(latest_records),
+            "records": latest_records,
+        },
+    )
+    write_json(
+        search_root / "all.json",
+        {
+            "schema_version": "1.0",
+            "scope": "all",
+            "updated_at": updated_at,
+            "issue_count": issue_count,
+            "record_count": len(history_records),
+            "records": history_records,
+        },
+    )
+    write_json(
+        search_root / "index.json",
+        {
+            "schema_version": "1.0",
+            "updated_at": updated_at,
+            "latest_count": len(latest_records),
+            "history_count": len(history_records),
+            "issue_count": issue_count,
+            "latest_url": "/journals/api/v1/search/latest.json",
+            "all_url": "/journals/api/v1/search/all.json",
         },
     )
 
@@ -670,6 +781,11 @@ def update_indexes(
     write_json(PUBLIC_API / "health.json", health)
     write_json(PUBLIC_API / "index.json", index)
     write_json(ROOT / "public" / "project-manifest.json", manifest)
+    write_search_indexes(
+        journal_configs,
+        issues,
+        updated_at=updated_at,
+    )
 
     for collection_id, definition in collection_config.items():
         readback = read_json(PUBLIC_API / "collections" / f"{collection_id}.json")

@@ -11,6 +11,7 @@ from scripts.update_journals import (
     is_publishable_snapshot,
     order_verification_status,
     write_archive_index,
+    write_search_indexes,
 )
 
 
@@ -171,6 +172,61 @@ class PublicationGateTests(unittest.TestCase):
         issue["quality"]["translation_complete"] = 0
         with tempfile.TemporaryDirectory() as directory:
             self.assertIsNone(archive_issue(issue, api_root=Path(directory)))
+
+    def test_search_indexes_cover_latest_and_history_without_page_embedding(self) -> None:
+        import json
+        import tempfile
+        from pathlib import Path
+
+        old_issue = archive_fixture("demo-1-1", "1")
+        new_issue = archive_fixture("demo-2-1", "2")
+        for issue, title in (
+            (old_issue, "Old China Study"),
+            (new_issue, "New Study"),
+        ):
+            issue["publication_date"] = f"202{issue['volume']}-01"
+            issue["articles"][0].update(
+                {
+                    "paper_id": f"paper-{issue['volume']}",
+                    "sequence": 1,
+                    "title_en": title,
+                    "title_cn": "测试论文",
+                    "authors": ["Test Author"],
+                    "abstract_en": "Evidence from China." if issue is old_issue else "Abstract",
+                    "abstract_cn": "摘要",
+                    "source_url": "https://example.org/paper",
+                }
+            )
+        config = {
+            "DEMO": {
+                "id": "demo",
+                "short_name": "DEMO",
+                "name": "Demo Journal",
+                "field": "general",
+                "tier": "A",
+                "enabled": True,
+            }
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            archive_issue(old_issue, api_root=root)
+            archive_issue(new_issue, api_root=root)
+            write_search_indexes(
+                config,
+                {"DEMO": new_issue},
+                updated_at="2026-07-28T00:00:00+00:00",
+                api_root=root,
+            )
+            latest = json.loads((root / "search" / "latest.json").read_text(encoding="utf-8"))
+            history = json.loads((root / "search" / "all.json").read_text(encoding="utf-8"))
+            manifest = json.loads((root / "search" / "index.json").read_text(encoding="utf-8"))
+        self.assertEqual(1, latest["record_count"])
+        self.assertEqual(2, history["record_count"])
+        self.assertEqual(2, manifest["issue_count"])
+        old_record = next(record for record in history["records"] if record["issue_id"] == "demo-1-1")
+        self.assertEqual("1", old_record["volume"])
+        self.assertEqual("1", old_record["issue"])
+        self.assertTrue(old_record["china_related"])
 
 
 if __name__ == "__main__":

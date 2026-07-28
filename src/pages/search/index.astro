@@ -1,0 +1,77 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+---
+
+<Layout
+  title="跨刊检索 · Academic Door"
+  description="检索 Academic Door 收录期刊的中英文标题、作者与摘要"
+>
+  <main class="search-page">
+    <section class="page-heading search-heading">
+      <p class="section-kicker">SEARCH</p>
+      <h1>跨刊检索</h1>
+    </section>
+
+    <form id="global-search-form" class="global-search-toolbar" role="search" data-base={base}>
+      <label class="global-search-input">
+        <span class="sr-only">检索论文</span>
+        <input
+          id="global-search-query"
+          type="search"
+          placeholder="输入标题、作者、摘要或关键词"
+          autocomplete="off"
+        />
+      </label>
+      <label>
+        <span class="sr-only">期刊</span>
+        <select id="global-search-journal" aria-label="期刊">
+          <option value="all">全部期刊</option>
+        </select>
+      </label>
+      <label>
+        <span class="sr-only">领域</span>
+        <select id="global-search-field" aria-label="领域">
+          <option value="all">全部领域</option>
+          <option value="general">综合顶刊</option>
+          <option value="theory">理论与产业组织</option>
+          <option value="public_history_international">公共、经济史与国际</option>
+          <option value="finance">金融</option>
+          <option value="development_applied">发展与应用</option>
+          <option value="urban_macro_labor_metrics_environment">城市、宏观、劳动、计量与环境</option>
+          <option value="agriculture_resources">农业与资源环境</option>
+        </select>
+      </label>
+      <label>
+        <span class="sr-only">年份</span>
+        <input id="global-search-year" type="number" inputmode="numeric" placeholder="年份" min="1900" max="2100" />
+      </label>
+      <label>
+        <span class="sr-only">卷号</span>
+        <input id="global-search-volume" type="search" placeholder="卷号" />
+      </label>
+      <label>
+        <span class="sr-only">期号</span>
+        <input id="global-search-issue" type="search" placeholder="期号" />
+      </label>
+      <label class="search-check">
+        <input id="global-search-china" type="checkbox" />
+        中国相关
+      </label>
+      <label class="search-check">
+        <input id="global-search-history" type="checkbox" />
+        全部历史卷期
+      </label>
+      <button class="button button-primary" type="submit">检索</button>
+    </form>
+
+    <section id="global-search-status" class="global-search-status" aria-live="polite">
+      输入关键词或选择筛选条件后开始检索。数据只在检索时载入。
+    </section>
+    <section id="global-search-results" class="search-results" aria-live="polite"></section>
+  </main>
+  <script is:inline src="/journals/search.js"></script>
+</Layout>

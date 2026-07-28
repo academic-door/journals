@@ -98,10 +98,14 @@ class ComposerUiTest(unittest.TestCase):
         load_issue = explorer.split("const loadIssue = async (journal) => {", 1)[1].split(
             "};", 1
         )[0]
-        self.assertIn('state.query = "";', load_issue)
-        self.assertIn("state.chinaOnly = false;", load_issue)
-        self.assertIn('searchInput.value = "";', load_issue)
-        self.assertIn('chinaToggle.textContent = "仅看中国相关";', load_issue)
+        reset_filters = explorer.split("const resetArticleFilters = () => {", 1)[1].split(
+            "};", 1
+        )[0]
+        self.assertIn("resetArticleFilters();", load_issue)
+        self.assertIn('state.query = "";', reset_filters)
+        self.assertIn("state.chinaOnly = false;", reset_filters)
+        self.assertIn('searchInput.value = "";', reset_filters)
+        self.assertIn('chinaToggle.textContent = "仅看中国相关";', reset_filters)
         self.assertIn("本期没有识别到中国相关论文", explorer)
 
     def test_first_issue_is_embedded_and_other_issues_are_prefetched(self):
@@ -126,6 +130,42 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn('Top5Explorer', fields_page)
         self.assertIn('collectionId="fields"', fields_page)
         self.assertIn('Econ Field Journals · Academic Door', fields_page)
+
+    def test_composer_loads_historical_issue_indexes(self):
+        self.assertIn(
+            "api/v1/journals/${journal.journal_id}/issues/index.json",
+            self.page,
+        )
+        self.assertIn("fetchIssueHistory", self.page)
+        self.assertIn("historyCache", self.page)
+        self.assertIn("issue.issue_id !== journal.latest_issue_id", self.page)
+        self.assertIn("latest.concat(archived)", self.page)
+        self.assertIn('requestedParams.get("issue")', self.page)
+        self.assertIn("option.dataset.issueId === requestedIssue", self.page)
+
+    def test_composer_selection_and_order_are_persisted(self):
+        self.assertIn('id="select-china"', self.page)
+        self.assertIn('id="select-all"', self.page)
+        self.assertIn('draggable="true"', self.page)
+        self.assertIn('data-move="-1"', self.page)
+        self.assertIn('data-move="1"', self.page)
+        self.assertIn("issuePreferences,", self.page)
+        self.assertIn("selected: [...selectedIds]", self.page)
+        self.assertIn("order: [...pickerOrder]", self.page)
+
+    def test_composer_outputs_only_selected_articles_in_chosen_order(self):
+        self.assertIn(
+            "orderedIssueArticles(issue).filter((article) => selected.has(article.paper_id))",
+            self.page,
+        )
+        self.assertIn("editor.value = articleMarkdown(currentIssue, selectedIds);", self.page)
+        self.assertIn("regenerateFromSelection", self.page)
+        self.assertIn("本次选取其中 ${articles.length} 篇", self.page)
+
+    def test_composer_picker_has_accessible_move_controls(self):
+        self.assertIn('aria-label="上移《${escapeHtml', self.page)
+        self.assertIn('aria-label="下移《${escapeHtml', self.page)
+        self.assertIn(".move-actions button", self.css)
 
     def test_field_collection_contains_all_a_tier_journals(self):
         import yaml
