@@ -116,9 +116,11 @@ def update_state(
 def collect_or_resume(
     issue_ref: HistoricalIssue,
     journal_config: dict[str, Any],
+    *,
+    refresh: bool = False,
 ) -> dict[str, Any]:
     path = staging_path(issue_ref)
-    if path.exists():
+    if path.exists() and not refresh:
         return load_json(path, {})
     issue = collector_for_issue(journal_config, issue_ref.official_url)()
     if (
@@ -157,7 +159,11 @@ def run_issue(
         update_state(state, issue_ref, status="complete")
         return {"issue_id": issue_ref.issue_id, "result": "already_archived"}
     try:
-        issue = collect_or_resume(issue_ref, journal_config)
+        issue = collect_or_resume(
+            issue_ref,
+            journal_config,
+            refresh=current_status != "complete",
+        )
         update_state(state, issue_ref, status="collected")
         issue = apply_translation_cache(issue)
         translation_report = None
