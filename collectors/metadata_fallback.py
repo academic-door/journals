@@ -28,6 +28,7 @@ NON_RESEARCH_PATTERN = re.compile(
     r"abstracts\s+of\s+papers\s+presented|editors?[’'＊]?\s+notes?|"
     r"outstanding\s+doctoral\s+dissertation\s+award|"
     r"recommendations?\s+for\s+further\s+reading|"
+    r"acknowledg(?:e)?ments?\s+of\s+referees|"
     r"\baddendum\b|\bby\b.+\bpp\.|"
     r"^correction(?:\s+to\b|:|\s*$)|^erratum(?:\s+to\b|:|\s*$)|"
     r"submission\s+of\s+manuscripts",
