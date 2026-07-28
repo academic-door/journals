@@ -261,7 +261,7 @@
       "source_sequence": 11,
       "article_type": "research-article",
       "title_en": "Optimal Security Design for Risk-Averse Investors",
-      "title_cn": "",
+      "title_cn": "为规避风险的投资者提供最佳安全设计",
       "authors": [
         "Alex Gershkov",
         "Benny Moldovanu",
@@ -269,7 +269,7 @@
         "Mengxi Zhang"
       ],
       "abstract_en": "We use the tools of mechanism design combined with the theory of risk measures to analyze how a cash-constrained owner of an asset with known, stochastic returns raises capital from a population of investors who differ in their risk aversion and budget constraints. The issuer partitions the asset's cash flow into several asset-backed securities, one for each type of investor. The optimal partition conforms to the commonly observed practice of tranching into senior debt, junior debt, and equity. Tranching arises endogenously due to the differences in risk appetites among agents and in the budget constraints they face.",
-      "abstract_cn": "",
+      "abstract_cn": "我们使用机制设计工具与风险度量理论相结合，来分析现金有限且收益已知的随机资产所有者如何从风险厌恶程度和预算约束不同的投资者群体中筹集资金。发行人将资产的现金流划分为多种资产支持证券，针对每种类型的投资者 一。最佳划分符合常见的划分为高级债务、次级债务和股权的做法。由于代理商之间风险偏好的差异以及他们面临的预算限制，分档是内生产生的。",
       "doi": "10.1257/aer.20231597",
       "source_url": "https://www.aeaweb.org/articles?id=10.1257/aer.20231597",
       "publication_date": "",
@@ -281,15 +281,14 @@
         "doi": "official-article-id"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-28T10:58:36+00:00"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -368,7 +367,7 @@
     "doi_complete": 8,
     "authors_complete": 7,
     "abstract_en_complete": 7,
-    "translation_complete": 6,
+    "translation_complete": 7,
     "duplicate_count": 0,
     "flags": [
       "translation_incomplete"
