@@ -179,6 +179,21 @@ class TranslationPipelineTests(unittest.TestCase):
         self.assertEqual(protected, "Benefits apply at ages [[0-2]].")
         self.assertEqual(_restore_numbers(protected, replacements), "Benefits apply at ages 0-2.")
 
+    def test_restores_percent_sign_dropped_inside_preserved_brackets(self) -> None:
+        self.assertEqual(
+            _restore_numbers("收入提高[[27]]。", {"[[27%]]": "27%"}),
+            "收入提高27%。",
+        )
+
+    def test_does_not_guess_changed_or_ambiguous_bracketed_values(self) -> None:
+        self.assertEqual(
+            _restore_numbers(
+                "结果为[[28]]和[[2 %]]。",
+                {"[[27%]]": "27%", "[[2]]": "2", "[[2%]]": "2%"},
+            ),
+            "结果为[[28]]和[[2 %]]。",
+        )
+
     def test_normalizes_months_and_written_percentages_before_validation(self) -> None:
         source = (
             "From December 2025, adoption rose from three to six percent "

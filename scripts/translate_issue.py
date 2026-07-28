@@ -241,6 +241,23 @@ def _restore_numbers(value: str, replacements: dict[str, str]) -> str:
     restored = value
     for token, number in replacements.items():
         restored = re.sub(re.escape(token), number, restored, flags=re.IGNORECASE)
+
+    # Google occasionally preserves the brackets and digits but drops only a
+    # percent sign (for example ``[[27%]]`` becomes ``[[27]]``). Recover that
+    # formatting only when the remaining bracketed value has exactly one
+    # source match after removing the percent sign. Ambiguous or changed
+    # values remain untouched and are still rejected by the quality gate.
+    def restore_relaxed(match: re.Match[str]) -> str:
+        observed = match.group(1).strip()
+        observed_base = re.sub(r"\s+", "", observed).rstrip("%")
+        candidates = {
+            number
+            for number in replacements.values()
+            if re.sub(r"\s+", "", number).rstrip("%") == observed_base
+        }
+        return next(iter(candidates)) if len(candidates) == 1 else match.group(0)
+
+    restored = re.sub(r"\[\[([^\]]+)\]\]", restore_relaxed, restored)
     return restored
 
 

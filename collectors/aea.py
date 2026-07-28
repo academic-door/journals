@@ -17,7 +17,8 @@ USER_AGENT = (
 
 NON_RESEARCH_PATTERN = re.compile(
     r"front\s*matter|back\s*matter|erratum|correction|"
-    r"\bnobel lecture\b|^comment on\b|:\s*comment$|^reply to",
+    r"\bnobel lecture\b|^comment on\b|:\s*comment$|^reply to|"
+    r"^report of (?:the )?independent auditor\b|^annual report\b",
     re.IGNORECASE,
 )
 MONTH_YEAR_PATTERN = re.compile(
