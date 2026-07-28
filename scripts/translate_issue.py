@@ -270,6 +270,76 @@ def _canonicalize_arabic_numbers(source: str, translated: str) -> str:
     return NUMBER_PATTERN.sub(lambda _match: next(values), translated)
 
 
+def _repair_google_artifacts(source: str, translated: str) -> str:
+    """Patch a few recurring Google fallback glitches using the source text.
+
+    Google occasionally fuses percentage phrases with age ranges or drops the
+    percent sign from phrases like "equal to 27 percent of family income".
+    These repairs are intentionally narrow and source-driven so they only touch
+    the malformed patterns we can identify with confidence.
+    """
+
+    repaired = translated
+
+    age_range = re.search(
+        r"\bat ages?\s+(\d+)\s*[–-]\s*(\d+)\b", source, flags=re.IGNORECASE
+    )
+    if age_range:
+        low, high = age_range.groups()
+        repaired = re.sub(
+            r"在\s*(?:\d+%\s*-?\s*\d+|\d+\s*-\s*\d+)岁时",
+            f"在{low}至{high}岁时",
+            repaired,
+            count=1,
+        )
+        repaired = re.sub(
+            r"在\s*\d+岁时",
+            f"在{low}至{high}岁时",
+            repaired,
+            count=1,
+        )
+
+    family_income = re.search(
+        r"equal to\s+([0-9,]+(?:\.\d+)?)\s+percent of family income",
+        source,
+        flags=re.IGNORECASE,
+    )
+    if family_income:
+        pct = family_income.group(1)
+        repaired = re.sub(
+            r"相当于家庭收入的\s*[0-9,]+(?:\.\d+)?",
+            f"相当于家庭收入的{pct}%",
+            repaired,
+            count=1,
+        )
+
+    through_age = re.search(
+        r"\bthrough age\s+(\d+)\b", source, flags=re.IGNORECASE
+    )
+    if through_age:
+        age = through_age.group(1)
+        repaired = re.sub(
+            r"(?:年龄|岁期间)\s*\d+",
+            f"至{age}岁",
+            repaired,
+            count=1,
+        )
+        repaired = re.sub(
+            rf"，而在整个至{re.escape(age)}岁期间福利一直较少",
+            f"，较小的福利持续至{age}岁",
+            repaired,
+            count=1,
+        )
+        repaired = re.sub(
+            r"持续(?:through|至|到)?\s*\d+岁",
+            f"持续至{age}岁",
+            repaired,
+            count=1,
+        )
+
+    return repaired
+
+
 def _normalize_written_number_translations(source: str, translated: str) -> str:
     """Normalize valid Chinese renderings of English month/number words.
 
@@ -515,6 +585,14 @@ def request_google_translation(
                 ),
                 "abstract_cn": _canonicalize_arabic_numbers(
                     article["abstract_en"], parts[1].strip()
+                ),
+            }
+            translated = {
+                "title_cn": _repair_google_artifacts(
+                    article["title_en"], translated["title_cn"]
+                ),
+                "abstract_cn": _repair_google_artifacts(
+                    article["abstract_en"], translated["abstract_cn"]
                 ),
             }
             validate_translation(article, translated)

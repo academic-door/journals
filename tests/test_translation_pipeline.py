@@ -13,6 +13,7 @@ from scripts.translate_issue import (
     _normalize_written_number_translations,
     _numbers,
     _protect_numbers,
+    _repair_google_artifacts,
     _restore_numbers,
     translate_missing,
     validate_translation,
@@ -207,6 +208,22 @@ class TranslationPipelineTests(unittest.TestCase):
             "随后保持在百分之二以下。",
         )
         self.assertEqual(_numbers(source), _numbers(normalized))
+
+    def test_repairs_google_age_ranges_and_percent_phrases(self) -> None:
+        source = (
+            "Using birth certificates linked to administrative records, we find "
+            "low-income families of infants born just below the cutoff receive "
+            "higher monthly cash benefits (equal to 27 percent of family income) "
+            "at ages 0–2 with smaller benefits continuing through age 10."
+        )
+        translated = (
+            "使用与行政记录相关联的出生证明，我们发现出生于临界值以下的婴儿的低收入家庭"
+            "在27%0岁时每月获得较高的现金福利（相当于家庭收入的2），而在整个至10岁期间福利一直较少。"
+        )
+        repaired = _repair_google_artifacts(source, translated)
+        self.assertIn("0至2岁时", repaired)
+        self.assertIn("相当于家庭收入的27%", repaired)
+        self.assertIn("较小的福利持续至10岁", repaired)
 
     def test_ignores_inverse_unit_exponents_in_numeric_validation(self) -> None:
         self.assertEqual(
