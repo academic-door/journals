@@ -27,6 +27,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
   models: read
 
 concurrency:
@@ -51,6 +52,11 @@ jobs:
             git archive origin/data public | tar -x
             if git cat-file -e origin/data:data/translation-cache 2>/dev/null; then
               git archive origin/data data/translation-cache | tar -x
+            fi
+            if git cat-file -e origin/data:data/monitoring/email-notifications.json 2>/dev/null; then
+              mkdir -p data/monitoring
+              git show origin/data:data/monitoring/email-notifications.json \
+                > data/monitoring/email-notifications.json
             fi
           fi
           MAIN_CACHE="$main_cache" python - <<'PY'
@@ -90,6 +96,7 @@ jobs:
           python scripts/audit_privacy.py
 
       - name: Publish generated public data to data branch
+        id: publish
         if: steps.collect.outcome == 'success'
         shell: bash
         run: |
@@ -156,6 +163,7 @@ jobs:
           git push origin HEAD:data
 
       - name: Sync audited journal issues to private Composer
+        id: composer
         if: steps.collect.outcome == 'success'
         env:
           COMPOSER_DEPLOY_KEY: ${{ secrets.COMPOSER_DEPLOY_KEY }}
@@ -192,6 +200,61 @@ jobs:
           done
           echo "Composer changed concurrently and could not be updated after three attempts."
           exit 1
+
+      - name: Send private new-issue email
+        id: email
+        if: steps.collect.outcome == 'success' && steps.composer.outcome == 'success'
+        continue-on-error: true
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_SECURITY: ${{ secrets.SMTP_SECURITY }}
+          SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          SMTP_FROM: ${{ secrets.SMTP_FROM }}
+          NOTIFICATION_EMAIL_TO: ${{ secrets.NOTIFICATION_EMAIL_TO }}
+        run: python scripts/email_notifications.py --composer-status success
+
+      - name: Persist private email notification state
+        if: always() && steps.publish.outcome == 'success'
+        shell: bash
+        run: |
+          set -euo pipefail
+          state="data/monitoring/email-notifications.json"
+          if [ ! -f "$state" ]; then
+            echo "No email notification state was produced."
+            exit 0
+          fi
+          state_copy="$RUNNER_TEMP/email-notifications.json"
+          data_tree="$RUNNER_TEMP/email-state-tree"
+          cp "$state" "$state_copy"
+          git fetch origin data
+          git worktree add "$data_tree" origin/data
+          cd "$data_tree"
+          git switch -C data
+          mkdir -p data/monitoring
+          cp "$state_copy" data/monitoring/email-notifications.json
+          git config user.name "academic-door-bot"
+          git config user.email "academic-door-bot@users.noreply.github.com"
+          git add -f data/monitoring/email-notifications.json
+          if git diff --cached --quiet; then
+            echo "Email notification state is unchanged."
+            exit 0
+          fi
+          git commit -m "Update journal email notification state"
+          git push origin HEAD:data
+
+      - name: Open or close private email failure alert
+        if: always() && steps.publish.outcome == 'success'
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          if [ -f output/email-notification-result.json ]; then
+            python scripts/email_notification_alerts.py \
+              output/email-notification-result.json
+          fi
 
       - name: Report validation failure
         if: steps.collect.outcome == 'failure'

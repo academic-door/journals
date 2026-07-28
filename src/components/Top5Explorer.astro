@@ -82,6 +82,12 @@ const initialIssue = initialJournal
   ) : (
     <div id="journal-tabs" class="journal-tabs" role="tablist" aria-label="TOP5 期刊"></div>
   )}
+  <label class="journal-field-filter issue-history-filter">
+    <span class="sr-only">选择卷期</span>
+    <select id="issue-history-select" aria-label="选择卷期">
+      <option>最新卷期</option>
+    </select>
+  </label>
   <label class="search-field">
     <span class="sr-only">检索论文</span>
     <input id="paper-search" type="search" placeholder="检索标题、作者或摘要" />
@@ -103,6 +109,7 @@ const initialIssue = initialJournal
     collection: initialCollection,
     activeJournal: null,
     issue: null,
+    issueIndex: null,
     query: "",
     chinaOnly: false,
     field: "all",
@@ -111,6 +118,7 @@ const initialIssue = initialJournal
         ? [[initialJournal.latest_issue_url, Promise.resolve(initialIssue)]]
         : []
     ),
+    issueIndexCache: new Map(),
   };
 
   const chinaRelevance = (article) => {
@@ -143,8 +151,7 @@ const initialIssue = initialJournal
     return `${month[2]}年${months[month[1].toLowerCase()]}月`;
   };
 
-  const fetchIssue = (journal) => {
-    const url = journal.latest_issue_url;
+  const fetchIssueUrl = (url) => {
     if (!state.issueCache.has(url)) {
       state.issueCache.set(url, fetch(url).then((response) => {
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -152,6 +159,19 @@ const initialIssue = initialJournal
       }));
     }
     return state.issueCache.get(url);
+  };
+
+  const fetchIssue = (journal) => fetchIssueUrl(journal.latest_issue_url);
+
+  const fetchIssueIndex = (journal) => {
+    const url = `${base}api/v1/journals/${encodeURIComponent(journal.journal_id)}/issues/index.json`;
+    if (!state.issueIndexCache.has(url)) {
+      state.issueIndexCache.set(url, fetch(url).then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      }));
+    }
+    return state.issueIndexCache.get(url);
   };
 
   const enabledJournals = () =>
@@ -228,7 +248,7 @@ const initialIssue = initialJournal
     const translated = quality.translation_complete || 0;
     const total = issue.research_article_count || issue.articles.length;
     const publicationDate = formatDate(issue.publication_date);
-    composerLink.href = `${base}composer/?journal=${encodeURIComponent(issue.journal_id)}`;
+    composerLink.href = `${base}composer/?journal=${encodeURIComponent(issue.journal_id)}&issue=${encodeURIComponent(issue.issue_id)}`;
 
     summary.innerHTML = `
       <div class="issue-identity">
@@ -306,7 +326,37 @@ const initialIssue = initialJournal
       </article>`).join("");
   };
 
-  const loadIssue = async (journal) => {
+  const renderIssueHistory = () => {
+    const select = document.querySelector("#issue-history-select");
+    if (!select || !state.activeJournal) return;
+    const index = state.issueIndex;
+    const entries = index?.issues || [];
+    const currentId = state.activeJournal.latest_issue_id;
+    const options = [
+      {
+        issue_id: currentId,
+        issue_label: state.activeJournal.latest_issue_label || "最新卷期",
+        publication_date: state.activeJournal.publication_date || "",
+        url: state.activeJournal.latest_issue_url,
+        latest: true,
+      },
+      ...entries
+        .filter((entry) => entry.issue_id !== currentId)
+        .map((entry) => ({ ...entry, latest: false })),
+    ];
+    select.innerHTML = options.map((entry) => `
+      <option
+        value="${escapeHtml(entry.url)}"
+        ${entry.issue_id === state.issue?.issue_id ? "selected" : ""}
+      >
+        ${entry.latest ? "最新 · " : ""}${escapeHtml(entry.issue_label)}
+        ${entry.publication_date ? ` · ${escapeHtml(formatDate(entry.publication_date))}` : ""}
+      </option>
+    `).join("");
+    select.disabled = options.length < 2;
+  };
+
+  const resetArticleFilters = () => {
     state.query = "";
     state.chinaOnly = false;
     const searchInput = document.querySelector("#paper-search");
@@ -316,15 +366,44 @@ const initialIssue = initialJournal
       chinaToggle.classList.remove("active");
       chinaToggle.textContent = "仅看中国相关";
     }
+  };
+
+  const loadIssueUrl = async (url) => {
+    resetArticleFilters();
+    state.issue = null;
+    document.querySelector("#issue-summary").innerHTML =
+      '<p class="loading-copy">正在载入卷期……</p>';
+    document.querySelector("#article-list").innerHTML = "";
+    state.issue = await fetchIssueUrl(url);
+    renderIssueHistory();
+    renderIssue();
+  };
+
+  const loadIssue = async (journal) => {
+    resetArticleFilters();
     state.activeJournal = journal;
     state.issue = null;
+    state.issueIndex = null;
     renderTabs();
     document.querySelector("#issue-summary").innerHTML =
       `<p class="loading-copy">正在载入 ${escapeHtml(journal.short_name)} 最新卷期……</p>`;
     document.querySelector("#article-list").innerHTML = "";
+    try {
+      state.issueIndex = await fetchIssueIndex(journal);
+    } catch {
+      state.issueIndex = null;
+    }
     state.issue = await fetchIssue(journal);
+    renderIssueHistory();
     renderIssue();
   };
+
+  document.querySelector("#issue-history-select")?.addEventListener("change", (event) => {
+    loadIssueUrl(event.target.value).catch((error) => {
+      document.querySelector("#issue-summary").innerHTML =
+        `<p class="error-message">卷期载入失败：${escapeHtml(error.message)}</p>`;
+    });
+  });
 
   document.querySelector("#paper-search")?.addEventListener("input", (event) => {
     state.query = event.target.value.trim();

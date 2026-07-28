@@ -89,11 +89,15 @@ const base = import.meta.env.BASE_URL.endsWith("/")
           <p class="section-kicker">SOURCE</p>
           <h2>本期论文</h2>
         </div>
-        <p class="sidebar-help">取消勾选后，重新点击“根据选择生成正文”。</p>
+        <div class="picker-actions" aria-label="论文选择操作">
+          <button id="select-china" class="button button-compact" type="button">仅保留中国相关</button>
+          <button id="select-all" class="button button-compact" type="button">恢复全部</button>
+        </div>
+        <p class="sidebar-help">勾选决定最终内容；拖动或使用箭头调整顺序。</p>
         <div id="article-picker" class="article-picker">
           <p>载入期刊后显示论文。</p>
         </div>
-        <button id="regenerate" class="button sidebar-button" type="button" disabled>根据选择生成正文</button>
+        <button id="regenerate" class="button sidebar-button" type="button" disabled>重新生成正文</button>
       </aside>
 
       <section class="editor-panel">
@@ -153,6 +157,11 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     let styleSettings = { ...DEFAULT_STYLE };
     let saveTimer = null;
     const issueCache = new Map();
+    const historyCache = new Map();
+    let issueOptionsRequest = 0;
+    let pickerOrder = [];
+    let selectedIds = new Set();
+    let issuePreferences = {};
 
     const escapeHtml = (value = "") =>
       String(value).replace(/[&<>"']/g, (character) => ({
@@ -315,11 +324,19 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     };
 
     const saveLocal = () => {
+      if (currentIssue) {
+        issuePreferences[currentIssue.issue_id] = {
+          selected: [...selectedIds],
+          order: [...pickerOrder],
+        };
+      }
       localStorage.setItem(STORAGE_KEY, JSON.stringify({
         markdown: editor.value,
         theme: currentTheme,
         styleSettings,
         journalId: currentIssue?.journal_id || journalSelect.value,
+        issueUrl: issueSelect.value,
+        issuePreferences,
         savedAt: new Date().toISOString(),
       }));
       saveStatus.textContent = "已保存";
@@ -331,16 +348,25 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       saveTimer = setTimeout(saveLocal, 350);
     };
 
+    const orderedIssueArticles = (issue) => {
+      const byId = new Map(issue.articles.map((article) => [article.paper_id, article]));
+      const ordered = pickerOrder.map((paperId) => byId.get(paperId)).filter(Boolean);
+      const orderedIds = new Set(ordered.map((article) => article.paper_id));
+      return ordered.concat(issue.articles.filter((article) => !orderedIds.has(article.paper_id)));
+    };
+
     const articleMarkdown = (issue, selected) => {
-      const articles = issue.articles.filter((article) => selected.has(article.paper_id));
+      const articles = orderedIssueArticles(issue).filter((article) => selected.has(article.paper_id));
       const chinaArticles = articles.filter((article) => chinaRelevance(article).status === "yes");
       const period = formatIssuePeriod(issue.publication_date);
+      const issueArticleCount = issue.research_article_count || issue.articles.length;
       const intro = issue.development_sample
         ? `> 当前为开发样板，正式发布前请确认完整文章数和摘要。`
         : [
             period ? `> ${period}` : "",
-            `> ${issue.journal_name} ${issue.issue_label || `Vol. ${issue.volume}, No. ${issue.issue}`} 共收录 ${articles.length} 篇学术文章。`,
-            chinaArticles.length ? `> 与中国相关的研究有 ${chinaArticles.length} 篇（第 ${chinaArticles.map((article) => article.sequence).join("、")} 篇）。` : "",
+            `> ${issue.journal_name} ${issue.issue_label || `Vol. ${issue.volume}, No. ${issue.issue}`} 共收录 ${issueArticleCount} 篇学术文章。`,
+            articles.length !== issueArticleCount ? `> 本次选取其中 ${articles.length} 篇。` : "",
+            chinaArticles.length ? `> 与中国相关的研究有 ${chinaArticles.length} 篇（第 ${chinaArticles.map((article) => articles.indexOf(article) + 1).join("、")} 篇）。` : "",
           ].filter(Boolean).join("\n");
       const toc = articles.map((article, index) =>
         `${index + 1}. **${article.title_en}**\n   ${article.title_cn || "中文标题待补全"}\n   ${article.authors.join(", ")}`
@@ -365,19 +391,43 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
     const renderPicker = () => {
       if (!currentIssue) return;
-      picker.innerHTML = currentIssue.articles.map((article) => `
-        <label class="article-choice">
-          <input type="checkbox" value="${escapeHtml(article.paper_id)}" checked />
-          <span>
-            <strong>${article.sequence}. ${escapeHtml(article.title_cn || article.title_en)}</strong>
-            <small>${escapeHtml(article.title_en)}</small>
+      picker.innerHTML = orderedIssueArticles(currentIssue).map((article, index) => `
+        <div class="article-choice" draggable="true" data-paper-id="${escapeHtml(article.paper_id)}">
+          <span class="drag-handle" aria-hidden="true">⋮⋮</span>
+          <label>
+            <input type="checkbox" value="${escapeHtml(article.paper_id)}" ${selectedIds.has(article.paper_id) ? "checked" : ""} />
+            <span>
+              <strong>${index + 1}. ${escapeHtml(article.title_cn || article.title_en)}</strong>
+              <small>${escapeHtml(article.title_en)}</small>
+            </span>
+          </label>
+          <span class="move-actions">
+            <button type="button" data-move="-1" aria-label="上移《${escapeHtml(article.title_cn || article.title_en)}》" ${index === 0 ? "disabled" : ""}>↑</button>
+            <button type="button" data-move="1" aria-label="下移《${escapeHtml(article.title_cn || article.title_en)}》" ${index === pickerOrder.length - 1 ? "disabled" : ""}>↓</button>
           </span>
-        </label>`).join("");
+        </div>`).join("");
       regenerateButton.disabled = false;
     };
 
-    const selectedPaperIds = () =>
-      new Set(Array.from(picker.querySelectorAll('input[type="checkbox"]:checked')).map((input) => input.value));
+    const regenerateFromSelection = () => {
+      if (!currentIssue) return;
+      editor.value = articleMarkdown(currentIssue, selectedIds);
+      updatePreview();
+      saveLocal();
+    };
+
+    const applyPickerPreference = () => {
+      const allIds = currentIssue.articles.map((article) => article.paper_id);
+      const saved = issuePreferences[currentIssue.issue_id] || {};
+      const validIds = new Set(allIds);
+      pickerOrder = Array.isArray(saved.order)
+        ? saved.order.filter((paperId) => validIds.has(paperId))
+        : [];
+      pickerOrder.push(...allIds.filter((paperId) => !pickerOrder.includes(paperId)));
+      selectedIds = Array.isArray(saved.selected)
+        ? new Set(saved.selected.filter((paperId) => validIds.has(paperId)))
+        : new Set(allIds);
+    };
 
     const loadCollection = async () => {
       const index = await fetch(`${base}api/v1/index.json`)
@@ -407,7 +457,13 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       if (requested && journals.some((journal) => journal.journal_id === requested)) {
         journalSelect.value = requested;
       }
-      renderIssueOptions();
+      const selectedJournal = journals.find(
+        (journal) => journal.journal_id === journalSelect.value
+      );
+      if (selectedJournal?.latest_issue_url) {
+        fetchIssue(selectedJournal.latest_issue_url).catch(() => null);
+      }
+      await renderIssueOptions();
       journals.forEach((journal) => fetchIssue(journal.latest_issue_url).catch(() => null));
     };
 
@@ -421,34 +477,57 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       return issueCache.get(url);
     };
 
-    const issueOptionsFor = (journal) => {
-      if (Array.isArray(journal?.issues) && journal.issues.length) {
-        return journal.issues.map((issue, index) => ({
-          id: issue.issue_id || issue.id || `issue-${index}`,
-          url: issue.issue_url || issue.url,
-          label: issue.label || [
-            issue.volume ? `Vol. ${issue.volume}` : "",
-            issue.issue ? `No. ${issue.issue}` : "",
-          ].filter(Boolean).join(" · ") || issue.issue_id || `第 ${index + 1} 期`,
-          latest: issue.latest === true || issue.issue_id === journal.latest_issue_id,
-        })).filter((issue) => issue.url);
+    const fetchIssueHistory = async (journal) => {
+      if (!journal) return [];
+      if (!historyCache.has(journal.journal_id)) {
+        const url = `${base}api/v1/journals/${journal.journal_id}/issues/index.json`;
+        historyCache.set(journal.journal_id, fetch(url).then((response) => {
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          return response.json();
+        }).then((payload) => payload.issues || []).catch(() => []));
       }
-      return journal?.latest_issue_url ? [{
-        id: journal.latest_issue_id || "current",
-        url: journal.latest_issue_url,
-        label: "最新一期",
-        latest: true,
-      }] : [];
+      return historyCache.get(journal.journal_id);
     };
 
-    const renderIssueOptions = () => {
+    const issueOptionsFor = async (journal) => {
+      const history = await fetchIssueHistory(journal);
+      const latest = journal?.latest_issue_url ? [{
+        id: journal.latest_issue_id || "current",
+        url: journal.latest_issue_url,
+        label: journal.latest_issue_label || "最新一期",
+        latest: true,
+      }] : [];
+      const archived = history.filter((issue) => issue.issue_id !== journal.latest_issue_id).map((issue, index) => ({
+        id: issue.issue_id || `issue-${index}`,
+        url: issue.url,
+        label: [
+          issue.issue_label || [
+            issue.volume ? `Vol. ${issue.volume}` : "",
+            issue.issue ? `No. ${issue.issue}` : "",
+          ].filter(Boolean).join(" · "),
+          formatIssuePeriod(issue.publication_date),
+        ].filter(Boolean).join(" · "),
+        latest: false,
+      })).filter((issue) => issue.url);
+      return latest.concat(archived);
+    };
+
+    const renderIssueOptions = async (preferredUrl = "") => {
+      const requestId = ++issueOptionsRequest;
       const journal = collection?.journals.find(
         (item) => item.journal_id === journalSelect.value
       );
-      const issues = issueOptionsFor(journal);
+      const journalId = journal?.journal_id;
+      issueSelect.disabled = true;
+      issueSelect.innerHTML = '<option>正在载入卷期…</option>';
+      const issues = await issueOptionsFor(journal);
+      if (requestId !== issueOptionsRequest || journalSelect.value !== journalId) return;
       issueSelect.innerHTML = issues.map((issue) =>
-        `<option value="${escapeHtml(issue.url)}">${escapeHtml(issue.label)}${issue.latest && !issue.label.includes("最新") ? "（最新）" : ""}</option>`
+        `<option value="${escapeHtml(issue.url)}" data-issue-id="${escapeHtml(issue.id)}">${escapeHtml(issue.label)}${issue.latest && !issue.label.includes("最新") ? "（最新）" : ""}</option>`
       ).join("");
+      if (preferredUrl && issues.some((issue) => issue.url === preferredUrl)) {
+        issueSelect.value = preferredUrl;
+      }
       issueSelect.disabled = issues.length <= 1;
       document.querySelector("#load-current").disabled = issues.length === 0;
     };
@@ -466,8 +545,9 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       if (selectedOption && issueSelect.options.length === 1) {
         selectedOption.textContent = `${currentIssue.issue_label || `Vol. ${currentIssue.volume} · No. ${currentIssue.issue}`}（最新）`;
       }
+      applyPickerPreference();
       renderPicker();
-      editor.value = articleMarkdown(currentIssue, new Set(currentIssue.articles.map((article) => article.paper_id)));
+      editor.value = articleMarkdown(currentIssue, selectedIds);
       updatePreview();
       saveLocal();
     };
@@ -541,12 +621,68 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       scheduleSave();
     });
     document.querySelector("#load-current").addEventListener("click", () => loadIssue());
-    journalSelect.addEventListener("change", renderIssueOptions);
-    regenerateButton.addEventListener("click", () => {
-      editor.value = articleMarkdown(currentIssue, selectedPaperIds());
-      updatePreview();
-      saveLocal();
+    journalSelect.addEventListener("change", () => renderIssueOptions().catch((error) => {
+      saveStatus.textContent = `卷期载入失败：${error.message}`;
+    }));
+    picker.addEventListener("change", (event) => {
+      if (!event.target.matches('input[type="checkbox"]')) return;
+      if (event.target.checked) selectedIds.add(event.target.value);
+      else selectedIds.delete(event.target.value);
+      regenerateFromSelection();
     });
+    picker.addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-move]");
+      if (!button) return;
+      const choice = button.closest("[data-paper-id]");
+      const from = pickerOrder.indexOf(choice.dataset.paperId);
+      const to = from + Number(button.dataset.move);
+      if (from < 0 || to < 0 || to >= pickerOrder.length) return;
+      [pickerOrder[from], pickerOrder[to]] = [pickerOrder[to], pickerOrder[from]];
+      renderPicker();
+      regenerateFromSelection();
+    });
+    let draggedPaperId = "";
+    picker.addEventListener("dragstart", (event) => {
+      const choice = event.target.closest("[data-paper-id]");
+      if (!choice) return;
+      draggedPaperId = choice.dataset.paperId;
+      event.dataTransfer.effectAllowed = "move";
+    });
+    picker.addEventListener("dragover", (event) => {
+      if (event.target.closest("[data-paper-id]")) event.preventDefault();
+    });
+    picker.addEventListener("drop", (event) => {
+      const target = event.target.closest("[data-paper-id]");
+      if (!target || !draggedPaperId || target.dataset.paperId === draggedPaperId) return;
+      event.preventDefault();
+      const from = pickerOrder.indexOf(draggedPaperId);
+      const to = pickerOrder.indexOf(target.dataset.paperId);
+      pickerOrder.splice(from, 1);
+      pickerOrder.splice(to, 0, draggedPaperId);
+      renderPicker();
+      regenerateFromSelection();
+      draggedPaperId = "";
+    });
+    document.querySelector("#select-china").addEventListener("click", () => {
+      if (!currentIssue) return;
+      const chinaIds = currentIssue.articles
+        .filter((article) => chinaRelevance(article).status === "yes")
+        .map((article) => article.paper_id);
+      if (!chinaIds.length) {
+        saveStatus.textContent = "本期未识别到中国相关论文";
+        return;
+      }
+      selectedIds = new Set(chinaIds);
+      renderPicker();
+      regenerateFromSelection();
+    });
+    document.querySelector("#select-all").addEventListener("click", () => {
+      if (!currentIssue) return;
+      selectedIds = new Set(currentIssue.articles.map((article) => article.paper_id));
+      renderPicker();
+      regenerateFromSelection();
+    });
+    regenerateButton.addEventListener("click", regenerateFromSelection);
     themeSelect.addEventListener("change", () => {
       currentTheme = themeSelect.value;
       updatePreview();
@@ -595,18 +731,42 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
     const initialize = async () => {
       await loadCollection();
-      const requestedJournal = new URLSearchParams(window.location.search).get("journal");
+      let state = null;
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        try {
+          state = JSON.parse(saved);
+          issuePreferences = state.issuePreferences && typeof state.issuePreferences === "object"
+            ? state.issuePreferences
+            : {};
+          currentTheme = Array.from(themeSelect.options).some(
+            (option) => option.value === state.theme
+          ) ? state.theme : "wechat-default";
+          styleSettings = { ...DEFAULT_STYLE, ...(state.styleSettings || {}) };
+          themeSelect.value = currentTheme;
+          syncStyleControls();
+        } catch {
+          state = null;
+        }
+      }
+      const requestedParams = new URLSearchParams(window.location.search);
+      const requestedJournal = requestedParams.get("journal");
+      const requestedIssue = requestedParams.get("issue");
       if (requestedJournal) {
+        if (requestedIssue) {
+          const requestedOption = Array.from(issueSelect.options).find(
+            (option) => option.dataset.issueId === requestedIssue
+          );
+          if (requestedOption) issueSelect.value = requestedOption.value;
+        }
         await loadIssue(true);
         return;
       }
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (!saved) {
+      if (!state) {
         await loadIssue(true);
         return;
       }
       try {
-        const state = JSON.parse(saved);
         if (
           state.journalId
           && collection.journals.some(
@@ -614,16 +774,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
           )
         ) {
           journalSelect.value = state.journalId;
-          renderIssueOptions();
+          await renderIssueOptions(state.issueUrl || "");
         }
         await loadIssue(true);
         editor.value = state.markdown || editor.value;
-        currentTheme = Array.from(themeSelect.options).some(
-          (option) => option.value === state.theme
-        ) ? state.theme : "wechat-default";
-        styleSettings = { ...DEFAULT_STYLE, ...(state.styleSettings || {}) };
-        themeSelect.value = currentTheme;
-        syncStyleControls();
         saveStatus.textContent = "已恢复上次草稿";
         updatePreview();
       } catch {
