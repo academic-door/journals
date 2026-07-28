@@ -176,6 +176,17 @@ def _alpha_index(index: int) -> str:
 
 def _protect_numbers(value: str) -> tuple[str, dict[str, str]]:
     replacements: dict[str, str] = {}
+    protected_ranges: dict[str, str] = {}
+
+    def protected_token(number: str) -> str:
+        # Google Translate may silently omit opaque alphabetic placeholders
+        # when they stand where a quantity belongs in a sentence. Keep the
+        # actual quantity visible to the translator and only wrap it in a
+        # stable delimiter. This preserves both sentence meaning and the exact
+        # source value for the numeric quality gate.
+        token = f"[[{number}]]"
+        replacements[token] = number
+        return token
 
     range_pattern = re.compile(
         r"(?<![A-Za-z0-9_])"
@@ -188,32 +199,31 @@ def _protect_numbers(value: str) -> tuple[str, dict[str, str]]:
     )
 
     def replace_range(match: re.Match[str]) -> str:
-        token = f"ATGNUM{_alpha_index(len(replacements))}END"
         high = match.group("high")
         if match.group("percent_word") and not high.endswith("%"):
             high += "%"
-        replacements[token] = f"{match.group('low')}-{high}"
+        number = f"{match.group('low')}-{high}"
+        token = f"ATGRANGE{_alpha_index(len(protected_ranges))}END"
+        protected_ranges[token] = number
         return token
 
     value = range_pattern.sub(replace_range, value)
 
     def replace(match: re.Match[str]) -> str:
-        token = f"ATGNUM{_alpha_index(len(replacements))}END"
         number = match.group("number")
         if match.group("percent_word") and not number.endswith("%"):
             number += "%"
-        replacements[token] = number
-        return token
+        return protected_token(number)
 
     protected = NUMBER_PATTERN.sub(replace, value)
+    for range_token, number in protected_ranges.items():
+        protected = protected.replace(range_token, protected_token(number))
     month_pattern = re.compile(
-        r"\b(" + "|".join(MONTH_WORDS_ZH) + r")\b(?=\s+ATGNUM[A-Z]+END)"
+        r"\b(" + "|".join(MONTH_WORDS_ZH) + r")\b(?=\s+\[\[[^\]]+\]\])"
     )
 
     def replace_month(match: re.Match[str]) -> str:
-        token = f"ATGNUM{_alpha_index(len(replacements))}END"
-        replacements[token] = MONTH_WORDS_ZH[match.group(0)]
-        return token
+        return protected_token(MONTH_WORDS_ZH[match.group(0)])
 
     protected = month_pattern.sub(replace_month, protected)
     word_pattern = re.compile(
@@ -222,9 +232,7 @@ def _protect_numbers(value: str) -> tuple[str, dict[str, str]]:
     )
 
     def replace_word(match: re.Match[str]) -> str:
-        token = f"ATGNUM{_alpha_index(len(replacements))}END"
-        replacements[token] = NUMBER_WORDS_ZH[match.group(0).lower()]
-        return token
+        return protected_token(NUMBER_WORDS_ZH[match.group(0).lower()])
 
     return word_pattern.sub(replace_word, protected), replacements
 
@@ -457,7 +465,7 @@ def _google_translate_text(
         raise TranslationError("Google Translate returned an empty response")
     restored = _restore_numbers(translated, number_replacements)
     restored = _canonicalize_arabic_numbers(value, restored)
-    if re.search(r"ATGNUM[A-Z]+END", restored, flags=re.IGNORECASE):
+    if re.search(r"\[\[[^\]]+\]\]", restored):
         raise TranslationError("Google Translate did not preserve numeric placeholders")
     return restored
 

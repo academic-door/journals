@@ -91,8 +91,8 @@ class FallbackSession:
             return ForbiddenResponse()
         source = kwargs["data"]["q"]
         return GoogleResponse(
-            "政策检验\n9876543210123456789\n"
-            "本文研究ATGNUMAEND项政策，发现排放下降ATGNUMBEND，同时福利提高。"
+            "政策检验\n[[9876543210123456789]]\n"
+            "本文研究[[96]]项政策，发现排放下降[[12.5%]]，同时福利提高。"
             "估计过程完整保留了论文的研究设计、变量定义与结论方向，"
             "并忠实呈现原始摘要中的经验结果。"
         )
@@ -151,12 +151,33 @@ class TranslationPipelineTests(unittest.TestCase):
             "1.15, 509, 7, and 9.3 percent."
         )
         protected, replacements = _protect_numbers(source)
-        self.assertNotIn("1.15", protected)
+        self.assertIn("[[1.15]]", protected)
+        self.assertIn("[[9.3%]]", protected)
         restored = _restore_numbers(protected, replacements)
         self.assertEqual(
             restored,
             "In 一月 2026 we estimate 一 effect: 1.15, 509, 7, and 9.3%.",
         )
+
+    def test_numeric_placeholders_keep_quantity_semantics(self) -> None:
+        source = (
+            "Costs rose roughly 170 percent in 2022, while arrests fell "
+            "15 percent."
+        )
+        protected, replacements = _protect_numbers(source)
+        self.assertEqual(
+            protected,
+            "Costs rose roughly [[170%]] in [[2022]], while arrests fell "
+            "[[15%]].",
+        )
+        self.assertEqual(_restore_numbers(protected, replacements), source.replace(
+            "170 percent", "170%"
+        ).replace("15 percent", "15%"))
+
+    def test_numeric_range_is_wrapped_once(self) -> None:
+        protected, replacements = _protect_numbers("Benefits apply at ages 0–2.")
+        self.assertEqual(protected, "Benefits apply at ages [[0-2]].")
+        self.assertEqual(_restore_numbers(protected, replacements), "Benefits apply at ages 0-2.")
 
     def test_normalizes_months_and_written_percentages_before_validation(self) -> None:
         source = (
