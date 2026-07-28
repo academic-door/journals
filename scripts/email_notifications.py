@@ -11,14 +11,18 @@ import os
 from pathlib import Path
 import re
 import smtplib
+import sys
 from typing import Any, Callable
 
 import yaml
 
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 from scripts.china_relevance import classify_china_relevance
 
 
-ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PUBLIC_ROOT = ROOT / "public" / "api" / "v1" / "journals"
 DEFAULT_STATE = ROOT / "data" / "monitoring" / "email-notifications.json"
 DEFAULT_OUTCOME = ROOT / "output" / "email-notification-result.json"

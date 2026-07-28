@@ -3,6 +3,8 @@ from __future__ import annotations
 import json
 import os
 from pathlib import Path
+import subprocess
+import sys
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -56,6 +58,16 @@ def settings() -> SMTPSettings:
 
 
 class EmailNotificationTests(unittest.TestCase):
+    def test_script_entrypoint_runs_without_pythonpath(self):
+        result = subprocess.run(
+            [sys.executable, "scripts/email_notifications.py", "--help"],
+            cwd=Path(__file__).resolve().parents[1],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        self.assertEqual(0, result.returncode, result.stderr)
+
     def test_first_run_seeds_without_email(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
