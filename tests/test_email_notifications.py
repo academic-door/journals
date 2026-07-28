@@ -12,6 +12,7 @@ from unittest.mock import patch
 from scripts.email_notifications import (
     SMTPSettings,
     build_message,
+    send_test_notification,
     synchronize,
 )
 
@@ -58,6 +59,16 @@ def settings() -> SMTPSettings:
 
 
 class EmailNotificationTests(unittest.TestCase):
+    def test_manual_test_email_does_not_touch_notification_state(self):
+        messages = []
+        send_test_notification(
+            settings(),
+            transport=lambda message, smtp: messages.append(message),
+        )
+        self.assertEqual(1, len(messages))
+        self.assertIn("测试成功", str(messages[0]["Subject"]))
+        self.assertIn("成功连接发件邮箱", messages[0].get_body().get_content())
+
     def test_incomplete_but_published_issue_is_in_notification_baseline(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

@@ -234,6 +234,22 @@ def send_message(message: EmailMessage, settings: SMTPSettings) -> None:
         client.send_message(message)
 
 
+def send_test_notification(
+    settings: SMTPSettings,
+    transport: Callable[[EmailMessage, SMTPSettings], None] = send_message,
+) -> None:
+    message = EmailMessage()
+    message["Subject"] = "[Academic Door] 期刊更新邮件通知测试成功"
+    message["From"] = settings.sender
+    message["To"] = ", ".join(settings.recipients)
+    message.set_content(
+        "Academic Door 已成功连接发件邮箱。\n\n"
+        "以后新卷期通过数据质量检查并同步到 Composer 后，"
+        "你会在这里收到期刊、卷期、文章数、中国相关篇数及直达链接。"
+    )
+    transport(message, settings)
+
+
 def synchronize(
     *,
     public_root: Path,
@@ -349,12 +365,33 @@ def main() -> int:
         choices=["success", "failure", "skipped"],
         default="skipped",
     )
+    parser.add_argument(
+        "--test-email",
+        action="store_true",
+        help="Send one private configuration test without changing notification state.",
+    )
     args = parser.parse_args()
+    settings = SMTPSettings.from_environment()
+    if args.test_email:
+        if settings is None:
+            print(json.dumps({"status": "unconfigured"}))
+            return 2
+        try:
+            send_test_notification(settings)
+        except Exception as error:
+            print(
+                json.dumps(
+                    {"status": "failure", "error_type": type(error).__name__}
+                )
+            )
+            return 1
+        print(json.dumps({"status": "sent"}))
+        return 0
     outcome = synchronize(
         public_root=args.public_root,
         state_path=args.state,
         composer_status=args.composer_status,
-        settings=SMTPSettings.from_environment(),
+        settings=settings,
     )
     write_json(args.outcome, outcome)
     print(
