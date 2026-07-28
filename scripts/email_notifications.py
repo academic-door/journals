@@ -236,17 +236,28 @@ def send_message(message: EmailMessage, settings: SMTPSettings) -> None:
 
 def send_test_notification(
     settings: SMTPSettings,
+    issue: dict[str, Any] | None = None,
     transport: Callable[[EmailMessage, SMTPSettings], None] = send_message,
 ) -> None:
-    message = EmailMessage()
-    message["Subject"] = "[Academic Door] 期刊更新邮件通知测试成功"
-    message["From"] = settings.sender
-    message["To"] = ", ".join(settings.recipients)
-    message.set_content(
-        "Academic Door 已成功连接发件邮箱。\n\n"
-        "以后新卷期通过数据质量检查并同步到 Composer 后，"
-        "你会在这里收到期刊、卷期、文章数、中国相关篇数及直达链接。"
-    )
+    if issue is None:
+        message = EmailMessage()
+        message["Subject"] = "[Academic Door] 期刊更新邮件通知测试成功"
+        message["From"] = settings.sender
+        message["To"] = ", ".join(settings.recipients)
+        message.set_content(
+            "Academic Door 已成功连接发件邮箱。\n\n"
+            "以后新卷期通过数据质量检查并同步到 Composer 后，"
+            "你会在这里收到期刊、卷期、文章数、中国相关篇数及直达链接。"
+        )
+    else:
+        collections = _journal_collections()
+        event = issue_snapshot(issue, collections)
+        event["event_type"] = "new_issue"
+        message = build_message([event], settings)
+        message.replace_header(
+            "Subject",
+            f"[测试预览] {message['Subject']}",
+        )
     transport(message, settings)
 
 
@@ -370,6 +381,11 @@ def main() -> int:
         action="store_true",
         help="Send one private configuration test without changing notification state.",
     )
+    parser.add_argument(
+        "--test-journal",
+        default="",
+        help="With --test-email, render this journal's current issue as a sample.",
+    )
     args = parser.parse_args()
     settings = SMTPSettings.from_environment()
     if args.test_email:
@@ -377,7 +393,24 @@ def main() -> int:
             print(json.dumps({"status": "unconfigured"}))
             return 2
         try:
-            send_test_notification(settings)
+            issue = None
+            if args.test_journal:
+                journal_id = re.sub(r"[^a-z0-9_-]", "", args.test_journal.lower())
+                issue_path = (
+                    args.public_root / journal_id / "issues" / "current.json"
+                )
+                issue = read_json(issue_path)
+                if not issue.get("issue_id") or not issue.get("articles"):
+                    print(
+                        json.dumps(
+                            {
+                                "status": "missing_issue",
+                                "journal": journal_id,
+                            }
+                        )
+                    )
+                    return 3
+            send_test_notification(settings, issue=issue)
         except Exception as error:
             print(
                 json.dumps(

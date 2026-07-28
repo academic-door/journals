@@ -69,6 +69,28 @@ class EmailNotificationTests(unittest.TestCase):
         self.assertIn("测试成功", str(messages[0]["Subject"]))
         self.assertIn("成功连接发件邮箱", messages[0].get_body().get_content())
 
+    def test_manual_issue_preview_uses_the_real_notification_layout(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            public = Path(temporary)
+            write_issue(public, "aer", "aer-116-8", ["doi:10.1/one"])
+            issue = json.loads(
+                (public / "aer" / "issues" / "current.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            messages = []
+            send_test_notification(
+                settings(),
+                issue=issue,
+                transport=lambda message, smtp: messages.append(message),
+            )
+        self.assertEqual(1, len(messages))
+        self.assertIn("[测试预览]", str(messages[0]["Subject"]))
+        body = messages[0].get_body().get_content()
+        self.assertIn("American Economic Review", body)
+        self.assertIn("中国相关 1 篇", body)
+        self.assertIn("打开微信公众号编辑器", body)
+
     def test_incomplete_but_published_issue_is_in_notification_baseline(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
