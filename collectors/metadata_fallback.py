@@ -38,10 +38,24 @@ COMMENT_PATTERN = re.compile(
     r"\ba\s+comment\b|^comment(?:\s+on)?\b|^reply(?:\s+to)?\b|:\s*(?:a\s+)?comment\s*$|:\s*reply\s*$",
     re.IGNORECASE,
 )
+NO_ABSTRACT_PATTERN = re.compile(
+    r"^no abstract is available(?: for this item)?\.?$",
+    re.IGNORECASE,
+)
 
 
 def _article_type(title: str) -> str:
     return "comment" if COMMENT_PATTERN.search(title or "") else "research-article"
+
+
+def _is_no_abstract_notice(value: str) -> bool:
+    return bool(NO_ABSTRACT_PATTERN.match((value or "").strip()))
+
+
+def _has_abstract_or_allowed_comment(article: dict[str, Any]) -> bool:
+    return bool(article["abstract_en"]) or (
+        article["article_type"] == "comment" and not article["abstract_en"]
+    )
 MONTHS_BY_ISSUE = {
     "0022-3808": {
         str(index): month
@@ -457,6 +471,10 @@ def fetch_repec_history_issue(
                 abstract = ""
             if abstract:
                 abstract_source = "repec-publisher-supplied"
+        no_abstract_notice = _is_no_abstract_notice(abstract)
+        if no_abstract_notice:
+            abstract = ""
+            abstract_source = ""
         openalex_url = ""
         if doi and (not authors or not abstract):
             openalex_authors, openalex_abstract, openalex_url = _openalex_metadata(
@@ -478,7 +496,7 @@ def fetch_repec_history_issue(
             "paper_id": f"doi:{doi}" if doi else f"{journal_id}:{title}",
             "sequence": 0,
             "source_sequence": 0,
-            "article_type": _article_type(title),
+            "article_type": "comment" if no_abstract_notice else _article_type(title),
             "title_en": title,
             "title_cn": "",
             "authors": authors,
@@ -526,7 +544,7 @@ def fetch_repec_history_issue(
 
     doi_values = [article["doi"] for article in articles if article["doi"]]
     duplicate_count = len(doi_values) - len(set(doi_values))
-    abstract_complete = sum(bool(article["abstract_en"]) for article in articles)
+    abstract_complete = sum(_has_abstract_or_allowed_comment(article) for article in articles)
     authors_complete = sum(bool(article["authors"]) for article in articles)
     flags = ["translation_incomplete"]
     if duplicate_count:
@@ -788,6 +806,10 @@ def fetch_official_rss_issue(
                 abstract = ""
             if abstract:
                 abstract_source = "repec-publisher-supplied"
+        no_abstract_notice = _is_no_abstract_notice(abstract)
+        if no_abstract_notice:
+            abstract = ""
+            abstract_source = ""
         flags = ["title_cn_missing", "abstract_cn_missing"]
         if not doi:
             flags.append("doi_missing")
@@ -801,7 +823,7 @@ def fetch_official_rss_issue(
                 "paper_id": f"doi:{doi}" if doi else f"{journal_id}:{sequence}",
                 "sequence": sequence,
                 "source_sequence": _page_start(rss_item["page_start"]),
-                "article_type": _article_type(title),
+                "article_type": "comment" if no_abstract_notice else _article_type(title),
                 "title_en": title or _clean_markup(_first(crossref.get("title"))),
                 "title_cn": "",
                 "authors": authors,
@@ -850,7 +872,7 @@ def fetch_official_rss_issue(
             or crossref_research_dois.issubset(article_dois)
         )
     )
-    abstract_complete = sum(bool(article["abstract_en"]) for article in articles)
+    abstract_complete = sum(_has_abstract_or_allowed_comment(article) for article in articles)
     flags = ["translation_incomplete"]
     if not roster_match:
         flags.append("publisher_rss_roster_incomplete_crossref")
@@ -1053,7 +1075,7 @@ def fetch_crossref_current_issue(
     ]
     if not roster_match:
         flags.append("crossref_roster_incomplete")
-    abstract_complete = sum(bool(article["abstract_en"]) for article in articles)
+    abstract_complete = sum(_has_abstract_or_allowed_comment(article) for article in articles)
     if abstract_complete != len(articles):
         flags.append("abstract_en_incomplete")
     if duplicate_count:

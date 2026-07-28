@@ -48,6 +48,10 @@ def clean_abstract_label(value: Any) -> str:
     return ABSTRACT_LABEL_PATTERN.sub("", text, count=1).strip()
 
 
+def comment_without_abstract(article: dict[str, Any]) -> bool:
+    return article.get("article_type") == "comment" and not article.get("abstract_en")
+
+
 def normalize_issue_content(issue: dict[str, Any]) -> dict[str, Any]:
     """Apply deterministic reader-facing cleanup to every current issue."""
 
@@ -111,6 +115,12 @@ def apply_translation_cache(issue: dict[str, Any]) -> dict[str, Any]:
             ]
         if translated.get("abstract_cn"):
             article["abstract_cn"] = clean_abstract_label(translated["abstract_cn"])
+            article["quality_flags"] = [
+                flag
+                for flag in article["quality_flags"]
+                if flag != "abstract_cn_missing"
+            ]
+        elif comment_without_abstract(article):
             article["quality_flags"] = [
                 flag
                 for flag in article["quality_flags"]

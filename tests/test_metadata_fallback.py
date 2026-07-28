@@ -74,6 +74,30 @@ class RepecHistorySession:
         return Response({"authorships": []})
 
 
+class RepecHistoryNoAbstractSession:
+    def __init__(self) -> None:
+        self.items = [item("Robert E. Lucas Jr.: Supreme among Macroeconomists as a Bird Who Saw Further than Others", "1-10", "10.1086/737998", "")]
+
+    def get(self, url: str, **kwargs) -> Response:
+        if "api.crossref.org" in url:
+            return Response({"message": {"items": self.items}})
+        if "/s/ucp/jpolec.html" in url:
+            return Response(
+                {},
+                b"""
+                <html><body>
+                  <h3>2025, Volume 133, Issue 11</h3>
+                  <ul>
+                    <li><a href="/a/ucp/jpolec/doi10.1086-737998.html">Robert E. Lucas Jr.: Supreme among Macroeconomists as a Bird Who Saw Further than Others</a></li>
+                  </ul>
+                </body></html>
+                """,
+            )
+        if "/a/ucp/jpolec/doi10.1086-737998.html" in url:
+            return Response({}, b"<html><h2>Abstract</h2><p>No abstract is available for this item.</p></html>")
+        return Response({"authorships": []})
+
+
 class MetadataFallbackTests(unittest.TestCase):
     def test_preserves_page_order_and_excludes_front_matter(self) -> None:
         items = [
@@ -193,6 +217,20 @@ class MetadataFallbackTests(unittest.TestCase):
         self.assertEqual(issue["articles"][0]["abstract_en"], "First abstract from RePEc.")
         self.assertEqual(issue["quality"]["roster_transport"], "repec-serial-page")
         self.assertTrue(issue["quality"]["order_preserved"])
+
+    def test_treats_no_abstract_repec_commentary_as_comment(self) -> None:
+        issue = fetch_repec_history_issue(
+            journal_id="jpe",
+            journal_name="Journal of Political Economy",
+            issn="0022-3808",
+            volume="133",
+            issue="11",
+            repec_series_code="ucp/jpolec",
+            session=RepecHistoryNoAbstractSession(),
+        )
+        self.assertEqual(issue["articles"][0]["article_type"], "comment")
+        self.assertEqual(issue["articles"][0]["abstract_en"], "")
+        self.assertNotIn("abstract_en_incomplete", issue["quality"]["flags"])
 
 
 if __name__ == "__main__":
