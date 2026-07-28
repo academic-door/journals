@@ -55,10 +55,12 @@ def load_json(path: Path, default: object) -> Any:
 
 
 def collector_for_issue(
-    journal_config: dict[str, Any], issue_ref: HistoricalIssue
+    journal_config: dict[str, Any], issue_ref: HistoricalIssue | str
 ) -> Callable[[], dict[str, Any]]:
     collector = journal_config["collector"]
-    issue_url = issue_ref.official_url
+    issue_url = (
+        issue_ref.official_url if isinstance(issue_ref, HistoricalIssue) else str(issue_ref)
+    )
     if collector == "aea":
         from collectors.aea import fetch_current_issue
 
@@ -68,7 +70,10 @@ def collector_for_issue(
             journal_name=journal_config["name"],
         )
     if collector == "chicago":
-        if journal_config.get("fallback") == "crossref-repec":
+        if (
+            isinstance(issue_ref, HistoricalIssue)
+            and journal_config.get("fallback") == "crossref-repec"
+        ):
             from collectors.metadata_fallback import fetch_repec_history_issue
 
             return lambda: fetch_repec_history_issue(
