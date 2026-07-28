@@ -107,6 +107,7 @@ def collector_for_issue(
                 current_issue_url=issue_url,
                 target_volume=issue_ref.volume,
                 target_issue=issue_ref.issue,
+                start_year=int(issue_ref.year) - 1,
             )
         from collectors.oup import fetch_current_issue
 

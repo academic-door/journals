@@ -600,8 +600,9 @@ def _crossref_items(
     *,
     session: requests.Session,
     timeout: int,
+    start_year: int | None = None,
 ) -> list[dict[str, Any]]:
-    start_year = datetime.now(timezone.utc).year - 1
+    start_year = start_year or datetime.now(timezone.utc).year - 1
     url = (
         f"{CROSSREF_API}/journals/{issn}/works"
         f"?filter=from-pub-date:{start_year}-01-01&rows=500"
@@ -929,6 +930,7 @@ def fetch_crossref_current_issue(
     repec_series_code: str = "",
     target_volume: str | None = None,
     target_issue: str | None = None,
+    start_year: int | None = None,
     session: requests.Session | None = None,
     timeout: int = 60,
 ) -> dict[str, Any]:
@@ -941,7 +943,12 @@ def fetch_crossref_current_issue(
     """
 
     client = session or _session()
-    items = _crossref_items(issn, session=client, timeout=timeout)
+    items = _crossref_items(
+        issn,
+        session=client,
+        timeout=timeout,
+        start_year=start_year,
+    )
     groups: dict[tuple[str, str], list[dict[str, Any]]] = {}
     for item in items:
         volume = str(item.get("volume", "")).strip()
