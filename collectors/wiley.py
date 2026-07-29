@@ -943,6 +943,8 @@ def fetch_current_issue(
     *,
     journal_id: str = JOURNAL_ID,
     journal_name: str = JOURNAL_NAME,
+    expected_volume: str = "",
+    expected_issue: str = "",
     attempts: int = DEFAULT_ATTEMPTS,
     timeout: tuple[float, float] = DEFAULT_TIMEOUT,
     max_workers: int = 3,
@@ -970,6 +972,8 @@ def fetch_current_issue(
         volume, issue, publication_date, inventory = _parse_issue_inventory(
             response.content, resolved_url
         )
+        if not volume and not issue and expected_volume and expected_issue:
+            volume, issue = str(expected_volume), str(expected_issue)
     except WileyCollectorError as exc:
         return _error_issue(
             current_issue_url,

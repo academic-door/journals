@@ -119,6 +119,12 @@ def collector_for_issue(
             issue_url,
             journal_id=journal_config["id"],
             journal_name=journal_config["name"],
+            expected_volume=(
+                issue_ref.volume if isinstance(issue_ref, HistoricalIssue) else ""
+            ),
+            expected_issue=(
+                issue_ref.issue if isinstance(issue_ref, HistoricalIssue) else ""
+            ),
         )
     raise ValueError(f"Historical backfill is not configured for {collector}")
 

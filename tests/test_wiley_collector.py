@@ -154,6 +154,29 @@ class WileyCollectorTests(unittest.TestCase):
         self.assertEqual(["translation_incomplete"], issue["quality"]["flags"])
         self.assertEqual("incomplete", issue["status"])
 
+    def test_historical_issue_can_use_explicit_volume_and_issue_when_page_omits_them(self):
+        issue_html = fixture_bytes("wiley_issue.html")
+        issue_html = issue_html.replace(
+            b'<meta name="citation_volume" content="94">', b""
+        ).replace(b'<meta name="citation_issue" content="2">', b"")
+
+        def fake_get(_session, url, **_kwargs):
+            if url == CURRENT_URL:
+                return FakeResponse(issue_html, url=CURRENT_URL)
+            return successful_fake_get(_session, url, **_kwargs)
+
+        with patch.object(wiley, "_get", side_effect=fake_get):
+            issue = wiley.fetch_current_issue(
+                CURRENT_URL,
+                expected_volume="94",
+                expected_issue="2",
+                max_workers=1,
+                retrieved_at=RETRIEVED_AT,
+            )
+
+        self.assertEqual(("94", "2"), (issue["volume"], issue["issue"]))
+        self.assertNotIn("volume_issue_unparsed", issue["quality"]["flags"])
+
     def test_article_page_selector_fallbacks_extract_official_metadata(self):
         detail = wiley._parse_article_page(
             fixture_bytes("wiley_article_2.html"), ARTICLE_2_URL
