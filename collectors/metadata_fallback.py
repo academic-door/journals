@@ -1055,6 +1055,7 @@ def _sciencedirect_rss_groups(
             {
                 "title": title,
                 "link": link,
+                "doi": _doi_from_rss(node),
                 "pii": pii_match.group(1).upper() if pii_match else "",
                 "authors": authors,
             }
@@ -1098,8 +1099,13 @@ def fetch_sciencedirect_rss_issue(
     session: requests.Session | None = None,
     timeout: int = 60,
     today: date | None = None,
+    existing_issue: dict[str, Any] | None = None,
 ) -> dict[str, Any] | None:
-    """Build the latest eligible Elsevier issue from the official RSS roster."""
+    """Build the latest eligible Elsevier issue from the official RSS roster.
+
+    The publisher feed is the sole authority for issue membership and order.
+    Crossref, Elsevier, RePEc and OpenAlex only enrich fields on those rows.
+    """
 
     client = session or _session()
     content = _get_content(
@@ -1125,86 +1131,248 @@ def fetch_sciencedirect_rss_issue(
         timeout=timeout,
         start_year=(today or datetime.now(timezone.utc).date()).year,
     )
-    horizon = _month_horizon(
-        today or datetime.now(timezone.utc).date(),
-        lead_months,
-    )
     issue_url = issue_url_template.format(
         volume=volume,
         issue="C",
         issue_lower="c",
     )
-    issue = fetch_crossref_current_issue(
-        journal_id=journal_id,
-        journal_name=journal_name,
-        issn=issn,
-        current_issue_url=issue_url,
-        repec_series_code=repec_series_code,
-        target_volume=volume,
-        target_issue="",
-        output_issue="C",
-        future_cutoff=datetime.combine(horizon, datetime.min.time(), tzinfo=timezone.utc),
-        items_override=crossref_items,
-        session=client,
-        timeout=timeout,
-    )
-
     rss_research = [
         item for item in rss_items if not NON_RESEARCH_PATTERN.search(item["title"])
     ]
-    rss_titles = {_normalized_title(item["title"]) for item in rss_research}
-    article_titles = {
-        _normalized_title(article["title_en"]) for article in issue["articles"]
-    }
-    rss_piis = {item["pii"] for item in rss_research if item["pii"]}
-    crossref_piis = {
-        _crossref_pii(item)
-        for item in crossref_items
-        if str(item.get("volume", "")).strip() == volume
-        and item.get("type") == "journal-article"
-        and not NON_RESEARCH_PATTERN.search(_first(item.get("title")))
-    }
-    crossref_piis.discard("")
-    roster_match = (
-        len(issue["articles"]) == len(rss_research)
-        and rss_titles == article_titles
-        and (not rss_piis or not crossref_piis or rss_piis == crossref_piis)
-    )
+    if not rss_research:
+        raise MetadataFallbackError("ScienceDirect RSS current volume has no research items")
 
-    flags = [
-        flag
-        for flag in issue["quality"]["flags"]
-        if flag
-        not in {
-            "publisher_html_blocked_crossref_fallback",
-            "crossref_provisional_roster",
+    crossref_by_doi: dict[str, dict[str, Any]] = {}
+    crossref_by_pii: dict[str, dict[str, Any]] = {}
+    crossref_by_title: dict[str, dict[str, Any]] = {}
+    for item in crossref_items:
+        if item.get("type") != "journal-article":
+            continue
+        item_doi = str(item.get("DOI", "")).strip().lower()
+        item_pii = _crossref_pii(item)
+        item_title = _normalized_title(_first(item.get("title")))
+        if item_doi:
+            crossref_by_doi[item_doi] = item
+        if item_pii:
+            crossref_by_pii[item_pii] = item
+        if item_title:
+            crossref_by_title[item_title] = item
+
+    issue_id = f"{journal_id}-{volume}-c"
+    existing_articles: dict[str, dict[str, Any]] = {}
+    if existing_issue and existing_issue.get("issue_id") == issue_id:
+        for article in existing_issue.get("articles", []):
+            keys = {
+                str(article.get("doi", "")).strip().lower(),
+                _normalized_title(str(article.get("title_en", ""))),
+            }
+            pii_match = re.search(
+                r"/pii/([A-Za-z0-9]+)",
+                str(article.get("source_url", "")),
+                re.IGNORECASE,
+            )
+            if pii_match:
+                keys.add(pii_match.group(1).upper())
+            for key in keys:
+                if key:
+                    existing_articles[key] = article
+
+    articles: list[dict[str, Any]] = []
+    for sequence, rss_item in enumerate(rss_research, start=1):
+        rss_doi = str(rss_item.get("doi", "")).strip().lower()
+        rss_pii = str(rss_item.get("pii", "")).strip().upper()
+        title_key = _normalized_title(str(rss_item.get("title", "")))
+        crossref = (
+            crossref_by_doi.get(rss_doi)
+            or crossref_by_pii.get(rss_pii)
+            or crossref_by_title.get(title_key)
+            or {}
+        )
+        doi = rss_doi or str(crossref.get("DOI", "")).strip().lower()
+        crossref_pii = _crossref_pii(crossref)
+        pii = rss_pii or crossref_pii
+        previous = (
+            existing_articles.get(doi)
+            or existing_articles.get(pii)
+            or existing_articles.get(title_key)
+            or {}
+        )
+        title = str(rss_item["title"])
+        authors = list(rss_item.get("authors", [])) or _authors(crossref)
+        if not authors:
+            authors = list(previous.get("authors", []))
+        abstract = _clean_markup(str(crossref.get("abstract", "")))
+        abstract_source = "crossref" if abstract else ""
+        if not abstract:
+            abstract = _clean_markup(str(previous.get("abstract_en", "")))
+            abstract_source = str(
+                previous.get("sources", {}).get("abstract_en", "")
+            ) if abstract else ""
+
+        elsevier_lookup: dict[str, Any] = {}
+        abstract_snippet = ""
+        if not abstract:
+            elsevier_lookup = _elsevier_lookup(
+                client,
+                pii,
+                doi=doi,
+                timeout=timeout,
+            )
+            abstract = _clean_markup(str(elsevier_lookup.get("abstract", "")))
+            abstract_snippet = _clean_markup(
+                str(elsevier_lookup.get("teaser", ""))
+            )
+            if abstract:
+                abstract_source = str(
+                    elsevier_lookup.get("source", "elsevier-api")
+                )
+
+        repec_url = ""
+        if not abstract and repec_series_code and doi:
+            try:
+                abstract, repec_url = _repec_abstract(
+                    client,
+                    doi,
+                    timeout=timeout,
+                    series_code=repec_series_code,
+                )
+            except requests.RequestException:
+                abstract = ""
+            if abstract:
+                abstract_source = "repec-publisher-supplied"
+
+        openalex_url = ""
+        if doi and (not authors or not abstract):
+            openalex_authors, openalex_abstract, openalex_url = _openalex_metadata(
+                client,
+                doi,
+                timeout=timeout,
+            )
+            if not authors and openalex_authors:
+                authors = openalex_authors
+            if not abstract and openalex_abstract:
+                abstract = openalex_abstract
+                abstract_source = "openalex"
+
+        flags = ["title_cn_missing", "abstract_cn_missing"]
+        if not doi:
+            flags.append("doi_missing")
+        if not authors:
+            flags.append("authors_missing")
+        if not abstract:
+            flags.append("abstract_en_missing")
+            if abstract_snippet:
+                flags.append("abstract_teaser_only")
+
+        sources: dict[str, Any] = {
+            "issue": issue_url,
+            "roster": rss_url,
+            "metadata": "crossref" if crossref else "publisher-rss",
+            "abstract_en": abstract_source,
         }
-    ]
-    flags.extend(
-        [
-            "publisher_html_blocked_sciencedirect_rss_fallback",
-            "official_order_unverified",
-        ]
+        if elsevier_lookup:
+            sources["abstract_lookup"] = {
+                "status": elsevier_lookup.get("status", ""),
+                "attempts": elsevier_lookup.get("attempts", []),
+            }
+            if elsevier_lookup.get("source_url"):
+                sources["elsevier"] = elsevier_lookup["source_url"]
+        if repec_url:
+            sources["repec"] = repec_url
+        if openalex_url:
+            sources["openalex"] = openalex_url
+
+        article = {
+            "paper_id": (
+                f"doi:{doi}"
+                if doi
+                else f"pii:{pii}" if pii else f"{journal_id}:{volume}:{sequence}"
+            ),
+            "sequence": sequence,
+            "source_sequence": sequence,
+            "article_type": _article_type(title),
+            "title_en": title,
+            "title_cn": str(previous.get("title_cn", "")),
+            "authors": authors,
+            "abstract_en": abstract,
+            "abstract_cn": str(previous.get("abstract_cn", "")),
+            "abstract_snippet_en": abstract_snippet,
+            "doi": doi,
+            "source_url": str(rss_item.get("link", ""))
+            or (f"https://doi.org/{doi}" if doi else issue_url),
+            "publication_date": str(previous.get("publication_date", ""))
+            or publication_date,
+            "sources": sources,
+            "translation": dict(
+                previous.get(
+                    "translation",
+                    {
+                        "status": "blocked" if not abstract else "pending",
+                        "provider": "",
+                        "prompt_version": "",
+                        "glossary_version": "1",
+                    },
+                )
+            ),
+            "quality_flags": flags,
+        }
+        if article["title_cn"]:
+            article["quality_flags"].remove("title_cn_missing")
+        if article["abstract_cn"]:
+            article["quality_flags"].remove("abstract_cn_missing")
+        articles.append(article)
+
+    doi_values = [article["doi"] for article in articles if article["doi"]]
+    duplicate_count = len(doi_values) - len(set(doi_values))
+    abstract_complete = sum(
+        _has_abstract_or_allowed_comment(article) for article in articles
     )
-    if not roster_match:
-        flags.append("publisher_rss_roster_mismatch")
-    issue["publication_date"] = publication_date
-    issue["source_url"] = issue_url
-    issue["expected_article_count"] = len(rss_research)
-    issue["quality"].update(
-        {
-            "roster_match": roster_match,
+    flags = ["publisher_html_blocked_sciencedirect_rss_fallback"]
+    if abstract_complete != len(articles):
+        flags.append("abstract_en_incomplete")
+    if duplicate_count:
+        flags.append("duplicate_doi")
+    translation_complete = sum(
+        bool(article["title_cn"])
+        and (
+            bool(article["abstract_cn"])
+            or article.get("article_type") == "comment"
+        )
+        for article in articles
+    )
+    if translation_complete != len(articles):
+        flags.append("translation_incomplete")
+    now = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    return {
+        "schema_version": "1.0",
+        "issue_id": issue_id,
+        "journal_id": journal_id,
+        "journal_name": journal_name,
+        "volume": volume,
+        "issue": "C",
+        "publication_date": publication_date,
+        "source_url": issue_url,
+        "retrieved_at": now,
+        "expected_article_count": len(articles),
+        "research_article_count": len(articles),
+        "status": "incomplete" if flags else "ready",
+        "development_sample": False,
+        "articles": articles,
+        "quality": {
+            "roster_match": True,
+            "order_preserved": True,
             "roster_transport": "sciencedirect-rss",
             "roster_authority": "publisher-rss",
-            "roster_match_scope": "rss-volume-crossref-title-and-pii",
+            "roster_match_scope": "rss-volume-items",
             "rss_url": rss_url,
-            "flags": list(dict.fromkeys(flags)),
-        }
-    )
-    for article in issue["articles"]:
-        article["sources"]["issue"] = issue_url
-        article["sources"]["roster"] = rss_url
-    return issue
+            "doi_complete": sum(bool(article["doi"]) for article in articles),
+            "authors_complete": sum(bool(article["authors"]) for article in articles),
+            "abstract_en_complete": abstract_complete,
+            "translation_complete": translation_complete,
+            "duplicate_count": duplicate_count,
+            "flags": flags,
+        },
+    }
 
 
 def fetch_official_rss_issue(
