@@ -643,6 +643,10 @@ def preserve_existing_content(
     quality = issue.get("quality", {})
     quality["authors_complete"] = sum(bool(article.get("authors")) for article in issue.get("articles", []))
     quality["abstract_en_complete"] = sum(bool(article.get("abstract_en")) or article.get("article_type") == "comment" for article in issue.get("articles", []))
+    flags = [flag for flag in quality.get("flags", []) if flag != "abstract_en_incomplete"]
+    if quality["abstract_en_complete"] != int(issue.get("research_article_count", 0)):
+        flags.append("abstract_en_incomplete")
+    quality["flags"] = list(dict.fromkeys(flags))
     return issue
 
 
@@ -699,7 +703,8 @@ def collect_one(
                 issue = fallback()
                 report["primary_error"] = primary_error
                 report["transport"] = "metadata_fallback"
-        issue = preserve_existing_content(issue, detected_before or previous_detected or previous)
+        issue = preserve_existing_content(issue, detected_before or previous_detected)
+        issue = preserve_existing_content(issue, previous)
         if expected_volume and str(issue.get("volume", "")) != expected_volume:
             raise SourceLagError(
                 f"detected volume {expected_volume}, but the deep collector "
