@@ -264,7 +264,7 @@ def _elsevier_abstract(
     }
     endpoints = (
         (f"{ELSEVIER_ARTICLE_API}/{normalized_pii}", "META_ABS"),
-        (f"{ELSEVIER_ABSTRACT_API}/{normalized_pii}", "FULL"),
+        (f"{ELSEVIER_ABSTRACT_API}/{normalized_pii}", "META_ABS"),
     )
     for url, view in endpoints:
         try:
