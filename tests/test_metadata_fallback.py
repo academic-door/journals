@@ -66,6 +66,26 @@ class ElsevierSession:
         )
 
 
+class ElsevierScopusFallbackSession:
+    def __init__(self) -> None:
+        self.calls: list[str] = []
+
+    def get(self, url: str, **kwargs) -> Response:
+        self.calls.append(url)
+        if "/content/article/pii/" in url:
+            return Response({}, b"<response><coredata /></response>")
+        return Response(
+            {},
+            b"""
+            <response xmlns:dc="http://purl.org/dc/elements/1.1/">
+              <coredata>
+                <dc:description>Abstract retrieved from Scopus.</dc:description>
+              </coredata>
+            </response>
+            """,
+        )
+
+
 class RepecHistorySession:
     def __init__(self) -> None:
         self.items = [
@@ -179,6 +199,22 @@ class MetadataFallbackTests(unittest.TestCase):
         self.assertTrue(source_url.endswith("/S0014292126001194"))
         self.assertEqual("test-secret", session.calls[0][1]["headers"]["X-ELS-APIKey"])
         self.assertNotIn("test-secret", source_url)
+
+    def test_elsevier_abstract_falls_back_to_scopus_retrieval(self) -> None:
+        session = ElsevierScopusFallbackSession()
+        with patch.dict(
+            "os.environ",
+            {"ELSEVIER_API_KEY": "test-secret"},
+            clear=True,
+        ):
+            abstract, source_url = _elsevier_abstract(
+                session,
+                "S0014292126001194",
+                timeout=10,
+            )
+        self.assertEqual("Abstract retrieved from Scopus.", abstract)
+        self.assertIn("/content/abstract/pii/", source_url)
+        self.assertEqual(2, len(session.calls))
 
     def test_preserves_page_order_and_excludes_front_matter(self) -> None:
         items = [

@@ -23,6 +23,7 @@ USER_AGENT = (
 CROSSREF_API = "https://api.crossref.org"
 OPENALEX_API = "https://api.openalex.org"
 ELSEVIER_ARTICLE_API = "https://api.elsevier.com/content/article/pii"
+ELSEVIER_ABSTRACT_API = "https://api.elsevier.com/content/abstract/pii"
 NON_RESEARCH_PATTERN = re.compile(
     r"front\s*matter|back\s*matter|editorial\s*board|table\s*of\s*contents|"
     r"recent\s*referees|turnaround\s*times|issue\s+information|"
@@ -257,28 +258,33 @@ def _elsevier_abstract(
     normalized_pii = re.sub(r"[^A-Za-z0-9]", "", pii or "")
     if not api_key or not normalized_pii:
         return "", ""
-    url = f"{ELSEVIER_ARTICLE_API}/{normalized_pii}"
-    response = session.get(
-        url,
-        params={"view": "META_ABS", "httpAccept": "text/xml"},
-        headers={
-            "Accept": "text/xml,application/xml",
-            "X-ELS-APIKey": api_key,
-        },
-        timeout=timeout,
+    headers = {
+        "Accept": "text/xml,application/xml",
+        "X-ELS-APIKey": api_key,
+    }
+    endpoints = (
+        (f"{ELSEVIER_ARTICLE_API}/{normalized_pii}", "META_ABS"),
+        (f"{ELSEVIER_ABSTRACT_API}/{normalized_pii}", "FULL"),
     )
-    response.raise_for_status()
-    try:
-        root = ElementTree.fromstring(response.content)
-    except ElementTree.ParseError:
-        return "", ""
-    for node in root.iter():
-        if _local_name(node.tag) not in {"description", "abstract"}:
+    for url, view in endpoints:
+        try:
+            response = session.get(
+                url,
+                params={"view": view, "httpAccept": "text/xml"},
+                headers=headers,
+                timeout=timeout,
+            )
+            response.raise_for_status()
+            root = ElementTree.fromstring(response.content)
+        except (requests.RequestException, ElementTree.ParseError):
             continue
-        value = _clean_markup(" ".join(node.itertext()))
-        if value and not _is_no_abstract_notice(value):
-            return value, url
-    return "", url
+        for node in root.iter():
+            if _local_name(node.tag) not in {"description", "abstract"}:
+                continue
+            value = _clean_markup(" ".join(node.itertext()))
+            if value and not _is_no_abstract_notice(value):
+                return value, url
+    return "", ""
 
 
 def _date_year(item: dict[str, Any]) -> str:
