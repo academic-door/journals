@@ -38,6 +38,7 @@ NON_RESEARCH_PATTERN = re.compile(
     r"acknowledg(?:e)?ments?\s+of\s+referees|"
     r"\baddendum\b|\bby\b.+\bpp\.|"
     r"^correction(?:\s+to\b|:|\s*$)|^erratum(?:\s+to\b|:|\s*$)|"
+    r"^corrigendum(?:\s+to\b|:|\s*$)|"
     r"submission\s+of\s+manuscripts",
     re.IGNORECASE,
 )

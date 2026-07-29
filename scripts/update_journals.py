@@ -598,6 +598,54 @@ def enrich_detected_issue(
     return refreshed or issue
 
 
+def preserve_existing_content(
+    issue: dict[str, Any],
+    existing: dict[str, Any] | None,
+) -> dict[str, Any]:
+    """Keep already recovered content when the roster is recollected."""
+
+    if not existing or existing.get("issue_id") != issue.get("issue_id"):
+        return issue
+    existing_by_doi = {
+        str(article.get("doi", "")).strip().lower(): article
+        for article in existing.get("articles", [])
+        if str(article.get("doi", "")).strip()
+    }
+    existing_by_title = {
+        re.sub(r"[^a-z0-9]+", " ", str(article.get("title_en", "")).casefold()).strip(): article
+        for article in existing.get("articles", [])
+        if str(article.get("title_en", "")).strip()
+    }
+    for article in issue.get("articles", []):
+        doi = str(article.get("doi", "")).strip().lower()
+        title_key = re.sub(r"[^a-z0-9]+", " ", str(article.get("title_en", "")).casefold()).strip()
+        old = existing_by_doi.get(doi) or existing_by_title.get(title_key)
+        if not old:
+            continue
+        for field in ("title_cn", "abstract_en", "abstract_cn"):
+            if not article.get(field) and old.get(field):
+                article[field] = old[field]
+        if not article.get("authors") and old.get("authors"):
+            article["authors"] = list(old["authors"])
+        old_sources = old.get("sources", {})
+        sources = article.setdefault("sources", {})
+        for name, value in old_sources.items():
+            if value and not sources.get(name):
+                sources[name] = value
+        if old.get("translation", {}).get("status") == "complete":
+            article["translation"] = dict(old["translation"])
+        flags = set(article.get("quality_flags", []))
+        for field, flag in (("title_cn", "title_cn_missing"), ("abstract_en", "abstract_en_missing"), ("abstract_cn", "abstract_cn_missing")):
+            if article.get(field):
+                flags.discard(flag)
+        article["quality_flags"] = list(flags)
+
+    quality = issue.get("quality", {})
+    quality["authors_complete"] = sum(bool(article.get("authors")) for article in issue.get("articles", []))
+    quality["abstract_en_complete"] = sum(bool(article.get("abstract_en")) or article.get("article_type") == "comment" for article in issue.get("articles", []))
+    return issue
+
+
 def collect_one(
     key: str,
     config: dict[str, Any],
@@ -615,6 +663,7 @@ def collect_one(
     }
     target = public_issue_path(config["id"])
     previous = read_json(target)
+    previous_detected = read_json(detected_issue_path(config["id"]))
     detected_before: dict[str, Any] | None = None
     try:
         if enrich_detected:
@@ -650,6 +699,7 @@ def collect_one(
                 issue = fallback()
                 report["primary_error"] = primary_error
                 report["transport"] = "metadata_fallback"
+        issue = preserve_existing_content(issue, detected_before or previous_detected or previous)
         if expected_volume and str(issue.get("volume", "")) != expected_volume:
             raise SourceLagError(
                 f"detected volume {expected_volume}, but the deep collector "
