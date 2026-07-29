@@ -141,6 +141,56 @@ class PublicationGateTests(unittest.TestCase):
         self.assertEqual("preserved_previous", report["result"])
         self.assertIn(SourceLagError.__name__, report["error"])
 
+    def test_partial_translation_does_not_replace_previous_snapshot(self) -> None:
+        import tempfile
+        from pathlib import Path
+        from unittest.mock import patch
+
+        previous = {"issue_id": "demo-1-1", "articles": []}
+        candidate = archive_fixture("demo-2-1", "2")
+        candidate["research_article_count"] = 2
+        candidate["expected_article_count"] = 2
+        candidate["articles"].append(
+            {
+                "doi": "10.1/second",
+                "article_type": "research-article",
+            }
+        )
+        candidate["quality"].update(
+            {
+                "doi_complete": 2,
+                "authors_complete": 2,
+                "abstract_en_complete": 2,
+                "translation_complete": 1,
+            }
+        )
+        config = {
+            "id": "demo",
+            "current_issue_url": "https://example.org/current",
+        }
+        with (
+            tempfile.TemporaryDirectory() as directory,
+            patch(
+                "scripts.update_journals.public_issue_path",
+                return_value=Path(directory) / "current.json",
+            ),
+            patch("scripts.update_journals.read_json", return_value=previous),
+            patch(
+                "scripts.update_journals.collector_for",
+                return_value=lambda: copy.deepcopy(candidate),
+            ),
+            patch("scripts.update_journals.apply_translation_cache", side_effect=lambda issue: issue),
+            patch("scripts.update_journals.normalize_issue_content", side_effect=lambda issue: issue),
+            patch("scripts.update_journals.validate_issue"),
+            patch("scripts.update_journals.is_publishable_snapshot", return_value=True),
+            patch("scripts.update_journals.write_json") as write_json,
+        ):
+            issue, report = collect_one("DEMO", config, translate=False)
+        self.assertEqual(previous, issue)
+        self.assertEqual("preserved_previous", report["result"])
+        self.assertIn("translation incomplete: 1/2", report["error"])
+        write_json.assert_not_called()
+
     def test_archive_preserves_old_issue_and_builds_index(self) -> None:
         import json
         import tempfile

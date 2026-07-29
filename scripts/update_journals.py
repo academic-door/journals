@@ -582,6 +582,13 @@ def collect_one(
                 "collector result failed the publication gate: "
                 + ", ".join(structural_flags(issue) or ["empty official roster"])
             )
+        translated = int(issue["quality"].get("translation_complete", 0))
+        total = int(issue["research_article_count"])
+        if translated != total:
+            raise ValueError(
+                f"translation incomplete: {translated}/{total}; "
+                "preserving the last complete public issue"
+            )
         if previous and previous.get("issue_id") != issue.get("issue_id"):
             archive_issue(previous)
         write_json(target, issue)
