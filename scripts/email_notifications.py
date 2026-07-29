@@ -27,7 +27,7 @@ DEFAULT_PUBLIC_ROOT = ROOT / "public" / "api" / "v1" / "journals"
 DEFAULT_STATE = ROOT / "data" / "monitoring" / "email-notifications.json"
 DEFAULT_OUTCOME = ROOT / "output" / "email-notification-result.json"
 SITE_ROOT = "https://academic-door.github.io/journals"
-STATE_SCHEMA_VERSION = "1.1"
+STATE_SCHEMA_VERSION = "1.2"
 
 
 def now_iso() -> str:
@@ -97,6 +97,9 @@ def issue_snapshot(
     article_count = int(
         issue.get("research_article_count") or len(issue.get("articles", []))
     )
+    quality = issue.get("quality") if isinstance(issue.get("quality"), dict) else {}
+    abstract_count = int(quality.get("abstract_en_complete") or 0)
+    translation_count = int(quality.get("translation_complete") or 0)
     return {
         "journal_id": journal_id,
         "journal_name": str(issue.get("journal_name", journal_id.upper())),
@@ -107,23 +110,39 @@ def issue_snapshot(
         ),
         "publication_date": str(issue.get("publication_date", "")),
         "article_count": article_count,
+        "abstract_count": abstract_count,
+        "translation_count": translation_count,
         "china_related_count": china_related_count(issue),
         "fingerprint": issue_fingerprint(issue),
         "directory_url": _issue_link(journal_id, collections),
-        "composer_url": f"{SITE_ROOT}/composer/?journal={journal_id}",
+        "composer_url": (
+            f"{SITE_ROOT}/composer/?journal={journal_id}"
+            f"&issue={issue.get('issue_id', '')}"
+        ),
     }
 
 
-def load_current_issues(public_root: Path) -> dict[str, dict[str, Any]]:
+def load_issue_snapshots(
+    public_root: Path,
+) -> tuple[dict[str, dict[str, Any]], dict[str, dict[str, Any]]]:
     collections = _journal_collections()
-    snapshots: dict[str, dict[str, Any]] = {}
+    detected: dict[str, dict[str, Any]] = {}
+    ready: dict[str, dict[str, Any]] = {}
     for path in sorted(public_root.glob("*/issues/current.json")):
         issue = read_json(path)
         if not issue.get("issue_id") or not issue.get("articles"):
             continue
         snapshot = issue_snapshot(issue, collections)
-        snapshots[snapshot["journal_id"]] = snapshot
-    return snapshots
+        ready[snapshot["journal_id"]] = snapshot
+    for path in sorted(public_root.glob("*/issues/detected.json")):
+        issue = read_json(path)
+        if not issue.get("issue_id") or not issue.get("articles"):
+            continue
+        snapshot = issue_snapshot(issue, collections)
+        detected[snapshot["journal_id"]] = snapshot
+    for journal_id, snapshot in ready.items():
+        detected.setdefault(journal_id, snapshot)
+    return detected, ready
 
 
 @dataclass(frozen=True)
@@ -173,15 +192,20 @@ class SMTPSettings:
 
 def build_message(events: list[dict[str, Any]], settings: SMTPSettings) -> EmailMessage:
     count = len(events)
+    stage = str(events[0].get("notification_stage") or "ready")
+    ready_stage = stage == "ready"
+    stage_label = "新卷期已就绪" if ready_stage else "发现新卷期"
     subject = (
-        f"[Academic Door] {events[0]['journal_name']} 新卷期已就绪"
+        f"[Academic Door] {events[0]['journal_name']} {stage_label}"
         if count == 1
-        else f"[Academic Door] {count} 本期刊新卷期已就绪"
+        else f"[Academic Door] {count} 本期刊{stage_label}"
     )
-    plain_lines = [
-        "Academic Door 已完成期刊数据采集、双语整理、质量检查和 Composer 同步。",
-        "",
-    ]
+    intro = (
+        "Academic Door 已完成期刊数据采集、双语整理、质量检查和 Composer 同步。"
+        if ready_stage
+        else "Academic Door 已发现新的官方卷期，正在继续补齐英文摘要和中文内容。"
+    )
+    plain_lines = [intro, ""]
     html_items: list[str] = []
     for event in events:
         event_label = "本期补录" if event.get("event_type") == "supplement" else "新卷期"
@@ -194,19 +218,48 @@ def build_message(events: list[dict[str, Any]], settings: SMTPSettings) -> Email
             [
                 f"{event['journal_name']}（{event_label}）",
                 summary,
+                *(
+                    []
+                    if ready_stage
+                    else [
+                        (
+                            f"整理进度：英文摘要 {event.get('abstract_count', 0)}/"
+                            f"{event['article_count']} · 中文内容 "
+                            f"{event.get('translation_count', 0)}/{event['article_count']}"
+                        )
+                    ]
+                ),
                 f"查看目录：{event['directory_url']}",
-                f"打开编辑器：{event['composer_url']}",
+                *(
+                    [f"打开编辑器：{event['composer_url']}"]
+                    if ready_stage
+                    else []
+                ),
                 "",
             ]
+        )
+        progress = (
+            ""
+            if ready_stage
+            else (
+                f"<br>整理进度：英文摘要 {event.get('abstract_count', 0)}/"
+                f"{event['article_count']} · 中文内容 "
+                f"{event.get('translation_count', 0)}/{event['article_count']}"
+            )
+        )
+        composer_link = (
+            "　"
+            f"<a href=\"{html.escape(event['composer_url'])}\">打开微信公众号编辑器</a>"
+            if ready_stage
+            else ""
         )
         html_items.append(
             "<li style=\"margin:0 0 18px;\">"
             f"<strong>{html.escape(event['journal_name'])}</strong>"
             f"（{event_label}）<br>"
-            f"{html.escape(summary)}<br>"
+            f"{html.escape(summary)}{progress}<br>"
             f"<a href=\"{html.escape(event['directory_url'])}\">查看目录</a>"
-            "　"
-            f"<a href=\"{html.escape(event['composer_url'])}\">打开微信公众号编辑器</a>"
+            f"{composer_link}"
             "</li>"
         )
     message = EmailMessage()
@@ -215,8 +268,7 @@ def build_message(events: list[dict[str, Any]], settings: SMTPSettings) -> Email
     message["To"] = ", ".join(settings.recipients)
     message.set_content("\n".join(plain_lines))
     message.add_alternative(
-        "<p>Academic Door 已完成期刊数据采集、双语整理、质量检查和 "
-        "Composer 同步。</p><ul>"
+        f"<p>{html.escape(intro)}</p><ul>"
         + "".join(html_items)
         + "</ul>",
         subtype="html",
@@ -269,95 +321,170 @@ def synchronize(
     settings: SMTPSettings | None,
     transport: Callable[[EmailMessage, SMTPSettings], None] = send_message,
 ) -> dict[str, Any]:
+    empty_state = {
+        "schema_version": STATE_SCHEMA_VERSION,
+        "updated_at": "",
+        "known_detected": {},
+        "known_ready": {},
+        "pending_detected": {},
+        "pending_ready": {},
+        "sent_detected": {},
+        "sent_ready": {},
+    }
     state = read_json(
         state_path,
-        {
-            "schema_version": STATE_SCHEMA_VERSION,
-            "updated_at": "",
-            "known": {},
-            "pending": {},
-            "sent": {},
-        },
+        empty_state,
     )
-    if state.get("schema_version") != STATE_SCHEMA_VERSION:
+    if state.get("schema_version") == "1.1":
+        legacy_known = dict(state.get("known") or {})
+        legacy_pending = dict(state.get("pending") or {})
+        legacy_sent = dict(state.get("sent") or {})
+        for event in legacy_pending.values():
+            event["notification_stage"] = "ready"
         state = {
-            "schema_version": STATE_SCHEMA_VERSION,
-            "updated_at": "",
-            "known": {},
-            "pending": {},
-            "sent": {},
+            **empty_state,
+            "updated_at": state.get("updated_at", ""),
+            "known_detected": dict(legacy_known),
+            "known_ready": dict(legacy_known),
+            "pending_ready": legacy_pending,
+            "sent_detected": dict(legacy_sent),
+            "sent_ready": dict(legacy_sent),
         }
-    known = state.setdefault("known", {})
-    pending = state.setdefault("pending", {})
-    sent = state.setdefault("sent", {})
-    snapshots = load_current_issues(public_root)
-    first_run = not known and not pending and not sent
-
-    for journal_id, snapshot in snapshots.items():
-        previous = known.get(journal_id)
-        if first_run:
-            known[journal_id] = snapshot
-            continue
-        if previous and previous.get("fingerprint") == snapshot["fingerprint"]:
-            continue
-        event = dict(snapshot)
-        event["event_type"] = (
-            "supplement"
-            if previous and previous.get("issue_id") == snapshot["issue_id"]
-            else "new_issue"
+    elif state.get("schema_version") != STATE_SCHEMA_VERSION:
+        state = dict(empty_state)
+    known_detected = state.setdefault("known_detected", {})
+    known_ready = state.setdefault("known_ready", {})
+    pending_detected = state.setdefault("pending_detected", {})
+    pending_ready = state.setdefault("pending_ready", {})
+    sent_detected = state.setdefault("sent_detected", {})
+    sent_ready = state.setdefault("sent_ready", {})
+    detected_snapshots, ready_snapshots = load_issue_snapshots(public_root)
+    first_run = not any(
+        (
+            known_detected,
+            known_ready,
+            pending_detected,
+            pending_ready,
+            sent_detected,
+            sent_ready,
         )
-        event["detected_at"] = now_iso()
-        event["composer_ready"] = composer_status == "success"
-        pending[journal_id] = event
-        known[journal_id] = snapshot
+    )
+
+    if first_run:
+        known_detected.update(detected_snapshots)
+        known_ready.update(ready_snapshots)
+    else:
+        for journal_id, snapshot in detected_snapshots.items():
+            previous = known_detected.get(journal_id)
+            if previous and previous.get("fingerprint") == snapshot["fingerprint"]:
+                continue
+            event = dict(snapshot)
+            event["event_type"] = (
+                "supplement"
+                if previous and previous.get("issue_id") == snapshot["issue_id"]
+                else "new_issue"
+            )
+            event["notification_stage"] = "detected"
+            event["detected_at"] = now_iso()
+            pending_detected[journal_id] = event
+            known_detected[journal_id] = snapshot
+
+        for journal_id, snapshot in ready_snapshots.items():
+            previous = known_ready.get(journal_id)
+            if previous and previous.get("fingerprint") == snapshot["fingerprint"]:
+                continue
+            event = dict(snapshot)
+            event["event_type"] = (
+                "supplement"
+                if previous and previous.get("issue_id") == snapshot["issue_id"]
+                else "new_issue"
+            )
+            event["notification_stage"] = "ready"
+            event["detected_at"] = now_iso()
+            event["composer_ready"] = composer_status == "success"
+            pending_ready[journal_id] = event
+            known_ready[journal_id] = snapshot
+            pending_detection = pending_detected.get(journal_id)
+            if (
+                pending_detection
+                and pending_detection.get("fingerprint") == snapshot["fingerprint"]
+            ):
+                pending_detected.pop(journal_id, None)
 
     if composer_status == "success":
-        for event in pending.values():
+        for event in pending_ready.values():
             event["composer_ready"] = True
 
-    ready = [
+    detection_events = [
         event
-        for event in pending.values()
-        if event.get("composer_ready")
-        and sent.get(event["journal_id"], {}).get("fingerprint")
+        for event in pending_detected.values()
+        if sent_detected.get(event["journal_id"], {}).get("fingerprint")
         != event.get("fingerprint")
     ]
-    ready.sort(key=lambda item: (item.get("publication_date", ""), item["journal_id"]))
+    ready_events = [
+        event
+        for event in pending_ready.values()
+        if event.get("composer_ready")
+        and sent_ready.get(event["journal_id"], {}).get("fingerprint")
+        != event.get("fingerprint")
+    ]
+    detection_events.sort(
+        key=lambda item: (item.get("publication_date", ""), item["journal_id"])
+    )
+    ready_events.sort(
+        key=lambda item: (item.get("publication_date", ""), item["journal_id"])
+    )
+    deliverable = detection_events + ready_events
     outcome: dict[str, Any] = {
         "status": "idle",
-        "queued": len(pending),
+        "queued": len(pending_detected) + len(pending_ready),
         "sent": 0,
         "journals": [],
+        "messages": 0,
     }
 
     if first_run:
         outcome["status"] = "seeded"
-    elif ready and settings is None:
+    elif deliverable and settings is None:
         outcome["status"] = "unconfigured"
-    elif ready:
+    elif deliverable:
         try:
-            transport(build_message(ready, settings), settings)
+            if detection_events:
+                transport(build_message(detection_events, settings), settings)
+            if ready_events:
+                transport(build_message(ready_events, settings), settings)
         except Exception as error:  # SMTP libraries expose many provider errors.
             outcome["status"] = "failure"
             outcome["error_type"] = type(error).__name__
         else:
             sent_at = now_iso()
-            for event in ready:
-                sent[event["journal_id"]] = {
+            for event in detection_events:
+                sent_detected[event["journal_id"]] = {
                     "issue_id": event["issue_id"],
                     "fingerprint": event["fingerprint"],
                     "sent_at": sent_at,
                 }
-                pending.pop(event["journal_id"], None)
+                pending_detected.pop(event["journal_id"], None)
+            for event in ready_events:
+                sent_ready[event["journal_id"]] = {
+                    "issue_id": event["issue_id"],
+                    "fingerprint": event["fingerprint"],
+                    "sent_at": sent_at,
+                }
+                pending_ready.pop(event["journal_id"], None)
             outcome.update(
                 {
                     "status": "sent",
-                    "queued": len(pending),
-                    "sent": len(ready),
-                    "journals": [event["journal_id"] for event in ready],
+                    "queued": len(pending_detected) + len(pending_ready),
+                    "sent": len(deliverable),
+                    "journals": sorted(
+                        {event["journal_id"] for event in deliverable}
+                    ),
+                    "messages": int(bool(detection_events))
+                    + int(bool(ready_events)),
                 }
             )
-    elif pending:
+    elif pending_detected or pending_ready:
         outcome["status"] = "waiting_for_composer"
 
     state["updated_at"] = now_iso()

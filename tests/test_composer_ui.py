@@ -138,10 +138,17 @@ class ComposerUiTest(unittest.TestCase):
         )
         self.assertIn("fetchIssueHistory", self.page)
         self.assertIn("historyCache", self.page)
-        self.assertIn("issue.issue_id !== journal.latest_issue_id", self.page)
-        self.assertIn("latest.concat(archived)", self.page)
+        self.assertIn("!excludedIds.has(issue.issue_id)", self.page)
+        self.assertIn("ready.concat(detected, archived)", self.page)
+        self.assertIn("latest_detected_issue_url", self.page)
         self.assertIn('requestedParams.get("issue")', self.page)
         self.assertIn("option.dataset.issueId === requestedIssue", self.page)
+
+    def test_composer_blocks_export_until_detected_issue_is_ready(self):
+        self.assertIn('id="publication-readiness"', self.page)
+        self.assertIn("const issueReadiness", self.page)
+        self.assertIn("publishingButtons.forEach", self.page)
+        self.assertIn("button.disabled = true", self.page)
 
     def test_composer_selection_and_order_are_persisted(self):
         self.assertIn('id="select-china"', self.page)

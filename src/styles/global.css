@@ -409,6 +409,21 @@ main,
   border-radius: 9px;
   font-weight: 800;
 }
+.composer-readiness {
+  margin: -10px 0 18px;
+  padding: 11px 14px;
+  color: #7a4a00;
+  background: #fff7e6;
+  border: 1px solid #eed39a;
+  border-radius: 10px;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+.composer-readiness[hidden] { display: none; }
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
 .composer-toolbar #journal-select { width: 180px; min-width: 0; }
 .composer-toolbar #issue-select { width: 180px; min-width: 0; }
 .composer-toolbar #theme-select { width: 200px; min-width: 0; }

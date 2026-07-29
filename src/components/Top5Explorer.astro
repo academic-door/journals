@@ -11,6 +11,7 @@ interface Props {
 interface JournalSummary {
   journal_id: string;
   latest_issue_url?: string;
+  latest_detected_issue_url?: string;
   [key: string]: unknown;
 }
 
@@ -28,13 +29,15 @@ const initialCollection = JSON.parse(
   readFileSync(new URL(`collections/${collectionId}.json`, publicApi), "utf8"),
 ) as { journals: JournalSummary[]; [key: string]: unknown };
 const initialJournal = initialCollection.journals.find(
-  (journal) => journal.latest_issue_url,
+  (journal) => journal.latest_detected_issue_url || journal.latest_issue_url,
 );
 const initialIssue = initialJournal
   ? JSON.parse(
       readFileSync(
         new URL(
-          `journals/${initialJournal.journal_id}/issues/current.json`,
+          `journals/${initialJournal.journal_id}/issues/${
+            initialJournal.latest_detected_issue_url ? "detected" : "current"
+          }.json`,
           publicApi,
         ),
         "utf8",
@@ -105,8 +108,10 @@ const initialIssue = initialJournal
 <section id="article-list" class="article-list" aria-live="polite"></section>
 
 <script is:inline define:vars={{ base, collectionId, initialCollection, initialIssue }}>
+  const displayIssueUrl = (journal) =>
+    journal?.latest_detected_issue_url || journal?.latest_issue_url || "";
   const initialJournal = initialCollection.journals.find(
-    (journal) => journal.latest_issue_url
+    (journal) => displayIssueUrl(journal)
   );
   const state = {
     collection: initialCollection,
@@ -118,7 +123,7 @@ const initialIssue = initialJournal
     field: "all",
     issueCache: new Map(
       initialJournal && initialIssue
-        ? [[initialJournal.latest_issue_url, Promise.resolve(initialIssue)]]
+        ? [[displayIssueUrl(initialJournal), Promise.resolve(initialIssue)]]
         : []
     ),
     issueIndexCache: new Map(),
@@ -164,7 +169,7 @@ const initialIssue = initialJournal
     return state.issueCache.get(url);
   };
 
-  const fetchIssue = (journal) => fetchIssueUrl(journal.latest_issue_url);
+  const fetchIssue = (journal) => fetchIssueUrl(displayIssueUrl(journal));
 
   const fetchIssueIndex = (journal) => {
     const url = `${base}api/v1/journals/${encodeURIComponent(journal.journal_id)}/issues/index.json`;
@@ -178,7 +183,7 @@ const initialIssue = initialJournal
   };
 
   const enabledJournals = () =>
-    (state.collection?.journals || []).filter((journal) => journal.latest_issue_url);
+    (state.collection?.journals || []).filter((journal) => displayIssueUrl(journal));
 
   const visibleJournals = () =>
     (state.collection?.journals || []).filter(
@@ -194,7 +199,7 @@ const initialIssue = initialJournal
         <option
           value="${escapeHtml(journal.journal_id)}"
           ${journal.journal_id === state.activeJournal?.journal_id ? "selected" : ""}
-          ${journal.latest_issue_url ? "" : "disabled"}
+          ${displayIssueUrl(journal) ? "" : "disabled"}
         >${escapeHtml(journal.short_name)} · ${escapeHtml(journal.name_cn || journal.name)}</option>
       `).join("");
       select.onchange = () => {
@@ -207,7 +212,7 @@ const initialIssue = initialJournal
     }
     if (!tabs) return;
     tabs.innerHTML = visibleJournals().map((journal) => {
-      const enabled = Boolean(journal.latest_issue_url);
+      const enabled = Boolean(displayIssueUrl(journal));
       const active = journal.journal_id === state.activeJournal?.journal_id;
       return `
         <button
@@ -248,8 +253,11 @@ const initialIssue = initialJournal
 
     const issue = state.issue;
     const quality = issue.quality || {};
+    const abstracts = quality.abstract_en_complete || 0;
     const translated = quality.translation_complete || 0;
     const total = issue.research_article_count || issue.articles.length;
+    const ready = issue.publication_state === "ready"
+      || (abstracts === total && translated === total);
     const publicationDate = formatDate(issue.publication_date);
     composerLink.href = `${base}composer/?journal=${encodeURIComponent(issue.journal_id)}&issue=${encodeURIComponent(issue.issue_id)}`;
 
@@ -264,10 +272,10 @@ const initialIssue = initialJournal
         </p>
       </div>
       <div class="issue-note-stack">
-        <div class="issue-note ${translated === total ? "complete" : ""}">
-          ${translated === total
+        <div class="issue-note ${ready ? "complete" : ""}">
+          ${ready
             ? "中英文内容已整理完成"
-            : `中文摘要整理中 · ${translated}/${total}`}
+            : `最新卷期已收录 · 摘要整理中 ${translated}/${total}`}
         </div>
         <div class="issue-note">中国相关：${issue.articles.filter((article) => chinaRelevance(article).status === "yes").length} 篇</div>
       </div>`;
@@ -294,39 +302,51 @@ const initialIssue = initialJournal
       return;
     }
 
-    list.innerHTML = articles.map((article) => `
+    list.innerHTML = articles.map((article) => {
+      const englishAbstract = article.abstract_en
+        ? `<section class="abstract-panel abstract-en" aria-label="英文摘要">
+            <p class="abstract-label">Abstract</p>
+            <p>${escapeHtml(article.abstract_en)}</p>
+          </section>`
+        : article.article_type === "comment"
+          ? `<section class="abstract-panel abstract-en" aria-label="英文摘要">
+              <p class="abstract-label">Abstract</p>
+              <p>This comment has no standalone abstract.</p>
+            </section>`
+          : "";
+      const chineseAbstract = article.abstract_cn
+        ? `<section class="abstract-panel abstract-cn" aria-label="中文摘要">
+            <p class="abstract-label">摘要</p>
+            <p>${escapeHtml(article.abstract_cn)}</p>
+          </section>`
+        : article.article_type === "comment"
+          ? `<section class="abstract-panel abstract-cn" aria-label="中文摘要">
+              <p class="abstract-label">摘要</p>
+              <p>该评论未提供独立摘要。</p>
+            </section>`
+          : "";
+      const abstractGrid = englishAbstract || chineseAbstract
+        ? `<div class="abstract-grid">${englishAbstract}${chineseAbstract}</div>`
+        : "";
+      return `
       <article class="paper-entry">
         <header class="paper-header">
           <div class="paper-number">${String(article.sequence).padStart(2, "0")}</div>
           <div class="paper-content">
             <h3>${escapeHtml(article.title_cn || article.title_en)}</h3>
-            <p class="paper-title-en">${escapeHtml(article.title_en)}</p>
+            ${article.title_cn ? `<p class="paper-title-en">${escapeHtml(article.title_en)}</p>` : ""}
             <p class="paper-authors">${escapeHtml(article.authors.join(", "))}</p>
           </div>
         </header>
-        <div class="abstract-grid">
-          <section class="abstract-panel abstract-en" aria-label="英文摘要">
-            <p class="abstract-label">Abstract</p>
-            <p>${escapeHtml(article.abstract_en || (article.article_type === "comment"
-              ? "This comment has no standalone abstract."
-              : "English abstract pending."))}</p>
-          </section>
-          <section class="abstract-panel abstract-cn" aria-label="中文摘要">
-            <p class="abstract-label">摘要</p>
-            ${article.abstract_cn
-              ? `<p>${escapeHtml(article.abstract_cn)}</p>`
-              : article.article_type === "comment"
-                ? '<p>该评论未提供独立摘要。</p>'
-                : '<p class="translation-pending">中文摘要正在整理。</p>'}
-          </section>
-        </div>
+        ${abstractGrid}
         <footer class="paper-meta">
           ${article.doi ? `<span>DOI ${escapeHtml(article.doi)}</span>` : ""}
           <a href="${escapeHtml(article.source_url)}" target="_blank" rel="noreferrer">
             查看期刊原文
           </a>
         </footer>
-      </article>`).join("");
+      </article>`;
+    }).join("");
   };
 
   const renderIssueHistory = () => {
@@ -334,25 +354,41 @@ const initialIssue = initialJournal
     if (!select || !state.activeJournal) return;
     const index = state.issueIndex;
     const entries = index?.issues || [];
-    const currentId = state.activeJournal.latest_issue_id;
+    const detectedId = state.activeJournal.latest_detected_issue_id
+      || state.activeJournal.latest_issue_id;
+    const readyId = state.activeJournal.latest_ready_issue_id
+      || state.activeJournal.latest_issue_id;
     const options = [
       {
-        issue_id: currentId,
-        issue_label: state.activeJournal.latest_issue_label || "最新卷期",
+        issue_id: detectedId,
+        issue_label: state.activeJournal.latest_detected_issue_label
+          || state.activeJournal.latest_issue_label
+          || "最新卷期",
+        publication_date: state.activeJournal.latest_detected_publication_date
+          || state.activeJournal.publication_date
+          || "",
+        url: displayIssueUrl(state.activeJournal),
+        latest: true,
+        ready: detectedId === readyId,
+      },
+      ...(readyId && readyId !== detectedId && state.activeJournal.latest_issue_url ? [{
+        issue_id: readyId,
+        issue_label: state.activeJournal.latest_issue_label || "最近可发布卷期",
         publication_date: state.activeJournal.publication_date || "",
         url: state.activeJournal.latest_issue_url,
-        latest: true,
-      },
+        latest: false,
+        ready: true,
+      }] : []),
       ...entries
-        .filter((entry) => entry.issue_id !== currentId)
-        .map((entry) => ({ ...entry, latest: false })),
+        .filter((entry) => entry.issue_id !== detectedId && entry.issue_id !== readyId)
+        .map((entry) => ({ ...entry, latest: false, ready: true })),
     ];
     select.innerHTML = options.map((entry) => `
       <option
         value="${escapeHtml(entry.url)}"
         ${entry.issue_id === state.issue?.issue_id ? "selected" : ""}
       >
-        ${entry.latest ? "最新 · " : ""}${escapeHtml(entry.issue_label)}
+        ${entry.latest ? "最新 · " : entry.ready ? "可发布 · " : ""}${escapeHtml(entry.issue_label)}
         ${entry.publication_date ? ` · ${escapeHtml(formatDate(entry.publication_date))}` : ""}
       </option>
     `).join("");
@@ -424,7 +460,7 @@ const initialIssue = initialJournal
   const fieldFilter = document.querySelector("#field-filter");
   fieldFilter?.addEventListener("change", async (event) => {
     state.field = event.target.value;
-    const journals = visibleJournals().filter((journal) => journal.latest_issue_url);
+    const journals = visibleJournals().filter((journal) => displayIssueUrl(journal));
     if (!journals.length) {
       state.activeJournal = null;
       renderTabs();

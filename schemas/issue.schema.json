@@ -33,6 +33,9 @@
     "status": {
       "enum": ["detected", "incomplete", "ready", "error"]
     },
+    "publication_state": {
+      "enum": ["enriching", "ready"]
+    },
     "development_sample": { "type": "boolean" },
     "articles": {
       "type": "array",
@@ -96,6 +99,7 @@
         },
         "abstract_en": { "type": "string" },
         "abstract_cn": { "type": "string" },
+        "abstract_snippet_en": { "type": "string" },
         "doi": { "type": "string" },
         "source_url": { "type": "string", "format": "uri" },
         "publication_date": { "type": "string" },

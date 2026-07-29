@@ -17,8 +17,17 @@ from scripts.email_notifications import (
 )
 
 
-def write_issue(root: Path, journal: str, issue_id: str, papers: list[str]) -> None:
-    path = root / journal / "issues" / "current.json"
+def write_issue(
+    root: Path,
+    journal: str,
+    issue_id: str,
+    papers: list[str],
+    *,
+    filename: str = "current.json",
+    abstracts: int | None = None,
+    translations: int | None = None,
+) -> None:
+    path = root / journal / "issues" / filename
     path.parent.mkdir(parents=True, exist_ok=True)
     issue = {
         "status": "ready",
@@ -29,6 +38,14 @@ def write_issue(root: Path, journal: str, issue_id: str, papers: list[str]) -> N
         "issue": "8",
         "publication_date": "August 2026",
         "research_article_count": len(papers),
+        "quality": {
+            "abstract_en_complete": (
+                len(papers) if abstracts is None else abstracts
+            ),
+            "translation_complete": (
+                len(papers) if translations is None else translations
+            ),
+        },
         "articles": [
             {
                 "paper_id": paper,
@@ -109,7 +126,7 @@ class EmailNotificationTests(unittest.TestCase):
             )
             saved = json.loads(state.read_text(encoding="utf-8"))
             self.assertEqual("seeded", outcome["status"])
-            self.assertIn("jde", saved["known"])
+            self.assertIn("jde", saved["known_ready"])
 
     def test_old_partial_baseline_is_reseeded_without_bulk_email(self):
         with tempfile.TemporaryDirectory() as temporary:
@@ -140,8 +157,56 @@ class EmailNotificationTests(unittest.TestCase):
             saved = json.loads(state.read_text(encoding="utf-8"))
             self.assertEqual("seeded", outcome["status"])
             self.assertEqual([], messages)
-            self.assertEqual({"aer", "jde"}, set(saved["known"]))
-            self.assertEqual("1.1", saved["schema_version"])
+            self.assertEqual({"aer", "jde"}, set(saved["known_ready"]))
+            self.assertEqual("1.2", saved["schema_version"])
+
+    def test_version_11_state_migrates_without_losing_next_detection(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            public = root / "public"
+            state = root / "state.json"
+            write_issue(public, "aer", "aer-116-7", ["doi:10.1/old"])
+            old_issue = json.loads(
+                (public / "aer" / "issues" / "current.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            from scripts.email_notifications import _journal_collections, issue_snapshot
+
+            old_snapshot = issue_snapshot(old_issue, _journal_collections())
+            state.write_text(
+                json.dumps(
+                    {
+                        "schema_version": "1.1",
+                        "known": {"aer": old_snapshot},
+                        "pending": {},
+                        "sent": {},
+                    }
+                ),
+                encoding="utf-8",
+            )
+            write_issue(
+                public,
+                "aer",
+                "aer-116-8",
+                ["doi:10.1/new"],
+                filename="detected.json",
+                abstracts=0,
+                translations=0,
+            )
+            messages = []
+            outcome = synchronize(
+                public_root=public,
+                state_path=state,
+                composer_status="skipped",
+                settings=settings(),
+                transport=lambda message, smtp: messages.append(message),
+            )
+            self.assertEqual("sent", outcome["status"])
+            self.assertIn("发现新卷期", str(messages[0]["Subject"]))
+            saved = json.loads(state.read_text(encoding="utf-8"))
+            self.assertEqual("1.2", saved["schema_version"])
+            self.assertEqual("aer-116-8", saved["known_detected"]["aer"]["issue_id"])
 
     def test_workflows_reuse_the_published_data_worktree_for_email_state(self):
         root = Path(__file__).resolve().parents[1]
@@ -178,7 +243,7 @@ class EmailNotificationTests(unittest.TestCase):
             )
             self.assertEqual("seeded", outcome["status"])
             self.assertEqual([], sent)
-            self.assertIn("aer", json.loads(state.read_text())["known"])
+            self.assertIn("aer", json.loads(state.read_text())["known_ready"])
 
     def test_new_issue_waits_for_composer_then_sends_once(self):
         with tempfile.TemporaryDirectory() as temporary:
@@ -273,7 +338,7 @@ class EmailNotificationTests(unittest.TestCase):
                 settings=None,
             )
             self.assertEqual("unconfigured", outcome["status"])
-            self.assertIn("aer", json.loads(state.read_text())["pending"])
+            self.assertIn("aer", json.loads(state.read_text())["pending_ready"])
 
     def test_failure_does_not_print_or_store_credentials(self):
         with tempfile.TemporaryDirectory() as temporary:
@@ -300,7 +365,14 @@ class EmailNotificationTests(unittest.TestCase):
                 transport=fail,
             )
             self.assertEqual(
-                {"status", "queued", "sent", "journals", "error_type"},
+                {
+                    "status",
+                    "queued",
+                    "sent",
+                    "journals",
+                    "messages",
+                    "error_type",
+                },
                 set(outcome),
             )
             self.assertNotIn("password", state.read_text())
@@ -366,6 +438,112 @@ class EmailNotificationTests(unittest.TestCase):
         body = message.get_body().get_content()
         self.assertIn("Journal One", body)
         self.assertIn("Journal Two", body)
+
+    def test_detected_then_ready_sends_two_distinct_notifications(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            public = root / "public"
+            state = root / "state.json"
+            write_issue(public, "aer", "aer-116-7", ["doi:10.1/old"])
+            write_issue(
+                public,
+                "aer",
+                "aer-116-7",
+                ["doi:10.1/old"],
+                filename="detected.json",
+            )
+            synchronize(
+                public_root=public,
+                state_path=state,
+                composer_status="success",
+                settings=None,
+            )
+
+            write_issue(
+                public,
+                "aer",
+                "aer-116-8",
+                ["doi:10.1/new-one", "doi:10.1/new-two"],
+                filename="detected.json",
+                abstracts=1,
+                translations=0,
+            )
+            messages = []
+            detected = synchronize(
+                public_root=public,
+                state_path=state,
+                composer_status="skipped",
+                settings=settings(),
+                transport=lambda message, smtp: messages.append(message),
+            )
+            self.assertEqual("sent", detected["status"])
+            self.assertEqual(1, detected["messages"])
+            self.assertIn("发现新卷期", str(messages[0]["Subject"]))
+            detected_body = messages[0].get_body().get_content()
+            self.assertIn("英文摘要 1/2", detected_body)
+            self.assertNotIn("打开微信公众号编辑器", detected_body)
+
+            write_issue(
+                public,
+                "aer",
+                "aer-116-8",
+                ["doi:10.1/new-one", "doi:10.1/new-two"],
+            )
+            write_issue(
+                public,
+                "aer",
+                "aer-116-8",
+                ["doi:10.1/new-one", "doi:10.1/new-two"],
+                filename="detected.json",
+            )
+            ready = synchronize(
+                public_root=public,
+                state_path=state,
+                composer_status="success",
+                settings=settings(),
+                transport=lambda message, smtp: messages.append(message),
+            )
+            self.assertEqual("sent", ready["status"])
+            self.assertEqual(1, ready["messages"])
+            self.assertEqual(2, len(messages))
+            self.assertIn("新卷期已就绪", str(messages[1]["Subject"]))
+            self.assertIn(
+                "打开微信公众号编辑器",
+                messages[1].get_body().get_content(),
+            )
+
+    def test_same_run_complete_issue_only_sends_ready_notification(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            public = root / "public"
+            state = root / "state.json"
+            write_issue(public, "aer", "aer-116-7", ["doi:10.1/old"])
+            synchronize(
+                public_root=public,
+                state_path=state,
+                composer_status="success",
+                settings=None,
+            )
+            write_issue(public, "aer", "aer-116-8", ["doi:10.1/new"])
+            write_issue(
+                public,
+                "aer",
+                "aer-116-8",
+                ["doi:10.1/new"],
+                filename="detected.json",
+            )
+            messages = []
+            outcome = synchronize(
+                public_root=public,
+                state_path=state,
+                composer_status="success",
+                settings=settings(),
+                transport=lambda message, smtp: messages.append(message),
+            )
+            self.assertEqual("sent", outcome["status"])
+            self.assertEqual(1, outcome["messages"])
+            self.assertEqual(1, len(messages))
+            self.assertIn("新卷期已就绪", str(messages[0]["Subject"]))
 
 
 if __name__ == "__main__":
