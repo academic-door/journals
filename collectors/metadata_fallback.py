@@ -1099,7 +1099,7 @@ def fetch_sciencedirect_rss_issue(
     timeout: int = 60,
     today: date | None = None,
 ) -> dict[str, Any] | None:
-    """Build a newer Elsevier issue from the official ScienceDirect RSS roster."""
+    """Build the latest eligible Elsevier issue from the official RSS roster."""
 
     client = session or _session()
     content = _get_content(

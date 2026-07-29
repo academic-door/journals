@@ -6,7 +6,8 @@ import re
 import time
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
-from datetime import datetime, timezone
+from calendar import monthrange
+from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any
 from urllib.parse import urljoin
@@ -279,6 +280,30 @@ def _crossref_issue_date(
     return datetime(int(year), month, 1).strftime("%B %Y")
 
 
+def _publication_date_within_horizon(
+    publication_date: str,
+    *,
+    lead_months: int,
+    today: date | None = None,
+) -> bool:
+    """Reject known future issues while allowing imprecise year-only metadata."""
+
+    try:
+        publication = datetime.strptime(publication_date, "%B %Y").date()
+    except ValueError:
+        return True
+    current = today or datetime.now(timezone.utc).date()
+    offset = current.month - 1 + max(0, lead_months)
+    horizon_year = current.year + offset // 12
+    horizon_month = offset % 12 + 1
+    horizon = date(
+        horizon_year,
+        horizon_month,
+        monthrange(horizon_year, horizon_month)[1],
+    )
+    return publication <= horizon
+
+
 def fetch_current_issue(
     *,
     journal_id: str,
@@ -315,7 +340,6 @@ def fetch_current_issue(
                 rss_url=rss_url,
                 repec_series_code=series_match.group(1) if series_match else "",
                 lead_months=publication_lead_months,
-                newer_than_volume=volume,
                 session=session,
             )
             if rss_issue is not None:
@@ -324,6 +348,20 @@ def fetch_current_issue(
             # RePEc remains the last-known-good transport when the optional
             # publisher RSS or enrichment APIs are temporarily unavailable.
             pass
+    publication_date = _crossref_issue_date(
+        session,
+        issn,
+        volume,
+        inventory["year"],
+    )
+    if not _publication_date_within_horizon(
+        publication_date,
+        lead_months=publication_lead_months,
+    ):
+        raise ElsevierCollectorError(
+            "RePEc candidate is outside the configured publication horizon: "
+            f"Vol. {volume} ({publication_date})"
+        )
     official_issue_url = issue_url_template.format(
         volume=volume,
         issue=issue_number,
@@ -459,7 +497,7 @@ def fetch_current_issue(
         "volume": volume,
         "issue": issue_number,
         "issue_label": f"Vol. {volume}",
-        "publication_date": _crossref_issue_date(session, issn, volume, inventory["year"]),
+        "publication_date": publication_date,
         "source_url": official_issue_url,
         "retrieved_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         "expected_article_count": count,
