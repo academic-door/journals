@@ -113,6 +113,19 @@ def collector_for_issue(
 
         return lambda: fetch_current_issue(journal_config["id"], issue_url)
     if collector == "wiley":
+        if isinstance(issue_ref, HistoricalIssue) and journal_config.get(
+            "repec_series_code"
+        ):
+            from collectors.metadata_fallback import fetch_repec_history_issue
+
+            return lambda: fetch_repec_history_issue(
+                journal_id=journal_config["id"],
+                journal_name=journal_config["name"],
+                issn=str(journal_config["issn"]),
+                volume=issue_ref.volume,
+                issue=issue_ref.issue,
+                repec_series_code=journal_config["repec_series_code"],
+            )
         from collectors.wiley import fetch_current_issue
 
         return lambda: fetch_current_issue(

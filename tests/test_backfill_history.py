@@ -42,6 +42,37 @@ class BackfillHistoryTests(unittest.TestCase):
         issue = HistoricalIssue("QJE", 2025, "140", "2", "https://academic.oup.com/qje/issue/140/2")
         self.assertEqual("qje-140-2", issue.issue_id)
 
+    def test_wiley_history_uses_publisher_supplied_repec_roster(self) -> None:
+        config = {
+            "id": "ecta",
+            "name": "Econometrica",
+            "collector": "wiley",
+            "issn": "0012-9682",
+            "repec_series_code": "wly/emetrp",
+        }
+        issue = HistoricalIssue(
+            "ECTA",
+            2025,
+            "93",
+            "1",
+            "https://onlinelibrary.wiley.com/toc/14680262/2025/93/1",
+        )
+        with patch(
+            "collectors.metadata_fallback.fetch_repec_history_issue",
+            return_value={"issue_id": "ecta-93-1"},
+        ) as fetch:
+            result = collector_for_issue(config, issue)()
+
+        self.assertEqual("ecta-93-1", result["issue_id"])
+        fetch.assert_called_once_with(
+            journal_id="ecta",
+            journal_name="Econometrica",
+            issn="0012-9682",
+            volume="93",
+            issue="1",
+            repec_series_code="wly/emetrp",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
