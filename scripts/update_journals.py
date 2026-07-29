@@ -263,6 +263,48 @@ def public_issue_path(journal_id: str) -> Path:
     return PUBLIC_API / "journals" / journal_id / "issues" / "current.json"
 
 
+def detected_issue_path(journal_id: str) -> Path:
+    return PUBLIC_API / "journals" / journal_id / "issues" / "detected.json"
+
+
+def is_detected_snapshot(issue: dict[str, Any]) -> bool:
+    """Accept a confirmed issue roster even while abstracts are enriching."""
+
+    article_count = len(issue.get("articles", []))
+    research_count = int(issue.get("research_article_count", 0))
+    quality = issue.get("quality", {})
+    return (
+        research_count > 0
+        and article_count == research_count
+        and int(issue.get("expected_article_count", 0)) == research_count
+        and bool(quality.get("roster_match"))
+        and bool(quality.get("order_preserved"))
+        and int(quality.get("doi_complete", 0)) == research_count
+        and int(quality.get("authors_complete", 0)) == research_count
+        and int(quality.get("duplicate_count", 0)) == 0
+        and not any(
+            str(flag).startswith("collector_error:")
+            for flag in quality.get("flags", [])
+        )
+    )
+
+
+def write_detected_snapshot(issue: dict[str, Any]) -> Path:
+    """Publish the newest trustworthy roster without declaring it ready."""
+
+    if not is_detected_snapshot(issue):
+        raise ValueError("detected issue failed the roster quality gate")
+    issue["publication_state"] = (
+        "ready" if is_archivable_snapshot(issue) else "enriching"
+    )
+    target = detected_issue_path(str(issue["journal_id"]))
+    write_json(target, issue)
+    readback = read_json(target)
+    if readback is None or readback.get("issue_id") != issue.get("issue_id"):
+        raise RuntimeError("detected issue write-back verification failed")
+    return target
+
+
 def is_archivable_snapshot(issue: dict[str, Any]) -> bool:
     quality = issue.get("quality", {})
     count = int(issue.get("research_article_count", 0))
@@ -306,7 +348,7 @@ def archived_issues(
     folder = api_root / "journals" / journal_id / "issues"
     issues: list[dict[str, Any]] = []
     for path in folder.glob("*.json"):
-        if path.name in {"current.json", "index.json"}:
+        if path.name in {"current.json", "detected.json", "index.json"}:
             continue
         payload = read_json(path)
         if payload and payload.get("journal_id") == journal_id:
@@ -568,6 +610,10 @@ def collect_one(
                 f"still returns issue {issue.get('issue', '')}"
             )
         issue = apply_translation_cache(issue)
+        issue = normalize_issue_content(issue)
+        validate_issue(issue)
+        if is_detected_snapshot(issue):
+            write_detected_snapshot(issue)
         translation_report: dict[str, Any] | None = None
         if translate:
             translation_report = translate_missing(
@@ -577,6 +623,8 @@ def collect_one(
             issue = apply_translation_cache(issue)
         issue = normalize_issue_content(issue)
         validate_issue(issue)
+        if is_detected_snapshot(issue):
+            write_detected_snapshot(issue)
         if not is_publishable_snapshot(issue):
             raise ValueError(
                 "collector result failed the publication gate: "
@@ -591,7 +639,9 @@ def collect_one(
             )
         if previous and previous.get("issue_id") != issue.get("issue_id"):
             archive_issue(previous)
+        issue["publication_state"] = "ready"
         write_json(target, issue)
+        write_detected_snapshot(issue)
         readback = read_json(target)
         if readback is None or readback.get("issue_id") != issue["issue_id"]:
             raise RuntimeError("public issue write-back verification failed")
@@ -678,6 +728,40 @@ def update_indexes(
             "collections": config.get("collections", []),
             "status": "unavailable",
         }
+        detected = read_json(detected_issue_path(config["id"]))
+        if detected and is_detected_snapshot(detected):
+            detected_total = int(detected.get("research_article_count", 0))
+            detected_abstracts = int(
+                detected.get("quality", {}).get("abstract_en_complete", 0)
+            )
+            detected_translations = int(
+                detected.get("quality", {}).get("translation_complete", 0)
+            )
+            entry.update(
+                {
+                    "latest_detected_issue_id": detected.get("issue_id", ""),
+                    "latest_detected_issue_url": (
+                        f"/journals/api/v1/journals/{config['id']}"
+                        "/issues/detected.json"
+                    ),
+                    "latest_detected_issue_label": detected.get("issue_label")
+                    or (
+                        f"Vol. {detected.get('volume', '')}"
+                        f" · No. {detected.get('issue', '')}"
+                    ),
+                    "latest_detected_publication_date": detected.get(
+                        "publication_date", ""
+                    ),
+                    "latest_detected_article_count": detected_total,
+                    "latest_detected_abstracts_complete": detected_abstracts,
+                    "latest_detected_translations_complete": detected_translations,
+                    "update_state": (
+                        "ready"
+                        if detected.get("publication_state") == "ready"
+                        else "enriching"
+                    ),
+                }
+            )
         if issue and is_publishable_snapshot(issue):
             usable_count += 1
             translated = issue["quality"]["translation_complete"]
@@ -694,7 +778,12 @@ def update_indexes(
                         "complete" if translated == total else "translation_incomplete"
                     ),
                     "latest_issue_id": issue["issue_id"],
+                    "latest_ready_issue_id": issue["issue_id"],
                     "latest_issue_url": (
+                        f"/journals/api/v1/journals/{config['id']}"
+                        "/issues/current.json"
+                    ),
+                    "latest_ready_issue_url": (
                         f"/journals/api/v1/journals/{config['id']}"
                         "/issues/current.json"
                     ),
@@ -706,6 +795,23 @@ def update_indexes(
                     "order_verification": order_verification_status(issue),
                 }
             )
+            if not entry.get("latest_detected_issue_url"):
+                entry.update(
+                    {
+                        "latest_detected_issue_id": issue["issue_id"],
+                        "latest_detected_issue_url": entry["latest_issue_url"],
+                        "latest_detected_issue_label": entry["latest_issue_label"],
+                        "latest_detected_publication_date": issue.get(
+                            "publication_date", ""
+                        ),
+                        "latest_detected_article_count": total,
+                        "latest_detected_abstracts_complete": int(
+                            issue["quality"].get("abstract_en_complete", 0)
+                        ),
+                        "latest_detected_translations_complete": translated,
+                        "update_state": "ready",
+                    }
+                )
             checks[f"{config['id']}_roster_match"] = issue["quality"]["roster_match"]
             checks[f"{config['id']}_order_preserved"] = issue["quality"]["order_preserved"]
             checks[f"{config['id']}_primary_transport"] = not bool(

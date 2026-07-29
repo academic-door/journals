@@ -7,6 +7,7 @@ from unittest.mock import patch
 from collectors.metadata_fallback import (
     MetadataFallbackError,
     _elsevier_abstract,
+    _elsevier_lookup,
     _sciencedirect_rss_groups,
     fetch_crossref_current_issue,
     fetch_repec_history_issue,
@@ -29,12 +30,14 @@ def item(title: str, page: str, doi: str, abstract: str = "A complete abstract."
 
 
 class Response:
-    def __init__(self, payload: dict, content: bytes = b""):
+    def __init__(self, payload: dict, content: bytes = b"", status_code: int = 200):
         self.payload = payload
         self.content = content
+        self.status_code = status_code
 
     def raise_for_status(self) -> None:
-        return None
+        if self.status_code >= 400:
+            raise RuntimeError(f"HTTP {self.status_code}")
 
     def json(self) -> dict:
         return self.payload
@@ -72,7 +75,7 @@ class ElsevierScopusFallbackSession:
 
     def get(self, url: str, **kwargs) -> Response:
         self.calls.append(url)
-        if "/content/article/pii/" in url:
+        if "/content/metadata/article" in url or "/content/search/sciencedirect" in url:
             return Response({}, b"<response><coredata /></response>")
         return Response(
             {},
@@ -84,6 +87,46 @@ class ElsevierScopusFallbackSession:
             </response>
             """,
         )
+
+
+class ElsevierSearchLinkSession:
+    def __init__(self) -> None:
+        self.calls: list[tuple[str, dict]] = []
+
+    def get(self, url: str, **kwargs) -> Response:
+        self.calls.append((url, kwargs))
+        if "/content/metadata/article" in url:
+            return Response({}, b"<response><coredata /></response>")
+        if "/content/search/sciencedirect" in url:
+            return Response(
+                {},
+                b"""
+                <response xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/">
+                  <entry>
+                    <prism:teaser>Only a teaser, not the full abstract.</prism:teaser>
+                    <link ref="abstract"
+                      href="http://api.elsevier.com/content/abstract/eid/2-s2.0-123" />
+                  </entry>
+                </response>
+                """,
+            )
+        if "/content/abstract/eid/" in url:
+            return Response(
+                {},
+                b"""
+                <response xmlns:dc="http://purl.org/dc/elements/1.1/">
+                  <coredata>
+                    <dc:description>Full abstract from the returned link.</dc:description>
+                  </coredata>
+                </response>
+                """,
+            )
+        return Response({}, b"<response><coredata /></response>")
+
+
+class ElsevierDeniedSession:
+    def get(self, url: str, **kwargs) -> Response:
+        return Response({}, b"", status_code=403)
 
 
 class RepecHistorySession:
@@ -196,9 +239,16 @@ class MetadataFallbackTests(unittest.TestCase):
                 timeout=10,
             )
         self.assertEqual("A publisher supplied abstract.", abstract)
-        self.assertTrue(source_url.endswith("/S0014292126001194"))
+        self.assertEqual(
+            "https://api.elsevier.com/content/metadata/article",
+            source_url,
+        )
         self.assertEqual("test-secret", session.calls[0][1]["headers"]["X-ELS-APIKey"])
         self.assertNotIn("test-secret", source_url)
+        self.assertEqual(
+            'PII("S0014292126001194")',
+            session.calls[0][1]["params"]["query"],
+        )
 
     def test_elsevier_abstract_falls_back_to_scopus_retrieval(self) -> None:
         session = ElsevierScopusFallbackSession()
@@ -214,7 +264,56 @@ class MetadataFallbackTests(unittest.TestCase):
             )
         self.assertEqual("Abstract retrieved from Scopus.", abstract)
         self.assertIn("/content/abstract/pii/", source_url)
-        self.assertEqual(2, len(session.calls))
+        self.assertEqual(3, len(session.calls))
+
+    def test_elsevier_lookup_uses_doi_search_and_follows_abstract_link(self) -> None:
+        session = ElsevierSearchLinkSession()
+        with patch.dict(
+            "os.environ",
+            {"ELSEVIER_API_KEY": "test-secret"},
+            clear=True,
+        ):
+            lookup = _elsevier_lookup(
+                session,
+                "S0014292126001194",
+                doi="10.1016/j.euroecorev.2026.105999",
+                timeout=10,
+            )
+        self.assertEqual(
+            "Full abstract from the returned link.",
+            lookup["abstract"],
+        )
+        self.assertEqual(
+            "Only a teaser, not the full abstract.",
+            lookup["teaser"],
+        )
+        self.assertEqual("success_full_abstract", lookup["status"])
+        self.assertIn("/content/abstract/eid/", lookup["source_url"])
+        self.assertEqual(3, len(session.calls))
+        self.assertEqual(
+            'DOI("10.1016/j.euroecorev.2026.105999")',
+            session.calls[0][1]["params"]["query"],
+        )
+
+    def test_elsevier_lookup_records_entitlement_failure_without_secret(self) -> None:
+        with patch.dict(
+            "os.environ",
+            {"ELSEVIER_API_KEY": "test-secret"},
+            clear=True,
+        ):
+            lookup = _elsevier_lookup(
+                ElsevierDeniedSession(),
+                "S0014292126001194",
+                doi="10.1016/j.euroecorev.2026.105999",
+                timeout=10,
+            )
+        self.assertEqual("", lookup["abstract"])
+        self.assertEqual("insufficient_entitlement", lookup["status"])
+        self.assertTrue(lookup["attempts"])
+        self.assertTrue(
+            all(attempt["status_code"] == 403 for attempt in lookup["attempts"])
+        )
+        self.assertNotIn("test-secret", str(lookup))
 
     def test_preserves_page_order_and_excludes_front_matter(self) -> None:
         items = [

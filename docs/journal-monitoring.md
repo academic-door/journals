@@ -8,8 +8,8 @@ Academic Door 每两小时检查 41 本期刊是否出现新卷期或当前卷�
 
 1. **轻量发现：** Crossref DOI 注册元数据；配置了官方 RSS 的期刊同时读取 RSS。Elsevier 期刊以 ScienceDirect 官方 RSS 确认已公开卷期，最多提前识别下一个自然月，避免把更晚的预登记卷期误当成当前卷期。
 2. **变化确认：** 同一卷期出现新 DOI、新卷号、官方 RSS 与 Crossref 一致，或同一候选连续两轮稳定出现。
-3. **深度采集：** 只对确认变化的期刊运行现有官方采集器；官网受限时使用已经审计的出版方元数据镜像或 Crossref 补充。
-4. **发布保护：** 新结果未通过名单、DOI、作者、摘要、重复和 Schema 质量门时，不覆盖线上上一版。
+3. **深度采集：** 只对确认变化的期刊运行现有官方采集器；官网受限时使用已经审计的出版方元数据镜像或 Crossref 补充。Elsevier 英文摘要依次尝试 Article Metadata、ScienceDirect Search（含返回的 Abstract 链接）、Scopus Abstract Retrieval 和 Article Retrieval；API 返回的 teaser 只作线索，不冒充完整摘要。
+4. **双状态发布：** 目录名单、顺序、DOI、作者通过质量门后写入 `detected.json`，网站可以立即显示“整理中”的最新卷期；英文摘要和中文内容全部通过后才更新 `current.json` 并开放 Composer 复制与导出。
 
 这套机制不需要登录学校图书馆，也不依赖验证码。学校授权只用于本机补齐极少数公开元数据无法取得的文章内容。
 
@@ -29,15 +29,12 @@ Academic Door 每两小时检查 41 本期刊是否出现新卷期或当前卷�
 
 ## 私人邮件通知
 
-新卷期或当前卷期补录只有在以下步骤全部完成后才会进入私人邮件：
+私人邮件分为两个阶段：
 
-1. 正式采集、翻译和质量门通过；
-2. 已验证数据写入 `data` 分支；
-3. 私有 Composer 数据同步成功；
-4. 通知程序按卷期和文章清单指纹去重。
+1. **发现新卷期：** 官方目录名单和顺序通过质量门、写入 `detected.json` 后立即通知，邮件列出卷期、文章数、摘要整理进度和目录链接。
+2. **新卷期已就绪：** 英文摘要、中文内容和完整质量门通过，且 Composer 同步成功后再通知，邮件增加 Composer 直达链接，可以直接进入发布。
 
-同一轮有多本期刊更新时只发送一封中文汇总邮件。邮件列出期刊、
-卷期、文章数、中国相关篇数，并提供目录和 Composer 直达链接。SMTP
+若同一轮发现时内容已经全部完成，只发送“已就绪”邮件，避免连续发送两封重复通知。同一阶段有多本期刊更新时只发送一封中文汇总邮件。通知程序按阶段、卷期和文章清单指纹去重。SMTP
 临时失败不会阻断公开数据或网站部署；待发送事件保存在 `data` 分支，
 后续巡检自动重试。连续故障通过去重 GitHub Issue 提醒维护者。
 
@@ -55,7 +52,7 @@ Academic Door 每两小时检查 41 本期刊是否出现新卷期或当前卷�
 | `SMTP_PASSWORD` | SMTP 授权码或密码；必须与账号同时设置 |
 | `SMTP_FROM` | 发件地址；不填时使用 `SMTP_USERNAME` |
 | `NOTIFICATION_EMAIL_TO` | 收件地址；多个地址用逗号或分号分隔 |
-| `ELSEVIER_API_KEY` | 可选；Elsevier 官方 Article Retrieval API 密钥，用于补齐 ScienceDirect 新卷期中 Crossref/OpenAlex 尚未收录的英文摘要 |
+| `ELSEVIER_API_KEY` | 可选；Elsevier 官方 API 密钥，用于通过 Article Metadata、ScienceDirect Search、Scopus Abstract Retrieval 和 Article Retrieval 补齐新卷期英文摘要 |
 
 凭据只作为 GitHub Actions Secrets 注入发送步骤，不会写入状态文件、
 邮件结果、运行摘要或日志。任何必填配置缺失时，程序安全跳过发送并保留

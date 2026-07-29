@@ -82,6 +82,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         <button id="export-html" class="button" type="button">导出 HTML</button>
       </div>
     </section>
+    <p id="publication-readiness" class="composer-readiness" aria-live="polite" hidden></p>
 
     <section class="composer-grid">
       <aside class="composer-sidebar">
@@ -129,6 +130,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     const picker = document.querySelector("#article-picker");
     const regenerateButton = document.querySelector("#regenerate");
     const saveStatus = document.querySelector("#save-status");
+    const readinessNotice = document.querySelector("#publication-readiness");
     const journalSelect = document.querySelector("#journal-select");
     const issueSelect = document.querySelector("#issue-select");
     const themeSelect = document.querySelector("#theme-select");
@@ -162,6 +164,12 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     let pickerOrder = [];
     let selectedIds = new Set();
     let issuePreferences = {};
+    const publishingButtons = [
+      "#copy-rich",
+      "#copy-markdown",
+      "#export-markdown",
+      "#export-html",
+    ].map((selector) => document.querySelector(selector));
 
     const escapeHtml = (value = "") =>
       String(value).replace(/[&<>"']/g, (character) => ({
@@ -176,6 +184,38 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       const titleMatch = /\bChina(?:'s|ese)?\b|\bChinese\b|中国|北京|上海|台湾|香港/i.test(title);
       const abstractMatch = strong.test(abstract);
       return { status: titleMatch || abstractMatch ? "yes" : "no" };
+    };
+
+    const issueReadiness = (issue) => {
+      if (!issue) return { ready: false, total: 0, abstracts: 0, translations: 0 };
+      const quality = issue.quality || {};
+      const total = issue.research_article_count || issue.articles?.length || 0;
+      const abstracts = quality.abstract_en_complete || 0;
+      const translations = quality.translation_complete || 0;
+      return {
+        ready: issue.publication_state === "ready"
+          || (total > 0 && abstracts === total && translations === total),
+        total,
+        abstracts,
+        translations,
+      };
+    };
+
+    const renderReadiness = () => {
+      const readiness = issueReadiness(currentIssue);
+      if (!currentIssue || readiness.ready) {
+        readinessNotice.hidden = true;
+        readinessNotice.textContent = "";
+        readinessNotice.dataset.state = "ready";
+        publishingButtons.forEach((button) => { button.disabled = false; });
+        return;
+      }
+      const missingAbstracts = Math.max(0, readiness.total - readiness.abstracts);
+      const missingTranslations = Math.max(0, readiness.total - readiness.translations);
+      readinessNotice.hidden = false;
+      readinessNotice.dataset.state = "enriching";
+      readinessNotice.textContent = `本期仍有 ${missingAbstracts} 篇英文摘要、${missingTranslations} 篇中文内容待补齐；可预览，整理完成后再发布。`;
+      publishingButtons.forEach((button) => { button.disabled = true; });
     };
 
     const renderInline = (value) =>
@@ -449,7 +489,9 @@ const base = import.meta.env.BASE_URL.endsWith("/")
           return true;
         }),
       };
-      const journals = collection.journals.filter((journal) => journal.latest_issue_url);
+      const journals = collection.journals.filter(
+        (journal) => journal.latest_issue_url || journal.latest_detected_issue_url
+      );
       journalSelect.innerHTML = journals.map((journal) =>
         `<option value="${escapeHtml(journal.journal_id)}">${escapeHtml(journal.short_name)}</option>`
       ).join("");
@@ -464,7 +506,12 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         fetchIssue(selectedJournal.latest_issue_url).catch(() => null);
       }
       await renderIssueOptions();
-      journals.forEach((journal) => fetchIssue(journal.latest_issue_url).catch(() => null));
+      journals.forEach((journal) => {
+        if (journal.latest_issue_url) fetchIssue(journal.latest_issue_url).catch(() => null);
+        if (journal.latest_detected_issue_url) {
+          fetchIssue(journal.latest_detected_issue_url).catch(() => null);
+        }
+      });
     };
 
     const fetchIssue = (url) => {
@@ -491,13 +538,30 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
     const issueOptionsFor = async (journal) => {
       const history = await fetchIssueHistory(journal);
-      const latest = journal?.latest_issue_url ? [{
+      const ready = journal?.latest_issue_url ? [{
         id: journal.latest_issue_id || "current",
         url: journal.latest_issue_url,
         label: journal.latest_issue_label || "最新一期",
-        latest: true,
+        status: "ready",
       }] : [];
-      const archived = history.filter((issue) => issue.issue_id !== journal.latest_issue_id).map((issue, index) => ({
+      const detectedId = journal?.latest_detected_issue_id;
+      const detected = journal?.latest_detected_issue_url
+        && (
+          detectedId !== journal.latest_issue_id
+          || journal.latest_detected_issue_url !== journal.latest_issue_url
+        )
+        ? [{
+            id: detectedId || "detected",
+            url: journal.latest_detected_issue_url,
+            label: journal.latest_detected_issue_label || "最新卷期",
+            status: "enriching",
+          }]
+        : [];
+      const excludedIds = new Set([
+        journal?.latest_issue_id,
+        detectedId,
+      ].filter(Boolean));
+      const archived = history.filter((issue) => !excludedIds.has(issue.issue_id)).map((issue, index) => ({
         id: issue.issue_id || `issue-${index}`,
         url: issue.url,
         label: [
@@ -507,9 +571,9 @@ const base = import.meta.env.BASE_URL.endsWith("/")
           ].filter(Boolean).join(" · "),
           formatIssuePeriod(issue.publication_date),
         ].filter(Boolean).join(" · "),
-        latest: false,
+        status: "archive",
       })).filter((issue) => issue.url);
-      return latest.concat(archived);
+      return ready.concat(detected, archived);
     };
 
     const renderIssueOptions = async (preferredUrl = "") => {
@@ -523,7 +587,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       const issues = await issueOptionsFor(journal);
       if (requestId !== issueOptionsRequest || journalSelect.value !== journalId) return;
       issueSelect.innerHTML = issues.map((issue) =>
-        `<option value="${escapeHtml(issue.url)}" data-issue-id="${escapeHtml(issue.id)}">${escapeHtml(issue.label)}${issue.latest && !issue.label.includes("最新") ? "（最新）" : ""}</option>`
+        `<option value="${escapeHtml(issue.url)}" data-issue-id="${escapeHtml(issue.id)}" data-status="${escapeHtml(issue.status)}">${issue.status === "enriching" ? "整理中 · " : issue.status === "ready" ? "可发布 · " : ""}${escapeHtml(issue.label)}</option>`
       ).join("");
       if (preferredUrl && issues.some((issue) => issue.url === preferredUrl)) {
         issueSelect.value = preferredUrl;
@@ -549,6 +613,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       renderPicker();
       editor.value = articleMarkdown(currentIssue, selectedIds);
       updatePreview();
+      renderReadiness();
       saveLocal();
     };
 

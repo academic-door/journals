@@ -9,7 +9,7 @@ from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timezone
 from typing import Any
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 from xml.etree import ElementTree
 
 import requests
@@ -22,8 +22,10 @@ USER_AGENT = (
 )
 CROSSREF_API = "https://api.crossref.org"
 OPENALEX_API = "https://api.openalex.org"
-ELSEVIER_ARTICLE_API = "https://api.elsevier.com/content/article/pii"
-ELSEVIER_ABSTRACT_API = "https://api.elsevier.com/content/abstract/pii"
+ELSEVIER_ARTICLE_METADATA_API = "https://api.elsevier.com/content/metadata/article"
+ELSEVIER_SEARCH_API = "https://api.elsevier.com/content/search/sciencedirect"
+ELSEVIER_ARTICLE_API = "https://api.elsevier.com/content/article"
+ELSEVIER_ABSTRACT_API = "https://api.elsevier.com/content/abstract"
 NON_RESEARCH_PATTERN = re.compile(
     r"front\s*matter|back\s*matter|editorial\s*board|table\s*of\s*contents|"
     r"recent\s*referees|turnaround\s*times|issue\s+information|"
@@ -246,45 +248,252 @@ def _openalex_metadata(
     return authors, abstract, url
 
 
-def _elsevier_abstract(
+def _elsevier_status(status_code: int) -> str:
+    return {
+        401: "unauthorized",
+        403: "insufficient_entitlement",
+        404: "not_found",
+        429: "quota_exceeded",
+    }.get(status_code, "temporary_error" if status_code >= 500 else "request_failed")
+
+
+def _elsevier_text(root: ElementTree.Element, names: set[str]) -> str:
+    for node in root.iter():
+        if _local_name(node.tag) not in names:
+            continue
+        value = _clean_markup(" ".join(node.itertext()))
+        if value and not _is_no_abstract_notice(value):
+            return value
+    return ""
+
+
+def _elsevier_abstract_link(root: ElementTree.Element) -> str:
+    for node in root.iter():
+        if _local_name(node.tag) != "link":
+            continue
+        relation = str(node.attrib.get("ref") or node.attrib.get("rel") or "").lower()
+        href = str(node.attrib.get("href") or node.attrib.get("@href") or "").strip()
+        if relation != "abstract" or not href:
+            continue
+        if href.startswith("http://api.elsevier.com/"):
+            href = "https://" + href.removeprefix("http://")
+        parsed = urlparse(href)
+        if (
+            parsed.scheme == "https"
+            and parsed.netloc == "api.elsevier.com"
+            and parsed.path.startswith("/content/abstract/")
+        ):
+            return href
+    return ""
+
+
+def _elsevier_lookup(
     session: requests.Session,
     pii: str,
     *,
+    doi: str = "",
     timeout: int,
-) -> tuple[str, str]:
-    """Fetch abstract metadata through Elsevier's official API when configured."""
+) -> dict[str, Any]:
+    """Resolve an Elsevier abstract through the documented metadata chain.
+
+    ScienceDirect's own article-information use case points clients to the
+    Article Metadata and Search APIs. Scopus also documents that a failed PII
+    lookup should fall back to ScienceDirect Search and its returned abstract
+    link. Keep snippets separate from full abstracts so a teaser can never pass
+    the publication quality gate as if it were the publisher abstract.
+    """
 
     api_key = os.getenv("ELSEVIER_API_KEY", "").strip()
     normalized_pii = re.sub(r"[^A-Za-z0-9]", "", pii or "")
-    if not api_key or not normalized_pii:
-        return "", ""
+    normalized_doi = (doi or "").strip().lower()
+    result: dict[str, Any] = {
+        "abstract": "",
+        "teaser": "",
+        "source_url": "",
+        "source": "",
+        "status": "unconfigured" if not api_key else "not_found",
+        "attempts": [],
+    }
+    if not api_key or not (normalized_doi or normalized_pii):
+        return result
     headers = {
         "Accept": "text/xml,application/xml",
         "X-ELS-APIKey": api_key,
     }
-    endpoints = (
-        (f"{ELSEVIER_ARTICLE_API}/{normalized_pii}", "META_ABS"),
-        (f"{ELSEVIER_ABSTRACT_API}/{normalized_pii}", "META_ABS"),
-    )
-    for url, view in endpoints:
+
+    def request_xml(
+        name: str,
+        url: str,
+        params: dict[str, str],
+    ) -> ElementTree.Element | None:
         try:
             response = session.get(
                 url,
-                params={"view": view, "httpAccept": "text/xml"},
+                params=params,
                 headers=headers,
                 timeout=timeout,
             )
+            status_code = int(getattr(response, "status_code", 200))
+            if status_code >= 400:
+                result["attempts"].append(
+                    {
+                        "source": name,
+                        "status_code": status_code,
+                        "outcome": _elsevier_status(status_code),
+                    }
+                )
+                result["status"] = _elsevier_status(status_code)
+                return None
             response.raise_for_status()
             root = ElementTree.fromstring(response.content)
-        except (requests.RequestException, ElementTree.ParseError):
-            continue
-        for node in root.iter():
-            if _local_name(node.tag) not in {"description", "abstract"}:
-                continue
-            value = _clean_markup(" ".join(node.itertext()))
-            if value and not _is_no_abstract_notice(value):
-                return value, url
-    return "", ""
+        except requests.RequestException:
+            result["attempts"].append(
+                {"source": name, "status_code": 0, "outcome": "temporary_error"}
+            )
+            result["status"] = "temporary_error"
+            return None
+        except ElementTree.ParseError:
+            result["attempts"].append(
+                {"source": name, "status_code": 200, "outcome": "invalid_response"}
+            )
+            result["status"] = "invalid_response"
+            return None
+        result["attempts"].append(
+            {"source": name, "status_code": status_code, "outcome": "success"}
+        )
+        return root
+
+    def accept_payload(
+        root: ElementTree.Element | None,
+        *,
+        name: str,
+        url: str,
+    ) -> str:
+        if root is None:
+            return ""
+        abstract = _elsevier_text(root, {"description", "abstract"})
+        teaser = _elsevier_text(root, {"teaser"})
+        if teaser and not result["teaser"]:
+            result["teaser"] = teaser
+        if abstract:
+            result.update(
+                {
+                    "abstract": abstract,
+                    "source_url": url,
+                    "source": name,
+                    "status": "success_full_abstract",
+                }
+            )
+        elif teaser:
+            result["status"] = "success_teaser_only"
+        else:
+            result["status"] = "success_no_abstract"
+        return _elsevier_abstract_link(root)
+
+    query = (
+        f'DOI("{normalized_doi}")'
+        if normalized_doi
+        else f'PII("{normalized_pii}")'
+    )
+    metadata_root = request_xml(
+        "elsevier-article-metadata",
+        ELSEVIER_ARTICLE_METADATA_API,
+        {
+            "query": query,
+            "view": "COMPLETE",
+            "httpAccept": "application/xml",
+        },
+    )
+    abstract_link = accept_payload(
+        metadata_root,
+        name="elsevier-article-metadata",
+        url=ELSEVIER_ARTICLE_METADATA_API,
+    )
+    if result["abstract"]:
+        return result
+
+    search_root = request_xml(
+        "elsevier-sciencedirect-search",
+        ELSEVIER_SEARCH_API,
+        {
+            "query": query,
+            "field": "url,identifier,doi,pii,description,teaser",
+            "count": "25",
+            "httpAccept": "application/xml",
+        },
+    )
+    search_link = accept_payload(
+        search_root,
+        name="elsevier-sciencedirect-search",
+        url=ELSEVIER_SEARCH_API,
+    )
+    abstract_link = search_link or abstract_link
+    if result["abstract"]:
+        return result
+
+    if abstract_link:
+        abstract_root = request_xml(
+            "elsevier-scopus-abstract-link",
+            abstract_link,
+            {"view": "META_ABS", "httpAccept": "application/xml"},
+        )
+        accept_payload(
+            abstract_root,
+            name="elsevier-scopus-abstract-link",
+            url=abstract_link,
+        )
+        if result["abstract"]:
+            return result
+
+    identifiers: list[tuple[str, str]] = []
+    if normalized_doi:
+        identifiers.append(("doi", normalized_doi))
+    if normalized_pii:
+        identifiers.append(("pii", normalized_pii))
+    for identifier_type, identifier in identifiers:
+        url = f"{ELSEVIER_ABSTRACT_API}/{identifier_type}/{identifier}"
+        abstract_root = request_xml(
+            f"elsevier-scopus-{identifier_type}",
+            url,
+            {"view": "META_ABS", "httpAccept": "application/xml"},
+        )
+        accept_payload(
+            abstract_root,
+            name=f"elsevier-scopus-{identifier_type}",
+            url=url,
+        )
+        if result["abstract"]:
+            return result
+
+    article_identifiers = identifiers or []
+    for identifier_type, identifier in article_identifiers:
+        url = f"{ELSEVIER_ARTICLE_API}/{identifier_type}/{identifier}"
+        article_root = request_xml(
+            f"elsevier-article-{identifier_type}",
+            url,
+            {"view": "META_ABS", "httpAccept": "application/xml"},
+        )
+        accept_payload(
+            article_root,
+            name=f"elsevier-article-{identifier_type}",
+            url=url,
+        )
+        if result["abstract"]:
+            return result
+    return result
+
+
+def _elsevier_abstract(
+    session: requests.Session,
+    pii: str,
+    *,
+    doi: str = "",
+    timeout: int,
+) -> tuple[str, str]:
+    """Backward-compatible tuple wrapper for tests and existing callers."""
+
+    lookup = _elsevier_lookup(session, pii, doi=doi, timeout=timeout)
+    return str(lookup["abstract"]), str(lookup["source_url"])
 
 
 def _date_year(item: dict[str, Any]) -> str:
@@ -1383,18 +1592,20 @@ def fetch_crossref_current_issue(
         abstract = _clean_markup(str(item.get("abstract", "")))
         abstract_source = "crossref" if abstract else ""
         elsevier_url = ""
+        elsevier_lookup: dict[str, Any] = {}
+        abstract_snippet = ""
         if not abstract:
-            try:
-                abstract, elsevier_url = _elsevier_abstract(
-                    client,
-                    _crossref_pii(item),
-                    timeout=timeout,
-                )
-            except requests.RequestException:
-                abstract = ""
-                elsevier_url = ""
+            elsevier_lookup = _elsevier_lookup(
+                client,
+                _crossref_pii(item),
+                doi=doi,
+                timeout=timeout,
+            )
+            abstract = str(elsevier_lookup.get("abstract", ""))
+            abstract_snippet = str(elsevier_lookup.get("teaser", ""))
+            elsevier_url = str(elsevier_lookup.get("source_url", ""))
             if abstract:
-                abstract_source = "elsevier-article-api"
+                abstract_source = str(elsevier_lookup.get("source", "elsevier-api"))
         repec_url = ""
         if not abstract and (repec_jpe or repec_series_code) and doi:
             try:
@@ -1426,6 +1637,8 @@ def fetch_crossref_current_issue(
             flags.append("authors_missing")
         if not abstract:
             flags.append("abstract_en_missing")
+            if abstract_snippet:
+                flags.append("abstract_teaser_only")
         source_url = f"https://doi.org/{doi}" if doi else str(item.get("URL", ""))
         articles.append(
             {
@@ -1438,6 +1651,7 @@ def fetch_crossref_current_issue(
                 "authors": authors,
                 "abstract_en": abstract,
                 "abstract_cn": "",
+                "abstract_snippet_en": abstract_snippet,
                 "doi": doi,
                 "source_url": source_url,
                 "publication_date": _date_year(item),
@@ -1447,6 +1661,16 @@ def fetch_crossref_current_issue(
                     "metadata": "crossref",
                     "abstract_en": abstract_source,
                     **({"elsevier": elsevier_url} if elsevier_url else {}),
+                    **(
+                        {
+                            "abstract_lookup": {
+                                "status": elsevier_lookup.get("status", ""),
+                                "attempts": elsevier_lookup.get("attempts", []),
+                            }
+                        }
+                        if elsevier_lookup
+                        else {}
+                    ),
                     **({"repec": repec_url} if repec_url else {}),
                     **({"openalex": openalex_url} if openalex_url else {}),
                 },

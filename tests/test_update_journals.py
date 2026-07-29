@@ -10,6 +10,7 @@ from scripts.update_journals import (
     collect_one,
     collector_for,
     fallback_collector_for,
+    is_detected_snapshot,
     is_publishable_snapshot,
     order_verification_status,
     write_archive_index,
@@ -101,6 +102,18 @@ class PublicationGateTests(unittest.TestCase):
         issue["quality"]["duplicate_count"] = 1
         self.assertFalse(is_publishable_snapshot(issue))
 
+    def test_detected_gate_accepts_complete_roster_before_abstracts(self) -> None:
+        issue = copy.deepcopy(COMPLETE_ISSUE)
+        issue["quality"]["abstract_en_complete"] = 0
+        issue["quality"]["translation_complete"] = 0
+        self.assertTrue(is_detected_snapshot(issue))
+        self.assertFalse(is_publishable_snapshot(issue))
+
+    def test_detected_gate_rejects_untrusted_roster(self) -> None:
+        issue = copy.deepcopy(COMPLETE_ISSUE)
+        issue["quality"]["order_preserved"] = False
+        self.assertFalse(is_detected_snapshot(issue))
+
     def test_exposes_reader_facing_order_verification_level(self) -> None:
         issue = copy.deepcopy(COMPLETE_ISSUE)
         self.assertEqual("official_verified", order_verification_status(issue))
@@ -183,6 +196,7 @@ class PublicationGateTests(unittest.TestCase):
             patch("scripts.update_journals.normalize_issue_content", side_effect=lambda issue: issue),
             patch("scripts.update_journals.validate_issue"),
             patch("scripts.update_journals.is_publishable_snapshot", return_value=True),
+            patch("scripts.update_journals.write_detected_snapshot") as write_detected,
             patch("scripts.update_journals.write_json") as write_json,
         ):
             issue, report = collect_one("DEMO", config, translate=False)
@@ -190,6 +204,7 @@ class PublicationGateTests(unittest.TestCase):
         self.assertEqual("preserved_previous", report["result"])
         self.assertIn("translation incomplete: 1/2", report["error"])
         write_json.assert_not_called()
+        self.assertEqual(2, write_detected.call_count)
 
     def test_archive_preserves_old_issue_and_builds_index(self) -> None:
         import json
