@@ -31,15 +31,13 @@ const initialCollection = JSON.parse(
 const initialJournal = initialCollection.journals.find(
   (journal) => journal.latest_detected_issue_url || journal.latest_issue_url,
 );
-const initialIssue = initialJournal
+const initialIssueUrl =
+  initialJournal?.latest_detected_issue_url || initialJournal?.latest_issue_url || "";
+const initialIssuePath = initialIssueUrl.replace(/^.*\/api\/v1\//, "");
+const initialIssue = initialIssuePath
   ? JSON.parse(
       readFileSync(
-        new URL(
-          `journals/${initialJournal.journal_id}/issues/${
-            initialJournal.latest_detected_issue_url ? "detected" : "current"
-          }.json`,
-          publicApi,
-        ),
+        new URL(initialIssuePath, publicApi),
         "utf8",
       ),
     )

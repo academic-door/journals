@@ -114,6 +114,15 @@ class ComposerUiTest(unittest.TestCase):
         )
         self.assertIn("readFileSync", explorer)
         self.assertIn("initialCollection", explorer)
+        self.assertIn(
+            'const initialIssuePath = initialIssueUrl.replace(/^.*\\/api\\/v1\\//, "");',
+            explorer,
+        )
+        self.assertIn("new URL(initialIssuePath, publicApi)", explorer)
+        self.assertNotIn(
+            'initialJournal.latest_detected_issue_url ? "detected" : "current"',
+            explorer,
+        )
         self.assertIn("Promise.resolve(initialIssue)", explorer)
         self.assertNotIn("fetch(collectionUrl)", explorer)
         self.assertIn('"pointerenter", warmIssue', explorer)
