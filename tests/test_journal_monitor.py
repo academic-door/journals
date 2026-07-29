@@ -132,6 +132,31 @@ class CandidateSelectionTests(unittest.TestCase):
         ]
         self.assertIsNone(select_candidate(items, BASELINE, today=date(2026, 7, 28)))
 
+    def test_next_month_issue_is_allowed_for_early_release_publishers(self) -> None:
+        items = [
+            crossref_item(
+                "10.1234/august",
+                volume="11",
+                issue="",
+                published=(2026, 8, 1),
+            ),
+            crossref_item(
+                "10.1234/september",
+                volume="12",
+                issue="",
+                published=(2026, 9, 1),
+            ),
+        ]
+        candidate = select_candidate(
+            items,
+            BASELINE,
+            today=date(2026, 7, 29),
+            publication_lead_months=1,
+        )
+        self.assertIsNotNone(candidate)
+        self.assertEqual("11", candidate.volume)
+        self.assertEqual("2026-08-01", candidate.publication_date)
+
     def test_known_official_exclusion_does_not_retrigger_current_issue(self) -> None:
         baseline = copy.deepcopy(BASELINE)
         baseline["quality"] = {

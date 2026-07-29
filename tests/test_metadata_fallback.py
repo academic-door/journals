@@ -1,9 +1,13 @@
 from __future__ import annotations
 
 import unittest
+from datetime import date, datetime, timezone
+from unittest.mock import patch
 
 from collectors.metadata_fallback import (
     MetadataFallbackError,
+    _elsevier_abstract,
+    _sciencedirect_rss_groups,
     fetch_crossref_current_issue,
     fetch_repec_history_issue,
 )
@@ -42,6 +46,24 @@ class Session:
 
     def get(self, url: str, **kwargs) -> Response:
         return Response({"message": {"items": self.items}})
+
+
+class ElsevierSession:
+    def __init__(self) -> None:
+        self.calls: list[tuple[str, dict]] = []
+
+    def get(self, url: str, **kwargs) -> Response:
+        self.calls.append((url, kwargs))
+        return Response(
+            {},
+            b"""
+            <response xmlns:dc="http://purl.org/dc/elements/1.1/">
+              <coredata>
+                <dc:description>A publisher supplied abstract.</dc:description>
+              </coredata>
+            </response>
+            """,
+        )
 
 
 class RepecHistorySession:
@@ -134,6 +156,30 @@ class RepecEconometricaSession:
 
 
 class MetadataFallbackTests(unittest.TestCase):
+    def test_elsevier_abstract_requires_secret_and_never_exposes_it(self) -> None:
+        session = ElsevierSession()
+        with patch.dict("os.environ", {}, clear=True):
+            self.assertEqual(
+                ("", ""),
+                _elsevier_abstract(session, "S0014292126001194", timeout=10),
+            )
+        self.assertEqual([], session.calls)
+
+        with patch.dict(
+            "os.environ",
+            {"ELSEVIER_API_KEY": "test-secret"},
+            clear=True,
+        ):
+            abstract, source_url = _elsevier_abstract(
+                session,
+                "S0014-2921(26)00119-4",
+                timeout=10,
+            )
+        self.assertEqual("A publisher supplied abstract.", abstract)
+        self.assertTrue(source_url.endswith("/S0014292126001194"))
+        self.assertEqual("test-secret", session.calls[0][1]["headers"]["X-ELS-APIKey"])
+        self.assertNotIn("test-secret", source_url)
+
     def test_preserves_page_order_and_excludes_front_matter(self) -> None:
         items = [
             item("Second paper", "20-30", "10.1/second"),
@@ -153,6 +199,28 @@ class MetadataFallbackTests(unittest.TestCase):
         )
         self.assertTrue(issue["quality"]["order_preserved"])
         self.assertEqual(issue["quality"]["excluded_item_count"], 1)
+
+    def test_excludes_editorial_introductions_from_research_roster(self) -> None:
+        issue = fetch_crossref_current_issue(
+            journal_id="test",
+            journal_name="Test Journal",
+            issn="0000-0000",
+            current_issue_url="https://publisher.example/current",
+            session=Session(
+                [
+                    item("First paper", "1-10", "10.1/first"),
+                    item("Second paper", "11-20", "10.1/second"),
+                    item(
+                        "Editorial: Introduction to the special issue",
+                        "21-22",
+                        "10.1/editorial",
+                        "",
+                    ),
+                ]
+            ),
+        )
+        self.assertEqual(2, issue["research_article_count"])
+        self.assertEqual(1, issue["quality"]["excluded_item_count"])
 
     def test_requires_a_usable_issue(self) -> None:
         with self.assertRaises(MetadataFallbackError):
@@ -185,6 +253,68 @@ class MetadataFallbackTests(unittest.TestCase):
         )
         self.assertEqual(issue["issue"], "2")
         self.assertEqual(issue["research_article_count"], 2)
+
+    def test_sciencedirect_rss_keeps_next_month_but_not_later_volumes(self) -> None:
+        feed = b"""
+        <rss><channel>
+          <item>
+            <title>August paper</title>
+            <description><![CDATA[
+              <p>Publication date: August 2026</p>
+              <p><b>Source:</b> Test Journal, Volume 11</p>
+              <p>Author(s): Ada Lovelace</p>
+            ]]></description>
+            <link>https://www.sciencedirect.com/science/article/pii/S000000000000001</link>
+          </item>
+          <item>
+            <title>September paper</title>
+            <description><![CDATA[
+              <p>Publication date: September 2026</p>
+              <p><b>Source:</b> Test Journal, Volume 12</p>
+              <p>Author(s): Grace Hopper</p>
+            ]]></description>
+            <link>https://www.sciencedirect.com/science/article/pii/S000000000000002</link>
+          </item>
+        </channel></rss>
+        """
+        groups = _sciencedirect_rss_groups(
+            feed,
+            lead_months=1,
+            today=date(2026, 7, 29),
+        )
+        self.assertEqual([("11", "August 2026")], [key for key, _items in groups])
+        self.assertEqual(["Ada Lovelace"], groups[0][1][0]["authors"])
+
+    def test_crossref_blank_issue_can_publish_as_continuous_volume(self) -> None:
+        items = [
+            {
+                **item("August first paper", "105701", "10.1/august-1"),
+                "volume": "11",
+                "issue": "",
+                "published": {"date-parts": [[2026, 8, 1]]},
+            },
+            {
+                **item("August second paper", "105702", "10.1/august-2"),
+                "volume": "11",
+                "issue": "",
+                "published": {"date-parts": [[2026, 8, 1]]},
+            },
+        ]
+        issue = fetch_crossref_current_issue(
+            journal_id="test",
+            journal_name="Test Journal",
+            issn="0000-0000",
+            current_issue_url="https://publisher.example/vol/11",
+            target_volume="11",
+            target_issue="",
+            output_issue="C",
+            future_cutoff=datetime(2026, 8, 31, tzinfo=timezone.utc),
+            items_override=items,
+            session=Session(items),
+        )
+        self.assertEqual("test-11-c", issue["issue_id"])
+        self.assertEqual("C", issue["issue"])
+        self.assertEqual(2, issue["research_article_count"])
 
     def test_bias_correction_is_not_misclassified(self) -> None:
         items = [

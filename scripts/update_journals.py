@@ -182,12 +182,18 @@ def collector_for(config: dict[str, Any]) -> Callable[[], dict[str, Any]]:
     if collector == "elsevier":
         from collectors.elsevier import fetch_current_issue
 
+        rss_url = config.get("rss_url") or (
+            "https://rss.sciencedirect.com/publication/science/"
+            f"{str(config['issn']).replace('-', '')}"
+        )
         return lambda: fetch_current_issue(
             journal_id=config["id"],
             journal_name=config["name"],
             issn=str(config["issn"]),
             repec_series_url=config["repec_series_url"],
             issue_url_template=config["issue_url_template"],
+            rss_url=rss_url,
+            publication_lead_months=int(config.get("publication_lead_months", 1)),
             doi_template=config.get("doi_template", ""),
         )
     if collector == "crossref":
@@ -470,6 +476,7 @@ def structural_flags(issue: dict[str, Any]) -> list[str]:
         # Provenance warnings remain visible in the status API, but they do not
         # invalidate an otherwise complete issue snapshot.
         "publisher_html_blocked_crossref_fallback",
+        "publisher_html_blocked_sciencedirect_rss_fallback",
         "publisher_rss_lag_crossref_fallback",
         "crossref_provisional_roster",
         "official_order_unverified",

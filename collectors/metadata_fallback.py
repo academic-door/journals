@@ -1,11 +1,13 @@
 from __future__ import annotations
 
 import html
+import os
 import re
 import time
+from calendar import monthrange
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from typing import Any
 from urllib.parse import urljoin
 from xml.etree import ElementTree
@@ -20,12 +22,14 @@ USER_AGENT = (
 )
 CROSSREF_API = "https://api.crossref.org"
 OPENALEX_API = "https://api.openalex.org"
+ELSEVIER_ARTICLE_API = "https://api.elsevier.com/content/article/pii"
 NON_RESEARCH_PATTERN = re.compile(
     r"front\s*matter|back\s*matter|editorial\s*board|table\s*of\s*contents|"
     r"recent\s*referees|turnaround\s*times|issue\s+information|"
     r"^announcements?$|american\s+finance\s+association|annual\s+report|"
     r"summaries\s+of\s+doctoral\s+dissertations|"
     r"abstracts\s+of\s+papers\s+presented|editors?[’'＊]?\s+notes?|"
+    r"^editorial(?:\s*:|\s*$)|"
     r"outstanding\s+doctoral\s+dissertation\s+award|"
     r"recommendations?\s+for\s+further\s+reading|"
     r"acknowledg(?:e)?ments?\s+of\s+referees|"
@@ -140,6 +144,29 @@ def _get_json(
     )
 
 
+def _get_content(
+    session: requests.Session,
+    url: str,
+    *,
+    timeout: int = 60,
+    attempts: int = 4,
+    headers: dict[str, str] | None = None,
+) -> bytes:
+    last_error: Exception | None = None
+    for attempt in range(attempts):
+        try:
+            response = session.get(url, timeout=timeout, headers=headers)
+            response.raise_for_status()
+            return response.content
+        except requests.RequestException as error:
+            last_error = error
+            if attempt + 1 < attempts:
+                time.sleep(1.5 * (attempt + 1))
+    raise MetadataFallbackError(
+        f"metadata endpoint failed after {attempts} attempts: {last_error}"
+    )
+
+
 def _clean_markup(value: str) -> str:
     if not value:
         return ""
@@ -216,6 +243,42 @@ def _openalex_metadata(
         payload.get("abstract_inverted_index")
     )
     return authors, abstract, url
+
+
+def _elsevier_abstract(
+    session: requests.Session,
+    pii: str,
+    *,
+    timeout: int,
+) -> tuple[str, str]:
+    """Fetch abstract metadata through Elsevier's official API when configured."""
+
+    api_key = os.getenv("ELSEVIER_API_KEY", "").strip()
+    normalized_pii = re.sub(r"[^A-Za-z0-9]", "", pii or "")
+    if not api_key or not normalized_pii:
+        return "", ""
+    url = f"{ELSEVIER_ARTICLE_API}/{normalized_pii}"
+    response = session.get(
+        url,
+        params={"view": "META_ABS", "httpAccept": "text/xml"},
+        headers={
+            "Accept": "text/xml,application/xml",
+            "X-ELS-APIKey": api_key,
+        },
+        timeout=timeout,
+    )
+    response.raise_for_status()
+    try:
+        root = ElementTree.fromstring(response.content)
+    except ElementTree.ParseError:
+        return "", ""
+    for node in root.iter():
+        if _local_name(node.tag) not in {"description", "abstract"}:
+            continue
+        value = _clean_markup(" ".join(node.itertext()))
+        if value and not _is_no_abstract_notice(value):
+            return value, url
+    return "", url
 
 
 def _date_year(item: dict[str, Any]) -> str:
@@ -721,6 +784,214 @@ def _issue_key(volume: str, issue: str) -> tuple[int, int]:
     return _number(volume), _number(issue)
 
 
+def _month_horizon(current: date, lead_months: int) -> date:
+    offset = current.month - 1 + max(0, lead_months)
+    year = current.year + offset // 12
+    month = offset % 12 + 1
+    return date(year, month, monthrange(year, month)[1])
+
+
+def _sciencedirect_rss_groups(
+    content: bytes,
+    *,
+    lead_months: int,
+    today: date | None = None,
+) -> list[tuple[tuple[str, str], list[dict[str, Any]]]]:
+    """Return eligible ScienceDirect RSS volumes through the configured horizon."""
+
+    try:
+        root = ElementTree.fromstring(content)
+    except ElementTree.ParseError as error:
+        raise MetadataFallbackError("ScienceDirect RSS is not valid XML") from error
+
+    cutoff = _month_horizon(today or datetime.now(timezone.utc).date(), lead_months)
+    grouped: dict[tuple[str, str], list[dict[str, Any]]] = {}
+    for node in root.iter():
+        if _local_name(node.tag) != "item":
+            continue
+        title = _clean_markup(_xml_value(node, "title"))
+        description = _clean_markup(_xml_value(node, "description", "encoded"))
+        link = _xml_value(node, "link")
+        volume_match = re.search(r"\bVolume\s+([A-Za-z0-9.-]+)", description, re.IGNORECASE)
+        date_match = re.search(
+            r"\bPublication date:\s*([A-Za-z]+\s+\d{4})",
+            description,
+            re.IGNORECASE,
+        )
+        if not title or not volume_match or not date_match:
+            continue
+        try:
+            publication = datetime.strptime(
+                date_match.group(1).title(), "%B %Y"
+            ).date()
+        except ValueError:
+            continue
+        if publication > cutoff:
+            continue
+        authors_match = re.search(r"\bAuthor\(s\):\s*(.+)$", description, re.IGNORECASE)
+        authors = [
+            name.strip()
+            for name in re.split(r"\s*,\s*", authors_match.group(1) if authors_match else "")
+            if name.strip()
+        ]
+        pii_match = re.search(r"/pii/([A-Za-z0-9]+)", link, re.IGNORECASE)
+        key = (volume_match.group(1), publication.strftime("%B %Y"))
+        grouped.setdefault(key, []).append(
+            {
+                "title": title,
+                "link": link,
+                "pii": pii_match.group(1).upper() if pii_match else "",
+                "authors": authors,
+            }
+        )
+    return sorted(
+        grouped.items(),
+        key=lambda group: (
+            datetime.strptime(group[0][1], "%B %Y"),
+            _number(group[0][0]),
+        ),
+    )
+
+
+def _crossref_pii(item: dict[str, Any]) -> str:
+    values = [
+        str(item.get("resource", {}).get("primary", {}).get("URL", "")),
+        *(str(link.get("URL", "")) for link in item.get("link", []) if isinstance(link, dict)),
+    ]
+    for value in values:
+        match = re.search(r"(?:/pii/|PII:)([A-Za-z0-9]+)", value, re.IGNORECASE)
+        if match:
+            return match.group(1).upper()
+    return ""
+
+
+def _normalized_title(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", " ", value.casefold()).strip()
+
+
+def fetch_sciencedirect_rss_issue(
+    *,
+    journal_id: str,
+    journal_name: str,
+    issn: str,
+    current_issue_url: str,
+    issue_url_template: str,
+    rss_url: str,
+    repec_series_code: str = "",
+    lead_months: int = 1,
+    newer_than_volume: str = "",
+    session: requests.Session | None = None,
+    timeout: int = 60,
+    today: date | None = None,
+) -> dict[str, Any] | None:
+    """Build a newer Elsevier issue from the official ScienceDirect RSS roster."""
+
+    client = session or _session()
+    content = _get_content(
+        client,
+        rss_url,
+        timeout=timeout,
+        headers={"Accept": "application/rss+xml,application/xml,text/xml"},
+    )
+    groups = _sciencedirect_rss_groups(
+        content,
+        lead_months=lead_months,
+        today=today,
+    )
+    if not groups:
+        return None
+    (volume, publication_date), rss_items = groups[-1]
+    if newer_than_volume and _number(volume) <= _number(newer_than_volume):
+        return None
+
+    crossref_items = _crossref_items(
+        issn,
+        session=client,
+        timeout=timeout,
+        start_year=(today or datetime.now(timezone.utc).date()).year,
+    )
+    horizon = _month_horizon(
+        today or datetime.now(timezone.utc).date(),
+        lead_months,
+    )
+    issue_url = issue_url_template.format(
+        volume=volume,
+        issue="C",
+        issue_lower="c",
+    )
+    issue = fetch_crossref_current_issue(
+        journal_id=journal_id,
+        journal_name=journal_name,
+        issn=issn,
+        current_issue_url=issue_url,
+        repec_series_code=repec_series_code,
+        target_volume=volume,
+        target_issue="",
+        output_issue="C",
+        future_cutoff=datetime.combine(horizon, datetime.min.time(), tzinfo=timezone.utc),
+        items_override=crossref_items,
+        session=client,
+        timeout=timeout,
+    )
+
+    rss_research = [
+        item for item in rss_items if not NON_RESEARCH_PATTERN.search(item["title"])
+    ]
+    rss_titles = {_normalized_title(item["title"]) for item in rss_research}
+    article_titles = {
+        _normalized_title(article["title_en"]) for article in issue["articles"]
+    }
+    rss_piis = {item["pii"] for item in rss_research if item["pii"]}
+    crossref_piis = {
+        _crossref_pii(item)
+        for item in crossref_items
+        if str(item.get("volume", "")).strip() == volume
+        and item.get("type") == "journal-article"
+        and not NON_RESEARCH_PATTERN.search(_first(item.get("title")))
+    }
+    crossref_piis.discard("")
+    roster_match = (
+        len(issue["articles"]) == len(rss_research)
+        and rss_titles == article_titles
+        and (not rss_piis or not crossref_piis or rss_piis == crossref_piis)
+    )
+
+    flags = [
+        flag
+        for flag in issue["quality"]["flags"]
+        if flag
+        not in {
+            "publisher_html_blocked_crossref_fallback",
+            "crossref_provisional_roster",
+        }
+    ]
+    flags.extend(
+        [
+            "publisher_html_blocked_sciencedirect_rss_fallback",
+            "official_order_unverified",
+        ]
+    )
+    if not roster_match:
+        flags.append("publisher_rss_roster_mismatch")
+    issue["publication_date"] = publication_date
+    issue["source_url"] = issue_url
+    issue["expected_article_count"] = len(rss_research)
+    issue["quality"].update(
+        {
+            "roster_match": roster_match,
+            "roster_transport": "sciencedirect-rss",
+            "roster_authority": "publisher-rss",
+            "roster_match_scope": "rss-volume-crossref-title-and-pii",
+            "rss_url": rss_url,
+            "flags": list(dict.fromkeys(flags)),
+        }
+    )
+    for article in issue["articles"]:
+        article["sources"]["issue"] = issue_url
+        article["sources"]["roster"] = rss_url
+    return issue
+
+
 def fetch_official_rss_issue(
     *,
     journal_id: str,
@@ -1008,6 +1279,9 @@ def fetch_crossref_current_issue(
     repec_series_code: str = "",
     target_volume: str | None = None,
     target_issue: str | None = None,
+    output_issue: str | None = None,
+    future_cutoff: datetime | None = None,
+    items_override: list[dict[str, Any]] | None = None,
     start_year: int | None = None,
     session: requests.Session | None = None,
     timeout: int = 60,
@@ -1021,7 +1295,7 @@ def fetch_crossref_current_issue(
     """
 
     client = session or _session()
-    items = _crossref_items(
+    items = items_override or _crossref_items(
         issn,
         session=client,
         timeout=timeout,
@@ -1031,13 +1305,19 @@ def fetch_crossref_current_issue(
     for item in items:
         volume = str(item.get("volume", "")).strip()
         issue = str(item.get("issue", "")).strip()
-        if not volume or not issue or item.get("type") != "journal-article":
+        if not volume or item.get("type") != "journal-article":
             continue
         groups.setdefault((volume, issue), []).append(item)
     eligible = [
         (key, value)
         for key, value in groups.items()
-        if _issue_is_not_future(issn, key[0], key[1], value)
+        if _issue_is_not_future(
+            issn,
+            key[0],
+            key[1],
+            value,
+            now=future_cutoff,
+        )
         if sum(
             bool(item.get("DOI"))
             and not NON_RESEARCH_PATTERN.search(_first(item.get("title")))
@@ -1047,7 +1327,7 @@ def fetch_crossref_current_issue(
     ]
     if not eligible:
         raise MetadataFallbackError("Crossref returned no usable recent issue")
-    if target_volume and target_issue:
+    if target_volume is not None and target_issue is not None:
         issue_items = dict(eligible).get((str(target_volume), str(target_issue)))
         if issue_items is None:
             raise MetadataFallbackError(
@@ -1096,6 +1376,19 @@ def fetch_crossref_current_issue(
         title = _clean_markup(_first(item.get("title")))
         abstract = _clean_markup(str(item.get("abstract", "")))
         abstract_source = "crossref" if abstract else ""
+        elsevier_url = ""
+        if not abstract:
+            try:
+                abstract, elsevier_url = _elsevier_abstract(
+                    client,
+                    _crossref_pii(item),
+                    timeout=timeout,
+                )
+            except requests.RequestException:
+                abstract = ""
+                elsevier_url = ""
+            if abstract:
+                abstract_source = "elsevier-article-api"
         repec_url = ""
         if not abstract and (repec_jpe or repec_series_code) and doi:
             try:
@@ -1147,6 +1440,7 @@ def fetch_crossref_current_issue(
                     "roster": f"crossref:issn:{issn}",
                     "metadata": "crossref",
                     "abstract_en": abstract_source,
+                    **({"elsevier": elsevier_url} if elsevier_url else {}),
                     **({"repec": repec_url} if repec_url else {}),
                     **({"openalex": openalex_url} if openalex_url else {}),
                 },
@@ -1176,13 +1470,14 @@ def fetch_crossref_current_issue(
     if duplicate_count:
         flags.append("duplicate_doi")
     now = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    published_issue = output_issue if output_issue is not None else issue
     return {
         "schema_version": "1.0",
-        "issue_id": f"{journal_id}-{volume}-{issue}",
+        "issue_id": f"{journal_id}-{volume}-{published_issue.lower()}",
         "journal_id": journal_id,
         "journal_name": journal_name,
         "volume": volume,
-        "issue": issue,
+        "issue": published_issue,
         "publication_date": _publication_date(issn, volume, issue, issue_items),
         "source_url": current_issue_url,
         "retrieved_at": now,

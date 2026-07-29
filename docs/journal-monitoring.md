@@ -6,7 +6,7 @@ Academic Door 每两小时检查 41 本期刊是否出现新卷期或当前卷�
 
 ## 分层来源
 
-1. **轻量发现：** Crossref DOI 注册元数据；配置了官方 RSS 的期刊同时读取 RSS。
+1. **轻量发现：** Crossref DOI 注册元数据；配置了官方 RSS 的期刊同时读取 RSS。Elsevier 期刊以 ScienceDirect 官方 RSS 确认已公开卷期，最多提前识别下一个自然月，避免把更晚的预登记卷期误当成当前卷期。
 2. **变化确认：** 同一卷期出现新 DOI、新卷号、官方 RSS 与 Crossref 一致，或同一候选连续两轮稳定出现。
 3. **深度采集：** 只对确认变化的期刊运行现有官方采集器；官网受限时使用已经审计的出版方元数据镜像或 Crossref 补充。
 4. **发布保护：** 新结果未通过名单、DOI、作者、摘要、重复和 Schema 质量门时，不覆盖线上上一版。
@@ -55,10 +55,15 @@ Academic Door 每两小时检查 41 本期刊是否出现新卷期或当前卷�
 | `SMTP_PASSWORD` | SMTP 授权码或密码；必须与账号同时设置 |
 | `SMTP_FROM` | 发件地址；不填时使用 `SMTP_USERNAME` |
 | `NOTIFICATION_EMAIL_TO` | 收件地址；多个地址用逗号或分号分隔 |
+| `ELSEVIER_API_KEY` | 可选；Elsevier 官方 Article Retrieval API 密钥，用于补齐 ScienceDirect 新卷期中 Crossref/OpenAlex 尚未收录的英文摘要 |
 
 凭据只作为 GitHub Actions Secrets 注入发送步骤，不会写入状态文件、
 邮件结果、运行摘要或日志。任何必填配置缺失时，程序安全跳过发送并保留
 待发事件；不会猜测账号或把凭据写进仓库。
+
+`ELSEVIER_API_KEY` 同样只在采集步骤中作为请求头使用，不写入公开数据、
+缓存或日志。未配置时，系统仍能发现 ScienceDirect 新卷期；若公开元数据
+尚未提供完整摘要，质量门会保留线上上一期并等待后续来源补齐。
 
 ## 本机学校授权补充
 

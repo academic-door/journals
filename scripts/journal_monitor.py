@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+from calendar import monthrange
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import hashlib
 import json
@@ -122,6 +123,21 @@ def _baseline_date(issue: dict[str, Any]) -> date | None:
     return None
 
 
+def _publication_cutoff(today: date, lead_months: int) -> date:
+    if lead_months <= 0:
+        return today
+    offset = today.month - 1 + lead_months
+    year = today.year + offset // 12
+    month = offset % 12 + 1
+    return date(year, month, monthrange(year, month)[1])
+
+
+def _lead_months(config: dict[str, Any]) -> int:
+    if "publication_lead_months" in config:
+        return max(0, int(config["publication_lead_months"]))
+    return 1 if config.get("collector") == "elsevier" else 0
+
+
 def _is_candidate_group(
     volume: str,
     issue_label: str,
@@ -173,11 +189,13 @@ def select_candidate(
     baseline: dict[str, Any],
     *,
     today: date | None = None,
+    publication_lead_months: int = 0,
 ) -> Candidate | None:
     # Crossref commonly deposits complete future issues weeks in advance. They
     # are useful metadata, but they are not evidence that the official current
     # issue has changed, so detection never looks beyond today.
-    cutoff = today or datetime.now(timezone.utc).date()
+    current = today or datetime.now(timezone.utc).date()
+    cutoff = _publication_cutoff(current, publication_lead_months)
     baseline_dois = {
         normalize_doi(str(article.get("doi", "")))
         for article in baseline.get("articles", [])
@@ -294,7 +312,10 @@ def fetch_crossref_items(
     client.headers.update({"User-Agent": USER_AGENT, "Accept": "application/json"})
     baseline_date = _baseline_date(baseline)
     start_year = (baseline_date.year - 1) if baseline_date else datetime.now().year - 1
-    until = datetime.now(timezone.utc).date()
+    until = _publication_cutoff(
+        datetime.now(timezone.utc).date(),
+        _lead_months(config),
+    )
     response = _request_with_retry(
         client,
         f"{CROSSREF_API}/journals/{config['issn']}/works",
@@ -468,7 +489,11 @@ def detect_all(
                 if probe_error:
                     raise probe_error
                 assert items is not None
-                candidate = select_candidate(items, baseline)
+                candidate = select_candidate(
+                    items,
+                    baseline,
+                    publication_lead_months=_lead_months(config),
+                )
                 rss_dois: set[str] = set()
                 if candidate and config.get("rss_url"):
                     try:

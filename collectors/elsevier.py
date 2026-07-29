@@ -286,6 +286,8 @@ def fetch_current_issue(
     issn: str,
     repec_series_url: str,
     issue_url_template: str,
+    rss_url: str = "",
+    publication_lead_months: int = 1,
     doi_template: str = "",
     max_workers: int = DETAIL_WORKERS,
 ) -> dict[str, Any]:
@@ -296,6 +298,32 @@ def fetch_current_issue(
     )
     volume = inventory["volume"]
     issue_number = inventory["issue"]
+    if rss_url:
+        try:
+            from collectors.metadata_fallback import (
+                MetadataFallbackError,
+                fetch_sciencedirect_rss_issue,
+            )
+
+            series_match = re.search(r"/s/([^/]+/[^/.]+)\.html", repec_series_url)
+            rss_issue = fetch_sciencedirect_rss_issue(
+                journal_id=journal_id,
+                journal_name=journal_name,
+                issn=issn,
+                current_issue_url=issue_url_template,
+                issue_url_template=issue_url_template,
+                rss_url=rss_url,
+                repec_series_code=series_match.group(1) if series_match else "",
+                lead_months=publication_lead_months,
+                newer_than_volume=volume,
+                session=session,
+            )
+            if rss_issue is not None:
+                return rss_issue
+        except (requests.RequestException, MetadataFallbackError, ValueError):
+            # RePEc remains the last-known-good transport when the optional
+            # publisher RSS or enrichment APIs are temporarily unavailable.
+            pass
     official_issue_url = issue_url_template.format(
         volume=volume,
         issue=issue_number,
