@@ -58,9 +58,12 @@ const initialIssue = initialJournal
   </a>
 </section>
 
-<section class="journal-toolbar" aria-label="期刊目录工具">
+<section
+  class:list={["journal-toolbar", `journal-toolbar--${collectionId}`]}
+  aria-label="期刊目录工具"
+>
   {collectionId === "fields" && (
-    <label class="journal-field-filter">
+    <label class="journal-field-filter field-category-filter">
       <span class="sr-only">按研究领域筛选期刊</span>
       <select id="field-filter" aria-label="按研究领域筛选期刊">
         <option value="all">全部领域</option>
@@ -75,7 +78,7 @@ const initialIssue = initialJournal
     </label>
   )}
   {collectionId === "fields" ? (
-    <label class="journal-field-filter">
+    <label class="journal-field-filter journal-select-filter">
       <span class="sr-only">选择期刊</span>
       <select id="journal-select" aria-label="选择期刊"></select>
     </label>

@@ -186,6 +186,18 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn('class="paper-entry"', explorer)
         self.assertNotIn("field-journal-grid", explorer)
 
+    def test_catalog_toolbars_use_collection_specific_responsive_grids(self):
+        explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn('`journal-toolbar--${collectionId}`', explorer)
+        self.assertIn("field-category-filter", explorer)
+        self.assertIn("journal-select-filter", explorer)
+        self.assertIn(".journal-toolbar--top5 {", self.css)
+        self.assertIn(".journal-toolbar--fields {", self.css)
+        self.assertIn("grid-template-columns: repeat(6, minmax(0, 1fr));", self.css)
+        self.assertIn(".journal-toolbar--top5 .journal-tabs { grid-column: 1 / -1; }", self.css)
+
     def test_field_names_are_consistent_across_config_and_public_api(self):
         import json
         import yaml
