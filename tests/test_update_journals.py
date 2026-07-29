@@ -142,6 +142,7 @@ class PublicationGateTests(unittest.TestCase):
                 "scripts.update_journals.collector_for",
                 return_value=lambda: {"volume": "10", "issue": "1"},
             ),
+            patch("scripts.update_journals.is_detected_snapshot", return_value=True),
             patch("scripts.update_journals.is_publishable_snapshot", return_value=True),
         ):
             issue, report = collect_one(
@@ -205,6 +206,50 @@ class PublicationGateTests(unittest.TestCase):
         self.assertIn("translation incomplete: 1/2", report["error"])
         write_json.assert_not_called()
         self.assertEqual(2, write_detected.call_count)
+
+    def test_incomplete_primary_abstract_is_detected_without_fallback(self) -> None:
+        import tempfile
+        from pathlib import Path
+        from unittest.mock import patch
+
+        previous = {"issue_id": "demo-1-1", "articles": []}
+        candidate = archive_fixture("demo-2-1", "2")
+        candidate["articles"][0]["abstract_en"] = ""
+        candidate["quality"]["abstract_en_complete"] = 0
+        candidate["quality"]["translation_complete"] = 0
+        config = {
+            "id": "demo",
+            "current_issue_url": "https://example.org/current",
+        }
+        with (
+            tempfile.TemporaryDirectory() as directory,
+            patch(
+                "scripts.update_journals.public_issue_path",
+                return_value=Path(directory) / "current.json",
+            ),
+            patch("scripts.update_journals.read_json", return_value=previous),
+            patch(
+                "scripts.update_journals.collector_for",
+                return_value=lambda: copy.deepcopy(candidate),
+            ),
+            patch("scripts.update_journals.fallback_collector_for") as fallback,
+            patch(
+                "scripts.update_journals.apply_translation_cache",
+                side_effect=lambda issue: issue,
+            ),
+            patch(
+                "scripts.update_journals.normalize_issue_content",
+                side_effect=lambda issue: issue,
+            ),
+            patch("scripts.update_journals.validate_issue"),
+            patch("scripts.update_journals.write_detected_snapshot") as detected,
+        ):
+            issue, report = collect_one("DEMO", config, translate=False)
+        self.assertEqual(previous, issue)
+        self.assertEqual("preserved_previous", report["result"])
+        self.assertIn("publication gate", report["error"])
+        fallback.assert_not_called()
+        self.assertEqual(2, detected.call_count)
 
     def test_archive_preserves_old_issue_and_builds_index(self) -> None:
         import json

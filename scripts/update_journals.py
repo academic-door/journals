@@ -586,10 +586,12 @@ def collect_one(
         primary_error = ""
         try:
             issue = collector_for(config)()
-            if not is_publishable_snapshot(issue):
+            if not is_detected_snapshot(issue):
                 raise ValueError(
-                    "primary collector failed publication gate: "
-                    + ", ".join(structural_flags(issue) or ["empty official roster"])
+                    "primary collector failed roster gate: "
+                    + ", ".join(
+                        structural_flags(issue) or ["untrusted official roster"]
+                    )
                 )
         except Exception as error:
             primary_error = f"{type(error).__name__}: {error}"
