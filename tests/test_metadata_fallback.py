@@ -98,6 +98,41 @@ class RepecHistoryNoAbstractSession:
         return Response({"authorships": []})
 
 
+class RepecEconometricaSession:
+    def __init__(self) -> None:
+        self.items = [
+            item("Mussa Puzzle Redux", "1-39", "10.3982/ecta20849", "")
+        ]
+
+    def get(self, url: str, **kwargs) -> Response:
+        if "api.crossref.org" in url:
+            return Response({"message": {"items": self.items}})
+        if "/s/wly/emetrp.html" in url:
+            return Response(
+                {},
+                b"""
+                <html><body>
+                  <h3>January 2025, Volume 93, Issue 1</h3>
+                  <ul>
+                    <li><a href="/a/wly/emetrp/v93y2025i1p1-39.html">Mussa Puzzle Redux</a></li>
+                  </ul>
+                </body></html>
+                """,
+            )
+        if "/a/wly/emetrp/v93y2025i1p1-39.html" in url:
+            return Response(
+                {},
+                b"""
+                <html><body>
+                  <h2>Author</h2><ul><li>Oleg Itskhoki</li><li>Dmitry Mukhin</li></ul>
+                  <h2>Abstract</h2><p>A publisher-supplied abstract.</p>
+                  <h2>Suggested Citation</h2><p>DOI: 10.3982/ECTA20849</p>
+                </body></html>
+                """,
+            )
+        return Response({"authorships": []})
+
+
 class MetadataFallbackTests(unittest.TestCase):
     def test_preserves_page_order_and_excludes_front_matter(self) -> None:
         items = [
@@ -231,6 +266,22 @@ class MetadataFallbackTests(unittest.TestCase):
         self.assertEqual(issue["articles"][0]["article_type"], "comment")
         self.assertEqual(issue["articles"][0]["abstract_en"], "")
         self.assertNotIn("abstract_en_incomplete", issue["quality"]["flags"])
+
+    def test_enriches_repec_entries_when_serial_link_has_no_doi(self) -> None:
+        issue = fetch_repec_history_issue(
+            journal_id="ecta",
+            journal_name="Econometrica",
+            issn="0012-9682",
+            volume="93",
+            issue="1",
+            repec_series_code="wly/emetrp",
+            session=RepecEconometricaSession(),
+        )
+        article = issue["articles"][0]
+        self.assertEqual("10.3982/ecta20849", article["doi"])
+        self.assertEqual(["Oleg Itskhoki", "Dmitry Mukhin"], article["authors"])
+        self.assertEqual("A publisher-supplied abstract.", article["abstract_en"])
+        self.assertNotIn("doi_missing", article["quality_flags"])
 
 
 if __name__ == "__main__":

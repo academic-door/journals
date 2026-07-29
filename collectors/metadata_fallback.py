@@ -405,6 +405,66 @@ def _repec_abstract(
     return " ".join(chunks).strip(), url
 
 
+def _repec_detail_metadata(
+    session: requests.Session,
+    url: str,
+    *,
+    timeout: int,
+) -> tuple[str, list[str], str]:
+    response = session.get(
+        url,
+        timeout=timeout,
+        headers={"Accept": "text/html,application/xhtml+xml"},
+    )
+    response.raise_for_status()
+    soup = BeautifulSoup(response.content, "html.parser")
+    doi = _extract_doi(soup.get_text(" ", strip=True))
+
+    authors: list[str] = []
+    author_heading = next(
+        (
+            node
+            for node in soup.find_all(["h2", "h3"])
+            if node.get_text(" ", strip=True).casefold() in {"author", "authors"}
+        ),
+        None,
+    )
+    if author_heading is not None:
+        for sibling in author_heading.next_siblings:
+            if getattr(sibling, "name", None) in {"h2", "h3"}:
+                break
+            if not hasattr(sibling, "select"):
+                continue
+            for item in sibling.select("li"):
+                name = _clean_markup(item.get_text(" ", strip=True))
+                if name and name not in authors:
+                    authors.append(name)
+
+    abstract = ""
+    abstract_heading = next(
+        (
+            node
+            for node in soup.find_all(["h2", "h3"])
+            if node.get_text(" ", strip=True).casefold() == "abstract"
+        ),
+        None,
+    )
+    if abstract_heading is not None:
+        chunks: list[str] = []
+        for sibling in abstract_heading.next_siblings:
+            if getattr(sibling, "name", None) in {"h2", "h3"}:
+                break
+            text = (
+                sibling.get_text(" ", strip=True)
+                if hasattr(sibling, "get_text")
+                else str(sibling).strip()
+            )
+            if text:
+                chunks.append(text)
+        abstract = " ".join(chunks).strip()
+    return doi, authors, abstract
+
+
 def fetch_repec_history_issue(
     *,
     journal_id: str,
@@ -455,10 +515,27 @@ def fetch_repec_history_issue(
     def build_article(entry: dict[str, str]) -> dict[str, Any]:
         title = entry["title"]
         doi = entry["doi"]
+        detail_authors: list[str] = []
+        detail_abstract = ""
+        if entry.get("detail_url") and not doi:
+            try:
+                doi, detail_authors, detail_abstract = _repec_detail_metadata(
+                    client,
+                    entry["detail_url"],
+                    timeout=timeout,
+                )
+            except requests.RequestException:
+                doi = ""
         crossref = crossref_by_doi.get(doi, {})
-        authors = _authors(crossref)
-        abstract = _clean_markup(str(crossref.get("abstract", "")))
-        abstract_source = "crossref" if abstract else ""
+        authors = _authors(crossref) or detail_authors
+        abstract = (
+            _clean_markup(str(crossref.get("abstract", ""))) or detail_abstract
+        )
+        abstract_source = (
+            "crossref"
+            if crossref.get("abstract")
+            else ("repec-publisher-supplied" if detail_abstract else "")
+        )
         repec_url = ""
         if not abstract and doi:
             try:
