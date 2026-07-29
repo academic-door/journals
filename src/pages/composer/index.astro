@@ -211,10 +211,11 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         return;
       }
       const missingAbstracts = Math.max(0, readiness.total - readiness.abstracts);
-      const missingTranslations = Math.max(0, readiness.total - readiness.translations);
       readinessNotice.hidden = false;
       readinessNotice.dataset.state = "enriching";
-      readinessNotice.textContent = `本期仍有 ${missingAbstracts} 篇英文摘要、${missingTranslations} 篇中文内容待补齐；可预览，整理完成后再发布。`;
+      readinessNotice.textContent = missingAbstracts > 0
+        ? `等待英文摘要 · ${readiness.abstracts}/${readiness.total}；摘要补齐后自动进入翻译。`
+        : `中文翻译中 · ${readiness.translations}/${readiness.total}；整理完成后即可复制发布。`;
       publishingButtons.forEach((button) => { button.disabled = true; });
     };
 

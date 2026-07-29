@@ -11,6 +11,7 @@ from collectors.metadata_fallback import (
     _sciencedirect_rss_groups,
     fetch_crossref_current_issue,
     fetch_repec_history_issue,
+    fetch_sciencedirect_rss_issue,
 )
 
 
@@ -419,6 +420,139 @@ class MetadataFallbackTests(unittest.TestCase):
         )
         self.assertEqual([("11", "August 2026")], [key for key, _items in groups])
         self.assertEqual(["Ada Lovelace"], groups[0][1][0]["authors"])
+
+    def test_sciencedirect_rss_is_the_roster_and_order_authority(self) -> None:
+        feed = b"""
+        <rss xmlns:dc="http://purl.org/dc/elements/1.1/"><channel>
+          <item>
+            <title>Official first paper</title>
+            <dc:identifier>10.1016/j.demo.2026.001</dc:identifier>
+            <description><![CDATA[
+              <p>Publication date: August 2026</p>
+              <p><b>Source:</b> Demo Journal, Volume 188</p>
+              <p>Author(s): First Author</p>
+            ]]></description>
+            <link>https://www.sciencedirect.com/science/article/pii/S001</link>
+          </item>
+          <item>
+            <title>Official second paper</title>
+            <dc:identifier>10.1016/j.demo.2026.002</dc:identifier>
+            <description><![CDATA[
+              <p>Publication date: August 2026</p>
+              <p><b>Source:</b> Demo Journal, Volume 188</p>
+              <p>Author(s): Second Author</p>
+            ]]></description>
+            <link>https://www.sciencedirect.com/science/article/pii/S002</link>
+          </item>
+        </channel></rss>
+        """
+        crossref = [
+            {
+                **item("Official second paper", "2", "10.1016/j.demo.2026.002", "Second abstract."),
+                "volume": "188",
+                "issue": "",
+            },
+            {
+                **item("Official first paper", "1", "10.1016/j.demo.2026.001", "First abstract."),
+                "volume": "188",
+                "issue": "",
+            },
+            {
+                **item("Crossref-only extra paper", "3", "10.1016/j.demo.2026.003", "Extra abstract."),
+                "volume": "188",
+                "issue": "",
+            },
+        ]
+
+        class RssSession:
+            def get(self, url: str, **kwargs) -> Response:
+                if "rss.sciencedirect.com" in url:
+                    return Response({}, feed)
+                return Response({"message": {"items": crossref}})
+
+        issue = fetch_sciencedirect_rss_issue(
+            journal_id="demo",
+            journal_name="Demo Journal",
+            issn="0000-0000",
+            current_issue_url="https://example.org/issues",
+            issue_url_template="https://example.org/vol/{volume}/suppl/{issue}",
+            rss_url="https://rss.sciencedirect.com/demo",
+            session=RssSession(),
+            today=date(2026, 7, 30),
+        )
+        self.assertIsNotNone(issue)
+        assert issue is not None
+        self.assertEqual(
+            ["Official first paper", "Official second paper"],
+            [article["title_en"] for article in issue["articles"]],
+        )
+        self.assertEqual([1, 2], [article["sequence"] for article in issue["articles"]])
+        self.assertTrue(issue["quality"]["roster_match"])
+        self.assertTrue(issue["quality"]["order_preserved"])
+        self.assertEqual("publisher-rss", issue["quality"]["roster_authority"])
+        self.assertNotIn("publisher_rss_roster_mismatch", issue["quality"]["flags"])
+
+    def test_sciencedirect_self_heal_preserves_existing_abstract(self) -> None:
+        feed = b"""
+        <rss xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><item>
+          <title>Existing paper</title>
+          <dc:identifier>10.1016/j.demo.2026.010</dc:identifier>
+          <description><![CDATA[
+            <p>Publication date: August 2026</p>
+            <p><b>Source:</b> Demo Journal, Volume 188</p>
+            <p>Author(s): Existing Author</p>
+          ]]></description>
+          <link>https://www.sciencedirect.com/science/article/pii/S010</link>
+        </item></channel></rss>
+        """
+
+        class RssSession:
+            def get(self, url: str, **kwargs) -> Response:
+                if "rss.sciencedirect.com" in url:
+                    return Response({}, feed)
+                return Response(
+                    {"message": {"items": [{
+                        **item("Existing paper", "1", "10.1016/j.demo.2026.010", ""),
+                        "volume": "188",
+                        "issue": "",
+                    }]}}
+                )
+
+        existing = {
+            "issue_id": "demo-188-c",
+            "articles": [{
+                "doi": "10.1016/j.demo.2026.010",
+                "title_en": "Existing paper",
+                "title_cn": "既有论文",
+                "authors": ["Existing Author"],
+                "abstract_en": "Previously recovered abstract.",
+                "abstract_cn": "此前已经完成的摘要。",
+                "source_url": "https://www.sciencedirect.com/science/article/pii/S010",
+                "sources": {"abstract_en": "openalex"},
+                "translation": {"status": "complete"},
+            }],
+        }
+        with (
+            patch("collectors.metadata_fallback._elsevier_lookup") as elsevier,
+            patch("collectors.metadata_fallback._openalex_metadata") as openalex,
+        ):
+            issue = fetch_sciencedirect_rss_issue(
+                journal_id="demo",
+                journal_name="Demo Journal",
+                issn="0000-0000",
+                current_issue_url="https://example.org/issues",
+                issue_url_template="https://example.org/vol/{volume}/suppl/{issue}",
+                rss_url="https://rss.sciencedirect.com/demo",
+                session=RssSession(),
+                today=date(2026, 7, 30),
+                existing_issue=existing,
+            )
+        assert issue is not None
+        self.assertEqual("Previously recovered abstract.", issue["articles"][0]["abstract_en"])
+        self.assertEqual("既有论文", issue["articles"][0]["title_cn"])
+        self.assertEqual("此前已经完成的摘要。", issue["articles"][0]["abstract_cn"])
+        elsevier.assert_not_called()
+        openalex.assert_not_called()
 
     def test_crossref_blank_issue_can_publish_as_continuous_volume(self) -> None:
         items = [

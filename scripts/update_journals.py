@@ -566,6 +566,38 @@ def is_publishable_snapshot(issue: dict[str, Any]) -> bool:
     )
 
 
+def enrich_detected_issue(
+    config: dict[str, Any],
+    issue: dict[str, Any],
+) -> dict[str, Any]:
+    """Retry only unfinished content for an already trusted issue roster."""
+
+    if config.get("collector") != "elsevier":
+        return issue
+    from collectors.metadata_fallback import fetch_sciencedirect_rss_issue
+
+    rss_url = config.get("rss_url") or (
+        "https://rss.sciencedirect.com/publication/science/"
+        f"{str(config['issn']).replace('-', '')}"
+    )
+    repec_match = re.search(
+        r"/s/([^/]+/[^/.]+)\.html",
+        str(config.get("repec_series_url", "")),
+    )
+    refreshed = fetch_sciencedirect_rss_issue(
+        journal_id=config["id"],
+        journal_name=config["name"],
+        issn=str(config["issn"]),
+        current_issue_url=config["current_issue_url"],
+        issue_url_template=config["issue_url_template"],
+        rss_url=rss_url,
+        repec_series_code=repec_match.group(1) if repec_match else "",
+        lead_months=int(config.get("publication_lead_months", 1)),
+        existing_issue=issue,
+    )
+    return refreshed or issue
+
+
 def collect_one(
     key: str,
     config: dict[str, Any],
@@ -573,6 +605,7 @@ def collect_one(
     translate: bool,
     expected_volume: str = "",
     expected_issue: str = "",
+    enrich_detected: bool = False,
 ) -> tuple[dict[str, Any] | None, dict[str, Any]]:
     report: dict[str, Any] = {
         "journal": key,
@@ -582,25 +615,41 @@ def collect_one(
     }
     target = public_issue_path(config["id"])
     previous = read_json(target)
+    detected_before: dict[str, Any] | None = None
     try:
-        primary_error = ""
-        try:
-            issue = collector_for(config)()
-            if not is_detected_snapshot(issue):
-                raise ValueError(
-                    "primary collector failed roster gate: "
-                    + ", ".join(
-                        structural_flags(issue) or ["untrusted official roster"]
-                    )
+        if enrich_detected:
+            detected = read_json(detected_issue_path(config["id"]))
+            if not detected or detected.get("publication_state") == "ready":
+                report.update(
+                    {
+                        "result": "self_heal_skipped",
+                        "reason": "no incomplete detected issue",
+                        "finished_at": now_iso(),
+                    }
                 )
-        except Exception as error:
-            primary_error = f"{type(error).__name__}: {error}"
-            fallback = fallback_collector_for(config)
-            if fallback is None:
-                raise
-            issue = fallback()
-            report["primary_error"] = primary_error
-            report["transport"] = "metadata_fallback"
+                return previous, report
+            detected_before = detected
+            issue = enrich_detected_issue(config, detected)
+            report["transport"] = "detected-self-heal"
+        else:
+            primary_error = ""
+            try:
+                issue = collector_for(config)()
+                if not is_detected_snapshot(issue):
+                    raise ValueError(
+                        "primary collector failed roster gate: "
+                        + ", ".join(
+                            structural_flags(issue) or ["untrusted official roster"]
+                        )
+                    )
+            except Exception as error:
+                primary_error = f"{type(error).__name__}: {error}"
+                fallback = fallback_collector_for(config)
+                if fallback is None:
+                    raise
+                issue = fallback()
+                report["primary_error"] = primary_error
+                report["transport"] = "metadata_fallback"
         if expected_volume and str(issue.get("volume", "")) != expected_volume:
             raise SourceLagError(
                 f"detected volume {expected_volume}, but the deep collector "
@@ -628,6 +677,36 @@ def collect_one(
         if is_detected_snapshot(issue):
             write_detected_snapshot(issue)
         if not is_publishable_snapshot(issue):
+            if enrich_detected:
+                quality = issue.get("quality", {})
+                abstracts = int(quality.get("abstract_en_complete", 0))
+                translations = int(quality.get("translation_complete", 0))
+                prior_quality = (detected_before or {}).get("quality", {})
+                progressed = (
+                    abstracts > int(prior_quality.get("abstract_en_complete", 0))
+                    or translations
+                    > int(prior_quality.get("translation_complete", 0))
+                )
+                if not progressed and detected_before is not None:
+                    write_json(
+                        detected_issue_path(config["id"]),
+                        detected_before,
+                    )
+                report.update(
+                    {
+                        "result": (
+                            "detected_progress"
+                            if progressed
+                            else "self_heal_no_change"
+                        ),
+                        "issue_id": issue.get("issue_id", ""),
+                        "articles": issue.get("research_article_count", 0),
+                        "abstracts": abstracts,
+                        "translations": translations,
+                        "finished_at": now_iso(),
+                    }
+                )
+                return previous, report
             raise ValueError(
                 "collector result failed the publication gate: "
                 + ", ".join(structural_flags(issue) or ["empty official roster"])
@@ -635,6 +714,36 @@ def collect_one(
         translated = int(issue["quality"].get("translation_complete", 0))
         total = int(issue["research_article_count"])
         if translated != total:
+            if enrich_detected:
+                abstracts = int(
+                    issue["quality"].get("abstract_en_complete", 0)
+                )
+                prior_quality = (detected_before or {}).get("quality", {})
+                progressed = (
+                    abstracts > int(prior_quality.get("abstract_en_complete", 0))
+                    or translated
+                    > int(prior_quality.get("translation_complete", 0))
+                )
+                if not progressed and detected_before is not None:
+                    write_json(
+                        detected_issue_path(config["id"]),
+                        detected_before,
+                    )
+                report.update(
+                    {
+                        "result": (
+                            "detected_progress"
+                            if progressed
+                            else "self_heal_no_change"
+                        ),
+                        "issue_id": issue.get("issue_id", ""),
+                        "articles": total,
+                        "abstracts": abstracts,
+                        "translations": translated,
+                        "finished_at": now_iso(),
+                    }
+                )
+                return previous, report
             raise ValueError(
                 f"translation incomplete: {translated}/{total}; "
                 "preserving the last complete public issue"
@@ -950,6 +1059,11 @@ def main() -> int:
         default="",
         help="Preserve the previous snapshot until the collector reaches this issue.",
     )
+    parser.add_argument(
+        "--enrich-detected",
+        action="store_true",
+        help="Retry missing abstracts and translations on detected issues only.",
+    )
     args = parser.parse_args()
 
     selected = [
@@ -966,6 +1080,7 @@ def main() -> int:
             translate=args.translate,
             expected_volume=args.expected_volume,
             expected_issue=args.expected_issue,
+            enrich_detected=args.enrich_detected,
         )
         refreshed[key] = issue
         reports.append(report)
@@ -977,6 +1092,7 @@ def main() -> int:
         "updated_at": now_iso(),
         "requested": args.journal,
         "translate": args.translate,
+        "enrich_detected": args.enrich_detected,
         "results": reports,
         "available_journals": sorted(available),
     }

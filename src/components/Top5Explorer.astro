@@ -272,8 +272,10 @@ const initialIssue = initialIssuePath
       <div class="issue-note-stack">
         <div class="issue-note ${ready ? "complete" : ""}">
           ${ready
-            ? "中英文内容已整理完成"
-            : `最新卷期已收录 · 摘要整理中 ${translated}/${total}`}
+            ? "可复制发布"
+            : abstracts < total
+              ? `等待英文摘要 · ${abstracts}/${total}`
+              : `中文翻译中 · ${translated}/${total}`}
         </div>
         <div class="issue-note">中国相关：${issue.articles.filter((article) => chinaRelevance(article).status === "yes").length} 篇</div>
       </div>`;

@@ -10,6 +10,9 @@ class ComposerUiTest(unittest.TestCase):
     def setUpClass(cls):
         cls.page = (ROOT / "src/pages/composer/index.astro").read_text(encoding="utf-8")
         cls.css = (ROOT / "src/styles/global.css").read_text(encoding="utf-8")
+        cls.explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(
+            encoding="utf-8"
+        )
 
     def test_compact_classic_theme_is_default(self):
         self.assertIn('fontSize: "14"', self.page)
@@ -158,6 +161,9 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn("const issueReadiness", self.page)
         self.assertIn("publishingButtons.forEach", self.page)
         self.assertIn("button.disabled = true", self.page)
+        self.assertIn("等待英文摘要", self.page)
+        self.assertIn("中文翻译中", self.page)
+        self.assertIn("可复制发布", self.explorer)
 
     def test_composer_selection_and_order_are_persisted(self):
         self.assertIn('id="select-china"', self.page)

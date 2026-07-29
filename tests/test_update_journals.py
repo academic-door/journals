@@ -251,6 +251,132 @@ class PublicationGateTests(unittest.TestCase):
         fallback.assert_not_called()
         self.assertEqual(2, detected.call_count)
 
+    def test_self_heal_keeps_current_without_false_progress(self) -> None:
+        import tempfile
+        from pathlib import Path
+        from unittest.mock import patch
+
+        previous = {"issue_id": "demo-1-1", "articles": []}
+        detected = archive_fixture("demo-2-1", "2")
+        detected["publication_state"] = "enriching"
+        detected["articles"][0]["abstract_en"] = ""
+        detected["quality"]["abstract_en_complete"] = 0
+        detected["quality"]["translation_complete"] = 0
+        config = {
+            "id": "demo",
+            "name": "Demo Journal",
+            "collector": "elsevier",
+            "issn": "0000-0000",
+            "current_issue_url": "https://example.org/issues",
+            "issue_url_template": "https://example.org/vol/{volume}/suppl/{issue}",
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            current_path = Path(directory) / "current.json"
+            detected_path = Path(directory) / "detected.json"
+
+            def read(path: Path):
+                return copy.deepcopy(detected if path == detected_path else previous)
+
+            with (
+                patch(
+                    "scripts.update_journals.public_issue_path",
+                    return_value=current_path,
+                ),
+                patch(
+                    "scripts.update_journals.detected_issue_path",
+                    return_value=detected_path,
+                ),
+                patch("scripts.update_journals.read_json", side_effect=read),
+                patch(
+                    "scripts.update_journals.enrich_detected_issue",
+                    return_value=copy.deepcopy(detected),
+                ) as enrich,
+                patch(
+                    "scripts.update_journals.apply_translation_cache",
+                    side_effect=lambda issue: issue,
+                ),
+                patch(
+                    "scripts.update_journals.normalize_issue_content",
+                    side_effect=lambda issue: issue,
+                ),
+                patch("scripts.update_journals.validate_issue"),
+                patch("scripts.update_journals.write_detected_snapshot"),
+            ):
+                issue, report = collect_one(
+                    "DEMO",
+                    config,
+                    translate=False,
+                    enrich_detected=True,
+                )
+        self.assertEqual(previous, issue)
+        self.assertEqual("self_heal_no_change", report["result"])
+        self.assertEqual(0, report["abstracts"])
+        enrich.assert_called_once()
+
+    def test_self_heal_reports_newly_recovered_abstract(self) -> None:
+        import tempfile
+        from pathlib import Path
+        from unittest.mock import patch
+
+        previous = {"issue_id": "demo-1-1", "articles": []}
+        detected = archive_fixture("demo-2-1", "2")
+        detected["publication_state"] = "enriching"
+        detected["articles"][0]["abstract_en"] = ""
+        detected["quality"]["abstract_en_complete"] = 0
+        detected["quality"]["translation_complete"] = 0
+        progressed = copy.deepcopy(detected)
+        progressed["articles"][0]["abstract_en"] = "Recovered abstract."
+        progressed["quality"]["abstract_en_complete"] = 1
+        config = {
+            "id": "demo",
+            "name": "Demo Journal",
+            "collector": "elsevier",
+            "issn": "0000-0000",
+            "current_issue_url": "https://example.org/issues",
+            "issue_url_template": "https://example.org/vol/{volume}/suppl/{issue}",
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            current_path = Path(directory) / "current.json"
+            detected_path = Path(directory) / "detected.json"
+
+            def read(path: Path):
+                return copy.deepcopy(detected if path == detected_path else previous)
+
+            with (
+                patch(
+                    "scripts.update_journals.public_issue_path",
+                    return_value=current_path,
+                ),
+                patch(
+                    "scripts.update_journals.detected_issue_path",
+                    return_value=detected_path,
+                ),
+                patch("scripts.update_journals.read_json", side_effect=read),
+                patch(
+                    "scripts.update_journals.enrich_detected_issue",
+                    return_value=progressed,
+                ),
+                patch(
+                    "scripts.update_journals.apply_translation_cache",
+                    side_effect=lambda issue: issue,
+                ),
+                patch(
+                    "scripts.update_journals.normalize_issue_content",
+                    side_effect=lambda issue: issue,
+                ),
+                patch("scripts.update_journals.validate_issue"),
+                patch("scripts.update_journals.write_detected_snapshot"),
+            ):
+                issue, report = collect_one(
+                    "DEMO",
+                    config,
+                    translate=False,
+                    enrich_detected=True,
+                )
+        self.assertEqual(previous, issue)
+        self.assertEqual("detected_progress", report["result"])
+        self.assertEqual(1, report["abstracts"])
+
     def test_archive_preserves_old_issue_and_builds_index(self) -> None:
         import json
         import tempfile

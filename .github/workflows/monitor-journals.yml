@@ -80,6 +80,17 @@ jobs:
         run: |
           python scripts/journal_monitor.py --run-updates --translate
 
+      - name: Retry incomplete detected issues
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+          GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || github.token }}
+          ELSEVIER_API_KEY: ${{ secrets.ELSEVIER_API_KEY }}
+        run: |
+          python scripts/update_journals.py \
+            --journal ALL \
+            --translate \
+            --enrich-detected
+
       - name: Check whether any issue was updated
         id: changed
         shell: bash
@@ -92,10 +103,18 @@ jobs:
           result = json.loads(
               Path("output/journal-monitor-result.json").read_text(encoding="utf-8")
           )
-          changed = any(
+          monitor_changed = any(
               item.get("result") == "updated"
               for item in result.get("deep_updates", [])
           )
+          update_result = json.loads(
+              Path("output/journal-update-report.json").read_text(encoding="utf-8")
+          )
+          self_heal_changed = any(
+              item.get("result") in {"updated", "detected_progress"}
+              for item in update_result.get("results", [])
+          )
+          changed = monitor_changed or self_heal_changed
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
               output.write(f"has_updates={'true' if changed else 'false'}\n")
           PY

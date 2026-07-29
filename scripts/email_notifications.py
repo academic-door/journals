@@ -214,6 +214,14 @@ def build_message(events: list[dict[str, Any]], settings: SMTPSettings) -> Email
             f"{event['issue_label']}{period} · {event['article_count']} 篇"
             f" · 中国相关 {event['china_related_count']} 篇"
         )
+        abstract_count = int(event.get("abstract_count", 0))
+        translation_count = int(event.get("translation_count", 0))
+        article_count = int(event["article_count"])
+        progress_label = (
+            f"等待英文摘要 · {abstract_count}/{article_count}"
+            if abstract_count < article_count
+            else f"中文翻译中 · {translation_count}/{article_count}"
+        )
         plain_lines.extend(
             [
                 f"{event['journal_name']}（{event_label}）",
@@ -221,13 +229,7 @@ def build_message(events: list[dict[str, Any]], settings: SMTPSettings) -> Email
                 *(
                     []
                     if ready_stage
-                    else [
-                        (
-                            f"整理进度：英文摘要 {event.get('abstract_count', 0)}/"
-                            f"{event['article_count']} · 中文内容 "
-                            f"{event.get('translation_count', 0)}/{event['article_count']}"
-                        )
-                    ]
+                    else [f"当前状态：{progress_label}"]
                 ),
                 f"查看目录：{event['directory_url']}",
                 *(
@@ -241,11 +243,7 @@ def build_message(events: list[dict[str, Any]], settings: SMTPSettings) -> Email
         progress = (
             ""
             if ready_stage
-            else (
-                f"<br>整理进度：英文摘要 {event.get('abstract_count', 0)}/"
-                f"{event['article_count']} · 中文内容 "
-                f"{event.get('translation_count', 0)}/{event['article_count']}"
-            )
+            else f"<br>当前状态：{html.escape(progress_label)}"
         )
         composer_link = (
             "　"

@@ -217,6 +217,14 @@ class EmailNotificationTests(unittest.TestCase):
             self.assertNotIn("email-state-tree", source)
             self.assertIn('data_tree="$RUNNER_TEMP/data-tree"', source)
 
+    def test_monitor_retries_detected_issues_every_cycle(self):
+        root = Path(__file__).resolve().parents[1]
+        source = (
+            root / ".github" / "workflows" / "monitor-journals.yml"
+        ).read_text(encoding="utf-8")
+        self.assertIn("--enrich-detected", source)
+        self.assertIn('"detected_progress"', source)
+
     def test_script_entrypoint_runs_without_pythonpath(self):
         result = subprocess.run(
             [sys.executable, "scripts/email_notifications.py", "--help"],
@@ -480,7 +488,7 @@ class EmailNotificationTests(unittest.TestCase):
             self.assertEqual(1, detected["messages"])
             self.assertIn("发现新卷期", str(messages[0]["Subject"]))
             detected_body = messages[0].get_body().get_content()
-            self.assertIn("英文摘要 1/2", detected_body)
+            self.assertIn("等待英文摘要 · 1/2", detected_body)
             self.assertNotIn("打开微信公众号编辑器", detected_body)
 
             write_issue(
