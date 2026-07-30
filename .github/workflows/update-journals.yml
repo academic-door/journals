@@ -93,6 +93,7 @@ jobs:
         run: |
           python scripts/update_journals.py --journal "${{ inputs.journal || 'ALL' }}" --translate
           python scripts/audit_public_data.py
+          python scripts/audit_source_alignment.py --strict
           python -m unittest discover -s tests -v
           python scripts/audit_privacy.py
 

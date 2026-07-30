@@ -593,7 +593,7 @@ def _detail_fallback(
         ),
         "sequence": source_sequence,
         "source_sequence": source_sequence,
-        "article_type": "unknown",
+        "article_type": "research-article",
         "title_en": inventory_item["title_en"],
         "title_cn": "",
         "authors": [],

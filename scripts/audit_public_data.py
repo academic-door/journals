@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+from collectors.article_types import abstract_is_complete, translation_is_complete
 from scripts.translate_issue import TranslationError, validate_translation
 from scripts.update_journals import PUBLIC_API, validate_issue
 
@@ -110,6 +111,17 @@ def main() -> int:
         totals["articles"] += len(articles)
         if issue["research_article_count"] != len(articles):
             findings.append(f"{journal['id']}: article count mismatch")
+        counts = issue.get("content_counts") or issue.get("quality", {}).get(
+            "content_counts", {}
+        )
+        if counts:
+            excluded = issue.get("quality", {}).get("excluded_items", [])
+            if int(counts.get("publishable_items", -1)) != len(articles):
+                findings.append(f"{journal['id']}: publishable count mismatch")
+            if int(counts.get("observed_items", -1)) != len(articles) + len(excluded):
+                findings.append(f"{journal['id']}: observed item count mismatch")
+            if int(counts.get("official_items", 0)) < int(counts.get("observed_items", 0)):
+                findings.append(f"{journal['id']}: official item count is below observed items")
         if [article["sequence"] for article in articles] != list(
             range(1, len(articles) + 1)
         ):
@@ -121,13 +133,12 @@ def main() -> int:
             label = f"{journal['id']}:{article['doi'] or article['paper_id']}"
             if not article["authors"]:
                 findings.append(f"{label}: authors missing")
-            is_comment = article.get("article_type") == "comment"
-            if not article["abstract_en"] and not is_comment:
+            if not abstract_is_complete(article):
                 findings.append(f"{label}: English abstract missing")
-            if not article["title_cn"] or (not article["abstract_cn"] and not is_comment):
-                findings.append(f"{label}: Chinese content missing")
+            if not translation_is_complete(article):
+                findings.append(f"{label}: Chinese content missing or lacks source abstract")
                 continue
-            if is_comment and not article["abstract_cn"]:
+            if not article["abstract_en"]:
                 totals["translated"] += 1
                 continue
             try:

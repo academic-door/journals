@@ -15,6 +15,12 @@ from xml.etree import ElementTree
 import requests
 from bs4 import BeautifulSoup
 
+from collectors.article_types import (
+    canonical_article_type,
+    exclusion_reason,
+    is_publishable_type,
+)
+
 
 USER_AGENT = (
     "AcademicDoorJournals/0.1 "
@@ -22,6 +28,7 @@ USER_AGENT = (
 )
 CROSSREF_API = "https://api.crossref.org"
 OPENALEX_API = "https://api.openalex.org"
+SEMANTIC_SCHOLAR_API = "https://api.semanticscholar.org/graph/v1"
 ELSEVIER_ARTICLE_METADATA_API = "https://api.elsevier.com/content/metadata/article"
 ELSEVIER_SEARCH_API = "https://api.elsevier.com/content/search/sciencedirect"
 ELSEVIER_ARTICLE_API = "https://api.elsevier.com/content/article"
@@ -54,7 +61,7 @@ NO_ABSTRACT_PATTERN = re.compile(
 
 
 def _article_type(title: str) -> str:
-    return "comment" if COMMENT_PATTERN.search(title or "") else "research-article"
+    return canonical_article_type(title)
 
 
 def _is_no_abstract_notice(value: str) -> bool:
@@ -247,6 +254,56 @@ def _openalex_metadata(
         payload.get("abstract_inverted_index")
     )
     return authors, abstract, url
+
+
+def _semantic_scholar_metadata_batch(
+    session: requests.Session,
+    dois: list[str],
+    *,
+    timeout: int,
+) -> dict[str, dict[str, Any]]:
+    """Fetch missing public metadata in one bounded Semantic Scholar request."""
+
+    normalized = list(dict.fromkeys(doi.strip().lower() for doi in dois if doi.strip()))
+    if not normalized or not callable(getattr(session, "post", None)):
+        return {}
+    url = f"{SEMANTIC_SCHOLAR_API}/paper/batch"
+    try:
+        response = session.post(
+            url,
+            params={"fields": "title,authors,abstract,url,externalIds"},
+            json={"ids": [f"DOI:{doi}" for doi in normalized]},
+            headers={"Accept": "application/json"},
+            timeout=timeout,
+        )
+        response.raise_for_status()
+        payload = response.json()
+    except (requests.RequestException, ValueError):
+        return {}
+    if not isinstance(payload, list):
+        return {}
+    results: dict[str, dict[str, Any]] = {}
+    for requested_doi, item in zip(normalized, payload):
+        if not isinstance(item, dict):
+            continue
+        external = item.get("externalIds", {})
+        returned_doi = (
+            str(external.get("DOI", "")).strip().lower()
+            if isinstance(external, dict)
+            else ""
+        )
+        doi = returned_doi or requested_doi
+        authors = [
+            str(author.get("name", "")).strip()
+            for author in item.get("authors", [])
+            if isinstance(author, dict) and str(author.get("name", "")).strip()
+        ]
+        results[doi] = {
+            "authors": authors,
+            "abstract": _clean_markup(str(item.get("abstract", ""))),
+            "url": str(item.get("url", "")) or f"{url}/DOI:{doi}",
+        }
+    return results
 
 
 def _elsevier_status(status_code: int) -> str:
@@ -1137,9 +1194,22 @@ def fetch_sciencedirect_rss_issue(
         issue="C",
         issue_lower="c",
     )
-    rss_research = [
-        item for item in rss_items if not NON_RESEARCH_PATTERN.search(item["title"])
-    ]
+    rss_research: list[dict[str, Any]] = []
+    excluded_items: list[dict[str, Any]] = []
+    for item in rss_items:
+        item_type = canonical_article_type(str(item.get("title", "")))
+        if is_publishable_type(item_type):
+            rss_research.append(item)
+            continue
+        excluded_items.append(
+            {
+                "title_en": str(item.get("title", "")),
+                "article_type": item_type,
+                "reason": exclusion_reason(item_type),
+                "doi": str(item.get("doi", "")),
+                "source_url": str(item.get("link", "")),
+            }
+        )
     if not rss_research:
         raise MetadataFallbackError("ScienceDirect RSS current volume has no research items")
 
@@ -1158,6 +1228,12 @@ def fetch_sciencedirect_rss_issue(
             crossref_by_pii[item_pii] = item
         if item_title:
             crossref_by_title[item_title] = item
+
+    semantic_by_doi = _semantic_scholar_metadata_batch(
+        client,
+        [str(item.get("doi", "")) for item in rss_research],
+        timeout=timeout,
+    )
 
     issue_id = f"{journal_id}-{volume}-c"
     existing_articles: dict[str, dict[str, Any]] = {}
@@ -1255,6 +1331,16 @@ def fetch_sciencedirect_rss_issue(
                 abstract = openalex_abstract
                 abstract_source = "openalex"
 
+        semantic_url = ""
+        semantic = semantic_by_doi.get(doi, {})
+        if semantic:
+            if not authors and semantic.get("authors"):
+                authors = list(semantic["authors"])
+            if not abstract and semantic.get("abstract"):
+                abstract = str(semantic["abstract"])
+                abstract_source = "semantic-scholar"
+            semantic_url = str(semantic.get("url", ""))
+
         flags = ["title_cn_missing", "abstract_cn_missing"]
         if not doi:
             flags.append("doi_missing")
@@ -1282,6 +1368,8 @@ def fetch_sciencedirect_rss_issue(
             sources["repec"] = repec_url
         if openalex_url:
             sources["openalex"] = openalex_url
+        if semantic_url:
+            sources["semantic_scholar"] = semantic_url
 
         article = {
             "paper_id": (
@@ -1328,7 +1416,10 @@ def fetch_sciencedirect_rss_issue(
     abstract_complete = sum(
         _has_abstract_or_allowed_comment(article) for article in articles
     )
-    flags = ["publisher_html_blocked_sciencedirect_rss_fallback"]
+    flags = [
+        "publisher_html_blocked_sciencedirect_rss_fallback",
+        "official_order_unverified",
+    ]
     if abstract_complete != len(articles):
         flags.append("abstract_en_incomplete")
     if duplicate_count:
@@ -1366,6 +1457,10 @@ def fetch_sciencedirect_rss_issue(
             "roster_authority": "publisher-rss",
             "roster_match_scope": "rss-volume-items",
             "rss_url": rss_url,
+            "official_item_count": len(rss_items),
+            "publishable_item_count": len(articles),
+            "excluded_item_count": len(excluded_items),
+            "excluded_items": excluded_items,
             "doi_complete": sum(bool(article["doi"]) for article in articles),
             "authors_complete": sum(bool(article["authors"]) for article in articles),
             "abstract_en_complete": abstract_complete,

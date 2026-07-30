@@ -254,6 +254,9 @@ const initialIssue = initialIssuePath
     const abstracts = quality.abstract_en_complete || 0;
     const translated = quality.translation_complete || 0;
     const total = issue.research_article_count || issue.articles.length;
+    const counts = issue.content_counts || quality.content_counts || {};
+    const corrections = counts.corrections || 0;
+    const issueCountLabel = `${total} 篇学术文章${corrections ? `，另有 ${corrections} 篇勘误` : ""}`;
     const ready = issue.publication_state === "ready"
       || (abstracts === total && translated === total);
     const publicationDate = formatDate(issue.publication_date);
@@ -266,7 +269,7 @@ const initialIssue = initialIssuePath
         <p>
           ${escapeHtml(issue.issue_label || `Vol. ${issue.volume} · No. ${issue.issue}`)}
           ${publicationDate ? ` · ${escapeHtml(publicationDate)}` : ""}
-          · ${total} 篇学术文章
+          · ${issueCountLabel}
         </p>
       </div>
       <div class="issue-note-stack">

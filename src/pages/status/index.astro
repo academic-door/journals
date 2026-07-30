@@ -7,13 +7,32 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
 <Layout title="项目状态 · Academic Door Journals">
   <main>
-    <section class="page-heading">
+    <section class="page-heading compact-heading">
       <p class="section-kicker">DATA STATUS</p>
       <h1>数据状态</h1>
-      <p>查看最新同步时间和各期刊内容完整度；待官网复核项目由系统每日自动重试，无需读者处理。</p>
     </section>
-    <section id="health-card" class="health-card">
+    <section id="status-summary" class="status-summary" aria-live="polite">
       <p>正在读取状态……</p>
+    </section>
+    <section class="quality-section" aria-labelledby="quality-title">
+      <div class="quality-heading">
+        <div>
+          <p class="section-kicker">JOURNAL QUALITY</p>
+          <h2 id="quality-title">期刊卷期质量</h2>
+        </div>
+        <p id="quality-updated"></p>
+      </div>
+      <div class="quality-table" role="table" aria-label="期刊卷期质量状态">
+        <div class="quality-row quality-header" role="row">
+          <span role="columnheader">期刊</span>
+          <span role="columnheader">最新卷期</span>
+          <span role="columnheader">目录内容</span>
+          <span role="columnheader">摘要进度</span>
+          <span role="columnheader">来源与顺序</span>
+          <span role="columnheader">发布状态</span>
+        </div>
+        <div id="quality-rows"></div>
+      </div>
     </section>
   </main>
   <script is:inline define:vars={{ base }}>
@@ -21,47 +40,108 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       String(value).replace(/[&<>"']/g, (character) => ({
         "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
       }[character]));
+    const fetchJson = (url, fallback = {}) => fetch(url)
+      .then((response) => response.ok ? response.json() : fallback)
+      .catch(() => fallback);
+    const sourceLabels = {
+      official_page_verified: "官网页面已核对",
+      publisher_feed_verified: "官方订阅源已核对",
+      fallback_verified: "多源交叉核对",
+      needs_attention: "来源需要检查",
+      missing: "等待数据",
+    };
     Promise.all([
-      fetch(`${base}api/v1/health.json`).then((response) => response.json()),
-      fetch(`${base}api/v1/collections/top5.json`).then((response) => response.json()),
-      fetch(`${base}api/v1/collections/fields.json`).then((response) => response.json()),
-    ])
-      .then(([health, top5, fields]) => {
-        const summary = health.summary || {};
-        const allAvailable = summary.available_journals === summary.enabled_journals;
-        const contentComplete = health.content_status === "complete";
-        const statusLabel = allAvailable && contentComplete
-          ? "期刊数据与中文内容已就绪"
-          : allAvailable
-            ? "期刊目录可用，中文内容整理中"
-            : "部分期刊正在等待更新";
-        const journalRows = [...(top5.journals || []), ...(fields.journals || [])].map((journal) => {
-          const usable = Boolean(journal.latest_issue_url);
-          const orderVerified = journal.order_verification === "official_verified";
-          const sourceLabel = orderVerified
-            ? journal.data_status === "needs_attention"
-              ? "官网目录已核对 · 元数据多源补充"
-              : "官网目录已核对 · 官方来源"
-            : "系统每日自动复核中 · 当前目录可用";
-          const contentLabel = usable
-            ? `中文 ${journal.translation_complete}/${journal.article_count}`
-            : "等待最新卷期";
-          return `<li>
-            <strong>${escapeHtml(journal.short_name)}</strong>
-            <span>${escapeHtml(sourceLabel)} · ${escapeHtml(contentLabel)}</span>
-          </li>`;
-        }).join("");
-        document.querySelector("#health-card").innerHTML = `
-          <span class="status-dot ${allAvailable ? "healthy" : escapeHtml(health.status)}"></span>
-          <div>
-            <p class="section-kicker">STATUS</p>
-            <h2>${escapeHtml(statusLabel)}</h2>
-            <p>最近更新：${escapeHtml(health.updated_at)}</p>
-            <ul>${journalRows}</ul>
-          </div>`;
-      })
-      .catch((error) => {
-        document.querySelector("#health-card").textContent = `状态读取失败：${error.message}`;
-      });
+      fetchJson(`${base}api/v1/health.json`),
+      fetchJson(`${base}api/v1/collections/top5.json`, { journals: [] }),
+      fetchJson(`${base}api/v1/collections/fields.json`, { journals: [] }),
+      fetchJson(`${base}api/v1/source-audit.json`, { journals: [], summary: {} }),
+    ]).then(([health, top5, fields, sourceAudit]) => {
+      const journals = [...(top5.journals || []), ...(fields.journals || [])];
+      const auditById = new Map((sourceAudit.journals || []).map((item) => [item.journal_id, item]));
+      const readyCount = journals.filter((journal) => journal.update_state === "ready").length;
+      const enrichingCount = journals.length - readyCount;
+      const sourceSummary = sourceAudit.summary || {};
+      document.querySelector("#status-summary").innerHTML = `
+        <div><strong>${journals.length}</strong><span>监测期刊</span></div>
+        <div><strong>${readyCount}</strong><span>可复制发布</span></div>
+        <div><strong>${enrichingCount}</strong><span>正在补全</span></div>
+        <div><strong>${sourceSummary.needs_attention || 0}</strong><span>需要检查</span></div>`;
+      document.querySelector("#quality-updated").textContent = `最近更新：${health.updated_at || sourceAudit.updated_at || "-"}`;
+      document.querySelector("#quality-rows").innerHTML = journals.map((journal) => {
+        const audit = auditById.get(journal.journal_id) || {};
+        const snapshot = audit.detected?.available ? audit.detected : audit.current || {};
+        const counts = journal.latest_detected_content_counts || snapshot.content_counts || journal.content_counts || {};
+        const total = journal.latest_detected_article_count || journal.article_count || 0;
+        const abstracts = journal.latest_detected_abstracts_complete ?? 0;
+        const translations = journal.latest_detected_translations_complete ?? journal.translation_complete ?? 0;
+        const corrections = counts.corrections || 0;
+        const comments = counts.comments || 0;
+        const shorts = counts.short_communications || 0;
+        const extras = [
+          corrections ? `勘误 ${corrections}` : "",
+          comments ? `评论 ${comments}` : "",
+          shorts ? `短文 ${shorts}` : "",
+        ].filter(Boolean).join(" · ");
+        const order = snapshot.order_verified === false || journal.latest_detected_order_verification === "pending_official"
+          ? "顺序自动复核中"
+          : "顺序已核对";
+        const ready = journal.update_state === "ready";
+        return `<div class="quality-row" role="row">
+          <strong class="journal-code" role="cell">${escapeHtml(journal.short_name)}</strong>
+          <span role="cell" data-label="最新卷期">${escapeHtml(journal.latest_detected_issue_label || journal.latest_issue_label || "等待最新卷期")}</span>
+          <span role="cell" data-label="目录内容"><b>${total} 篇</b>${extras ? `<small>${escapeHtml(extras)}</small>` : ""}</span>
+          <span role="cell" data-label="摘要进度"><b>英文 ${abstracts}/${total}</b><small>中文 ${translations}/${total}</small></span>
+          <span role="cell" data-label="来源与顺序"><b>${escapeHtml(sourceLabels[audit.status] || "来源已记录")}</b><small>${escapeHtml(order)}</small></span>
+          <span role="cell" data-label="发布状态"><span class="state ${ready ? "ready" : "enriching"}">${ready ? "可发布" : "整理中"}</span></span>
+        </div>`;
+      }).join("");
+    }).catch((error) => {
+      document.querySelector("#status-summary").textContent = `状态读取失败：${error.message}`;
+    });
   </script>
 </Layout>
+
+<style>
+  .compact-heading { padding-bottom: 1.25rem; }
+  .status-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border-block: 1px solid var(--line, #d9d9d5);
+    margin-bottom: 2.5rem;
+  }
+  .status-summary > div { padding: 1rem 1.25rem; border-right: 1px solid var(--line, #d9d9d5); }
+  .status-summary > div:last-child { border-right: 0; }
+  .status-summary strong { display: block; font-size: 1.45rem; }
+  .status-summary span { color: #62625e; font-size: .82rem; }
+  .quality-heading { display: flex; justify-content: space-between; align-items: end; gap: 1rem; margin-bottom: 1rem; }
+  .quality-heading h2 { margin: .2rem 0 0; }
+  .quality-heading > p { color: #70706b; font-size: .78rem; }
+  .quality-row {
+    display: grid;
+    grid-template-columns: minmax(58px,.5fr) minmax(165px,1.55fr) minmax(120px,1fr) minmax(125px,1fr) minmax(160px,1.35fr) minmax(82px,.7fr);
+    gap: 1rem;
+    align-items: center;
+    padding: .9rem .65rem;
+    border-bottom: 1px solid var(--line, #e1e1dd);
+  }
+  .quality-header { color: #70706b; font-size: .72rem; text-transform: uppercase; }
+  .quality-row > span { min-width: 0; font-size: .82rem; }
+  .quality-row b, .quality-row small { display: block; }
+  .quality-row b { font-weight: 600; }
+  .quality-row small { color: #777772; margin-top: .18rem; }
+  .journal-code { font-size: .82rem; }
+  .state { display: inline-block; font-size: .75rem; font-weight: 650; }
+  .state.ready { color: #237345; }
+  .state.enriching { color: #8a5b13; }
+  @media (max-width: 840px) {
+    .status-summary { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .status-summary > div:nth-child(2) { border-right: 0; }
+    .status-summary > div:nth-child(-n+2) { border-bottom: 1px solid var(--line, #d9d9d5); }
+    .quality-header { display: none; }
+    .quality-row { grid-template-columns: 72px minmax(0,1fr); gap: .55rem 1rem; padding: 1rem .25rem; }
+    .journal-code { grid-row: 1 / span 5; align-self: start; padding-top: .15rem; }
+    .quality-row > span { display: grid; grid-template-columns: 88px minmax(0,1fr); gap: .5rem; }
+    .quality-row > span::before { content: attr(data-label); color: #777772; font-size: .72rem; }
+    .quality-heading { align-items: start; flex-direction: column; }
+  }
+</style>

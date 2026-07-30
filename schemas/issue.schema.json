@@ -19,27 +19,68 @@
     "quality"
   ],
   "properties": {
-    "schema_version": { "const": "1.0" },
-    "issue_id": { "type": "string", "minLength": 3 },
-    "journal_id": { "type": "string", "minLength": 2 },
-    "journal_name": { "type": "string", "minLength": 3 },
-    "volume": { "type": "string" },
-    "issue": { "type": "string" },
-    "publication_date": { "type": "string" },
-    "source_url": { "type": "string", "format": "uri" },
-    "retrieved_at": { "type": "string", "format": "date-time" },
-    "expected_article_count": { "type": "integer", "minimum": 0 },
-    "research_article_count": { "type": "integer", "minimum": 0 },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "issue_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "journal_id": {
+      "type": "string",
+      "minLength": 2
+    },
+    "journal_name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "volume": {
+      "type": "string"
+    },
+    "issue": {
+      "type": "string"
+    },
+    "publication_date": {
+      "type": "string"
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "retrieved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expected_article_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "research_article_count": {
+      "type": "integer",
+      "minimum": 0
+    },
     "status": {
-      "enum": ["detected", "incomplete", "ready", "error"]
+      "enum": [
+        "detected",
+        "incomplete",
+        "ready",
+        "error"
+      ]
     },
     "publication_state": {
-      "enum": ["enriching", "ready"]
+      "enum": [
+        "enriching",
+        "ready"
+      ]
     },
-    "development_sample": { "type": "boolean" },
+    "development_sample": {
+      "type": "boolean"
+    },
     "articles": {
       "type": "array",
-      "items": { "$ref": "#/$defs/article" }
+      "items": {
+        "$ref": "#/$defs/article"
+      }
     },
     "quality": {
       "type": "object",
@@ -54,19 +95,58 @@
         "flags"
       ],
       "properties": {
-        "roster_match": { "type": "boolean" },
-        "order_preserved": { "type": "boolean" },
-        "doi_complete": { "type": "integer", "minimum": 0 },
-        "authors_complete": { "type": "integer", "minimum": 0 },
-        "abstract_en_complete": { "type": "integer", "minimum": 0 },
-        "translation_complete": { "type": "integer", "minimum": 0 },
-        "duplicate_count": { "type": "integer", "minimum": 0 },
+        "roster_match": {
+          "type": "boolean"
+        },
+        "order_preserved": {
+          "type": "boolean"
+        },
+        "doi_complete": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "authors_complete": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "abstract_en_complete": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "translation_complete": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "duplicate_count": {
+          "type": "integer",
+          "minimum": 0
+        },
         "flags": {
           "type": "array",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
+        },
+        "content_counts": {
+          "$ref": "#/$defs/content_counts"
+        },
+        "official_item_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "publishable_item_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "excluded_item_count": {
+          "type": "integer",
+          "minimum": 0
         }
       },
       "additionalProperties": true
+    },
+    "content_counts": {
+      "$ref": "#/$defs/content_counts"
     }
   },
   "$defs": {
@@ -88,38 +168,159 @@
         "quality_flags"
       ],
       "properties": {
-        "paper_id": { "type": "string", "minLength": 3 },
-        "sequence": { "type": "integer", "minimum": 1 },
-        "article_type": { "type": "string" },
-        "title_en": { "type": "string", "minLength": 1 },
-        "title_cn": { "type": "string" },
+        "paper_id": {
+          "type": "string",
+          "minLength": 3
+        },
+        "sequence": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "article_type": {
+          "enum": [
+            "research-article",
+            "comment",
+            "short-communication",
+            "correction",
+            "editorial",
+            "front-matter",
+            "other"
+          ]
+        },
+        "title_en": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title_cn": {
+          "type": "string"
+        },
         "authors": {
           "type": "array",
-          "items": { "type": "string", "minLength": 1 }
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         },
-        "abstract_en": { "type": "string" },
-        "abstract_cn": { "type": "string" },
-        "abstract_snippet_en": { "type": "string" },
-        "doi": { "type": "string" },
-        "source_url": { "type": "string", "format": "uri" },
-        "publication_date": { "type": "string" },
-        "sources": { "type": "object" },
-        "translation": { "type": "object" },
+        "abstract_en": {
+          "type": "string"
+        },
+        "abstract_cn": {
+          "type": "string"
+        },
+        "abstract_snippet_en": {
+          "type": "string"
+        },
+        "doi": {
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "publication_date": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "object"
+        },
+        "translation": {
+          "type": "object"
+        },
         "quality_flags": {
           "type": "array",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
         },
         "china_relevance": {
           "type": "object",
           "properties": {
-            "status": { "enum": ["yes", "no", "uncertain"] },
-            "evidence": { "type": "string" },
-            "matched_terms": { "type": "array", "items": { "type": "string" } },
-            "source": { "type": "string" }
+            "status": {
+              "enum": [
+                "yes",
+                "no",
+                "uncertain"
+              ]
+            },
+            "evidence": {
+              "type": "string"
+            },
+            "matched_terms": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "source": {
+              "type": "string"
+            }
           },
           "additionalProperties": false
         }
       }
+    },
+    "content_counts": {
+      "type": "object",
+      "required": [
+        "official_items",
+        "observed_items",
+        "publishable_items",
+        "research_articles",
+        "comments",
+        "short_communications",
+        "corrections",
+        "editorial_material",
+        "front_matter",
+        "other_excluded",
+        "catalog_content_items"
+      ],
+      "properties": {
+        "official_items": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "observed_items": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "publishable_items": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "research_articles": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "comments": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "short_communications": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "corrections": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "editorial_material": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "front_matter": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "other_excluded": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "catalog_content_items": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
     }
   }
 }

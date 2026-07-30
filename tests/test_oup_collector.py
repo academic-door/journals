@@ -209,6 +209,7 @@ class OxfordAcademicCollectorTests(unittest.TestCase):
         failed = issue["articles"][0]
         self.assertEqual("The Power of Proximity to Coworkers", failed["title_en"])
         self.assertEqual("10.1093/qje/qjag027", failed["doi"])
+        self.assertEqual("research-article", failed["article_type"])
         self.assertEqual([], failed["authors"])
         self.assertIn("detail_fetch_failed:Timeout", failed["quality_flags"])
         self.assertEqual(1, issue["quality"]["detail_failure_count"])
