@@ -137,15 +137,21 @@ jobs:
           git commit -m "Update journal data"
           git push origin HEAD:data
 
-      - name: Preserve partial translation progress
+      - name: Preserve partial enrichment and translation progress
         if: steps.collect.outcome == 'failure'
         shell: bash
         run: |
           set -euo pipefail
           generated_cache="$RUNNER_TEMP/partial-translation-cache"
+          generated_detected="$RUNNER_TEMP/partial-detected"
           data_tree="$RUNNER_TEMP/partial-data-tree"
-          mkdir -p "$generated_cache"
+          mkdir -p "$generated_cache" "$generated_detected"
           cp -R data/translation-cache/. "$generated_cache/"
+          find public/api/v1/journals -path '*/issues/detected.json' -type f -print0 |
+            while IFS= read -r -d '' file; do
+              mkdir -p "$generated_detected/$(dirname "$file")"
+              cp "$file" "$generated_detected/$file"
+            done
           git fetch origin data
           git worktree add "$data_tree" origin/data
           cd "$data_tree"
@@ -153,14 +159,15 @@ jobs:
           rm -rf data/translation-cache
           mkdir -p data/translation-cache
           cp -R "$generated_cache"/. data/translation-cache/
+          cp -R "$generated_detected"/. .
           git config user.name "academic-door-bot"
           git config user.email "academic-door-bot@users.noreply.github.com"
-          git add data/translation-cache
+          git add data/translation-cache public/api/v1/journals/*/issues/detected.json
           if git diff --cached --quiet; then
-            echo "No partial translation progress to preserve."
+            echo "No partial enrichment or translation progress to preserve."
             exit 0
           fi
-          git commit -m "Preserve partial translation progress"
+          git commit -m "Preserve partial journal enrichment progress"
           git push origin HEAD:data
 
       - name: Sync audited journal issues to private Composer
