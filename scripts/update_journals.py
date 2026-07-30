@@ -722,6 +722,7 @@ def collect_one(
     expected_volume: str = "",
     expected_issue: str = "",
     enrich_detected: bool = False,
+    translation_provider_state: dict[str, str] | None = None,
 ) -> tuple[dict[str, Any] | None, dict[str, Any]]:
     report: dict[str, Any] = {
         "journal": key,
@@ -800,6 +801,7 @@ def collect_one(
             translation_report = translate_missing(
                 issue,
                 TRANSLATION_CACHE / f"{config['id']}.json",
+                provider_state=translation_provider_state,
             )
             issue = apply_translation_cache(issue)
         issue = normalize_issue_content(issue)
@@ -1235,6 +1237,7 @@ def main() -> int:
     ]
     refreshed: dict[str, dict[str, Any] | None] = {}
     reports: list[dict[str, Any]] = []
+    translation_provider_state: dict[str, str] = {}
     for key in selected:
         issue, report = collect_one(
             key,
@@ -1243,6 +1246,7 @@ def main() -> int:
             expected_volume=args.expected_volume,
             expected_issue=args.expected_issue,
             enrich_detected=args.enrich_detected,
+            translation_provider_state=translation_provider_state,
         )
         refreshed[key] = issue
         reports.append(report)
@@ -1256,6 +1260,7 @@ def main() -> int:
         "translate": args.translate,
         "enrich_detected": args.enrich_detected,
         "results": reports,
+        "translation_provider_state": translation_provider_state,
         "available_journals": sorted(available),
     }
     write_json(UPDATE_REPORT, final_report)

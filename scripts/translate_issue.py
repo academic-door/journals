@@ -119,6 +119,18 @@ class TranslationError(RuntimeError):
     pass
 
 
+TERMINAL_PROVIDER_STATUS_CODES = {400, 401, 403, 404, 410, 422, 429}
+
+
+class ProviderUnavailableError(TranslationError):
+    def __init__(self, provider: str, status_code: int) -> None:
+        self.provider = provider
+        self.status_code = status_code
+        super().__init__(
+            f"{provider} unavailable for this run (HTTP {status_code})"
+        )
+
+
 def _extract_json(content: str) -> dict[str, Any]:
     text = content.strip()
     if text.startswith("```"):
@@ -525,12 +537,13 @@ def request_translation(
             }
         except (requests.RequestException, KeyError, IndexError, TranslationError) as error:
             last_error = error
-            if (
-                isinstance(error, requests.HTTPError)
-                and error.response is not None
-                and error.response.status_code in {401, 403}
-            ):
-                break
+            status_code = (
+                error.response.status_code
+                if isinstance(error, requests.HTTPError) and error.response is not None
+                else 0
+            )
+            if status_code in TERMINAL_PROVIDER_STATUS_CODES:
+                raise ProviderUnavailableError("github-models", status_code) from error
             if attempt + 1 < retries:
                 time.sleep(2**attempt)
     raise TranslationError(
@@ -612,6 +625,13 @@ def request_google_translation(
             return translated
         except (requests.RequestException, TranslationError) as error:
             last_error = error
+            status_code = (
+                error.response.status_code
+                if isinstance(error, requests.HTTPError) and error.response is not None
+                else 0
+            )
+            if status_code in TERMINAL_PROVIDER_STATUS_CODES:
+                raise ProviderUnavailableError("google-translate", status_code) from error
             if attempt + 1 < retries:
                 time.sleep(2**attempt)
     raise TranslationError(
@@ -638,6 +658,7 @@ def translate_missing(
     endpoint: str = GITHUB_MODELS_ENDPOINT,
     session: requests.Session | None = None,
     max_translations: int | None = None,
+    provider_state: dict[str, str] | None = None,
 ) -> dict[str, Any]:
     cache = (
         json.loads(cache_path.read_text(encoding="utf-8"))
@@ -651,6 +672,7 @@ def translate_missing(
     upgraded_cache_count = 0
     failures: list[dict[str, str]] = []
     fallback_count = 0
+    provider_availability = provider_state if provider_state is not None else {}
 
     for article in issue["articles"]:
         if max_translations is not None and translated_count >= max_translations:
@@ -682,23 +704,44 @@ def translate_missing(
                 invalid_cache_count += 1
         try:
             provider = "github-models"
-            try:
-                translated = request_translation(
-                    article,
-                    token=auth_token,
-                    model=selected_model,
-                    endpoint=endpoint,
-                    session=session,
+            primary_error: TranslationError | None = None
+            if provider_availability.get("github-models"):
+                primary_error = TranslationError(
+                    provider_availability["github-models"]
                 )
-            except TranslationError as primary_error:
+            else:
+                try:
+                    translated = request_translation(
+                        article,
+                        token=auth_token,
+                        model=selected_model,
+                        endpoint=endpoint,
+                        session=session,
+                    )
+                except ProviderUnavailableError as error:
+                    provider_availability["github-models"] = str(error)
+                    primary_error = error
+                except TranslationError as error:
+                    primary_error = error
+            if primary_error is not None:
+                if provider_availability.get("google-translate"):
+                    raise TranslationError(
+                        f"Primary provider failed: {primary_error}; "
+                        f"{provider_availability['google-translate']}"
+                    )
                 try:
                     translated = request_google_translation(article, session=session)
-                    provider = "google-translate"
-                    fallback_count += 1
+                except ProviderUnavailableError as error:
+                    provider_availability["google-translate"] = str(error)
+                    raise TranslationError(
+                        f"Primary provider failed: {primary_error}; {error}"
+                    ) from error
                 except TranslationError as fallback_error:
                     raise TranslationError(
                         f"Primary provider failed: {primary_error}; {fallback_error}"
                     ) from fallback_error
+                provider = "google-translate"
+                fallback_count += 1
             cache[doi] = {
                 **existing,
                 **translated,
@@ -730,6 +773,7 @@ def translate_missing(
         "invalid_cache_entries": invalid_cache_count,
         "upgraded_cache_entries": upgraded_cache_count,
         "failed": failures,
+        "provider_state": dict(provider_availability),
         "fallback_translated": fallback_count,
         "model": selected_model,
         "prompt_version": PROMPT_VERSION,

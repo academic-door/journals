@@ -99,6 +99,29 @@ class FallbackSession:
         )
 
 
+class TerminalResponse:
+    def __init__(self, status_code: int) -> None:
+        self.status_code = status_code
+
+    def raise_for_status(self) -> None:
+        error = requests.HTTPError(f"HTTP {self.status_code}")
+        error.response = self
+        raise error
+
+
+class CircuitBreakingSession:
+    def __init__(self) -> None:
+        self.github_requests = 0
+        self.google_requests = 0
+
+    def post(self, url, *args, **kwargs):
+        if "models.github.ai" in url:
+            self.github_requests += 1
+            return TerminalResponse(410)
+        self.google_requests += 1
+        return TerminalResponse(429)
+
+
 class TranslationPipelineTests(unittest.TestCase):
     def test_extracts_fenced_json(self) -> None:
         data = _extract_json('```json\n{"title_cn":"测试","abstract_cn":"摘要"}\n```')
@@ -321,6 +344,36 @@ class TranslationPipelineTests(unittest.TestCase):
             "google-translate",
         )
 
+    def test_terminal_provider_failures_are_shared_across_issue_batch(self) -> None:
+        second_article = {
+            **ARTICLE,
+            "doi": "10.0000/second-example",
+            "title_en": "A Second Test of Policy",
+        }
+        provider_state: dict[str, str] = {}
+        session = CircuitBreakingSession()
+        with tempfile.TemporaryDirectory() as directory:
+            first_result = translate_missing(
+                {"journal_id": "first", "articles": [ARTICLE]},
+                Path(directory) / "first.json",
+                token="expired-token",
+                session=session,
+                provider_state=provider_state,
+            )
+            second_result = translate_missing(
+                {"journal_id": "second", "articles": [second_article]},
+                Path(directory) / "second.json",
+                token="expired-token",
+                session=session,
+                provider_state=provider_state,
+            )
 
+        self.assertEqual(len(first_result["failed"]), 1)
+        self.assertEqual(len(second_result["failed"]), 1)
+        self.assertEqual(session.github_requests, 1)
+        self.assertEqual(session.google_requests, 1)
+        self.assertIn("github-models", provider_state)
+        self.assertIn("google-translate", provider_state)
+        self.assertEqual(second_result["provider_state"], provider_state)
 if __name__ == "__main__":
     unittest.main()
