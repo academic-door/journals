@@ -3,7 +3,11 @@ from __future__ import annotations
 import unittest
 
 from scripts.china_relevance import classify_china_relevance
-from scripts.update_journals import clean_abstract_label, normalize_issue_content
+from scripts.update_journals import (
+    clean_abstract_label,
+    normalize_issue_content,
+    preserve_existing_content,
+)
 
 
 class ChinaRelevanceTests(unittest.TestCase):
@@ -58,6 +62,47 @@ class ChinaRelevanceTests(unittest.TestCase):
             "本文研究贸易。",
             clean_abstract_label("摘要 本文研究贸易。"),
         )
+        self.assertEqual("", clean_abstract_label("International audience"))
+        self.assertEqual(
+            "", clean_abstract_label("No abstract is available for this item.")
+        )
+
+    def test_placeholder_does_not_replace_recovered_abstract(self) -> None:
+        issue = {
+            "issue_id": "demo-1-c",
+            "research_article_count": 1,
+            "articles": [
+                {
+                    "doi": "10.1/demo",
+                    "title_en": "Demo",
+                    "abstract_en": "International audience",
+                    "abstract_cn": "",
+                    "authors": [],
+                    "sources": {},
+                    "quality_flags": ["abstract_en_missing"],
+                }
+            ],
+            "quality": {"flags": ["abstract_en_incomplete"]},
+        }
+        existing = {
+            "issue_id": "demo-1-c",
+            "articles": [
+                {
+                    "doi": "10.1/demo",
+                    "title_en": "Demo",
+                    "abstract_en": "Recovered publisher abstract.",
+                    "abstract_cn": "",
+                    "authors": ["Author"],
+                    "sources": {},
+                    "translation": {},
+                }
+            ],
+        }
+        result = preserve_existing_content(issue, existing)
+        self.assertEqual(
+            "Recovered publisher abstract.", result["articles"][0]["abstract_en"]
+        )
+        self.assertNotIn("abstract_en_incomplete", result["quality"]["flags"])
 
     def test_existing_issue_is_normalized_without_recollection(self) -> None:
         issue = {

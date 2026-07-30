@@ -39,13 +39,20 @@ ABSTRACT_LABEL_PATTERN = re.compile(
     r"^\s*(?:Abstract|摘要)\s*(?:[:：.．—-]\s*)?",
     re.IGNORECASE,
 )
+ABSTRACT_PLACEHOLDERS = {
+    "international audience",
+    "no abstract is available for this item",
+}
 
 
 def clean_abstract_label(value: Any) -> str:
-    """Remove publisher section labels that are not part of the abstract."""
+    """Remove publisher labels and known non-abstract placeholders."""
 
     text = str(value or "").strip()
-    return ABSTRACT_LABEL_PATTERN.sub("", text, count=1).strip()
+    cleaned = ABSTRACT_LABEL_PATTERN.sub("", text, count=1).strip()
+    if cleaned.casefold().rstrip(".") in ABSTRACT_PLACEHOLDERS:
+        return ""
+    return cleaned
 
 
 def comment_without_abstract(article: dict[str, Any]) -> bool:
@@ -617,6 +624,8 @@ def preserve_existing_content(
         if str(article.get("title_en", "")).strip()
     }
     for article in issue.get("articles", []):
+        article["abstract_en"] = clean_abstract_label(article.get("abstract_en"))
+        article["abstract_cn"] = clean_abstract_label(article.get("abstract_cn"))
         doi = str(article.get("doi", "")).strip().lower()
         title_key = re.sub(r"[^a-z0-9]+", " ", str(article.get("title_en", "")).casefold()).strip()
         old = existing_by_doi.get(doi) or existing_by_title.get(title_key)
