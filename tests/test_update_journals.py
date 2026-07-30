@@ -12,6 +12,7 @@ from scripts.update_journals import (
     fallback_collector_for,
     is_detected_snapshot,
     is_publishable_snapshot,
+    issue_is_newer,
     order_verification_status,
     write_archive_index,
     write_search_indexes,
@@ -67,6 +68,13 @@ def archive_fixture(issue_id: str, volume: str) -> dict:
 
 
 class PublicationGateTests(unittest.TestCase):
+    def test_newer_detected_issue_wins_over_stale_candidate(self) -> None:
+        newer = archive_fixture("demo-260-c", "260")
+        newer["publication_date"] = "August 2026"
+        older = archive_fixture("demo-259-c", "259")
+        older["publication_date"] = "July 2026"
+        self.assertTrue(issue_is_newer(newer, older))
+        self.assertFalse(issue_is_newer(older, newer))
     def test_official_issue_collector_precedes_rss_metadata_fallback(self) -> None:
         from unittest.mock import patch
 

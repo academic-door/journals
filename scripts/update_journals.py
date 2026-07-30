@@ -274,6 +274,44 @@ def detected_issue_path(journal_id: str) -> Path:
     return PUBLIC_API / "journals" / journal_id / "issues" / "detected.json"
 
 
+def _issue_date_key(issue: dict[str, Any]) -> tuple[int, int]:
+    """Return a comparable year/month key without trusting free-form labels."""
+
+    value = str(issue.get("publication_date", "")).strip()
+    for pattern in ("%B %Y", "%Y-%m-%d", "%Y/%m/%d", "%Y"):
+        try:
+            parsed = datetime.strptime(value, pattern)
+        except ValueError:
+            continue
+        return parsed.year, parsed.month
+    match = re.search(r"(20\d{2})[^0-9]+(1[0-2]|0?[1-9])", value)
+    if match:
+        return int(match.group(1)), int(match.group(2))
+    year = re.search(r"20\d{2}", value)
+    return (int(year.group(0)), 0) if year else (0, 0)
+
+
+def _issue_number(value: Any) -> int:
+    match = re.search(r"\d+", str(value or ""))
+    return int(match.group(0)) if match else -1
+
+
+def issue_is_newer(candidate: dict[str, Any], baseline: dict[str, Any]) -> bool:
+    """Compare issue snapshots so a stale publisher endpoint cannot regress data."""
+
+    candidate_date = _issue_date_key(candidate)
+    baseline_date = _issue_date_key(baseline)
+    if candidate_date != baseline_date and candidate_date != (0, 0) and baseline_date != (0, 0):
+        return candidate_date > baseline_date
+    candidate_volume = _issue_number(candidate.get("volume"))
+    baseline_volume = _issue_number(baseline.get("volume"))
+    if candidate_volume != baseline_volume and candidate_volume >= 0 and baseline_volume >= 0:
+        return candidate_volume > baseline_volume
+    candidate_issue = _issue_number(candidate.get("issue"))
+    baseline_issue = _issue_number(baseline.get("issue"))
+    return candidate_issue > baseline_issue
+
+
 def is_detected_snapshot(issue: dict[str, Any]) -> bool:
     """Accept a confirmed issue roster even while abstracts are enriching."""
 
@@ -714,6 +752,17 @@ def collect_one(
                 report["transport"] = "metadata_fallback"
         issue = preserve_existing_content(issue, detected_before or previous_detected)
         issue = preserve_existing_content(issue, previous)
+        # A publisher's current endpoint can lag RSS or a previously detected
+        # official roster. Never replace a newer trusted snapshot with it.
+        if (
+            previous_detected
+            and is_detected_snapshot(previous_detected)
+            and issue.get("journal_id") == previous_detected.get("journal_id")
+            and issue.get("issue_id") != previous_detected.get("issue_id")
+            and issue_is_newer(previous_detected, issue)
+        ):
+            issue = previous_detected
+            report["result_detail"] = "preserved_newer_detected_issue"
         if expected_volume and str(issue.get("volume", "")) != expected_volume:
             raise SourceLagError(
                 f"detected volume {expected_volume}, but the deep collector "
