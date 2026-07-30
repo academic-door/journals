@@ -10,6 +10,9 @@ class ComposerUiTest(unittest.TestCase):
     def setUpClass(cls):
         cls.page = (ROOT / "src/pages/composer/index.astro").read_text(encoding="utf-8")
         cls.css = (ROOT / "src/styles/global.css").read_text(encoding="utf-8")
+        cls.status_page = (ROOT / "src/pages/status/index.astro").read_text(
+            encoding="utf-8"
+        )
         cls.explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(
             encoding="utf-8"
         )
@@ -164,6 +167,27 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn("等待英文摘要", self.page)
         self.assertIn("中文翻译中", self.page)
         self.assertIn("可复制发布", self.explorer)
+
+    def test_issue_counts_distinguish_publishable_articles_and_corrections(self):
+        for source in (self.explorer, self.page):
+            self.assertIn("counts.corrections || 0", source)
+            self.assertIn("另有 ${corrections} 篇勘误", source)
+
+    def test_quality_dashboard_exposes_all_required_dimensions(self):
+        self.assertIn("api/v1/source-audit.json", self.status_page)
+        for label in (
+            "监测期刊",
+            "可复制发布",
+            "正在补全",
+            "最新卷期",
+            "目录内容",
+            "摘要进度",
+            "来源与顺序",
+            "发布状态",
+        ):
+            self.assertIn(label, self.status_page)
+        self.assertIn("latest_detected_content_counts", self.status_page)
+        self.assertIn("@media (max-width: 840px)", self.status_page)
 
     def test_composer_selection_and_order_are_persisted(self):
         self.assertIn('id="select-china"', self.page)

@@ -16,6 +16,11 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from collectors.aea import fetch_current_issue as fetch_aea
+from collectors.article_types import (
+    abstract_is_complete,
+    normalize_issue_taxonomy,
+    translation_is_complete,
+)
 from scripts.china_relevance import annotate_issue, classify_china_relevance
 from scripts.translate_issue import translate_missing
 
@@ -24,6 +29,7 @@ PUBLIC_API = ROOT / "public" / "api" / "v1"
 SCHEMA_PATH = ROOT / "schemas" / "issue.schema.json"
 JOURNALS_PATH = ROOT / "config" / "journals.yml"
 TRANSLATION_CACHE = ROOT / "data" / "translation-cache"
+ARTICLE_TYPE_OVERRIDES_PATH = ROOT / "data" / "article-type-overrides.json"
 COMMENT_TITLE_OVERRIDES = {
     "10.1086/740225": "国家起源：土地生产率还是可攫取性？——评论",
 }
@@ -59,12 +65,24 @@ def comment_without_abstract(article: dict[str, Any]) -> bool:
     return article.get("article_type") == "comment" and not article.get("abstract_en")
 
 
+def article_type_overrides() -> dict[str, str]:
+    try:
+        payload = json.loads(ARTICLE_TYPE_OVERRIDES_PATH.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+    return payload if isinstance(payload, dict) else {}
+
+
 def normalize_issue_content(issue: dict[str, Any]) -> dict[str, Any]:
-    """Apply deterministic reader-facing cleanup to every current issue."""
+    """Apply deterministic taxonomy, quality counts, and reader cleanup."""
 
     for article in issue.get("articles", []):
         article["abstract_en"] = clean_abstract_label(article.get("abstract_en"))
         article["abstract_cn"] = clean_abstract_label(article.get("abstract_cn"))
+    issue = normalize_issue_taxonomy(
+        issue,
+        overrides=article_type_overrides(),
+    )
     return annotate_issue(issue)
 
 
@@ -142,9 +160,7 @@ def apply_translation_cache(issue: dict[str, Any]) -> dict[str, Any]:
             article["translation"]["status"] = "partial"
 
     translation_complete = sum(
-        bool(article["title_cn"])
-        and (bool(article["abstract_cn"]) or article.get("article_type") == "comment")
-        for article in issue["articles"]
+        translation_is_complete(article) for article in issue["articles"]
     )
     issue["quality"]["translation_complete"] = translation_complete
     flags = [
@@ -590,9 +606,8 @@ def is_publishable_snapshot(issue: dict[str, Any]) -> bool:
     article_count = len(issue.get("articles", []))
     research_count = issue.get("research_article_count", 0)
     quality = issue.get("quality", {})
-    required_abstract_count = sum(
-        article.get("article_type") != "comment"
-        for article in issue.get("articles", [])
+    abstracts_complete = all(
+        abstract_is_complete(article) for article in issue.get("articles", [])
     )
     return (
         research_count > 0
@@ -602,7 +617,7 @@ def is_publishable_snapshot(issue: dict[str, Any]) -> bool:
         and bool(quality.get("order_preserved"))
         and quality.get("doi_complete") == research_count
         and quality.get("authors_complete") == research_count
-        and quality.get("abstract_en_complete", 0) >= required_abstract_count
+        and abstracts_complete
         and quality.get("duplicate_count") == 0
         and not any(
             flag.startswith("collector_error:")
@@ -689,7 +704,9 @@ def preserve_existing_content(
 
     quality = issue.get("quality", {})
     quality["authors_complete"] = sum(bool(article.get("authors")) for article in issue.get("articles", []))
-    quality["abstract_en_complete"] = sum(bool(article.get("abstract_en")) or article.get("article_type") == "comment" for article in issue.get("articles", []))
+    quality["abstract_en_complete"] = sum(
+        abstract_is_complete(article) for article in issue.get("articles", [])
+    )
     flags = [flag for flag in quality.get("flags", []) if flag != "abstract_en_incomplete"]
     if quality["abstract_en_complete"] != int(issue.get("research_article_count", 0)):
         flags.append("abstract_en_incomplete")
@@ -958,8 +975,12 @@ def update_indexes(
             detected_abstracts = int(
                 detected.get("quality", {}).get("abstract_en_complete", 0)
             )
+            detected_quality = detected.get("quality", {})
             detected_translations = int(
-                detected.get("quality", {}).get("translation_complete", 0)
+                detected_quality.get("translation_complete", 0)
+            )
+            detected_counts = detected.get("content_counts") or detected_quality.get(
+                "content_counts", {}
             )
             entry.update(
                 {
@@ -979,6 +1000,16 @@ def update_indexes(
                     "latest_detected_article_count": detected_total,
                     "latest_detected_abstracts_complete": detected_abstracts,
                     "latest_detected_translations_complete": detected_translations,
+                    "latest_detected_content_counts": detected_counts,
+                    "latest_detected_roster_authority": detected_quality.get(
+                        "roster_authority", "official-issue-page"
+                    ),
+                    "latest_detected_roster_transport": detected_quality.get(
+                        "roster_transport", "official-issue-page"
+                    ),
+                    "latest_detected_order_verification": order_verification_status(
+                        detected
+                    ),
                     "update_state": (
                         "ready"
                         if detected.get("publication_state") == "ready"
@@ -1016,6 +1047,14 @@ def update_indexes(
                     "publication_date": issue.get("publication_date", ""),
                     "article_count": total,
                     "translation_complete": translated,
+                    "content_counts": issue.get("content_counts")
+                    or issue.get("quality", {}).get("content_counts", {}),
+                    "roster_authority": issue.get("quality", {}).get(
+                        "roster_authority", "official-issue-page"
+                    ),
+                    "roster_transport": issue.get("quality", {}).get(
+                        "roster_transport", "official-issue-page"
+                    ),
                     "order_verification": order_verification_status(issue),
                 }
             )
@@ -1033,6 +1072,16 @@ def update_indexes(
                             issue["quality"].get("abstract_en_complete", 0)
                         ),
                         "latest_detected_translations_complete": translated,
+                        "latest_detected_content_counts": entry.get("content_counts", {}),
+                        "latest_detected_roster_authority": entry.get(
+                            "roster_authority", "official-issue-page"
+                        ),
+                        "latest_detected_roster_transport": entry.get(
+                            "roster_transport", "official-issue-page"
+                        ),
+                        "latest_detected_order_verification": entry.get(
+                            "order_verification", "pending_official"
+                        ),
                         "update_state": "ready",
                     }
                 )

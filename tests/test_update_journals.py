@@ -22,7 +22,10 @@ from scripts.update_journals import (
 COMPLETE_ISSUE = {
     "expected_article_count": 2,
     "research_article_count": 2,
-    "articles": [{"doi": "10.1/a"}, {"doi": "10.1/b"}],
+    "articles": [
+        {"doi": "10.1/a", "article_type": "research-article", "abstract_en": "A."},
+        {"doi": "10.1/b", "article_type": "research-article", "abstract_en": "B."},
+    ],
     "quality": {
         "roster_match": True,
         "order_preserved": True,
@@ -52,6 +55,7 @@ def archive_fixture(issue_id: str, volume: str) -> dict:
             {
                 "doi": f"10.1/{volume}",
                 "article_type": "research-article",
+                "abstract_en": "A complete abstract.",
             }
         ],
         "quality": {
@@ -112,6 +116,8 @@ class PublicationGateTests(unittest.TestCase):
 
     def test_detected_gate_accepts_complete_roster_before_abstracts(self) -> None:
         issue = copy.deepcopy(COMPLETE_ISSUE)
+        for article in issue["articles"]:
+            article["abstract_en"] = ""
         issue["quality"]["abstract_en_complete"] = 0
         issue["quality"]["translation_complete"] = 0
         self.assertTrue(is_detected_snapshot(issue))

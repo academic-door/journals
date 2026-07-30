@@ -1,0 +1,1481 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-07-30T21:45:16+00:00",
+  "status": "healthy",
+  "summary": {
+    "configured_journals": 41,
+    "official_page_verified": 6,
+    "publisher_feed_verified": 2,
+    "fallback_verified": 33,
+    "needs_attention": 0,
+    "missing": 0,
+    "invariant_errors": 0
+  },
+  "journals": [
+    {
+      "key": "AER",
+      "journal_id": "aer",
+      "short_name": "AER",
+      "name": "American Economic Review",
+      "publisher": "American Economic Association",
+      "configured_source": "https://www.aeaweb.org/journals/aer/current-issue",
+      "status": "official_page_verified",
+      "current": {
+        "available": true,
+        "status": "official_page_verified",
+        "issue_id": "aer-116-7",
+        "publication_date": "July 2026",
+        "publication_state": "enriching",
+        "source_url": "https://www.aeaweb.org/journals/aer/current-issue",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": true,
+        "content_counts": {},
+        "abstracts_complete": 10,
+        "translations_complete": 10,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "JPE",
+      "journal_id": "jpe",
+      "short_name": "JPE",
+      "name": "Journal of Political Economy",
+      "publisher": "University of Chicago Press",
+      "configured_source": "https://www.journals.uchicago.edu/toc/jpe/current",
+      "status": "publisher_feed_verified",
+      "current": {
+        "available": true,
+        "status": "publisher_feed_verified",
+        "issue_id": "jpe-134-7",
+        "publication_date": "2026-01-07T05:52:59Z",
+        "publication_state": "enriching",
+        "source_url": "https://www.journals.uchicago.edu/toc/jpe/current",
+        "roster_authority": "publisher-rss",
+        "roster_transport": "publisher-rss",
+        "order_verified": true,
+        "content_counts": {},
+        "abstracts_complete": 7,
+        "translations_complete": 7,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "QJE",
+      "journal_id": "qje",
+      "short_name": "QJE",
+      "name": "The Quarterly Journal of Economics",
+      "publisher": "Oxford University Press",
+      "configured_source": "https://academic.oup.com/qje/issue",
+      "status": "publisher_feed_verified",
+      "current": {
+        "available": true,
+        "status": "publisher_feed_verified",
+        "issue_id": "qje-141-3",
+        "publication_date": "August 2026",
+        "publication_state": "enriching",
+        "source_url": "https://academic.oup.com/qje/issue",
+        "roster_authority": "publisher-rss",
+        "roster_transport": "publisher-rss",
+        "order_verified": true,
+        "content_counts": {},
+        "abstracts_complete": 15,
+        "translations_complete": 15,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "RES",
+      "journal_id": "res",
+      "short_name": "RES",
+      "name": "The Review of Economic Studies",
+      "publisher": "Oxford University Press",
+      "configured_source": "https://academic.oup.com/restud/issue",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "res-93-4",
+        "publication_date": "July 2026",
+        "publication_state": "enriching",
+        "source_url": "https://academic.oup.com/restud/issue",
+        "roster_authority": "crossref-provisional",
+        "roster_transport": "crossref-newer-than-rss",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 20,
+        "translations_complete": 20,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "crossref_provisional_roster"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "ECTA",
+      "journal_id": "ecta",
+      "short_name": "ECTA",
+      "name": "Econometrica",
+      "publisher": "Wiley",
+      "configured_source": "https://onlinelibrary.wiley.com/toc/14680262/current",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "ecta-94-4",
+        "publication_date": "July 2026",
+        "publication_state": "enriching",
+        "source_url": "https://onlinelibrary.wiley.com/toc/14680262/current",
+        "roster_authority": "crossref-provisional",
+        "roster_transport": "crossref-newer-than-rss",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 12,
+        "translations_complete": 12,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "crossref_provisional_roster"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "JDE",
+      "journal_id": "jde",
+      "short_name": "JDE",
+      "name": "Journal of Development Economics",
+      "publisher": "Elsevier",
+      "configured_source": "https://www.sciencedirect.com/journal/journal-of-development-economics/issues",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "jde-182-c",
+        "publication_date": "June 2026",
+        "publication_state": "enriching",
+        "source_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/182/suppl/C",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": true,
+        "content_counts": {},
+        "abstracts_complete": 60,
+        "translations_complete": 60,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "JPubE",
+      "journal_id": "jpube",
+      "short_name": "JPubE",
+      "name": "Journal of Public Economics",
+      "publisher": "Elsevier",
+      "configured_source": "https://www.sciencedirect.com/journal/journal-of-public-economics/issues",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "jpube-259-c",
+        "publication_date": "July 2026",
+        "publication_state": "enriching",
+        "source_url": "https://www.sciencedirect.com/journal/journal-of-public-economics/vol/259/suppl/C",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": true,
+        "content_counts": {},
+        "abstracts_complete": 20,
+        "translations_complete": 20,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "JEEM",
+      "journal_id": "jeem",
+      "short_name": "JEEM",
+      "name": "Journal of Environmental Economics and Management",
+      "publisher": "Elsevier",
+      "configured_source": "https://www.sciencedirect.com/journal/journal-of-environmental-economics-and-management/issues",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "jeem-138-c",
+        "publication_date": "June 2026",
+        "publication_state": "enriching",
+        "source_url": "https://www.sciencedirect.com/journal/journal-of-environmental-economics-and-management/vol/138/suppl/C",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": true,
+        "content_counts": {},
+        "abstracts_complete": 39,
+        "translations_complete": 39,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "JUE",
+      "journal_id": "jue",
+      "short_name": "JUE",
+      "name": "Journal of Urban Economics",
+      "publisher": "Elsevier",
+      "configured_source": "https://www.sciencedirect.com/journal/journal-of-urban-economics/issues",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "jue-153-c",
+        "publication_date": "May 2026",
+        "publication_state": "enriching",
+        "source_url": "https://www.sciencedirect.com/journal/journal-of-urban-economics/vol/153/suppl/C",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": true,
+        "content_counts": {},
+        "abstracts_complete": 10,
+        "translations_complete": 10,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "AJAE",
+      "journal_id": "ajae",
+      "short_name": "AJAE",
+      "name": "American Journal of Agricultural Economics",
+      "publisher": "Wiley",
+      "configured_source": "https://onlinelibrary.wiley.com/toc/14678276/current",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "ajae-108-3",
+        "publication_date": "May 2026",
+        "publication_state": "enriching",
+        "source_url": "https://academic.oup.com/ajae/issue",
+        "roster_authority": "crossref-provisional",
+        "roster_transport": "crossref",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 12,
+        "translations_complete": 12,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "snapshot_uses_alternate_official_source",
+          "crossref_provisional_roster"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "EJ",
+      "journal_id": "ej",
+      "short_name": "EJ",
+      "name": "The Economic Journal",
+      "publisher": "Oxford University Press",
+      "configured_source": "https://academic.oup.com/ej/issue",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "ej-136-677",
+        "publication_date": "July 2026",
+        "publication_state": "enriching",
+        "source_url": "https://academic.oup.com/ej/issue",
+        "roster_authority": "crossref-provisional",
+        "roster_transport": "crossref",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 12,
+        "translations_complete": 12,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "crossref_provisional_roster"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "JEEA",
+      "journal_id": "jeea",
+      "short_name": "JEEA",
+      "name": "Journal of the European Economic Association",
+      "publisher": "Oxford University Press",
+      "configured_source": "https://academic.oup.com/jeea/issue",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "jeea-24-3",
+        "publication_date": "June 2026",
+        "publication_state": "enriching",
+        "source_url": "https://academic.oup.com/jeea/issue",
+        "roster_authority": "crossref-provisional",
+        "roster_transport": "crossref",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 11,
+        "translations_complete": 11,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "crossref_provisional_roster"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "EER",
+      "journal_id": "eer",
+      "short_name": "EER",
+      "name": "European Economic Review",
+      "publisher": "Elsevier",
+      "configured_source": "https://www.sciencedirect.com/journal/european-economic-review/issues",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "eer-187-c",
+        "publication_date": "July 2026",
+        "publication_state": "enriching",
+        "source_url": "https://www.sciencedirect.com/journal/european-economic-review/vol/187/suppl/C",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 34,
+        "translations_complete": 34,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "IER",
+      "journal_id": "ier",
+      "short_name": "IER",
+      "name": "International Economic Review",
+      "publisher": "Wiley",
+      "configured_source": "https://onlinelibrary.wiley.com/toc/14682354/current",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "ier-67-2",
+        "publication_date": "May 2026",
+        "publication_state": "enriching",
+        "source_url": "https://onlinelibrary.wiley.com/toc/14682354/current",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 16,
+        "translations_complete": 16,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "JEP",
+      "journal_id": "jep",
+      "short_name": "JEP",
+      "name": "Journal of Economic Perspectives",
+      "publisher": "American Economic Association",
+      "configured_source": "https://www.aeaweb.org/journals/jep/current-issue",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "jep-40-2",
+        "publication_date": "May 2026",
+        "publication_state": "enriching",
+        "source_url": "https://www.aeaweb.org/journals/jep/current-issue",
+        "roster_authority": "crossref-provisional",
+        "roster_transport": "crossref",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 11,
+        "translations_complete": 11,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "crossref_provisional_roster"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "AERI",
+      "journal_id": "aeri",
+      "short_name": "AER: Insights",
+      "name": "American Economic Review: Insights",
+      "publisher": "American Economic Association",
+      "configured_source": "https://www.aeaweb.org/journals/aeri/current-issue",
+      "status": "official_page_verified",
+      "current": {
+        "available": true,
+        "status": "official_page_verified",
+        "issue_id": "aeri-8-2",
+        "publication_date": "June 2026",
+        "publication_state": "enriching",
+        "source_url": "https://www.aeaweb.org/journals/aeri/current-issue",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": true,
+        "content_counts": {},
+        "abstracts_complete": 8,
+        "translations_complete": 8,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "GEB",
+      "journal_id": "geb",
+      "short_name": "GEB",
+      "name": "Games and Economic Behavior",
+      "publisher": "Elsevier",
+      "configured_source": "https://www.sciencedirect.com/journal/games-and-economic-behavior/issues",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "geb-158-c",
+        "publication_date": "June 2026",
+        "publication_state": "enriching",
+        "source_url": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/158/suppl/C",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 42,
+        "translations_complete": 42,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "JET",
+      "journal_id": "jet",
+      "short_name": "JET",
+      "name": "Journal of Economic Theory",
+      "publisher": "Elsevier",
+      "configured_source": "https://www.sciencedirect.com/journal/journal-of-economic-theory/issues",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "jet-235-c",
+        "publication_date": "June 2026",
+        "publication_state": "enriching",
+        "source_url": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 15,
+        "translations_complete": 15,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "TE",
+      "journal_id": "te",
+      "short_name": "TE",
+      "name": "Theoretical Economics",
+      "publisher": "Wiley",
+      "configured_source": "https://onlinelibrary.wiley.com/toc/15557561/current",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "te-21-1",
+        "publication_date": "2026",
+        "publication_state": "enriching",
+        "source_url": "https://onlinelibrary.wiley.com/toc/15557561/current",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 10,
+        "translations_complete": 10,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "RAND",
+      "journal_id": "rand",
+      "short_name": "RAND",
+      "name": "The RAND Journal of Economics",
+      "publisher": "Wiley",
+      "configured_source": "https://onlinelibrary.wiley.com/toc/17562171/current",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "rand-57-2",
+        "publication_date": "March 2026",
+        "publication_state": "enriching",
+        "source_url": "https://onlinelibrary.wiley.com/toc/17562171/current",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 11,
+        "translations_complete": 11,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "AEJMICRO",
+      "journal_id": "aejmicro",
+      "short_name": "AEJ Micro",
+      "name": "American Economic Journal: Microeconomics",
+      "publisher": "American Economic Association",
+      "configured_source": "https://www.aeaweb.org/journals/mic/current-issue",
+      "status": "official_page_verified",
+      "current": {
+        "available": true,
+        "status": "official_page_verified",
+        "issue_id": "aejmicro-18-2",
+        "publication_date": "May 2026",
+        "publication_state": "enriching",
+        "source_url": "https://www.aeaweb.org/journals/mic/current-issue",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": true,
+        "content_counts": {},
+        "abstracts_complete": 13,
+        "translations_complete": 13,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "JEBO",
+      "journal_id": "jebo",
+      "short_name": "JEBO",
+      "name": "Journal of Economic Behavior & Organization",
+      "publisher": "Elsevier",
+      "configured_source": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/issues",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "jebo-247-c",
+        "publication_date": "July 2026",
+        "publication_state": "enriching",
+        "source_url": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 13,
+        "translations_complete": 13,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "JEH",
+      "journal_id": "jeh",
+      "short_name": "JEH",
+      "name": "The Journal of Economic History",
+      "publisher": "Cambridge University Press",
+      "configured_source": "https://www.cambridge.org/core/journals/journal-of-economic-history/latest-issue",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "jeh-86-2",
+        "publication_date": "June 2026",
+        "publication_state": "enriching",
+        "source_url": "https://www.cambridge.org/core/journals/journal-of-economic-history/latest-issue",
+        "roster_authority": "crossref-provisional",
+        "roster_transport": "crossref",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 7,
+        "translations_complete": 7,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "crossref_provisional_roster"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "JIE",
+      "journal_id": "jie",
+      "short_name": "JIE",
+      "name": "Journal of International Economics",
+      "publisher": "Elsevier",
+      "configured_source": "https://www.sciencedirect.com/journal/journal-of-international-economics/issues",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "jie-161-c",
+        "publication_date": "May 2026",
+        "publication_state": "enriching",
+        "source_url": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/161/suppl/C",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 25,
+        "translations_complete": 25,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "JF",
+      "journal_id": "jf",
+      "short_name": "JF",
+      "name": "The Journal of Finance",
+      "publisher": "Wiley",
+      "configured_source": "https://onlinelibrary.wiley.com/toc/15406261/current",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "jf-81-3",
+        "publication_date": "June 2026",
+        "publication_state": "enriching",
+        "source_url": "https://onlinelibrary.wiley.com/toc/15406261/current",
+        "roster_authority": "crossref-provisional",
+        "roster_transport": "crossref",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 13,
+        "translations_complete": 13,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "crossref_provisional_roster"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "JFE",
+      "journal_id": "jfe",
+      "short_name": "JFE",
+      "name": "Journal of Financial Economics",
+      "publisher": "Elsevier",
+      "configured_source": "https://www.sciencedirect.com/journal/journal-of-financial-economics/issues",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "jfe-182-c",
+        "publication_date": "August 2026",
+        "publication_state": "enriching",
+        "source_url": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/182/suppl/C",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 6,
+        "translations_complete": 6,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "RFS",
+      "journal_id": "rfs",
+      "short_name": "RFS",
+      "name": "The Review of Financial Studies",
+      "publisher": "Oxford University Press",
+      "configured_source": "https://academic.oup.com/rfs/issue",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "rfs-39-7",
+        "publication_date": "July 2026",
+        "publication_state": "enriching",
+        "source_url": "https://academic.oup.com/rfs/issue",
+        "roster_authority": "crossref-provisional",
+        "roster_transport": "crossref",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 8,
+        "translations_complete": 8,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "crossref_provisional_roster"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "WD",
+      "journal_id": "wd",
+      "short_name": "World Development",
+      "name": "World Development",
+      "publisher": "Elsevier",
+      "configured_source": "https://www.sciencedirect.com/journal/world-development/issues",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "wd-206-c",
+        "publication_date": "October 2026",
+        "publication_state": "enriching",
+        "source_url": "https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 20,
+        "translations_complete": 20,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "RESTAT",
+      "journal_id": "restat",
+      "short_name": "REStat",
+      "name": "The Review of Economics and Statistics",
+      "publisher": "MIT Press",
+      "configured_source": "https://direct.mit.edu/rest/issue",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "restat-108-4",
+        "publication_date": "July 2026",
+        "publication_state": "enriching",
+        "source_url": "https://direct.mit.edu/rest/issue",
+        "roster_authority": "crossref-provisional",
+        "roster_transport": "crossref",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 21,
+        "translations_complete": 21,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "crossref_provisional_roster"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "AEJAPP",
+      "journal_id": "aejapp",
+      "short_name": "AEJ Applied",
+      "name": "American Economic Journal: Applied Economics",
+      "publisher": "American Economic Association",
+      "configured_source": "https://www.aeaweb.org/journals/app/current-issue",
+      "status": "official_page_verified",
+      "current": {
+        "available": true,
+        "status": "official_page_verified",
+        "issue_id": "aejapp-18-3",
+        "publication_date": "July 2026",
+        "publication_state": "enriching",
+        "source_url": "https://www.aeaweb.org/journals/app/current-issue",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": true,
+        "content_counts": {},
+        "abstracts_complete": 10,
+        "translations_complete": 10,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "AEJPOL",
+      "journal_id": "aejpol",
+      "short_name": "AEJ Policy",
+      "name": "American Economic Journal: Economic Policy",
+      "publisher": "American Economic Association",
+      "configured_source": "https://www.aeaweb.org/journals/pol/current-issue",
+      "status": "official_page_verified",
+      "current": {
+        "available": true,
+        "status": "official_page_verified",
+        "issue_id": "aejpol-18-2",
+        "publication_date": "May 2026",
+        "publication_state": "enriching",
+        "source_url": "https://www.aeaweb.org/journals/pol/current-issue",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": true,
+        "content_counts": {},
+        "abstracts_complete": 16,
+        "translations_complete": 16,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "QE",
+      "journal_id": "qe",
+      "short_name": "QE",
+      "name": "Quantitative Economics",
+      "publisher": "Wiley",
+      "configured_source": "https://onlinelibrary.wiley.com/toc/17597331/current",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "qe-17-2",
+        "publication_date": "2026",
+        "publication_state": "enriching",
+        "source_url": "https://onlinelibrary.wiley.com/toc/17597331/current",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 8,
+        "translations_complete": 8,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "JME",
+      "journal_id": "jme",
+      "short_name": "JME",
+      "name": "Journal of Monetary Economics",
+      "publisher": "Elsevier",
+      "configured_source": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/issues",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "jme-160-c",
+        "publication_date": "June 2026",
+        "publication_state": "enriching",
+        "source_url": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/160/suppl/C",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 7,
+        "translations_complete": 9,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "AEJMACRO",
+      "journal_id": "aejmacro",
+      "short_name": "AEJ Macro",
+      "name": "American Economic Journal: Macroeconomics",
+      "publisher": "American Economic Association",
+      "configured_source": "https://www.aeaweb.org/journals/mac/current-issue",
+      "status": "official_page_verified",
+      "current": {
+        "available": true,
+        "status": "official_page_verified",
+        "issue_id": "aejmacro-18-3",
+        "publication_date": "July 2026",
+        "publication_state": "enriching",
+        "source_url": "https://www.aeaweb.org/journals/mac/current-issue",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": true,
+        "content_counts": {},
+        "abstracts_complete": 13,
+        "translations_complete": 13,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "JLE",
+      "journal_id": "jle",
+      "short_name": "JLE",
+      "name": "Journal of Labor Economics",
+      "publisher": "University of Chicago Press",
+      "configured_source": "https://www.journals.uchicago.edu/toc/jole/current",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "jle-44-3",
+        "publication_date": "July 2026",
+        "publication_state": "enriching",
+        "source_url": "https://www.journals.uchicago.edu/toc/jole/current",
+        "roster_authority": "crossref-provisional",
+        "roster_transport": "crossref",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 10,
+        "translations_complete": 10,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "crossref_provisional_roster"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "JOE",
+      "journal_id": "joe",
+      "short_name": "JoE",
+      "name": "Journal of Econometrics",
+      "publisher": "Elsevier",
+      "configured_source": "https://www.sciencedirect.com/journal/journal-of-econometrics/issues",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "joe-256-pb",
+        "publication_date": "July 2026",
+        "publication_state": "enriching",
+        "source_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/PB",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 22,
+        "translations_complete": 22,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "FOODPOLICY",
+      "journal_id": "foodpolicy",
+      "short_name": "Food Policy",
+      "name": "Food Policy",
+      "publisher": "Elsevier",
+      "configured_source": "https://www.sciencedirect.com/journal/food-policy/issues",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "foodpolicy-141-c",
+        "publication_date": "June 2026",
+        "publication_state": "enriching",
+        "source_url": "https://www.sciencedirect.com/journal/food-policy/vol/141/suppl/C",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 16,
+        "translations_complete": 16,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "JAERE",
+      "journal_id": "jaere",
+      "short_name": "JAERE",
+      "name": "Journal of the Association of Environmental and Resource Economists",
+      "publisher": "University of Chicago Press",
+      "configured_source": "https://www.journals.uchicago.edu/toc/jaere/current",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "jaere-13-4",
+        "publication_date": "July 2026",
+        "publication_state": "enriching",
+        "source_url": "https://www.journals.uchicago.edu/toc/jaere/current",
+        "roster_authority": "crossref-provisional",
+        "roster_transport": "crossref",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 8,
+        "translations_complete": 8,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "crossref_provisional_roster"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "LANDECON",
+      "journal_id": "landecon",
+      "short_name": "Land Economics",
+      "name": "Land Economics",
+      "publisher": "University of Wisconsin Press",
+      "configured_source": "https://le.uwpress.org/content/current",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "landecon-102-3",
+        "publication_date": "July 2026",
+        "publication_state": "enriching",
+        "source_url": "https://le.uwpress.org/content/current",
+        "roster_authority": "crossref-provisional",
+        "roster_transport": "crossref",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 10,
+        "translations_complete": 10,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "crossref_provisional_roster"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "LUP",
+      "journal_id": "lup",
+      "short_name": "Land Use Policy",
+      "name": "Land Use Policy",
+      "publisher": "Elsevier",
+      "configured_source": "https://www.sciencedirect.com/journal/land-use-policy/issues",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "lup-169-c",
+        "publication_date": "October 2026",
+        "publication_state": "enriching",
+        "source_url": "https://www.sciencedirect.com/journal/land-use-policy/vol/169/suppl/C",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 56,
+        "translations_complete": 56,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "ERE",
+      "journal_id": "ere",
+      "short_name": "ERE",
+      "name": "Environmental and Resource Economics",
+      "publisher": "Springer",
+      "configured_source": "https://link.springer.com/journal/10640/volumes-and-issues",
+      "status": "fallback_verified",
+      "current": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "ere-89-8",
+        "publication_date": "April 2026",
+        "publication_state": "enriching",
+        "source_url": "https://link.springer.com/journal/10640/volumes-and-issues",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": false,
+        "content_counts": {},
+        "abstracts_complete": 4,
+        "translations_complete": 4,
+        "errors": [],
+        "warnings": [
+          "content_counts_missing",
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    }
+  ]
+}

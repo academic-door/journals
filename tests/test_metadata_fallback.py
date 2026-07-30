@@ -9,6 +9,7 @@ from collectors.metadata_fallback import (
     _elsevier_abstract,
     _elsevier_lookup,
     _sciencedirect_rss_groups,
+    _semantic_scholar_metadata_batch,
     fetch_crossref_current_issue,
     fetch_repec_history_issue,
     fetch_sciencedirect_rss_issue,
@@ -682,6 +683,77 @@ class MetadataFallbackTests(unittest.TestCase):
         self.assertEqual("A publisher-supplied abstract.", article["abstract_en"])
         self.assertNotIn("doi_missing", article["quality_flags"])
 
+
+    def test_semantic_scholar_fallback_uses_one_bounded_batch(self) -> None:
+        class SemanticSession:
+            def __init__(self) -> None:
+                self.calls: list[tuple[str, dict]] = []
+
+            def post(self, url: str, **kwargs) -> Response:
+                self.calls.append((url, kwargs))
+                return Response([
+                    {
+                        "authors": [{"name": "Ada Lovelace"}],
+                        "abstract": "A public fallback abstract.",
+                        "url": "https://www.semanticscholar.org/paper/demo",
+                        "externalIds": {"DOI": "10.1/DEMO"},
+                    }
+                ])
+
+        session = SemanticSession()
+        result = _semantic_scholar_metadata_batch(
+            session, ["10.1/demo", "10.1/demo"], timeout=12
+        )
+        self.assertEqual(1, len(session.calls))
+        _, request = session.calls[0]
+        self.assertEqual({"ids": ["DOI:10.1/demo"]}, request["json"])
+        self.assertEqual(12, request["timeout"])
+        self.assertEqual(["Ada Lovelace"], result["10.1/demo"]["authors"])
+        self.assertEqual(
+            "A public fallback abstract.", result["10.1/demo"]["abstract"]
+        )
+
+
+    def test_sciencedirect_rss_audits_corrections_and_editorial_material(self) -> None:
+        feed = b"""
+        <rss><channel>
+          <item><title>Research paper</title><description>
+            Publication date: August 2026 Source: Demo, Volume 12 Author(s): Ada
+          </description><link>https://www.sciencedirect.com/science/article/pii/S001</link></item>
+          <item><title>Corrigendum to Research paper</title><description>
+            Publication date: August 2026 Source: Demo, Volume 12 Author(s): Ada
+          </description><link>https://www.sciencedirect.com/science/article/pii/S002</link></item>
+          <item><title>Editorial Board</title><description>
+            Publication date: August 2026 Source: Demo, Volume 12 Author(s):
+          </description><link>https://www.sciencedirect.com/science/article/pii/S003</link></item>
+        </channel></rss>
+        """
+
+        class RssSession:
+            def get(self, url: str, **kwargs) -> Response:
+                if "rss.sciencedirect.com" in url:
+                    return Response({}, feed)
+                return Response({"message": {"items": []}})
+
+        issue = fetch_sciencedirect_rss_issue(
+            journal_id="demo",
+            journal_name="Demo Journal",
+            issn="0000-0000",
+            current_issue_url="https://example.org/issues",
+            issue_url_template="https://example.org/vol/{volume}/suppl/{issue}",
+            rss_url="https://rss.sciencedirect.com/demo",
+            session=RssSession(),
+            today=date(2026, 7, 30),
+        )
+        assert issue is not None
+        self.assertEqual(1, issue["research_article_count"])
+        self.assertEqual(3, issue["quality"]["official_item_count"])
+        self.assertEqual(2, issue["quality"]["excluded_item_count"])
+        self.assertEqual(
+            ["correction", "editorial"],
+            [item["article_type"] for item in issue["quality"]["excluded_items"]],
+        )
+        self.assertIn("official_order_unverified", issue["quality"]["flags"])
 
 if __name__ == "__main__":
     unittest.main()
