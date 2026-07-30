@@ -536,6 +536,7 @@ class MetadataFallbackTests(unittest.TestCase):
         with (
             patch("collectors.metadata_fallback._elsevier_lookup") as elsevier,
             patch("collectors.metadata_fallback._openalex_metadata") as openalex,
+            patch("collectors.metadata_fallback._semantic_scholar_metadata_batch") as semantic,
         ):
             issue = fetch_sciencedirect_rss_issue(
                 journal_id="demo",
@@ -554,6 +555,7 @@ class MetadataFallbackTests(unittest.TestCase):
         self.assertEqual("此前已经完成的摘要。", issue["articles"][0]["abstract_cn"])
         elsevier.assert_not_called()
         openalex.assert_not_called()
+        semantic.assert_not_called()
 
     def test_crossref_blank_issue_can_publish_as_continuous_volume(self) -> None:
         items = [

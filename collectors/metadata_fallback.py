@@ -1229,11 +1229,6 @@ def fetch_sciencedirect_rss_issue(
         if item_title:
             crossref_by_title[item_title] = item
 
-    semantic_by_doi = _semantic_scholar_metadata_batch(
-        client,
-        [str(item.get("doi", "")) for item in rss_research],
-        timeout=timeout,
-    )
 
     issue_id = f"{journal_id}-{volume}-c"
     existing_articles: dict[str, dict[str, Any]] = {}
@@ -1331,15 +1326,6 @@ def fetch_sciencedirect_rss_issue(
                 abstract = openalex_abstract
                 abstract_source = "openalex"
 
-        semantic_url = ""
-        semantic = semantic_by_doi.get(doi, {})
-        if semantic:
-            if not authors and semantic.get("authors"):
-                authors = list(semantic["authors"])
-            if not abstract and semantic.get("abstract"):
-                abstract = str(semantic["abstract"])
-                abstract_source = "semantic-scholar"
-            semantic_url = str(semantic.get("url", ""))
 
         flags = ["title_cn_missing", "abstract_cn_missing"]
         if not doi:
@@ -1368,8 +1354,6 @@ def fetch_sciencedirect_rss_issue(
             sources["repec"] = repec_url
         if openalex_url:
             sources["openalex"] = openalex_url
-        if semantic_url:
-            sources["semantic_scholar"] = semantic_url
 
         article = {
             "paper_id": (
@@ -1410,6 +1394,40 @@ def fetch_sciencedirect_rss_issue(
         if article["abstract_cn"]:
             article["quality_flags"].remove("abstract_cn_missing")
         articles.append(article)
+
+    unresolved_dois = [
+        str(article.get("doi", "")).strip().lower()
+        for article in articles
+        if article.get("doi")
+        and (not article.get("authors") or not article.get("abstract_en"))
+    ]
+    semantic_by_doi = (
+        _semantic_scholar_metadata_batch(
+            client, unresolved_dois, timeout=min(timeout, 5)
+        )
+        if unresolved_dois
+        else {}
+    )
+    for article in articles:
+        semantic = semantic_by_doi.get(str(article.get("doi", "")).lower(), {})
+        if not semantic:
+            continue
+        semantic_url = str(semantic.get("url", ""))
+        if not article.get("authors") and semantic.get("authors"):
+            article["authors"] = list(semantic["authors"])
+            article["quality_flags"] = [
+                flag for flag in article["quality_flags"] if flag != "authors_missing"
+            ]
+        if not article.get("abstract_en") and semantic.get("abstract"):
+            article["abstract_en"] = str(semantic["abstract"])
+            article["sources"]["abstract_en"] = "semantic-scholar"
+            article["quality_flags"] = [
+                flag for flag in article["quality_flags"] if flag != "abstract_en_missing"
+            ]
+            if article.get("translation", {}).get("status") == "blocked":
+                article["translation"]["status"] = "pending"
+        if semantic_url:
+            article["sources"]["semantic_scholar"] = semantic_url
 
     doi_values = [article["doi"] for article in articles if article["doi"]]
     duplicate_count = len(doi_values) - len(set(doi_values))
