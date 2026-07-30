@@ -485,18 +485,21 @@
     "excluded_items": [
       {
         "title_en": "Backmatter of Econometrica Vol. 94 Iss. 4",
-        "reason": "non_research_title",
-        "doi": "10.3982/ecta944bm"
+        "reason": "front_matter",
+        "doi": "10.3982/ecta944bm",
+        "article_type": "front-matter"
       },
       {
         "title_en": "Frontmatter of Econometrica 94 Iss. 4",
-        "reason": "non_research_title",
-        "doi": "10.3982/ecta944fm"
+        "reason": "front_matter",
+        "doi": "10.3982/ecta944fm",
+        "article_type": "front-matter"
       },
       {
         "title_en": "Submission of Manuscripts to the Econometric Society Monograph Series",
-        "reason": "non_research_title",
-        "doi": "10.3982/ecta944sum"
+        "reason": "front_matter",
+        "doi": "10.3982/ecta944sum",
+        "article_type": "front-matter"
       }
     ],
     "doi_complete": 12,
@@ -507,6 +510,34 @@
     "flags": [
       "publisher_html_blocked_crossref_fallback",
       "crossref_provisional_roster"
-    ]
+    ],
+    "official_item_count": 15,
+    "publishable_item_count": 12,
+    "content_counts": {
+      "official_items": 15,
+      "observed_items": 15,
+      "publishable_items": 12,
+      "research_articles": 12,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 3,
+      "other_excluded": 0,
+      "catalog_content_items": 12
+    }
+  },
+  "content_counts": {
+    "official_items": 15,
+    "observed_items": 15,
+    "publishable_items": 12,
+    "research_articles": 12,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 3,
+    "other_excluded": 0,
+    "catalog_content_items": 12
   }
 }

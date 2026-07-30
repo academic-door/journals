@@ -545,13 +545,15 @@
     "excluded_items": [
       {
         "title_en": "Wallace E. Oates Outstanding Doctoral Dissertation Award",
-        "reason": "non_research_title",
-        "doi": "10.1086/742463"
+        "reason": "non_publishable_item",
+        "doi": "10.1086/742463",
+        "article_type": "research-article"
       },
       {
         "title_en": "Front Matter",
-        "reason": "non_research_title",
-        "doi": "10.1086/742835"
+        "reason": "front_matter",
+        "doi": "10.1086/742835",
+        "article_type": "front-matter"
       }
     ],
     "doi_complete": 8,
@@ -562,7 +564,35 @@
     "flags": [
       "publisher_html_blocked_crossref_fallback",
       "crossref_provisional_roster"
-    ]
+    ],
+    "official_item_count": 10,
+    "publishable_item_count": 8,
+    "content_counts": {
+      "official_items": 10,
+      "observed_items": 10,
+      "publishable_items": 8,
+      "research_articles": 8,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 1,
+      "other_excluded": 1,
+      "catalog_content_items": 8
+    }
   },
-  "publication_state": "ready"
+  "publication_state": "ready",
+  "content_counts": {
+    "official_items": 10,
+    "observed_items": 10,
+    "publishable_items": 8,
+    "research_articles": 8,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 1,
+    "other_excluded": 1,
+    "catalog_content_items": 8
+  }
 }

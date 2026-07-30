@@ -7,7 +7,7 @@
   "issue": "C",
   "publication_date": "July 2026",
   "source_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/C",
-  "retrieved_at": "2026-07-30T17:49:44+00:00",
+  "retrieved_at": "2026-07-30T23:27:50+00:00",
   "expected_article_count": 22,
   "research_article_count": 22,
   "status": "incomplete",
@@ -24,7 +24,7 @@
         "Siddhartha Chib",
         "Simon C. Smith"
       ],
-      "abstract_en": "",
+      "abstract_en": "None",
       "abstract_cn": "本文探讨了在每个状态下数据生成模型不确定时检测多个结构性断裂的非标准问题，并将其应用于实证资产定价中的因子选择。检测基于断裂点的边际似然，通过对各状态下所有可能模型的配对进行新颖的积分来获得。最优断裂点最大化该边际似然。将此方法应用于来自1963-2023的六 Fama–French因子的月度数据，分析识别出三断裂——1982、1998和2009——以及在1998之后向更简约模型的转变。在1998之前，选择五或六因子，但在此之后选择二。因此，随着断裂的出现，向简约性转变，这对因子动物园文献具有重要意义。此外，在每个状态下，所有被省略的因子都被所选因子所涵盖。纳入断裂还导致最大夏普比率风险因子投资组合中的权重配置显著不同。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jeconom.2025.106067",
@@ -34,7 +34,7 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "",
+        "abstract_en": "semantic-scholar",
         "abstract_lookup": {
           "status": "insufficient_entitlement",
           "attempts": [
@@ -70,7 +70,8 @@
             }
           ]
         },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2025.106067"
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2025.106067",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/532229f956be85a79454c3dd9c5cc24a36ca3c2f"
       },
       "translation": {
         "status": "complete",
@@ -80,9 +81,7 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T20:06:02+00:00"
       },
-      "quality_flags": [
-        "abstract_en_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -180,7 +179,7 @@
         "Subal C. Kumbhakar",
         "Sui Luo"
       ],
-      "abstract_en": "",
+      "abstract_en": "None",
       "abstract_cn": "我们提出了一种半参数贝叶斯估计器用于 copula 密度，形式化为一个广义指数族，结合了一个参数基线 copula 和一个由高斯过程（GP）建模的灵活调整。基线捕捉了依赖关系的主要特征，并适应可能无界的密度，而 GP 组件引入了非参数的细化。为了调节基线的影响，我们进一步引入了一个调节参数，以调整其在最终估计中的权重。GP 超参数和该调节参数在贝叶斯框架内共同推断。我们还基于重要性抽样提出了一个后验采样器，基线 copula 作为自然的近似分布。模拟结果展示了所提估计器的有效性和采样器的效率。该方法还通过对商品期货市场的应用进行了进一步说明。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jeconom.2025.106085",
@@ -190,7 +189,7 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "",
+        "abstract_en": "semantic-scholar",
         "abstract_lookup": {
           "status": "insufficient_entitlement",
           "attempts": [
@@ -226,7 +225,8 @@
             }
           ]
         },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2025.106085"
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2025.106085",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/dc9026b850ad76714102011202fd54c24c2a83b1"
       },
       "translation": {
         "status": "complete",
@@ -236,9 +236,7 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T20:06:34+00:00"
       },
-      "quality_flags": [
-        "abstract_en_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -259,7 +257,7 @@
         "Yanping Yi",
         "Yonghui Zhang"
       ],
-      "abstract_en": "",
+      "abstract_en": "None",
       "abstract_cn": "本文研究了共同基金绩效评估，其中非随机缺失数据是一个重要问题。忽略样本选择问题可能导致参数估计偏差和无效的绩效评估。因此，我们提出了一种新颖的Beta选择模型来表征这种非随机缺失机制。通过将我们的Beta选择机制引入Harvey和Liu（2018）的降噪Alpha（NRA）模型，我们可以显著减少Alpha估计中的偏差。我们还提供了一种计算上具有吸引力的贝叶斯估计程序。模拟结果表明，与经典的逐基金普通最小二乘法（OLS）和基准NRA模型相比，我们提出的方法在有限样本中表现出更优的性能。最后，我们将我们的方法应用于中国共同基金数据，发现：（i）我们的样本外Alpha预测在所有测试的缺失率下都表现出更高的预测准确性；（ii）大约18%的基金表现出统计上显著的正Alpha，表明其具有超越市场的技能；（iii）使用我们的方法构建的投资组合比使用替代方法构建的投资组合带来了显著更高的回报。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jeconom.2025.106098",
@@ -269,7 +267,7 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "",
+        "abstract_en": "semantic-scholar",
         "abstract_lookup": {
           "status": "insufficient_entitlement",
           "attempts": [
@@ -305,7 +303,8 @@
             }
           ]
         },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2025.106098"
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2025.106098",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/32ed1d4bff8a1985e5f5abef8eae89c190bcfd54"
       },
       "translation": {
         "status": "complete",
@@ -315,9 +314,7 @@
         "model": "mistral-ai/mistral-medium-2505",
         "translated_at": "2026-07-26T20:20:10+00:00"
       },
-      "quality_flags": [
-        "abstract_en_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "yes",
         "evidence": "title",
@@ -340,7 +337,7 @@
         "Marwan Izzeldin",
         "Lorenzo Trapani"
       ],
-      "abstract_en": "",
+      "abstract_en": "None",
       "abstract_cn": "异质自回归模型（HARL）已成为建模和预测收益波动的基准规范，因其简洁性和捕捉到的收益波动中通常观察到的强持久性。为了解决潜在的测量误差、非线性和非球形残差等问题，文献中开发了许多基线HARL模型的变体。本文通过提出一类具有时间变参数的动态状态空间模型，为这一研究领域做出了贡献。参数动态假设遵循自回归过程，可能带有或不带有随机波动，从而产生二规范：SHARP和SHARP-SV。这两种模型旨在捕捉收益波动的演变特性，并通过使用粒子吉布斯采样的贝叶斯推断进行估计。对SPY、高频数据、行业ETF、代表性NYSE股票和VIX指数的实证应用表明，我们提出的模型在预测波动性方面平均优于替代的基于HARL的规范，特别是在中长期视野下。广泛的蒙特卡洛分析进一步说明了我们的方法在估计准确性和预测性能方面的优势。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jeconom.2025.106146",
@@ -350,7 +347,7 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "",
+        "abstract_en": "semantic-scholar",
         "abstract_lookup": {
           "status": "insufficient_entitlement",
           "attempts": [
@@ -386,7 +383,8 @@
             }
           ]
         },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2025.106146"
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2025.106146",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/b7712e266646c4f8fedb79bc4c4c08313d8731f2"
       },
       "translation": {
         "status": "complete",
@@ -396,9 +394,7 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T20:09:20+00:00"
       },
-      "quality_flags": [
-        "abstract_en_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -571,7 +567,7 @@
         "Chengwei Tang",
         "Tuo Liu"
       ],
-      "abstract_en": "",
+      "abstract_en": "None",
       "abstract_cn": "本文研究了一种集中式马尔可夫链蒙特卡洛（MCMC）估计方法，该方法在提供有效推断感兴趣参数的同时，具有显著的计算优势。通过减少需要采样的参数维度，该方法相较于传统方法和一些最先进的贝叶斯算法，显著降低了计算时间和内存使用。其适用性扩展到正确指定或错误指定的似然函数，以及广义矩方法目标函数。蒙特卡洛研究表明，集中式MCMC估计量的偏差和均方根误差通常小于或可与传统贝叶斯估计量相媲美。此外，该方法表现出可靠的模型选择性能。我们建立了集中式MCMC估计量的大样本性质。对中国A股市场股票收益网络溢出效应的实证应用进一步说明了该方法的优势。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jeconom.2026.106252",
@@ -581,7 +577,7 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "",
+        "abstract_en": "semantic-scholar",
         "abstract_lookup": {
           "status": "insufficient_entitlement",
           "attempts": [
@@ -617,7 +613,8 @@
             }
           ]
         },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2026.106252"
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2026.106252",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/dd9fdaf878ff72f85469b8713b6ccb429132aed1"
       },
       "translation": {
         "status": "complete",
@@ -627,9 +624,7 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T20:08:13+00:00"
       },
-      "quality_flags": [
-        "abstract_en_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -649,7 +644,7 @@
         "Efthymios G. Tsionas",
         "Nikolaos D. Vlastakis"
       ],
-      "abstract_en": "",
+      "abstract_en": "None",
       "abstract_cn": "本文考虑了贝叶斯模型平均（BMA）中非共轭先验分布的情况。尽管自然共轭设置是BMA的默认选择，主要是出于分析可处理性的考虑，但由于其对先验信息的不切实际假设等原因，受到了相当大的批评。在本研究中，我们通过考虑多元Student-t分布的二特例来扩展文献。我们使用拉普拉斯近似法获得闭式解，并将我们的技术应用于受控数值实验和跨国增长回归。我们的结果表明，在超参数的精细调整下，所提出的方法在合成数据集上的表现与共轭替代方案相似，而在真实数据中，它平均更倾向于比共轭替代方案更简约的模型，并且还表现出更优越的预测性能。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jeconom.2026.106256",
@@ -659,7 +654,7 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "",
+        "abstract_en": "semantic-scholar",
         "abstract_lookup": {
           "status": "insufficient_entitlement",
           "attempts": [
@@ -695,7 +690,8 @@
             }
           ]
         },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2026.106256"
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2026.106256",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/500ed25aa21aad99e809f14a06c0d76aae45b03d"
       },
       "translation": {
         "status": "complete",
@@ -705,9 +701,7 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T20:08:22+00:00"
       },
-      "quality_flags": [
-        "abstract_en_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -805,7 +799,7 @@
         "Valentin Zelenyuk",
         "Xibin Zhang"
       ],
-      "abstract_en": "",
+      "abstract_en": "None",
       "abstract_cn": "我们提出了用于持久性和暂时性无效率密度的核估计量，应用于广义面板数据随机边界模型。该方法放宽了对无效率施加的传统分布假设，从而提高了稳健性。我们开发了一种贝叶斯采样算法，以估计所有模型参数和未观察到的实体，以及构建持久性和暂时性无效率密度所需的带宽。通过基于伪样本的数值研究，我们展示了估计量和采样算法的优势。我们发现，我们的估计方法优于传统的贝叶斯估计，提供了更准确的公司层面无效率估计。我们还应用该方法分析了一组大型美国商业银行的成本边界及相关特征，并讨论了与传统贝叶斯框架的差异。我们的估计量揭示，暂时性无效率的高密度区域随时间变化，而传统方法则不具备此特征。此外，我们的方法揭示的持久性无效率对总无效率的贡献略高于传统框架所建议的贡献的一半。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jeconom.2025.106081",
@@ -815,7 +809,7 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "",
+        "abstract_en": "semantic-scholar",
         "abstract_lookup": {
           "status": "insufficient_entitlement",
           "attempts": [
@@ -851,7 +845,8 @@
             }
           ]
         },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2025.106081"
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2025.106081",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/485529ff2eeb37582111718e3e31bb04a6ca2dad"
       },
       "translation": {
         "status": "complete",
@@ -861,9 +856,7 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T20:06:27+00:00"
       },
-      "quality_flags": [
-        "abstract_en_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -884,7 +877,7 @@
         "Myungjin Kim",
         "Jesse Tack"
       ],
-      "abstract_en": "",
+      "abstract_en": "None",
       "abstract_cn": "量化天气变量的经济影响一直是理解气候变化影响的关键实证主题。虽然面板方法利用单位内随时间变化的天气变量的横截面差异，已被广泛用于可靠识别感兴趣的平均效应，但对潜在异质天气效应分布的理解日益受到关注。跨空间和时间的效应异质性可以揭示不同地区适应能力的差异或其随时间的演变，为制定气候政策提供重要见解。本文提出了一种新颖的贝叶斯层次建模方法，利用面板数据估计天气变量的异质效应。我们提出的方法通过高斯过程先验建模时空变系数。使用美国玉米带的玉米产量数据，我们展示了所提模型优于几种替代方案。我们的发现与文献一致，并为气候变化适应的局部细微差别提供了额外见解。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jeconom.2025.106075",
@@ -894,7 +887,7 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "",
+        "abstract_en": "semantic-scholar",
         "abstract_lookup": {
           "status": "insufficient_entitlement",
           "attempts": [
@@ -930,7 +923,8 @@
             }
           ]
         },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2025.106075"
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2025.106075",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/f59dfd1dc63e2ebf5d6bdecc0a3f4ae34bde5b2d"
       },
       "translation": {
         "status": "complete",
@@ -940,9 +934,7 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T20:06:19+00:00"
       },
-      "quality_flags": [
-        "abstract_en_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -1114,7 +1106,7 @@
         "Joshua C.C. Chan",
         "Yaling Qi"
       ],
-      "abstract_en": "",
+      "abstract_en": "High-dimensional matrix-valued time-series are increasingly common in economics and ﬁnance. Prominent examples include large cross-region panels and dynamic economic networks. As the dimensions of the matrix grow, conventional approaches based on vector autoregressions—implemented by vectoring the matrix-valued data— become computationally infeasible. We introduce a class of large Bayesian matrix autoregressions (MARs) that can accommodate time-varying volatility, non-Gaussian errors and COVID-19 outliers. To tackle parameter proliferation, we propose Minnesota-type shrinkage priors for these MARs. We develop a uniﬁed approach for estimating these models that scales well to high dimensions. The empirical relevance of these new MARs is illustrated using a US state-level dataset that contains 6 macroeconomic times-series for each of the 50 states, with a total of 300 times-series.",
       "abstract_cn": "高维矩阵值时间序列在经济学和金融中越来越常见。显著的例子包括大型跨区域面板和动态经济网络。随着矩阵维度的增加，基于向量自回归的传统方法——通过将矩阵值数据向量化实现——变得在计算上不可行。我们引入了一类大型贝叶斯矩阵自回归（BMARs），可以适应时间变化的波动性、非高斯误差和COVID-19异常值。为了解决参数膨胀问题，我们对MAR系数提出了明尼苏达型收缩先验。我们开发了一种统一的方法来估计这一类模型，该方法在高维情况下表现良好。这些新BMARs的实证相关性通过使用一个包含6宏观经济时间序列的美国州级数据集进行说明，该数据集涵盖了50个州，共有300个时间序列。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jeconom.2025.105955",
@@ -1124,7 +1116,7 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "",
+        "abstract_en": "semantic-scholar",
         "abstract_lookup": {
           "status": "insufficient_entitlement",
           "attempts": [
@@ -1160,7 +1152,8 @@
             }
           ]
         },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2025.105955"
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2025.105955",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/90b0475c79f0cb3ca70e2a7e9185a0b937f7a610"
       },
       "translation": {
         "status": "complete",
@@ -1170,9 +1163,7 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T20:05:36+00:00"
       },
-      "quality_flags": [
-        "abstract_en_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -1274,7 +1265,7 @@
         "Simone Manganelli",
         "Bernd Schwaab"
       ],
-      "abstract_en": "",
+      "abstract_en": "Macro-prudential policymakers face a risk-management problem: they must assess medium-term downside risks to the real economy stemming from financial imbalances and the associated threat of future financial crises, while accounting for the cost of policy interventions in terms of foregone upside potential. This trade-off between limiting downside risks and preserving upside growth is inherently asymmetric and depends on the distribution of future macroeconomic outcomes. We formalize this decision problem by defining novel measures of downside risk and upside potential and by stipulating an explicit loss function for macro-prudential policy. To evaluate policy in this setting, we develop and apply a novel Bayesian structural quantile vector autoregressive model that delivers flexible and potentially asymmetric predictive distributions. Using quantile impulse responses, we assess the scope for macro-prudential policy to reduce growth volatility and negative skewness, infer the macro-prudential policy stance, and characterize the circumstances under which macro-prudential interventions are likely to be beneficial.",
       "abstract_cn": "宏观审慎政策制定者面临风险管理问题：他们必须评估源于金融失衡的对实体经济的中期下行风险及未来金融危机的相关威胁，同时考虑政策干预在放弃上行潜力方面的成本。这种限制下行风险与保持上行增长之间的权衡本质上是非对称的，并且依赖于未来宏观经济结果的分布。我们通过定义新的下行风险和上行潜力的度量，并规定宏观审慎政策的明确损失函数，来形式化这一决策问题。为了在这一背景下评估政策，我们开发并应用了一种新的贝叶斯结构量化向量自回归模型，该模型提供灵活且可能是非对称的预测分布。通过量化脉冲响应，我们评估宏观审慎政策减少增长波动性和负偏度的潜力，推断宏观审慎政策立场，并描述宏观审慎干预可能带来益处的情境。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jeconom.2026.106230",
@@ -1284,7 +1275,7 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "",
+        "abstract_en": "semantic-scholar",
         "abstract_lookup": {
           "status": "insufficient_entitlement",
           "attempts": [
@@ -1320,7 +1311,8 @@
             }
           ]
         },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2026.106230"
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2026.106230",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/7e61172cc3c73455db1575e6fa4a2d67540b9165"
       },
       "translation": {
         "status": "complete",
@@ -1330,9 +1322,7 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T20:08:03+00:00"
       },
-      "quality_flags": [
-        "abstract_en_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -1352,7 +1342,7 @@
         "Chuan Wang",
         "Subal C. Kumbhakar"
       ],
-      "abstract_en": "",
+      "abstract_en": "None",
       "abstract_cn": "本文引入了一种贝叶斯框架，旨在解决实证增长研究中的关键计量经济学挑战：变量选择和横截面依赖性。我们提出了一种增长回归模型，该模型通过多因子结构纳入横截面依赖性，并通过稀疏系数考虑变量选择。接着，我们引入了一种专门为该模型设计的新贝叶斯自适应LASSO估计量，能够在同时解决横截面依赖性的同时进行变量选择。为了验证这一框架，我们进行了蒙特卡洛研究，证明我们的自适应贝叶斯LASSO增长回归模型在所有评估指标上始终优于基准模型。此外，我们将模型应用于一个包含55个候选变量的数据库，该数据库涵盖了71个国家，从1961到2019。我们的实证比较确认了我们的模型优于基准模型。此外，我们的模型识别了五全球因素和16关键增长决定因素，使用主成分分析和工具变量的稳健性检验确认了我们发现的可靠性。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jeconom.2025.106050",
@@ -1362,7 +1352,7 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "",
+        "abstract_en": "semantic-scholar",
         "abstract_lookup": {
           "status": "insufficient_entitlement",
           "attempts": [
@@ -1398,7 +1388,8 @@
             }
           ]
         },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2025.106050"
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2025.106050",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/d7471d8e923f19b29316d743987e6e2312571239"
       },
       "translation": {
         "status": "complete",
@@ -1408,9 +1399,7 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T20:05:49+00:00"
       },
-      "quality_flags": [
-        "abstract_en_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -1429,7 +1418,7 @@
         "Justin L. Tobias",
         "Timothy N. Bond"
       ],
-      "abstract_en": "",
+      "abstract_en": "None",
       "abstract_cn": "我们采用一种新颖的半参数贝叶斯有序Probit模型重新审视了不同国家和性别间年龄与生活满意度（“幸福感”）之间的关系。在我们的有序选择框架中，我们引入了一种新的切点模拟方案，并开发了一种局部自适应方法来平滑原本不规则的年龄虚拟变量系数集合。我们发现，男性的就业状态与其报告的幸福感密切相关，且就业状态对男性的重要性相对高于女性，并且常用的二次模型在报告幸福感最小化的年龄时可能产生不准确且误导性精确的推断。我们还发现了一些证据，进一步细化了文献中报告和/或讨论的年龄与幸福感之间的“U”型模式：在我们考虑的大多数欧洲国家中，男性的幸福感在传统退休年龄之前和刚开始退休时急剧上升，随后在年龄分布的右尾部分趋于平稳或下降。常用的关于年龄的二次模型未能重现这一模式，并且常常与数据相悖。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jeconom.2024.105917",
@@ -1439,7 +1428,7 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "",
+        "abstract_en": "semantic-scholar",
         "abstract_lookup": {
           "status": "insufficient_entitlement",
           "attempts": [
@@ -1475,7 +1464,8 @@
             }
           ]
         },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2024.105917"
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2024.105917",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/8e640bf3d0741131c3d002ae93b8b6b015acb559"
       },
       "translation": {
         "status": "complete",
@@ -1485,9 +1475,7 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T20:05:27+00:00"
       },
-      "quality_flags": [
-        "abstract_en_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -1584,7 +1572,7 @@
         "Jun Yu",
         "Tao Zeng"
       ],
-      "abstract_en": "",
+      "abstract_en": "None",
       "abstract_cn": "本文为偏差信息准则（DIC）作为贝叶斯模型选择工具的理论依据提供了支持，使用MCMC输出。与阿卡伊克信息准则（AIC）和贝叶斯信息准则（BIC）不同，后者在不考虑先验信息的情况下平衡模型适 adequacy与复杂性，DIC将先验信息纳入这一权衡中。本文的贡献为二-fold。第一，本文证明，当在一组正则条件下使用通过将参数值替换为其最优估计值以获得插件估计采样分布的插件预测分布时，DIC作为数据生成过程与插件预测分布之间的期望Kullback-Leibler散度的渐近无偏估计量。第二，本文为DIC和有效参数数量发展了高阶展开，突出了先验的影响。我们在三的实证应用中使用DIC比较离散选择模型、随机前沿模型和copula模型；结果与理论预期一致，显示DIC作为一种多功能工具的效用，优于传统模型选择标准。研究发现，logit模型在研究父母教育对孩子高中毕业的边际效应时优于probit模型。此外，具有指数分布的随机前沿模型比正态分布更好地拟合电力公用事业数据。最后，选择的S&P指数收益的copula模型表现出重尾和强尾依赖性。通过高阶展开建模先验的影响，我们还发现上述实证模型在预测准确性方面优于其基准对应物。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jeconom.2025.105978",
@@ -1594,7 +1582,7 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "",
+        "abstract_en": "semantic-scholar",
         "abstract_lookup": {
           "status": "insufficient_entitlement",
           "attempts": [
@@ -1630,7 +1618,8 @@
             }
           ]
         },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2025.105978"
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2025.105978",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/6a51490df7b0efce43208a07e4bed090d2670a33"
       },
       "translation": {
         "status": "complete",
@@ -1640,9 +1629,7 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T20:05:44+00:00"
       },
-      "quality_flags": [
-        "abstract_en_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -1661,7 +1648,7 @@
         "Subal C. Kumbhakar",
         "Sushanta K. Mallick"
       ],
-      "abstract_en": "",
+      "abstract_en": "None",
       "abstract_cn": "本期特刊汇集了21篇论文，反映了贝叶斯计量经济学不断扩大的范围和方法论的演变。我们提出了一个新的组织分类法，将传统贝叶斯方法（基于共轭先验、标准似然估计和已建立的马尔可夫链蒙特卡洛（MCMC）技术）与当代贝叶斯前沿（以非参数方法、变分推断、高维收缩和与机器学习的整合为特征）区分开来。我们进一步将贡献分为两大领域，涵盖经济学（侧重宏观经济学、微观经济学和气候计量经济学）和金融学（侧重资产定价、波动性和银行业务模型）的应用。在这些领域中，出现了四个跨领域的主题：（1）高维度、波动性和时变动态；（2）结构识别和模型不确定性；（3）半参数和非参数灵活性；（4）数据质量、粒度和新型数据结构。本综述综合了特刊的方法论和实证贡献，提出了一个统一的框架来组织贝叶斯计量经济学的最新进展，并确定了未解决的挑战和未来研究的有希望的方向。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jeconom.2026.106269",
@@ -1671,7 +1658,7 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "",
+        "abstract_en": "semantic-scholar",
         "abstract_lookup": {
           "status": "insufficient_entitlement",
           "attempts": [
@@ -1707,7 +1694,8 @@
             }
           ]
         },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2026.106269"
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2026.106269",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/a775ea34e444f5999790e6ddde4840e8ede8cf59"
       },
       "translation": {
         "status": "complete",
@@ -1717,9 +1705,7 @@
         "model": "mistral-ai/mistral-medium-2505",
         "translated_at": "2026-07-26T20:20:25+00:00"
       },
-      "quality_flags": [
-        "abstract_en_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -1735,15 +1721,55 @@
     "roster_authority": "publisher-rss",
     "roster_match_scope": "rss-volume-items",
     "rss_url": "https://rss.sciencedirect.com/publication/science/03044076",
+    "official_item_count": 23,
+    "publishable_item_count": 22,
+    "excluded_item_count": 1,
+    "excluded_items": [
+      {
+        "title_en": "Editorial Board",
+        "article_type": "editorial",
+        "reason": "editorial_material",
+        "doi": "",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626001065?dgcid=rss_sd_all"
+      }
+    ],
     "doi_complete": 22,
     "authors_complete": 22,
-    "abstract_en_complete": 6,
-    "translation_complete": 22,
+    "abstract_en_complete": 20,
+    "translation_complete": 20,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_sciencedirect_rss_fallback",
-      "abstract_en_incomplete"
-    ]
+      "official_order_unverified",
+      "abstract_en_incomplete",
+      "translation_incomplete"
+    ],
+    "content_counts": {
+      "official_items": 23,
+      "observed_items": 23,
+      "publishable_items": 22,
+      "research_articles": 22,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 1,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 22
+    }
+  },
+  "content_counts": {
+    "official_items": 23,
+    "observed_items": 23,
+    "publishable_items": 22,
+    "research_articles": 22,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 1,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 22
   },
   "publication_state": "enriching"
 }

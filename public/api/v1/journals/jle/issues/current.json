@@ -684,8 +684,9 @@
     "excluded_items": [
       {
         "title_en": "Front Matter",
-        "reason": "non_research_title",
-        "doi": "10.1086/742950"
+        "reason": "front_matter",
+        "doi": "10.1086/742950",
+        "article_type": "front-matter"
       }
     ],
     "doi_complete": 10,
@@ -696,7 +697,35 @@
     "flags": [
       "publisher_html_blocked_crossref_fallback",
       "crossref_provisional_roster"
-    ]
+    ],
+    "official_item_count": 11,
+    "publishable_item_count": 10,
+    "content_counts": {
+      "official_items": 11,
+      "observed_items": 11,
+      "publishable_items": 10,
+      "research_articles": 10,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 1,
+      "other_excluded": 0,
+      "catalog_content_items": 10
+    }
   },
-  "publication_state": "ready"
+  "publication_state": "ready",
+  "content_counts": {
+    "official_items": 11,
+    "observed_items": 11,
+    "publishable_items": 10,
+    "research_articles": 10,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 1,
+    "other_excluded": 0,
+    "catalog_content_items": 10
+  }
 }

@@ -303,18 +303,21 @@
     "excluded_items": [
       {
         "title_en": "Front Matter",
-        "reason": "non_research_title",
-        "doi": "10.1086/742833"
+        "reason": "front_matter",
+        "doi": "10.1086/742833",
+        "article_type": "front-matter"
       },
       {
         "title_en": "Recent Referees",
-        "reason": "non_research_title",
-        "doi": "10.1086/742834"
+        "reason": "editorial_material",
+        "doi": "10.1086/742834",
+        "article_type": "editorial"
       },
       {
         "title_en": "JPE Turnaround Times",
-        "reason": "non_research_title",
-        "doi": "10.1086/742464"
+        "reason": "non_publishable_item",
+        "doi": "10.1086/742464",
+        "article_type": "research-article"
       }
     ],
     "doi_complete": 7,
@@ -325,6 +328,34 @@
     "flags": [
       "publisher_html_blocked_crossref_fallback",
       "crossref_provisional_roster"
-    ]
+    ],
+    "official_item_count": 10,
+    "publishable_item_count": 7,
+    "content_counts": {
+      "official_items": 10,
+      "observed_items": 10,
+      "publishable_items": 7,
+      "research_articles": 6,
+      "comments": 1,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 1,
+      "front_matter": 1,
+      "other_excluded": 1,
+      "catalog_content_items": 7
+    }
+  },
+  "content_counts": {
+    "official_items": 10,
+    "observed_items": 10,
+    "publishable_items": 7,
+    "research_articles": 6,
+    "comments": 1,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 1,
+    "front_matter": 1,
+    "other_excluded": 1,
+    "catalog_content_items": 7
   }
 }

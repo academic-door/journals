@@ -549,18 +549,21 @@
     "excluded_items": [
       {
         "title_en": "ISSUE INFORMATION",
-        "reason": "non_research_title",
-        "doi": "10.1111/jofi.13349"
+        "reason": "front_matter",
+        "doi": "10.1111/jofi.13349",
+        "article_type": "front-matter"
       },
       {
         "title_en": "ANNOUNCEMENTS",
-        "reason": "non_research_title",
-        "doi": "10.1111/jofi.70017"
+        "reason": "non_publishable_item",
+        "doi": "10.1111/jofi.70017",
+        "article_type": "research-article"
       },
       {
         "title_en": "AMERICAN FINANCE ASSOCIATION",
-        "reason": "non_research_title",
-        "doi": "10.1111/jofi.13350"
+        "reason": "non_publishable_item",
+        "doi": "10.1111/jofi.13350",
+        "article_type": "research-article"
       }
     ],
     "doi_complete": 13,
@@ -571,7 +574,35 @@
     "flags": [
       "publisher_html_blocked_crossref_fallback",
       "crossref_provisional_roster"
-    ]
+    ],
+    "official_item_count": 16,
+    "publishable_item_count": 13,
+    "content_counts": {
+      "official_items": 16,
+      "observed_items": 16,
+      "publishable_items": 13,
+      "research_articles": 13,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 1,
+      "other_excluded": 2,
+      "catalog_content_items": 13
+    }
   },
-  "publication_state": "ready"
+  "publication_state": "ready",
+  "content_counts": {
+    "official_items": 16,
+    "observed_items": 16,
+    "publishable_items": 13,
+    "research_articles": 13,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 1,
+    "other_excluded": 2,
+    "catalog_content_items": 13
+  }
 }

@@ -7,7 +7,7 @@
   "issue": "C",
   "publication_date": "July 2026",
   "source_url": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/161/suppl/C",
-  "retrieved_at": "2026-07-30T17:54:18+00:00",
+  "retrieved_at": "2026-07-30T23:25:15+00:00",
   "expected_article_count": 7,
   "research_article_count": 7,
   "status": "incomplete",
@@ -24,7 +24,7 @@
         "Charles Labrousse",
         "Yann Perdereau"
       ],
-      "abstract_en": "",
+      "abstract_en": "None",
       "abstract_cn": "",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jmoneco.2026.103962",
@@ -34,7 +34,7 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/161/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03043932",
         "metadata": "crossref",
-        "abstract_en": "",
+        "abstract_en": "semantic-scholar",
         "abstract_lookup": {
           "status": "insufficient_entitlement",
           "attempts": [
@@ -70,18 +70,18 @@
             }
           ]
         },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jmoneco.2026.103962"
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jmoneco.2026.103962",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/b5ec63286952d2ac65d578cca710fbca6f64757f"
       },
       "translation": {
-        "status": "blocked",
+        "status": "pending",
         "provider": "",
         "prompt_version": "",
         "glossary_version": "1"
       },
       "quality_flags": [
-        "title_cn_missing",
         "abstract_cn_missing",
-        "abstract_en_missing"
+        "title_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -328,7 +328,7 @@
         "Kee-Youn Kang",
         "Zijian Wang"
       ],
-      "abstract_en": "",
+      "abstract_en": "None",
       "abstract_cn": "",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jmoneco.2026.103957",
@@ -338,7 +338,7 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/161/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03043932",
         "metadata": "crossref",
-        "abstract_en": "",
+        "abstract_en": "semantic-scholar",
         "abstract_lookup": {
           "status": "insufficient_entitlement",
           "attempts": [
@@ -374,18 +374,18 @@
             }
           ]
         },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jmoneco.2026.103957"
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jmoneco.2026.103957",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/1d42d434fa14dde2af5528997f95e9b7d95eed7f"
       },
       "translation": {
-        "status": "blocked",
+        "status": "pending",
         "provider": "",
         "prompt_version": "",
         "glossary_version": "1"
       },
       "quality_flags": [
-        "title_cn_missing",
         "abstract_cn_missing",
-        "abstract_en_missing"
+        "title_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -406,7 +406,7 @@
         "Fushu Luan",
         "Chihwa Kao"
       ],
-      "abstract_en": "",
+      "abstract_en": "None",
       "abstract_cn": "",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jmoneco.2026.103955",
@@ -416,7 +416,7 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/161/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03043932",
         "metadata": "crossref",
-        "abstract_en": "",
+        "abstract_en": "semantic-scholar",
         "abstract_lookup": {
           "status": "insufficient_entitlement",
           "attempts": [
@@ -452,18 +452,18 @@
             }
           ]
         },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jmoneco.2026.103955"
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jmoneco.2026.103955",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/d96b345543219779f88d43479d6d76cad611702c"
       },
       "translation": {
-        "status": "blocked",
+        "status": "pending",
         "provider": "",
         "prompt_version": "",
         "glossary_version": "1"
       },
       "quality_flags": [
-        "title_cn_missing",
         "abstract_cn_missing",
-        "abstract_en_missing"
+        "title_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -541,8 +541,8 @@
         "glossary_version": "1"
       },
       "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
+        "abstract_cn_missing",
+        "title_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -559,16 +559,54 @@
     "roster_authority": "publisher-rss",
     "roster_match_scope": "rss-volume-items",
     "rss_url": "https://rss.sciencedirect.com/publication/science/03043932",
+    "official_item_count": 8,
+    "publishable_item_count": 7,
+    "excluded_item_count": 1,
+    "excluded_items": [
+      {
+        "title_en": "Editorial Board",
+        "article_type": "editorial",
+        "reason": "editorial_material",
+        "doi": "",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304393226000851?dgcid=rss_sd_all"
+      }
+    ],
     "doi_complete": 7,
     "authors_complete": 7,
-    "abstract_en_complete": 4,
+    "abstract_en_complete": 7,
     "translation_complete": 3,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_sciencedirect_rss_fallback",
-      "abstract_en_incomplete",
+      "official_order_unverified",
       "translation_incomplete"
-    ]
+    ],
+    "content_counts": {
+      "official_items": 8,
+      "observed_items": 8,
+      "publishable_items": 7,
+      "research_articles": 7,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 1,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 7
+    }
+  },
+  "content_counts": {
+    "official_items": 8,
+    "observed_items": 8,
+    "publishable_items": 7,
+    "research_articles": 7,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 1,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 7
   },
   "publication_state": "enriching"
 }

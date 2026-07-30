@@ -45,7 +45,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-30T21:33:20+00:00"
+        "translated_at": "2026-07-30T23:21:45+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -175,7 +175,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-30T21:33:24+00:00"
+        "translated_at": "2026-07-30T23:21:49+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -218,7 +218,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-30T21:33:27+00:00"
+        "translated_at": "2026-07-30T23:21:52+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -305,7 +305,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-30T21:33:31+00:00"
+        "translated_at": "2026-07-30T23:21:55+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -348,7 +348,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-30T21:33:34+00:00"
+        "translated_at": "2026-07-30T23:21:59+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -392,7 +392,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-30T21:33:38+00:00"
+        "translated_at": "2026-07-30T23:22:02+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -480,7 +480,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-30T21:33:41+00:00"
+        "translated_at": "2026-07-30T23:22:06+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -519,9 +519,9 @@
         "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_en_missing",
+        "abstract_cn_missing",
         "title_cn_missing",
-        "abstract_cn_missing"
+        "abstract_en_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -540,7 +540,8 @@
       {
         "source_sequence": 1,
         "title_en": "Front Matter",
-        "reason": "non-research-title"
+        "reason": "non-research-title",
+        "article_type": "front-matter"
       }
     ],
     "detail_failure_count": 0,
@@ -552,7 +553,34 @@
     "flags": [
       "abstract_en_incomplete",
       "translation_incomplete"
-    ]
+    ],
+    "publishable_item_count": 12,
+    "content_counts": {
+      "official_items": 13,
+      "observed_items": 13,
+      "publishable_items": 12,
+      "research_articles": 12,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 1,
+      "other_excluded": 0,
+      "catalog_content_items": 12
+    }
   },
-  "publication_state": "enriching"
+  "publication_state": "enriching",
+  "content_counts": {
+    "official_items": 13,
+    "observed_items": 13,
+    "publishable_items": 12,
+    "research_articles": 12,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 1,
+    "other_excluded": 0,
+    "catalog_content_items": 12
+  }
 }
