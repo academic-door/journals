@@ -7,7 +7,7 @@
   "issue": "3",
   "publication_date": "July 2026",
   "source_url": "https://le.uwpress.org/content/current",
-  "retrieved_at": "2026-07-31T20:04:27+00:00",
+  "retrieved_at": "2026-07-31T21:25:51+00:00",
   "expected_article_count": 10,
   "research_article_count": 10,
   "status": "incomplete",
@@ -181,8 +181,8 @@
             },
             {
               "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 429,
+              "outcome": "quota_exceeded"
             },
             {
               "source": "elsevier-scopus-doi",
@@ -382,8 +382,8 @@
             },
             {
               "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 429,
+              "outcome": "quota_exceeded"
             },
             {
               "source": "elsevier-scopus-doi",
@@ -590,8 +590,8 @@
             },
             {
               "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 429,
+              "outcome": "quota_exceeded"
             },
             {
               "source": "elsevier-scopus-doi",

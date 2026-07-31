@@ -3214,9 +3214,24 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "official_item_count": 42,
-    "excluded_item_count": 0,
-    "excluded_items": [],
+    "official_item_count": 44,
+    "excluded_item_count": 2,
+    "excluded_items": [
+      {
+        "title_en": "Editorial Board",
+        "article_type": "editorial",
+        "reason": "editorial_material",
+        "doi": "",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825626000965?dgcid=rss_sd_all"
+      },
+      {
+        "title_en": "Editorial Board",
+        "article_type": "editorial",
+        "reason": "editorial_material",
+        "doi": "",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825626000977?dgcid=rss_sd_all"
+      }
+    ],
     "doi_complete": 42,
     "authors_complete": 42,
     "abstract_en_complete": 42,
@@ -3230,28 +3245,28 @@
     "official_issue_fetch_error": "request failed for https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/158/suppl/C: 403 Client Error: Forbidden for url: https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/158/suppl/C",
     "publishable_item_count": 42,
     "content_counts": {
-      "official_items": 42,
-      "observed_items": 42,
+      "official_items": 44,
+      "observed_items": 44,
       "publishable_items": 42,
       "research_articles": 42,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
-      "editorial_material": 0,
+      "editorial_material": 2,
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 42
     }
   },
   "content_counts": {
-    "official_items": 42,
-    "observed_items": 42,
+    "official_items": 44,
+    "observed_items": 44,
     "publishable_items": 42,
     "research_articles": 42,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
-    "editorial_material": 0,
+    "editorial_material": 2,
     "front_matter": 0,
     "other_excluded": 0,
     "catalog_content_items": 42
