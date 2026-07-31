@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-07-31T04:03:00+00:00",
+  "updated_at": "2026-07-31T07:17:11+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 41,
@@ -826,39 +826,9 @@
       "current": {
         "available": true,
         "status": "fallback_verified",
-        "issue_id": "ier-67-2",
-        "publication_date": "August 2026",
-        "publication_state": "ready",
-        "source_url": "https://onlinelibrary.wiley.com/toc/14682354/current",
-        "roster_authority": "official-issue-page",
-        "roster_transport": "official-issue-page",
-        "order_verified": false,
-        "content_counts": {
-          "official_items": 16,
-          "observed_items": 16,
-          "publishable_items": 16,
-          "research_articles": 16,
-          "comments": 0,
-          "short_communications": 0,
-          "corrections": 0,
-          "editorial_material": 0,
-          "front_matter": 0,
-          "other_excluded": 0,
-          "catalog_content_items": 16
-        },
-        "abstracts_complete": 16,
-        "translations_complete": 16,
-        "errors": [],
-        "warnings": [
-          "official_order_unverified"
-        ]
-      },
-      "detected": {
-        "available": true,
-        "status": "fallback_verified",
         "issue_id": "ier-67-3",
         "publication_date": "August 2026",
-        "publication_state": "enriching",
+        "publication_state": "ready",
         "source_url": "https://onlinelibrary.wiley.com/toc/14682354/current",
         "roster_authority": "official-issue-page",
         "roster_transport": "official-issue-page",
@@ -877,11 +847,40 @@
           "catalog_content_items": 15
         },
         "abstracts_complete": 15,
-        "translations_complete": 0,
+        "translations_complete": 15,
         "errors": [],
         "warnings": [
-          "official_order_unverified",
-          "translation_incomplete"
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "ier-67-3",
+        "publication_date": "August 2026",
+        "publication_state": "ready",
+        "source_url": "https://onlinelibrary.wiley.com/toc/14682354/current",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": false,
+        "content_counts": {
+          "official_items": 15,
+          "observed_items": 15,
+          "publishable_items": 15,
+          "research_articles": 15,
+          "comments": 0,
+          "short_communications": 0,
+          "corrections": 0,
+          "editorial_material": 0,
+          "front_matter": 0,
+          "other_excluded": 0,
+          "catalog_content_items": 15
+        },
+        "abstracts_complete": 15,
+        "translations_complete": 15,
+        "errors": [],
+        "warnings": [
+          "official_order_unverified"
         ]
       }
     },
@@ -947,7 +946,7 @@
           "catalog_content_items": 12
         },
         "abstracts_complete": 11,
-        "translations_complete": 4,
+        "translations_complete": 11,
         "errors": [],
         "warnings": [
           "abstract_en_incomplete",
