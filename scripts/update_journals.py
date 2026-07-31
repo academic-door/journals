@@ -52,6 +52,11 @@ ABSTRACT_LABEL_PATTERN = re.compile(
 )
 ABSTRACT_PLACEHOLDERS = {
     "international audience",
+    "n/a",
+    "none",
+    "null",
+    "no abstract available",
+    "no abstract is available",
     "no abstract is available for this item",
 }
 

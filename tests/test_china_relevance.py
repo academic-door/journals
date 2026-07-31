@@ -63,6 +63,9 @@ class ChinaRelevanceTests(unittest.TestCase):
             clean_abstract_label("摘要 本文研究贸易。"),
         )
         self.assertEqual("", clean_abstract_label("International audience"))
+        self.assertEqual("", clean_abstract_label("None"))
+        self.assertEqual("", clean_abstract_label("null"))
+        self.assertEqual("", clean_abstract_label("N/A"))
         self.assertEqual(
             "", clean_abstract_label("No abstract is available for this item.")
         )
