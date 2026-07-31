@@ -7,7 +7,7 @@
   "issue": "C",
   "publication_date": "July 2026",
   "source_url": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/161/suppl/C",
-  "retrieved_at": "2026-07-31T21:31:44+00:00",
+  "retrieved_at": "2026-07-31T22:58:28+00:00",
   "expected_article_count": 7,
   "research_article_count": 7,
   "status": "incomplete",
@@ -76,11 +76,14 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jmoneco.2026.103958"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -353,8 +356,8 @@
             },
             {
               "source": "elsevier-sciencedirect-search",
-              "status_code": 429,
-              "outcome": "quota_exceeded"
+              "status_code": 401,
+              "outcome": "unauthorized"
             },
             {
               "source": "elsevier-scopus-doi",
