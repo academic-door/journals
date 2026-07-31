@@ -7,7 +7,7 @@
   "issue": "C",
   "publication_date": "June 2026",
   "source_url": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-  "retrieved_at": "2026-07-31T03:25:13+00:00",
+  "retrieved_at": "2026-07-31T03:53:04+00:00",
   "expected_article_count": 15,
   "research_article_count": 15,
   "status": "incomplete",
@@ -74,11 +74,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/b44487266b5ce1e869244527f3a59bde1af0998d"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -93,13 +96,13 @@
       "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Expectation and confusion: Evidence and theory",
-      "title_cn": "",
+      "title_cn": "期望与困惑：证据与理论",
       "authors": [
         "Heng Chen",
         "Yicheng Liu"
       ],
       "abstract_en": "In this paper, we characterize a forecasting model where forecasters cannot perfectly distinguish between the two persistent components (trends and cycles) in a dynamic setting. In this model, forecasters jointly update their beliefs about the two components: noisy information about one component is used to update beliefs about the other component. We present diagnostic empirical facts on forecasting behaviors and show that these facts are consistent with our model’s predictions while contradicting those of existing models in the expectation formation literature. To validate our model, we exploit the Federal Reserve’s 2012 adoption of explicit inflation targeting as a policy shock. Structural estimation reveals that this policy change altered the underlying data-generation process, and the corresponding changes in forecasting behavior indeed align with our model’s predictions. Finally, we characterize how this rational confusion mechanism interacts with behavioral biases such as overconfidence and show that this interaction can address the well-known persistent forecast error puzzle in the literature.",
-      "abstract_cn": "",
+      "abstract_cn": "在本文中，我们描述了一个预测模型，其中预测者无法完美地区分动态环境中的二持久成分（趋势和周期）。在该模型中，预测者共同更新他们对 二 组件的信念：有关 一 组件的噪声信息用于更新对另一个组件的信念。我们提出了有关预测行为的诊断性经验事实，并表明这些事实与我们模型的预测一致，但与预期形成文献中现有模型的预测相矛盾。为了验证我们的模型，我们利用美联储2012采用明确的通胀目标作为政策冲击。结构估计表明，这一政策变化改变了基础数据生成过程，并且预测行为的相应变化确实与我们模型的预测一致。最后，我们描述了这种理性混淆机制如何与过度自信等行为偏差相互作用，并表明这种相互作用可以解决文献中众所周知的持续预测误差难题。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jet.2026.106189",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000529?dgcid=rss_sd_all",
@@ -147,12 +150,14 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106189"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-30T17:44:42+00:00"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -241,12 +246,12 @@
       "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Covert learning and disclosure",
-      "title_cn": "",
+      "title_cn": "秘密学习和披露",
       "authors": [
         "Matteo Escudé"
       ],
       "abstract_en": "I study a model of information acquisition and transmission in which the sender’s ability to misreport her findings is limited. The sender learns covertly, so a key observation is that in equilibrium she must be deterred from undetectably worsening the meaning of the messages she sends. This force substantially disciplines equilibrium beliefs and behavior: the receiver is maximally skeptical of what the sender claims and learns all discovered information. I exploit these equilibrium properties to characterize the sense in which the sender benefits from her claims being more verifiable , showing that this is akin to increasing her commitment power. Finally, I identify sender- and receiver-optimal falsification environments.",
-      "abstract_cn": "",
+      "abstract_cn": "我研究了一种信息获取和传输模型，其中发送者误报其发现的能力是有限的。发送者是秘密学习的，因此一个关键的观察结果是，在平衡状态下，她必须阻止她在无法察觉的情况下恶化她发送的消息的含义。这种力量极大地约束了平衡信念和行为：接收者对发送者声称的内容持最大程度的怀疑，并了解所有发现的信息。我利用这些均衡属性来描述发送者从其更可验证的声明中受益的感觉，表明这类似于增加她的承诺权力。最后，我确定了发送者和接收者最佳的伪造环境。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jet.2026.106179",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000438?dgcid=rss_sd_all",
@@ -294,12 +299,14 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106179"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-30T17:44:42+00:00"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -367,11 +374,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/c9bf4dee66ce1982889a63ee949fc82daf25e75b"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -442,11 +452,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/65ed3a104addae303e81571c442518cf2b5a1e0b"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -594,11 +607,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/e0751d5d74f73c57b82ad5d196dd1a1bc7ff0659"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -743,11 +759,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/a0ac4cc075ce0d117fe5b6f4f5a576446a758a31"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -762,14 +781,14 @@
       "source_sequence": 11,
       "article_type": "research-article",
       "title_en": "Credit rationing in unsecured debt markets",
-      "title_cn": "",
+      "title_cn": "无担保债务市场的信贷配给",
       "authors": [
         "V. Filipe Martins-da-Rocha",
         "Toàn Phan",
         "Yiannis Vailakis"
       ],
       "abstract_en": "We revisit the welfare properties of competitive credit markets with endogenousdebt limits that arise from limited commitment. We introduce a novel concept ofconstrained efficiency to encompass economies where market interest rates influencedefault values and participation constraints. We explore this concept through a baselineeconomy featuring heterogeneous agents with cyclical endowments. The analysis showsthat the efficiency of market equilibria and welfare outcomes are sensitive to the natureof default punishments. It suggests that laissez-faire debt limits, while supportiveof risk-sharing, might not always optimize welfare. The study illustrates how creditrationing—tightening future debt limits—can enhance current risk-sharing and overallwelfare. This occurs because such interventions influence market interest rates andthe default option’s value, thereby affecting agents’ present consumption and savingchoices, and enabling a more efficient allocation of resources.",
-      "abstract_cn": "",
+      "abstract_cn": "我们重新审视竞争性信贷市场的福利属性，以及因有限承诺而产生的内生债务限制。我们引入了一种新的约束效率概念，以涵盖市场利率影响违约值和参与约束的经济体。我们通过具有周期性禀赋的异质主体的基线经济来探索这个概念。分析表明，市场均衡的效率和福利结果对违约惩罚的性质很敏感。它表明，自由放任的债务限制虽然支持风险分担，但可能并不总是优化福利。该研究说明了信贷配给（收紧未来债务限额）如何能够增强当前的风险分担和整体福利。出现这种情况是因为此类干预会影响市场利率和默认期权的价值，从而影响代理人当前的消费和储蓄选择，并实现更有效的资源配置。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jet.2026.106188",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000517?dgcid=rss_sd_all",
@@ -817,12 +836,14 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106188"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-30T17:44:42+00:00"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -892,11 +913,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/29465982d1cfd984ee41ea6356e639761e912af4"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -911,14 +935,14 @@
       "source_sequence": 13,
       "article_type": "research-article",
       "title_en": "Nonbossy mechanisms: Mechanism design robust to secondary goals",
-      "title_cn": "",
+      "title_cn": "非专横机制：对次要目标稳健的机制设计",
       "authors": [
         "Renato Paes Leme",
         "Jon Schneider",
         "Hanrui Zhang"
       ],
       "abstract_en": "We study mechanism design when agents may have hidden secondary goals which will play a role when the primary utility of the outcomes is the same. We show that in such cases, a mechanism is immune to strategic manipulation if and only if it is incentive compatible with regard to primary utility -- a property we term \"primary incentive compatibility\" -- and nonbossy -- a well-studied property in the context of matching and allocation mechanisms. We give complete characterizations of primarily incentive-compatible and nonbossy mechanisms in various settings, including auctions with single-parameter agents and public decision settings where all agents share a common outcome. In particular, we show that in the single-item setting, a mechanism is primarily incentive compatible, individually rational, and nonbossy if and only if it is a sequential posted-price mechanism.",
-      "abstract_cn": "",
+      "abstract_cn": "当代理人可能有隐藏的次要目标时，我们研究机制设计，当结果的主要效用相同时，这些次要目标将发挥作用。我们表明，在这种情况下，一种机制不受战略操纵的影响，当且仅当它与主要效用（我们称之为“主要激励相容性”）的激励相容，并且非专横（在匹配和分配机制的背景下经过充分研究的特性）。我们给出了各种环境中主要激励兼容和非专横机制的完整特征，包括单参数代理的拍卖和所有代理共享共同结果的公共决策环境。特别是，我们表明，在单项设置中，当且仅当一种机制是顺序定价机制时，该机制主要是激励兼容的、个体理性的和非专横的。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jet.2026.106187",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000505?dgcid=rss_sd_all",
@@ -966,12 +990,14 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106187"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-30T17:44:42+00:00"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -1063,13 +1089,13 @@
       "source_sequence": 15,
       "article_type": "research-article",
       "title_en": "Asymmetric optimal auction design with loss-averse bidders",
-      "title_cn": "",
+      "title_cn": "具有厌恶损失的投标人的非对称最优拍卖设计",
       "authors": [
         "Akitoshi Muramoto",
         "Takeharu Sogo"
       ],
       "abstract_en": "We study optimal auctions with expectation-based loss-averse bidders. We first consider when bidders are ex-ante identical. Although symmetric designs are optimal for bidders with expected-utility preferences, if the degree of loss aversion is sufficiently large relative to the variation in valuations, expected revenues are higher in the optimal design with one buyer than in any symmetric mechanism with multiple bidders. Further, we provide a sufficient condition under which optimal mechanisms are necessarily asymmetric. When bidders are ex-ante heterogeneous, the optimal degree of favoritism must be modified from the level in Myerson (1981) to reduce the uncertainty in auction outcomes. Not only the degree of the required modification but also the direction of the modification may not be monotone in the degree of loss aversion.",
-      "abstract_cn": "",
+      "abstract_cn": "我们研究基于期望的、厌恶损失的投标人的最优拍卖。我们第一考虑投标人事前相同的情况。尽管对称设计对于具有预期效用偏好的投标人来说是最优的，但如果损失厌恶程度相对于估值变化足够大，则一买家的最优设计中的预期收入高于任何具有多个投标人的对称机制。此外，我们提供了一个充分条件，在该条件下最优机制必然是不对称的。当投标人事前存在异质性时，必须根据 Myerson（1981）的水平修改最佳偏袒程度，以减少拍卖结果的不确定性。损失厌恶程度不仅需要修改的程度，而且修改的方向也可能不是单调的。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jet.2026.106186",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000499?dgcid=rss_sd_all",
@@ -1117,12 +1143,14 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106186"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-30T17:44:43+00:00"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -1153,7 +1181,7 @@
     "doi_complete": 15,
     "authors_complete": 15,
     "abstract_en_complete": 15,
-    "translation_complete": 4,
+    "translation_complete": 9,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_sciencedirect_rss_fallback",

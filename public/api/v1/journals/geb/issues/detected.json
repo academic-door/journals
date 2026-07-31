@@ -7,7 +7,7 @@
   "issue": "C",
   "publication_date": "June 2026",
   "source_url": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/158/suppl/C",
-  "retrieved_at": "2026-07-31T03:25:04+00:00",
+  "retrieved_at": "2026-07-31T03:52:50+00:00",
   "expected_article_count": 42,
   "research_article_count": 42,
   "status": "incomplete",
@@ -19,12 +19,12 @@
       "source_sequence": 1,
       "article_type": "research-article",
       "title_en": "Competition in persuasion in the attention economy",
-      "title_cn": "",
+      "title_cn": "注意力经济中的说服竞争",
       "authors": [
         "Federico Innocenti"
       ],
-      "abstract_en": "None",
-      "abstract_cn": "",
+      "abstract_en": "Gentzkow and Kamenica (2016) show that competition among senders benefits receivers if and only if the information environment is Blackwell-connected. This paper shows that introducing receivers’ limited attention and heterogeneous beliefs can overturn this result. Even in a Blackwell-connected information environment, information revelation may be lower under duopoly than under monopoly. Indeed, limited attention may incentivize receivers to sort into the audiences of like-minded senders. In turn, this adverse sorting can make it optimal for senders to reveal less information.",
+      "abstract_cn": "Gentzkow 和 Kamenica（2016）表明，只有在信息环境是 Blackwell 连通的情况下，发送者之间的竞争才会使接收者受益。本文表明，引入接收者的有限注意力和异质信念可能推翻这一结果。即使在 Blackwell 连通的信息环境下，双头垄断下的信息揭示也可能低于垄断下的水平。事实上，有限的注意力可能激励接收者分流到志同道合的发送者受众中。反过来，这种不利的分流可能使发送者选择揭示更少信息成为最优策略。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.geb.2026.04.005",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825626000758?dgcid=rss_sd_all",
@@ -33,7 +33,7 @@
         "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/158/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/08998256",
         "metadata": "crossref",
-        "abstract_en": "semantic-scholar",
+        "abstract_en": "openalex",
         "abstract_lookup": {
           "status": "insufficient_entitlement",
           "attempts": [
@@ -73,12 +73,15 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/6938ed410730ec3a5e3887985d02f4c31cd0c03c"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4.1-mini",
+        "translated_at": "2026-07-26T19:49:28+00:00",
+        "source_hash": "26a2d638aa1339bd6084979bc434542154b2df911a94e55490cc0ed0d47cd7ce"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -147,11 +150,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/1ff0eb8f52b048317b8bf6a0931c0685585d5f3a"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -221,11 +227,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/a94ee16c26a54ac0e38a952502deb41ab1b49fed"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -240,12 +249,12 @@
       "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Eliciting and distinguishing between weak and incomplete preferences: Theory, experiment and computation",
-      "title_cn": "",
+      "title_cn": "引出并区分弱偏好和不完整偏好：理论、实验和计算",
       "authors": [
         "Georgios Gerasimou"
       ],
       "abstract_en": "We propose an experimental design and data‑analytic method for eliciting and distinguishing the strict‑preference, indifference, and indecisiveness components of individual preferences in general choice environments. The design combines a forced‑choice treatment with a free‑choice treatment. In both treatments, subjects may select multiple alternatives from a menu. In the free‑choice treatment, subjects may also avoid or delay choice at a small expected cost. To analyze such data, we extend a standard non‑parametric goodness‑of‑fit criterion to accommodate multi‑valued choices. We apply it to evaluate the consistency of subjects’ 50 decisions with utility maximization and two models of incomplete‑preference maximization. Around 55% of subjects are well explained by one of these models, with 33% and 22% best explained by utility and incomplete-preference maximization, respectively. Revealed preferences typically feature non-trivial indifferences, and those that are incomplete often exhibit the predicted theoretical distinctions between indifference and indecisiveness, which are documented empirically for the first time.",
-      "abstract_cn": "",
+      "abstract_cn": "我们提出了一种实验设计和数据分析方法，用于引出和区分一般选择环境中个人偏好的严格偏好、冷漠和优柔寡断成分。该设计结合了强制选择治疗和自由选择治疗。在这两种治疗中，受试者可以从菜单中选择多个替代方案。在自由选择治疗中，受试者也可以以较小的预期成本避免或延迟选择。为了分析此类数据，我们扩展了标准非参数拟合优度标准以适应多值选择。我们应用它来评估受试者的50决策与效用最大化和二不完全偏好最大化模型的一致性。这些模型的 一 可以很好地解释大约 55% 的受试者，其中 33% 和 22% 分别可以通过效用和不完全偏好最大化得到最好的解释。所揭示的偏好通常以非平凡的冷漠为特征，而那些不完整的偏好通常表现出冷漠和优柔寡断之间预测的理论区别，这些区别在第一时间里得到了经验记录。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.geb.2026.05.011",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825626000916?dgcid=rss_sd_all",
@@ -293,12 +302,14 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.geb.2026.05.011"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-30T17:44:15+00:00"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -367,11 +378,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/97bb92467b30364f20cfb345046a148778275694"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -442,11 +456,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/d0fd1fd9b87181e673101c8d6b32c6bc3748d876"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -515,11 +532,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/e9545f28a98ffe2abb1cf5c1f314116c08a550cb"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -589,11 +609,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/8f5fc7d90eaad6492ac45c7ffa15e14626312266"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -664,11 +687,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/a0754279adb09f5f4b4e6e572597e6f02a45fa74"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -739,11 +765,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/d9e158237b2abe9d8be0c2d41fcb1af9e8d7e9fc"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -889,11 +918,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/e7fa39a5e7c273234242525223c557a3674625ea"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -908,12 +940,12 @@
       "source_sequence": 13,
       "article_type": "research-article",
       "title_en": "Persuasion of interacting receivers",
-      "title_cn": "",
+      "title_cn": "说服互动接收者",
       "authors": [
         "Yishu Zeng"
       ],
       "abstract_en": "© 2026 The Author. Published by Elsevier Inc. This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).",
-      "abstract_cn": "",
+      "abstract_cn": "© 2026 作者。由 Elsevier Inc. 出版。这是一篇基于 CC BY 许可证 (http://creativecommons.org/licenses/by/4.0/) 的开放获取文章。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.geb.2026.04.009",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825626000795?dgcid=rss_sd_all",
@@ -961,12 +993,14 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.geb.2026.04.009"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-30T17:44:15+00:00"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -980,13 +1014,13 @@
       "source_sequence": 14,
       "article_type": "research-article",
       "title_en": "Two-player binary global games without dominance solvable states",
-      "title_cn": "",
+      "title_cn": "二-无支配可解状态的玩家二元全局博弈",
       "authors": [
         "In-Uck Park",
         "Efthymios Smyrniotis"
       ],
       "abstract_en": "We extend global games<i> á la </i>Carlsson and van Damme (1993) to environments where the risk-dominant equilibrium is selected even if there is no dominance solvable game in the underlying class of games. Strict dominance can emerge in the global game from strategic uncertainty due to discrete payoff changes in underlying games, and we provide sufficient conditions on payoff changes that warrant iterated dominance of the risk-dominant equilibrium. Thus, strategic uncertainty creates strictly dominant actions as well as fostering iterated dominance, in contrast to global games hitherto where strategic uncertainty does only the latter. Discrete payoff changes tend to arise, in particular, in situations where a public good can be provided with varying degrees of coordination depending on the state, so that coordinating actions can be strategic substitutes and free-riding incentives are present. We illustrate our findings in a stylized public good provision model.",
-      "abstract_cn": "",
+      "abstract_cn": "我们将全局博弈<i>ála</i>Carlsson and van Damme (1993)扩展到选择风险主导均衡的环境，即使在基础博弈类中没有主导可解博弈。由于基础博弈中离散的收益变化，战略不确定性可能会在全局博弈中出现严格的支配地位，并且我们为收益变化提供了充分的条件，以保证风险主导均衡的迭代支配地位。因此，战略不确定性会产生严格的主导行为，并促进重复的主导地位，这与迄今为止战略不确定性只影响后者的全球博弈形成鲜明对比。特别是在可以根据国家不同程度的协调来提供公共物品的情况下，往往会出现离散的收益变化，因此协调行动可以成为战略替代品，并且存在搭便车激励。我们在一个程式化的公共物品提供模型中阐述了我们的发现。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.geb.2026.04.008",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825626000783?dgcid=rss_sd_all",
@@ -1034,12 +1068,14 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.geb.2026.04.008"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-30T17:44:15+00:00"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -1185,11 +1221,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/197b3ac4fc147bce63d87dddf30ba014f2006106"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -1258,11 +1297,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/439ae5aab6d29af32e6898c93a54e0e4dec896b2"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -1332,11 +1374,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/dea27f328dc7529790a66e24a51a1cfc6e5dfe55"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -1406,11 +1451,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/ee44746bd0a38a7105564da63c657eb42688da45"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "yes",
@@ -1427,14 +1475,14 @@
       "source_sequence": 20,
       "article_type": "research-article",
       "title_en": "Potentials in social environments",
-      "title_cn": "",
+      "title_cn": "社会环境中的潜力",
       "authors": [
         "Thomas Demuynck",
         "P. Jean-Jacques Herings",
         "Christian Seel"
       ],
       "abstract_en": "We develop and extend notions of potentials for normal-form games (Monderer and Shapley, 1996) to present a unified approach for the general class of social environments. The different potentials and corresponding social environments can be ordered in terms of their permissiveness. We classify different methods to construct potentials and we characterize potentials for specific examples such as matching problems, vote trading, multilateral trade, TU games, and various pillage games.",
-      "abstract_cn": "",
+      "abstract_cn": "我们开发并扩展了正常形式游戏的潜力概念（Monderer 和 Shapley，1996），为一般的社会环境类别提供统一的方法。不同的潜力和相应的社会环境可以根据其允许程度进行排序。我们对构建势的不同方法进行了分类，并针对特定示例（例如匹配问题、投票交易、多边贸易、TU 游戏和各种掠夺游戏）表征了势。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.geb.2026.04.002",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825626000722?dgcid=rss_sd_all",
@@ -1482,12 +1530,14 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.geb.2026.04.002"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-30T17:44:16+00:00"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -1578,13 +1628,13 @@
       "source_sequence": 22,
       "article_type": "research-article",
       "title_en": "A simultaneous analysis of turnout and voting under proportional representation: Theory and experiments",
-      "title_cn": "",
+      "title_cn": "比例代表制下投票率和投票的同步分析：理论与实验",
       "authors": [
         "Aaron Kamm",
         "Arthur Schram"
       ],
       "abstract_en": "In a system of proportional representation, we study the interaction between a voters turnout decision and her party choice, and how these relate to party polarization. Quantal response equilibria predict such interaction effects. In particular they predict (i) a Polarization Effect: reduced strategic party choice when voting is voluntary makes voters more likely to vote for extreme parties (conditional on voting at all); (ii) an Extremist Effect: voters supporting extreme parties are most likely to vote; (iii) a Turnout Effect: party polarization increases voter turnout. We provide data from a laboratory experiment that support these theoretical predictions. In addition, we provide supporting empirical evidence from real world elections. Hence, the interaction between turnout and strategic voting that has been neglected in most of the previous literature is shown to be important.",
-      "abstract_cn": "",
+      "abstract_cn": "在比例代表制中，我们研究选民的投票率决定和政党选择之间的相互作用，以及它们与政党两极分化的关系。量子响应平衡预测了这种相互作用效应。他们特别预测（i）两极分化效应：自愿投票时战略政党选择的减少使选民更有可能投票给极端政党（完全以投票为条件）； (ii) 极端主义效应：支持极端政党的选民最有可能投票； (iii) 投票率效应：政党两极分化增加选民投票率。我们提供了实验室实验的数据来支持这些理论预测。此外，我们还提供来自现实世界选举的支持性经验证据。因此，在以往的大多数文献中被忽视的投票率和策略投票之间的相互作用被证明是重要的。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.geb.2026.03.005",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825626000606?dgcid=rss_sd_all",
@@ -1632,12 +1682,14 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.geb.2026.03.005"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-30T17:44:16+00:00"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -1706,11 +1758,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/ac80e77f974317ab960dec219cd4dfc9d3fa4ad5"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -1781,11 +1836,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/c42272a7ad91da855f4a979cc400cfaf77378aff"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -1930,11 +1988,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/6f671a11548c8a5babb21582e9300b199530b563"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -2005,11 +2066,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/dfe79d240ea318284b3b7602b527b7ba12392f6c"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -2079,11 +2143,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/a8ab1a5e178bdb9401af4a401d023a107fd7885d"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -2152,11 +2219,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/3719ee644bbd783795438913eb3350a40207dec8"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -2171,14 +2241,14 @@
       "source_sequence": 30,
       "article_type": "research-article",
       "title_en": "The quasi-prekernel for cooperative games",
-      "title_cn": "",
+      "title_cn": "合作博弈的准预内核",
       "authors": [
         "Qianqian Kong",
         "Hans Peters",
         "Hao Sun"
       ],
       "abstract_en": "The quasi-prekernel is a novel solution concept for cooperative games. It is a refinement of existing prebargaining set solutions, notably the reactive, semireactive, and Aumann-Davis-Maschler prebargaining sets. It contains the prekernel, and coincides with that solution on simple games except possibly on balanced simple games with all individual worths equal to zero. An axiomatic characterization based on reduced game properties is provided. The steady version, obtained by putting conditions on objecting and counterobjecting coalitions, is considered as well. Finally, by considering objecting and counterobjecting coalitions independent of specific players, the socalled excess prebargaining obtains, which is another novel solution concept.",
-      "abstract_cn": "",
+      "abstract_cn": "准预内核是合作博弈的一种新颖的解决方案概念。它是对现有预谈判集解决方案的改进，特别是反应式、半反应式和 Aumann-Davis-Maschler 预谈判集。它包含预内核，并且与简单游戏上的解决方案一致，但可能除了所有个体价值等于 零 的平衡简单游戏上。提供了基于简化博弈属性的公理表征。通过对反对和反反对联盟施加条件而获得的稳定版本也被考虑。最后，通过考虑独立于特定参与者的反对和反反对联盟，获得了所谓的过度预谈判，这是另一个新颖的解决方案概念。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.geb.2026.03.009",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825626000643?dgcid=rss_sd_all",
@@ -2226,12 +2296,14 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.geb.2026.03.009"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-30T17:44:16+00:00"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -2300,11 +2372,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/4aa7deb08bf060c320012b23880e346445ec78bc"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -2374,11 +2449,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/7540b89ed8745cea1e073aeaf0f03c81b340b62e"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -2447,11 +2525,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/b79cc5976c076fe7f7d89e0bab8ead77fa189913"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -2527,11 +2608,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/25c0c5fa28dda40d3d150bce075cbb263ecb1ad0"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -2623,7 +2707,7 @@
       "source_sequence": 36,
       "article_type": "research-article",
       "title_en": "Noncooperative oligopoly in markets with a continuum of traders and a strongly connected set of commodities: A limit theorem",
-      "title_cn": "",
+      "title_cn": "具有连续交易者和一组强关联商品的市场中的非合作寡头垄断：极限定理",
       "authors": [
         "Francesca Busetto",
         "Giulio Codognato",
@@ -2632,7 +2716,7 @@
         "Damiano Turchet"
       ],
       "abstract_en": "We consider a mixed version of the Shapley window model, where large traders are represented as atoms and small traders are represented by an atomless part. Our main theorem shows that any sequence of Cournot-Nash allocations of the strategic market games associated with the partial replications of the exchange economy has a limit point for each trader and that the assignment determined by these limit points is a Walrasian allocation of the original economy. Instead of relying on restrictive assumptions on the characteristics of atoms, as in Busetto et al. (2017), our limit theorem relies on the characteristics of agents in the atomless part and their endogenously price-taking behavior.",
-      "abstract_cn": "",
+      "abstract_cn": "我们考虑沙普利窗口模型的混合版本，其中大型交易者由原子表示，小型交易者由无原子部分表示。我们的主要定理表明，与交换经济的部分复制相关的战略市场博弈的任何古诺-纳什分配序列对于每个交易者都有一个极限点，并且由这些极限点确定的分配是原始经济的瓦尔拉斯分配。而不是像 Busetto 等人那样依赖对原子特性的限制性假设。 （2017），我们的极限定理依赖于无原子部分的代理特征及其内生的价格行为。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.geb.2026.03.003",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825626000424?dgcid=rss_sd_all",
@@ -2680,12 +2764,14 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.geb.2026.03.003"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-30T17:44:17+00:00"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -2754,11 +2840,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/bb36183ac2b7fb74bc7dd8a16e9019491917f9de"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -2827,11 +2916,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/53af24a82d243c85713bf8ad57e5203b6402fb35"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -2900,11 +2992,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/b4aec5e6e5e4a6d80f1cb0a66fb811f79e56ac3d"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -3054,11 +3149,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/695ff2282c05c2acb3080c4b88c19f4c51eabf07"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -3128,11 +3226,14 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/bdb8ad34561fb776ecc67bc814630bec570ebfac"
       },
       "translation": {
-        "status": "missing"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -3171,7 +3272,7 @@
     "doi_complete": 42,
     "authors_complete": 42,
     "abstract_en_complete": 42,
-    "translation_complete": 6,
+    "translation_complete": 14,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_sciencedirect_rss_fallback",

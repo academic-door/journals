@@ -1158,19 +1158,27 @@
     "flags": [
       "publisher_html_blocked_sciencedirect_rss_fallback"
     ],
-    "excluded_items": [],
-    "official_item_count": 15,
+    "excluded_items": [
+      {
+        "title_en": "Editorial Board",
+        "article_type": "editorial",
+        "reason": "editorial_material",
+        "doi": "",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000761?dgcid=rss_sd_all"
+      }
+    ],
+    "official_item_count": 16,
     "publishable_item_count": 15,
-    "excluded_item_count": 0,
+    "excluded_item_count": 1,
     "content_counts": {
-      "official_items": 15,
-      "observed_items": 15,
+      "official_items": 16,
+      "observed_items": 16,
       "publishable_items": 15,
       "research_articles": 15,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
-      "editorial_material": 0,
+      "editorial_material": 1,
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 15
@@ -1178,14 +1186,14 @@
   },
   "publication_state": "ready",
   "content_counts": {
-    "official_items": 15,
-    "observed_items": 15,
+    "official_items": 16,
+    "observed_items": 16,
     "publishable_items": 15,
     "research_articles": 15,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
-    "editorial_material": 0,
+    "editorial_material": 1,
     "front_matter": 0,
     "other_excluded": 0,
     "catalog_content_items": 15
