@@ -31,6 +31,7 @@ def sync_alerts(
     token: str,
     session: requests.Session | None = None,
     composer_status: str = "skipped",
+    reconcile_against: dict[str, Any] | None = None,
 ) -> dict[str, list[str]]:
     if not token:
         raise RuntimeError("GITHUB_TOKEN is required")
@@ -89,6 +90,29 @@ def sync_alerts(
             },
         )
         closed.append(journal)
+    # 对账：以 monitoring.json 的当前失败名单为准，关闭已经恢复但计数器没被
+    # 清零的陈旧告警。每日全量巡检不写监测状态、也不跑本脚本，若一本刊是被全量
+    # 巡检修好的，仅凭 result.alerts.recovered 永远关不掉它的 Issue。
+    if reconcile_against is not None:
+        still_failing = {
+            str(name) for name in reconcile_against.get("failed_journals", [])
+        }
+        for title, issue in open_issues.items():
+            if not title.startswith(TITLE_PREFIX) or "连续更新失败" not in title:
+                continue
+            journal = title[len(TITLE_PREFIX):].replace("连续更新失败", "").strip()
+            if not journal or journal == "Composer" or journal in still_failing:
+                continue
+            if journal in closed:
+                continue
+            _request(
+                client,
+                "PATCH",
+                f"{API}/repos/{repository}/issues/{issue['number']}",
+                json={"state": "closed", "state_reason": "completed"},
+            )
+            closed.append(journal)
+
     composer_title = f"{TITLE_PREFIX} Composer 同步失败"
     composer_issue = open_issues.get(composer_title)
     if composer_status == "failure" and composer_issue is None:
@@ -124,6 +148,16 @@ def main() -> int:
         "--repository", default=os.environ.get("GITHUB_REPOSITORY", "")
     )
     parser.add_argument(
+        "--reconcile",
+        type=Path,
+        default=None,
+        help=(
+            "Path to monitoring.json. Any open journal alert whose journal is "
+            "no longer listed as failing there is closed, so the issue tracker "
+            "cannot drift away from the data."
+        ),
+    )
+    parser.add_argument(
         "--composer-status",
         choices=["success", "failure", "skipped"],
         default="skipped",
@@ -132,11 +166,15 @@ def main() -> int:
     if not args.repository:
         raise SystemExit("GITHUB_REPOSITORY is required")
     result = json.loads(args.result.read_text(encoding="utf-8"))
+    reconcile_against = None
+    if args.reconcile and args.reconcile.exists():
+        reconcile_against = json.loads(args.reconcile.read_text(encoding="utf-8"))
     synced = sync_alerts(
         result,
         repository=args.repository,
         token=os.environ.get("GITHUB_TOKEN", ""),
         composer_status=args.composer_status,
+        reconcile_against=reconcile_against,
     )
     print(json.dumps(synced, ensure_ascii=False))
     return 0
