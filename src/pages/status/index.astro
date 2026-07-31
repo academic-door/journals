@@ -11,6 +11,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       <p class="section-kicker">DATA STATUS</p>
       <h1>数据状态</h1>
     </section>
+    <p id="monitor-note" class="monitor-note" aria-live="polite"></p>
     <section id="status-summary" class="status-summary" aria-live="polite">
       <p>正在读取状态……</p>
     </section>
@@ -55,7 +56,8 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       fetchJson(`${base}api/v1/collections/top5.json`, { journals: [] }),
       fetchJson(`${base}api/v1/collections/fields.json`, { journals: [] }),
       fetchJson(`${base}api/v1/source-audit.json`, { journals: [], summary: {} }),
-    ]).then(([health, top5, fields, sourceAudit]) => {
+      fetchJson(`${base}api/v1/monitoring.json`, { failed_journals: [], warning_journals: [] }),
+    ]).then(([health, top5, fields, sourceAudit, monitoring]) => {
       const journals = [...(top5.journals || []), ...(fields.journals || [])];
       const auditById = new Map((sourceAudit.journals || []).map((item) => [item.journal_id, item]));
       const readyCount = journals.filter((journal) => journal.update_state === "ready").length;
@@ -65,7 +67,20 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         <div><strong>${journals.length}</strong><span>监测期刊</span></div>
         <div><strong>${readyCount}</strong><span>可复制发布</span></div>
         <div><strong>${enrichingCount}</strong><span>正在补全</span></div>
-        <div><strong>${sourceSummary.needs_attention || 0}</strong><span>需要检查</span></div>`;
+        <div><strong>${sourceSummary.needs_attention || 0}</strong><span>需要检查</span></div>
+        <div><strong>${(monitoring.failed_journals || []).length}</strong><span>更新受阻</span></div>`;
+      // 监测告警此前只存在于 monitoring.json 与 Actions 日志里，状态页看不到；
+      // 期刊连续更新失败属于读者应当知情的信息，因此在这里如实列出。
+      const blocked = monitoring.failed_journals || [];
+      const watching = monitoring.warning_journals || [];
+      const monitorNote = document.querySelector("#monitor-note");
+      if (monitorNote) {
+        monitorNote.textContent = blocked.length
+          ? `以下期刊连续更新失败，页面继续展示上一份已核对数据：${blocked.join("、")}${watching.length ? `；待确认：${watching.join("、")}` : ""}`
+          : watching.length
+            ? `全部期刊更新正常；待确认：${watching.join("、")}`
+            : "全部期刊更新正常。";
+      }
       document.querySelector("#quality-updated").textContent = `最近更新：${health.updated_at || sourceAudit.updated_at || "-"}`;
       document.querySelector("#quality-rows").innerHTML = journals.map((journal) => {
         const audit = auditById.get(journal.journal_id) || {};
@@ -103,9 +118,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
 <style>
   .compact-heading { padding-bottom: 1.25rem; }
+  .monitor-note { margin: 0 0 1.25rem; color: #62625e; font-size: .82rem; line-height: 1.6; }
   .status-summary {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     border-block: 1px solid var(--line, #d9d9d5);
     margin-bottom: 2.5rem;
   }
@@ -135,8 +151,8 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   .state.enriching { color: #8a5b13; }
   @media (max-width: 840px) {
     .status-summary { grid-template-columns: repeat(2, minmax(0,1fr)); }
-    .status-summary > div:nth-child(2) { border-right: 0; }
-    .status-summary > div:nth-child(-n+2) { border-bottom: 1px solid var(--line, #d9d9d5); }
+    .status-summary > div:nth-child(2n) { border-right: 0; }
+    .status-summary > div:not(:nth-last-child(-n+1)) { border-bottom: 1px solid var(--line, #d9d9d5); }
     .quality-header { display: none; }
     .quality-row { grid-template-columns: 72px minmax(0,1fr); gap: .55rem 1rem; padding: 1rem .25rem; }
     .journal-code { grid-row: 1 / span 5; align-self: start; padding-top: .15rem; }
