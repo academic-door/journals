@@ -4,6 +4,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 import requests
 
@@ -352,7 +353,7 @@ class TranslationPipelineTests(unittest.TestCase):
         }
         provider_state: dict[str, str] = {}
         session = CircuitBreakingSession()
-        with tempfile.TemporaryDirectory() as directory:
+        with patch("scripts.translate_issue.time.sleep"), tempfile.TemporaryDirectory() as directory:
             first_result = translate_missing(
                 {"journal_id": "first", "articles": [ARTICLE]},
                 Path(directory) / "first.json",
@@ -371,9 +372,9 @@ class TranslationPipelineTests(unittest.TestCase):
         self.assertEqual(len(first_result["failed"]), 1)
         self.assertEqual(len(second_result["failed"]), 1)
         self.assertEqual(session.github_requests, 1)
-        self.assertEqual(session.google_requests, 1)
+        self.assertEqual(session.google_requests, 6)
         self.assertIn("github-models", provider_state)
-        self.assertIn("google-translate", provider_state)
+        self.assertNotIn("google-translate", provider_state)
         self.assertEqual(second_result["provider_state"], provider_state)
 if __name__ == "__main__":
     unittest.main()

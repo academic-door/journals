@@ -15,6 +15,10 @@ import requests
 
 GITHUB_MODELS_ENDPOINT = "https://models.github.ai/inference/chat/completions"
 GOOGLE_TRANSLATE_ENDPOINT = "https://translate.googleapis.com/translate_a/single"
+GOOGLE_MIN_REQUEST_INTERVAL_SECONDS = float(
+    os.getenv("GOOGLE_TRANSLATE_MIN_INTERVAL", "2.0")
+)
+_last_google_request_at = 0.0
 DEFAULT_MODEL = "openai/gpt-4.1"
 PROMPT_VERSION = "academic-door-abstract-zh-v2"
 NUMBER_PATTERN = re.compile(
@@ -119,7 +123,7 @@ class TranslationError(RuntimeError):
     pass
 
 
-TERMINAL_PROVIDER_STATUS_CODES = {400, 401, 403, 404, 410, 422, 429}
+TERMINAL_PROVIDER_STATUS_CODES = {400, 401, 403, 404, 410, 422}
 
 
 class ProviderUnavailableError(TranslationError):
@@ -545,10 +549,25 @@ def request_translation(
             if status_code in TERMINAL_PROVIDER_STATUS_CODES:
                 raise ProviderUnavailableError("github-models", status_code) from error
             if attempt + 1 < retries:
-                time.sleep(2**attempt)
+                retry_after = 0
+                if isinstance(error, requests.HTTPError) and error.response is not None:
+                    try:
+                        retry_after = int(getattr(error.response, "headers", {}).get("Retry-After", "0"))
+                    except (TypeError, ValueError):
+                        retry_after = 0
+                time.sleep(max(retry_after, 5 if status_code == 429 else 2**attempt))
     raise TranslationError(
         f"Translation failed after {retries} attempts: {last_error}"
     )
+
+
+def _wait_for_google_translate_rate_limit() -> None:
+    global _last_google_request_at
+    now = time.monotonic()
+    remaining = GOOGLE_MIN_REQUEST_INTERVAL_SECONDS - (now - _last_google_request_at)
+    if remaining > 0:
+        time.sleep(remaining)
+    _last_google_request_at = time.monotonic()
 
 
 def _google_translate_text(
@@ -559,6 +578,7 @@ def _google_translate_text(
 ) -> str:
     client = session or requests.Session()
     protected_value, number_replacements = _protect_numbers(value)
+    _wait_for_google_translate_rate_limit()
     response = client.post(
         GOOGLE_TRANSLATE_ENDPOINT,
         params={"client": "gtx", "sl": "en", "tl": "zh-CN", "dt": "t"},
@@ -633,7 +653,16 @@ def request_google_translation(
             if status_code in TERMINAL_PROVIDER_STATUS_CODES:
                 raise ProviderUnavailableError("google-translate", status_code) from error
             if attempt + 1 < retries:
-                time.sleep(2**attempt)
+                retry_after = 0
+                if isinstance(error, requests.HTTPError) and error.response is not None:
+                    try:
+                        retry_after = int(getattr(error.response, "headers", {}).get("Retry-After", "0"))
+                    except (TypeError, ValueError):
+                        retry_after = 0
+                delay = retry_after or (
+                    15 * (attempt + 1) if status_code == 429 else 2**attempt
+                )
+                time.sleep(delay)
     raise TranslationError(
         f"Google fallback failed after {retries} attempts: {last_error}"
     )
