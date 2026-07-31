@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-07-31T14:54:36+00:00",
+  "updated_at": "2026-07-31T14:55:55+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 41,
@@ -2383,7 +2383,7 @@
         "source_url": "https://www.sciencedirect.com/journal/food-policy/vol/142/suppl/C",
         "roster_authority": "publisher-rss",
         "roster_transport": "sciencedirect-rss",
-        "order_verified": true,
+        "order_verified": false,
         "content_counts": {
           "official_items": 29,
           "observed_items": 29,
@@ -2400,14 +2400,16 @@
         "abstracts_complete": 26,
         "translations_complete": 26,
         "errors": [],
-        "warnings": []
+        "warnings": [
+          "official_order_unverified"
+        ]
       },
       "detected": {
         "available": true,
         "status": "publisher_feed_verified",
         "issue_id": "foodpolicy-142-c",
         "publication_date": "August 2026",
-        "publication_state": "enriching",
+        "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/food-policy/vol/142/suppl/C",
         "roster_authority": "publisher-rss",
         "roster_transport": "sciencedirect-rss",
@@ -2426,11 +2428,10 @@
           "catalog_content_items": 28
         },
         "abstracts_complete": 26,
-        "translations_complete": 15,
+        "translations_complete": 26,
         "errors": [],
         "warnings": [
-          "official_order_unverified",
-          "translation_incomplete"
+          "official_order_unverified"
         ]
       }
     },
