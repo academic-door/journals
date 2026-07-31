@@ -7,7 +7,7 @@
   "issue": "C",
   "publication_date": "July 2026",
   "source_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/C",
-  "retrieved_at": "2026-07-31T21:22:56+00:00",
+  "retrieved_at": "2026-07-31T21:32:08+00:00",
   "expected_article_count": 22,
   "research_article_count": 22,
   "status": "incomplete",
@@ -80,9 +80,9 @@
         "glossary_version": "1"
       },
       "quality_flags": [
-        "title_cn_missing",
+        "abstract_en_missing",
         "abstract_cn_missing",
-        "abstract_en_missing"
+        "title_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -161,9 +161,9 @@
         "glossary_version": "1"
       },
       "quality_flags": [
-        "title_cn_missing",
+        "abstract_en_missing",
         "abstract_cn_missing",
-        "abstract_en_missing"
+        "title_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -315,9 +315,9 @@
         "glossary_version": "1"
       },
       "quality_flags": [
-        "title_cn_missing",
+        "abstract_en_missing",
         "abstract_cn_missing",
-        "abstract_en_missing"
+        "title_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -394,9 +394,9 @@
         "glossary_version": "1"
       },
       "quality_flags": [
-        "title_cn_missing",
+        "abstract_en_missing",
         "abstract_cn_missing",
-        "abstract_en_missing"
+        "title_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -520,8 +520,8 @@
             },
             {
               "source": "elsevier-sciencedirect-search",
-              "status_code": 429,
-              "outcome": "quota_exceeded"
+              "status_code": 401,
+              "outcome": "unauthorized"
             },
             {
               "source": "elsevier-scopus-doi",
@@ -554,9 +554,9 @@
         "glossary_version": "1"
       },
       "quality_flags": [
-        "title_cn_missing",
+        "abstract_en_missing",
         "abstract_cn_missing",
-        "abstract_en_missing"
+        "title_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -571,13 +571,13 @@
       "source_sequence": 8,
       "article_type": "research-article",
       "title_en": "Large Bayesian matrix autoregressions",
-      "title_cn": "",
+      "title_cn": "大型贝叶斯矩阵自回归",
       "authors": [
         "Joshua C.C. Chan",
         "Yaling Qi"
       ],
       "abstract_en": "High-dimensional matrix-valued time-series are increasingly common in economics and ﬁnance. Prominent examples include large cross-region panels and dynamic economic networks. As the dimensions of the matrix grow, conventional approaches based on vector autoregressions—implemented by vectoring the matrix-valued data— become computationally infeasible. We introduce a class of large Bayesian matrix autoregressions (MARs) that can accommodate time-varying volatility, non-Gaussian errors and COVID-19 outliers. To tackle parameter proliferation, we propose Minnesota-type shrinkage priors for these MARs. We develop a uniﬁed approach for estimating these models that scales well to high dimensions. The empirical relevance of these new MARs is illustrated using a US state-level dataset that contains 6 macroeconomic times-series for each of the 50 states, with a total of 300 times-series.",
-      "abstract_cn": "",
+      "abstract_cn": "高维矩阵值时间序列在经济学和金融学中越来越常见。突出的例子包括大型跨区域面板和动态经济网络。随着矩阵维数的增长，基于向量自回归的传统方法（通过对矩阵值数据进行向量化来实现）在计算上变得不可行。我们引入了一类大型贝叶斯矩阵自回归（MAR），它可以适应时变波动性、非高斯误差和 COVID-19 异常值。为了解决参数扩散问题，我们为这些 MAR 提出了明尼苏达型收缩先验。我们开发了一种统一的方法来估计这些模型，该方法可以很好地扩展到高维度。这些新 MAR 的经验相关性使用美国州级数据集进行说明，该数据集包含每个 6 州的 50 宏观经济时间序列，总共 300 个时间序列。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jeconom.2025.105955",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625000090?dgcid=rss_sd_all",
@@ -626,15 +626,15 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/90b0475c79f0cb3ca70e2a7e9185a0b937f7a610"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-31T21:32:08+00:00",
+        "source_hash": "dd87c5bf8f7d9f96185a1baa98d960729832dd9196c24f6f73b5349cc1f721b4"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -866,9 +866,9 @@
         "glossary_version": "1"
       },
       "quality_flags": [
-        "title_cn_missing",
+        "abstract_en_missing",
         "abstract_cn_missing",
-        "abstract_en_missing"
+        "title_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -946,9 +946,9 @@
         "glossary_version": "1"
       },
       "quality_flags": [
-        "title_cn_missing",
+        "abstract_en_missing",
         "abstract_cn_missing",
-        "abstract_en_missing"
+        "title_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -973,84 +973,6 @@
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jeconom.2025.106066",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001204?dgcid=rss_sd_all",
-      "publication_date": "July 2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/C",
-        "roster": "https://rss.sciencedirect.com/publication/science/03044076",
-        "metadata": "crossref",
-        "abstract_en": "",
-        "abstract_lookup": {
-          "status": "insufficient_entitlement",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            }
-          ]
-        },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2025.106066"
-      },
-      "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
-      },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing",
-        "abstract_en_missing"
-      ],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jeconom.2026.106256",
-      "sequence": 14,
-      "source_sequence": 14,
-      "article_type": "research-article",
-      "title_en": "Bayesian model averaging with non-conjugate priors",
-      "title_cn": "",
-      "authors": [
-        "Anastasios E. Tasiopoulos",
-        "Efthymios G. Tsionas",
-        "Nikolaos D. Vlastakis"
-      ],
-      "abstract_en": "",
-      "abstract_cn": "",
-      "abstract_snippet_en": "",
-      "doi": "10.1016/j.jeconom.2026.106256",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626000771?dgcid=rss_sd_all",
       "publication_date": "July 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/C",
@@ -1092,6 +1014,84 @@
             }
           ]
         },
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2025.106066"
+      },
+      "translation": {
+        "status": "blocked",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
+      },
+      "quality_flags": [
+        "abstract_en_missing",
+        "abstract_cn_missing",
+        "title_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2026.106256",
+      "sequence": 14,
+      "source_sequence": 14,
+      "article_type": "research-article",
+      "title_en": "Bayesian model averaging with non-conjugate priors",
+      "title_cn": "",
+      "authors": [
+        "Anastasios E. Tasiopoulos",
+        "Efthymios G. Tsionas",
+        "Nikolaos D. Vlastakis"
+      ],
+      "abstract_en": "",
+      "abstract_cn": "",
+      "abstract_snippet_en": "",
+      "doi": "10.1016/j.jeconom.2026.106256",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626000771?dgcid=rss_sd_all",
+      "publication_date": "July 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/03044076",
+        "metadata": "crossref",
+        "abstract_en": "",
+        "abstract_lookup": {
+          "status": "insufficient_entitlement",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 401,
+              "outcome": "unauthorized"
+            },
+            {
+              "source": "elsevier-sciencedirect-search",
+              "status_code": 401,
+              "outcome": "unauthorized"
+            },
+            {
+              "source": "elsevier-scopus-doi",
+              "status_code": 401,
+              "outcome": "unauthorized"
+            },
+            {
+              "source": "elsevier-scopus-pii",
+              "status_code": 401,
+              "outcome": "unauthorized"
+            },
+            {
+              "source": "elsevier-article-doi",
+              "status_code": 403,
+              "outcome": "insufficient_entitlement"
+            },
+            {
+              "source": "elsevier-article-pii",
+              "status_code": 403,
+              "outcome": "insufficient_entitlement"
+            }
+          ]
+        },
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2026.106256",
         "semantic_scholar": "https://www.semanticscholar.org/paper/500ed25aa21aad99e809f14a06c0d76aae45b03d"
       },
@@ -1102,9 +1102,9 @@
         "glossary_version": "1"
       },
       "quality_flags": [
-        "title_cn_missing",
+        "abstract_en_missing",
         "abstract_cn_missing",
-        "abstract_en_missing"
+        "title_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -1182,9 +1182,9 @@
         "glossary_version": "1"
       },
       "quality_flags": [
-        "title_cn_missing",
+        "abstract_en_missing",
         "abstract_cn_missing",
-        "abstract_en_missing"
+        "title_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -1199,14 +1199,14 @@
       "source_sequence": 16,
       "article_type": "research-article",
       "title_en": "Testing for differences in high-frequency network connectedness from variance decompositions",
-      "title_cn": "",
+      "title_cn": "通过方差分解测试高频网络连通性的差异",
       "authors": [
         "Mattia Bevilacqua",
         "Michael Ellington",
         "Rodrigo Hizmeri"
       ],
       "abstract_en": "We develop a Bayesian Wald-type test for detecting temporal differences in connectedness from variance decompositions, and establish the asymptotic normality of impulse response functions and variance decomposition matrices at fixed local time points. The resulting test statistic is asymptotically χ 2 distributed under the null hypothesis and performs well in Monte Carlo simulations. Applying our methodology to high-frequency options data on sectoral exchange-traded funds (ETFs) from January 2013 to June 2023, we identify and quantify monetary policy surprises following Federal Open Market Committee (FOMC) announcements. Our empirical results indicate that total connectedness among sectoral ETF implied volatilities increases significantly following FOMC announcements, with these elevated connectedness levels persisting for approximately one hour on days with monetary policy surprises. Our findings indicate more than one-fifth of FOMC announcements surprise financial markets.",
-      "abstract_cn": "",
+      "abstract_cn": "我们开发了贝叶斯 Wald 型检验，用于检测方差分解中连通性的时间差异，并在固定的局部时间点建立脉冲响应函数和方差分解矩阵的渐近正态性。所得检验统计量在零假设下呈渐近分布 χ 2，并且在蒙特卡罗模拟中表现良好。将我们的方法应用于一月2013至六月2023期间部门交易所交易基金（ETF）的高频期权数据，我们识别并量化了联邦公开市场委员会（FOMC）宣布后的货币政策意外。我们的实证结果表明，在 FOMC 公告发布后，部门 ETF 隐含波动率之间的总体关联性显着增加，并且在货币政策意外的日子里，这些关联性水平的升高会持续约 一 小时。我们的研究结果表明，超过 一-第五 次 FOMC 公告令金融市场感到惊讶。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jeconom.2026.106238",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S030440762600059X?dgcid=rss_sd_all",
@@ -1254,15 +1254,15 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2026.106238"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-31T21:32:10+00:00",
+        "source_hash": "33b34362845d74678209b3b1d687714ca6bf4e5abf04bc26ea80c8959ab2a378"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -1337,8 +1337,8 @@
         "glossary_version": "1"
       },
       "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
+        "abstract_cn_missing",
+        "title_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -1416,9 +1416,9 @@
         "glossary_version": "1"
       },
       "quality_flags": [
-        "title_cn_missing",
+        "abstract_en_missing",
         "abstract_cn_missing",
-        "abstract_en_missing"
+        "title_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -1496,9 +1496,9 @@
         "glossary_version": "1"
       },
       "quality_flags": [
-        "title_cn_missing",
+        "abstract_en_missing",
         "abstract_cn_missing",
-        "abstract_en_missing"
+        "title_cn_missing"
       ],
       "china_relevance": {
         "status": "yes",
@@ -1544,8 +1544,8 @@
             },
             {
               "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 429,
+              "outcome": "quota_exceeded"
             },
             {
               "source": "elsevier-scopus-doi",
@@ -1579,9 +1579,9 @@
         "glossary_version": "1"
       },
       "quality_flags": [
-        "title_cn_missing",
+        "abstract_en_missing",
         "abstract_cn_missing",
-        "abstract_en_missing"
+        "title_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -1734,9 +1734,9 @@
         "glossary_version": "1"
       },
       "quality_flags": [
-        "title_cn_missing",
+        "abstract_en_missing",
         "abstract_cn_missing",
-        "abstract_en_missing"
+        "title_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -1768,7 +1768,7 @@
     "doi_complete": 22,
     "authors_complete": 22,
     "abstract_en_complete": 8,
-    "translation_complete": 5,
+    "translation_complete": 7,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_sciencedirect_rss_fallback",

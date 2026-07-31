@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-07-31T21:25:55+00:00",
+  "updated_at": "2026-07-31T21:32:17+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 41,
@@ -1373,13 +1373,13 @@
       "status": "publisher_feed_verified",
       "current": {
         "available": true,
-        "status": "fallback_verified",
+        "status": "publisher_feed_verified",
         "issue_id": "jebo-248-c",
         "publication_date": "August 2026",
         "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/248/suppl/C",
-        "roster_authority": "official-issue-page",
-        "roster_transport": "official-issue-page",
+        "roster_authority": "publisher-rss",
+        "roster_transport": "sciencedirect-rss",
         "order_verified": false,
         "content_counts": {
           "official_items": 62,
@@ -1406,7 +1406,7 @@
         "status": "publisher_feed_verified",
         "issue_id": "jebo-248-c",
         "publication_date": "August 2026",
-        "publication_state": "enriching",
+        "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/248/suppl/C",
         "roster_authority": "publisher-rss",
         "roster_transport": "sciencedirect-rss",
@@ -1425,11 +1425,10 @@
           "catalog_content_items": 61
         },
         "abstracts_complete": 60,
-        "translations_complete": 48,
+        "translations_complete": 60,
         "errors": [],
         "warnings": [
-          "official_order_unverified",
-          "translation_incomplete"
+          "official_order_unverified"
         ]
       }
     },
@@ -2158,7 +2157,7 @@
           "catalog_content_items": 7
         },
         "abstracts_complete": 7,
-        "translations_complete": 3,
+        "translations_complete": 6,
         "errors": [],
         "warnings": [
           "official_order_unverified",
@@ -2362,7 +2361,7 @@
           "catalog_content_items": 22
         },
         "abstracts_complete": 8,
-        "translations_complete": 5,
+        "translations_complete": 7,
         "errors": [],
         "warnings": [
           "official_order_unverified",
