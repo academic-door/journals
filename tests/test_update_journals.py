@@ -5,6 +5,7 @@ import unittest
 
 from scripts.update_journals import (
     SourceLagError,
+    apply_translation_cache,
     archive_issue,
     archived_issues,
     collect_one,
@@ -501,6 +502,58 @@ class PublicationGateTests(unittest.TestCase):
         self.assertEqual("1", old_record["issue"])
         self.assertTrue(old_record["china_related"])
 
+
+    def test_stale_translation_cache_is_not_applied_to_revised_source(self) -> None:
+        import json
+        import tempfile
+        from pathlib import Path
+        from unittest.mock import patch
+
+        from scripts.translate_issue import _source_hash
+
+        old_article = {
+            "title_en": "Policy effects in 2025",
+            "abstract_en": "The original 2025 abstract reports one policy effect.",
+        }
+        stale_translation = {
+            "title_cn": "2025年政策效应",
+            "abstract_cn": "原始2025年摘要报告了一项政策效应，并完整说明研究背景与主要结论。",
+            "source_hash": _source_hash(old_article),
+            "translation": {"provider": "test"},
+        }
+        issue = {
+            "journal_id": "demo",
+            "research_article_count": 1,
+            "articles": [
+                {
+                    "doi": "10.1/demo",
+                    "article_type": "research-article",
+                    "title_en": "Policy effects in 2026",
+                    "title_cn": stale_translation["title_cn"],
+                    "abstract_en": "The revised 2026 abstract reports two policy effects.",
+                    "abstract_cn": stale_translation["abstract_cn"],
+                    "quality_flags": [],
+                    "translation": {"status": "complete"},
+                }
+            ],
+            "quality": {"flags": [], "translation_complete": 1},
+        }
+
+        with tempfile.TemporaryDirectory() as directory:
+            cache_path = Path(directory) / "demo.json"
+            cache_path.write_text(
+                json.dumps({"10.1/demo": stale_translation}, ensure_ascii=False),
+                encoding="utf-8",
+            )
+            with patch("scripts.update_journals.TRANSLATION_CACHE", Path(directory)):
+                result = apply_translation_cache(issue)
+
+        article = result["articles"][0]
+        self.assertEqual("", article["title_cn"])
+        self.assertEqual("", article["abstract_cn"])
+        self.assertEqual("missing", article["translation"]["status"])
+        self.assertEqual(0, result["quality"]["translation_complete"])
+        self.assertIn("translation_incomplete", result["quality"]["flags"])
 
 if __name__ == "__main__":
     unittest.main()

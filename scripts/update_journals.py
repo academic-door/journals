@@ -22,7 +22,12 @@ from collectors.article_types import (
     translation_is_complete,
 )
 from scripts.china_relevance import annotate_issue, classify_china_relevance
-from scripts.translate_issue import translate_missing
+from scripts.translate_issue import (
+    TranslationError,
+    _source_hash,
+    translate_missing,
+    validate_translation,
+)
 
 
 PUBLIC_API = ROOT / "public" / "api" / "v1"
@@ -119,6 +124,43 @@ def validate_issue(issue: dict[str, Any]) -> None:
         raise ValueError("Issue schema validation failed:\n" + "\n".join(messages))
 
 
+def _translation_payload_is_current(
+    article: dict[str, Any],
+    translated: dict[str, Any],
+) -> bool:
+    if not translated.get("title_cn"):
+        return False
+    if article.get("abstract_en") and not translated.get("abstract_cn"):
+        return False
+    source_hash = str(translated.get("source_hash", ""))
+    if source_hash and source_hash != _source_hash(article):
+        return False
+    try:
+        validate_translation(
+            article,
+            {
+                "title_cn": translated.get("title_cn", ""),
+                "abstract_cn": clean_abstract_label(
+                    translated.get("abstract_cn", "")
+                ),
+            },
+        )
+    except TranslationError:
+        return False
+    return True
+
+
+def _clear_stale_translation(article: dict[str, Any]) -> None:
+    article["title_cn"] = ""
+    article["abstract_cn"] = ""
+    article["translation"] = {"status": "missing"}
+    flags = set(article.get("quality_flags", []))
+    flags.add("title_cn_missing")
+    if not comment_without_abstract(article):
+        flags.add("abstract_cn_missing")
+    article["quality_flags"] = list(flags)
+
+
 def apply_translation_cache(issue: dict[str, Any]) -> dict[str, Any]:
     cache_path = TRANSLATION_CACHE / f"{issue['journal_id']}.json"
     cache = read_json(cache_path) or {}
@@ -126,6 +168,26 @@ def apply_translation_cache(issue: dict[str, Any]) -> dict[str, Any]:
         article["abstract_en"] = clean_abstract_label(article.get("abstract_en"))
         article["abstract_cn"] = clean_abstract_label(article.get("abstract_cn"))
         translated = cache.get(article.get("doi", ""), {})
+        cache_hash = str(translated.get("source_hash", ""))
+        cache_is_stale = bool(cache_hash and cache_hash != _source_hash(article))
+        embedded_matches_cache = (
+            article.get("title_cn") == translated.get("title_cn")
+            and article.get("abstract_cn")
+            == clean_abstract_label(translated.get("abstract_cn", ""))
+        )
+        if cache_is_stale and embedded_matches_cache:
+            _clear_stale_translation(article)
+        elif translation_is_complete(article):
+            embedded = {
+                "title_cn": article.get("title_cn", ""),
+                "abstract_cn": article.get("abstract_cn", ""),
+                "source_hash": article.get("translation", {}).get("source_hash", ""),
+            }
+            if not _translation_payload_is_current(article, embedded):
+                _clear_stale_translation(article)
+
+        if translated and not _translation_payload_is_current(article, translated):
+            translated = {}
         if article.get("article_type") == "comment" and not article.get("title_cn"):
             override = COMMENT_TITLE_OVERRIDES.get(article.get("doi", ""))
             if override:
@@ -154,7 +216,12 @@ def apply_translation_cache(issue: dict[str, Any]) -> dict[str, Any]:
         provenance = translated.get("translation", {})
         if provenance:
             article["translation"].update(provenance)
+            article["translation"]["source_hash"] = translated.get(
+                "source_hash", _source_hash(article)
+            )
         if article["title_cn"] and article["abstract_cn"]:
+            article["translation"]["status"] = "complete"
+        elif comment_without_abstract(article) and article["title_cn"]:
             article["translation"]["status"] = "complete"
         elif article["title_cn"] or article["abstract_cn"]:
             article["translation"]["status"] = "partial"
@@ -662,7 +729,7 @@ def preserve_existing_content(
     issue: dict[str, Any],
     existing: dict[str, Any] | None,
 ) -> dict[str, Any]:
-    """Keep already recovered content when the roster is recollected."""
+    """Keep recovered content only while its English source remains unchanged."""
 
     if not existing or existing.get("issue_id") != issue.get("issue_id"):
         return issue
@@ -684,20 +751,42 @@ def preserve_existing_content(
         old = existing_by_doi.get(doi) or existing_by_title.get(title_key)
         if not old:
             continue
-        for field in ("title_cn", "abstract_en", "abstract_cn"):
-            if not article.get(field) and old.get(field):
-                article[field] = old[field]
+        old_abstract_en = clean_abstract_label(old.get("abstract_en"))
+        if not article.get("abstract_en") and old_abstract_en:
+            article["abstract_en"] = old_abstract_en
         if not article.get("authors") and old.get("authors"):
             article["authors"] = list(old["authors"])
+
+        source_matches = (
+            str(article.get("title_en", "")).strip()
+            == str(old.get("title_en", "")).strip()
+            and str(article.get("abstract_en", "")).strip()
+            == old_abstract_en.strip()
+        )
+        if source_matches:
+            for field in ("title_cn", "abstract_cn"):
+                if not article.get(field) and old.get(field):
+                    article[field] = old[field]
+            if old.get("translation", {}).get("status") == "complete":
+                article["translation"] = dict(old["translation"])
+        elif (
+            article.get("title_cn") == old.get("title_cn")
+            or article.get("abstract_cn")
+            == clean_abstract_label(old.get("abstract_cn"))
+        ):
+            _clear_stale_translation(article)
+
         old_sources = old.get("sources", {})
         sources = article.setdefault("sources", {})
         for name, value in old_sources.items():
             if value and not sources.get(name):
                 sources[name] = value
-        if old.get("translation", {}).get("status") == "complete":
-            article["translation"] = dict(old["translation"])
         flags = set(article.get("quality_flags", []))
-        for field, flag in (("title_cn", "title_cn_missing"), ("abstract_en", "abstract_en_missing"), ("abstract_cn", "abstract_cn_missing")):
+        for field, flag in (
+            ("title_cn", "title_cn_missing"),
+            ("abstract_en", "abstract_en_missing"),
+            ("abstract_cn", "abstract_cn_missing"),
+        ):
             if article.get(field):
                 flags.discard(flag)
         article["quality_flags"] = list(flags)

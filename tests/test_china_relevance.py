@@ -104,6 +104,49 @@ class ChinaRelevanceTests(unittest.TestCase):
         )
         self.assertNotIn("abstract_en_incomplete", result["quality"]["flags"])
 
+    def test_changed_english_source_does_not_reuse_old_translation(self) -> None:
+        issue = {
+            "issue_id": "demo-1-c",
+            "research_article_count": 1,
+            "articles": [
+                {
+                    "doi": "10.1/demo",
+                    "title_en": "Demo",
+                    "title_cn": "",
+                    "abstract_en": "A revised publisher abstract from 2026.",
+                    "abstract_cn": "",
+                    "authors": ["Author"],
+                    "sources": {},
+                    "quality_flags": [],
+                    "translation": {"status": "pending"},
+                }
+            ],
+            "quality": {"flags": []},
+        }
+        existing = {
+            "issue_id": "demo-1-c",
+            "articles": [
+                {
+                    "doi": "10.1/demo",
+                    "title_en": "Demo",
+                    "title_cn": "示例",
+                    "abstract_en": "The original publisher abstract from 2025.",
+                    "abstract_cn": "这是原始英文摘要对应的中文译文。",
+                    "authors": ["Author"],
+                    "sources": {},
+                    "quality_flags": [],
+                    "translation": {"status": "complete"},
+                }
+            ],
+        }
+
+        result = preserve_existing_content(issue, existing)
+        article = result["articles"][0]
+        self.assertEqual("A revised publisher abstract from 2026.", article["abstract_en"])
+        self.assertEqual("", article["title_cn"])
+        self.assertEqual("", article["abstract_cn"])
+        self.assertNotEqual("complete", article["translation"]["status"])
+
     def test_existing_issue_is_normalized_without_recollection(self) -> None:
         issue = {
             "articles": [
