@@ -11,6 +11,8 @@ import requests
 
 API = "https://api.github.com"
 TITLE_PREFIX = "[journal-monitor]"
+ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_MONITORING = ROOT / "public" / "api" / "v1" / "monitoring.json"
 
 
 def _request(
@@ -150,12 +152,18 @@ def main() -> int:
     parser.add_argument(
         "--reconcile",
         type=Path,
-        default=None,
+        default=DEFAULT_MONITORING,
         help=(
             "Path to monitoring.json. Any open journal alert whose journal is "
             "no longer listed as failing there is closed, so the issue tracker "
-            "cannot drift away from the data."
+            "cannot drift away from the data. Defaults to the published "
+            "monitoring API, so reconciliation needs no workflow change."
         ),
+    )
+    parser.add_argument(
+        "--no-reconcile",
+        action="store_true",
+        help="Disable reconciliation and only act on this run's alert events.",
     )
     parser.add_argument(
         "--composer-status",
@@ -167,7 +175,7 @@ def main() -> int:
         raise SystemExit("GITHUB_REPOSITORY is required")
     result = json.loads(args.result.read_text(encoding="utf-8"))
     reconcile_against = None
-    if args.reconcile and args.reconcile.exists():
+    if not args.no_reconcile and args.reconcile and args.reconcile.exists():
         reconcile_against = json.loads(args.reconcile.read_text(encoding="utf-8"))
     synced = sync_alerts(
         result,
