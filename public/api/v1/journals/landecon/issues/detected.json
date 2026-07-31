@@ -7,7 +7,7 @@
   "issue": "3",
   "publication_date": "July 2026",
   "source_url": "https://le.uwpress.org/content/current",
-  "retrieved_at": "2026-07-31T00:00:37+00:00",
+  "retrieved_at": "2026-07-31T03:27:38+00:00",
   "expected_article_count": 10,
   "research_article_count": 10,
   "status": "incomplete",
@@ -69,7 +69,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:51:56+00:00"
+        "translated_at": "2026-07-26T19:51:56+00:00",
+        "source_hash": "5100ff10316e02c91698c9eff87ad1c3bd79d8ec01b76b59a0944550cc506c76"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -137,7 +138,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:52:02+00:00"
+        "translated_at": "2026-07-26T19:52:02+00:00",
+        "source_hash": "b09e45fc31f14434c13510dae98a1106b368900a2c76b564b528eabc46bb57b7"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -202,7 +204,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:52:08+00:00"
+        "translated_at": "2026-07-26T19:52:08+00:00",
+        "source_hash": "742c6ec197893d5e6e1b04e53191f233011c61a3b2e3642dbb362610f3660a0b"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -267,7 +270,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "mistral-ai/mistral-medium-2505",
-        "translated_at": "2026-07-26T20:25:44+00:00"
+        "translated_at": "2026-07-26T20:25:44+00:00",
+        "source_hash": "6d18bdaec742c4128871fc79cbf6c577785962f8b6276331ab9f18502a091eec"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -311,8 +315,8 @@
             },
             {
               "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 429,
+              "outcome": "quota_exceeded"
             },
             {
               "source": "elsevier-scopus-doi",
@@ -334,7 +338,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "mistral-ai/mistral-medium-2505",
-        "translated_at": "2026-07-26T20:26:08+00:00"
+        "translated_at": "2026-07-26T20:26:08+00:00",
+        "source_hash": "ac8bca58e71a98d2c2ac39e0001220804870df7e3ea61bc442ba622e95a80e7c"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -400,7 +405,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:53:11+00:00"
+        "translated_at": "2026-07-26T19:53:11+00:00",
+        "source_hash": "5b226905b1c3752a4dff1bc6bc502fe082ef0cf6c026ca22649d42cfdb4216d8"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -467,7 +473,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:53:19+00:00"
+        "translated_at": "2026-07-26T19:53:19+00:00",
+        "source_hash": "3462651f589804caa6288f5e5b4dcf22464b79521729d3a5016620abb8b3abdc"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -539,7 +546,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:53:26+00:00"
+        "translated_at": "2026-07-26T19:53:26+00:00",
+        "source_hash": "8aa72352dc43e376ce1bc20243d5cd4b021336d20cd6b70375ceece5144d92e2"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -605,7 +613,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:53:33+00:00"
+        "translated_at": "2026-07-26T19:53:33+00:00",
+        "source_hash": "0c640db49d0e641b04b95f1e8787905f07f7936fca2216097394a5e4b06a493e"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -649,8 +658,8 @@
             },
             {
               "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 429,
+              "outcome": "quota_exceeded"
             },
             {
               "source": "elsevier-scopus-doi",
@@ -672,7 +681,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:53:41+00:00"
+        "translated_at": "2026-07-26T19:53:41+00:00",
+        "source_hash": "37e91c691db6173851be8887a6c766efd1ad0745f789b70590ed2cdaa184a7d4"
       },
       "quality_flags": [],
       "china_relevance": {

@@ -7,7 +7,7 @@
   "issue": "4",
   "publication_date": "July 2026",
   "source_url": "https://www.journals.uchicago.edu/toc/jaere/current",
-  "retrieved_at": "2026-07-30T17:50:50+00:00",
+  "retrieved_at": "2026-07-31T03:27:33+00:00",
   "expected_article_count": 8,
   "research_article_count": 8,
   "status": "incomplete",
@@ -68,7 +68,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:50:37+00:00"
+        "translated_at": "2026-07-26T19:50:37+00:00",
+        "source_hash": "e6c6cd0c4cd1234f07b4dbd0d4d15faeb8638d8a02e772439de35cc7c0fb7459"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -133,7 +134,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:50:42+00:00"
+        "translated_at": "2026-07-26T19:50:42+00:00",
+        "source_hash": "be07bdcfb8194cd1af865b47c70279913199dfab6e7ceab320363fd91c87359b"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -197,7 +199,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "mistral-ai/mistral-medium-2505",
-        "translated_at": "2026-07-26T20:25:27+00:00"
+        "translated_at": "2026-07-26T20:25:27+00:00",
+        "source_hash": "7668818be454431ec0d05205ba78817a68c80b7b4a9da9932da7fe2dbfe3a3ca"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -262,7 +265,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:51:19+00:00"
+        "translated_at": "2026-07-26T19:51:19+00:00",
+        "source_hash": "139ca595804e1983c898338ada7c2a64741deb30caae26eaf69a3665e8bdb2db"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -304,8 +308,8 @@
             },
             {
               "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 429,
+              "outcome": "quota_exceeded"
             },
             {
               "source": "elsevier-scopus-doi",
@@ -327,7 +331,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:51:25+00:00"
+        "translated_at": "2026-07-26T19:51:25+00:00",
+        "source_hash": "734ac9de57dffce06af41324abba2621d361a983511549c38d07e45ecefd5677"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -392,7 +397,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:51:33+00:00"
+        "translated_at": "2026-07-26T19:51:33+00:00",
+        "source_hash": "2211ab75a8e8d8e5fd7ac37ebabfa21f81037fa2e8acf8c92e99621b944dd817"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -458,7 +464,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:51:40+00:00"
+        "translated_at": "2026-07-26T19:51:40+00:00",
+        "source_hash": "d1957048a3562eabcf0de4d53db4a054c361f39d6c7679fe54f9a1a919206b14"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -500,8 +507,8 @@
             },
             {
               "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 429,
+              "outcome": "quota_exceeded"
             },
             {
               "source": "elsevier-scopus-doi",
@@ -523,7 +530,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:51:47+00:00"
+        "translated_at": "2026-07-26T19:51:47+00:00",
+        "source_hash": "60e5ddb8abd5db09221a93e006174505dfaad5bde5bd8d6d27954ab0fff3a027"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -581,7 +589,6 @@
       "catalog_content_items": 8
     }
   },
-  "publication_state": "ready",
   "content_counts": {
     "official_items": 10,
     "observed_items": 10,
@@ -594,5 +601,6 @@
     "front_matter": 1,
     "other_excluded": 1,
     "catalog_content_items": 8
-  }
+  },
+  "publication_state": "ready"
 }
