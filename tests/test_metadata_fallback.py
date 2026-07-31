@@ -2,10 +2,13 @@ from __future__ import annotations
 
 import unittest
 from datetime import date, datetime, timezone
+from types import SimpleNamespace
 from unittest.mock import patch
 
 from collectors.metadata_fallback import (
     MetadataFallbackError,
+    _get_content,
+    _official_issue_abstracts,
     _publication_date,
     _elsevier_abstract,
     _elsevier_lookup,
@@ -808,5 +811,112 @@ class MetadataFallbackTests(unittest.TestCase):
         self.assertEqual("May", MONTHS_BY_ISSUE["0924-6460"]["5"])
         self.assertEqual("June", MONTHS_BY_ISSUE["0924-6460"]["6"])
         self.assertEqual("July", MONTHS_BY_ISSUE["0924-6460"]["7"])
+
+    def test_get_content_patient_403_retries_then_succeeds(self) -> None:
+        import requests
+
+        class PatienceSession:
+            def __init__(self) -> None:
+                self.calls = 0
+
+            def get(self, url: str, **kwargs) -> Response:
+                self.calls += 1
+                if self.calls == 1:
+                    error = requests.HTTPError("forbidden")
+                    error.response = SimpleNamespace(status_code=403)
+                    raise error
+                return Response({}, b"ok")
+
+        session = PatienceSession()
+        with patch("time.sleep") as sleep:
+            content = _get_content(session, "https://example.org/issue", attempts=3, patient_403=True)
+        self.assertEqual(b"ok", content)
+        self.assertEqual(2, session.calls)
+        sleep.assert_called_once()
+
+    def test_official_issue_abstracts_extracts_pii_map(self) -> None:
+        html = b"""
+        <ol>
+          <li class="js-article-list-item">
+            <a href="https://www.sciencedirect.com/science/article/pii/S123">
+              <span class="js-article-title">First paper</span>
+            </a>
+            <div class="js-abstract-body-text"><p>First official abstract.</p></div>
+          </li>
+          <li class="js-article-list-item">
+            <a href="https://www.sciencedirect.com/science/article/pii/S456">
+              <span class="js-article-title">Second paper</span>
+            </a>
+            <div class="js-abstract-body-text"><p>Second official abstract.</p></div>
+          </li>
+        </ol>
+        """
+        abstracts = _official_issue_abstracts(html)
+        self.assertEqual(
+            {"S123": "First official abstract.", "S456": "Second official abstract."},
+            abstracts,
+        )
+
+    def test_sciencedirect_rss_uses_official_html_when_abstract_missing(self) -> None:
+        feed = b"""
+        <rss xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><item>
+          <title>Missing abstract paper</title>
+          <dc:identifier>10.1016/j.demo.2026.020</dc:identifier>
+          <description><![CDATA[
+            <p>Publication date: August 2026</p>
+            <p><b>Source:</b> Demo Journal, Volume 188</p>
+            <p>Author(s): Ada Lovelace</p>
+          ]]></description>
+          <link>https://www.sciencedirect.com/science/article/pii/S789</link>
+        </item></channel></rss>
+        """
+        official_html = b"""
+        <ol>
+          <li class="js-article-list-item">
+            <a href="https://www.sciencedirect.com/science/article/pii/S789">
+              <span class="js-article-title">Missing abstract paper</span>
+            </a>
+            <div class="js-abstract-body-text"><p>Recovered from official page.</p></div>
+          </li>
+        </ol>
+        """
+
+        class RssSession:
+            def get(self, url: str, **kwargs) -> Response:
+                if "rss.sciencedirect.com" in url:
+                    return Response({}, feed)
+                if "example.org/vol/188" in url:
+                    return Response({}, official_html)
+                return Response(
+                    {"message": {"items": [{
+                        **item("Missing abstract paper", "1", "10.1016/j.demo.2026.020", ""),
+                        "volume": "188",
+                        "issue": "",
+                    }]}}
+                )
+
+        with (
+            patch("collectors.metadata_fallback._elsevier_lookup",
+                  return_value={"abstract": "", "teaser": "", "source_url": "", "source": "", "status": "not_found", "attempts": []}) as elsevier,
+            patch("collectors.metadata_fallback._openalex_metadata",
+                  return_value=([], "", "")) as openalex,
+            patch("collectors.metadata_fallback._semantic_scholar_metadata_batch",
+                  return_value={}) as semantic,
+        ):
+            issue = fetch_sciencedirect_rss_issue(
+                journal_id="demo",
+                journal_name="Demo Journal",
+                issn="0000-0000",
+                current_issue_url="https://example.org/issues",
+                issue_url_template="https://example.org/vol/{volume}/suppl/{issue}",
+                rss_url="https://rss.sciencedirect.com/demo",
+                session=RssSession(),
+                today=date(2026, 7, 30),
+            )
+        assert issue is not None
+        article = issue["articles"][0]
+        self.assertEqual("Recovered from official page.", article["abstract_en"])
+        self.assertEqual("official-sciencedirect-issue", article["sources"]["abstract_en"])
+        self.assertNotIn("abstract_en_missing", article["quality_flags"])
 if __name__ == "__main__":
     unittest.main()

@@ -59,7 +59,14 @@ def _get(
     url: str,
     *,
     attempts: int = MAX_ATTEMPTS,
+    patient_403: bool = False,
 ) -> requests.Response:
+    """GET with retry; optionally back off patiently on ScienceDirect 403.
+
+    ScienceDirect anti-bot blocks are often intermittent. patient_403 waits
+    much longer between retries so a later attempt can land in a fresh
+    request window, while all other failures keep the short backoff.
+    """
     last_error: Exception | None = None
     for attempt in range(attempts):
         try:
@@ -69,7 +76,16 @@ def _get(
         except requests.RequestException as error:
             last_error = error
             if attempt + 1 < attempts:
-                time.sleep(1.5 * (attempt + 1))
+                status_code = (
+                    error.response.status_code
+                    if isinstance(error, requests.HTTPError)
+                    and error.response is not None
+                    else 0
+                )
+                if patient_403 and status_code == 403:
+                    time.sleep(15 + 15 * attempt)
+                else:
+                    time.sleep(1.5 * (attempt + 1))
     raise ElsevierCollectorError(f"request failed for {url}: {last_error}")
 
 
@@ -384,7 +400,7 @@ def fetch_current_issue(
     official_rows: list[dict[str, Any]] = []
     official_error = ""
     try:
-        official_rows = _parse_official_issue(_get(session, official_issue_url, attempts=2).content)
+        official_rows = _parse_official_issue(_get(session, official_issue_url, attempts=3, patient_403=True).content)
     except ElsevierCollectorError as error:
         official_error = str(error)
 

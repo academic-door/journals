@@ -171,7 +171,14 @@ def _get_content(
     timeout: int = 60,
     attempts: int = 4,
     headers: dict[str, str] | None = None,
+    patient_403: bool = False,
 ) -> bytes:
+    """GET content with retry; optionally back off patiently on 403.
+
+    ScienceDirect anti-bot blocks are often intermittent. patient_403 waits
+    much longer between retries so a later attempt can land in a fresh
+    request window, while all other failures keep the short backoff.
+    """
     last_error: Exception | None = None
     for attempt in range(attempts):
         try:
@@ -181,7 +188,16 @@ def _get_content(
         except requests.RequestException as error:
             last_error = error
             if attempt + 1 < attempts:
-                time.sleep(1.5 * (attempt + 1))
+                status_code = (
+                    error.response.status_code
+                    if isinstance(error, requests.HTTPError)
+                    and error.response is not None
+                    else 0
+                )
+                if patient_403 and status_code == 403:
+                    time.sleep(15 + 15 * attempt)
+                else:
+                    time.sleep(1.5 * (attempt + 1))
     raise MetadataFallbackError(
         f"metadata endpoint failed after {attempts} attempts: {last_error}"
     )
@@ -1156,6 +1172,29 @@ def _normalized_title(value: str) -> str:
     return re.sub(r"[^a-z0-9]+", " ", value.casefold()).strip()
 
 
+def _official_issue_abstracts(content: bytes) -> dict[str, str]:
+    """Extract PII -> abstract from a ScienceDirect official issue page."""
+
+    soup = BeautifulSoup(content, "html.parser")
+    abstracts: dict[str, str] = {}
+    for card in soup.select("li.js-article-list-item, li.article-item"):
+        title_node = card.select_one(".js-article-title, .article-content-title")
+        if title_node is None:
+            continue
+        link = title_node.find_parent("a")
+        source_url = str(link.get("href") or "") if link else ""
+        pii_match = re.search(r"/pii/([A-Za-z0-9]+)", source_url, re.IGNORECASE)
+        if not pii_match:
+            continue
+        abstract_node = card.select_one(".js-abstract-body-text, .abstract-body")
+        abstract = _clean_markup(
+            abstract_node.get_text(" ", strip=True) if abstract_node else ""
+        )
+        if abstract:
+            abstracts[pii_match.group(1).upper()] = abstract
+    return abstracts
+
+
 def fetch_sciencedirect_rss_issue(
     *,
     journal_id: str,
@@ -1410,6 +1449,41 @@ def fetch_sciencedirect_rss_issue(
         if article["abstract_cn"]:
             article["quality_flags"].remove("abstract_cn_missing")
         articles.append(article)
+
+    if any(
+        not article.get("abstract_en") for article in articles
+    ):
+        official_html = _get_content(
+            client,
+            issue_url,
+            timeout=timeout,
+            attempts=3,
+            patient_403=True,
+            headers={"Accept": "text/html,application/xhtml+xml"},
+        )
+        official_abstracts = _official_issue_abstracts(official_html)
+        if official_abstracts:
+            for article in articles:
+                if article.get("abstract_en"):
+                    continue
+                pii_match = re.search(
+                    r"/pii/([A-Za-z0-9]+)",
+                    str(article.get("source_url", "")),
+                    re.IGNORECASE,
+                )
+                if not pii_match:
+                    continue
+                abstract = official_abstracts.get(pii_match.group(1).upper(), "")
+                if abstract:
+                    article["abstract_en"] = abstract
+                    article["sources"]["abstract_en"] = "official-sciencedirect-issue"
+                    article["quality_flags"] = [
+                        flag
+                        for flag in article["quality_flags"]
+                        if flag != "abstract_en_missing"
+                    ]
+                    if article.get("translation", {}).get("status") == "blocked":
+                        article["translation"]["status"] = "pending"
 
     unresolved_dois = [
         str(article.get("doi", "")).strip().lower()
