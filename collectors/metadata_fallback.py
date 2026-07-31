@@ -195,7 +195,7 @@ def _get_content(
                     else 0
                 )
                 if patient_403 and status_code == 403:
-                    time.sleep(15 + 15 * attempt)
+                    time.sleep(5 + 5 * attempt)
                 else:
                     time.sleep(1.5 * (attempt + 1))
     raise MetadataFallbackError(
@@ -1453,14 +1453,17 @@ def fetch_sciencedirect_rss_issue(
     if any(
         not article.get("abstract_en") for article in articles
     ):
-        official_html = _get_content(
-            client,
-            issue_url,
-            timeout=timeout,
-            attempts=3,
-            patient_403=True,
-            headers={"Accept": "text/html,application/xhtml+xml"},
-        )
+        try:
+            official_html = _get_content(
+                client,
+                issue_url,
+                timeout=timeout,
+                attempts=2,
+                patient_403=True,
+                headers={"Accept": "text/html,application/xhtml+xml"},
+            )
+        except MetadataFallbackError:
+            official_html = b""
         official_abstracts = _official_issue_abstracts(official_html)
         if official_abstracts:
             for article in articles:

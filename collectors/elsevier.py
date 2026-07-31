@@ -83,7 +83,7 @@ def _get(
                     else 0
                 )
                 if patient_403 and status_code == 403:
-                    time.sleep(15 + 15 * attempt)
+                    time.sleep(5 + 5 * attempt)
                 else:
                     time.sleep(1.5 * (attempt + 1))
     raise ElsevierCollectorError(f"request failed for {url}: {last_error}")
