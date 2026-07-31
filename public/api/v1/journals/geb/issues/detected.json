@@ -7,7 +7,7 @@
   "issue": "C",
   "publication_date": "June 2026",
   "source_url": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/158/suppl/C",
-  "retrieved_at": "2026-07-31T17:32:13+00:00",
+  "retrieved_at": "2026-07-31T18:31:05+00:00",
   "expected_article_count": 42,
   "research_article_count": 42,
   "status": "incomplete",
@@ -356,8 +356,8 @@
             },
             {
               "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 429,
+              "outcome": "quota_exceeded"
             },
             {
               "source": "elsevier-scopus-doi",
@@ -464,10 +464,9 @@
       "translation": {
         "status": "complete",
         "provider": "google-translate",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-31T17:32:14+00:00",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-07-31T18:31:05+00:00",
         "source_hash": "0a9e5dfcace317d7849a67cc0cff8ad19956528dac5697b372cd0f03ff92cce0"
       },
       "quality_flags": [],
@@ -546,7 +545,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-31T17:32:15+00:00",
+        "translated_at": "2026-07-31T18:31:07+00:00",
         "source_hash": "0040dc06682d7df78c31ef7c56ac6d69da0099afce2fab48a2be98b35998cf56"
       },
       "quality_flags": [],
@@ -933,10 +932,9 @@
       "translation": {
         "status": "complete",
         "provider": "google-translate",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-31T17:32:18+00:00",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-07-31T18:31:09+00:00",
         "source_hash": "7fa12f69ecce70125217c0f691974fc7c95ed0d90a17bda128adc98830cb99df"
       },
       "quality_flags": [],
@@ -1013,7 +1011,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-31T17:32:19+00:00",
+        "translated_at": "2026-07-31T18:31:11+00:00",
         "source_hash": "fdb6d84a9f45eee6a9b8b28ad9664859e450197558df4f2be8778dff829472eb"
       },
       "quality_flags": [],
@@ -1245,8 +1243,8 @@
         "glossary_version": "1"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -1317,10 +1315,9 @@
       "translation": {
         "status": "complete",
         "provider": "google-translate",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-31T17:32:28+00:00",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-07-31T18:31:19+00:00",
         "source_hash": "5d98b148555eab4a1bcc7828d204826d8600a80107738f3ee49abc667efd2be0"
       },
       "quality_flags": [],
@@ -1627,7 +1624,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-31T17:32:30+00:00",
+        "translated_at": "2026-07-31T18:31:21+00:00",
         "source_hash": "a60cb6e507f52d1b0aeb984df0340522320550e7ff8b96435ed0db996c2c52f3"
       },
       "quality_flags": [],
@@ -1781,7 +1778,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-31T17:32:32+00:00",
+        "translated_at": "2026-07-31T18:31:23+00:00",
         "source_hash": "9a9d8e7e8059c53314ed6f3431d97d22cc341af820aa87162c7eda7c831ecfca"
       },
       "quality_flags": [],
@@ -1855,10 +1852,9 @@
       "translation": {
         "status": "complete",
         "provider": "google-translate",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-31T17:32:34+00:00",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-07-31T18:31:25+00:00",
         "source_hash": "82023351cb2fd5129315027586af92294c3baaab9903b4c76bfe9382a87fac4b"
       },
       "quality_flags": [],
@@ -2189,8 +2185,8 @@
         "In-Uck Park",
         "Efthymios Smyrniotis"
       ],
-      "abstract_en": "We extend global games á la Carlsson and van Damme (1993) to environments where the risk-dominant equilibrium is selected even if there is no dominance solvable game in the underlying class of games. Strict dominance can emerge in the global game from strategic uncertainty due to discrete payoff changes in underlying games, and we provide sufficient conditions on payoff changes that warrant iterated dominance of the risk-dominant equilibrium. Thus, strategic uncertainty creates strictly dominant actions as well as fostering iterated dominance, in contrast to global games hitherto where strategic uncertainty does only the latter. Discrete payoff changes tend to arise, in particular, in situations where a public good can be provided with varying degrees of coordination depending on the state, so that coordinating actions can be strategic substitutes and free-riding incentives are present. We illustrate our findings in a stylized public good provision model.",
-      "abstract_cn": "我们将全局博弈 la Carlsson 和 van Damme (1993) 扩展到选择风险主导均衡的环境，即使在基础博弈类中没有支配可解博弈。由于基础博弈中离散的收益变化，战略不确定性可能会在全局博弈中出现严格的支配地位，并且我们为收益变化提供了充分的条件，以保证风险主导均衡的迭代支配地位。因此，战略不确定性会产生严格的主导行为，并促进重复的主导地位，这与迄今为止战略不确定性只影响后者的全球博弈形成鲜明对比。特别是在可以根据国家不同程度的协调来提供公共物品的情况下，往往会出现离散的收益变化，因此协调行动可以成为战略替代品，并且存在搭便车激励。我们在一个程式化的公共物品提供模型中阐述了我们的发现。",
+      "abstract_en": "We extend global games<i> á la </i>Carlsson and van Damme (1993) to environments where the risk-dominant equilibrium is selected even if there is no dominance solvable game in the underlying class of games. Strict dominance can emerge in the global game from strategic uncertainty due to discrete payoff changes in underlying games, and we provide sufficient conditions on payoff changes that warrant iterated dominance of the risk-dominant equilibrium. Thus, strategic uncertainty creates strictly dominant actions as well as fostering iterated dominance, in contrast to global games hitherto where strategic uncertainty does only the latter. Discrete payoff changes tend to arise, in particular, in situations where a public good can be provided with varying degrees of coordination depending on the state, so that coordinating actions can be strategic substitutes and free-riding incentives are present. We illustrate our findings in a stylized public good provision model.",
+      "abstract_cn": "我们将全局博弈<i>ála</i>Carlsson and van Damme (1993)扩展到选择风险主导均衡的环境，即使在基础博弈类中没有主导可解博弈。由于基础博弈中离散的收益变化，战略不确定性可能会在全局博弈中出现严格的支配地位，并且我们为收益变化提供了充分的条件，以保证风险主导均衡的迭代支配地位。因此，战略不确定性会产生严格的主导行为，并促进重复的主导地位，这与迄今为止战略不确定性只影响后者的全球博弈形成鲜明对比。特别是在可以根据国家不同程度的协调来提供公共物品的情况下，往往会出现离散的收益变化，因此协调行动可以成为战略替代品，并且存在搭便车激励。我们在一个程式化的公共物品提供模型中阐述了我们的发现。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.geb.2026.04.008",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825626000783?dgcid=rss_sd_all",
@@ -2240,10 +2236,11 @@
       "translation": {
         "status": "complete",
         "provider": "google-translate",
-        "model": "gtx-en-zh-CN",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "translated_at": "2026-07-31T17:32:36+00:00",
-        "source_hash": "c63d0949d50c33f1e0c2a8702c3af3cbd4ad1eda4e316b289dec909394031662"
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-31T18:31:27+00:00",
+        "source_hash": "1ff61c37af48f9393e80c2a94ce9c6739ef2a6cf2f9db04a2d3d787749c9ec97"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -2317,7 +2314,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-31T17:32:38+00:00",
+        "translated_at": "2026-07-31T18:31:29+00:00",
         "source_hash": "8f7a2a0f3c4d3260fdb37d5f08e789c62ef3c1b5c0833f92175cdfeb0780d497"
       },
       "quality_flags": [],
@@ -2623,10 +2620,9 @@
       "translation": {
         "status": "complete",
         "provider": "google-translate",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-31T17:32:41+00:00",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-07-31T18:31:31+00:00",
         "source_hash": "9ce98a7a727ab78bc909ad1957fa2dcf16402d43737ee952a5d8aa0150f68905"
       },
       "quality_flags": [],
@@ -3009,7 +3005,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-31T17:32:42+00:00",
+        "translated_at": "2026-07-31T18:31:33+00:00",
         "source_hash": "26dcbd4a562b8c7d47a9e33ec5e63857357ec34f3c9df6203dbcdf01f3f9fb5d"
       },
       "quality_flags": [],
