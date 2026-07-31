@@ -7,28 +7,108 @@
   "issue": "C",
   "publication_date": "July 2026",
   "source_url": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/161/suppl/C",
-  "retrieved_at": "2026-07-31T10:54:41+00:00",
+  "retrieved_at": "2026-07-31T11:12:47+00:00",
   "expected_article_count": 7,
   "research_article_count": 7,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1016/j.jmoneco.2026.103962",
+      "paper_id": "doi:10.1016/j.jmoneco.2026.103958",
       "sequence": 1,
       "source_sequence": 1,
       "article_type": "research-article",
-      "title_en": "Geography versus income: The heterogeneous effects of carbon taxation",
+      "title_en": "Disincentive effects of unemployment insurance benefits",
       "title_cn": "",
       "authors": [
-        "Charles Labrousse",
-        "Yann Perdereau"
+        "Andreas Hornstein",
+        "Marios Karabarbounis",
+        "André Kurmann",
+        "Etienne Lalé",
+        "Lien Ta"
+      ],
+      "abstract_en": "Unemployment insurance (UI) acts both as a disincentive for labor supply and as a demand stimulus which may explain why empirical studies often find limited effects of UI on employment. This paper provides independent estimates of the disincentive effects arising from the largest expansion of UI in U.S. history, the pandemic unemployment benefits. Using high-frequency data on small restaurants and retailers from Homebase, we control for local demand effects by comparing neighboring businesses that largely share the positive impact of UI stimulus. We find that employment in low-wage businesses recovered more slowly than employment in high-wage businesses in labor markets with larger differences in the relative generosity of pandemic UI benefits. According to a labor search model that replicates the estimated employment differences between low-and high-wage businesses, the disincentive effects from the pandemic UI programs held back the aggregate employment recovery by 4.7 percentage points between April and December 2020.",
+      "abstract_cn": "",
+      "abstract_snippet_en": "",
+      "doi": "10.1016/j.jmoneco.2026.103958",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304393226000735?dgcid=rss_sd_all",
+      "publication_date": "July 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/161/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/03043932",
+        "metadata": "crossref",
+        "abstract_en": "openalex",
+        "abstract_lookup": {
+          "status": "insufficient_entitlement",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 401,
+              "outcome": "unauthorized"
+            },
+            {
+              "source": "elsevier-sciencedirect-search",
+              "status_code": 401,
+              "outcome": "unauthorized"
+            },
+            {
+              "source": "elsevier-scopus-doi",
+              "status_code": 401,
+              "outcome": "unauthorized"
+            },
+            {
+              "source": "elsevier-scopus-pii",
+              "status_code": 401,
+              "outcome": "unauthorized"
+            },
+            {
+              "source": "elsevier-article-doi",
+              "status_code": 403,
+              "outcome": "insufficient_entitlement"
+            },
+            {
+              "source": "elsevier-article-pii",
+              "status_code": 403,
+              "outcome": "insufficient_entitlement"
+            }
+          ]
+        },
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jmoneco.2026.103958"
+      },
+      "translation": {
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
+      },
+      "quality_flags": [
+        "abstract_cn_missing",
+        "title_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jmoneco.2026.103955",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Wasserstein worst-case scenarios and asset pricing",
+      "title_cn": "",
+      "authors": [
+        "Zhonghui Zhang",
+        "Fushu Luan",
+        "Chihwa Kao"
       ],
       "abstract_en": "None",
       "abstract_cn": "",
       "abstract_snippet_en": "",
-      "doi": "10.1016/j.jmoneco.2026.103962",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304393226000772?dgcid=rss_sd_all",
+      "doi": "10.1016/j.jmoneco.2026.103955",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S030439322600070X?dgcid=rss_sd_all",
       "publication_date": "July 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/161/suppl/C",
@@ -70,8 +150,8 @@
             }
           ]
         },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jmoneco.2026.103962",
-        "semantic_scholar": "https://www.semanticscholar.org/paper/b5ec63286952d2ac65d578cca710fbca6f64757f"
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jmoneco.2026.103955",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/d96b345543219779f88d43479d6d76cad611702c"
       },
       "translation": {
         "status": "pending",
@@ -91,104 +171,27 @@
       }
     },
     {
-      "paper_id": "doi:10.1016/j.jmoneco.2026.103956",
-      "sequence": 2,
-      "source_sequence": 2,
-      "article_type": "research-article",
-      "title_en": "Unconventional monetary policy spillovers and the (in)convenience of Treasuries",
-      "title_cn": "非常规货币政策的溢出效应和国债的便利性",
-      "authors": [
-        "Karlye Dilts Stedman",
-        "Andrew Hanson"
-      ],
-      "abstract_en": "Foreign monetary policy shocks increasingly influence U.S. yields, particularly since the Global Financial Crisis. We show that this heightened sensitivity reflects both the adoption of unconventional monetary policy tools and a decline in the convenience of Treasuries. Using high frequency identification, we find that when Treasuries command a low convenience premium—behaving more like other assets—they respond more to ECB monetary policy, consistent with increased sensitivity to portfolio rebalancing. A two-country preferred-habitat model with time-varying covariance of yields rationalizes these results: when Treasuries are less convenient, they become closer substitutes for foreign equivalents, amplifying cross-border transmission of policy shocks.",
-      "abstract_cn": "外国货币政策冲击对美国收益率的影响越来越大，特别是自全球金融危机以来。我们表明，这种敏感性的提高既反映了非常规货币政策工具的采用，也反映了国债便利性的下降。通过高频识别，我们发现，当国债具有较低的便利溢价（表现得更像其他资产）时，它们对欧洲央行货币政策的反应更大，这与对投资组合再平衡的敏感性增加一致。具有随时间变化的收益率协方差的二国家首选栖息地模型使这些结果合理化：当国债不太方便时，它们成为外国同类货币更接近的替代品，从而放大政策冲击的跨境传导。",
-      "abstract_snippet_en": "",
-      "doi": "10.1016/j.jmoneco.2026.103956",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304393226000711?dgcid=rss_sd_all",
-      "publication_date": "July 2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/161/suppl/C",
-        "roster": "https://rss.sciencedirect.com/publication/science/03043932",
-        "metadata": "crossref",
-        "abstract_en": "openalex",
-        "abstract_lookup": {
-          "status": "insufficient_entitlement",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            }
-          ]
-        },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jmoneco.2026.103956"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "google-translate",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T14:40:14+00:00",
-        "source_hash": "0fb9c63a04ead3a9bb9ea9c35359733bc75820c978cde1c23a45c8f77f3f41e6"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jmoneco.2026.103961",
+      "paper_id": "doi:10.1016/j.jmoneco.2026.103957",
       "sequence": 3,
       "source_sequence": 3,
       "article_type": "research-article",
-      "title_en": "Evaluating macroeconomic outcomes under asymmetries: Expectations matter",
-      "title_cn": "评估不对称情况下的宏观经济结果：预期很重要",
+      "title_en": "Payment data, information disclosure, and privacy",
+      "title_cn": "",
       "authors": [
-        "Brent Bundick",
-        "Isabel Cairó",
-        "Nicolas Petrosky-Nadeau"
+        "Kee-Youn Kang",
+        "Zijian Wang"
       ],
-      "abstract_en": "Asymmetries play an important role in many macroeconomic models. We show that assumptions on household and firm expectations play a key role in determining the effects of these asymmetries on macroeconomic outcomes. If households and firms have perfect foresight and hence do not account for the possibility of future shocks, then the implied longer-run averages and distributions can differ significantly from their rational expectations counterparts. We first derive this result analytically in a standard New Keynesian environment under either an asymmetric monetary policy rule or a nonlinear Phillips curve before numerically examining some of the key nonlinearities featured in the recent literature.",
-      "abstract_cn": "不对称性在许多宏观经济模型中发挥着重要作用。我们表明，对家庭和企业预期的假设在确定这些不对称性对宏观经济结果的影响方面发挥着关键作用。如果家庭和企业具有完美的远见，因此没有考虑未来冲击的可能性，那么隐含的长期平均值和分布可能与其理性预期有很大不同。我们第一在标准新凯恩斯主义环境下，在不对称货币政策规则或非线性菲利普斯曲线下分析得出这一结果，然后对最近文献中的一些关键非线性进行数值研究。",
+      "abstract_en": "None",
+      "abstract_cn": "",
       "abstract_snippet_en": "",
-      "doi": "10.1016/j.jmoneco.2026.103961",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304393226000760?dgcid=rss_sd_all",
+      "doi": "10.1016/j.jmoneco.2026.103957",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304393226000723?dgcid=rss_sd_all",
       "publication_date": "July 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/161/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03043932",
         "metadata": "crossref",
-        "abstract_en": "openalex",
+        "abstract_en": "semantic-scholar",
         "abstract_lookup": {
           "status": "insufficient_entitlement",
           "attempts": [
@@ -224,18 +227,19 @@
             }
           ]
         },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jmoneco.2026.103961"
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jmoneco.2026.103957",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/1d42d434fa14dde2af5528997f95e9b7d95eed7f"
       },
       "translation": {
-        "status": "complete",
-        "provider": "google-translate",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T14:40:20+00:00",
-        "source_hash": "c21dc45caf8200b03c3a6473380172b2fd31b70d399a2baf0e53576f8d87badc"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "abstract_cn_missing",
+        "title_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -321,179 +325,22 @@
       }
     },
     {
-      "paper_id": "doi:10.1016/j.jmoneco.2026.103957",
+      "paper_id": "doi:10.1016/j.jmoneco.2026.103961",
       "sequence": 5,
       "source_sequence": 5,
       "article_type": "research-article",
-      "title_en": "Payment data, information disclosure, and privacy",
-      "title_cn": "",
+      "title_en": "Evaluating macroeconomic outcomes under asymmetries: Expectations matter",
+      "title_cn": "评估不对称情况下的宏观经济结果：预期很重要",
       "authors": [
-        "Kee-Youn Kang",
-        "Zijian Wang"
+        "Brent Bundick",
+        "Isabel Cairó",
+        "Nicolas Petrosky-Nadeau"
       ],
-      "abstract_en": "None",
-      "abstract_cn": "",
+      "abstract_en": "Asymmetries play an important role in many macroeconomic models. We show that assumptions on household and firm expectations play a key role in determining the effects of these asymmetries on macroeconomic outcomes. If households and firms have perfect foresight and hence do not account for the possibility of future shocks, then the implied longer-run averages and distributions can differ significantly from their rational expectations counterparts. We first derive this result analytically in a standard New Keynesian environment under either an asymmetric monetary policy rule or a nonlinear Phillips curve before numerically examining some of the key nonlinearities featured in the recent literature.",
+      "abstract_cn": "不对称性在许多宏观经济模型中发挥着重要作用。我们表明，对家庭和企业预期的假设在确定这些不对称性对宏观经济结果的影响方面发挥着关键作用。如果家庭和企业具有完美的远见，因此没有考虑未来冲击的可能性，那么隐含的长期平均值和分布可能与其理性预期有很大不同。我们第一在标准新凯恩斯主义环境下，在不对称货币政策规则或非线性菲利普斯曲线下分析得出这一结果，然后对最近文献中的一些关键非线性进行数值研究。",
       "abstract_snippet_en": "",
-      "doi": "10.1016/j.jmoneco.2026.103957",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304393226000723?dgcid=rss_sd_all",
-      "publication_date": "July 2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/161/suppl/C",
-        "roster": "https://rss.sciencedirect.com/publication/science/03043932",
-        "metadata": "crossref",
-        "abstract_en": "semantic-scholar",
-        "abstract_lookup": {
-          "status": "insufficient_entitlement",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            }
-          ]
-        },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jmoneco.2026.103957",
-        "semantic_scholar": "https://www.semanticscholar.org/paper/1d42d434fa14dde2af5528997f95e9b7d95eed7f"
-      },
-      "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
-      },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jmoneco.2026.103955",
-      "sequence": 6,
-      "source_sequence": 6,
-      "article_type": "research-article",
-      "title_en": "Wasserstein worst-case scenarios and asset pricing",
-      "title_cn": "",
-      "authors": [
-        "Zhonghui Zhang",
-        "Fushu Luan",
-        "Chihwa Kao"
-      ],
-      "abstract_en": "None",
-      "abstract_cn": "",
-      "abstract_snippet_en": "",
-      "doi": "10.1016/j.jmoneco.2026.103955",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S030439322600070X?dgcid=rss_sd_all",
-      "publication_date": "July 2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/161/suppl/C",
-        "roster": "https://rss.sciencedirect.com/publication/science/03043932",
-        "metadata": "crossref",
-        "abstract_en": "semantic-scholar",
-        "abstract_lookup": {
-          "status": "insufficient_entitlement",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            }
-          ]
-        },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jmoneco.2026.103955",
-        "semantic_scholar": "https://www.semanticscholar.org/paper/d96b345543219779f88d43479d6d76cad611702c"
-      },
-      "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
-      },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jmoneco.2026.103958",
-      "sequence": 7,
-      "source_sequence": 7,
-      "article_type": "research-article",
-      "title_en": "Disincentive effects of unemployment insurance benefits",
-      "title_cn": "",
-      "authors": [
-        "Andreas Hornstein",
-        "Marios Karabarbounis",
-        "André Kurmann",
-        "Etienne Lalé",
-        "Lien Ta"
-      ],
-      "abstract_en": "Unemployment insurance (UI) acts both as a disincentive for labor supply and as a demand stimulus which may explain why empirical studies often find limited effects of UI on employment. This paper provides independent estimates of the disincentive effects arising from the largest expansion of UI in U.S. history, the pandemic unemployment benefits. Using high-frequency data on small restaurants and retailers from Homebase, we control for local demand effects by comparing neighboring businesses that largely share the positive impact of UI stimulus. We find that employment in low-wage businesses recovered more slowly than employment in high-wage businesses in labor markets with larger differences in the relative generosity of pandemic UI benefits. According to a labor search model that replicates the estimated employment differences between low-and high-wage businesses, the disincentive effects from the pandemic UI programs held back the aggregate employment recovery by 4.7 percentage points between April and December 2020.",
-      "abstract_cn": "",
-      "abstract_snippet_en": "",
-      "doi": "10.1016/j.jmoneco.2026.103958",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304393226000735?dgcid=rss_sd_all",
+      "doi": "10.1016/j.jmoneco.2026.103961",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304393226000760?dgcid=rss_sd_all",
       "publication_date": "July 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/161/suppl/C",
@@ -535,7 +382,160 @@
             }
           ]
         },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jmoneco.2026.103958"
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jmoneco.2026.103961"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-29T14:40:20+00:00",
+        "source_hash": "c21dc45caf8200b03c3a6473380172b2fd31b70d399a2baf0e53576f8d87badc"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jmoneco.2026.103956",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Unconventional monetary policy spillovers and the (in)convenience of Treasuries",
+      "title_cn": "非常规货币政策的溢出效应和国债的便利性",
+      "authors": [
+        "Karlye Dilts Stedman",
+        "Andrew Hanson"
+      ],
+      "abstract_en": "Foreign monetary policy shocks increasingly influence U.S. yields, particularly since the Global Financial Crisis. We show that this heightened sensitivity reflects both the adoption of unconventional monetary policy tools and a decline in the convenience of Treasuries. Using high frequency identification, we find that when Treasuries command a low convenience premium—behaving more like other assets—they respond more to ECB monetary policy, consistent with increased sensitivity to portfolio rebalancing. A two-country preferred-habitat model with time-varying covariance of yields rationalizes these results: when Treasuries are less convenient, they become closer substitutes for foreign equivalents, amplifying cross-border transmission of policy shocks.",
+      "abstract_cn": "外国货币政策冲击对美国收益率的影响越来越大，特别是自全球金融危机以来。我们表明，这种敏感性的提高既反映了非常规货币政策工具的采用，也反映了国债便利性的下降。通过高频识别，我们发现，当国债具有较低的便利溢价（表现得更像其他资产）时，它们对欧洲央行货币政策的反应更大，这与对投资组合再平衡的敏感性增加一致。具有随时间变化的收益率协方差的二国家首选栖息地模型使这些结果合理化：当国债不太方便时，它们成为外国同类货币更接近的替代品，从而放大政策冲击的跨境传导。",
+      "abstract_snippet_en": "",
+      "doi": "10.1016/j.jmoneco.2026.103956",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304393226000711?dgcid=rss_sd_all",
+      "publication_date": "July 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/161/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/03043932",
+        "metadata": "crossref",
+        "abstract_en": "openalex",
+        "abstract_lookup": {
+          "status": "insufficient_entitlement",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 401,
+              "outcome": "unauthorized"
+            },
+            {
+              "source": "elsevier-sciencedirect-search",
+              "status_code": 401,
+              "outcome": "unauthorized"
+            },
+            {
+              "source": "elsevier-scopus-doi",
+              "status_code": 401,
+              "outcome": "unauthorized"
+            },
+            {
+              "source": "elsevier-scopus-pii",
+              "status_code": 401,
+              "outcome": "unauthorized"
+            },
+            {
+              "source": "elsevier-article-doi",
+              "status_code": 403,
+              "outcome": "insufficient_entitlement"
+            },
+            {
+              "source": "elsevier-article-pii",
+              "status_code": 403,
+              "outcome": "insufficient_entitlement"
+            }
+          ]
+        },
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jmoneco.2026.103956"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-29T14:40:14+00:00",
+        "source_hash": "0fb9c63a04ead3a9bb9ea9c35359733bc75820c978cde1c23a45c8f77f3f41e6"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jmoneco.2026.103962",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Geography versus income: The heterogeneous effects of carbon taxation",
+      "title_cn": "",
+      "authors": [
+        "Charles Labrousse",
+        "Yann Perdereau"
+      ],
+      "abstract_en": "None",
+      "abstract_cn": "",
+      "abstract_snippet_en": "",
+      "doi": "10.1016/j.jmoneco.2026.103962",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304393226000772?dgcid=rss_sd_all",
+      "publication_date": "July 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/161/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/03043932",
+        "metadata": "crossref",
+        "abstract_en": "semantic-scholar",
+        "abstract_lookup": {
+          "status": "insufficient_entitlement",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 401,
+              "outcome": "unauthorized"
+            },
+            {
+              "source": "elsevier-sciencedirect-search",
+              "status_code": 401,
+              "outcome": "unauthorized"
+            },
+            {
+              "source": "elsevier-scopus-doi",
+              "status_code": 401,
+              "outcome": "unauthorized"
+            },
+            {
+              "source": "elsevier-scopus-pii",
+              "status_code": 401,
+              "outcome": "unauthorized"
+            },
+            {
+              "source": "elsevier-article-doi",
+              "status_code": 403,
+              "outcome": "insufficient_entitlement"
+            },
+            {
+              "source": "elsevier-article-pii",
+              "status_code": 403,
+              "outcome": "insufficient_entitlement"
+            }
+          ]
+        },
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jmoneco.2026.103962",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/b5ec63286952d2ac65d578cca710fbca6f64757f"
       },
       "translation": {
         "status": "pending",
@@ -581,6 +581,7 @@
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_sciencedirect_rss_fallback",
+      "publisher_rss_reverse_order_normalized",
       "official_order_unverified",
       "translation_incomplete"
     ],
