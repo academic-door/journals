@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-07-31T15:16:51+00:00",
+  "updated_at": "2026-07-31T17:36:51+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 41,
@@ -948,7 +948,7 @@
           "catalog_content_items": 12
         },
         "abstracts_complete": 11,
-        "translations_complete": 4,
+        "translations_complete": 11,
         "errors": [],
         "warnings": [
           "abstract_en_incomplete",
@@ -1081,7 +1081,7 @@
           "catalog_content_items": 42
         },
         "abstracts_complete": 42,
-        "translations_complete": 14,
+        "translations_complete": 41,
         "errors": [],
         "warnings": [
           "official_order_unverified",
@@ -1106,7 +1106,7 @@
         "source_url": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
         "roster_authority": "publisher-rss",
         "roster_transport": "sciencedirect-rss",
-        "order_verified": true,
+        "order_verified": false,
         "content_counts": {
           "official_items": 16,
           "observed_items": 16,
@@ -1123,14 +1123,16 @@
         "abstracts_complete": 15,
         "translations_complete": 15,
         "errors": [],
-        "warnings": []
+        "warnings": [
+          "official_order_unverified"
+        ]
       },
       "detected": {
         "available": true,
         "status": "publisher_feed_verified",
         "issue_id": "jet-235-c",
         "publication_date": "June 2026",
-        "publication_state": "enriching",
+        "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
         "roster_authority": "publisher-rss",
         "roster_transport": "sciencedirect-rss",
@@ -1149,11 +1151,10 @@
           "catalog_content_items": 15
         },
         "abstracts_complete": 15,
-        "translations_complete": 9,
+        "translations_complete": 15,
         "errors": [],
         "warnings": [
-          "official_order_unverified",
-          "translation_incomplete"
+          "official_order_unverified"
         ]
       }
     },
@@ -1377,7 +1378,7 @@
         "source_url": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/248/suppl/C",
         "roster_authority": "publisher-rss",
         "roster_transport": "sciencedirect-rss",
-        "order_verified": true,
+        "order_verified": false,
         "content_counts": {
           "official_items": 62,
           "observed_items": 62,
@@ -1394,14 +1395,16 @@
         "abstracts_complete": 60,
         "translations_complete": 60,
         "errors": [],
-        "warnings": []
+        "warnings": [
+          "official_order_unverified"
+        ]
       },
       "detected": {
         "available": true,
         "status": "publisher_feed_verified",
         "issue_id": "jebo-248-c",
         "publication_date": "August 2026",
-        "publication_state": "enriching",
+        "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/248/suppl/C",
         "roster_authority": "publisher-rss",
         "roster_transport": "sciencedirect-rss",
@@ -1420,11 +1423,10 @@
           "catalog_content_items": 61
         },
         "abstracts_complete": 60,
-        "translations_complete": 30,
+        "translations_complete": 60,
         "errors": [],
         "warnings": [
-          "official_order_unverified",
-          "translation_incomplete"
+          "official_order_unverified"
         ]
       }
     },
@@ -2357,8 +2359,8 @@
           "other_excluded": 0,
           "catalog_content_items": 22
         },
-        "abstracts_complete": 20,
-        "translations_complete": 5,
+        "abstracts_complete": 8,
+        "translations_complete": 7,
         "errors": [],
         "warnings": [
           "official_order_unverified",

@@ -7,7 +7,7 @@
   "issue": "C",
   "publication_date": "June 2026",
   "source_url": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-  "retrieved_at": "2026-07-31T11:10:37+00:00",
+  "retrieved_at": "2026-07-31T17:33:01+00:00",
   "expected_article_count": 15,
   "research_article_count": 15,
   "status": "incomplete",
@@ -78,7 +78,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-30T17:44:43+00:00"
+        "translated_at": "2026-07-31T17:33:01+00:00",
+        "source_hash": "451f12f48487b2ffe1507810bee3d6437aafb9b4773e7c21b14ee1b6dfb8352d"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -232,7 +233,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-30T17:44:42+00:00"
+        "translated_at": "2026-07-31T17:33:03+00:00",
+        "source_hash": "8f3d0b70d02085e5cba747d1fa871cfa55ae842c71b84289628f29d5849ab645"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -248,14 +250,14 @@
       "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Positive and negative selection in bargaining",
-      "title_cn": "",
+      "title_cn": "讨价还价中的正向选择与负向选择",
       "authors": [
         "Dongkyu Chang",
         "Duk Gyoo Kim",
         "Wooyoung Lim"
       ],
-      "abstract_en": "None",
-      "abstract_cn": "",
+      "abstract_en": "In the standard dynamic screening problem between an uninformed seller and a privately informed buyer, theory suggests that the presence (absence) of the buyer’s outside option leads to a substantial surplus for the seller (buyer). This outcome arises from contrasting unraveling processes that theory predicts: negative selection occurs in the absence of an outside option, while positive selection occurs in the presence of it. We examine the validity of these contrasting unraveling processes and report laboratory data that qualitatively deviate from theoretical predictions. We found that the seller’s profit ranking was reversed between the two environments. In particular, in the presence of an outside option, the buyer frequently rejected current-round offers, leading to pervasive delays; and the seller’s reported beliefs about the buyer’s type were qualitatively more consistent with the negative selection than with the theoretically predicted positive selection.",
+      "abstract_cn": "在无信息卖方与私有信息买方之间的标准动态筛选问题中，理论表明买方外部选择权的存在（缺失）会导致卖方（买方）获得显著的剩余。该结果源于理论预测的两种截然不同的剥离过程：在无外部选择权时发生负向选择，而在有外部选择权时发生正向选择。我们检验了这两种截然不同剥离过程的有效性，并报告了实验室数据，这些数据在定性上偏离理论预测。我们发现卖方利润排序在不同环境（二）间发生了逆转。特别是在存在外部选择权的情况下，买方频繁拒绝当前轮次的报价，导致普遍的延迟；且卖方关于买方类型的报告信念在定性上更符合负向选择，而非理论上预测的正向选择。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jet.2026.106190",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000530?dgcid=rss_sd_all",
@@ -304,15 +306,15 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/29465982d1cfd984ee41ea6356e639761e912af4"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4.1-mini",
+        "translated_at": "2026-07-26T19:51:17+00:00",
+        "source_hash": "dbbe71bc1de9552afa08fc64ea11fc689a4010eb83397e7d36e35f497f65a431"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -386,7 +388,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-30T17:44:42+00:00"
+        "translated_at": "2026-07-31T17:33:05+00:00",
+        "source_hash": "675b8cd25763e2898bcffe6df0d24ac86322e57561214364ced1902a378397b8"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -402,13 +405,13 @@
       "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "The VCG mechanism, the core, and assignment stages in auctions",
-      "title_cn": "",
+      "title_cn": "VCG机制、核心与拍卖中的分配阶段",
       "authors": [
         "Lawrence M. Ausubel",
         "Oleg Baranov"
       ],
-      "abstract_en": "None",
-      "abstract_cn": "",
+      "abstract_en": "The Vickrey-Clarke-Groves (VCG) mechanism is one of the most compelling constructs in mechanism design, but the presence of complementary goods creates the possibility of non-core and even zero-revenue outcomes. In this article, we show that joint feasibility constraints on allocations offer a second pathway to ill-behaved outcomes in the VCG mechanism, even when all bidders have substitutes preferences for the goods. We then develop a theory of complementarities specifically tailored to assignment stages of spectrum auctions. Assignment stages typically guarantee contiguous spectrum to each winner—this proves to be an especially severe joint feasibility constraint. We propose a definition of bidder complementarities and further dichotomize them as direct or indirect. When opponents bid on distinct parts of a bidder’s preferred assignment, they set up a direct bidder complementarity. However, if an assignment is denied through the contiguity restriction, that is called an indirect complementarity. As a result, non-core outcomes, together with all of the accompanying anomalies, can be expected in VCG assignment stages. We then examine a conspicuous recent spectrum auction, the FCC’s Broadcast Incentive Auction, and we provide the first documentation of zero-revenue outcomes in the field. Of 207 assignment stage auctions with at least three bidders, 17.9% produced non-core outcomes relative to the bids and, of these, 3 generated zero revenues. After rescaling bidder values, we find that the majority of assignment stage auctions had the potential for exploitable bidder complementarities and that the vast majority of bidder complementarities—both potential and realized—were indirect.",
+      "abstract_cn": "Vickrey-Clarke-Groves (VCG) 机制是机制设计中最具吸引力的构造之一，但互补品的存在会导致非核心甚至零收入的结果。在本文中，我们表明，即使所有竞标者对商品都有替代偏好，分配的联合可行性约束也为VCG机制中的不良结果提供了第二条途径。然后，我们针对频谱拍卖的分配阶段，发展了一套专门的互补性理论。分配阶段通常保证每个赢家获得连续的频谱——这被证明是一种特别严格的联合可行性约束。我们提出了竞标者互补性的定义，并进一步将其划分为直接或间接互补性。当对手对竞标者偏好的分配的不同部分出价时，他们建立了直接竞标者互补性。然而，如果通过连续性限制拒绝了分配，则称为间接互补性。因此，在VCG分配阶段，可以预期非核心结果，以及所有伴随的异常现象。然后，我们研究了一个显著的近期频谱拍卖，即FCC的广播激励拍卖，并首次记录了现场的零收入结果。在207个至少有三个竞标者的分配阶段拍卖中，17.9%相对于出价产生了非核心结果，其中3个产生了零收入。在重新调整竞标者价值后，我们发现大多数分配阶段拍卖都有可利用的竞标者互补性，并且绝大多数竞标者互补性——无论是潜在的还是已实现的——都是间接的。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jet.2026.106192",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000554?dgcid=rss_sd_all",
@@ -457,15 +460,15 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/a0ac4cc075ce0d117fe5b6f4f5a576446a758a31"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "mistral-ai/mistral-medium-2505",
+        "translated_at": "2026-07-26T20:13:38+00:00",
+        "source_hash": "4be261d592f2209a268fc66192a168ebf8bd13a9e44a65dd7eb16a392c712eed"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -554,13 +557,13 @@
       "source_sequence": 8,
       "article_type": "research-article",
       "title_en": "Credit, money and (pseudo-)anonymity",
-      "title_cn": "",
+      "title_cn": "信用、货币与（伪）匿名性",
       "authors": [
         "Remo Isch-Taudien",
         "Fabienne Schneider"
       ],
-      "abstract_en": "None",
-      "abstract_cn": "",
+      "abstract_en": "We study pseudonymity—an information regime where agents’ histories are perfectly observable, but linked only to pseudonyms rather than to true identities. A key feature is that agents may open and use multiple pseudonyms simultaneously. In a tractable environment with limited commitment, we characterize the set of stationary credit equilibria under pseudonymity, showing that it forms a strict non-empty subset of equilibria attainable under a no anonymity regime, where histories are publicly linked to true identities. Moreover, money is always essential under pseudonymity, yet cannot co-exist with credit. Finally, imposing optimal fees on pseudonym creation generally raises welfare, whereas making pseudonyms tradable never does.",
+      "abstract_cn": "我们研究伪匿名性——一种信息制度，其中代理人的历史记录是完全可观察的，但仅与伪名相关联，而非真实身份。一个关键特征是代理人可以同时开设并使用多个伪名。在一个具有有限承诺能力的可处理环境中，我们刻画了伪匿名性下的平稳信用均衡集合，表明该集合是无匿名制度下可达均衡的一个严格非空子集，在无匿名制度中，历史记录公开关联真实身份。此外，货币在伪匿名性下始终是必需的，但不能与信用共存。最后，对伪名创建施加最优费用通常会提高福利，而使伪名可交易则从未提高福利。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jet.2026.106202",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000657?dgcid=rss_sd_all",
@@ -609,15 +612,15 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/e0751d5d74f73c57b82ad5d196dd1a1bc7ff0659"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4.1-mini",
+        "translated_at": "2026-07-26T19:52:08+00:00",
+        "source_hash": "27cd954986242da5deae44c50e5fd6366327b312845c27cfd2804d3ea379927d"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -709,14 +712,14 @@
       "source_sequence": 10,
       "article_type": "research-article",
       "title_en": "The Hard Problem and the Tyranny of the Losers",
-      "title_cn": "",
+      "title_cn": "难题与输家暴政",
       "authors": [
         "Stan Cheung",
         "Marco Mariotti",
         "Roberto Veneziani"
       ],
-      "abstract_en": "None",
-      "abstract_cn": "",
+      "abstract_en": "A Hard Problem is a collective choice problem in which the only feasible alternatives to the status quo consist of a welfare gain to some people (the Winners) and a welfare loss to others (the Losers). These problems are typical in a number of settings, such as climate action, anti-trust regulation, and tax design. We study how to make collective choices when faced with Hard Problems. We find that a relatively weak fairness requirement, which we call Expansion Solidarity, necessarily leads to a dictatorship of the Losers, no matter how small their number. Even one single Loser must be given the power to veto any departure from the status quo, regardless of the number of Winners, how large the gains, how small the loss, or how extreme the welfare inequalities.",
+      "abstract_cn": "难题是一种集体选择问题，其中对现状的唯一可行替代方案是部分人（赢家）福利增加而其他人（输家）福利减少。这类问题在多个情境中典型存在，如气候行动、反垄断监管和税收设计。我们研究在面临难题时如何做出集体选择。我们发现，一种相对较弱的公平性要求，即我们称之为扩展团结，必然导致输家的独裁，无论其人数多么少。即使只有单个输家，也必须赋予其否决任何偏离现状的权力，无论赢家人数多少、收益多大、损失多小或福利不平等多么极端。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jet.2026.106204",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000670?dgcid=rss_sd_all",
@@ -765,15 +768,15 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/65ed3a104addae303e81571c442518cf2b5a1e0b"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4.1-mini",
+        "translated_at": "2026-07-26T19:52:24+00:00",
+        "source_hash": "512489fe90d2315e9ec7bb81d54abf74825c9d9a904b55bca5c45df2ce6972d8"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -787,12 +790,12 @@
       "source_sequence": 11,
       "article_type": "research-article",
       "title_en": "The hold-up problem with flexible unobservable investments",
-      "title_cn": "",
+      "title_cn": "具有灵活不可观测投资的挟持问题",
       "authors": [
         "Daniel Krähmer"
       ],
-      "abstract_en": "None",
-      "abstract_cn": "",
+      "abstract_en": "The paper studies the canonical hold-up problem with one-sided investment by the buyer and full bargaining power by the seller. The buyer can covertly choose any distribution of valuations at a cost and privately observes her valuation. I show that, unlike in the well-understood case with linear costs, if investment costs are strictly convex, the buyer’s equilibrium utility is strictly positive and total welfare is strictly higher than when valuations are public information, thus alleviating the severity of the hold-up problem. In fact, when costs are mean-based or display decreasing risk, the equilibrium outcome might be efficient.",
+      "abstract_cn": "本文研究了买方具有一单边投资且卖方拥有完全议价权的典型挟持问题。买方可以秘密选择任意估值分布，需支付成本，并私下观察其估值。我证明，与线性成本的已知情况不同，如果投资成本是严格凸的，买方的均衡效用严格为正，总福利严格高于估值为公开信息时的情况，从而缓解了挟持问题的严重性。事实上，当成本基于均值或表现出风险递减时，均衡结果可能是有效的。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jet.2026.106205",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000682?dgcid=rss_sd_all",
@@ -841,15 +844,15 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/c9bf4dee66ce1982889a63ee949fc82daf25e75b"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4.1-mini",
+        "translated_at": "2026-07-26T19:52:33+00:00",
+        "source_hash": "2ec73a6119637d92f4f6ff9cbc67f87e919829eabf7a906be3dd06c77ee5aff8"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -921,7 +924,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-30T17:44:42+00:00"
+        "translated_at": "2026-07-31T17:33:07+00:00",
+        "source_hash": "09a27eeff09a26b1bbe925c0317df2a26b543809fe7202fd1d68706b779e4490"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -1071,7 +1075,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-30T17:44:42+00:00"
+        "translated_at": "2026-07-31T17:33:09+00:00",
+        "source_hash": "0b0902cf378489da4459ae5c75340ead3592587d19adde4d8345da24013595a3"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -1087,13 +1092,13 @@
       "source_sequence": 15,
       "article_type": "research-article",
       "title_en": "Which experiments test a model?",
-      "title_cn": "",
+      "title_cn": "哪些实验检验一个模型？",
       "authors": [
         "Paul J. Healy",
         "Greg Leo"
       ],
-      "abstract_en": "None",
-      "abstract_cn": "",
+      "abstract_en": "Given a model of preferences, what choice data or experiment is sufficient to definitively test whether a subject is consistent with the model or to classify them into some “type” within the model? We characterize all experiments that test or classify a given model using a novel graph-theoretic construction: the labeled permutohedron. We show how these results can be used to identify the smallest experiments that achieve a particular goal.",
+      "abstract_cn": "给定一个偏好模型，哪些选择数据或实验足以明确检验一个主体是否与该模型一致，或将其归类为模型中的某种“类型”？我们利用一种新颖的图论构造——带标签的置换多面体，刻画了所有能够检验或分类给定模型的实验。我们展示了如何利用这些结果识别实现特定目标的最小实验。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jet.2026.106191",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000542?dgcid=rss_sd_all",
@@ -1142,15 +1147,15 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/b44487266b5ce1e869244527f3a59bde1af0998d"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4.1-mini",
+        "translated_at": "2026-07-26T19:51:25+00:00",
+        "source_hash": "9d0c5e46bbfbb6582eaf50c5a70ef3ae2edc1077330fa77ee2317a5c18992ae6"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -1181,13 +1186,12 @@
     "doi_complete": 15,
     "authors_complete": 15,
     "abstract_en_complete": 15,
-    "translation_complete": 9,
+    "translation_complete": 15,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_sciencedirect_rss_fallback",
       "publisher_rss_reverse_order_normalized",
-      "official_order_unverified",
-      "translation_incomplete"
+      "official_order_unverified"
     ],
     "content_counts": {
       "official_items": 16,
@@ -1216,5 +1220,5 @@
     "other_excluded": 0,
     "catalog_content_items": 15
   },
-  "publication_state": "enriching"
+  "publication_state": "ready"
 }
