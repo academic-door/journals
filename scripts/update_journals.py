@@ -1297,7 +1297,7 @@ def update_indexes(
         "latest_title": f"期刊最新卷期 · {usable_count}/{enabled_count} 家期刊可用",
         "latest_url": "https://academic-door.github.io/journals/",
         "data_url": "https://academic-door.github.io/journals/api/v1/index.json",
-        "feed_url": "",
+        "feed_url": "https://academic-door.github.io/journals/feeds/all.xml",
     }
     write_json(PUBLIC_API / "health.json", health)
     write_json(PUBLIC_API / "index.json", index)
