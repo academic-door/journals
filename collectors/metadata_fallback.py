@@ -102,6 +102,15 @@ MONTHS_BY_ISSUE = {
         "5": "September",
         "6": "November",
     },
+    # Environmental and Resource Economics (Springer). Crossref records online
+    # publication dates, so map official issue months for the 2026 volume.
+    "0924-6460": {
+        "5": "May",
+        "6": "June",
+        "7": "July",
+        "8": "August",
+    },
+
     "0012-9682": {
         "1": "January",
         "2": "March",

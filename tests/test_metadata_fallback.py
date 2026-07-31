@@ -6,6 +6,7 @@ from unittest.mock import patch
 
 from collectors.metadata_fallback import (
     MetadataFallbackError,
+    _publication_date,
     _elsevier_abstract,
     _elsevier_lookup,
     _sciencedirect_rss_groups,
@@ -786,5 +787,26 @@ class MetadataFallbackTests(unittest.TestCase):
         )
         self.assertIn("official_order_unverified", issue["quality"]["flags"])
 
+
+    def test_ere_issue_months_use_official_calendar(self) -> None:
+        from collectors.metadata_fallback import MONTHS_BY_ISSUE
+        items = [
+            {
+                "type": "journal-article",
+                "volume": "89",
+                "issue": "8",
+                "title": ["A paper"],
+                "DOI": "10.1007/demo",
+                "author": [{"given": "Ada", "family": "Lovelace"}],
+                "published": {"date-parts": [[2026, 4]]},
+            }
+        ]
+        self.assertEqual(
+            "August 2026",
+            _publication_date("0924-6460", "89", "8", items),
+        )
+        self.assertEqual("May", MONTHS_BY_ISSUE["0924-6460"]["5"])
+        self.assertEqual("June", MONTHS_BY_ISSUE["0924-6460"]["6"])
+        self.assertEqual("July", MONTHS_BY_ISSUE["0924-6460"]["7"])
 if __name__ == "__main__":
     unittest.main()
