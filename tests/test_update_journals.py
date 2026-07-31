@@ -14,6 +14,7 @@ from scripts.update_journals import (
     is_detected_snapshot,
     is_publishable_snapshot,
     issue_is_newer,
+    merge_issue_audit_metadata,
     order_verification_status,
     write_archive_index,
     write_search_indexes,
@@ -554,6 +555,47 @@ class PublicationGateTests(unittest.TestCase):
         self.assertEqual("missing", article["translation"]["status"])
         self.assertEqual(0, result["quality"]["translation_complete"])
         self.assertIn("translation_incomplete", result["quality"]["flags"])
+
+    def test_incomplete_refresh_updates_only_safe_issue_audit_metadata(self) -> None:
+        previous = {
+            "issue_id": "demo-1-c",
+            "articles": [{"doi": "10.1/demo", "abstract_cn": "已审核译文"}],
+            "content_counts": {"publishable_items": 1, "corrections": 0},
+            "quality": {
+                "content_counts": {"publishable_items": 1, "corrections": 0},
+                "excluded_items": [],
+                "official_item_count": 1,
+            },
+        }
+        candidate = {
+            "issue_id": "demo-1-c",
+            "articles": [{"doi": "10.1/demo", "abstract_cn": ""}],
+            "content_counts": {
+                "publishable_items": 1,
+                "corrections": 1,
+                "editorial_material": 1,
+            },
+            "quality": {
+                "content_counts": {
+                    "publishable_items": 1,
+                    "corrections": 1,
+                    "editorial_material": 1,
+                },
+                "excluded_items": [
+                    {"article_type": "correction", "title_en": "Corrigendum"},
+                    {"article_type": "editorial", "title_en": "Editorial Board"},
+                ],
+                "official_item_count": 3,
+            },
+        }
+
+        result = merge_issue_audit_metadata(previous, candidate)
+
+        self.assertEqual("已审核译文", result["articles"][0]["abstract_cn"])
+        self.assertEqual(1, result["content_counts"]["corrections"])
+        self.assertEqual(1, result["quality"]["content_counts"]["corrections"])
+        self.assertEqual(2, len(result["quality"]["excluded_items"]))
+        self.assertEqual(3, result["quality"]["official_item_count"])
 
 if __name__ == "__main__":
     unittest.main()

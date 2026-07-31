@@ -803,6 +803,31 @@ def preserve_existing_content(
     return issue
 
 
+def merge_issue_audit_metadata(
+    previous: dict[str, Any],
+    candidate: dict[str, Any],
+) -> dict[str, Any]:
+    """Refresh non-content counts without replacing the last ready articles."""
+
+    if previous.get("issue_id") != candidate.get("issue_id"):
+        return previous
+    content_counts = candidate.get("content_counts")
+    candidate_quality = candidate.get("quality", {})
+    if content_counts:
+        previous["content_counts"] = dict(content_counts)
+    previous_quality = previous.setdefault("quality", {})
+    for field in ("content_counts", "excluded_items", "official_item_count"):
+        if field in candidate_quality:
+            value = candidate_quality[field]
+            previous_quality[field] = (
+                [dict(item) for item in value]
+                if isinstance(value, list)
+                else dict(value)
+                if isinstance(value, dict)
+                else value
+            )
+    return previous
+
 def collect_one(
     key: str,
     config: dict[str, Any],
@@ -935,6 +960,8 @@ def collect_one(
         translated = int(issue["quality"].get("translation_complete", 0))
         total = int(issue["research_article_count"])
         if translated != total:
+            if previous and previous.get("issue_id") == issue.get("issue_id"):
+                previous = merge_issue_audit_metadata(previous, issue)
             if enrich_detected:
                 abstracts = int(
                     issue["quality"].get("abstract_en_complete", 0)
