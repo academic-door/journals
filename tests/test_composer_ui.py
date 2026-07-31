@@ -133,14 +133,23 @@ class ComposerUiTest(unittest.TestCase):
         self.assertNotIn("fetch(collectionUrl)", explorer)
         self.assertIn('"pointerenter", warmIssue', explorer)
         self.assertIn('"requestIdleCallback" in window', explorer)
+        self.assertIn("const indexRequest = fetchIssueIndex(journal).catch(() => null);", explorer)
+        self.assertLess(
+            explorer.index("state.issue = await fetchIssue(journal);"),
+            explorer.index("state.issueIndex = await indexRequest;"),
+        )
+        self.assertNotIn('entry.ready ? "可发布 · "', explorer)
 
     def test_classic_theme_defaults_are_frozen(self):
         self.assertIn("const DEFAULT_STYLE = Object.freeze({", self.page)
         self.assertIn('value="wechat-default">学术传送门经典（默认）', self.page)
 
     def test_composer_loads_top5_and_field_collections(self):
-        self.assertIn('fetch(`${base}api/v1/index.json`)', self.page)
+        self.assertIn('Promise.all(["top5", "fields"]', self.page)
+        self.assertIn("api/v1/collections/${collectionId}.json", self.page)
         self.assertIn("collections.flatMap", self.page)
+        self.assertNotIn('fetch(`${base}api/v1/index.json`)', self.page)
+        self.assertNotIn("journals.forEach", self.page)
         fields_page = (ROOT / "src/pages/fields/index.astro").read_text(encoding="utf-8")
         self.assertIn('Top5Explorer', fields_page)
         self.assertIn('collectionId="fields"', fields_page)
@@ -154,7 +163,7 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn("fetchIssueHistory", self.page)
         self.assertIn("historyCache", self.page)
         self.assertIn("!excludedIds.has(issue.issue_id)", self.page)
-        self.assertIn("ready.concat(detected, archived)", self.page)
+        self.assertIn("immediate.concat(archived)", self.page)
         self.assertIn("latest_detected_issue_url", self.page)
         self.assertIn('requestedParams.get("issue")', self.page)
         self.assertIn("option.dataset.issueId === requestedIssue", self.page)

@@ -474,13 +474,8 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     };
 
     const loadCollection = async () => {
-      const index = await fetch(`${base}api/v1/index.json`)
-        .then((response) => {
-          if (!response.ok) throw new Error(`HTTP ${response.status}`);
-          return response.json();
-        });
-      const collections = await Promise.all((index.collections || []).map((item) =>
-        fetch(item.url).then((response) => {
+      const collections = await Promise.all(["top5", "fields"].map((collectionId) =>
+        fetch(`${base}api/v1/collections/${collectionId}.json`).then((response) => {
           if (!response.ok) throw new Error(`HTTP ${response.status}`);
           return response.json();
         })
@@ -503,21 +498,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       if (requested && journals.some((journal) => journal.journal_id === requested)) {
         journalSelect.value = requested;
       }
-      const selectedJournal = journals.find(
-        (journal) => journal.journal_id === journalSelect.value
-      );
-      if (selectedJournal?.latest_issue_url) {
-        fetchIssue(selectedJournal.latest_issue_url).catch(() => null);
-      }
-      await renderIssueOptions();
-      journals.forEach((journal) => {
-        if (journal.latest_issue_url) fetchIssue(journal.latest_issue_url).catch(() => null);
-        if (journal.latest_detected_issue_url) {
-          fetchIssue(journal.latest_detected_issue_url).catch(() => null);
-        }
+      renderIssueOptions().catch((error) => {
+        saveStatus.textContent = `卷期载入失败：${error.message}`;
       });
     };
-
     const fetchIssue = (url) => {
       if (!issueCache.has(url)) {
         issueCache.set(url, fetch(url).then((response) => {
@@ -540,13 +524,13 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       return historyCache.get(journal.journal_id);
     };
 
-    const issueOptionsFor = async (journal) => {
-      const history = await fetchIssueHistory(journal);
+    const immediateIssueOptionsFor = (journal) => {
       const ready = journal?.latest_issue_url ? [{
         id: journal.latest_issue_id || "current",
         url: journal.latest_issue_url,
         label: journal.latest_issue_label || "最新一期",
         status: "ready",
+        latest: false,
       }] : [];
       const detectedId = journal?.latest_detected_issue_id;
       const detected = journal?.latest_detected_issue_url
@@ -559,12 +543,17 @@ const base = import.meta.env.BASE_URL.endsWith("/")
             url: journal.latest_detected_issue_url,
             label: journal.latest_detected_issue_label || "最新卷期",
             status: "enriching",
+            latest: true,
           }]
         : [];
-      const excludedIds = new Set([
-        journal?.latest_issue_id,
-        detectedId,
-      ].filter(Boolean));
+      if (detected.length) return detected.concat(ready);
+      return ready.map((issue) => ({ ...issue, latest: true }));
+    };
+
+    const issueOptionsFor = async (journal) => {
+      const immediate = immediateIssueOptionsFor(journal);
+      const history = await fetchIssueHistory(journal);
+      const excludedIds = new Set(immediate.map((issue) => issue.id).filter(Boolean));
       const archived = history.filter((issue) => !excludedIds.has(issue.issue_id)).map((issue, index) => ({
         id: issue.issue_id || `issue-${index}`,
         url: issue.url,
@@ -576,8 +565,21 @@ const base = import.meta.env.BASE_URL.endsWith("/")
           formatIssuePeriod(issue.publication_date),
         ].filter(Boolean).join(" · "),
         status: "archive",
+        latest: false,
       })).filter((issue) => issue.url);
-      return ready.concat(detected, archived);
+      return immediate.concat(archived);
+    };
+
+    const paintIssueOptions = (issues, preferredUrl = "") => {
+      issueSelect.innerHTML = issues.map((issue) =>
+        `<option value="${escapeHtml(issue.url)}" data-issue-id="${escapeHtml(issue.id)}" data-status="${escapeHtml(issue.status)}">${issue.latest ? "最新 · " : ""}${escapeHtml(issue.label)}</option>`
+      ).join("");
+      if (preferredUrl && issues.some((issue) => issue.url === preferredUrl)) {
+        issueSelect.value = preferredUrl;
+      }
+      issueSelect.disabled = issues.length === 0;
+      issueSelect.title = issues.length === 1 ? "目前仅收录这一期" : "选择卷期";
+      document.querySelector("#load-current").disabled = issues.length === 0;
     };
 
     const renderIssueOptions = async (preferredUrl = "") => {
@@ -586,20 +588,14 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         (item) => item.journal_id === journalSelect.value
       );
       const journalId = journal?.journal_id;
-      issueSelect.disabled = true;
-      issueSelect.innerHTML = '<option>正在载入卷期…</option>';
+      const immediate = immediateIssueOptionsFor(journal);
+      paintIssueOptions(immediate, preferredUrl);
+      immediate.forEach((issue) => fetchIssue(issue.url).catch(() => null));
       const issues = await issueOptionsFor(journal);
-      if (requestId !== issueOptionsRequest || journalSelect.value !== journalId) return;
-      issueSelect.innerHTML = issues.map((issue) =>
-        `<option value="${escapeHtml(issue.url)}" data-issue-id="${escapeHtml(issue.id)}" data-status="${escapeHtml(issue.status)}">${issue.status === "enriching" ? "整理中 · " : issue.status === "ready" ? "可发布 · " : ""}${escapeHtml(issue.label)}</option>`
-      ).join("");
-      if (preferredUrl && issues.some((issue) => issue.url === preferredUrl)) {
-        issueSelect.value = preferredUrl;
-      }
-      issueSelect.disabled = issues.length <= 1;
-      document.querySelector("#load-current").disabled = issues.length === 0;
+      if (requestId !== issueOptionsRequest || journalSelect.value !== journalId) return issues;
+      paintIssueOptions(issues, preferredUrl || issueSelect.value);
+      return issues;
     };
-
     const loadIssue = async (force = false) => {
       if (!force && editor.value.trim() && !confirm("载入本期数据会覆盖当前正文，是否继续？")) return;
       const journal = collection?.journals.find(
@@ -823,6 +819,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       const requestedIssue = requestedParams.get("issue");
       if (requestedJournal) {
         if (requestedIssue) {
+          await renderIssueOptions();
           const requestedOption = Array.from(issueSelect.options).find(
             (option) => option.dataset.issueId === requestedIssue
           );

@@ -157,6 +157,20 @@ const initialIssue = initialIssuePath
     return `${month[2]}年${months[month[1].toLowerCase()]}月`;
   };
 
+  const issueSortKey = (entry) => {
+    const raw = String(entry.publication_date || "").trim();
+    const iso = raw.match(/^(\d{4})-(\d{2})/);
+    if (iso) return Number(iso[1]) * 100 + Number(iso[2]);
+    const chinese = raw.match(/^(\d{4})\s*年\s*(\d{1,2})\s*月/);
+    if (chinese) return Number(chinese[1]) * 100 + Number(chinese[2]);
+    const month = raw.match(/^(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{4})$/i);
+    if (month) {
+      const months = { january: 1, february: 2, march: 3, april: 4, may: 5, june: 6, july: 7, august: 8, september: 9, october: 10, november: 11, december: 12 };
+      return Number(month[2]) * 100 + months[month[1].toLowerCase()];
+    }
+    return Number(entry.volume || 0) * 100 + Number(entry.issue || 0);
+  };
+
   const fetchIssueUrl = (url) => {
     if (!state.issueCache.has(url)) {
       state.issueCache.set(url, fetch(url).then((response) => {
@@ -356,7 +370,7 @@ const initialIssue = initialIssuePath
     const select = document.querySelector("#issue-history-select");
     if (!select || !state.activeJournal) return;
     const index = state.issueIndex;
-    const entries = index?.issues || [];
+    const entries = [...(index?.issues || [])].sort((left, right) => issueSortKey(right) - issueSortKey(left));
     const detectedId = state.activeJournal.latest_detected_issue_id
       || state.activeJournal.latest_issue_id;
     const readyId = state.activeJournal.latest_ready_issue_id
@@ -391,11 +405,12 @@ const initialIssue = initialIssuePath
         value="${escapeHtml(entry.url)}"
         ${entry.issue_id === state.issue?.issue_id ? "selected" : ""}
       >
-        ${entry.latest ? "最新 · " : entry.ready ? "可发布 · " : ""}${escapeHtml(entry.issue_label)}
+        ${entry.latest ? "最新 · " : ""}${escapeHtml(entry.issue_label)}
         ${entry.publication_date ? ` · ${escapeHtml(formatDate(entry.publication_date))}` : ""}
       </option>
     `).join("");
-    select.disabled = options.length < 2;
+    select.disabled = options.length === 0;
+    select.title = options.length === 1 ? "目前仅收录这一期" : "选择卷期";
   };
 
   const resetArticleFilters = () => {
@@ -430,14 +445,12 @@ const initialIssue = initialIssuePath
     document.querySelector("#issue-summary").innerHTML =
       `<p class="loading-copy">正在载入 ${escapeHtml(journal.short_name)} 最新卷期……</p>`;
     document.querySelector("#article-list").innerHTML = "";
-    try {
-      state.issueIndex = await fetchIssueIndex(journal);
-    } catch {
-      state.issueIndex = null;
-    }
+    const indexRequest = fetchIssueIndex(journal).catch(() => null);
     state.issue = await fetchIssue(journal);
     renderIssueHistory();
     renderIssue();
+    state.issueIndex = await indexRequest;
+    renderIssueHistory();
   };
 
   document.querySelector("#issue-history-select")?.addEventListener("change", (event) => {
@@ -485,7 +498,7 @@ const initialIssue = initialIssuePath
         ? journals.slice(1)
         : journals
             .filter((journal) => journal.field === initialJournal?.field)
-            .slice(1, 3);
+            .slice(1, 6);
       candidates.forEach((journal) => fetchIssue(journal).catch(() => null));
     };
     if ("requestIdleCallback" in window) {

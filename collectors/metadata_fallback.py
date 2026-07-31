@@ -1180,6 +1180,9 @@ def fetch_sciencedirect_rss_issue(
     if not groups:
         return None
     (volume, publication_date), rss_items = groups[-1]
+    # ScienceDirect RSS lists the newest-added article first, while official
+    # issue pages and new-issue emails present the issue from first to last.
+    rss_items = list(reversed(rss_items))
     if newer_than_volume and _number(volume) <= _number(newer_than_volume):
         return None
 
@@ -1436,6 +1439,7 @@ def fetch_sciencedirect_rss_issue(
     )
     flags = [
         "publisher_html_blocked_sciencedirect_rss_fallback",
+        "publisher_rss_reverse_order_normalized",
         "official_order_unverified",
     ]
     if abstract_complete != len(articles):

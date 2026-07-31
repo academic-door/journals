@@ -484,6 +484,41 @@ def archived_issues(
     return issues
 
 
+def archive_publication_sort_key(issue: dict[str, Any]) -> tuple[int, int, int, int]:
+    """Sort archived issues by real publication period, then volume and issue."""
+
+    raw = str(issue.get("publication_date", "")).strip()
+    parsed: datetime | None = None
+    for pattern in ("%Y-%m-%d", "%Y-%m", "%B %Y", "%b %Y"):
+        try:
+            parsed = datetime.strptime(raw, pattern)
+            break
+        except ValueError:
+            continue
+    if parsed is None:
+        chinese = re.fullmatch(r"(\d{4})\s*年\s*(\d{1,2})\s*月", raw)
+        if chinese:
+            parsed = datetime(int(chinese.group(1)), int(chinese.group(2)), 1)
+    volume = int(re.sub(r"\D", "", str(issue.get("volume", ""))) or 0)
+    number = int(re.sub(r"\D", "", str(issue.get("issue", ""))) or 0)
+    return (
+        parsed.year if parsed else 0,
+        parsed.month if parsed else 0,
+        volume,
+        number,
+    )
+
+
+def archive_issue_label(issue: dict[str, Any]) -> str:
+    volume = str(issue.get("volume", "")).strip()
+    number = str(issue.get("issue", "")).strip()
+    if volume and number and number.casefold() != "c":
+        return f"Vol. {volume} · No. {number}"
+    if volume:
+        return f"Vol. {volume}"
+    return str(issue.get("issue_label", "")).strip()
+
+
 def write_archive_index(
     journal_id: str,
     journal_name: str,
@@ -498,8 +533,7 @@ def write_archive_index(
                 "issue_id": issue["issue_id"],
                 "volume": issue.get("volume", ""),
                 "issue": issue.get("issue", ""),
-                "issue_label": issue.get("issue_label")
-                or f"Vol. {issue.get('volume', '')}",
+                "issue_label": archive_issue_label(issue),
                 "publication_date": issue.get("publication_date", ""),
                 "retrieved_at": issue.get("retrieved_at", ""),
                 "article_count": issue.get("research_article_count", 0),
@@ -509,10 +543,7 @@ def write_archive_index(
                 ),
             }
         )
-    entries.sort(
-        key=lambda entry: (entry["publication_date"], entry["retrieved_at"], entry["issue_id"]),
-        reverse=True,
-    )
+    entries.sort(key=archive_publication_sort_key, reverse=True)
     write_json(
         api_root / "journals" / journal_id / "issues" / "index.json",
         {

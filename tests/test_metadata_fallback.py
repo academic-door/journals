@@ -335,6 +335,7 @@ class MetadataFallbackTests(unittest.TestCase):
             ["First paper", "Second paper"],
         )
         self.assertTrue(issue["quality"]["order_preserved"])
+
         self.assertEqual(issue["quality"]["excluded_item_count"], 1)
 
     def test_excludes_editorial_introductions_from_research_roster(self) -> None:
@@ -426,16 +427,6 @@ class MetadataFallbackTests(unittest.TestCase):
         feed = b"""
         <rss xmlns:dc="http://purl.org/dc/elements/1.1/"><channel>
           <item>
-            <title>Official first paper</title>
-            <dc:identifier>10.1016/j.demo.2026.001</dc:identifier>
-            <description><![CDATA[
-              <p>Publication date: August 2026</p>
-              <p><b>Source:</b> Demo Journal, Volume 188</p>
-              <p>Author(s): First Author</p>
-            ]]></description>
-            <link>https://www.sciencedirect.com/science/article/pii/S001</link>
-          </item>
-          <item>
             <title>Official second paper</title>
             <dc:identifier>10.1016/j.demo.2026.002</dc:identifier>
             <description><![CDATA[
@@ -444,6 +435,16 @@ class MetadataFallbackTests(unittest.TestCase):
               <p>Author(s): Second Author</p>
             ]]></description>
             <link>https://www.sciencedirect.com/science/article/pii/S002</link>
+          </item>
+          <item>
+            <title>Official first paper</title>
+            <dc:identifier>10.1016/j.demo.2026.001</dc:identifier>
+            <description><![CDATA[
+              <p>Publication date: August 2026</p>
+              <p><b>Source:</b> Demo Journal, Volume 188</p>
+              <p>Author(s): First Author</p>
+            ]]></description>
+            <link>https://www.sciencedirect.com/science/article/pii/S001</link>
           </item>
         </channel></rss>
         """
@@ -490,6 +491,11 @@ class MetadataFallbackTests(unittest.TestCase):
         self.assertEqual([1, 2], [article["sequence"] for article in issue["articles"]])
         self.assertTrue(issue["quality"]["roster_match"])
         self.assertTrue(issue["quality"]["order_preserved"])
+        self.assertIn(
+            "publisher_rss_reverse_order_normalized",
+            issue["quality"]["flags"],
+        )
+
         self.assertEqual("publisher-rss", issue["quality"]["roster_authority"])
         self.assertNotIn("publisher_rss_roster_mismatch", issue["quality"]["flags"])
 
@@ -655,6 +661,7 @@ class MetadataFallbackTests(unittest.TestCase):
         self.assertEqual(issue["quality"]["roster_transport"], "repec-serial-page")
         self.assertTrue(issue["quality"]["order_preserved"])
 
+
     def test_treats_no_abstract_repec_commentary_as_comment(self) -> None:
         issue = fetch_repec_history_issue(
             journal_id="jpe",
@@ -752,8 +759,8 @@ class MetadataFallbackTests(unittest.TestCase):
         self.assertEqual(3, issue["quality"]["official_item_count"])
         self.assertEqual(2, issue["quality"]["excluded_item_count"])
         self.assertEqual(
-            ["correction", "editorial"],
-            [item["article_type"] for item in issue["quality"]["excluded_items"]],
+            {"correction", "editorial"},
+            {item["article_type"] for item in issue["quality"]["excluded_items"]},
         )
         self.assertIn("official_order_unverified", issue["quality"]["flags"])
 

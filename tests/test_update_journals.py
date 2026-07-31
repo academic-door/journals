@@ -420,6 +420,45 @@ class PublicationGateTests(unittest.TestCase):
         self.assertEqual(2, index["issue_count"])
         self.assertEqual(["demo-2-1", "demo-1-1"], [item["issue_id"] for item in index["issues"]])
 
+    def test_archive_index_sorts_real_months_and_restores_issue_numbers(self) -> None:
+        import json
+        import tempfile
+        from pathlib import Path
+
+        fixtures = []
+        for issue_id, volume, number, publication_date in (
+            ("demo-93-6", "93", "6", "November 2025"),
+            ("demo-94-3", "94", "3", "May 2026"),
+            ("demo-94-4", "94", "4", "July 2026"),
+        ):
+            issue = archive_fixture(issue_id, volume)
+            issue["issue"] = number
+            issue["publication_date"] = publication_date
+            issue["issue_label"] = f"Vol. {volume}"
+            fixtures.append(issue)
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for issue in fixtures:
+                archive_issue(issue, api_root=root)
+            write_archive_index(
+                "demo",
+                "Demo Journal",
+                updated_at="2026-07-31T00:00:00+00:00",
+                api_root=root,
+            )
+            index = json.loads(
+                (root / "journals" / "demo" / "issues" / "index.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+        self.assertEqual(
+            ["demo-94-4", "demo-94-3", "demo-93-6"],
+            [item["issue_id"] for item in index["issues"]],
+        )
+        self.assertEqual(
+            ["Vol. 94 · No. 4", "Vol. 94 · No. 3", "Vol. 93 · No. 6"],
+            [item["issue_label"] for item in index["issues"]],
+        )
     def test_archive_is_immutable_and_rejects_unsafe_ids(self) -> None:
         import json
         import tempfile
