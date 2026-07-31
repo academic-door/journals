@@ -55,7 +55,7 @@ COMMENT_PATTERN = re.compile(
     re.IGNORECASE,
 )
 NO_ABSTRACT_PATTERN = re.compile(
-    r"^no abstract is available(?: for this item)?\.?$",
+    r"^(?:none|null|n/?a|no abstract(?: is)? available(?: for this item)?)\.?$",
     re.IGNORECASE,
 )
 
@@ -182,7 +182,8 @@ def _clean_markup(value: str) -> str:
     if not value:
         return ""
     soup = BeautifulSoup(html.unescape(value), "html.parser")
-    return " ".join(soup.get_text(" ", strip=True).split())
+    cleaned = " ".join(soup.get_text(" ", strip=True).split())
+    return "" if _is_no_abstract_notice(cleaned) else cleaned
 
 
 def _first(value: Any) -> str:
@@ -362,6 +363,7 @@ def _elsevier_lookup(
     """
 
     api_key = os.getenv("ELSEVIER_API_KEY", "").strip()
+    inst_token = os.getenv("ELSEVIER_INST_TOKEN", "").strip()
     normalized_pii = re.sub(r"[^A-Za-z0-9]", "", pii or "")
     normalized_doi = (doi or "").strip().lower()
     result: dict[str, Any] = {
@@ -378,6 +380,8 @@ def _elsevier_lookup(
         "Accept": "text/xml,application/xml",
         "X-ELS-APIKey": api_key,
     }
+    if inst_token:
+        headers["X-ELS-Insttoken"] = inst_token
 
     def request_xml(
         name: str,

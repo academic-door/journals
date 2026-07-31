@@ -81,6 +81,7 @@ jobs:
           PYTHONPATH: ${{ github.workspace }}
           GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || github.token }}
           ELSEVIER_API_KEY: ${{ secrets.ELSEVIER_API_KEY }}
+          ELSEVIER_INST_TOKEN: ${{ secrets.ELSEVIER_INST_TOKEN }}
         run: |
           python scripts/backfill_history.py \
             --journal "${{ inputs.journal }}" \

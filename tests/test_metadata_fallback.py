@@ -232,7 +232,7 @@ class MetadataFallbackTests(unittest.TestCase):
 
         with patch.dict(
             "os.environ",
-            {"ELSEVIER_API_KEY": "test-secret"},
+            {"ELSEVIER_API_KEY": "test-secret", "ELSEVIER_INST_TOKEN": "test-inst-token"},
             clear=True,
         ):
             abstract, source_url = _elsevier_abstract(
@@ -246,6 +246,10 @@ class MetadataFallbackTests(unittest.TestCase):
             source_url,
         )
         self.assertEqual("test-secret", session.calls[0][1]["headers"]["X-ELS-APIKey"])
+        self.assertEqual(
+            "test-inst-token",
+            session.calls[0][1]["headers"]["X-ELS-Insttoken"],
+        )
         self.assertNotIn("test-secret", source_url)
         self.assertEqual(
             'PII("S0014292126001194")',
@@ -256,7 +260,7 @@ class MetadataFallbackTests(unittest.TestCase):
         session = ElsevierScopusFallbackSession()
         with patch.dict(
             "os.environ",
-            {"ELSEVIER_API_KEY": "test-secret"},
+            {"ELSEVIER_API_KEY": "test-secret", "ELSEVIER_INST_TOKEN": "test-inst-token"},
             clear=True,
         ):
             abstract, source_url = _elsevier_abstract(
@@ -272,7 +276,7 @@ class MetadataFallbackTests(unittest.TestCase):
         session = ElsevierSearchLinkSession()
         with patch.dict(
             "os.environ",
-            {"ELSEVIER_API_KEY": "test-secret"},
+            {"ELSEVIER_API_KEY": "test-secret", "ELSEVIER_INST_TOKEN": "test-inst-token"},
             clear=True,
         ):
             lookup = _elsevier_lookup(
@@ -300,7 +304,7 @@ class MetadataFallbackTests(unittest.TestCase):
     def test_elsevier_lookup_records_entitlement_failure_without_secret(self) -> None:
         with patch.dict(
             "os.environ",
-            {"ELSEVIER_API_KEY": "test-secret"},
+            {"ELSEVIER_API_KEY": "test-secret", "ELSEVIER_INST_TOKEN": "test-inst-token"},
             clear=True,
         ):
             lookup = _elsevier_lookup(
@@ -691,6 +695,24 @@ class MetadataFallbackTests(unittest.TestCase):
         self.assertEqual(["Oleg Itskhoki", "Dmitry Mukhin"], article["authors"])
         self.assertEqual("A publisher-supplied abstract.", article["abstract_en"])
         self.assertNotIn("doi_missing", article["quality_flags"])
+
+
+    def test_semantic_scholar_null_abstract_is_not_treated_as_content(self) -> None:
+        class SemanticSession:
+            def post(self, url: str, **kwargs) -> Response:
+                return Response([
+                    {
+                        "authors": [{"name": "Ada Lovelace"}],
+                        "abstract": None,
+                        "url": "https://www.semanticscholar.org/paper/demo",
+                        "externalIds": {"DOI": "10.1/DEMO"},
+                    }
+                ])
+
+        result = _semantic_scholar_metadata_batch(
+            SemanticSession(), ["10.1/demo"], timeout=12
+        )
+        self.assertEqual("", result["10.1/demo"]["abstract"])
 
 
     def test_semantic_scholar_fallback_uses_one_bounded_batch(self) -> None:
