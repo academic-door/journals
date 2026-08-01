@@ -556,13 +556,21 @@ main,
 .wechat-preview ol { padding-left: 28px; }
 .toc-item {
   margin: 5px 0 14px;
-  padding: 8px 0 8px 25px;
+  padding: 8px 0;
   font-size: 16px;
   line-height: 1.8;
   text-align: left;
-  text-indent: -25px;
+  text-indent: 0;
 }
-.toc-number { color: #000; }
+.toc-number {
+  display: inline-block;
+  width: 25px;
+  margin-left: -25px;
+  padding-right: 6px;
+  color: #000;
+  box-sizing: border-box;
+  text-align: right;
+}
 .toc-title-en { color: #000; font-weight: 700; }
 .toc-title-cn,
 .toc-authors {
