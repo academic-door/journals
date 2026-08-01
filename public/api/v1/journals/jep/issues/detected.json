@@ -7,10 +7,10 @@
   "issue": "2",
   "publication_date": "",
   "source_url": "https://www.aeaweb.org/journals/jep/current-issue",
-  "retrieved_at": "2026-08-01T05:22:19+00:00",
-  "expected_article_count": 12,
-  "research_article_count": 12,
-  "status": "incomplete",
+  "retrieved_at": "2026-08-01T15:05:14+00:00",
+  "expected_article_count": 11,
+  "research_article_count": 11,
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
@@ -44,7 +44,7 @@
         "provider": "google-translate",
         "model": "gtx-en-zh-CN",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "translated_at": "2026-08-01T13:59:10+00:00",
+        "translated_at": "2026-08-01T15:05:14+00:00",
         "source_hash": "eec8840f797b86c996dce276e3053e9fcdf71cbe969e970ce978aa470f56aa21"
       },
       "quality_flags": [],
@@ -176,7 +176,7 @@
         "provider": "google-translate",
         "model": "gtx-en-zh-CN",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "translated_at": "2026-08-01T13:59:12+00:00",
+        "translated_at": "2026-08-01T15:05:16+00:00",
         "source_hash": "184385c160699981f3279f21ad6e18eb9586178b1f3ae8f75edd66309cc26a3b"
       },
       "quality_flags": [],
@@ -219,7 +219,7 @@
         "provider": "google-translate",
         "model": "gtx-en-zh-CN",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "translated_at": "2026-08-01T13:59:14+00:00",
+        "translated_at": "2026-08-01T15:05:18+00:00",
         "source_hash": "5f45baea24b4e89cb8424f46f9de7a385a2176bde416e13d606a5f74edf7e590"
       },
       "quality_flags": [],
@@ -307,7 +307,7 @@
         "provider": "google-translate",
         "model": "gtx-en-zh-CN",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "translated_at": "2026-08-01T13:59:16+00:00",
+        "translated_at": "2026-08-01T15:05:20+00:00",
         "source_hash": "45b6930c04e5bf807c361cbd7b203e037a9e82140f66573469d1a13d415899dd"
       },
       "quality_flags": [],
@@ -350,7 +350,7 @@
         "provider": "google-translate",
         "model": "gtx-en-zh-CN",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "translated_at": "2026-08-01T13:59:18+00:00",
+        "translated_at": "2026-08-01T15:05:22+00:00",
         "source_hash": "420bee141201456948055acdc198e18d39f0aa08f2de3397137975c60c409d4e"
       },
       "quality_flags": [],
@@ -394,7 +394,7 @@
         "provider": "google-translate",
         "model": "gtx-en-zh-CN",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "translated_at": "2026-08-01T13:59:20+00:00",
+        "translated_at": "2026-08-01T15:05:24+00:00",
         "source_hash": "9ba2816cb8a64c159fe5afe6cad92c395bbfefd22fcd6f76807f1bee1ee192f9"
       },
       "quality_flags": [],
@@ -483,50 +483,10 @@
         "provider": "google-translate",
         "model": "gtx-en-zh-CN",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "translated_at": "2026-08-01T13:59:22+00:00",
+        "translated_at": "2026-08-01T15:05:26+00:00",
         "source_hash": "c9da64a8b8a84eb95d57b1835f0563aa82601e24be5af07ef5fe115c3ea3e541"
       },
       "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1257/jep.20261504",
-      "sequence": 12,
-      "source_sequence": 13,
-      "article_type": "research-article",
-      "title_en": "Recommendations for Further Reading",
-      "title_cn": "",
-      "authors": [
-        "Timothy Taylor"
-      ],
-      "abstract_en": "",
-      "abstract_cn": "",
-      "doi": "10.1257/jep.20261504",
-      "source_url": "https://www.aeaweb.org/articles?id=10.1257/jep.20261504",
-      "publication_date": "",
-      "sources": {
-        "inventory": "official-issue-page",
-        "title": "official-article-page",
-        "authors": "official-article-page",
-        "abstract": "official-article-page",
-        "doi": "official-article-id"
-      },
-      "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
-      },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing",
-        "abstract_en_missing"
-      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -539,52 +499,55 @@
     "roster_match": true,
     "order_preserved": true,
     "official_item_count": 13,
-    "excluded_item_count": 1,
+    "excluded_item_count": 2,
     "excluded_items": [
       {
         "source_sequence": 1,
         "title_en": "Front Matter",
         "reason": "non-research-title",
         "article_type": "front-matter"
+      },
+      {
+        "source_sequence": 13,
+        "title_en": "Recommendations for Further Reading",
+        "reason": "non-research-title",
+        "article_type": "research-article"
       }
     ],
     "detail_failure_count": 0,
-    "doi_complete": 12,
-    "authors_complete": 12,
+    "doi_complete": 11,
+    "authors_complete": 11,
     "abstract_en_complete": 11,
     "translation_complete": 11,
     "duplicate_count": 0,
-    "flags": [
-      "abstract_en_incomplete",
-      "translation_incomplete"
-    ],
-    "publishable_item_count": 12,
+    "flags": [],
+    "publishable_item_count": 11,
     "content_counts": {
       "official_items": 13,
       "observed_items": 13,
-      "publishable_items": 12,
-      "research_articles": 12,
+      "publishable_items": 11,
+      "research_articles": 11,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 1,
-      "other_excluded": 0,
-      "catalog_content_items": 12
+      "other_excluded": 1,
+      "catalog_content_items": 11
     }
   },
   "content_counts": {
     "official_items": 13,
     "observed_items": 13,
-    "publishable_items": 12,
-    "research_articles": 12,
+    "publishable_items": 11,
+    "research_articles": 11,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 1,
-    "other_excluded": 0,
-    "catalog_content_items": 12
+    "other_excluded": 1,
+    "catalog_content_items": 11
   },
-  "publication_state": "enriching"
+  "publication_state": "ready"
 }

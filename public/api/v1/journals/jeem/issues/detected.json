@@ -7,7 +7,7 @@
   "issue": "C",
   "publication_date": "September 2026",
   "source_url": "https://www.sciencedirect.com/journal/journal-of-environmental-economics-and-management/vol/140/suppl/C",
-  "retrieved_at": "2026-08-01T05:19:50+00:00",
+  "retrieved_at": "2026-08-01T15:02:57+00:00",
   "expected_article_count": 4,
   "research_article_count": 4,
   "status": "incomplete",
@@ -37,7 +37,7 @@
         "metadata": "crossref",
         "abstract_en": "openalex",
         "abstract_lookup": {
-          "status": "insufficient_entitlement",
+          "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
@@ -113,7 +113,7 @@
         "metadata": "crossref",
         "abstract_en": "semantic-scholar",
         "abstract_lookup": {
-          "status": "insufficient_entitlement",
+          "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
@@ -191,7 +191,7 @@
         "metadata": "crossref",
         "abstract_en": "openalex",
         "abstract_lookup": {
-          "status": "insufficient_entitlement",
+          "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
@@ -266,7 +266,7 @@
         "metadata": "crossref",
         "abstract_en": "openalex",
         "abstract_lookup": {
-          "status": "insufficient_entitlement",
+          "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
@@ -339,7 +339,8 @@
     "flags": [
       "publisher_html_blocked_sciencedirect_rss_fallback",
       "publisher_rss_reverse_order_normalized",
-      "official_order_unverified"
+      "official_order_unverified",
+      "elsevier_insttoken_required"
     ],
     "content_counts": {
       "official_items": 4,
