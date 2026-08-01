@@ -22,8 +22,8 @@ NON_RESEARCH_PATTERN = re.compile(
     r"recommendations?\s+for\s+further\s+reading",
     re.IGNORECASE,
 )
-MONTH_YEAR_PATTERN = re.compile(
-    r"\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{4})\b",
+ISSUE_PERIOD_PATTERN = re.compile(
+    r"\b(January|February|March|April|May|June|July|August|September|October|November|December|Spring|Summer|Fall|Autumn|Winter)\s+(\d{4})\b",
     re.IGNORECASE,
 )
 
@@ -155,9 +155,9 @@ def fetch_current_issue(
 
     publication_date = ""
     for candidate in [header, *[_text(node) for node in soup.select("h1, h2, h3, title")]]:
-        month_match = MONTH_YEAR_PATTERN.search(candidate)
-        if month_match:
-            publication_date = month_match.group(0)
+        period_match = ISSUE_PERIOD_PATTERN.search(candidate)
+        if period_match:
+            publication_date = period_match.group(0)
             break
 
     ordered_ids: list[str] = []
