@@ -22,6 +22,9 @@ _last_google_request_at = 0.0
 DEFAULT_MODEL = "openai/gpt-4.1"
 PROMPT_VERSION = "academic-door-abstract-zh-v2"
 NUMBER_PATTERN = re.compile(
+    # Attached alphanumeric terms are protected as complete tokens by
+    # ``_protect_numbers``. Keep them outside this legacy numeric validator so
+    # previously published translations remain backward-compatible.
     r"(?<![A-Za-z0-9_])"
     r"(?P<number>[+-]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?%?)"
     r"(?P<percent_word>\s+(?:percent|per\s+cent))?"
@@ -193,6 +196,7 @@ def _alpha_index(index: int) -> str:
 def _protect_numbers(value: str) -> tuple[str, dict[str, str]]:
     replacements: dict[str, str] = {}
     protected_ranges: dict[str, str] = {}
+    protected_alphanumeric: dict[str, str] = {}
 
     def protected_token(number: str) -> str:
         # Google Translate may silently omit opaque alphabetic placeholders
@@ -203,6 +207,20 @@ def _protect_numbers(value: str) -> tuple[str, dict[str, str]]:
         token = f"[[{number}]]"
         replacements[token] = number
         return token
+
+    # Keep scientific abbreviations and currency-prefixed amounts together.
+    # Splitting ``CO2`` into ``CO[[2]]`` lets machine translation move the
+    # digit away from the abbreviation while still passing a numeric count.
+    alphanumeric_pattern = re.compile(
+        r"(?<![A-Za-z0-9_])[A-Za-z]{1,8}\d+(?:\.\d+)?(?![A-Za-z0-9_])"
+    )
+
+    def replace_alphanumeric(match: re.Match[str]) -> str:
+        token = f"ATGALNUM{_alpha_index(len(protected_alphanumeric))}END"
+        protected_alphanumeric[token] = match.group(0)
+        return token
+
+    value = alphanumeric_pattern.sub(replace_alphanumeric, value)
 
     range_pattern = re.compile(
         r"(?<![A-Za-z0-9_])"
@@ -234,6 +252,10 @@ def _protect_numbers(value: str) -> tuple[str, dict[str, str]]:
     protected = NUMBER_PATTERN.sub(replace, value)
     for range_token, number in protected_ranges.items():
         protected = protected.replace(range_token, protected_token(number))
+    for alphanumeric_token, source_token in protected_alphanumeric.items():
+        protected = protected.replace(
+            alphanumeric_token, protected_token(source_token)
+        )
     month_pattern = re.compile(
         r"\b(" + "|".join(MONTH_WORDS_ZH) + r")\b(?=\s+\[\[[^\]]+\]\])"
     )
@@ -242,15 +264,10 @@ def _protect_numbers(value: str) -> tuple[str, dict[str, str]]:
         return protected_token(MONTH_WORDS_ZH[match.group(0)])
 
     protected = month_pattern.sub(replace_month, protected)
-    word_pattern = re.compile(
-        r"\b(" + "|".join(sorted(NUMBER_WORDS_ZH, key=len, reverse=True)) + r")\b",
-        re.IGNORECASE,
-    )
-
-    def replace_word(match: re.Match[str]) -> str:
-        return protected_token(NUMBER_WORDS_ZH[match.group(0).lower()])
-
-    return word_pattern.sub(replace_word, protected), replacements
+    # Let the translator handle written-out number words. Replacing ``two``
+    # with bare ``[[二]]`` produced phrases such as ``二实验组`` rather than
+    # the natural ``两个实验组``.
+    return protected, replacements
 
 
 def _restore_numbers(value: str, replacements: dict[str, str]) -> str:
@@ -602,7 +619,6 @@ def _google_translate_text(
     if not translated:
         raise TranslationError("Google Translate returned an empty response")
     restored = _restore_numbers(translated, number_replacements)
-    restored = _canonicalize_arabic_numbers(value, restored)
     if re.search(r"\[\[[^\]]+\]\]", restored):
         raise TranslationError("Google Translate did not preserve numeric placeholders")
     return restored

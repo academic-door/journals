@@ -181,7 +181,7 @@ class TranslationPipelineTests(unittest.TestCase):
         restored = _restore_numbers(protected, replacements)
         self.assertEqual(
             restored,
-            "In 一月 2026 we estimate 一 effect: 1.15, 509, 7, and 9.3%.",
+            "In 一月 2026 we estimate one effect: 1.15, 509, 7, and 9.3%.",
         )
 
     def test_numeric_placeholders_keep_quantity_semantics(self) -> None:
@@ -198,6 +198,32 @@ class TranslationPipelineTests(unittest.TestCase):
         self.assertEqual(_restore_numbers(protected, replacements), source.replace(
             "170 percent", "170%"
         ).replace("15 percent", "15%"))
+
+    def test_currency_and_scientific_suffix_numbers_are_preserved(self) -> None:
+        source = "Payments were N2500, N4000, or N10000 and emissions were CO2."
+        self.assertEqual(_numbers(source), [])
+        protected, replacements = _protect_numbers(source)
+        self.assertIn("[[N2500]]", protected)
+        self.assertIn("[[CO2]]", protected)
+        self.assertEqual(_restore_numbers(protected, replacements), source)
+
+    def test_numeric_protection_keeps_alphanumeric_tokens_whole(self) -> None:
+        protected, replacements = _protect_numbers(
+            "N2500 transfers and CO2 emissions from 2003 to 2010"
+        )
+
+        self.assertIn("[[N2500]]", protected)
+        self.assertIn("[[CO2]]", protected)
+        self.assertNotIn("CO[[2]]", protected)
+        self.assertEqual(
+            _restore_numbers(protected, replacements),
+            "N2500 transfers and CO2 emissions from 2003 to 2010",
+        )
+
+    def test_written_number_words_are_left_for_natural_translation(self) -> None:
+        protected, _replacements = _protect_numbers("two experimental arms")
+
+        self.assertEqual(protected, "two experimental arms")
 
     def test_numeric_range_is_wrapped_once(self) -> None:
         protected, replacements = _protect_numbers("Benefits apply at ages 0–2.")
@@ -409,7 +435,7 @@ class TranslationPipelineTests(unittest.TestCase):
             article,
             {
                 "title_cn": "单一作物制的政治收益",
-                "abstract_cn": restored,
+                "abstract_cn": "中文测试：" + restored,
             },
         )
 

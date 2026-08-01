@@ -72,6 +72,40 @@ python scripts/local_authorized_enrichment.py `
   --dry-run
 ```
 
+### Browser-authorized issue recovery
+
+When an official issue is visible in an authenticated local browser but the
+cloud collector is blocked, capture only public bibliographic fields into an
+ignored `data/runtime/` JSON snapshot. Never include cookies, tokens, local
+storage, passwords, or browser profile data. Validate and convert the snapshot
+with:
+
+```powershell
+python scripts/import_browser_authorized_snapshot.py `
+  data/runtime/browser-authorized/jde-183-c.snapshot.json `
+  --current public/api/v1/journals/jde/issues/current.json
+```
+
+The command writes a schema-valid local candidate and a freshness-gap report.
+It never publishes or replaces public data. Missing official abstracts,
+complete authors, DOI/PII, official order, or translations remain hard gates.
+
+After reviewing the local gap report, run the complete translation and
+promotion path with `--translate --promote`. The importer reuses the standard
+translation cache and numeric-preservation checks. Promotion is rejected unless
+every publishable item has a Chinese title and faithful Chinese abstract:
+
+```powershell
+python scripts/import_browser_authorized_snapshot.py `
+  data/runtime/browser-authorized/jde-183-c.snapshot.json `
+  --current public/api/v1/journals/jde/issues/current.json `
+  --translate --promote
+```
+
+If the inherited command-line proxy variables are stale while direct HTTPS is
+working, add `--ignore-proxy-env`. This affects only the translation requests;
+it does not read or modify browser settings.
+
 确认任务清单后，可安装并登录本机 `paper-fetch`，再移除 `--dry-run`。产物只写入被 Git 忽略的 `data/runtime/local-enrichment/`，不会自动进入网站；须经过字段核对后才能人工导入。
 
 本机补充仅限运营者本人已经通过学校或出版方合法取得访问权限的内容。不得利用本接口绕过验证码、付费墙、访问控制或出版方技术限制；遇到验证码必须由运营者在本机按正常授权流程处理，自动化不得代答或规避。

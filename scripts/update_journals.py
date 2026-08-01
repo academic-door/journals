@@ -167,8 +167,12 @@ def _clear_stale_translation(article: dict[str, Any]) -> None:
     article["quality_flags"] = list(flags)
 
 
-def apply_translation_cache(issue: dict[str, Any]) -> dict[str, Any]:
-    cache_path = TRANSLATION_CACHE / f"{issue['journal_id']}.json"
+def apply_translation_cache(
+    issue: dict[str, Any],
+    *,
+    cache_path: Path | None = None,
+) -> dict[str, Any]:
+    cache_path = cache_path or TRANSLATION_CACHE / f"{issue['journal_id']}.json"
     cache = read_json(cache_path) or {}
     for article in issue["articles"]:
         article["abstract_en"] = clean_abstract_label(article.get("abstract_en"))
