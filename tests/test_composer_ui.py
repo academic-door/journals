@@ -45,6 +45,8 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn('<br/><span class="toc-title-cn">', self.page)
         self.assertIn('"textIndent"', self.page)
         self.assertIn('${ordered[1]}. ${renderInline(ordered[2])}', self.page)
+        self.assertIn(".toc-title-cn,\n.toc-authors {", self.css)
+        self.assertIn("display: block;\n  text-indent: 0;", self.css)
         self.assertNotIn('<span class="toc-number">', self.page)
         self.assertNotIn('<table class="toc-item"', self.page)
 
