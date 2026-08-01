@@ -284,5 +284,14 @@ class ComposerUiTest(unittest.TestCase):
             self.assertTrue(journal["publication_date"], journal["journal_id"])
 
 
+
+
+    def test_classic_theme_abstract_title_is_english_first(self):
+        self.assertIn(
+            '`${index + 1}. **${article.title_en || ""}**\\n   ${article.title_cn || "中文标题待补全"}`',
+            self.page,
+        )
+        self.assertNotIn('`### ${index + 1}. ${article.title_cn || article.title_en}`', self.page)
+
 if __name__ == "__main__":
     unittest.main()
