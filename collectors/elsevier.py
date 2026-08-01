@@ -272,7 +272,17 @@ def _crossref_issue_date(
     issn: str,
     volume: str,
     year: str,
+    issue: str = "",
 ) -> str:
+    # Crossref commonly exposes article online-publication months rather than
+    # the official issue month. Prefer the audited issue calendar when one is
+    # configured, including the active RePEc-backed ERE collector path.
+    if issue:
+        from collectors.metadata_fallback import MONTHS_BY_ISSUE
+
+        official_month = MONTHS_BY_ISSUE.get(issn, {}).get(issue, "")
+        if official_month:
+            return f"{official_month} {year}"
     url = (
         f"https://api.crossref.org/journals/{issn}/works"
         f"?filter=from-pub-date:{year}-01-01,until-pub-date:{year}-12-31&rows=500"
@@ -369,6 +379,7 @@ def fetch_current_issue(
         issn,
         volume,
         inventory["year"],
+        issue_number,
     )
     if not _publication_date_within_horizon(
         publication_date,

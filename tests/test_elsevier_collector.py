@@ -5,6 +5,7 @@ from unittest.mock import patch
 
 from collectors.elsevier import (
     ElsevierCollectorError,
+    _crossref_issue_date,
     _normalize_authors,
     _parse_official_issue,
     _parse_repec_inventory,
@@ -14,6 +15,14 @@ from collectors.elsevier import (
 
 
 class ElsevierCollectorTests(unittest.TestCase):
+    def test_ere_uses_official_issue_month_on_active_repec_path(self):
+        self.assertEqual(
+            "August 2026",
+            _crossref_issue_date(
+                SimpleNamespace(), "0924-6460", "94", "2026", "8"
+            ),
+        )
+
     def test_repec_inventory_uses_latest_volume_and_preserves_order(self):
         content = b"""
         <html><body>
