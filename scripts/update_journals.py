@@ -55,6 +55,7 @@ ABSTRACT_PLACEHOLDERS = {
     "n/a",
     "none",
     "null",
+    "please provide abstract",
     "no abstract available",
     "no abstract is available",
     "no abstract is available for this item",
@@ -318,40 +319,59 @@ def collector_for(config: dict[str, Any]) -> Callable[[], dict[str, Any]]:
 
 def fallback_collector_for(config: dict[str, Any]) -> Callable[[], dict[str, Any]] | None:
     fallback = config.get("fallback", "")
+    collectors: list[Callable[[], dict[str, Any]]] = []
     if config.get("rss_url"):
         from collectors.metadata_fallback import fetch_official_rss_issue
 
-        return lambda: fetch_official_rss_issue(
-            journal_id=config["id"],
-            journal_name=config["name"],
-            issn=str(config["issn"]),
-            current_issue_url=config["current_issue_url"],
-            rss_url=config["rss_url"],
-            repec_jpe=fallback == "crossref-repec",
-            repec_series_code=config.get("repec_series_code", ""),
+        collectors.append(
+            lambda: fetch_official_rss_issue(
+                journal_id=config["id"],
+                journal_name=config["name"],
+                issn=str(config["issn"]),
+                current_issue_url=config["current_issue_url"],
+                rss_url=config["rss_url"],
+                repec_jpe=fallback == "crossref-repec",
+                repec_series_code=config.get("repec_series_code", ""),
+            )
         )
-    if not fallback:
-        return None
     if fallback == "repec":
         from collectors.elsevier import fetch_current_issue
 
-        return lambda: fetch_current_issue(
-            journal_id=config["id"],
-            journal_name=config["name"],
-            issn=str(config["issn"]),
-            repec_series_url=config["repec_series_url"],
-            issue_url_template=config["issue_url_template"],
+        collectors.append(
+            lambda: fetch_current_issue(
+                journal_id=config["id"],
+                journal_name=config["name"],
+                issn=str(config["issn"]),
+                repec_series_url=config["repec_series_url"],
+                issue_url_template=config["issue_url_template"],
+            )
         )
-    from collectors.metadata_fallback import fetch_crossref_current_issue
+    elif fallback:
+        from collectors.metadata_fallback import fetch_crossref_current_issue
 
-    return lambda: fetch_crossref_current_issue(
-        journal_id=config["id"],
-        journal_name=config["name"],
-        issn=str(config["issn"]),
-        current_issue_url=config["current_issue_url"],
-        repec_jpe=fallback == "crossref-repec",
-        repec_series_code=config.get("repec_series_code", ""),
-    )
+        collectors.append(
+            lambda: fetch_crossref_current_issue(
+                journal_id=config["id"],
+                journal_name=config["name"],
+                issn=str(config["issn"]),
+                current_issue_url=config["current_issue_url"],
+                repec_jpe=fallback == "crossref-repec",
+                repec_series_code=config.get("repec_series_code", ""),
+            )
+        )
+    if not collectors:
+        return None
+
+    def chained_fallback() -> dict[str, Any]:
+        errors: list[str] = []
+        for collector in collectors:
+            try:
+                return collector()
+            except Exception as error:
+                errors.append(f"{type(error).__name__}: {error}")
+        raise RuntimeError("; ".join(errors))
+
+    return chained_fallback
 
 
 def public_issue_path(journal_id: str) -> Path:
@@ -415,6 +435,7 @@ def is_detected_snapshot(issue: dict[str, Any]) -> bool:
         and int(quality.get("doi_complete", 0)) == research_count
         and int(quality.get("authors_complete", 0)) == research_count
         and int(quality.get("duplicate_count", 0)) == 0
+        and "crossref_provisional_roster" not in quality.get("flags", [])
         and not any(
             str(flag).startswith("collector_error:")
             for flag in quality.get("flags", [])
@@ -684,7 +705,6 @@ def structural_flags(issue: dict[str, Any]) -> list[str]:
         "publisher_html_blocked_crossref_fallback",
         "publisher_html_blocked_sciencedirect_rss_fallback",
         "publisher_rss_lag_crossref_fallback",
-        "crossref_provisional_roster",
         "official_order_unverified",
     }
     return [
@@ -722,6 +742,7 @@ def is_publishable_snapshot(issue: dict[str, Any]) -> bool:
         and quality.get("authors_complete") == research_count
         and abstracts_complete
         and quality.get("duplicate_count") == 0
+        and "crossref_provisional_roster" not in quality.get("flags", [])
         and not any(
             flag.startswith("collector_error:")
             for flag in quality.get("flags", [])
@@ -897,8 +918,18 @@ def collect_one(
                 )
                 return previous, report
             detected_before = detected
-            issue = enrich_detected_issue(config, detected)
-            report["transport"] = "detected-self-heal"
+            detected_count = int(detected.get("research_article_count", 0))
+            abstract_count = int(
+                detected.get("quality", {}).get("abstract_en_complete", 0)
+            )
+            if detected_count > 0 and abstract_count == detected_count:
+                # Translation-only recovery must not revisit publisher pages or
+                # entitlement-gated abstract APIs.
+                issue = detected
+                report["transport"] = "translation-only"
+            else:
+                issue = enrich_detected_issue(config, detected)
+                report["transport"] = "detected-self-heal"
         else:
             primary_error = ""
             try:

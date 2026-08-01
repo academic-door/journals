@@ -37,6 +37,7 @@ NON_RESEARCH_PATTERN = re.compile(
     r"front\s*matter|back\s*matter|editorial\s*board|table\s*of\s*contents|"
     r"recent\s*referees|turnaround\s*times|issue\s+information|"
     r"^announcements?$|american\s+finance\s+association|annual\s+report|"
+    r"report\s+of\s+the\s+editor.+for\s+the\s+year|"
     r"summaries\s+of\s+doctoral\s+dissertations|"
     r"abstracts\s+of\s+papers\s+presented|editors?[’'＊]?\s+notes?|"
     r"^editorial(?:\s*:|\s*$)|"
@@ -55,7 +56,8 @@ COMMENT_PATTERN = re.compile(
     re.IGNORECASE,
 )
 NO_ABSTRACT_PATTERN = re.compile(
-    r"^(?:none|null|n/?a|no abstract(?: is)? available(?: for this item)?)\.?$",
+    r"^(?:none|null|n/?a|please provide abstract|"
+    r"no abstract(?: is)? available(?: for this item)?)\.?$",
     re.IGNORECASE,
 )
 
@@ -430,6 +432,8 @@ def _elsevier_lookup(
                     }
                 )
                 result["status"] = _elsevier_status(status_code)
+                if status_code == 403 and not inst_token:
+                    result["status"] = "insufficient_entitlement_missing_insttoken"
                 return None
             response.raise_for_status()
             root = ElementTree.fromstring(response.content)
@@ -581,6 +585,38 @@ def _elsevier_abstract(
 
     lookup = _elsevier_lookup(session, pii, doi=doi, timeout=timeout)
     return str(lookup["abstract"]), str(lookup["source_url"])
+
+
+def _is_elsevier_identifier(pii: str, doi: str) -> bool:
+    """Avoid sending non-Elsevier works through Elsevier entitlement APIs."""
+
+    normalized_pii = re.sub(r"[^A-Za-z0-9]", "", pii or "")
+    normalized_doi = (doi or "").strip().lower()
+    return bool(normalized_pii) or normalized_doi.startswith("10.1016/")
+
+
+def _defer_elsevier_entitlement(previous: dict[str, Any]) -> bool:
+    """Do not repeat known entitlement failures until an InstToken appears."""
+
+    if os.getenv("ELSEVIER_INST_TOKEN", "").strip():
+        return False
+    status = str(
+        previous.get("sources", {}).get("abstract_lookup", {}).get("status", "")
+    )
+    return status in {
+        "insufficient_entitlement",
+        "insufficient_entitlement_missing_insttoken",
+    }
+
+
+def _missing_insttoken(articles: list[dict[str, Any]]) -> bool:
+    return any(
+        article.get("sources", {})
+        .get("abstract_lookup", {})
+        .get("status")
+        == "insufficient_entitlement_missing_insttoken"
+        for article in articles
+    )
 
 
 def _date_year(item: dict[str, Any]) -> str:
@@ -994,6 +1030,8 @@ def fetch_repec_history_issue(
         flags.append("duplicate_doi")
     if abstract_complete != len(articles):
         flags.append("abstract_en_incomplete")
+    if _missing_insttoken(articles):
+        flags.append("elsevier_insttoken_required")
     if authors_complete != len(articles):
         flags.append("authors_incomplete")
     now = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
@@ -1338,13 +1376,20 @@ def fetch_sciencedirect_rss_issue(
 
         elsevier_lookup: dict[str, Any] = {}
         abstract_snippet = ""
-        if not abstract:
-            elsevier_lookup = _elsevier_lookup(
-                client,
-                pii,
-                doi=doi,
-                timeout=timeout,
-            )
+        if not abstract and _is_elsevier_identifier(pii, doi):
+            if _defer_elsevier_entitlement(previous):
+                elsevier_lookup = {
+                    "status": "insufficient_entitlement_missing_insttoken",
+                    "attempts": [],
+                    "deferred": True,
+                }
+            else:
+                elsevier_lookup = _elsevier_lookup(
+                    client,
+                    pii,
+                    doi=doi,
+                    timeout=timeout,
+                )
             abstract = _clean_markup(str(elsevier_lookup.get("abstract", "")))
             abstract_snippet = _clean_markup(
                 str(elsevier_lookup.get("teaser", ""))
@@ -1534,6 +1579,8 @@ def fetch_sciencedirect_rss_issue(
     ]
     if abstract_complete != len(articles):
         flags.append("abstract_en_incomplete")
+    if _missing_insttoken(articles):
+        flags.append("elsevier_insttoken_required")
     if duplicate_count:
         flags.append("duplicate_doi")
     translation_complete = sum(
@@ -1970,7 +2017,7 @@ def fetch_crossref_current_issue(
         elsevier_url = ""
         elsevier_lookup: dict[str, Any] = {}
         abstract_snippet = ""
-        if not abstract:
+        if not abstract and _is_elsevier_identifier(_crossref_pii(item), doi):
             elsevier_lookup = _elsevier_lookup(
                 client,
                 _crossref_pii(item),
@@ -2073,6 +2120,8 @@ def fetch_crossref_current_issue(
     abstract_complete = sum(_has_abstract_or_allowed_comment(article) for article in articles)
     if abstract_complete != len(articles):
         flags.append("abstract_en_incomplete")
+    if _missing_insttoken(articles):
+        flags.append("elsevier_insttoken_required")
     if duplicate_count:
         flags.append("duplicate_doi")
     now = datetime.now(timezone.utc).replace(microsecond=0).isoformat()

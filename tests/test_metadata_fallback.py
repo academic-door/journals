@@ -12,6 +12,7 @@ from collectors.metadata_fallback import (
     _publication_date,
     _elsevier_abstract,
     _elsevier_lookup,
+    _defer_elsevier_entitlement,
     _sciencedirect_rss_groups,
     _semantic_scholar_metadata_batch,
     fetch_crossref_current_issue,
@@ -225,6 +226,41 @@ class RepecEconometricaSession:
 
 
 class MetadataFallbackTests(unittest.TestCase):
+    def test_known_entitlement_failure_waits_for_insttoken(self) -> None:
+        previous = {
+            "sources": {
+                "abstract_lookup": {
+                    "status": "insufficient_entitlement_missing_insttoken"
+                }
+            }
+        }
+        with patch.dict("os.environ", {}, clear=True):
+            self.assertTrue(_defer_elsevier_entitlement(previous))
+        with patch.dict(
+            "os.environ", {"ELSEVIER_INST_TOKEN": "available"}, clear=True
+        ):
+            self.assertFalse(_defer_elsevier_entitlement(previous))
+
+    def test_non_elsevier_doi_does_not_call_elsevier_api(self) -> None:
+        items = [item("Research paper", "1-20", "10.1111/jofi.70062", "")]
+        # A second article keeps the issue above the Crossref roster threshold.
+        items.append(item("Research paper two", "21-40", "10.1111/jofi.70063", ""))
+        with (
+            patch("collectors.metadata_fallback._elsevier_lookup") as lookup,
+            patch(
+                "collectors.metadata_fallback._openalex_metadata",
+                return_value=([], "", ""),
+            ),
+        ):
+            fetch_crossref_current_issue(
+                journal_id="jf",
+                journal_name="Journal of Finance",
+                issn="0022-1082",
+                current_issue_url="https://example.org/current",
+                session=Session(items),
+            )
+        lookup.assert_not_called()
+
     def test_elsevier_abstract_requires_secret_and_never_exposes_it(self) -> None:
         session = ElsevierSession()
         with patch.dict("os.environ", {}, clear=True):

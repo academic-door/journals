@@ -5,7 +5,7 @@ import json
 import os
 import tempfile
 import unittest
-from datetime import date
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import patch
@@ -341,6 +341,43 @@ class MonitorStateTests(unittest.TestCase):
         self.assertEqual(1, state["journals"]["DEMO"]["deep_failure_count"])
         self.assertEqual(0, state["journals"]["DEMO"]["failure_count"])
         self.assertEqual("11", state["journals"]["DEMO"]["candidate"]["volume"])
+
+    def test_entitlement_failure_uses_daily_retry_and_explicit_status(self) -> None:
+        state = {
+            "journals": {
+                "DEMO": {
+                    "candidate": {"volume": "11", "issue": "1"},
+                    "failure_count": 0,
+                }
+            }
+        }
+        result = {"alerts": {"newly_alerting": [], "recovered": []}}
+        report = {
+            "results": [
+                {
+                    "result": "preserved_previous",
+                    "error": "ValueError: abstract_en_incomplete, elsevier_insttoken_required",
+                }
+            ]
+        }
+        with (
+            patch(
+                "scripts.journal_monitor.subprocess.run",
+                return_value=SimpleNamespace(returncode=0),
+            ),
+            patch("scripts.journal_monitor.read_json", return_value=report),
+        ):
+            failures = run_deep_updates(
+                ["DEMO"], state, result, translate=False
+            )
+        self.assertEqual(1, failures)
+        self.assertEqual(
+            "entitlement_blocked", state["journals"]["DEMO"]["status"]
+        )
+        retry = datetime.fromisoformat(
+            state["journals"]["DEMO"]["next_deep_retry_at"]
+        )
+        self.assertGreater(retry, datetime.now(timezone.utc) + timedelta(hours=23))
 
 
 class LocalEnrichmentTests(unittest.TestCase):

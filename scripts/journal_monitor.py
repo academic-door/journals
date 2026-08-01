@@ -39,6 +39,8 @@ STRUCTURAL_TITLE = re.compile(
 )
 ALERT_THRESHOLD = 3
 DEEP_RETRY_HOURS = 6
+ENTITLEMENT_RETRY_HOURS = 24
+TRANSLATION_RETRY_HOURS = 2
 
 
 def now_iso() -> str:
@@ -661,12 +663,29 @@ def run_deep_updates(
                 or f"deep update exited {completed.returncode}"
             )
             source_lag = "SourceLagError:" in error_text
+            entitlement_blocked = "elsevier_insttoken_required" in error_text
+            translation_only = "translation incomplete:" in error_text
+            retry_hours = (
+                ENTITLEMENT_RETRY_HOURS
+                if entitlement_blocked
+                else TRANSLATION_RETRY_HOURS
+                if translation_only
+                else DEEP_RETRY_HOURS
+            )
             next_retry = datetime.now(timezone.utc) + timedelta(
-                hours=DEEP_RETRY_HOURS
+                hours=retry_hours
             )
             entry.update(
                 {
-                    "status": "source_lag" if source_lag else "update_failed",
+                    "status": (
+                        "source_lag"
+                        if source_lag
+                        else "entitlement_blocked"
+                        if entitlement_blocked
+                        else "translation_pending"
+                        if translation_only
+                        else "update_failed"
+                    ),
                     "deep_failure_count": previous_failures + 1,
                     "last_error": error_text,
                     "last_deep_attempt_at": now_iso(),
@@ -687,7 +706,15 @@ def run_deep_updates(
                 "result": (
                     "updated"
                     if success
-                    else ("source_lag" if source_lag else "preserved_previous")
+                    else (
+                        "source_lag"
+                        if source_lag
+                        else "entitlement_blocked"
+                        if entitlement_blocked
+                        else "translation_pending"
+                        if translation_only
+                        else "preserved_previous"
+                    )
                 ),
                 "error": "" if success else entry["last_error"],
             }
