@@ -7,9 +7,9 @@
   "issue": "C",
   "publication_date": "September 2026",
   "source_url": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/162/suppl/C",
-  "retrieved_at": "2026-08-01T15:08:17+00:00",
-  "expected_article_count": 2,
-  "research_article_count": 2,
+  "retrieved_at": "2026-08-01T15:31:04+00:00",
+  "expected_article_count": 3,
+  "research_article_count": 3,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
@@ -82,8 +82,8 @@
       },
       "quality_flags": [
         "abstract_cn_missing",
-        "abstract_en_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_en_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -159,9 +159,85 @@
       },
       "quality_flags": [
         "abstract_cn_missing",
-        "abstract_en_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_en_missing"
       ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jmoneco.2026.103973",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Unconventional policy and idiosyncratic risk",
+      "title_cn": "非常规政策和特殊风险",
+      "authors": [
+        "Salvatore Nisticò",
+        "Marialaura Seccareccia"
+      ],
+      "abstract_en": "Within a New Keynesian model with heterogeneous households and credit frictions, we show that idiosyncratic uncertainty gives rise to an additional transmission channel that amplifies the effects of balance-sheet policies through consumption risk, making them a key tool for anchoring private-sector expectations. We further show that the optimal monetary policy features a clear division of labor between conventional and unconventional tools: balance-sheet policy should target cross-sectional welfare objectives, absorbing fluctuations in variables with distributional relevance such as private debt, whereas conventional interest-rate policy stabilizes aggregate targets and responds to aggregate shocks, as in the representative-agent benchmark. Thus, the optimal response to a debt-deleveraging crisis is unconventional: it entails a shorter, rather than longer, duration of zero-interest-rate policies relative to conventional inflation targeting, and does not require front-loaded inflation at the effective lower bound.",
+      "abstract_cn": "在具有异质家庭和信贷摩擦的新凯恩斯主义模型中，我们表明，特殊的不确定性会产生额外的传导渠道，通过消费风险放大资产负债表政策的影响，使其成为锚定私营部门预期的关键工具。我们进一步表明，最优货币政策具有传统工具和非常规工具之间的明确分工：资产负债表政策应以横截面福利目标为目标，吸收私人债务等具有分配相关性的变量的波动，而传统利率政策则稳定总体目标并应对总体冲击，如代表-代理基准。因此，对债务去杠杆化危机的最佳应对措施是非常规的：相对于传统的通胀目标制，它需要更短而不是更长的利率政策期限，并且不需要在有效下限内提前实施通胀。",
+      "abstract_snippet_en": "",
+      "doi": "10.1016/j.jmoneco.2026.103973",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304393226000887?dgcid=rss_sd_all",
+      "publication_date": "September 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/162/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/03043932",
+        "metadata": "crossref",
+        "abstract_en": "openalex",
+        "abstract_lookup": {
+          "status": "insufficient_entitlement_missing_insttoken",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 401,
+              "outcome": "unauthorized"
+            },
+            {
+              "source": "elsevier-sciencedirect-search",
+              "status_code": 401,
+              "outcome": "unauthorized"
+            },
+            {
+              "source": "elsevier-scopus-doi",
+              "status_code": 401,
+              "outcome": "unauthorized"
+            },
+            {
+              "source": "elsevier-scopus-pii",
+              "status_code": 401,
+              "outcome": "unauthorized"
+            },
+            {
+              "source": "elsevier-article-doi",
+              "status_code": 403,
+              "outcome": "insufficient_entitlement"
+            },
+            {
+              "source": "elsevier-article-pii",
+              "status_code": 403,
+              "outcome": "insufficient_entitlement"
+            }
+          ]
+        },
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jmoneco.2026.103973"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-01T15:31:05+00:00",
+        "source_hash": "dc0774dcae7410f2de2f9e0ce1079de8256b0989ca364a73d24a465cddfa5c97"
+      },
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -177,14 +253,14 @@
     "roster_authority": "publisher-rss",
     "roster_match_scope": "rss-volume-items",
     "rss_url": "https://rss.sciencedirect.com/publication/science/03043932",
-    "official_item_count": 2,
-    "publishable_item_count": 2,
+    "official_item_count": 3,
+    "publishable_item_count": 3,
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 2,
-    "authors_complete": 2,
-    "abstract_en_complete": 0,
-    "translation_complete": 0,
+    "doi_complete": 3,
+    "authors_complete": 3,
+    "abstract_en_complete": 1,
+    "translation_complete": 1,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_sciencedirect_rss_fallback",
@@ -195,31 +271,31 @@
       "translation_incomplete"
     ],
     "content_counts": {
-      "official_items": 2,
-      "observed_items": 2,
-      "publishable_items": 2,
-      "research_articles": 2,
+      "official_items": 3,
+      "observed_items": 3,
+      "publishable_items": 3,
+      "research_articles": 3,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 2
+      "catalog_content_items": 3
     }
   },
   "content_counts": {
-    "official_items": 2,
-    "observed_items": 2,
-    "publishable_items": 2,
-    "research_articles": 2,
+    "official_items": 3,
+    "observed_items": 3,
+    "publishable_items": 3,
+    "research_articles": 3,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 2
+    "catalog_content_items": 3
   },
   "publication_state": "enriching"
 }

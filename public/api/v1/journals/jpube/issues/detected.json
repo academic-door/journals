@@ -7,7 +7,7 @@
   "issue": "C",
   "publication_date": "September 2026",
   "source_url": "https://www.sciencedirect.com/journal/journal-of-public-economics/vol/261/suppl/C",
-  "retrieved_at": "2026-08-01T15:02:49+00:00",
+  "retrieved_at": "2026-08-01T15:25:07+00:00",
   "expected_article_count": 14,
   "research_article_count": 14,
   "status": "incomplete",
@@ -435,8 +435,8 @@
             },
             {
               "source": "elsevier-sciencedirect-search",
-              "status_code": 429,
-              "outcome": "quota_exceeded"
+              "status_code": 401,
+              "outcome": "unauthorized"
             },
             {
               "source": "elsevier-scopus-doi",
@@ -1116,10 +1116,18 @@
     "roster_authority": "publisher-rss",
     "roster_match_scope": "rss-volume-items",
     "rss_url": "https://rss.sciencedirect.com/publication/science/00472727",
-    "official_item_count": 14,
+    "official_item_count": 15,
     "publishable_item_count": 14,
-    "excluded_item_count": 0,
-    "excluded_items": [],
+    "excluded_item_count": 1,
+    "excluded_items": [
+      {
+        "title_en": "Editorial Board",
+        "article_type": "editorial",
+        "reason": "editorial_material",
+        "doi": "",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0047272726001854?dgcid=rss_sd_all"
+      }
+    ],
     "doi_complete": 14,
     "authors_complete": 14,
     "abstract_en_complete": 14,
@@ -1132,28 +1140,28 @@
       "elsevier_insttoken_required"
     ],
     "content_counts": {
-      "official_items": 14,
-      "observed_items": 14,
+      "official_items": 15,
+      "observed_items": 15,
       "publishable_items": 14,
       "research_articles": 14,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
-      "editorial_material": 0,
+      "editorial_material": 1,
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 14
     }
   },
   "content_counts": {
-    "official_items": 14,
-    "observed_items": 14,
+    "official_items": 15,
+    "observed_items": 15,
     "publishable_items": 14,
     "research_articles": 14,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
-    "editorial_material": 0,
+    "editorial_material": 1,
     "front_matter": 0,
     "other_excluded": 0,
     "catalog_content_items": 14
