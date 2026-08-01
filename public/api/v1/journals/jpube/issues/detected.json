@@ -7,7 +7,7 @@
   "issue": "C",
   "publication_date": "September 2026",
   "source_url": "https://www.sciencedirect.com/journal/journal-of-public-economics/vol/261/suppl/C",
-  "retrieved_at": "2026-08-01T04:53:14+00:00",
+  "retrieved_at": "2026-08-01T05:19:39+00:00",
   "expected_article_count": 14,
   "research_article_count": 14,
   "status": "incomplete",
@@ -879,13 +879,13 @@
       "source_sequence": 12,
       "article_type": "research-article",
       "title_en": "The political benefits of the monoculture: Estimating the electoral effect of the market facilitation program",
-      "title_cn": "",
+      "title_cn": "单一栽培的政治利益：估计市场便利化计划的选举效果",
       "authors": [
         "Robert Gulotty",
         "Anton Strezhnev"
       ],
       "abstract_en": "Does the distribution of government transfers affect elections? We analyze a natural experiment in the 2019 wave of the US Department of Agriculture's Market Facilitation Program (MFP). The 2019 MFP allocated $14.5 billion via a formula combining historical production data and commodity-specific trade damages. We show how a methodological quirk resulted in arbitrary variation in these damages that propagated through the formula into excessive county-level compensation rates. We estimate the effects of this payment shock using a novel, design-based, randomization inference approach to account for complex dependencies across US counties. We find that counties receiving greater compensation rates, on average, have higher two-party Republican presidential vote shares in the 2020 election. Instrumenting for actual 2019 MFP disbursements, we find an additional $1 million in payments to a county increased that county's 2020 two-party Trump vote share by about .18 percentage points on average. Had the 2019 MFP maintained the spending levels of the 2018 wave, we estimate that Candidate Trump's two-party vote share would have been .117 percentage points lower nationally, with particularly pronounced effects in swing states like Arizona (.41 percentage points) and Georgia (.159 percentage points).",
-      "abstract_cn": "",
+      "abstract_cn": "政府转移支付的分配会影响选举吗？我们分析了美国农业部市场便利化计划（MFP）2019浪潮中的一个自然实验。 2019 MFP通过结合历史生产数据和特定商品贸易损失的公式分配了14.5十亿美元。我们展示了方法上的怪癖如何导致这些损害的任意变化，并通过公式传播到过高的县级赔偿率。我们使用一种新颖的、基于设计的随机推理方法来估计这种支付冲击的影响，以解释美国各县之间复杂的依赖性。我们发现，平均而言，获得较高补偿率的县在2020选举中拥有较高的二党共和党总统选票份额。通过对实际 2019 MFP 支出进行分析，我们发现向某个县额外支付 $1 百万 美元，该县的 2020 二 党特朗普投票份额平均增加了约 .18 个百分点。如果 2019 MFP 保持 2018 浪潮的支出水平，我们估计候选人特朗普的 二 党派选票份额在全国范围内会降低 .117 个百分点，在亚利桑那州（.41 个百分点）和佐治亚州（.159 个百分点）等摇摆州的影响尤其明显。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jpubeco.2026.105742",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0047272726001787?dgcid=rss_sd_all",
@@ -933,15 +933,15 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jpubeco.2026.105742"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-01T05:19:39+00:00",
+        "source_hash": "07df66017f7f45f59dd3bd6f2280504c1fad67b5ccb5ef5c407ff6c06b26124e"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -1123,13 +1123,12 @@
     "doi_complete": 14,
     "authors_complete": 14,
     "abstract_en_complete": 14,
-    "translation_complete": 13,
+    "translation_complete": 14,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_sciencedirect_rss_fallback",
       "publisher_rss_reverse_order_normalized",
-      "official_order_unverified",
-      "translation_incomplete"
+      "official_order_unverified"
     ],
     "content_counts": {
       "official_items": 14,
@@ -1158,5 +1157,5 @@
     "other_excluded": 0,
     "catalog_content_items": 14
   },
-  "publication_state": "enriching"
+  "publication_state": "ready"
 }

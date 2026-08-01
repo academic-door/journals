@@ -1,52 +1,53 @@
 {
   "schema_version": "1.0",
-  "issue_id": "qe-17-2",
+  "issue_id": "qe-17-3",
   "journal_id": "qe",
   "journal_name": "Quantitative Economics",
   "volume": "17",
-  "issue": "2",
+  "issue": "3",
   "issue_label": "Vol. 17",
   "publication_date": "2026",
   "source_url": "https://onlinelibrary.wiley.com/toc/17597331/current",
-  "retrieved_at": "2026-07-31T22:58:14+00:00",
+  "retrieved_at": "2026-08-01T05:27:22+00:00",
   "expected_article_count": 8,
   "research_article_count": 8,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.3982/qe2190",
+      "paper_id": "doi:10.3982/qe2385",
       "sequence": 1,
       "source_sequence": 1,
       "article_type": "research-article",
-      "title_en": "DeepHAM: A global solution method for heterogeneous agent models with aggregate shocks",
-      "title_cn": "DeepHAM：一种针对具有总量冲击的异质代理模型的全球解决方法",
+      "title_en": "Binary choice under asymmetric loss in a data‐rich environment: Theory and an application to algorithmic fairness",
+      "title_cn": "",
       "authors": [
-        "Jiequn Han",
-        "Yucheng Yang",
-        "Weinan E"
+        "Andrii Babii",
+        "Xi Chen",
+        "Eric Ghysels",
+        "Rohit Kumar"
       ],
-      "abstract_en": "We propose an efficient, reliable, and interpretable global solution method, the Deep learning‐based algorithm for Heterogeneous Agent Models (DeepHAM), for solving high‐dimensional heterogeneous agent models with aggregate shocks. The state distribution is approximately represented by a set of optimal generalized moments. Deep neural networks are used to approximate the value and policy functions, and the objective is optimized over directly simulated paths. In addition to being an accurate global solver, this method has three additional features. First, it is computationally efficient in solving complex heterogeneous agent models, and it does not suffer from the curse of dimensionality. Second, it provides a general and interpretable representation of the distribution over individual states, which is crucial in addressing the classical question of whether and how heterogeneity matters in macroeconomics. Third, it solves the constrained efficiency problem as easily as it solves the competitive equilibrium, which opens up new possibilities for normative studies. As a new application, we study constrained efficiency in heterogeneous agent models with aggregate shocks. We find that in the presence of aggregate risk, a utilitarian planner would raise aggregate capital for redistribution less than in absence of it because poor households do more precautionary savings and thus rely less on labor income.",
-      "abstract_cn": "我们提出了一种高效、可靠且可解释的全球解决方法——基于深度学习的异质代理模型算法（DeepHAM），用于解决具有总量冲击的高维异质代理模型。状态分布通过一组最优广义矩进行近似表示。深度神经网络用于近似价值和政策函数，目标在直接模拟路径上进行优化。除了作为一个准确的全球求解器外，该方法还具有 三 额外特性。第一，它在解决复杂的异质代理模型时计算效率高，并且不受维度诅咒的影响。第二，它提供了对个体状态分布的通用且可解释的表示，这在解决异质性在宏观经济学中是否以及如何重要的经典问题时至关重要。第三，它解决约束效率问题的难度与解决竞争均衡问题相当，这为规范研究开辟了新的可能性。作为一种新应用，我们研究了具有总量冲击的异质代理模型中的约束效率。我们发现，在存在总量风险的情况下，效用主义规划者会比在没有总量风险的情况下减少用于再分配的总资本，因为贫困家庭进行更多的预防性储蓄，因此对劳动收入的依赖减少。",
-      "doi": "10.3982/qe2190",
-      "source_url": "https://ideas.repec.org/a/wly/quante/v17y2026i2p297-341.html",
+      "abstract_en": "We study the binary choice problem in a data‐rich environment with asymmetric loss functions. The econometrics literature covers nonparametric binary choice problems but does not offer computationally attractive solutions in data‐rich environments. The machine learning literature has many algorithms but is focused mostly on loss functions that are independent of covariates. We show that theoretically valid decisions on binary outcomes with general loss functions can be achieved via a very simple loss‐based reweighting of logistic regression or state‐of‐the‐art machine learning techniques. We apply our analysis to algorithmic fairness in pretrial detentions.",
+      "abstract_cn": "",
+      "doi": "10.3982/qe2385",
+      "source_url": "https://ideas.repec.org/a/wly/quante/v17y2026i3p623-669.html",
       "publication_date": "2026",
       "sources": {
         "issue": "https://onlinelibrary.wiley.com/toc/17597331/current",
         "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/wly/quante/v17y2026i2p297-341.html",
+        "metadata": "https://ideas.repec.org/a/wly/quante/v17y2026i3p623-669.html",
         "abstract_en": "official-sciencedirect-issue"
       },
       "translation": {
-        "status": "complete",
-        "provider": "github-models",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T19:58:37+00:00",
-        "source_hash": "e2282e25f842c598e140e11118b7c93fdc49ab8b6daff93beb417a95c4124767"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -55,38 +56,38 @@
       }
     },
     {
-      "paper_id": "doi:10.3982/qe2589",
+      "paper_id": "doi:10.3982/qe2674",
       "sequence": 2,
       "source_sequence": 2,
       "article_type": "research-article",
-      "title_en": "Forecasting with panel data: Estimation uncertainty versus parameter heterogeneity",
-      "title_cn": "面板数据预测：估计不确定性与参数异质性",
+      "title_en": "Remittance frictions and seasonal poverty",
+      "title_cn": "",
       "authors": [
-        "M. Hashem Pesaran",
-        "Andreas Pick",
-        "Allan Timmermann"
+        "Ahmed Mushfiq Mobarak",
+        "Corey Vernot",
+        "Arjun Kharel"
       ],
-      "abstract_en": "We provide a comprehensive examination of the predictive accuracy of panel forecasting methods based on individual, pooling, fixed effects, and empirical Bayes estimation, and propose optimal weights for forecast combination schemes. We consider linear panel data models, allowing for weakly exogenous regressors and correlated heterogeneity. We quantify the gains from exploiting panel data and demonstrate how forecasting performance depends on the degree of parameter heterogeneity, whether such heterogeneity is correlated with the regressors, the goodness‐of‐fit of the model, and the dimensions of the data. Monte Carlo simulations and empirical applications to house prices and CPI inflation show that empirical Bayes and forecast combination methods perform best overall and rarely produce the least accurate forecasts for individual series.",
-      "abstract_cn": "我们对基于个体、合并、固定效应和经验贝叶斯估计的面板预测方法的预测准确性进行了全面的检验，并提出了预测组合方案的最佳权重。我们考虑线性面板数据模型，允许存在弱外生回归变量和相关异质性。我们量化了利用面板数据的收益，并展示了预测性能如何依赖于参数异质性的程度、这种异质性是否与回归变量相关、模型的拟合优度以及数据的维度。蒙特卡洛模拟和对房价及CPI通胀的实证应用表明，经验贝叶斯和预测组合方法在整体上表现最佳，并且很少为个别系列产生最不准确的预测。",
-      "doi": "10.3982/qe2589",
-      "source_url": "https://ideas.repec.org/a/wly/quante/v17y2026i2p342-393.html",
+      "abstract_en": "Seasonal migration is a common strategy to mitigate rural seasonal deprivation, but migrants need to remit money during the lean season to family members facing food shortages. We observe counterintuitively low remittances in rural Nepal during periods of seasonal hunger, and migrants return with remittances later during harvest when food is relatively abundant. To indirectly overcome this apparent constraint in remittance timing, we provide a $90 consumption loan to randomly selected rural households during the pre‐harvest lean season. Loan‐recipient households increase pre‐harvest investments in fertilizer and time spent working on their own farm, smooth consumption, and save more of their migration income to bring it back home. Food security, subjective well‐being, rice harvest, and revenues improve. Ninety‐eight percent of beneficiaries repay the loan with the increased harvest‐period remittance. In a two‐period model of household decision making, we show that remittance frictions—a market failure—are necessary to qualitatively match our experimental results.",
+      "abstract_cn": "",
+      "doi": "10.3982/qe2674",
+      "source_url": "https://ideas.repec.org/a/wly/quante/v17y2026i3p670-708.html",
       "publication_date": "2026",
       "sources": {
         "issue": "https://onlinelibrary.wiley.com/toc/17597331/current",
         "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/wly/quante/v17y2026i2p342-393.html",
+        "metadata": "https://ideas.repec.org/a/wly/quante/v17y2026i3p670-708.html",
         "abstract_en": "official-sciencedirect-issue"
       },
       "translation": {
-        "status": "complete",
-        "provider": "github-models",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T19:58:45+00:00",
-        "source_hash": "7c425f679706b8f2107824dd8fe563bd96f359948cd4ae3aae4e6fddcf176797"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -95,38 +96,38 @@
       }
     },
     {
-      "paper_id": "doi:10.3982/qe2544",
+      "paper_id": "doi:10.3982/qe2529",
       "sequence": 3,
       "source_sequence": 3,
       "article_type": "research-article",
-      "title_en": "The price responsiveness of shale producers: Evidence from micro data",
-      "title_cn": "页岩生产者的价格响应性：来自微观数据的证据",
+      "title_en": "Large structural VARs with multiple sign and ranking restrictions",
+      "title_cn": "",
       "authors": [
-        "Knut Are Aastveit",
-        "Hilde C. Bjørnland",
-        "Thomas S. Gundersen"
+        "Joshua C. C. Chan",
+        "Christian Matthes",
+        "Xuewen Yu"
       ],
-      "abstract_en": "We show that U.S. shale oil producers exhibit a high degree of short‐run price responsiveness, primarily through the timing of well completions and refracturing. Using a novel monthly well‐level panel covering over 120,000 shale wells across ten states from 2005 to 2019, we document significant supply adjustments to price signals. The response varies significantly across states and firm types, highlighting the importance of accounting for micro‐level heterogeneity in production behavior. Mechanisms include accelerating completion of drilled but uncompleted wells and refracturing older wells when forward‐looking price signals are favorable. These findings challenge the common assumption of short‐run supply inelasticity and call for oil market models that incorporate operational flexibility and forward‐looking behavior of shale oil producers.",
-      "abstract_cn": "我们表明，美国页岩油生产者在短期内表现出高度的价格响应性，主要通过井完工和再压裂的时机。使用覆盖超过120,000个页岩井的创新性月度井级面板数据，涵盖十个州，从2005到2019，我们记录了对价格信号的显著供应调整。响应在不同州和公司类型之间差异显著，突显了考虑生产行为微观层面异质性的重要性。机制包括加速完工已钻但未完工的井，以及在前瞻性价格信号有利时对老井进行再压裂。这些发现挑战了短期供应无弹性的普遍假设，并呼吁石油市场模型纳入页岩油生产者的操作灵活性和前瞻性行为。",
-      "doi": "10.3982/qe2544",
-      "source_url": "https://ideas.repec.org/a/wly/quante/v17y2026i2p394-430.html",
+      "abstract_en": "Large VARs are increasingly used in structural analysis as a unified framework to study the impacts of multiple structural shocks simultaneously. However, the concurrent identification of multiple shocks using sign and ranking restrictions poses significant practical challenges to the point where existing algorithms cannot be used with such large VARs. To address this, we introduce a new numerically efficient algorithm that facilitates the estimation of impulse responses and related measures in large structural VARs identified with a large number of structural restrictions on impulse responses. The methodology is illustrated using a 35‐variable VAR with over 100 sign and ranking restrictions to identify 8 structural shocks.",
+      "abstract_cn": "",
+      "doi": "10.3982/qe2529",
+      "source_url": "https://ideas.repec.org/a/wly/quante/v17y2026i3p709-740.html",
       "publication_date": "2026",
       "sources": {
         "issue": "https://onlinelibrary.wiley.com/toc/17597331/current",
         "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/wly/quante/v17y2026i2p394-430.html",
+        "metadata": "https://ideas.repec.org/a/wly/quante/v17y2026i3p709-740.html",
         "abstract_en": "official-sciencedirect-issue"
       },
       "translation": {
-        "status": "complete",
-        "provider": "github-models",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T19:58:53+00:00",
-        "source_hash": "28ada5ae4d004b6c370309c453b17f52d185056a0854cb59f17a41df9892b861"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -135,37 +136,40 @@
       }
     },
     {
-      "paper_id": "doi:10.3982/qe2025",
+      "paper_id": "doi:10.3982/qe2442",
       "sequence": 4,
       "source_sequence": 4,
       "article_type": "research-article",
-      "title_en": "Satisficing, aggregation, and quasilinear utility",
-      "title_cn": "满意化、聚合与准线性效用",
+      "title_en": "Welfare and spending effects of consumption stimulus policies",
+      "title_cn": "",
       "authors": [
-        "Roy Allen",
-        "John Rehbeck"
+        "Christopher D. Carroll",
+        "Edmund Crawley",
+        "William Du",
+        "Ivan Frankovic",
+        "Håkon Tretvoll"
       ],
-      "abstract_en": "This paper studies approximation error in the quasilinear utility model. Error arises because individuals do not perfectly optimize, and instead satisfice. We investigate the consequences of individual satisficing for modeling aggregate demand, providing an approximate aggregation theorem. We present a simple method for statistical inference on the minimal level of satisficing needed to explain aggregate data. In an illustrative application to scanner panel data, we find that individual‐level data require a nontrivial degree of satisficing, but aggregate data admit a representative agent that maximizes a quasilinear utility function.",
-      "abstract_cn": "本文研究了准线性效用模型中的近似误差。误差的产生是因为个体并未完美优化，而是选择满意化。我们探讨了个体满意化对建模总需求的影响，提供了一个近似聚合定理。我们提出了一种简单的方法用于统计推断，以确定解释总数据所需的最低满意化水平。在对扫描面板数据的说明性应用中，我们发现个体层面的数据需要非平凡程度的满意化，但总数据允许一个最大化准线性效用函数的代表性代理。",
-      "doi": "10.3982/qe2025",
-      "source_url": "https://ideas.repec.org/a/wly/quante/v17y2026i2p431-460.html",
+      "abstract_en": "Using a heterogeneous agent model calibrated to match spending dynamics over four years following an income shock (Fagereng, Holm, and Natvik (2021)), we assess the effectiveness of three fiscal stimulus policies implemented during recent recessions. Unemployment insurance (UI) extensions are the “bang for the buck” winner when the metric is effectiveness in boosting utility. Stimulus checks are second‐best and have two advantages (over UI): they arrive faster, and are scalable. A temporary (two‐year) cut in wage taxation is considerably less effective than the other policies and has negligible effects in the version of our model without a multiplier.",
+      "abstract_cn": "",
+      "doi": "10.3982/qe2442",
+      "source_url": "https://ideas.repec.org/a/wly/quante/v17y2026i3p741-790.html",
       "publication_date": "2026",
       "sources": {
         "issue": "https://onlinelibrary.wiley.com/toc/17597331/current",
         "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/wly/quante/v17y2026i2p431-460.html",
+        "metadata": "https://ideas.repec.org/a/wly/quante/v17y2026i3p741-790.html",
         "abstract_en": "official-sciencedirect-issue"
       },
       "translation": {
-        "status": "complete",
-        "provider": "github-models",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T19:59:02+00:00",
-        "source_hash": "9bd9eb4f80ee46d671c7d4edf57c0403c1f75069246928150252dcc35585e1f2"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -174,36 +178,38 @@
       }
     },
     {
-      "paper_id": "doi:10.3982/qe2369",
+      "paper_id": "doi:10.3982/qe2719",
       "sequence": 5,
       "source_sequence": 5,
       "article_type": "research-article",
-      "title_en": "Identification through sparsity in factor models: The ℓ1‐rotation criterion",
-      "title_cn": "通过稀疏性识别因子模型：ℓ1旋转标准",
+      "title_en": "The general solution to an autoregressive law of motion",
+      "title_cn": "",
       "authors": [
-        "Simon Freyaldenhoven"
+        "Brendan K. Beare",
+        "Massimo Franchi",
+        "Phil Howlett"
       ],
-      "abstract_en": "Linear factor models are generally not identified. We provide sufficient conditions for identification: Under a natural sparsity assumption (the presence of local factors that affect only subsets of observables), the true loading matrix is the sparsest rotation and can be recovered by minimizing the ℓ1‐norm of the loading matrix. This enables economically meaningful interpretation of the individual factors. More generally, our ℓ1‐rotation criterion offers a novel approach to simplify the loading matrix and performs well relative to existing methods (e.g., Varimax, Kaiser (1958)) in our simulations. We illustrate our method in two economic applications. The R package l1rotation implements the method and facilitates adoption.",
-      "abstract_cn": "线性因子模型通常没有识别性。我们提供了识别的充分条件：在一个自然的稀疏性假设下（存在仅影响可观测子集的局部因子），真实的载荷矩阵是最稀疏的旋转，并且可以通过最小化载荷矩阵的ℓ1范数来恢复。这使得个别因子的经济学意义解释成为可能。更一般地，我们的ℓ1旋转标准提供了一种简化载荷矩阵的新方法，并且在我们的模拟中相对于现有方法（例如，Varimax，Kaiser (1958)）表现良好。我们在二经济应用中说明了我们的方法。R包l1rotation实现了该方法并促进了其采用。",
-      "doi": "10.3982/qe2369",
-      "source_url": "https://ideas.repec.org/a/wly/quante/v17y2026i2p461-496.html",
+      "abstract_en": "We provide a complete description of the set of all solutions to a vector autoregressive law of motion. Every solution is shown to be the sum of three components, each corresponding to a directed flow of time. One component flows forward from the arbitrarily distant past, one flows backward from the arbitrarily distant future, and one flows outward from time zero. The three components are obtained by applying three complementary spectral projections to the solution, these corresponding to a separation of the eigenvalues of the autoregressive coefficient matrix according to whether they are inside, outside, or on the unit circle. We establish a one‐to‐one correspondence between the set of all solutions and a finite‐dimensional space of initial conditions.",
+      "abstract_cn": "",
+      "doi": "10.3982/qe2719",
+      "source_url": "https://ideas.repec.org/a/wly/quante/v17y2026i3p791-826.html",
       "publication_date": "2026",
       "sources": {
         "issue": "https://onlinelibrary.wiley.com/toc/17597331/current",
         "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/wly/quante/v17y2026i2p461-496.html",
+        "metadata": "https://ideas.repec.org/a/wly/quante/v17y2026i3p791-826.html",
         "abstract_en": "official-sciencedirect-issue"
       },
       "translation": {
-        "status": "complete",
-        "provider": "github-models",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T19:59:11+00:00",
-        "source_hash": "2b42897cd4d81d381dd0c4dd315883d70fa8889ba08546cd02a41f3b207fcd84"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -212,36 +218,37 @@
       }
     },
     {
-      "paper_id": "doi:10.3982/qe1894",
+      "paper_id": "doi:10.3982/qe2768",
       "sequence": 6,
       "source_sequence": 6,
       "article_type": "research-article",
-      "title_en": "Conditional choice probability estimation with an imperfectly measured latent state",
-      "title_cn": "基于不完美测量的潜在状态的条件选择概率估计",
+      "title_en": "A new approach to the analysis of cooperation under the shadow of the future: Theory and experimental evidence",
+      "title_cn": "",
       "authors": [
-        "Yujung Hwang"
+        "Melis Kartal",
+        "Wieland Müller"
       ],
-      "abstract_en": "Traditional dynamic discrete choice model—Conditional Choice Probability estimator (DDCM‐CCP) literature considered identification using the likelihood of longitudinal choice only. However, such an approach has a limitation in identifying flexible dynamics for latent state due to the discrete and typically small‐dimensional nature of choice. This paper extends this literature to utilize imperfect measurements, called proxies, for a latent discrete state. I first show that proxies improve identification and discuss how survey design on proxies affects identification conditions. I then extend the estimator from Arcidiacono and Miller (2011) to pool information from an unbalanced panel of noisy proxies, enabling estimation of more flexible latent state dynamics than Markov chains. As an application, I estimate a dynamic model of labor supply and mental health, where dynamic mental health only imperfectly observed—plays a central role. The results reveal more complex dynamics than a standard Markov chain.",
-      "abstract_cn": "传统的动态离散选择模型—条件选择概率估计（DDCM-CCP）文献仅考虑使用纵向选择的似然进行识别。然而，这种方法在识别潜在状态的灵活动态方面存在局限性，因为选择通常是离散且小维度的。本文扩展了这一文献，利用潜在离散状态的不完美测量值，称为代理变量。首先，我展示了代理变量如何改善识别，并讨论了代理变量的调查设计如何影响识别条件。然后，我扩展了Arcidiacono和Miller（2011）的估计方法，将信息池从不平衡面板的噪声代理变量中提取，从而能够估计比马尔可夫链更灵活的潜在状态动态。作为应用，我估计了一个劳动力供给和心理健康的动态模型，其中动态心理健康仅被不完美观测，但发挥着核心作用。结果揭示了比标准马尔可夫链更复杂的动态。",
-      "doi": "10.3982/qe1894",
-      "source_url": "https://ideas.repec.org/a/wly/quante/v17y2026i2p497-540.html",
+      "abstract_en": "The theory of infinitely repeated games may lack predictive power due to its insensitivity to, for example, changes in some game parameters, the timing of players' moves, and communication possibilities. We propose a new approach by studying an infinitely repeated prisoner's dilemma game and its variants where preferences for cooperation are heterogeneous, and strategic risk arises from incomplete information about opponents' preferences. Our model generates a rich set of comparative static predictions in a variety of settings. We show that, unlike standard theory and other existing models, our approach organizes the findings of a host of experiments including our novel experiments.",
+      "abstract_cn": "",
+      "doi": "10.3982/qe2768",
+      "source_url": "https://ideas.repec.org/a/wly/quante/v17y2026i3p827-857.html",
       "publication_date": "2026",
       "sources": {
         "issue": "https://onlinelibrary.wiley.com/toc/17597331/current",
         "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/wly/quante/v17y2026i2p497-540.html",
+        "metadata": "https://ideas.repec.org/a/wly/quante/v17y2026i3p827-857.html",
         "abstract_en": "official-sciencedirect-issue"
       },
       "translation": {
-        "status": "complete",
-        "provider": "github-models",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "mistral-ai/mistral-medium-2505",
-        "translated_at": "2026-07-26T20:18:09+00:00",
-        "source_hash": "8f053de000caabcc623bf8590291e69bbc0283938330fab6d8b89f28c54168d9"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -250,38 +257,38 @@
       }
     },
     {
-      "paper_id": "doi:10.3982/qe2358",
+      "paper_id": "doi:10.3982/qe2681",
       "sequence": 7,
       "source_sequence": 7,
       "article_type": "research-article",
-      "title_en": "Oil and the stock market revisited: A mixed functional VAR approach",
-      "title_cn": "石油与股票市场的再探讨：一种混合功能VAR方法",
+      "title_en": "Three reasons to price carbon under uncertainty: Accuracy of simple rules",
+      "title_cn": "",
       "authors": [
-        "Hilde C. Bjørnland",
-        "Yoosoon Chang",
-        "Jamie L. Cross"
+        "Ton van den Bremer",
+        "Christoph Hambel",
+        "Frederick van der Ploeg"
       ],
-      "abstract_en": "This paper proposes a new mixed vector autoregression (MVAR) model to examine the relationship between aggregate time series and functional variables in a multivariate setting. The model facilitates a reexamination of the oil‐stock price nexus by estimating the effects of demand and supply shocks from the global market for crude oil on the entire distribution of U.S. stock returns since the late 1980s. We show that the MVAR effectively extracts information from the returns distribution that is more relevant for understanding the oil‐stock price nexus beyond simply looking at the first few moments. Using novel functional impulse response functions (FIRFs), we find that oil market demand shocks tend to increase returns, while both demand and supply shocks reduce volatility, and have an asymmetric effect on the returns distribution as a whole. In a value‐at‐risk (VaR) analysis, we also find that the oil market contains important information that reduces expected loss, and that the response of VaR to the oil market demand and supply shocks has changed over time.",
-      "abstract_cn": "本文提出了一种新的混合向量自回归（MVAR）模型，以在多变量环境中考察聚合时间序列与功能变量之间的关系。该模型有助于重新审视石油与股票价格之间的联系，通过估计自1980以来全球原油市场的需求和供应冲击对美国股票收益分布的影响。我们表明，MVAR有效提取了收益分布中的信息，这些信息对于理解石油与股票价格之间的联系更为相关，而不仅仅是查看第一的几个时刻。使用新颖的功能脉冲响应函数（FIRFs），我们发现石油市场需求冲击往往会增加收益，而需求和供应冲击则降低波动性，并对整体收益分布产生不对称影响。在价值-at-风险（VaR）分析中，我们还发现石油市场包含重要信息，可以减少预期损失，并且VaR对石油市场需求和供应冲击的反应随着时间的推移而发生变化。",
-      "doi": "10.3982/qe2358",
-      "source_url": "https://ideas.repec.org/a/wly/quante/v17y2026i2p541-589.html",
+      "abstract_en": "An easy‐to‐interpret rule for the optimal risk‐adjusted social cost of carbon is derived using perturbation analysis. This rule internalizes the adverse effects of global warming on the risk of recurring climate‐related disasters, the risk of irreversible cascading climate tipping points, and the usual effect on total factor productivity. It and its three components approximate the true numerical optimum well, especially if the small parameters (i.e., the share of damages in GDP, the sensitivity of the risk of disasters to temperature and the risk of climate tipping) are small enough and the discount rate is not too small. The rule is also accurate if applied to AK models with a different supply side, for example, with ongoing technical progress in fossil‐fuel production or multiple economic sectors. With a growth‐adjusted discount rate of 2%/year, the SCC is $172/tCO2, 70% of which is due to recurring climate disasters and 9% to climate tipping risk.",
+      "abstract_cn": "",
+      "doi": "10.3982/qe2681",
+      "source_url": "https://ideas.repec.org/a/wly/quante/v17y2026i3p858-894.html",
       "publication_date": "2026",
       "sources": {
         "issue": "https://onlinelibrary.wiley.com/toc/17597331/current",
         "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/wly/quante/v17y2026i2p541-589.html",
+        "metadata": "https://ideas.repec.org/a/wly/quante/v17y2026i3p858-894.html",
         "abstract_en": "official-sciencedirect-issue"
       },
       "translation": {
-        "status": "complete",
-        "provider": "github-models",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T19:59:51+00:00",
-        "source_hash": "7640cfb0ebeb3917e4d16499005f13d5219fae2f219b2d8be70aaa94b84f66c4"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -290,36 +297,38 @@
       }
     },
     {
-      "paper_id": "doi:10.3982/qe2180",
+      "paper_id": "doi:10.3982/qe2638",
       "sequence": 8,
       "source_sequence": 8,
       "article_type": "research-article",
-      "title_en": "An empirical framework for many‐to‐one matching markets",
-      "title_cn": "多对一匹配市场的实证框架",
+      "title_en": "Measuring inflation expectations: How the response scale shapes density forecasts",
+      "title_cn": "",
       "authors": [
-        "Tim Ederer"
+        "Christoph K. Becker",
+        "Peter Duersch",
+        "Thomas A. Eife"
       ],
-      "abstract_en": "I build a model of many‐to‐one matching with nontransferable utility involving many agents on both sides of the market, for example, workers and firms. Under parsimonious assumptions on preferences and assuming that matches are stable, I provide a tractable asymptotic characterization of the joint distribution of match characteristics. I find that one can identify the joint surplus of a match, but cannot separately identify workers' and firms' preferences from data on realized matches. Within‐firm variation in matched worker characteristics, only available in many‐to‐one matching data, can help identifying and estimating unobserved firm heterogeneity in the surplus function.",
-      "abstract_cn": "我建立了一个涉及市场两侧多个参与者（例如，工人和公司）的多对一匹配模型，该模型具有不可转移效用。在对偏好进行简约假设并假设匹配是稳定的情况下，我提供了匹配特征联合分布的可处理渐近特征。我发现一可以识别匹配的联合盈余，但无法从已实现匹配的数据中单独识别工人和公司的偏好。在多对一匹配数据中，匹配工人特征的公司内变异性可以帮助识别和估计盈余函数中未观察到的公司异质性。",
-      "doi": "10.3982/qe2180",
-      "source_url": "https://ideas.repec.org/a/wly/quante/v17y2026i2p590-621.html",
+      "abstract_en": "In density forecasts, respondents are asked to assign probabilities to a response scale with pre‐specified ranges of inflation. In two large‐scale experiments, one conducted in the US and one in Germany, we show how the specifics of the response scale determine the results: Shifting, compressing, or expanding the scale leads to shifted, compressed, and expanded forecasts. Quantifying this effect using the scale most widely used among central banks, we find that mean forecast, uncertainty, and disagreement can vary by several percentage points. Density forecasts may severely misestimate the “true” inflation expectations, and may generate spurious changes in reported inflation uncertainty. The analysis suggests several ways to reduce this bias.",
+      "abstract_cn": "",
+      "doi": "10.3982/qe2638",
+      "source_url": "https://ideas.repec.org/a/wly/quante/v17y2026i3p895-937.html",
       "publication_date": "2026",
       "sources": {
         "issue": "https://onlinelibrary.wiley.com/toc/17597331/current",
         "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/wly/quante/v17y2026i2p590-621.html",
+        "metadata": "https://ideas.repec.org/a/wly/quante/v17y2026i3p895-937.html",
         "abstract_en": "official-sciencedirect-issue"
       },
       "translation": {
-        "status": "complete",
-        "provider": "github-models",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T19:59:59+00:00",
-        "source_hash": "39399bc9f2e1b2d7d2ede7a77e5b18efe5d2172b6181f90c3e91564fe8c2e3bb"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -337,12 +346,13 @@
     "doi_complete": 8,
     "authors_complete": 8,
     "abstract_en_complete": 8,
-    "translation_complete": 8,
+    "translation_complete": 0,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_repec_fallback",
       "repec_publisher_supplied_roster",
-      "official_order_unverified"
+      "official_order_unverified",
+      "translation_incomplete"
     ],
     "official_issue_fetch_error": "request failed for https://onlinelibrary.wiley.com/toc/17597331/current: 403 Client Error: Forbidden for url: https://onlinelibrary.wiley.com/toc/17597331/current",
     "publishable_item_count": 8,
@@ -373,5 +383,5 @@
     "other_excluded": 0,
     "catalog_content_items": 8
   },
-  "publication_state": "ready"
+  "publication_state": "enriching"
 }

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-08-01T04:53:20+00:00",
+  "updated_at": "2026-08-01T05:36:21+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 41,
@@ -387,40 +387,10 @@
       "status": "publisher_feed_verified",
       "current": {
         "available": true,
-        "status": "fallback_verified",
-        "issue_id": "jpube-260-c",
-        "publication_date": "August 2026",
-        "publication_state": "ready",
-        "source_url": "https://www.sciencedirect.com/journal/journal-of-public-economics/vol/260/suppl/C",
-        "roster_authority": "official-issue-page",
-        "roster_transport": "official-issue-page",
-        "order_verified": false,
-        "content_counts": {
-          "official_items": 22,
-          "observed_items": 22,
-          "publishable_items": 22,
-          "research_articles": 22,
-          "comments": 0,
-          "short_communications": 0,
-          "corrections": 0,
-          "editorial_material": 0,
-          "front_matter": 0,
-          "other_excluded": 0,
-          "catalog_content_items": 22
-        },
-        "abstracts_complete": 22,
-        "translations_complete": 22,
-        "errors": [],
-        "warnings": [
-          "official_order_unverified"
-        ]
-      },
-      "detected": {
-        "available": true,
         "status": "publisher_feed_verified",
         "issue_id": "jpube-261-c",
         "publication_date": "September 2026",
-        "publication_state": "enriching",
+        "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/journal-of-public-economics/vol/261/suppl/C",
         "roster_authority": "publisher-rss",
         "roster_transport": "sciencedirect-rss",
@@ -439,11 +409,40 @@
           "catalog_content_items": 14
         },
         "abstracts_complete": 14,
-        "translations_complete": 13,
+        "translations_complete": 14,
         "errors": [],
         "warnings": [
-          "official_order_unverified",
-          "translation_incomplete"
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": true,
+        "status": "publisher_feed_verified",
+        "issue_id": "jpube-261-c",
+        "publication_date": "September 2026",
+        "publication_state": "ready",
+        "source_url": "https://www.sciencedirect.com/journal/journal-of-public-economics/vol/261/suppl/C",
+        "roster_authority": "publisher-rss",
+        "roster_transport": "sciencedirect-rss",
+        "order_verified": false,
+        "content_counts": {
+          "official_items": 14,
+          "observed_items": 14,
+          "publishable_items": 14,
+          "research_articles": 14,
+          "comments": 0,
+          "short_communications": 0,
+          "corrections": 0,
+          "editorial_material": 0,
+          "front_matter": 0,
+          "other_excluded": 0,
+          "catalog_content_items": 14
+        },
+        "abstracts_complete": 14,
+        "translations_complete": 14,
+        "errors": [],
+        "warnings": [
+          "official_order_unverified"
         ]
       }
     },
@@ -1178,8 +1177,8 @@
           "other_excluded": 0,
           "catalog_content_items": 13
         },
-        "abstracts_complete": 1,
-        "translations_complete": 1,
+        "abstracts_complete": 2,
+        "translations_complete": 2,
         "errors": [],
         "warnings": [
           "official_order_unverified",
@@ -1643,31 +1642,32 @@
       "detected": {
         "available": true,
         "status": "fallback_verified",
-        "issue_id": "jf-81-3",
-        "publication_date": "June 2026",
+        "issue_id": "jf-81-4",
+        "publication_date": "August 2026",
         "publication_state": "enriching",
         "source_url": "https://onlinelibrary.wiley.com/toc/15406261/current",
         "roster_authority": "crossref-provisional",
         "roster_transport": "crossref",
         "order_verified": false,
         "content_counts": {
-          "official_items": 16,
-          "observed_items": 16,
-          "publishable_items": 13,
-          "research_articles": 13,
+          "official_items": 17,
+          "observed_items": 17,
+          "publishable_items": 14,
+          "research_articles": 14,
           "comments": 0,
           "short_communications": 0,
           "corrections": 0,
           "editorial_material": 0,
           "front_matter": 1,
           "other_excluded": 2,
-          "catalog_content_items": 13
+          "catalog_content_items": 14
         },
         "abstracts_complete": 13,
-        "translations_complete": 12,
+        "translations_complete": 13,
         "errors": [],
         "warnings": [
           "crossref_provisional_roster",
+          "abstract_en_incomplete",
           "translation_incomplete"
         ]
       }
@@ -1784,9 +1784,9 @@
       "detected": {
         "available": true,
         "status": "fallback_verified",
-        "issue_id": "rfs-39-7",
-        "publication_date": "July 2026",
-        "publication_state": "ready",
+        "issue_id": "rfs-39-8",
+        "publication_date": "August 2026",
+        "publication_state": "enriching",
         "source_url": "https://academic.oup.com/rfs/issue",
         "roster_authority": "crossref-provisional",
         "roster_transport": "crossref",
@@ -1805,10 +1805,11 @@
           "catalog_content_items": 8
         },
         "abstracts_complete": 8,
-        "translations_complete": 8,
+        "translations_complete": 7,
         "errors": [],
         "warnings": [
-          "crossref_provisional_roster"
+          "crossref_provisional_roster",
+          "translation_incomplete"
         ]
       }
     },
@@ -2099,9 +2100,9 @@
       "detected": {
         "available": true,
         "status": "fallback_verified",
-        "issue_id": "qe-17-2",
+        "issue_id": "qe-17-3",
         "publication_date": "2026",
-        "publication_state": "ready",
+        "publication_state": "enriching",
         "source_url": "https://onlinelibrary.wiley.com/toc/17597331/current",
         "roster_authority": "official-issue-page",
         "roster_transport": "official-issue-page",
@@ -2120,10 +2121,11 @@
           "catalog_content_items": 8
         },
         "abstracts_complete": 8,
-        "translations_complete": 8,
+        "translations_complete": 0,
         "errors": [],
         "warnings": [
-          "official_order_unverified"
+          "official_order_unverified",
+          "translation_incomplete"
         ]
       }
     },
