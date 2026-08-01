@@ -7,7 +7,7 @@
   "issue": "C",
   "publication_date": "September 2026",
   "source_url": "https://www.sciencedirect.com/journal/journal-of-public-economics/vol/261/suppl/C",
-  "retrieved_at": "2026-08-01T05:37:28+00:00",
+  "retrieved_at": "2026-08-01T15:47:32+00:00",
   "expected_article_count": 14,
   "research_article_count": 14,
   "status": "incomplete",
@@ -38,7 +38,7 @@
         "metadata": "crossref",
         "abstract_en": "openalex",
         "abstract_lookup": {
-          "status": "insufficient_entitlement",
+          "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
@@ -113,7 +113,7 @@
         "metadata": "crossref",
         "abstract_en": "openalex",
         "abstract_lookup": {
-          "status": "insufficient_entitlement",
+          "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
@@ -190,7 +190,7 @@
         "metadata": "crossref",
         "abstract_en": "official-sciencedirect-export",
         "abstract_lookup": {
-          "status": "insufficient_entitlement",
+          "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
@@ -270,7 +270,7 @@
         "metadata": "crossref",
         "abstract_en": "openalex",
         "abstract_lookup": {
-          "status": "insufficient_entitlement",
+          "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
@@ -347,7 +347,7 @@
         "metadata": "crossref",
         "abstract_en": "official-sciencedirect-export",
         "abstract_lookup": {
-          "status": "insufficient_entitlement",
+          "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
@@ -426,7 +426,7 @@
         "metadata": "crossref",
         "abstract_en": "official-sciencedirect-export",
         "abstract_lookup": {
-          "status": "insufficient_entitlement",
+          "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
@@ -505,7 +505,7 @@
         "metadata": "crossref",
         "abstract_en": "official-sciencedirect-export",
         "abstract_lookup": {
-          "status": "insufficient_entitlement",
+          "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
@@ -584,7 +584,7 @@
         "metadata": "crossref",
         "abstract_en": "official-sciencedirect-export",
         "abstract_lookup": {
-          "status": "insufficient_entitlement",
+          "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
@@ -665,7 +665,7 @@
         "metadata": "crossref",
         "abstract_en": "openalex",
         "abstract_lookup": {
-          "status": "insufficient_entitlement",
+          "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
@@ -743,7 +743,7 @@
         "metadata": "crossref",
         "abstract_en": "official-sciencedirect-export",
         "abstract_lookup": {
-          "status": "insufficient_entitlement",
+          "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
@@ -820,7 +820,7 @@
         "metadata": "crossref",
         "abstract_en": "openalex",
         "abstract_lookup": {
-          "status": "insufficient_entitlement",
+          "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
@@ -896,7 +896,7 @@
         "metadata": "crossref",
         "abstract_en": "openalex",
         "abstract_lookup": {
-          "status": "insufficient_entitlement",
+          "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
@@ -973,7 +973,7 @@
         "metadata": "crossref",
         "abstract_en": "official-sciencedirect-export",
         "abstract_lookup": {
-          "status": "insufficient_entitlement",
+          "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
@@ -1053,7 +1053,7 @@
         "metadata": "crossref",
         "abstract_en": "official-sciencedirect-export",
         "abstract_lookup": {
-          "status": "insufficient_entitlement",
+          "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
@@ -1116,10 +1116,18 @@
     "roster_authority": "publisher-rss",
     "roster_match_scope": "rss-volume-items",
     "rss_url": "https://rss.sciencedirect.com/publication/science/00472727",
-    "official_item_count": 14,
+    "official_item_count": 15,
     "publishable_item_count": 14,
-    "excluded_item_count": 0,
-    "excluded_items": [],
+    "excluded_item_count": 1,
+    "excluded_items": [
+      {
+        "title_en": "Editorial Board",
+        "article_type": "editorial",
+        "reason": "editorial_material",
+        "doi": "",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0047272726001854?dgcid=rss_sd_all"
+      }
+    ],
     "doi_complete": 14,
     "authors_complete": 14,
     "abstract_en_complete": 14,
@@ -1128,31 +1136,32 @@
     "flags": [
       "publisher_html_blocked_sciencedirect_rss_fallback",
       "publisher_rss_reverse_order_normalized",
-      "official_order_unverified"
+      "official_order_unverified",
+      "elsevier_insttoken_required"
     ],
     "content_counts": {
-      "official_items": 14,
-      "observed_items": 14,
+      "official_items": 15,
+      "observed_items": 15,
       "publishable_items": 14,
       "research_articles": 14,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
-      "editorial_material": 0,
+      "editorial_material": 1,
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 14
     }
   },
   "content_counts": {
-    "official_items": 14,
-    "observed_items": 14,
+    "official_items": 15,
+    "observed_items": 15,
     "publishable_items": 14,
     "research_articles": 14,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
-    "editorial_material": 0,
+    "editorial_material": 1,
     "front_matter": 0,
     "other_excluded": 0,
     "catalog_content_items": 14

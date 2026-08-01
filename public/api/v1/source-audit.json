@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-08-01T14:02:16+00:00",
+  "updated_at": "2026-08-01T15:54:18+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 41,
@@ -396,14 +396,14 @@
         "roster_transport": "sciencedirect-rss",
         "order_verified": false,
         "content_counts": {
-          "official_items": 14,
-          "observed_items": 14,
+          "official_items": 15,
+          "observed_items": 15,
           "publishable_items": 14,
           "research_articles": 14,
           "comments": 0,
           "short_communications": 0,
           "corrections": 0,
-          "editorial_material": 0,
+          "editorial_material": 1,
           "front_matter": 0,
           "other_excluded": 0,
           "catalog_content_items": 14
@@ -426,14 +426,14 @@
         "roster_transport": "sciencedirect-rss",
         "order_verified": false,
         "content_counts": {
-          "official_items": 14,
-          "observed_items": 14,
+          "official_items": 15,
+          "observed_items": 15,
           "publishable_items": 14,
           "research_articles": 14,
           "comments": 0,
           "short_communications": 0,
           "corrections": 0,
-          "editorial_material": 0,
+          "editorial_material": 1,
           "front_matter": 0,
           "other_excluded": 0,
           "catalog_content_items": 14
@@ -819,20 +819,20 @@
         "roster_transport": "sciencedirect-rss",
         "order_verified": false,
         "content_counts": {
-          "official_items": 15,
-          "observed_items": 15,
-          "publishable_items": 15,
-          "research_articles": 15,
+          "official_items": 16,
+          "observed_items": 16,
+          "publishable_items": 16,
+          "research_articles": 16,
           "comments": 0,
           "short_communications": 0,
           "corrections": 0,
           "editorial_material": 0,
           "front_matter": 0,
           "other_excluded": 0,
-          "catalog_content_items": 15
+          "catalog_content_items": 16
         },
-        "abstracts_complete": 6,
-        "translations_complete": 6,
+        "abstracts_complete": 7,
+        "translations_complete": 7,
         "errors": [],
         "warnings": [
           "official_order_unverified",
@@ -920,14 +920,14 @@
       "status": "official_page_verified",
       "current": {
         "available": true,
-        "status": "fallback_verified",
+        "status": "official_page_verified",
         "issue_id": "jep-40-2",
-        "publication_date": "May 2026",
-        "publication_state": "enriching",
+        "publication_date": "Spring 2026",
+        "publication_state": "ready",
         "source_url": "https://www.aeaweb.org/journals/jep/current-issue",
-        "roster_authority": "crossref-provisional",
-        "roster_transport": "crossref",
-        "order_verified": false,
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": true,
         "content_counts": {
           "official_items": 13,
           "observed_items": 13,
@@ -944,16 +944,14 @@
         "abstracts_complete": 11,
         "translations_complete": 11,
         "errors": [],
-        "warnings": [
-          "crossref_provisional_roster"
-        ]
+        "warnings": []
       },
       "detected": {
         "available": true,
         "status": "official_page_verified",
         "issue_id": "jep-40-2",
-        "publication_date": "",
-        "publication_state": "enriching",
+        "publication_date": "Spring 2026",
+        "publication_state": "ready",
         "source_url": "https://www.aeaweb.org/journals/jep/current-issue",
         "roster_authority": "official-issue-page",
         "roster_transport": "official-issue-page",
@@ -961,23 +959,20 @@
         "content_counts": {
           "official_items": 13,
           "observed_items": 13,
-          "publishable_items": 12,
-          "research_articles": 12,
+          "publishable_items": 11,
+          "research_articles": 11,
           "comments": 0,
           "short_communications": 0,
           "corrections": 0,
           "editorial_material": 0,
           "front_matter": 1,
-          "other_excluded": 0,
-          "catalog_content_items": 12
+          "other_excluded": 1,
+          "catalog_content_items": 11
         },
         "abstracts_complete": 11,
         "translations_complete": 11,
         "errors": [],
-        "warnings": [
-          "abstract_en_incomplete",
-          "translation_incomplete"
-        ]
+        "warnings": []
       }
     },
     {
@@ -1106,7 +1101,7 @@
           "other_excluded": 0,
           "catalog_content_items": 22
         },
-        "abstracts_complete": 9,
+        "abstracts_complete": 8,
         "translations_complete": 8,
         "errors": [],
         "warnings": [
@@ -2672,7 +2667,7 @@
         "available": true,
         "status": "fallback_verified",
         "issue_id": "ere-89-8",
-        "publication_date": "April 2026",
+        "publication_date": "August 2026",
         "publication_state": "ready",
         "source_url": "https://link.springer.com/journal/10640/volumes-and-issues",
         "roster_authority": "official-issue-page",
@@ -2702,7 +2697,7 @@
         "available": true,
         "status": "fallback_verified",
         "issue_id": "ere-89-8",
-        "publication_date": "April 2026",
+        "publication_date": "August 2026",
         "publication_state": "ready",
         "source_url": "https://link.springer.com/journal/10640/volumes-and-issues",
         "roster_authority": "official-issue-page",
