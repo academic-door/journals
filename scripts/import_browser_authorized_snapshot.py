@@ -10,6 +10,9 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
 
+import yaml
+import requests
+
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
@@ -21,7 +24,21 @@ from collectors.article_types import (
     normalize_issue_taxonomy,
     requires_abstract,
 )
-from scripts.update_journals import validate_issue
+from scripts.translate_issue import translate_missing
+from scripts.update_journals import (
+    JOURNALS_PATH,
+    TRANSLATION_CACHE,
+    apply_translation_cache,
+    archive_issue,
+    is_archivable_snapshot,
+    load_available_issues,
+    normalize_issue_content,
+    public_issue_path,
+    update_indexes,
+    validate_issue,
+    write_detected_snapshot,
+    write_json as write_public_json,
+)
 
 
 DEFAULT_OUTPUT = ROOT / "data" / "runtime" / "browser-authorized"
@@ -225,7 +242,6 @@ def build_candidate(snapshot: dict[str, Any]) -> dict[str, Any]:
             "translation_complete": 0,
             "duplicate_count": 0,
             "flags": [
-                "browser_authorized_local_snapshot",
                 "translation_incomplete",
             ],
             "browser_capture": {
@@ -254,6 +270,9 @@ def build_gap_report(
         if item.get("doi")
     }
     candidate_dois = {item["doi"] for item in candidate["articles"]}
+    translated = int(candidate["quality"].get("translation_complete", 0))
+    required = int(candidate["research_article_count"])
+    translation_ready = translated == required and required > 0
     return {
         "schema_version": "1.0",
         "generated_at": now_iso(),
@@ -287,10 +306,14 @@ def build_gap_report(
             "abstract_en_complete": candidate["quality"]["abstract_en_complete"],
         },
         "publication_gate": {
-            "status": "blocked",
-            "reason": "Chinese title and abstract translations are not yet present",
-            "translation_complete": candidate["quality"]["translation_complete"],
-            "required": candidate["research_article_count"],
+            "status": "passed" if translation_ready else "blocked",
+            "reason": (
+                "All source and translation gates passed"
+                if translation_ready
+                else "Chinese title and abstract translations are incomplete"
+            ),
+            "translation_complete": translated,
+            "required": required,
         },
         "privacy": {
             "cookies_stored": False,
@@ -299,6 +322,54 @@ def build_gap_report(
         },
         "source_snapshot": Path(str(snapshot.get("snapshot_path", ""))).name,
     }
+
+
+def translate_candidate(
+    candidate: dict[str, Any],
+    cache_path: Path,
+    *,
+    session: requests.Session | None = None,
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    report = translate_missing(candidate, cache_path, session=session)
+    candidate = apply_translation_cache(candidate, cache_path=cache_path)
+    candidate = normalize_issue_content(candidate)
+    complete = int(candidate["quality"].get("translation_complete", 0))
+    total = int(candidate["research_article_count"])
+    if complete == total and total > 0:
+        candidate["status"] = "ready"
+        candidate["publication_state"] = "ready"
+    validate_issue(candidate)
+    return candidate, report
+
+
+def promote_candidate(candidate: dict[str, Any]) -> Path:
+    if not is_archivable_snapshot(candidate):
+        complete = int(candidate.get("quality", {}).get("translation_complete", 0))
+        total = int(candidate.get("research_article_count", 0))
+        raise ValueError(
+            "candidate failed the publication gate: "
+            f"translations {complete}/{total}"
+        )
+    target = public_issue_path(str(candidate["journal_id"]))
+    previous = read_json(target) if target.exists() else None
+    if previous and previous.get("issue_id") != candidate.get("issue_id"):
+        archive_issue(previous)
+    write_public_json(target, candidate)
+    write_detected_snapshot(candidate)
+    archive_issue(candidate)
+
+    configs = yaml.safe_load(JOURNALS_PATH.read_text(encoding="utf-8"))["journals"]
+    refreshed_key = next(
+        key
+        for key, config in configs.items()
+        if config.get("id") == candidate["journal_id"]
+    )
+    issues = load_available_issues(configs, {refreshed_key: candidate})
+    update_indexes(configs, issues)
+    readback = read_json(target)
+    if not readback or readback.get("issue_id") != candidate.get("issue_id"):
+        raise RuntimeError("promoted issue write-back verification failed")
+    return target
 
 
 def main() -> int:
@@ -311,18 +382,68 @@ def main() -> int:
     parser.add_argument("snapshot", type=Path)
     parser.add_argument("--current", type=Path)
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--translate", action="store_true")
+    parser.add_argument("--promote", action="store_true")
+    parser.add_argument("--translation-cache", type=Path)
+    parser.add_argument(
+        "--ignore-proxy-env",
+        action="store_true",
+        help="Use a direct requests session when inherited proxy variables are broken.",
+    )
     args = parser.parse_args()
     if os.environ.get("GITHUB_ACTIONS", "").lower() == "true":
         raise RuntimeError("browser-authorized snapshots are local-only")
     snapshot = read_json(args.snapshot)
     snapshot["snapshot_path"] = str(args.snapshot)
     candidate = build_candidate(snapshot)
+    translation_report: dict[str, Any] | None = None
+    cache_path = args.translation_cache or (
+        TRANSLATION_CACHE / f"{candidate['journal_id']}.json"
+    )
+    if args.translate:
+        translation_session = None
+        if args.ignore_proxy_env:
+            translation_session = requests.Session()
+            translation_session.trust_env = False
+        candidate, translation_report = translate_candidate(
+            candidate,
+            cache_path,
+            session=translation_session,
+        )
+    else:
+        candidate = normalize_issue_content(
+            apply_translation_cache(candidate, cache_path=cache_path)
+        )
+        complete = int(candidate["quality"].get("translation_complete", 0))
+        if complete == int(candidate["research_article_count"]):
+            candidate["status"] = "ready"
+            candidate["publication_state"] = "ready"
+        validate_issue(candidate)
     current = read_json(args.current) if args.current and args.current.exists() else None
     args.output_dir.mkdir(parents=True, exist_ok=True)
     candidate_path = args.output_dir / f"{candidate['issue_id']}.candidate.json"
     report_path = args.output_dir / f"{candidate['issue_id']}.gap-report.json"
     write_json(candidate_path, candidate)
-    write_json(report_path, build_gap_report(snapshot, candidate, current))
+    gap_report = build_gap_report(snapshot, candidate, current)
+    if translation_report is not None:
+        gap_report["translation_run"] = translation_report
+    write_json(report_path, gap_report)
+    if args.promote:
+        try:
+            promoted_path = promote_candidate(candidate)
+        except Exception as error:
+            gap_report["promotion"] = {
+                "status": "blocked",
+                "error": f"{type(error).__name__}: {error}",
+            }
+            write_json(report_path, gap_report)
+            raise
+        else:
+            gap_report["promotion"] = {
+                "status": "completed",
+                "target": str(promoted_path.relative_to(ROOT)).replace("\\", "/"),
+            }
+    write_json(report_path, gap_report)
     print(candidate_path)
     print(report_path)
     return 0
