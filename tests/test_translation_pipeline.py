@@ -376,5 +376,42 @@ class TranslationPipelineTests(unittest.TestCase):
         self.assertIn("github-models", provider_state)
         self.assertNotIn("google-translate", provider_state)
         self.assertEqual(second_result["provider_state"], provider_state)
+
+
+    def test_restore_reinserts_space_when_google_fuses_placeholder_with_word(self) -> None:
+        protected = "The [[2019]] MFP allocated funds."
+        fused = "[[2019]]MFP"
+        replacements = {"[[2019]]": "2019"}
+        restored = _restore_numbers(fused, replacements)
+        self.assertEqual("2019 MFP", restored)
+        self.assertIn("2019", _numbers(restored))
+
+    def test_google_letter_fusion_does_not_break_numeric_validation(self) -> None:
+        article = {
+            "title_en": "The political benefits of the monoculture",
+            "abstract_en": (
+                "In the 2019 wave of the Market Facilitation Program (MFP), "
+                "the 2019 MFP allocated $14.5 billion via a formula. "
+                "In the 2020 election, an additional $1 million raised the "
+                "2020 two-party vote share by about .18 percentage points."
+            ),
+            "article_type": "research-article",
+        }
+        protected, replacements = _protect_numbers(article["abstract_en"])
+        # Google fuses the placeholder with the following English word.
+        fused = protected.replace("]] MFP", "]]MFP")
+        restored = _restore_numbers(fused, replacements)
+        self.assertEqual(
+            _numbers(article["abstract_en"]),
+            _numbers(restored),
+        )
+        validate_translation(
+            article,
+            {
+                "title_cn": "单一作物制的政治收益",
+                "abstract_cn": restored,
+            },
+        )
+
 if __name__ == "__main__":
     unittest.main()

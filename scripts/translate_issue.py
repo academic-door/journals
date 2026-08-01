@@ -255,6 +255,11 @@ def _protect_numbers(value: str) -> tuple[str, dict[str, str]]:
 
 def _restore_numbers(value: str, replacements: dict[str, str]) -> str:
     restored = value
+    # Google occasionally fuses a protected placeholder with the next English
+    # word (``[[2019]] MFP`` becomes ``[[2019]]MFP``). Without a separator the
+    # numeric gate cannot see the restored digit. Reinsert the space only when
+    # the placeholder is directly followed by an ASCII letter.
+    restored = re.sub(r"\]\](?=[A-Za-z])", "]] ", restored)
     for token, number in replacements.items():
         restored = re.sub(re.escape(token), number, restored, flags=re.IGNORECASE)
 
