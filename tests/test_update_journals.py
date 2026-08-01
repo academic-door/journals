@@ -82,7 +82,39 @@ class PublicationGateTests(unittest.TestCase):
         issue = copy.deepcopy(COMPLETE_ISSUE)
         issue["quality"]["flags"] = ["crossref_provisional_roster"]
         self.assertFalse(is_detected_snapshot(issue))
-        self.assertFalse(is_publishable_snapshot(issue))
+        # A previously published last-known-good snapshot must remain usable
+        # in public indexes; collect_one blocks new provisional promotion.
+        self.assertTrue(is_publishable_snapshot(issue))
+
+    def test_new_crossref_provisional_roster_preserves_previous(self) -> None:
+        import tempfile
+        from pathlib import Path
+        from unittest.mock import patch
+
+        previous = archive_fixture("demo-1-1", "1")
+        provisional = archive_fixture("demo-2-1", "2")
+        provisional["quality"]["flags"] = ["crossref_provisional_roster"]
+        config = {
+            "id": "demo",
+            "current_issue_url": "https://example.org/current",
+        }
+        with (
+            tempfile.TemporaryDirectory() as directory,
+            patch(
+                "scripts.update_journals.public_issue_path",
+                return_value=Path(directory) / "current.json",
+            ),
+            patch("scripts.update_journals.read_json", return_value=previous),
+            patch(
+                "scripts.update_journals.collector_for",
+                return_value=lambda: copy.deepcopy(provisional),
+            ),
+            patch("scripts.update_journals.is_detected_snapshot", return_value=True),
+        ):
+            issue, report = collect_one("DEMO", config, translate=False)
+        self.assertEqual(previous, issue)
+        self.assertEqual("preserved_previous", report["result"])
+        self.assertIn("requires official confirmation", report["error"])
 
     def test_newer_detected_issue_wins_over_stale_candidate(self) -> None:
         newer = archive_fixture("demo-260-c", "260")

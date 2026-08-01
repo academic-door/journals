@@ -742,7 +742,6 @@ def is_publishable_snapshot(issue: dict[str, Any]) -> bool:
         and quality.get("authors_complete") == research_count
         and abstracts_complete
         and quality.get("duplicate_count") == 0
-        and "crossref_provisional_roster" not in quality.get("flags", [])
         and not any(
             flag.startswith("collector_error:")
             for flag in quality.get("flags", [])
@@ -962,6 +961,15 @@ def collect_one(
         ):
             issue = previous_detected
             report["result_detail"] = "preserved_newer_detected_issue"
+        if "crossref_provisional_roster" in issue.get("quality", {}).get(
+            "flags", []
+        ):
+            # Crossref can describe a candidate, but it cannot replace the
+            # publisher-confirmed roster. Keep the last-known-good public issue
+            # while allowing that older snapshot to remain visible in indexes.
+            raise ValueError(
+                "provisional Crossref roster requires official confirmation"
+            )
         if expected_volume and str(issue.get("volume", "")) != expected_volume:
             raise SourceLagError(
                 f"detected volume {expected_volume}, but the deep collector "
