@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-08-01T05:37:29+00:00",
+  "updated_at": "2026-08-01T06:46:23+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 41,
@@ -2070,7 +2070,7 @@
       "current": {
         "available": true,
         "status": "fallback_verified",
-        "issue_id": "qe-17-2",
+        "issue_id": "qe-17-3",
         "publication_date": "2026",
         "publication_state": "ready",
         "source_url": "https://onlinelibrary.wiley.com/toc/17597331/current",
@@ -2102,7 +2102,7 @@
         "status": "fallback_verified",
         "issue_id": "qe-17-3",
         "publication_date": "2026",
-        "publication_state": "enriching",
+        "publication_state": "ready",
         "source_url": "https://onlinelibrary.wiley.com/toc/17597331/current",
         "roster_authority": "official-issue-page",
         "roster_transport": "official-issue-page",
@@ -2121,11 +2121,10 @@
           "catalog_content_items": 8
         },
         "abstracts_complete": 8,
-        "translations_complete": 0,
+        "translations_complete": 8,
         "errors": [],
         "warnings": [
-          "official_order_unverified",
-          "translation_incomplete"
+          "official_order_unverified"
         ]
       }
     },
