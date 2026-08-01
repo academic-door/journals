@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-08-01T19:36:18+00:00",
+  "updated_at": "2026-08-01T20:03:03+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 41,
-    "official_page_verified": 8,
-    "publisher_feed_verified": 13,
+    "official_page_verified": 7,
+    "publisher_feed_verified": 14,
     "fallback_verified": 20,
     "needs_attention": 0,
     "missing": 0,
@@ -315,24 +315,24 @@
       "name": "Journal of Development Economics",
       "publisher": "Elsevier",
       "configured_source": "https://www.sciencedirect.com/journal/journal-of-development-economics/issues",
-      "status": "official_page_verified",
+      "status": "publisher_feed_verified",
       "current": {
         "available": true,
-        "status": "official_page_verified",
+        "status": "publisher_feed_verified",
         "issue_id": "jde-183-c",
         "publication_date": "September 2026",
         "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/183/suppl/C",
-        "roster_authority": "official-issue-page",
-        "roster_transport": "browser-authorized-local",
-        "order_verified": true,
+        "roster_authority": "publisher-rss",
+        "roster_transport": "sciencedirect-rss",
+        "order_verified": false,
         "content_counts": {
           "official_items": 36,
           "observed_items": 36,
           "publishable_items": 34,
-          "research_articles": 33,
+          "research_articles": 34,
           "comments": 0,
-          "short_communications": 1,
+          "short_communications": 0,
           "corrections": 1,
           "editorial_material": 1,
           "front_matter": 0,
@@ -342,25 +342,27 @@
         "abstracts_complete": 34,
         "translations_complete": 34,
         "errors": [],
-        "warnings": []
+        "warnings": [
+          "official_order_unverified"
+        ]
       },
       "detected": {
         "available": true,
-        "status": "official_page_verified",
+        "status": "publisher_feed_verified",
         "issue_id": "jde-183-c",
         "publication_date": "September 2026",
         "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/183/suppl/C",
-        "roster_authority": "official-issue-page",
-        "roster_transport": "browser-authorized-local",
-        "order_verified": true,
+        "roster_authority": "publisher-rss",
+        "roster_transport": "sciencedirect-rss",
+        "order_verified": false,
         "content_counts": {
           "official_items": 36,
           "observed_items": 36,
           "publishable_items": 34,
-          "research_articles": 33,
+          "research_articles": 34,
           "comments": 0,
-          "short_communications": 1,
+          "short_communications": 0,
           "corrections": 1,
           "editorial_material": 1,
           "front_matter": 0,
@@ -370,7 +372,9 @@
         "abstracts_complete": 34,
         "translations_complete": 34,
         "errors": [],
-        "warnings": []
+        "warnings": [
+          "official_order_unverified"
+        ]
       }
     },
     {
