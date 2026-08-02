@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-08-02T10:10:17+00:00",
+  "updated_at": "2026-08-02T11:31:57+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 41,
@@ -165,7 +165,7 @@
         "status": "publisher_feed_verified",
         "issue_id": "qje-141-3",
         "publication_date": "August 2026",
-        "publication_state": "enriching",
+        "publication_state": "ready",
         "source_url": "https://academic.oup.com/qje/issue",
         "roster_authority": "publisher-rss",
         "roster_transport": "publisher-rss",
@@ -184,11 +184,9 @@
           "catalog_content_items": 15
         },
         "abstracts_complete": 15,
-        "translations_complete": 14,
+        "translations_complete": 15,
         "errors": [],
-        "warnings": [
-          "translation_incomplete"
-        ]
+        "warnings": []
       }
     },
     {
@@ -525,38 +523,10 @@
       "status": "publisher_feed_verified",
       "current": {
         "available": true,
-        "status": "fallback_verified",
-        "issue_id": "jue-153-c",
-        "publication_date": "May 2026",
-        "publication_state": "enriching",
-        "source_url": "https://www.sciencedirect.com/journal/journal-of-urban-economics/vol/153/suppl/C",
-        "roster_authority": "official-issue-page",
-        "roster_transport": "official-issue-page",
-        "order_verified": true,
-        "content_counts": {
-          "official_items": 11,
-          "observed_items": 11,
-          "publishable_items": 10,
-          "research_articles": 10,
-          "comments": 0,
-          "short_communications": 0,
-          "corrections": 1,
-          "editorial_material": 0,
-          "front_matter": 0,
-          "other_excluded": 0,
-          "catalog_content_items": 11
-        },
-        "abstracts_complete": 10,
-        "translations_complete": 10,
-        "errors": [],
-        "warnings": []
-      },
-      "detected": {
-        "available": true,
         "status": "publisher_feed_verified",
         "issue_id": "jue-154-c",
         "publication_date": "August 2026",
-        "publication_state": "enriching",
+        "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/journal-of-urban-economics/vol/154/suppl/C",
         "roster_authority": "publisher-rss",
         "roster_transport": "sciencedirect-rss",
@@ -574,13 +544,41 @@
           "other_excluded": 0,
           "catalog_content_items": 17
         },
-        "abstracts_complete": 5,
-        "translations_complete": 5,
+        "abstracts_complete": 17,
+        "translations_complete": 17,
         "errors": [],
         "warnings": [
-          "official_order_unverified",
-          "abstract_en_incomplete",
-          "translation_incomplete"
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": true,
+        "status": "publisher_feed_verified",
+        "issue_id": "jue-154-c",
+        "publication_date": "August 2026",
+        "publication_state": "ready",
+        "source_url": "https://www.sciencedirect.com/journal/journal-of-urban-economics/vol/154/suppl/C",
+        "roster_authority": "publisher-rss",
+        "roster_transport": "sciencedirect-rss",
+        "order_verified": false,
+        "content_counts": {
+          "official_items": 17,
+          "observed_items": 17,
+          "publishable_items": 17,
+          "research_articles": 17,
+          "comments": 0,
+          "short_communications": 0,
+          "corrections": 0,
+          "editorial_material": 0,
+          "front_matter": 0,
+          "other_excluded": 0,
+          "catalog_content_items": 17
+        },
+        "abstracts_complete": 17,
+        "translations_complete": 17,
+        "errors": [],
+        "warnings": [
+          "official_order_unverified"
         ]
       }
     },
@@ -780,40 +778,10 @@
       "status": "publisher_feed_verified",
       "current": {
         "available": true,
-        "status": "fallback_verified",
-        "issue_id": "eer-187-c",
-        "publication_date": "July 2026",
-        "publication_state": "enriching",
-        "source_url": "https://www.sciencedirect.com/journal/european-economic-review/vol/187/suppl/C",
-        "roster_authority": "official-issue-page",
-        "roster_transport": "official-issue-page",
-        "order_verified": false,
-        "content_counts": {
-          "official_items": 34,
-          "observed_items": 34,
-          "publishable_items": 34,
-          "research_articles": 34,
-          "comments": 0,
-          "short_communications": 0,
-          "corrections": 0,
-          "editorial_material": 0,
-          "front_matter": 0,
-          "other_excluded": 0,
-          "catalog_content_items": 34
-        },
-        "abstracts_complete": 34,
-        "translations_complete": 34,
-        "errors": [],
-        "warnings": [
-          "official_order_unverified"
-        ]
-      },
-      "detected": {
-        "available": true,
         "status": "publisher_feed_verified",
         "issue_id": "eer-189-c",
         "publication_date": "September 2026",
-        "publication_state": "enriching",
+        "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/european-economic-review/vol/189/suppl/C",
         "roster_authority": "publisher-rss",
         "roster_transport": "sciencedirect-rss",
@@ -831,13 +799,41 @@
           "other_excluded": 0,
           "catalog_content_items": 16
         },
-        "abstracts_complete": 7,
-        "translations_complete": 7,
+        "abstracts_complete": 16,
+        "translations_complete": 16,
         "errors": [],
         "warnings": [
-          "official_order_unverified",
-          "abstract_en_incomplete",
-          "translation_incomplete"
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": true,
+        "status": "publisher_feed_verified",
+        "issue_id": "eer-189-c",
+        "publication_date": "September 2026",
+        "publication_state": "ready",
+        "source_url": "https://www.sciencedirect.com/journal/european-economic-review/vol/189/suppl/C",
+        "roster_authority": "publisher-rss",
+        "roster_transport": "sciencedirect-rss",
+        "order_verified": false,
+        "content_counts": {
+          "official_items": 16,
+          "observed_items": 16,
+          "publishable_items": 16,
+          "research_articles": 16,
+          "comments": 0,
+          "short_communications": 0,
+          "corrections": 0,
+          "editorial_material": 0,
+          "front_matter": 0,
+          "other_excluded": 0,
+          "catalog_content_items": 16
+        },
+        "abstracts_complete": 16,
+        "translations_complete": 16,
+        "errors": [],
+        "warnings": [
+          "official_order_unverified"
         ]
       }
     },
@@ -1050,29 +1046,29 @@
       "status": "publisher_feed_verified",
       "current": {
         "available": true,
-        "status": "fallback_verified",
-        "issue_id": "geb-158-c",
-        "publication_date": "June 2026",
+        "status": "publisher_feed_verified",
+        "issue_id": "geb-159-c",
+        "publication_date": "September 2026",
         "publication_state": "ready",
-        "source_url": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/158/suppl/C",
-        "roster_authority": "official-issue-page",
-        "roster_transport": "official-issue-page",
+        "source_url": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/159/suppl/C",
+        "roster_authority": "publisher-rss",
+        "roster_transport": "sciencedirect-rss+browser-authorized-abstracts",
         "order_verified": false,
         "content_counts": {
-          "official_items": 44,
-          "observed_items": 44,
-          "publishable_items": 42,
-          "research_articles": 42,
+          "official_items": 22,
+          "observed_items": 22,
+          "publishable_items": 21,
+          "research_articles": 21,
           "comments": 0,
           "short_communications": 0,
           "corrections": 0,
-          "editorial_material": 2,
+          "editorial_material": 0,
           "front_matter": 0,
-          "other_excluded": 0,
-          "catalog_content_items": 42
+          "other_excluded": 1,
+          "catalog_content_items": 21
         },
-        "abstracts_complete": 42,
-        "translations_complete": 42,
+        "abstracts_complete": 21,
+        "translations_complete": 21,
         "errors": [],
         "warnings": [
           "official_order_unverified"
@@ -1101,8 +1097,8 @@
           "other_excluded": 0,
           "catalog_content_items": 22
         },
-        "abstracts_complete": 8,
-        "translations_complete": 8,
+        "abstracts_complete": 21,
+        "translations_complete": 21,
         "errors": [],
         "warnings": [
           "official_order_unverified",
@@ -1122,39 +1118,9 @@
       "current": {
         "available": true,
         "status": "publisher_feed_verified",
-        "issue_id": "jet-235-c",
-        "publication_date": "June 2026",
-        "publication_state": "ready",
-        "source_url": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster_authority": "publisher-rss",
-        "roster_transport": "sciencedirect-rss",
-        "order_verified": false,
-        "content_counts": {
-          "official_items": 16,
-          "observed_items": 16,
-          "publishable_items": 15,
-          "research_articles": 15,
-          "comments": 0,
-          "short_communications": 0,
-          "corrections": 0,
-          "editorial_material": 1,
-          "front_matter": 0,
-          "other_excluded": 0,
-          "catalog_content_items": 15
-        },
-        "abstracts_complete": 15,
-        "translations_complete": 15,
-        "errors": [],
-        "warnings": [
-          "official_order_unverified"
-        ]
-      },
-      "detected": {
-        "available": true,
-        "status": "publisher_feed_verified",
         "issue_id": "jet-236-c",
         "publication_date": "September 2026",
-        "publication_state": "enriching",
+        "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
         "roster_authority": "publisher-rss",
         "roster_transport": "sciencedirect-rss",
@@ -1172,13 +1138,41 @@
           "other_excluded": 0,
           "catalog_content_items": 14
         },
-        "abstracts_complete": 3,
-        "translations_complete": 3,
+        "abstracts_complete": 14,
+        "translations_complete": 14,
         "errors": [],
         "warnings": [
-          "official_order_unverified",
-          "abstract_en_incomplete",
-          "translation_incomplete"
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": true,
+        "status": "publisher_feed_verified",
+        "issue_id": "jet-236-c",
+        "publication_date": "September 2026",
+        "publication_state": "ready",
+        "source_url": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
+        "roster_authority": "publisher-rss",
+        "roster_transport": "sciencedirect-rss",
+        "order_verified": false,
+        "content_counts": {
+          "official_items": 14,
+          "observed_items": 14,
+          "publishable_items": 14,
+          "research_articles": 14,
+          "comments": 0,
+          "short_communications": 0,
+          "corrections": 0,
+          "editorial_material": 0,
+          "front_matter": 0,
+          "other_excluded": 0,
+          "catalog_content_items": 14
+        },
+        "abstracts_complete": 14,
+        "translations_complete": 14,
+        "errors": [],
+        "warnings": [
+          "official_order_unverified"
         ]
       }
     },
@@ -1396,39 +1390,9 @@
       "current": {
         "available": true,
         "status": "publisher_feed_verified",
-        "issue_id": "jebo-248-c",
-        "publication_date": "August 2026",
-        "publication_state": "ready",
-        "source_url": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/248/suppl/C",
-        "roster_authority": "publisher-rss",
-        "roster_transport": "sciencedirect-rss",
-        "order_verified": false,
-        "content_counts": {
-          "official_items": 62,
-          "observed_items": 62,
-          "publishable_items": 60,
-          "research_articles": 60,
-          "comments": 0,
-          "short_communications": 0,
-          "corrections": 1,
-          "editorial_material": 1,
-          "front_matter": 0,
-          "other_excluded": 0,
-          "catalog_content_items": 61
-        },
-        "abstracts_complete": 60,
-        "translations_complete": 60,
-        "errors": [],
-        "warnings": [
-          "official_order_unverified"
-        ]
-      },
-      "detected": {
-        "available": true,
-        "status": "publisher_feed_verified",
         "issue_id": "jebo-249-c",
         "publication_date": "September 2026",
-        "publication_state": "enriching",
+        "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/249/suppl/C",
         "roster_authority": "publisher-rss",
         "roster_transport": "sciencedirect-rss",
@@ -1446,13 +1410,41 @@
           "other_excluded": 0,
           "catalog_content_items": 21
         },
-        "abstracts_complete": 5,
-        "translations_complete": 5,
+        "abstracts_complete": 21,
+        "translations_complete": 21,
         "errors": [],
         "warnings": [
-          "official_order_unverified",
-          "abstract_en_incomplete",
-          "translation_incomplete"
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": true,
+        "status": "publisher_feed_verified",
+        "issue_id": "jebo-249-c",
+        "publication_date": "September 2026",
+        "publication_state": "ready",
+        "source_url": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/249/suppl/C",
+        "roster_authority": "publisher-rss",
+        "roster_transport": "sciencedirect-rss",
+        "order_verified": false,
+        "content_counts": {
+          "official_items": 21,
+          "observed_items": 21,
+          "publishable_items": 21,
+          "research_articles": 21,
+          "comments": 0,
+          "short_communications": 0,
+          "corrections": 0,
+          "editorial_material": 0,
+          "front_matter": 0,
+          "other_excluded": 0,
+          "catalog_content_items": 21
+        },
+        "abstracts_complete": 21,
+        "translations_complete": 21,
+        "errors": [],
+        "warnings": [
+          "official_order_unverified"
         ]
       }
     },
@@ -1535,40 +1527,10 @@
       "status": "publisher_feed_verified",
       "current": {
         "available": true,
-        "status": "fallback_verified",
-        "issue_id": "jie-161-c",
-        "publication_date": "May 2026",
-        "publication_state": "enriching",
-        "source_url": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/161/suppl/C",
-        "roster_authority": "official-issue-page",
-        "roster_transport": "official-issue-page",
-        "order_verified": false,
-        "content_counts": {
-          "official_items": 25,
-          "observed_items": 25,
-          "publishable_items": 25,
-          "research_articles": 25,
-          "comments": 0,
-          "short_communications": 0,
-          "corrections": 0,
-          "editorial_material": 0,
-          "front_matter": 0,
-          "other_excluded": 0,
-          "catalog_content_items": 25
-        },
-        "abstracts_complete": 25,
-        "translations_complete": 25,
-        "errors": [],
-        "warnings": [
-          "official_order_unverified"
-        ]
-      },
-      "detected": {
-        "available": true,
         "status": "publisher_feed_verified",
         "issue_id": "jie-162-c",
         "publication_date": "August 2026",
-        "publication_state": "enriching",
+        "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/162/suppl/C",
         "roster_authority": "publisher-rss",
         "roster_transport": "sciencedirect-rss",
@@ -1586,13 +1548,41 @@
           "other_excluded": 0,
           "catalog_content_items": 27
         },
-        "abstracts_complete": 10,
-        "translations_complete": 10,
+        "abstracts_complete": 27,
+        "translations_complete": 27,
         "errors": [],
         "warnings": [
-          "official_order_unverified",
-          "abstract_en_incomplete",
-          "translation_incomplete"
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": true,
+        "status": "publisher_feed_verified",
+        "issue_id": "jie-162-c",
+        "publication_date": "August 2026",
+        "publication_state": "ready",
+        "source_url": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/162/suppl/C",
+        "roster_authority": "publisher-rss",
+        "roster_transport": "sciencedirect-rss",
+        "order_verified": false,
+        "content_counts": {
+          "official_items": 28,
+          "observed_items": 28,
+          "publishable_items": 27,
+          "research_articles": 27,
+          "comments": 0,
+          "short_communications": 0,
+          "corrections": 0,
+          "editorial_material": 1,
+          "front_matter": 0,
+          "other_excluded": 0,
+          "catalog_content_items": 27
+        },
+        "abstracts_complete": 27,
+        "translations_complete": 27,
+        "errors": [],
+        "warnings": [
+          "official_order_unverified"
         ]
       }
     },
@@ -1677,40 +1667,10 @@
       "status": "publisher_feed_verified",
       "current": {
         "available": true,
-        "status": "fallback_verified",
-        "issue_id": "jfe-182-c",
-        "publication_date": "August 2026",
-        "publication_state": "ready",
-        "source_url": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/182/suppl/C",
-        "roster_authority": "official-issue-page",
-        "roster_transport": "official-issue-page",
-        "order_verified": false,
-        "content_counts": {
-          "official_items": 6,
-          "observed_items": 6,
-          "publishable_items": 6,
-          "research_articles": 6,
-          "comments": 0,
-          "short_communications": 0,
-          "corrections": 0,
-          "editorial_material": 0,
-          "front_matter": 0,
-          "other_excluded": 0,
-          "catalog_content_items": 6
-        },
-        "abstracts_complete": 6,
-        "translations_complete": 6,
-        "errors": [],
-        "warnings": [
-          "official_order_unverified"
-        ]
-      },
-      "detected": {
-        "available": true,
         "status": "publisher_feed_verified",
         "issue_id": "jfe-183-c",
         "publication_date": "September 2026",
-        "publication_state": "enriching",
+        "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/183/suppl/C",
         "roster_authority": "publisher-rss",
         "roster_transport": "sciencedirect-rss",
@@ -1728,13 +1688,41 @@
           "other_excluded": 0,
           "catalog_content_items": 17
         },
-        "abstracts_complete": 2,
-        "translations_complete": 2,
+        "abstracts_complete": 17,
+        "translations_complete": 17,
         "errors": [],
         "warnings": [
-          "official_order_unverified",
-          "abstract_en_incomplete",
-          "translation_incomplete"
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": true,
+        "status": "publisher_feed_verified",
+        "issue_id": "jfe-183-c",
+        "publication_date": "September 2026",
+        "publication_state": "ready",
+        "source_url": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/183/suppl/C",
+        "roster_authority": "publisher-rss",
+        "roster_transport": "sciencedirect-rss",
+        "order_verified": false,
+        "content_counts": {
+          "official_items": 18,
+          "observed_items": 18,
+          "publishable_items": 17,
+          "research_articles": 17,
+          "comments": 0,
+          "short_communications": 0,
+          "corrections": 0,
+          "editorial_material": 1,
+          "front_matter": 0,
+          "other_excluded": 0,
+          "catalog_content_items": 17
+        },
+        "abstracts_complete": 17,
+        "translations_complete": 17,
+        "errors": [],
+        "warnings": [
+          "official_order_unverified"
         ]
       }
     },
@@ -2133,40 +2121,10 @@
       "status": "publisher_feed_verified",
       "current": {
         "available": true,
-        "status": "fallback_verified",
-        "issue_id": "jme-160-c",
-        "publication_date": "June 2026",
-        "publication_state": "enriching",
-        "source_url": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/160/suppl/C",
-        "roster_authority": "official-issue-page",
-        "roster_transport": "official-issue-page",
-        "order_verified": false,
-        "content_counts": {
-          "official_items": 9,
-          "observed_items": 9,
-          "publishable_items": 9,
-          "research_articles": 6,
-          "comments": 3,
-          "short_communications": 0,
-          "corrections": 0,
-          "editorial_material": 0,
-          "front_matter": 0,
-          "other_excluded": 0,
-          "catalog_content_items": 9
-        },
-        "abstracts_complete": 9,
-        "translations_complete": 9,
-        "errors": [],
-        "warnings": [
-          "official_order_unverified"
-        ]
-      },
-      "detected": {
-        "available": true,
         "status": "publisher_feed_verified",
         "issue_id": "jme-162-c",
         "publication_date": "September 2026",
-        "publication_state": "enriching",
+        "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/162/suppl/C",
         "roster_authority": "publisher-rss",
         "roster_transport": "sciencedirect-rss",
@@ -2184,13 +2142,41 @@
           "other_excluded": 0,
           "catalog_content_items": 3
         },
-        "abstracts_complete": 1,
-        "translations_complete": 1,
+        "abstracts_complete": 3,
+        "translations_complete": 3,
         "errors": [],
         "warnings": [
-          "official_order_unverified",
-          "abstract_en_incomplete",
-          "translation_incomplete"
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": true,
+        "status": "publisher_feed_verified",
+        "issue_id": "jme-162-c",
+        "publication_date": "September 2026",
+        "publication_state": "ready",
+        "source_url": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/162/suppl/C",
+        "roster_authority": "publisher-rss",
+        "roster_transport": "sciencedirect-rss",
+        "order_verified": false,
+        "content_counts": {
+          "official_items": 3,
+          "observed_items": 3,
+          "publishable_items": 3,
+          "research_articles": 3,
+          "comments": 0,
+          "short_communications": 0,
+          "corrections": 0,
+          "editorial_material": 0,
+          "front_matter": 0,
+          "other_excluded": 0,
+          "catalog_content_items": 3
+        },
+        "abstracts_complete": 3,
+        "translations_complete": 3,
+        "errors": [],
+        "warnings": [
+          "official_order_unverified"
         ]
       }
     },
@@ -2338,40 +2324,10 @@
       "status": "publisher_feed_verified",
       "current": {
         "available": true,
-        "status": "fallback_verified",
-        "issue_id": "joe-256-pb",
-        "publication_date": "July 2026",
-        "publication_state": "ready",
-        "source_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/256/suppl/PB",
-        "roster_authority": "official-issue-page",
-        "roster_transport": "official-issue-page",
-        "order_verified": false,
-        "content_counts": {
-          "official_items": 22,
-          "observed_items": 22,
-          "publishable_items": 22,
-          "research_articles": 22,
-          "comments": 0,
-          "short_communications": 0,
-          "corrections": 0,
-          "editorial_material": 0,
-          "front_matter": 0,
-          "other_excluded": 0,
-          "catalog_content_items": 22
-        },
-        "abstracts_complete": 22,
-        "translations_complete": 22,
-        "errors": [],
-        "warnings": [
-          "official_order_unverified"
-        ]
-      },
-      "detected": {
-        "available": true,
         "status": "publisher_feed_verified",
         "issue_id": "joe-257-c",
         "publication_date": "September 2026",
-        "publication_state": "enriching",
+        "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/257/suppl/C",
         "roster_authority": "publisher-rss",
         "roster_transport": "sciencedirect-rss",
@@ -2389,13 +2345,41 @@
           "other_excluded": 0,
           "catalog_content_items": 14
         },
-        "abstracts_complete": 5,
-        "translations_complete": 5,
+        "abstracts_complete": 14,
+        "translations_complete": 14,
         "errors": [],
         "warnings": [
-          "official_order_unverified",
-          "abstract_en_incomplete",
-          "translation_incomplete"
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": true,
+        "status": "publisher_feed_verified",
+        "issue_id": "joe-257-c",
+        "publication_date": "September 2026",
+        "publication_state": "ready",
+        "source_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/257/suppl/C",
+        "roster_authority": "publisher-rss",
+        "roster_transport": "sciencedirect-rss",
+        "order_verified": false,
+        "content_counts": {
+          "official_items": 14,
+          "observed_items": 14,
+          "publishable_items": 14,
+          "research_articles": 14,
+          "comments": 0,
+          "short_communications": 0,
+          "corrections": 0,
+          "editorial_material": 0,
+          "front_matter": 0,
+          "other_excluded": 0,
+          "catalog_content_items": 14
+        },
+        "abstracts_complete": 14,
+        "translations_complete": 14,
+        "errors": [],
+        "warnings": [
+          "official_order_unverified"
         ]
       }
     },
@@ -2410,39 +2394,9 @@
       "current": {
         "available": true,
         "status": "publisher_feed_verified",
-        "issue_id": "foodpolicy-142-c",
-        "publication_date": "August 2026",
-        "publication_state": "ready",
-        "source_url": "https://www.sciencedirect.com/journal/food-policy/vol/142/suppl/C",
-        "roster_authority": "publisher-rss",
-        "roster_transport": "sciencedirect-rss",
-        "order_verified": false,
-        "content_counts": {
-          "official_items": 29,
-          "observed_items": 29,
-          "publishable_items": 26,
-          "research_articles": 26,
-          "comments": 0,
-          "short_communications": 0,
-          "corrections": 2,
-          "editorial_material": 1,
-          "front_matter": 0,
-          "other_excluded": 0,
-          "catalog_content_items": 28
-        },
-        "abstracts_complete": 26,
-        "translations_complete": 26,
-        "errors": [],
-        "warnings": [
-          "official_order_unverified"
-        ]
-      },
-      "detected": {
-        "available": true,
-        "status": "publisher_feed_verified",
         "issue_id": "foodpolicy-143-c",
         "publication_date": "September 2026",
-        "publication_state": "enriching",
+        "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/food-policy/vol/143/suppl/C",
         "roster_authority": "publisher-rss",
         "roster_transport": "sciencedirect-rss",
@@ -2460,13 +2414,41 @@
           "other_excluded": 0,
           "catalog_content_items": 4
         },
-        "abstracts_complete": 1,
-        "translations_complete": 1,
+        "abstracts_complete": 4,
+        "translations_complete": 4,
         "errors": [],
         "warnings": [
-          "official_order_unverified",
-          "abstract_en_incomplete",
-          "translation_incomplete"
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": true,
+        "status": "publisher_feed_verified",
+        "issue_id": "foodpolicy-143-c",
+        "publication_date": "September 2026",
+        "publication_state": "ready",
+        "source_url": "https://www.sciencedirect.com/journal/food-policy/vol/143/suppl/C",
+        "roster_authority": "publisher-rss",
+        "roster_transport": "sciencedirect-rss",
+        "order_verified": false,
+        "content_counts": {
+          "official_items": 4,
+          "observed_items": 4,
+          "publishable_items": 4,
+          "research_articles": 4,
+          "comments": 0,
+          "short_communications": 0,
+          "corrections": 0,
+          "editorial_material": 0,
+          "front_matter": 0,
+          "other_excluded": 0,
+          "catalog_content_items": 4
+        },
+        "abstracts_complete": 4,
+        "translations_complete": 4,
+        "errors": [],
+        "warnings": [
+          "official_order_unverified"
         ]
       }
     },
