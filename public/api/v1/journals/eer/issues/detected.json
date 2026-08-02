@@ -11,7 +11,7 @@
   "retrieved_at": "2026-08-02T07:33:22+00:00",
   "expected_article_count": 16,
   "research_article_count": 16,
-  "status": "incomplete",
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
@@ -78,7 +78,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-01T03:53:38+00:00",
+        "translated_at": "2026-08-02T08:44:24+00:00",
         "source_hash": "c901f5e2528c8dcf5b163ac70ce82ede22fce446aac2cf5c303a65a2134f24fb"
       },
       "quality_flags": [],
@@ -95,22 +95,22 @@
       "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "State-dependent distribution friction and the transmission of monetary policy",
-      "title_cn": "",
+      "title_cn": "国家依赖的分配摩擦和货币政策的传导",
       "authors": [
         "Dong Cheng",
         "Nam T. Vu"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "We examine the role of state-dependent distribution frictions in the transmission of monetary policy shocks in a dynamic multi-sector general equilibrium model. Our benchmark model predicts a counter-cyclical distribution margin, which is consistent with micro price evidence. We then estimate an augmented model with price and wage rigidities and attribute the lion’s share of this countercyclicality to service-sector productivity shocks. By allowing for distribution frictions to depend on the state of the economy, which substantially alters monetary transmission, we find that state dependence weakens the real effects of monetary policy by dampening the consumption response to monetary shocks. In stark contrast, such a result cannot be replicated when distribution frictions are time-invariant. Our findings highlight a novel channel through which the interplay between sectoral productivity and distribution frictions jointly influences monetary policy transmission.",
+      "abstract_cn": "我们在动态多部门一般均衡模型中研究了国家依赖的分配摩擦在货币政策冲击传导中的作用。我们的基准模型预测了反周期的分配边际，这与微观价格证据一致。然后，我们估计了一个具有价格和工资刚性的增强模型，并将这种反周期的大部分归因于服务业生产率冲击。通过允许分配摩擦取决于经济状况，从而极大地改变货币传导，我们发现国家依赖性通过抑制消费对货币冲击的反应而削弱了货币政策的实际效果。与此形成鲜明对比的是，当分配摩擦不随时间变化时，这样的结果就无法复制。我们的研究结果凸显了部门生产率和分配摩擦之间的相互作用共同影响货币政策传导的新渠道。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.euroecorev.2026.105421",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001650?dgcid=rss_sd_all",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001650",
       "publication_date": "September 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/european-economic-review/vol/189/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/00142921",
-        "metadata": "crossref",
-        "abstract_en": "",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0014292126001650",
+        "abstract_en": "official-sciencedirect-issue-preview",
         "abstract_lookup": {
           "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
@@ -150,21 +150,25 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/366ebcfd38142ed6b846a7e56f355110952d10e3"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:44:27+00:00",
+        "source_hash": "88c1fe3a74fed63f84aa1bed577a48b08cc13b57d46a84b3efe52d1142cc4615"
       },
-      "quality_flags": [
-        "abstract_en_missing",
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001650",
+        "captured_at": "2026-08-02T08:09:14.542Z"
       }
     },
     {
@@ -173,23 +177,23 @@
       "source_sequence": 3,
       "article_type": "research-article",
       "title_en": "The inflationary effects of global supply chain shocks: Evidence from Swedish microdata",
-      "title_cn": "",
+      "title_cn": "全球供应链冲击的通胀影响：来自瑞典微观数据的证据",
       "authors": [
         "David Finck",
         "Mathias Klein",
         "Peter Tillmann"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "We compile a unique dataset linking micro price data underlying the official Swedish producer price index with administrative firm level data and provide new evidence on the inflationary effects of global supply chain shocks. For identification, we interact exogenous shocks to global supply chains, obtained through a VAR model, with firm-specific import shares. Shocks to global supply chains lead to a significant and persistent increase in producer prices with a peak response after two years. Importantly, average responses mask heterogeneous responses across firms. Relatively larger firms, firms with lower labor costs and a higher market share raise prices more strongly.",
+      "abstract_cn": "我们编制了一个独特的数据集，将瑞典官方生产者价格指数的微观价格数据与行政公司层面的数据联系起来，并为全球供应链冲击的通胀影响提供了新的证据。为了进行识别，我们将通过 VAR 模型获得的全球供应链的外生冲击与特定公司的进口份额相互作用。全球供应链的冲击导致生产者价格大幅持续上涨，并在两年后达到峰值。重要的是，平均反应掩盖了各公司的异质反应。相对规模较大的企业、劳动力成本较低且市场份额较高的企业提价的力度更大。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.euroecorev.2026.105426",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001704?dgcid=rss_sd_all",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001704",
       "publication_date": "September 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/european-economic-review/vol/189/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/00142921",
-        "metadata": "crossref",
-        "abstract_en": "",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0014292126001704",
+        "abstract_en": "official-sciencedirect-issue-preview",
         "abstract_lookup": {
           "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
@@ -228,21 +232,25 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.euroecorev.2026.105426"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:44:34+00:00",
+        "source_hash": "48873179e847fda329f5017d1a07c802cf6b6ef1ce0ab238a2c99461964b5f1d"
       },
-      "quality_flags": [
-        "abstract_en_missing",
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001704",
+        "captured_at": "2026-08-02T08:09:14.542Z"
       }
     },
     {
@@ -251,21 +259,21 @@
       "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Culture, institutions and growth",
-      "title_cn": "",
+      "title_cn": "文化、制度和增长",
       "authors": [
         "Minhyeon Jeong"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "How do culture and institutions jointly shape long-run growth? This paper develops an endogenous growth model in which individualism, property-rights protection, and innovation-driven growth coevolve over time. Parents choose whether to transmit individualist or collectivist values to their children according to the expected future return associated with each trait, while the degree of property-rights protection is determined in political equilibrium. The strategic complementarity between cultural transmission and property-rights protection generates two steady states – an individualistic, innovation-friendly, high-growth regime and a collectivist, expropriating, low-growth regime – and, for intermediate cultural states, an indeterminacy region in which beliefs about future property-rights protection are self-fulfilling. Institutional quality affects growth both directly, by changing the return to innovation, and indirectly, by shaping cultural transmission and the size of the innovative sector. The framework helps explain path dependence, endogenous regime switching, growth miracles, and institutional reversals.",
+      "abstract_cn": "文化和制度如何共同塑造长期增长？本文提出了一种内生增长模型，其中个人主义、产权保护和创新驱动的增长随着时间的推移共同演化。父母根据与每个特征相关的预期未来回报来选择向孩子传递个人主义还是集体主义价值观，而产权保护的程度则由政治均衡决定。文化传播和产权保护之间的战略互补性产生了两种稳定状态——个人主义、创新友好、高增长政权和集体主义、掠夺性、低增长政权——以及对于中间文化国家来说，产生了一个不确定性区域，在该区域中，对未来产权保护的信念是自我实现的。制度质量既通过改变创新回报直接影响增长，又通过塑造文化传播和创新部门的规模间接影响增长。该框架有助于解释路径依赖、内生政权转换、增长奇迹和制度逆转。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.euroecorev.2026.105429",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S001429212600173X?dgcid=rss_sd_all",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S001429212600173X",
       "publication_date": "September 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/european-economic-review/vol/189/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/00142921",
-        "metadata": "crossref",
-        "abstract_en": "",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S001429212600173X",
+        "abstract_en": "official-sciencedirect-issue-preview",
         "abstract_lookup": {
           "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
@@ -305,21 +313,25 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/fa0825c1caf9683ffff81969fa27a334c7988d84"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:44:37+00:00",
+        "source_hash": "b933804a472c5d487f03a610713a045d4f64406ab079bcf27288a6c7483cc98d"
       },
-      "quality_flags": [
-        "abstract_en_missing",
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S001429212600173X",
+        "captured_at": "2026-08-02T08:09:14.542Z"
       }
     },
     {
@@ -328,22 +340,22 @@
       "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "The growth of surgical robotic technology",
-      "title_cn": "",
+      "title_cn": "手术机器人技术的发展",
       "authors": [
         "Albert N. Link",
         "Md Zubab Ibne Moid"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "An understanding of the growth of surgical robotic technology is not only a contribution to the academic literature on the proliferation of new technology, but also it is a precursor to effective U.S. public policies toward this burgeoning new technology and possibly toward potential future standard-setting dimensions of an emerging ecosystem. Using patent application information from filings with the U.S. Patent and Trademark Office, we characterize the growth of this technology in terms of a traditional S-curve model. We also hypothesize a theory of the distribution of surgical robotic technology, and we test our theory empirically.",
+      "abstract_cn": "了解手术机器人技术的发展不仅是对新技术扩散的学术文献的贡献，而且也是美国针对这一新兴新技术以及可能针对新兴生态系统的未来潜在标准制定维度制定有效公共政策的先导。利用向美国专利商标局提交的专利申请信息，我们用传统的 S 曲线模型来描述该技术的增长。我们还假设了手术机器人技术的分布理论，并根据经验检验了我们的理论。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.euroecorev.2026.105417",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001613?dgcid=rss_sd_all",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001613",
       "publication_date": "September 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/european-economic-review/vol/189/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/00142921",
-        "metadata": "crossref",
-        "abstract_en": "",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0014292126001613",
+        "abstract_en": "official-sciencedirect-issue-preview",
         "abstract_lookup": {
           "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
@@ -383,21 +395,25 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/04303ce33cb7c33aaf50fdcbecc4fa7e6828e7b5"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:44:39+00:00",
+        "source_hash": "f2fa7ab67e2db86946c810301fca2cf2e9decb7a67ea0b1f3fc75ab20402e175"
       },
-      "quality_flags": [
-        "abstract_en_missing",
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001613",
+        "captured_at": "2026-08-02T08:09:14.542Z"
       }
     },
     {
@@ -413,7 +429,7 @@
         "Robert J.R. Elliott"
       ],
       "abstract_en": "In this paper, we investigate whether, and to what extent, UK newspapers exhibited image-based bias in their portrayal of politicians during the 2016 Brexit referendum. We use computer vision and machine learning techniques to first, identify the faces of politicians and assess the emotional content conveyed through their expressions and second, to measure the contextual sentiment of the overall image, including elements such as background, objects, and color. Our findings reveal that tabloid newspapers displayed significant partisan bias. Specifically, pro-leave tabloids were more likely to depict pro-leave politicians with positive facial expressions and in more favorable visual contexts, while pro-remain politicians were portrayed more negatively. This bias was especially pronounced in front-page images and those featuring key political figures, while no comparable patterns were found in broadsheets. However, the visual bias diminished immediately after the referendum vote. Our scalable framework not only provides a systematic way to detect visual bias in political imagery but also underscores the growing need for media accountability and visual literacy as images play an increasingly powerful role in shaping political communication.",
-      "abstract_cn": "在本文中，我们调查了英国报纸在2016英国脱欧公投期间对政客的描述是否以及在多大程度上表现出基于图像的偏见。我们使用计算机视觉和机器学习技术来第一识别政客的面孔并评估通过他们的表情传达的情感内容和第二来衡量整个图像的上下文情感，包括背景、物体和颜色等元素。我们的研究结果表明，小报表现出明显的党派偏见。具体来说，支持脱欧的小报更有可能以积极的面部表情和更有利的视觉环境来描绘支持脱欧的政客，而支持留欧的政客则被描绘得更加消极。这种偏见在头版图像和主要政治人物的图像中尤其明显，而在大报中没有发现类似的模式。然而，公投投票后，视觉偏见立即消失。我们的可扩展框架不仅提供了一种系统的方法来检测政治图像中的视觉偏见，而且还强调了对媒体问责和视觉素养日益增长的需求，因为图像在塑造政治传播方面发挥着越来越强大的作用。",
+      "abstract_cn": "在本文中，我们调查了英国报纸在2016英国脱欧公投期间对政客的描述是否以及在多大程度上表现出基于图像的偏见。我们使用计算机视觉和机器学习技术，首先识别政客的面孔并评估通过他们的表情传达的情感内容，其次测量整个图像的上下文情感，包括背景、物体和颜色等元素。我们的研究结果表明，小报表现出明显的党派偏见。具体来说，支持脱欧的小报更有可能以积极的面部表情和更有利的视觉环境来描绘支持脱欧的政客，而支持留欧的政客则被描绘得更加消极。这种偏见在头版图像和主要政治人物的图像中尤其明显，而在大报中没有发现类似的模式。然而，公投投票后，视觉偏见立即消失。我们的可扩展框架不仅提供了一种系统的方法来检测政治图像中的视觉偏见，而且还强调了对媒体问责和视觉素养日益增长的需求，因为图像在塑造政治传播方面发挥着越来越强大的作用。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.euroecorev.2026.105422",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001662?dgcid=rss_sd_all",
@@ -466,7 +482,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-01T03:53:40+00:00",
+        "translated_at": "2026-08-02T08:44:43+00:00",
         "source_hash": "f3b576113c46799a7030b30f2e5616c74074f530815526108b57e88fbb7dce8b"
       },
       "quality_flags": [],
@@ -483,22 +499,22 @@
       "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "The endogenous nature of war and its economic consequences",
-      "title_cn": "",
+      "title_cn": "战争的内生性及其经济后果",
       "authors": [
         "Jordan Adamson",
         "Daniel Stephenson"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "Is war good for economic development? Several macrohistorical theories suggest “yes”, yet the supporting evidence relies on war being shocked exogenously. We first examine the raw data from Europe, showing a negative relationship between war and production in both ancient and modern periods. We then create a model to investigate what typical statistical analyses show on data generated with standard conflict mechanisms. We show that typical statistical analyses suggest war positively affects growth in our model economy when it is in fact harmful. We caution against “mostly harmless” regressions that suggest European prosperity comes from its harmful history rather than its peaceful present.",
+      "abstract_cn": "战争对经济发展有好处吗？一些宏观历史理论表明“是”，但支持证据依赖于战争受到外生冲击。我们首先研究了来自欧洲的原始数据，显示了古代和现代时期战争与生产之间的负相关关系。然后，我们创建一个模型来研究典型的统计分析对标准冲突机制生成的数据显示的内容。我们表明，典型的统计分析表明战争对我们模型经济的增长产生积极影响，而实际上它是有害的。我们警告不要出现“大多无害”的倒退，这种倒退表明欧洲的繁荣来自其有害的历史，而不是和平的现在。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.euroecorev.2026.105430",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001741?dgcid=rss_sd_all",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001741",
       "publication_date": "September 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/european-economic-review/vol/189/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/00142921",
-        "metadata": "crossref",
-        "abstract_en": "",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0014292126001741",
+        "abstract_en": "official-sciencedirect-issue-preview",
         "abstract_lookup": {
           "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
@@ -538,21 +554,25 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/071931adb9773fb0e17795afc3495ae1cd7ff914"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:44:47+00:00",
+        "source_hash": "a0fcfc7418bb7d107c55030d264f6d36a5d42d8669b0896fdd5cf0b7c5d97496"
       },
-      "quality_flags": [
-        "abstract_en_missing",
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001741",
+        "captured_at": "2026-08-02T08:09:14.542Z"
       }
     },
     {
@@ -561,22 +581,22 @@
       "source_sequence": 8,
       "article_type": "research-article",
       "title_en": "Are mass layoffs individually costly but socially beneficial?",
-      "title_cn": "",
+      "title_cn": "大规模裁员对个人而言代价高昂但对社会有利吗？",
       "authors": [
         "Axelle Arquié",
         "Thomas Grjebine"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "This paper reexamines the consequences of mass layoffs in the French manufacturing sector by linking individual displacement costs to broader local labor-market outcomes. Using matched employer–employee data from 1995 to 2019 and a unified definition of mass layoffs, it provides the first joint assessment of their individual and aggregate effects. Displaced workers experience large and persistent employment and earnings losses. At the local level, unemployment and the number of job seekers rise sharply and remain elevated for several years, with a large local employment multiplier. Two mechanisms connect individual losses to aggregate outcomes: a demand channel, whereby larger wage losses among displaced workers amplify local unemployment, and a housing-related mobility channel linking local housing market conditions to workers’ geographic mobility. Worker reallocations themselves appear inefficient: displaced high-quality workers become less likely to match with high-productivity establishments, while destination firms display lower investment rates and lower value added. We also uncover a critical measurement bias affecting labor productivity assessments. Under standard accounting conventions — where temporary agency workers and their value added are recorded in the service sector rather than in the manufacturing establishments where they actually work — mass layoffs appear to raise productivity. Correcting for this bias fully reverses this apparent productivity gain and instead reveals a substantial productivity decline. Overall, mass layoffs appear individually and socially costly.",
+      "abstract_cn": "本文通过将个人失业成本与更广泛的当地劳动力市场结果联系起来，重新审视了法国制造业大规模裁员的后果。使用从1995到2019匹配的雇主-雇员数据以及大规模裁员的统一定义，它首次对其个人和总体影响进行了联合评估。流离失所的工人遭受着巨大且持续的就业和收入损失。在地方层面，失业率和求职人数急剧上升，并连续数年保持在高位，当地就业乘数很大。有两种机制将个人损失与总体结果联系起来：一个是需求渠道，即失业工人工资损失较大，从而加剧了当地失业率；另一个是与住房相关的流动渠道，将当地住房市场状况与工人的地域流动性联系起来。工人重新分配本身似乎效率低下：流离失所的高素质工人不太可能与高生产率企业相匹配，而目的地公司的投资率和附加值较低。我们还发现了影响劳动生产率评估的关键测量偏差。根据标准会计惯例——临时代理工人及其增加值记录在服务部门，而不是他们实际工作的制造企业——大规模裁员似乎可以提高生产率。纠正这种偏差会完全扭转这种明显的生产率提高，反而揭示出生产率的大幅下降。总体而言，大规模裁员对个人和社会来说代价高昂。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.euroecorev.2026.105433",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001777?dgcid=rss_sd_all",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001777",
       "publication_date": "September 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/european-economic-review/vol/189/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/00142921",
-        "metadata": "crossref",
-        "abstract_en": "",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0014292126001777",
+        "abstract_en": "official-sciencedirect-issue-preview",
         "abstract_lookup": {
           "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
@@ -616,21 +636,25 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/1514ab12161c7f274367f993e372c040b2b2c1d5"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:44:49+00:00",
+        "source_hash": "b94e8d90dba5025843497f6424c47447e326562f35abda9a92b055ce5faec0e0"
       },
-      "quality_flags": [
-        "abstract_en_missing",
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001777",
+        "captured_at": "2026-08-02T08:09:14.542Z"
       }
     },
     {
@@ -639,22 +663,22 @@
       "source_sequence": 9,
       "article_type": "research-article",
       "title_en": "Real effects of credit supply shocks: Evidence from Danish banks, firms, and workers",
-      "title_cn": "",
+      "title_cn": "信贷供应冲击的实际影响：来自丹麦银行、企业和工人的证据",
       "authors": [
         "Simon Juul Hviid",
         "Christofer Schroeder"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "Contractions in credit supply can lead firms to reduce their level of employment, yet little is known about how these shocks affect the composition of firms’ employees and outcomes at the worker level. This paper investigates how bank distress affects credit provision and its effects on employment beyond firm-level aggregates. To do so, we use a novel dataset built from administrative and tax records linking all banks, firms, and workers in Denmark. We show that banks that were particularly exposed to the 2008–09 financial crisis cut lending to firms, and firms were unable to fully compensate with financing from alternate sources. The decrease in credit supply led to a drop in firm-level employment, with effects concentrated among firms with low pre-crisis liquidity, and on employment of low-educated and non-managerial workers. At the worker level, we find that increases in the incidence of unemployment were driven by effects on low-educated, non-managerial, short-tenured, and low-earning workers.",
+      "abstract_cn": "信贷供应收缩可能导致企业降低就业水平，但人们对这些冲击如何影响企业员工的构成和工人层面的结果知之甚少。本文研究了银行困境如何影响信贷供应及其对企业层面以外的就业的影响。为此，我们使用了一个新颖的数据集，该数据集由连接丹麦所有银行、公司和工人的行政和税务记录构建。我们表明，特别容易受到2008-09金融危机影响的银行削减了对企业的贷款，而企业无法通过其他来源的融资来充分补偿。信贷供应的减少导致企业层面的就业下降，影响集中在危机前流动性较低的企业以及低学历和非管理人员的就业。在工人层面，我们发现失业率的上升是由低教育、非管理、短期和低收入工人的影响造成的。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.euroecorev.2026.105431",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001753?dgcid=rss_sd_all",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001753",
       "publication_date": "September 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/european-economic-review/vol/189/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/00142921",
-        "metadata": "crossref",
-        "abstract_en": "",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0014292126001753",
+        "abstract_en": "official-sciencedirect-issue-preview",
         "abstract_lookup": {
           "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
@@ -694,21 +718,25 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/2e4c74db6edb8a5025df2045450703cdbc4f9160"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:44:53+00:00",
+        "source_hash": "7abc163572ecb8c1fb0c9896dc8b5baec0cddd4cbc2e11282405ad4f42d790e3"
       },
-      "quality_flags": [
-        "abstract_en_missing",
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001753",
+        "captured_at": "2026-08-02T08:09:14.542Z"
       }
     },
     {
@@ -723,7 +751,7 @@
         "Felix Strobel"
       ],
       "abstract_en": "In a structural dynamic model that incorporates two broad production sectors with different carbon emissions, we find that climate policy uncertainty (CPU) shocks (i) lower the market value of the highly carbon-emitting sector relative to the low carbon-emitting sector, and (ii) reduce real investment and the capital stock in the highly carbon-emitting sector, while real investment in the sector with low carbon emissions tends to fare better. To apply the theoretical predictions to the data, we employ a news article-based measure of climate policy uncertainty to identify CPU shocks as well as quarterly balance sheet data of listed firms in the United States. In line with the predictions from the theoretical model, we find that in response to CPU shocks (i) financial markets markedly revalue strongly carbon-emitting firms relative to firms with low carbon emissions, and (ii) substantial investment reallocation takes place, in particular from the manufacturing sector towards services.",
-      "abstract_cn": "在包含不同碳排放的广泛生产部门的结构动态模型中，我们发现气候政策不确定性（CPU）冲击（i）降低高碳排放部门相对于低碳排放部门的市场价值，以及（ii）减少高碳排放部门的实际投资和资本存量，而低碳排放部门的实际投资往往表现更好。为了将理论预测应用于数据，我们采用基于新闻文章的气候政策不确定性衡量标准来识别 CPU 冲击以及美国上市公司的季度资产负债表数据。根据理论模型的预测，我们发现，为了应对 CPU 冲击，(i) 金融市场明显对碳排放企业相对于低碳排放企业进行重估，并且 (ii) 发生了大量投资重新分配，特别是从制造业转向服务业。",
+      "abstract_cn": "在包含不同碳排放的两个广泛生产部门的结构动态模型中，我们发现气候政策不确定性（CPU）冲击（i）降低高碳排放部门相对于低碳排放部门的市场价值，以及（ii）减少高碳排放部门的实际投资和资本存量，而低碳排放部门的实际投资往往表现更好。为了将理论预测应用于数据，我们采用基于新闻文章的气候政策不确定性衡量标准来识别 CPU 冲击以及美国上市公司的季度资产负债表数据。根据理论模型的预测，我们发现，为了应对 CPU 冲击，(i) 金融市场明显对碳排放企业相对于低碳排放企业进行重估，并且 (ii) 发生了大量投资重新分配，特别是从制造业转向服务业。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.euroecorev.2026.105435",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001790?dgcid=rss_sd_all",
@@ -776,7 +804,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-01T03:53:42+00:00",
+        "translated_at": "2026-08-02T08:44:58+00:00",
         "source_hash": "a8b3d027303c12ef51d920c4413d7184d8363670aa2e07a05d8d600547373341"
       },
       "quality_flags": [],
@@ -799,7 +827,7 @@
         "Nikolaus Wolf"
       ],
       "abstract_en": "Fossil fuels have shaped the European economy since the industrial revolution. We use new long-run panel data to analyse the effect of both, coal and oil on economic growth between 1900 and 2015, exploiting variation at the level of European NUTS2 and NUTS3 regions. We show that the reversal of fortune of coal regions resulted from the second energy transition. Specifically, an “oil invasion” in the early 1960s turned regional coal abundance from a blessing into a curse. Human capital accumulation contributed to this reversal of fortune and fully explains the negative effects until today. Moreover, we find substantial heterogeneity between former coal regions that is in line with Glaeser’s “reinvention hypothesis”: regions with a higher skill-level adjusted much better to the decline of coal. In particular, we show that coal regions with a higher urban density before 1800 were much more resilient than others.",
-      "abstract_cn": "自工业革命以来，化石燃料塑造了欧洲经济。我们使用新的长期面板数据来分析1900和2015之间煤炭和石油对经济增长的影响，利用欧洲 NUTS2 和 NUTS3 地区水平的变化。我们表明，煤炭地区命运的逆转是第二能源转型的结果。具体来说，1960早期的“石油入侵”使该地区煤炭丰富从祝福变成了诅咒。人力资本积累促成了这种命运的逆转，并充分解释了迄今为止的负面影响。此外，我们发现前煤炭地区之间存在显着的异质性，这符合格莱泽的“重塑假说”：技能水平较高的地区能够更好地适应煤炭的衰退。特别是，我们表明1800之前城市密度较高的煤炭地区比其他地区更具弹性。",
+      "abstract_cn": "自工业革命以来，化石燃料塑造了欧洲经济。我们使用新的长期面板数据来分析1900和2015之间煤炭和石油对经济增长的影响，利用欧洲NUTS2和NUTS3地区水平的变化。我们表明，煤炭地区命运的逆转是第二次能源转型的结果。具体来说，1960早期的“石油入侵”使该地区煤炭丰富从祝福变成了诅咒。人力资本积累促成了这种命运的逆转，并充分解释了迄今为止的负面影响。此外，我们发现前煤炭地区之间存在显着的异质性，这符合格莱泽的“重塑假说”：技能水平较高的地区能够更好地适应煤炭的衰退。特别是，我们表明1800之前城市密度较高的煤炭地区比其他地区更具弹性。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.euroecorev.2026.105432",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001765?dgcid=rss_sd_all",
@@ -852,7 +880,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-01T03:53:44+00:00",
+        "translated_at": "2026-08-02T08:45:01+00:00",
         "source_hash": "84e788ee4d57874b766e7a6d247588e78abb24790ef931ceeef8502bc77886fb"
       },
       "quality_flags": [],
@@ -869,22 +897,22 @@
       "source_sequence": 12,
       "article_type": "research-article",
       "title_en": "Kinky Europe: Evidence from the regional Phillips curve in the euro area",
-      "title_cn": "",
+      "title_cn": "古怪的欧洲：来自欧元区区域菲利普斯曲线的证据",
       "authors": [
         "Marius Faber",
         "Gabriel Züllig"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "We estimate the slope of the Phillips curve in the euro area, allowing for nonlinearities–or kinks–in the relationship between labor market slack and inflation. We exploit cross-country variation in labor market conditions in the period 2001–2024, absorbing aggregate shocks and endogenous monetary policy reactions with time fixed effects. We find that, while the Phillips curve is usually quite flat, it becomes at least three times steeper when the labor market is sufficiently tight. This kink is more pronounced in the euro area than in the United States, potentially due to more rigid labor markets. Our estimates suggest, however, that despite this nonlinearity, most of the post-pandemic inflation surge is attributable to factors other than labor market tightness.",
+      "abstract_cn": "我们估计了欧元区菲利普斯曲线的斜率，考虑到劳动力市场疲软与通货膨胀之间关系的非线性或扭结。我们利用2001-2024期间劳动力市场状况的跨国差异，吸收总体冲击和具有时间固定效应的内生货币政策反应。我们发现，虽然菲利普斯曲线通常相当平坦，但当劳动力市场足够紧张时，它会变得至少三倍陡峭。这种问题在欧元区比在美国更为明显，这可能是由于劳动力市场更加严格。然而，我们的估计表明，尽管存在这种非线性，但疫情后通胀飙升的大部分原因是劳动力市场紧张以外的因素。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.euroecorev.2026.105439",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001832?dgcid=rss_sd_all",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001832",
       "publication_date": "September 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/european-economic-review/vol/189/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/00142921",
-        "metadata": "crossref",
-        "abstract_en": "",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0014292126001832",
+        "abstract_en": "official-sciencedirect-issue-preview",
         "abstract_lookup": {
           "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
@@ -924,21 +952,25 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/2249f031c19c221728c2b2344396f421c72413a4"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:45:04+00:00",
+        "source_hash": "8638aa77bf539eec7564707192ddc83f347a89afb06c455b39733c477293a1e1"
       },
-      "quality_flags": [
-        "abstract_en_missing",
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001832",
+        "captured_at": "2026-08-02T08:09:14.542Z"
       }
     },
     {
@@ -1005,7 +1037,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-01T15:04:56+00:00",
+        "translated_at": "2026-08-02T08:45:07+00:00",
         "source_hash": "91493f4577400871a9358dd9a8002080f2f067993832a1f45fbc84c154a8f4f2"
       },
       "quality_flags": [],
@@ -1022,22 +1054,22 @@
       "source_sequence": 14,
       "article_type": "research-article",
       "title_en": "The double-edged sword of facilitated giving: Field evidence on sales and donations",
-      "title_cn": "",
+      "title_cn": "便利捐赠的双刃剑：销售和捐赠的现场证据",
       "authors": [
         "Maja Adena",
         "Steffen Huck"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "Facilitated giving, a common yet under-researched form of cause-related marketing (CRM), involves companies collecting donations from customers to support charitable causes. This study examines the impact of facilitated giving on revenue from ticket sales at an opera house through two large-scale field experiments involving over 50,000 customers. The charitable initiative supported a social youth project aimed at enhancing cultural education and social integration for individuals from disadvantaged households. We found that a particularly pervasive donation ask led to a significant short-term reduction in ticket purchases by non-donors. However, this adverse effect was short-lived and we did not find any effect of the program on total revenue from tickets and donations, neither in the short run nor in the long run.",
+      "abstract_cn": "便利捐赠是一种常见但尚未得到充分研究的公益营销 (CRM) 形式，涉及公司向客户收集捐款以支持慈善事业。本研究通过涉及超过 50,000 名客户的两项大规模现场实验，探讨了便利捐赠对歌剧院门票销售收入的影响。该慈善倡议支持一项社会青年项目，旨在加强弱势家庭个人的文化教育和社会融入。我们发现，特别普遍的捐赠要求导致非捐赠者购买门票的数量在短期内大幅减少。然而，这种不利影响是短暂的，无论从短期还是长期来看，我们都没有发现该计划对门票和捐款总收入有任何影响。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.euroecorev.2026.105424",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001686?dgcid=rss_sd_all",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001686",
       "publication_date": "September 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/european-economic-review/vol/189/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/00142921",
-        "metadata": "crossref",
-        "abstract_en": "",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0014292126001686",
+        "abstract_en": "official-sciencedirect-issue-preview",
         "abstract_lookup": {
           "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
@@ -1077,21 +1109,25 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/4ff6630c609fbc508a3d34e1cf5ce5755f090fbd"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:45:10+00:00",
+        "source_hash": "0af45a1f097daf8b62dc46f3319c71ae38a671fe2d48ce693454c293e03185bc"
       },
-      "quality_flags": [
-        "abstract_en_missing",
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001686",
+        "captured_at": "2026-08-02T08:09:14.542Z"
       }
     },
     {
@@ -1106,7 +1142,7 @@
         "Florian Heine"
       ],
       "abstract_en": "Many high-stakes organisational decisions are made by committees, where members exert costly influence to shape a single collective outcome. When committees are gender-imbalanced, the salience of gender identity may affect who mobilises influence and how numerical power translates into effective decision weight. We study how gender-identity salience interacts with numerical power in a controlled laboratory setting using a group-contest design. We vary the numerical balance of power (Female-Majority vs. Male-Majority) and manipulate whether gender composition is revealed. We find larger, advantaged groups invest significantly more and identity salience has asymmetric effects by gender. Among minority men facing female-majority groups, making gender salient increases investment and their initial disadvantage shrinks over time. Among minority women facing male-majority groups, investment does not increase and their relative disadvantage grows over time. These divergent responses are not explained by general social preferences or in-group cohesion. The findings suggest highlighting gender identity may intensify mobilisation by minority men without similarly empowering minority women, with implications for the design of diversity and transparency policies.",
-      "abstract_cn": "许多高风险的组织决策都是由委员会做出的，委员会成员为形成单一的集体结果而施加代价高昂的影响力。当委员会性别不平衡时，性别认同的显着性可能会影响谁调动影响力以及人数权力如何转化为有效的决策权重。我们使用小组竞赛设计，在受控实验室环境中研究性别认同显着性如何与数字力量相互作用。我们改变权力的数量平衡（女性占多数与男性占多数）并操纵是否揭示性别构成。我们发现规模较大、优势群体的投资显着增加，而且身份显着性对性别的影响不对称。在面对女性占多数群体的少数男性中，突出性别会增加投资，并且随着时间的推移，他们最初的劣势会缩小。在面对男性占多数群体的少数女性中，投资并没有增加，而且她们的相对劣势随着时间的推移而增加。这些不同的反应不能用一般社会偏好或群体内凝聚力来解释。研究结果表明，强调性别认同可能会加强少数族裔男性的动员，而不会同样赋予少数族裔女性权力，这会对多样性和透明度政策的设计产生影响。",
+      "abstract_cn": "许多高风险的组织决策都是由委员会做出的，委员会成员为了形成单一的集体结果而施加代价高昂的影响力。当委员会性别不平衡时，性别认同的显着性可能会影响谁调动影响力以及人数权力如何转化为有效的决策权重。我们使用小组竞赛设计，在受控实验室环境中研究性别身份显着性如何与数字力量相互作用。我们改变权力的数量平衡（女性占多数与男性占多数）并操纵是否揭示性别构成。我们发现规模较大、优势群体的投资显着增加，而且身份显着性对性别的影响不对称。在面对女性占多数群体的少数男性中，突出性别会增加投资，并且随着时间的推移，他们最初的劣势会缩小。在面对男性占多数群体的少数女性中，投资并没有增加，而且她们的相对劣势随着时间的推移而增加。这些不同的反应不能用一般社会偏好或群体内凝聚力来解释。研究结果表明，强调性别认同可能会加强少数族裔男性的动员，而不会同样赋予少数族裔女性权力，这会对多样性和透明度政策的设计产生影响。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.euroecorev.2026.105423",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001674?dgcid=rss_sd_all",
@@ -1159,7 +1195,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-01T03:53:46+00:00",
+        "translated_at": "2026-08-02T08:45:14+00:00",
         "source_hash": "ace37bbef6b58bebed91704407a042c67fc07f9e8032e27a604fa30a11deb527"
       },
       "quality_flags": [],
@@ -1236,7 +1272,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-01T03:53:48+00:00",
+        "translated_at": "2026-08-02T08:45:16+00:00",
         "source_hash": "f862469489db29099ef8f531596f3d9bff2b3d3c1b8e6c2dc1c1390769be28f1"
       },
       "quality_flags": [],
@@ -1251,7 +1287,7 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "sciencedirect-rss",
+    "roster_transport": "sciencedirect-rss+browser-authorized-abstracts",
     "roster_authority": "publisher-rss",
     "roster_match_scope": "rss-volume-items",
     "rss_url": "https://rss.sciencedirect.com/publication/science/00142921",
@@ -1261,16 +1297,14 @@
     "excluded_items": [],
     "doi_complete": 16,
     "authors_complete": 16,
-    "abstract_en_complete": 7,
-    "translation_complete": 7,
+    "abstract_en_complete": 16,
+    "translation_complete": 16,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_sciencedirect_rss_fallback",
       "publisher_rss_reverse_order_normalized",
       "official_order_unverified",
-      "elsevier_insttoken_required",
-      "abstract_en_incomplete",
-      "translation_incomplete"
+      "elsevier_insttoken_required"
     ],
     "content_counts": {
       "official_items": 16,
@@ -1284,6 +1318,12 @@
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 16
+    },
+    "browser_authorized_abstracts": {
+      "captured_at": "2026-08-02T08:14:16.567Z",
+      "institutional_access_confirmed": true,
+      "privacy_fields_stored": false,
+      "applied_count": 9
     }
   },
   "content_counts": {
@@ -1299,5 +1339,5 @@
     "other_excluded": 0,
     "catalog_content_items": 16
   },
-  "publication_state": "enriching"
+  "publication_state": "ready"
 }

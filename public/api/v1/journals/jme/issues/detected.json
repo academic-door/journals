@@ -11,7 +11,7 @@
   "retrieved_at": "2026-08-02T07:36:56+00:00",
   "expected_article_count": 3,
   "research_article_count": 3,
-  "status": "incomplete",
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
@@ -20,23 +20,23 @@
       "source_sequence": 1,
       "article_type": "research-article",
       "title_en": "Optimal monetary policy with confounding information",
-      "title_cn": "",
+      "title_cn": "具有混杂信息的最优货币政策",
       "authors": [
         "Qiushuo Ding",
         "Yulei Luo",
         "Gaowang Wang"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "In this paper, we study optimal monetary policy in an economy where firms’ price-setting decisions are distorted by a signal-extraction problem: they cannot perfectly distinguish aggregate from idiosyncratic shocks based on noisy local information. This systematic misattribution of aggregate shocks to firm-specific factors generates an additional price response, implying that strict price stability is no longer optimal. Instead, the optimal policy fully stabilizes the output gap, which necessarily requires accommodating fluctuations in the price level. The cyclicality of the optimal price level depends on the source of firms’ incomplete information: learning from local demand signals implies a procyclical price level, whereas learning from local productivity signals yields a countercyclical one.",
+      "abstract_cn": "在本文中，我们研究了一个经济体中的最优货币政策，在该经济体中，企业的定价决策因信号提取问题而被扭曲：它们无法根据嘈杂的本地信息完全区分总体冲击和特殊冲击。这种将总体冲击系统性地错误归因于企业特定因素会产生额外的价格反应，这意味着严格的价格稳定不再是最佳选择。相反，最优政策完全稳定了产出缺口，这必然需要适应价格水平的波动。最优价格水平的周期性取决于企业不完全信息的来源：从当地需求信号中学习意味着顺周期价格水平，而从当地生产率信号中学习则产生反周期价格水平。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jmoneco.2026.103965",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304393226000802?dgcid=rss_sd_all",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304393226000802",
       "publication_date": "September 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/162/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03043932",
-        "metadata": "crossref",
-        "abstract_en": "",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304393226000802",
+        "abstract_en": "official-sciencedirect-issue-preview",
         "abstract_lookup": {
           "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
@@ -76,21 +76,25 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/c10e48312721bfd34d134497312279623a3d4bd3"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:51:56+00:00",
+        "source_hash": "d6e1fa1de428230e9bacd44c242d5626e87d8556f390e79a9da2235576cc8f37"
       },
-      "quality_flags": [
-        "abstract_en_missing",
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304393226000802",
+        "captured_at": "2026-08-02T08:19:53.318Z"
       }
     },
     {
@@ -99,21 +103,21 @@
       "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "From means-tested programs to Universal Basic Income - The role of endogenous participation in transfer programs",
-      "title_cn": "",
+      "title_cn": "从经济状况调查计划到全民基本收入——内源性参与在转移支付计划中的作用",
       "authors": [
         "Fan Yang"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "This paper studies the effects of replacing the Earned Income Tax Credit (EITC) with a Universal Basic Income (UBI) in an environment where EITC take-up is incomplete. In contrast, UBI ensures full participation by design, extending benefits to households who do not take up the EITC, at the cost of higher fiscal expenditures. I study this trade-off between expanded coverage and fiscal cost using a life-cycle model with an endogenous EITC participation decision that replicates the observed eligibility and take-up patterns. The results show that a generous UBI ($12,000 annually) reduces welfare due to the substantial fiscal burden it entails, whereas a modest UBI ($3500 per year) improves welfare by reaching previously uncovered households at only a moderate fiscal cost. These findings highlight the importance of the program participation margin in evaluating policy reforms.",
+      "abstract_cn": "本文研究了在 EITC 尚未完全实施的环境中，用全民基本收入 (UBI) 取代劳动所得税抵免 (EITC) 的效果。相比之下，全民基本收入通过设计确保充分参与，将福利扩大到不参加EITC的家庭，但代价是增加财政支出。我使用生命周期模型来研究扩大覆盖范围和财政成本之间的权衡，该模型具有内生的 EITC 参与决策，该决策复制了观察到的资格和接受模式。结果表明，慷慨的全民基本收入（每年12,000美元）会因其带来的巨大财政负担而减少福利，而适度的全民基本收入（每年3500美元）仅以适度的财政成本覆盖以前未覆盖的家庭，从而改善福利。这些发现凸显了计划参与边际在评估政策改革中的重要性。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jmoneco.2026.103960",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304393226000759?dgcid=rss_sd_all",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304393226000759",
       "publication_date": "September 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/162/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03043932",
-        "metadata": "crossref",
-        "abstract_en": "",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304393226000759",
+        "abstract_en": "official-sciencedirect-issue-preview",
         "abstract_lookup": {
           "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
@@ -153,21 +157,25 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/27356c2ce45eb0fd1f043831fc4d7a73a5fd918f"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:51:58+00:00",
+        "source_hash": "ef06fc1f7c6e2561f6dc7c0eea5572520a5f7dfbbb9bcfbea23785f887f280f5"
       },
-      "quality_flags": [
-        "abstract_en_missing",
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304393226000759",
+        "captured_at": "2026-08-02T08:19:53.318Z"
       }
     },
     {
@@ -250,7 +258,7 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "sciencedirect-rss",
+    "roster_transport": "sciencedirect-rss+browser-authorized-abstracts",
     "roster_authority": "publisher-rss",
     "roster_match_scope": "rss-volume-items",
     "rss_url": "https://rss.sciencedirect.com/publication/science/03043932",
@@ -260,16 +268,14 @@
     "excluded_items": [],
     "doi_complete": 3,
     "authors_complete": 3,
-    "abstract_en_complete": 1,
-    "translation_complete": 1,
+    "abstract_en_complete": 3,
+    "translation_complete": 3,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_sciencedirect_rss_fallback",
       "publisher_rss_reverse_order_normalized",
       "official_order_unverified",
-      "elsevier_insttoken_required",
-      "abstract_en_incomplete",
-      "translation_incomplete"
+      "elsevier_insttoken_required"
     ],
     "content_counts": {
       "official_items": 3,
@@ -283,6 +289,12 @@
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 3
+    },
+    "browser_authorized_abstracts": {
+      "captured_at": "2026-08-02T08:20:01.852Z",
+      "institutional_access_confirmed": true,
+      "privacy_fields_stored": false,
+      "applied_count": 2
     }
   },
   "content_counts": {
@@ -298,5 +310,5 @@
     "other_excluded": 0,
     "catalog_content_items": 3
   },
-  "publication_state": "enriching"
+  "publication_state": "ready"
 }

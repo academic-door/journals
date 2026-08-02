@@ -11,7 +11,7 @@
   "retrieved_at": "2026-08-02T07:36:14+00:00",
   "expected_article_count": 17,
   "research_article_count": 17,
-  "status": "incomplete",
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
@@ -20,24 +20,24 @@
       "source_sequence": 1,
       "article_type": "research-article",
       "title_en": "Are patents with female inventors under-cited? Evidence from text estimation",
-      "title_cn": "",
+      "title_cn": "女性发明人的专利是否被低估？来自文本估计的证据",
       "authors": [
         "Yael V. Hochberg",
         "Ali Kakhbod",
         "Peiyao Li",
         "Kunal Sachdeva"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "Utilizing leading machine learning techniques to analyze the textual content and quality of patents, we demonstrate that patents with female lead inventors are under-cited relative to what would be expected had the lead inventor been male. Male inventors are the greatest contributors to the undercitation of patents with female inventors, followed by female inventors and male examiners, while female patent examiners appear to be even-handed. Using market reactions to patents suggests no average difference in market value by the inventor’s gender. The results have potential implications for research conclusions that rely on citation-based assessments of patent quality.",
+      "abstract_cn": "利用领先的机器学习技术来分析专利的文本内容和质量，我们证明，相对于主要发明人为男性的预期，女性主要发明人的专利被引用不足。男性发明人是对女性发明人的专利低估的最大贡献者，其次是女性发明人和男性审查员，而女性专利审查员似乎是不偏不倚的。利用市场对专利的反应表明，发明人性别的市场价值没有平均差异。该结果对依赖于基于引用的专利质量评估的研究结论具有潜在影响。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jfineco.2026.104307",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26000784?dgcid=rss_sd_all",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26000784",
       "publication_date": "September 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/183/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/0304405X",
-        "metadata": "crossref",
-        "abstract_en": "",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304405X26000784",
+        "abstract_en": "official-sciencedirect-issue-preview",
         "abstract_lookup": {
           "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
@@ -77,21 +77,25 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/ebcb953344977e40ab59fe07c4fe2eab80db07ce"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:49:57+00:00",
+        "source_hash": "1b3d96b1eb64b6454640400162a4e70fd876a5e142e17d77e3819815381bb6c2"
       },
-      "quality_flags": [
-        "abstract_en_missing",
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26000784",
+        "captured_at": "2026-08-02T08:18:46.485Z"
       }
     },
     {
@@ -100,24 +104,24 @@
       "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "The impact of introducing a (nearly) redundant security: Evidence from Malaysian corporate bonds",
-      "title_cn": "",
+      "title_cn": "引入（几乎）冗余证券的影响：来自马来西亚公司债券的证据",
       "authors": [
         "Antje Berndt",
         "Jean Helwege",
         "Amanda Liu",
         "Frank Packer"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "We develop a general equilibrium model in which firms issue nearly redundant securities to investor clienteles with participation constraints, with prices and demand determined endogenously in primary and secondary markets. The model characterizes how issuance costs, market frictions, and investor composition shape firms’ funding choices, equilibrium prices, and asset allocations. We test the model’s predictions using data from the Malaysian corporate bond market following the introduction of Islamic bonds. Consistent with the model, issuance decisions reflect trade-offs between collateral and liquidity benefits, Islamic and conventional bonds coexist without crowding out, and the expanded investor base increases access to debt financing.",
+      "abstract_cn": "我们开发了一个一般均衡模型，在该模型中，公司向具有参与限制的投资者客户发行几乎多余的证券，价格和需求由一级和二级市场内生决定。该模型描述了发行成本、市场摩擦和投资者构成如何影响公司的融资选择、均衡价格和资产配置。我们使用伊斯兰债券推出后马来西亚公司债券市场的数据来测试模型的预测。与该模型一致，发行决策反映了抵押品和流动性收益之间的权衡，伊斯兰债券和传统债券共存而没有排挤，扩大的投资者基础增加了债务融资的机会。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jfineco.2026.104310",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26000814?dgcid=rss_sd_all",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26000814",
       "publication_date": "September 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/183/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/0304405X",
-        "metadata": "crossref",
-        "abstract_en": "",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304405X26000814",
+        "abstract_en": "official-sciencedirect-issue-preview",
         "abstract_lookup": {
           "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
@@ -157,21 +161,25 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/f13d76b3fd9b0b97d6105129617f6c02d38725ad"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:50:00+00:00",
+        "source_hash": "6fed9ea78c1a2e9f98979f06431bc98527fe4cb9a5189184521105e1c8f8d3ed"
       },
-      "quality_flags": [
-        "abstract_en_missing",
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26000814",
+        "captured_at": "2026-08-02T08:18:46.485Z"
       }
     },
     {
@@ -240,7 +248,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-01T03:57:17+00:00",
+        "translated_at": "2026-08-02T08:50:09+00:00",
         "source_hash": "3cc8c87e4b55e5d588756963e05c6cb6365705d332577f6ef001535468293d41"
       },
       "quality_flags": [],
@@ -257,22 +265,22 @@
       "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Angels, entrepreneurship, and employment dynamics: Evidence from investor accreditation rules",
-      "title_cn": "",
+      "title_cn": "天使投资、创业和就业动态：来自投资者认证规则的证据",
       "authors": [
         "Laura Lindsey",
         "Luke C.D. Stein"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "This paper examines the effects of a shock to angel finance on entrepreneurial activity. Using U.S. Census data, we estimate the state-level fraction of households that lost accreditation status from Dodd–Frank’s elimination of housing wealth in determining accreditation. A larger reduction in the pool of potential investors reduces angel investment, firm entry, and employment at small entrants. Employment increases at small and young incumbents, suggesting competitive effects. Though we document partial substitution, angel finance appears to complement other capital sources in the entrepreneurial ecosystem. Our paper offers insight on the impact of angel finance and where it matters most.",
+      "abstract_cn": "本文研究了天使融资的冲击对创业活动的影响。使用美国人口普查数据，我们估计了因多德-弗兰克法案在确定认证时取消住房财富而失去认证状态的州级家庭比例。潜在投资者群体的大幅减少会减少天使投资、企业进入和小进入者的就业。小型和年轻在职企业的就业人数增加，表明竞争效应。尽管我们记录了部分替代，但天使融资似乎补充了创业生态系统中的其他资本来源。我们的论文提供了有关天使融资的影响及其最重要的方面的见解。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jfineco.2026.104323",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26000942?dgcid=rss_sd_all",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26000942",
       "publication_date": "September 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/183/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/0304405X",
-        "metadata": "crossref",
-        "abstract_en": "",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304405X26000942",
+        "abstract_en": "official-sciencedirect-issue-preview",
         "abstract_lookup": {
           "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
@@ -311,21 +319,25 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jfineco.2026.104323"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:50:12+00:00",
+        "source_hash": "3962773c9d66a02c38f23b2be85d5ecfbb28185b64eb5a80c8a6aaf8e300d92c"
       },
-      "quality_flags": [
-        "abstract_en_missing",
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26000942",
+        "captured_at": "2026-08-02T08:18:46.485Z"
       }
     },
     {
@@ -334,22 +346,22 @@
       "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "Measuring firms’ capability to absorb external knowledge",
-      "title_cn": "",
+      "title_cn": "衡量企业吸收外部知识的能力",
       "authors": [
         "Michael Woeppel",
         "M. Deniz Yavuz"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "As the economy has become increasingly knowledge-based, firms’ capability to benefit from external knowledge has grown in importance. We construct a measure of this capability – absorption intensity – from information in firms’ patents. To validate the measure, we exploit the American Inventors Protection Act (AIPA), which exogenously increased patent information availability. A triple-difference design shows that firms with higher absorption intensity experience greater innovation growth when more exposed to the reform. Beyond AIPA, absorption intensity predicts stronger innovation outcomes and firm growth. Our measure offers a tool to study how differences in absorption capability shape returns to external knowledge.",
+      "abstract_cn": "随着经济越来越以知识为基础，企业从外部知识中受益的能力变得越来越重要。我们根据公司专利中的信息构建了这种能力的衡量标准——吸收强度。为了验证该措施，我们利用了美国发明人保护法案 (AIPA)，该法案从外部增加了专利信息的可用性。三重差异设计表明，吸收强度较高的企业在更多地参与改革时会经历更大的创新增长。除了 AIPA 之外，吸收强度预示着更强的创新成果和公司增长。我们的测量提供了一个工具来研究吸收能力形状的差异如何返回到外部知识。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jfineco.2026.104322",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26000930?dgcid=rss_sd_all",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26000930",
       "publication_date": "September 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/183/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/0304405X",
-        "metadata": "crossref",
-        "abstract_en": "",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304405X26000930",
+        "abstract_en": "official-sciencedirect-issue-preview",
         "abstract_lookup": {
           "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
@@ -389,21 +401,25 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/e4b02c4e1e39a3d44f0c495e3478654818b46391"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:50:15+00:00",
+        "source_hash": "f49c9201e4dc57b3bfbd0d7180bc030f29e4d7b3495fdc5ca1d60b4b653ee55b"
       },
-      "quality_flags": [
-        "abstract_en_missing",
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26000930",
+        "captured_at": "2026-08-02T08:18:46.485Z"
       }
     },
     {
@@ -412,23 +428,23 @@
       "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "Blended finance",
-      "title_cn": "",
+      "title_cn": "混合金融",
       "authors": [
         "Caroline Flammer",
         "Thomas Giroux",
         "Geoffrey M. Heal"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "Blended finance—the use of public and philanthropic funding to crowd in private capital—has emerged as a potential tool for financing sustainable development. Yet little is known about the design of blended finance contracts. We develop a conceptual framework in which development finance institutions (DFIs) allocate concessional capital across projects to maximize societal impact while crowding in private investors. Our framework highlights a trade-off between sustainability impact and the amount of concessionality required to make projects commercially viable and characterizes how DFIs optimally combine different instruments, including concessional debt, junior equity tranches, and risk management facilities. We then provide empirical evidence on blended finance using deal-level data from a major DFI. Consistent with our conceptual framework, projects with higher anticipated sustainability impact receive greater concessionality. Moreover, concessionality is higher in countries with greater political risk and information asymmetries, and these projects are more likely to include risk management provisions. Our findings provide new evidence on how DFIs deploy catalytic capital to mobilize private investment in sustainable development.",
+      "abstract_cn": "混合金融——利用公共和慈善资金吸引私人资本——已成为可持续发展融资的潜在工具。然而，人们对混合金融合同的设计知之甚少。我们制定了一个概念框架，其中开发金融机构（DFI）在项目之间分配优惠资本，以最大限度地提高社会影响，同时吸引私人投资者。我们的框架强调了可持续性影响与使项目具有商业可行性所需的优惠金额之间的权衡，并描述了发展金融机构如何最佳地结合不同工具，包括优惠债务、初级股权部分和风险管理设施。然后，我们使用主要 DFI 的交易级数据提供混合金融的经验证据。与我们的概念框架一致，预期可持续性影响较高的项目将获得更大的优惠。此外，政治风险较大和信息不对称的国家的优惠程度较高，这些项目更有可能包含风险管理条款。我们的研究结果为发展金融机构如何部署催化资本来动员私人投资参与可持续发展提供了新的证据。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jfineco.2026.104321",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26000929?dgcid=rss_sd_all",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26000929",
       "publication_date": "September 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/183/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/0304405X",
-        "metadata": "crossref",
-        "abstract_en": "",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304405X26000929",
+        "abstract_en": "official-sciencedirect-issue-preview",
         "abstract_lookup": {
           "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
@@ -467,21 +483,25 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jfineco.2026.104321"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:50:19+00:00",
+        "source_hash": "36459901f748576c850dddd98286824f75b185e9fcdd19700a2b7e2551f82483"
       },
-      "quality_flags": [
-        "abstract_en_missing",
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26000929",
+        "captured_at": "2026-08-02T08:18:46.485Z"
       }
     },
     {
@@ -490,21 +510,21 @@
       "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "Asymmetric thin markets",
-      "title_cn": "",
+      "title_cn": "不对称的清淡市场",
       "authors": [
         "Vincent Fardeau"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "Using a new equilibrium representation, I characterize dynamic, nonstationary risk sharing in a complete-information setting among strategic traders submitting demand schedules and heterogeneous in risk aversion. In equilibrium, more risk-averse (smaller) traders diversify more aggressively due to endogenously lower price impact. This creates term structure effects, where smaller traders dynamically hedge the persistent order flow of larger, slower traders and become the marginal pricers at short horizons. When pre-announced security issuances (e.g., bond reopenings) or predictable trades take place, the model generates the gradual, V-shaped price response observed around these events and delivers new predictions about institutional trading.",
+      "abstract_cn": "使用新的均衡表示，我在提交需求计划和异质风险厌恶的战略交易者之间的完整信息设置中描述了动态的、非平稳的风险分担。在均衡状态下，由于内生性较低的价格影响，更多规避风险（规模较小）的交易者会更积极地进行多元化投资。这就产生了期限结构效应，较小的交易者动态地对冲较大、较慢的交易者的持续订单流，并成为短期内的边际定价者。当预先宣布的证券发行（例如，债券重新开放）或可预测的交易发生时，该模型会生成围绕这些事件观察到的渐进的 V 形价格响应，并提供有关机构交易的新预测。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jfineco.2026.104319",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26000905?dgcid=rss_sd_all",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26000905",
       "publication_date": "September 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/183/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/0304405X",
-        "metadata": "crossref",
-        "abstract_en": "",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304405X26000905",
+        "abstract_en": "official-sciencedirect-issue-preview",
         "abstract_lookup": {
           "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
@@ -544,21 +564,25 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/bfbb401e6b52e98478f6f4f70eb1418a3bec3d51"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:50:23+00:00",
+        "source_hash": "313f404401ce64242e77739e968cd6c6a4f80b569c909c0a3240d5ee85efbdd7"
       },
-      "quality_flags": [
-        "abstract_en_missing",
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26000905",
+        "captured_at": "2026-08-02T08:18:46.485Z"
       }
     },
     {
@@ -567,23 +591,23 @@
       "source_sequence": 8,
       "article_type": "research-article",
       "title_en": "Trade credit and relationships",
-      "title_cn": "",
+      "title_cn": "贸易信用和关系",
       "authors": [
         "Felipe Benguria",
         "Alvaro Garcia-Marin",
         "Tim Schmidt-Eisenlohr"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "Exploiting transaction-level international trade data, this paper documents that long-term firm-to-firm relationships facilitate the use of trade credit, with the strength of this effect varying with firm size, firms’ payment delays, and multinational affiliate status. Effects also depend on the strength of contract enforcement across countries and the complexity of products traded. Because trade credit can reduce the overall need to borrow from the financial sector, long-term relationships may reduce firms’ credit demand. The destruction of trade relationships, for example, through trade conflicts, may hence increase firms’ leverage.",
+      "abstract_cn": "本文利用交易层面的国际贸易数据，证明长期的企业间关系促进了贸易信贷的使用，这种效应的强度因企业规模、企业付款延迟和跨国附属机构状况而异。影响还取决于各国合同执行的力度以及交易产品的复杂性。由于贸易信贷可以减少从金融部门借款的总体需求，因此长期关系可能会减少企业的信贷需求。例如，通过贸易冲突而破坏贸易关系可能会增加企业的杠杆率。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jfineco.2026.104320",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26000917?dgcid=rss_sd_all",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26000917",
       "publication_date": "September 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/183/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/0304405X",
-        "metadata": "crossref",
-        "abstract_en": "",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304405X26000917",
+        "abstract_en": "official-sciencedirect-issue-preview",
         "abstract_lookup": {
           "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
@@ -622,21 +646,25 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jfineco.2026.104320"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:50:27+00:00",
+        "source_hash": "67867354cf7e5e5707454982e06ffcd0dc6d42df0ff89ba349917da5d7a2bb94"
       },
-      "quality_flags": [
-        "abstract_en_missing",
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26000917",
+        "captured_at": "2026-08-02T08:18:46.485Z"
       }
     },
     {
@@ -705,7 +733,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-01T03:57:20+00:00",
+        "translated_at": "2026-08-02T08:50:30+00:00",
         "source_hash": "b69bd3bd0f95e75dc6db8d058b70cb5695d6cbb8f0fbb0e7b5032996465170f6"
       },
       "quality_flags": [],
@@ -722,21 +750,21 @@
       "source_sequence": 10,
       "article_type": "research-article",
       "title_en": "Forecast bias across horizons: Inflation expectations and the Treasury yields",
-      "title_cn": "",
+      "title_cn": "跨视野的预测偏差：通胀预期和国债收益率",
       "authors": [
         "Hao Pang"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "I show that the overreaction of the long-term yield forecasts to yield news, evidenced in recent studies, results directly from the overreaction of long-horizon inflation forecasts to inflation news. Motivated by this finding, I study how agents form inflation expectations across forecast horizons. Short-horizon survey forecasts underreact, while long-horizon forecasts overreact to inflation news. To reconcile this behavior, I implement a long-run bias, building on the widely shared intuition that agents conflate transitory with permanent shocks, within a realistic trend-gap inflation model. I embed this bias within a yield curve model. The long-horizon inflation expectations overreaction translates into a long-term yields’ overreaction, generating excess yield sensitivity to news. The model implies a long-term bond risk premium substantially less volatile and cyclical than that implied by predictive regressions or estimates imposing full-information rational expectations.",
+      "abstract_cn": "我表明，最近的研究证明，长期收益率预测对收益率新闻的过度反应，直接源于长期通胀预测对通胀新闻的过度反应。受这一发现的启发，我研究了代理人如何在预测范围内形成通胀预期。短期调查预测对通胀消息反应不足，而长期预测则反应过度。为了调和这种行为，我基于广泛共识的直觉，在现实的趋势缺口通胀模型中将暂时性冲击与永久性冲击混为一谈，实施了长期偏差。我将这种偏差嵌入到收益率曲线模型中。长期通胀预期的过度反应会转化为长期收益率的过度反应，从而产生对新闻的过度收益率敏感性。该模型意味着长期债券风险溢价的波动性和周期性远低于预测回归或强加全信息理性预期的估计所暗示的风险溢价。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jfineco.2026.104327",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X2600098X?dgcid=rss_sd_all",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X2600098X",
       "publication_date": "September 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/183/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/0304405X",
-        "metadata": "crossref",
-        "abstract_en": "",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304405X2600098X",
+        "abstract_en": "official-sciencedirect-issue-preview",
         "abstract_lookup": {
           "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
@@ -776,21 +804,25 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/84ce9031b755198039abb63616e3d7d322bf63c1"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:50:33+00:00",
+        "source_hash": "b99adfb23ae01308bd88c821133abaf7b05e12eb1fce74a36616b07cf2bc5aad"
       },
-      "quality_flags": [
-        "abstract_en_missing",
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X2600098X",
+        "captured_at": "2026-08-02T08:18:46.485Z"
       }
     },
     {
@@ -799,7 +831,7 @@
       "source_sequence": 11,
       "article_type": "research-article",
       "title_en": "Gambling away stability: Sports betting’s impact on vulnerable households",
-      "title_cn": "",
+      "title_cn": "赌博破坏了稳定：体育博彩对弱势家庭的影响",
       "authors": [
         "Scott R. Baker",
         "Justin Balthrop",
@@ -807,17 +839,17 @@
         "Jason Kotter",
         "Kevin Pisciotta"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "We estimate the causal effect of online sports betting on households’ investment, spending, and debt management decisions using household transaction data and a staggered difference-in-differences framework. Following legalization, sports betting spreads quickly, with both the number of participants and frequency of bets increasing over time. This increase does not displace other gambling or consumption but significantly reduces savings, as risky bets crowd out positive expected value investments. These effects concentrate among frequent bettors and low-savings households. Our findings highlight the potential adverse effects of online sports betting on vulnerable households.",
+      "abstract_cn": "我们使用家庭交易数据和交错双重差分框架来估计在线体育博彩对家庭投资、支出和债务管理决策的因果影响。合法化后，体育博彩迅速蔓延，参与者数量和投注频率随着时间的推移而增加。这种增长不会取代其他赌博或消费，但会显着减少储蓄，因为高风险的赌注会挤出正预期价值的投资。这些影响集中在经常投注的人和低储蓄家庭中。我们的研究结果强调了在线体育博彩对弱势家庭的潜在不利影响。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jfineco.2026.104330",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26001017?dgcid=rss_sd_all",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26001017",
       "publication_date": "September 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/183/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/0304405X",
-        "metadata": "crossref",
-        "abstract_en": "",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304405X26001017",
+        "abstract_en": "official-sciencedirect-issue-preview",
         "abstract_lookup": {
           "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
@@ -857,21 +889,25 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/aba887e11b6bd2a0d0399246a43bc015bdf32cce"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:50:36+00:00",
+        "source_hash": "1784166de8562a6b20b9b4f1420ed585b4740bdbf94bfaf372a4594c868610ea"
       },
-      "quality_flags": [
-        "abstract_en_missing",
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26001017",
+        "captured_at": "2026-08-02T08:18:46.485Z"
       }
     },
     {
@@ -880,21 +916,21 @@
       "source_sequence": 12,
       "article_type": "research-article",
       "title_en": "Aggregate corporate savings, economic uncertainty, and future stock returns",
-      "title_cn": "",
+      "title_cn": "企业储蓄总额、经济不确定性和未来股票回报",
       "authors": [
         "Yuanzhen Lyu"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "I document robust U.S. and international evidence that aggregate corporate cash savings negatively forecast future excess market returns, with economic uncertainty an important driver of this relation. In a calibrated neoclassical dynamic model featuring precautionary savings, I show that fixed financing costs, firm exit, and an uncertainty-driven time-varying price of risk are crucial to replicating this return predictability. The model further implies that the well-known positive return predictive power of aggregate accruals is largely attributable to aggregate cash savings, and the data support this implication.",
+      "abstract_cn": "我记录了强有力的美国和国际证据，表明企业现金储蓄总额对未来超额市场回报产生负面影响，而经济不确定性是这种关系的重要驱动因素。在一个以预防性储蓄为特色的校准新古典动态模型中，我表明固定融资成本、公司退出和不确定性驱动的时变风险价格对于复制这种回报可预测性至关重要。该模型进一步表明，众所周知的总应计项目的正回报预测能力在很大程度上归因于总现金节省，并且数据支持了这一含义。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jfineco.2026.104329",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26001005?dgcid=rss_sd_all",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26001005",
       "publication_date": "September 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/183/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/0304405X",
-        "metadata": "crossref",
-        "abstract_en": "",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304405X26001005",
+        "abstract_en": "official-sciencedirect-issue-preview",
         "abstract_lookup": {
           "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
@@ -934,21 +970,25 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/affc01f1b1164ac0ad0886a062927dedef1d85b1"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:50:40+00:00",
+        "source_hash": "95323311e9a5ddb1e3db9ae54cd5a585aa88e2509fcefec79c8b874a84cf7f8a"
       },
-      "quality_flags": [
-        "abstract_en_missing",
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26001005",
+        "captured_at": "2026-08-02T08:18:46.485Z"
       }
     },
     {
@@ -957,22 +997,22 @@
       "source_sequence": 13,
       "article_type": "research-article",
       "title_en": "Monetary transmission and portfolio rebalancing: A cross-sectional approach",
-      "title_cn": "",
+      "title_cn": "货币传导和投资组合再平衡：跨部门方法",
       "authors": [
         "Xu Lu",
         "Lingxuan Wu"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "We show that institutional portfolio rebalancing across asset classes plays a key role in transmitting monetary shocks to the stock market. Around FOMC announcements, ceteris paribus, a stock with 10-percentage-point higher ownership by rebalancing institutions experiences an additional 3.7-basis-point loss following a 10-basis-point surprise rate hike. We corroborate our mechanism by exploiting within-firm variations for dual shares, showing stronger price reactions at quarter- and month-ends when rebalancing is more imminent, and presenting placebo tests contrasting rebalancing institutions with other institutions. A concluding calibration suggests rebalancing could contribute roughly one-third to two-thirds of the aggregate stock market excess return response to monetary shocks.",
+      "abstract_cn": "我们表明，跨资产类别的机构投资组合再平衡在向股市传递货币冲击方面发挥着关键作用。在 FOMC 公告发布期间，在其他条件不变的情况下，通过再平衡机构持有的股票的所有权增加了 10 个百分点，在 3.7 个基点意外加息后，该股票会经历额外的 10 个基点损失。我们通过利用双重股票的公司内部差异、在再平衡迫在眉睫时在季末和月末表现出更强的价格反应以及将再平衡机构与其他机构进行对比的安慰剂测试来证实我们的机制。结论性校准表明，再平衡可能占股市对货币冲击的超额回报总额的大约三分之一到三分之二。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jfineco.2026.104324",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26000954?dgcid=rss_sd_all",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26000954",
       "publication_date": "September 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/183/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/0304405X",
-        "metadata": "crossref",
-        "abstract_en": "",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304405X26000954",
+        "abstract_en": "official-sciencedirect-issue-preview",
         "abstract_lookup": {
           "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
@@ -1012,21 +1052,25 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/c5fc2812359d80904a9cc08e6390fd89d6cd7372"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:50:43+00:00",
+        "source_hash": "4089a67d32cbd602eab40e75a2b1cc9c5852df280a928bb8108cec513c4ff4e3"
       },
-      "quality_flags": [
-        "abstract_en_missing",
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26000954",
+        "captured_at": "2026-08-02T08:18:46.485Z"
       }
     },
     {
@@ -1035,23 +1079,23 @@
       "source_sequence": 14,
       "article_type": "research-article",
       "title_en": "Board connections, firm profitability, and product market actions",
-      "title_cn": "",
+      "title_cn": "董事会关系、公司盈利能力和产品市场行为",
       "authors": [
         "Radhakrishnan Gopalan",
         "Renping Li",
         "Alminas Žaldokas"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "A firm’s gross margin increases by 0.8 p.p. after forming a new direct board connection to a product market peer. Gross margin also rises by 0.4 p.p. after a connection is formed to a peer indirectly through a third intermediate firm. Further, using barcode-level data of 2.7 million products, we show that new board connections are related to higher consumer good prices, a greater tendency for market allocation, and slower new product introductions. The effects are stronger when the newly connected peers share corporate customers or have similar business descriptions and hold when controlling for other inter-firm relationships.",
+      "abstract_cn": "公司与产品市场同行新建立直接董事会联系后，其毛利率提高 0.8 个百分点；通过第三家中间公司与同行建立间接联系后，毛利率也提高 0.4 个百分点。此外，利用 2.7 百万种产品的条形码层面数据，我们发现，新建立的董事会联系与更高的消费品价格、更强的市场划分倾向以及更慢的新产品推出速度相关。当新近建立联系的同行拥有共同的企业客户或业务描述相似时，这些效应更强；在控制其他企业间关系后，结果依然成立。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jfineco.2026.104332",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26001030?dgcid=rss_sd_all",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26001030",
       "publication_date": "September 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/183/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/0304405X",
-        "metadata": "crossref",
-        "abstract_en": "",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304405X26001030",
+        "abstract_en": "official-sciencedirect-issue-preview",
         "abstract_lookup": {
           "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
@@ -1091,21 +1135,25 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/57b9211a76afbf428402594faf4512cfadf7445f"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "quality-gate-correction",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "codex",
+        "translated_at": "2026-08-02T09:45:00+00:00",
+        "source_hash": "9e3342cc326f67413ae18f541bc8119235b51d3b818d33de1490c0ef3932e656"
       },
-      "quality_flags": [
-        "abstract_en_missing",
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26001030",
+        "captured_at": "2026-08-02T08:18:46.485Z"
       }
     },
     {
@@ -1114,23 +1162,23 @@
       "source_sequence": 15,
       "article_type": "research-article",
       "title_en": "Reaching for influence: Do banks use loans to establish political connections?",
-      "title_cn": "",
+      "title_cn": "争取影响力：银行是否利用贷款来建立政治关系？",
       "authors": [
         "Mahsa Kaviani",
         "Hosein Maleki",
         "Pavel Savor"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "Using close elections as an empirical setting, this paper examines the drivers and consequences of politically motivated lending by U.S. banks, with a special focus on resulting benefits. We first show that firms with ties to members of Congress receive more favorable loan terms, despite no observable improvements in performance or default risk. The effect is especially pronounced among banks facing regulatory challenges — such as FDIC enforcement actions, corporate misconduct investigations, or low Community Reinvestment Act ratings — which also lend more frequently to connected firms, suggesting that these institutions have a heightened demand for political influence. Crucially, we find that politically motivated lending produces tangible future benefits for banks, including reduced misconduct penalties and easier approval for mergers and acquisitions. These findings provide evidence of a quid pro quo dynamic: banks extend preferential credit to firms with political connections and, in turn, receive regulatory advantages.",
+      "abstract_cn": "本文以势均力敌的选举为实证背景，研究了美国银行出于政治动机放贷的驱动因素和后果，特别关注由此产生的利益。我们首先表明，尽管业绩或违约风险没有明显改善，但与国会议员有联系的公司却获得了更优惠的贷款条件。这种影响在面临监管挑战（例如联邦存款保险公司执法行动、企业不当行为调查或社区再投资法案评级较低）的银行中尤其明显，这些银行也更频繁地向关联公司提供贷款，表明这些机构对政治影响力的需求更高。至关重要的是，我们发现出于政治动机的贷款可以为银行带来切实的未来利益，包括减少不当行为处罚以及更容易批准并购。这些发现提供了交换动态的证据：银行向有政治关系的企业提供优惠信贷，反过来，获得监管优势。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jfineco.2026.104333",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26001042?dgcid=rss_sd_all",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26001042",
       "publication_date": "September 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/183/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/0304405X",
-        "metadata": "crossref",
-        "abstract_en": "",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304405X26001042",
+        "abstract_en": "official-sciencedirect-issue-preview",
         "abstract_lookup": {
           "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
@@ -1169,21 +1217,25 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jfineco.2026.104333"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:50:49+00:00",
+        "source_hash": "7abd867afeb0e10c84846f69c88d5dfb08b12598d0fe2f6fb5190bc3eb801f1d"
       },
-      "quality_flags": [
-        "abstract_en_missing",
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26001042",
+        "captured_at": "2026-08-02T08:18:46.485Z"
       }
     },
     {
@@ -1192,23 +1244,23 @@
       "source_sequence": 16,
       "article_type": "research-article",
       "title_en": "Investor expertise and private investment selection",
-      "title_cn": "",
+      "title_cn": "投资者专业知识和私人投资选择",
       "authors": [
         "Shane Miller",
         "Emmanuel Yimfor",
         "Ye Zhang"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "Institutional and individual investors evaluate private market opportunities systematically differently, even facing identical choices. In a survey experiment, 593 institutional and 445 individual investors assess venture capital fund profiles with independently randomized GP characteristics. Institutions heavily weight past fund performance, consistent with risk-averse investor demand calibrated to VC markets. Individuals largely ignore performance, favoring educational credentials instead. A follow-up experiment identifies two independent mechanisms: individuals lack awareness that VC performance persists and discount quality signals for funds they perceive as inaccessible. Performance-based selection alone reduces individuals’ expected returns by approximately 7%, accounting for 20% of the return gap with professionals.",
+      "abstract_cn": "即使面临相同的选择，机构投资者和个人投资者也会以不同的方式系统地评估私募市场机会。在一项调查实验中，593机构投资者和445个人投资者评估具有独立随机化普通合伙人特征的风险投资基金概况。机构非常重视过去的基金业绩，这与根据风险投资市场调整的规避风险的投资者需求一致。人们在很大程度上忽视了表现，而更看重教育证书。后续实验确定了两种独立的机制：个人缺乏对风险投资绩效持续存在的认识，并对他们认为无法获得的资金的质量信号打折扣。仅基于绩效的选择就会使个人的预期回报减少约 7%，占与专业人士回报差距的 20%。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jfineco.2026.104331",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26001029?dgcid=rss_sd_all",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26001029",
       "publication_date": "September 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/183/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/0304405X",
-        "metadata": "crossref",
-        "abstract_en": "",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304405X26001029",
+        "abstract_en": "official-sciencedirect-issue-preview",
         "abstract_lookup": {
           "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
@@ -1248,21 +1300,25 @@
         "semantic_scholar": "https://www.semanticscholar.org/paper/4d674314dfee39b857775b2c3545388d6d3ef0fb"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:50:51+00:00",
+        "source_hash": "ef85597390fa9c74140954a7918be2bc19dda581c73c7f9c7471eaf322ab47b2"
       },
-      "quality_flags": [
-        "abstract_en_missing",
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26001029",
+        "captured_at": "2026-08-02T08:18:46.485Z"
       }
     },
     {
@@ -1271,23 +1327,23 @@
       "source_sequence": 17,
       "article_type": "research-article",
       "title_en": "Carbon VIX: Carbon price uncertainty and decarbonization investments",
-      "title_cn": "",
+      "title_cn": "Carbon VIX：碳价格不确定性和脱碳投资",
       "authors": [
         "Maximilian Fuchs",
         "Johannes Stroebel",
         "Julian Terstegge"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "We study the effects of carbon price uncertainty on firms’ decisions to decarbonize their operations. We first use information on the pricing of options on emission allowances in the European Emissions Trading System to create the Carbon VIX, a market-based high-frequency measure of carbon price uncertainty. Carbon price uncertainty is high, varies substantially over time, and experiences persistent shocks around major climate policy events. To explore the effects of carbon price uncertainty on expected aggregate decarbonization investments, we analyze its effect on the stock returns of firms that help other businesses decarbonize. To identify these “carbon solution providers”, we extract common types of decarbonization investments from a large survey of firms, and then identify companies that offer the associated goods and services. We find that the stock returns of these carbon solution providers vary positively with carbon prices, but negatively with carbon price uncertainty. The effect of increases in carbon price uncertainty on our proxy for expected decarbonization investments is economically large and of similar magnitude as the effect of declines in carbon prices. These findings support predictions from real options theory that firms may delay investments in decarbonization when faced with uncertainty about the future costs of emissions.",
+      "abstract_cn": "我们研究碳价格不确定性对企业脱碳运营决策的影响。我们首先使用欧洲排放交易系统中排放配额期权定价的信息来创建Carbon VIX，这是一种基于市场的碳价格不确定性的高频衡量指标。碳价格的不确定性很高，随着时间的推移变化很大，并且会因重大气候政策事件而受到持续的冲击。为了探讨碳价格不确定性对预期总体脱碳投资的影响，我们分析了其对帮助其他企业脱碳的公司股票回报的影响。为了识别这些“碳解决方案提供商”，我们从对企业的大型调查中提取了常见的脱碳投资类型，然后识别提供相关商品和服务的公司。我们发现这些碳解决方案提供商的股票回报随碳价格呈正向变化，但随碳价格不确定性呈负向变化。碳价格不确定性的增加对我们预期脱碳投资的影响在经济上是巨大的，并且与碳价格下降的影响相似。这些发现支持了实物期权理论的预测，即当面临未来排放成本的不确定性时，企业可能会推迟脱碳投资。",
       "abstract_snippet_en": "",
       "doi": "10.1016/j.jfineco.2026.104328",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26000991?dgcid=rss_sd_all",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26000991",
       "publication_date": "September 2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/183/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/0304405X",
-        "metadata": "crossref",
-        "abstract_en": "",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304405X26000991",
+        "abstract_en": "official-sciencedirect-issue-preview",
         "abstract_lookup": {
           "status": "insufficient_entitlement_missing_insttoken",
           "attempts": [
@@ -1326,28 +1382,32 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jfineco.2026.104328"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:50:54+00:00",
+        "source_hash": "5fd620f4d13d01cef3e23baf128b4b6f297eb9b2eab03064ec82434a79f1241d"
       },
-      "quality_flags": [
-        "abstract_en_missing",
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26000991",
+        "captured_at": "2026-08-02T08:18:46.485Z"
       }
     }
   ],
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "sciencedirect-rss",
+    "roster_transport": "sciencedirect-rss+browser-authorized-abstracts",
     "roster_authority": "publisher-rss",
     "roster_match_scope": "rss-volume-items",
     "rss_url": "https://rss.sciencedirect.com/publication/science/0304405X",
@@ -1365,16 +1425,14 @@
     ],
     "doi_complete": 17,
     "authors_complete": 17,
-    "abstract_en_complete": 2,
-    "translation_complete": 2,
+    "abstract_en_complete": 17,
+    "translation_complete": 17,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_sciencedirect_rss_fallback",
       "publisher_rss_reverse_order_normalized",
       "official_order_unverified",
-      "elsevier_insttoken_required",
-      "abstract_en_incomplete",
-      "translation_incomplete"
+      "elsevier_insttoken_required"
     ],
     "content_counts": {
       "official_items": 18,
@@ -1388,6 +1446,12 @@
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 17
+    },
+    "browser_authorized_abstracts": {
+      "captured_at": "2026-08-02T08:18:55.726Z",
+      "institutional_access_confirmed": true,
+      "privacy_fields_stored": false,
+      "applied_count": 15
     }
   },
   "content_counts": {
@@ -1403,5 +1467,5 @@
     "other_excluded": 0,
     "catalog_content_items": 17
   },
-  "publication_state": "enriching"
+  "publication_state": "ready"
 }
