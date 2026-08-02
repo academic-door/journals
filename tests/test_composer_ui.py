@@ -33,6 +33,14 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn("styleSettings,", self.page)
         self.assertIn("applyStyleSettings();", self.page)
 
+    def test_saved_markdown_is_regenerated_after_format_changes(self):
+        self.assertIn('const COMPOSER_FORMAT_VERSION = "2";', self.page)
+        self.assertIn("formatVersion: COMPOSER_FORMAT_VERSION,", self.page)
+        self.assertIn(
+            "if (state.formatVersion === COMPOSER_FORMAT_VERSION)", self.page
+        )
+        self.assertIn("排版已更新，正文已重新生成", self.page)
+
     def test_custom_css_is_scoped_and_blocks_external_resources(self):
         self.assertIn('style is:inline id="composer-custom-style"', self.page)
         self.assertIn("#wechat-preview ${value}", self.page)
