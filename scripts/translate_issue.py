@@ -427,7 +427,7 @@ def _normalize_written_number_translations(source: str, translated: str) -> str:
         word = match.group(0).lower()
         value = NUMBER_WORD_VALUES[word]
         normalized, _changed = re.subn(
-            rf"(?<!\d){value}(?!\d)",
+            rf"(?<![\d×xX*]){value}(?![\d×xX*])",
             NUMBER_WORDS_ZH[word],
             normalized,
             count=1,
@@ -709,6 +709,7 @@ def translate_missing(
     session: requests.Session | None = None,
     max_translations: int | None = None,
     provider_state: dict[str, str] | None = None,
+    google_timeout: int = 90,
 ) -> dict[str, Any]:
     cache = (
         json.loads(cache_path.read_text(encoding="utf-8"))
@@ -780,7 +781,11 @@ def translate_missing(
                         f"{provider_availability['google-translate']}"
                     )
                 try:
-                    translated = request_google_translation(article, session=session)
+                    translated = request_google_translation(
+                        article,
+                        session=session,
+                        timeout=google_timeout,
+                    )
                 except ProviderUnavailableError as error:
                     provider_availability["google-translate"] = str(error)
                     raise TranslationError(
