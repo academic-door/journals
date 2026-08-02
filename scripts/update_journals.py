@@ -18,6 +18,7 @@ if str(ROOT) not in sys.path:
 from collectors.aea import fetch_current_issue as fetch_aea
 from collectors.article_types import (
     abstract_is_complete,
+    canonical_issue_label,
     normalize_issue_taxonomy,
     translation_is_complete,
 )
@@ -93,6 +94,11 @@ def normalize_issue_content(issue: dict[str, Any]) -> dict[str, Any]:
     issue = normalize_issue_taxonomy(
         issue,
         overrides=article_type_overrides(),
+    )
+    issue["issue_label"] = canonical_issue_label(
+        issue.get("volume"),
+        issue.get("issue"),
+        issue.get("issue_label"),
     )
     return annotate_issue(issue)
 
@@ -540,13 +546,11 @@ def archive_publication_sort_key(issue: dict[str, Any]) -> tuple[int, int, int, 
 
 
 def archive_issue_label(issue: dict[str, Any]) -> str:
-    volume = str(issue.get("volume", "")).strip()
-    number = str(issue.get("issue", "")).strip()
-    if volume and number and number.casefold() != "c":
-        return f"Vol. {volume} · No. {number}"
-    if volume:
-        return f"Vol. {volume}"
-    return str(issue.get("issue_label", "")).strip()
+    return canonical_issue_label(
+        issue.get("volume"),
+        issue.get("issue"),
+        issue.get("issue_label"),
+    )
 
 
 def write_archive_index(
@@ -605,8 +609,9 @@ def search_record(
         "issue_id": issue["issue_id"],
         "volume": issue.get("volume", ""),
         "issue": issue.get("issue", ""),
-        "issue_label": issue.get("issue_label")
-        or f"Vol. {issue.get('volume', '')} · No. {issue.get('issue', '')}",
+        "issue_label": canonical_issue_label(
+            issue.get("volume"), issue.get("issue"), issue.get("issue_label")
+        ),
         "publication_date": issue.get("publication_date", ""),
         "sequence": article.get("sequence", 0),
         "paper_id": article.get("paper_id", ""),
@@ -1186,10 +1191,10 @@ def update_indexes(
                         f"/journals/api/v1/journals/{config['id']}"
                         "/issues/detected.json"
                     ),
-                    "latest_detected_issue_label": detected.get("issue_label")
-                    or (
-                        f"Vol. {detected.get('volume', '')}"
-                        f" · No. {detected.get('issue', '')}"
+                    "latest_detected_issue_label": canonical_issue_label(
+                        detected.get("volume"),
+                        detected.get("issue"),
+                        detected.get("issue_label"),
                     ),
                     "latest_detected_publication_date": detected.get(
                         "publication_date", ""
@@ -1239,8 +1244,9 @@ def update_indexes(
                         f"/journals/api/v1/journals/{config['id']}"
                         "/issues/current.json"
                     ),
-                    "latest_issue_label": issue.get("issue_label")
-                    or f"Vol. {issue.get('volume', '')} · No. {issue.get('issue', '')}",
+                    "latest_issue_label": canonical_issue_label(
+                        issue.get("volume"), issue.get("issue"), issue.get("issue_label")
+                    ),
                     "publication_date": issue.get("publication_date", ""),
                     "article_count": total,
                     "translation_complete": translated,

@@ -125,7 +125,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
   <script is:inline define:vars={{ base }}>
     const STORAGE_KEY = "academic-door-composer-v1";
-    const COMPOSER_FORMAT_VERSION = "2";
+    const COMPOSER_FORMAT_VERSION = "3";
     const editor = document.querySelector("#markdown-editor");
     const preview = document.querySelector("#wechat-preview");
     const picker = document.querySelector("#article-picker");
@@ -398,19 +398,46 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       return ordered.concat(issue.articles.filter((article) => !orderedIds.has(article.paper_id)));
     };
 
+    const issueLabel = (issue = {}) => {
+      const volume = String(issue.volume || "").trim();
+      const number = String(issue.issue || "").trim();
+      const existing = String(issue.issue_label || "").trim();
+      const base = volume ? `Vol. ${volume}` : "";
+      if (!number || number.toLowerCase() === "c") return base;
+      if (existing) return existing;
+      if (/^[ab]$/i.test(number)) return `${base} · Part ${number.toUpperCase()}`;
+      if (/^\d+(?:\s*[-–]\s*\d+)?$/.test(number)) return `${base} · No. ${number}`;
+      return [base, number].filter(Boolean).join(" · ");
+    };
+
+    const sanitizeSummaryIssueLabel = (value = "") =>
+      String(value).replace(/\s*[·,]?\s*No\.\s*C\b/gi, "").trim();
+
+    const publicationMonth = (value = "") => {
+      const raw = String(value).trim();
+      const iso = raw.match(/^(\d{4})-(\d{2})/);
+      if (iso) return Number(iso[1]) * 100 + Number(iso[2]);
+      const month = raw.match(/^(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{4})$/i);
+      if (!month) return 0;
+      const months = { january: 1, february: 2, march: 3, april: 4, may: 5, june: 6, july: 7, august: 8, september: 9, october: 10, november: 11, december: 12 };
+      return Number(month[2]) * 100 + months[month[1].toLowerCase()];
+    };
+
+    const issuePeriodLine = (issue, period) => {
+      if (!period) return "";
+      if (issue.publication_state !== "enriching") return `> ${period}`;
+      const now = new Date();
+      const currentMonth = now.getFullYear() * 100 + now.getMonth() + 1;
+      return publicationMonth(issue.publication_date) > currentMonth
+        ? `> 预计 ${period} · 本卷仍在持续更新`
+        : `> ${period} · 内容补全中`;
+    };
+
     const articleMarkdown = (issue, selected) => {
       const articles = orderedIssueArticles(issue).filter((article) => selected.has(article.paper_id));
-      const chinaArticles = articles.filter((article) => chinaRelevance(article).status === "yes");
-      const period = formatIssuePeriod(issue.publication_date);
-      const issueArticleCount = issue.research_article_count || issue.articles.length;
-      const counts = issue.content_counts || issue.quality?.content_counts || {};
-      const corrections = counts.corrections || 0;
-      const issueCountLabel = `${issueArticleCount} 篇学术文章${corrections ? `，另有 ${corrections} 篇勘误` : ""}`;
-      const intro = issue.development_sample
-        ? `> 当前为开发样板，正式发布前请确认完整文章数和摘要。`
-        : [
-            period ? `> ${period}` : "",
-            `> ${issue.journal_name} ${issue.issue_label || `Vol. ${issue.volume}, No. ${issue.issue}`} 共收录 ${issueCountLabel}。`,
+      const chinaArticles = arti…159 tokens truncated…[
+            issuePeriodLine(issue, period),
+            `> ${issue.journal_name} ${issueLabel(issue)} ${issue.publication_state === "enriching" ? "当前已收录" : "共收录"} ${issueCountLabel}。`,
             articles.length !== issueArticleCount ? `> 本次选取其中 ${articles.length} 篇。` : "",
             chinaArticles.length ? `> 与中国相关的研究有 ${chinaArticles.length} 篇（第 ${chinaArticles.map((article) => articles.indexOf(article) + 1).join("、")} 篇）。` : "",
           ].filter(Boolean).join("\n");
@@ -425,7 +452,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         `【DOI】[${article.doi || "原文"}](${article.source_url})`,
       ].join("\n\n")).join("\n\n");
       return [
-        `# ${issue.journal_name} ${issue.issue_label || `Vol. ${issue.volume}, No. ${issue.issue}`} 目录与摘要`,
+        `# ${issue.journal_name} ${issueLabel(issue)} 目录与摘要`,
         intro,
         "## 一、目录",
         toc,
@@ -530,7 +557,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       const ready = journal?.latest_issue_url ? [{
         id: journal.latest_issue_id || "current",
         url: journal.latest_issue_url,
-        label: journal.latest_issue_label || "最新一期",
+        label: sanitizeSummaryIssueLabel(journal.latest_issue_label) || "最新一期",
         status: "ready",
         latest: false,
       }] : [];
@@ -543,7 +570,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         ? [{
             id: detectedId || "detected",
             url: journal.latest_detected_issue_url,
-            label: journal.latest_detected_issue_label || "最新卷期",
+            label: sanitizeSummaryIssueLabel(journal.latest_detected_issue_label) || "最新卷期",
             status: "enriching",
             latest: true,
           }]
@@ -560,10 +587,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         id: issue.issue_id || `issue-${index}`,
         url: issue.url,
         label: [
-          issue.issue_label || [
-            issue.volume ? `Vol. ${issue.volume}` : "",
-            issue.issue ? `No. ${issue.issue}` : "",
-          ].filter(Boolean).join(" · "),
+          issueLabel(issue),
           formatIssuePeriod(issue.publication_date),
         ].filter(Boolean).join(" · "),
         status: "archive",
@@ -609,7 +633,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       currentIssue = await fetchIssue(issueUrl);
       const selectedOption = issueSelect.options[issueSelect.selectedIndex];
       if (selectedOption && issueSelect.options.length === 1) {
-        selectedOption.textContent = `${currentIssue.issue_label || `Vol. ${currentIssue.volume} · No. ${currentIssue.issue}`}（最新）`;
+        selectedOption.textContent = `${issueLabel(currentIssue)}（最新）`;
       }
       applyPickerPreference();
       renderPicker();
@@ -863,3 +887,4 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     });
   </script>
 </Layout>
+

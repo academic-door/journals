@@ -21,6 +21,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from scripts.china_relevance import classify_china_relevance
+from collectors.article_types import canonical_issue_label
 
 
 DEFAULT_PUBLIC_ROOT = ROOT / "public" / "api" / "v1" / "journals"
@@ -104,9 +105,8 @@ def issue_snapshot(
         "journal_id": journal_id,
         "journal_name": str(issue.get("journal_name", journal_id.upper())),
         "issue_id": str(issue.get("issue_id", "")),
-        "issue_label": str(
-            issue.get("issue_label")
-            or f"Vol. {issue.get('volume', '')} · No. {issue.get('issue', '')}"
+        "issue_label": canonical_issue_label(
+            issue.get("volume"), issue.get("issue"), issue.get("issue_label")
         ),
         "publication_date": str(issue.get("publication_date", "")),
         "article_count": article_count,
@@ -568,3 +568,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

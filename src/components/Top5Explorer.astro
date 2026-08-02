@@ -157,6 +157,18 @@ const initialIssue = initialIssuePath
     return `${month[2]}年${months[month[1].toLowerCase()]}月`;
   };
 
+  const issueLabel = (issue = {}) => {
+    const volume = String(issue.volume || "").trim();
+    const number = String(issue.issue || "").trim();
+    const existing = String(issue.issue_label || "").trim();
+    const base = volume ? `Vol. ${volume}` : "";
+    if (!number || number.toLowerCase() === "c") return base;
+    if (existing) return existing;
+    if (/^[ab]$/i.test(number)) return `${base} · Part ${number.toUpperCase()}`;
+    if (/^\d+(?:\s*[-–]\s*\d+)?$/.test(number)) return `${base} · No. ${number}`;
+    return [base, number].filter(Boolean).join(" · ");
+  };
+
   const issueSortKey = (entry) => {
     const raw = String(entry.publication_date || "").trim();
     const iso = raw.match(/^(\d{4})-(\d{2})/);
@@ -281,7 +293,7 @@ const initialIssue = initialIssuePath
         <p class="section-kicker">${escapeHtml(issue.journal_id.toUpperCase())}</p>
         <h2>${escapeHtml(issue.journal_name)}</h2>
         <p>
-          ${escapeHtml(issue.issue_label || `Vol. ${issue.volume} · No. ${issue.issue}`)}
+          ${escapeHtml(issueLabel(issue))}
           ${publicationDate ? ` · ${escapeHtml(publicationDate)}` : ""}
           · ${issueCountLabel}
         </p>
@@ -521,3 +533,4 @@ const initialIssue = initialIssuePath
         `<p class="error-message">目录载入失败：${escapeHtml(error.message)}</p>`;
     });
 </script>
+

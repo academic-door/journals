@@ -33,6 +33,18 @@ const summarize = (article, limit = 320) => {
   return text.length <= limit ? text : `${text.slice(0, limit - 1).trimEnd()}…`;
 };
 
+const issueLabel = (issue = {}) => {
+  const volume = String(issue.volume || "").trim();
+  const number = String(issue.issue || "").trim();
+  const existing = String(issue.issue_label || "").trim();
+  const base = volume ? `Vol. ${volume}` : "";
+  if (!number || number.toLowerCase() === "c") return base;
+  if (existing) return existing;
+  if (/^[ab]$/i.test(number)) return `${base} · Part ${number.toUpperCase()}`;
+  if (/^\d+(?:\s*[-–]\s*\d+)?$/.test(number)) return `${base} · No. ${number}`;
+  return [base, number].filter(Boolean).join(" · ");
+};
+
 // 订阅源在构建时生成：deploy 会先把 data 分支的 public/ 叠加上来，再执行
 // astro build，因此这里读到的始终是最新一轮采集的结果，无需再让 workflow
 // 单独生成一份，也不会被下一次 rm -rf public 清掉。
@@ -75,8 +87,7 @@ export function GET({ params }) {
   const issues = collectionIssues(collection);
   const items = [];
   for (const issue of issues) {
-    const label =
-      issue.issue_label || `Vol. ${issue.volume || ""} · No. ${issue.issue || ""}`;
+    const label = issueLabel(issue);
     for (const article of issue.articles || []) {
       const context = [`${issue.journal_name} ${label}`];
       const authors = (article.authors || []).join("、");
@@ -117,3 +128,4 @@ export function GET({ params }) {
     headers: { "Content-Type": "application/rss+xml; charset=utf-8" },
   });
 }
+

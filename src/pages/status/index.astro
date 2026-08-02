@@ -44,6 +44,8 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     const fetchJson = (url, fallback = {}) => fetch(url)
       .then((response) => response.ok ? response.json() : fallback)
       .catch(() => fallback);
+    const sanitizeIssueLabel = (value = "") =>
+      String(value).replace(/\s*[·,]?\s*No\.\s*C\b/gi, "").trim();
     const sourceLabels = {
       official_page_verified: "官网页面已核对",
       publisher_feed_verified: "官方订阅源已核对",
@@ -103,7 +105,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         const ready = journal.update_state === "ready";
         return `<div class="quality-row" role="row">
           <strong class="journal-code" role="cell">${escapeHtml(journal.short_name)}</strong>
-          <span role="cell" data-label="最新卷期">${escapeHtml(journal.latest_detected_issue_label || journal.latest_issue_label || "等待最新卷期")}</span>
+          <span role="cell" data-label="最新卷期">${escapeHtml(sanitizeIssueLabel(journal.latest_detected_issue_label || journal.latest_issue_label) || "等待最新卷期")}</span>
           <span role="cell" data-label="目录内容"><b>${total} 篇</b>${extras ? `<small>${escapeHtml(extras)}</small>` : ""}</span>
           <span role="cell" data-label="摘要进度"><b>英文 ${abstracts}/${total}</b><small>中文 ${translations}/${total}</small></span>
           <span role="cell" data-label="来源与顺序"><b>${escapeHtml(sourceLabels[audit.status] || "来源已记录")}</b><small>${escapeHtml(order)}</small></span>
@@ -161,3 +163,4 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     .quality-heading { align-items: start; flex-direction: column; }
   }
 </style>
+

@@ -1601,6 +1601,7 @@ def fetch_sciencedirect_rss_issue(
         "journal_name": journal_name,
         "volume": volume,
         "issue": "C",
+        "issue_label": f"Vol. {volume}",
         "publication_date": publication_date,
         "source_url": issue_url,
         "retrieved_at": now,
