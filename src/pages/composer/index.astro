@@ -416,7 +416,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         `${index + 1}. **${article.title_en}**\n   ${article.title_cn || "中文标题待补全"}\n   ${article.authors.join(", ")}`
       ).join("\n\n");
       const abstracts = articles.map((article, index) => [
-        `${index + 1}. **${article.title_en || ""}**\n   ${article.title_cn || "中文标题待补全"}`,
+        `### ${index + 1}. ${article.title_cn || article.title_en}`,
         `【作者】${article.authors.join(", ")}`,
         `【Abstract】${article.abstract_en || (article.article_type === "comment" ? "This comment has no standalone abstract." : "待补全")}`,
         `【摘要】${article.abstract_cn || (article.article_type === "comment" ? "该评论未提供独立摘要。" : "待补全")}`,
