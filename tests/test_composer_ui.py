@@ -34,7 +34,7 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn("applyStyleSettings();", self.page)
 
     def test_saved_markdown_is_regenerated_after_format_changes(self):
-        self.assertIn('const COMPOSER_FORMAT_VERSION = "2";', self.page)
+        self.assertIn('const COMPOSER_FORMAT_VERSION = "3";', self.page)
         self.assertIn("formatVersion: COMPOSER_FORMAT_VERSION,", self.page)
         self.assertIn(
             "if (state.formatVersion === COMPOSER_FORMAT_VERSION)", self.page
@@ -74,6 +74,15 @@ class ComposerUiTest(unittest.TestCase):
     def test_issue_period_display_uses_spaced_chinese_date(self):
         self.assertIn("return `${iso[1]} 年 ${Number(iso[2])} 月`;", self.page)
         self.assertIn("return `${month[2]} 年 ${months[month[1].toLowerCase()]} 月`;", self.page)
+
+    def test_sciencedirect_route_token_is_not_rendered_as_issue_number(self):
+        for source in (self.page, self.explorer):
+            self.assertIn('number.toLowerCase() === "c"', source)
+        self.assertNotIn('Vol. ${issue.volume}, No. ${issue.issue}', self.page)
+        self.assertIn("sanitizeSummaryIssueLabel", self.page)
+        self.assertIn("sanitizeIssueLabel", self.status_page)
+        self.assertIn('当前已收录', self.page)
+        self.assertIn('本卷仍在持续更新', self.page)
 
     def test_homepage_uses_concise_abstract_labels(self):
         explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(encoding="utf-8")
@@ -306,3 +315,4 @@ class ComposerUiTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
