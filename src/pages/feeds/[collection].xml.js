@@ -128,4 +128,3 @@ export function GET({ params }) {
     headers: { "Content-Type": "application/rss+xml; charset=utf-8" },
   });
 }
-
