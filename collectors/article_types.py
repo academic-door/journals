@@ -221,4 +221,3 @@ def normalize_issue_taxonomy(
     issue["expected_article_count"] = len(articles)
     issue["research_article_count"] = len(articles)
     return issue
-
