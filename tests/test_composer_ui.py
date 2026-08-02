@@ -48,19 +48,12 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn("image-set", self.page)
         self.assertIn('css.includes("\\\\")', self.page)
 
-    def test_wechat_toc_hangs_number_outside_shared_text_edge(self):
+    def test_wechat_toc_uses_original_hanging_indent_layout(self):
         self.assertIn('<p class="toc-item">', self.page)
-        self.assertIn('<span class="toc-number">${ordered[1]}.</span>', self.page)
-        self.assertIn('<span class="toc-title-en">${renderInline(ordered[2])}</span>', self.page)
         self.assertIn('<br/><span class="toc-title-cn">', self.page)
         self.assertIn('"textIndent"', self.page)
-        self.assertIn(".toc-title-cn,\n.toc-authors {", self.css)
-        self.assertIn("display: block;\n  text-indent: 0;", self.css)
-        self.assertIn("width: 25px;\n  margin-left: -25px;", self.css)
-        self.assertIn(
-            'if (preserveTocNumberWidth) cloneNodes[index].style.width = computed.width;',
-            self.page,
-        )
+        self.assertIn('${ordered[1]}. ${renderInline(ordered[2])}', self.page)
+        self.assertNotIn('<span class="toc-number">', self.page)
         self.assertNotIn('<table class="toc-item"', self.page)
 
     def test_rich_copy_does_not_freeze_mobile_preview_dimensions(self):
