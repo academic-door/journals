@@ -81,8 +81,8 @@ class ComposerUiTest(unittest.TestCase):
         self.assertNotIn('Vol. ${issue.volume}, No. ${issue.issue}', self.page)
         self.assertIn("sanitizeSummaryIssueLabel", self.page)
         self.assertIn("sanitizeIssueLabel", self.status_page)
-        self.assertIn('当前已收录', self.page)
-        self.assertIn('本卷仍在持续更新', self.page)
+        self.assertIn("当前已收录", self.page)
+        self.assertIn("本卷仍在持续更新", self.page)
 
     def test_homepage_uses_concise_abstract_labels(self):
         explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(encoding="utf-8")
@@ -315,4 +315,3 @@ class ComposerUiTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
