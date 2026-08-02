@@ -435,7 +435,15 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
     const articleMarkdown = (issue, selected) => {
       const articles = orderedIssueArticles(issue).filter((article) => selected.has(article.paper_id));
-      const chinaArticles = arti…159 tokens truncated…[
+      const chinaArticles = articles.filter((article) => chinaRelevance(article).status === "yes");
+      const period = formatIssuePeriod(issue.publication_date);
+      const issueArticleCount = issue.research_article_count || issue.articles.length;
+      const counts = issue.content_counts || issue.quality?.content_counts || {};
+      const corrections = counts.corrections || 0;
+      const issueCountLabel = `${issueArticleCount} 篇学术文章${corrections ? `，另有 ${corrections} 篇勘误` : ""}`;
+      const intro = issue.development_sample
+        ? `> 当前为开发样板，正式发布前请确认完整文章数和摘要。`
+        : [
             issuePeriodLine(issue, period),
             `> ${issue.journal_name} ${issueLabel(issue)} ${issue.publication_state === "enriching" ? "当前已收录" : "共收录"} ${issueCountLabel}。`,
             articles.length !== issueArticleCount ? `> 本次选取其中 ${articles.length} 篇。` : "",
@@ -887,4 +895,3 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     });
   </script>
 </Layout>
-
