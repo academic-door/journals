@@ -5,11 +5,21 @@ import unittest
 
 from collectors.article_types import (
     canonical_article_type,
+    canonical_issue_label,
     normalize_issue_taxonomy,
 )
 
 
 class ArticleTypeTests(unittest.TestCase):
+    def test_issue_labels_distinguish_numbers_parts_and_url_tokens(self) -> None:
+        self.assertEqual("Vol. 143", canonical_issue_label("143", "C"))
+        self.assertEqual(
+            "Vol. 183",
+            canonical_issue_label("183", "C", "Vol. 183 · No. C"),
+        )
+        self.assertEqual("Vol. 256 · Part A", canonical_issue_label("256", "A"))
+        self.assertEqual("Vol. 141 · No. 3", canonical_issue_label("141", "3"))
+
     def test_canonical_types_cover_publishable_and_excluded_material(self) -> None:
         self.assertEqual("correction", canonical_article_type("Corrigendum to a paper"))
         self.assertEqual("editorial", canonical_article_type("Editorial Board"))
@@ -81,3 +91,4 @@ class ArticleTypeTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
