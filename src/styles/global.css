@@ -556,27 +556,14 @@ main,
 .wechat-preview ol { padding-left: 28px; }
 .toc-item {
   margin: 5px 0 14px;
-  padding: 8px 0;
+  padding: 8px 0 8px 25px;
   font-size: 16px;
   line-height: 1.8;
   text-align: left;
-  text-indent: 0;
+  text-indent: -25px;
 }
-.toc-number {
-  display: inline-block;
-  width: 25px;
-  margin-left: -25px;
-  padding-right: 6px;
-  color: #000;
-  box-sizing: border-box;
-  text-align: right;
-}
+.toc-number { color: #000; }
 .toc-title-en { color: #000; font-weight: 700; }
-.toc-title-cn,
-.toc-authors {
-  display: block;
-  text-indent: 0;
-}
 .toc-title-cn { color: #000; }
 .toc-authors { color: grey; }
 .theme-wechat-default {
