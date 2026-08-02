@@ -43,6 +43,28 @@ COMMENT_PATTERN = re.compile(
 )
 
 
+def canonical_issue_label(
+    volume: object,
+    issue: object,
+    existing: object = "",
+) -> str:
+    """Return a reader-facing label without leaking publisher URL tokens."""
+
+    volume_text = str(volume or "").strip()
+    issue_text = str(issue or "").strip()
+    existing_text = str(existing or "").strip()
+    if not volume_text:
+        return existing_text
+    base = f"Vol. {volume_text}"
+    if not issue_text or issue_text.casefold() == "c":
+        return base
+    if issue_text.casefold() in {"a", "b"}:
+        return f"{base} · Part {issue_text.upper()}"
+    if re.fullmatch(r"\d+(?:\s*[-–]\s*\d+)?", issue_text):
+        return f"{base} · No. {issue_text}"
+    return existing_text or f"{base} · {issue_text}"
+
+
 def canonical_article_type(
     title: str,
     article_type: str = "",
@@ -199,3 +221,4 @@ def normalize_issue_taxonomy(
     issue["expected_article_count"] = len(articles)
     issue["research_article_count"] = len(articles)
     return issue
+
