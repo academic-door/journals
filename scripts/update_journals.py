@@ -1050,6 +1050,7 @@ def collect_one(
     previous = read_json(target)
     previous_detected = read_json(detected_issue_path(config["id"]))
     detected_before: dict[str, Any] | None = None
+    translation_report: dict[str, Any] | None = None
     try:
         if enrich_detected:
             detected = read_json(detected_issue_path(config["id"]))
