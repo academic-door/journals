@@ -761,6 +761,8 @@ def is_publishable_snapshot(issue: dict[str, Any]) -> bool:
 def enrich_detected_issue(
     config: dict[str, Any],
     issue: dict[str, Any],
+    *,
+    re_enrich_elsevier: bool = False,
 ) -> dict[str, Any]:
     """Retry only unfinished content for an already trusted issue roster."""
 
@@ -786,6 +788,7 @@ def enrich_detected_issue(
         repec_series_code=repec_match.group(1) if repec_match else "",
         lead_months=int(config.get("publication_lead_months", 1)),
         existing_issue=issue,
+        force_elsevier=re_enrich_elsevier,
     )
     return refreshed or issue
 
@@ -962,6 +965,7 @@ def collect_one(
     expected_issue: str = "",
     enrich_detected: bool = False,
     translation_provider_state: dict[str, str] | None = None,
+    re_enrich_elsevier: bool = False,
 ) -> tuple[dict[str, Any] | None, dict[str, Any]]:
     report: dict[str, Any] = {
         "journal": key,
@@ -990,13 +994,19 @@ def collect_one(
             abstract_count = int(
                 detected.get("quality", {}).get("abstract_en_complete", 0)
             )
-            if detected_count > 0 and abstract_count == detected_count:
+            if (
+                detected_count > 0
+                and abstract_count == detected_count
+                and not re_enrich_elsevier
+            ):
                 # Translation-only recovery must not revisit publisher pages or
                 # entitlement-gated abstract APIs.
                 issue = detected
                 report["transport"] = "translation-only"
             else:
-                issue = enrich_detected_issue(config, detected)
+                issue = enrich_detected_issue(
+                    config, detected, re_enrich_elsevier=re_enrich_elsevier
+                )
                 report["transport"] = "detected-self-heal"
         else:
             primary_error = ""
@@ -1489,6 +1499,12 @@ def main() -> int:
         action="store_true",
         help="Retry missing abstracts and translations on detected issues only.",
     )
+    parser.add_argument(
+        "--re-enrich-elsevier",
+        action="store_true",
+        help="Force Elsevier API abstract lookups even when an abstract already "
+        "exists (keeps roster and order untouched; never downgrades to a teaser).",
+    )
     args = parser.parse_args()
 
     selected = [
@@ -1508,6 +1524,7 @@ def main() -> int:
             expected_issue=args.expected_issue,
             enrich_detected=args.enrich_detected,
             translation_provider_state=translation_provider_state,
+            re_enrich_elsevier=args.re_enrich_elsevier,
         )
         refreshed[key] = issue
         reports.append(report)
@@ -1520,6 +1537,7 @@ def main() -> int:
         "requested": args.journal,
         "translate": args.translate,
         "enrich_detected": args.enrich_detected,
+        "re_enrich_elsevier": args.re_enrich_elsevier,
         "results": reports,
         "translation_provider_state": translation_provider_state,
         "available_journals": sorted(available),

@@ -1313,6 +1313,7 @@ def fetch_sciencedirect_rss_issue(
     timeout: int = 60,
     today: date | None = None,
     existing_issue: dict[str, Any] | None = None,
+    force_elsevier: bool = False,
 ) -> dict[str, Any] | None:
     """Build the latest eligible Elsevier issue from the official RSS roster.
 
@@ -1441,7 +1442,9 @@ def fetch_sciencedirect_rss_issue(
 
         elsevier_lookup: dict[str, Any] = {}
         abstract_snippet = ""
-        if not abstract and _is_elsevier_identifier(pii, doi):
+        if (force_elsevier or not abstract) and _is_elsevier_identifier(
+            pii, doi
+        ):
             if _defer_elsevier_entitlement(previous):
                 elsevier_lookup = {
                     "status": "insufficient_entitlement_missing_insttoken",
@@ -1455,11 +1458,17 @@ def fetch_sciencedirect_rss_issue(
                     doi=doi,
                     timeout=timeout,
                 )
-            abstract = _clean_markup(str(elsevier_lookup.get("abstract", "")))
+            lookup_abstract = _clean_markup(
+                str(elsevier_lookup.get("abstract", ""))
+            )
             abstract_snippet = _clean_markup(
                 str(elsevier_lookup.get("teaser", ""))
             )
-            if abstract:
+            if lookup_abstract and (force_elsevier or not abstract):
+                # A forced run may replace a fallback abstract with the
+                # publisher one, but must never downgrade to a teaser or
+                # wipe an existing abstract on a failed lookup.
+                abstract = lookup_abstract
                 abstract_source = str(
                     elsevier_lookup.get("source", "elsevier-api")
                 )

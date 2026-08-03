@@ -614,6 +614,151 @@ class MetadataFallbackTests(unittest.TestCase):
         openalex.assert_not_called()
         semantic.assert_not_called()
 
+    def test_force_elsevier_replaces_fallback_abstract_but_keeps_roster(self) -> None:
+        feed = b"""
+        <rss xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><item>
+          <title>Existing paper</title>
+          <dc:identifier>10.1016/j.demo.2026.011</dc:identifier>
+          <description><![CDATA[
+            <p>Publication date: August 2026</p>
+            <p><b>Source:</b> Demo Journal, Volume 188</p>
+            <p>Author(s): Existing Author</p>
+          ]]></description>
+          <link>https://www.sciencedirect.com/science/article/pii/S010</link>
+        </item></channel></rss>
+        """
+
+        class RssSession:
+            def get(self, url: str, **kwargs) -> Response:
+                if "rss.sciencedirect.com" in url:
+                    return Response({}, feed)
+                return Response(
+                    {"message": {"items": [{
+                        **item("Existing paper", "1", "10.1016/j.demo.2026.011", ""),
+                        "volume": "188",
+                        "issue": "",
+                    }]}}
+                )
+
+        existing = {
+            "issue_id": "demo-188-c",
+            "articles": [{
+                "doi": "10.1016/j.demo.2026.011",
+                "title_en": "Existing paper",
+                "title_cn": "既有论文",
+                "authors": ["Existing Author"],
+                "abstract_en": "OpenAlex fallback abstract.",
+                "abstract_cn": "此前已经完成的摘要。",
+                "source_url": "https://www.sciencedirect.com/science/article/pii/S010",
+                "sources": {"abstract_en": "openalex"},
+                "translation": {"status": "complete"},
+            }],
+        }
+        with (
+            patch("collectors.metadata_fallback._elsevier_lookup") as elsevier,
+            patch("collectors.metadata_fallback._openalex_metadata") as openalex,
+            patch("collectors.metadata_fallback._semantic_scholar_metadata_batch") as semantic,
+        ):
+            elsevier.return_value = {
+                "abstract": "Publisher supplied abstract.",
+                "teaser": "",
+                "source": "elsevier-article-metadata",
+                "status": "success_full_abstract",
+                "attempts": [],
+            }
+            issue = fetch_sciencedirect_rss_issue(
+                journal_id="demo",
+                journal_name="Demo Journal",
+                issn="0000-0000",
+                current_issue_url="https://example.org/issues",
+                issue_url_template="https://example.org/vol/{volume}/suppl/{issue}",
+                rss_url="https://rss.sciencedirect.com/demo",
+                session=RssSession(),
+                today=date(2026, 7, 30),
+                existing_issue=existing,
+                force_elsevier=True,
+            )
+        assert issue is not None
+        article = issue["articles"][0]
+        self.assertEqual("Publisher supplied abstract.", article["abstract_en"])
+        self.assertEqual(
+            "elsevier-article-metadata",
+            article["sources"]["abstract_en"],
+        )
+        elsevier.assert_called_once()
+        openalex.assert_not_called()
+        semantic.assert_not_called()
+
+    def test_force_elsevier_failed_lookup_keeps_existing_abstract(self) -> None:
+        feed = b"""
+        <rss xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><item>
+          <title>Existing paper</title>
+          <dc:identifier>10.1016/j.demo.2026.012</dc:identifier>
+          <description><![CDATA[
+            <p>Publication date: August 2026</p>
+            <p><b>Source:</b> Demo Journal, Volume 188</p>
+            <p>Author(s): Existing Author</p>
+          ]]></description>
+          <link>https://www.sciencedirect.com/science/article/pii/S010</link>
+        </item></channel></rss>
+        """
+
+        class RssSession:
+            def get(self, url: str, **kwargs) -> Response:
+                if "rss.sciencedirect.com" in url:
+                    return Response({}, feed)
+                return Response(
+                    {"message": {"items": [{
+                        **item("Existing paper", "1", "10.1016/j.demo.2026.012", ""),
+                        "volume": "188",
+                        "issue": "",
+                    }]}}
+                )
+
+        existing = {
+            "issue_id": "demo-188-c",
+            "articles": [{
+                "doi": "10.1016/j.demo.2026.012",
+                "title_en": "Existing paper",
+                "title_cn": "既有论文",
+                "authors": ["Existing Author"],
+                "abstract_en": "Previously recovered abstract.",
+                "abstract_cn": "此前已经完成的摘要。",
+                "source_url": "https://www.sciencedirect.com/science/article/pii/S010",
+                "sources": {"abstract_en": "openalex"},
+                "translation": {"status": "complete"},
+            }],
+        }
+        with (
+            patch("collectors.metadata_fallback._elsevier_lookup") as elsevier,
+            patch("collectors.metadata_fallback._openalex_metadata") as openalex,
+            patch("collectors.metadata_fallback._semantic_scholar_metadata_batch") as semantic,
+        ):
+            elsevier.return_value = {
+                "abstract": "",
+                "teaser": "A teaser must never pass as the abstract.",
+                "source": "",
+                "status": "success_teaser_only",
+                "attempts": [],
+            }
+            issue = fetch_sciencedirect_rss_issue(
+                journal_id="demo",
+                journal_name="Demo Journal",
+                issn="0000-0000",
+                current_issue_url="https://example.org/issues",
+                issue_url_template="https://example.org/vol/{volume}/suppl/{issue}",
+                rss_url="https://rss.sciencedirect.com/demo",
+                session=RssSession(),
+                today=date(2026, 7, 30),
+                existing_issue=existing,
+                force_elsevier=True,
+            )
+        assert issue is not None
+        article = issue["articles"][0]
+        self.assertEqual("Previously recovered abstract.", article["abstract_en"])
+        self.assertEqual("openalex", article["sources"]["abstract_en"])
+        self.assertNotIn("abstract_en_missing", article["quality_flags"])
+
     def test_crossref_blank_issue_can_publish_as_continuous_volume(self) -> None:
         items = [
             {
