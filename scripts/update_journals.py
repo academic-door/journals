@@ -865,6 +865,66 @@ def preserve_existing_content(
     if quality["abstract_en_complete"] != int(issue.get("research_article_count", 0)):
         flags.append("abstract_en_incomplete")
     quality["flags"] = list(dict.fromkeys(flags))
+    # Provenance guard: a previously verified official roster must not be
+    # downgraded back to the RSS fallback state while its article set is
+    # unchanged. This keeps browser-verified Elsevier issues ready across
+    # scheduled re-collections.
+    existing_quality = (
+        existing.get("quality", {}) if isinstance(existing, dict) else {}
+    )
+    verified_marker = existing_quality.get("browser_order_verification", {})
+    official_verified = (
+        existing_quality.get("roster_authority") == "official-issue-page"
+        or (
+            isinstance(verified_marker, dict)
+            and bool(verified_marker.get("pii_sequence_matched"))
+        )
+        or bool(existing_quality.get("browser_capture"))
+    )
+    if official_verified:
+        existing_dois = {
+            str(article.get("doi", "")).strip().lower()
+            for article in existing.get("articles", [])
+            if str(article.get("doi", "")).strip()
+        }
+        new_dois = {
+            str(article.get("doi", "")).strip().lower()
+            for article in issue.get("articles", [])
+            if str(article.get("doi", "")).strip()
+        }
+        if existing_dois and existing_dois == new_dois:
+            downgrade_flags = {
+                "publisher_html_blocked_sciencedirect_rss_fallback",
+                "publisher_rss_reverse_order_normalized",
+                "official_order_unverified",
+                "elsevier_insttoken_required",
+            }
+            quality["flags"] = [
+                flag
+                for flag in quality.get("flags", [])
+                if flag not in downgrade_flags
+            ]
+            for key in (
+                "roster_authority",
+                "roster_transport",
+                "order_verification",
+            ):
+                if existing_quality.get(key):
+                    quality[key] = existing_quality[key]
+            for key in (
+                "browser_order_verification",
+                "browser_authorized_abstracts",
+                "browser_capture",
+            ):
+                if existing_quality.get(key) and not quality.get(key):
+                    quality[key] = existing_quality[key]
+            if existing_quality.get("excluded_items") and not quality.get(
+                "excluded_items"
+            ):
+                quality["excluded_items"] = list(existing_quality["excluded_items"])
+                quality["excluded_item_count"] = len(
+                    existing_quality["excluded_items"]
+                )
     return issue
 
 
