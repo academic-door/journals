@@ -23,3 +23,28 @@ with fabricated data.
   2. Extend `backfill_history.py` to Elsevier continuous-publishing journals.
 - Do not close this entry until one option lands or the gap is accepted as
   permanent with a note here.
+
+## Elsevier abstract source upgrade (2026-08-03)
+
+- Status: partial
+- Switch: `update_journals.py --re-enrich-elsevier` (workflow input
+  `re-enrich-elsevier`), added 2026-08-03, tested in CI.
+- Done: 10 of 15 Elsevier journals now source abstracts from
+  `elsevier-article-metadata` (186 articles); each article carries the
+  `X-RateLimit-*` snapshot in `sources.abstract_lookup.rate_limit`. Measured
+  weekly usage after the pass: 1,604 / 20,000 metadata requests (8%), reset
+  2026-08-05.
+- Not converted, with blocker:
+  - EER, JET: the rebuilt issue fails the publication gate because exactly one
+    translation does not complete per run (`translation incomplete: 15/16` and
+    `13/14`); the previous complete issue is preserved. Re-run when the
+    translation provider is healthy, or identify the failing article.
+  - GEB: the RSS-rebuilt issue has one article with no abstract
+    (`abstract_en_incomplete`), so the gate preserves the previous issue.
+  - WD, LUP: pre-existing collector failure
+    (`RePEc candidate is outside the configured publication horizon: Vol.
+    206/169 October 2026`) blocks every re-collection, not just the upgrade.
+- Impact: none on published data (all 581 abstracts and translations remain
+  complete). The five journals keep their previous official-preview / OpenAlex
+  sources until the blockers are resolved.
+
