@@ -747,5 +747,109 @@ class PublicationGateTests(unittest.TestCase):
         self.assertEqual(2, len(result["quality"]["excluded_items"]))
         self.assertEqual(3, result["quality"]["official_item_count"])
 
+
+    def test_refresh_elsevier_abstracts_replaces_fallback_but_keeps_roster(self) -> None:
+        from unittest.mock import patch
+
+        from scripts.update_journals import refresh_elsevier_abstracts
+
+        issue = {
+            "issue_id": "demo-188-c",
+            "articles": [
+                {
+                    "doi": "10.1016/j.demo.2026.010",
+                    "title_en": "Existing paper",
+                    "abstract_en": "OpenAlex fallback abstract.",
+                    "source_url": "https://www.sciencedirect.com/science/article/pii/S0100000000000001",
+                    "sources": {"abstract_en": "openalex"},
+                }
+            ],
+            "quality": {"abstract_en_complete": 1, "flags": []},
+        }
+        config = {"collector": "elsevier", "id": "demo"}
+        with patch(
+            "collectors.metadata_fallback._elsevier_lookup"
+        ) as lookup:
+            lookup.return_value = {
+                "abstract": "Publisher supplied abstract.",
+                "teaser": "",
+                "source": "elsevier-article-metadata",
+                "status": "success_full_abstract",
+                "attempts": [],
+                "rate_limit": {"limit": 20000, "remaining": 19500},
+            }
+            result = refresh_elsevier_abstracts(issue, config)
+        article = result["articles"][0]
+        self.assertEqual("Publisher supplied abstract.", article["abstract_en"])
+        self.assertEqual(
+            "elsevier-article-metadata", article["sources"]["abstract_en"]
+        )
+        self.assertEqual(
+            {"limit": 20000, "remaining": 19500},
+            article["sources"]["abstract_lookup"]["rate_limit"],
+        )
+        self.assertEqual("demo-188-c", result["issue_id"])
+        lookup.assert_called_once()
+
+    def test_refresh_elsevier_abstracts_keeps_existing_on_failure(self) -> None:
+        from unittest.mock import patch
+
+        from scripts.update_journals import refresh_elsevier_abstracts
+
+        issue = {
+            "issue_id": "demo-188-c",
+            "articles": [
+                {
+                    "doi": "10.1016/j.demo.2026.010",
+                    "title_en": "Existing paper",
+                    "abstract_en": "Previously recovered abstract.",
+                    "source_url": "https://www.sciencedirect.com/science/article/pii/S0100000000000001",
+                    "sources": {"abstract_en": "openalex"},
+                }
+            ],
+            "quality": {"abstract_en_complete": 1, "flags": []},
+        }
+        config = {"collector": "elsevier", "id": "demo"}
+        with patch(
+            "collectors.metadata_fallback._elsevier_lookup"
+        ) as lookup:
+            lookup.return_value = {
+                "abstract": "",
+                "teaser": "A teaser must never pass as the abstract.",
+                "source": "",
+                "status": "success_teaser_only",
+                "attempts": [],
+            }
+            result = refresh_elsevier_abstracts(issue, config)
+        article = result["articles"][0]
+        self.assertEqual("Previously recovered abstract.", article["abstract_en"])
+        self.assertEqual("openalex", article["sources"]["abstract_en"])
+
+    def test_refresh_elsevier_abstracts_ignores_non_elsevier(self) -> None:
+        from unittest.mock import patch
+
+        from scripts.update_journals import refresh_elsevier_abstracts
+
+        issue = {
+            "issue_id": "other-1-c",
+            "articles": [
+                {
+                    "doi": "10.1111/j.other.2026.010",
+                    "title_en": "Other",
+                    "abstract_en": "Abstract.",
+                    "source_url": "https://example.org/article/1",
+                    "sources": {"abstract_en": "crossref"},
+                }
+            ],
+            "quality": {"abstract_en_complete": 1, "flags": []},
+        }
+        config = {"collector": "wiley", "id": "other"}
+        with patch("collectors.metadata_fallback._elsevier_lookup") as lookup:
+            result = refresh_elsevier_abstracts(issue, config)
+        self.assertEqual("Abstract.", result["articles"][0]["abstract_en"])
+        lookup.assert_not_called()
+
+
 if __name__ == "__main__":
     unittest.main()
+

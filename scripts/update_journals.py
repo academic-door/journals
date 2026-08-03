@@ -956,6 +956,79 @@ def merge_issue_audit_metadata(
             )
     return previous
 
+
+PII_IN_URL = re.compile(r"/pii/(S\d{15}[0-9X])", re.IGNORECASE)
+
+
+def refresh_elsevier_abstracts(
+    issue: dict[str, Any],
+    config: dict[str, Any],
+    *,
+    timeout: int = 60,
+) -> dict[str, Any]:
+    """Force Elsevier API abstract lookups without touching roster or order.
+
+    Used by --re-enrich-elsevier. Replaces fallback abstracts (OpenAlex,
+    Semantic Scholar, preview snippets) with the publisher metadata abstract
+    when the API returns one. A failed or teaser-only lookup keeps the
+    existing abstract. Roster, article order, and quality flags are untouched.
+    """
+
+    if config.get("collector") != "elsevier":
+        return issue
+    import requests
+
+    from collectors.metadata_fallback import (
+        _defer_elsevier_entitlement,
+        _elsevier_lookup,
+        _is_elsevier_identifier,
+    )
+
+    session = requests.Session()
+    articles = issue.get("articles", [])
+    replaced = 0
+    for article in articles:
+        doi = str(article.get("doi", "")).strip().lower()
+        url = str(article.get("source_url", ""))
+        match = PII_IN_URL.search(url)
+        pii = match.group(1).upper() if match else ""
+        if not _is_elsevier_identifier(pii, doi):
+            continue
+        if _defer_elsevier_entitlement(article):
+            continue
+        lookup = _elsevier_lookup(session, pii, doi=doi, timeout=timeout)
+        fetched = str(lookup.get("abstract", "")).strip()
+        if not fetched:
+            continue
+        sources = article.setdefault("sources", {})
+        sources["abstract_en"] = str(lookup.get("source", "elsevier-api"))
+        if lookup.get("source_url"):
+            sources["elsevier"] = lookup["source_url"]
+        sources["abstract_lookup"] = {
+            "status": str(lookup.get("status", "")),
+            "attempts": lookup.get("attempts", []),
+        }
+        if lookup.get("rate_limit"):
+            sources["abstract_lookup"]["rate_limit"] = lookup["rate_limit"]
+        if lookup.get("quota_warning"):
+            sources["abstract_lookup"]["quota_warning"] = lookup["quota_warning"]
+        article["abstract_en"] = fetched
+        replaced += 1
+    if replaced:
+        quality = issue.get("quality", {})
+        quality["abstract_en_complete"] = sum(
+            bool(str(article.get("abstract_en", "")).strip())
+            for article in articles
+        )
+        if "abstract_en_missing" in quality.get("flags", []):
+            quality["flags"] = [
+                flag
+                for flag in quality["flags"]
+                if flag != "abstract_en_missing"
+            ]
+    return issue
+
+
 def collect_one(
     key: str,
     config: dict[str, Any],
@@ -1012,6 +1085,8 @@ def collect_one(
             primary_error = ""
             try:
                 issue = collector_for(config)()
+                if re_enrich_elsevier:
+                    issue = refresh_elsevier_abstracts(issue, config)
                 if not is_detected_snapshot(issue):
                     raise ValueError(
                         "primary collector failed roster gate: "
@@ -1025,6 +1100,8 @@ def collect_one(
                 if fallback is None:
                     raise
                 issue = fallback()
+                if re_enrich_elsevier:
+                    issue = refresh_elsevier_abstracts(issue, config)
                 report["primary_error"] = primary_error
                 report["transport"] = "metadata_fallback"
         issue = preserve_existing_content(issue, detected_before or previous_detected)
