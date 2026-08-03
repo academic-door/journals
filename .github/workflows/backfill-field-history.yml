@@ -9,10 +9,16 @@ on:
         default: JDE
         type: choice
         options: [ALL, JDE, JPubE, JEEM, JUE, EER, GEB, JET, JEBO, JIE, JFE, WD, JME, JOE, FOODPOLICY, LUP]
-      year:
-        description: Publication year
+      from_year:
+        description: From publication year
         required: true
         default: "2025"
+        type: choice
+        options: ["2025", "2026"]
+      to_year:
+        description: To publication year
+        required: true
+        default: "2026"
         type: choice
         options: ["2025", "2026"]
       max_issues:
@@ -87,8 +93,8 @@ jobs:
             --config config/field-history.yml \
             --state data/backfill-state/field-2025-2026.json \
             --journal "${{ inputs.journal }}" \
-            --from-year "${{ inputs.year }}" \
-            --to-year "${{ inputs.year }}" \
+            --from-year "${{ inputs.from_year }}" \
+            --to-year "${{ inputs.to_year }}" \
             --translate \
             --max-issues "${{ inputs.max_issues }}" \
             --max-translations "${{ inputs.max_translations }}"
