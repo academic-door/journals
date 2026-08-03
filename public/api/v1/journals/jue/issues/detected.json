@@ -11,7 +11,7 @@
   "retrieved_at": "2026-08-02T22:32:10+00:00",
   "expected_article_count": 17,
   "research_article_count": 17,
-  "status": "incomplete",
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
@@ -89,6 +89,11 @@
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0094119026000537",
+        "captured_at": "2026-08-02T08:19:21.862Z"
       }
     },
     {
@@ -167,6 +172,11 @@
           "in China"
         ],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0094119026000422",
+        "captured_at": "2026-08-02T08:19:21.862Z"
       }
     },
     {
@@ -244,6 +254,11 @@
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0094119026000434",
+        "captured_at": "2026-08-02T08:19:21.862Z"
       }
     },
     {
@@ -322,6 +337,11 @@
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0094119026000380",
+        "captured_at": "2026-08-02T08:19:21.862Z"
       }
     },
     {
@@ -473,6 +493,11 @@
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0094119026000549",
+        "captured_at": "2026-08-02T08:19:21.862Z"
       }
     },
     {
@@ -861,6 +886,11 @@
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0094119026000574",
+        "captured_at": "2026-08-02T08:19:21.862Z"
       }
     },
     {
@@ -937,6 +967,11 @@
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0094119026000586",
+        "captured_at": "2026-08-02T08:19:21.862Z"
       }
     },
     {
@@ -1014,6 +1049,11 @@
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0094119026000598",
+        "captured_at": "2026-08-02T08:19:21.862Z"
       }
     },
     {
@@ -1091,6 +1131,11 @@
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0094119026000604",
+        "captured_at": "2026-08-02T08:19:21.862Z"
       }
     },
     {
@@ -1169,6 +1214,11 @@
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0094119026000628",
+        "captured_at": "2026-08-02T08:19:21.862Z"
       }
     },
     {
@@ -1248,6 +1298,11 @@
           "China"
         ],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0094119026000616",
+        "captured_at": "2026-08-02T08:19:21.862Z"
       }
     },
     {
@@ -1325,14 +1380,19 @@
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S009411902600063X",
+        "captured_at": "2026-08-02T08:19:21.862Z"
       }
     }
   ],
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "sciencedirect-rss",
-    "roster_authority": "publisher-rss",
+    "roster_transport": "official-issue-page+browser-authorized",
+    "roster_authority": "official-issue-page",
     "roster_match_scope": "rss-volume-items",
     "rss_url": "https://rss.sciencedirect.com/publication/science/00941190",
     "official_item_count": 17,
@@ -1344,12 +1404,7 @@
     "abstract_en_complete": 17,
     "translation_complete": 17,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_sciencedirect_rss_fallback",
-      "publisher_rss_reverse_order_normalized",
-      "official_order_unverified",
-      "elsevier_insttoken_required"
-    ],
+    "flags": [],
     "content_counts": {
       "official_items": 17,
       "observed_items": 17,
@@ -1362,6 +1417,23 @@
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 17
+    },
+    "order_verification": "official_verified",
+    "browser_order_verification": {
+      "verified_at": "2026-08-03T01:44:08+00:00",
+      "source_url": "https://www.sciencedirect.com/journal/journal-of-urban-economics/vol/154/suppl/C",
+      "captured_at": "2026-08-03T01:38:50.865Z",
+      "page_item_count": 17,
+      "article_count": 17,
+      "pii_sequence_matched": true,
+      "titles_matched": true,
+      "excluded_items_present": true
+    },
+    "browser_authorized_abstracts": {
+      "captured_at": "2026-08-02T08:19:32.615Z",
+      "institutional_access_confirmed": true,
+      "privacy_fields_stored": false,
+      "applied_count": 12
     }
   },
   "content_counts": {

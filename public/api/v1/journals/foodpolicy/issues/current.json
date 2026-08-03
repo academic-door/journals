@@ -11,7 +11,7 @@
   "retrieved_at": "2026-08-02T22:39:47+00:00",
   "expected_article_count": 4,
   "research_article_count": 4,
-  "status": "incomplete",
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
@@ -93,6 +93,11 @@
           "China’s"
         ],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0306919226001077",
+        "captured_at": "2026-08-02T08:20:57.778Z"
       }
     },
     {
@@ -172,6 +177,11 @@
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0306919226001156",
+        "captured_at": "2026-08-02T08:20:57.778Z"
       }
     },
     {
@@ -249,6 +259,11 @@
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
+      },
+      "abstract_lookup": {
+        "status": "browser_authorized_official_complete",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S030691922600117X",
+        "captured_at": "2026-08-02T08:20:57.778Z"
       }
     },
     {
@@ -346,8 +361,8 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "sciencedirect-rss",
-    "roster_authority": "publisher-rss",
+    "roster_transport": "official-issue-page+browser-authorized",
+    "roster_authority": "official-issue-page",
     "roster_match_scope": "rss-volume-items",
     "rss_url": "https://rss.sciencedirect.com/publication/science/03069192",
     "official_item_count": 4,
@@ -359,12 +374,7 @@
     "abstract_en_complete": 4,
     "translation_complete": 4,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_sciencedirect_rss_fallback",
-      "publisher_rss_reverse_order_normalized",
-      "official_order_unverified",
-      "elsevier_insttoken_required"
-    ],
+    "flags": [],
     "content_counts": {
       "official_items": 4,
       "observed_items": 4,
@@ -377,6 +387,23 @@
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 4
+    },
+    "order_verification": "official_verified",
+    "browser_order_verification": {
+      "verified_at": "2026-08-03T01:44:08+00:00",
+      "source_url": "https://www.sciencedirect.com/journal/food-policy/vol/143/suppl/C",
+      "captured_at": "2026-08-03T01:39:01.450Z",
+      "page_item_count": 4,
+      "article_count": 4,
+      "pii_sequence_matched": true,
+      "titles_matched": true,
+      "excluded_items_present": true
+    },
+    "browser_authorized_abstracts": {
+      "captured_at": "2026-08-02T08:21:07.282Z",
+      "institutional_access_confirmed": true,
+      "privacy_fields_stored": false,
+      "applied_count": 3
     }
   },
   "content_counts": {
