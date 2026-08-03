@@ -37,10 +37,17 @@ def item(title: str, page: str, doi: str, abstract: str = "A complete abstract."
 
 
 class Response:
-    def __init__(self, payload: dict, content: bytes = b"", status_code: int = 200):
+    def __init__(
+        self,
+        payload: dict,
+        content: bytes = b"",
+        status_code: int = 200,
+        headers: dict[str, str] | None = None,
+    ):
         self.payload = payload
         self.content = content
         self.status_code = status_code
+        self.headers = headers or {}
 
     def raise_for_status(self) -> None:
         if self.status_code >= 400:
@@ -954,5 +961,76 @@ class MetadataFallbackTests(unittest.TestCase):
         self.assertEqual("Recovered from official page.", article["abstract_en"])
         self.assertEqual("official-sciencedirect-issue", article["sources"]["abstract_en"])
         self.assertNotIn("abstract_en_missing", article["quality_flags"])
+
+
+class ElsevierRateLimitSession:
+    def __init__(self, remaining: int = 19500) -> None:
+        self.calls: list[tuple[str, dict]] = []
+        self.remaining = remaining
+
+    def get(self, url: str, **kwargs) -> Response:
+        self.calls.append((url, kwargs))
+        return Response(
+            {},
+            b"""
+            <response xmlns:dc="http://purl.org/dc/elements/1.1/">
+              <coredata>
+                <dc:description>A publisher supplied abstract.</dc:description>
+              </coredata>
+            </response>
+            """,
+            headers={
+                "X-RateLimit-Limit": "20000",
+                "X-RateLimit-Remaining": str(self.remaining),
+                "X-RateLimit-Reset": "1783457891",
+                "X-ELS-Status": "OK",
+            },
+        )
+
+
+class ElsevierQuotaTest(unittest.TestCase):
+    def test_lookup_records_rate_limit_headers(self) -> None:
+        session = ElsevierRateLimitSession(remaining=19500)
+        with patch.dict(
+            "os.environ",
+            {"ELSEVIER_API_KEY": "test-secret", "ELSEVIER_INST_TOKEN": "test-inst-token"},
+            clear=True,
+        ):
+            lookup = _elsevier_lookup(
+                session, "S0014292126001194", timeout=10
+            )
+        self.assertEqual(
+            {
+                "limit": 20000,
+                "remaining": 19500,
+                "resets_at": "2026-07-07T20:58:11+00:00",
+                "els_status": "OK",
+            },
+            lookup["rate_limit"],
+        )
+        self.assertEqual(
+            {"limit": 20000, "remaining": 19500},
+            {
+                key: value
+                for key, value in lookup["attempts"][0]["rate_limit"].items()
+                if key in {"limit", "remaining"}
+            },
+        )
+        self.assertEqual("", lookup["quota_warning"])
+
+    def test_lookup_warns_when_quota_is_nearly_exhausted(self) -> None:
+        session = ElsevierRateLimitSession(remaining=1500)
+        with patch.dict(
+            "os.environ",
+            {"ELSEVIER_API_KEY": "test-secret", "ELSEVIER_INST_TOKEN": "test-inst-token"},
+            clear=True,
+        ):
+            lookup = _elsevier_lookup(
+                session, "S0014292126001194", timeout=10
+            )
+        self.assertIn("quota nearly exhausted", lookup["quota_warning"])
+        self.assertIn("1500/20000", lookup["quota_warning"])
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -33,6 +33,14 @@ ELSEVIER_ARTICLE_METADATA_API = "https://api.elsevier.com/content/metadata/artic
 ELSEVIER_SEARCH_API = "https://api.elsevier.com/content/search/sciencedirect"
 ELSEVIER_ARTICLE_API = "https://api.elsevier.com/content/article"
 ELSEVIER_ABSTRACT_API = "https://api.elsevier.com/content/abstract"
+# Elsevier reports per-API quotas in response headers (reset every 7 days).
+# Keep a snapshot of every answered request and warn before the cap is hit.
+RATE_LIMIT_HEADERS = (
+    "x-ratelimit-limit",
+    "x-ratelimit-remaining",
+    "x-ratelimit-reset",
+)
+QUOTA_WARNING_FRACTION = 0.10
 NON_RESEARCH_PATTERN = re.compile(
     r"front\s*matter|back\s*matter|editorial\s*board|table\s*of\s*contents|"
     r"recent\s*referees|turnaround\s*times|issue\s+information|"
@@ -343,6 +351,56 @@ def _elsevier_status(status_code: int) -> str:
     }.get(status_code, "temporary_error" if status_code >= 500 else "request_failed")
 
 
+def _rate_limit_snapshot(response: object) -> dict[str, Any] | None:
+    """Capture Elsevier's per-API quota headers from a response, if present."""
+
+    headers = getattr(response, "headers", {}) or {}
+    lowered = {
+        str(key).casefold(): str(value).strip()
+        for key, value in headers.items()
+    }
+    raw = {header: lowered.get(header, "") for header in RATE_LIMIT_HEADERS}
+    if not any(raw.values()):
+        return None
+    snapshot: dict[str, Any] = {}
+    limit_raw = raw["x-ratelimit-limit"]
+    remaining_raw = raw["x-ratelimit-remaining"]
+    if limit_raw.isdigit():
+        snapshot["limit"] = int(limit_raw)
+    elif limit_raw:
+        snapshot["limit"] = limit_raw
+    if remaining_raw.isdigit():
+        snapshot["remaining"] = int(remaining_raw)
+    elif remaining_raw:
+        snapshot["remaining"] = remaining_raw
+    reset_raw = raw["x-ratelimit-reset"]
+    if reset_raw.isdigit():
+        try:
+            snapshot["resets_at"] = datetime.fromtimestamp(
+                int(reset_raw), timezone.utc
+            ).isoformat()
+        except (OSError, OverflowError, ValueError):
+            snapshot["reset_epoch"] = reset_raw
+    status_raw = lowered.get("x-els-status", "")
+    if status_raw:
+        snapshot["els_status"] = status_raw
+    return snapshot
+
+
+def _quota_warning(name: str, snapshot: dict[str, Any]) -> str:
+    """Return a warning when the remaining weekly quota drops below 10%."""
+
+    remaining = snapshot.get("remaining")
+    limit = snapshot.get("limit")
+    if isinstance(remaining, int) and isinstance(limit, int) and limit > 0:
+        if remaining <= max(1, round(limit * QUOTA_WARNING_FRACTION)):
+            return (
+                f"{name}: Elsevier API quota nearly exhausted "
+                f"({remaining}/{limit} remaining)"
+            )
+    return ""
+
+
 def _elsevier_text(root: ElementTree.Element, names: set[str]) -> str:
     for node in root.iter():
         if _local_name(node.tag) not in names:
@@ -400,6 +458,8 @@ def _elsevier_lookup(
         "source": "",
         "status": "unconfigured" if not api_key else "not_found",
         "attempts": [],
+        "rate_limit": None,
+        "quota_warning": "",
     }
     if not api_key or not (normalized_doi or normalized_pii):
         return result
@@ -422,36 +482,41 @@ def _elsevier_lookup(
                 headers=headers,
                 timeout=timeout,
             )
-            status_code = int(getattr(response, "status_code", 200))
-            if status_code >= 400:
-                result["attempts"].append(
-                    {
-                        "source": name,
-                        "status_code": status_code,
-                        "outcome": _elsevier_status(status_code),
-                    }
-                )
-                result["status"] = _elsevier_status(status_code)
-                if status_code == 403 and not inst_token:
-                    result["status"] = "insufficient_entitlement_missing_insttoken"
-                return None
-            response.raise_for_status()
-            root = ElementTree.fromstring(response.content)
         except requests.RequestException:
             result["attempts"].append(
                 {"source": name, "status_code": 0, "outcome": "temporary_error"}
             )
             result["status"] = "temporary_error"
             return None
+        status_code = int(getattr(response, "status_code", 200))
+        snapshot = _rate_limit_snapshot(response)
+        if snapshot:
+            result["rate_limit"] = snapshot
+            warning = _quota_warning(name, snapshot)
+            if warning:
+                result["quota_warning"] = warning
+        attempt: dict[str, Any] = {
+            "source": name,
+            "status_code": status_code,
+            "outcome": _elsevier_status(status_code),
+        }
+        if snapshot:
+            attempt["rate_limit"] = snapshot
+        if status_code >= 400:
+            result["attempts"].append(attempt)
+            result["status"] = _elsevier_status(status_code)
+            if status_code == 403 and not inst_token:
+                result["status"] = "insufficient_entitlement_missing_insttoken"
+            return None
+        try:
+            root = ElementTree.fromstring(response.content)
         except ElementTree.ParseError:
-            result["attempts"].append(
-                {"source": name, "status_code": 200, "outcome": "invalid_response"}
-            )
+            attempt["outcome"] = "invalid_response"
+            result["attempts"].append(attempt)
             result["status"] = "invalid_response"
             return None
-        result["attempts"].append(
-            {"source": name, "status_code": status_code, "outcome": "success"}
-        )
+        attempt["outcome"] = "success"
+        result["attempts"].append(attempt)
         return root
 
     def accept_payload(
@@ -1447,6 +1512,16 @@ def fetch_sciencedirect_rss_issue(
             sources["abstract_lookup"] = {
                 "status": elsevier_lookup.get("status", ""),
                 "attempts": elsevier_lookup.get("attempts", []),
+                **(
+                    {"rate_limit": elsevier_lookup["rate_limit"]}
+                    if elsevier_lookup.get("rate_limit")
+                    else {}
+                ),
+                **(
+                    {"quota_warning": elsevier_lookup["quota_warning"]}
+                    if elsevier_lookup.get("quota_warning")
+                    else {}
+                ),
             }
             if elsevier_lookup.get("source_url"):
                 sources["elsevier"] = elsevier_lookup["source_url"]
@@ -2090,6 +2165,20 @@ def fetch_crossref_current_issue(
                             "abstract_lookup": {
                                 "status": elsevier_lookup.get("status", ""),
                                 "attempts": elsevier_lookup.get("attempts", []),
+                                **(
+                                    {"rate_limit": elsevier_lookup["rate_limit"]}
+                                    if elsevier_lookup.get("rate_limit")
+                                    else {}
+                                ),
+                                **(
+                                    {
+                                        "quota_warning": elsevier_lookup[
+                                            "quota_warning"
+                                        ]
+                                    }
+                                    if elsevier_lookup.get("quota_warning")
+                                    else {}
+                                ),
                             }
                         }
                         if elsevier_lookup

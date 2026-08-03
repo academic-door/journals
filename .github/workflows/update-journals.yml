@@ -97,6 +97,7 @@ jobs:
           python scripts/audit_source_alignment.py --strict
           python -m unittest discover -s tests -v
           python scripts/audit_privacy.py
+          python scripts/elsevier_quota_check.py
 
       - name: Publish generated public data to data branch
         id: publish
