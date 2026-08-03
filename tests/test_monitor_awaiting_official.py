@@ -40,7 +40,7 @@ class AwaitingOfficialTests(unittest.TestCase):
                     "awaiting_official_since": "2026-08-01T00:00:00+00:00",
                     "last_error": "ValueError: provisional Crossref roster requires official confirmation",
                     "failure_count": 0,
-                    "deep_failure_count": 0,
+                    "deep_failure_count": 6,
                 },
                 "BROKEN": {
                     "status": "update_failed",

@@ -794,13 +794,17 @@ def public_status(
     alerting = [
         key
         for key, entry in entries.items()
-        if int(entry.get("failure_count", 0)) >= ALERT_THRESHOLD
-        or int(entry.get("deep_failure_count", 0)) >= ALERT_THRESHOLD
+        if entry.get("status") != "awaiting_official"
+        and (
+            int(entry.get("failure_count", 0)) >= ALERT_THRESHOLD
+            or int(entry.get("deep_failure_count", 0)) >= ALERT_THRESHOLD
+        )
     ]
     warnings = [
         key
         for key, entry in entries.items()
-        if (
+        if entry.get("status") != "awaiting_official"
+        and (
             int(entry.get("failure_count", 0)) > 0
             or int(entry.get("deep_failure_count", 0)) > 0
         )
