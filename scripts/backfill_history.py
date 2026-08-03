@@ -192,8 +192,9 @@ def collect_or_resume(
         return load_json(path, {})
     issue = collector_for_issue(journal_config, issue_ref)()
     if (
-        str(issue.get("volume", "")) != issue_ref.volume
-        or str(issue.get("issue", "")) != issue_ref.issue
+        str(issue.get("volume", "")).casefold() != str(issue_ref.volume).casefold()
+        or str(issue.get("issue", "")).casefold()
+        != str(issue_ref.issue).casefold()
     ):
         raise ValueError(
             f"Official page mismatch: expected {issue_ref.volume}/{issue_ref.issue}, "
