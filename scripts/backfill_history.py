@@ -206,6 +206,39 @@ def collect_or_resume(
     return issue
 
 
+def history_completeness_block(
+    issue: dict[str, Any],
+    journal_config: dict[str, Any],
+    public_api: Path = PUBLIC_API,
+) -> str:
+    """Return a block reason when a history volume looks implausibly small.
+
+    Elsevier continuous volumes are sometimes thin in Crossref/OpenAlex. Never
+    publish a historical issue that is under half the journal's current issue
+    size; keep it staged for a manual or browser-authorized capture instead.
+    """
+
+    current_path = (
+        public_api / "journals" / journal_config["id"] / "issues" / "current.json"
+    )
+    reference_count = 0
+    if current_path.exists():
+        try:
+            reference_count = int(
+                load_json(current_path, {}).get("research_article_count", 0)
+            )
+        except (TypeError, ValueError):
+            reference_count = 0
+    collected_count = int(issue.get("research_article_count", 0))
+    if reference_count >= 10 and collected_count < reference_count * 0.5:
+        return (
+            f"possible_incomplete_volume: {collected_count} articles "
+            f"collected vs current issue {reference_count}; "
+            "needs official page or browser-authorized capture"
+        )
+    return ""
+
+
 def run_issue(
     issue_ref: HistoricalIssue,
     journal_config: dict[str, Any],
@@ -252,6 +285,14 @@ def run_issue(
                 "issue_id": issue_ref.issue_id,
                 "result": "translation_partial",
                 "translation": translation_report,
+            }
+        block_reason = history_completeness_block(issue, journal_config)
+        if block_reason:
+            update_state(state, issue_ref, status="blocked", error=block_reason)
+            return {
+                "issue_id": issue_ref.issue_id,
+                "result": "blocked",
+                "error": "possible_incomplete_volume",
             }
         target = archive_issue(issue)
         if target is None:

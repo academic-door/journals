@@ -24,6 +24,29 @@ with fabricated data.
 - Do not close this entry until one option lands or the gap is accepted as
   permanent with a note here.
 
+## Field journal history backfill (2025-2026) status
+
+- Status: machinery shipped, data-source coverage partial.
+- Shipped: `config/field-history.yml` (15 Elsevier field journals),
+  Crossref volume discovery in `collectors/history.py`, an `elsevier` branch in
+  `scripts/backfill_history.py`, resumable `backfill-field-history.yml`
+  workflow, and a completeness guard
+  (`history_completeness_block`) that refuses to archive a history volume with
+  under half the journal's current issue size.
+- Pilot (JDE 2025): pipeline collects, translates and archives end to end, but
+  Crossref/OpenAlex coverage for some Elsevier continuous volumes is
+  incomplete. Evidence: JDE Vol. 173 has only 4-7 items in Crossref/OpenAlex
+  while neighbouring volumes have 34-45. The first archived
+  `jde-173-c.json` (4 articles) was withdrawn from the data branch on
+  2026-08-03 and its backfill state is marked blocked.
+- Conclusion: Crossref-only auto-backfill is safe only where the completeness
+  guard passes (volumes with plausible counts). Volumes that fail the guard
+  need the official issue page via the browser-authorized capture flow.
+- JDE 172-C remains translation_partial and can be resumed; the remaining
+  volumes should be re-run with the guard in place before any rollout to the
+  other 14 field journals.
+
+
 ## Elsevier abstract source upgrade (2026-08-03)
 
 - Status: partial

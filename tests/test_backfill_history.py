@@ -7,7 +7,11 @@ from pathlib import Path
 from unittest.mock import patch
 
 from collectors.history import HistoricalIssue
-from scripts.backfill_history import atomic_write_json, collector_for_issue
+from scripts.backfill_history import (
+    atomic_write_json,
+    collector_for_issue,
+    history_completeness_block,
+)
 
 
 class BackfillHistoryTests(unittest.TestCase):
@@ -101,6 +105,57 @@ class BackfillHistoryTests(unittest.TestCase):
         self.assertEqual("", kwargs["target_issue"])
         self.assertEqual("C", kwargs["output_issue"])
         self.assertEqual(2023, kwargs["start_year"])
+
+
+
+    def test_history_completeness_guard_blocks_thin_elsevier_volume(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            current_dir = root / "journals" / "jde" / "issues"
+            current_dir.mkdir(parents=True)
+            (current_dir / "current.json").write_text(
+                json.dumps({"research_article_count": 34}),
+                encoding="utf-8",
+            )
+            reason = history_completeness_block(
+                {"research_article_count": 4},
+                {"id": "jde"},
+                public_api=root,
+            )
+        self.assertIn("possible_incomplete_volume", reason)
+        self.assertIn("4 articles", reason)
+
+    def test_history_completeness_guard_allows_realistic_volume(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            current_dir = root / "journals" / "jde" / "issues"
+            current_dir.mkdir(parents=True)
+            (current_dir / "current.json").write_text(
+                json.dumps({"research_article_count": 34}),
+                encoding="utf-8",
+            )
+            reason = history_completeness_block(
+                {"research_article_count": 30},
+                {"id": "jde"},
+                public_api=root,
+            )
+        self.assertEqual("", reason)
+
+    def test_history_completeness_guard_allows_small_real_issue(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            current_dir = root / "journals" / "jeem" / "issues"
+            current_dir.mkdir(parents=True)
+            (current_dir / "current.json").write_text(
+                json.dumps({"research_article_count": 4}),
+                encoding="utf-8",
+            )
+            reason = history_completeness_block(
+                {"research_article_count": 4},
+                {"id": "jeem"},
+                public_api=root,
+            )
+        self.assertEqual("", reason)
 
 
 if __name__ == "__main__":
