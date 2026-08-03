@@ -8,7 +8,7 @@
   "issue_label": "Vol. 143",
   "publication_date": "September 2026",
   "source_url": "https://www.sciencedirect.com/journal/food-policy/vol/143/suppl/C",
-  "retrieved_at": "2026-08-03T10:32:34+00:00",
+  "retrieved_at": "2026-08-03T11:30:05+00:00",
   "expected_article_count": 4,
   "research_article_count": 4,
   "status": "ready",
@@ -29,7 +29,7 @@
       ],
       "abstract_en": "This paper provides new evidence of local protectionism by examining government information disclosure and suggests that public information reporting may serve as a potential channel through which governments favor local firms. Focusing on China’s food safety information disclosure, we compare food safety testing results conducted by local and national administrations for the same product within the same manufacturer and year. Our findings reveal a significantly lower probability of failure in food safety tests conducted by the local prefectural administration, holding across model specifications, accounting for different fixed effects, collusions between manufacturers and independent inspection agencies, technical differences in testing between administrations and the impact of the pandemic. Food manufacturing firms with higher registration capital and those strategic to local economies show lower probability of failure reported by local administrations, particularly in regions with aggressive GDP growth targets. This implies competition among regional governments drives a local bias in public information reporting, undermining the accuracy and transparency of food safety disclosure.",
       "abstract_cn": "本文通过考察政府信息披露情况，为地方保护主义提供了新的证据，并指出公共信息发布可能是政府偏袒本地企业的一种潜在途径。文章聚焦于中国的食品安全信息披露，对比了同一年度、同一生产商的同一产品分别由地方和国家监管部门进行的食品安全检测结果。研究发现，由地方（地级市）监管部门进行的食品安全检测，其不合格率显著较低；这一结论在不同的模型设定下均稳健成立，且已排除固定效应、生产商与独立检测机构间的合谋、监管部门间的技术差异以及疫情影响等因素的干扰。注册资本较高或对当地经济具有战略重要性的食品生产企业，其被地方监管部门通报的不合格率更低，尤其是在GDP增长目标激进的地区。这表明，地方政府间的竞争导致了公共信息发布中的“地方偏向”，从而削弱了食品安全信息披露的准确性与透明度。",
-      "abstract_snippet_en": "",
+      "abstract_snippet_en": "•Reveals local bias in food safety information disclosure as a potential channel of local protectionism.•Compares local vs. national test results for identical products within the same firm and year.•Finds...",
       "doi": "10.1016/j.foodpol.2026.103140",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0306919226001077?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -37,42 +37,30 @@
         "issue": "https://www.sciencedirect.com/journal/food-policy/vol/143/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03069192",
         "metadata": "crossref",
-        "abstract_en": "official-sciencedirect-issue-preview",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "unauthorized",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 19779,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 19779,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.foodpol.2026.103140",
         "semantic_scholar": "https://www.semanticscholar.org/paper/e50ee2f917603637d1e23ff3bc81f69aa815798b"
       },
@@ -110,7 +98,7 @@
       ],
       "abstract_en": "Nutrition insecurity remains a pressing global challenge, and while crop-livestock diversification offers a promising strategy to improve household nutrition, its relationship with micronutrient consumption remains underexplored. Using panel data from the Ethiopian Socio-economic Survey (ESS) from 2018/19 to 2021/22, this study examines the role of crop-livestock diversification in household nutrition security in rural Ethiopia and explores the underlying pathways. Three aspects of farm production diversity are considered: crop-livestock diversification, crop diversification, and livestock diversification. The results indicate that crop-livestock, crop, and livestock diversification are positively associated with total and own-produced nutrient intake but negatively associated with nutrient intake from market-purchased foods. The findings further indicate that the nutritional benefits of diversification are generally stronger among households with better market access, while heterogeneity by shock exposure is more limited and nutrient-specific. The pathway analysis suggests that the relationship between crop-livestock diversification and nutrition outcomes operates through total food consumption, own-produced consumption, market-purchased consumption, farm output, and income channels. Among these channels, total food consumption and own-produced consumption represent the strongest channels, while the income channel appears comparatively weaker. These findings highlight an important nutritional trade-off: diversification is associated with greater nutrient acquisition from household production while reducing nutrient consumption from market-purchased foods. The findings suggest that policies supporting crop-livestock diversification, together with complementary nutrition-sensitive and market-supporting interventions, may contribute to improved household nutrition security while addressing production–market trade-offs.",
       "abstract_cn": "营养不安全仍是全球面临的紧迫挑战。尽管作物-畜牧多样化是改善家庭营养状况的一种有前景的策略，但其与微量营养素摄入之间的关系尚待深入研究。本研究利用2018/19年至2021/22年埃塞俄比亚社会经济调查（ESS）的面板数据，考察了作物-畜牧多样化在埃塞俄比亚农村家庭营养安全中的作用，并探讨了其内在机制。研究涵盖了农业生产多样性的三个方面：作物-畜牧多样化、作物多样化以及畜牧多样化。结果显示，作物-畜牧、作物及畜牧多样化与营养素总摄入量及自产食品提供的营养素摄入量呈正相关，而与市场购买食品提供的营养素摄入量呈负相关。进一步分析表明，多样化带来的营养效益在市场准入条件较好的家庭中通常更为显著；相比之下，遭受外部冲击经历所带来的差异性影响则较为有限，且因营养素种类而异。机制分析显示，作物-畜牧多样化与营养结果之间的关联是通过总食品消费、自产食品消费、市场购买食品消费、农业产出及收入等渠道实现的。在这些渠道中，总食品消费和自产食品消费的作用最为显著，而收入渠道的作用相对较弱。这些发现揭示了一个重要的营养权衡关系：多样化既增加了家庭通过自身生产获取营养素的途径，同时也减少了从市场购买食品中摄入的营养素。研究结果表明，支持作物-畜牧多样化的政策，若辅以兼顾营养改善与市场支持的配套措施，将有助于提升家庭营养安全，并有效应对生产与市场之间的权衡问题。",
-      "abstract_snippet_en": "",
+      "abstract_snippet_en": "•We examine the relationship between crop-livestock diversification and household nutrition security in rural Ethiopia.•Crop-livestock diversification has a dual role in shaping household nutrient acquisition.•The...",
       "doi": "10.1016/j.foodpol.2026.103146",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0306919226001156?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -118,42 +106,30 @@
         "issue": "https://www.sciencedirect.com/journal/food-policy/vol/143/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03069192",
         "metadata": "crossref",
-        "abstract_en": "official-sciencedirect-issue-preview",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "unauthorized",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 19778,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 19778,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.foodpol.2026.103146",
         "semantic_scholar": "https://www.semanticscholar.org/paper/8c4d32268d1c0993228bc6c0acaf7c97a8900581"
       },
@@ -187,7 +163,7 @@
       ],
       "abstract_en": "In response to rising consumer demand for food safety, many countries have implemented food traceability systems (FTS) to enhance transparency and accountability along agricultural supply chains. While existing research has largely focused on demand side aspects, evidence on supply side responses remains limited. This study addresses this gap by examining the effects of FTS adoption on farm production practices, specifically the probability of using chemical fertilizers, pesticides, and groundwater, as well as farm revenue and marketing channel selection. We use microdata from Taiwan’s 2020 agriculture census, which provides both plot-level and farm household-level information covering all registered crop farms. Motivated by a farm profit maximization model, we employ an instrumental variable (IV) approach to identify the local average treatment effect of FTS adoption. At the plot level, FTS adoption reduces the probability of using chemical fertilizer, pesticide, and groundwater by 8.2, 15.4, and 40 percentage points, respectively. At the household level, FTS adoption increases farm revenues and expands sales through direct-to-consumer and distributor channels. These findings suggest that while FTS is primarily designed to ensure food safety and market transparency, its adoption may generate unintended environmental co-benefits through reducing the likelihood of using environmentally sensitive inputs in farm production.",
       "abstract_cn": "为应对消费者日益增长的食品安全需求，许多国家实施了食品追溯系统（FTS），以提高农业供应链的透明度和责任追溯能力。尽管现有研究主要关注需求侧，但关于供给侧反应的实证证据尚显不足。本研究旨在填补这一空白，考察采用食品追溯系统对农业生产实践（特别是化肥、农药和地下水的使用概率）以及农户收入和销售渠道选择的影响。研究利用台湾2020年农业普查的微观数据，该数据涵盖了所有已登记的作物种植农户，并提供了地块和农户层面的详细信息。基于农户利润最大化模型，本研究采用工具变量（IV）法来识别采用食品追溯系统所产生的局部平均处理效应。在地块层面，采用食品追溯系统使化肥、农药和地下水的使用概率分别降低了8.2、15.4和40个百分点。在农户层面，采用食品追溯系统提高了农户收入，并通过面向消费者直销及分销商渠道扩大了销售规模。这些研究结果表明，尽管食品追溯系统的初衷是确保食品安全和市场透明度，但其应用也可能通过减少农业生产中对环境敏感型投入品的使用，产生意想不到的环境协同效益。",
-      "abstract_snippet_en": "",
+      "abstract_snippet_en": "•We investigate the impact of the food traceability system adoption on chemical fertilizers, pesticides, and groundwater use.•We utilize a plot-level and a farm-level data and apply the instrumental...",
       "doi": "10.1016/j.foodpol.2026.103148",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S030691922600117X?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -195,42 +171,30 @@
         "issue": "https://www.sciencedirect.com/journal/food-policy/vol/143/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03069192",
         "metadata": "crossref",
-        "abstract_en": "official-sciencedirect-issue-preview",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "unauthorized",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 19777,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 19777,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.foodpol.2026.103148",
         "semantic_scholar": "https://www.semanticscholar.org/paper/61bda0fa09f8666820bc05b67bad62db361e0848"
       },
@@ -279,7 +243,7 @@
       ],
       "abstract_en": "There is a need to assess the benefits of government policy to improve the welfare of food animals. We present a holistic, animal-centred welfare assessment method using an expert panel of independent animal welfare scientists linked to a survey of food shoppers’ willingness to pay (WTP) to improve welfare levels, using a 0–100 animal welfare scale. We apply this method to six food animal types in the UK and 15 different topical policy scenarios. We find that several current production systems have welfare scores below 50 but that some of the policy initiatives analysed could increase welfare scores substantially if implemented. We provide valuation tables of people’s WTP to increase welfare scores for each of the six animal types. Marginal WTP was found to diminish as welfare scores increased. WTP values are fully transferable across any policies affecting the animals involved and are not tied to specific production practices or contexts. The UK government has been using the method to evaluate a range of policy options to improve welfare. The method can be applied in other countries. The method enables government policy makers to better make the case for policies to improve the welfare of food animals and its application should lead to an increased likelihood of such policies being implemented. The outputs can also be used to inform consumers regarding the animal welfare provenance of the food they purchase.",
       "abstract_cn": "有必要评估政府政策改善食用动物福利的效益。我们提出了一种以动物为中心的整体福利评估方法，使用由独立动物福利科学家组成的专家小组，并使用 0-100 动物福利量表对食品购物者支付意愿（WTP）进行调查，以提高福利水平。我们将此方法应用于英国的六种食用动物类型和15不同的主题政策场景。我们发现，当前的一些生产系统的福利得分低于50，但所分析的一些政策举措如果实施，可能会大幅提高福利得分。我们提供人们的支付意愿评估表，以提高每种六动物类型的福利得分。人们发现边际支付意愿随着福利分数的增加而减少。 WTP 值可以在影响所涉及动物的任何政策中完全转移，并且与特定的生产实践或环境无关。英国政府一直在使用该方法来评估一系列改善福利的政策选择。该方法可推广应用到其他国家。该方法使政府政策制定者能够更好地论证改善食用动物福利的政策，并且该方法的应用应该会增加实施此类政策的可能性。这些输出还可用于告知消费者他们购买的食品的动物福利来源。",
-      "abstract_snippet_en": "",
+      "abstract_snippet_en": "•An animal welfare assessment and valuation tool is developed for policy appraisal.•Expert panel and willingness to pay methods are linked by a 0–100 welfare score.•Policies considered show some substantial...",
       "doi": "10.1016/j.foodpol.2026.103145",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0306919226001144?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -287,42 +251,30 @@
         "issue": "https://www.sciencedirect.com/journal/food-policy/vol/143/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03069192",
         "metadata": "crossref",
-        "abstract_en": "openalex",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "unauthorized",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 429,
-              "outcome": "quota_exceeded"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 19776,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 19776,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.foodpol.2026.103145"
       },
       "translation": {
