@@ -1,12 +1,17 @@
 name: Backfill field journal history
 
 on:
+  # Auto-continue until every volume is complete or blocked: each run resumes
+  # the shared state file and skips already-complete issues, so the loop is
+  # self-terminating (no data changes once everything is done).
+  schedule:
+    - cron: "17 */2 * * *"
   workflow_dispatch:
     inputs:
       journal:
-        description: Field journal code
+        description: Field journal code or ALL
         required: true
-        default: JDE
+        default: ALL
         type: choice
         options: [ALL, JDE, JPubE, JEEM, JUE, EER, GEB, JET, JEBO, JIE, JFE, WD, JME, JOE, FOODPOLICY, LUP]
       from_year:
@@ -24,12 +29,12 @@ on:
       max_issues:
         description: Maximum issues in this resumable batch
         required: true
-        default: "2"
+        default: "200"
         type: string
       max_translations:
-        description: Maximum new translations per issue
+        description: Maximum new translations per run
         required: true
-        default: "50"
+        default: "1200"
         type: string
 
 permissions:
