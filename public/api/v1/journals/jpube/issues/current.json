@@ -777,8 +777,8 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "sciencedirect-rss",
-    "roster_authority": "publisher-rss",
+    "roster_transport": "official-issue-page+browser-authorized",
+    "roster_authority": "official-issue-page",
     "roster_match_scope": "rss-volume-items",
     "rss_url": "https://rss.sciencedirect.com/publication/science/00472727",
     "official_item_count": 15,
@@ -798,11 +798,7 @@
     "abstract_en_complete": 14,
     "translation_complete": 14,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_sciencedirect_rss_fallback",
-      "publisher_rss_reverse_order_normalized",
-      "official_order_unverified"
-    ],
+    "flags": [],
     "content_counts": {
       "official_items": 15,
       "observed_items": 15,
@@ -815,6 +811,22 @@
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 14
+    },
+    "order_verification": "official_verified",
+    "browser_order_verification": {
+      "verified_at": "2026-08-03T16:22:00+08:00",
+      "source_url": "https://www.sciencedirect.com/journal/journal-of-public-economics/vol/261/suppl/C",
+      "captured_at": "2026-08-03T08:22:00+00:00",
+      "page_item_count": 15,
+      "article_count": 14,
+      "pii_sequence_matched": true,
+      "titles_matched": true,
+      "excluded_items_present": true
+    },
+    "browser_capture": {
+      "captured_at": "2026-08-03T08:22:00+00:00",
+      "institutional_access_confirmed": true,
+      "privacy_fields_stored": false
     }
   },
   "content_counts": {
