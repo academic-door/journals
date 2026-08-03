@@ -1184,9 +1184,20 @@ def collect_one(
                     }
                 )
                 return previous, report
+            missing_abstract_dois = [
+                str(article.get("doi", ""))
+                for article in issue.get("articles", [])
+                if not str(article.get("abstract_en", "")).strip()
+                and str(article.get("doi", "")).strip()
+            ]
             raise ValueError(
                 "collector result failed the publication gate: "
                 + ", ".join(structural_flags(issue) or ["empty official roster"])
+                + (
+                    "; missing abstracts: " + ", ".join(missing_abstract_dois)
+                    if missing_abstract_dois
+                    else ""
+                )
             )
         translated = int(issue["quality"].get("translation_complete", 0))
         total = int(issue["research_article_count"])
@@ -1223,9 +1234,20 @@ def collect_one(
                     }
                 )
                 return previous, report
+            untranslated_dois = [
+                str(article.get("doi", ""))
+                for article in issue.get("articles", [])
+                if not str(article.get("abstract_cn", "")).strip()
+                and str(article.get("doi", "")).strip()
+            ]
             raise ValueError(
                 f"translation incomplete: {translated}/{total}; "
                 "preserving the last complete public issue"
+                + (
+                    "; untranslated: " + ", ".join(untranslated_dois)
+                    if untranslated_dois
+                    else ""
+                )
             )
         if previous and previous.get("issue_id") != issue.get("issue_id"):
             archive_issue(previous)
@@ -1263,6 +1285,10 @@ def collect_one(
                 "finished_at": now_iso(),
             }
         )
+        if isinstance(translation_report, dict) and translation_report.get(
+            "failed"
+        ):
+            report["translation_failures"] = translation_report["failed"]
         return previous, report
 
 

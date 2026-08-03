@@ -401,6 +401,8 @@ journals:
     repec_series_url: https://ideas.repec.org/s/eee/wdevel.html
     issue_url_template: https://www.sciencedirect.com/journal/world-development/vol/{volume}/suppl/{issue}
     current_issue_url: https://www.sciencedirect.com/journal/world-development/issues
+    # In-progress Elsevier issues carry cover dates up to two months ahead.
+    publication_lead_months: 2
     enabled: true
     collections: [fields]
   RESTAT:
@@ -573,6 +575,8 @@ journals:
     repec_series_url: https://ideas.repec.org/s/eee/lauspo.html
     issue_url_template: https://www.sciencedirect.com/journal/land-use-policy/vol/{volume}/suppl/{issue}
     current_issue_url: https://www.sciencedirect.com/journal/land-use-policy/issues
+    # In-progress Elsevier issues carry cover dates up to two months ahead.
+    publication_lead_months: 2
     enabled: true
     collections: [fields]
   ERE:
