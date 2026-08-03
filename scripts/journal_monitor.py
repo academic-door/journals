@@ -543,6 +543,11 @@ def detect_all(
                         else ""
                     ),
                 }
+                if _awaiting_status(previous, same_deep_candidate):
+                    # A light probe re-confirming the same Crossref candidate
+                    # does not change the fact that we are still waiting for
+                    # the official publisher roster.
+                    entry["status"] = "awaiting_official"
                 if status == "confirmed":
                     confirmed.append(key)
                 elif status == "candidate":
@@ -614,6 +619,15 @@ def _awaiting_backoff_hours(awaiting_count: int) -> int:
     """Exponential backoff for publisher confirmation, capped at 24 hours."""
 
     return min(2 ** max(0, int(awaiting_count) - 1), AWAITING_OFFICIAL_RETRY_CAP_HOURS)
+
+
+def _awaiting_status(previous: dict[str, Any], same_deep_candidate: bool) -> bool:
+    """Keep an awaiting_official journal awaiting while its candidate is stable."""
+
+    return (
+        previous.get("status") == "awaiting_official"
+        and bool(same_deep_candidate)
+    )
 
 
 def run_deep_updates(

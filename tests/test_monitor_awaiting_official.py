@@ -4,6 +4,7 @@ import unittest
 
 from scripts.journal_monitor import (
     _awaiting_backoff_hours,
+    _awaiting_status,
     _is_awaiting_official,
     public_status,
 )
@@ -62,6 +63,12 @@ class AwaitingOfficialTests(unittest.TestCase):
         self.assertEqual(status["summary"]["awaiting_official"], 1)
         self.assertEqual(status["summary"]["failed"], 1)
         self.assertEqual(status["status"], "degraded")
+
+    def test_same_candidate_keeps_awaiting_status_across_light_probes(self) -> None:
+        previous = {"status": "awaiting_official", "awaiting_official_count": 19}
+        self.assertTrue(_awaiting_status(previous, same_deep_candidate=True))
+        self.assertFalse(_awaiting_status(previous, same_deep_candidate=False))
+        self.assertFalse(_awaiting_status({"status": "confirmed"}, True))
 
     def test_only_awaiting_keeps_overall_status_healthy(self) -> None:
         state = {
