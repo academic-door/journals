@@ -34,17 +34,25 @@ with fabricated data.
   `X-RateLimit-*` snapshot in `sources.abstract_lookup.rate_limit`. Measured
   weekly usage after the pass: 1,604 / 20,000 metadata requests (8%), reset
   2026-08-05.
-- Not converted, with blocker:
-  - EER, JET: the rebuilt issue fails the publication gate because exactly one
-    translation does not complete per run (`translation incomplete: 15/16` and
-    `13/14`); the previous complete issue is preserved. Re-run when the
-    translation provider is healthy, or identify the failing article.
-  - GEB: the RSS-rebuilt issue has one article with no abstract
-    (`abstract_en_incomplete`), so the gate preserves the previous issue.
-  - WD, LUP: pre-existing collector failure
-    (`RePEc candidate is outside the configured publication horizon: Vol.
-    206/169 October 2026`) blocks every re-collection, not just the upgrade.
+- Resolved during the same day (with root-cause fixes):
+  - EER, JET: Elsevier metadata appended the acknowledgment footnote to the
+    abstract with a fused marker (`...run is low11The authors are grateful...`),
+    whose digit tripped the translation numeric gate. Fixed by stripping
+    appended footnotes from Elsevier abstracts
+    (`_strip_abstract_footnotes`) and normalizing written month/number words in
+    the Google fallback (`_normalize_written_number_translations`). Both now
+    publish from `elsevier-article-metadata` with 0 translation failures.
+  - WD, LUP: the in-progress October 2026 cover date was outside the
+    `publication_lead_months: 1` horizon, so every CI re-collection failed
+    since 2026-07-29. Set `publication_lead_months: 2` for both; they now
+    re-collect and refresh from the Elsevier API (quota snapshots recorded).
+- Still open, not a code bug:
+  - GEB: one new article (`10.1016/j.geb.2026.07.006`, "Which probability
+    measures are strict correlated equilibria?") has no abstract in any source
+    yet (Crossref, Elsevier Article Metadata/Search/Scopus, OpenAlex all
+    return none). The publication gate correctly preserves the complete
+    21-article issue; the 22nd article publishes automatically when Elsevier
+    indexes its abstract.
 - Impact: none on published data (all 581 abstracts and translations remain
-  complete). The five journals keep their previous official-preview / OpenAlex
-  sources until the blockers are resolved.
+  complete).
 
