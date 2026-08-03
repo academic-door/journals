@@ -8,7 +8,7 @@
   "issue_label": "Vol. 236",
   "publication_date": "September 2026",
   "source_url": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
-  "retrieved_at": "2026-08-03T10:28:45+00:00",
+  "retrieved_at": "2026-08-03T14:35:34+00:00",
   "expected_article_count": 14,
   "research_article_count": 14,
   "status": "ready",
@@ -27,7 +27,7 @@
       ],
       "abstract_en": "The hold-up problem has given rise to a large and influential literature. We consider a bilateral hold-up problem where bargaining power is asymmetrically distributed among the agents, in particular investing at the efficient level is not “individually rational” for one of the agents. We demonstrate that in the presence of a rich natural setup – that allows for dynamics in transfers, investments and negotiations – there exist subgame perfect equilibria that achieve asymptotic efficiency. This is true both when investments by the two agents are substitutes, as well as when these are complements. Moreover, implementation requires gradualism, with sequential investments and transfers over several periods.",
       "abstract_cn": "敲诈勒索问题催生了大量有影响力的文献。我们考虑双边劫持问题，其中讨价还价能力在代理人之间分布不对称，特别是在有效水平上的投资对于其中一个代理人来说不是“个体理性的”。我们证明，在存在丰富的自然设置（允许转让、投资和谈判动态）的情况下，存在实现渐近效率的子博弈完美均衡。当两个代理人的投资是替代性的以及互补性的时候都是如此。此外，实施需要循序渐进，分阶段进行连续投资和转移。",
-      "abstract_snippet_en": "",
+      "abstract_snippet_en": "The hold-up problem has given rise to a large and influential literature. We consider a bilateral hold-up problem where bargaining power is asymmetrically distributed among the agents, in particular...",
       "doi": "10.1016/j.jet.2026.106209",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000724?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -35,42 +35,30 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/00220531",
         "metadata": "crossref",
-        "abstract_en": "official-sciencedirect-issue-preview",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "unauthorized",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17386,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17386,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106209",
         "semantic_scholar": "https://www.semanticscholar.org/paper/680bd08f2172b008e0f9ded028f0a2b97a7eeb1d"
       },
@@ -101,9 +89,9 @@
       "authors": [
         "Ehsan Azarmsa"
       ],
-      "abstract_en": "I study how differences in investment sophistication, the ability to identify profitable investment opportunities, contribute to wealth inequality and its dynamics. I analyze a financial market with a continuum of investors heterogeneously informed about the distribution of future returns. The stationary distribution of wealth shares features a thick right tail populated by the best-informed investors. Wealth inequality increases with the emergence of ever-costlier information production technologies, but the expected excess return achieved through such technologies is bounded in the long run. Top wealth shares have an inverted U-shaped relationship with the wealth share delegated to the best-informed investors to manage. Empirically, wealthier households indeed tend to have more precise beliefs, and the gap in their beliefs can rationalize inequality under reasonable parameters. My findings suggest subsidizing education and leveling the playing field regarding information can help reduce inequality.",
-      "abstract_cn": "我研究投资复杂程度的差异、识别有利可图的投资机会的能力如何导致财富不平等及其动态。我分析了一个金融市场，其中有一系列投资者对未来回报的分布有不同的了解。财富份额的平稳分布具有一条粗右尾，由最消息灵通的投资者占据。随着成本越来越高的信息生产技术的出现，财富不平等加剧，但从长远来看，通过此类技术实现的预期超额回报是有限的。顶级财富份额与委托给最了解情况的投资者管理的财富份额之间存在倒U形关系。从经验来看，较富裕的家庭确实往往有更精确的信念，而他们信念的差距可以在合理的参数下使不平等合理化。我的研究结果表明，补贴教育和创造公平的信息竞争环境有助于减少不平等。",
-      "abstract_snippet_en": "",
+      "abstract_en": "I study the stationary wealth distribution in a dynamic model of financial markets in which investors differ in their levels of investment sophistication. Some investors form beliefs rationally but have access to different information, while others hold incorrect beliefs. For all investor types, the stationary wealth distribution exhibits a thick upper tail, whose thickness depends on the higher moments of portfolio returns relative to the aggregate market. The upper tail of the overall stationary wealth distribution is populated by the group with the thickest tail. I show that this group is either a rational group with an undominated information set or the group with incorrect beliefs, despite the latter earning the lowest expected return. To explain the observed degrees of wealth concentration, it is sufficient that some investor groups earn an expected excess return of 0.89% per annum relative to the aggregate economy – consistent with the risk-adjusted returns generated by hedge funds and private equity funds and their portfolio shares among the ultra-wealthy in the United States. A calibration of the model matches the distribution of average returns for Norwegian households documented by Fagereng et al. (2020).",
+      "abstract_cn": "我研究了金融市场动态模型中的固定财富分配，其中投资者的投资复杂程度各不相同。一些投资者理性地形成信念，但可以获得不同的信息，而另一些投资者则持有错误的信念。对于所有投资者类型而言，固定财富分布呈现出较厚的上尾部，其厚度取决于投资组合回报率相对于总体市场的较高矩。整体固定财富分布的上尾部由尾部最粗的群体构成。我证明这个群体要么是一个拥有不受支配的信息集的理性群体，要么是一个有着不正确信念的群体，尽管后者获得了最低的预期回报。为了解释观察到的财富集中程度，一些投资者群体相对于总体经济每年获得0.89%的预期超额回报就足够了——这与对冲基金和私募股权基金及其在美国超级富豪中的投资组合份额所产生的风险调整后回报一致。该模型的校准与 Fagereng 等人记录的挪威家庭平均回报分布相匹配。 （2020）。",
+      "abstract_snippet_en": "I study the stationary wealth distribution in a dynamic model of financial markets in which investors differ in their levels of investment sophistication. Some investors form beliefs rationally but...",
       "doi": "10.1016/j.jet.2026.106206",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000694?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -111,42 +99,30 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/00220531",
         "metadata": "crossref",
-        "abstract_en": "semantic-scholar",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "unauthorized",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17385,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17385,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106206",
         "semantic_scholar": "https://www.semanticscholar.org/paper/d21e73fc1ab65119d9437c8e017c3fe679e23129"
       },
@@ -155,8 +131,8 @@
         "provider": "google-translate",
         "model": "gtx-en-zh-CN",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "translated_at": "2026-08-02T08:45:28+00:00",
-        "source_hash": "9ab13c35dab946018c53cd151bd7125c023c2803392f3a43eebfc65e1e1c14c5"
+        "translated_at": "2026-08-03T14:35:34+00:00",
+        "source_hash": "633dee454978152968692532b9587927cb48b91df044d6b1b897f3d238baa26e"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -178,7 +154,7 @@
       ],
       "abstract_en": "Despite addressing similar underlying questions, the literatures on network formation and matching have evolved more or less independently. This paper offers a common framework, studying a general model of network formation without externalities—equivalently, a one-sided many-to-many matching model. I give conditions for the existence and uniqueness of stable graphs, I prove a rural hospital theorem, and I highlight a link-by-link conflict of interest across different stable graphs. Special cases contain and extend classic results for the roommate problem and two-sided matching markets. An iterated deletion algorithm adapted from Gutin et al. (2023) furnishes a crucial tool, reducing network formation games to a normal form with helpful properties.",
       "abstract_cn": "尽管解决了类似的根本问题，但有关网络形成和匹配的文献或多或少是独立发展的。本文提供了一个通用框架，研究一种没有外部性的网络形成的一般模型——相当于一种单方面的多对多匹配模型。我给出了稳定图的存在性和唯一性的条件，证明了乡村医院定理，并强调了不同稳定图之间逐个链接的利益冲突。特殊情况包含并扩展了室友问题和双边匹配市场的经典结果。改编自 Gutin 等人的迭代删除算法。 (2023) 提供了一个重要的工具，将网络形成博弈简化为具有有用属性的正常形式。",
-      "abstract_snippet_en": "",
+      "abstract_snippet_en": "Despite addressing similar underlying questions, the literatures on network formation and matching have evolved more or less independently. This paper offers a common framework, studying a general model...",
       "doi": "10.1016/j.jet.2026.106208",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000712?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -186,42 +162,30 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/00220531",
         "metadata": "crossref",
-        "abstract_en": "official-sciencedirect-issue-preview",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "unauthorized",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17384,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17384,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106208",
         "semantic_scholar": "https://www.semanticscholar.org/paper/4aa4914a6c85809ee91616cb4581a2546abd2a34"
       },
@@ -256,7 +220,7 @@
       ],
       "abstract_en": "We enrich standard models of imperfect competition by allowing consumer demand for market goods to depend non-separably on off-market time. Consumers value final consumption experiences that require both market purchases and time, which reshapes demand elasticities through two opposing forces. First, because time is an input, changes in market prices translate only partially into changes in the cost of an experience and second, households can substitute time for market purchases in response to price variation. We show how these forces alter the mapping from markups to welfare by distinguishing between markups and a holistic counterpart that accounts for the time cost of consumption. In a monopolistically competitive environment with CES preferences over experiences, firm selection and entry is governed solely by the elasticity of substitution between time use and market purchases, and markup dispersion can be consistent with efficiency when time and market purchases are perfect complements. Extending the analysis to oligopolistic competition, we show that forces that raise markups, like greater market concentration and less competitive conduct, also amplify the gap between the usual and holistic markups.",
       "abstract_cn": "我们通过允许消费者对市场商品的需求不可分割地依赖于非市场时间来丰富不完全竞争的标准模型。消费者重视需要市场购买和时间的最终消费体验，这通过两种相反的力量重塑需求弹性。首先，由于时间是一种投入，市场价格的变化只能部分转化为体验成本的变化；其次，家庭可以用时间代替市场购买，以应对价格变化。我们通过区分加成和考虑消费时间成本的整体对应物，展示了这些力量如何改变从加成到福利的映射。在CES优先于体验的垄断竞争环境中，企业选择和进入仅受时间使用和市场购买之间替代弹性的影响，当时间和市场购买完美互补时，加价分散可以与效率保持一致。将分析扩展到寡头垄断竞争，我们发现提高加价的力量，例如更大的市场集中度和竞争性较低的行为，也会放大通常加价和整体加价之间的差距。",
-      "abstract_snippet_en": "",
+      "abstract_snippet_en": "We enrich standard models of imperfect competition by allowing consumer demand for market goods to depend non-separably on off-market time. Consumers value final consumption experiences that require...",
       "doi": "10.1016/j.jet.2026.106218",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000815?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -264,42 +228,30 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/00220531",
         "metadata": "crossref",
-        "abstract_en": "official-sciencedirect-issue-preview",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "unauthorized",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17383,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17383,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106218",
         "semantic_scholar": "https://www.semanticscholar.org/paper/d1881b2c17befde248c130c4ebccbec72b948e27"
       },
@@ -334,7 +286,7 @@
       ],
       "abstract_en": "We propose a mean-field game (MFG) approach to study the dynamics of spatial agglomeration in a continuous space-time framework where trade across locations may follow a broad class of static gravity models. Forward-looking intertemporal utility-maximizing agents work and migrate in a two-dimensional geography and face idiosyncratic shocks. Equilibrium wages and prices depend on their common distribution and adjust statically according to the underlying trade model. We first prove existence and uniqueness of the static trade equilibrium. We then prove existence of dynamic equilibria. In the case of a circular economy, we obtain closed-form solutions for small perturbations around the steady state, and we identify the sets of parameters that lead to agglomeration or dispersion. We exploit the MFG structure of the model to explicitly quantify how uncertainty and forward-looking expectations contribute to agglomeration and dispersion. In particular, we show that, regardless of the static trade model, forward-looking expectations always promote agglomeration, but cannot reverse the dominant pattern that would arise under myopic behavior.",
       "abstract_cn": "我们提出了一种平均场博弈（MFG）方法来研究连续时空框架中空间集聚的动态，其中跨地点的贸易可能遵循广泛的静态重力模型。具有前瞻性的跨期效用最大化主体在二维地理中工作和迁移，并面临特殊的冲击。均衡工资和价格取决于它们的共同分布，并根据基础贸易模型进行静态调整。我们首先证明静态贸易均衡的存在性和唯一性。然后我们证明动态平衡的存在。在循环经济的情况下，我们获得了稳态周围小扰动的封闭式解，并确定了导致聚集或分散的参数集。我们利用模型的 MFG 结构来明确量化不确定性和前瞻性预期如何影响集聚和分散。特别是，我们表明，无论静态贸易模式如何，前瞻性预期总是会促进集聚，但无法扭转短视行为下出现的主导模式。",
-      "abstract_snippet_en": "",
+      "abstract_snippet_en": "We propose a mean-field game (MFG) approach to study the dynamics of spatial agglomeration in a continuous space-time framework where trade across locations may follow a broad class of static gravity...",
       "doi": "10.1016/j.jet.2026.106217",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000803?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -342,42 +294,30 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/00220531",
         "metadata": "crossref",
-        "abstract_en": "official-sciencedirect-issue-preview",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "unauthorized",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17382,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17382,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106217",
         "semantic_scholar": "https://www.semanticscholar.org/paper/ed5c479f405c2795f9b42621dc16d44da64aac2d"
       },
@@ -412,7 +352,7 @@
       ],
       "abstract_en": "We examine optimal strategy-proof voting mechanisms in environments where the designer lacks precise information about the probability distribution of individual utility profiles. This uncertainty over the true distribution is represented by a set of multiple distributions, and the designer evaluates mechanisms using either the worst-case utility sum or worst-case regret. Departing from the existing literature, we do not assume that utility functions are single-peaked or that the set of possible utility functions is maximally rich. In this setting, we show that the median voter rule is the unique optimal mechanism under both criteria. Our result provides a new justification for this well-known mechanism from a welfare perspective.",
       "abstract_cn": "我们在设计者缺乏有关个体效用分布概率分布的精确信息的环境中研究最佳的策略验证投票机制。真实分布的这种不确定性由一组多重分布表示，设计者使用最坏情况效用总和或最坏情况遗憾来评估机制。与现有文献不同，我们并不假设效用函数是单峰的，或者可能的效用函数集是最丰富的。在这种情况下，我们表明中位选民规则是这两个标准下唯一的最优机制。我们的结果从福利角度为这一众所周知的机制提供了新的理由。",
-      "abstract_snippet_en": "",
+      "abstract_snippet_en": "We examine optimal strategy-proof voting mechanisms in environments where the designer lacks precise information about the probability distribution of individual utility profiles. This uncertainty over...",
       "doi": "10.1016/j.jet.2026.106219",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000827?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -420,42 +360,30 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/00220531",
         "metadata": "crossref",
-        "abstract_en": "official-sciencedirect-issue-preview",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "unauthorized",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 429,
-              "outcome": "quota_exceeded"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17381,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17381,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106219",
         "semantic_scholar": "https://www.semanticscholar.org/paper/2a67c37f99e9ace79ec6881c396250b1fed17917"
       },
@@ -487,9 +415,9 @@
         "Yu Zhou",
         "Shigehiro Serizawa"
       ],
-      "abstract_en": "We study an assignment market where multiple heterogenous objects are sold to unit demand agents who have general preferences that accommodate income effects and market frictions. The minimum price equilibrium (MPE) is one of the most important equilibrium concepts in such settings. Nevertheless, none of the well-known mechanisms that find the MPE in the quasi-linear settings can identify or even approximate MPEs for general preferences. We establish novel structural properties of MPEs and use them as bases to design a \"Serial Vickrey (SV) mechanism.\" The SV mechanism finds an MPE for general preferences in a finite number of steps and only requires agents to reveal finite-dimensional information regarding their preferences in finitely many times. Besides, the SV mechanism also has nice incentive properties.",
-      "abstract_cn": "我们研究了一个分配市场，其中多个异质对象被出售给单位需求代理，这些代理具有适应收入影响和市场摩擦的一般偏好。最低价格均衡（MPE）是这种情况下最重要的均衡概念之一。然而，在准线性设置中找到 MPE 的众所周知的机制都无法识别甚至近似一般偏好的 MPE。我们建立了 MPE 的新颖结构特性，并以此为基础设计“串行维克里 (SV) 机构”。 SV 机制在有限数量的步骤中找到一般偏好的 MPE，并且只需要代理在有限多次中揭示有关其偏好的有限维信息。此外，SV机制还具有良好的激励特性。",
-      "abstract_snippet_en": "",
+      "abstract_en": "We study an assignment market where multiple heterogeneous objects are sold to unit-demand agents who have general preferences that account for income effects and market frictions. The minimum price equilibrium (MPE) is one of the most important equilibrium concepts in such settings, as it demonstrates the possibility of designing efficient and strategy-proof mechanisms. Nevertheless, none of the well-known auction mechanisms that find the MPE in quasilinear settings can identify or even approximate MPEs for general preferences. We establish novel structural properties of MPEs and use these properties as the foundation to design a “Serial Vickrey (SV) mechanism.” The SV mechanism finds an MPE for general preferences through a finite number of indifference prices reported by the agents, each of which represents their willingness to pay for a target object based on their tentatively assigned bundle. Furthermore, the SV mechanism also has desirable dynamic incentive properties.",
+      "abstract_cn": "我们研究了一个分配市场，其中多个异构对象被出售给单位需求代理，这些代理具有考虑收入影响和市场摩擦的一般偏好。最低价格均衡（MPE）是这种情况下最重要的均衡概念之一，因为它证明了设计有效且策略证明机制的可能性。然而，在拟线性设置中找到 MPE 的众所周知的拍卖机制都无法识别甚至近似一般偏好的 MPE。我们建立了 MPE 的新颖结构特性，并使用这些特性作为设计“串行维克里（SV）机制”的基础。 SV机制通过代理报告的有限数量的无差异价格找到一般偏好的MPE，每个价格都代表他们根据暂时分配的捆绑包为目标对象支付的意愿。此外，SV机制还具有理想的动态激励特性。",
+      "abstract_snippet_en": "We study an assignment market where multiple heterogeneous objects are sold to unit-demand agents who have general preferences that account for income effects and market frictions. The minimum price...",
       "doi": "10.1016/j.jet.2026.106216",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000797?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -497,52 +425,39 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/00220531",
         "metadata": "crossref",
-        "abstract_en": "openalex",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "unauthorized",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17380,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17380,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106216"
       },
       "translation": {
         "status": "complete",
         "provider": "google-translate",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-02T08:45:55+00:00",
-        "source_hash": "f10714b1fb416d80612aa9328e6976e591059cac09d456da6d7498c188d675cf"
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-03T14:35:36+00:00",
+        "source_hash": "7e29d462be4e883f5a5074dec69b4dcce27b1e85a955ba6976b74aeb6fa6ca44"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -558,14 +473,14 @@
       "source_sequence": 8,
       "article_type": "research-article",
       "title_en": "On the efficiency of runnable banking arrangements",
-      "title_cn": "关于易遭挤兑的银行业安排的效率",
+      "title_cn": "论可运行银行安排的效率",
       "authors": [
         "David Andolfatto",
         "Ed Nosal"
       ],
-      "abstract_en": "Financial arrangements involving illiquid assets financed by liquid liabilities are often viewed as inherently runnable. Diamond and Dybvig (1983) show that this is true when risk-sharing arrangements are not optimally designed. Peck and Shell (2003) and Ennis and Keister (2009, 2016), however, demonstrate that runnable banking arrangements can be constrained-efficient when liquidity demand is uncertain and withdrawals must be processed on a first-come, first-served basis. We show that this insight extends to environments in which redemptions are not subject to a sequential service constraint. Instead, increasing returns to scale in banking-consistent with empirical evidence-can generate regions of the parameter space in which the constrained-efficient allocation is runnable. Runnable banking arrangements can be constrained-efficient when the minimum scale required to realize economies of scale is difficult to attain during large redemption events, when the penalty for failing to achieve scale is small, and when the likelihood of a coordinated run is low1.",
-      "abstract_cn": "涉及以流动性负债为资金来源的非流动性资产的金融安排，常被视为具有内在的挤兑风险。Diamond 和 Dybvig (1983) 指出，当风险分担安排的设计非最优时，确实如此。然而，Peck 和 Shell (2003) 以及 Ennis 和 Keister (2009, 2016) 证明，在流动性需求不确定且提款必须按“先​​到先得”原则处理的情况下，存在挤兑风险的银行安排也可能是受约束有效的（constrained-efficient）。我们证明，这一见解同样适用于赎回不受“顺序服务约束”限制的情境。具体而言，银行业务中的规模报酬递增特性——这与实证证据相符——能够产生特定的参数区间，使得受约束有效的配置具有挤兑风险。当大规模赎回期间难以达到实现规模经济所需的最低规模、未能达到该规模的惩罚较小，且发生协同挤兑的可能性较低时，存在挤兑风险的银行安排便可能是受约束有效的。",
-      "abstract_snippet_en": "",
+      "abstract_en": "Financial arrangements involving illiquid assets financed by liquid liabilities are often viewed as inherently runnable. Diamond and Dybvig (1983) show that this is true when risk-sharing arrangements are not optimally designed. Peck and Shell (2003) and Ennis and Keister (2009, 2016), however, demonstrate that runnable banking arrangements can be constrained-efficient when liquidity demand is uncertain and withdrawals must be processed on a first-come, first-served basis. We show that this insight extends to environments in which redemptions are not subject to a sequential service constraint. Instead, increasing returns to scale in banking-consistent with empirical evidence-can generate regions of the parameter space in which the constrained-efficient allocation is runnable. Runnable banking arrangements can be constrained-efficient when the minimum scale required to realize economies of scale is difficult to attain during large redemption events, when the penalty for failing to achieve scale is small, and when the likelihood of a coordinated run is low",
+      "abstract_cn": "涉及由流动负债融资的非流动资产的金融安排通常被认为本质上是可运行的。 Diamond 和 Dybvig（1983）表明，当风险分担安排未经过优化设计时，情况确实如此。然而，Peck 和 Shell（2003）以及 Ennis 和 Keister（2009、2016）证明，当流动性需求不确定并且提款必须按照先到先得的原则处理时，可运行的银行安排可能是受限高效的。我们表明，这种洞察力可以扩展到兑换不受顺序服务约束的环境。相反，银行业的规模报酬递增——与经验证据一致——可以生成参数空间的区域，在该区域中可以运行受限有效分配。当在大型赎回事件期间难以达到实现规模经济所需的最低规模、未能实现规模的惩罚较小以及协调运行的可能性较低时，可运行的银行安排可能是受限效率的",
+      "abstract_snippet_en": "Financial arrangements involving illiquid assets financed by liquid liabilities are often viewed as inherently runnable. Diamond and Dybvig (1983) show that this is true when risk-sharing arrangements...",
       "doi": "10.1016/j.jet.2026.106221",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000840?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -573,53 +488,40 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/00220531",
         "metadata": "crossref",
-        "abstract_en": "official-sciencedirect-issue-preview",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "unauthorized",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17379,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17379,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106221",
         "semantic_scholar": "https://www.semanticscholar.org/paper/17a6806b65227ada538812e458fd94b02159a707"
       },
       "translation": {
         "status": "complete",
-        "provider": "google-translate-browser-ui",
+        "provider": "google-translate",
+        "model": "gtx-en-zh-CN",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "google-translate-web",
-        "translated_at": "2026-08-02T09:12:03+00:00",
-        "source_hash": "64c59eec92941c835697601a34baba8a3eef2e605c3b603654c5650b15e6f283"
+        "translated_at": "2026-08-03T14:35:38+00:00",
+        "source_hash": "5e28cca4282a4525f81fe2acafeefba8aac0771f8bda8ce927f1268572aaaf89"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -641,7 +543,7 @@
       ],
       "abstract_en": "Complexity aversion in choice under risk is well documented. One of its main behavioral effects is the event-splitting effect. It captures how the value of a lottery changes when one prize is split into two prizes, each with half the original probability. We weaken independence and continuity to accommodate the event-splitting effect. The resulting preferences admit either an expected utility representation with an additive entropy cost of complexity or a power-weighted expected utility representation in which probabilities are weighted by a power function. The model also provides behavioral foundations for logit choice.",
       "abstract_cn": "在风险下选择复杂性的厌恶是有据可查的。其主要行为效应之一是事件分裂效应。它捕捉到当一个奖品被分成两个奖品（每个奖品的概率是原始概率的一半）时，彩票价值如何变化。我们削弱独立性和连续性以适应事件分裂效应。由此产生的偏好允许具有复杂性的加性熵成本的预期效用表示或功率加权的预期效用表示，其中概率由幂函数加权。该模型还为 Logit 选择提供行为基础。",
-      "abstract_snippet_en": "",
+      "abstract_snippet_en": "Complexity aversion in choice under risk is well documented. One of its main behavioral effects is the event-splitting effect. It captures how the value of a lottery changes when one prize is split...",
       "doi": "10.1016/j.jet.2026.106225",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000888?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -649,42 +551,30 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/00220531",
         "metadata": "crossref",
-        "abstract_en": "official-sciencedirect-issue-preview",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "unauthorized",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 429,
-              "outcome": "quota_exceeded"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17378,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17378,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106225",
         "semantic_scholar": "https://www.semanticscholar.org/paper/a0a0eb08b21ce6c045ac13e102c67366c929181c"
       },
@@ -719,7 +609,7 @@
       ],
       "abstract_en": "We study a sender-receiver game in which the receiver can commit to a decision rule before the sender determines the information policy. We ask how the receiver should commit, in advance, to a rule that maps the information of the sender into decisions-when the receiver knows neither the sender’s true preferences nor the full range of information the sender could supply. To handle this dual uncertainty, we adopt a unified robust framework that nests max-min utility, min-max regret, and min-max competitive ratio as special cases. Across all criteria, the same answer emerges: the optimal rule is always a quota rule.",
       "abstract_cn": "我们研究了发送者-接收者博弈，其中接收者可以在发送者确定信息策略之前承诺决策规则。我们询问接收者应如何提前遵守将发送者的信息映射到决策中的规则——当接收者既不知道发送者的真实偏好也不知道发送者可以提供的全部信息时。为了处理这种双重不确定性，我们采用了一个统一的稳健框架，将最大-最小效用、最小-最大遗憾和最小-最大竞争比作为特殊情况。在所有标准中，都会出现相同的答案：最佳规则始终是配额规则。",
-      "abstract_snippet_en": "",
+      "abstract_snippet_en": "We study a sender-receiver game in which the receiver can commit to a decision rule before the sender determines the information policy. We ask how the receiver should commit, in advance, to a rule...",
       "doi": "10.1016/j.jet.2026.106222",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000852?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -727,42 +617,30 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/00220531",
         "metadata": "crossref",
-        "abstract_en": "official-sciencedirect-issue-preview",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "unauthorized",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17377,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17377,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106222"
       },
       "translation": {
@@ -793,9 +671,9 @@
         "Alexander Meyer-Gohde",
         "Mary Tzaawa-Krenzler"
       ],
-      "abstract_en": "Highlights • The Taylor principle is necessary, not just sufficient, when long-run Phillips curves are vertical. • Current inflation targeting alone determines equilibrium uniqueness. • Output gap targeting cannot replace a strong response to current inflation. • Models with vertical long-run Phillips curves share common determinacy conditions. • Information frictions tighten determinacy conditions relative to sticky prices. Abstract The Taylor principle, a more than one-for-one reaction of the nominal interest rate to inflation, is a central tenet of monetary policy to rule out self-fulfilling equilibria. The standard sticky-price model only holds this principle as a sufficient determinacy bound, with substitutes such as output-gap targeting available. We show that if the long-run Phillips curve is vertical, the Taylor principle is necessary and no amount of output-gap, output-growth, or forecast targeting can substitute for the vigorous response to inflation it prescribes. Sticky price models report determinacy bounds as generically model-dependent, nonlinear functions of model parameters. We find that models with vertical long-run Phillips curves share the same determinacy bounds despite differing short-run tradeoffs. These bounds are more conservative, placing tighter restrictions on monetary policy, and more robust, being independent of model-specific parameters and depending solely on monetary policy’s reaction to current inflation.",
-      "abstract_cn": "要点 • 当长期菲利普斯曲线垂直时，泰勒原理是必要的，而不仅仅是充分的。 • 当前的通胀目标本身就决定了均衡的唯一性。 • 产出缺口目标不能取代对当前通胀的强烈反应。 • 具有垂直长期菲利普斯曲线的模型具有共同的确定性条件。 • 信息摩擦收紧了相对于粘性价格的确定性条件。摘要 泰勒原理是名义利率对通货膨胀的一对多反应，是货币政策排除自我实现均衡的核心原则。标准粘性价格模型仅将此原则视为足够的确定性界限，并可使用产出缺口目标等替代品。我们表明，如果长期菲利普斯曲线是垂直的，那么泰勒原则是必要的，并且任何产出缺口、产出增长或预测目标都不能取代它所规定的对通货膨胀的积极反应。粘性价格模型将确定性界限报告为模型参数的一般依赖于模型的非线性函数。我们发现，尽管短期权衡不同，但具有垂直长期菲利普斯曲线的模型具有相同的确定性界限。这些界限更加保守，对货币政策施加更严格的限制，并且更加稳健，独立于模型特定参数，仅取决于货币政策对当前通胀的反应。",
-      "abstract_snippet_en": "",
+      "abstract_en": "The Taylor principle, a more than one-for-one reaction of the nominal interest rate to inflation, is a central tenet of monetary policy to rule out self-fulfilling equilibria. The standard sticky-price model only holds this principle as a sufficient determinacy bound, with substitutes such as output-gap targeting available. We show that if the long-run Phillips curve is vertical, the Taylor principle is necessary and no amount of output-gap, output-growth, or forecast targeting can substitute for the vigorous response to inflation it prescribes. Sticky price models report determinacy bounds as generically model-dependent, nonlinear functions of model parameters. We find that models with vertical long-run Phillips curves share the same determinacy bounds despite differing short-run tradeoffs. These bounds are more conservative, placing tighter restrictions on monetary policy, and more robust, being independent of model-specific parameters and depending solely on monetary policy’s reaction to current inflation.",
+      "abstract_cn": "泰勒原则是名义利率对通货膨胀的一对一反应，是货币政策排除自我实现均衡的核心原则。标准粘性价格模型仅将此原则视为足够的确定性界限，并可使用产出缺口目标等替代品。我们表明，如果长期菲利普斯曲线是垂直的，那么泰勒原则是必要的，并且任何产出缺口、产出增长或预测目标都不能取代它所规定的对通货膨胀的积极反应。粘性价格模型将确定性界限报告为模型参数的一般依赖于模型的非线性函数。我们发现，尽管短期权衡不同，但具有垂直长期菲利普斯曲线的模型具有相同的确定性界限。这些界限更加保守，对货币政策施加更严格的限制，并且更加稳健，独立于模型特定参数，仅取决于货币政策对当前通胀的反应。",
+      "abstract_snippet_en": "•The Taylor principle is necessary, not just sufficient, when long-run Phillips curves are vertical.•Current inflation targeting alone determines equilibrium uniqueness.•Output gap targeting cannot...",
       "doi": "10.1016/j.jet.2026.106220",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000839?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -803,53 +681,40 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/00220531",
         "metadata": "crossref",
-        "abstract_en": "openalex",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "unauthorized",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17376,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17376,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106220",
         "semantic_scholar": "https://www.semanticscholar.org/paper/48e38b3b8455dc569176fa1e85e4829df34e0ff0"
       },
       "translation": {
         "status": "complete",
         "provider": "google-translate",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-03T10:28:45+00:00",
-        "source_hash": "dba11a5052857f195a3965bfcd1b8d9f62d0f7319d657e556df272dc3bfcb9ca"
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-02T08:46:16+00:00",
+        "source_hash": "0128a70a9cacd2d8dd62d514b62615f60d395f8dd70d4d139022113692db57be"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -872,7 +737,7 @@
       ],
       "abstract_en": "We analyze how public asset purchases affect liquidity, risk sharing and intertemporal smoothing in imperfectly competitive financial markets. Even “neutral” policies, such as budget-balanced trades of risk-free debt, affect liquidity and trading efficiency. Public debt purchases worsen liquidity and risk sharing by increasing price impact, while debt sales improve risk sharing but distort intertemporal trade. “Expansionary” quantitative easing policies can thus reduce trading efficiency. We also derive quantity-based trading rules for optimal public portfolio management. These call for policy to equalize weighted measures of public and private price impact.",
       "abstract_cn": "我们分析公共资产购买如何影响不完全竞争的金融市场中的流动性、风险分担和跨期平滑。即使是“中性”政策，例如无风险债务的预算平衡交易，也会影响流动性和交易效率。公共债务购买会增加价格影响，从而恶化流动性和风险分担，而债务出售则改善风险分担，但会扭曲跨期贸易。 “扩张性”量化宽松政策可能会降低交易效率。我们还推导出基于数量的交易规则，以实现最佳的公共投资组合管理。这些要求政策平衡公共和私人价格影响的加权衡量标准。",
-      "abstract_snippet_en": "",
+      "abstract_snippet_en": "We analyze how public asset purchases affect liquidity, risk sharing and intertemporal smoothing in imperfectly competitive financial markets. Even “neutral” policies, such as budget-balanced trades...",
       "doi": "10.1016/j.jet.2026.106226",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S002205312600089X?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -880,42 +745,30 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/00220531",
         "metadata": "crossref",
-        "abstract_en": "official-sciencedirect-issue-preview",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "unauthorized",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 429,
-              "outcome": "quota_exceeded"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17375,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17375,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106226",
         "semantic_scholar": "https://www.semanticscholar.org/paper/ecc64267480846c6eaa3ebdcd7214378acb82642"
       },
@@ -949,7 +802,7 @@
       ],
       "abstract_en": "We show in a model of RFQ trading that customers may admit only a few dealers, even when more are available, to induce maximum liquidity supply—“less can be more.” The number of admitted dealers is pinned down by a competition elasticity, shaped by dealers’ cost to respond to RFQs. For example, higher search (operating) costs increase (reduce) admitted dealers. A social planner would mandate even fewer dealers than the market outcome, because customers induce excessive dealer competition. The model predicts endogenous market power, yields implications for regulation and design of electronic platforms, and speaks to customer-dealer interactions under market stress.",
       "abstract_cn": "我们在询价交易模型中表明，即使有更多交易商，客户也可能只接纳少数交易商，以诱导最大的流动性供应——“越少越好”。获准经销商的数量受到竞争弹性的限制，竞争弹性由经销商响应询价的成本决定。例如，较高的搜索（运营）成本会增加（减少）认可的经销商。社会规划者会要求比市场结果更少的经销商，因为客户会引发经销商过度竞争。该模型预测内生市场力量，对电子平台的监管和设计产生影响，并探讨市场压力下客户与经销商的互动。",
-      "abstract_snippet_en": "",
+      "abstract_snippet_en": "We show in a model of RFQ trading that customers may admit only a few dealers, even when more are available, to induce maximum liquidity supply—“less can be more.” The number of admitted dealers is...",
       "doi": "10.1016/j.jet.2026.106223",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000864?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -957,42 +810,30 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/00220531",
         "metadata": "crossref",
-        "abstract_en": "official-sciencedirect-issue-preview",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "unauthorized",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17374,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17374,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106223",
         "semantic_scholar": "https://www.semanticscholar.org/paper/01d957771de700953434cfa268487d287a285dde"
       },
@@ -1024,9 +865,9 @@
         "Johannes Hörner",
         "Jérôme Renault"
       ],
-      "abstract_en": "We adapt the methods from Abreu, Pearce and Stacchetti (1990) to finitely repeated games with imperfect public monitoring. Under a combination of (a slight strengthening of) the assumptions of Benôıt and Krishna (1985) and those of Fudenberg, Levine and Maskin (1994), a folk theorem follows.",
-      "abstract_cn": "我们将 Abreu、Pearce 和 Stacchetti (1990) 的方法应用于公共监控不完善的有限重复博弈。在 Benôıt 和 Krishna (1985) 以及 Fudenberg、Levine 和 Maskin (1994) 的假设的结合（稍微强化）下，得出了一个民间定理。",
-      "abstract_snippet_en": "",
+      "abstract_en": "We provide a Folk theorem for finitely repeated games under imperfect public monitoring, under a strengthening of the standard assumptions required for finitely repeated games with perfect monitoring, and of those for discounted repeated games under imperfect public monitoring. Our proof uses standard recursive methods and assumes the existence of a public randomization device. Three counterexamples show in which sense our assumptions are tight.",
+      "abstract_cn": "我们提供了不完善公共监控下的有限重复博弈的 Folk 定理，强化了具有完美监控的有限重复博弈所需的标准假设，以及不完善公共监控下的折扣重复博弈的标准假设。我们的证明使用标准递归方法并假设存在公共随机化设备。三个反例表明我们的假设在何种意义上是严格的。",
+      "abstract_snippet_en": "We provide a Folk theorem for finitely repeated games under imperfect public monitoring, under a strengthening of the standard assumptions required for finitely repeated games with perfect monitoring,...",
       "doi": "10.1016/j.jet.2026.106227",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000906?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -1034,53 +875,40 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/00220531",
         "metadata": "crossref",
-        "abstract_en": "semantic-scholar",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "unauthorized",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17373,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17373,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106227",
         "semantic_scholar": "https://www.semanticscholar.org/paper/0a47defa18aa4ad53d6f802aca47e2b943656b65"
       },
       "translation": {
         "status": "complete",
         "provider": "google-translate",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-02T08:46:28+00:00",
-        "source_hash": "a75c113a11a558773ab1b4be35ec4e3f5519157e7b4a4ebce3f6d6d3204fe4ed"
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-03T14:35:40+00:00",
+        "source_hash": "e36e4849a8b5f3826a6145dc3ea0a7ccdcbba357f56a2be442f737480c686dcf"
       },
       "quality_flags": [],
       "china_relevance": {
