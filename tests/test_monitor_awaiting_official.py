@@ -36,7 +36,7 @@ class AwaitingOfficialTests(unittest.TestCase):
             "updated_at": "2026-08-03T00:00:00+00:00",
             "journals": {
                 "AJAE": {
-                    "status": "awaiting_official",
+                    "status": "confirmed",
                     "awaiting_official_count": 19,
                     "awaiting_official_since": "2026-08-01T00:00:00+00:00",
                     "last_error": "ValueError: provisional Crossref roster requires official confirmation",
@@ -76,12 +76,12 @@ class AwaitingOfficialTests(unittest.TestCase):
             "updated_at": "2026-08-03T00:00:00+00:00",
             "journals": {
                 "AJAE": {
-                    "status": "awaiting_official",
+                    "status": "confirmed",
                     "awaiting_official_count": 19,
                     "awaiting_official_since": "2026-08-01T00:00:00+00:00",
                     "last_error": "ValueError: provisional Crossref roster requires official confirmation",
                     "failure_count": 0,
-                    "deep_failure_count": 0,
+                    "deep_failure_count": 6,
                 },
             },
         }

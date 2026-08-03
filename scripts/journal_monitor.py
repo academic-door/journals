@@ -805,10 +805,17 @@ def public_status(
     result: dict[str, Any],
 ) -> dict[str, Any]:
     entries = state.get("journals", {})
+    awaiting_official = [
+        key
+        for key, entry in entries.items()
+        if int(entry.get("awaiting_official_count", 0)) > 0
+        and _is_awaiting_official(str(entry.get("last_error", "")))
+    ]
+    awaiting_set = set(awaiting_official)
     alerting = [
         key
         for key, entry in entries.items()
-        if entry.get("status") != "awaiting_official"
+        if key not in awaiting_set
         and (
             int(entry.get("failure_count", 0)) >= ALERT_THRESHOLD
             or int(entry.get("deep_failure_count", 0)) >= ALERT_THRESHOLD
@@ -817,18 +824,12 @@ def public_status(
     warnings = [
         key
         for key, entry in entries.items()
-        if entry.get("status") != "awaiting_official"
+        if key not in awaiting_set
         and (
             int(entry.get("failure_count", 0)) > 0
             or int(entry.get("deep_failure_count", 0)) > 0
         )
         and key not in alerting
-    ]
-    awaiting_official = [
-        key
-        for key, entry in entries.items()
-        if entry.get("status") == "awaiting_official"
-        and int(entry.get("awaiting_official_count", 0)) > 0
     ]
     return {
         "schema_version": "1.0",
