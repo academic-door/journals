@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-08-03T12:26:09+00:00",
+  "updated_at": "2026-08-03T13:46:35+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 41,
@@ -1775,7 +1775,7 @@
         "status": "fallback_verified",
         "issue_id": "wd-206-c",
         "publication_date": "October 2026",
-        "publication_state": "enriching",
+        "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C",
         "roster_authority": "official-issue-page",
         "roster_transport": "official-issue-page",
@@ -1801,12 +1801,34 @@
         ]
       },
       "detected": {
-        "available": false,
-        "status": "missing",
-        "errors": [
-          "snapshot_missing"
-        ],
-        "warnings": []
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "wd-206-c",
+        "publication_date": "October 2026",
+        "publication_state": "ready",
+        "source_url": "https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": false,
+        "content_counts": {
+          "official_items": 20,
+          "observed_items": 20,
+          "publishable_items": 20,
+          "research_articles": 20,
+          "comments": 0,
+          "short_communications": 0,
+          "corrections": 0,
+          "editorial_material": 0,
+          "front_matter": 0,
+          "other_excluded": 0,
+          "catalog_content_items": 20
+        },
+        "abstracts_complete": 20,
+        "translations_complete": 20,
+        "errors": [],
+        "warnings": [
+          "official_order_unverified"
+        ]
       }
     },
     {
@@ -2557,7 +2579,7 @@
         "status": "fallback_verified",
         "issue_id": "lup-169-c",
         "publication_date": "October 2026",
-        "publication_state": "enriching",
+        "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/land-use-policy/vol/169/suppl/C",
         "roster_authority": "official-issue-page",
         "roster_transport": "official-issue-page",
@@ -2583,12 +2605,34 @@
         ]
       },
       "detected": {
-        "available": false,
-        "status": "missing",
-        "errors": [
-          "snapshot_missing"
-        ],
-        "warnings": []
+        "available": true,
+        "status": "fallback_verified",
+        "issue_id": "lup-169-c",
+        "publication_date": "October 2026",
+        "publication_state": "ready",
+        "source_url": "https://www.sciencedirect.com/journal/land-use-policy/vol/169/suppl/C",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
+        "order_verified": false,
+        "content_counts": {
+          "official_items": 56,
+          "observed_items": 56,
+          "publishable_items": 56,
+          "research_articles": 56,
+          "comments": 0,
+          "short_communications": 0,
+          "corrections": 0,
+          "editorial_material": 0,
+          "front_matter": 0,
+          "other_excluded": 0,
+          "catalog_content_items": 56
+        },
+        "abstracts_complete": 56,
+        "translations_complete": 56,
+        "errors": [],
+        "warnings": [
+          "official_order_unverified"
+        ]
       }
     },
     {
