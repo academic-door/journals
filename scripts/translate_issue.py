@@ -655,6 +655,14 @@ def request_google_translation(
                 ),
             }
             translated = {
+                "title_cn": _normalize_written_number_translations(
+                    article["title_en"], translated["title_cn"]
+                ),
+                "abstract_cn": _normalize_written_number_translations(
+                    article["abstract_en"], translated["abstract_cn"]
+                ),
+            }
+            translated = {
                 "title_cn": _repair_google_artifacts(
                     article["title_en"], translated["title_cn"]
                 ),

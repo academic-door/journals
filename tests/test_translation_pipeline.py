@@ -439,5 +439,42 @@ class TranslationPipelineTests(unittest.TestCase):
             },
         )
 
+
+class GoogleMonthNumberTests(unittest.TestCase):
+    """Google renders English months as Arabic digits; normalization must not
+    flag that as an invented number (EER Brexit article regression)."""
+
+    def test_google_month_digits_are_normalized_not_flagged(self) -> None:
+        from scripts.translate_issue import (
+            request_google_translation,
+            validate_translation,
+        )
+
+        article = {
+            "doi": "10.0000/brexit",
+            "title_en": "Visual bias in the Brexit referendum",
+            "abstract_en": (
+                "We use 64,089 images collected between February and August "
+                "2016. The 2016 referendum bias is concentrated during the "
+                "campaign period."
+            ),
+        }
+
+        class MonthSession:
+            def post(self, url: str, *args, **kwargs) -> GoogleResponse:
+                return GoogleResponse(
+                    "英国脱欧公投中的视觉偏见\n[[9876543210123456789]]\n"
+                    "我们使用2016年2月至8月期间收集的[[64,089]]张图像。"
+                    "2016年公投偏见集中在竞选期间。"
+                )
+
+        translated = request_google_translation(
+            article, session=MonthSession()
+        )
+        validate_translation(article, translated)
+        self.assertIn("二月", translated["abstract_cn"])
+        self.assertIn("八月", translated["abstract_cn"])
+
+
 if __name__ == "__main__":
     unittest.main()
