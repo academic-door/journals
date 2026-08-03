@@ -139,6 +139,21 @@ def collector_for_issue(
                 issue_ref.issue if isinstance(issue_ref, HistoricalIssue) else ""
             ),
         )
+    if collector == "elsevier":
+        if not isinstance(issue_ref, HistoricalIssue):
+            raise ValueError("Elsevier history requires a volume/issue reference")
+        from collectors.metadata_fallback import fetch_crossref_current_issue
+
+        return lambda: fetch_crossref_current_issue(
+            journal_id=journal_config["id"],
+            journal_name=journal_config["name"],
+            issn=str(journal_config["issn"]),
+            current_issue_url=issue_url,
+            target_volume=issue_ref.volume,
+            target_issue="",
+            output_issue="C",
+            start_year=int(issue_ref.year) - 2,
+        )
     raise ValueError(f"Historical backfill is not configured for {collector}")
 
 
@@ -262,10 +277,19 @@ def run_issue(
 
 
 def main() -> int:
-    history = yaml.safe_load(HISTORY_CONFIG.read_text(encoding="utf-8"))
-    journals = yaml.safe_load(JOURNALS_PATH.read_text(encoding="utf-8"))["journals"]
+    global STATE_PATH
     parser = argparse.ArgumentParser()
-    parser.add_argument("--journal", choices=["ALL", *history["journals"]], default="ALL")
+    parser.add_argument(
+        "--config",
+        default=str(HISTORY_CONFIG),
+        help="history config yaml (default top5-history.yml)",
+    )
+    parser.add_argument(
+        "--state",
+        default=str(STATE_PATH),
+        help="resumable state json path",
+    )
+    parser.add_argument("--journal", default="ALL", help="journal key or ALL")
     parser.add_argument("--from-year", type=int, default=2025)
     parser.add_argument("--to-year", type=int, default=2026)
     parser.add_argument("--translate", action="store_true")
@@ -273,6 +297,12 @@ def main() -> int:
     parser.add_argument("--max-issues", type=int, default=1)
     parser.add_argument("--max-translations", type=int, default=50)
     args = parser.parse_args()
+    STATE_PATH = Path(args.state)
+    history_path = Path(args.config)
+    history = yaml.safe_load(history_path.read_text(encoding="utf-8"))
+    journals = yaml.safe_load(JOURNALS_PATH.read_text(encoding="utf-8"))["journals"]
+    if args.journal != "ALL" and args.journal not in history["journals"]:
+        parser.error(f"unknown journal key: {args.journal}")
     years = range(args.from_year, args.to_year + 1)
     selected = [
         key for key in history["journals"] if args.journal == "ALL" or key == args.journal
@@ -292,7 +322,8 @@ def main() -> int:
         )
         return 0
 
-    state = load_json(STATE_PATH, {"schema_version": "1.0", "issues": {}})
+    state_path = Path(args.state)
+    state = load_json(state_path, {"schema_version": "1.0", "issues": {}})
     pending = [
         issue
         for issue in plan

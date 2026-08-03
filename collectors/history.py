@@ -126,6 +126,95 @@ def parse_archive(
     )
 
 
+def _item_year(item: dict) -> int:
+    for key in ("published-print", "published-online", "issued"):
+        parts = item.get(key, {}).get("date-parts", [[None]])
+        try:
+            return int(parts[0][0])
+        except (TypeError, ValueError, IndexError):
+            continue
+    return 0
+
+
+def discover_crossref_issues(
+    journal: str,
+    issn: str,
+    issue_url_template: str,
+    *,
+    years: Iterable[int],
+    session: requests.Session | None = None,
+) -> list[HistoricalIssue]:
+    """Discover continuous-publishing Elsevier volumes from Crossref.
+
+    Elsevier field journals publish one volume per issue (labelled C on
+    ScienceDirect) and Crossref groups them by volume with an empty issue
+    field. The plan is built from the distinct volumes whose articles fall
+    inside the requested years; boundary volumes that span adjacent years are
+    assigned to their most common year.
+    """
+
+    wanted = set(years)
+    if not wanted:
+        return []
+    start_year = min(wanted) - 2
+    end_year = max(wanted)
+    client = session or requests.Session()
+    found: dict[str, HistoricalIssue] = {}
+    cursor = "*"
+    while cursor:
+        response = client.get(
+            f"https://api.crossref.org/journals/{issn}/works",
+            params={
+                "filter": (
+                    f"from-pub-date:{start_year}-01-01,"
+                    f"until-pub-date:{end_year}-12-31,type:journal-article"
+                ),
+                "rows": "1000",
+                "cursor": cursor,
+                "select": "DOI,title,volume,issue,published-print,published-online,issued",
+            },
+            headers={"User-Agent": USER_AGENT, "Accept": "application/json"},
+            timeout=(10, 60),
+        )
+        response.raise_for_status()
+        payload = response.json().get("message", {})
+        items = payload.get("items", [])
+        if not items:
+            # Crossref keeps returning the same next-cursor at the end of the
+            # result set; an empty page is the only reliable stop signal.
+            break
+        for item in items:
+            volume = str(item.get("volume", "")).strip()
+            if not volume or not volume.isdigit():
+                continue
+            by_year = found.get(volume, {})
+            by_year.setdefault(_item_year(item), 0)
+            by_year[_item_year(item)] += 1
+            found[volume] = by_year
+        cursor = str(payload.get("next-cursor", "") or "")
+    issues: dict[str, HistoricalIssue] = {}
+    for volume, year_counts in found.items():
+        year, _ = max(year_counts.items(), key=lambda pair: (pair[1], pair[0]))
+        if year not in wanted:
+            continue
+        url = issue_url_template.format(
+            volume=volume,
+            issue="C",
+            issue_lower="c",
+            year=year,
+        )
+        _add(
+            issues,
+            journal=journal,
+            year=year,
+            volume=volume,
+            issue="c",
+            url=url,
+            allowed_host=urlparse(url).hostname or "",
+        )
+    return sorted(issues.values(), key=lambda item: (item.year, int(item.volume)))
+
+
 def discover_official_issues(
     journal: str,
     definition: dict,
@@ -134,6 +223,13 @@ def discover_official_issues(
 ) -> list[HistoricalIssue]:
     found: dict[str, HistoricalIssue] = {}
     year_values = sorted(set(years))
+    if definition.get("platform") == "crossref":
+        return discover_crossref_issues(
+            journal,
+            definition["issn"],
+            definition["issue_url_template"],
+            years=year_values,
+        )
     if definition.get("year_ranges"):
         for year in year_values:
             year_definition = definition["year_ranges"].get(str(year))

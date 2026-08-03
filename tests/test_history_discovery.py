@@ -94,5 +94,120 @@ class HistoryDiscoveryTests(unittest.TestCase):
         self.assertEqual(["jpe-133-1", "jpe-133-2"], [item.issue_id for item in issues])
 
 
+
+class CrossrefDiscoveryTests(unittest.TestCase):
+    def test_discovers_continuous_volumes_and_assigns_majority_year(self) -> None:
+        from collectors.history import discover_crossref_issues
+
+        class Response:
+            def raise_for_status(self) -> None:
+                return None
+
+            def json(self) -> dict:
+                return {
+                    "message": {
+                        "items": [
+                            {
+                                "volume": "172",
+                                "published-print": {"date-parts": [[2025, 3]]},
+                            },
+                            {
+                                "volume": "172",
+                                "published-print": {"date-parts": [[2025, 6]]},
+                            },
+                            {
+                                "volume": "173",
+                                "published-print": {"date-parts": [[2024, 12]]},
+                            },
+                            {
+                                "volume": "173",
+                                "published-print": {"date-parts": [[2024, 12]]},
+                            },
+                            {
+                                "volume": "173",
+                                "published-print": {"date-parts": [[2025, 2]]},
+                            },
+                            {
+                                "volume": "173",
+                                "published-print": {"date-parts": [[2025, 2]]},
+                            },
+                            {
+                                "volume": "173",
+                                "published-print": {"date-parts": [[2025, 2]]},
+                            },
+                            {
+                                "volume": "999",
+                                "published-print": {"date-parts": [[2027, 1]]},
+                            },
+                        ],
+                        "next-cursor": "",
+                    }
+                }
+
+        class Session:
+            def get(self, url: str, **kwargs) -> Response:
+                return Response()
+
+        issues = discover_crossref_issues(
+            "JDE",
+            "0304-3878",
+            "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/{volume}/suppl/{issue}",
+            years=[2025],
+            session=Session(),
+        )
+        self.assertEqual(["jde-172-c", "jde-173-c"], [item.issue_id for item in issues])
+        self.assertEqual(2025, issues[0].year)
+        self.assertEqual("c", issues[0].issue)
+        self.assertEqual(
+            "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/172/suppl/C",
+            issues[0].official_url,
+        )
+
+
+
+    def test_crossref_pagination_stops_on_empty_page(self) -> None:
+        from collectors.history import discover_crossref_issues
+
+        pages = [
+            {
+                "message": {
+                    "items": [
+                        {"volume": "172", "published-print": {"date-parts": [[2025, 3]]}},
+                    ],
+                    "next-cursor": "abc",
+                }
+            },
+            {
+                "message": {
+                    "items": [],
+                    "next-cursor": "abc",
+                }
+            },
+        ]
+
+        class Session:
+            def get(self, url: str, **kwargs) -> object:
+                page = pages.pop(0)
+
+                class Response:
+                    def raise_for_status(self) -> None:
+                        return None
+
+                    def json(self) -> dict:
+                        return page
+
+                return Response()
+
+        issues = discover_crossref_issues(
+            "JDE",
+            "0304-3878",
+            "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/{volume}/suppl/{issue}",
+            years=[2025],
+            session=Session(),
+        )
+        self.assertEqual(["jde-172-c"], [item.issue_id for item in issues])
+
+
 if __name__ == "__main__":
     unittest.main()
+

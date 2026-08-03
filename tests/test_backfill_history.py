@@ -74,5 +74,34 @@ class BackfillHistoryTests(unittest.TestCase):
         )
 
 
+
+    def test_elsevier_historical_collector_targets_crossref_volume(self) -> None:
+        config = {
+            "id": "jde",
+            "name": "Journal of Development Economics",
+            "collector": "elsevier",
+            "issn": "0304-3878",
+        }
+        ref = HistoricalIssue(
+            "JDE",
+            2025,
+            "172",
+            "C",
+            "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/172/suppl/C",
+        )
+        with patch(
+            "collectors.metadata_fallback.fetch_crossref_current_issue",
+            return_value={"issue_id": "jde-172-c"},
+        ) as fetch:
+            result = collector_for_issue(config, ref)()
+        self.assertEqual("jde-172-c", result["issue_id"])
+        fetch.assert_called_once()
+        kwargs = fetch.call_args.kwargs
+        self.assertEqual("172", kwargs["target_volume"])
+        self.assertEqual("", kwargs["target_issue"])
+        self.assertEqual("C", kwargs["output_issue"])
+        self.assertEqual(2023, kwargs["start_year"])
+
+
 if __name__ == "__main__":
     unittest.main()
