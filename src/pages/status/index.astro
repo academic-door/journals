@@ -58,7 +58,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       fetchJson(`${base}api/v1/collections/top5.json`, { journals: [] }),
       fetchJson(`${base}api/v1/collections/fields.json`, { journals: [] }),
       fetchJson(`${base}api/v1/source-audit.json`, { journals: [], summary: {} }),
-      fetchJson(`${base}api/v1/monitoring.json`, { failed_journals: [], warning_journals: [] }),
+      fetchJson(`${base}api/v1/monitoring.json`, { failed_journals: [], warning_journals: [], awaiting_official_journals: [] }),
     ]).then(([health, top5, fields, sourceAudit, monitoring]) => {
       const journals = [...(top5.journals || []), ...(fields.journals || [])];
       const auditById = new Map((sourceAudit.journals || []).map((item) => [item.journal_id, item]));
@@ -70,18 +70,22 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         <div><strong>${readyCount}</strong><span>可复制发布</span></div>
         <div><strong>${enrichingCount}</strong><span>正在补全</span></div>
         <div><strong>${sourceSummary.needs_attention || 0}</strong><span>需要检查</span></div>
-        <div><strong>${(monitoring.failed_journals || []).length}</strong><span>更新受阻</span></div>`;
+        <div><strong>${(monitoring.failed_journals || []).length}</strong><span>更新受阻</span></div>
+        <div><strong>${(monitoring.awaiting_official_journals || []).length}</strong><span>等待官网确认</span></div>`;
       // 监测告警此前只存在于 monitoring.json 与 Actions 日志里，状态页看不到；
       // 期刊连续更新失败属于读者应当知情的信息，因此在这里如实列出。
       const blocked = monitoring.failed_journals || [];
       const watching = monitoring.warning_journals || [];
+      const awaitingOfficial = monitoring.awaiting_official_journals || [];
       const monitorNote = document.querySelector("#monitor-note");
       if (monitorNote) {
         monitorNote.textContent = blocked.length
-          ? `以下期刊连续更新失败，页面继续展示上一份已核对数据：${blocked.join("、")}${watching.length ? `；待确认：${watching.join("、")}` : ""}`
-          : watching.length
-            ? `全部期刊更新正常；待确认：${watching.join("、")}`
-            : "全部期刊更新正常。";
+          ? `以下期刊连续更新失败，页面继续展示上一份已核对数据：${blocked.join("、")}${awaitingOfficial.length ? `；等待官网确认：${awaitingOfficial.join("、")}` : ""}${watching.length ? `；待确认：${watching.join("、")}` : ""}`
+          : awaitingOfficial.length
+            ? `已发现新一期，等待官网确认（页面继续展示上一份已核对数据）：${awaitingOfficial.join("、")}${watching.length ? `；待确认：${watching.join("、")}` : ""}`
+            : watching.length
+              ? `全部期刊更新正常；待确认：${watching.join("、")}`
+              : "全部期刊更新正常。";
       }
       document.querySelector("#quality-updated").textContent = `最近更新：${health.updated_at || sourceAudit.updated_at || "-"}`;
       document.querySelector("#quality-rows").innerHTML = journals.map((journal) => {

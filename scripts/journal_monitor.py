@@ -41,6 +41,8 @@ ALERT_THRESHOLD = 3
 DEEP_RETRY_HOURS = 6
 ENTITLEMENT_RETRY_HOURS = 24
 TRANSLATION_RETRY_HOURS = 2
+AWAITING_OFFICIAL_RETRY_CAP_HOURS = 24
+AWAITING_OFFICIAL_ESCALATION_DAYS = 7
 
 
 def now_iso() -> str:
@@ -593,6 +595,27 @@ def detect_all(
     return next_state, result
 
 
+def _is_awaiting_official(error_text: str) -> bool:
+    """A Crossref-confirmed candidate whose publisher roster is not live yet.
+
+    The architecture refuses to publish provisional Crossref rosters, so the
+    deep update correctly waits for the official issue page. This is not an
+    operational failure: the journal is simply awaiting publisher
+    confirmation.
+    """
+
+    return (
+        "provisional Crossref roster requires official confirmation"
+        in error_text
+    )
+
+
+def _awaiting_backoff_hours(awaiting_count: int) -> int:
+    """Exponential backoff for publisher confirmation, capped at 24 hours."""
+
+    return min(2 ** max(0, int(awaiting_count) - 1), AWAITING_OFFICIAL_RETRY_CAP_HOURS)
+
+
 def run_deep_updates(
     confirmed: list[str],
     state: dict[str, Any],
@@ -650,6 +673,8 @@ def run_deep_updates(
                     "candidate_seen_count": 0,
                     "failure_count": 0,
                     "deep_failure_count": 0,
+                    "awaiting_official_count": 0,
+                    "awaiting_official_since": "",
                     "last_error": "",
                     "last_deep_update_at": now_iso(),
                     "last_deep_attempt_at": now_iso(),
@@ -665,6 +690,44 @@ def run_deep_updates(
             source_lag = "SourceLagError:" in error_text
             entitlement_blocked = "elsevier_insttoken_required" in error_text
             translation_only = "translation incomplete:" in error_text
+            awaiting_official = _is_awaiting_official(error_text)
+            if awaiting_official:
+                awaiting_count = int(entry.get("awaiting_official_count", 0)) + 1
+                since_text = str(entry.get("awaiting_official_since") or "")
+                try:
+                    since_dt = (
+                        datetime.fromisoformat(since_text)
+                        if since_text
+                        else datetime.now(timezone.utc)
+                    )
+                except ValueError:
+                    since_dt = datetime.now(timezone.utc)
+                escalated = (datetime.now(timezone.utc) - since_dt) > timedelta(
+                    days=AWAITING_OFFICIAL_ESCALATION_DAYS
+                )
+                entry["awaiting_official_count"] = awaiting_count
+                entry["awaiting_official_since"] = since_text or now_iso()
+                if not escalated:
+                    backoff_hours = _awaiting_backoff_hours(awaiting_count)
+                    entry.update(
+                        {
+                            "status": "awaiting_official",
+                            "last_error": error_text,
+                            "last_deep_attempt_at": now_iso(),
+                            "next_deep_retry_at": (
+                                datetime.now(timezone.utc)
+                                + timedelta(hours=backoff_hours)
+                            ).replace(microsecond=0).isoformat(),
+                        }
+                    )
+                    update_results.append(
+                        {
+                            "journal": key,
+                            "result": "awaiting_official",
+                            "error": error_text,
+                        }
+                    )
+                    continue
             retry_hours = (
                 ENTITLEMENT_RETRY_HOURS
                 if entitlement_blocked
@@ -743,6 +806,12 @@ def public_status(
         )
         and key not in alerting
     ]
+    awaiting_official = [
+        key
+        for key, entry in entries.items()
+        if entry.get("status") == "awaiting_official"
+        and int(entry.get("awaiting_official_count", 0)) > 0
+    ]
     return {
         "schema_version": "1.0",
         "updated_at": state.get("updated_at", now_iso()),
@@ -754,10 +823,12 @@ def public_status(
             "candidates": len(result.get("pending_journals", [])),
             "confirmed_updates": len(result.get("confirmed_journals", [])),
             "warnings": len(warnings),
+            "awaiting_official": len(awaiting_official),
             "failed": len(alerting),
         },
         "warning_journals": warnings,
         "failed_journals": alerting,
+        "awaiting_official_journals": awaiting_official,
         "last_successful_checks": {
             key: entry.get("last_checked_at", "")
             for key, entry in entries.items()
