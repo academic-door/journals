@@ -1177,5 +1177,34 @@ class ElsevierQuotaTest(unittest.TestCase):
         self.assertIn("1500/20000", lookup["quota_warning"])
 
 
+
+    def test_strips_fused_acknowledgment_footnote_from_abstract_tail(self) -> None:
+        from collectors.metadata_fallback import _strip_abstract_footnotes
+
+        body = (
+            "We study a mechanism that is efficient in the tail of the "
+            "distribution. " * 5
+        )
+        abstract = (
+            body
+            + "the likelihood of a coordinated run is low11The authors are "
+            "grateful to Todd Keister for helpful comments. The views "
+            "expressed here are those of the authors."
+        )
+        stripped = _strip_abstract_footnotes(abstract)
+        self.assertNotIn("The authors are grateful", stripped)
+        self.assertTrue(stripped.endswith("low"))
+
+    def test_keeps_early_acknowledgment_inside_abstract(self) -> None:
+        from collectors.metadata_fallback import _strip_abstract_footnotes
+
+        abstract = (
+            "We thank two referees for comments that improved this paper. "
+            + "The main result is that the estimator is consistent and "
+            "efficient under weak conditions. " * 8
+        )
+        self.assertEqual(abstract, _strip_abstract_footnotes(abstract))
+
+
 if __name__ == "__main__":
     unittest.main()

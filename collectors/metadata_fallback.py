@@ -401,13 +401,42 @@ def _quota_warning(name: str, snapshot: dict[str, Any]) -> str:
     return ""
 
 
+# Some Elsevier descriptions append the acknowledgment footnote to the abstract
+# with its marker fused into the text (e.g. ``...run is low11The authors are
+# grateful to...``). That footnote is not abstract content and its digits trip
+# the translation numeric gate, so strip it when it appears in the tail.
+ABSTRACT_FOOTNOTE_PATTERNS = (
+    r"(?:\d+\s*)?(?:The authors|The author)\s+are\s+(?:grateful|indebted|thankful)\s+to\b",
+    r"(?:\d+\s*)?(?:We|I)\s+are\s+(?:grateful|indebted|thankful)\s+to\b",
+    r"(?:\d+\s*)?(?:The authors|The author|We|I)\s+thank\b",
+    r"(?:\d+\s*)?Financial\s+support\s+from\b",
+    r"(?:\d+\s*)?The\s+views\s+expressed\b",
+    r"(?:\d+\s*)?Any\s+(?:remaining\s+)?errors\b",
+    r"(?:\d+\s*)?Supplementary\s+(?:data|material)\b",
+)
+
+
+def _strip_abstract_footnotes(value: str) -> str:
+    """Cut appended acknowledgment/footnote text from the abstract tail."""
+
+    if len(value) < 200:
+        return value
+    for pattern in ABSTRACT_FOOTNOTE_PATTERNS:
+        match = re.search(pattern, value, flags=re.IGNORECASE)
+        if match and match.start() >= len(value) * 0.5:
+            stripped = value[: match.start()].strip()
+            if len(stripped) >= 100:
+                return stripped
+    return value
+
+
 def _elsevier_text(root: ElementTree.Element, names: set[str]) -> str:
     for node in root.iter():
         if _local_name(node.tag) not in names:
             continue
         value = _clean_markup(" ".join(node.itertext()))
         if value and not _is_no_abstract_notice(value):
-            return value
+            return _strip_abstract_footnotes(value)
     return ""
 
 
