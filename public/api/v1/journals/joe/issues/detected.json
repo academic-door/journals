@@ -8,7 +8,7 @@
   "issue_label": "Vol. 257",
   "publication_date": "September 2026",
   "source_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/257/suppl/C",
-  "retrieved_at": "2026-08-02T22:39:33+00:00",
+  "retrieved_at": "2026-08-03T01:55:36+00:00",
   "expected_article_count": 14,
   "research_article_count": 14,
   "status": "ready",
@@ -91,11 +91,6 @@
           "Chinese cities"
         ],
         "source": "academic-door-rules-v1"
-      },
-      "abstract_lookup": {
-        "status": "browser_authorized_official_complete",
-        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626000928",
-        "captured_at": "2026-08-02T08:20:23.307Z"
       }
     },
     {
@@ -174,11 +169,6 @@
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
-      },
-      "abstract_lookup": {
-        "status": "browser_authorized_official_complete",
-        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626000941",
-        "captured_at": "2026-08-02T08:20:23.307Z"
       }
     },
     {
@@ -213,8 +203,8 @@
             },
             {
               "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 429,
+              "outcome": "quota_exceeded"
             },
             {
               "source": "elsevier-scopus-doi",
@@ -256,11 +246,6 @@
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
-      },
-      "abstract_lookup": {
-        "status": "browser_authorized_official_complete",
-        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626000953",
-        "captured_at": "2026-08-02T08:20:23.307Z"
       }
     },
     {
@@ -417,11 +402,6 @@
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
-      },
-      "abstract_lookup": {
-        "status": "browser_authorized_official_complete",
-        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626000965",
-        "captured_at": "2026-08-02T08:20:23.307Z"
       }
     },
     {
@@ -499,11 +479,6 @@
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
-      },
-      "abstract_lookup": {
-        "status": "browser_authorized_official_complete",
-        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626001181",
-        "captured_at": "2026-08-02T08:20:23.307Z"
       }
     },
     {
@@ -583,11 +558,6 @@
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
-      },
-      "abstract_lookup": {
-        "status": "browser_authorized_official_complete",
-        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626001223",
-        "captured_at": "2026-08-02T08:20:23.307Z"
       }
     },
     {
@@ -621,8 +591,8 @@
             },
             {
               "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 429,
+              "outcome": "quota_exceeded"
             },
             {
               "source": "elsevier-scopus-doi",
@@ -817,11 +787,6 @@
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
-      },
-      "abstract_lookup": {
-        "status": "browser_authorized_official_complete",
-        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626001247",
-        "captured_at": "2026-08-02T08:20:23.307Z"
       }
     },
     {
@@ -976,11 +941,6 @@
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
-      },
-      "abstract_lookup": {
-        "status": "browser_authorized_official_complete",
-        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626001272",
-        "captured_at": "2026-08-02T08:20:23.307Z"
       }
     },
     {
@@ -1139,11 +1099,6 @@
           "Chinese import"
         ],
         "source": "academic-door-rules-v1"
-      },
-      "abstract_lookup": {
-        "status": "browser_authorized_official_complete",
-        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626001260",
-        "captured_at": "2026-08-02T08:20:23.307Z"
       }
     }
   ],
@@ -1164,19 +1119,6 @@
     "translation_complete": 14,
     "duplicate_count": 0,
     "flags": [],
-    "content_counts": {
-      "official_items": 14,
-      "observed_items": 14,
-      "publishable_items": 14,
-      "research_articles": 14,
-      "comments": 0,
-      "short_communications": 0,
-      "corrections": 0,
-      "editorial_material": 0,
-      "front_matter": 0,
-      "other_excluded": 0,
-      "catalog_content_items": 14
-    },
     "order_verification": "official_verified",
     "browser_order_verification": {
       "verified_at": "2026-08-03T01:44:08+00:00",
@@ -1193,6 +1135,19 @@
       "institutional_access_confirmed": true,
       "privacy_fields_stored": false,
       "applied_count": 9
+    },
+    "content_counts": {
+      "official_items": 14,
+      "observed_items": 14,
+      "publishable_items": 14,
+      "research_articles": 14,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 14
     }
   },
   "content_counts": {

@@ -8,7 +8,7 @@
   "issue_label": "Vol. 183",
   "publication_date": "September 2026",
   "source_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/183/suppl/C",
-  "retrieved_at": "2026-08-02T22:31:03+00:00",
+  "retrieved_at": "2026-08-03T01:50:46+00:00",
   "expected_article_count": 34,
   "research_article_count": 34,
   "status": "ready",
@@ -662,8 +662,8 @@
             },
             {
               "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 429,
+              "outcome": "quota_exceeded"
             },
             {
               "source": "elsevier-scopus-doi",
@@ -1052,8 +1052,8 @@
             },
             {
               "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 429,
+              "outcome": "quota_exceeded"
             },
             {
               "source": "elsevier-scopus-doi",
@@ -1597,8 +1597,8 @@
             },
             {
               "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 429,
+              "outcome": "quota_exceeded"
             },
             {
               "source": "elsevier-scopus-doi",
@@ -1828,8 +1828,8 @@
             },
             {
               "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 429,
+              "outcome": "quota_exceeded"
             },
             {
               "source": "elsevier-scopus-doi",
@@ -2368,8 +2368,8 @@
             },
             {
               "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
+              "status_code": 429,
+              "outcome": "quota_exceeded"
             },
             {
               "source": "elsevier-scopus-doi",
@@ -2677,19 +2677,6 @@
     "translation_complete": 34,
     "duplicate_count": 0,
     "flags": [],
-    "content_counts": {
-      "official_items": 36,
-      "observed_items": 36,
-      "publishable_items": 34,
-      "research_articles": 34,
-      "comments": 0,
-      "short_communications": 0,
-      "corrections": 1,
-      "editorial_material": 1,
-      "front_matter": 0,
-      "other_excluded": 0,
-      "catalog_content_items": 35
-    },
     "order_verification": "official_verified",
     "browser_order_verification": {
       "verified_at": "2026-08-03T01:44:08+00:00",
@@ -2705,6 +2692,19 @@
       "captured_at": "2026-08-01T17:20:02.661Z",
       "institutional_access_confirmed": true,
       "privacy_fields_stored": false
+    },
+    "content_counts": {
+      "official_items": 36,
+      "observed_items": 36,
+      "publishable_items": 34,
+      "research_articles": 34,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 1,
+      "editorial_material": 1,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 35
     }
   },
   "content_counts": {
