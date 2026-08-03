@@ -12,6 +12,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from collectors.article_types import abstract_is_complete, translation_is_complete
+from scripts.provenance_ledger import audit_claims, load_ledger
 from scripts.translate_issue import TranslationError, validate_translation
 from scripts.update_journals import PUBLIC_API, validate_issue
 
@@ -23,7 +24,7 @@ def read_json(path: Path) -> dict[str, Any]:
     return data
 
 
-def main() -> int:
+def main(strict_provenance: bool = False) -> int:
     config = yaml.safe_load(
         (ROOT / "config" / "journals.yml").read_text(encoding="utf-8")
     )
@@ -33,6 +34,7 @@ def main() -> int:
         if journal.get("enabled")
     ]
     findings: list[str] = []
+    provenance_claims: dict[str, dict[str, Any]] = {}
     totals = {"journals": 0, "articles": 0, "translated": 0}
 
     collection_config = yaml.safe_load(
@@ -106,6 +108,12 @@ def main() -> int:
         except ValueError as error:
             findings.append(f"{journal['id']}: {error}")
             continue
+        quality = issue.get("quality", {})
+        if isinstance(quality.get("browser_order_verification"), dict):
+            provenance_claims[journal["id"]] = {
+                **quality,
+                "issue_id": issue.get("issue_id", ""),
+            }
         articles = issue["articles"]
         totals["journals"] += 1
         totals["articles"] += len(articles)
@@ -158,6 +166,16 @@ def main() -> int:
         findings.append(
             f"available journals {totals['journals']}/{len(enabled)}"
         )
+
+    # 人工/浏览器确认的官网顺序不像采集器那样每轮自证，因此单独对账：
+    # 公开数据声称"已核对"的，台账里必须有对应且未过期的凭据。
+    provenance_findings = audit_claims(provenance_claims, load_ledger())
+    if provenance_findings:
+        if strict_provenance:
+            findings.extend(provenance_findings)
+        else:
+            for finding in provenance_findings:
+                print(f"WARN provenance {finding}")
     if findings:
         for finding in findings:
             print(f"FAIL {finding}")
@@ -172,4 +190,15 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--strict-provenance",
+        action="store_true",
+        help=(
+            "Treat missing or expired browser-confirmation evidence as a "
+            "failure instead of a warning. Enable once the ledger is populated."
+        ),
+    )
+    raise SystemExit(main(parser.parse_args().strict_provenance))
