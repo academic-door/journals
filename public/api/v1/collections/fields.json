@@ -3,14 +3,14 @@
   "collection_id": "fields",
   "title": "Econ Field Journals",
   "title_cn": "领域顶刊",
-  "updated_at": "2026-08-04T13:30:15+00:00",
+  "updated_at": "2026-08-04T13:58:45+00:00",
   "data_status": "degraded",
   "content_status": "complete",
   "summary": {
     "configured_journals": 36,
     "available_journals": 36,
-    "articles": 516,
-    "translated_articles": 516
+    "articles": 518,
+    "translated_articles": 518
   },
   "journals": [
     {
@@ -1759,7 +1759,7 @@
       "collections": [
         "fields"
       ],
-      "status": "ready",
+      "status": "incomplete",
       "latest_detected_issue_id": "joe-257-c",
       "latest_detected_issue_url": "/journals/api/v1/journals/joe/issues/detected.json",
       "latest_detected_issue_label": "Vol. 257",
@@ -1784,7 +1784,7 @@
       "latest_detected_roster_transport": "sciencedirect-rss",
       "latest_detected_order_verification": "pending_official",
       "update_state": "ready",
-      "data_status": "healthy",
+      "data_status": "needs_attention",
       "content_status": "complete",
       "latest_issue_id": "joe-257-c",
       "latest_ready_issue_id": "joe-257-c",
@@ -1792,24 +1792,24 @@
       "latest_ready_issue_url": "/journals/api/v1/journals/joe/issues/current.json",
       "latest_issue_label": "Vol. 257",
       "publication_date": "September 2026",
-      "article_count": 14,
-      "translation_complete": 14,
+      "article_count": 15,
+      "translation_complete": 15,
       "content_counts": {
-        "official_items": 14,
-        "observed_items": 14,
-        "publishable_items": 14,
-        "research_articles": 14,
+        "official_items": 15,
+        "observed_items": 15,
+        "publishable_items": 15,
+        "research_articles": 15,
         "comments": 0,
         "short_communications": 0,
         "corrections": 0,
         "editorial_material": 0,
         "front_matter": 0,
         "other_excluded": 0,
-        "catalog_content_items": 14
+        "catalog_content_items": 15
       },
-      "roster_authority": "official-issue-page",
-      "roster_transport": "official-issue-page+browser-authorized",
-      "order_verification": "official_verified"
+      "roster_authority": "publisher-rss",
+      "roster_transport": "sciencedirect-rss",
+      "order_verification": "pending_official"
     },
     {
       "journal_id": "jeem",
@@ -2198,21 +2198,21 @@
       "latest_detected_issue_url": "/journals/api/v1/journals/ere/issues/detected.json",
       "latest_detected_issue_label": "Vol. 89 · No. 8",
       "latest_detected_publication_date": "August 2026",
-      "latest_detected_article_count": 6,
-      "latest_detected_abstracts_complete": 6,
-      "latest_detected_translations_complete": 6,
+      "latest_detected_article_count": 7,
+      "latest_detected_abstracts_complete": 7,
+      "latest_detected_translations_complete": 7,
       "latest_detected_content_counts": {
-        "official_items": 7,
-        "observed_items": 7,
-        "publishable_items": 6,
-        "research_articles": 6,
+        "official_items": 8,
+        "observed_items": 8,
+        "publishable_items": 7,
+        "research_articles": 7,
         "comments": 0,
         "short_communications": 0,
         "corrections": 1,
         "editorial_material": 0,
         "front_matter": 0,
         "other_excluded": 0,
-        "catalog_content_items": 7
+        "catalog_content_items": 8
       },
       "latest_detected_roster_authority": "official-issue-page",
       "latest_detected_roster_transport": "official-issue-page",
@@ -2226,20 +2226,20 @@
       "latest_ready_issue_url": "/journals/api/v1/journals/ere/issues/current.json",
       "latest_issue_label": "Vol. 89 · No. 8",
       "publication_date": "August 2026",
-      "article_count": 6,
-      "translation_complete": 6,
+      "article_count": 7,
+      "translation_complete": 7,
       "content_counts": {
-        "official_items": 7,
-        "observed_items": 7,
-        "publishable_items": 6,
-        "research_articles": 6,
+        "official_items": 8,
+        "observed_items": 8,
+        "publishable_items": 7,
+        "research_articles": 7,
         "comments": 0,
         "short_communications": 0,
         "corrections": 1,
         "editorial_material": 0,
         "front_matter": 0,
         "other_excluded": 0,
-        "catalog_content_items": 7
+        "catalog_content_items": 8
       },
       "roster_authority": "official-issue-page",
       "roster_transport": "official-issue-page",
