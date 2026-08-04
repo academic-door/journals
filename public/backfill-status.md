@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-04T23:25:17+00:00
+Updated: 2026-08-04T23:32:58+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -67,4 +67,5 @@ Updated: 2026-08-04T23:25:17+00:00
 | JEBO | jebo-233-c | 2025 | complete |  |
 | JEBO | jebo-234-c | 2025 | complete |  |
 | JEBO | jebo-235-c | 2025 | translation_partial |  |
-| JEBO | jebo-236-c | 2025 | translation_partial |  |
+| JEBO | jebo-236-c | 2025 | complete |  |
+| JEBO | jebo-237-c | 2025 | complete |  |
