@@ -353,6 +353,14 @@ def main() -> int:
     parser.add_argument("--plan-only", action="store_true")
     parser.add_argument("--max-issues", type=int, default=1)
     parser.add_argument("--max-translations", type=int, default=50)
+    parser.add_argument(
+        "--max-minutes",
+        type=int,
+        default=0,
+        help="stop cleanly after this many minutes (0=unlimited); "
+        "partial progress is still published so a cancelled runner loses "
+        "at most the in-flight issue",
+    )
     args = parser.parse_args()
     STATE_PATH = Path(args.state)
     history_path = Path(args.config)
@@ -388,12 +396,24 @@ def main() -> int:
     ][: args.max_issues]
     reports: list[dict[str, Any]] = []
     remaining_translations = args.max_translations
+    import time as _time
+
+    started_at = _time.monotonic()
+    budget_seconds = args.max_minutes * 60 if args.max_minutes > 0 else 0
+    time_budget_reached = False
     summary_lines = [
         "| Issue | Result | Detail |",
         "|---|---|---|",
     ]
     for issue in pending:
         if args.translate and remaining_translations <= 0:
+            break
+        if budget_seconds and (_time.monotonic() - started_at) >= budget_seconds:
+            time_budget_reached = True
+            print(
+                f"[backfill] time budget {args.max_minutes}m reached; "
+                "publishing partial progress"
+            )
             break
         report = run_issue(
             issue,
@@ -428,6 +448,7 @@ def main() -> int:
             {
                 "results": reports,
                 "remaining_translation_budget": remaining_translations,
+                "time_budget_reached": time_budget_reached,
             },
             ensure_ascii=False,
             indent=2,

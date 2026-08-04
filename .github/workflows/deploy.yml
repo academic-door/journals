@@ -8,6 +8,8 @@ on:
     workflows:
       - Update journal data
       - Monitor journal updates
+      - Backfill field journal history
+      - Backfill TOP5 history
     types:
       - completed
   workflow_dispatch:

@@ -134,7 +134,8 @@ jobs:
             --to-year "${{ inputs.to_year || '2026' }}" \
             --translate \
             --max-issues "${{ inputs.max_issues }}" \
-            --max-translations "${{ inputs.max_translations }}"
+            --max-translations "${{ inputs.max_translations }}" \
+            --max-minutes 300
           python scripts/backfill_status.py \
             --state data/backfill-state/field-2025-2026.json \
             --out-json public/api/v1/backfill-status.json \
