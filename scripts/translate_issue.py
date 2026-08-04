@@ -458,6 +458,19 @@ def _repair_google_artifacts(source: str, translated: str) -> str:
             count=1,
         )
 
+    democracy_count = re.search(
+        r"\bin\s+([0-9,]+)\s+democrac", source, flags=re.IGNORECASE
+    )
+    if democracy_count:
+        count = democracy_count.group(1)
+        if not re.search(rf"(?<!\d){re.escape(count)}(?!\d)", repaired):
+            repaired = re.sub(
+                r"(?<=\d)民主国家",
+                f"的{count}个民主国家",
+                repaired,
+                count=1,
+            )
+
     through_age = re.search(
         r"\bthrough age\s+(\d+)\b", source, flags=re.IGNORECASE
     )
@@ -661,6 +674,7 @@ def request_translation(
     timeout: int = 90,
     provider_name: str = "github-models",
     protect_numbers: bool = False,
+    max_tokens: int | None = None,
 ) -> dict[str, str]:
     if not token:
         raise TranslationError(f"{provider_name} token is required")
@@ -687,6 +701,8 @@ def request_translation(
         "temperature": 0,
         "messages": _prompt(prompt_article),
     }
+    if max_tokens:
+        payload["max_tokens"] = max_tokens
     headers = {
         "Accept": "application/vnd.github+json",
         "Authorization": f"Bearer {token}",
@@ -948,6 +964,7 @@ def translate_missing(
                         session=session,
                         provider_name="deepseek",
                         protect_numbers=True,
+                        max_tokens=8192,
                     )
                 except (ProviderUnavailableError, TranslationError) as error:
                     provider_availability["deepseek"] = str(error)
