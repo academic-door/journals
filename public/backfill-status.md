@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-04T13:30:15+00:00
+Updated: 2026-08-04T13:59:47+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -16,5 +16,8 @@ Updated: 2026-08-04T13:30:15+00:00
 | EER | eer-180-c | 2025 | complete |  |
 | EER | eer-181-c | 2026 | translation_partial |  |
 | EER | eer-182-c | 2026 | complete |  |
+| EER | eer-183-c | 2026 | complete |  |
+| EER | eer-184-c | 2026 | translation_partial |  |
+| EER | eer-185-c | 2026 | translation_partial |  |
 | JDE | jde-172-c | 2025 | translation_partial |  |
 | JDE | jde-173-c | 2025 | blocked | withdrawn: possible_incomplete_volume (4 articles vs typical 34); needs official |
