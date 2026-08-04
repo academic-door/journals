@@ -8,7 +8,7 @@
   "issue_label": "Vol. 183",
   "publication_date": "September 2026",
   "source_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/183/suppl/C",
-  "retrieved_at": "2026-08-04T14:57:54+00:00",
+  "retrieved_at": "2026-08-04T08:21:43+00:00",
   "expected_article_count": 34,
   "research_article_count": 34,
   "status": "ready",
@@ -45,7 +45,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13300,
+                "remaining": 15598,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -53,7 +53,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13300,
+            "remaining": 15598,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -89,9 +89,9 @@
         "Chris Elbers",
         "Roy van der Weide"
       ],
-      "abstract_en": "Estimates of the area- and household idiosyncratic error distributions from household income and consumption regression models across 142 household surveys from 16 different countries, the type of models that underpin poverty maps, points to significant deviations from normality. The poverty mapping approach put forward by Elbers et al. (2003) demonstrates the value of accommodating this non-normality. Unfortunately, their non-parametric estimator for the error distribution functions does not lend itself for Empirical Bayes (EB) prediction. This paper puts forward an approach that accommodates both EB prediction and non-normally distributed errors. Accounting for non-normality in Empirical Best estimation of local welfare is found to increase precision relative to normal-EB estimation. While the gains in precision range between substantial and marginal, it is always positive. Being able to obtain precise local estimates of welfare help governments and development agencies identify and monitor lagging areas and allocate their resources in a more efficient manner.",
-      "abstract_cn": "来自142不同国家16家庭调查的家庭收入和消费回归模型对地区和家庭特殊误差分布的估计，即支撑贫困图的模型类型，表明与正态性存在显着偏差。 Elbers 等人提出的贫困绘图方法。 (2003) 证明了适应这种非正态性的价值。不幸的是，他们的误差分布函数非参数估计器不适用于经验贝叶斯 (EB) 预测。本文提出了一种同时适应 EB 预测和非正态分布误差的方法。研究发现，相对于正态 EB 估计，在经验最佳估计中考虑非正态性可以提高当地福利的精确度。虽然精度的提高介于显着和边际之间，但它总是积极的。能够获得准确的当地福利估计有助于政府和发展机构识别和监测落后地区并以更有效的方式分配资源。",
-      "abstract_snippet_en": "Estimates of the area- and household idiosyncratic error distributions from household income and consumption regression models across 142 household surveys from 16 different countries, the type of models...",
+      "abstract_en": "© 2026 Estimates of the area- and household idiosyncratic error distributions from household income and consumption regression models across 142 household surveys from 16 different countries, the type of models that underpin poverty maps, points to significant deviations from normality. The poverty mapping approach put forward by Elbers et al. (2003) demonstrates the value of accommodating this non-normality. Unfortunately, their non-parametric estimator for the error distribution functions does not lend itself for Empirical Bayes (EB) prediction. This paper puts forward an approach that accommodates both EB prediction and non-normally distributed errors. Accounting for non-normality in Empirical Best estimation of local welfare is found to increase precision relative to normal-EB estimation. While the gains in precision range between substantial and marginal, it is always positive. Being able to obtain precise local estimates of welfare help governments and development agencies identify and monitor lagging areas and allocate their resources in a more efficient manner.",
+      "abstract_cn": "© 2026根据来自142不同国家的16家庭调查的家庭收入和消费回归模型对地区和家庭特殊误差分布的估计，即支撑贫困图的模型类型，表明与正态性存在显着偏差。 Elbers 等人提出的贫困绘图方法。 (2003) 证明了适应这种非正态性的价值。不幸的是，他们的误差分布函数的非参数估计器不适合经验贝叶斯（EB）预测。本文提出了一种同时适应 EB 预测和非正态分布误差的方法。研究发现，相对于正态 EB 估计，在经验最佳估计中考虑非正态性可以提高当地福利的精确度。虽然精度的提高介于显着和边际之间，但它总是积极的。能够获得准确的当地福利估计有助于政府和发展机构识别和监测落后地区并以更有效的方式分配资源。",
+      "abstract_snippet_en": "",
       "doi": "10.1016/j.jdeveco.2026.103835",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0304387826001185?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -99,39 +99,56 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/183/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03043878",
         "metadata": "crossref",
-        "abstract_en": "elsevier-article-metadata",
+        "abstract_en": "elsevier-scopus-doi",
         "abstract_lookup": {
           "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
+              "status_code": 504,
+              "outcome": "temporary_error"
+            },
+            {
+              "source": "elsevier-sciencedirect-search",
+              "status_code": 400,
+              "outcome": "request_failed",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 20000,
+                "resets_at": "2026-08-05T02:00:22+00:00",
+                "els_status": "INVALID_INPUT - Unable to translate query provided. Error=[The search contained no translatable search terms. EmptyQueryException - No translatable query terms found in field.]"
+              }
+            },
+            {
+              "source": "elsevier-scopus-doi",
               "status_code": 200,
               "outcome": "success",
               "rate_limit": {
-                "limit": 20000,
-                "remaining": 13298,
-                "resets_at": "2026-08-05T02:00:21+00:00",
+                "limit": 10000,
+                "remaining": 9915,
+                "resets_at": "2026-08-05T10:25:33+00:00",
                 "els_status": "OK"
               }
             }
           ],
           "rate_limit": {
-            "limit": 20000,
-            "remaining": 13298,
-            "resets_at": "2026-08-05T02:00:21+00:00",
+            "limit": 10000,
+            "remaining": 9915,
+            "resets_at": "2026-08-05T10:25:33+00:00",
             "els_status": "OK"
           }
         },
-        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "elsevier": "https://api.elsevier.com/content/abstract/doi/10.1016/j.jdeveco.2026.103835",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jdeveco.2026.103835"
       },
       "translation": {
         "status": "complete",
         "provider": "google-translate",
-        "model": "gtx-en-zh-CN",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "translated_at": "2026-08-04T11:28:55+00:00",
-        "source_hash": "f24a45fccf86a28088b7839d6bc724444d7d2397e94a6afbc77c4a71074d9c1c"
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-04T08:21:43+00:00",
+        "source_hash": "9c495eae7e5e30cee3bbcdda3c0f9e87a6e9991066a1bb5d54b92e9333908ae1"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -173,7 +190,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13297,
+                "remaining": 15596,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -181,7 +198,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13297,
+            "remaining": 15596,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -239,7 +256,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13296,
+                "remaining": 15591,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -247,7 +264,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13296,
+            "remaining": 15591,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -304,7 +321,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13295,
+                "remaining": 15590,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -312,7 +329,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13295,
+            "remaining": 15590,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -368,7 +385,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13294,
+                "remaining": 15589,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -376,7 +393,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13294,
+            "remaining": 15589,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -437,7 +454,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13293,
+                "remaining": 15588,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -445,7 +462,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13293,
+            "remaining": 15588,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -501,7 +518,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13292,
+                "remaining": 15586,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -509,7 +526,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13292,
+            "remaining": 15586,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -565,7 +582,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13291,
+                "remaining": 15584,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -573,7 +590,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13291,
+            "remaining": 15584,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -631,7 +648,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13290,
+                "remaining": 15582,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -639,7 +656,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13290,
+            "remaining": 15582,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -697,7 +714,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13289,
+                "remaining": 15580,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -705,7 +722,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13289,
+            "remaining": 15580,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -761,7 +778,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13288,
+                "remaining": 15578,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -769,7 +786,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13288,
+            "remaining": 15578,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -826,7 +843,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13287,
+                "remaining": 15576,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -834,7 +851,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13287,
+            "remaining": 15576,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -895,7 +912,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13286,
+                "remaining": 15574,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -903,7 +920,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13286,
+            "remaining": 15574,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -962,7 +979,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13285,
+                "remaining": 15572,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -970,7 +987,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13285,
+            "remaining": 15572,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -1029,7 +1046,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13284,
+                "remaining": 15571,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -1037,7 +1054,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13284,
+            "remaining": 15571,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -1096,7 +1113,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13283,
+                "remaining": 15567,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -1104,7 +1121,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13283,
+            "remaining": 15567,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -1161,7 +1178,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13282,
+                "remaining": 15565,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -1169,7 +1186,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13282,
+            "remaining": 15565,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -1227,7 +1244,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13281,
+                "remaining": 15564,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -1235,7 +1252,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13281,
+            "remaining": 15564,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -1291,7 +1308,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13280,
+                "remaining": 15562,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -1299,7 +1316,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13280,
+            "remaining": 15562,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -1356,7 +1373,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13279,
+                "remaining": 15560,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -1364,7 +1381,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13279,
+            "remaining": 15560,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -1422,7 +1439,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13278,
+                "remaining": 15559,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -1430,7 +1447,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13278,
+            "remaining": 15559,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -1485,7 +1502,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13277,
+                "remaining": 15558,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -1493,7 +1510,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13277,
+            "remaining": 15558,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -1551,7 +1568,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13276,
+                "remaining": 15557,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -1559,7 +1576,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13276,
+            "remaining": 15557,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -1616,7 +1633,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13275,
+                "remaining": 15556,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -1624,7 +1641,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13275,
+            "remaining": 15556,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -1680,7 +1697,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13274,
+                "remaining": 15555,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -1688,7 +1705,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13274,
+            "remaining": 15555,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -1744,7 +1761,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13273,
+                "remaining": 15554,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -1752,7 +1769,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13273,
+            "remaining": 15554,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -1810,7 +1827,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13272,
+                "remaining": 15553,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -1818,7 +1835,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13272,
+            "remaining": 15553,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -1875,7 +1892,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13271,
+                "remaining": 15552,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -1883,7 +1900,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13271,
+            "remaining": 15552,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -1940,7 +1957,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13270,
+                "remaining": 15551,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -1948,7 +1965,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13270,
+            "remaining": 15551,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -2007,7 +2024,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13269,
+                "remaining": 15550,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -2015,7 +2032,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13269,
+            "remaining": 15550,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -2074,7 +2091,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13268,
+                "remaining": 15549,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -2082,7 +2099,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13268,
+            "remaining": 15549,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -2140,7 +2157,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13267,
+                "remaining": 15548,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -2148,7 +2165,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13267,
+            "remaining": 15548,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -2203,7 +2220,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 13266,
+                "remaining": 15547,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -2211,7 +2228,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 13266,
+            "remaining": 15547,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
