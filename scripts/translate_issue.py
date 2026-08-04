@@ -181,7 +181,14 @@ def _is_identifier_number(value: str, match: re.Match[str]) -> bool:
     prefix = value[: match.start()]
     if IDENTIFIER_EN.search(prefix):
         return True
-    return bool(prefix) and prefix[-1] in IDENTIFIER_CJK
+    if not (prefix and prefix[-1] in IDENTIFIER_CJK):
+        return False
+    # Chinese label nouns fuse with the ordinal ("研究2" = Study 2), but the
+    # same noun is also a verb before years ("研究1959古巴革命" = studying the
+    # 1959 Cuban Revolution). Labels are small ordinals; 4-digit years and
+    # statistics must keep counting.
+    digits = re.sub(r"[^0-9]", "", str(match.group("number")))
+    return len(digits) <= 3
 
 
 def _numbers(value: str) -> list[str]:
