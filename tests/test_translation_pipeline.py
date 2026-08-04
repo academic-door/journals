@@ -276,6 +276,27 @@ class TranslationPipelineTests(unittest.TestCase):
         self.assertIn("相当于家庭收入的27%", repaired)
         self.assertIn("较小的福利持续至10岁", repaired)
 
+    def test_identifier_label_numbers_are_not_numeric_results(self) -> None:
+        source = "Across two experiments (N = 1750), Study 2 used a Random Dictator mechanism."
+        translated = "在两项实验（N=1750）中，研究2使用了随机独裁者机制。"
+        self.assertEqual(_numbers(source), ["1750"])
+        self.assertEqual(_numbers(translated), ["1750"])
+        article = {
+            "doi": "10.0000/envy",
+            "title_en": "Envy in the ballot box",
+            "abstract_en": source,
+        }
+        validate_translation(
+            article,
+            {
+                "title_cn": "投票箱中的嫉妒",
+                "abstract_cn": (
+                    "在两项实验（N=1750）中，研究2使用了随机独裁者机制，"
+                    "本文完整说明研究设计、变量定义与主要经验结论。"
+                ),
+            },
+        )
+
     def test_ignores_inverse_unit_exponents_in_numeric_validation(self) -> None:
         self.assertEqual(
             _numbers("Carbon losses were 2.3 kt C year−1 and 4 USD year−1."),

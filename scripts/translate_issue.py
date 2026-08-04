@@ -163,6 +163,27 @@ def _extract_json(content: str) -> dict[str, Any]:
     return data
 
 
+# Numbers that label studies, figures, tables, models, etc. are identifiers,
+# not reported numeric results. Translators legitimately render "Study 2" as
+# "研究二" or drop the digit, so these must not trip the numeric fidelity gate.
+IDENTIFIER_EN = re.compile(
+    r"(?i)(?:study|experiment|figure|table|model|section|appendix|equation|"
+    r"hypothesis|column|row|part|step|panel|scenario|test|trial|wave|round|"
+    r"cohort|group|sample|survey|task|condition|session|block|version|"
+    r"specification)\s*$"
+)
+IDENTIFIER_CJK = set(
+    "研究实验图表模型步骤阶段测试试验版轮组样本调查任务条件会话章节附录方程假设列行场景"
+)
+
+
+def _is_identifier_number(value: str, match: re.Match[str]) -> bool:
+    prefix = value[: match.start()]
+    if IDENTIFIER_EN.search(prefix):
+        return True
+    return bool(prefix) and prefix[-1] in IDENTIFIER_CJK
+
+
 def _numbers(value: str) -> list[str]:
     values: list[str] = []
     for match in NUMBER_PATTERN.finditer(value):
@@ -173,6 +194,8 @@ def _numbers(value: str) -> list[str]:
             and value[match.start() - 1] == "−"
             and value[match.start() - 2].isalpha()
         ):
+            continue
+        if _is_identifier_number(value, match):
             continue
         number = match.group("number")
         if match.group("percent_word") and not number.endswith("%"):
