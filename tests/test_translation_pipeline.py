@@ -285,16 +285,17 @@ class TranslationPipelineTests(unittest.TestCase):
 
     def test_writes_translation_cache_with_provenance(self) -> None:
         issue = {"journal_id": "test", "articles": [ARTICLE]}
-        with tempfile.TemporaryDirectory() as directory:
-            cache_path = Path(directory) / "test.json"
-            result = translate_missing(
-                issue,
-                cache_path,
-                token="test-token",
-                model="test/model",
-                session=FakeSession(),
-            )
-            cache = json.loads(cache_path.read_text(encoding="utf-8"))
+        with patch.dict("os.environ", {"DEEPSEEK_API_KEY": ""}, clear=False):
+            with tempfile.TemporaryDirectory() as directory:
+                cache_path = Path(directory) / "test.json"
+                result = translate_missing(
+                    issue,
+                    cache_path,
+                    token="test-token",
+                    model="test/model",
+                    session=FakeSession(),
+                )
+                cache = json.loads(cache_path.read_text(encoding="utf-8"))
         self.assertEqual(result["translated"], 1)
         self.assertEqual(cache[ARTICLE["doi"]]["title_cn"], "政策检验")
         self.assertEqual(
@@ -423,15 +424,16 @@ class TranslationPipelineTests(unittest.TestCase):
 
     def test_falls_back_when_github_models_is_forbidden(self) -> None:
         issue = {"journal_id": "test", "articles": [ARTICLE]}
-        with tempfile.TemporaryDirectory() as directory:
-            cache_path = Path(directory) / "test.json"
-            result = translate_missing(
-                issue,
-                cache_path,
-                token="forbidden-token",
-                session=FallbackSession(),
-            )
-            cache = json.loads(cache_path.read_text(encoding="utf-8"))
+        with patch.dict("os.environ", {"DEEPSEEK_API_KEY": ""}, clear=False):
+            with tempfile.TemporaryDirectory() as directory:
+                cache_path = Path(directory) / "test.json"
+                result = translate_missing(
+                    issue,
+                    cache_path,
+                    token="forbidden-token",
+                    session=FallbackSession(),
+                )
+                cache = json.loads(cache_path.read_text(encoding="utf-8"))
         self.assertEqual(result["translated"], 1)
         self.assertEqual(result["fallback_translated"], 1)
         self.assertEqual(
@@ -447,21 +449,24 @@ class TranslationPipelineTests(unittest.TestCase):
         }
         provider_state: dict[str, str] = {}
         session = CircuitBreakingSession()
-        with patch("scripts.translate_issue.time.sleep"), tempfile.TemporaryDirectory() as directory:
-            first_result = translate_missing(
-                {"journal_id": "first", "articles": [ARTICLE]},
-                Path(directory) / "first.json",
-                token="expired-token",
-                session=session,
-                provider_state=provider_state,
-            )
-            second_result = translate_missing(
-                {"journal_id": "second", "articles": [second_article]},
-                Path(directory) / "second.json",
-                token="expired-token",
-                session=session,
-                provider_state=provider_state,
-            )
+        with patch(
+            "scripts.translate_issue.time.sleep"
+        ), patch.dict("os.environ", {"DEEPSEEK_API_KEY": ""}, clear=False):
+            with tempfile.TemporaryDirectory() as directory:
+                first_result = translate_missing(
+                    {"journal_id": "first", "articles": [ARTICLE]},
+                    Path(directory) / "first.json",
+                    token="expired-token",
+                    session=session,
+                    provider_state=provider_state,
+                )
+                second_result = translate_missing(
+                    {"journal_id": "second", "articles": [second_article]},
+                    Path(directory) / "second.json",
+                    token="expired-token",
+                    session=session,
+                    provider_state=provider_state,
+                )
 
         self.assertEqual(len(first_result["failed"]), 1)
         self.assertEqual(len(second_result["failed"]), 1)
