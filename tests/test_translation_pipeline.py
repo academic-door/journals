@@ -16,6 +16,7 @@ from scripts.translate_issue import (
     _protect_numbers,
     _repair_google_artifacts,
     _restore_numbers,
+    request_translation,
     translate_missing,
     validate_translation,
 )
@@ -301,6 +302,48 @@ class TranslationPipelineTests(unittest.TestCase):
             "github-models",
         )
         self.assertRegex(cache[ARTICLE["doi"]]["source_hash"], r"^[0-9a-f]{64}$")
+
+    def test_request_translation_restores_protected_numbers(self) -> None:
+        import json as _json
+
+        class EchoResponse:
+            def raise_for_status(self) -> None:
+                return None
+
+            def json(self) -> dict:
+                return {
+                    "choices": [
+                        {
+                            "message": {
+                                "content": _json.dumps(
+                                    {
+                                        "title_cn": "政策检验",
+                                        "abstract_cn": (
+                                            "本文研究[[96]]项政策，发现排放下降[[12.5%]]，"
+                                            "同时福利提高。估计过程完整保留了论文的"
+                                            "研究设计、变量定义与结论方向，并忠实呈现"
+                                            "原始摘要中的经验结果。"
+                                        ),
+                                    },
+                                    ensure_ascii=False,
+                                )
+                            }
+                        }
+                    ]
+                }
+
+        class EchoSession:
+            def post(self, url: str, *args, **kwargs) -> EchoResponse:
+                return EchoResponse()
+
+        result = request_translation(
+            ARTICLE,
+            token="test-token",
+            protect_numbers=True,
+            session=EchoSession(),
+        )
+        self.assertIn("96项政策", result["abstract_cn"])
+        self.assertIn("12.5%", result["abstract_cn"])
 
     def test_prefers_deepseek_when_key_configured(self) -> None:
         issue = {"journal_id": "test", "articles": [ARTICLE]}

@@ -461,7 +461,11 @@ def main() -> int:
             encoding="utf-8",
         )
     print(json.dumps(final_report, ensure_ascii=False, indent=2))
-    return 1 if any(report["result"] == "blocked" for report in reports) else 0
+    # Blocked issues (thin volumes, one-off translation failures) must not
+    # discard the rest of the batch's progress. Exit 0 whenever anything was
+    # processed; the notification email and status dashboard surface the
+    # blocked issues. Exit 1 only when nothing could be processed at all.
+    return 0 if reports else 1
 
 
 if __name__ == "__main__":

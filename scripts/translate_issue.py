@@ -513,18 +513,32 @@ def request_translation(
     retries: int = 3,
     timeout: int = 90,
     provider_name: str = "github-models",
+    protect_numbers: bool = False,
 ) -> dict[str, str]:
     if not token:
         raise TranslationError(f"{provider_name} token is required")
     client = session or requests.Session()
-    # Models preserve meaningful source numbers more reliably than opaque
-    # placeholders. Google Translate still uses placeholders below because it
-    # otherwise localizes formats; model output is guarded by exact validation.
-    protected_article = article
+    # Models usually preserve meaningful source numbers better than opaque
+    # placeholders, but some models (e.g. DeepSeek) paraphrase or merge digits.
+    # When protect_numbers is on, numbers are sent as [[...]] placeholders and
+    # restored after translation, exactly like the Google fallback path.
+    number_replacements: dict[str, str] = {}
+    prompt_article = article
+    if protect_numbers:
+        prompt_article = dict(article)
+        protected_title, title_replacements = _protect_numbers(
+            str(article.get("title_en", ""))
+        )
+        protected_abstract, abstract_replacements = _protect_numbers(
+            str(article.get("abstract_en", ""))
+        )
+        prompt_article["title_en"] = protected_title
+        prompt_article["abstract_en"] = protected_abstract
+        number_replacements = {**title_replacements, **abstract_replacements}
     payload = {
         "model": model,
         "temperature": 0,
-        "messages": _prompt(protected_article),
+        "messages": _prompt(prompt_article),
     }
     headers = {
         "Accept": "application/vnd.github+json",
@@ -545,19 +559,26 @@ def request_translation(
             body = response.json()
             content = body["choices"][0]["message"]["content"]
             translated = _extract_json(content)
+            title_cn = str(translated.get("title_cn", ""))
+            abstract_cn = str(translated.get("abstract_cn", ""))
+            if protect_numbers:
+                title_cn = _restore_numbers(title_cn, number_replacements)
+                abstract_cn = _restore_numbers(abstract_cn, number_replacements)
+                if re.search(r"\[\[[^\]]+\]\]", title_cn + abstract_cn):
+                    raise TranslationError(
+                        f"{provider_name} did not preserve numeric placeholders"
+                    )
             translated = {
                 "title_cn": _canonicalize_arabic_numbers(
                     article["title_en"],
                     _normalize_written_number_translations(
-                        article["title_en"],
-                        str(translated.get("title_cn", "")),
+                        article["title_en"], title_cn
                     ),
                 ),
                 "abstract_cn": _canonicalize_arabic_numbers(
                     article["abstract_en"],
                     _normalize_written_number_translations(
-                        article["abstract_en"],
-                        str(translated.get("abstract_cn", "")),
+                        article["abstract_en"], abstract_cn
                     ),
                 ),
             }
@@ -779,6 +800,7 @@ def translate_missing(
                         endpoint=DEEPSEEK_ENDPOINT,
                         session=session,
                         provider_name="deepseek",
+                        protect_numbers=True,
                     )
                 except (ProviderUnavailableError, TranslationError) as error:
                     provider_availability["deepseek"] = str(error)
