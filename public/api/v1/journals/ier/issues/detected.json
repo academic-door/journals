@@ -8,7 +8,7 @@
   "issue_label": "Vol. 67 · No. 3",
   "publication_date": "August 2026",
   "source_url": "https://onlinelibrary.wiley.com/toc/14682354/current",
-  "retrieved_at": "2026-08-04T15:59:04+00:00",
+  "retrieved_at": "2026-08-04T17:38:18+00:00",
   "expected_article_count": 15,
   "research_article_count": 15,
   "status": "incomplete",
@@ -60,12 +60,12 @@
       "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Dynamics of High‐Growth Young Firms and the Role of Venture Capitalists",
-      "title_cn": "",
+      "title_cn": "高增长年轻企业的动态和风险投资家的作用",
       "authors": [
         "Yoshiki Ando"
       ],
       "abstract_en": "Motivated by the substantial growth and upfront investments of venture capital (VC)‐backed firms observed in administrative US Census data, this study develops a life‐cycle firm dynamics model. In the model, startups choose the source of financing from VC, angel investors, or banks, depending on their growth potential, and invest in innovation. The calibrated model explains the life‐cycle dynamics of firms with different sources of financing and suggests that venture capitalists' managerial advice accounts for around 22% of the growth in VC‐backed firms. A counterfactual economy without VC financing would experience an aggregate consumption loss of around 0.46%.",
-      "abstract_cn": "",
+      "abstract_cn": "在美国人口普查行政数据中观察到的风险投资 (VC) 支持的公司的大幅增长和前期投资的推动下，本研究开发了一个生命周期公司动态模型。在该模型中，初创企业根据其增长潜力选择风险投资、天使投资人或银行的融资来源，并投资于创新。校准模型解释了具有不同融资来源的公司的生命周期动态，并表明风险投资家的管理建议约占风险投资支持的公司增长的22%。没有风险投资融资的反事实经济体将经历 0.46% 左右的总消费损失。",
       "doi": "10.1111/iere.70048",
       "source_url": "https://ideas.repec.org/a/wly/iecrev/v67y2026i3p779-798.html",
       "publication_date": "2026",
@@ -76,12 +76,15 @@
         "abstract_en": "official-sciencedirect-issue"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-04T17:38:19+00:00",
+        "source_hash": "8c7da005dbc11533553bf0fb5ed7d374335ded3481bc9365f0e1fbeb1766056a"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -613,13 +616,12 @@
     "doi_complete": 15,
     "authors_complete": 15,
     "abstract_en_complete": 15,
-    "translation_complete": 14,
+    "translation_complete": 15,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_repec_fallback",
       "repec_publisher_supplied_roster",
-      "official_order_unverified",
-      "translation_incomplete"
+      "official_order_unverified"
     ],
     "official_issue_fetch_error": "request failed for https://onlinelibrary.wiley.com/toc/14682354/current: 403 Client Error: Forbidden for url: https://onlinelibrary.wiley.com/toc/14682354/current",
     "publishable_item_count": 15,
@@ -650,5 +652,5 @@
     "other_excluded": 0,
     "catalog_content_items": 15
   },
-  "publication_state": "enriching"
+  "publication_state": "ready"
 }

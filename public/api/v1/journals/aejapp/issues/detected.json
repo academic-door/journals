@@ -7,10 +7,10 @@
   "issue": "3",
   "publication_date": "July 2026",
   "source_url": "https://www.aeaweb.org/journals/app/current-issue",
-  "retrieved_at": "2026-08-04T16:01:40+00:00",
+  "retrieved_at": "2026-08-04T17:40:30+00:00",
   "expected_article_count": 10,
   "research_article_count": 10,
-  "status": "incomplete",
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
@@ -393,14 +393,14 @@
       "source_sequence": 11,
       "article_type": "research-article",
       "title_en": "Turbocharging Profits? Contract Gaming and Revenue Allocation in Healthcare",
-      "title_cn": "",
+      "title_cn": "利润加速？医疗保健中的合同游戏与收入分配",
       "authors": [
         "Atul Gupta",
         "Ambar La Forgia",
         "Adam Sacarny"
       ],
       "abstract_en": "Firms often exploit weaknesses in government contracts to boost revenues, yet little is known about how they allocate these funds. We study how hospitals allocated $3 billion obtained from gaming a Medicare loophole. The average gaming hospital increased Medicare and total revenue by around 10 percent, implying large spillovers on other payers. Nonprofit hospitals deployed most funds toward operating costs. For-profits—driven by a large chain—deducted funds off their balance sheets, distributing them to executives and share holders. Accordingly, we detect reductions in mortality only at nonprofits. Our results imply that the consequences of engineered windfalls vary substantially by hospital ownership.",
-      "abstract_cn": "",
+      "abstract_cn": "企业常常利用政府合同中的漏洞来提高收入，但关于它们如何分配这些资金的情况知之甚少。我们研究了医院如何分配通过利用医疗保险漏洞获得的$3 十亿。平均而言，进行游戏的医院将医疗保险和总收入提高了约10%，这意味着对其他支付方有很大的溢出效应。非营利医院将大部分资金用于运营成本。营利性医院——由一家大型连锁企业驱动——则将资金从资产负债表中扣除，分配给高管和股东。因此，我们仅在非营利医院中发现了死亡率的降低。我们的结果表明，工程化意外之财的后果在医院所有权之间存在显著差异。",
       "doi": "10.1257/app.20240589",
       "source_url": "https://www.aeaweb.org/articles?id=10.1257/app.20240589",
       "publication_date": "",
@@ -412,12 +412,15 @@
         "doi": "official-article-id"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4o-mini",
+        "translated_at": "2026-07-26T19:55:31+00:00",
+        "source_hash": "1997b6160b2ab58da0d686e1e9fb74d2a5777128c24e7449b8d5f31314cc37dc"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -443,11 +446,9 @@
     "doi_complete": 10,
     "authors_complete": 10,
     "abstract_en_complete": 10,
-    "translation_complete": 9,
+    "translation_complete": 10,
     "duplicate_count": 0,
-    "flags": [
-      "translation_incomplete"
-    ],
+    "flags": [],
     "publishable_item_count": 10,
     "content_counts": {
       "official_items": 11,
@@ -477,5 +478,5 @@
     "catalog_content_items": 10
   },
   "issue_label": "Vol. 18 · No. 3",
-  "publication_state": "enriching"
+  "publication_state": "ready"
 }

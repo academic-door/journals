@@ -8,10 +8,10 @@
   "issue_label": "Vol. 140",
   "publication_date": "September 2026",
   "source_url": "https://www.sciencedirect.com/journal/journal-of-environmental-economics-and-management/vol/140/suppl/C",
-  "retrieved_at": "2026-08-04T15:57:41+00:00",
+  "retrieved_at": "2026-08-04T17:37:08+00:00",
   "expected_article_count": 4,
   "research_article_count": 4,
-  "status": "incomplete",
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
@@ -20,14 +20,14 @@
       "source_sequence": 1,
       "article_type": "research-article",
       "title_en": "Competition between green and blue hydrogen and indirect network effects",
-      "title_cn": "",
+      "title_cn": "绿氢和蓝氢之间的竞争和间接网络效应",
       "authors": [
         "Kine Josefine Aurland-Bredesen",
         "Rolf Golombek",
         "Mads Greaker"
       ],
       "abstract_en": "Whereas hydrogen is currently a marginal energy carrier, the aim of the EU is to trigger low-carbon hydrogen production that covers around 10 percent of EU's energy needs by 2050. If this comes true, it will be an energy revolution. We study competition between green and blue hydrogen using an extended Salop model that encompasses the value chains for hydrogen and CCS. For blue hydrogen, we distinguish between exports of blue hydrogen—natural gas is converted into hydrogen close to the extraction site of natural gas and hydrogen is then transported over a long distance to the hydrogen consumers—and local production of blue hydrogen—natural gas is exported over a long distance and then converted into hydrogen near the hydrogen consumers. We find that mark-ups are highest in the case of exports of blue hydrogen production, which implies that total production of hydrogen, supply of blue hydrogen, and share of plants investing in carbon capture facilities are lower in the case of exports of blue hydrogen than in the case of local production of blue hydrogen. We provide numerical simulations of the alternative market outcomes and the corresponding first-best outcomes and identify policy instruments that should be used to sustain the first-best social outcomes in the cases of exports of blue hydrogen and local production of blue hydrogen.",
-      "abstract_cn": "",
+      "abstract_cn": "鉴于氢目前是一种边际能源载体，欧盟的目标是在10%之前启动低碳氢生产，满足欧盟能源需求的2050左右。如果这成为现实，这将是一场能源革命。我们使用涵盖氢和 CCS 价值链的扩展 Salop 模型研究绿氢和蓝氢之间的竞争。对于蓝氢，我们区分出口蓝氢——天然气在靠近天然气提取地点转化为氢气，然后远距离运输到氢消费者；本地生产蓝氢——天然气长距离出口，然后在氢消费者附近转化为氢气。我们发现，出口蓝氢生产的加价最高，这意味着出口蓝氢的氢总产量、蓝氢供应量以及投资碳捕获设施的工厂比例低于本地生产蓝氢。我们提供了替代市场结果和相应的最佳结果的数值模拟，并确定了在出口蓝氢和本地生产蓝氢的情况下用于维持最佳社会结果的政策工具。",
       "abstract_snippet_en": "Whereas hydrogen is currently a marginal energy carrier, the aim of the EU is to trigger low-carbon hydrogen production that covers around 10 percent of EU's energy needs by 2050. If this comes true,...",
       "doi": "10.1016/j.jeem.2026.103397",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0095069626001178?dgcid=rss_sd_all",
@@ -46,7 +46,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 12379,
+                "remaining": 12196,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -54,7 +54,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 12379,
+            "remaining": 12196,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -63,12 +63,15 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeem.2026.103397"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-04T17:37:08+00:00",
+        "source_hash": "a19771afb49c47fdcec367dae24af191e45ba5e3335d46af5fd3c3d5e39b1d67"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -107,7 +110,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 12378,
+                "remaining": 12195,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -115,7 +118,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 12378,
+            "remaining": 12195,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -173,7 +176,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 12377,
+                "remaining": 12194,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -181,7 +184,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 12377,
+            "remaining": 12194,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -236,7 +239,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 12376,
+                "remaining": 12193,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -244,7 +247,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 12376,
+            "remaining": 12193,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -284,11 +287,9 @@
     "doi_complete": 4,
     "authors_complete": 4,
     "abstract_en_complete": 4,
-    "translation_complete": 3,
+    "translation_complete": 4,
     "duplicate_count": 0,
-    "flags": [
-      "translation_incomplete"
-    ],
+    "flags": [],
     "order_verification": "official_verified",
     "browser_order_verification": {
       "verified_at": "2026-08-03T16:28:00+08:00",
@@ -332,5 +333,5 @@
     "other_excluded": 0,
     "catalog_content_items": 4
   },
-  "publication_state": "enriching"
+  "publication_state": "ready"
 }
