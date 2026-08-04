@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-08-04T15:17:05+00:00",
+  "updated_at": "2026-08-04T15:17:40+00:00",
   "status": "degraded",
   "content_status": "complete",
   "summary": {
     "enabled_journals": 41,
     "available_journals": 41,
-    "articles": 582,
-    "translated_articles": 582
+    "articles": 584,
+    "translated_articles": 584
   },
   "checks": {
     "aer_roster_match": true,
@@ -75,7 +75,7 @@
     "aejmicro_primary_transport": true,
     "jebo_roster_match": true,
     "jebo_order_preserved": true,
-    "jebo_primary_transport": true,
+    "jebo_primary_transport": false,
     "jeh_roster_match": true,
     "jeh_order_preserved": true,
     "jeh_primary_transport": false,
@@ -117,7 +117,7 @@
     "jle_primary_transport": false,
     "joe_roster_match": true,
     "joe_order_preserved": true,
-    "joe_primary_transport": true,
+    "joe_primary_transport": false,
     "foodpolicy_roster_match": true,
     "foodpolicy_order_preserved": true,
     "foodpolicy_primary_transport": true,
