@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-08-04T10:52:12+00:00",
+  "updated_at": "2026-08-04T13:28:02+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 41,
-    "official_page_verified": 19,
-    "publisher_feed_verified": 2,
+    "official_page_verified": 16,
+    "publisher_feed_verified": 5,
     "fallback_verified": 20,
     "needs_attention": 0,
     "missing": 0,
@@ -1360,62 +1360,66 @@
       "name": "Journal of Economic Behavior & Organization",
       "publisher": "Elsevier",
       "configured_source": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/issues",
-      "status": "official_page_verified",
+      "status": "publisher_feed_verified",
       "current": {
         "available": true,
-        "status": "official_page_verified",
+        "status": "publisher_feed_verified",
         "issue_id": "jebo-249-c",
         "publication_date": "September 2026",
         "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/249/suppl/C",
-        "roster_authority": "official-issue-page",
-        "roster_transport": "official-issue-page+browser-authorized",
-        "order_verified": true,
+        "roster_authority": "publisher-rss",
+        "roster_transport": "sciencedirect-rss",
+        "order_verified": false,
         "content_counts": {
-          "official_items": 21,
-          "observed_items": 21,
-          "publishable_items": 21,
-          "research_articles": 21,
+          "official_items": 22,
+          "observed_items": 22,
+          "publishable_items": 22,
+          "research_articles": 22,
           "comments": 0,
           "short_communications": 0,
           "corrections": 0,
           "editorial_material": 0,
           "front_matter": 0,
           "other_excluded": 0,
-          "catalog_content_items": 21
+          "catalog_content_items": 22
         },
-        "abstracts_complete": 21,
-        "translations_complete": 21,
+        "abstracts_complete": 22,
+        "translations_complete": 22,
         "errors": [],
-        "warnings": []
+        "warnings": [
+          "official_order_unverified"
+        ]
       },
       "detected": {
         "available": true,
-        "status": "official_page_verified",
+        "status": "publisher_feed_verified",
         "issue_id": "jebo-249-c",
         "publication_date": "September 2026",
         "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/249/suppl/C",
-        "roster_authority": "official-issue-page",
-        "roster_transport": "official-issue-page+browser-authorized",
-        "order_verified": true,
+        "roster_authority": "publisher-rss",
+        "roster_transport": "sciencedirect-rss",
+        "order_verified": false,
         "content_counts": {
-          "official_items": 21,
-          "observed_items": 21,
-          "publishable_items": 21,
-          "research_articles": 21,
+          "official_items": 22,
+          "observed_items": 22,
+          "publishable_items": 22,
+          "research_articles": 22,
           "comments": 0,
           "short_communications": 0,
           "corrections": 0,
           "editorial_material": 0,
           "front_matter": 0,
           "other_excluded": 0,
-          "catalog_content_items": 21
+          "catalog_content_items": 22
         },
-        "abstracts_complete": 21,
-        "translations_complete": 21,
+        "abstracts_complete": 22,
+        "translations_complete": 22,
         "errors": [],
-        "warnings": []
+        "warnings": [
+          "official_order_unverified"
+        ]
       }
     },
     {
@@ -2301,62 +2305,66 @@
       "name": "Journal of Econometrics",
       "publisher": "Elsevier",
       "configured_source": "https://www.sciencedirect.com/journal/journal-of-econometrics/issues",
-      "status": "official_page_verified",
+      "status": "publisher_feed_verified",
       "current": {
         "available": true,
-        "status": "official_page_verified",
+        "status": "publisher_feed_verified",
         "issue_id": "joe-257-c",
         "publication_date": "September 2026",
         "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/257/suppl/C",
-        "roster_authority": "official-issue-page",
-        "roster_transport": "official-issue-page+browser-authorized",
-        "order_verified": true,
+        "roster_authority": "publisher-rss",
+        "roster_transport": "sciencedirect-rss",
+        "order_verified": false,
         "content_counts": {
-          "official_items": 14,
-          "observed_items": 14,
-          "publishable_items": 14,
-          "research_articles": 14,
+          "official_items": 15,
+          "observed_items": 15,
+          "publishable_items": 15,
+          "research_articles": 15,
           "comments": 0,
           "short_communications": 0,
           "corrections": 0,
           "editorial_material": 0,
           "front_matter": 0,
           "other_excluded": 0,
-          "catalog_content_items": 14
+          "catalog_content_items": 15
         },
-        "abstracts_complete": 14,
-        "translations_complete": 14,
+        "abstracts_complete": 15,
+        "translations_complete": 15,
         "errors": [],
-        "warnings": []
+        "warnings": [
+          "official_order_unverified"
+        ]
       },
       "detected": {
         "available": true,
-        "status": "official_page_verified",
+        "status": "publisher_feed_verified",
         "issue_id": "joe-257-c",
         "publication_date": "September 2026",
         "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/257/suppl/C",
-        "roster_authority": "official-issue-page",
-        "roster_transport": "official-issue-page+browser-authorized",
-        "order_verified": true,
+        "roster_authority": "publisher-rss",
+        "roster_transport": "sciencedirect-rss",
+        "order_verified": false,
         "content_counts": {
-          "official_items": 14,
-          "observed_items": 14,
-          "publishable_items": 14,
-          "research_articles": 14,
+          "official_items": 15,
+          "observed_items": 15,
+          "publishable_items": 15,
+          "research_articles": 15,
           "comments": 0,
           "short_communications": 0,
           "corrections": 0,
           "editorial_material": 0,
           "front_matter": 0,
           "other_excluded": 0,
-          "catalog_content_items": 14
+          "catalog_content_items": 15
         },
-        "abstracts_complete": 14,
-        "translations_complete": 14,
+        "abstracts_complete": 15,
+        "translations_complete": 15,
         "errors": [],
-        "warnings": []
+        "warnings": [
+          "official_order_unverified"
+        ]
       }
     },
     {
@@ -2366,7 +2374,7 @@
       "name": "Food Policy",
       "publisher": "Elsevier",
       "configured_source": "https://www.sciencedirect.com/journal/food-policy/issues",
-      "status": "official_page_verified",
+      "status": "publisher_feed_verified",
       "current": {
         "available": true,
         "status": "official_page_verified",
@@ -2378,7 +2386,7 @@
         "roster_transport": "official-issue-page+browser-authorized",
         "order_verified": true,
         "content_counts": {
-          "official_items": 4,
+          "official_items": 5,
           "observed_items": 4,
           "publishable_items": 4,
           "research_articles": 4,
@@ -2397,31 +2405,34 @@
       },
       "detected": {
         "available": true,
-        "status": "official_page_verified",
+        "status": "publisher_feed_verified",
         "issue_id": "foodpolicy-143-c",
         "publication_date": "September 2026",
-        "publication_state": "ready",
+        "publication_state": "enriching",
         "source_url": "https://www.sciencedirect.com/journal/food-policy/vol/143/suppl/C",
-        "roster_authority": "official-issue-page",
-        "roster_transport": "official-issue-page+browser-authorized",
-        "order_verified": true,
+        "roster_authority": "publisher-rss",
+        "roster_transport": "sciencedirect-rss",
+        "order_verified": false,
         "content_counts": {
-          "official_items": 4,
-          "observed_items": 4,
-          "publishable_items": 4,
-          "research_articles": 4,
+          "official_items": 5,
+          "observed_items": 5,
+          "publishable_items": 5,
+          "research_articles": 5,
           "comments": 0,
           "short_communications": 0,
           "corrections": 0,
           "editorial_material": 0,
           "front_matter": 0,
           "other_excluded": 0,
-          "catalog_content_items": 4
+          "catalog_content_items": 5
         },
-        "abstracts_complete": 4,
+        "abstracts_complete": 5,
         "translations_complete": 4,
         "errors": [],
-        "warnings": []
+        "warnings": [
+          "official_order_unverified",
+          "translation_incomplete"
+        ]
       }
     },
     {
