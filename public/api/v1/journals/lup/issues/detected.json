@@ -8,7 +8,7 @@
   "issue_label": "Vol. 169",
   "publication_date": "October 2026",
   "source_url": "https://www.sciencedirect.com/journal/land-use-policy/vol/169/suppl/C",
-  "retrieved_at": "2026-08-04T15:34:49+00:00",
+  "retrieved_at": "2026-08-04T15:51:05+00:00",
   "expected_article_count": 56,
   "research_article_count": 56,
   "status": "incomplete",
@@ -257,8 +257,8 @@
         "status": "missing"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -396,14 +396,14 @@
       "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "Balancing growth and conservation: Land-use policy scenarios for Uruguay’s grasslands",
-      "title_cn": "",
+      "title_cn": "平衡增长与保护：乌拉圭草原土地利用政策情景",
       "authors": [
         "Melanie Schweikart",
         "Leonardo R. Ramírez",
         "Ina Säumel"
       ],
       "abstract_en": "Land-use scenario simulations support policy decisions that seek to balance economic development with environmental conservation. In Uruguay’s Río de la Plata temperate grasslands, agribusiness expansion has driven land-use intensification, threatening biodiversity, ecosystem services, and rural livelihoods. This study integrates land-use data from 2000 to 2015 with explanatory variables in a multi-layer perceptron Markov model to predict vulnerability to change and land-use patterns for 2030 under three scenarios: business-as-usual, multifunctional land use, and grassland conservation. Under continued intensification, native grasslands are predicted to decline by 9% to a land cover of 51% by 2030, with cropland expansion accounting for 80% of the loss. Reducing cropland expansion and maintaining timber plantations at 2015 levels could preserve grassland cover at 57%, corresponding to more than 10,000 km² compared to the business-as-usual scenario. Except for a northern area with comparatively low conflict potential, approximately two-thirds of Uruguay remain highly susceptible to agricultural conversion. Applying 90 m and 180 m conservation buffers around sensitive areas may reduce agricultural spillover and enhance ecosystem service provision. Implementing 90 m protection buffers substantially curtails cropland expansion within designated areas, resulting in a 139% relative difference in net cropland change compared to the business as usual scenario. By providing high-resolution vulnerability assessments and policy-relevant insights, this study supports evidence-based land-use planning and highlights how targeted conservation measures can help navigate trade-offs between agricultural development and ecological resilience at national and local scales.",
-      "abstract_cn": "",
+      "abstract_cn": "土地利用情景模拟支持旨在平衡经济发展与环境保护的政策决策。在乌拉圭的拉普拉塔河流域温带草原地区，农业企业扩张推动土地利用集约化，威胁生物多样性、生态系统服务和农村生计。本研究结合从2000到2015的土地利用数据与多层感知机马尔可夫模型中的解释变量，预测2030在三情景下的脆弱性和土地利用格局：包括常规、功能多样化土地利用和草原保护。在持续集约化下，预测本土草原将减少至9%，土地覆盖面积为51%，时间为2030，其中农作物扩张占损失的80%。减少农作物扩张并保持木材种植面积在2015水平，有望将草原覆盖保持在57%，较常规情景多出超过10,000平方公里。除北部地区冲突潜力相对较低外，乌拉圭大约二的三分之二地区仍高度易受农业转化影响。在敏感区域周围应用90米和180米的保护缓冲区，可能减少农业溢出并增强生态系统服务供给。实施90米的保护缓冲区显著限制了指定区域内的农作物扩张，与常规情景相比，净农作物变化的相对差异为139%。通过提供高分辨率的脆弱性评估和政策相关的见解，本研究支持基于证据的土地利用规划，并强调有针对性的保护措施如何帮助在国家和地方尺度上调和农业发展与生态韧性之间的权衡。",
       "doi": "10.1016/j.landusepol.2026.108110",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837726001948",
       "publication_date": "2026",
@@ -437,12 +437,15 @@
         }
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4.1-nano",
+        "translated_at": "2026-07-26T19:56:07+00:00",
+        "source_hash": "8a3210ddfcd6bd516b441a5d77af2f7236b132258bb29ee6e98e9f89b0b4dad3"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -756,8 +759,8 @@
         "status": "missing"
       },
       "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
+        "title_cn_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -3613,7 +3616,7 @@
     "doi_complete": 56,
     "authors_complete": 56,
     "abstract_en_complete": 56,
-    "translation_complete": 53,
+    "translation_complete": 54,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_repec_fallback",
