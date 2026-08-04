@@ -11,6 +11,7 @@ from scripts.backfill_history import (
     atomic_write_json,
     collector_for_issue,
     history_completeness_block,
+    run_issue,
 )
 
 
@@ -156,6 +157,156 @@ class BackfillHistoryTests(unittest.TestCase):
                 public_api=root,
             )
         self.assertEqual("", reason)
+
+
+
+    def _complete_elsevier_issue(self) -> dict:
+        article = {
+            "paper_id": "doi:10.1016/j.jdeveco.2025.100001",
+            "sequence": 1,
+            "doi": "10.1016/j.jdeveco.2025.100001",
+            "title_en": "Paper one",
+            "title_cn": "论文一",
+            "authors": ["Ada Lovelace"],
+            "abstract_en": "Abstract one with 2025 results.",
+            "abstract_cn": "摘要一",
+            "source_url": "https://www.sciencedirect.com/science/article/pii/S0304387825000001",
+            "sources": {"abstract_en": "crossref"},
+            "translation": {"status": "complete"},
+            "quality_flags": [],
+        }
+        second = dict(article)
+        second["paper_id"] = "doi:10.1016/j.jdeveco.2025.100002"
+        second["sequence"] = 2
+        second["doi"] = "10.1016/j.jdeveco.2025.100002"
+        second["title_en"] = "Paper two"
+        second["title_cn"] = "论文二"
+        second["abstract_en"] = "Abstract two with 2026 estimates."
+        second["abstract_cn"] = "摘要二"
+        return {
+            "schema_version": "1.0",
+            "issue_id": "jde-172-c",
+            "journal_id": "jde",
+            "journal_name": "Journal of Development Economics",
+            "volume": "172",
+            "issue": "C",
+            "source_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/172/suppl/C",
+            "retrieved_at": "2026-08-03T00:00:00+00:00",
+            "expected_article_count": 2,
+            "research_article_count": 2,
+            "status": "incomplete",
+            "articles": [article, second],
+            "quality": {
+                "roster_match": True,
+                "order_preserved": True,
+                "roster_transport": "crossref",
+                "roster_authority": "crossref-provisional",
+                "roster_match_scope": "crossref-issue-group",
+                "publisher_page_status": "blocked",
+                "excluded_item_count": 0,
+                "excluded_items": [],
+                "doi_complete": 2,
+                "authors_complete": 2,
+                "abstract_en_complete": 2,
+                "translation_complete": 2,
+                "duplicate_count": 0,
+                "flags": [
+                    "publisher_html_blocked_crossref_fallback",
+                    "crossref_provisional_roster",
+                ],
+            },
+        }
+
+    def test_run_issue_archives_complete_elsevier_volume(self) -> None:
+        import scripts.update_journals as update_journals_mod
+
+        real_block = history_completeness_block
+        issue = self._complete_elsevier_issue()
+        ref = HistoricalIssue(
+            "JDE",
+            2025,
+            "172",
+            "c",
+            issue["source_url"],
+        )
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            with (
+                patch(
+                    "collectors.metadata_fallback.fetch_crossref_current_issue",
+                    return_value=issue,
+                ),
+                patch("scripts.backfill_history.STAGING_ROOT", root / "staging"),
+                patch("scripts.backfill_history.STATE_PATH", root / "state.json"),
+                patch("scripts.backfill_history.PUBLIC_API", root / "public"),
+                patch(
+                    "scripts.backfill_history.history_completeness_block",
+                    side_effect=lambda iss, cfg: real_block(
+                        iss, cfg, public_api=root / "public"
+                    ),
+                ),
+                patch(
+                    "scripts.backfill_history.apply_translation_cache",
+                    side_effect=lambda iss: iss,
+                ),
+                patch(
+                    "scripts.backfill_history.archive_issue",
+                    side_effect=lambda item: update_journals_mod.archive_issue(
+                        item, api_root=root / "public"
+                    ),
+                ),
+            ):
+                report = run_issue(
+                    ref,
+                    {
+                        "id": "jde",
+                        "name": "Journal of Development Economics",
+                        "collector": "elsevier",
+                        "issn": "0304-3878",
+                    },
+                    {},
+                    translate=False,
+                    max_translations=0,
+                )
+            self.assertEqual("complete", report["result"])
+            archived = root / "public" / "journals" / "jde" / "issues" / "jde-172-c.json"
+            self.assertTrue(archived.exists())
+            state = json.loads((root / "state.json").read_text(encoding="utf-8"))
+            self.assertEqual("complete", state["issues"]["jde-172-c"]["status"])
+
+    def test_run_issue_skips_blocked_thin_volume_without_recollect(self) -> None:
+        ref = HistoricalIssue(
+            "JDE",
+            2025,
+            "173",
+            "c",
+            "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/173/suppl/C",
+        )
+        state = {
+            "schema_version": "1.0",
+            "issues": {
+                "jde-173-c": {
+                    "status": "blocked",
+                    "last_error": (
+                        "possible_incomplete_volume: 4 articles collected vs "
+                        "current issue 34"
+                    ),
+                }
+            },
+        }
+        with patch(
+            "collectors.metadata_fallback.fetch_crossref_current_issue"
+        ) as fetch:
+            report = run_issue(
+                ref,
+                {"id": "jde", "collector": "elsevier"},
+                state,
+                translate=True,
+                max_translations=10,
+            )
+        self.assertEqual("blocked", report["result"])
+        self.assertIn("skipped", report["error"])
+        fetch.assert_not_called()
 
 
 if __name__ == "__main__":

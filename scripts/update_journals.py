@@ -16,6 +16,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from collectors.aea import fetch_current_issue as fetch_aea
+from collectors.metadata_fallback import _strip_abstract_footnotes
 from collectors.article_types import (
     abstract_is_complete,
     canonical_issue_label,
@@ -89,7 +90,9 @@ def normalize_issue_content(issue: dict[str, Any]) -> dict[str, Any]:
     """Apply deterministic taxonomy, quality counts, and reader cleanup."""
 
     for article in issue.get("articles", []):
-        article["abstract_en"] = clean_abstract_label(article.get("abstract_en"))
+        article["abstract_en"] = _strip_abstract_footnotes(
+            clean_abstract_label(article.get("abstract_en"))
+        )
         article["abstract_cn"] = clean_abstract_label(article.get("abstract_cn"))
     issue = normalize_issue_taxonomy(
         issue,

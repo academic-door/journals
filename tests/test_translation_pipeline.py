@@ -302,6 +302,31 @@ class TranslationPipelineTests(unittest.TestCase):
         )
         self.assertRegex(cache[ARTICLE["doi"]]["source_hash"], r"^[0-9a-f]{64}$")
 
+    def test_prefers_deepseek_when_key_configured(self) -> None:
+        issue = {"journal_id": "test", "articles": [ARTICLE]}
+        with tempfile.TemporaryDirectory() as directory, patch.dict(
+            "os.environ",
+            {"DEEPSEEK_API_KEY": "test-deepseek-key"},
+            clear=False,
+        ):
+            cache_path = Path(directory) / "test.json"
+            result = translate_missing(
+                issue,
+                cache_path,
+                token="",
+                session=FakeSession(),
+            )
+            cache = json.loads(cache_path.read_text(encoding="utf-8"))
+        self.assertEqual(result["translated"], 1)
+        self.assertEqual(
+            cache[ARTICLE["doi"]]["translation"]["provider"],
+            "deepseek",
+        )
+        self.assertEqual(
+            cache[ARTICLE["doi"]]["translation"]["model"],
+            "deepseek-chat",
+        )
+
     def test_retranslates_invalid_cached_entry(self) -> None:
         issue = {"journal_id": "test", "articles": [ARTICLE]}
         invalid_cache = {

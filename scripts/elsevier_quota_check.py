@@ -17,6 +17,7 @@ import argparse
 import json
 import os
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -186,9 +187,37 @@ def main() -> int:
         action="store_true",
         help="make one real Article Metadata request and print quota headers",
     )
+    parser.add_argument(
+        "--write-json",
+        default="",
+        help="write the aggregated quota report to this JSON path",
+    )
     args = parser.parse_args()
 
-    warnings = report(collect_snapshots())
+    per_api = collect_snapshots()
+    if args.write_json:
+        payload = {
+            "schema_version": "1.0",
+            "generated_at": datetime.now(timezone.utc)
+            .replace(microsecond=0)
+            .isoformat(),
+            "apis": {
+                api: {
+                    "limit": record.get("limit"),
+                    "remaining": record.get("remaining"),
+                    "resets_at": record.get("resets_at", ""),
+                    "journals": sorted(record.get("journals", set())),
+                }
+                for api, record in sorted(per_api.items())
+            },
+        }
+        target = Path(args.write_json)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+    warnings = report(per_api)
     if args.live:
         snapshot = live_check()
         remaining = snapshot.get("remaining")

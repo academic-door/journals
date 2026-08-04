@@ -14,6 +14,10 @@ import requests
 
 
 GITHUB_MODELS_ENDPOINT = "https://models.github.ai/inference/chat/completions"
+# Optional primary provider: set DEEPSEEK_API_KEY to prefer DeepSeek over
+# GitHub Models (OpenAI-compatible chat completions API).
+DEEPSEEK_ENDPOINT = "https://api.deepseek.com/chat/completions"
+DEEPSEEK_MODEL = "deepseek-chat"
 GOOGLE_TRANSLATE_ENDPOINT = "https://translate.googleapis.com/translate_a/single"
 GOOGLE_MIN_REQUEST_INTERVAL_SECONDS = float(
     os.getenv("GOOGLE_TRANSLATE_MIN_INTERVAL", "2.0")
@@ -508,9 +512,10 @@ def request_translation(
     session: requests.Session | None = None,
     retries: int = 3,
     timeout: int = 90,
+    provider_name: str = "github-models",
 ) -> dict[str, str]:
     if not token:
-        raise TranslationError("GitHub Models token is required")
+        raise TranslationError(f"{provider_name} token is required")
     client = session or requests.Session()
     # Models preserve meaningful source numbers more reliably than opaque
     # placeholders. Google Translate still uses placeholders below because it
@@ -569,7 +574,7 @@ def request_translation(
                 else 0
             )
             if status_code in TERMINAL_PROVIDER_STATUS_CODES:
-                raise ProviderUnavailableError("github-models", status_code) from error
+                raise ProviderUnavailableError(provider_name, status_code) from error
             if attempt + 1 < retries:
                 retry_after = 0
                 if isinstance(error, requests.HTTPError) and error.response is not None:
@@ -762,26 +767,50 @@ def translate_missing(
             except TranslationError:
                 invalid_cache_count += 1
         try:
-            provider = "github-models"
+            provider = "deepseek"
+            deepseek_key = os.environ.get("DEEPSEEK_API_KEY", "").strip()
             primary_error: TranslationError | None = None
-            if provider_availability.get("github-models"):
-                primary_error = TranslationError(
-                    provider_availability["github-models"]
-                )
-            else:
+            if deepseek_key and not provider_availability.get("deepseek"):
                 try:
                     translated = request_translation(
                         article,
-                        token=auth_token,
-                        model=selected_model,
-                        endpoint=endpoint,
+                        token=deepseek_key,
+                        model=DEEPSEEK_MODEL,
+                        endpoint=DEEPSEEK_ENDPOINT,
                         session=session,
+                        provider_name="deepseek",
                     )
-                except ProviderUnavailableError as error:
-                    provider_availability["github-models"] = str(error)
+                except (ProviderUnavailableError, TranslationError) as error:
+                    provider_availability["deepseek"] = str(error)
                     primary_error = error
-                except TranslationError as error:
-                    primary_error = error
+            else:
+                primary_error = TranslationError(
+                    provider_availability.get("deepseek")
+                    or "deepseek key not configured"
+                )
+            if primary_error is not None:
+                # GitHub Models fallback.
+                provider = "github-models"
+                if provider_availability.get("github-models"):
+                    primary_error = TranslationError(
+                        provider_availability["github-models"]
+                    )
+                else:
+                    try:
+                        translated = request_translation(
+                            article,
+                            token=auth_token,
+                            model=selected_model,
+                            endpoint=endpoint,
+                            session=session,
+                        )
+                    except ProviderUnavailableError as error:
+                        provider_availability["github-models"] = str(error)
+                        primary_error = error
+                    except TranslationError as error:
+                        primary_error = error
+                    else:
+                        primary_error = None
             if primary_error is not None:
                 if provider_availability.get("google-translate"):
                     raise TranslationError(
@@ -811,7 +840,13 @@ def translate_missing(
                 "source_hash": source_hash,
                 "translation": {
                     "provider": provider,
-                    "model": selected_model if provider == "github-models" else "gtx-en-zh-CN",
+                    "model": (
+                        selected_model
+                        if provider == "github-models"
+                        else DEEPSEEK_MODEL
+                        if provider == "deepseek"
+                        else "gtx-en-zh-CN"
+                    ),
                     "prompt_version": PROMPT_VERSION,
                     "translated_at": datetime.now(timezone.utc)
                     .replace(microsecond=0)

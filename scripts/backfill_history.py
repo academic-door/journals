@@ -248,6 +248,21 @@ def run_issue(
     max_translations: int,
 ) -> dict[str, Any]:
     current_status = state.get("issues", {}).get(issue_ref.issue_id, {}).get("status")
+    current_error = (
+        state.get("issues", {}).get(issue_ref.issue_id, {}).get("last_error", "")
+    )
+    if (
+        current_status == "blocked"
+        and "possible_incomplete_volume" in current_error
+    ):
+        return {
+            "issue_id": issue_ref.issue_id,
+            "result": "blocked",
+            "error": (
+                "possible_incomplete_volume (skipped: needs official page or "
+                "browser-authorized capture)"
+            ),
+        }
     archive_path = (
         PUBLIC_API
         / "journals"
@@ -373,6 +388,10 @@ def main() -> int:
     ][: args.max_issues]
     reports: list[dict[str, Any]] = []
     remaining_translations = args.max_translations
+    summary_lines = [
+        "| Issue | Result | Detail |",
+        "|---|---|---|",
+    ]
     for issue in pending:
         if args.translate and remaining_translations <= 0:
             break
@@ -386,6 +405,17 @@ def main() -> int:
         reports.append(report)
         translation = report.get("translation") or {}
         remaining_translations -= int(translation.get("translated", 0))
+        result = report.get("result", "")
+        detail = report.get("error") or report.get("issue_id", "")
+        print(f"[backfill] {issue.issue_id}: {result} {detail}")
+        summary_lines.append(
+            f"| {issue.issue_id} | {result} | {str(detail).replace('|', '/')} |"
+        )
+    step_summary = os.environ.get("GITHUB_STEP_SUMMARY", "")
+    if step_summary:
+        with open(step_summary, "a", encoding="utf-8") as handle:
+            handle.write("### Field history backfill batch\n")
+            handle.write("\n".join(summary_lines) + "\n")
     for key in selected:
         write_archive_index(
             journals[key]["id"],

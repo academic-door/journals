@@ -78,6 +78,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || github.token }}
           ELSEVIER_API_KEY: ${{ secrets.ELSEVIER_API_KEY }}
           ELSEVIER_INST_TOKEN: ${{ secrets.ELSEVIER_INST_TOKEN }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: |
           python scripts/journal_monitor.py --run-updates --translate
 
@@ -87,6 +88,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || github.token }}
           ELSEVIER_API_KEY: ${{ secrets.ELSEVIER_API_KEY }}
           ELSEVIER_INST_TOKEN: ${{ secrets.ELSEVIER_INST_TOKEN }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: |
           python scripts/update_journals.py \
             --journal ALL \
