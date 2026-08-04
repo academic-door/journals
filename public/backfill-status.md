@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-04T20:00:27+00:00
+Updated: 2026-08-04T20:08:46+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -42,10 +42,15 @@ Updated: 2026-08-04T20:00:27+00:00
 | GEB | geb-151-c | 2025 | translation_partial |  |
 | GEB | geb-152-c | 2025 | complete |  |
 | GEB | geb-153-c | 2025 | complete |  |
-| GEB | geb-154-c | 2025 | translation_partial |  |
+| GEB | geb-154-c | 2025 | complete |  |
+| GEB | geb-155-c | 2026 | complete |  |
+| GEB | geb-156-c | 2026 | complete |  |
+| GEB | geb-157-c | 2026 | translation_partial |  |
+| GEB | geb-158-c | 2026 | complete |  |
+| GEB | geb-159-c | 2026 | complete |  |
 | JDE | jde-172-c | 2025 | complete |  |
 | JDE | jde-173-c | 2025 | complete |  |
-| JDE | jde-174-c | 2025 | translation_partial |  |
+| JDE | jde-174-c | 2025 | complete |  |
 | JDE | jde-175-c | 2025 | translation_partial |  |
 | JDE | jde-176-c | 2025 | translation_partial |  |
 | JDE | jde-177-c | 2025 | complete |  |
