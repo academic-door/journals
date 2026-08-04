@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-04T18:54:24+00:00
+Updated: 2026-08-04T19:24:31+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -23,7 +23,14 @@ Updated: 2026-08-04T18:54:24+00:00
 | EER | eer-187-c | 2026 | complete |  |
 | EER | eer-188-c | 2026 | complete |  |
 | EER | eer-189-c | 2026 | complete |  |
-| FOODPOLICY | foodpolicy-130-c | 2025 | translation_partial |  |
+| FOODPOLICY | foodpolicy-130-c | 2025 | complete |  |
+| FOODPOLICY | foodpolicy-131-c | 2025 | complete |  |
+| FOODPOLICY | foodpolicy-132-c | 2025 | complete |  |
+| FOODPOLICY | foodpolicy-133-c | 2025 | complete |  |
+| FOODPOLICY | foodpolicy-134-c | 2025 | translation_partial |  |
+| FOODPOLICY | foodpolicy-135-c | 2025 | complete |  |
+| FOODPOLICY | foodpolicy-136-c | 2025 | complete |  |
+| FOODPOLICY | foodpolicy-137-c | 2025 | translation_partial |  |
 | JDE | jde-172-c | 2025 | complete |  |
 | JDE | jde-173-c | 2025 | complete |  |
 | JDE | jde-174-c | 2025 | translation_partial |  |
