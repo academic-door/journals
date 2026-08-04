@@ -10,6 +10,7 @@ import requests
 
 from scripts.translate_issue import (
     TranslationError,
+    _canonicalize_arabic_numbers,
     _extract_json,
     _normalize_written_number_translations,
     _numbers,
@@ -317,6 +318,35 @@ class TranslationPipelineTests(unittest.TestCase):
         self.assertEqual(_numbers("第2轮n = 9,093笔交易"), ["9,093"])
         # Years remain counted even after Chinese label nouns.
         self.assertEqual(_numbers("研究1959古巴革命"), ["1959"])
+
+    def test_normalize_does_not_rewrite_percent_or_decimal_digits(self) -> None:
+        source = (
+            "One year later GDP fell by 1% to 3.3% and 4.5% in two scenarios."
+        )
+        translated = "一年后GDP下降1%至3.3%和4.5%，涉及两种情景。"
+        normalized = _normalize_written_number_translations(source, translated)
+        self.assertEqual(_numbers(normalized), ["1%", "3.3%", "4.5%"])
+
+    def test_canonicalize_keeps_reordered_but_faithful_digits(self) -> None:
+        source = (
+            "GDP remains about 2% lower over the medium run (5-7 years) "
+            "and does not recover within the 10-year horizon."
+        )
+        translated = "GDP在中期（5-7年）仍保持约2%较低，在10年内不会恢复。"
+        self.assertEqual(
+            _canonicalize_arabic_numbers(source, translated),
+            translated,
+        )
+
+    def test_normalizes_half_a_million_google_rendering(self) -> None:
+        source = (
+            "The 1975 eruption sparked the return of half a million "
+            "retornados to Portugal."
+        )
+        translated = "1975年的爆发促使50万回归者返回葡萄牙。"
+        normalized = _normalize_written_number_translations(source, translated)
+        self.assertIn("五十万", normalized)
+        self.assertEqual(_numbers(normalized), ["1975"])
 
     def test_ignores_inverse_unit_exponents_in_numeric_validation(self) -> None:
         self.assertEqual(

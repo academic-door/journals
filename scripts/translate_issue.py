@@ -405,6 +405,12 @@ def _canonicalize_arabic_numbers(source: str, translated: str) -> str:
     translated_matches = list(NUMBER_PATTERN.finditer(translated))
     if len(source_numbers) != len(translated_matches):
         return translated
+    # When the translation already contains exactly the source numbers
+    # (as a multiset), a positional rewrite would corrupt reordered Chinese
+    # sentences such as "(5-7 years) remains about 2% lower", where the range
+    # appears before the percentage. Only rewrite when values actually drifted.
+    if Counter(_numbers(translated)) == Counter(source_numbers):
+        return translated
     values = iter(source_numbers)
     return NUMBER_PATTERN.sub(lambda _match: next(values), translated)
 
@@ -524,11 +530,34 @@ def _normalize_written_number_translations(source: str, translated: str) -> str:
         r"\b(" + "|".join(sorted(NUMBER_WORD_VALUES, key=len, reverse=True)) + r")\b",
         re.IGNORECASE,
     )
+    half_unit = re.search(
+        r"\bhalf\s+a\s+(million|billion)\b",
+        source,
+        flags=re.IGNORECASE,
+    )
+    if half_unit:
+        unit = half_unit.group(1).lower()
+        if unit == "million":
+            # half a million = 500,000; Google renders it as 50万.
+            normalized, _changed = re.subn(
+                r"(?<![\d])50\s*万",
+                "五十万",
+                normalized,
+                count=1,
+            )
+        elif unit == "billion":
+            # half a billion = 500,000,000; Google renders it as 5亿.
+            normalized, _changed = re.subn(
+                r"(?<![\d])5\s*亿",
+                "五亿",
+                normalized,
+                count=1,
+            )
     for match in word_pattern.finditer(source):
         word = match.group(0).lower()
         value = NUMBER_WORD_VALUES[word]
         normalized, _changed = re.subn(
-            rf"(?<![\d×xX*]){value}(?![\d×xX*])",
+            rf"(?<![\d×xX*.,%％]){value}(?![\d×xX*.,%％])",
             NUMBER_WORDS_ZH[word],
             normalized,
             count=1,
