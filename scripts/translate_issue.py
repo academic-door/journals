@@ -167,28 +167,95 @@ def _extract_json(content: str) -> dict[str, Any]:
 # not reported numeric results. Translators legitimately render "Study 2" as
 # "研究二" or drop the digit, so these must not trip the numeric fidelity gate.
 IDENTIFIER_EN = re.compile(
-    r"(?i)(?:study|experiment|figure|table|model|section|appendix|equation|"
+    r"(?i)(?<![A-Za-z])"
+    r"(?:study|experiment|figure|table|model|section|appendix|equation|"
     r"hypothesis|column|row|part|step|panel|scenario|test|trial|wave|round|"
     r"cohort|group|sample|survey|task|condition|session|block|version|"
+    r"chapter|bill|article|act|title|clause|provision|rule|law|regulation|"
     r"specification)\s*$"
 )
-IDENTIFIER_CJK = set(
-    "研究实验图表模型步骤阶段测试试验版轮组样本调查任务条件会话章节附录方程假设列行场景"
-)
+# Chinese label nouns that fuse with ordinals ("实验2" = Experiment 2,
+# "第2轮" = Round 2). Longer words are matched first; single-character labels
+# must not be the tail of a longer verb or noun ("进行2.1%" is a statistic,
+# not a row/column label; "around" must not match "round").
+IDENTIFIER_CJK_WORDS = [
+    "实验",
+    "研究",
+    "图表",
+    "模型",
+    "步骤",
+    "阶段",
+    "测试",
+    "试验",
+    "版本",
+    "样本",
+    "调查",
+    "任务",
+    "条件",
+    "会话",
+    "章节",
+    "附录",
+    "方程",
+    "假设",
+    "场景",
+    "轮次",
+    "图",
+    "表",
+    "行",
+    "列",
+    "轮",
+    "组",
+    "版",
+    "步",
+    "项",
+    "条",
+    "块",
+    "章",
+    "节",
+    "期",
+    "批",
+    "号",
+    "层",
+]
+IDENTIFIER_CJK_SORTED = sorted(IDENTIFIER_CJK_WORDS, key=len, reverse=True)
+
+
+def _cjk_identifier_label(prefix: str) -> str | None:
+    """Return the Chinese identifier label directly preceding the number,
+    allowing whitespace between the label and the ordinal ("实验 1")."""
+    stripped = prefix.rstrip()
+    for label in IDENTIFIER_CJK_SORTED:
+        if not stripped.endswith(label):
+            continue
+        before = stripped[: len(stripped) - len(label)]
+        if len(label) == 1 and before and CJK_PATTERN.match(before[-1]):
+            # Single-char labels are often the tail of a longer word
+            # ("进行2.1%"). Require a boundary before them.
+            continue
+        return label
+    return None
 
 
 def _is_identifier_number(value: str, match: re.Match[str]) -> bool:
     prefix = value[: match.start()]
     if IDENTIFIER_EN.search(prefix):
         return True
-    if not (prefix and prefix[-1] in IDENTIFIER_CJK):
-        return False
-    # Chinese label nouns fuse with the ordinal ("研究2" = Study 2), but the
-    # same noun is also a verb before years ("研究1959古巴革命" = studying the
-    # 1959 Cuban Revolution). Labels are small ordinals; 4-digit years and
-    # statistics must keep counting.
     digits = re.sub(r"[^0-9]", "", str(match.group("number")))
-    return len(digits) <= 3
+    if _cjk_identifier_label(prefix) is not None:
+        # Chinese label nouns fuse with the ordinal ("研究2" = Study 2), but
+        # the same noun is also a verb before years ("研究1959古巴革命" =
+        # studying the 1959 Cuban Revolution). Labels are small ordinals;
+        # 4-digit years and statistics must keep counting.
+        return len(digits) <= 3
+    if prefix.rstrip().endswith("第"):
+        # "第2轮" / "第3阶段": the ordinal marker precedes the digit and the
+        # label noun follows it. Same small-ordinal rule as above.
+        rest = value[match.end() :].lstrip()
+        return (
+            any(rest.startswith(label) for label in IDENTIFIER_CJK_SORTED)
+            and len(digits) <= 3
+        )
+    return False
 
 
 def _numbers(value: str) -> list[str]:

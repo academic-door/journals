@@ -297,6 +297,27 @@ class TranslationPipelineTests(unittest.TestCase):
             },
         )
 
+    def test_around_and_legal_labels_do_not_hide_numeric_results(self) -> None:
+        # "around" must not be treated as the identifier label "round".
+        self.assertEqual(_numbers("revenue rose by around 10 percent"), ["10%"])
+        self.assertEqual(_numbers("around 5% increase"), ["5%"])
+        self.assertEqual(_numbers("Around 55% of subjects"), ["55%"])
+        self.assertEqual(_numbers("around 2015: structural shift"), ["2015"])
+        self.assertEqual(_numbers("reduced to around 1500 ha"), ["1500"])
+        # Legal/statutory labels stay exempt in both languages.
+        self.assertEqual(_numbers("Chapter 11 reorganization"), [])
+        self.assertEqual(_numbers("Assembly Bill 52 compliance"), [])
+        self.assertEqual(_numbers("第11章进行重组"), [])
+        self.assertEqual(_numbers("在第52号议会法案下"), [])
+        # Chinese verb+statistic is not a label ("进行2.1%").
+        self.assertEqual(_numbers("进行2.1%的缩尾处理"), ["2.1%"])
+        # Chinese labels with optional whitespace and 第N轮 forms.
+        self.assertEqual(_numbers("实验 1 比较了"), [])
+        self.assertEqual(_numbers("研究2使用了"), [])
+        self.assertEqual(_numbers("第2轮n = 9,093笔交易"), ["9,093"])
+        # Years remain counted even after Chinese label nouns.
+        self.assertEqual(_numbers("研究1959古巴革命"), ["1959"])
+
     def test_ignores_inverse_unit_exponents_in_numeric_validation(self) -> None:
         self.assertEqual(
             _numbers("Carbon losses were 2.3 kt C year−1 and 4 USD year−1."),
