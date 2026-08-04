@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-04T20:08:46+00:00
+Updated: 2026-08-04T21:48:35+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -39,7 +39,7 @@ Updated: 2026-08-04T20:08:46+00:00
 | FOODPOLICY | foodpolicy-143-c | 2026 | complete |  |
 | GEB | geb-149-c | 2025 | complete |  |
 | GEB | geb-150-c | 2025 | blocked | possible_incomplete_volume: 4 articles collected vs current issue 21; needs offi |
-| GEB | geb-151-c | 2025 | translation_partial |  |
+| GEB | geb-151-c | 2025 | complete |  |
 | GEB | geb-152-c | 2025 | complete |  |
 | GEB | geb-153-c | 2025 | complete |  |
 | GEB | geb-154-c | 2025 | complete |  |
@@ -51,6 +51,10 @@ Updated: 2026-08-04T20:08:46+00:00
 | JDE | jde-172-c | 2025 | complete |  |
 | JDE | jde-173-c | 2025 | complete |  |
 | JDE | jde-174-c | 2025 | complete |  |
-| JDE | jde-175-c | 2025 | translation_partial |  |
+| JDE | jde-175-c | 2025 | complete |  |
 | JDE | jde-176-c | 2025 | translation_partial |  |
 | JDE | jde-177-c | 2025 | complete |  |
+| JDE | jde-178-c | 2026 | translation_partial |  |
+| JDE | jde-179-c | 2026 | complete |  |
+| JDE | jde-180-c | 2026 | complete |  |
+| JDE | jde-181-c | 2026 | translation_partial |  |
