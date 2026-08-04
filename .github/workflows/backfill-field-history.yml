@@ -29,12 +29,12 @@ on:
       max_issues:
         description: Maximum issues in this resumable batch
         required: true
-        default: "40"
+        default: "12"
         type: string
       max_translations:
         description: Maximum new translations per run
         required: true
-        default: "400"
+        default: "120"
         type: string
 
 permissions:
@@ -136,7 +136,7 @@ jobs:
             --translate \
             --max-issues "${{ inputs.max_issues }}" \
             --max-translations "${{ inputs.max_translations }}" \
-            --max-minutes 300 \
+            --max-minutes 75 \
             --report-json output/backfill-report.json
           python scripts/backfill_status.py \
             --state data/backfill-state/field-2025-2026.json \
