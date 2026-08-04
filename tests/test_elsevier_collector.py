@@ -195,5 +195,106 @@ class ElsevierCollectorTests(unittest.TestCase):
         )
 
 
+
+class RepecHistoryCollectorTests(unittest.TestCase):
+    def test_repec_page_url_paginates(self) -> None:
+        from collectors.elsevier import _repec_page_url
+
+        self.assertEqual(
+            "https://ideas.repec.org/s/eee/deveco.html",
+            _repec_page_url("https://ideas.repec.org/s/eee/deveco.html", 1),
+        )
+        self.assertEqual(
+            "https://ideas.repec.org/s/eee/deveco2.html",
+            _repec_page_url("https://ideas.repec.org/s/eee/deveco.html", 2),
+        )
+
+    def test_fetch_elsevier_repec_history_issue_builds_complete_volume(self) -> None:
+        from collectors.elsevier import fetch_elsevier_repec_history_issue
+
+        page1 = b"""
+        <html><body>
+          <h3>2026, Volume 183, Issue C</h3>
+          <div><ul>
+            <li><a href="/a/eee/deveco/v183y2026ics0304387826000672.html">Current paper</a></li>
+          </ul></div>
+        </body></html>
+        """
+        page2 = b"""
+        <html><body>
+          <h3>2025, Volume 173, Issue C</h3>
+          <div><ul>
+            <li><a href="/a/eee/deveco/v173y2025ics0304387825000001.html">Paper one</a></li>
+            <li><a href="/a/eee/deveco/v173y2025ics0304387825000002.html">Editorial Board</a></li>
+            <li><a href="/a/eee/deveco/v173y2025ics0304387825000003.html">Paper two</a></li>
+          </ul></div>
+        </body></html>
+        """
+        pages = {1: page1, 2: page2}
+
+        class Response:
+            def __init__(self, content: bytes) -> None:
+                self.content = content
+
+            def raise_for_status(self) -> None:
+                return None
+
+        class Session:
+            def __init__(self) -> None:
+                self.calls: list[str] = []
+
+            def get(self, url: str, **kwargs) -> Response:
+                self.calls.append(url)
+                page = 2 if "deveco2" in url else 1
+                return Response(pages[page])
+
+        with (
+            patch(
+                "collectors.elsevier._parse_repec_detail",
+                side_effect=[
+                    {
+                        "pii": "S0304387825000001",
+                        "title_en": "Paper one",
+                        "authors": ["Ada Lovelace"],
+                        "abstract_en": "Abstract one.",
+                        "doi": "10.1016/j.jdeveco.2024.103001",
+                        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304387825000001",
+                    },
+                    {
+                        "pii": "S0304387825000002",
+                        "title_en": "Editorial Board",
+                        "authors": [],
+                        "abstract_en": "",
+                        "doi": "",
+                        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304387825000002",
+                    },
+                    {
+                        "pii": "S0304387825000003",
+                        "title_en": "Paper two",
+                        "authors": ["Grace Hopper"],
+                        "abstract_en": "Abstract two.",
+                        "doi": "10.1016/j.jdeveco.2024.103002",
+                        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304387825000003",
+                    },
+                ],
+            ),
+            patch("collectors.metadata_fallback._is_no_abstract_notice", return_value=False),
+        ):
+            issue = fetch_elsevier_repec_history_issue(
+                journal_id="jde",
+                journal_name="Journal of Development Economics",
+                issn="0304-3878",
+                volume="173",
+                repec_series_url="https://ideas.repec.org/s/eee/deveco.html",
+                session=Session(),
+            )
+        self.assertEqual("jde-173-c", issue["issue_id"])
+        self.assertEqual(2, issue["research_article_count"])
+        self.assertEqual(3, issue["quality"]["repec_item_count"])
+        self.assertEqual(["Paper one", "Paper two"], [a["title_en"] for a in issue["articles"]])
+        self.assertEqual([1, 2], [a["sequence"] for a in issue["articles"]])
+
+
 if __name__ == "__main__":
     unittest.main()
+

@@ -10,7 +10,7 @@ from calendar import monthrange
 from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 
 import requests
 from bs4 import BeautifulSoup
@@ -227,6 +227,240 @@ def _parse_repec_detail(
         "detail_url": item["detail_url"],
         "article_type": _article_type(title),
         "quality_flags": flags,
+    }
+
+
+def _repec_page_url(series_url: str, page: int) -> str:
+    """RePEc series pages paginate as stem.html, stem2.html, stem3.html..."""
+
+    if page <= 1:
+        return series_url
+    parsed = urlparse(series_url)
+    stem = Path(parsed.path).stem
+    suffix = Path(parsed.path).suffix
+    return urljoin(
+        series_url,
+        f"{stem}{page}{suffix}",
+    )
+
+
+def _parse_repec_volume_sections(
+    content: bytes,
+    series_url: str,
+) -> dict[str, dict[str, Any]]:
+    """Parse every volume heading on one RePEc series page."""
+
+    soup = BeautifulSoup(content, "html.parser")
+    found: dict[str, dict[str, Any]] = {}
+    for heading in soup.find_all("h3"):
+        match = ISSUE_HEADING.search(heading.get_text(" ", strip=True))
+        if not match:
+            continue
+        volume = match.group("volume")
+        container = heading.find_next_sibling("div")
+        if container is None:
+            continue
+        items: list[dict[str, str]] = []
+        seen: set[str] = set()
+        for link in container.select("a[href^='/a/']"):
+            title = _clean(link.get_text(" ", strip=True))
+            detail_url = urljoin(series_url, str(link.get("href") or ""))
+            pii = _source_pii(detail_url)
+            key = pii or detail_url
+            if not title or key in seen:
+                continue
+            seen.add(key)
+            items.append(
+                {"title_en": title, "detail_url": detail_url, "pii": pii}
+            )
+        if items:
+            found[volume] = {
+                "year": match.group("year"),
+                "issue": match.group("issue"),
+                "items": items,
+            }
+    return found
+
+
+def fetch_elsevier_repec_history_issue(
+    *,
+    journal_id: str,
+    journal_name: str,
+    issn: str,
+    volume: str,
+    repec_series_url: str,
+    doi_template: str = "",
+    max_pages: int = 40,
+    session: requests.Session | None = None,
+    timeout: int = 60,
+) -> dict[str, Any]:
+    """Build one historical Elsevier issue from the RePEc serial archive.
+
+    Crossref coverage of Elsevier continuous volumes can be incomplete (e.g.
+    JDE Vol. 173 has 7 items in Crossref but 12 on RePEc). RePEc mirrors the
+    publisher's per-volume article lists on paginated series pages and exposes
+    title/authors/abstract on each article page, so it is used as the roster
+    authority for history; missing abstracts fall back to the Elsevier API.
+    """
+
+    client = session or _session()
+    target: dict[str, Any] | None = None
+    for page in range(1, max_pages + 1):
+        url = _repec_page_url(repec_series_url, page)
+        content = _get(
+            client,
+            url,
+            attempts=3,
+            patient_403=True,
+        ).content
+        sections = _parse_repec_volume_sections(content, repec_series_url)
+        if str(volume) in sections:
+            target = sections[str(volume)]
+            break
+        if not sections and page > 1:
+            # Empty page means the pagination ended before the volume.
+            break
+    if target is None:
+        raise ValueError(f"RePEc archive has no volume {volume}")
+
+    def build_article(entry: dict[str, str]) -> dict[str, Any]:
+        detail = _parse_repec_detail(
+            client,
+            entry,
+            doi_template=doi_template,
+        )
+        pii = detail.get("pii", "") or entry.get("pii", "")
+        doi = detail.get("doi", "")
+        abstract = str(detail.get("abstract_en", "")).strip()
+        abstract_source = (
+            "repec-publisher-supplied" if abstract else ""
+        )
+        from collectors.metadata_fallback import _is_elsevier_identifier
+
+        if not abstract and _is_elsevier_identifier(pii, doi):
+            from collectors.metadata_fallback import _elsevier_lookup
+
+            lookup = _elsevier_lookup(client, pii, doi=doi, timeout=timeout)
+            fetched = str(lookup.get("abstract", "")).strip()
+            if fetched:
+                abstract = fetched
+                abstract_source = str(
+                    lookup.get("source", "elsevier-api")
+                )
+        from collectors.metadata_fallback import _is_no_abstract_notice
+
+        no_abstract = _is_no_abstract_notice(abstract)
+        if no_abstract:
+            abstract = ""
+            abstract_source = ""
+        flags = ["title_cn_missing", "abstract_cn_missing"]
+        if not doi:
+            flags.append("doi_missing")
+        if not detail.get("authors"):
+            flags.append("authors_missing")
+        if not abstract:
+            flags.append("abstract_en_missing")
+        source_url = str(detail.get("source_url", "")) or (
+            f"https://www.sciencedirect.com/science/article/pii/{pii}"
+            if pii
+            else entry["detail_url"]
+        )
+        return {
+            "paper_id": f"doi:{doi}" if doi else f"pii:{pii}",
+            "sequence": 0,
+            "source_sequence": 0,
+            "article_type": (
+                "comment" if no_abstract else _article_type(detail.get("title_en", entry["title_en"]))
+            ),
+            "title_en": detail.get("title_en", entry["title_en"]),
+            "title_cn": "",
+            "authors": detail.get("authors", []),
+            "abstract_en": abstract,
+            "abstract_cn": "",
+            "doi": doi,
+            "source_url": source_url,
+            "publication_date": str(target["year"]),
+            "sources": {
+                "issue": repec_series_url,
+                "roster": "repec-serial-page",
+                "metadata": "repec-publisher-supplied",
+                "abstract_en": abstract_source,
+                **({"repec": entry["detail_url"]} if entry.get("detail_url") else {}),
+            },
+            "translation": {
+                "status": "blocked" if not abstract else "pending",
+                "provider": "",
+                "prompt_version": "",
+                "glossary_version": "1",
+            },
+            "quality_flags": flags,
+        }
+
+    built = [build_article(item) for item in target["items"]]
+    excluded_items: list[dict[str, Any]] = []
+    articles: list[dict[str, Any]] = []
+    for article in built:
+        if NON_RESEARCH_PATTERN.search(article["title_en"]):
+            excluded_items.append(
+                {
+                    "title_en": article["title_en"],
+                    "reason": "non_research_title",
+                    "doi": article["doi"],
+                }
+            )
+            continue
+        articles.append(article)
+    for sequence, article in enumerate(articles, start=1):
+        article["sequence"] = sequence
+        article["source_sequence"] = sequence
+    if not articles:
+        raise ValueError(f"RePEc volume {volume} has no publishable articles")
+
+    doi_values = [article["doi"] for article in articles if article["doi"]]
+    duplicate_count = len(doi_values) - len(set(doi_values))
+    abstract_complete = sum(
+        bool(str(article.get("abstract_en", "")).strip())
+        for article in articles
+    )
+    authors_complete = sum(bool(article.get("authors")) for article in articles)
+    flags = ["translation_incomplete"]
+    if duplicate_count:
+        flags.append("duplicate_doi")
+    if abstract_complete != len(articles):
+        flags.append("abstract_en_incomplete")
+    if authors_complete != len(articles):
+        flags.append("authors_incomplete")
+    now = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    return {
+        "schema_version": "1.0",
+        "issue_id": f"{journal_id}-{volume}-c",
+        "journal_id": journal_id,
+        "journal_name": journal_name,
+        "volume": volume,
+        "issue": "C",
+        "publication_date": str(target["year"]),
+        "source_url": repec_series_url,
+        "retrieved_at": now,
+        "expected_article_count": len(articles),
+        "research_article_count": len(articles),
+        "status": "incomplete",
+        "articles": articles,
+        "quality": {
+            "roster_match": True,
+            "order_preserved": True,
+            "roster_transport": "repec-serial-page",
+            "roster_authority": "repec-publisher-supplied",
+            "roster_match_scope": "repec-volume-items",
+            "excluded_item_count": len(excluded_items),
+            "excluded_items": excluded_items,
+            "doi_complete": sum(bool(article["doi"]) for article in articles),
+            "authors_complete": authors_complete,
+            "abstract_en_complete": abstract_complete,
+            "translation_complete": 0,
+            "duplicate_count": duplicate_count,
+            "repec_item_count": len(built),
+            "flags": flags,
+        },
     }
 
 

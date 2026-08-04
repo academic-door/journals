@@ -142,18 +142,34 @@ def collector_for_issue(
     if collector == "elsevier":
         if not isinstance(issue_ref, HistoricalIssue):
             raise ValueError("Elsevier history requires a volume/issue reference")
+        from collectors.elsevier import fetch_elsevier_repec_history_issue
         from collectors.metadata_fallback import fetch_crossref_current_issue
 
-        return lambda: fetch_crossref_current_issue(
-            journal_id=journal_config["id"],
-            journal_name=journal_config["name"],
-            issn=str(journal_config["issn"]),
-            current_issue_url=issue_url,
-            target_volume=issue_ref.volume,
-            target_issue="",
-            output_issue="C",
-            start_year=int(issue_ref.year) - 2,
-        )
+        def _collect() -> dict[str, Any]:
+            try:
+                return fetch_elsevier_repec_history_issue(
+                    journal_id=journal_config["id"],
+                    journal_name=journal_config["name"],
+                    issn=str(journal_config["issn"]),
+                    volume=issue_ref.volume,
+                    repec_series_url=journal_config.get("repec_series_url", ""),
+                    doi_template=journal_config.get("doi_template", ""),
+                )
+            except Exception:
+                # RePEc archive may not cover the volume; fall back to the
+                # Crossref roster and let the completeness guard decide.
+                return fetch_crossref_current_issue(
+                    journal_id=journal_config["id"],
+                    journal_name=journal_config["name"],
+                    issn=str(journal_config["issn"]),
+                    current_issue_url=issue_url,
+                    target_volume=issue_ref.volume,
+                    target_issue="",
+                    output_issue="C",
+                    start_year=int(issue_ref.year) - 2,
+                )
+
+        return _collect
     raise ValueError(f"Historical backfill is not configured for {collector}")
 
 
@@ -218,6 +234,21 @@ def history_completeness_block(
     size; keep it staged for a manual or browser-authorized capture instead.
     """
 
+    collected_count = int(issue.get("research_article_count", 0))
+    repec_count = int(
+        (issue.get("quality") or {}).get("repec_item_count", 0)
+    )
+    if repec_count >= 5:
+        # RePEc mirrors the publisher's per-volume list, so a volume that
+        # collected about as many articles as RePEc lists is genuinely that
+        # size (JDE 173 is a real ~12-article issue, not a data gap).
+        if collected_count < repec_count * 0.8:
+            return (
+                f"possible_incomplete_volume: {collected_count} articles "
+                f"collected vs RePEc volume {repec_count}; "
+                "needs official page or browser-authorized capture"
+            )
+        return ""
     current_path = (
         public_api / "journals" / journal_config["id"] / "issues" / "current.json"
     )
@@ -229,7 +260,6 @@ def history_completeness_block(
             )
         except (TypeError, ValueError):
             reference_count = 0
-    collected_count = int(issue.get("research_article_count", 0))
     if reference_count >= 10 and collected_count < reference_count * 0.5:
         return (
             f"possible_incomplete_volume: {collected_count} articles "

@@ -143,6 +143,41 @@ class BackfillHistoryTests(unittest.TestCase):
             )
         self.assertEqual("", reason)
 
+    def test_history_completeness_guard_uses_repec_reference(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            current_dir = root / "journals" / "jde" / "issues"
+            current_dir.mkdir(parents=True)
+            (current_dir / "current.json").write_text(
+                json.dumps({"research_article_count": 34}),
+                encoding="utf-8",
+            )
+            # A genuinely small volume: RePEc lists 6 articles and we collected
+            # 6, so the guard must NOT block even though it is far below the
+            # current issue size.
+            reason = history_completeness_block(
+                {
+                    "research_article_count": 6,
+                    "quality": {"repec_item_count": 6},
+                },
+                {"id": "jde"},
+                public_api=root,
+            )
+        self.assertEqual("", reason)
+
+    def test_history_completeness_guard_blocks_repec_gap(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            reason = history_completeness_block(
+                {
+                    "research_article_count": 6,
+                    "quality": {"repec_item_count": 30},
+                },
+                {"id": "jde"},
+                public_api=root,
+            )
+        self.assertIn("possible_incomplete_volume", reason)
+
     def test_history_completeness_guard_allows_small_real_issue(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
