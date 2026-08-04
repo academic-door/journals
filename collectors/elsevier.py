@@ -33,7 +33,10 @@ DOI_PATTERN = re.compile(r"10\.\d{4,9}/[^\s\"'<>?&#]+", re.IGNORECASE)
 PII_PATTERN = re.compile(r"S\d{15}[0-9X]", re.IGNORECASE)
 NON_RESEARCH_PATTERN = re.compile(
     r"editorial\s+board|corrigendum|correction|erratum|retraction|"
-    r"front\s*matter|back\s*matter|table\s+of\s+contents",
+    r"front\s*matter|back\s*matter|table\s+of\s+contents|"
+    r"introduction\s+to\s+(?:the\s+)?(?:special\s+)?issue\b|"
+    r"^\s*(?:an\s+)?issue\s+dedicated\s+to\b|"
+    r"^\s*introduction(?:\s*:|\s*$)",
     re.IGNORECASE,
 )
 

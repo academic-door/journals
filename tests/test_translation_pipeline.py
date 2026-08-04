@@ -348,12 +348,44 @@ class TranslationPipelineTests(unittest.TestCase):
         self.assertIn("五十万", normalized)
         self.assertEqual(_numbers(normalized), ["1975"])
 
+    def test_written_words_do_not_rewrite_source_arabic_data(self) -> None:
+        # "three-sector model" and "one-time shock" must not rewrite the
+        # Arabic data values 3/1 that already exist in the source.
+        source = (
+            "In a three-sector model, as growth declines from 3 to −1 percent, "
+            "a one-time shock of 3 percentage points lowers output by 10%."
+        )
+        translated = (
+            "在三部门模型中，随着增长从3下降到-1%，一次性冲击使3个百分点的产出下降10%。"
+        )
+        normalized = _normalize_written_number_translations(source, translated)
+        self.assertEqual(
+            _numbers(normalized),
+            ["3", "-1%", "3", "10%"],
+        )
+
+    def test_parenthesized_list_numbers_survive_normalization(self) -> None:
+        source = (
+            "Students were (1) introduced to resilience thinking, "
+            "(2) worked in groups, and (3) discussed strategies."
+        )
+        translated = "学生（1）学习了复原力思维，（2）分组工作，（3）讨论策略。"
+        normalized = _normalize_written_number_translations(source, translated)
+        self.assertEqual(_numbers(normalized), ["1", "2", "3"])
+
+    def test_quarter_year_suffix_is_not_an_invented_year(self) -> None:
+        source = "We update the database through 2025Q2, using 55 years of data."
+        translated = "我们使用55年的数据，将数据库更新至2025年第二季度。"
+        normalized = _normalize_written_number_translations(source, translated)
+        self.assertIn("2025Q2", normalized)
+        self.assertEqual(_numbers(normalized), ["55"])
+
     def test_ignores_inverse_unit_exponents_in_numeric_validation(self) -> None:
         self.assertEqual(
             _numbers("Carbon losses were 2.3 kt C year−1 and 4 USD year−1."),
             ["2.3", "4"],
         )
-        self.assertEqual(_numbers("Temperature fell to −5 degrees."), ["5"])
+        self.assertEqual(_numbers("Temperature fell to −5 degrees."), ["-5"])
 
     def test_writes_translation_cache_with_provenance(self) -> None:
         issue = {"journal_id": "test", "articles": [ARTICLE]}

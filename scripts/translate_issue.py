@@ -30,7 +30,7 @@ NUMBER_PATTERN = re.compile(
     # ``_protect_numbers``. Keep them outside this legacy numeric validator so
     # previously published translations remain backward-compatible.
     r"(?<![A-Za-z0-9_])"
-    r"(?P<number>[+-]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?%?)"
+    r"(?P<number>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?%?)"
     r"(?P<percent_word>\s+(?:percent|per\s+cent))?"
     r"(?:st|nd|rd|th|s)?"
     r"(?![A-Za-z0-9_])"
@@ -271,7 +271,7 @@ def _numbers(value: str) -> list[str]:
             continue
         if _is_identifier_number(value, match):
             continue
-        number = match.group("number")
+        number = match.group("number").replace("\u2212", "-")
         if match.group("percent_word") and not number.endswith("%"):
             number += "%"
         values.append(number)
@@ -553,11 +553,32 @@ def _normalize_written_number_translations(source: str, translated: str) -> str:
                 normalized,
                 count=1,
             )
+    quarter_match = re.search(r"\b(\d{4})\s*Q([1-4])\b", source, re.IGNORECASE)
+    if quarter_match:
+        year = quarter_match.group(1)
+        zh_quarter = {"1": "一", "2": "二", "3": "三", "4": "四"}[quarter_match.group(2)]
+        normalized, _changed = re.subn(
+            rf"(?<![\d]){year}\s*年\s*第{zh_quarter}季度",
+            f"{year}Q{quarter_match.group(2)}",
+            normalized,
+            count=1,
+        )
+    source_digit_counts = Counter(_numbers(source))
     for match in word_pattern.finditer(source):
         word = match.group(0).lower()
         value = NUMBER_WORD_VALUES[word]
+        digit_pattern = re.compile(
+            rf"(?<![\d×xX*.,%％(（]){value}(?![\d×xX*.,%％)）])"
+        )
+        if len(digit_pattern.findall(normalized)) <= source_digit_counts.get(
+            str(value), 0
+        ):
+            # The digit already exists in the source as an Arabic numeral
+            # (e.g. data value 3 in "from 3 to -1 percent"), so a written
+            # "three" elsewhere must not rewrite it.
+            continue
         normalized, _changed = re.subn(
-            rf"(?<![\d×xX*.,%％]){value}(?![\d×xX*.,%％])",
+            digit_pattern,
             NUMBER_WORDS_ZH[word],
             normalized,
             count=1,
