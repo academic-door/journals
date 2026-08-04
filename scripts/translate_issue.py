@@ -73,6 +73,13 @@ NUMBER_WORDS_ZH = {
     "eighth": "第八",
     "ninth": "第九",
     "tenth": "第十",
+    "thirty": "三十",
+    "forty": "四十",
+    "fifty": "五十",
+    "sixty": "六十",
+    "seventy": "七十",
+    "eighty": "八十",
+    "ninety": "九十",
     "hundred": "百",
     "thousand": "千",
     "million": "百万",
@@ -120,6 +127,17 @@ NUMBER_WORD_VALUES = {
         )
     )
 }
+NUMBER_WORD_VALUES.update(
+    {
+        "thirty": 30,
+        "forty": 40,
+        "fifty": 50,
+        "sixty": 60,
+        "seventy": 70,
+        "eighty": 80,
+        "ninety": 90,
+    }
+)
 NUMBER_VALUES_ZH = {
     value: NUMBER_WORDS_ZH[word]
     for word, value in NUMBER_WORD_VALUES.items()
@@ -326,7 +344,7 @@ def _protect_numbers(value: str) -> tuple[str, dict[str, str]]:
     range_pattern = re.compile(
         r"(?<![A-Za-z0-9_])"
         r"(?P<low>[+-]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
-        r"\s*[-–—]\s*"
+        r"\s*(?:[-–—]|每)\s*"
         r"(?P<high>[+-]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?%?)"
         r"(?P<percent_word>\s+(?:percent|per\s+cent))?"
         r"(?![A-Za-z0-9_])",
@@ -566,6 +584,28 @@ def _normalize_written_number_translations(source: str, translated: str) -> str:
                 normalized,
                 count=1,
             )
+    unit_word = re.search(
+        r"\b(?:a|one)\s+(thousand|million|billion)\b",
+        source,
+        flags=re.IGNORECASE,
+    )
+    if unit_word:
+        unit = unit_word.group(1).lower()
+        unit_zh = {"thousand": "一千", "million": "一百万", "billion": "十亿"}[unit]
+        unit_value = {"thousand": 1000, "million": 1000000, "billion": 1000000000}[unit]
+        unit_patterns = [rf"(?<!\d){unit_value}(?!\d)"]
+        if unit == "thousand":
+            unit_patterns.append(r"(?<!\d)1\s*千(?!\d)")
+        for unit_pattern in unit_patterns:
+            normalized, _changed = re.subn(
+                unit_pattern,
+                unit_zh,
+                normalized,
+                count=1,
+            )
+            if _changed:
+                break
+
     quarter_match = re.search(r"\b(\d{4})\s*Q([1-4])\b", source, re.IGNORECASE)
     if quarter_match:
         year = quarter_match.group(1)
@@ -966,8 +1006,13 @@ def translate_missing(
                         protect_numbers=True,
                         max_tokens=8192,
                     )
-                except (ProviderUnavailableError, TranslationError) as error:
+                except ProviderUnavailableError as error:
                     provider_availability["deepseek"] = str(error)
+                    primary_error = error
+                except TranslationError as error:
+                    # A numeric-validation failure is often a transient model
+                    # slip; retry DeepSeek on the next article instead of
+                    # condemning the whole provider for the run.
                     primary_error = error
             else:
                 primary_error = TranslationError(
