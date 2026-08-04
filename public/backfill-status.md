@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-04T21:48:35+00:00
+Updated: 2026-08-04T23:25:17+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -57,4 +57,14 @@ Updated: 2026-08-04T21:48:35+00:00
 | JDE | jde-178-c | 2026 | translation_partial |  |
 | JDE | jde-179-c | 2026 | complete |  |
 | JDE | jde-180-c | 2026 | complete |  |
-| JDE | jde-181-c | 2026 | translation_partial |  |
+| JDE | jde-181-c | 2026 | complete |  |
+| JDE | jde-182-c | 2026 | complete |  |
+| JDE | jde-183-c | 2026 | complete |  |
+| JEBO | jebo-229-c | 2025 | translation_partial |  |
+| JEBO | jebo-230-c | 2025 | complete |  |
+| JEBO | jebo-231-c | 2025 | blocked | possible_incomplete_volume: 3 articles collected vs current issue 22; needs offi |
+| JEBO | jebo-232-c | 2025 | complete |  |
+| JEBO | jebo-233-c | 2025 | complete |  |
+| JEBO | jebo-234-c | 2025 | complete |  |
+| JEBO | jebo-235-c | 2025 | translation_partial |  |
+| JEBO | jebo-236-c | 2025 | translation_partial |  |
