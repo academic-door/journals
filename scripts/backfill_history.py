@@ -354,6 +354,11 @@ def main() -> int:
     parser.add_argument("--max-issues", type=int, default=1)
     parser.add_argument("--max-translations", type=int, default=50)
     parser.add_argument(
+        "--report-json",
+        default="",
+        help="write the batch report JSON to this path for notifications",
+    )
+    parser.add_argument(
         "--max-minutes",
         type=int,
         default=0,
@@ -443,17 +448,19 @@ def main() -> int:
             updated_at=now_iso(),
         )
     update_indexes(journals, load_available_issues(journals, {}))
-    print(
-        json.dumps(
-            {
-                "results": reports,
-                "remaining_translation_budget": remaining_translations,
-                "time_budget_reached": time_budget_reached,
-            },
-            ensure_ascii=False,
-            indent=2,
+    final_report = {
+        "results": reports,
+        "remaining_translation_budget": remaining_translations,
+        "time_budget_reached": time_budget_reached,
+    }
+    if args.report_json:
+        report_path = Path(args.report_json)
+        report_path.parent.mkdir(parents=True, exist_ok=True)
+        report_path.write_text(
+            json.dumps(final_report, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
         )
-    )
+    print(json.dumps(final_report, ensure_ascii=False, indent=2))
     return 1 if any(report["result"] == "blocked" for report in reports) else 0
 
 

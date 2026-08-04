@@ -309,5 +309,30 @@ class BackfillHistoryTests(unittest.TestCase):
         fetch.assert_not_called()
 
 
+
+    def test_backfill_notify_summarizes_state_and_builds_message(self) -> None:
+        from scripts.backfill_notify import build_message, status_counts
+
+        state = {
+            "issues": {
+                "jde-172-c": {"status": "complete"},
+                "jde-175-c": {"status": "translation_partial"},
+                "jde-173-c": {"status": "blocked"},
+                "jde-174-c": {"status": ""},
+            }
+        }
+        counts = status_counts(state)
+        self.assertEqual(1, counts["complete"])
+        self.assertEqual(1, counts["translation_partial"])
+        self.assertEqual(1, counts["blocked"])
+        self.assertEqual(1, counts["pending"])
+        message = build_message(
+            counts,
+            {"results": [{"issue_id": "jde-172-c", "result": "complete"}]},
+        )
+        self.assertIn("完成 1", message["Subject"])
+        self.assertIn("jde-172-c: complete", message.get_content())
+
+
 if __name__ == "__main__":
     unittest.main()
