@@ -203,6 +203,7 @@ def _parse_repec_detail(
     authors = _normalize_authors(
         _meta(soup, "citation_authors") or _meta(soup, "author")
     )
+    publication_date = _repec_citation_date(soup)
     doi = _normalize_doi(_meta(soup, "DOI") or soup.get_text(" ", strip=True))
     if not doi and doi_template:
         item_id = _repec_item_id(item["detail_url"])
@@ -226,6 +227,7 @@ def _parse_repec_detail(
         "source_url": _official_article_url(pii, item["detail_url"]),
         "detail_url": item["detail_url"],
         "article_type": _article_type(title),
+        "publication_date": publication_date,
         "quality_flags": flags,
     }
 
@@ -431,6 +433,17 @@ def fetch_elsevier_repec_history_issue(
     if authors_complete != len(articles):
         flags.append("authors_incomplete")
     now = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    month_dates = [
+        str(article.get("publication_date", ""))
+        for article in built
+        if str(article.get("publication_date", "")).strip()
+    ]
+    if month_dates:
+        from collections import Counter
+
+        publication_date = Counter(month_dates).most_common(1)[0][0]
+    else:
+        publication_date = str(target["year"])
     return {
         "schema_version": "1.0",
         "issue_id": f"{journal_id}-{volume}-c",
@@ -438,7 +451,7 @@ def fetch_elsevier_repec_history_issue(
         "journal_name": journal_name,
         "volume": volume,
         "issue": "C",
-        "publication_date": str(target["year"]),
+        "publication_date": publication_date,
         "source_url": repec_series_url,
         "retrieved_at": now,
         "expected_article_count": len(articles),
@@ -462,6 +475,31 @@ def fetch_elsevier_repec_history_issue(
             "flags": flags,
         },
     }
+
+
+def _repec_citation_date(soup: BeautifulSoup) -> str:
+    """Return a 'Month Year' string from RePEc citation meta, or ''."""
+
+    raw = _meta(soup, "date") or _meta(soup, "citation_publication_date")
+    raw = raw.strip()
+    for pattern in ("%Y-%m-%d", "%Y-%m", "%Y"):
+        try:
+            parsed = datetime.strptime(raw[:10], pattern)
+            break
+        except ValueError:
+            continue
+    else:
+        return ""
+    if len(raw) >= 7 and raw[:4].isdigit():
+        month_names = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December",
+        ]
+        try:
+            return f"{month_names[parsed.month - 1]} {parsed.year}"
+        except IndexError:
+            return str(parsed.year)
+    return str(parsed.year)
 
 
 def _parse_official_issue(content: bytes) -> list[dict[str, Any]]:

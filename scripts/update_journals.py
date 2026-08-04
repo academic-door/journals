@@ -528,7 +528,7 @@ def archive_publication_sort_key(issue: dict[str, Any]) -> tuple[int, int, int, 
 
     raw = str(issue.get("publication_date", "")).strip()
     parsed: datetime | None = None
-    for pattern in ("%Y-%m-%d", "%Y-%m", "%B %Y", "%b %Y"):
+    for pattern in ("%Y-%m-%d", "%Y-%m", "%B %Y", "%b %Y", "%Y"):
         try:
             parsed = datetime.strptime(raw, pattern)
             break
@@ -538,6 +538,9 @@ def archive_publication_sort_key(issue: dict[str, Any]) -> tuple[int, int, int, 
         chinese = re.fullmatch(r"(\d{4})\s*年\s*(\d{1,2})\s*月", raw)
         if chinese:
             parsed = datetime(int(chinese.group(1)), int(chinese.group(2)), 1)
+    if parsed is not None and len(raw.strip()) == 4:
+        # Year-only date (e.g. RePEc without month): sort mid-year by volume.
+        parsed = parsed.replace(month=6, day=15)
     volume = int(re.sub(r"\D", "", str(issue.get("volume", ""))) or 0)
     number = int(re.sub(r"\D", "", str(issue.get("issue", ""))) or 0)
     return (
