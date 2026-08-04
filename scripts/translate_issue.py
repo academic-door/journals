@@ -187,7 +187,7 @@ def _extract_json(content: str) -> dict[str, Any]:
 IDENTIFIER_EN = re.compile(
     r"(?i)(?<![A-Za-z])"
     r"(?:study|experiment|figure|table|model|section|appendix|equation|"
-    r"hypothesis|column|row|part|step|panel|scenario|test|trial|wave|round|"
+    r"hypothesis|column|row|part|step|panel|scenario|test|trial|wave|round|stage|phase|"
     r"cohort|group|sample|survey|task|condition|session|block|version|"
     r"chapter|bill|article|act|title|clause|provision|rule|law|regulation|"
     r"specification)\s*$"
@@ -476,6 +476,22 @@ def _repair_google_artifacts(source: str, translated: str) -> str:
             count=1,
         )
 
+    source_range = re.search(
+        r"\b(\d+)\s*(?:[-–—]|每)\s*(\d+)\b", source
+    )
+    if source_range:
+        low, high = source_range.group(1), source_range.group(2)
+        # Google occasionally renders a protected range as only "-high".
+        if re.search(rf"(?<!\d)-{re.escape(high)}(?!\d)", repaired) and not re.search(
+            rf"(?<!\d){re.escape(low)}(?!\d)", repaired
+        ):
+            repaired = re.sub(
+                rf"(?<!\d)-{re.escape(high)}(?!\d)",
+                f"{low}-{high}",
+                repaired,
+                count=1,
+            )
+
     democracy_count = re.search(
         r"\bin\s+([0-9,]+)\s+democrac", source, flags=re.IGNORECASE
     )
@@ -621,7 +637,7 @@ def _normalize_written_number_translations(source: str, translated: str) -> str:
         word = match.group(0).lower()
         value = NUMBER_WORD_VALUES[word]
         digit_pattern = re.compile(
-            rf"(?<![\d×xX*.,%％(（]){value}(?![\d×xX*.,%％)）])"
+            rf"(?<![\d×xX*.,%％(（A-Za-z]){value}(?![\d×xX*.,%％)）A-Za-z])"
         )
         if len(digit_pattern.findall(normalized)) <= source_digit_counts.get(
             str(value), 0
