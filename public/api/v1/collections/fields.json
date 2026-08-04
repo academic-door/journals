@@ -3,14 +3,14 @@
   "collection_id": "fields",
   "title": "Econ Field Journals",
   "title_cn": "领域顶刊",
-  "updated_at": "2026-08-04T17:54:54+00:00",
+  "updated_at": "2026-08-04T18:04:36+00:00",
   "data_status": "degraded",
   "content_status": "complete",
   "summary": {
     "configured_journals": 36,
     "available_journals": 36,
-    "articles": 519,
-    "translated_articles": 519
+    "articles": 520,
+    "translated_articles": 520
   },
   "journals": [
     {
@@ -1945,14 +1945,14 @@
       "collections": [
         "fields"
       ],
-      "status": "ready",
+      "status": "incomplete",
       "latest_detected_issue_id": "foodpolicy-143-c",
       "latest_detected_issue_url": "/journals/api/v1/journals/foodpolicy/issues/detected.json",
       "latest_detected_issue_label": "Vol. 143",
       "latest_detected_publication_date": "September 2026",
       "latest_detected_article_count": 5,
       "latest_detected_abstracts_complete": 5,
-      "latest_detected_translations_complete": 4,
+      "latest_detected_translations_complete": 5,
       "latest_detected_content_counts": {
         "official_items": 5,
         "observed_items": 5,
@@ -1969,8 +1969,8 @@
       "latest_detected_roster_authority": "publisher-rss",
       "latest_detected_roster_transport": "sciencedirect-rss",
       "latest_detected_order_verification": "pending_official",
-      "update_state": "enriching",
-      "data_status": "healthy",
+      "update_state": "ready",
+      "data_status": "needs_attention",
       "content_status": "complete",
       "latest_issue_id": "foodpolicy-143-c",
       "latest_ready_issue_id": "foodpolicy-143-c",
@@ -1978,24 +1978,24 @@
       "latest_ready_issue_url": "/journals/api/v1/journals/foodpolicy/issues/current.json",
       "latest_issue_label": "Vol. 143",
       "publication_date": "September 2026",
-      "article_count": 4,
-      "translation_complete": 4,
+      "article_count": 5,
+      "translation_complete": 5,
       "content_counts": {
         "official_items": 5,
-        "observed_items": 4,
-        "publishable_items": 4,
-        "research_articles": 4,
+        "observed_items": 5,
+        "publishable_items": 5,
+        "research_articles": 5,
         "comments": 0,
         "short_communications": 0,
         "corrections": 0,
         "editorial_material": 0,
         "front_matter": 0,
         "other_excluded": 0,
-        "catalog_content_items": 4
+        "catalog_content_items": 5
       },
-      "roster_authority": "official-issue-page",
-      "roster_transport": "official-issue-page+browser-authorized",
-      "order_verification": "official_verified"
+      "roster_authority": "publisher-rss",
+      "roster_transport": "sciencedirect-rss",
+      "order_verification": "pending_official"
     },
     {
       "journal_id": "jaere",
