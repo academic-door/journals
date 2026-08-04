@@ -259,6 +259,7 @@ class RepecHistoryCollectorTests(unittest.TestCase):
                         "abstract_en": "Abstract one.",
                         "doi": "10.1016/j.jdeveco.2024.103001",
                         "source_url": "https://www.sciencedirect.com/science/article/pii/S0304387825000001",
+                        "publication_date": "May 2025",
                     },
                     {
                         "pii": "S0304387825000002",
@@ -267,6 +268,7 @@ class RepecHistoryCollectorTests(unittest.TestCase):
                         "abstract_en": "",
                         "doi": "",
                         "source_url": "https://www.sciencedirect.com/science/article/pii/S0304387825000002",
+                        "publication_date": "May 2025",
                     },
                     {
                         "pii": "S0304387825000003",
@@ -275,6 +277,7 @@ class RepecHistoryCollectorTests(unittest.TestCase):
                         "abstract_en": "Abstract two.",
                         "doi": "10.1016/j.jdeveco.2024.103002",
                         "source_url": "https://www.sciencedirect.com/science/article/pii/S0304387825000003",
+                        "publication_date": "May 2025",
                     },
                 ],
             ),

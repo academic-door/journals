@@ -381,7 +381,9 @@ def fetch_elsevier_repec_history_issue(
             "abstract_cn": "",
             "doi": doi,
             "source_url": source_url,
-            "publication_date": str(target["year"]),
+            "publication_date": (
+                detail.get("publication_date") or str(target["year"])
+            ),
             "sources": {
                 "issue": repec_series_url,
                 "roster": "repec-serial-page",
@@ -444,6 +446,37 @@ def fetch_elsevier_repec_history_issue(
         publication_date = Counter(month_dates).most_common(1)[0][0]
     else:
         publication_date = str(target["year"])
+    if len(publication_date) == 4 and publication_date.isdigit():
+        # RePEc citation meta is sometimes year-only; fall back to the
+        # majority month that Crossref registered for this volume.
+        from collectors.metadata_fallback import _crossref_items
+
+        try:
+            items = _crossref_items(issn, session=client, timeout=timeout)
+        except requests.RequestException:
+            items = []
+        months: list[int] = []
+        for item in items:
+            if str(item.get("volume", "")).strip() != str(volume):
+                continue
+            parts = (item.get("published-print") or {}).get("date-parts", [[]])
+            try:
+                months.append(int(parts[0][1]))
+            except (TypeError, ValueError, IndexError):
+                continue
+        if months:
+            from collections import Counter
+
+            month = Counter(months).most_common(1)[0][0]
+            month_names = [
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November",
+                "December",
+            ]
+            if 1 <= month <= 12:
+                publication_date = (
+                    f"{month_names[month - 1]} {publication_date}"
+                )
     return {
         "schema_version": "1.0",
         "issue_id": f"{journal_id}-{volume}-c",
