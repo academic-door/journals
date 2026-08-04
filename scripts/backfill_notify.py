@@ -49,6 +49,7 @@ def status_counts(state: dict[str, Any]) -> dict[str, int]:
 def build_message(
     counts: dict[str, int],
     report: dict[str, Any],
+    settings: SMTPSettings,
 ) -> EmailMessage:
     total = sum(counts.values())
     subject = (
@@ -83,6 +84,8 @@ def build_message(
     )
     message = EmailMessage()
     message["Subject"] = subject
+    message["From"] = settings.sender
+    message["To"] = ", ".join(settings.recipients)
     message.set_content("\n".join(lines))
     return message
 
@@ -95,11 +98,11 @@ def main() -> int:
 
     counts = status_counts(load_state(Path(args.state)))
     report = load_report(args.report)
-    message = build_message(counts, report)
     settings = SMTPSettings.from_environment()
     if settings is None:
         print("SMTP not configured; skip email")
         return 0
+    message = build_message(counts, report, settings)
     send_message(message, settings)
     print("email sent")
     return 0

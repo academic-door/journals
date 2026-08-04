@@ -4,6 +4,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
 from unittest.mock import patch
 
 from collectors.history import HistoricalIssue
@@ -326,12 +327,16 @@ class BackfillHistoryTests(unittest.TestCase):
         self.assertEqual(1, counts["translation_partial"])
         self.assertEqual(1, counts["blocked"])
         self.assertEqual(1, counts["pending"])
+        settings = SimpleNamespace(sender="a@example.com", recipients=("b@example.com",))
         message = build_message(
             counts,
             {"results": [{"issue_id": "jde-172-c", "result": "complete"}]},
+            settings,
         )
         self.assertIn("完成 1", message["Subject"])
         self.assertIn("jde-172-c: complete", message.get_content())
+        self.assertEqual("a@example.com", message["From"])
+        self.assertEqual("b@example.com", message["To"])
 
 
 if __name__ == "__main__":
