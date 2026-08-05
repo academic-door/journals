@@ -35,7 +35,8 @@ NON_RESEARCH_PATTERN = re.compile(
     r"editorial\s+board|corrigendum|correction|erratum|retraction|"
     r"front\s*matter|back\s*matter|table\s+of\s+contents|"
     r"^\s*(?:an\s+)?issue\s+dedicated\s+to\b|"
-    r"^\s*editorial(?:\s+to\b|\s*:|\s*$)|"
+    r"^\s*editorial(?:\s|:|$)|"
+    r"^\s*special\s+issue\b|"
     r"\bintroduction(?:\s+to\b|\s*:|\s*$)",
     re.IGNORECASE,
 )

@@ -289,7 +289,7 @@ def _numbers(value: str) -> list[str]:
             continue
         if _is_identifier_number(value, match):
             continue
-        number = match.group("number").replace("\u2212", "-")
+        number = match.group("number").replace("\u2212", "-").lstrip("+")
         if match.group("percent_word") and not number.endswith("%"):
             number += "%"
         elif (
