@@ -323,6 +323,7 @@ def run_issue(
     if (
         current_status == "blocked"
         and "possible_incomplete_volume" in current_error
+        and not _is_browser_captured_staging(staging_path(issue_ref))
     ):
         return {
             "issue_id": issue_ref.issue_id,
