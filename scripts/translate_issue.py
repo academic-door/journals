@@ -487,9 +487,11 @@ def _repair_google_artifacts(source: str, translated: str) -> str:
     if source_range:
         low, high = source_range.group(1), source_range.group(2)
         # Google occasionally renders a protected range as only "-high".
-        if re.search(rf"(?<!\d)[-\u2212]{re.escape(high)}(?!\d)", repaired) and not re.search(
-            rf"(?<!\d){re.escape(low)}(?!\d)", repaired
-        ):
+        # The low bound may legitimately appear elsewhere in the translation
+        # (e.g. "equivalent to 1000 scholars"), so only require the dangling
+        # "-high" form; a source-backed low-high range makes that form a
+        # corrupt range rendering, not a real negative number.
+        if re.search(rf"(?<!\d)[-\u2212]{re.escape(high)}(?!\d)", repaired):
             repaired = re.sub(
                 rf"(?<!\d)[-\u2212]{re.escape(high)}(?!\d)",
                 f"{low}-{high}",
