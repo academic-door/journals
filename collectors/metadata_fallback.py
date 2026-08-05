@@ -2448,7 +2448,10 @@ def fetch_elsevier_issue_via_search(
             "quality_flags": flags,
         }
 
-    built_items = [resolve(entry) for entry in entries]
+    from concurrent.futures import ThreadPoolExecutor
+
+    with ThreadPoolExecutor(max_workers=6) as pool:
+        built_items = list(pool.map(resolve, entries))
     excluded_items: list[dict[str, Any]] = []
     articles: list[dict[str, Any]] = []
     for article in built_items:
