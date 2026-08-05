@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-05T09:26:27+00:00
+Updated: 2026-08-05T10:04:28+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -45,22 +45,22 @@ Updated: 2026-08-05T09:26:27+00:00
 | GEB | geb-154-c | 2025 | complete |  |
 | GEB | geb-155-c | 2026 | complete |  |
 | GEB | geb-156-c | 2026 | complete |  |
-| GEB | geb-157-c | 2026 | translation_partial |  |
+| GEB | geb-157-c | 2026 | complete |  |
 | GEB | geb-158-c | 2026 | complete |  |
 | GEB | geb-159-c | 2026 | complete |  |
 | JDE | jde-172-c | 2025 | complete |  |
 | JDE | jde-173-c | 2025 | complete |  |
 | JDE | jde-174-c | 2025 | complete |  |
 | JDE | jde-175-c | 2025 | complete |  |
-| JDE | jde-176-c | 2025 | translation_partial |  |
+| JDE | jde-176-c | 2025 | complete |  |
 | JDE | jde-177-c | 2025 | complete |  |
-| JDE | jde-178-c | 2026 | translation_partial |  |
+| JDE | jde-178-c | 2026 | complete |  |
 | JDE | jde-179-c | 2026 | complete |  |
 | JDE | jde-180-c | 2026 | complete |  |
 | JDE | jde-181-c | 2026 | complete |  |
 | JDE | jde-182-c | 2026 | complete |  |
 | JDE | jde-183-c | 2026 | complete |  |
-| JEBO | jebo-229-c | 2025 | translation_partial |  |
+| JEBO | jebo-229-c | 2025 | complete |  |
 | JEBO | jebo-230-c | 2025 | complete |  |
 | JEBO | jebo-231-c | 2025 | blocked | possible_incomplete_volume: 3 articles collected vs current issue 22; needs offi |
 | JEBO | jebo-232-c | 2025 | complete |  |
@@ -87,7 +87,7 @@ Updated: 2026-08-05T09:26:27+00:00
 | JEEM | jeem-132-c | 2025 | complete |  |
 | JEEM | jeem-133-c | 2025 | complete |  |
 | JEEM | jeem-134-c | 2025 | complete |  |
-| JEEM | jeem-135-c | 2026 | translation_partial |  |
+| JEEM | jeem-135-c | 2026 | complete |  |
 | JEEM | jeem-136-c | 2026 | complete |  |
 | JEEM | jeem-137-c | 2026 | complete |  |
 | JEEM | jeem-138-c | 2026 | complete |  |
@@ -108,7 +108,7 @@ Updated: 2026-08-05T09:26:27+00:00
 | JET | jet-235-c | 2026 | complete |  |
 | JET | jet-236-c | 2026 | complete |  |
 | JFE | jfe-163-c | 2025 | complete |  |
-| JFE | jfe-164-c | 2025 | translation_partial |  |
+| JFE | jfe-164-c | 2025 | complete |  |
 | JFE | jfe-165-c | 2025 | blocked | possible_incomplete_volume: 1 articles collected vs current issue 17; needs offi |
 | JFE | jfe-166-c | 2025 | complete |  |
 | JFE | jfe-167-c | 2025 | complete |  |
@@ -118,3 +118,28 @@ Updated: 2026-08-05T09:26:27+00:00
 | JFE | jfe-171-c | 2025 | complete |  |
 | JFE | jfe-172-c | 2025 | complete |  |
 | JFE | jfe-173-c | 2025 | complete |  |
+| JFE | jfe-174-c | 2025 | complete |  |
+| JFE | jfe-175-c | 2026 | complete |  |
+| JFE | jfe-176-c | 2026 | complete |  |
+| JFE | jfe-177-c | 2026 | complete |  |
+| JFE | jfe-178-c | 2026 | complete |  |
+| JFE | jfe-179-c | 2026 | complete |  |
+| JFE | jfe-180-c | 2026 | complete |  |
+| JFE | jfe-181-c | 2026 | complete |  |
+| JFE | jfe-182-c | 2026 | complete |  |
+| JFE | jfe-183-c | 2026 | complete |  |
+| JFE | jfe-184-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 184/ |
+| JIE | jie-153-c | 2025 | complete |  |
+| JIE | jie-154-c | 2025 | complete |  |
+| JIE | jie-155-c | 2025 | complete |  |
+| JIE | jie-156-c | 2025 | complete |  |
+| JIE | jie-157-c | 2025 | complete |  |
+| JIE | jie-158-c | 2025 | translation_partial |  |
+| JIE | jie-159-c | 2026 | complete |  |
+| JIE | jie-160-c | 2026 | complete |  |
+| JIE | jie-161-c | 2026 | complete |  |
+| JIE | jie-162-c | 2026 | complete |  |
+| JIE | jie-163-c | 2026 | complete |  |
+| JIE | jie-164-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 164/ |
+| JME | jme-149-c | 2025 | complete |  |
+| JME | jme-150-c | 2025 | complete |  |
