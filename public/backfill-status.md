@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-05T13:27:48+00:00
+Updated: 2026-08-05T16:51:16+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -38,7 +38,7 @@ Updated: 2026-08-05T13:27:48+00:00
 | FOODPOLICY | foodpolicy-142-c | 2026 | complete |  |
 | FOODPOLICY | foodpolicy-143-c | 2026 | complete |  |
 | GEB | geb-149-c | 2025 | complete |  |
-| GEB | geb-150-c | 2025 | blocked | possible_incomplete_volume: 4 articles collected vs current issue 21; needs offi |
+| GEB | geb-150-c | 2025 | complete |  |
 | GEB | geb-151-c | 2025 | complete |  |
 | GEB | geb-152-c | 2025 | complete |  |
 | GEB | geb-153-c | 2025 | complete |  |
@@ -73,7 +73,7 @@ Updated: 2026-08-05T13:27:48+00:00
 | JEBO | jebo-239-c | 2025 | complete |  |
 | JEBO | jebo-240-c | 2025 | translation_partial |  |
 | JEBO | jebo-241-c | 2026 | complete |  |
-| JEBO | jebo-242-c | 2026 | blocked | possible_incomplete_volume: 8 articles collected vs current issue 22; needs offi |
+| JEBO | jebo-242-c | 2026 | translation_partial |  |
 | JEBO | jebo-243-c | 2026 | complete |  |
 | JEBO | jebo-244-c | 2026 | complete |  |
 | JEBO | jebo-245-c | 2026 | complete |  |
@@ -128,7 +128,7 @@ Updated: 2026-08-05T13:27:48+00:00
 | JFE | jfe-181-c | 2026 | complete |  |
 | JFE | jfe-182-c | 2026 | complete |  |
 | JFE | jfe-183-c | 2026 | complete |  |
-| JFE | jfe-184-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 184/ |
+| JFE | jfe-184-c | 2026 | translation_partial |  |
 | JIE | jie-153-c | 2025 | complete |  |
 | JIE | jie-154-c | 2025 | complete |  |
 | JIE | jie-155-c | 2025 | complete |  |
@@ -140,7 +140,7 @@ Updated: 2026-08-05T13:27:48+00:00
 | JIE | jie-161-c | 2026 | complete |  |
 | JIE | jie-162-c | 2026 | complete |  |
 | JIE | jie-163-c | 2026 | complete |  |
-| JIE | jie-164-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 164/ |
+| JIE | jie-164-c | 2026 | translation_partial |  |
 | JME | jme-149-c | 2025 | complete |  |
 | JME | jme-150-c | 2025 | complete |  |
 | JME | jme-151-c | 2025 | complete |  |
@@ -187,14 +187,14 @@ Updated: 2026-08-05T13:27:48+00:00
 | JPubE | jpube-259-c | 2026 | complete |  |
 | JPubE | jpube-260-c | 2026 | complete |  |
 | JPubE | jpube-261-c | 2026 | complete |  |
-| JPubE | jpube-262-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 262/ |
+| JPubE | jpube-262-c | 2026 | collected |  |
 | JUE | jue-145-c | 2025 | complete |  |
 | JUE | jue-146-c | 2025 | complete |  |
 | JUE | jue-147-c | 2025 | complete |  |
-| JUE | jue-148-c | 2025 | blocked | possible_incomplete_volume: 2 articles collected vs current issue 17; needs offi |
+| JUE | jue-148-c | 2025 | collected |  |
 | JUE | jue-149-c | 2025 | translation_partial |  |
 | JUE | jue-150-c | 2025 | complete |  |
-| JUE | jue-151-c | 2026 | blocked | possible_incomplete_volume: 3 articles collected vs current issue 17; needs offi |
+| JUE | jue-151-c | 2026 | collected |  |
 | JUE | jue-152-c | 2026 | complete |  |
 | JUE | jue-153-c | 2026 | complete |  |
 | JUE | jue-154-c | 2026 | complete |  |
@@ -220,8 +220,8 @@ Updated: 2026-08-05T13:27:48+00:00
 | LUP | lup-167-c | 2026 | complete |  |
 | LUP | lup-168-c | 2026 | complete |  |
 | LUP | lup-169-c | 2026 | complete |  |
-| LUP | lup-170-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 170/ |
-| LUP | lup-171-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 171/ |
+| LUP | lup-170-c | 2026 | collected |  |
+| LUP | lup-171-c | 2026 | collected |  |
 | WD | wd-185-c | 2025 | translation_partial |  |
 | WD | wd-186-c | 2025 | translation_partial |  |
 | WD | wd-187-c | 2025 | complete |  |
@@ -234,7 +234,7 @@ Updated: 2026-08-05T13:27:48+00:00
 | WD | wd-194-c | 2025 | complete |  |
 | WD | wd-195-c | 2025 | complete |  |
 | WD | wd-196-c | 2025 | complete |  |
-| WD | wd-197-c | 2026 | blocked | possible_incomplete_volume: 2 articles collected vs current issue 20; needs offi |
+| WD | wd-197-c | 2026 | collected |  |
 | WD | wd-198-c | 2026 | translation_partial |  |
 | WD | wd-199-c | 2026 | complete |  |
 | WD | wd-200-c | 2026 | complete |  |
