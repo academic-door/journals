@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-05T10:35:36+00:00
+Updated: 2026-08-05T10:53:22+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -161,4 +161,24 @@ Updated: 2026-08-05T10:35:36+00:00
 | JOE | joe-250-c | 2025 | complete |  |
 | JOE | joe-251-c | 2025 | complete |  |
 | JOE | joe-252-c | 2025 | complete |  |
-| JOE | joe-253-c | 2026 | translation_partial |  |
+| JOE | joe-253-c | 2026 | complete |  |
+| JOE | joe-254-c | 2026 | complete |  |
+| JOE | joe-255-c | 2026 | complete |  |
+| JOE | joe-256-c | 2026 | complete |  |
+| JOE | joe-257-c | 2026 | complete |  |
+| JPubE | jpube-241-c | 2025 | complete |  |
+| JPubE | jpube-242-c | 2025 | complete |  |
+| JPubE | jpube-243-c | 2025 | complete |  |
+| JPubE | jpube-244-c | 2025 | complete |  |
+| JPubE | jpube-245-c | 2025 | complete |  |
+| JPubE | jpube-246-c | 2025 | complete |  |
+| JPubE | jpube-247-c | 2025 | complete |  |
+| JPubE | jpube-248-c | 2025 | complete |  |
+| JPubE | jpube-249-c | 2025 | complete |  |
+| JPubE | jpube-250-c | 2025 | complete |  |
+| JPubE | jpube-251-c | 2025 | translation_partial |  |
+| JPubE | jpube-252-c | 2025 | complete |  |
+| JPubE | jpube-253-c | 2026 | translation_partial |  |
+| JPubE | jpube-254-c | 2026 | complete |  |
+| JPubE | jpube-255-c | 2026 | complete |  |
+| JPubE | jpube-256-c | 2026 | translation_partial |  |
