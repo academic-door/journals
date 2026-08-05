@@ -266,10 +266,17 @@ def history_completeness_block(
     size; keep it staged for a manual or browser-authorized capture instead.
     """
 
+    quality = issue.get("quality") or {}
+    if quality.get("browser_capture") or "browser-authorized" in str(
+        quality.get("roster_transport", "")
+    ):
+        # A browser-authorized snapshot is the official publisher roster;
+        # comparing it against the current issue size would wrongly block
+        # genuinely small historical volumes.
+        return ""
+
     collected_count = int(issue.get("research_article_count", 0))
-    repec_count = int(
-        (issue.get("quality") or {}).get("repec_item_count", 0)
-    )
+    repec_count = int(quality.get("repec_item_count", 0))
     if repec_count >= 5:
         # RePEc mirrors the publisher's per-volume list, so a volume that
         # collected about as many articles as RePEc lists is genuinely that
