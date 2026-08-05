@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-05T22:54:30+00:00
+Updated: 2026-08-05T23:04:39+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -191,10 +191,10 @@ Updated: 2026-08-05T22:54:30+00:00
 | JUE | jue-145-c | 2025 | complete |  |
 | JUE | jue-146-c | 2025 | complete |  |
 | JUE | jue-147-c | 2025 | complete |  |
-| JUE | jue-148-c | 2025 | blocked | possible_incomplete_volume: 2 articles collected vs current issue 17; needs offi |
+| JUE | jue-148-c | 2025 | complete |  |
 | JUE | jue-149-c | 2025 | translation_partial |  |
 | JUE | jue-150-c | 2025 | complete |  |
-| JUE | jue-151-c | 2026 | blocked | possible_incomplete_volume: 3 articles collected vs current issue 17; needs offi |
+| JUE | jue-151-c | 2026 | complete |  |
 | JUE | jue-152-c | 2026 | complete |  |
 | JUE | jue-153-c | 2026 | complete |  |
 | JUE | jue-154-c | 2026 | complete |  |
