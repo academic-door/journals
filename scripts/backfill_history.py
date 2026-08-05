@@ -464,11 +464,23 @@ def main() -> int:
 
     state_path = Path(args.state)
     state = load_json(state_path, {"schema_version": "1.0", "issues": {}})
-    pending = [
-        issue
-        for issue in plan
-        if state.get("issues", {}).get(issue.issue_id, {}).get("status") != "complete"
-    ][: args.max_issues]
+
+    def _needs_processing(issue: HistoricalIssue) -> bool:
+        entry = state.get("issues", {}).get(issue.issue_id, {})
+        if entry.get("status") != "complete":
+            return True
+        # A complete marker with no archive usually means a concurrent
+        # publisher overwrote the public tree; re-archive from staging.
+        archive = (
+            PUBLIC_API
+            / "journals"
+            / journals[issue.journal]["id"]
+            / "issues"
+            / f"{issue.issue_id}.json"
+        )
+        return not archive.exists()
+
+    pending = [issue for issue in plan if _needs_processing(issue)][: args.max_issues]
     reports: list[dict[str, Any]] = []
     remaining_translations = args.max_translations
     import time as _time
