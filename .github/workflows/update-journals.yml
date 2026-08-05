@@ -131,9 +131,15 @@ jobs:
             git rm -rf --ignore-unmatch .
           fi
 
+          # Preserve archives published by backfill workflows that the main
+          # update does not regenerate; generated files overwrite them.
+          existing_public="$RUNNER_TEMP/existing-public"
+          mkdir -p "$existing_public"
+          cp -R public/. "$existing_public/" 2>/dev/null || true
           rm -rf public data/translation-cache
           mkdir -p public
           mkdir -p data/translation-cache
+          cp -R "$existing_public"/. public/ 2>/dev/null || true
           cp -R "$generated"/. public/
           cp -R "$generated_cache"/. data/translation-cache/
           git config user.name "academic-door-bot"
