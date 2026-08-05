@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-05T06:48:53+00:00
+Updated: 2026-08-05T09:26:27+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -94,4 +94,27 @@ Updated: 2026-08-05T06:48:53+00:00
 | JEEM | jeem-139-c | 2026 | complete |  |
 | JEEM | jeem-140-c | 2026 | complete |  |
 | JET | jet-223-c | 2025 | complete |  |
-| JET | jet-224-c | 2025 | translation_partial |  |
+| JET | jet-224-c | 2025 | complete |  |
+| JET | jet-225-c | 2025 | complete |  |
+| JET | jet-226-c | 2025 | complete |  |
+| JET | jet-227-c | 2025 | complete |  |
+| JET | jet-228-c | 2025 | complete |  |
+| JET | jet-229-c | 2025 | complete |  |
+| JET | jet-230-c | 2025 | complete |  |
+| JET | jet-231-c | 2026 | complete |  |
+| JET | jet-232-c | 2026 | complete |  |
+| JET | jet-233-c | 2026 | complete |  |
+| JET | jet-234-c | 2026 | complete |  |
+| JET | jet-235-c | 2026 | complete |  |
+| JET | jet-236-c | 2026 | complete |  |
+| JFE | jfe-163-c | 2025 | complete |  |
+| JFE | jfe-164-c | 2025 | translation_partial |  |
+| JFE | jfe-165-c | 2025 | blocked | possible_incomplete_volume: 1 articles collected vs current issue 17; needs offi |
+| JFE | jfe-166-c | 2025 | complete |  |
+| JFE | jfe-167-c | 2025 | complete |  |
+| JFE | jfe-168-c | 2025 | complete |  |
+| JFE | jfe-169-c | 2025 | complete |  |
+| JFE | jfe-170-c | 2025 | complete |  |
+| JFE | jfe-171-c | 2025 | complete |  |
+| JFE | jfe-172-c | 2025 | complete |  |
+| JFE | jfe-173-c | 2025 | complete |  |
