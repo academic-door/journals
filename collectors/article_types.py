@@ -23,7 +23,9 @@ CORRECTION_PATTERN = re.compile(
 EDITORIAL_PATTERN = re.compile(
     r"editorial\s+board|editors?[’']?\s+notes?|recent\s+referees|"
     r"acknowledg(?:e)?ments?\s+of\s+referees|annual\s+report|"
-    r"^\s*editorial(?:\s*:|\s*$)",
+    r"^\s*editorial(?:\s+to\b|\s*:|\s*$)|"
+    r"^\s*(?:an\s+)?issue\s+dedicated\s+to\b|"
+    r"\bintroduction(?:\s+to\b|\s*:|\s*$)",
     re.IGNORECASE,
 )
 FRONT_MATTER_PATTERN = re.compile(

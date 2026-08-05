@@ -391,6 +391,14 @@ class TranslationPipelineTests(unittest.TestCase):
         self.assertIn("九月", normalized)
         self.assertEqual(_numbers(normalized), ["2019", "2020"])
 
+    def test_plural_studies_and_billion_amounts_are_normalized(self) -> None:
+        self.assertEqual(_numbers("explained by profile personalisation (Studies 2 and 3)"), ["3"])
+        source = "caused $20bn of deadweight loss in 2022 and 2023"
+        translated = "在2022年和2023年造成了200亿美元的净损失"
+        normalized = _normalize_written_number_translations(source, translated)
+        self.assertIn("二百亿", normalized)
+        self.assertEqual(_numbers(normalized), ["2022", "2023"])
+
     def test_ignores_inverse_unit_exponents_in_numeric_validation(self) -> None:
         self.assertEqual(
             _numbers("Carbon losses were 2.3 kt C year−1 and 4 USD year−1."),

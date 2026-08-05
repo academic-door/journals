@@ -187,7 +187,7 @@ def _extract_json(content: str) -> dict[str, Any]:
 IDENTIFIER_EN = re.compile(
     r"(?i)(?<![A-Za-z])"
     r"(?:study|experiment|figure|table|model|section|appendix|equation|"
-    r"hypothesis|column|row|part|step|panel|scenario|test|trial|wave|round|stage|phase|"
+    r"hypothesis|column|row|part|step|panel|scenario|test|trial|wave|round|stage|phase|studies|"
     r"cohort|group|sample|survey|task|condition|session|block|version|"
     r"chapter|bill|article|act|title|clause|provision|rule|law|regulation|"
     r"specification)\s*$"
@@ -537,6 +537,34 @@ def _repair_google_artifacts(source: str, translated: str) -> str:
     return repaired
 
 
+_ZH_DIGITS = "零一二三四五六七八九"
+
+
+def _zh_integer(value: int) -> str:
+    if value < 10:
+        return _ZH_DIGITS[value]
+    if value < 20:
+        return "十" + (_ZH_DIGITS[value - 10] if value > 10 else "")
+    if value < 100:
+        tens, ones = divmod(value, 10)
+        return _ZH_DIGITS[tens] + "十" + (_ZH_DIGITS[ones] if ones else "")
+    if value < 1000:
+        hundreds, rest = divmod(value, 100)
+        base = _ZH_DIGITS[hundreds] + "百"
+        if not rest:
+            return base
+        if rest < 10:
+            return base + "零" + _ZH_DIGITS[rest]
+        return base + _zh_integer(rest)
+    thousands, rest = divmod(value, 1000)
+    base = _ZH_DIGITS[thousands] + "千"
+    if not rest:
+        return base
+    if rest < 100:
+        return base + "零" + _zh_integer(rest)
+    return base + _zh_integer(rest)
+
+
 def _normalize_written_number_translations(source: str, translated: str) -> str:
     """Normalize valid Chinese renderings of English month/number words.
 
@@ -637,6 +665,20 @@ def _normalize_written_number_translations(source: str, translated: str) -> str:
             )
             if _changed:
                 break
+
+    bn_amount = re.search(r"\$?(\d+)\s*bn\b", source, flags=re.IGNORECASE)
+    if bn_amount:
+        # $20bn = 200亿; normalize the translator's 200亿 to 二百亿 so the
+        # Arabic digit does not count as an invented number.
+        amount = int(bn_amount.group(1))
+        target = amount * 10
+        if re.search(rf"(?<!\d){target}\s*亿", normalized):
+            normalized, _changed = re.subn(
+                rf"(?<!\d){target}\s*亿",
+                _zh_integer(target) + "亿",
+                normalized,
+                count=1,
+            )
 
     quarter_match = re.search(r"\b(\d{4})\s*Q([1-4])\b", source, re.IGNORECASE)
     if quarter_match:
