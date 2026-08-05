@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-05T01:15:13+00:00
+Updated: 2026-08-05T01:54:38+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -74,4 +74,24 @@ Updated: 2026-08-05T01:15:13+00:00
 | JEBO | jebo-240-c | 2025 | translation_partial |  |
 | JEBO | jebo-241-c | 2026 | complete |  |
 | JEBO | jebo-242-c | 2026 | translation_partial |  |
-| JEBO | jebo-243-c | 2026 | translation_partial |  |
+| JEBO | jebo-243-c | 2026 | complete |  |
+| JEBO | jebo-244-c | 2026 | complete |  |
+| JEBO | jebo-245-c | 2026 | complete |  |
+| JEBO | jebo-246-c | 2026 | complete |  |
+| JEBO | jebo-247-c | 2026 | complete |  |
+| JEBO | jebo-248-c | 2026 | complete |  |
+| JEBO | jebo-249-c | 2026 | complete |  |
+| JEEM | jeem-129-c | 2025 | complete |  |
+| JEEM | jeem-130-c | 2025 | complete |  |
+| JEEM | jeem-131-c | 2025 | complete |  |
+| JEEM | jeem-132-c | 2025 | complete |  |
+| JEEM | jeem-133-c | 2025 | complete |  |
+| JEEM | jeem-134-c | 2025 | complete |  |
+| JEEM | jeem-135-c | 2026 | translation_partial |  |
+| JEEM | jeem-136-c | 2026 | complete |  |
+| JEEM | jeem-137-c | 2026 | complete |  |
+| JEEM | jeem-138-c | 2026 | complete |  |
+| JEEM | jeem-139-c | 2026 | complete |  |
+| JEEM | jeem-140-c | 2026 | complete |  |
+| JET | jet-223-c | 2025 | complete |  |
+| JET | jet-224-c | 2025 | translation_partial |  |
