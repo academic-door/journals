@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-05T16:51:16+00:00
+Updated: 2026-08-05T18:04:34+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -73,7 +73,7 @@ Updated: 2026-08-05T16:51:16+00:00
 | JEBO | jebo-239-c | 2025 | complete |  |
 | JEBO | jebo-240-c | 2025 | translation_partial |  |
 | JEBO | jebo-241-c | 2026 | complete |  |
-| JEBO | jebo-242-c | 2026 | translation_partial |  |
+| JEBO | jebo-242-c | 2026 | complete |  |
 | JEBO | jebo-243-c | 2026 | complete |  |
 | JEBO | jebo-244-c | 2026 | complete |  |
 | JEBO | jebo-245-c | 2026 | complete |  |
@@ -187,14 +187,14 @@ Updated: 2026-08-05T16:51:16+00:00
 | JPubE | jpube-259-c | 2026 | complete |  |
 | JPubE | jpube-260-c | 2026 | complete |  |
 | JPubE | jpube-261-c | 2026 | complete |  |
-| JPubE | jpube-262-c | 2026 | collected |  |
+| JPubE | jpube-262-c | 2026 | translation_partial |  |
 | JUE | jue-145-c | 2025 | complete |  |
 | JUE | jue-146-c | 2025 | complete |  |
 | JUE | jue-147-c | 2025 | complete |  |
-| JUE | jue-148-c | 2025 | collected |  |
+| JUE | jue-148-c | 2025 | blocked | possible_incomplete_volume: 2 articles collected vs current issue 17; needs offi |
 | JUE | jue-149-c | 2025 | translation_partial |  |
 | JUE | jue-150-c | 2025 | complete |  |
-| JUE | jue-151-c | 2026 | collected |  |
+| JUE | jue-151-c | 2026 | blocked | possible_incomplete_volume: 3 articles collected vs current issue 17; needs offi |
 | JUE | jue-152-c | 2026 | complete |  |
 | JUE | jue-153-c | 2026 | complete |  |
 | JUE | jue-154-c | 2026 | complete |  |
@@ -220,8 +220,8 @@ Updated: 2026-08-05T16:51:16+00:00
 | LUP | lup-167-c | 2026 | complete |  |
 | LUP | lup-168-c | 2026 | complete |  |
 | LUP | lup-169-c | 2026 | complete |  |
-| LUP | lup-170-c | 2026 | collected |  |
-| LUP | lup-171-c | 2026 | collected |  |
+| LUP | lup-170-c | 2026 | translation_partial |  |
+| LUP | lup-171-c | 2026 | translation_partial |  |
 | WD | wd-185-c | 2025 | translation_partial |  |
 | WD | wd-186-c | 2025 | translation_partial |  |
 | WD | wd-187-c | 2025 | complete |  |
