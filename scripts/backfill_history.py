@@ -156,18 +156,32 @@ def collector_for_issue(
                     doi_template=journal_config.get("doi_template", ""),
                 )
             except Exception:
-                # RePEc archive may not cover the volume; fall back to the
-                # Crossref roster and let the completeness guard decide.
-                return fetch_crossref_current_issue(
-                    journal_id=journal_config["id"],
-                    journal_name=journal_config["name"],
-                    issn=str(journal_config["issn"]),
-                    current_issue_url=issue_url,
-                    target_volume=issue_ref.volume,
-                    target_issue="",
-                    output_issue="C",
-                    start_year=int(issue_ref.year) - 2,
+                # RePEc archive may not cover the volume; try the official
+                # ScienceDirect Search API roster first, then Crossref.
+                from collectors.metadata_fallback import (
+                    fetch_elsevier_issue_via_search,
                 )
+
+                try:
+                    return fetch_elsevier_issue_via_search(
+                        journal_id=journal_config["id"],
+                        journal_name=journal_config["name"],
+                        issn=str(journal_config["issn"]),
+                        volume=issue_ref.volume,
+                        issue=issue_ref.issue,
+                        official_issue_url=issue_url,
+                    )
+                except Exception:
+                    return fetch_crossref_current_issue(
+                        journal_id=journal_config["id"],
+                        journal_name=journal_config["name"],
+                        issn=str(journal_config["issn"]),
+                        current_issue_url=issue_url,
+                        target_volume=issue_ref.volume,
+                        target_issue="",
+                        output_issue="C",
+                        start_year=int(issue_ref.year) - 2,
+                    )
 
         return _collect
     raise ValueError(f"Historical backfill is not configured for {collector}")

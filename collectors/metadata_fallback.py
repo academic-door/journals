@@ -2289,3 +2289,233 @@ def fetch_crossref_current_issue(
             "flags": flags,
         },
     }
+
+
+def fetch_elsevier_issue_via_search(
+    *,
+    journal_id: str,
+    journal_name: str,
+    issn: str,
+    volume: str,
+    issue: str = "c",
+    official_issue_url: str = "",
+    session: requests.Session | None = None,
+    timeout: int = 60,
+) -> dict[str, Any]:
+    """Build one Elsevier issue from the ScienceDirect Search API roster.
+
+    RePEc/Crossref coverage of some Elsevier volumes is incomplete. The
+    ScienceDirect Search API indexes the publisher's own per-volume article
+    lists, so it is used as a roster authority for history; missing abstracts
+    are filled through the Article Metadata chain.
+    """
+
+    client = session or requests.Session()
+    api_key = os.getenv("ELSEVIER_API_KEY", "").strip()
+    inst_token = os.getenv("ELSEVIER_INST_TOKEN", "").strip()
+    if not api_key:
+        raise MetadataFallbackError("ELSEVIER_API_KEY is not configured")
+    headers = {"Accept": "application/xml", "X-ELS-APIKey": api_key}
+    if inst_token:
+        headers["X-ELS-Insttoken"] = inst_token
+
+    def search_page(cursor: str) -> ElementTree.Element | None:
+        params = {
+            "query": f"ISSN({issn}) AND VOLUME({volume})",
+            "field": "url,identifier,doi,pii,title,creator,description,coverDate",
+            "count": "100",
+            "httpAccept": "application/xml",
+            "sort": "coverDate",
+        }
+        if cursor != "*":
+            params["cursor"] = cursor
+        else:
+            params["cursor"] = "*"
+        response = client.get(
+            ELSEVIER_SEARCH_API,
+            params=params,
+            headers=headers,
+            timeout=timeout,
+        )
+        response.raise_for_status()
+        return ElementTree.fromstring(response.content)
+
+    ns = {
+        "atom": "http://www.w3.org/2005/Atom",
+        "dc": "http://purl.org/dc/elements/1.1/",
+        "prism": "http://prismstandard.org/namespaces/basic/2.0/",
+        "opensearch": "http://a9.com/-/spec/opensearch/1.1/",
+        "sci": "http://www.elsevier.com/xml/schemas/sciencedirect",
+    }
+
+    entries: list[dict[str, Any]] = []
+    cursor: str = "*"
+    seen_total = 0
+    for _ in range(20):
+        root = search_page(cursor)
+        if root is None:
+            break
+        for entry in root.findall("atom:entry", ns):
+            title = entry.findtext("dc:title", "", ns).strip()
+            doi = entry.findtext("prism:doi", "", ns).strip()
+            pii = entry.findtext("pii", "", ns).strip() or entry.findtext("sci:pii", "", ns)
+            cover_date = entry.findtext("prism:coverDate", "", ns).strip()
+            description = entry.findtext("dc:description", "", ns).strip()
+            creators = [
+                node.text.strip()
+                for node in entry.findall("dc:creator", ns)
+                if node.text and node.text.strip()
+            ]
+            if not title:
+                continue
+            entries.append(
+                {
+                    "title": title,
+                    "doi": doi,
+                    "pii": re.sub(r"[^A-Za-z0-9]", "", pii or ""),
+                    "cover_date": cover_date,
+                    "description": description,
+                    "creators": creators,
+                }
+            )
+        total = root.findtext("opensearch:totalResults", "", ns)
+        if total.isdigit():
+            seen_total = int(total)
+        next_cursor = root.findtext("opensearch:nextCursor", "", ns) or root.findtext("cursor", "", ns)
+        if not next_cursor or next_cursor == cursor or len(entries) >= max(int(total or "0"), len(entries)):
+            break
+        cursor = next_cursor
+
+    if not entries:
+        raise MetadataFallbackError(
+            f"Elsevier Search API returned no items for ISSN {issn} volume {volume}"
+        )
+
+    def resolve(entry: dict[str, Any]) -> dict[str, Any]:
+        title = entry["title"]
+        doi = entry["doi"]
+        pii = entry["pii"]
+        authors = list(entry["creators"])
+        abstract = entry["description"]
+        abstract_source = "elsevier-search-description" if abstract else ""
+        source_url = (
+            f"https://www.sciencedirect.com/science/article/pii/{pii}"
+            if pii
+            else (f"https://doi.org/{doi}" if doi else official_issue_url)
+        )
+        if not abstract and (doi or pii):
+            lookup = _elsevier_lookup(client, pii, doi=doi, timeout=timeout)
+            fetched = str(lookup.get("abstract", "")).strip()
+            if fetched:
+                abstract = fetched
+                abstract_source = str(lookup.get("source", "elsevier-api"))
+        no_abstract_notice = _is_no_abstract_notice(abstract)
+        if no_abstract_notice:
+            abstract = ""
+            abstract_source = ""
+        flags = ["title_cn_missing", "abstract_cn_missing"]
+        if not doi:
+            flags.append("doi_missing")
+        if not authors:
+            flags.append("authors_missing")
+        if not abstract:
+            flags.append("abstract_en_missing")
+        return {
+            "paper_id": f"doi:{doi}" if doi else (f"pii:{pii}" if pii else f"{journal_id}:{title}"),
+            "sequence": 0,
+            "source_sequence": 0,
+            "article_type": "comment" if no_abstract_notice else _article_type(title),
+            "title_en": title,
+            "title_cn": "",
+            "authors": authors,
+            "abstract_en": abstract,
+            "abstract_cn": "",
+            "doi": doi,
+            "source_url": source_url,
+            "publication_date": entry["cover_date"] or volume,
+            "sources": {
+                "issue": official_issue_url or ELSEVIER_SEARCH_API,
+                "roster": "elsevier-search-api",
+                "metadata": "elsevier-search-api",
+                "abstract_en": abstract_source,
+            },
+            "translation": {
+                "status": "blocked" if not abstract else "pending",
+                "provider": "",
+                "prompt_version": "",
+                "glossary_version": "1",
+            },
+            "quality_flags": flags,
+        }
+
+    built_items = [resolve(entry) for entry in entries]
+    excluded_items: list[dict[str, Any]] = []
+    articles: list[dict[str, Any]] = []
+    for article in built_items:
+        if NON_RESEARCH_PATTERN.search(article["title_en"]):
+            excluded_items.append(
+                {
+                    "title_en": article["title_en"],
+                    "reason": "non_research_title",
+                    "doi": article["doi"],
+                }
+            )
+            continue
+        article["sequence"] = len(articles) + 1
+        article["source_sequence"] = article["sequence"]
+        articles.append(article)
+
+    if not articles:
+        raise MetadataFallbackError(
+            f"Elsevier Search API volume {volume} has no publishable articles"
+        )
+    doi_values = [article["doi"] for article in articles if article["doi"]]
+    duplicate_count = len(doi_values) - len(set(doi_values))
+    abstract_complete = sum(
+        _has_abstract_or_allowed_comment(article) for article in articles
+    )
+    authors_complete = sum(bool(article["authors"]) for article in articles)
+    flags = ["translation_incomplete"]
+    if duplicate_count:
+        flags.append("duplicate_doi")
+    if abstract_complete != len(articles):
+        flags.append("abstract_en_incomplete")
+    if authors_complete != len(articles):
+        flags.append("authors_incomplete")
+
+    issue_id = f"{journal_id}-{volume}-{str(issue).lower()}"
+    return {
+        "schema_version": "1.0",
+        "issue_id": issue_id,
+        "journal_id": journal_id,
+        "journal_name": journal_name,
+        "volume": str(volume),
+        "issue": str(issue),
+        "issue_label": f"Vol. {volume}",
+        "publication_date": str(entries[0].get("cover_date") or volume),
+        "source_url": official_issue_url or ELSEVIER_SEARCH_API,
+        "retrieved_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+        "expected_article_count": len(articles),
+        "research_article_count": len(articles),
+        "status": "incomplete",
+        "publication_state": "enriching",
+        "development_sample": False,
+        "articles": articles,
+        "quality": {
+            "roster_match": True,
+            "order_preserved": True,
+            "roster_authority": "elsevier-search-api",
+            "roster_transport": "elsevier-search-api",
+            "official_item_count": len(articles) + len(excluded_items),
+            "observed_items": len(articles) + len(excluded_items),
+            "excluded_items": excluded_items,
+            "excluded_item_count": len(excluded_items),
+            "publishable_item_count": len(articles),
+            "doi_complete": len(doi_values),
+            "authors_complete": authors_complete,
+            "abstract_en_complete": abstract_complete,
+            "translation_complete": 0,
+            "duplicate_count": duplicate_count,
+            "flags": flags,
+        },
+    }
