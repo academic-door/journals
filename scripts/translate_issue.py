@@ -292,6 +292,11 @@ def _numbers(value: str) -> list[str]:
         number = match.group("number").replace("\u2212", "-")
         if match.group("percent_word") and not number.endswith("%"):
             number += "%"
+        elif (
+            not number.endswith("%")
+            and value[match.end() :].lstrip().startswith("%")
+        ):
+            number += "%"
         values.append(number)
     return values
 
@@ -482,11 +487,11 @@ def _repair_google_artifacts(source: str, translated: str) -> str:
     if source_range:
         low, high = source_range.group(1), source_range.group(2)
         # Google occasionally renders a protected range as only "-high".
-        if re.search(rf"(?<!\d)-{re.escape(high)}(?!\d)", repaired) and not re.search(
+        if re.search(rf"(?<!\d)[-\u2212]{re.escape(high)}(?!\d)", repaired) and not re.search(
             rf"(?<!\d){re.escape(low)}(?!\d)", repaired
         ):
             repaired = re.sub(
-                rf"(?<!\d)-{re.escape(high)}(?!\d)",
+                rf"(?<!\d)[-\u2212]{re.escape(high)}(?!\d)",
                 f"{low}-{high}",
                 repaired,
                 count=1,
@@ -541,8 +546,19 @@ def _normalize_written_number_translations(source: str, translated: str) -> str:
     """
 
     normalized = translated
+    month_abbreviations = {
+        "jan": "January", "feb": "February", "mar": "March", "apr": "April",
+        "may": "May", "jun": "June", "jul": "July", "aug": "August",
+        "sep": "September", "sept": "September", "oct": "October",
+        "nov": "November", "dec": "December",
+    }
     for month_index, (month, month_cn) in enumerate(MONTH_WORDS_ZH.items(), start=1):
         source_count = len(re.findall(rf"\b{month}\b", source, flags=re.IGNORECASE))
+        for alias, full in month_abbreviations.items():
+            if full.casefold() == month.casefold():
+                source_count += len(
+                    re.findall(rf"\b{re.escape(alias)}\.?\b", source, flags=re.IGNORECASE)
+                )
         for _ in range(source_count):
             normalized, changed = re.subn(
                 rf"(?<!\d){month_index}\s*月",

@@ -380,6 +380,17 @@ class TranslationPipelineTests(unittest.TestCase):
         self.assertIn("2025Q2", normalized)
         self.assertEqual(_numbers(normalized), ["55"])
 
+    def test_spaced_percent_sign_counts_as_percent(self) -> None:
+        self.assertEqual(_numbers("biased toward 0 % in each frame"), ["0%"])
+        self.assertEqual(_numbers("probability close to 0%"), ["0%"])
+
+    def test_month_abbreviations_normalize_to_chinese_months(self) -> None:
+        source = "from Sep. 2019 to Sep. 2020, we tracked all facemasks"
+        translated = "从2019年9月至2020年9月，我们跟踪了所有口罩"
+        normalized = _normalize_written_number_translations(source, translated)
+        self.assertIn("九月", normalized)
+        self.assertEqual(_numbers(normalized), ["2019", "2020"])
+
     def test_ignores_inverse_unit_exponents_in_numeric_validation(self) -> None:
         self.assertEqual(
             _numbers("Carbon losses were 2.3 kt C year−1 and 4 USD year−1."),
