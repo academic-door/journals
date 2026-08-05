@@ -63,7 +63,7 @@ NON_RESEARCH_PATTERN = re.compile(
 )
 DOI_PATTERN = re.compile(r"10\.\d{4,9}/[^\s?&#\"'<>]+", re.IGNORECASE)
 COMMENT_PATTERN = re.compile(
-    r"\ba\s+comment\b|^comment(?:\s+on)?\b|^reply(?:\s+to)?\b|:\s*(?:a\s+)?comment\s*$|:\s*reply\s*$",
+    r"\ba\s+comment\b|^comments?(?:\s+on)?\b|^reply(?:\s+to)?\b|:\s*(?:a\s+)?comments?\s*$|:\s*reply\s*$",
     re.IGNORECASE,
 )
 NO_ABSTRACT_PATTERN = re.compile(

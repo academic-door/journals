@@ -39,8 +39,8 @@ SHORT_PATTERN = re.compile(
     re.IGNORECASE,
 )
 COMMENT_PATTERN = re.compile(
-    r"\ba\s+comment\b|^\s*comment(?:\s+on)?\b|"
-    r"^\s*reply(?:\s+to)?\b|:\s*(?:a\s+)?comment\s*$|"
+    r"\ba\s+comment\b|^\s*comments?(?:\s+on)?\b|"
+    r"^\s*reply(?:\s+to)?\b|:\s*(?:a\s+)?comments?\s*$|"
     r":\s*reply\s*$|\bdiscussion\b",
     re.IGNORECASE,
 )
