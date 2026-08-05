@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-05T22:00:49+00:00
+Updated: 2026-08-05T21:35:50+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -109,7 +109,7 @@ Updated: 2026-08-05T22:00:49+00:00
 | JET | jet-236-c | 2026 | complete |  |
 | JFE | jfe-163-c | 2025 | complete |  |
 | JFE | jfe-164-c | 2025 | complete |  |
-| JFE | jfe-165-c | 2025 | complete |  |
+| JFE | jfe-165-c | 2025 | blocked | possible_incomplete_volume: 8 articles collected vs current issue 17; needs offi |
 | JFE | jfe-166-c | 2025 | complete |  |
 | JFE | jfe-167-c | 2025 | complete |  |
 | JFE | jfe-168-c | 2025 | complete |  |
