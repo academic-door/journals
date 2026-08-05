@@ -7,232 +7,15 @@
   "issue": "C",
   "publication_date": "February 2026",
   "source_url": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/242/suppl/C",
-  "retrieved_at": "2026-08-05T10:59:39+00:00",
-  "expected_article_count": 10,
-  "research_article_count": 10,
+  "retrieved_at": "2026-08-05T11:36:35+00:00",
+  "expected_article_count": 8,
+  "research_article_count": 8,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1016/j.jebo.2025.107291",
-      "sequence": 1,
-      "source_sequence": 107291,
-      "article_type": "editorial",
-      "title_en": "An introduction to the special issue on discrimination and diversity",
-      "title_cn": "",
-      "authors": [
-        "Oana Borcan",
-        "Laura Gee",
-        "Laura Harvey",
-        "Boon Han Koh",
-        "Ernesto Reuben"
-      ],
-      "abstract_en": "<p dir=\"ltr\">No abstract",
-      "abstract_cn": "",
-      "abstract_snippet_en": "",
-      "doi": "10.1016/j.jebo.2025.107291",
-      "source_url": "https://doi.org/10.1016/j.jebo.2025.107291",
-      "publication_date": "2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/242/suppl/C",
-        "roster": "crossref:issn:0167-2681",
-        "metadata": "crossref",
-        "abstract_en": "openalex",
-        "abstract_lookup": {
-          "status": "success_no_abstract",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 200,
-              "outcome": "success",
-              "rate_limit": {
-                "limit": 20000,
-                "remaining": 9883,
-                "resets_at": "2026-08-05T02:00:21+00:00",
-                "els_status": "OK"
-              }
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 400,
-              "outcome": "request_failed",
-              "rate_limit": {
-                "limit": 20000,
-                "remaining": 20000,
-                "resets_at": "2026-08-05T02:00:22+00:00",
-                "els_status": "INVALID_INPUT - Unable to translate query provided. Error=[The search contained no translatable search terms. EmptyQueryException - No translatable query terms found in field.]"
-              }
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 200,
-              "outcome": "success",
-              "rate_limit": {
-                "limit": 10000,
-                "remaining": 9941,
-                "resets_at": "2026-08-12T10:27:02+00:00",
-                "els_status": "OK"
-              }
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 200,
-              "outcome": "success",
-              "rate_limit": {
-                "limit": 10000,
-                "remaining": 9940,
-                "resets_at": "2026-08-12T10:27:02+00:00",
-                "els_status": "OK"
-              }
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 200,
-              "outcome": "success"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 200,
-              "outcome": "success"
-            }
-          ],
-          "rate_limit": {
-            "limit": 10000,
-            "remaining": 9940,
-            "resets_at": "2026-08-12T10:27:02+00:00",
-            "els_status": "OK"
-          }
-        },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jebo.2025.107291"
-      },
-      "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
-      },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jebo.2025.107359",
-      "sequence": 2,
-      "source_sequence": 107359,
-      "article_type": "editorial",
-      "title_en": "Editorial introduction to the JEBO special issue on immigration, health, and well-being",
-      "title_cn": "",
-      "authors": [
-        "Joan Madia",
-        "Catia Nicodemo",
-        "Cristina Tealdi"
-      ],
-      "abstract_en": "",
-      "abstract_cn": "",
-      "abstract_snippet_en": "",
-      "doi": "10.1016/j.jebo.2025.107359",
-      "source_url": "https://doi.org/10.1016/j.jebo.2025.107359",
-      "publication_date": "2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/242/suppl/C",
-        "roster": "crossref:issn:0167-2681",
-        "metadata": "crossref",
-        "abstract_en": "",
-        "abstract_lookup": {
-          "status": "success_no_abstract",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 200,
-              "outcome": "success",
-              "rate_limit": {
-                "limit": 20000,
-                "remaining": 9882,
-                "resets_at": "2026-08-05T02:00:21+00:00",
-                "els_status": "OK"
-              }
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 400,
-              "outcome": "request_failed",
-              "rate_limit": {
-                "limit": 20000,
-                "remaining": 20000,
-                "resets_at": "2026-08-05T02:00:22+00:00",
-                "els_status": "INVALID_INPUT - Unable to translate query provided. Error=[The search contained no translatable search terms. EmptyQueryException - No translatable query terms found in field.]"
-              }
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 200,
-              "outcome": "success",
-              "rate_limit": {
-                "limit": 10000,
-                "remaining": 9939,
-                "resets_at": "2026-08-12T10:27:02+00:00",
-                "els_status": "OK"
-              }
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 200,
-              "outcome": "success",
-              "rate_limit": {
-                "limit": 10000,
-                "remaining": 9938,
-                "resets_at": "2026-08-12T10:27:02+00:00",
-                "els_status": "OK"
-              }
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 200,
-              "outcome": "success"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 200,
-              "outcome": "success"
-            }
-          ],
-          "rate_limit": {
-            "limit": 10000,
-            "remaining": 9938,
-            "resets_at": "2026-08-12T10:27:02+00:00",
-            "els_status": "OK"
-          }
-        },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jebo.2025.107359"
-      },
-      "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
-      },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing",
-        "abstract_en_missing"
-      ],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
       "paper_id": "doi:10.1016/j.jebo.2025.107402",
-      "sequence": 3,
+      "sequence": 1,
       "source_sequence": 107402,
       "article_type": "research-article",
       "title_en": "Experimental evidence on covert bargaining markets",
@@ -262,7 +45,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 9881,
+                "remaining": 9670,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -270,7 +53,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 9881,
+            "remaining": 9670,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -295,7 +78,7 @@
     },
     {
       "paper_id": "doi:10.1016/j.jebo.2025.107408",
-      "sequence": 4,
+      "sequence": 2,
       "source_sequence": 107408,
       "article_type": "research-article",
       "title_en": "Terrorism and misperceptions: Evidence from Europe",
@@ -327,7 +110,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 9880,
+                "remaining": 9669,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -335,7 +118,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 9880,
+            "remaining": 9669,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -360,7 +143,7 @@
     },
     {
       "paper_id": "doi:10.1016/j.jebo.2025.107412",
-      "sequence": 5,
+      "sequence": 3,
       "source_sequence": 107412,
       "article_type": "research-article",
       "title_en": "Measuring the output reduction due to incentive ratcheting in the field",
@@ -391,7 +174,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 9879,
+                "remaining": 9668,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -399,7 +182,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 9879,
+            "remaining": 9668,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -424,7 +207,7 @@
     },
     {
       "paper_id": "doi:10.1016/j.jebo.2026.107413",
-      "sequence": 6,
+      "sequence": 4,
       "source_sequence": 107413,
       "article_type": "research-article",
       "title_en": "Curtailed ambition: Endogenous power shift and preventive war",
@@ -454,7 +237,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 9878,
+                "remaining": 9667,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -462,7 +245,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 9878,
+            "remaining": 9667,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -487,7 +270,7 @@
     },
     {
       "paper_id": "doi:10.1016/j.jebo.2026.107414",
-      "sequence": 7,
+      "sequence": 5,
       "source_sequence": 107414,
       "article_type": "research-article",
       "title_en": "Generative AI adoption in human creative tasks: Experimental evidence",
@@ -517,7 +300,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 9877,
+                "remaining": 9666,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -525,7 +308,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 9877,
+            "remaining": 9666,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -550,7 +333,7 @@
     },
     {
       "paper_id": "doi:10.1016/j.jebo.2026.107416",
-      "sequence": 8,
+      "sequence": 6,
       "source_sequence": 107416,
       "article_type": "research-article",
       "title_en": "Are people willing to pay to prevent natural disasters?",
@@ -580,7 +363,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 9876,
+                "remaining": 9665,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -588,7 +371,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 9876,
+            "remaining": 9665,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -613,7 +396,7 @@
     },
     {
       "paper_id": "doi:10.1016/j.jebo.2026.107418",
-      "sequence": 9,
+      "sequence": 7,
       "source_sequence": 107418,
       "article_type": "research-article",
       "title_en": "The effect of birth order on children’s time use",
@@ -644,7 +427,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 9875,
+                "remaining": 9664,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -652,7 +435,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 9875,
+            "remaining": 9664,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -677,7 +460,7 @@
     },
     {
       "paper_id": "doi:10.1016/j.jebo.2026.107431",
-      "sequence": 10,
+      "sequence": 8,
       "source_sequence": 107431,
       "article_type": "research-article",
       "title_en": "Trust in banks: Fostering (Naïve) firm-bank relationships",
@@ -708,7 +491,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 9874,
+                "remaining": 9663,
                 "resets_at": "2026-08-05T02:00:21+00:00",
                 "els_status": "OK"
               }
@@ -716,7 +499,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 9874,
+            "remaining": 9663,
             "resets_at": "2026-08-05T02:00:21+00:00",
             "els_status": "OK"
           }
@@ -747,8 +530,20 @@
     "roster_authority": "crossref-provisional",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
-    "excluded_item_count": 1,
+    "excluded_item_count": 3,
     "excluded_items": [
+      {
+        "title_en": "An introduction to the special issue on discrimination and diversity",
+        "reason": "editorial_material",
+        "doi": "10.1016/j.jebo.2025.107291",
+        "article_type": "editorial"
+      },
+      {
+        "title_en": "Editorial introduction to the JEBO special issue on immigration, health, and well-being",
+        "reason": "editorial_material",
+        "doi": "10.1016/j.jebo.2025.107359",
+        "article_type": "editorial"
+      },
       {
         "title_en": "Editorial Board",
         "reason": "editorial_material",
@@ -756,44 +551,43 @@
         "article_type": "editorial"
       }
     ],
-    "doi_complete": 10,
-    "authors_complete": 10,
-    "abstract_en_complete": 10,
+    "doi_complete": 8,
+    "authors_complete": 8,
+    "abstract_en_complete": 8,
     "translation_complete": 8,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster",
-      "translation_incomplete"
+      "crossref_provisional_roster"
     ],
     "official_item_count": 11,
-    "publishable_item_count": 10,
+    "publishable_item_count": 8,
     "content_counts": {
       "official_items": 11,
       "observed_items": 11,
-      "publishable_items": 10,
+      "publishable_items": 8,
       "research_articles": 8,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
-      "editorial_material": 1,
+      "editorial_material": 3,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 10
+      "catalog_content_items": 8
     }
   },
   "content_counts": {
     "official_items": 11,
     "observed_items": 11,
-    "publishable_items": 10,
+    "publishable_items": 8,
     "research_articles": 8,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
-    "editorial_material": 1,
+    "editorial_material": 3,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 10
+    "catalog_content_items": 8
   },
   "issue_label": "Vol. 242"
 }
