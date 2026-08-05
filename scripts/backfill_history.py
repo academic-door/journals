@@ -211,6 +211,24 @@ def update_state(
     atomic_write_json(STATE_PATH, state)
 
 
+def _is_browser_captured_staging(path: Path) -> bool:
+    """A browser-authorized snapshot is authoritative for the official roster;
+    refreshing would replace it with an incomplete RePEc/Crossref list."""
+    if not path.exists():
+        return False
+    try:
+        issue = load_json(path, {})
+    except Exception:
+        return False
+    quality = issue.get("quality", {}) or {}
+    if quality.get("browser_capture") or quality.get(
+        "browser_authorized_abstracts"
+    ):
+        return True
+    roster = str(quality.get("roster_transport", "")).lower()
+    return "browser" in roster or "browser-authorized" in roster
+
+
 def collect_or_resume(
     issue_ref: HistoricalIssue,
     journal_config: dict[str, Any],
@@ -218,7 +236,7 @@ def collect_or_resume(
     refresh: bool = False,
 ) -> dict[str, Any]:
     path = staging_path(issue_ref)
-    if path.exists() and not refresh:
+    if path.exists() and (not refresh or _is_browser_captured_staging(path)):
         return load_json(path, {})
     issue = collector_for_issue(journal_config, issue_ref)()
     if (
