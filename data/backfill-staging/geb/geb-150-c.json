@@ -4,48 +4,47 @@
   "journal_id": "geb",
   "journal_name": "Games and Economic Behavior",
   "volume": "150",
-  "issue": "C",
-  "publication_date": "February 2025",
-  "source_url": "https://ideas.repec.org/s/eee/gamebe.html",
-  "retrieved_at": "2026-08-04T19:55:30+00:00",
-  "expected_article_count": 4,
-  "research_article_count": 4,
-  "status": "ready",
+  "issue": "c",
+  "issue_label": "Vol. 150",
+  "publication_date": "March 2025",
+  "source_url": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+  "retrieved_at": "2026-08-05T14:54:17.614Z",
+  "expected_article_count": 30,
+  "research_article_count": 30,
+  "status": "incomplete",
+  "publication_state": "enriching",
+  "development_sample": false,
   "articles": [
     {
       "paper_id": "doi:10.1016/j.geb.2024.11.011",
       "sequence": 1,
-      "source_sequence": 1,
+      "source_sequence": 3,
       "article_type": "research-article",
-      "title_en": "A general characterization of the minimum price Walrasian rule with reserve prices",
-      "title_cn": "带保留价格的最低价格瓦尔拉斯规则的一般特征描述",
+      "title_en": "On strategy-proofness and the salience of single-peakedness in a private goods allotment problem",
+      "title_cn": "",
       "authors": [
-        "Yuya Wakabayashi",
-        "Ryosuke Sakai",
+        "Shurojit Chatterji",
+        "Jordi Massó",
         "Shigehiro Serizawa"
       ],
-      "abstract_en": "We consider economies consisting of arbitrary numbers of agents and objects, and study the multi-object allocation problem with monetary transfers. Each agent obtains at most one object (unit-demand), and has non-quasi-linear preferences, which accommodate income effects or nonlinear borrowing costs. The seller may derive benefit from objects. We show that on the non-quasi-linear domain, the minimum price Walrasian rule in which reserve prices are equal to the benefit the seller derives is the only rule satisfying four desirable properties; efficiency, individual rationality for the buyers, no-subsidy, and strategy-proofness. Moreover, we characterize the minimum price Walrasian rule by efficiency, overall individual rationality, and strategy-proofness.",
-      "abstract_cn": "我们考虑由任意数量的代理人和物品组成的经济体，并研究带有货币转移的多物品分配问题。每个代理人最多获得一件物品（单位需求），且具有非拟线性偏好，这可以容纳收入效应或非线性借贷成本。卖方可能从物品中获益。我们证明，在非拟线性域上，保留价格等于卖方获益的最低价格瓦尔拉斯规则是唯一满足四个理想性质的规则：效率、对买方的个体理性、无补贴和策略证明性。此外，我们通过效率、整体个体理性和策略证明性来刻画最低价格瓦尔拉斯规则。",
+      "abstract_en": "We consider strategy-proof rules operating on a rich domain of preference profiles in a set up where multiple private goods have to be assigned to a set of agents with entitlements and where preferences display satiation. We show that if the rule is in addition tops-only, same-sided and individually rational with respect to the entitlements, then the preferences in the domain have to satisfy a variant of single-peakedness (referred to as multi-dimensional single-peakedness relative to the entitlements). We also provide a converse of this main finding. It turns out that this domain coincides with the one already identified in a general set up with public goods. We relate the domain of multi-dimensional single-peaked preferences relative to the entitlements to well-known restricted domains with private goods under which non-trivial and strategy-proof rules do exist.",
+      "abstract_cn": "",
       "doi": "10.1016/j.geb.2024.11.011",
-      "source_url": "https://ideas.repec.org/a/eee/gamebe/v150y2025icp1-26.html",
-      "publication_date": "February 2025",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825624001684",
+      "publication_date": "March 2025",
       "sources": {
-        "issue": "https://ideas.repec.org/s/eee/gamebe.html",
-        "roster": "repec-serial-page",
-        "metadata": "repec-publisher-supplied",
-        "abstract_en": "repec-publisher-supplied",
-        "repec": "https://ideas.repec.org/a/eee/gamebe/v150y2025icp1-26.html"
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825624001684",
+        "abstract_en": "official-sciencedirect-issue-preview"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-04T19:55:32+00:00",
-        "source_hash": "43f3e1b393687d55dc0a24951e49bfac3e26b51ea15cff72819159a39f9fe345"
+        "status": "missing"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -56,36 +55,33 @@
     {
       "paper_id": "doi:10.1016/j.geb.2024.11.016",
       "sequence": 2,
-      "source_sequence": 2,
+      "source_sequence": 4,
       "article_type": "research-article",
-      "title_en": "Credibility of group manipulation in random assignments",
-      "title_cn": "随机分配中群体操纵的可信度",
+      "title_en": "Taming selten's horse with impulse response",
+      "title_cn": "",
       "authors": [
-        "Homa Hosseinzadeh Ranjbar",
-        "Mehdi Feizi"
+        "Tibor Neugebauer",
+        "Abdolkarim Sadrieh",
+        "Reinhard Selten c 1"
       ],
-      "abstract_en": "For the random assignment problem, we introduce the notion of collusion-proofness that happens if the rule is immune to any collusion on misreporting preferences as it is either not profitable to form or profitable to betray. We characterize collusion-proofnessand prove that an assignment rule is collusion-proof if and only if it is strategy-proof and non-bossy. Therefore, the random serial dictatorship rule is immune to any collusive agreement between agents on preference misrepresentation, though it is not (weakly) group strategy-proof. This result gives us a possibility between collusion-proofness, ex-post Pareto efficiency, and equal treatment of equals. Furthermore, we proved that a large family of strategy-proof mechanisms called rank exchange mechanisms, à la Shende and Purohit (2023), are collusion-proof but group manipulable.",
-      "abstract_cn": "针对随机分配问题，我们引入了共谋防范性的概念，当规则对任何关于虚报偏好的共谋具有免疫力时，即形成共谋无利可图或背叛共谋有利可图，则该规则具有共谋防范性。我们刻画了共谋防范性，并证明一个分配规则是共谋防范的当且仅当它是策略防范且非专断的。因此，随机序列独裁规则对任何代理人之间关于偏好虚报的共谋协议具有免疫力，尽管它并非（弱）群体策略防范。这一结果为我们提供了共谋防范性、事后帕累托效率和平等对待平等者之间的可能性。此外，我们证明了称为秩交换机制的一大类策略防范机制，即Shende和Purohit（2023）所提出的，是共谋防范的但可被群体操纵。",
+      "abstract_en": "The paper experimentally examines the predictive power of the trembling-hand perfect equilibrium concept in the three-player Game of Selten's Horse. At first sight, our data show little support of the trembling-hand perfect equilibrium and rather favor the imperfect equilibrium. We introduce deterministic impulse response trajectories that converge on the trembling-hand perfect equilibrium. The impulse response trajectories are remarkably close – closer than the trajectories from a reinforcement learning model – to the observed dynamics of the game in the short run (50 periods). The quantal response approach also converges on the trembling-hand perfect equilibrium as the error rates decline, suggesting that the trembling-hand perfect equilibrium may be reached in the long run. In the long run (up to 250 periods), however, behavior seems to settle at a non-equilibrium distribution of strategies that rather supports efficient outcomes, instead of converging to the trembling-hand perfect equilibrium.",
+      "abstract_cn": "",
       "doi": "10.1016/j.geb.2024.11.016",
-      "source_url": "https://ideas.repec.org/a/eee/gamebe/v150y2025icp27-33.html",
-      "publication_date": "February 2025",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825624001787",
+      "publication_date": "March 2025",
       "sources": {
-        "issue": "https://ideas.repec.org/s/eee/gamebe.html",
-        "roster": "repec-serial-page",
-        "metadata": "repec-publisher-supplied",
-        "abstract_en": "repec-publisher-supplied",
-        "repec": "https://ideas.repec.org/a/eee/gamebe/v150y2025icp27-33.html"
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825624001787",
+        "abstract_en": "official-sciencedirect-issue-preview"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-04T19:55:35+00:00",
-        "source_hash": "781ee4840bccc3d7c0e0e88552a0abb02b08770cd93cb04de3dab24809b07c74"
+        "status": "missing"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -96,37 +92,33 @@
     {
       "paper_id": "doi:10.1016/j.geb.2024.11.015",
       "sequence": 3,
-      "source_sequence": 3,
+      "source_sequence": 5,
       "article_type": "research-article",
-      "title_en": "When is trust robust?",
-      "title_cn": "信任何时是稳健的？",
+      "title_en": "Supermodularity and incentive reversal in teams",
+      "title_cn": "",
       "authors": [
-        "Luca Anderlini",
-        "Larry Samuelson",
-        "Daniele Terlizzese"
+        "Svetlana Boyarchenko",
+        "Dominika Machowska",
+        "Iryna Topolyan"
       ],
-      "abstract_en": "We examine an economy in which interactions are more productive if agents can trust others to refrain from cheating. Some agents are scoundrels, who cheat at every opportunity, while others cheat only if the cost of cheating, a decreasing function of the proportion of cheaters, is sufficiently low. The economy exhibits multiple equilibria. As the proportion of scoundrels in the economy declines, the high-trust equilibrium can be disrupted by arbitrarily small perturbations or by arbitrarily small infusions of low-trust agents, while the low-trust equilibrium becomes impervious to perturbations and infusions of high-trust agents. Scoundrels may thus have the effect of making trust more robust.",
-      "abstract_cn": "我们考察一个经济体，在该经济体中，如果代理人能够信任他人不进行欺骗，互动会更具生产力。一些代理人是无赖，他们抓住一切机会欺骗，而其他人仅在欺骗成本足够低时才会欺骗，该成本是欺骗者比例的递减函数。该经济体表现出多重均衡。随着经济中无赖比例下降，高信任均衡可能被任意小的扰动或任意小的低信任代理人注入所破坏，而低信任均衡则变得对扰动和高信任代理人的注入具有免疫力。因此，无赖可能具有使信任更加稳健的效果。",
+      "abstract_en": "This paper takes a new look at the issue of incentive reversal in (strategic) team games, by relying on supermodularity techniques. In a setting with no contractual possibilities, we provide minimal sufficient conditions for one or both players to supply less effort in exogenously more productive environments, at the two extremal Nash equilibria. Unlike the existing literature, the analysis does not utilize concavity and other unnecessary assumptions and explicitly takes into account existence and possible multiplicity of pure-strategy Nash equilibria. We derive respective sufficient conditions for strong and weak incentive reversal for asymmetric games under strategic complementarity and substitutability respectively. We also consider incentive reversal for a broad class of symmetric games. These parsimonious conditions allow for a more transparent intuitive interpretation of the results.",
+      "abstract_cn": "",
       "doi": "10.1016/j.geb.2024.11.015",
-      "source_url": "https://ideas.repec.org/a/eee/gamebe/v150y2025icp34-47.html",
-      "publication_date": "February 2025",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825624001775",
+      "publication_date": "March 2025",
       "sources": {
-        "issue": "https://ideas.repec.org/s/eee/gamebe.html",
-        "roster": "repec-serial-page",
-        "metadata": "repec-publisher-supplied",
-        "abstract_en": "repec-publisher-supplied",
-        "repec": "https://ideas.repec.org/a/eee/gamebe/v150y2025icp34-47.html"
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825624001775",
+        "abstract_en": "official-sciencedirect-issue-preview"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-04T19:55:37+00:00",
-        "source_hash": "0c4e95427ee1302086691d2e95463e3010b1eaaef104949bb44e794424427768"
+        "status": "missing"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -137,37 +129,987 @@
     {
       "paper_id": "doi:10.1016/j.geb.2024.11.017",
       "sequence": 4,
-      "source_sequence": 4,
+      "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "On strategy-proofness and the salience of single-peakedness in a private goods allotment problem",
-      "title_cn": "论策略性证明与私有物品分配问题中单峰性的显著性",
+      "title_cn": "",
       "authors": [
         "Shurojit Chatterji",
         "Jordi Massó",
         "Shigehiro Serizawa"
       ],
       "abstract_en": "We consider strategy-proof rules operating on a rich domain of preference profiles in a set up where multiple private goods have to be assigned to a set of agents with entitlements and where preferences display satiation. We show that if the rule is in addition tops-only, same-sided and individually rational with respect to the entitlements, then the preferences in the domain have to satisfy a variant of single-peakedness (referred to as multi-dimensional single-peakedness relative to the entitlements). We also provide a converse of this main finding. It turns out that this domain coincides with the one already identified in a general set up with public goods. We relate the domain of multi-dimensional single-peaked preferences relative to the entitlements to well-known restricted domains with private goods under which non-trivial and strategy-proof rules do exist.",
-      "abstract_cn": "我们考虑在多个私有物品必须分配给一组具有权利的代理人且偏好表现出饱和性的设置中，作用于丰富偏好域上的策略性证明规则。我们表明，如果该规则还满足仅依赖于顶部、同侧性以及相对于权利的个人理性，那么该域中的偏好必须满足单峰性的一种变体（称为相对于权利的多维单峰性）。我们还提供了这一主要发现的逆命题。结果表明，该域与在公共物品的一般设置中已经识别的域一致。我们将相对于权利的多维单峰偏好域与已知的私有物品受限域联系起来，在这些域中，非平凡且策略性证明的规则确实存在。",
+      "abstract_cn": "",
       "doi": "10.1016/j.geb.2024.11.017",
-      "source_url": "https://ideas.repec.org/a/eee/gamebe/v150y2025icp48-70.html",
-      "publication_date": "February 2025",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825624001799",
+      "publication_date": "March 2025",
       "sources": {
-        "issue": "https://ideas.repec.org/s/eee/gamebe.html",
-        "roster": "repec-serial-page",
-        "metadata": "repec-publisher-supplied",
-        "abstract_en": "repec-publisher-supplied",
-        "repec": "https://ideas.repec.org/a/eee/gamebe/v150y2025icp48-70.html"
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825624001799",
+        "abstract_en": "official-sciencedirect-issue-preview"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-04T19:55:40+00:00",
-        "source_hash": "026d2e89fb9c1727346799b367d623152111cd90c6098fadfdd09f57c89e5e5c"
+        "status": "missing"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.geb.2024.11.014",
+      "sequence": 5,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Taming selten's horse with impulse response",
+      "title_cn": "",
+      "authors": [
+        "Tibor Neugebauer",
+        "Abdolkarim Sadrieh",
+        "Reinhard Selten c 1"
+      ],
+      "abstract_en": "The paper experimentally examines the predictive power of the trembling-hand perfect equilibrium concept in the three-player Game of Selten's Horse. At first sight, our data show little support of the trembling-hand perfect equilibrium and rather favor the imperfect equilibrium. We introduce deterministic impulse response trajectories that converge on the trembling-hand perfect equilibrium. The impulse response trajectories are remarkably close – closer than the trajectories from a reinforcement learning model – to the observed dynamics of the game in the short run (50 periods). The quantal response approach also converges on the trembling-hand perfect equilibrium as the error rates decline, suggesting that the trembling-hand perfect equilibrium may be reached in the long run. In the long run (up to 250 periods), however, behavior seems to settle at a non-equilibrium distribution of strategies that rather supports efficient outcomes, instead of converging to the trembling-hand perfect equilibrium.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.geb.2024.11.014",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825624001763",
+      "publication_date": "March 2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825624001763",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.geb.2024.12.001",
+      "sequence": 6,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Supermodularity and incentive reversal in teams",
+      "title_cn": "",
+      "authors": [
+        "Svetlana Boyarchenko",
+        "Dominika Machowska",
+        "Iryna Topolyan"
+      ],
+      "abstract_en": "This paper takes a new look at the issue of incentive reversal in (strategic) team games, by relying on supermodularity techniques. In a setting with no contractual possibilities, we provide minimal sufficient conditions for one or both players to supply less effort in exogenously more productive environments, at the two extremal Nash equilibria. Unlike the existing literature, the analysis does not utilize concavity and other unnecessary assumptions and explicitly takes into account existence and possible multiplicity of pure-strategy Nash equilibria. We derive respective sufficient conditions for strong and weak incentive reversal for asymmetric games under strategic complementarity and substitutability respectively. We also consider incentive reversal for a broad class of symmetric games. These parsimonious conditions allow for a more transparent intuitive interpretation of the results.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.geb.2024.12.001",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825624001829",
+      "publication_date": "March 2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825624001829",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.geb.2024.11.019",
+      "sequence": 7,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "Efficient public good provision between and within groups",
+      "title_cn": "",
+      "authors": [
+        "Chowdhury Mohammad Sakib Anwar",
+        "Jorge Bruno",
+        "Renaud Foucart",
+        "Sonali SenGupta"
+      ],
+      "abstract_en": "We generalize the model of Gallice and Monzón (2019) to incorporate a public goods game with groups, position uncertainty, and observational learning. Contributions are simultaneous within groups, but groups play sequentially based on their observation of an incomplete sample of past contributions. We show that full cooperation between and within groups is possible with self-interested players on a fixed horizon. Position uncertainty implies the existence of an equilibrium where groups of players conditionally cooperate in the hope of influencing further groups. Conditional cooperation implies that each group member is pivotal, so that efficient simultaneous provision within groups is an equilibrium.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.geb.2024.11.019",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825624001817",
+      "publication_date": "March 2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825624001817",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.geb.2024.11.018",
+      "sequence": 8,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "Asymptotic full revelation in cheap talk with many senders",
+      "title_cn": "",
+      "authors": [
+        "Oleg Rubanov"
+      ],
+      "abstract_en": "I construct an equilibrium in a cheap talk game with multiple senders that converges to full revelation exponentially fast as the number of senders increases. The senders' biases can be relatively large (comparable to the size of the state space) and have any signs. The equilibrium is robust to replacement noise and exists even if the senders can send only two types of messages.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.geb.2024.11.018",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825624001805",
+      "publication_date": "March 2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825624001805",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.geb.2024.12.004",
+      "sequence": 9,
+      "source_sequence": 11,
+      "article_type": "research-article",
+      "title_en": "Endogenous network formation in local public goods: An experimental analysis",
+      "title_cn": "",
+      "authors": [
+        "Ying Chen",
+        "Tom Lane",
+        "Stuart McDonald"
+      ],
+      "abstract_en": "We experimentally explore public good production levels and the endogenous formation of network structures to facilitate output sharing among agents with heterogeneous production costs and consumption valuations. Results corroborate the key theoretical insights of Kinateder and Merlino (2017) characterizing how agents form core-periphery networks. However, subjects often produce more and form denser networks than predicted, which sometimes reduces efficiency. There is some tendency for behaviour to converge towards the theoretical equilibrium over repeated play. Our results help us understand the emergence of the law of the few in real-world networks, and suggest it is driven by endogenous sorting of heterogeneous agents.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.geb.2024.12.004",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825624001908",
+      "publication_date": "March 2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825624001908",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.geb.2024.12.006",
+      "sequence": 10,
+      "source_sequence": 12,
+      "article_type": "research-article",
+      "title_en": "Efficient public good provision between and within groups",
+      "title_cn": "",
+      "authors": [
+        "Chowdhury Mohammad Sakib Anwar",
+        "Jorge Bruno",
+        "Renaud Foucart",
+        "Sonali SenGupta"
+      ],
+      "abstract_en": "We generalize the model of Gallice and Monzón (2019) to incorporate a public goods game with groups, position uncertainty, and observational learning. Contributions are simultaneous within groups, but groups play sequentially based on their observation of an incomplete sample of past contributions. We show that full cooperation between and within groups is possible with self-interested players on a fixed horizon. Position uncertainty implies the existence of an equilibrium where groups of players conditionally cooperate in the hope of influencing further groups. Conditional cooperation implies that each group member is pivotal, so that efficient simultaneous provision within groups is an equilibrium.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.geb.2024.12.006",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825624001933",
+      "publication_date": "March 2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825624001933",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.geb.2024.12.005",
+      "sequence": 11,
+      "source_sequence": 13,
+      "article_type": "research-article",
+      "title_en": "Asymptotic full revelation in cheap talk with many senders",
+      "title_cn": "",
+      "authors": [
+        "Oleg Rubanov"
+      ],
+      "abstract_en": "I construct an equilibrium in a cheap talk game with multiple senders that converges to full revelation exponentially fast as the number of senders increases. The senders' biases can be relatively large (comparable to the size of the state space) and have any signs. The equilibrium is robust to replacement noise and exists even if the senders can send only two types of messages.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.geb.2024.12.005",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825624001921",
+      "publication_date": "March 2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825624001921",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.geb.2024.10.004",
+      "sequence": 12,
+      "source_sequence": 14,
+      "article_type": "research-article",
+      "title_en": "Endogenous network formation in local public goods: An experimental analysis",
+      "title_cn": "",
+      "authors": [
+        "Ying Chen",
+        "Tom Lane",
+        "Stuart McDonald"
+      ],
+      "abstract_en": "We experimentally explore public good production levels and the endogenous formation of network structures to facilitate output sharing among agents with heterogeneous production costs and consumption valuations. Results corroborate the key theoretical insights of Kinateder and Merlino (2017) characterizing how agents form core-periphery networks. However, subjects often produce more and form denser networks than predicted, which sometimes reduces efficiency. There is some tendency for behaviour to converge towards the theoretical equilibrium over repeated play. Our results help us understand the emergence of the law of the few in real-world networks, and suggest it is driven by endogenous sorting of heterogeneous agents.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.geb.2024.10.004",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825624001507",
+      "publication_date": "March 2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825624001507",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.geb.2024.12.003",
+      "sequence": 13,
+      "source_sequence": 15,
+      "article_type": "research-article",
+      "title_en": "Foundation and identification of multi-attribute Shannon entropy",
+      "title_cn": "",
+      "authors": [
+        "David Walker-Jones"
+      ],
+      "abstract_en": "By weakening Shannon's original axioms to allow for attributes of the choice environment to differ in their associated learning costs, this paper provides an axiomatic foundation for Multi-Attribute Shannon Entropy, a natural multi-parameter generalization of Shannon Entropy. Sufficient conditions are also provided for a simple dataset that provides a closed-form solution for the Multi-Attribute Shannon Entropy cost function for information by analyzing stochastic choice data produced by a rationally inattentive agent that is picking between pairs of options when relatively few states of the world have a positive probability of being realized.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.geb.2024.12.003",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S089982562400191X",
+      "publication_date": "March 2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S089982562400191X",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.geb.2024.12.007",
+      "sequence": 14,
+      "source_sequence": 16,
+      "article_type": "research-article",
+      "title_en": "NoteOptimal contracts under interpersonal projection",
+      "title_cn": "",
+      "authors": [
+        "Kimiyuki Morita",
+        "Akitoshi Muramoto",
+        "Takeharu Sogo c 1"
+      ],
+      "abstract_en": "We study a moral hazard model where multiple agents exhibit interpersonal projection bias, perceiving their peers' production states as similar to their own. Each agent's production state is private information. We characterize optimal contracts with limited liability that induce effort from agents in a production state better than a given cutoff. When the cutoff is sufficiently low (high), relative (resp. joint) performance evaluation is optimal if individual outcomes are contractible despite the absence of common shocks and informational or technological externalities. By exploiting agents' biases, the principal reduces expected wages. However, if only joint outcomes are contractible, optimal wages may increase with the degree of projection bias.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.geb.2024.12.007",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825624001945",
+      "publication_date": "March 2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825624001945",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.geb.2025.01.001",
+      "sequence": 15,
+      "source_sequence": 17,
+      "article_type": "research-article",
+      "title_en": "Occupational segregation in a Roy model with composition preferences",
+      "title_cn": "",
+      "authors": [
+        "Haoning Chen",
+        "Miaomiao Dong",
+        "Marc Henry",
+        "Ivan Sidorov"
+      ],
+      "abstract_en": "We propose a model of labor market sector self-selection that combines comparative advantage, as in the Roy model, and sector composition preference. Two groups choose between two sectors based on heterogeneous potential incomes and group compositions in each sector. Potential incomes incorporate group specific human capital accumulation and wage discrimination. Composition preferences are interpreted as reflecting group specific amenity preferences as well as homophily and aversion to minority status. We show that occupational segregation is amplified by the composition preferences and we highlight a resulting tension between redistribution and diversity. The model also exhibits tipping from extreme compositions to more balanced ones. Tipping occurs when a small nudge, associated with affirmative action, pushes the system to a very different equilibrium, and when the set of equilibria changes abruptly when a parameter governing the relative importance of pecuniary and composition preferences crosses a threshold.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.geb.2025.01.001",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S089982562500003X",
+      "publication_date": "March 2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S089982562500003X",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.geb.2024.12.008",
+      "sequence": 16,
+      "source_sequence": 18,
+      "article_type": "research-article",
+      "title_en": "Foundation and identification of multi-attribute Shannon entropy",
+      "title_cn": "",
+      "authors": [
+        "David Walker-Jones"
+      ],
+      "abstract_en": "By weakening Shannon's original axioms to allow for attributes of the choice environment to differ in their associated learning costs, this paper provides an axiomatic foundation for Multi-Attribute Shannon Entropy, a natural multi-parameter generalization of Shannon Entropy. Sufficient conditions are also provided for a simple dataset that provides a closed-form solution for the Multi-Attribute Shannon Entropy cost function for information by analyzing stochastic choice data produced by a rationally inattentive agent that is picking between pairs of options when relatively few states of the world have a positive probability of being realized.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.geb.2024.12.008",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825625000016",
+      "publication_date": "March 2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825625000016",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.geb.2025.01.003",
+      "sequence": 17,
+      "source_sequence": 19,
+      "article_type": "research-article",
+      "title_en": "NoteOptimal contracts under interpersonal projection",
+      "title_cn": "",
+      "authors": [
+        "Kimiyuki Morita",
+        "Akitoshi Muramoto",
+        "Takeharu Sogo c 1"
+      ],
+      "abstract_en": "We study a moral hazard model where multiple agents exhibit interpersonal projection bias, perceiving their peers' production states as similar to their own. Each agent's production state is private information. We characterize optimal contracts with limited liability that induce effort from agents in a production state better than a given cutoff. When the cutoff is sufficiently low (high), relative (resp. joint) performance evaluation is optimal if individual outcomes are contractible despite the absence of common shocks and informational or technological externalities. By exploiting agents' biases, the principal reduces expected wages. However, if only joint outcomes are contractible, optimal wages may increase with the degree of projection bias.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.geb.2025.01.003",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825625000053",
+      "publication_date": "March 2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825625000053",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.geb.2025.01.002",
+      "sequence": 18,
+      "source_sequence": 20,
+      "article_type": "research-article",
+      "title_en": "Occupational segregation in a Roy model with composition preferences",
+      "title_cn": "",
+      "authors": [
+        "Haoning Chen",
+        "Miaomiao Dong",
+        "Marc Henry",
+        "Ivan Sidorov"
+      ],
+      "abstract_en": "We propose a model of labor market sector self-selection that combines comparative advantage, as in the Roy model, and sector composition preference. Two groups choose between two sectors based on heterogeneous potential incomes and group compositions in each sector. Potential incomes incorporate group specific human capital accumulation and wage discrimination. Composition preferences are interpreted as reflecting group specific amenity preferences as well as homophily and aversion to minority status. We show that occupational segregation is amplified by the composition preferences and we highlight a resulting tension between redistribution and diversity. The model also exhibits tipping from extreme compositions to more balanced ones. Tipping occurs when a small nudge, associated with affirmative action, pushes the system to a very different equilibrium, and when the set of equilibria changes abruptly when a parameter governing the relative importance of pecuniary and composition preferences crosses a threshold.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.geb.2025.01.002",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825625000041",
+      "publication_date": "March 2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825625000041",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.geb.2025.01.006",
+      "sequence": 19,
+      "source_sequence": 21,
+      "article_type": "research-article",
+      "title_en": "Foundation and identification of multi-attribute Shannon entropy",
+      "title_cn": "",
+      "authors": [
+        "David Walker-Jones"
+      ],
+      "abstract_en": "By weakening Shannon's original axioms to allow for attributes of the choice environment to differ in their associated learning costs, this paper provides an axiomatic foundation for Multi-Attribute Shannon Entropy, a natural multi-parameter generalization of Shannon Entropy. Sufficient conditions are also provided for a simple dataset that provides a closed-form solution for the Multi-Attribute Shannon Entropy cost function for information by analyzing stochastic choice data produced by a rationally inattentive agent that is picking between pairs of options when relatively few states of the world have a positive probability of being realized.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.geb.2025.01.006",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825625000077",
+      "publication_date": "March 2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825625000077",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.geb.2025.01.009",
+      "sequence": 20,
+      "source_sequence": 22,
+      "article_type": "short-communication",
+      "title_en": "NoteOptimal contracts under interpersonal projection",
+      "title_cn": "",
+      "authors": [
+        "Kimiyuki Morita",
+        "Akitoshi Muramoto",
+        "Takeharu Sogo c 1"
+      ],
+      "abstract_en": "We study a moral hazard model where multiple agents exhibit interpersonal projection bias, perceiving their peers' production states as similar to their own. Each agent's production state is private information. We characterize optimal contracts with limited liability that induce effort from agents in a production state better than a given cutoff. When the cutoff is sufficiently low (high), relative (resp. joint) performance evaluation is optimal if individual outcomes are contractible despite the absence of common shocks and informational or technological externalities. By exploiting agents' biases, the principal reduces expected wages. However, if only joint outcomes are contractible, optimal wages may increase with the degree of projection bias.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.geb.2025.01.009",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825625000132",
+      "publication_date": "March 2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825625000132",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.geb.2025.01.010",
+      "sequence": 21,
+      "source_sequence": 23,
+      "article_type": "research-article",
+      "title_en": "Occupational segregation in a Roy model with composition preferences",
+      "title_cn": "",
+      "authors": [
+        "Haoning Chen",
+        "Miaomiao Dong",
+        "Marc Henry",
+        "Ivan Sidorov"
+      ],
+      "abstract_en": "We propose a model of labor market sector self-selection that combines comparative advantage, as in the Roy model, and sector composition preference. Two groups choose between two sectors based on heterogeneous potential incomes and group compositions in each sector. Potential incomes incorporate group specific human capital accumulation and wage discrimination. Composition preferences are interpreted as reflecting group specific amenity preferences as well as homophily and aversion to minority status. We show that occupational segregation is amplified by the composition preferences and we highlight a resulting tension between redistribution and diversity. The model also exhibits tipping from extreme compositions to more balanced ones. Tipping occurs when a small nudge, associated with affirmative action, pushes the system to a very different equilibrium, and when the set of equilibria changes abruptly when a parameter governing the relative importance of pecuniary and composition preferences crosses a threshold.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.geb.2025.01.010",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825625000107",
+      "publication_date": "March 2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825625000107",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.geb.2025.01.012",
+      "sequence": 22,
+      "source_sequence": 24,
+      "article_type": "correction",
+      "title_en": "Corrigendum to: “Ridge distributions and information design in simultaneous all-pay auction contests”",
+      "title_cn": "",
+      "authors": [
+        "Zhonghong Kuang",
+        "Hangcheng Zhao",
+        "Jie Zheng"
+      ],
+      "abstract_en": "Two privately informed contestants compete in a contest, and the organizer ex-ante designs a public anonymous disclosure policy to maximize the contestants’ total effort. We fully characterize ridge distributions, under which the organizer achieves the first-best outcome in equilibrium: the allocation is efficient, and the entire surplus goes to the organizer. When the prior is a mixture of a ridge distribution and a perfectly correlated distribution, the first-best outcome is achievable by a signal that solely generates ridge distributions as posteriors.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.geb.2025.01.012",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825625000120",
+      "publication_date": "March 2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825625000120",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.geb.2025.01.007",
+      "sequence": 23,
+      "source_sequence": 25,
+      "article_type": "research-article",
+      "title_en": "On a mechanism that improves efficiency and reduces inequality in voluntary contribution games",
+      "title_cn": "",
+      "authors": [
+        "Rod Falvey",
+        "Tom Lane b",
+        "Shravan Luckraz d"
+      ],
+      "abstract_en": "We consider the class of linear voluntary contribution games under the general assumption of heterogeneous endowments. In this context, we generalize the Galbraith Mechanism (GM) and assess its performance relative to a fixed equal sharing allocation in both theory and experiments. Three main empirical results emerge. First, the GM raises average contributions significantly above those under an equal-shares allocation. Second, the GM simultaneously reduces income inequality as it improves efficiency. Third, a player's contribution and allocation behavior is sensitive to her position in the endowment distribution. In all their decision-making, agents consistently place greater emphasis on absolute contribution levels when they are rich, and on contribution ratios (contributions relative to endowments) when they are poor.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.geb.2025.01.007",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825625000089",
+      "publication_date": "March 2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825625000089",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.geb.2025.02.002",
+      "sequence": 24,
+      "source_sequence": 26,
+      "article_type": "research-article",
+      "title_en": "The limits of identification in discrete choice",
+      "title_cn": "",
+      "authors": [
+        "Christopher P. Chambers",
+        "Christopher Turansick"
+      ],
+      "abstract_en": "This paper uncovers tight bounds on the number of preferences permissible in identified random utility models. We show that as the number of alternatives in a discrete choice model becomes large, the fraction of preferences admissible in an identified model rapidly tends to zero. We propose a novel sufficient condition ensuring identification, which is strictly weaker than some of those existing in the literature. While this sufficient condition reaches our upper bound, an example demonstrates that this condition is not necessary for identification. Using our new condition, we show that the classic “Latin Square” example from social choice theory is identified from stochastic choice data.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.geb.2025.02.002",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825625000144",
+      "publication_date": "March 2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825625000144",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.geb.2025.02.003",
+      "sequence": 25,
+      "source_sequence": 27,
+      "article_type": "correction",
+      "title_en": "Corrigendum to: “Ridge distributions and information design in simultaneous all-pay auction contests”",
+      "title_cn": "",
+      "authors": [
+        "Zhonghong Kuang",
+        "Hangcheng Zhao",
+        "Jie Zheng"
+      ],
+      "abstract_en": "Two privately informed contestants compete in a contest, and the organizer ex-ante designs a public anonymous disclosure policy to maximize the contestants’ total effort. We fully characterize ridge distributions, under which the organizer achieves the first-best outcome in equilibrium: the allocation is efficient, and the entire surplus goes to the organizer. When the prior is a mixture of a ridge distribution and a perfectly correlated distribution, the first-best outcome is achievable by a signal that solely generates ridge distributions as posteriors.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.geb.2025.02.003",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825625000168",
+      "publication_date": "March 2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825625000168",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.geb.2025.01.004",
+      "sequence": 26,
+      "source_sequence": 28,
+      "article_type": "short-communication",
+      "title_en": "On a mechanism that improves efficiency and reduces inequality in voluntary contribution games",
+      "title_cn": "",
+      "authors": [
+        "Rod Falvey",
+        "Tom Lane b",
+        "Shravan Luckraz d"
+      ],
+      "abstract_en": "We consider the class of linear voluntary contribution games under the general assumption of heterogeneous endowments. In this context, we generalize the Galbraith Mechanism (GM) and assess its performance relative to a fixed equal sharing allocation in both theory and experiments. Three main empirical results emerge. First, the GM raises average contributions significantly above those under an equal-shares allocation. Second, the GM simultaneously reduces income inequality as it improves efficiency. Third, a player's contribution and allocation behavior is sensitive to her position in the endowment distribution. In all their decision-making, agents consistently place greater emphasis on absolute contribution levels when they are rich, and on contribution ratios (contributions relative to endowments) when they are poor.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.geb.2025.01.004",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825625000028",
+      "publication_date": "March 2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825625000028",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.geb.2025.02.005",
+      "sequence": 27,
+      "source_sequence": 29,
+      "article_type": "research-article",
+      "title_en": "The limits of identification in discrete choice",
+      "title_cn": "",
+      "authors": [
+        "Christopher P. Chambers",
+        "Christopher Turansick"
+      ],
+      "abstract_en": "This paper uncovers tight bounds on the number of preferences permissible in identified random utility models. We show that as the number of alternatives in a discrete choice model becomes large, the fraction of preferences admissible in an identified model rapidly tends to zero. We propose a novel sufficient condition ensuring identification, which is strictly weaker than some of those existing in the literature. While this sufficient condition reaches our upper bound, an example demonstrates that this condition is not necessary for identification. Using our new condition, we show that the classic “Latin Square” example from social choice theory is identified from stochastic choice data.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.geb.2025.02.005",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825625000181",
+      "publication_date": "March 2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825625000181",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.geb.2025.02.001",
+      "sequence": 28,
+      "source_sequence": 30,
+      "article_type": "correction",
+      "title_en": "Corrigendum to: “Ridge distributions and information design in simultaneous all-pay auction contests”",
+      "title_cn": "",
+      "authors": [
+        "Zhonghong Kuang",
+        "Hangcheng Zhao",
+        "Jie Zheng"
+      ],
+      "abstract_en": "Two privately informed contestants compete in a contest, and the organizer ex-ante designs a public anonymous disclosure policy to maximize the contestants’ total effort. We fully characterize ridge distributions, under which the organizer achieves the first-best outcome in equilibrium: the allocation is efficient, and the entire surplus goes to the organizer. When the prior is a mixture of a ridge distribution and a perfectly correlated distribution, the first-best outcome is achievable by a signal that solely generates ridge distributions as posteriors.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.geb.2025.02.001",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825625000156",
+      "publication_date": "March 2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825625000156",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.geb.2025.01.011",
+      "sequence": 29,
+      "source_sequence": 31,
+      "article_type": "research-article",
+      "title_en": "On a mechanism that improves efficiency and reduces inequality in voluntary contribution games",
+      "title_cn": "",
+      "authors": [
+        "Rod Falvey",
+        "Tom Lane b",
+        "Shravan Luckraz d"
+      ],
+      "abstract_en": "We consider the class of linear voluntary contribution games under the general assumption of heterogeneous endowments. In this context, we generalize the Galbraith Mechanism (GM) and assess its performance relative to a fixed equal sharing allocation in both theory and experiments. Three main empirical results emerge. First, the GM raises average contributions significantly above those under an equal-shares allocation. Second, the GM simultaneously reduces income inequality as it improves efficiency. Third, a player's contribution and allocation behavior is sensitive to her position in the endowment distribution. In all their decision-making, agents consistently place greater emphasis on absolute contribution levels when they are rich, and on contribution ratios (contributions relative to endowments) when they are poor.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.geb.2025.01.011",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825625000119",
+      "publication_date": "March 2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825625000119",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.geb.2025.02.006",
+      "sequence": 30,
+      "source_sequence": 32,
+      "article_type": "research-article",
+      "title_en": "The limits of identification in discrete choice",
+      "title_cn": "",
+      "authors": [
+        "Christopher P. Chambers",
+        "Christopher Turansick"
+      ],
+      "abstract_en": "This paper uncovers tight bounds on the number of preferences permissible in identified random utility models. We show that as the number of alternatives in a discrete choice model becomes large, the fraction of preferences admissible in an identified model rapidly tends to zero. We propose a novel sufficient condition ensuring identification, which is strictly weaker than some of those existing in the literature. While this sufficient condition reaches our upper bound, an example demonstrates that this condition is not necessary for identification. Using our new condition, we show that the classic “Latin Square” example from social choice theory is identified from stochastic choice data.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.geb.2025.02.006",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825625000193",
+      "publication_date": "March 2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/150/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0899825625000193",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -179,46 +1121,75 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "repec-serial-page",
-    "roster_authority": "repec-publisher-supplied",
-    "roster_match_scope": "repec-volume-items",
-    "excluded_item_count": 0,
-    "excluded_items": [],
-    "doi_complete": 4,
-    "authors_complete": 4,
-    "abstract_en_complete": 4,
-    "translation_complete": 4,
+    "roster_authority": "official-issue-page",
+    "roster_transport": "browser-authorized-local",
+    "official_item_count": 33,
+    "excluded_items": [
+      {
+        "title_en": "Editorial Board",
+        "article_type": "editorial",
+        "doi": "10.1016/s0899-8256(25)00026-0",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825625000260",
+        "source_sequence": 1,
+        "reason": "editorial_material"
+      },
+      {
+        "title_en": "Editorial Board",
+        "article_type": "editorial",
+        "doi": "10.1016/s0899-8256(25)00027-2",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825625000272",
+        "source_sequence": 2,
+        "reason": "editorial_material"
+      },
+      {
+        "title_en": "Corrigendum to: “Ridge distributions and information design in simultaneous all-pay auction contests”",
+        "article_type": "correction",
+        "doi": "10.1016/j.geb.2024.12.002",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0899825624001891",
+        "source_sequence": 33,
+        "reason": "correction_notice"
+      }
+    ],
+    "doi_complete": 30,
+    "authors_complete": 30,
+    "abstract_en_complete": 30,
+    "translation_complete": 0,
     "duplicate_count": 0,
-    "repec_item_count": 4,
-    "flags": [],
-    "official_item_count": 4,
-    "publishable_item_count": 4,
+    "flags": [
+      "translation_incomplete"
+    ],
+    "browser_capture": {
+      "captured_at": "2026-08-05T14:54:17.614Z",
+      "institutional_access_confirmed": true,
+      "privacy_fields_stored": false
+    },
+    "publishable_item_count": 30,
+    "excluded_item_count": 3,
     "content_counts": {
-      "official_items": 4,
-      "observed_items": 4,
-      "publishable_items": 4,
-      "research_articles": 4,
+      "official_items": 33,
+      "observed_items": 33,
+      "publishable_items": 30,
+      "research_articles": 25,
       "comments": 0,
-      "short_communications": 0,
-      "corrections": 0,
-      "editorial_material": 0,
+      "short_communications": 2,
+      "corrections": 1,
+      "editorial_material": 2,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 4
+      "catalog_content_items": 31
     }
   },
   "content_counts": {
-    "official_items": 4,
-    "observed_items": 4,
-    "publishable_items": 4,
-    "research_articles": 4,
+    "official_items": 33,
+    "observed_items": 33,
+    "publishable_items": 30,
+    "research_articles": 25,
     "comments": 0,
-    "short_communications": 0,
-    "corrections": 0,
-    "editorial_material": 0,
+    "short_communications": 2,
+    "corrections": 1,
+    "editorial_material": 2,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 4
-  },
-  "issue_label": "Vol. 150"
+    "catalog_content_items": 31
+  }
 }
