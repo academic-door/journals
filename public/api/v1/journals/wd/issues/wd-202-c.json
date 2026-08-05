@@ -1,0 +1,940 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "wd-202-c",
+  "journal_id": "wd",
+  "journal_name": "World Development",
+  "volume": "202",
+  "issue": "C",
+  "publication_date": "February 2026",
+  "source_url": "https://ideas.repec.org/s/eee/wdevel.html",
+  "retrieved_at": "2026-08-05T13:22:55+00:00",
+  "expected_article_count": 21,
+  "research_article_count": 21,
+  "status": "ready",
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.worlddev.2026.107328",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Chinese vs. World Bank development projects: Insights from earth observation and computer vision on wealth gains in Africa, 2002–2013",
+      "title_cn": "中国与世界银行发展项目：基于地球观测和计算机视觉对非洲财富增长的洞察，2002-2013",
+      "authors": [
+        "Adel Daoud",
+        "Cindy Conlin",
+        "Connor T. Jerzak"
+      ],
+      "abstract_en": "Debates about whether development projects improve living conditions persist, partly because observational estimates can be biased by incomplete adjustment and because reliable outcome data are scarce at the neighborhood level. We address both issues in a continent-scale, sector-specific evaluation of Chinese and World Bank projects across 9899 neighborhoods in 36 African countries (2002-2013), representative of ∼88% of the population. First, we use a recent dataset that measures living conditions with a machine-learned wealth index derived from contemporaneous satellite imagery, yielding a consistent panel of 6.7 km square mosaics. Second, to strengthen identification, we proxy officials’ map-based placement criteria using pre-treatment daytime satellite images and fuse these with tabular covariates to estimate funder- and sector-specific ATEs via inverse-probability weighting. Incorporating imagery often shrinks effects relative to tabular-only models. On average, both donors raise wealth, with larger and more consistent gains for China; sector extremes in our sample include Trade and Tourism (330) for the World Bank (+12.29 IWI points), and Emergency Response (700) for China (+15.15). Assignment-mechanism analyses also show World Bank placement is often more predictable from imagery alone (as well as from tabular covariates). This suggests that Chinese project placements are more driven by non-visible, political, or event-driven factors than World Bank placements. To probe residual concerns about selection on observables, we also estimate within-neighborhood (unit) fixed-effects models at a spatial resolution about 67 times finer than prior fixed-effects analyses, leveraging the computer-vision-imputed IWI panels; these deliver smaller but, for Chinese projects, directionally consistent effects. Methodologically, we extend recent EO–ML causal inference frameworks by fusing pre-treatment satellite imagery with tabular covariates to estimate treatment propensities, and by systematically benchmarking image-augmented estimators against tabular-only and unit fixed-effects designs using new assignment-mechanism diagnostics. Empirically, we provide a continent-wide, sector-specific comparison of the neighborhood-level wealth effects of Chinese and World Bank projects across 9899 African neighborhoods.",
+      "abstract_cn": "关于发展项目是否改善生活条件的争论持续存在，部分原因是观测性估计可能因调整不完整而产生偏差，且邻里层面的可靠结果数据稀缺。我们在一个覆盖非洲36个国家9899个邻里、代表约88%%人口的大陆尺度、部门特定评估中解决了这两个问题，评估对象为中国和世界银行的项目（2002-2013）。首先，我们使用一个近期数据集，该数据集通过从同期卫星图像中机器学习得出的财富指数来衡量生活条件，生成了一致的6.7平方公里方格马赛克面板。其次，为加强识别，我们使用处理前的白天卫星图像来代理官员基于地图的选址标准，并将这些图像与表格协变量融合，通过逆概率加权估计资助方和部门特定的平均处理效应（ATE）。纳入图像通常相对于仅使用表格模型会缩小效应。平均而言，两个捐助方都提高了财富，其中中国的增益更大且更一致；我们样本中的部门极端值包括世界银行的贸易和旅游（330，+12.29 IWI点）以及中国的应急响应（700，+15.15）。分配机制分析还显示，世界银行的项目选址通常更可预测，仅从图像（以及表格协变量）即可预测。这表明中国项目的选址更多受非可见、政治或事件驱动因素影响，而非世界银行项目。为探究关于可观测变量选择的残余担忧，我们还估计了邻里内（单元）固定效应模型，其空间分辨率比先前固定效应分析精细约67倍，利用计算机视觉插补的IWI面板；这些模型得出的效应较小，但对于中国项目而言方向一致。在方法上，我们通过将处理前卫星图像与表格协变量融合以估计处理倾向，并使用新的分配机制诊断系统地将图像增强估计器与仅表格和单元固定效应设计进行基准比较，扩展了近期EO-ML因果推断框架。在实证上，我们提供了中国和世界银行项目在9899个非洲邻里层面的财富效应的大陆范围、部门特定比较。",
+      "doi": "10.1016/j.worlddev.2026.107328",
+      "source_url": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000173.html",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/wdevel.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000173.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T13:23:01+00:00",
+        "source_hash": "66f2a53d34ee053ac51cd08e6c90f010698e76e722f26a81e86417f8204da9d5"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "Chinese"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.worlddev.2026.107329",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Agri-labour mobility in a changing climate: A systems approach to vulnerability and precarity among migrant farmworkers",
+      "title_cn": "气候变化中的农业劳动力流动：移民农场工人脆弱性与不稳定性的系统方法",
+      "authors": [
+        "Sinem Kavak",
+        "Mine Işlar",
+        "Lennart Olsson"
+      ],
+      "abstract_en": "This research explores the climate vulnerability of migrant farmworkers within the climate-sensitive commercial agriculture of the Mediterranean Basin, through a case study of Turkey. In Turkey a vast majority of the farmworkers belong to Kurdish and Arab ethnic groups, including internally displaced people (IDPs) and Syrians. Utilising a critical political economy approach to vulnerability and synthesising a decade of qualitative data, we examine farmworkers’ experience of climate change. The findings demonstrate that climate vulnerability operates across three interconnected levels: (1) direct exposure to climate extremes, (2) indirect socio-economic impacts on livelihoods, social and political vulnerabilities, and (3) systemic effects arising from the interaction of multiple climate events across multiple locations of labour. To this end, we introduce the concept of agri-labour mobility systems. These operate through an ad hoc system of routes shaped by labour demands at specific points in production cycles and the minimum income thresholds required to offset the costs of migration. This framework allows us to analyse vulnerability beyond hazard-based frameworks by incorporating the political economy of farm labour and emphasising intersecting social, economic, political, and climate-related vulnerabilities. Finally, we assert that experiences with climate change for mobile livelihoods can only be understood by looking at the migration routes, multiple commodities and locations and the continuity of the experiences with the climate irregularities.",
+      "abstract_cn": "本研究通过土耳其的案例研究，探讨了地中海盆地气候敏感型商业化农业中移民农场工人的气候脆弱性。在土耳其，绝大多数农场工人属于库尔德和阿拉伯族群，包括境内流离失所者（IDPs）和叙利亚人。采用批判性政治经济学方法分析脆弱性，并综合十年的定性数据，我们考察了农场工人对气候变化的经历。研究结果表明，气候脆弱性在三个相互关联的层面上运作：（1）直接暴露于气候极端事件，（2）对生计的间接社会经济影响、社会和政治脆弱性，以及（3）由多个气候事件在多个劳动地点相互作用产生的系统性效应。为此，我们引入了农业劳动力流动系统的概念。这些系统通过由生产周期特定点的劳动力需求和抵消迁移成本所需的最低收入门槛所塑造的临时路线系统运作。该框架使我们能够超越基于灾害的框架分析脆弱性，通过纳入农场劳动力的政治经济学，并强调社会、经济、政治和气候相关脆弱性的交叉性。最后，我们断言，对于流动生计而言，气候变化的经历只能通过考察迁移路线、多种商品和地点以及气候异常经历的连续性来理解。",
+      "doi": "10.1016/j.worlddev.2026.107329",
+      "source_url": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000185.html",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/wdevel.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000185.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T13:23:05+00:00",
+        "source_hash": "122fb7e726ff8d367a5cfcdc6878672c2a2ea2cdd35014e29f60747968f9aeca"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.worlddev.2026.107338",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Complexity in institutional reform",
+      "title_cn": "制度改革的复杂性",
+      "authors": [
+        "Jean-Paul Faguet"
+      ],
+      "abstract_en": "Why is there so much institutional reform in the world? If institutions are the deep rules of the game that determine how societies are governed, collective decisions taken, and resources mobilized for public purposes, then changing them is bound to have effects that are long-run and multidimensional across politics, the economy and society. Such effects will be unpredictable. Politicians with short time horizons should flee such initiatives, but instead embrace them the world over. Why? Because politicians design reform processes around often unstated private goals that may be orthogonal, or even directly opposed, to a reform’s stated, public goals. We characterize instrumental mismatch as the gap between stated goals and the specific reform instruments politicians deploy. Such reforms lead to incongruous institutions ill-suited to their core purpose, and hence to outcomes that are bad for society. Through 13 case studies from Latin America, India, Rwanda and the UK, we test and refine the theory. High instrumental mismatch leads to incongruous institutions in all our cases. Stated goals are never achieved, but private goals are. This is by design. Incongruous institutions sometimes produce good outcomes for reformers, but not for society. Low mismatch leads to institutions that are mostly congruous. Stated goals are always achieved. This makes sense: politicians’ private goals do not conflict with reform’s stated goals, increasing reform coherence. Ex-post, such reforms are good for society but bad for reformers. Medium mismatch also produces incongruous institutions. Stated goals and private goals are sometimes achieved. Outcomes for society are generally poor – not surprising given incomplete reform design and implementation. A twelfth article mines this evidence to propose three game-theoretic models of institutional change from a complex systems perspective. Taken together, we call this the complexity approach to institutional reform.",
+      "abstract_cn": "为什么世界上有如此多的制度改革？如果制度是决定社会如何治理、集体决策如何做出以及资源如何为公共目的而动员的深层游戏规则，那么改变它们必然会产生跨政治、经济和社会的长期且多维的影响。这些影响将是不可预测的。任期较短的政治家应回避此类举措，但他们在世界各地却纷纷拥抱它们。为什么？因为政治家围绕通常未言明的私人目标设计改革过程，这些目标可能与改革所宣称的公共目标正交，甚至直接对立。我们将工具性错位定义为所宣称的目标与政治家所部署的具体改革工具之间的差距。此类改革导致与其核心目的不相适应的不协调制度，从而产生对社会不利的结果。通过来自拉丁美洲、印度、卢旺达和英国的13个案例研究，我们检验并完善了这一理论。在所有案例中，高工具性错位导致不协调的制度。所宣称的目标从未实现，但私人目标得以实现。这是设计使然。不协调的制度有时为改革者带来良好结果，但对社会不利。低错位导致大体协调的制度。所宣称的目标总能实现。这很合理：政治家的私人目标与改革的宣称目标不冲突，增强了改革的一致性。事后看来，此类改革对社会有利但对改革者不利。中等错位也产生不协调的制度。所宣称的目标和私人目标有时得以实现。社会结果通常较差——鉴于改革设计和实施不完整，这并不令人意外。第十二篇文章挖掘这些证据，从复杂系统视角提出了三个制度变迁的博弈论模型。综合来看，我们称之为制度改革的复杂性方法。",
+      "doi": "10.1016/j.worlddev.2026.107338",
+      "source_url": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000276.html",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/wdevel.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000276.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T13:23:10+00:00",
+        "source_hash": "320488a2f98627f704f7ac439b6a0436ceb0082a4cfd66f4520b4b888ecb45ed"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.worlddev.2026.107341",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Conflict and democratic preferences",
+      "title_cn": "冲突和民主偏好",
+      "authors": [
+        "Nicole Stoelinga",
+        "Tuuli Tähtinen"
+      ],
+      "abstract_en": "We investigate how exposure to conflict events shapes individuals’ democratic preferences, focusing on support for democracy in general and perceptions of governance within one’s own country. We examine how ethnic affiliation—whether an individual belongs to an ethnic group with access to state power—influences democratic attitudes, reflecting differences in social standing and expectations about democratization. Using a rich data set covering more than 30 African countries over two decades, we exploit variation in the timing of conflict events relative to survey interviews to identify causal effects. Our findings show that conflict exposure, on average, increases support for democracy, but the effects vary by ethnicity and regime type. In autocracies, conflict triggers rally-around-the-flag effects: support for democracy rises, but so do perceptions of the state. Violence also increases trust in ruling institutions in autocratic regimes, an effect that is absent in more democratic settings.",
+      "abstract_cn": "我们研究冲突事件如何影响个人的民主偏好，重点关注对总体民主的支持以及对自己国家治理的看法。我们研究种族归属（个人是否属于有权获得国家权力的种族群体）如何影响民主态度，反映社会地位和对民主化期望的差异。我们使用覆盖超过30个非洲国家二十年的丰富数据集，利用冲突事件相对于调查访谈的时间变化来确定因果影响。我们的研究结果表明，平均而言，接触冲突会增加对民主的支持，但效果因种族和政体类型而异。在独裁国家，冲突会引发团结效应：对民主的支持上升，但对国家的看法也随之上升。暴力还增加了对独裁政权统治机构的信任，而这种效果在更民主的环境中是不存在的。",
+      "doi": "10.1016/j.worlddev.2026.107341",
+      "source_url": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000306.html",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/wdevel.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000306.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-05T13:23:22+00:00",
+        "source_hash": "fc46eed3ba10d8aaff07ecc79ff446258b8b0ec4721587006416e113197c01b8"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.worlddev.2026.107342",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Developing a multidimensional resilience index for farm households: A food system approach",
+      "title_cn": "构建农户多维韧性指数：一种食物系统方法",
+      "authors": [
+        "Margherita Squarcina",
+        "Juliane Hänsch",
+        "Florena M. Montoya Cepeda",
+        "Magdalena Pallauf",
+        "Bruno Paz",
+        "Jonas Stehl",
+        "Jasmin Wehner",
+        "Meike Wollni"
+      ],
+      "abstract_en": "Existing measures of resilience focus on specific food system components, neglecting the complexity of the whole system. We propose a measure of farm-level resilience that encompasses three dimensions of a food system: economic profitability, environmental sustainability, and adequate nutrition. To empirically estimate the proposed model, we combine longitudinal household-level data from Malawi, Tanzania, and Nigeria with GIS data and macro-level indicators. We define resilience as a normative condition using a probabilistic moment-based approach following Cissé & Barrett (2018). To aggregate the probabilities across different dimensions into a single index of resilience, we employ and compare two different methods: Principal Component Analysis (PCA) and the Multiple Indicators Multiple Causes (MIMIC) model. Our findings indicate an overall increase in the resilience of farm households over time, with improvements in Nigeria and Tanzania. Clear trade-offs are evident across the various domains of the food system. Both proposed resilience indexes perform well when analyzed across different shocks and alternative specifications. Resilience tends to support improvements in certain dimensions without undermining others. The comparison between the two methods indicates a preference for the simpler PCA-based approach to measuring farm households’ resilience using a food system approach. Our findings underline the need to broaden our focus beyond individual aspects of resilience to achieve sustainable food systems.",
+      "abstract_cn": "现有的韧性度量侧重于食物系统的特定组成部分，忽视了整个系统的复杂性。我们提出了一种农场层面韧性的度量方法，涵盖了食物系统的三个维度：经济盈利能力、环境可持续性和充足营养。为了实证估计所提出的模型，我们将来自马拉维、坦桑尼亚和尼日利亚的纵向家庭层面数据与GIS数据和宏观层面指标相结合。我们将韧性定义为一种规范性条件，采用基于概率矩的方法，遵循Cissé & Barrett (2018)。为了将不同维度的概率聚合为单一的韧性指数，我们采用并比较了两种不同的方法：主成分分析（PCA）和多指标多原因（MIMIC）模型。我们的研究结果表明，农户的韧性随时间总体增加，其中尼日利亚和坦桑尼亚有所改善。食物系统的各个领域之间存在明显的权衡。所提出的两种韧性指数在不同冲击和替代规格下均表现良好。韧性倾向于支持某些维度的改善，而不损害其他维度。两种方法的比较表明，在采用食物系统方法测量农户韧性时，更倾向于基于PCA的简单方法。我们的研究结果强调，需要将关注点扩展到韧性的个体方面之外，以实现可持续的食物系统。",
+      "doi": "10.1016/j.worlddev.2026.107342",
+      "source_url": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000318.html",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/wdevel.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000318.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T13:23:26+00:00",
+        "source_hash": "9edc8bdd1e0e63496133164a3f61b8f6c43fa36d16baa9449df48e44f611de91"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.worlddev.2026.107344",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Urbanisation and the political demography of African cities",
+      "title_cn": "城市化与非洲城市的政治人口学",
+      "authors": [
+        "Nick Dorward",
+        "Kristian Hoelscher"
+      ],
+      "abstract_en": "Africa is undergoing a rapid process of urban demographic change. Increasingly youthful population structures are defining the continent’s towns and cities. Scholarship suggests this will be associated with greater protest incidence and lower levels of voting and electoral participation. However, these findings often rely on national-level data, despite there being considerable subnational variation in population structures between African cities. Building on existing theory, we argue that local demographic contexts matter for political behaviour. Specifically, we hypothesise that youthful urban demographic structures will be associated with lower levels of formal political participation (voting) and greater levels of informal contentious mobilisation (protest) for all individuals, and that the magnitude of this effect will be greater for younger people. We test these expectations using novel geospatial data on the spatial extent of unique urban settlements, urban-level age and sex structures, and geolocated individual-level survey data from 399 cities in 36 countries across Africa. Using multilevel regression, we find that individuals are more likely to vote in more youthful urban contexts, with young people no more or less likely to vote than their older counterparts. Conversely, we find no significant relationship between individual protest participation and city youth shares overall. However, young people in more youthful cities are significantly more likely to protest than older people. In light of these findings, we discuss how the demographic composition of individual cities in Africa nuances our understanding of political behaviour and contentious mobilisation.",
+      "abstract_cn": "非洲正在经历快速的城市人口变化过程。日益年轻化的人口结构正在定义该大陆的城镇。学术研究表明，这将与更高的抗议发生率和较低的投票及选举参与度相关。然而，这些发现往往依赖于国家级数据，尽管非洲各城市之间的人口结构存在相当大的次国家级差异。基于现有理论，我们认为地方人口背景对政治行为至关重要。具体而言，我们假设年轻化的城市人口结构将与所有个体较低水平的正式政治参与（投票）和较高水平的非正式抗争动员（抗议）相关，且这一效应的幅度对年轻人更大。我们使用关于独特城市聚落空间范围的新颖地理空间数据、城市层面的年龄和性别结构，以及来自非洲36个国家399个城市的地理定位个体层面调查数据来检验这些预期。通过多层次回归，我们发现个体在更年轻化的城市环境中更有可能投票，而年轻人与年长者相比，投票可能性并无显著差异。相反，我们总体上未发现个体抗议参与与城市青年比例之间存在显著关系。然而，在更年轻化的城市中，年轻人比年长者更有可能参与抗议。鉴于这些发现，我们讨论了非洲各城市的人口构成如何细化我们对政治行为和抗争动员的理解。",
+      "doi": "10.1016/j.worlddev.2026.107344",
+      "source_url": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000331.html",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/wdevel.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000331.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T13:23:30+00:00",
+        "source_hash": "ed715c20f6f2fd2f88c58edf182c5dab427de33835fb76c80c0134a64dbff616"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.worlddev.2026.107345",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Improving police management boosts economic development: Evidence from Brazil",
+      "title_cn": "改善警务管理促进经济发展：来自巴西的证据",
+      "authors": [
+        "Bruno Pantaleão"
+      ],
+      "abstract_en": "This paper provides causal evidence that improving public security can stimulate local economic development. Leveraging a staggered adoption of results-based police reforms across Brazilian states and applying a double robust difference-in-differences design, I find that reductions in violence significantly boosted formal job creation and entrepreneurship. Specifically, treated municipalities experienced increases of 7–10% relative to control means in employment and business formation. Heterogeneity analyses reveal that, while the largest crime reductions occurred in high-violence areas, economic benefits were larger in cities with lower baseline violence, highlighting the importance of initial security conditions for development gains. These findings demonstrate that strengthening public institutions can produce substantial economic externalities, suggesting that crime reduction policies can be key levers for inclusive growth in middle-income countries.",
+      "abstract_cn": "本文提供了因果证据，表明改善公共安全可以刺激地方经济发展。利用巴西各州逐步采用基于结果的警务改革，并应用双重稳健双重差分设计，我发现暴力事件的减少显著促进了正规就业创造和创业活动。具体而言，处理组城市在就业和企业成立方面相对于对照组均值增加了7-10%。异质性分析显示，虽然最大的犯罪减少发生在高暴力地区，但经济收益在基线暴力较低的城市更大，这凸显了初始安全条件对发展收益的重要性。这些发现表明，加强公共机构可以产生显著的经济外部性，暗示减少犯罪的政策可以成为中等收入国家包容性增长的关键杠杆。",
+      "doi": "10.1016/j.worlddev.2026.107345",
+      "source_url": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000343.html",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/wdevel.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000343.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T13:23:33+00:00",
+        "source_hash": "301d2e87eb42541a71492352cc3603799298ebce8b7224807e32542188f0d462"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.worlddev.2026.107346",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Individual entrepreneurial orientation from an economic lens: The U-shaped relationship with economic development and income inequality",
+      "title_cn": "从经济学视角看个体创业导向：与经济发展和收入不平等的U型关系",
+      "authors": [
+        "Juan P. Perez",
+        "Izaias Martins",
+        "Sebastian Aparicio",
+        "Tatiana Lopez",
+        "David Urbano"
+      ],
+      "abstract_en": "While the economic development-entrepreneurship nexus has been widely studied, the individual entrepreneurial orientation (Ind.EO) phenomenon has not considered development stages across countries, where important differences ranging from poverty to wealth exist. This study investigates the relationship between the level of economic development and individual entrepreneurial orientation, analyzing the moderating role of income inequality. We conducted robust multilevel regression analysis on a sample of 30,292 nascent entrepreneurs from 29 economies drawn from the 2020–2021 Global University Entrepreneurship Spirit Students’ Survey (GUESSS). The findings demonstrate a U-shaped relationship between economic development and Ind.EO, where dispositional-behavioral characteristics are more pronounced in economies situated at both extremes of the development spectrum. Income inequality negatively moderates this curvilinear relationship, producing a flattening effect that reduces entrepreneurial intensity in both low- and high-development contexts. This study offers some of the first empirical evidence on Ind.EO from a cross-national economic perspective and provides valuable guidance for policymakers seeking to promote entrepreneurship through strategies tailored to development stages and mechanisms that mitigate the adverse effects of inequality.",
+      "abstract_cn": "尽管经济发展与创业之间的关系已被广泛研究，但个体创业导向（Ind.EO）现象尚未考虑各国的发展阶段，这些阶段存在从贫困到财富的重大差异。本研究探讨了经济发展水平与个体创业导向之间的关系，并分析了收入不平等的调节作用。我们对来自29个经济体的30,292名新生创业者样本进行了稳健的多层次回归分析，数据来源于2020-2021年全球大学创业精神学生调查（GUESSS）。研究结果表明，经济发展与Ind.EO之间存在U型关系，其中倾向性-行为特征在发展谱系两端的经济体中更为显著。收入不平等对这种曲线关系产生负向调节作用，产生一种扁平化效应，在低发展和高发展情境下均降低了创业强度。本研究提供了从跨国经济视角对Ind.EO的首批实证证据之一，并为政策制定者提供了宝贵指导，以通过针对发展阶段量身定制的策略和减轻不平等不利影响的机制来促进创业。",
+      "doi": "10.1016/j.worlddev.2026.107346",
+      "source_url": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000355.html",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/wdevel.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000355.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T13:23:36+00:00",
+        "source_hash": "f63422081cccad0f8c5dff485c5255cf55d0d266aa3046df1822fcda62bda2aa"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.worlddev.2026.107348",
+      "sequence": 9,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "The development revolution will not be nudged: The c2-frame approach as a proposal",
+      "title_cn": "发展革命不会被轻推：作为提议的c2框架方法",
+      "authors": [
+        "Juan Camilo Cardenas"
+      ],
+      "abstract_en": "The intertwined dynamics of promoting development and preserving the environment has increasingly been affected by global structures and processes. It is not sufficient that communities engage in local collective action processes when global dynamics in economic and ecological systems are threatening them, even if they solve their local cooperation problems. The recent debate generated by the i-frame/s-frame controversy by Chater & Loewenstein (2023) is used here as a start to propose a framework for solving such divide and offer an approach where elements of the individual behavior (i-frame mechanisms) are brought together in the c2-frame community level, and trigger dynamics that bring change in the s-frame. A c2-frame dynamic involves the scaling up of local collective action processes achieving an s-frame transformation. Behavioral sciences can offer cues on how these processes reach transformational change.",
+      "abstract_cn": "促进发展与保护环境之间的交织动态日益受到全球结构和进程的影响。当全球经济与生态系统动态威胁到社区时，即使它们解决了本地合作问题，仅靠社区参与地方集体行动过程也是不够的。本文以Chater & Loewenstein（2023）引发的i-frame/s-frame争议为起点，提出一个解决这一分歧的框架，并提供一种方法，将个体行为元素（i-frame机制）汇集到c2框架的社区层面，并触发带来s-frame变革的动态。c2框架动态涉及地方集体行动过程的升级，实现s-frame转型。行为科学可以为这些过程如何实现转型性变革提供线索。",
+      "doi": "10.1016/j.worlddev.2026.107348",
+      "source_url": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000379.html",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/wdevel.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000379.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T13:23:39+00:00",
+        "source_hash": "685d5399e87d0f91536f55db83f09634995652f3b5c00a67f22cfd8a92b7adbf"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.worlddev.2026.107349",
+      "sequence": 10,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "Hidden work-family challenges in the low- and middle-income countries: a systematic review of causes, consequences, and policy responses",
+      "title_cn": "低收入和中等收入国家中隐藏的工作-家庭挑战：原因、后果和政策应对的系统综述",
+      "authors": [
+        "Keonhi Son",
+        "Aysegul Kayaoglu"
+      ],
+      "abstract_en": "Work–family challenges are a major barrier to gender equality and contribute to the intergenerational reproduction of inequalities by undermining child development from the earliest stages of life. In low- and middle-income countries (LMICs), however, these tensions remain poorly captured by prevailing metrics, data, and frameworks. Drawing on a systematic review of qualitative and quantitative studies published between 2000 and 2024, this article shows that motherhood penalties in LMICs are expressed through poverty-driven sectoral shifts into lower-quality jobs, heightened time poverty and what we term a work-family trade-off, where maternal employment in precarious conditions is associated with worse child health and developmental outcomes. We synthesize evidence on how micro-, meso- and macro-level factors jointly shape these patterns and highlight a “flexibility trap”: informal and agricultural jobs that appear compatible with caregiving in theory often deepen work-family tensions in practice. We then review empirical evidence on three family policy domains (i.e., paid leave, cash transfers, and early childhood education and care (ECEC)) showing that ECEC most consistently improves both women’s employment quality and child outcomes, while cash transfers primarily ease poverty-driven labor responses and paid leave yield mixed effects in high-informality settings. Building on these findings, we develop a conceptual framework that locates “poverty-driven work-family challenges” at the center of LMIC experiences. The review concludes with design principles for family policies and a research agenda that better captures hidden work-family tensions in LMICs.",
+      "abstract_cn": "工作-家庭挑战是性别平等的主要障碍，并通过从生命早期阶段损害儿童发展，促成不平等的代际再生产。然而，在低收入和中等收入国家（LMICs）中，这些紧张关系在主流指标、数据和框架中仍未得到充分捕捉。基于对2000年至2024年间发表的定性和定量研究的系统综述，本文表明，LMICs中的母职惩罚表现为贫困驱动的部门转移至低质量工作、时间贫困加剧以及我们称之为工作-家庭权衡的现象，即在不稳定条件下的母亲就业与较差的儿童健康和发育结果相关。我们综合了微观、中观和宏观层面因素如何共同塑造这些模式的证据，并强调了一种“灵活性陷阱”：理论上看似与照护兼容的非正规和农业工作，在实践中往往加深工作-家庭紧张关系。随后，我们回顾了三个家庭政策领域（即带薪休假、现金转移和早期儿童教育和照护（ECEC））的经验证据，表明ECEC最一致地改善了女性就业质量和儿童结果，而现金转移主要缓解贫困驱动的劳动响应，带薪休假在高非正规性环境中产生混合效应。基于这些发现，我们构建了一个概念框架，将“贫困驱动的工作-家庭挑战”置于LMIC经历的中心。综述最后提出了家庭政策的设计原则和研究议程，以更好地捕捉LMICs中隐藏的工作-家庭紧张关系。",
+      "doi": "10.1016/j.worlddev.2026.107349",
+      "source_url": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000380.html",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/wdevel.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000380.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T13:23:43+00:00",
+        "source_hash": "c006c7c5a0a009845b3e97908d63a6c5d9b80bf2f5517e277af8aad4faa16d42"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.worlddev.2026.107350",
+      "sequence": 11,
+      "source_sequence": 11,
+      "article_type": "research-article",
+      "title_en": "Sustainability governance diversifies: unpacking private-sector governance strategies in coffee and cocoa value chains",
+      "title_cn": "可持续性治理的多元化：解析咖啡和可可价值链中的私营部门治理策略",
+      "authors": [
+        "Samuel Bruelisauer",
+        "Gesabel Villar",
+        "Christoph Oberlack"
+      ],
+      "abstract_en": "Certification schemes remain a main strategy for sustainability of agri-food value chains, but sustainability governance is diversifying. Various alternative or complementary strategies to certification have emerged, but sustainability governance research faces challenges to precisely compare them, identify agency for sustainability governance at multiple sites, and grasp the complex and evolving overlaps between strategies. Therefore, this study aims to understand the similarities, differences and overlaps of six key contemporary strategies of sustainability governance—corporate sustainability programmes, certification, direct trade, mission-driven businesses, solidarity economy and producer-led upgrading. To do so, it pioneers an analytical framework that can be used to unpack sustainability governance strategies by examining their constitutional, value chain, and operational attributes, which we apply to survey data on 112 organizations in the cocoa and coffee value chains of Switzerland and Peru. Results show that the strategies differ clearly in terms of 118 constitutional, value chain, and operational attributes and they demonstrate frequent and insightful linkages across levels. The study also identifies significant overlaps, particularly between certification and other strategies, as value chain actors typically combine attributes from different strategies. Results indicate that sustainability governance research would benefit from contextualizing strategies within an actor’s value chain position and its constitutional attributes, to account for multi-sited agency along the entire value chain and diversity in terms of actors’ mission and ownership.",
+      "abstract_cn": "认证计划仍然是农产品价值链可持续性的主要策略，但可持续性治理正在多元化。各种替代或补充认证的策略已经出现，但可持续性治理研究在精确比较这些策略、识别多个地点的可持续性治理机构以及把握策略之间复杂且不断演变的重叠方面面临挑战。因此，本研究旨在理解六种当代关键的可持续性治理策略——企业可持续性计划、认证、直接贸易、使命驱动型企业、团结经济和生产商主导的升级——之间的相似性、差异性和重叠性。为此，本研究开创了一个分析框架，通过考察其宪法属性、价值链属性和运营属性来解析可持续性治理策略，并将该框架应用于对瑞士和秘鲁的可可和咖啡价值链中112个组织的调查数据。结果表明，这些策略在118宪法属性、价值链属性和运营属性方面存在明显差异，并显示出跨层级的频繁且富有洞察力的联系。研究还识别出显著的重叠，特别是认证与其他策略之间的重叠，因为价值链参与者通常结合不同策略的属性。结果表明，可持续性治理研究将受益于将策略置于参与者的价值链位置及其宪法属性背景下，以考虑整个价值链上的多点机构以及参与者使命和所有权方面的多样性。",
+      "doi": "10.1016/j.worlddev.2026.107350",
+      "source_url": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000392.html",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/wdevel.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000392.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T13:23:47+00:00",
+        "source_hash": "31a956250bf4b6f59a59783e88920b99c9bb97700299b280e2d6e315ef3f993e"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.worlddev.2026.107351",
+      "sequence": 12,
+      "source_sequence": 12,
+      "article_type": "research-article",
+      "title_en": "Reservoir construction and deforestation",
+      "title_cn": "水库建设与森林砍伐",
+      "authors": [
+        "Huanguang Qiu",
+        "Yao Tang",
+        "Wei Chen"
+      ],
+      "abstract_en": "This study investigates the impact of reservoir construction on surrounding deforestation. We construct a unique panel dataset at the reservoir level across China for 2005, 2010, and 2015. By adopting instruments that combine information of geographical features and projected reservoir numbers, our two-stage least squares (2SLS) estimates of the difference-in-differences (DID) model reveal that the construction of an average reservoir accelerates the decline in the Normalized Difference Vegetation Index (NDVI) by 0.095 (12.94% of the sample mean) within its 5 km buffer zone in the first five years post-construction, indicating an exacerbation in deforestation. We further find that the construction of smaller reservoirs leads to more severe deforestation, where a reduction of one square kilometer in reservoir area results in an additional decrease in NDVI by 0.001. Our findings highlight the urgency for policymakers to thoroughly evaluate the effects of reservoir construction on forests and devise appropriate conservation strategies when making investment decisions.",
+      "abstract_cn": "本研究探讨了水库建设对周边森林砍伐的影响。我们构建了一个覆盖中国2005、2010和2015年的水库层面独特面板数据集。通过采用结合地理特征和预测水库数量的工具变量，我们的两阶段最小二乘法（2SLS）对双重差分（DID）模型的估计结果显示，在建设后的前五年内，平均规模水库的建设使其5公里缓冲区内归一化植被指数（NDVI）的下降速度加快了0.095（占样本均值的12.94%），表明森林砍伐加剧。我们进一步发现，较小水库的建设会导致更严重的森林砍伐，水库面积每减少一平方公里，NDVI额外下降0.001。我们的发现凸显了政策制定者在做出投资决策时，迫切需要全面评估水库建设对森林的影响，并制定适当的保护策略。",
+      "doi": "10.1016/j.worlddev.2026.107351",
+      "source_url": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000409.html",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/wdevel.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000409.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T13:23:50+00:00",
+        "source_hash": "d20953942eb8bdedbb79c41b87e519126cf91344e833a402968ed6f0abc44523"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "abstract",
+        "matched_terms": [
+          "across China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.worlddev.2026.107352",
+      "sequence": 13,
+      "source_sequence": 13,
+      "article_type": "research-article",
+      "title_en": "Who runs the NGOs? Women’s access to leadership in Nepal",
+      "title_cn": "谁在运营非政府组织？尼泊尔女性进入领导层的途径",
+      "authors": [
+        "Ingrid Vik Bakken",
+        "Johannes Vüllers"
+      ],
+      "abstract_en": "Studies on women’s barriers to win political office have been burgeoning in recent years, but few studies look beyond politics. We extend this scholarship to the voluntary sector by focusing on women’s access to leadership, and potential causes of gender discrimination, in NGOs in Nepal. Based on existing studies on gender and leadership, as well as our fieldwork in Nepal, we expected that leaders from NGOs prefer a male leader. The results from a conjoint experiment, conducted with 385 leaders representing unique local NGOs, reveal—contrary to our hypothesis—that female candidates are significantly more likely to be selected than male candidates. Drawing on survey data and interview material, we argue that the discrepancy between stated preferences and actual practices can be explained by three factors—the illusion of an ideal candidate, organizational culture, and practical hurdles—which ultimately lead to unequal treatment of women. Our study offers an initial inside look at gender inequalities in leadership roles within local NGOs in the Global South, an area where systematic data has been scarce. Additionally, our mixed-methods approach presents a nuanced understanding of the causes and potential support measures to promote greater equality in this crucial social sector.",
+      "abstract_cn": "近年来，关于女性在赢得政治职位方面所面临障碍的研究日益增多，但很少有研究超越政治领域。我们将这一学术研究扩展到志愿部门，聚焦于尼泊尔非政府组织中女性进入领导层的机会以及性别歧视的潜在原因。基于现有的关于性别与领导力的研究以及我们在尼泊尔的实地调查，我们预期非政府组织的领导者更倾向于男性领导者。一项针对385名代表独特地方非政府组织的领导者进行的联合实验结果显示——与我们的假设相反——女性候选人被选中的可能性显著高于男性候选人。利用调查数据和访谈材料，我们认为，陈述偏好与实际做法之间的差异可以由三个因素解释——理想候选人的幻觉、组织文化和实际障碍——这些最终导致了对女性的不平等对待。我们的研究为全球南方地方非政府组织内领导角色中的性别不平等提供了初步的内部视角，这一领域的系统性数据一直稀缺。此外，我们的混合方法方法提供了对原因和潜在支持措施的细致理解，以促进这一关键社会部门中更大的平等。",
+      "doi": "10.1016/j.worlddev.2026.107352",
+      "source_url": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000410.html",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/wdevel.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000410.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T13:23:54+00:00",
+        "source_hash": "b16344777fb8a19706233e8e5d6c8a8625390965b3299d0c46f0d0c3a1b22ec8"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.worlddev.2026.107354",
+      "sequence": 14,
+      "source_sequence": 14,
+      "article_type": "research-article",
+      "title_en": "Benchmarking property institutions: conceptual background and evidence from 85 jurisdictions",
+      "title_cn": "产权制度基准评估：概念背景与来自85个司法管辖区的证据",
+      "authors": [
+        "Klaus Deininger",
+        "Thea Hilhorst",
+        "Emmanuel Nkurunziza",
+        "Jaap Zevenbergen"
+      ],
+      "abstract_en": "Property registries are a pillar of state capacity that is essential for private investment and job creation. While registry establishment and maintenance were traditionally costly and difficult, digital technology can, if appropriate regulations and institutional arrangements are in place, reduce delivery cost and increase quality and usefulness of land records. We develop indicators for effective registry operation in terms of digital coverage, interoperability, public land management, and land value capture. By highlighting vast differences across regions but also significant advances, data from 85 countries show that such indicators can help provide strategic direction, share experience, and measure progress towards realizing property registries’ potential in terms of (i) empowering private right holders to invest and create the basis for land, mortgage and insurance markets; (ii) providing the information needed to transparently regulate markets and use of land; and (iii) foster effective decentralization in management of public land and land value capture for public good provision.",
+      "abstract_cn": "产权登记是国家能力的一个支柱，对于私人投资和就业创造至关重要。虽然登记处的建立和维护传统上成本高昂且困难重重，但数字技术，在适当的法规和制度安排到位的情况下，可以降低交付成本并提高土地记录的质量和实用性。我们开发了衡量有效登记处运营的指标，涵盖数字覆盖、互操作性、公共土地管理和土地价值捕获等方面。通过突出各地区之间的巨大差异以及显著进展，来自85个国家的数据表明，此类指标有助于提供战略方向、分享经验，并衡量在实现产权登记潜力方面的进展，具体包括：(i) 赋予私人权利持有人投资能力，并为土地、抵押和保险市场奠定基础；(ii) 提供透明监管市场和土地利用所需的信息；(iii) 促进公共土地管理和土地价值捕获的有效分权，以提供公共产品。",
+      "doi": "10.1016/j.worlddev.2026.107354",
+      "source_url": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000434.html",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/wdevel.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000434.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T13:23:57+00:00",
+        "source_hash": "59eb4fbcbee159fc83fc75a82b13ca9efd16bf1b1d52f78676c619b1bdfce839"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.worlddev.2026.107355",
+      "sequence": 15,
+      "source_sequence": 15,
+      "article_type": "research-article",
+      "title_en": "Do ‘Women hold up half the sky’ in fuel choices? Revisiting the role of adolescent empowerment in a developing country context",
+      "title_cn": "女性是否“顶起半边天”在燃料选择中？重新审视发展中国家背景下青少年赋权的作用",
+      "authors": [
+        "Somdeep Chatterjee",
+        "Prashant Poddar"
+      ],
+      "abstract_en": "In this paper, we study the impact of a multidimensional women’s empowerment programme in India, known as SABLA, on the choice of cooking fuel within the household. The programme, launched in 2010 as a pilot project in 205 districts of the country, provided support to women across a multitude of dimensions. We exploit plausibly exogenous geographic and cohort variation generated in the implementation of the SABLA programme using a difference-in-difference identification design. The results of our study, based on this quasi-experimental methodology and using data on 21 states of India from the DLHS-4 survey, suggest that women potentially exposed to the SABLA empowerment programme were more likely to use cleaner and efficient modern cooking fuels post-marriage. This high usage of modern cooking fuels is matched by a fall in the likelihood of using inefficient transitional and traditional cooking fuels. We also show that women potentially exposed to the programme now exhibit improved health behaviors in the context of their children’s as well as their own health. These improved health behaviors, when combined with the empowering effects of the programme in other domains, as evidenced by the literature, serve as potential mechanisms for our effects. The results of our study remain robust to a variety of sensitivity checks and analyses.",
+      "abstract_cn": "在本文中，我们研究了印度一项名为SABLA的多维度女性赋权项目对家庭烹饪燃料选择的影响。该项目于2010年作为试点项目在该国205个地区启动，为女性提供了多方面的支持。我们利用SABLA项目实施中产生的看似外生的地理和队列变异，采用双重差分识别设计。基于这一准实验方法，并使用来自DLHS-4调查的印度21个州的数据，我们的研究结果表明，可能接触过SABLA赋权项目的女性在婚后更有可能使用清洁高效的现代烹饪燃料。现代烹饪燃料的高使用率伴随着使用低效过渡性和传统烹饪燃料可能性的下降。我们还表明，可能接触过该项目的女性在子女及自身健康方面表现出改善的健康行为。这些改善的健康行为，结合文献中证明的项目在其他领域的赋权效应，构成了我们效应的潜在机制。我们的研究结果在各种敏感性检验和分析中保持稳健。",
+      "doi": "10.1016/j.worlddev.2026.107355",
+      "source_url": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000446.html",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/wdevel.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000446.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T13:24:00+00:00",
+        "source_hash": "67d5d57bebc8b7a15b408fafcc80503a0d8ef1b26e70c0daf834997f5a869d66"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.worlddev.2026.107356",
+      "sequence": 16,
+      "source_sequence": 16,
+      "article_type": "research-article",
+      "title_en": "Lithium for the global energy transition: how global forces and national legacies are driving resource-based development in South America",
+      "title_cn": "锂与全球能源转型：全球力量与国家遗产如何推动南美洲的资源型发展",
+      "authors": [
+        "Martín Obaya",
+        "Teresa Kramarz"
+      ],
+      "abstract_en": "Minerals are central to the global energy transition, and resource-rich countries increasingly view this context as a window of opportunity for development. Yet, despite broadly shared objectives, they have adopted markedly different strategies in terms of their goals, scope, policy instruments, and the balance of authority between state and market actors. Focusing on the case of lithium in Bolivia, Chile, and Argentina, this article firstly develops a typology of lithium-based development strategies: Neoliberal, State-led, and Hybrid. Secondly, it traces the evolution of these strategies and explains their divergence through the interplay between external forces –such as international development paradigms and technological or market dynamics– and domestic historical legacies. While external factors may favour certain strategic orientations, we argue that domestic institutional legacies have been decisive in defining the scope and direction of state action. The study provides new insights into how resource-rich countries manage the challenges and opportunities of the energy transition by navigating the complex interaction between international pressures and domestic constraints to reposition themselves within global supply chains.",
+      "abstract_cn": "矿产对全球能源转型至关重要，资源丰富的国家日益将这一背景视为发展的机遇窗口。然而，尽管目标大致相同，它们在目标、范围、政策工具以及国家与市场行为体之间的权力平衡方面采取了显著不同的策略。本文以玻利维亚、智利和阿根廷的锂矿案例为焦点，首先构建了基于锂的发展策略类型学：新自由主义、国家主导和混合型。其次，它追溯了这些策略的演变，并通过外部力量——如国际发展范式和技术或市场动态——与国内历史遗产之间的相互作用来解释其差异。虽然外部因素可能偏向某些战略取向，但我们认为，国内制度遗产在界定国家行动的范围和方向上具有决定性作用。本研究为资源丰富国家如何通过应对国际压力与国内约束之间的复杂互动，在全球供应链中重新定位自身，从而管理能源转型的挑战与机遇提供了新的见解。",
+      "doi": "10.1016/j.worlddev.2026.107356",
+      "source_url": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000458.html",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/wdevel.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000458.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T13:24:03+00:00",
+        "source_hash": "ab729feb14cc8fe8f1497b50a426e7c95d0a60297a795c92e29d27a27ad392f9"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.worlddev.2026.107370",
+      "sequence": 17,
+      "source_sequence": 17,
+      "article_type": "research-article",
+      "title_en": "Can cash improve diet quality in old age? evidence from a large-scale unconditional transfer",
+      "title_cn": "现金能否改善老年时期的饮食质量？来自大规模无条件转移支付的证据",
+      "authors": [
+        "Deivis Nicolas Guzman-Tordecilla",
+        "Antonio Trujillo",
+        "Shu Wen Ng",
+        "Andres I. Vecino-Ortiz"
+      ],
+      "abstract_en": "We examine the impact of an unconditional cash transfer program on diet quality and food consumption among older adults using cross-sectional data and a regression discontinuity design that exploits age and poverty eligibility thresholds. We find that participation in the program significantly improves diet quality (10%) and food expenditure, particularly among females. Effects are larger among younger elderly, historically disadvantaged, and those receiving higher transfers. However, program benefits diminish with age and are muted in places with a longer distance to food retailers. Findings highlight the need for complementary behavioral and structural interventions to strengthen the nutritional impact of cash transfers among older adults in low-and-middle-income countries.",
+      "abstract_cn": "我们利用横截面数据和回归不连续设计，利用年龄和贫困资格门槛，考察了无条件现金转移支付项目对老年人饮食质量和食品消费的影响。我们发现，参与该项目显著改善了饮食质量（10%）和食品支出，尤其是在女性中。影响在较年轻的老年人、历史上处于弱势地位的人群以及获得较高转移支付的人群中更大。然而，项目收益随年龄增长而减少，并且在距离食品零售商较远的地方效果减弱。研究结果强调了需要补充行为和政策干预措施，以加强中低收入国家老年人现金转移支付的营养影响。",
+      "doi": "10.1016/j.worlddev.2026.107370",
+      "source_url": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000598.html",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/wdevel.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x26000598.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T13:24:06+00:00",
+        "source_hash": "f51438fb9da0a6b9df91dc494d5f850a72f993a22ac26eb3b6ee31991ae1cea2"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.worlddev.2025.107261",
+      "sequence": 18,
+      "source_sequence": 18,
+      "article_type": "research-article",
+      "title_en": "Circular resettlement and ongoing risk: earthquakes, landslides, and the challenges of “integrated” reconstruction in Nepal",
+      "title_cn": "循环安置与持续风险：尼泊尔的地震、滑坡与“综合”重建的挑战",
+      "authors": [
+        "Sara Shneiderman",
+        "Amy Leigh Johnson",
+        "Jeevan Baniya",
+        "Dipak Basnet",
+        "Nyima Dorjee Bhotia",
+        "Tek Bahadur Dong",
+        "Anuradha Puri",
+        "Jonathan Rigg",
+        "Mukta Tamang",
+        "Katie Oven"
+      ],
+      "abstract_en": "State-led resettlement projects that urge communities to move location due to anticipated future risk from hazards may result in patterns of “circular resettlement”, as displaced people circulate between integrated resettlement communities and still-accessible settlements of origin to create sustainable lives and livelihoods. Further, residents’ own perception of risk shifts in relation to experiences of resettlement. These findings result from in-depth ethnographic research with two communities in rural Nepal, both resettled after a post-earthquake Geohazard Assessment designated them at high risk from ongoing landslides. This empirical material frames four intertwined arguments: (1) when the impetus for state-led resettlement is the potential for future risk, rather than actually experienced destruction, households can develop patterns of “circular resettlement” to cobble together livelihoods that combine the affordances of both old and new locations of residence; (2) local, national, and regional political histories and aspirations for modernity significantly shape contemporary resettlement policies in tandem with donor-driven priorities; (3) understanding resettlement outcomes requires attention to the intersection of temporal and spatial dynamics in post-disaster residential decision-making; (4) moving between multiple differently hazardous locations produces new lived experiences of risk for resettled people, generating transformations in subjectivity that can contribute positively to collaborative risk governance. We conclude with a recommendation that in cases where original settlements remain accessible despite some level of recognized risk, policy-makers should consider the prospects for integration across original and resettlement locations, rather than exclusively within spatially bounded integrated resettlement sites that separate people from their agrarian livelihoods and affective connections to place.",
+      "abstract_cn": "国家主导的安置项目因预期未来灾害风险而敦促社区迁移，可能导致“循环安置”模式的出现，因为流离失所者在综合安置社区与仍可进入的原居地之间循环流动，以创造可持续的生活和生计。此外，居民自身对风险的认知会随着安置经历而发生变化。这些发现源于对尼泊尔农村两个社区的深入民族志研究，这两个社区在震后地质灾害评估将其列为持续滑坡高风险区后被重新安置。这一实证材料构成了四个相互交织的论点：（1）当国家主导安置的动因是未来风险的潜在可能，而非实际经历的破坏时，家庭可能形成“循环安置”模式，以拼凑生计，结合新旧居住地的优势；（2）地方、国家和区域的政治历史及对现代化的向往，与捐助者驱动的优先事项共同显著塑造了当代安置政策；（3）理解安置结果需要关注灾后居住决策中时间与空间动态的交汇；（4）在多个不同危险地点之间移动，为被安置者带来了新的风险生活体验，产生主体性的转变，这可以积极促进协作式风险治理。我们最后建议，在原始定居点尽管存在一定程度公认风险但仍可进入的情况下，政策制定者应考虑在原居地与安置地点之间进行整合的前景，而非仅限于空间上受限的综合安置点，后者将人们与其农业生计和对地方的情感联系隔离开来。",
+      "doi": "10.1016/j.worlddev.2025.107261",
+      "source_url": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x2500347x.html",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/wdevel.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x2500347x.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T13:24:11+00:00",
+        "source_hash": "d68dbeb32447cfc668d7f8a2a494923dee55ab8b16a08f08fb40ce67632209f2"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.worlddev.2026.107340",
+      "sequence": 19,
+      "source_sequence": 19,
+      "article_type": "research-article",
+      "title_en": "Beyond overall income inequality: Racial income gaps and health disparities",
+      "title_cn": "超越总体收入不平等：种族收入差距与健康差异",
+      "authors": [
+        "Gedeão Locks",
+        "Hiram Beltrán-Sánchez"
+      ],
+      "abstract_en": "In this paper, we combine Census data with death records to examine the relationship between income inequality and race-specific mortality across 5,565 municipalities in Brazil. We find that overall income inequality is strongly associated with Non-White mortality but not with White mortality. To understand this disparity, we decompose the Gini coefficient and find that the racial income gap accounts for 14% of overall income inequality. Using an Oaxaca–Blinder decomposition, we show that 79% of the racial income gap is explained by differences in education between Whites and Non-Whites. Finally, we document that the residual (structural) component of the racial income gap is strongly associated with Non-White male mortality, particularly homicides at young ages. Our results imply that closing schooling gaps alone will not eliminate racial health disparities in Brazil.",
+      "abstract_cn": "在本文中，我们将人口普查数据与死亡记录相结合，考察巴西5,565个城市中收入不平等与种族特定死亡率之间的关系。我们发现，总体收入不平等与非白人死亡率密切相关，但与白人死亡率无关。为理解这一差异，我们对基尼系数进行分解，发现种族收入差距占总体收入不平等的14%。利用Oaxaca–Blinder分解，我们显示种族收入差距的79%可由白人与非白人之间的教育差异解释。最后，我们记录到种族收入差距的残余（结构性）部分与非白人男性死亡率密切相关，尤其是年轻年龄段的凶杀死亡率。我们的结果表明，仅缩小教育差距并不能消除巴西的种族健康差异。",
+      "doi": "10.1016/j.worlddev.2026.107340",
+      "source_url": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x2600029x.html",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/wdevel.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x2600029x.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T13:24:13+00:00",
+        "source_hash": "74e058acacbe2a9600dabd2027b714a2380be3c314517ba889e6296c9f788262"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.worlddev.2026.107343",
+      "sequence": 20,
+      "source_sequence": 20,
+      "article_type": "research-article",
+      "title_en": "De-modernizing energy justice: Ivan Illich and the struggles for pluriversal territorialities in the Global South",
+      "title_cn": "去现代化的能源正义：伊万·伊里奇与全球南方多元宇宙领土性的斗争",
+      "authors": [
+        "Carlos Tornel"
+      ],
+      "abstract_en": "The surge in energy justice scholarship over the past decade has been remarkable. Despite extensive analysis of the socioecological, political, historical, and material implications of energy systems, much of this research remains conceptually and theoretically vague, uncritical of the colonial, patriarchal and capitalist underpinnings of modernity. Additionally, it has systematically disavowed historical struggles and radical calls to challenge energy infrastructure and critical perspectives, including the work of Ivan Illich, who provided a comprehensive critique of modern institutions and the rise of mechanical energy. Although Illich’s ideas maintained some recognition in some academic circles, some of his contributions have been largely neglected in anglophone academia, especially within energy justice and transition discussions. Examining examples from Mexico –Yucatán, Acapatzingo and Puebla–, this article argues that energy justice, as a conceptual discipline in academia needs to be reconceptualized as a tool for struggle and not complacency in order to lead towards emancipatory transformations ought to reject the principles of the ’modern constitution’ as a given, adopting instead a decolonial perspective drawing on Illich’s insights. These examples illustrate diverse approaches moving towards ’pluriversal territorialities’ grounded in place-based solidarity, communitarian energy, and alternative knowledge systems, transcending the confines of capitalism and state institutions.",
+      "abstract_cn": "过去十年间，能源正义学术研究的激增令人瞩目。尽管对能源系统的社会生态、政治、历史和物质影响进行了广泛分析，但许多研究在概念和理论上仍然模糊不清，对现代性的殖民、父权和资本主义基础缺乏批判。此外，它系统性地否认了历史斗争和挑战能源基础设施及批判视角的激进呼吁，包括伊万·伊里奇的工作，他对现代机构和机械能源的兴起提供了全面批判。尽管伊里奇的思想在某些学术圈中保持了一定的认可，但他的部分贡献在英语学术界，特别是在能源正义和转型讨论中，很大程度上被忽视了。通过考察墨西哥的实例——尤卡坦、阿卡帕钦戈和普埃布拉——本文认为，作为学术领域的能源正义需要被重新概念化为一种斗争工具而非自满，以引领走向解放性转型，应当拒绝将“现代宪法”的原则视为既定，转而采纳借鉴伊里奇见解的非殖民视角。这些实例展示了朝向基于地方团结、社群能源和替代知识体系的“多元宇宙领土性”的多样路径，超越了资本主义和国家制度的限制。",
+      "doi": "10.1016/j.worlddev.2026.107343",
+      "source_url": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x2600032x.html",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/wdevel.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x2600032x.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T13:24:18+00:00",
+        "source_hash": "effded4300211b95ec1ddb4f00c01d18e820118a3e1cd58a7cc936c99657700c"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.worlddev.2026.107357",
+      "sequence": 21,
+      "source_sequence": 21,
+      "article_type": "research-article",
+      "title_en": "Measuring national entrepreneurial ecosystems in Africa",
+      "title_cn": "衡量非洲国家创业生态系统",
+      "authors": [
+        "Erik Stam",
+        "Phumlani Nkontwana",
+        "Robert McDonald",
+        "Rafiki Murenzi",
+        "Kwabena Aboah Addo",
+        "Blaise Bayuo",
+        "Belinda Baah",
+        "Stefan Riezebos",
+        "Tim Gelissen"
+      ],
+      "abstract_en": "Productive entrepreneurship is highly needed for economic growth and development in Africa. For this to happen, the conditions for productive entrepreneurship need to be improved. However, data on the conditions for productive entrepreneurship in the African continent are scarce, which makes it very difficult to improve these conditions and interventions in a context-specific way. We tackle this challenge and source data from various public, private, global, and African sources. We use an entrepreneurial ecosystem framework to select, make sense of, and integrate this data. We use an extensive set of 21 empirical indicators to measure seven dimensions of national entrepreneurial ecosystems in Africa and to compose the Africa Entrepreneurial Ecosystem Index. This index and the underlying data aim to facilitate large-scale research on entrepreneurial ecosystems and collective learning for improving entrepreneurial ecosystems in Africa.",
+      "abstract_cn": "生产性创业对于非洲的经济增长和发展至关重要。要实现这一点，需要改善生产性创业的条件。然而，关于非洲大陆生产性创业条件的数据稀缺，这使得在特定背景下改善这些条件和干预措施变得非常困难。我们应对这一挑战，从各种公共、私人、全球和非洲来源获取数据。我们使用创业生态系统框架来筛选、理解和整合这些数据。我们使用一套包含21个实证指标的广泛体系来衡量非洲国家创业生态系统的七个维度，并编制非洲创业生态系统指数。该指数及其基础数据旨在促进对创业生态系统的大规模研究以及改善非洲创业生态系统的集体学习。",
+      "doi": "10.1016/j.worlddev.2026.107357",
+      "source_url": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x2600046x.html",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/wdevel.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/wdevel/v202y2026ics0305750x2600046x.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T13:24:20+00:00",
+        "source_hash": "f60cb84007c8d021072e72d664fb654a14bac567af1f4f7bb803d822b31b3cc5"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "repec-serial-page",
+    "roster_authority": "repec-publisher-supplied",
+    "roster_match_scope": "repec-volume-items",
+    "excluded_item_count": 1,
+    "excluded_items": [
+      {
+        "title_en": "Introduction: Socialist industrialization, deskilling, and reducing the gap between mental and manual labor in China",
+        "reason": "editorial_material",
+        "doi": "10.1016/j.worlddev.2026.107339",
+        "article_type": "editorial"
+      }
+    ],
+    "doi_complete": 21,
+    "authors_complete": 21,
+    "abstract_en_complete": 21,
+    "translation_complete": 21,
+    "duplicate_count": 0,
+    "repec_item_count": 22,
+    "flags": [],
+    "official_item_count": 22,
+    "publishable_item_count": 21,
+    "content_counts": {
+      "official_items": 22,
+      "observed_items": 22,
+      "publishable_items": 21,
+      "research_articles": 21,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 1,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 21
+    }
+  },
+  "content_counts": {
+    "official_items": 22,
+    "observed_items": 22,
+    "publishable_items": 21,
+    "research_articles": 21,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 1,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 21
+  },
+  "issue_label": "Vol. 202"
+}

@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-05T13:03:35+00:00
+Updated: 2026-08-05T13:27:48+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -236,3 +236,9 @@ Updated: 2026-08-05T13:03:35+00:00
 | WD | wd-196-c | 2025 | complete |  |
 | WD | wd-197-c | 2026 | blocked | possible_incomplete_volume: 2 articles collected vs current issue 20; needs offi |
 | WD | wd-198-c | 2026 | translation_partial |  |
+| WD | wd-199-c | 2026 | complete |  |
+| WD | wd-200-c | 2026 | complete |  |
+| WD | wd-201-c | 2026 | complete |  |
+| WD | wd-202-c | 2026 | complete |  |
+| WD | wd-203-c | 2026 | complete |  |
+| WD | wd-204-c | 2026 | complete |  |
