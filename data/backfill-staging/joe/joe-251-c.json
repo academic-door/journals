@@ -1,0 +1,1341 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "joe-251-c",
+  "journal_id": "joe",
+  "journal_name": "Journal of Econometrics",
+  "volume": "251",
+  "issue": "C",
+  "publication_date": "February 2025",
+  "source_url": "https://ideas.repec.org/s/eee/econom.html",
+  "retrieved_at": "2026-08-05T10:31:06+00:00",
+  "expected_article_count": 31,
+  "research_article_count": 31,
+  "status": "ready",
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106030",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Distribution regression with censored selection",
+      "title_cn": "带删失选择的分布回归",
+      "authors": [
+        "Songnian Chen",
+        "Nianqing Liu",
+        "Hanghui Zhang"
+      ],
+      "abstract_en": "Chernozhukov, Fernández-Val, and Luo (2023, CFL (2023) hereafter) considered a distribution regression model subject to sample selection with a binary selection mechanism. In this paper, we show how to identify and estimate a semi-parametric distribution regression model subject to a censored selection rule. With censored selection, we do not need to impose the usual outcome exclusion restriction or exclusion of the level of the latent selection variable from the selection sorting function for model identification, unlike CFL (2023). We propose new semiparametric estimators and corresponding inference procedures for model parameters and related functional parameters. We apply our method to investigate wage inequality in the UK for the period 1978–2000 using the Family Expenditure Survey (FES) data. Our findings reveal that (i) the selection sorting exclusion and outcome exclusion restrictions imposed by CFL (2023) are rejected; (ii) there is negative selection into work at most quantile levels for females, but not for males; (iii) in contrast to CFL (2023), our selection sorting effect pattern does not offer clear evidence on assortative matching or glass ceiling in the UK labor market; (iv) the latent gender wage gaps after correcting for selection bias are about 25%–50% of CFL (2023)’s estimates, and are also significantly smaller than the observed wage gaps; (v) similar to CFL (2023), there exists some strong evidence on gender discrimination in the UK labor market.",
+      "abstract_cn": "Chernozhukov、Fernández-Val 和 Luo（2023，以下简称 CFL（2023））考虑了一个受二元选择机制影响的样本选择分布回归模型。在本文中，我们展示了如何在删失选择规则下识别和估计一个半参数分布回归模型。与 CFL（2023）不同，在删失选择下，我们无需为模型识别施加通常的结果排除限制或将潜在选择变量的水平从选择排序函数中排除。我们为模型参数及相关函数参数提出了新的半参数估计量和相应的推断程序。我们应用我们的方法，使用家庭支出调查（FES）数据研究英国 1978-2000 年期间的工资不平等。我们的发现表明：（i）CFL（2023）施加的选择排序排除和结果排除限制被拒绝；（ii）对于女性，在大多数分位水平上存在负向的工作选择，但男性则不然；（iii）与 CFL（2023）相比，我们的选择排序效应模式并未为英国劳动力市场中的匹配 assortative matching 或玻璃天花板提供明确证据；（iv）在纠正选择偏差后，潜在性别工资差距约为 CFL（2023）估计值的 25%–50%，并且也显著小于观察到的工资差距；（v）与 CFL（2023）类似，存在一些强有力的证据表明英国劳动力市场中存在性别歧视。",
+      "doi": "10.1016/j.jeconom.2025.106030",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625000843",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics0304407625000843.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:31:10+00:00",
+        "source_hash": "d8d75325bdf2470cfa717620ed470b38b01b2e53c69732951f002528f880760d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106033",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Multilevel matrix factor model",
+      "title_cn": "多层级矩阵因子模型",
+      "authors": [
+        "Yuteng Zhang",
+        "Yongchang Hui",
+        "Junrong Song",
+        "Shurong Zheng"
+      ],
+      "abstract_en": "Large scale matrix data has been widely discovered and continuously studied in various fields recently. We propose a multilevel matrix factor model considering the existence of multi level factor structure in matrix time series. This model incorporates both global factors influencing all matrix time series and local factors confined to impact specific matrix time series. Asymptotic properties are established to ensure the consistency of our procedure for estimating factor loading matrices. To demonstrate the finite-sample performance of our estimation, we present comprehensive simulation results. Finally, we apply our model to an empirical analysis of eight indexes, including return, trading volume, and trading value, across 200 stocks from ten distinct industries.",
+      "abstract_cn": "近年来，大规模矩阵数据在各个领域被广泛发现并持续研究。我们提出了一种考虑矩阵时间序列中多层级因子结构存在的多层级矩阵因子模型。该模型既包含影响所有矩阵时间序列的全局因子，也包含仅限于影响特定矩阵时间序列的局部因子。我们建立了渐近性质以确保我们估计因子载荷矩阵程序的一致性。为了展示我们估计的有限样本性能，我们提供了全面的模拟结果。最后，我们将我们的模型应用于对来自十个不同行业的200只股票的八项指标（包括收益率、交易量和交易额）的实证分析。",
+      "doi": "10.1016/j.jeconom.2025.106033",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625000879",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics0304407625000879.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:31:12+00:00",
+        "source_hash": "35071ab4fb9436189b965754f39f1bf1d7db4e8ae2be9a892b2947b30d9c5b2d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106041",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Multivariate stochastic volatility models based on generalized Fisher transformation",
+      "title_cn": "基于广义Fisher变换的多元随机波动率模型",
+      "authors": [
+        "Han Chen",
+        "Yijie Fei",
+        "Jun Yu"
+      ],
+      "abstract_en": "Modeling multivariate stochastic volatility (MSV) can pose significant challenges, particularly when both variances and covariances are time-varying. In this study, we tackle these complexities by introducing novel MSV models based on the generalized Fisher transformation (GFT) proposed by Archakov and Hansen (2021). Our model exhibits remarkable flexibility, ensuring the positive-definiteness of the variance–covariance matrix, and disentangling the driving forces of volatilities and correlations. To conduct Bayesian analysis of the models, we employ a Particle Gibbs Ancestor Sampling (PGAS) method, facilitating efficient Bayesian model comparisons. Furthermore, we extend our MSV model to cover leverage effects and incorporate realized measures. Our simulation studies demonstrate that the proposed method performs well for our GFT-based MSV model. Furthermore, empirical studies based on equity returns show that the MSV models outperform alternative specifications in both in-sample and out-of-sample performances.",
+      "abstract_cn": "对多元随机波动率（MSV）进行建模可能带来显著挑战，尤其是当方差和协方差均随时间变化时。在本研究中，我们通过引入基于Archakov和Hansen（2021）提出的广义Fisher变换（GFT）的新型MSV模型来应对这些复杂性。我们的模型表现出显著的灵活性，确保方差-协方差矩阵的正定性，并分离波动率和相关性的驱动因素。为了对模型进行贝叶斯分析，我们采用粒子吉布斯祖先采样（PGAS）方法，促进高效的贝叶斯模型比较。此外，我们将MSV模型扩展以涵盖杠杆效应并纳入已实现测度。我们的模拟研究表明，所提出的方法在我们基于GFT的MSV模型中表现良好。进一步地，基于股票收益的实证研究表明，MSV模型在样本内和样本外表现上均优于其他备选规格。",
+      "doi": "10.1016/j.jeconom.2025.106041",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625000958",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics0304407625000958.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:31:15+00:00",
+        "source_hash": "522e1fec987c6ec8f4a9e5394c46324372265737ebd11ee0446187079efac22d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106049",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Asymptotic theory of the best-choice rerandomization using the Mahalanobis distance",
+      "title_cn": "基于马氏距离的最优选择重随机化的渐近理论",
+      "authors": [
+        "Yuhao Wang",
+        "Xinran Li"
+      ],
+      "abstract_en": "Rerandomization, a design that utilizes pretreatment covariates and improves their balance between different treatment groups, has received attention recently in both theory and practice. From a survey by Bruhn and McKenzie (2009), there are at least two types of rerandomization that are used in practice: the first rerandomizes the treatment assignment until covariate imbalance is below a prespecified threshold; the second randomizes the treatment assignment multiple times and chooses the one with the best covariate balance. In this paper we will consider the second type of rerandomization, namely the best-choice rerandomization, whose theory and inference are still lacking in the literature. In particular, we will focus on the best-choice rerandomization that uses the Mahalanobis distance to measure covariate imbalance, which is one of the most commonly used imbalance measure for multivariate covariates and is invariant to affine transformations of covariates. We will study the large-sample repeatedly sampling properties of the best-choice rerandomization, allowing both the number of covariates and the number of tried complete randomizations to increase with the sample size. We show that the asymptotic distribution of the difference-in-means estimator is more concentrated around the true average treatment effect under rerandomization than under the complete randomization, and propose large-sample accurate confidence intervals for rerandomization that are shorter than that for the completely randomized experiment. We further demonstrate that, with moderate number of covariates and with the number of tried randomizations increasing polynomially with the sample size, the best-choice rerandomization can achieve the ideally optimal precision that one can expect even with perfectly balanced covariates. The developed theory and methods for rerandomization are also illustrated using real field experiments.",
+      "abstract_cn": "重随机化是一种利用预处理协变量并改善不同处理组之间协变量平衡的设计，近年来在理论和实践中都受到了关注。根据Bruhn和McKenzie（2009）的一项调查，实践中至少使用两种类型的重随机化：第一种是重复随机化处理分配，直到协变量不平衡低于预设阈值；第二种是多次随机化处理分配，并选择协变量平衡最佳的一次。在本文中，我们将考虑第二种类型的重随机化，即最优选择重随机化，其理论和推断在文献中仍然缺乏。特别地，我们将关注使用马氏距离来衡量协变量不平衡的最优选择重随机化，这是多变量协变量最常用的不平衡度量之一，并且对协变量的仿射变换具有不变性。我们将研究最优选择重随机化的大样本重复抽样性质，允许协变量的数量和尝试的完全随机化次数随样本量增加。我们表明，在重随机化下，均值差估计量的渐近分布比完全随机化下更集中于真实平均处理效应附近，并提出了比完全随机化实验更短的大样本精确置信区间。我们进一步证明，在协变量数量适中且尝试的随机化次数随样本量多项式增加的情况下，最优选择重随机化可以达到即使协变量完全平衡时也能预期的理想最优精度。所开发的重随机化理论和方法的实用性也通过真实现场实验进行了说明。",
+      "doi": "10.1016/j.jeconom.2025.106049",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001034",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics0304407625001034.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:31:18+00:00",
+        "source_hash": "1d8d8f811e226bab6354fc24a42ce2457cdd254e72b12b99e25e05806b2bc9a1"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106054",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Bernstein-type inequalities and nonparametric estimation under near-epoch dependence",
+      "title_cn": "伯恩斯坦型不等式与近依从依赖下的非参数估计",
+      "authors": [
+        "Zihao Yuan",
+        "Martin Spindler"
+      ],
+      "abstract_en": "The main contributions of this paper are twofold. First, we derive Bernstein-type inequalities for irregularly spaced data under near-epoch dependent (NED) conditions and deterministic domain-expanding-infill (DEI) asymptotics. By introducing the concept of “effective dimension” to describe the geometric structure of sampled locations, we illustrate – unlike previous research – that the sharpness of these inequalities is affected by this effective dimension. To our knowledge, ours is the first study to report this phenomenon and show Bernstein-type inequalities under deterministic DEI asymptotics. This work represents a direct generalization of the work of Xu and Lee (2018), thus marking an important contribution to the topic. As a corollary, we derive a Bernstein-type inequality for irregularly spaced α-mixing random fields under DEI asymptotics. Our second contribution is to apply these inequalities to explore the attainability of optimal convergence rates for the local linear conditional mean estimator under algebraic NED conditions. Our results illustrate how the effective dimension affects assumptions of dependence. This finding refines the results of Jenish (2012) and extends the work of Hansen (2008), Vogt (2012), Chen and Christensen (2015) and Li, Lu, and Linton (2012).",
+      "abstract_cn": "本文的主要贡献有两方面。首先，我们在近依从依赖（NED）条件和确定性域扩展-填充（DEI）渐近性下，为不规则间隔数据推导了伯恩斯坦型不等式。通过引入“有效维度”概念来描述采样位置的几何结构，我们说明——与以往研究不同——这些不等式的锐度受此有效维度的影响。据我们所知，我们是首个报告这一现象并展示在确定性DEI渐近性下伯恩斯坦型不等式的研究。这项工作直接推广了Xu和Lee（2018）的工作，从而对该主题做出了重要贡献。作为推论，我们在DEI渐近性下为不规则间隔的α混合随机场推导了一个伯恩斯坦型不等式。我们的第二个贡献是应用这些不等式来探讨在代数NED条件下局部线性条件均值估计器最优收敛速度的可达性。我们的结果说明了有效维度如何影响依赖性的假设。这一发现细化了Jenish（2012）的结果，并扩展了Hansen（2008）、Vogt（2012）、Chen和Christensen（2015）以及Li、Lu和Linton（2012）的工作。",
+      "doi": "10.1016/j.jeconom.2025.106054",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001083",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics0304407625001083.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:31:21+00:00",
+        "source_hash": "3de3b5da84b3810d37bd14b7345e5bea18d970190ad7d3837ce007a723ca3d07"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106055",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Generalized Lee bounds",
+      "title_cn": "广义Lee界",
+      "authors": [
+        "Vira Semenova"
+      ],
+      "abstract_en": "Lee (2009) is a common approach to bound the average causal effect in the presence of selection bias, assuming the treatment effect on selection has the same sign for all subjects. This paper generalizes Lee bounds to allow the sign of this effect to be identified by pretreatment covariates, relaxing the standard (unconditional) monotonicity to its conditional analog. Asymptotic theory for generalized Lee bounds is proposed in low-dimensional smooth and high-dimensional sparse designs. The paper also generalizes Lee bounds to accommodate multiple outcomes. Focusing on JobCorps job training program, I first show that unconditional monotonicity is unlikely to hold, and then demonstrate the use of covariates to tighten the bounds.",
+      "abstract_cn": "Lee（2009）是一种在存在选择偏差时界定平均因果效应的常用方法，其假设处理对选择的影响对所有个体具有相同符号。本文推广了Lee界，允许该效应的符号由预处理协变量识别，将标准的（无条件）单调性放宽为其条件对应形式。本文提出了在低维光滑和高维稀疏设计下广义Lee界的渐近理论。本文还将Lee界推广以适应多个结果变量。聚焦于JobCorps职业培训项目，我首先表明无条件单调性不太可能成立，然后展示使用协变量来收紧界的方法。",
+      "doi": "10.1016/j.jeconom.2025.106055",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001095",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics0304407625001095.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:31:23+00:00",
+        "source_hash": "50265e67d0f7b5fb822ef0a390d312899958368382068b79421ae9d3c5831106"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106056",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Fast computation of exact confidence intervals for randomized experiments with binary outcomes",
+      "title_cn": "二值结果随机实验中精确置信区间的快速计算",
+      "authors": [
+        "P.M. Aronow",
+        "Haoge Chang",
+        "Patrick Lopatto"
+      ],
+      "abstract_en": "Given a randomized experiment with binary outcomes, exact confidence intervals for the average causal effect of the treatment can be computed through a series of permutation tests. This approach requires minimal assumptions and is valid for all sample sizes, as it does not rely on large-sample approximations such as those implied by the central limit theorem. We show that these confidence intervals can be found in O(nlogn) permutation tests in the case of balanced designs, where the treatment and control groups have equal sizes, and O(n2) permutation tests in the general case. Prior to this work, the most efficient known constructions required O(n2) such tests in the balanced case (Li and Ding, 2016), and O(n4) tests in the general case (Rigdon and Hudgens, 2015). Our results thus facilitate exact inference as a viable option for randomized experiments far larger than those accessible by previous methods. We also generalize our construction to produce confidence intervals for other causal estimands, including the relative risk ratio and odds ratio, yielding similar computational gains.",
+      "abstract_cn": "给定一个具有二值结果的随机实验，可以通过一系列置换检验来计算处理平均因果效应的精确置信区间。这种方法所需假设最少，且适用于所有样本量，因为它不依赖于中心极限定理所隐含的大样本近似。我们证明，在平衡设计（即处理组和对照组规模相等）的情况下，这些置信区间可以通过O(nlogn)次置换检验找到，而在一般情形下则需要O(n2)次置换检验。在此工作之前，最有效的已知构造在平衡情形下需要O(n2)次这样的检验（Li和Ding，2016），在一般情形下需要O(n4)次检验（Rigdon和Hudgens，2015）。因此，我们的结果使得精确推断成为比先前方法所能处理的规模大得多的随机实验的可行选项。我们还推广了我们的构造，以产生其他因果估计量的置信区间，包括相对风险比和比值比，并获得了类似的计算收益。",
+      "doi": "10.1016/j.jeconom.2025.106056",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001101",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics0304407625001101.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:31:26+00:00",
+        "source_hash": "7518af7b4aad6dfb573162793de45e0f6f5246f8b54a2d42f128092e5a1d07a7"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106057",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Global identification, estimation and inference of structural impulse response functions in factor models: A unified framework",
+      "title_cn": "因子模型中结构脉冲响应函数的全局识别、估计与推断：一个统一框架",
+      "authors": [
+        "Xu Han"
+      ],
+      "abstract_en": "This paper develops a theory for the global identification, estimation and inference of impulse response functions (IRFs) in structural factor models (SFMs). We examine the impact of normalization choices on IRF identification and propose to use identification restrictions robust to such choices. A new theorem is established to address IRF identification under both recursive and nonrecursive schemes in SFMs. Moreover, we develop two new estimators for structural IRFs under principal component normalization and establish their asymptotic distributions. We also propose a test for overidentifying restrictions. Simulation results demonstrate the validity of the asymptotic approximations and the favorable finite-sample properties of the overidentification test. To illustrate the flexibility of our methodology, we employ a hybrid identification scheme and analyze the dynamic effects of oil shocks using a US dataset.",
+      "abstract_cn": "本文为结构因子模型（SFMs）中的脉冲响应函数（IRFs）的全局识别、估计与推断发展了一套理论。我们考察了归一化选择对IRF识别的影响，并提议使用对此类选择稳健的识别限制。我们建立了一个新定理，以处理SFMs中递归和非递归方案下的IRF识别。此外，我们开发了两种在主成分归一化下的结构IRF新估计量，并确立了它们的渐近分布。我们还提出了一个过度识别限制的检验。模拟结果验证了渐近近似的有效性以及过度识别检验的良好有限样本性质。为了说明我们方法的灵活性，我们采用了一种混合识别方案，并使用美国数据集分析了石油冲击的动态效应。",
+      "doi": "10.1016/j.jeconom.2025.106057",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001113",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics0304407625001113.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:31:28+00:00",
+        "source_hash": "75d32ef0ba52846a70eab4619ab091793218bf237a08add3d8b940f62f769e60"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106058",
+      "sequence": 9,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "High frequency factor analysis with partially observable factors",
+      "title_cn": "高频因子分析中的部分可观测因子",
+      "authors": [
+        "Dachuan Chen",
+        "Wenqi Lu",
+        "Siyu Xie"
+      ],
+      "abstract_en": "This paper considers a novel factor structure – Partially Observable Factor Model – where both observable factors and latent factors exist in the model simultaneously. Such factor structure can make sure both interpretability and goodness-of-fit at the same time. Necessary estimation methodologies for this partially observable factor model are developed in this paper for the high frequency data. The proposed estimation methodology is robust to jumps, microstructure noise and asynchronous observation times simultaneously.",
+      "abstract_cn": "本文考虑了一种新颖的因子结构——部分可观测因子模型——其中可观测因子和潜在因子同时存在于模型中。这种因子结构可以同时确保可解释性和拟合优度。本文针对高频数据开发了这种部分可观测因子模型的必要估计方法。所提出的估计方法同时对跳跃、微观结构噪声和非同步观测时间具有稳健性。",
+      "doi": "10.1016/j.jeconom.2025.106058",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001125",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics0304407625001125.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:31:30+00:00",
+        "source_hash": "44d5bb096f38f2a95d4ffa6d3a991da00fbaa0dec7d3fdc6b4c07c723032b3d1"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106059",
+      "sequence": 10,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "A comparative analysis of two-way fixed effects estimators in staggered treatment designs",
+      "title_cn": "交错治疗设计中双向固定效应估计量的比较分析",
+      "authors": [
+        "Jhordano Aguilar-Loyo"
+      ],
+      "abstract_en": "Two-way fixed effects (TWFE) is a flexible and widely used approach for estimating treatment effects, and several TWFE estimators have been proposed for staggered treatment designs. This paper focuses on the extended TWFE estimator, introduced by Borusyak et al. (2024) and Wooldridge (2021), and compares it with alternative TWFE estimators. The main contribution is the derivation of an equation that connects the extended TWFE estimator with the difference-in-differences estimator. This equivalence provides a transparent decomposition of the components of the extended TWFE estimand. The results show that the extended TWFE estimand consists of two distinct components: one that captures meaningful comparisons and a residual term. The paper outlines the assumptions required to identify treatment effects. In line with previous literature, the findings show that the extended TWFE estimator relies on a parallel trends assumption that extends across multiple periods. Additionally, illustrative examples compare the TWFE estimators under violations of the parallel trends assumption. The results suggest that no single estimator outperforms the others. The choice of the TWFE estimator depends on the parameter of interest and the characteristics of the empirical application.",
+      "abstract_cn": "双向固定效应 (TWFE) 是一种灵活且广泛使用的估计治疗效果的方法，并且已经提出了几种用于交错治疗设计的 TWFE 估计器。本文重点介绍由 Borusyak 等人提出的扩展 TWFE 估计器。 (2024) 和 Wooldridge (2021)，并将其与替代 TWFE 估计器进行比较。主要贡献是推导了一个连接扩展 TWFE 估计器和双重差分估计器的方程。这种等价提供了扩展 TWFE 估计量的组成部分的透明分解。结果表明，扩展的 TWFE 估计量由两个不同的组成部分组成：一个捕获有意义的比较，另一个组成部分是残差项。本文概述了确定治疗效果所需的假设。与之前的文献一致，研究结果表明，扩展 TWFE 估计量依赖于跨多个时期的平行趋势假设。此外，示例还比较了违反平行趋势假设的 TWFE 估计量。结果表明，没有任何一个估计器能够优于其他估计器。 TWFE 估计器的选择取决于感兴趣的参数和经验应用的特征。",
+      "doi": "10.1016/j.jeconom.2025.106059",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001137",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics0304407625001137.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-05T10:31:41+00:00",
+        "source_hash": "b568275fb323a83dbe8a1da7de1d34fe304d352a612b97f72058a90b2e4668e0"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106060",
+      "sequence": 11,
+      "source_sequence": 11,
+      "article_type": "research-article",
+      "title_en": "Layered policy analysis in program evaluation using the marginal treatment effect",
+      "title_cn": "项目评估中利用边际处理效应的分层政策分析",
+      "authors": [
+        "Ismael Mourifié",
+        "Yuanyuan Wan"
+      ],
+      "abstract_en": "This paper proposes a unified approach to derive sharp bounds on conventional policy parameters when the instrumental variables (IVs) are potentially invalid. Using a vine copula approach, we propose a novel characterization of the identified sets for the marginal treatment effect (MTE) and the policy-relevant treatment effect (PRTE) parameters. Our method has various advantages: First, it explicitly demonstrates how imposing different IV-related assumptions with different credibility levels affects the MTE and PRTE’s identified set. Second, it provides a basis for testing model specifications and hypotheses about various imperfect IV-related assumptions. Third, it provides a tractable way to inform policy choices in the presence of uncertainty of the validity of identifying assumptions. Our approach enlarges the MTE framework’s scope by showing how it can be used to inform policy decisions even when valid instruments are not available.",
+      "abstract_cn": "本文提出了一种统一的方法，在工具变量（IVs）可能无效的情况下，推导常规政策参数的尖锐边界。利用藤蔓copula方法，我们提出了对边际处理效应（MTE）和政策相关处理效应（PRTE）参数识别集的新颖刻画。我们的方法具有多种优势：首先，它明确展示了在具有不同可信度水平下施加不同的IV相关假设如何影响MTE和PRTE的识别集。其次，它为检验关于各种不完美IV相关假设的模型设定和假设提供了基础。第三，它为在识别假设有效性存在不确定性时提供了一种可操作的方式来指导政策选择。我们的方法扩展了MTE框架的范围，展示了即使在有效工具不可用的情况下，它也能用于指导政策决策。",
+      "doi": "10.1016/j.jeconom.2025.106060",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001149",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics0304407625001149.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:31:43+00:00",
+        "source_hash": "0ab119159fbfaef91cca05b0059044603c3a277caa7fd68d8567f3f0bf0ce29f"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106061",
+      "sequence": 12,
+      "source_sequence": 12,
+      "article_type": "research-article",
+      "title_en": "Neural Conformal Inference for jump diffusion processes",
+      "title_cn": "跳跃扩散过程的神经共形推断",
+      "authors": [
+        "Hyeong Jin Hyun",
+        "Xiao Wang"
+      ],
+      "abstract_en": "Bayesian inference for jump diffusion processes (JDPs) remains challenging due to intractable transition densities and the latency of jump times and intensities. This paper introduces Neural Conformal Inference for JDPs (NCoin-JDP), a novel likelihood-free approach that leverages the power of deep neural networks (DNNs). NCoin-JDP bypasses the limitations of traditional methods by establishing a direct mapping between observed data and model parameters using a DNN. This approach eliminates the discretization errors inherent in likelihood-based methods, leading to more accurate inference. Despite the black-box nature of DNNs, we establish the asymptotic theory to quantify the approximation error of our algorithm. Additionally, we calibrate the uncertainty of our estimations using conformal prediction, providing theoretical guarantees of equivalence with the Bayesian posterior. NCoin-JDP demonstrates competitive performance compared to state-of-the-art methods. We showcase its effectiveness through numerical simulations and apply it to real-world data (S&P 500 and NASDAQ, 1993–2024) to investigate the impact of COVID-19 on the US economy. All numerical studies are reproducible in https://github.com/anonymous1116/NCoin-JDP.",
+      "abstract_cn": "跳跃扩散过程（JDPs）的贝叶斯推断由于转移密度难以处理以及跳跃时间和强度的潜在性而仍然具有挑战性。本文介绍了针对JDPs的神经共形推断（NCoin-JDP），一种新颖的无似然方法，利用深度神经网络（DNNs）的力量。NCoin-JDP通过使用DNN建立观测数据与模型参数之间的直接映射，绕过了传统方法的局限性。这种方法消除了基于似然方法固有的离散化误差，从而实现了更准确的推断。尽管DNNs具有黑箱性质，我们建立了渐近理论来量化我们算法的近似误差。此外，我们使用共形预测校准我们估计的不确定性，提供了与贝叶斯后验等价的理论保证。NCoin-JDP与最先进的方法相比表现出竞争性的性能。我们通过数值模拟展示其有效性，并将其应用于真实世界数据（S&P 500和NASDAQ，1993-2024）以研究COVID-19对美国经济的影响。所有数值研究可在https://github.com/anonymous1116/NCoin-JDP上复现。",
+      "doi": "10.1016/j.jeconom.2025.106061",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001150",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics0304407625001150.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:31:46+00:00",
+        "source_hash": "9b94f2a00ca47d7d04dd65cd97cc85fc18a4d6b1b1e575c507d6d691377c150a"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106063",
+      "sequence": 13,
+      "source_sequence": 13,
+      "article_type": "research-article",
+      "title_en": "A general test for functional inequalities",
+      "title_cn": "函数不等式的一般检验",
+      "authors": [
+        "Jia Li",
+        "Zhipeng Liao",
+        "Wenyu Zhou"
+      ],
+      "abstract_en": "This paper develops a nonparametric test for general functional inequalities that include conditional moment inequalities as a special case. It is shown that the test controls size uniformly over a large class of distributions for observed data, importantly allowing for general forms of time series dependence. New results on uniform growing dimensional Gaussian coupling for general mixingale processes are developed for this purpose, which readily accommodate most applications in economics and finance. The proposed method is applied in a portfolio evaluation context to test for “all-weather” portfolios with uniformly superior conditional Sharpe ratio functions.",
+      "abstract_cn": "本文开发了一种针对一般函数不等式的非参数检验，该检验将条件矩不等式作为特例。研究表明，该检验在观测数据的一大类分布上均匀控制大小，重要的是允许一般形式的时间序列依赖性。为此，本文发展了关于一般混合过程均匀增长维数高斯耦合的新结果，这些结果易于适应经济学和金融学中的大多数应用。所提出的方法被应用于投资组合评估情境中，以检验具有均匀优越条件夏普比率函数的“全天候”投资组合。",
+      "doi": "10.1016/j.jeconom.2025.106063",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001174",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics0304407625001174.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:31:48+00:00",
+        "source_hash": "03ebc9816e1939456122a97fcedcb449f0b0fc7e10149c9e764c5735dc1928bc"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106064",
+      "sequence": 14,
+      "source_sequence": 14,
+      "article_type": "research-article",
+      "title_en": "Sieve estimation of state-varying factor models",
+      "title_cn": "状态变化因子模型的筛估计",
+      "authors": [
+        "Liangjun Su",
+        "Sainan Jin",
+        "Xia Wang"
+      ],
+      "abstract_en": "In this paper, we propose a sieve approach to estimate state-varying factor models, where the factor loadings vary over specific state variables. Our methodology consists of a two-step estimation procedure for the parameters of interest. In the first step, we achieve preliminary consistent estimates of the factors and factor loadings via nuclear norm regularization (NNR). In the second step, we perform post-NNR iterative least squares estimations for the factors and factor loadings. We establish the asymptotic properties of these estimators. Based on the estimation theory, we propose a test for the null hypothesis of constant factor loadings and examine the asymptotic properties of the test statistic. Monte Carlo simulations demonstrate the favorable performance of the proposed estimation procedure and testing method in finite samples. An application to a U.S. macroeconomic dataset suggests potential state-dependency within the U.S. economy.",
+      "abstract_cn": "在本文中，我们提出了一种筛方法来估计状态变化因子模型，其中因子载荷随特定状态变量变化。我们的方法包括对感兴趣参数的两步估计过程。第一步，通过核范数正则化（NNR）获得因子和因子载荷的初步一致估计。第二步，进行后NNR迭代最小二乘估计以估计因子和因子载荷。我们建立了这些估计量的渐近性质。基于估计理论，我们提出了对常数因子载荷原假设的检验，并考察了检验统计量的渐近性质。蒙特卡洛模拟展示了所提出的估计程序和检验方法在有限样本中的良好表现。对美国宏观经济数据集的应用表明美国经济中可能存在状态依赖性。",
+      "doi": "10.1016/j.jeconom.2025.106064",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001186",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics0304407625001186.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:31:50+00:00",
+        "source_hash": "0a155e09f9345fae9a582f2ea3589a5053dc9991482003b7c1c5b08d2c77aa91"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106065",
+      "sequence": 15,
+      "source_sequence": 15,
+      "article_type": "research-article",
+      "title_en": "Robust estimation for dynamic spatial autoregression models with nearly optimal rates",
+      "title_cn": "具有近最优速率的动态空间自回归模型的稳健估计",
+      "authors": [
+        "Yin Lu",
+        "Chunbai Tao",
+        "Di Wang",
+        "Gazi Salah Uddin",
+        "Libo Wu",
+        "Xuening Zhu"
+      ],
+      "abstract_en": "Spatial autoregression has been extensively studied in various applications, yet its robust estimation methods have received limited attention. In this work, we introduce two dynamic spatial autoregression (DSAR) models aimed at capturing temporal trends and depicting the asymmetric network effects of the units. For both DSAR models, we propose a truncated Yule–Walker estimation method, which is tailored to achieve robust estimation in the presence of heavy-tailed data. Additionally, we extend this robust estimation procedure to a constrained estimation framework using the Dantzig selector, enabling the identification of sparse network effects observed in real-world applications. Theoretically, the minimax optimality of proposed estimators is derived under certain conditions on the weighting matrix. Empirical studies, including an analysis of financial contagion in the Chinese stock market and the dynamics of live streaming popularity, demonstrate the practical efficacy of our methods.",
+      "abstract_cn": "空间自回归已在各种应用中得到广泛研究，但其稳健估计方法受到的关注有限。在这项工作中，我们引入了两个动态空间自回归（DSAR）模型，旨在捕捉时间趋势并描绘单元的非对称网络效应。对于这两个DSAR模型，我们提出了一种截断的Yule-Walker估计方法，该方法专门用于在重尾数据存在下实现稳健估计。此外，我们将这一稳健估计程序扩展到使用Dantzig选择器的约束估计框架，从而能够识别现实世界应用中观察到的稀疏网络效应。理论上，在加权矩阵的某些条件下，推导了所提出估计量的极小极大最优性。实证研究，包括对中国股市金融传染和直播流行度动态的分析，证明了我们方法的实际有效性。",
+      "doi": "10.1016/j.jeconom.2025.106065",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001198",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics0304407625001198.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:31:52+00:00",
+        "source_hash": "bc001bffcf95d05c3e057e29f8c1fced939ff0a6725fd95642917d17524fb08e"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106068",
+      "sequence": 16,
+      "source_sequence": 16,
+      "article_type": "research-article",
+      "title_en": "Taking advantage of biased proxies for forecast evaluation",
+      "title_cn": "利用有偏代理变量进行预测评估",
+      "authors": [
+        "Giuseppe Buccheri",
+        "Roberto Renò",
+        "Giorgio Vocalelli"
+      ],
+      "abstract_en": "This paper rehabilitates biased proxies for the assessment of the predictive accuracy of competing forecasts. By relaxing the ubiquitous assumption of proxy unbiasedness adopted in the theoretical and empirical literature, we show how to optimally combine (possibly) biased proxies to maximize the probability of inferring the ranking that would be obtained using the true latent variable, a property that we dub proxy reliability. Our procedure still preserves the robustness of the loss function, in the sense of Patton (2011b), and allows testing for equal predictive accuracy, as in Diebold and Mariano (1995). We demonstrate the usefulness of the method with compelling empirical applications on GDP growth, financial market volatility forecasting, and sea surface temperature of the Niño 3.4 region.",
+      "abstract_cn": "本文重新评估了有偏代理变量在竞争性预测准确性评估中的作用。通过放宽理论和实证文献中普遍采用的代理变量无偏性假设，我们展示了如何最优地组合（可能）有偏的代理变量，以最大化推断出使用真实潜在变量所获得的排序的概率，这一性质我们称之为代理可靠性。我们的方法仍然保留了损失函数的稳健性，如Patton（2011b）所述，并允许进行预测准确性相等性的检验，如Diebold和Mariano（1995）所述。我们通过关于GDP增长、金融市场波动率预测以及Niño 3.4区域海表温度的令人信服的实证应用，证明了该方法的实用性。",
+      "doi": "10.1016/j.jeconom.2025.106068",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001228",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics0304407625001228.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:31:54+00:00",
+        "source_hash": "19b2f34bdf855cc8d6b100e83a54f69639903560c2a5d7dd5895b80f2a30c95b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106070",
+      "sequence": 17,
+      "source_sequence": 17,
+      "article_type": "research-article",
+      "title_en": "Factor-guided estimation of large covariance matrix function with conditional functional sparsity",
+      "title_cn": "因子引导的大规模协方差矩阵函数估计与条件函数稀疏性",
+      "authors": [
+        "Dong Li",
+        "Xinghao Qiao",
+        "Zihan Wang"
+      ],
+      "abstract_en": "This paper addresses the fundamental task of estimating covariance matrix functions for high-dimensional functional data/functional time series. We consider two functional factor structures encompassing either functional factors with scalar loadings or scalar factors with functional loadings, and postulate functional sparsity on the covariance of idiosyncratic errors after taking out the common unobserved factors. To facilitate estimation, we rely on the spiked matrix model and its functional generalization, and derive some novel asymptotic identifiability results, based on which we develop DIGIT and FPOET estimators under two functional factor models, respectively. Both estimators involve performing associated eigenanalysis to estimate the covariance of common components, followed by adaptive functional thresholding applied to the residual covariance. We also develop functional information criteria for model selection with theoretical guarantees. The convergence rates of involved estimated quantities are respectively established for DIGIT and FPOET estimators. Numerical studies including extensive simulations and a real data application on functional portfolio allocation are conducted to examine the finite-sample performance of the proposed methodology.",
+      "abstract_cn": "本文处理了高维函数型数据/函数型时间序列中协方差矩阵函数估计的基本任务。我们考虑两种函数因子结构，分别包含具有标量载荷的函数因子或具有函数载荷的标量因子，并假设在去除共同不可观测因子后，特质误差的协方差具有函数稀疏性。为便于估计，我们依赖于尖峰矩阵模型及其函数推广，并推导出一些新颖的渐近可识别性结果，基于此我们分别在两种函数因子模型下开发了DIGIT和FPOET估计量。两种估计量都涉及执行相关的特征分析以估计共同成分的协方差，然后对残差协方差应用自适应函数阈值化。我们还开发了具有理论保证的函数信息准则用于模型选择。所涉及估计量的收敛速率分别针对DIGIT和FPOET估计量建立。数值研究包括广泛的模拟和关于函数型投资组合配置的真实数据应用，以检验所提出方法的有限样本性能。",
+      "doi": "10.1016/j.jeconom.2025.106070",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001241",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics0304407625001241.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:31:57+00:00",
+        "source_hash": "8fb6aabfd590595f42336668fa332fb77b8a90f15a542a6df5b3037cad697b64"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106071",
+      "sequence": 18,
+      "source_sequence": 18,
+      "article_type": "research-article",
+      "title_en": "Fast on-line changepoint detection using heavily-weighted CUSUM and veto-based decision rules",
+      "title_cn": "基于重加权CUSUM和否决式决策规则的快速在线变点检测",
+      "authors": [
+        "Fabrizio Ghezzi",
+        "Eduardo Rossi",
+        "Lorenzo Trapani"
+      ],
+      "abstract_en": "We study on-line changepoint detection in the context of a linear regression model, developing two novel contributions. Firstly, we propose a class of heavily weighted statistics based on the CUSUM process of the regression residuals, which are specifically designed to ensure timely detection of breaks occurring early on during the monitoring horizon. Secondly, we develop a class of composite statistics using different weighting schemes; the decision rule to mark a changepoint is based on the largest statistic across the various weights, thus effectively working like a “veto-based” voting mechanism, which ensures fast detection irrespective of the location of the changepoint. Our theory is derived under a very general form of weak dependence, thus being able to apply our tests to virtually all time series encountered in economics, finance, and other applied sciences. Monte Carlo simulations and an application to financial data show that our methodologies are able to control the procedure-wise Type I Error, and have short detection delays in the presence of breaks.",
+      "abstract_cn": "我们在线性回归模型的背景下研究在线变点检测，提出了两个新颖的贡献。首先，我们提出了一类基于回归残差CUSUM过程的重加权统计量，其专门设计用于确保在监测期间早期发生的断点能够被及时检测。其次，我们开发了一类使用不同加权方案的复合统计量；标记变点的决策规则基于各权重下最大的统计量，从而有效地类似于“否决式”投票机制，确保无论变点位置如何都能快速检测。我们的理论是在非常一般的弱依赖形式下推导的，因此能够将我们的检验应用于经济学、金融学及其他应用科学中遇到的几乎所有时间序列。蒙特卡洛模拟和对金融数据的应用表明，我们的方法能够控制程序层面的第一类错误，并在存在断点时具有较短的检测延迟。",
+      "doi": "10.1016/j.jeconom.2025.106071",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001253",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics0304407625001253.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:32:00+00:00",
+        "source_hash": "f8da585808e5a58ef1aa8f658c6d58e3ff2f274262bac0ee578cf7ce02faae48"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106073",
+      "sequence": 19,
+      "source_sequence": 19,
+      "article_type": "research-article",
+      "title_en": "An order-invariant score-driven dynamic factor model",
+      "title_cn": "一种顺序不变的得分驱动动态因子模型",
+      "authors": [
+        "Mariia Artemova"
+      ],
+      "abstract_en": "This paper introduces a novel score-driven dynamic factor model designed for filtering cross-sectional co-movements in panels of time series. The model is formulated using elliptical distribution for noise terms, allowing the update of the time-varying parameter to be potentially nonlinear and robust to outliers. We derive stochastic properties of time series generated by the model, such as stationarity and ergodicity, and establish the invertibility of the filter. We prove that the identification of the factors and loadings is achieved by incorporating an orthogonality constraint on the loadings, which is invariant to the order of the series in the panel. Given the nonlinearity of the constraint, we propose exploiting a maximum likelihood estimation on Stiefel manifolds. This approach ensures that the identification constraint is satisfied numerically, enabling joint estimation of the static and time-varying parameters. Furthermore, the asymptotic properties of the constrained estimator are derived. In a series of Monte Carlo experiments, we find evidence of appropriate finite sample properties of the estimator and resulting score filter for the time-varying parameters. We demonstrate the empirical usefulness of our factor model in constructing indices of economic activity from a set of macroeconomic and financial variables during the period 1981–2022. An empirical application highlights the importance of robustness, particularly in the presence of V-shaped recessions, such as the COVID-19 recession.",
+      "abstract_cn": "本文介绍了一种新颖的得分驱动动态因子模型，旨在过滤时间序列面板中的横截面共同变动。该模型使用椭圆分布来设定噪声项，使得时变参数的更新可能具有非线性并对异常值具有稳健性。我们推导了该模型生成的时间序列的随机性质，如平稳性和遍历性，并建立了滤波器的可逆性。我们证明，通过在对载荷施加正交约束（该约束对面板中序列的顺序不变）可以实现因子和载荷的识别。鉴于约束的非线性，我们提出利用Stiefel流形上的最大似然估计。这种方法确保识别约束在数值上得到满足，从而能够联合估计静态和时变参数。此外，还推导了约束估计量的渐近性质。在一系列蒙特卡洛实验中，我们发现了估计量及由此产生的时变参数得分滤波器具有适当有限样本性质的证据。我们通过从1981-2022期间的一组宏观经济和金融变量构建经济活动指数，展示了我们因子模型的经验实用性。一项实证应用强调了稳健性的重要性，特别是在存在V型衰退（如COVID-19衰退）的情况下。",
+      "doi": "10.1016/j.jeconom.2025.106073",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001277",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics0304407625001277.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:32:03+00:00",
+        "source_hash": "7ad536bd80097241567a0dc3506d725b4fb394c26571555e855f28c23920a641"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106074",
+      "sequence": 20,
+      "source_sequence": 20,
+      "article_type": "research-article",
+      "title_en": "A unified test for regression discontinuity designs",
+      "title_cn": "回归不连续设计的一种统一检验",
+      "authors": [
+        "Koki Fusejima",
+        "Takuya Ishihara",
+        "Masayuki Sawada"
+      ],
+      "abstract_en": "Diagnostic tests for regression discontinuity design face a size-control problem. We document a massive over-rejection of the diagnostic restriction among empirical studies in the top five economics journals. At least one diagnostic test was rejected for 19 out of 59 studies, whereas less than 5% of the collected 787 tests rejected the null hypotheses. In other words, one-third of the studies rejected at least one of their diagnostic tests, whereas their underlying identifying restrictions appear plausible. Multiple testing causes this problem because the median number of tests per study was as high as 12. The critical issue is the lack of a formal method to dismiss possibly false rejections caused by the multiple testing problem. Therefore, we offer unified tests to overcome the size-control problem. Our procedure is based on the new joint asymptotic normality of local polynomial mean and density estimates. In simulation studies, our unified tests outperformed the Bonferroni correction. We implement the procedure as an R package rdtest with two empirical examples in its vignettes.",
+      "abstract_cn": "回归不连续设计的诊断检验面临规模控制问题。我们记录了在五大经济学期刊的实证研究中，诊断限制条件被过度拒绝的严重现象。在59项研究中，有19项至少有一个诊断检验被拒绝，而收集的787项检验中，拒绝原假设的比例不足5%。换言之，三分之一的研究拒绝了至少一项诊断检验，而其潜在识别限制条件看似合理。多重检验导致了这一问题，因为每项研究检验数量的中位数高达12。关键问题在于缺乏一种正式方法来排除由多重检验问题可能导致的错误拒绝。因此，我们提供了统一检验以克服规模控制问题。我们的程序基于局部多项式均值与密度估计的新联合渐近正态性。在模拟研究中，我们的统一检验优于邦费罗尼校正。我们将该程序实现为R包rdtest，并在其插图中提供了两个实证示例。",
+      "doi": "10.1016/j.jeconom.2025.106074",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001289",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics0304407625001289.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:32:06+00:00",
+        "source_hash": "7975684fe17268b488c82386d67a760123a1794908d572249be981d14fc7586e"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106076",
+      "sequence": 21,
+      "source_sequence": 21,
+      "article_type": "research-article",
+      "title_en": "Bregman model averaging for forecast combination",
+      "title_cn": "布雷格曼模型平均法用于预测组合",
+      "authors": [
+        "Yi-Ting Chen",
+        "Chu-An Liu",
+        "Jiun-Hua Su"
+      ],
+      "abstract_en": "We propose a unified model averaging (MA) approach for a broad class of forecasting targets. This approach is established by minimizing an asymptotic risk based on the expected Bregman divergence of a combined forecast, relative to the optimal forecast of the forecasting target, under local(-to-zero) asymptotics. It can be flexibly applied to develop effective MA methods across various forecasting contexts, including but not limited to univariate and multivariate mean forecasting, volatility forecasting, probabilistic forecasting, and density forecasting. As illustrative examples, we present a series of simulation experiments and empirical cases that demonstrate strong numerical performance of our approach in forecasting.",
+      "abstract_cn": "我们提出了一种统一的模型平均（MA）方法，适用于广泛的预测目标类别。该方法通过最小化基于预期布雷格曼散度的组合预测相对于预测目标最优预测的渐近风险来建立，在局部（趋近于零）渐近条件下。它可以灵活应用于各种预测情境中开发有效的MA方法，包括但不限于单变量和多变量均值预测、波动率预测、概率预测以及密度预测。作为示例，我们展示了一系列模拟实验和实证案例，证明了我们的方法在预测中的强大数值表现。",
+      "doi": "10.1016/j.jeconom.2025.106076",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001307",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics0304407625001307.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:32:08+00:00",
+        "source_hash": "debff9f7ad54621706cb78aa3010d4a1f986742aa48268d194857d1cca33b019"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106078",
+      "sequence": 22,
+      "source_sequence": 22,
+      "article_type": "research-article",
+      "title_en": "Spatial panel data models with structural change",
+      "title_cn": "具有结构变化的空间面板数据模型",
+      "authors": [
+        "Luya Wang",
+        "Kunpeng Li"
+      ],
+      "abstract_en": "Spatial panel data models have gained widespread application in social sciences, particularly in economics, due to their ability to capture spatial dependencies. However, existing studies on spatial models typically rely on the assumption of parameter stability, which may be overly restrictive given the well-documented prevalence of structural changes in economic relationships. This paper addresses this limitation by proposing and analyzing spatial panel data models that explicitly incorporate structural change. The primary focus of this paper is on a static spatial autoregressive (SAR) panel data model, which we estimate using the quasi-maximum likelihood (QML) method. We establish a comprehensive asymptotic theory for the QML estimators, including proofs of consistency, convergence rates, and limiting distributions, under a large-N and large-T framework. Furthermore, we extend our theoretical framework in two important directions: dynamic spatial panel data models and settings with large-N and fixed-T. Additionally, we develop hypothesis testing procedures for detecting structural change, proposing three sup-type test statistics for this purpose. To validate our theoretical results, we conduct extensive Monte Carlo simulations, which demonstrate that the QML estimators perform well in finite samples. These findings underscore the practical relevance and robustness of our proposed methodology.",
+      "abstract_cn": "空间面板数据模型因其捕捉空间依赖性的能力，在社会科学，尤其是经济学中得到了广泛应用。然而，现有的空间模型研究通常依赖于参数稳定性的假设，鉴于经济关系中结构变化的普遍性已有充分记录，这一假设可能过于严格。本文通过提出并分析明确纳入结构变化的空间面板数据模型来解决这一局限性。本文的主要焦点是静态空间自回归（SAR）面板数据模型，我们使用拟极大似然（QML）方法进行估计。我们在大N和大T框架下，为QML估计量建立了全面的渐近理论，包括一致性、收敛速度和极限分布的证明。此外，我们在两个重要方向上扩展了我们的理论框架：动态空间面板数据模型以及大N和固定T的设置。另外，我们开发了用于检测结构变化的假设检验程序，为此提出了三种sup型检验统计量。为验证我们的理论结果，我们进行了广泛的蒙特卡洛模拟，结果表明QML估计量在有限样本中表现良好。这些发现强调了所提出方法的实际相关性和稳健性。",
+      "doi": "10.1016/j.jeconom.2025.106078",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001320",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics0304407625001320.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:32:11+00:00",
+        "source_hash": "184751dea80b3882abe49167d197379dacea4b33d59f47a10bec488cb41f6cd1"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106079",
+      "sequence": 23,
+      "source_sequence": 23,
+      "article_type": "research-article",
+      "title_en": "Quantile regression with group-level treatments",
+      "title_cn": "组级处理的 quantile 回归",
+      "authors": [
+        "Songnian Chen"
+      ],
+      "abstract_en": "To study distributional effects of group level treatments, Chetverikov et al. (2016) proposed a grouped instrumental variables quantile regression estimator, a quantile extension of the Hausman and Taylor’s 1981 instrumental variables estimator for panel data. However, their approach only allows for heterogenous distributional effects of group-level treatments that correspond to individual-level unobserved characteristics, but not group-level unobserved characteristics. In this article, we propose a quantile regression model that allows for heterogenous distributional effects of group-level treatments associated with both individual-level and group-level unobserved characteristics. We propose two-step quantile regression and instrumental variables quantile regression estimators, depending on whether the group-level treatments are correlated with the group-level unobserved characteristics. Large sample properties are presented and simulation results indicate our estimators perform well in finite samples. We apply our method to study the impact of Chinese import competition on the U.S. local wage distribution, and uncover both significant individual-level and group-level heterogeneity of the group treatment effects.",
+      "abstract_cn": "为了研究组级处理的分位数效应，Chetverikov 等人（2016）提出了一种分组工具变量分位数回归估计量，这是 Hausman 和 Taylor 的 1981 面板数据工具变量估计量的分位数扩展。然而，他们的方法仅允许与个体层面未观测特征相对应的组级处理的异质性分布效应，而不允许与组层面未观测特征相对应的效应。在本文中，我们提出了一个分位数回归模型，该模型允许与个体层面和组层面未观测特征相关的组级处理的异质性分布效应。我们根据组级处理是否与组层面未观测特征相关，提出了两步分位数回归和工具变量分位数回归估计量。我们给出了大样本性质，模拟结果表明我们的估计量在有限样本中表现良好。我们将我们的方法应用于研究中国进口竞争对美国地方工资分布的影响，并揭示了组级处理效应中显著的个体层面和组层面异质性。",
+      "doi": "10.1016/j.jeconom.2025.106079",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001332",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics0304407625001332.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:32:13+00:00",
+        "source_hash": "43b06fe8ecabf8a29222c6866103ca8a34c5902884989c2d96623f98742d63b0"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "abstract",
+        "matched_terms": [
+          "Chinese import"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106080",
+      "sequence": 24,
+      "source_sequence": 24,
+      "article_type": "research-article",
+      "title_en": "On regression-adjusted imputation estimators of average treatment effects",
+      "title_cn": "关于平均处理效应的回归调整插补估计量",
+      "authors": [
+        "Zhexiao Lin",
+        "Fang Han"
+      ],
+      "abstract_en": "Imputing missing potential outcomes using an estimated regression function is a natural idea for estimating causal effects. In the literature, estimators that combine imputation and regression adjustments are believed to be comparable to augmented inverse probability weighting. Accordingly, people for a long time conjectured that such estimators, while avoiding directly constructing the weights, are also doubly robust (Imbens, 2004; Stuart, 2010). Generalizing an earlier result of the authors (Lin et al., 2023), this paper formalizes this conjecture, showing that a large class of regression-adjusted imputation methods are indeed doubly robust for estimating average treatment effects. In addition, they are provably semiparametrically efficient as long as both the density and regression models are correctly specified. Notable examples of imputation methods covered by our theory include kernel matching, (weighted) nearest neighbor matching, local linear matching, and (honest) random forests.",
+      "abstract_cn": "使用估计的回归函数来插补缺失的潜在结果，是估计因果效应的一种自然思路。文献中，结合插补和回归调整的估计量被认为与增强逆概率加权相当。因此，长期以来人们推测这类估计量在避免直接构造权重的同時，也具有双重稳健性（Imbens, 2004; Stuart, 2010）。本文推广了作者先前的结果（Lin et al., 2023），正式化了这一猜想，表明一大类回归调整插补方法在估计平均处理效应时确实具有双重稳健性。此外，只要密度和回归模型均被正确设定，这些方法可证明是半参数有效的。我们的理论所涵盖的插补方法的显著例子包括核匹配、（加权）最近邻匹配、局部线性匹配以及（诚实的）随机森林。",
+      "doi": "10.1016/j.jeconom.2025.106080",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001344",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics0304407625001344.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:32:16+00:00",
+        "source_hash": "ff3acd9dbfb4cb33d2c8b951ab05c3a7654ae6cd7a50fc4fb1e98667402ff271"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106082",
+      "sequence": 25,
+      "source_sequence": 25,
+      "article_type": "research-article",
+      "title_en": "Shrinkage estimation of spatial panel data models with multiple structural breaks and a multifactor error structure",
+      "title_cn": "具有多重结构突变和多重因子误差结构的空间面板数据模型的收缩估计",
+      "authors": [
+        "Siqi Dai",
+        "Yongmiao Hong",
+        "Haiqi Li",
+        "Chaowen Zheng"
+      ],
+      "abstract_en": "This study investigates spatial panel data models with a multifactor error structure and multiple structural breaks occurring in the coefficients of both spatial lagged and explanatory variables. While extensive research has addressed cross-sectional dependence in panel data, including approaches that integrate spatial and factor structures within a single framework, few studies account for time-varying model parameters and achieving consistent estimation remains a significant challenge. To address the dual challenges of endogeneity and time heterogeneity, we propose a novel penalized generalized method of moments estimation with common correlated effects (PGMM-CCEX). Specifically, this method addresses the endogeneity issue by utilizing the cross-sectional averages of regressors as factor proxies when constructing the internal instrumental variables, while employing adaptive group fused Lasso to detect multiple structural breaks. The PGMM-CCEX method consistently estimates both the number of breaks and their locations. Furthermore, the post-PGMM-CCEX regime-specific coefficient estimates are consistent and asymptotically follow a normal distribution. Notably, the method remains valid even when factor loadings vary over time, whether synchronously or asynchronously with the parameters of interest. Monte Carlo simulations confirm the satisfactory finite-sample performance of the proposed PGMM-CCEX method. Finally, we apply our method to analyze cross-country economic growth across 106 countries from 1970 to 2019, revealing the time-varying influence of key economic factors on growth dynamics.",
+      "abstract_cn": "本研究探讨了具有多重因子误差结构以及空间滞后和解释变量系数中发生多重结构突变的空间面板数据模型。尽管已有大量研究处理面板数据中的横截面依赖性，包括在单一框架内整合空间和因子结构的方法，但很少有研究考虑时变模型参数，且实现一致估计仍是一个重大挑战。为应对内生性和时间异质性的双重挑战，我们提出了一种新颖的带共同相关效应的惩罚广义矩估计方法（PGMM-CCEX）。具体而言，该方法通过利用回归元的横截面平均值作为因子代理来构建内部工具变量，从而解决内生性问题，同时采用自适应组融合Lasso来检测多重结构突变。PGMM-CCEX方法能够一致地估计突变数量及其位置。此外，PGMM-CCEX后的制度特定系数估计是一致的，并且渐近服从正态分布。值得注意的是，即使因子载荷随时间变化，无论是与感兴趣参数同步还是异步变化，该方法仍然有效。蒙特卡洛模拟证实了所提出的PGMM-CCEX方法具有良好的有限样本性能。最后，我们将该方法应用于分析从1970年到2019年间106个国家的跨国经济增长，揭示了关键经济因素对增长动态的时变影响。",
+      "doi": "10.1016/j.jeconom.2025.106082",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001368",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics0304407625001368.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:32:19+00:00",
+        "source_hash": "1a555cb067888fc5be55c0b121ad202da6efe1a392d029ba8e8ae0acf7774742"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106084",
+      "sequence": 26,
+      "source_sequence": 26,
+      "article_type": "research-article",
+      "title_en": "Identification and inference for semiparametric single index transformation models",
+      "title_cn": "半参数单指数变换模型的识别与推断",
+      "authors": [
+        "Yingqian Lin",
+        "Yundong Tu"
+      ],
+      "abstract_en": "This paper considers a semiparametric single index model in which the dependent variable is subject to a nonparametric transformation. The model has the form G0(Y)=g0(X⊤θ0)+e, where X is a random vector of regressors, Y is the dependent variable and e is the random noise, the monotonic function G0, the smooth function g0 and the index vector θ0 are all unknown. This model is quite general in the sense that it nests many popular regression models as special cases. We first propose identification strategies for the three unknown quantities, based on which estimators are then constructed. The kernel density weighted average derivative estimator of δ (proportional to θ0) has a V-statistic representation and its asymptotical normality is established under the small bandwidth asymptotics. The kernel estimator of the transformation function G0 is a functional of the conditional distribution estimator of Y given X⊤θ0 and is shown to be n-consistent and asymptotically normal. The sieve estimator of g0 is shown to enjoy the standard nonparametric asymptotic properties. A specification test for the single index structure and extension to allow for endogeneous regressors are also developed. In addition, data-driven choices of the smoothing parameters are discussed. Simulation results illustrate the nice finite sample performance of the proposed estimators and specification test. An empirical application to studying the impact of family income on child achievement demonstrates the practical merits of the proposed model.",
+      "abstract_cn": "本文考虑一个半参数单指数模型，其中因变量受到非参数变换的影响。模型形式为 G0(Y)=G0(X⊤θ0)+e，其中X是回归元随机向量，Y是因变量，e是随机噪声，单调函数G0、光滑函数G0和指数向量θ0均未知。该模型非常通用，因为它将许多流行的回归模型作为特例包含在内。我们首先提出三个未知量的识别策略，并在此基础上构建估计量。δ（与θ0成比例）的核密度加权平均导数估计量具有V统计量表示，并在小带宽渐近性下建立了其渐近正态性。变换函数G0的核估计量是给定X⊤θ0条件下Y的条件分布估计量的泛函，并证明其具有n一致性和渐近正态性。G0的筛估计量被证明具有标准的非参数渐近性质。还开发了针对单指数结构的规范检验以及允许内生回归元的扩展。此外，讨论了平滑参数的数据驱动选择。模拟结果展示了所提出估计量和规范检验的良好有限样本性能。一个关于家庭收入对儿童成就影响的经验应用证明了所提出模型的实际价值。",
+      "doi": "10.1016/j.jeconom.2025.106084",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001381",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics0304407625001381.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:32:22+00:00",
+        "source_hash": "1b839bec7d317d1ce692e08c18b972186a8fe2a72b4a8a2a76b4a25911dfe477"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106087",
+      "sequence": 27,
+      "source_sequence": 27,
+      "article_type": "research-article",
+      "title_en": "Support vector decision making",
+      "title_cn": "支持向量决策",
+      "authors": [
+        "Yixiao Sun"
+      ],
+      "abstract_en": "The paper develops a support vector machine (SVM) for binary decision-making within a utility framework. Given an information set, a decision-maker first predicts a binary outcome and then selects a binary action based on this prediction to maximize expected utility, where the utility function can depend on the action taken, observable covariates, and the binary outcome subsequently realized. The proposed maximum utility SVM differs from the traditional SVM in four key aspects. First, as a conceptual innovation, it incorporates the optimal cutoff function as a separate and special covariate. Second, there is a sign restriction on this special covariate. Third, it accounts for the dependence of the utility-induced loss on both the covariates and the binary outcome. Finally, it allows the margin to differ across different classes of outcomes. The paper proves that the proposed method is Bayes-consistent under the maximum utility criterion and establishes a finite-sample generalization bound. A simulation study shows that the proposed method outperforms existing methods under the data-generating processes considered in the literature.",
+      "abstract_cn": "本文开发了一种支持向量机 (SVM)，用于在实用程序框架内进行二元决策。给定信息集，决策者首先预测二元结果，然后根据该预测选择二元操作以最大化预期效用，其中效用函数可以取决于所采取的操作、可观察的协变量以及随后实现的二元结果。所提出的最大效用 SVM 在四个关键方面与传统 SVM 不同。首先，作为概念创新，它将最优截止函数作为单独且特殊的协变量纳入其中。其次，这个特殊协变量有符号限制。第三，它解释了效用引起的损失对协变量和二元结果的依赖性。最后，它允许不同类别的结果之间存在差异。论文证明了该方法在最大效用准则下是贝叶斯一致的，并建立了有限样本泛化界限。模拟研究表明，在文献中考虑的数据生成过程中，所提出的方法优于现有方法。",
+      "doi": "10.1016/j.jeconom.2025.106087",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625001411",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics0304407625001411.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-05T10:32:34+00:00",
+        "source_hash": "f712a7d9bbc90f3863ff9cbd6726d64459f660549d9635bd0e174e6c247cccb5"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106042",
+      "sequence": 28,
+      "source_sequence": 28,
+      "article_type": "research-article",
+      "title_en": "A robust residual-based test for structural changes in factor models",
+      "title_cn": "因子模型中结构变化的稳健残差检验",
+      "authors": [
+        "Bin Peng",
+        "Liangjun Su",
+        "Yayi Yan"
+      ],
+      "abstract_en": "In this paper, we propose an easy-to-implement residual-based specification testing procedure for detecting structural changes in factor models, which is powerful against both smooth and abrupt structural changes with unknown break dates. The proposed test is robust to the over-specified number of factors, and serially and cross-sectionally correlated error processes. A new central limit theorem is given for the quadratic forms of panel data with dependence over both dimensions, thereby filling a gap in the literature. We establish the asymptotic properties of the proposed test statistic, and accordingly develop a simulation-based scheme to select critical value in order to improve finite sample performance. Through extensive simulations and a real-world application, we confirm our theoretical results and demonstrate that the proposed test exhibits desirable size and power in practice.",
+      "abstract_cn": "本文提出了一种易于实施的基于残差的规范检验程序，用于检测因子模型中的结构变化，该检验对未知断点的平滑和突变结构变化均具有功效。所提出的检验对过度设定的因子数量以及序列相关和横截面相关的误差过程具有稳健性。我们为面板数据中两个维度均存在依赖性的二次形式给出了新的中心极限定理，从而填补了文献中的空白。我们建立了所提出检验统计量的渐近性质，并据此开发了一种基于模拟的选择临界值的方法，以提高有限样本性能。通过广泛的模拟和实际应用，我们证实了理论结果，并表明所提出的检验在实践中具有理想的水平和功效。",
+      "doi": "10.1016/j.jeconom.2025.106042",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S030440762500096X",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics030440762500096x.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:32:36+00:00",
+        "source_hash": "5d1f9edf159e7cb6a027cf5a4163666686a8f2e62e82d591581806893918b568"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106052",
+      "sequence": 29,
+      "source_sequence": 29,
+      "article_type": "research-article",
+      "title_en": "Hedonic prices and quality adjusted price indices powered by AI",
+      "title_cn": "基于人工智能的特征价格与质量调整价格指数",
+      "authors": [
+        "P. Bajari",
+        "Z. Cen",
+        "V. Chernozhukov",
+        "M. Manukonda",
+        "S. Vijaykumar",
+        "J. Wang",
+        "R. Huerta",
+        "J. Li",
+        "L. Leng",
+        "G. Monokroussos",
+        "S. Wang"
+      ],
+      "abstract_en": "We develop empirical models that efficiently process large amounts of unstructured product data (text, images, prices, quantities) to produce accurate hedonic price estimates and derived indices. To achieve this, we generate abstract product attributes (or “features”) from descriptions and images using deep neural networks. These attributes are then used to estimate the hedonic price function. To demonstrate the effectiveness of this approach, we apply the models to Amazon’s data for first-party apparel sales, and estimate hedonic prices. The resulting models have a very high out-of-sample predictive accuracy, with R2 ranging from 80% to 90%. Finally, we construct the AI-based hedonic Fisher price index, chained at the year-over-year frequency, and contrast it with the CPI and other electronic indices.",
+      "abstract_cn": "我们开发了能够高效处理大量非结构化产品数据（文本、图像、价格、数量）的实证模型，以生成准确的特征价格估计及由此推导的指数。为实现这一目标，我们利用深度神经网络从描述和图像中生成抽象的产品属性（或“特征”）。随后，这些属性被用于估计特征价格函数。为证明该方法的有效性，我们将模型应用于亚马逊自营服装销售数据，并估计特征价格。所得模型具有极高的样本外预测精度，R2介于80%至90%之间。最后，我们构建了基于人工智能的特征Fisher价格指数，按年度同比频率进行链式连接，并将其与CPI及其他电子指数进行对比。",
+      "doi": "10.1016/j.jeconom.2025.106052",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S030440762500106X",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics030440762500106x.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:32:38+00:00",
+        "source_hash": "d77bb2d595ee9a189d56c53737cee4fe249ff7ea8a1dc8b38119250abc3809d1"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106069",
+      "sequence": 30,
+      "source_sequence": 30,
+      "article_type": "research-article",
+      "title_en": "High dimensional binary choice model with unknown heteroskedasticity or instrumental variables",
+      "title_cn": "具有未知异方差性或工具变量的高维二元选择模型",
+      "authors": [
+        "Fu Ouyang",
+        "Thomas T. Yang"
+      ],
+      "abstract_en": "This paper proposes a new method for estimating high-dimensional binary choice models. We consider a semiparametric model that places no distributional assumptions on the error term, allows for heteroskedastic errors, and permits endogenous regressors. Our approaches extend the special regressor estimator originally proposed by Lewbel (2000). This estimator becomes impractical in high-dimensional settings due to the curse of dimensionality associated with high-dimensional conditional density estimation. To overcome this challenge, we introduce an innovative data-driven dimension reduction method for nonparametric kernel estimators, which constitutes the main contribution of this work. The method combines distance covariance-based screening with cross-validation (CV) procedures, making special regressor estimation feasible in high dimensions. Using this new feasible conditional density estimator, we address variable and moment (instrumental variable) selection problems for these models. We apply penalized least squares (LS) and generalized method of moments (GMM) estimators with an L1 penalty. A comprehensive analysis of the oracle and asymptotic properties of these estimators is provided. Finally, through Monte Carlo simulations and an empirical study on the migration intentions of rural Chinese residents, we demonstrate the effectiveness of our proposed methods in finite sample settings.",
+      "abstract_cn": "本文提出了一种估计高维二元选择模型的新方法。我们考虑一个半参数模型，该模型对误差项不做分布假设，允许异方差误差，并允许内生回归变量。我们的方法扩展了Lewbel（2000）最初提出的特殊回归变量估计量。由于高维条件密度估计带来的维度灾难，该估计量在高维设置中变得不切实际。为克服这一挑战，我们引入了一种创新的数据驱动降维方法用于非参数核估计量，这是本研究的主要贡献。该方法将基于距离协方差的筛选与交叉验证（CV）程序相结合，使得特殊回归变量估计在高维下可行。利用这一新的可行条件密度估计量，我们解决了这些模型的变量和矩（工具变量）选择问题。我们应用带L1惩罚的惩罚最小二乘（LS）和广义矩方法（GMM）估计量。对这些估计量的预言性质和渐近性质进行了全面分析。最后，通过蒙特卡洛模拟和对中国农村居民迁移意愿的实证研究，我们证明了所提方法在有限样本设置中的有效性。",
+      "doi": "10.1016/j.jeconom.2025.106069",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S030440762500123X",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics030440762500123x.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:32:41+00:00",
+        "source_hash": "d4754dfc4e3578440ebcd72173d6ac6526eefd91d36c207853bc909b7e35b06a"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "abstract",
+        "matched_terms": [
+          "中国农村"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106083",
+      "sequence": 31,
+      "source_sequence": 31,
+      "article_type": "research-article",
+      "title_en": "Deep learning based residuals in non-linear factor models: Precision matrix estimation of returns with low signal-to-noise ratio",
+      "title_cn": "非线性因子模型中基于深度学习的残差：低信噪比下收益率的精度矩阵估计",
+      "authors": [
+        "Mehmet Caner",
+        "Maurizio Daniele"
+      ],
+      "abstract_en": "This paper introduces a consistent estimator and rate of convergence for the precision matrix of asset returns in large portfolios using a non-linear factor model within the deep learning framework. Our estimator remains valid even in low signal-to-noise ratio environments typical for financial markets and is compatible with the weak factor framework. Our theoretical analysis establishes uniform bounds on expected estimation risk based on deep neural networks for an expanding number of assets. Additionally, we provide a new consistent data-dependent estimator of error covariance in deep neural networks. Our models demonstrate superior accuracy in extensive simulations and the empirical application.",
+      "abstract_cn": "本文在深度学习框架内，利用非线性因子模型，为大规模投资组合中资产收益率的精度矩阵引入了一致估计量及其收敛速率。我们的估计量即使在金融市场典型的低信噪比环境下依然有效，并且与弱因子框架兼容。我们的理论分析基于深度神经网络，为不断增加的资产数量建立了预期估计风险的统一界限。此外，我们提供了深度神经网络中误差协方差的一种新的数据依赖一致估计量。我们的模型在广泛的模拟和实证应用中展示了优越的准确性。",
+      "doi": "10.1016/j.jeconom.2025.106083",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S030440762500137X",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v251y2025ics030440762500137x.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:32:43+00:00",
+        "source_hash": "6583936f48b026270a581fa7a766caf8a1cb39e369813bfaf660b8a92a2c780c"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "repec-serial-page",
+    "roster_authority": "repec-publisher-supplied",
+    "roster_match_scope": "repec-volume-items",
+    "excluded_item_count": 2,
+    "excluded_items": [
+      {
+        "title_en": "Time-varying vector error-correction models: Estimation and inference",
+        "reason": "non_publishable_item",
+        "doi": "10.1016/j.jeconom.2025.106035",
+        "article_type": "research-article"
+      },
+      {
+        "title_en": "Bias correction for quantile regression estimators",
+        "reason": "non_publishable_item",
+        "doi": "10.1016/j.jeconom.2025.106053",
+        "article_type": "research-article"
+      }
+    ],
+    "doi_complete": 31,
+    "authors_complete": 31,
+    "abstract_en_complete": 31,
+    "translation_complete": 31,
+    "duplicate_count": 0,
+    "repec_item_count": 33,
+    "flags": [],
+    "official_item_count": 33,
+    "publishable_item_count": 31,
+    "content_counts": {
+      "official_items": 33,
+      "observed_items": 33,
+      "publishable_items": 31,
+      "research_articles": 31,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 2,
+      "catalog_content_items": 31
+    }
+  },
+  "content_counts": {
+    "official_items": 33,
+    "observed_items": 33,
+    "publishable_items": 31,
+    "research_articles": 31,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 2,
+    "catalog_content_items": 31
+  },
+  "issue_label": "Vol. 251"
+}

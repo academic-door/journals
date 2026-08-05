@@ -1,0 +1,764 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "joe-249-c",
+  "journal_id": "joe",
+  "journal_name": "Journal of Econometrics",
+  "volume": "249",
+  "issue": "C",
+  "publication_date": "February 2025",
+  "source_url": "https://ideas.repec.org/s/eee/econom.html",
+  "retrieved_at": "2026-08-05T10:29:53+00:00",
+  "expected_article_count": 17,
+  "research_article_count": 17,
+  "status": "incomplete",
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.01.028",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Feature-splitting algorithms for ultrahigh dimensional quantile regression",
+      "title_cn": "超高维分位数回归的特征分割算法",
+      "authors": [
+        "Jiawei Wen",
+        "Songshan Yang",
+        "Christina Dan Wang",
+        "Yifan Jiang",
+        "Runze Li"
+      ],
+      "abstract_en": "This paper is concerned with computational issues related to penalized quantile regression (PQR) with ultrahigh dimensional predictors. Various algorithms have been developed for PQR, but they become ineffective and/or infeasible in the presence of ultrahigh dimensional predictors due to the storage and scalability limitations. The variable updating schema of the feature-splitting algorithm that directly applies the ordinary alternating direction method of multiplier (ADMM) to ultrahigh dimensional PQR may make the algorithm fail to converge. To tackle this hurdle, we propose an efficient and parallelizable algorithm for ultrahigh dimensional PQR based on the three-block ADMM. The compatibility of the proposed algorithm with parallel computing alleviates the storage and scalability limitations of a single machine in the large-scale data processing. We establish the rate of convergence of the newly proposed algorithm. In addition, Monte Carlo simulations are conducted to compare the finite sample performance of the proposed algorithm with that of other existing algorithms. The numerical comparison implies that the proposed algorithm significantly outperforms the existing ones. We further illustrate the proposed algorithm via an empirical analysis of a real-world data set.",
+      "abstract_cn": "本文关注与超高维预测变量的惩罚分位数回归 (PQR) 相关的计算问题。人们已经为 PQR 开发了各种算法，但由于存储和可扩展性的限制，它们在超高维预测器存在的情况下变得无效和/或不可行。将普通交替方向乘子法(ADMM)直接应用于超高维PQR的特征分割算法的变量更新模式可能会导致算法无法收敛。为了解决这个障碍，我们提出了一种基于三块 ADMM 的高效且可并行的超高维 PQR 算法。该算法与并行计算的兼容性减轻了单机在大规模数据处理中的存储和可扩展性限制。我们确定了新提出的算法的收敛速度。此外，还进行了蒙特卡洛模拟，以将所提出的算法与其他现有算法的有限样本性能进行比较。数值比较表明所提出的算法明显优于现有算法。我们通过对现实世界数据集的实证分析进一步说明了所提出的算法。",
+      "doi": "10.1016/j.jeconom.2023.01.028",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623000714",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v249y2025ipas0304407623000714.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-05T10:30:04+00:00",
+        "source_hash": "281befb7de0c3c7c9cb0d7cb2588494ac17460fe33167e9579cf485f3755b8fa"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.05.002",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Semiparametric approach to estimation of marginal mean effects and marginal quantile effects",
+      "title_cn": "边际均值效应与边际分位数效应估计的半参数方法",
+      "authors": [
+        "Seong-ho Lee",
+        "Yanyuan Ma",
+        "Elvezio Ronchetti"
+      ],
+      "abstract_en": "We consider a semiparametric generalized linear model and study estimation of both marginal mean effects and marginal quantile effects in this model. We propose an approximate maximum likelihood estimator, and rigorously establish the consistency, the asymptotic normality, and the semiparametric efficiency of our method in both the marginal mean effect and the marginal quantile effect estimation. Simulation studies are conducted to illustrate the finite sample performance, and we apply the new tool to analyze a Swiss non-labor income data and discover a new interesting predictor.",
+      "abstract_cn": "我们考虑一个半参数广义线性模型，并研究该模型中边际均值效应和边际分位数效应的估计。我们提出了一种近似极大似然估计器，并严格建立了该方法在边际均值效应和边际分位数效应估计中的一致性、渐近正态性和半参数有效性。进行了模拟研究以说明有限样本性能，并将新工具应用于分析瑞士非劳动收入数据，发现了一个新的有趣预测变量。",
+      "doi": "10.1016/j.jeconom.2023.05.002",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623001495",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v249y2025ipas0304407623001495.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:30:06+00:00",
+        "source_hash": "e179c6dec2f832d542e4ded4cc3c1efe679237d6757240e96dec175470631898"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.105564",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Simultaneous estimation and group identification for network vector autoregressive model with heterogeneous nodes",
+      "title_cn": "具有异质性节点的网络向量自回归模型的同步估计与群体识别",
+      "authors": [
+        "Xuening Zhu",
+        "Ganggang Xu",
+        "Jianqing Fan"
+      ],
+      "abstract_en": "Individuals or companies in a large social or financial network often display rather heterogeneous behaviors for various reasons. In this work, we propose a network vector autoregressive model with a latent group structure to model heterogeneous dynamic patterns observed from network nodes, for which group-wise network effects and time-invariant fixed-effects can be naturally incorporated. In our framework, the model parameters and network node memberships can be simultaneously estimated by minimizing a least-squares type objective function. In particular, our theoretical investigation allows the number of latent groups G to be over-specified when achieving the estimation consistency of the model parameters and group memberships, which significantly improves the robustness of the proposed approach. When G is correctly specified, valid statistical inference can be made for model parameters based on the asymptotic normality of the estimators. A data-driven criterion is developed to consistently identify the true group number for practical use. Extensive simulation studies and two real data examples are used to demonstrate the effectiveness of the proposed methodology.",
+      "abstract_cn": "大型社交或金融网络中的个体或公司往往因各种原因表现出相当异质的行为。在这项工作中，我们提出了一种具有潜在群体结构的网络向量自回归模型，以模拟从网络节点观察到的异质动态模式，其中可以自然地纳入群体层面的网络效应和时间不变固定效应。在我们的框架中，模型参数和网络节点成员可以通过最小化最小二乘型目标函数来同步估计。特别地，我们的理论调查允许潜在群体数量G在实现模型参数和群体成员估计一致性时被过度设定，这显著提高了所提方法的稳健性。当G被正确设定时，可以基于估计量的渐近正态性对模型参数进行有效的统计推断。开发了一种数据驱动准则，以一致地识别实际使用中的真实群体数量。广泛的模拟研究和两个真实数据示例用于证明所提方法的有效性。",
+      "doi": "10.1016/j.jeconom.2023.105564",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623002804",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v249y2025ipas0304407623002804.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:30:09+00:00",
+        "source_hash": "6111b49e1ab98302cec6f55e220ff8fb13450c8d2bda0a89f085bc34847de819"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105672",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Inference on quantile processes with a finite number of clusters",
+      "title_cn": "有限数量聚类下分位数过程的推断",
+      "authors": [
+        "Andreas Hagemann"
+      ],
+      "abstract_en": "I introduce a generic method for inference on entire quantile and regression quantile processes in the presence of a finite number of large and arbitrarily heterogeneous clusters. The method asymptotically controls size by generating statistics that exhibit enough distributional symmetry such that randomization tests can be applied. The randomization test does not require ex-ante matching of clusters, is free of user-chosen parameters, and performs well at conventional significance levels with as few as five clusters. The method tests standard (non-sharp) hypotheses and can even be asymptotically similar in empirically relevant situations. The main focus of the paper is inference on quantile treatment effects but the method applies more broadly. Numerical and empirical examples are provided.",
+      "abstract_cn": "我提出了一种通用方法，用于在存在有限数量且任意异质性的大规模聚类时，对整个分位数和回归分位数过程进行推断。该方法通过生成具有足够分布对称性的统计量，使得随机化检验得以应用，从而在渐近意义上控制检验水平。该随机化检验不需要事先匹配聚类，无需用户选择参数，并且在仅有五个聚类时，在常规显著性水平下表现良好。该方法检验标准（非尖锐）假设，并且在实际相关情境中甚至可以是渐近相似的。本文的主要焦点是分位数处理效应的推断，但该方法适用范围更广。文中提供了数值和实证例子。",
+      "doi": "10.1016/j.jeconom.2024.105672",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624000186",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v249y2025ipas0304407624000186.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:30:11+00:00",
+        "source_hash": "f48d7b4e952c88f636adee6abfc633c8e37c04c40c12fd328f37f0f4c2c57c5f"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105673",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Fast inference for quantile regression with tens of millions of observations",
+      "title_cn": "千万级观测值下分位数回归的快速推断",
+      "authors": [
+        "Sokbae Lee",
+        "Yuan Liao",
+        "Myung Hwan Seo",
+        "Youngki Shin"
+      ],
+      "abstract_en": "Big data analytics has opened new avenues in economic research, but the challenge of analyzing datasets with tens of millions of observations is substantial. Conventional econometric methods based on extreme estimators require large amounts of computing resources and memory, which are often not readily available. In this paper, we focus on linear quantile regression applied to “ultra-large” datasets, such as U.S. decennial censuses. A fast inference framework is presented, utilizing stochastic subgradient descent (S-subGD) updates. The inference procedure handles cross-sectional data sequentially: (i) updating the parameter estimate with each incoming “new observation”, (ii) aggregating it as a Polyak–Ruppert average, and (iii) computing a pivotal statistic for inference using only a solution path. The methodology draws from time-series regression to create an asymptotically pivotal statistic through random scaling. Our proposed test statistic is calculated in a fully online fashion and critical values are calculated without resampling. We conduct extensive numerical studies to showcase the computational merits of our proposed inference. For inference problems as large as (n,d)∼(107,103), where n is the sample size and d is the number of regressors, our method generates new insights, surpassing current inference methods in computation. Our method specifically reveals trends in the gender gap in the U.S. college wage premium using millions of observations, while controlling over 103 covariates to mitigate confounding effects.",
+      "abstract_cn": "大数据分析为经济研究开辟了新途径，但分析拥有数千万观测值的数据集仍面临巨大挑战。基于极值估计量的传统计量经济学方法需要大量的计算资源和内存，而这些往往不易获得。本文聚焦于应用于“超大规模”数据集（如美国十年一次的人口普查）的线性分位数回归。我们提出了一种快速推断框架，利用随机次梯度下降（S-subGD）更新。该推断过程按顺序处理横截面数据：（i）随着每个新观测值的到来更新参数估计，（ii）将其聚合为Polyak–Ruppert平均值，以及（iii）仅利用解路径计算用于推断的枢轴统计量。该方法借鉴时间序列回归，通过随机缩放构造渐近枢轴统计量。我们提出的检验统计量完全以在线方式计算，且临界值无需重采样即可获得。我们进行了广泛的数值研究，以展示所提推断方法的计算优势。对于规模高达(n,d)∼(107,103)的推断问题，其中n为样本量，d为回归元数量，我们的方法产生了新的见解，在计算上超越了现有的推断方法。我们的方法特别利用数百万观测值揭示了美国大学工资溢价中性别差距的趋势，同时控制103个协变量以减轻混杂效应。",
+      "doi": "10.1016/j.jeconom.2024.105673",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624000198",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v249y2025ipas0304407624000198.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:30:14+00:00",
+        "source_hash": "6049c9f8325cec7f3625290a5655604beddc2283a14666d95ead5ba64ff89c34"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105675",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Distributional counterfactual analysis in high-dimensional setup",
+      "title_cn": "高维设定下的分布反事实分析",
+      "authors": [
+        "Ricardo Masini"
+      ],
+      "abstract_en": "In the context of treatment effect estimation, this paper proposes a new methodology to recover the counterfactual distribution when there is a single (or a few) treated unit and possibly a high-dimensional number of potential controls observed in a panel structure. The methodology accommodates, albeit does not require, the number of units to be larger than the number of time periods (high-dimensional setup). As opposed to model only the conditional mean, we propose to model the entire conditional quantile function (CQF) in the absence of intervention and estimate it using the pre-intervention period using a penalized regression. We derive non-asymptotic bounds for the estimated CQF valid uniformly over the quantiles, allowing the practitioner to re-construct the entire contractual distribution. Moreover, we bound the probability coverage of this estimated CQF which can be used to construct valid confidence intervals for the (possibly random) treatment effect for every post-intervention period or simultaneously. We also propose a new hypothesis test for the sharp null of no-effect based on the Lp norm of deviation of the estimated CQF to the population one. Interestingly, the null distribution is quasi-pivotal in the sense that it only depends on the estimated CQF, Lp norm, and the number of post-intervention periods, but not on the size of the post-intervention period. For that reason, critical values can then be easily simulated. We illustrate the methodology is by revisiting the empirical study in Acemoglu et al. (2016).",
+      "abstract_cn": "在治疗效应估计的背景下，本文提出了一种新方法，用于在面板结构中存在单个（或少数）治疗单元且可能高维数量的潜在对照单元时恢复反事实分布。该方法适应但不要求单元数量大于时间周期数量（高维设定）。与仅对条件均值建模不同，我们提出在无干预情况下对整个条件分位数函数（CQF）进行建模，并使用干预前时期通过惩罚回归进行估计。我们推导了估计的CQF在分位数上一致有效的非渐近界限，使实践者能够重建整个反事实分布。此外，我们限定了该估计CQF的概率覆盖范围，可用于为每个干预后时期或同时构建（可能随机的）治疗效应的有效置信区间。我们还基于估计CQF与总体CQF偏差的Lp范数，提出了一种新的无效应尖锐零假设检验。有趣的是，零分布是准枢轴的，因为它仅依赖于估计的CQF、Lp范数和干预后时期的数量，而不依赖于干预后时期的大小。因此，临界值可以轻松模拟。我们通过重新审视Acemoglu等人（2016）的实证研究来说明该方法。",
+      "doi": "10.1016/j.jeconom.2024.105675",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624000216",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v249y2025ipas0304407624000216.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:30:17+00:00",
+        "source_hash": "69596a81e24492ec2b958dbf63c829cc3f6d7b83dbdac092a8a57988850a527f"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105678",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Unconditional quantile partial effects via conditional quantile regression",
+      "title_cn": "通过条件分位数回归得到的无条件分位数偏效应",
+      "authors": [
+        "Javier Alejo",
+        "Antonio F. Galvao",
+        "Julian Martinez-Iriarte",
+        "Gabriel Montes-Rojas"
+      ],
+      "abstract_en": "This paper develops a semi-parametric procedure for estimation of unconditional quantile partial effects using quantile regression coefficients. The estimator is based on an identification result showing that, for continuous covariates, unconditional quantile effects are a weighted average of conditional ones at particular quantile levels that depend on the covariates. We propose a two-step estimator for the unconditional effects where in the first step one estimates a structural quantile regression model, and in the second step a nonparametric regression is applied to the first step coefficients. We establish the asymptotic properties of the estimator, say consistency and asymptotic normality. Monte Carlo simulations show numerical evidence that the estimator has very good finite sample performance and is robust to the selection of bandwidth and kernel. To illustrate the proposed method, we study the canonical application of the Engel’s curve, i.e. food expenditures as a share of income.",
+      "abstract_cn": "本文开发了一种半参数程序，利用分位数回归系数来估计无条件分位数偏效应。该估计器基于一个识别结果，该结果表明，对于连续协变量，无条件分位数效应是特定分位水平上条件效应的加权平均值，这些分位水平依赖于协变量。我们提出了一个两步估计器来估计无条件效应，其中第一步估计结构分位数回归模型，第二步对第一步的系数应用非参数回归。我们建立了估计器的渐近性质，即一致性和渐近正态性。蒙特卡洛模拟显示，该估计器具有非常好的有限样本性能，并且对带宽和核的选择具有稳健性。为了说明所提出的方法，我们研究了恩格尔曲线的经典应用，即食品支出占收入的比例。",
+      "doi": "10.1016/j.jeconom.2024.105678",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624000241",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v249y2025ipas0304407624000241.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:30:20+00:00",
+        "source_hash": "24467a23a3e1f4df35eeeb54ff4decbe8e7a6ae99bb1d43d4d24344832ce1a08"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105789",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Quantile control via random forest",
+      "title_cn": "基于随机森林的分位数控制",
+      "authors": [
+        "Qiang Chen",
+        "Zhijie Xiao",
+        "Qingsong Yao"
+      ],
+      "abstract_en": "This paper studies robust inference procedure for treatment effects in panel data with flexible relationship across units via the random forest method. The key contribution of this paper is twofold. First, we propose a direct construction of prediction intervals for the treatment effect by exploiting the information of the joint distribution of the cross-sectional units using random forest. In particular, we propose a Quantile Control Method (QCM) using the Quantile Random Forest (QRF) to accommodate flexible cross-sectional structure as well as high dimensionality. Second, we establish the asymptotic consistency of QRF under the panel/time series setup with high dimensionality, which is of theoretical interest on its own right. In addition, Monte Carlo simulations are conducted and show that prediction intervals via the QCM have excellent coverage probability for the treatment effects comparing to existing methods in the literature, and are robust to heteroskedasticity, autocorrelation, and various types of model misspecifications. Finally, an empirical application to study the effect of the economic integration between Hong Kong and mainland China on Hong Kong’s economy is conducted to highlight the potential of the proposed method.",
+      "abstract_cn": "本文研究了在面板数据中，通过随机森林方法处理单元间灵活关系的处理效应的稳健推断程序。本文的关键贡献有两方面。首先，我们提出了一种直接构建处理效应预测区间的方法，通过利用随机森林利用横截面单元联合分布的信息。具体而言，我们提出了一种使用分位数随机森林（QRF）的分位数控制方法（QCM），以适应灵活的横截面结构以及高维性。其次，我们在高维面板/时间序列设定下建立了QRF的渐近一致性，这本身具有理论意义。此外，进行了蒙特卡洛模拟，结果表明，与文献中现有方法相比，通过QCM得到的预测区间对处理效应具有极好的覆盖概率，并且对异方差性、自相关以及各种类型的模型误设具有稳健性。最后，进行了一项实证应用，研究香港与中国内地之间的经济一体化对香港经济的影响，以突出所提出方法的潜力。",
+      "doi": "10.1016/j.jeconom.2024.105789",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624001350",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v249y2025ipas0304407624001350.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:30:22+00:00",
+        "source_hash": "51e71fe9470ea20e6201dafd5bd434b4f5a56354a8cc7418da5b17efba710168"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "abstract",
+        "matched_terms": [
+          "香港经济"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105791",
+      "sequence": 9,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "Sequential quantile regression for stream data by least squares",
+      "title_cn": "基于最小二乘的流数据序贯分位数回归",
+      "authors": [
+        "Ye Fan",
+        "Nan Lin"
+      ],
+      "abstract_en": "Massive stream data are common in modern economics applications, such as e-commerce and finance. They cannot be permanently stored due to storage limitation, and real-time analysis needs to be updated frequently as new data become available. In this paper, we develop a sequential algorithm, SQR, to support efficient quantile regression (QR) analysis for stream data. Due to the non-smoothness of the check loss, popular gradient-based methods do not directly apply. Our proposed algorithm, partly motivated by the Bayesian QR, converts the non-smooth optimization into a least squares problem and is hence significantly faster than existing algorithms that all require solving a linear programming problem in local processing. We further extend the SQR algorithm to composite quantile regression (CQR), and prove that the SQR estimator is unbiased, asymptotically normal and enjoys a linear convergence rate under mild conditions. We also demonstrate the estimation and inferential performance of SQR through simulation experiments and a real data example on a US used car price data set.",
+      "abstract_cn": "大规模流数据在现代经济应用中很常见，例如电子商务和金融。由于存储限制，它们无法永久存储，并且随着新数据的出现，实时分析需要频繁更新。在本文中，我们开发了一种序贯算法SQR，以支持对流数据进行高效的分位数回归（QR）分析。由于检查损失的非光滑性，流行的基于梯度的方法不能直接应用。我们提出的算法部分受贝叶斯QR启发，将非光滑优化转化为最小二乘问题，因此比现有算法（所有现有算法都需要在局部处理中解决线性规划问题）显著更快。我们进一步将SQR算法扩展到复合分位数回归（CQR），并证明在温和条件下，SQR估计量是无偏的、渐近正态的，并且具有线性收敛速度。我们还通过模拟实验和一个关于美国二手车价格数据集的真实数据示例，展示了SQR的估计和推断性能。",
+      "doi": "10.1016/j.jeconom.2024.105791",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624001374",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v249y2025ipas0304407624001374.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:30:25+00:00",
+        "source_hash": "10a3d89a95786040e005829936138731075d51f3aba655ef61e6e51f8b0ca07d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105807",
+      "sequence": 10,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "On superlevel sets of conditional densities and multivariate quantile regression",
+      "title_cn": "关于条件密度的超水平集与多元分位数回归",
+      "authors": [
+        "Annika Camehl",
+        "Dennis Fok",
+        "Kathrin Gruber"
+      ],
+      "abstract_en": "Some common proposals of multivariate quantiles do not sufficiently control the probability content, while others do not always accurately reflect the concentration of probability mass. We suggest superlevel sets of conditional multivariate densities as an alternative to current multivariate quantile definitions. Hence, the superlevel set is a function of conditioning variables much like in quantile regression. We show that conditional superlevel sets have favorable mathematical and intuitive features, and support a clear probabilistic interpretation. We derive the superlevel sets for a conditional or marginal density of interest from an (overfitted) multivariate Gaussian mixture model. This approach guarantees logically consistent (i.e., non-crossing) conditional superlevel sets and also allows us to obtain more traditional univariate quantiles. We demonstrate recovery of the true conditional univariate quantiles for distributions with correlation, heteroskedasticity, or asymmetry and apply our method in univariate and multivariate settings to a study on household expenditures.",
+      "abstract_cn": "多元分位数的一些常见提议未能充分控制概率含量，而其他提议则并不总是准确反映概率质量的集中程度。我们建议将条件多元密度的超水平集作为当前多元分位数定义的替代方案。因此，超水平集是条件变量的函数，类似于分位数回归中的情形。我们表明，条件超水平集具有有利的数学和直观特性，并支持清晰的概率解释。我们从（过度拟合的）多元高斯混合模型中推导出感兴趣的条件或边际密度的超水平集。该方法保证了逻辑一致（即非交叉）的条件超水平集，并允许我们获得更传统的单变量分位数。我们证明了在具有相关性、异方差性或不对称性的分布中，真实条件单变量分位数的恢复，并将我们的方法应用于单变量和多元设置下的家庭支出研究。",
+      "doi": "10.1016/j.jeconom.2024.105807",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624001532",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v249y2025ipas0304407624001532.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:30:28+00:00",
+        "source_hash": "5b256e785ce9a1aeca9dc30aa97fe518d19f0dbe8db2475ac3d1fcdeae9ba5e9"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105808",
+      "sequence": 11,
+      "source_sequence": 11,
+      "article_type": "research-article",
+      "title_en": "Testing heterogeneous treatment effect with quantile regression under covariate-adaptive randomization",
+      "title_cn": "协变量自适应随机化下基于分位数回归的异质性处理效应检验",
+      "authors": [
+        "Yang Liu",
+        "Lucy Xia",
+        "Feifang Hu"
+      ],
+      "abstract_en": "In economic studies and clinical trials, it is prevalent to observe heterogeneous treatment effects that vary depending on the relative locations of units in the distribution of responses. In this study, we propose using quantile regression to estimate and conduct inference for conditional quantile treatment effects (cQTEs) in covariate-adaptive randomized experiments. First, we present sufficient conditions for consistently estimating the cQTEs, concerning the bias due to omitting important covariates in the inference stage. Second, we derive the weak convergence of the quantile regression process and develop a covariate-adaptive randomized bootstrap (CAR-BS) for standard error estimation. Our theoretical results indicate that the Wald test adjusted by CAR-BS is valid in terms of the Type I error, for a large class of covariate-adaptive randomization procedures at different quantiles, regardless of the choice of covariates used in inference. We perform extensive numerical and empirical studies to demonstrate advantages of the new method in various settings.",
+      "abstract_cn": "在经济研究和临床试验中，观察到处理效应随单位在响应分布中的相对位置而变化的现象十分普遍。本研究提出使用分位数回归来估计协变量自适应随机化实验中的条件分位数处理效应（cQTEs）并进行推断。首先，我们给出了关于在推断阶段遗漏重要协变量所导致偏差的一致估计cQTEs的充分条件。其次，我们推导了分位数回归过程的弱收敛性，并开发了一种协变量自适应随机化自助法（CAR-BS）用于标准误估计。我们的理论结果表明，经CAR-BS调整的Wald检验在I型错误方面是有效的，适用于一大类协变量自适应随机化程序在不同分位数下的情况，且不受推断中所用协变量选择的影响。我们进行了广泛的数值和实证研究，以证明新方法在各种设置下的优势。",
+      "doi": "10.1016/j.jeconom.2024.105808",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624001544",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v249y2025ipas0304407624001544.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:30:30+00:00",
+        "source_hash": "aaf4ccf903698f618c35fe6757b6d08a72ad5f6145264942834fac4893cdc5c1"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105857",
+      "sequence": 12,
+      "source_sequence": 12,
+      "article_type": "research-article",
+      "title_en": "Efficient quantile covariate adjusted response adaptive experiments",
+      "title_cn": "高效分位数协变量自适应响应实验",
+      "authors": [
+        "Zhonghua Li",
+        "Lan Luo",
+        "Jingshen Wang",
+        "Long Feng"
+      ],
+      "abstract_en": "In program evaluation studies, understanding the heterogeneous distributional impacts of a program beyond the average effect is crucial. Quantile treatment effect (QTE) provides a natural measure to capture such heterogeneity. While much of the existing work for estimating QTE has focused on analyzing observational data based on untestable causal assumptions, little work has gone into designing randomized experiments specifically for estimating QTE. In this manuscript, we propose two covariate-adjusted response adaptive design strategies–fully adaptive designs and multi-stage designs–to efficiently estimate the QTE. We demonstrate that the QTE estimator obtained from our designs attains the optimal variance lower bound from a semiparametric theory perspective, which does not impose any parametric assumptions on underlying data distributions. Moreover, we show that using continuous covariates in multi-stage designs can improve the precision of the estimated QTE compared to the classical fully adaptive setting. We illustrate the finite-sample performance of our designs through Monte Carlo experiments and one synthetic case study on charitable giving. Our proposed designs offer a new approach to conducting randomized experiments to estimate QTE, which can have important implications for policy and program evaluation.",
+      "abstract_cn": "在项目评估研究中，理解项目超出平均效应的异质性分布影响至关重要。分位数处理效应（QTE）提供了捕捉这种异质性的自然度量。虽然现有估计QTE的工作大多侧重于基于不可检验的因果假设分析观测数据，但专门为估计QTE而设计随机实验的工作却很少。在本文中，我们提出了两种协变量自适应响应设计策略——完全自适应设计和多阶段设计——以高效估计QTE。我们证明，从半参数理论角度来看，我们的设计所获得的QTE估计量达到了最优方差下界，且不对底层数据分布施加任何参数假设。此外，我们表明，与经典的完全自适应设置相比，在多阶段设计中使用连续协变量可以提高估计QTE的精度。我们通过蒙特卡洛实验和一个关于慈善捐赠的合成案例研究来说明我们设计的有限样本性能。我们提出的设计为开展随机实验以估计QTE提供了一种新方法，这可能对政策和项目评估具有重要意义。",
+      "doi": "10.1016/j.jeconom.2024.105857",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624002021",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v249y2025ipas0304407624002021.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:30:33+00:00",
+        "source_hash": "c8415d778f1cfc79d2e86bb584f83a5704f4d3752d29b5413a69e98c7a3b295b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105861",
+      "sequence": 13,
+      "source_sequence": 13,
+      "article_type": "research-article",
+      "title_en": "Multiway empirical likelihood",
+      "title_cn": "多维经验似然",
+      "authors": [
+        "Harold D. Chiang",
+        "Yukitoshi Matsushita",
+        "Taisuke Otsu"
+      ],
+      "abstract_en": "This paper develops a general methodology to conduct statistical inference for observations indexed by multiple sets of entities. We propose a novel multiway empirical likelihood statistic that converges to a chi-square distribution under the non-degenerate case, where corresponding Hoeffding type decomposition is dominated by linear terms. Our methodology is related to the notion of jackknife empirical likelihood but the leave-out pseudo values are constructed by leaving out columns or rows. We further develop a modified version of our multiway empirical likelihood statistic, which converges to a chi-square distribution regardless of the degeneracy, and discuss its desirable higher-order property in a simplified setup. The proposed methodology is illustrated by several important econometric problems, such as bipartite network, generalized estimating equations, and three-way observations.",
+      "abstract_cn": "本文开发了一种通用方法，用于对由多组实体索引的观测进行统计推断。我们提出了一种新颖的多维经验似然统计量，在非退化情况下，其收敛于卡方分布，此时相应的霍夫丁型分解由线性项主导。我们的方法与刀切经验似然的概念相关，但留出伪值是通过留出列或行来构造的。我们进一步开发了我们多维经验似然统计量的修正版本，无论退化与否，该版本都收敛于卡方分布，并讨论了其在简化设置中的理想高阶性质。所提出的方法通过几个重要的计量经济学问题进行了说明，如二分网络、广义估计方程和三向观测。",
+      "doi": "10.1016/j.jeconom.2024.105861",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624002069",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v249y2025ipas0304407624002069.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:30:35+00:00",
+        "source_hash": "3f84b8fb027a4abeb8d2de8cfb946305cd51ec98348bbc971c5fdb1664891b90"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105920",
+      "sequence": 14,
+      "source_sequence": 14,
+      "article_type": "research-article",
+      "title_en": "Inference on time series nonparametric conditional moment restrictions using nonlinear sieves",
+      "title_cn": "基于非线性筛子的时间序列非参数条件矩约束推断",
+      "authors": [
+        "Xiaohong Chen",
+        "Yuan Liao",
+        "Weichen Wang"
+      ],
+      "abstract_en": "This paper studies estimation of and inference on dynamic nonparametric conditional moment restrictions of high dimensional variables for weakly dependent data, where the unknown functions of endogenous variables can be approximated via nonlinear sieves such as neural networks and Gaussian radial bases. The true unknown functions and their sieve approximations are allowed to be in general weighted function spaces with unbounded supports, which is important for time series data. Under some regularity conditions, the optimally weighted general nonlinear sieve quasi-likelihood ratio (GN-QLR) statistic for the expectation functional of unknown function is asymptotically Chi-square distributed regardless whether the functional could be estimated at a root-n rate or not, and the estimated expectation functional is asymptotically efficient if it is root-n estimable. Our general theories are applied to two important examples: (1) estimating the value function and the off-policy evaluation in reinforcement learning (RL); and (2) estimating the averaged partial mean and averaged partial derivative of dynamic nonparametric quantile instrumental variable (NPQIV) models. We demonstrate the finite sample performance of our optimal inference procedure on averaged partial derivative of a dynamic NPQIV model in simulation studies.",
+      "abstract_cn": "本文研究了弱相关数据下高维变量的动态非参数条件矩约束的估计与推断问题，其中内生变量的未知函数可以通过非线性筛子（如神经网络和高斯径向基）进行近似。真实未知函数及其筛子近似被允许位于具有无界支撑的一般加权函数空间中，这对于时间序列数据尤为重要。在一些正则条件下，针对未知函数的期望泛函的最优加权一般非线性筛子拟似然比（GN-QLR）统计量渐近服从卡方分布，无论该泛函能否以根号n速率估计；若该泛函可根号n估计，则估计的期望泛函是渐近有效的。我们的通用理论应用于两个重要例子：（1）强化学习（RL）中的价值函数估计和离策略评估；（2）动态非参数分位数工具变量（NPQIV）模型的平均偏均值和平均偏导数估计。我们在模拟研究中展示了针对动态NPQIV模型平均偏导数的最优推断程序的有限样本性能。",
+      "doi": "10.1016/j.jeconom.2024.105920",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624002719",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v249y2025ipas0304407624002719.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:30:38+00:00",
+        "source_hash": "59296a153a8794b1210bc57ba896a5e4a309ee6864e5ed041afbd0cdcbbbc1b3"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105922",
+      "sequence": 15,
+      "source_sequence": 15,
+      "article_type": "research-article",
+      "title_en": "Interval quantile correlations with applications to testing high-dimensional quantile effects",
+      "title_cn": "区间分位数相关性及其在高维分位数效应检验中的应用",
+      "authors": [
+        "Yaowu Zhang",
+        "Yeqing Zhou",
+        "Liping Zhu"
+      ],
+      "abstract_en": "In this article, we propose interval quantile correlation and interval quantile partial correlation to measure the association between two random variables over an interval of quantile levels. We construct efficient estimators for the proposed correlations, and establish their asymptotic properties under the null and alternative hypotheses. We further use the interval quantile partial correlation to test for the significance of covariate effects in high-dimensional quantile regression when a subset of covariates are controlled. We calculate marginal interval quantile partial correlations for each covariate, then aggregate them to construct a sum-type test statistic. The null distribution of our proposed test statistic is asymptotically standard normal. We use extensive simulations and an application to illustrate that our proposed test, which pools information across an interval of quantile levels to enhance power performances, is very effective in detecting quantile effects.",
+      "abstract_cn": "在本文中，我们提出了区间分位数相关性和区间分位数偏相关性，用以衡量两个随机变量在分位数水平区间上的关联性。我们为所提出的相关性构建了有效估计量，并建立了它们在原假设和备择假设下的渐近性质。我们进一步利用区间分位数偏相关性，在控制部分协变量的情况下，检验高维分位数回归中协变量效应的显著性。我们计算每个协变量的边际区间分位数偏相关性，然后将其聚合以构建一个和型检验统计量。我们提出的检验统计量的原假设分布渐近服从标准正态分布。我们通过大量模拟和一项应用来说明，我们提出的检验方法通过汇集分位数水平区间上的信息来增强功效表现，在检测分位数效应方面非常有效。",
+      "doi": "10.1016/j.jeconom.2024.105922",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624002732",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v249y2025ipas0304407624002732.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:30:43+00:00",
+        "source_hash": "06f4ac8165742a26a21095d73cf069592b1aec8140f2de2ac31b0afaf83cf95c"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105924",
+      "sequence": 16,
+      "source_sequence": 16,
+      "article_type": "research-article",
+      "title_en": "Statistical inference for smoothed quantile regression with streaming data",
+      "title_cn": "流式数据下平滑分位数回归的统计推断",
+      "authors": [
+        "Jinhan Xie",
+        "Xiaodong Yan",
+        "Bei Jiang",
+        "Linglong Kong"
+      ],
+      "abstract_en": "In this paper, we tackle the problem of conducting valid statistical inference for quantile regression with streaming data. The main difficulties are that the quantile regression loss function is non-smooth and it is often infeasible to store the entire dataset in memory, rendering traditional methodologies ineffective. We introduce a fully online updating method for statistical inference in smoothed quantile regression with streaming data to overcome these issues. Our main contributions are twofold. First, for low-dimensional data, we present an incremental updating algorithm to obtain the smoothed quantile regression estimator with the streaming data set. The proposed estimator allows us to construct asymptotically exact statistical inference procedures. Second, within the realm of high-dimensional data, we develop an online debiased lasso procedure to accommodate the special sparse structure of streaming data. The proposed online debiased approach is updated with only the current data and summary statistics of historical data and corrects an approximation error term from online updating with streaming data. Furthermore, theoretical results such as estimation consistency and asymptotic normality are established to justify its validity in both settings. Our findings are supported by simulation studies and illustrated through applications to Seoul’s bike-sharing demand data and index fund data.",
+      "abstract_cn": "本文探讨了在流式数据下对分位数回归进行有效统计推断的问题。主要难点在于分位数回归损失函数非光滑，且将整个数据集存储在内存中往往不可行，这使得传统方法失效。我们引入了一种完全在线更新的方法，用于流式数据下平滑分位数回归的统计推断，以克服这些问题。我们的主要贡献有两方面。首先，对于低维数据，我们提出了一种增量更新算法，以利用流式数据集获得平滑分位数回归估计量。所提出的估计量使我们能够构建渐近精确的统计推断程序。其次，在高维数据领域，我们开发了一种在线去偏lasso程序，以适应流式数据的特殊稀疏结构。所提出的在线去偏方法仅使用当前数据和历史数据的汇总统计量进行更新，并纠正了流式数据在线更新产生的近似误差项。此外，我们建立了估计一致性和渐近正态性等理论结果，以证明其在两种情境下的有效性。我们的发现得到了模拟研究的支持，并通过应用于首尔共享单车需求数据和指数基金数据进行了说明。",
+      "doi": "10.1016/j.jeconom.2024.105924",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624002756",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v249y2025ipas0304407624002756.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:30:46+00:00",
+        "source_hash": "7b050c02a6c5f8db713aca2d3c7c2ca7f778d603da95afcc014ace4f971be751"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105946",
+      "sequence": 17,
+      "source_sequence": 17,
+      "article_type": "research-article",
+      "title_en": "Themed issue: Quantile regression and data heterogeneity",
+      "title_cn": "",
+      "authors": [
+        "Xiaohong Chen",
+        "Xuming He"
+      ],
+      "abstract_en": "",
+      "abstract_cn": "",
+      "doi": "10.1016/j.jeconom.2024.105946",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624002975",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "",
+        "repec": "https://ideas.repec.org/a/eee/econom/v249y2025ipas0304407624002975.html"
+      },
+      "translation": {
+        "status": "blocked",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing",
+        "abstract_en_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "repec-serial-page",
+    "roster_authority": "repec-publisher-supplied",
+    "roster_match_scope": "repec-volume-items",
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 17,
+    "authors_complete": 17,
+    "abstract_en_complete": 16,
+    "translation_complete": 16,
+    "duplicate_count": 0,
+    "repec_item_count": 17,
+    "flags": [
+      "abstract_en_incomplete",
+      "translation_incomplete"
+    ],
+    "official_item_count": 17,
+    "publishable_item_count": 17,
+    "content_counts": {
+      "official_items": 17,
+      "observed_items": 17,
+      "publishable_items": 17,
+      "research_articles": 17,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 17
+    }
+  },
+  "content_counts": {
+    "official_items": 17,
+    "observed_items": 17,
+    "publishable_items": 17,
+    "research_articles": 17,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 17
+  },
+  "issue_label": "Vol. 249"
+}

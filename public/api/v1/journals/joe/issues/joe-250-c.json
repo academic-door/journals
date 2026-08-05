@@ -1,0 +1,347 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "joe-250-c",
+  "journal_id": "joe",
+  "journal_name": "Journal of Econometrics",
+  "volume": "250",
+  "issue": "C",
+  "publication_date": "February 2025",
+  "source_url": "https://ideas.repec.org/s/eee/econom.html",
+  "retrieved_at": "2026-08-05T10:30:46+00:00",
+  "expected_article_count": 7,
+  "research_article_count": 7,
+  "status": "ready",
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106004",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Faster estimation of dynamic discrete choice models using index invertibility",
+      "title_cn": "利用指数可逆性加速动态离散选择模型的估计",
+      "authors": [
+        "Jackson Bunting",
+        "Takuya Ura"
+      ],
+      "abstract_en": "Many estimators of dynamic discrete choice models with persistent unobserved heterogeneity have desirable statistical properties but are computationally intensive. In this paper we propose a method to quicken estimation for a broad class of dynamic discrete choice problems by exploiting semiparametric index restrictions. Specifically, we propose an estimator for models whose reduced form parameters are invertible functions of one or more linear indices (Ahn et al., 2018) , a property we term index invertibility. We establish that index invertibility implies a set of equality constraints on the model parameters. Our proposed estimator uses the equality constraints to decrease the dimension of the optimization problem, thereby generating computational gains. Our main result shows that the proposed estimator is asymptotically equivalent to the unconstrained, computationally heavy estimator. In addition, we provide a series of results on the number of independent index restrictions on the model parameters, providing theoretical guidance on the extent of computational gains. Finally, we demonstrate the advantages of our approach via Monte Carlo simulations.",
+      "abstract_cn": "许多具有持久未观测异质性的动态离散选择模型的估计量具有良好的统计性质，但计算强度大。本文提出一种方法，通过利用半参数指数限制，加速一类广泛的动态离散选择问题的估计。具体而言，我们针对简化形式参数为一个或多个线性指数的可逆函数的模型提出一种估计量（Ahn等，2018），我们将此性质称为指数可逆性。我们证明指数可逆性意味着模型参数上的一组等式约束。我们提出的估计量利用这些等式约束来降低优化问题的维度，从而产生计算收益。我们的主要结果表明，所提出的估计量与无约束的、计算量大的估计量渐近等价。此外，我们提供了一系列关于模型参数上独立指数限制数量的结果，为计算收益的程度提供理论指导。最后，我们通过蒙特卡洛模拟展示了我们方法的优势。",
+      "doi": "10.1016/j.jeconom.2025.106004",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625000582",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v250y2025ics0304407625000582.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:30:49+00:00",
+        "source_hash": "2070753abc8fe034218a4c41b72bc69760785653551c13a1bffd24a6d5b04a2d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106009",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Pairwise valid instruments",
+      "title_cn": "成对有效工具变量",
+      "authors": [
+        "Zhenting Sun",
+        "Kaspar Wüthrich"
+      ],
+      "abstract_en": "Finding valid instruments is difficult. We propose Validity Set Instrumental Variable (VSIV) estimation, a method for estimating local average treatment effects (LATEs) in heterogeneous causal effect models when the instruments are partially invalid. We consider settings with pairwise valid instruments, that is, instruments that are valid for a subset of instrument value pairs. VSIV estimation exploits testable implications of instrument validity to remove invalid pairs and provides estimates of the LATEs for all remaining pairs, which can be aggregated into a single parameter of interest using researcher-specified weights. We show that the proposed VSIV estimators are asymptotically normal under weak conditions and remove or reduce the asymptotic bias relative to standard LATE estimators (that is, LATE estimators that do not use testable implications to remove invalid variation). We evaluate the finite sample properties of VSIV estimation in application-based simulations and apply our method to estimate the returns to college education using parental education as an instrument.",
+      "abstract_cn": "寻找有效工具变量是困难的。我们提出了有效性集合工具变量（VSIV）估计法，这是一种在工具变量部分无效的异质性因果效应模型中估计局部平均处理效应（LATEs）的方法。我们考虑具有成对有效工具变量的情形，即工具变量对某些工具变量值对子集是有效的。VSIV估计利用工具变量有效性的可检验含义来剔除无效对，并为所有剩余对提供LATE估计，这些估计可通过研究者指定的权重聚合成单一感兴趣参数。我们证明，所提出的VSIV估计量在弱条件下渐近正态，并且相对于标准LATE估计量（即不使用可检验含义来剔除无效变异的LATE估计量），能够消除或减少渐近偏差。我们在基于应用的模拟中评估了VSIV估计的有限样本性质，并将我们的方法应用于以父母教育作为工具变量估计大学教育回报。",
+      "doi": "10.1016/j.jeconom.2025.106009",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625000636",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v250y2025ics0304407625000636.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:30:51+00:00",
+        "source_hash": "21dcdd1b1b8bf81351d561e4838ad274bf1ab0adebaa29d6404159bf0293a1e0"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106010",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Finite- and large-sample inference for ranks using multinomial data with an application to ranking political parties",
+      "title_cn": "基于多项数据的排名有限样本与大样本推断及其在政党排名中的应用",
+      "authors": [
+        "Sergei Bazylik",
+        "Magne Mogstad",
+        "Joseph P. Romano",
+        "Azeem M. Shaikh",
+        "Daniel Wilhelm"
+      ],
+      "abstract_en": "It is common to rank different categories by means of preferences that are revealed through data on choices. A prominent example is the ranking of political candidates or parties using the estimated share of support each one receives in surveys or polls about political attitudes. Since these rankings are computed using estimates of the share of support rather than the true share of support, there may be considerable uncertainty concerning the true ranking of the political candidates or parties. In this paper, we consider the problem of accounting for such uncertainty by constructing confidence sets for the rank of each category. We consider both the problem of constructing marginal confidence sets for the rank of a particular category as well as simultaneous confidence sets for the ranks of all categories. A distinguishing feature of our analysis is that we exploit the multinomial structure of the data to develop confidence sets that are valid in finite samples. We additionally develop confidence sets using the bootstrap that are valid only approximately in large samples. We use our methodology to rank political parties in Australia using data from the 2019 Australian Election Survey. We find that our finite-sample confidence sets are informative across the entire ranking of political parties, even in Australian territories with few survey respondents and/or with parties that are chosen by only a small share of the survey respondents. In contrast, the bootstrap-based confidence sets may sometimes be considerably less informative. These findings motivate us to compare these methods in an empirically-driven simulation study, in which we conclude that our finite-sample confidence sets often perform better than their large-sample, bootstrap-based counterparts, especially in settings that resemble our empirical application.",
+      "abstract_cn": "通过选择数据所揭示的偏好来对不同类别进行排名是常见的做法。一个显著的例子是利用政治态度调查或民意测验中估计的每位候选人或政党获得的支持份额来对政治候选人或政党进行排名。由于这些排名是基于支持份额的估计值而非真实值计算的，因此政治候选人或政党的真实排名可能存在相当大的不确定性。在本文中，我们考虑通过为每个类别的排名构建置信集来解决这种不确定性的问题。我们既考虑为特定类别的排名构建边际置信集的问题，也考虑为所有类别的排名构建联合置信集的问题。我们分析的一个显著特点是利用数据的多项结构来开发在有限样本中有效的置信集。此外，我们还使用自助法开发了仅在大样本中近似有效的置信集。我们使用来自2019年澳大利亚选举调查的数据，应用我们的方法对澳大利亚政党进行排名。我们发现，即使在调查受访者较少和/或政党仅被少数受访者选择的澳大利亚地区，我们的有限样本置信集在整个政党排名中也是信息丰富的。相比之下，基于自助法的置信集有时可能信息量要少得多。这些发现促使我们在一个经验驱动的模拟研究中对这些方法进行比较，在该研究中我们得出结论，我们的有限样本置信集通常优于其大样本、基于自助法的对应方法，尤其是在类似于我们经验应用的环境中。",
+      "doi": "10.1016/j.jeconom.2025.106010",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625000648",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v250y2025ics0304407625000648.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:30:54+00:00",
+        "source_hash": "9076dc5391567d6aaa67ee5353336a1a803091651ceccd26726981de151b9e58"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106012",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Dimension-agnostic change point detection",
+      "title_cn": "维度无关的变点检测",
+      "authors": [
+        "Hanjia Gao",
+        "Runmin Wang",
+        "Xiaofeng Shao"
+      ],
+      "abstract_en": "Change point testing for high-dimensional data has attracted a lot of attention in statistics, econometrics and machine learning owing to the emergence of high-dimensional data with structural breaks from many fields. In practice, when the dimension is less than the sample size but is not small, it is often unclear whether a method that is tailored to high-dimensional data or simply a classical method that is developed and justified for low-dimensional data is preferred. In addition, the methods designed for low-dimensional data may not work well in the high-dimensional environment and vice versa. In this paper, we propose a dimension-agnostic testing procedure targeting a single change point in the mean of a multivariate weakly dependent time series. Specifically, we can show that the limiting null distribution for our test statistic is the same regardless of the dimensionality and the magnitude of cross-sectional dependence. The power analysis is also conducted to understand the large sample behavior of the proposed test. Through Monte Carlo simulations and a real data illustration, we demonstrate that the finite sample results strongly corroborate the theory and suggest that the proposed test can be used as a benchmark for change-point detection of time series of low, medium, and high dimensions with complex cross-sectional and temporal dependence.",
+      "abstract_cn": "高维数据的变点检验因许多领域中出现带有结构断裂的高维数据而引起了统计学、计量经济学和机器学习领域的广泛关注。在实践中，当维度小于样本量但并不小时，通常不清楚是采用针对高维数据定制的方法，还是简单地采用为低维数据开发并证明其合理性的经典方法更为可取。此外，为低维数据设计的方法可能在高维环境中表现不佳，反之亦然。在本文中，我们提出了一种维度无关的检验程序，针对多元弱依赖时间序列均值中的单一变点。具体来说，我们可以证明，无论维度和横截面依赖程度如何，我们检验统计量的极限零分布都是相同的。我们还进行了功效分析，以理解所提出检验的大样本行为。通过蒙特卡洛模拟和真实数据示例，我们证明了有限样本结果强烈支持理论，并表明所提出的检验可以作为低、中、高维度且具有复杂横截面和时间依赖性的时间序列变点检测的基准。",
+      "doi": "10.1016/j.jeconom.2025.106012",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625000661",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v250y2025ics0304407625000661.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:30:57+00:00",
+        "source_hash": "3f7c827b4ae5335d662481016136c4ed676ce11e4647b6d8a6b156dad83a98ce"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106013",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Dynamic treatment effect estimation with interactive fixed effects and short panels",
+      "title_cn": "具有交互固定效应和短面板的动态处理效应估计",
+      "authors": [
+        "Nicholas L. Brown",
+        "Kyle Butts"
+      ],
+      "abstract_en": "We study the estimation and inference of dynamic average treatment effect parameters when parallel trends holds conditional on interactive fixed effects and where units enter into treatment at different time periods. Our proposed generalized method of moments estimator consists of two parts: first, we estimate the unobserved time effects by applying the fixed-T consistent quasi-long-differencing estimator of Ahn et al., (2013) to the never-treated group. Second, we estimate the interactive fixed effects for treated groups post-treatment to recover their unobserved counterfactual outcomes then subtract this quantity from the observed outcomes and average over group membership to estimate the Average Treatment Effect on the Treated. We also demonstrate the robustness of two-way fixed effects to certain parallel trends violations and describe how to test for consistency. We investigate the effect of Walmart openings on local economic conditions and demonstrate that our methods ameliorate pre-trend violations commonly found in the literature. We also provide statistical software to implement our estimator in Julia and R.",
+      "abstract_cn": "我们研究了当平行趋势在交互固定效应条件下成立且单位在不同时间进入处理时的动态平均处理效应参数的估计与推断。我们提出的广义矩估计方法由两部分组成：首先，我们通过将Ahn等人（2013）的固定T一致的准长差分估计器应用于从未处理组来估计未观测的时间效应。其次，我们估计处理后处理组的交互固定效应以恢复其未观测的反事实结果，然后从观测结果中减去该数量，并按组成员资格取平均以估计处理组的平均处理效应。我们还展示了双向固定效应对某些平行趋势违反的稳健性，并描述了如何检验一致性。我们调查了沃尔玛开店对当地经济状况的影响，并证明我们的方法改善了文献中常见的预趋势违反问题。我们还提供了在Julia和R中实现我们估计器的统计软件。",
+      "doi": "10.1016/j.jeconom.2025.106013",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625000673",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v250y2025ics0304407625000673.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:31:00+00:00",
+        "source_hash": "d4d147a246bc7b4e62a1e18d972ef428bc33520943fe7f124acee6667b6a9c03"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106014",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Realized candlestick wicks",
+      "title_cn": "已实现蜡烛图影线",
+      "authors": [
+        "Yifan Li",
+        "Ingmar Nolte",
+        "Sandra Nolte",
+        "Shifan Yu"
+      ],
+      "abstract_en": "We develop a novel nonparametric estimator of integrated variance by summing up the squared wick lengths of intraday candlesticks over a fixed time interval. The proposed wick-based estimator is robust to short-lived extreme price movements, such as gradual jumps and flash crashes. We investigate the asymptotic properties of the proposed estimator, and show that its asymptotic variance is about four times smaller than the state-of-the-art differenced-return volatility (DV) estimator. We also develop a Hausman-type test for the presence of both jumps and episodic extreme price movements. Monte Carlo simulations and empirical applications further validate the practical reliability of our proposed estimator.",
+      "abstract_cn": "我们通过将固定时间间隔内日内蜡烛图的影线长度平方求和，开发了一种新的积分方差非参数估计量。所提出的基于影线的估计量对短期极端价格波动（如渐进跳跃和闪崩）具有稳健性。我们研究了该估计量的渐近性质，并表明其渐近方差比最先进的差分收益波动率（DV）估计量小约四倍。我们还开发了一种Hausman型检验，用于检测跳跃和偶发极端价格波动的存在。蒙特卡洛模拟和实证应用进一步验证了我们所提出估计量的实际可靠性。",
+      "doi": "10.1016/j.jeconom.2025.106014",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625000685",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v250y2025ics0304407625000685.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:31:02+00:00",
+        "source_hash": "e717c1953d2957d695a4db334a4ce66fda0e9c9ee25dbd067fce75d3db190be8"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2025.106022",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Inference for large dimensional factor models under general missing data patterns",
+      "title_cn": "一般缺失数据模式下大规模因子模型的推断",
+      "authors": [
+        "Liangjun Su",
+        "Fa Wang"
+      ],
+      "abstract_en": "This paper establishes the inferential theory for the least squares estimation of large factor models with missing data. We propose a unified framework for asymptotic analysis of factor models that covers a wide range of missing patterns, including heterogenous random missing, selection on covariates/factors/loadings, block/staggered missing, mixed frequency and ragged edge. We establish the average convergence rates of the estimated factor space and loading space, the limit distributions of the estimated factors and loadings, as well as the limit distributions of the estimated average treatment effects and the parameter estimates in the factor-augmented regressions. These results allow us to impute the unbalanced panel appropriately or make inference for the heterogenous treatment effects. For computation, we can use the nuclear norm regularized estimator as the initial value for the EM algorithm and iterate until convergence. Empirically, we apply our method to test the average treatment effects of partisan alignment on grant allocation in UK.",
+      "abstract_cn": "本文建立了缺失数据下大规模因子模型最小二乘估计的推断理论。我们提出了一个统一的因子模型渐近分析框架，涵盖了广泛的缺失模式，包括异质随机缺失、基于协变量/因子/载荷的选择、块状/交错缺失、混合频率和不规则边缘。我们建立了估计因子空间和载荷空间的平均收敛速率、估计因子和载荷的极限分布，以及因子增强回归中估计的平均处理效应和参数估计的极限分布。这些结果使我们能够适当地填补不平衡面板数据或对异质性处理效应进行推断。在计算方面，我们可以使用核范数正则化估计器作为EM算法的初始值，并迭代直至收敛。在实证中，我们将我们的方法应用于检验英国党派联盟对拨款分配的平均处理效应。",
+      "doi": "10.1016/j.jeconom.2025.106022",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407625000764",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v250y2025ics0304407625000764.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T10:31:05+00:00",
+        "source_hash": "c30d07bb4d4cc72da77eb33f2d17e69a666ae6828700dbed1af97c9df468340a"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "repec-serial-page",
+    "roster_authority": "repec-publisher-supplied",
+    "roster_match_scope": "repec-volume-items",
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 7,
+    "authors_complete": 7,
+    "abstract_en_complete": 7,
+    "translation_complete": 7,
+    "duplicate_count": 0,
+    "repec_item_count": 7,
+    "flags": [],
+    "official_item_count": 7,
+    "publishable_item_count": 7,
+    "content_counts": {
+      "official_items": 7,
+      "observed_items": 7,
+      "publishable_items": 7,
+      "research_articles": 7,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 7
+    }
+  },
+  "content_counts": {
+    "official_items": 7,
+    "observed_items": 7,
+    "publishable_items": 7,
+    "research_articles": 7,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 7
+  },
+  "issue_label": "Vol. 250"
+}

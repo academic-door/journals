@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-05T10:07:59+00:00
+Updated: 2026-08-05T10:35:36+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -69,7 +69,7 @@ Updated: 2026-08-05T10:07:59+00:00
 | JEBO | jebo-235-c | 2025 | complete |  |
 | JEBO | jebo-236-c | 2025 | complete |  |
 | JEBO | jebo-237-c | 2025 | complete |  |
-| JEBO | jebo-238-c | 2025 | translation_partial |  |
+| JEBO | jebo-238-c | 2025 | complete |  |
 | JEBO | jebo-239-c | 2025 | complete |  |
 | JEBO | jebo-240-c | 2025 | translation_partial |  |
 | JEBO | jebo-241-c | 2026 | complete |  |
@@ -134,7 +134,7 @@ Updated: 2026-08-05T10:07:59+00:00
 | JIE | jie-155-c | 2025 | complete |  |
 | JIE | jie-156-c | 2025 | complete |  |
 | JIE | jie-157-c | 2025 | complete |  |
-| JIE | jie-158-c | 2025 | translation_partial |  |
+| JIE | jie-158-c | 2025 | complete |  |
 | JIE | jie-159-c | 2026 | complete |  |
 | JIE | jie-160-c | 2026 | complete |  |
 | JIE | jie-161-c | 2026 | complete |  |
@@ -143,3 +143,22 @@ Updated: 2026-08-05T10:07:59+00:00
 | JIE | jie-164-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 164/ |
 | JME | jme-149-c | 2025 | complete |  |
 | JME | jme-150-c | 2025 | complete |  |
+| JME | jme-151-c | 2025 | complete |  |
+| JME | jme-152-c | 2025 | complete |  |
+| JME | jme-153-c | 2025 | complete |  |
+| JME | jme-154-c | 2025 | complete |  |
+| JME | jme-155-c | 2025 | complete |  |
+| JME | jme-156-c | 2025 | translation_partial |  |
+| JME | jme-157-c | 2026 | complete |  |
+| JME | jme-158-c | 2026 | complete |  |
+| JME | jme-159-c | 2026 | translation_partial |  |
+| JME | jme-160-c | 2026 | complete |  |
+| JME | jme-161-c | 2026 | complete |  |
+| JME | jme-162-c | 2026 | complete |  |
+| JOE | joe-247-c | 2025 | complete |  |
+| JOE | joe-248-c | 2025 | translation_partial |  |
+| JOE | joe-249-c | 2025 | translation_partial |  |
+| JOE | joe-250-c | 2025 | complete |  |
+| JOE | joe-251-c | 2025 | complete |  |
+| JOE | joe-252-c | 2025 | complete |  |
+| JOE | joe-253-c | 2026 | translation_partial |  |
