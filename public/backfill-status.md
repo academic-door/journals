@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-05T18:13:17+00:00
+Updated: 2026-08-05T21:35:50+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -62,7 +62,7 @@ Updated: 2026-08-05T18:13:17+00:00
 | JDE | jde-183-c | 2026 | complete |  |
 | JEBO | jebo-229-c | 2025 | complete |  |
 | JEBO | jebo-230-c | 2025 | complete |  |
-| JEBO | jebo-231-c | 2025 | blocked | possible_incomplete_volume: 3 articles collected vs current issue 22; needs offi |
+| JEBO | jebo-231-c | 2025 | complete |  |
 | JEBO | jebo-232-c | 2025 | complete |  |
 | JEBO | jebo-233-c | 2025 | complete |  |
 | JEBO | jebo-234-c | 2025 | complete |  |
@@ -109,7 +109,7 @@ Updated: 2026-08-05T18:13:17+00:00
 | JET | jet-236-c | 2026 | complete |  |
 | JFE | jfe-163-c | 2025 | complete |  |
 | JFE | jfe-164-c | 2025 | complete |  |
-| JFE | jfe-165-c | 2025 | blocked | possible_incomplete_volume: 1 articles collected vs current issue 17; needs offi |
+| JFE | jfe-165-c | 2025 | blocked | possible_incomplete_volume: 8 articles collected vs current issue 17; needs offi |
 | JFE | jfe-166-c | 2025 | complete |  |
 | JFE | jfe-167-c | 2025 | complete |  |
 | JFE | jfe-168-c | 2025 | complete |  |
@@ -234,7 +234,7 @@ Updated: 2026-08-05T18:13:17+00:00
 | WD | wd-194-c | 2025 | complete |  |
 | WD | wd-195-c | 2025 | complete |  |
 | WD | wd-196-c | 2025 | complete |  |
-| WD | wd-197-c | 2026 | collected |  |
+| WD | wd-197-c | 2026 | blocked | possible_incomplete_volume: 2 articles collected vs current issue 20; needs offi |
 | WD | wd-198-c | 2026 | translation_partial |  |
 | WD | wd-199-c | 2026 | complete |  |
 | WD | wd-200-c | 2026 | complete |  |
@@ -242,3 +242,6 @@ Updated: 2026-08-05T18:13:17+00:00
 | WD | wd-202-c | 2026 | complete |  |
 | WD | wd-203-c | 2026 | complete |  |
 | WD | wd-204-c | 2026 | complete |  |
+| WD | wd-205-c | 2026 | complete |  |
+| WD | wd-206-c | 2026 | complete |  |
+| WD | wd-207-c | 2026 | translation_partial |  |
