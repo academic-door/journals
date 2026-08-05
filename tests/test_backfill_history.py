@@ -95,10 +95,20 @@ class BackfillHistoryTests(unittest.TestCase):
             "C",
             "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/172/suppl/C",
         )
-        with patch(
-            "collectors.metadata_fallback.fetch_crossref_current_issue",
-            return_value={"issue_id": "jde-172-c"},
-        ) as fetch:
+        with (
+            patch(
+                "collectors.elsevier.fetch_elsevier_repec_history_issue",
+                side_effect=RuntimeError("repec unavailable"),
+            ),
+            patch(
+                "collectors.metadata_fallback.fetch_elsevier_issue_via_search",
+                side_effect=RuntimeError("search unavailable"),
+            ),
+            patch(
+                "collectors.metadata_fallback.fetch_crossref_current_issue",
+                return_value={"issue_id": "jde-172-c"},
+            ) as fetch,
+        ):
             result = collector_for_issue(config, ref)()
         self.assertEqual("jde-172-c", result["issue_id"])
         fetch.assert_called_once()
@@ -268,6 +278,14 @@ class BackfillHistoryTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             with (
+                patch(
+                    "collectors.elsevier.fetch_elsevier_repec_history_issue",
+                    side_effect=RuntimeError("repec unavailable"),
+                ),
+                patch(
+                    "collectors.metadata_fallback.fetch_elsevier_issue_via_search",
+                    side_effect=RuntimeError("search unavailable"),
+                ),
                 patch(
                     "collectors.metadata_fallback.fetch_crossref_current_issue",
                     return_value=issue,
