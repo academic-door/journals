@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-05T12:28:50+00:00
+Updated: 2026-08-05T13:03:35+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -151,7 +151,7 @@ Updated: 2026-08-05T12:28:50+00:00
 | JME | jme-156-c | 2025 | translation_partial |  |
 | JME | jme-157-c | 2026 | complete |  |
 | JME | jme-158-c | 2026 | complete |  |
-| JME | jme-159-c | 2026 | translation_partial |  |
+| JME | jme-159-c | 2026 | complete |  |
 | JME | jme-160-c | 2026 | complete |  |
 | JME | jme-161-c | 2026 | complete |  |
 | JME | jme-162-c | 2026 | complete |  |
@@ -228,3 +228,11 @@ Updated: 2026-08-05T12:28:50+00:00
 | WD | wd-188-c | 2025 | complete |  |
 | WD | wd-189-c | 2025 | complete |  |
 | WD | wd-190-c | 2025 | complete |  |
+| WD | wd-191-c | 2025 | complete |  |
+| WD | wd-192-c | 2025 | translation_partial |  |
+| WD | wd-193-c | 2025 | complete |  |
+| WD | wd-194-c | 2025 | complete |  |
+| WD | wd-195-c | 2025 | complete |  |
+| WD | wd-196-c | 2025 | complete |  |
+| WD | wd-197-c | 2026 | blocked | possible_incomplete_volume: 2 articles collected vs current issue 20; needs offi |
+| WD | wd-198-c | 2026 | translation_partial |  |
