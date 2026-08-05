@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-08-05T19:56:12+00:00",
+  "updated_at": "2026-08-05T20:30:19+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 41,
-    "official_page_verified": 15,
-    "publisher_feed_verified": 6,
+    "official_page_verified": 14,
+    "publisher_feed_verified": 7,
     "fallback_verified": 20,
     "needs_attention": 0,
     "missing": 0,
@@ -759,62 +759,66 @@
       "name": "European Economic Review",
       "publisher": "Elsevier",
       "configured_source": "https://www.sciencedirect.com/journal/european-economic-review/issues",
-      "status": "official_page_verified",
+      "status": "publisher_feed_verified",
       "current": {
         "available": true,
-        "status": "official_page_verified",
+        "status": "publisher_feed_verified",
         "issue_id": "eer-189-c",
         "publication_date": "September 2026",
         "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/european-economic-review/vol/189/suppl/C",
-        "roster_authority": "official-issue-page",
-        "roster_transport": "official-issue-page+browser-authorized",
-        "order_verified": true,
+        "roster_authority": "publisher-rss",
+        "roster_transport": "sciencedirect-rss",
+        "order_verified": false,
         "content_counts": {
-          "official_items": 16,
-          "observed_items": 16,
-          "publishable_items": 16,
-          "research_articles": 16,
+          "official_items": 17,
+          "observed_items": 17,
+          "publishable_items": 17,
+          "research_articles": 17,
           "comments": 0,
           "short_communications": 0,
           "corrections": 0,
           "editorial_material": 0,
           "front_matter": 0,
           "other_excluded": 0,
-          "catalog_content_items": 16
+          "catalog_content_items": 17
         },
-        "abstracts_complete": 16,
-        "translations_complete": 16,
+        "abstracts_complete": 17,
+        "translations_complete": 17,
         "errors": [],
-        "warnings": []
+        "warnings": [
+          "official_order_unverified"
+        ]
       },
       "detected": {
         "available": true,
-        "status": "official_page_verified",
+        "status": "publisher_feed_verified",
         "issue_id": "eer-189-c",
         "publication_date": "September 2026",
         "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/european-economic-review/vol/189/suppl/C",
-        "roster_authority": "official-issue-page",
-        "roster_transport": "official-issue-page+browser-authorized",
-        "order_verified": true,
+        "roster_authority": "publisher-rss",
+        "roster_transport": "sciencedirect-rss",
+        "order_verified": false,
         "content_counts": {
-          "official_items": 16,
-          "observed_items": 16,
-          "publishable_items": 16,
-          "research_articles": 16,
+          "official_items": 17,
+          "observed_items": 17,
+          "publishable_items": 17,
+          "research_articles": 17,
           "comments": 0,
           "short_communications": 0,
           "corrections": 0,
           "editorial_material": 0,
           "front_matter": 0,
           "other_excluded": 0,
-          "catalog_content_items": 16
+          "catalog_content_items": 17
         },
-        "abstracts_complete": 16,
-        "translations_complete": 16,
+        "abstracts_complete": 17,
+        "translations_complete": 17,
         "errors": [],
-        "warnings": []
+        "warnings": [
+          "official_order_unverified"
+        ]
       }
     },
     {
@@ -2109,31 +2113,33 @@
       "status": "publisher_feed_verified",
       "current": {
         "available": true,
-        "status": "official_page_verified",
+        "status": "publisher_feed_verified",
         "issue_id": "jme-162-c",
         "publication_date": "September 2026",
         "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/162/suppl/C",
-        "roster_authority": "official-issue-page",
-        "roster_transport": "official-issue-page+browser-authorized",
-        "order_verified": true,
+        "roster_authority": "publisher-rss",
+        "roster_transport": "sciencedirect-rss",
+        "order_verified": false,
         "content_counts": {
-          "official_items": 3,
-          "observed_items": 3,
-          "publishable_items": 3,
-          "research_articles": 3,
+          "official_items": 4,
+          "observed_items": 4,
+          "publishable_items": 4,
+          "research_articles": 4,
           "comments": 0,
           "short_communications": 0,
           "corrections": 0,
           "editorial_material": 0,
           "front_matter": 0,
           "other_excluded": 0,
-          "catalog_content_items": 3
+          "catalog_content_items": 4
         },
-        "abstracts_complete": 3,
-        "translations_complete": 3,
+        "abstracts_complete": 4,
+        "translations_complete": 4,
         "errors": [],
-        "warnings": []
+        "warnings": [
+          "official_order_unverified"
+        ]
       },
       "detected": {
         "available": true,
@@ -2418,20 +2424,20 @@
         "roster_transport": "sciencedirect-rss",
         "order_verified": false,
         "content_counts": {
-          "official_items": 5,
-          "observed_items": 5,
-          "publishable_items": 5,
-          "research_articles": 5,
+          "official_items": 6,
+          "observed_items": 6,
+          "publishable_items": 6,
+          "research_articles": 6,
           "comments": 0,
           "short_communications": 0,
           "corrections": 0,
           "editorial_material": 0,
           "front_matter": 0,
           "other_excluded": 0,
-          "catalog_content_items": 5
+          "catalog_content_items": 6
         },
-        "abstracts_complete": 5,
-        "translations_complete": 5,
+        "abstracts_complete": 6,
+        "translations_complete": 6,
         "errors": [],
         "warnings": [
           "official_order_unverified"
