@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T14:17:54+00:00
+Updated: 2026-08-06T14:18:17+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -357,7 +357,7 @@ Updated: 2026-08-06T14:17:54+00:00
 | JPubE | jpube-248-c | 2025 | complete |  |
 | JPubE | jpube-249-c | 2025 | complete |  |
 | JPubE | jpube-250-c | 2025 | complete |  |
-| JPubE | jpube-251-c | 2025 | translation_partial |  |
+| JPubE | jpube-251-c | 2025 | complete |  |
 | JPubE | jpube-252-c | 2025 | complete |  |
 | JPubE | jpube-253-c | 2026 | translation_partial |  |
 | JPubE | jpube-254-c | 2026 | complete |  |
