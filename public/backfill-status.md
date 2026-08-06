@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T08:11:21+00:00
+Updated: 2026-08-06T09:38:42+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -100,6 +100,7 @@ Updated: 2026-08-06T08:11:21+00:00
 | JEBO | jebo-247-c | 2026 | complete |  |
 | JEBO | jebo-248-c | 2026 | complete |  |
 | JEBO | jebo-249-c | 2026 | complete |  |
+| JEEA | jeea-23-1 | 2025 | translation_partial |  |
 | JEEM | jeem-129-c | 2025 | complete |  |
 | JEEM | jeem-130-c | 2025 | complete |  |
 | JEEM | jeem-131-c | 2025 | complete |  |
