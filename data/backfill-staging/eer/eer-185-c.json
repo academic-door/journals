@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-06T11:45:07+00:00",
   "expected_article_count": 20,
   "research_article_count": 20,
-  "status": "ready",
+  "status": "incomplete",
   "articles": [
     {
       "paper_id": "doi:10.1016/j.euroecorev.2026.105260",
@@ -545,13 +545,13 @@
       "source_sequence": 14,
       "article_type": "research-article",
       "title_en": "Seeds of knowledge: Premodern scholarship, academic fields, and European growth",
-      "title_cn": "知识的种子：前现代学术、学科领域与欧洲增长",
+      "title_cn": "",
       "authors": [
         "Matthew Curtis",
         "David de la Croix"
       ],
       "abstract_en": "Academic human capital is widely believed to be important for economic growth, both historically and today. However, different fields of knowledge – such as theology, law, or science – are not equally important. Using a novel database of premodern European academics (1000–1800), we apply machine learning to classify scholars’ fields based on publication titles. We compare these constructed fields to scholars’ teaching disciplines and trace how their shares evolved, highlighting the Humanistic Revolution, Reformation, Scientific Revolution, and Enlightenment. As an application, we measure the historical relationship between scholarly output and economic growth. We find that an increase in scholarly output equivalent to a thousand minor scholars is associated with a 20.56% higher income per capita in the scholars’ regions of birth by 1900. Furthermore, regions with a higher share of scholars in science and botany show stronger income growth. To address endogeneity, we instrument scholarly activity using exogenous variation from forced migration. We propose a mechanism consistent with these findings: scholars foster human capital accumulation among their fellow natives.",
-      "abstract_cn": "学术人力资本被广泛认为对经济增长至关重要，无论是在历史上还是今天。然而，不同的知识领域——如神学、法律或科学——其重要性并不相同。利用一个新颖的前现代欧洲学者数据库（一千1000年），我们应用机器学习根据出版物标题对学者的领域进行分类。我们将这些构建的领域与学者的教学学科进行比较，并追踪其份额的演变，突出人文主义革命、宗教改革、科学革命和启蒙运动。作为应用，我们衡量了学术产出与经济增长之间的历史关系。我们发现，学术产出增加相当于1800名次要学者，与学者出生地区到20.56%年的人均收入提高1900相关。此外，科学和植物学领域学者份额较高的地区显示出更强的收入增长。为解决内生性问题，我们利用被迫迁移的外生变异作为学术活动的工具变量。我们提出一个与这些发现一致的机制：学者促进其同胞中人力资本的积累。",
+      "abstract_cn": "",
       "doi": "10.1016/j.euroecorev.2026.105299",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126000437",
       "publication_date": "February 2026",
@@ -563,15 +563,15 @@
         "repec": "https://ideas.repec.org/a/eee/eecrev/v185y2026ics0014292126000437.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T13:28:18+00:00",
-        "source_hash": "6c4a7a1eb98e478d1ef1cc8ffcd512792af12c55f27320e0a92c6088a4ebfc13"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -873,10 +873,12 @@
     "doi_complete": 20,
     "authors_complete": 20,
     "abstract_en_complete": 20,
-    "translation_complete": 20,
+    "translation_complete": 19,
     "duplicate_count": 0,
     "repec_item_count": 21,
-    "flags": [],
+    "flags": [
+      "translation_incomplete"
+    ],
     "official_item_count": 21,
     "publishable_item_count": 20,
     "content_counts": {
