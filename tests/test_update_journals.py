@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import copy
+import json
 import unittest
+from unittest import mock
 
 from scripts.update_journals import (
     SourceLagError,
@@ -848,6 +850,156 @@ class PublicationGateTests(unittest.TestCase):
             result = refresh_elsevier_abstracts(issue, config)
         self.assertEqual("Abstract.", result["articles"][0]["abstract_en"])
         lookup.assert_not_called()
+
+
+
+class LatestIssuePreferenceTests(unittest.TestCase):
+    def test_archive_newer_than_current_becomes_latest(self) -> None:
+        import tempfile
+        from pathlib import Path
+
+        from scripts.update_journals import load_available_issues
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            issues_dir = root / "journals" / "jeea" / "issues"
+            issues_dir.mkdir(parents=True)
+            current = {
+                "schema_version": "1.0",
+                "journal_id": "jeea",
+                "journal_name": "Journal of the European Economic Association",
+                "issue_id": "jeea-24-3",
+                "volume": "24",
+                "issue": "3",
+                "issue_label": "Vol. 24 No. 3",
+                "publication_date": "June 2026",
+                "publication_state": "ready",
+                "status": "ready",
+                "research_article_count": 1,
+                "articles": [
+                    {
+                        "paper_id": "doi:10.1/x",
+                        "sequence": 1,
+                        "article_type": "research",
+                        "title_en": "T",
+                        "title_cn": "题",
+                        "authors": ["A"],
+                        "abstract_en": "Abstract text that is long enough to pass validation for the publication gate.",
+                        "abstract_cn": "摘要文本足够长以通过发布门槛的校验。",
+                        "doi": "10.1/x",
+                        "source_url": "https://doi.org/10.1/x",
+                        "sources": {"roster": "test"},
+                    }
+                ],
+                "quality": {
+                    "translation_complete": 1,
+                    "content_counts": {"publishable_items": 1, "observed_items": 1, "official_items": 1},
+                    "roster_authority": "crossref",
+                    "roster_transport": "crossref",
+                },
+            }
+            archived = dict(current)
+            archived["issue_id"] = "jeea-24-4"
+            archived["volume"] = "24"
+            archived["issue"] = "4"
+            archived["publication_date"] = "August 2026"
+            (issues_dir / "current.json").write_text(
+                json.dumps(current, ensure_ascii=False), encoding="utf-8"
+            )
+            (issues_dir / "jeea-24-4.json").write_text(
+                json.dumps(archived, ensure_ascii=False), encoding="utf-8"
+            )
+            configs = {
+                "JEEA": {
+                    "id": "jeea",
+                    "name": "Journal of the European Economic Association",
+                    "enabled": True,
+                }
+            }
+            with (
+                mock.patch("scripts.update_journals.PUBLIC_API", root),
+                mock.patch("scripts.update_journals.normalize_issue_content", side_effect=lambda x: x),
+                mock.patch("scripts.update_journals.validate_issue", return_value=None),
+                mock.patch("scripts.update_journals.is_publishable_snapshot", return_value=True),
+            ):
+                available = load_available_issues(configs, {})
+            self.assertEqual("jeea-24-4", available["JEEA"]["issue_id"])
+            # current.json is refreshed to the newest archive
+            refreshed = json.loads(
+                (issues_dir / "current.json").read_text(encoding="utf-8")
+            )
+            self.assertEqual("jeea-24-4", refreshed["issue_id"])
+
+    def test_current_newer_than_archive_stays(self) -> None:
+        import tempfile
+        from pathlib import Path
+
+        from scripts.update_journals import load_available_issues
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            issues_dir = root / "journals" / "jep" / "issues"
+            issues_dir.mkdir(parents=True)
+            current = {
+                "schema_version": "1.0",
+                "journal_id": "jep",
+                "journal_name": "JEP",
+                "issue_id": "jep-40-3",
+                "volume": "40",
+                "issue": "3",
+                "issue_label": "Vol. 40 No. 3",
+                "publication_date": "Summer 2026",
+                "publication_state": "ready",
+                "status": "ready",
+                "research_article_count": 1,
+                "articles": [
+                    {
+                        "paper_id": "doi:10.2/x",
+                        "sequence": 1,
+                        "article_type": "research",
+                        "title_en": "T",
+                        "title_cn": "题",
+                        "authors": ["A"],
+                        "abstract_en": "Abstract text that is long enough to pass validation for the publication gate.",
+                        "abstract_cn": "摘要文本足够长以通过发布门槛的校验。",
+                        "doi": "10.2/x",
+                        "source_url": "https://doi.org/10.2/x",
+                        "sources": {"roster": "test"},
+                    }
+                ],
+                "quality": {
+                    "translation_complete": 1,
+                    "content_counts": {"publishable_items": 1, "observed_items": 1, "official_items": 1},
+                    "roster_authority": "crossref",
+                    "roster_transport": "crossref",
+                },
+            }
+            older_archive = dict(current)
+            older_archive["issue_id"] = "jep-40-2"
+            older_archive["issue"] = "2"
+            older_archive["publication_date"] = "May 2026"
+            (issues_dir / "current.json").write_text(
+                json.dumps(current, ensure_ascii=False), encoding="utf-8"
+            )
+            (issues_dir / "jep-40-2.json").write_text(
+                json.dumps(older_archive, ensure_ascii=False), encoding="utf-8"
+            )
+            configs = {
+                "JEP": {
+                    "id": "jep",
+                    "name": "JEP",
+                    "enabled": True,
+                }
+            }
+            with (
+                mock.patch("scripts.update_journals.PUBLIC_API", root),
+                mock.patch("scripts.update_journals.normalize_issue_content", side_effect=lambda x: x),
+                mock.patch("scripts.update_journals.validate_issue", return_value=None),
+            ):
+                available = load_available_issues(configs, {})
+            self.assertEqual("jep-40-3", available["JEP"]["issue_id"])
+
+
 
 
 if __name__ == "__main__":

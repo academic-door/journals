@@ -1311,14 +1311,44 @@ def load_available_issues(
         if issue is None:
             issue = read_json(public_issue_path(config["id"]))
         if issue:
+            # Prefer the newest publishable archived issue when it is newer
+            # than the detected current snapshot. The backfill archives new
+            # issues as soon as Crossref/official data arrives, while the
+            # publisher "current" detection can lag behind; the site's
+            # "latest" label must not point at an older issue than the list.
+            newest_archived = _newest_publishable_archived(config["id"])
+            if newest_archived and archive_publication_sort_key(
+                newest_archived
+            ) > archive_publication_sort_key(issue):
+                issue = newest_archived
             try:
                 issue = normalize_issue_content(issue)
                 validate_issue(issue)
             except ValueError:
                 continue
+            if issue.get("publication_state") != "ready":
+                issue = {**issue, "publication_state": "ready"}
             write_json(public_issue_path(config["id"]), issue)
             available[key] = issue
     return available
+
+
+def _newest_publishable_archived(
+    journal_id: str,
+    *,
+    api_root: Path | None = None,
+) -> dict[str, Any] | None:
+    """Return the newest publishable archive for a journal, if any."""
+    if api_root is None:
+        api_root = PUBLIC_API
+    candidates = [
+        issue
+        for issue in archived_issues(journal_id, api_root=api_root)
+        if is_publishable_snapshot(issue)
+    ]
+    if not candidates:
+        return None
+    return max(candidates, key=archive_publication_sort_key)
 
 
 def update_indexes(
