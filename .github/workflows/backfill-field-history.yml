@@ -163,6 +163,9 @@ jobs:
 
       - name: Notify backfill batch result
         if: always() && hashFiles('output/backfill-report.json') != ''
+        # Notification is auxiliary: an intermittent SMTP rejection must not
+        # mark a successful backfill as failed.
+        continue-on-error: true
         env:
           PYTHONPATH: ${{ github.workspace }}
           SMTP_HOST: ${{ secrets.SMTP_HOST }}
