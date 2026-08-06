@@ -1,0 +1,703 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "jf-80-5",
+  "journal_id": "jf",
+  "journal_name": "The Journal of Finance",
+  "volume": "80",
+  "issue": "5",
+  "publication_date": "October 2025",
+  "source_url": "https://onlinelibrary.wiley.com/toc/15406261/2025/80/5",
+  "retrieved_at": "2026-08-06T12:05:24+00:00",
+  "expected_article_count": 15,
+  "research_article_count": 15,
+  "status": "incomplete",
+  "development_sample": false,
+  "articles": [
+    {
+      "paper_id": "doi:10.1111/jofi.13487",
+      "sequence": 1,
+      "source_sequence": 2443,
+      "article_type": "research-article",
+      "title_en": "Tyler Muir: Winner of the 2025 Fischer Black Prize",
+      "title_cn": "",
+      "authors": [
+        "ARVIND KRISHNAMURTHY"
+      ],
+      "abstract_en": "",
+      "abstract_cn": "",
+      "abstract_snippet_en": "",
+      "doi": "10.1111/jofi.13487",
+      "source_url": "https://doi.org/10.1111/jofi.13487",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15406261/2025/80/5",
+        "roster": "crossref:issn:0022-1082",
+        "metadata": "crossref",
+        "abstract_en": "",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1111/jofi.13487"
+      },
+      "translation": {
+        "status": "blocked",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing",
+        "abstract_en_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1111/jofi.13477",
+      "sequence": 2,
+      "source_sequence": 2447,
+      "article_type": "research-article",
+      "title_en": "Forest through the Trees: Building Cross‐Sections of Stock Returns",
+      "title_cn": "透过树木见森林：构建股票收益的横截面",
+      "authors": [
+        "SVETLANA BRYZGALOVA",
+        "MARKUS PELGER",
+        "JASON ZHU"
+      ],
+      "abstract_en": "We build cross‐sections of asset returns for a given set of characteristics, that is, managed portfolios serving as test assets, as well as building blocks for tradable risk factors. We use decision trees to endogenously group similar stocks together by selecting optimal portfolio splits to span the stochastic discount factor, projected on individual stocks. Our portfolios are interpretable and well diversified, reflecting many characteristics and their interactions. Compared to combinations of dozens (even hundreds) of single/double sorts, as well as machine‐learning prediction‐based portfolios, our cross‐sections are low‐dimensional yet have up to three times higher out‐of‐sample Sharpe ratios and alphas.",
+      "abstract_cn": "我们针对给定的特征集构建资产收益的横截面，即作为测试资产的管理组合，以及可交易风险因子的构建模块。我们使用决策树，通过选择最优组合分割来内生地将相似股票分组，以覆盖随机贴现因子，并投影到个股上。我们的组合具有可解释性和良好的分散性，反映了众多特征及其交互作用。与数十个（甚至数百个）单变量/双变量排序的组合，以及基于机器学习预测的组合相比，我们的横截面维度较低，但样本外夏普比率和阿尔法值高出多达三倍。",
+      "abstract_snippet_en": "",
+      "doi": "10.1111/jofi.13477",
+      "source_url": "https://doi.org/10.1111/jofi.13477",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15406261/2025/80/5",
+        "roster": "crossref:issn:0022-1082",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T12:05:27+00:00",
+        "source_hash": "f898c6244b39b4f5ca129a0e4b731317fa9c4b62a89b72dba5493751b00b75a2"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1111/jofi.13467",
+      "sequence": 3,
+      "source_sequence": 2507,
+      "article_type": "research-article",
+      "title_en": "The “Actual Retail Price” of Equity Trades",
+      "title_cn": "股票交易的“实际零售价格”",
+      "authors": [
+        "CHRISTOPHER SCHWARZ",
+        "BRAD BARBER",
+        "XING HUANG",
+        "PHILIPPE JORION",
+        "TERRANCE ODEAN"
+      ],
+      "abstract_en": "We compare execution quality of six brokerage accounts across five brokers by generating a sample of 85,000 simultaneous market orders. Commission levels and payment for order flow (PFOF) differ across our accounts. We find that execution prices vary significantly across brokers: the mean account‐level round‐trip cost ranges from 0.07% to 0.46%, excluding any commissions. The dispersion is due to off‐exchange wholesalers systematically giving different execution prices for the same trades to different brokers. Across brokers, variation in PFOF does not explain the large variation in price execution. We provide several suggestions for more informative disclosures on execution quality.",
+      "abstract_cn": "我们通过生成一个包含85,000笔同时市价订单的样本，比较了五家经纪商的六个经纪账户的执行质量。各账户的佣金水平和订单流付款（PFOF）有所不同。我们发现，不同经纪商之间的执行价格差异显著：平均账户级往返成本范围从0.07%到0.46%，不包括任何佣金。这种差异是由于场外批发商对相同交易向不同经纪商系统性地提供不同的执行价格所致。在各经纪商之间，PFOF的变化并不能解释执行价格的大幅差异。我们为更信息化的执行质量披露提供了若干建议。",
+      "abstract_snippet_en": "",
+      "doi": "10.1111/jofi.13467",
+      "source_url": "https://doi.org/10.1111/jofi.13467",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15406261/2025/80/5",
+        "roster": "crossref:issn:0022-1082",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T12:05:30+00:00",
+        "source_hash": "39bdd19f8835f0df6d5ca7ac1986c13640f32d2d7c2fdfecf889be2e16ab7246"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1111/jofi.13469",
+      "sequence": 4,
+      "source_sequence": 2543,
+      "article_type": "research-article",
+      "title_en": "Segmented Arbitrage",
+      "title_cn": "分割套利",
+      "authors": [
+        "EMIL N. SIRIWARDANE",
+        "ADI SUNDERAM",
+        "JONATHAN WALLEN"
+      ],
+      "abstract_en": "We use arbitrage activity in equity, fixed income, and foreign exchange markets to characterize the frictions and constraints facing intermediaries. The average pairwise correlation between the 32 arbitrage spreads that we study is 22%. These low correlations are inconsistent with canonical intermediary asset pricing models. We show that at least two types of segmentation drive arbitrage dynamics. First, funding is segmented—certain trades rely on specific funding sources, making their arbitrage spreads sensitive to localized funding shocks. Second, balance sheets are segmented—intermediaries specialize in certain trades, so arbitrage spreads are sensitive to idiosyncratic balance‐sheet shocks.",
+      "abstract_cn": "我们利用股票、固定收益和外汇市场中的套利活动来刻画中介机构面临的摩擦和约束。我们所研究的32个套利利差的平均两两相关性为22%。这些低相关性与经典的中介资产定价模型不一致。我们表明，至少有两种类型的分割驱动套利动态。首先，融资是分割的——某些交易依赖特定的融资来源，使其套利利差对局部融资冲击敏感。其次，资产负债表是分割的——中介机构专注于某些交易，因此套利利差对特质性的资产负债表冲击敏感。",
+      "abstract_snippet_en": "",
+      "doi": "10.1111/jofi.13469",
+      "source_url": "https://doi.org/10.1111/jofi.13469",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15406261/2025/80/5",
+        "roster": "crossref:issn:0022-1082",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T12:05:32+00:00",
+        "source_hash": "eaf2ddf289d7b37bb2877255db8fc2b263b5b4ea5598a403f839e4edef823254"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1111/jofi.13478",
+      "sequence": 5,
+      "source_sequence": 2591,
+      "article_type": "research-article",
+      "title_en": "Arbitrage Capital of Global Banks",
+      "title_cn": "全球银行的套利资本",
+      "authors": [
+        "ALYSSA ANDERSON",
+        "WENXIN DU",
+        "BERND SCHLUSCHE"
+      ],
+      "abstract_en": "We study the impact of the U.S. money market fund reform implemented in October 2016 on global banks' funding supply and business activities. We show that the reform induced a large negative wholesale funding shock for global banks. In contrast to the conventional bank lending channel, the primary response of global banks to the reform was a cutback in arbitrage positions that relied on unsecured funding, rather than a reduction in loan provision. We discuss the role of postcrisis liquidity regulations and unconventional monetary policy in explaining our findings, and implications for banks' business models and deposit competition.",
+      "abstract_cn": "我们研究了2016年十月实施的美国货币市场基金改革对全球银行融资供应和业务活动的影响。我们表明，该改革对全球银行造成了大规模的负向批发融资冲击。与传统银行贷款渠道相反，全球银行对改革的主要反应是削减依赖无担保融资的套利头寸，而非减少贷款供给。我们讨论了危机后流动性监管和非常规货币政策在解释我们发现中的作用，以及这些发现对银行业务模式和存款竞争的影响。",
+      "abstract_snippet_en": "",
+      "doi": "10.1111/jofi.13478",
+      "source_url": "https://doi.org/10.1111/jofi.13478",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15406261/2025/80/5",
+        "roster": "crossref:issn:0022-1082",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T12:05:34+00:00",
+        "source_hash": "cea46d98732ef906fd3fb742aa98e57323fae6f983a1085b5f47a8fa342ecb8f"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1111/jofi.13471",
+      "sequence": 6,
+      "source_sequence": 2639,
+      "article_type": "research-article",
+      "title_en": "Persuading Investors: A Video‐Based Study",
+      "title_cn": "说服投资者：一项基于视频的研究",
+      "authors": [
+        "ALLEN HU",
+        "SONG MA"
+      ],
+      "abstract_en": "Persuasive communication functions through not only content but also delivery—facial expression, tone of voice, and diction. This paper examines the persuasiveness of delivery in startup pitches. Using machine learning algorithms to process full pitch videos, we quantify persuasion in visual, vocal, and verbal dimensions. We find that positive (i.e., passionate, warm) pitches increase funding probability. However, conditional on funding, startups with higher levels of pitch positivity underperform. Women are more heavily judged on delivery when evaluated in single‐gender teams, but they are neglected when copitching in mixed‐gender teams. Using an experiment, we show that persuasion delivery works mainly through leading investors to form inaccurate beliefs.",
+      "abstract_cn": "说服性沟通不仅通过内容，还通过表达方式——面部表情、语调及措辞——发挥作用。本文考察了初创企业推介中表达方式的说服力。利用机器学习算法处理完整的推介视频，我们从视觉、声音和言语三个维度量化说服力。我们发现，积极（即充满激情、温暖）的推介能提高获得融资的概率。然而，在获得融资的条件下，推介积极性水平较高的初创企业表现不佳。在单一性别团队中评估时，女性在表达方式上受到更严格的评判，但在混合性别团队中共同推介时，她们则被忽视。通过一项实验，我们表明说服性表达主要通过引导投资者形成不准确的信念来起作用。",
+      "abstract_snippet_en": "",
+      "doi": "10.1111/jofi.13471",
+      "source_url": "https://doi.org/10.1111/jofi.13471",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15406261/2025/80/5",
+        "roster": "crossref:issn:0022-1082",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T12:05:37+00:00",
+        "source_hash": "87983672a81621f2a9dea58d6e27dc31764435ef2d2a845aedf9d3d30e8e005c"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1111/jofi.13466",
+      "sequence": 7,
+      "source_sequence": 2689,
+      "article_type": "research-article",
+      "title_en": "Does Saving Cause Borrowing? Implications for the Coholding Puzzle",
+      "title_cn": "储蓄是否导致借贷？对共同持有之谜的启示",
+      "authors": [
+        "PAOLINA C. MEDINA",
+        "MICHAELA PAGEL"
+      ],
+      "abstract_en": "Using an experiment in which 3.1 million bank customers were encouraged to save, we explore the mechanisms behind coholding liquid savings and credit card debt. Theoretically, we show that the joint responses of spending, saving, and borrowing to the nudge differ across economic models of coholding. Using machine learning techniques, we find that the most responsive individuals reduce spending and increase savings by 4.9% (206 USD PPP per month) while their credit card debt remains unchanged. These individuals' marginal responses to the nudge are consistent with our model of coholding for the purpose of self‐ or partner‐control.",
+      "abstract_cn": "利用一项鼓励3.1百万银行客户储蓄的实验，我们探讨了同时持有流动储蓄和信用卡债务背后的机制。理论上，我们展示了支出、储蓄和借贷对推动措施的共同反应在不同共同持有经济模型中有所不同。运用机器学习技术，我们发现反应最强烈的个体减少了支出并增加了储蓄，增幅为4.9%（每月206美元购买力平价），而他们的信用卡债务保持不变。这些个体对推动措施的边际反应与我们的共同持有模型（出于自我或伴侣控制目的）一致。",
+      "abstract_snippet_en": "",
+      "doi": "10.1111/jofi.13466",
+      "source_url": "https://doi.org/10.1111/jofi.13466",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15406261/2025/80/5",
+        "roster": "crossref:issn:0022-1082",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T12:05:39+00:00",
+        "source_hash": "5cc75f1eec3cce2d054062731865c7b086996a02ce1497fd86706b9f2a59e5cf"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1111/jofi.13473",
+      "sequence": 8,
+      "source_sequence": 2739,
+      "article_type": "research-article",
+      "title_en": "Household Portfolios and Retirement Saving over the Life Cycle",
+      "title_cn": "生命周期中的家庭投资组合与退休储蓄",
+      "authors": [
+        "JONATHAN A. PARKER",
+        "ANTOINETTE SCHOAR",
+        "ALLISON COLE",
+        "DUNCAN SIMESTER"
+      ],
+      "abstract_en": "Using account‐level data on millions of U.S. middle‐class investors over 2006 to 2018, we characterize the share of investable wealth that they hold in the stock market over their working lives. Relative to the 1990s, this share has both risen by 10% and become age‐dependent. The Pension Protection Act (PPA)—which allowed target date funds (TDFs) to be default options in retirement plans—played an important role: younger (older) workers starting at a firm after TDFs became the default option post‐PPA invested more (less) in stocks, in line with the TDF glidepath. In contrast, contribution rates changed little following the PPA.",
+      "abstract_cn": "利用2006年至2018年间数百万美国中产阶级投资者的账户级数据，我们刻画了他们在工作生涯中持有股票市场投资财富的比例。与1990年相比，这一比例既上升了10%，也变得与年龄相关。《养老金保护法案》（PPA）——该法案允许目标日期基金（TDFs）成为退休计划中的默认选项——发挥了重要作用：在PPA后TDFs成为默认选项的公司开始工作的年轻（年长）员工，其股票投资更多（更少），这与TDF的滑行路径一致。相比之下，PPA后缴费率变化不大。",
+      "abstract_snippet_en": "",
+      "doi": "10.1111/jofi.13473",
+      "source_url": "https://doi.org/10.1111/jofi.13473",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15406261/2025/80/5",
+        "roster": "crossref:issn:0022-1082",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T12:05:42+00:00",
+        "source_hash": "f5a83b3cd7dafd2c5477930c251bb112815f6e961b80e9bc34df648ff1e58fb2"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1111/jofi.13474",
+      "sequence": 9,
+      "source_sequence": 2789,
+      "article_type": "research-article",
+      "title_en": "Investor Factors",
+      "title_cn": "投资者因子",
+      "authors": [
+        "SEBASTIEN BETERMIER",
+        "LAURENT E. CALVET",
+        "SAMULI KNÜPFER",
+        "JENS SOERLIE KVAERNER"
+      ],
+      "abstract_en": "This paper develops an empirical methodology for extracting pricing factors from investor portfolio data. We apply this approach to the stockholdings of Norwegian individual investors from 1997 to 2017. A two‐factor model, featuring the market portfolio and a long‐short portfolio constructed from the holdings of investors sorted by age or wealth, explains both the common variation in portfolio holdings and the cross section of stock returns. Portfolio tilts toward the long‐short investor factor correlate with indebtedness, macroeconomic exposure, gender, and investment experience. Our paper illustrates the benefits of using holdings data for explaining the risk premia of financial assets.",
+      "abstract_cn": "本文开发了一种从投资者投资组合数据中提取定价因子的实证方法。我们将此方法应用于1997年至2017年间挪威个人投资者的股票持有情况。一个双因子模型，包含市场组合和根据投资者年龄或财富排序构建的多空组合，既解释了投资组合持有的共同变动，也解释了股票收益的横截面。投资组合向多空投资者因子的倾斜与负债、宏观经济暴露、性别和投资经验相关。本文展示了使用持有数据解释金融资产风险溢价的好处。",
+      "abstract_snippet_en": "",
+      "doi": "10.1111/jofi.13474",
+      "source_url": "https://doi.org/10.1111/jofi.13474",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15406261/2025/80/5",
+        "roster": "crossref:issn:0022-1082",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T12:05:45+00:00",
+        "source_hash": "0ecc1301ebabfb72fab844d654fdfcfbf3a8544c0b341f4f1c3927b85ac202b5"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1111/jofi.13483",
+      "sequence": 10,
+      "source_sequence": 2831,
+      "article_type": "research-article",
+      "title_en": "Over‐the‐Counter Markets for Nonstandardized Assets",
+      "title_cn": "非标准化资产的场外交易市场",
+      "authors": [
+        "YOSHIO NOZAWA",
+        "ANTON TSOY"
+      ],
+      "abstract_en": "We study a search and bargaining model of over‐the‐counter markets for nonstandardized assets of heterogeneous quality. Once matched, investors privately learn their values positively correlated with asset quality. Bargaining results in delay that is hump‐shaped in quality and U‐shaped in asset turnover. We document these patterns in commercial real estate and corporate bonds markets. Extreme qualities are little affected by changes in asset standardization, while intermediate qualities are more susceptible. For nonstandardized assets, opacity ensures active trading of all assets, which explains why their trading is decentralized and suggests that trade centralization should come with greater standardization.",
+      "abstract_cn": "我们研究了一个针对质量异质性的非标准化资产的场外交易市场的搜索与议价模型。一旦匹配，投资者私下了解到其价值与资产质量正相关。议价导致的延迟在质量上呈驼峰形，在资产周转率上呈U形。我们在商业房地产和公司债券市场中记录了这些模式。极端质量受资产标准化变化的影响较小，而中间质量则更容易受到影响。对于非标准化资产，不透明性确保了所有资产的活跃交易，这解释了为何它们的交易是分散的，并表明交易集中化应伴随更大的标准化。",
+      "abstract_snippet_en": "",
+      "doi": "10.1111/jofi.13483",
+      "source_url": "https://doi.org/10.1111/jofi.13483",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15406261/2025/80/5",
+        "roster": "crossref:issn:0022-1082",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T12:05:47+00:00",
+        "source_hash": "0c38d4143d5408655718c15243e53789cad046bcb0ccf4142fae2cb1c302f375"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1111/jofi.13476",
+      "sequence": 11,
+      "source_sequence": 2875,
+      "article_type": "research-article",
+      "title_en": "The Impact of the Financial Education of Executives on the Financial Practices of Medium and Large Enterprises",
+      "title_cn": "高管金融教育对中大型企业金融实践的影响",
+      "authors": [
+        "CLÁUDIA CUSTÓDIO",
+        "DIOGO MENDES",
+        "DANIEL METZGER"
+      ],
+      "abstract_en": "We study the impact of an MBA‐style executive education course in finance on corporate policies and firm performance targeting top managers of medium and large Mozambican enterprises. Using a randomized controlled trial, we find that the educational treatment induces changes in financial policies that improve firm performance. Specifically, a reduction in working capital (0.4 to 0.5 standard deviations) increases cash flow, and in turn long‐term investments. This effect operates primarily through a reduction in accounts receivable (0.4 to 1 standard deviations). Our findings show that targeted educational interventions can build managerial capital and enhance corporate performance by improving financial decision making among executives.",
+      "abstract_cn": "我们研究了一门MBA风格的金融高管教育课程对莫桑比克中大型企业高层管理者的公司政策和公司绩效的影响。通过随机对照试验，我们发现教育干预引发了金融政策的改变，从而提升了公司绩效。具体而言，营运资本的减少（0.4至0.5个标准差）增加了现金流，进而促进了长期投资。这一效应主要通过应收账款的减少（0.4至1个标准差）来实现。我们的研究结果表明，有针对性的教育干预可以构建管理资本，并通过改善高管的金融决策来提升公司绩效。",
+      "abstract_snippet_en": "",
+      "doi": "10.1111/jofi.13476",
+      "source_url": "https://doi.org/10.1111/jofi.13476",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15406261/2025/80/5",
+        "roster": "crossref:issn:0022-1082",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T12:05:50+00:00",
+        "source_hash": "3f37805208068658df50f9a7e30c101df5450944c75280918def16413938ef06"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1111/jofi.13470",
+      "sequence": 12,
+      "source_sequence": 2921,
+      "article_type": "research-article",
+      "title_en": "Too Much, Too Soon, for Too Long: The Dynamics of Competitive Executive Compensation",
+      "title_cn": "过多、过早、过久：竞争性高管薪酬的动态",
+      "authors": [
+        "GILLES CHEMLA",
+        "ALEJANDRO RIVERA",
+        "LIYAN SHI"
+      ],
+      "abstract_en": "We examine executive compensation in a general equilibrium model with dynamic moral hazard, where executives' outside options are endogenously determined by equilibrium market compensation. Firms provide incentives through compensation packages featuring deferred payments as “carrots” and termination as “sticks.” Crucially, the effectiveness of termination as an incentive device is undermined by the outside options available to executives. As individual firms fail to internalize the effect of their compensation design on these endogenous outside options, the equilibrium is generally inefficient. Compared to shareholder‐value‐maximizing compensation packages, executives are paid too much, too soon, and keep their jobs for too long.",
+      "abstract_cn": "我们在一个具有动态道德风险的一般均衡模型中研究高管薪酬，其中高管的外部选择权由均衡市场薪酬内生决定。企业通过包含递延支付作为“胡萝卜”和终止合同作为“大棒”的薪酬方案提供激励。关键在于，终止合同作为激励手段的有效性受到高管可获得的外部选择权的削弱。由于单个企业未能将其薪酬设计对这些内生外部选择权的影响内部化，均衡通常是低效的。与股东价值最大化的薪酬方案相比，高管薪酬过高、支付过早，且任期过长。",
+      "abstract_snippet_en": "",
+      "doi": "10.1111/jofi.13470",
+      "source_url": "https://doi.org/10.1111/jofi.13470",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15406261/2025/80/5",
+        "roster": "crossref:issn:0022-1082",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T12:05:53+00:00",
+        "source_hash": "d8779ab44885ff362e03cf620f64a9a9c69dc36ea12c8e66a50c41e79e3b732d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1111/jofi.13485",
+      "sequence": 13,
+      "source_sequence": 2971,
+      "article_type": "research-article",
+      "title_en": "Thirty Years of Change: The Evolution of Classified Boards",
+      "title_cn": "三十年的变迁：分类董事会的演变",
+      "authors": [
+        "SCOTT GUERNSEY",
+        "FENG GUO",
+        "TINGTING LIU",
+        "MATTHEW SERFLING"
+      ],
+      "abstract_en": "Based on a comprehensive data set of classified (staggered) boards covering nearly all U.S. public firms from 1991 to 2020, we show that contrary to conventional wisdom, the use of classified boards remains widespread. Moreover, classified board usage over a firm's life cycle depends significantly on the decade the firm matured or year it went public. While classified boards were rarely removed in the 1990s, firms became more likely to declassify as they matured during the following decades. Decreased collective action costs and increased innovation‐related investments, institutional ownership, and scrutiny of governance contributed to this more dynamic adjustment.",
+      "abstract_cn": "基于一个涵盖1991年至2020年间几乎所有美国上市公司的全面分类（交错）董事会数据集，我们表明，与传统观念相反，分类董事会的使用仍然广泛。此外，公司在生命周期中对分类董事会的使用在很大程度上取决于公司成熟的十年或上市年份。虽然分类董事会在1990年代很少被移除，但在接下来的几十年中，随着公司成熟，它们更有可能进行去分类化。集体行动成本的降低、创新相关投资的增加、机构持股的增加以及治理审查的加强，共同促进了这种更为动态的调整。",
+      "abstract_snippet_en": "",
+      "doi": "10.1111/jofi.13485",
+      "source_url": "https://doi.org/10.1111/jofi.13485",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15406261/2025/80/5",
+        "roster": "crossref:issn:0022-1082",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T12:05:55+00:00",
+        "source_hash": "2feab426360d744f3d6ceae943cd5fa90f4908ae9806903f0195ad1c10e79982"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1111/jofi.13480",
+      "sequence": 14,
+      "source_sequence": 3021,
+      "article_type": "research-article",
+      "title_en": "Baby Booms and Asset Booms: Demographic Change and the Housing Market",
+      "title_cn": "婴儿潮与资产繁荣：人口变化与住房市场",
+      "authors": [
+        "MARC FRANCKE",
+        "MATTHIJS KOREVAAR"
+      ],
+      "abstract_en": "Based on centuries of data, we demonstrate that demographics have been a major, predictable driver of house prices. High birth rates 25 to 29 (60 to 64) years ago predict declining (rising) rent‐price ratios today. This pattern arises from age‐concentrated entry into and exit from homeownership affecting house prices, rather than changes in housing consumption that could also impact rents. We provide evidence for possible mechanisms: slow responses of other market participants to shifts in homeownership demand, and geographic segmentation between rental and owner‐occupied markets. Evidence for age‐dependent demand effects on yields of bonds and stocks is significantly weaker.",
+      "abstract_cn": "基于数百年的数据，我们证明人口结构一直是房价的主要且可预测的驱动因素。25至29年前的高出生率预示着当前租金-价格比率的下降，而60至64年前的高出生率则预示着其上升。这一模式源于年龄集中进入和退出自有住房对房价的影响，而非也可能影响租金的住房消费变化。我们为可能的机制提供了证据：其他市场参与者对自有住房需求变化的缓慢反应，以及租赁市场与自有住房市场之间的地理分割。年龄依赖需求对债券和股票收益率影响的证据明显较弱。",
+      "abstract_snippet_en": "",
+      "doi": "10.1111/jofi.13480",
+      "source_url": "https://doi.org/10.1111/jofi.13480",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15406261/2025/80/5",
+        "roster": "crossref:issn:0022-1082",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T12:05:58+00:00",
+        "source_hash": "d4e6679a7d32bd26d2cd4f4e66b529ede59c451254f2efd8dfd3c66564f81bd6"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1111/jofi.13479",
+      "sequence": 15,
+      "source_sequence": 3057,
+      "article_type": "research-article",
+      "title_en": "Superstar Returns? Spatial Heterogeneity in Returns to Housing",
+      "title_cn": "超级明星回报？住房回报的空间异质性",
+      "authors": [
+        "FRANCISCO AMARAL",
+        "MARTIN DOHMEN",
+        "SEBASTIAN KOHL",
+        "MORITZ SCHULARICK"
+      ],
+      "abstract_en": "This paper makes the first comprehensive attempt to study within‐country heterogeneity of housing returns. We introduce a new city‐level data set covering 15 OECD countries over 150 years and show that national housing markets are characterized by systematic spatial variation in housing returns. Total returns in large agglomerations are close to 100 basis points lower per year than in other parts of the same country. Excess returns outside the large cities can be rationalized as compensation for higher risk, especially higher covariance with income growth and lower liquidity. Real estate in diversified large agglomerations is comparatively safe.",
+      "abstract_cn": "本文首次全面尝试研究国内住房回报的异质性。我们引入了一个覆盖15个OECD国家、跨越150年的新城市级数据集，并表明国家住房市场以住房回报的系统性空间变化为特征。大都市区的总回报每年比同一国家其他地区低近100个基点。大城市以外的超额回报可以合理化为对更高风险的补偿，尤其是与收入增长的更高协方差和较低的流动性。多元化大都市区的房地产相对安全。",
+      "abstract_snippet_en": "",
+      "doi": "10.1111/jofi.13479",
+      "source_url": "https://doi.org/10.1111/jofi.13479",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15406261/2025/80/5",
+        "roster": "crossref:issn:0022-1082",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T12:06:00+00:00",
+        "source_hash": "7cd63ccaed46757727815213102fde5a85bb8492d59b5f56c7d9330c79d4595f"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "crossref",
+    "roster_authority": "crossref-provisional",
+    "roster_match_scope": "crossref-issue-group",
+    "publisher_page_status": "blocked",
+    "excluded_item_count": 3,
+    "excluded_items": [
+      {
+        "title_en": "ISSUE INFORMATION",
+        "reason": "front_matter",
+        "doi": "10.1111/jofi.13489",
+        "article_type": "front-matter"
+      },
+      {
+        "title_en": "AMERICAN FINANCE ASSOCIATION",
+        "reason": "non_publishable_item",
+        "doi": "10.1111/jofi.13490",
+        "article_type": "research-article"
+      },
+      {
+        "title_en": "ANNOUNCEMENTS",
+        "reason": "non_publishable_item",
+        "doi": "10.1111/jofi.13494",
+        "article_type": "research-article"
+      }
+    ],
+    "doi_complete": 15,
+    "authors_complete": 15,
+    "abstract_en_complete": 14,
+    "translation_complete": 14,
+    "duplicate_count": 0,
+    "flags": [
+      "publisher_html_blocked_crossref_fallback",
+      "crossref_provisional_roster",
+      "abstract_en_incomplete",
+      "translation_incomplete"
+    ],
+    "official_item_count": 18,
+    "publishable_item_count": 15,
+    "content_counts": {
+      "official_items": 18,
+      "observed_items": 18,
+      "publishable_items": 15,
+      "research_articles": 15,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 1,
+      "other_excluded": 2,
+      "catalog_content_items": 15
+    }
+  },
+  "content_counts": {
+    "official_items": 18,
+    "observed_items": 18,
+    "publishable_items": 15,
+    "research_articles": 15,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 1,
+    "other_excluded": 2,
+    "catalog_content_items": 15
+  },
+  "issue_label": "Vol. 80 · No. 5"
+}

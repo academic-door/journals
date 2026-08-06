@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T12:06:47+00:00
+Updated: 2026-08-06T12:08:33+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -233,6 +233,16 @@ Updated: 2026-08-06T12:06:47+00:00
 | JET | jet-234-c | 2026 | complete |  |
 | JET | jet-235-c | 2026 | complete |  |
 | JET | jet-236-c | 2026 | complete |  |
+| JF | jf-80-1 | 2025 | complete |  |
+| JF | jf-80-2 | 2025 | translation_partial |  |
+| JF | jf-80-3 | 2025 | translation_partial |  |
+| JF | jf-80-4 | 2025 | translation_partial |  |
+| JF | jf-80-5 | 2025 | translation_partial |  |
+| JF | jf-80-6 | 2025 | complete |  |
+| JF | jf-81-1 | 2026 | complete |  |
+| JF | jf-81-2 | 2026 | translation_partial |  |
+| JF | jf-81-3 | 2026 | complete |  |
+| JF | jf-81-4 | 2026 | translation_partial |  |
 | JFE | jfe-163-c | 2025 | complete |  |
 | JFE | jfe-164-c | 2025 | complete |  |
 | JFE | jfe-165-c | 2025 | complete |  |
