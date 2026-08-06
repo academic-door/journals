@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T11:47:15+00:00
+Updated: 2026-08-06T11:47:32+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -269,7 +269,7 @@ Updated: 2026-08-06T11:47:15+00:00
 | JPubE | jpube-259-c | 2026 | complete |  |
 | JPubE | jpube-260-c | 2026 | complete |  |
 | JPubE | jpube-261-c | 2026 | complete |  |
-| JPubE | jpube-262-c | 2026 | translation_partial |  |
+| JPubE | jpube-262-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 262/ |
 | JUE | jue-145-c | 2025 | complete |  |
 | JUE | jue-146-c | 2025 | complete |  |
 | JUE | jue-147-c | 2025 | complete |  |
