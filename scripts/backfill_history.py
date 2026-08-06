@@ -489,6 +489,13 @@ def main() -> int:
         help="write the batch report JSON to this path for notifications",
     )
     parser.add_argument(
+        "--skip-global-indexes",
+        action="store_true",
+        help="skip regenerating global collections/health/search indexes "
+        "(used by parallel per-journal runs so they don't publish stale "
+        "aggregate files from their partial snapshot)",
+    )
+    parser.add_argument(
         "--max-minutes",
         type=int,
         default=0,
@@ -589,7 +596,8 @@ def main() -> int:
             journals[key]["name"],
             updated_at=now_iso(),
         )
-    update_indexes(journals, load_available_issues(journals, {}))
+    if not args.skip_global_indexes:
+        update_indexes(journals, load_available_issues(journals, {}))
     final_report = {
         "results": reports,
         "remaining_translation_budget": remaining_translations,

@@ -42,11 +42,11 @@ permissions:
   models: read
 
 concurrency:
-  # Serialize ALL field backfills (including per-journal dispatches) onto one
-  # group. Parallel publishers each replace the whole public/ tree on the data
-  # branch, which clobbers other journals' archives; one-at-a-time publishing
-  # keeps the shared data branch consistent.
-  group: field-history-backfill-all
+  # Run different journals in parallel (same journal serializes). The publish
+  # step below MERGES journal-scoped files into the shared data branch instead
+  # of replacing the whole public/ tree, so parallel publishers no longer
+  # clobber each other's archives.
+  group: field-history-backfill-${{ github.event.inputs.journal || 'ALL' }}
   cancel-in-progress: false
 
 jobs:
@@ -97,14 +97,18 @@ jobs:
         run: |
           set -euo pipefail
           state="data/backfill-state/field-2025-2026.json"
+          journal_key="${{ inputs.journal || 'ALL' }}"
           has_pending=false
           if [ -f "$state" ]; then
-            pending=$(python - "$state" <<'PY'
+            pending=$(python - "$state" "$journal_key" <<'PY'
           import json, sys
           state = json.load(open(sys.argv[1], encoding="utf-8"))
+          journal = sys.argv[2]
           entries = state.get("issues", {}).values()
           actionable = 0
           for entry in entries:
+              if journal != "ALL" and entry.get("journal", "") != journal:
+                  continue
               status = entry.get("status", "")
               if status == "complete":
                   continue
@@ -131,6 +135,12 @@ jobs:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: |
           mkdir -p output
+          global_flags=""
+          if [ "${{ inputs.journal || 'ALL' }}" != "ALL" ]; then
+            # Per-journal runs must not regenerate global collections/health
+            # indexes from their partial snapshot; the ALL run does that.
+            global_flags="--skip-global-indexes"
+          fi
           python scripts/backfill_history.py \
             --config config/field-history.yml \
             --state data/backfill-state/field-2025-2026.json \
@@ -141,6 +151,7 @@ jobs:
             --max-issues "${{ inputs.max_issues || '12' }}" \
             --max-translations "${{ inputs.max_translations || '120' }}" \
             --max-minutes 75 \
+            $global_flags \
             --report-json output/backfill-report.json
           python scripts/backfill_status.py \
             --state data/backfill-state/field-2025-2026.json \
@@ -176,34 +187,84 @@ jobs:
           cp -R data/translation-cache "$generated/data/"
           [ ! -d data/backfill-state ] || cp -R data/backfill-state "$generated/data/"
           [ ! -d data/backfill-staging ] || cp -R data/backfill-staging "$generated/data/"
-          git fetch origin data
-          git worktree add "$RUNNER_TEMP/data-tree" origin/data
-          cd "$RUNNER_TEMP/data-tree"
-          git switch -C data
-          rm -rf public data/translation-cache data/backfill-state data/backfill-staging
-          cp -R "$generated/public" public
-          cp -R "$generated/data/." data/
-          git config user.name "academic-door-bot"
-          git config user.email "academic-door-bot@users.noreply.github.com"
-          git add public data/translation-cache
-          git add -f data/backfill-state data/backfill-staging 2>/dev/null || true
-          if git diff --cached --quiet; then
-            echo "No historical data changes."
-            exit 0
-          fi
-          git commit -m "Backfill field journal history"
-          if git push origin HEAD:data; then
-            exit 0
-          fi
-          # Retry a few times in case a concurrent publisher (e.g. the monitor
-          # workflow) advanced the data branch while we were publishing. Rebase
-          # our additive commit onto the latest data branch and push again.
-          for attempt in 1 2 3 4; do
-            sleep $((attempt * 20))
-            git pull --rebase origin data
-            git commit -m "Backfill field journal history (retry $attempt)" || true
-            if git push origin HEAD:data; then
+
+          journal_key="${{ inputs.journal || 'ALL' }}"
+
+          publish_and_push() {
+            git fetch origin data
+            if [ -d "$RUNNER_TEMP/data-tree" ]; then
+              git worktree remove --force "$RUNNER_TEMP/data-tree" 2>/dev/null || true
+              rm -rf "$RUNNER_TEMP/data-tree"
+            fi
+            git worktree add "$RUNNER_TEMP/data-tree" origin/data
+            cd "$RUNNER_TEMP/data-tree"
+            git switch -C data
+
+            # Merge instead of replace: the shared data branch is written by
+            # parallel per-journal publishers, so deleting public/ wholesale
+            # would clobber other journals' archives.
+            if [ "$journal_key" = "ALL" ]; then
+              cp -R "$generated/public/." public/
+              mkdir -p data/translation-cache
+              cp -R "$generated/data/translation-cache/." data/translation-cache/ 2>/dev/null || true
+            else
+              journal_id=$(python -c "import sys; print(sys.argv[1].lower())" "$journal_key")
+              mkdir -p "public/api/v1/journals/$journal_id/issues"
+              cp -R "$generated/public/api/v1/journals/$journal_id/issues/." "public/api/v1/journals/$journal_id/issues/"
+              mkdir -p data/translation-cache
+              if [ -f "$generated/data/translation-cache/$journal_id.json" ]; then
+                cp "$generated/data/translation-cache/$journal_id.json" "data/translation-cache/$journal_id.json"
+              fi
+              if [ -d "$generated/data/backfill-staging/$journal_id" ]; then
+                mkdir -p data/backfill-staging
+                rm -rf "data/backfill-staging/$journal_id"
+                cp -R "$generated/data/backfill-staging/$journal_id" "data/backfill-staging/$journal_id"
+              fi
+            fi
+
+            # Merge the resumable state file by issue key so concurrent
+            # journals never drop each other's checkpoints.
+            mkdir -p data/backfill-state
+            python - "$generated/data/backfill-state/field-2025-2026.json" <<'PY'
+          import json, os, sys
+          new_path = sys.argv[1]
+          target = "data/backfill-state/field-2025-2026.json"
+          new = json.load(open(new_path, encoding="utf-8"))
+          existing = json.load(open(target, encoding="utf-8")) if os.path.exists(target) else {"schema_version": "1.0", "issues": {}}
+          existing.setdefault("issues", {}).update(new.get("issues", {}))
+          json.dump(existing, open(target, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+          PY
+
+            if [ -d "$generated/data/backfill-staging" ]; then
+              mkdir -p data/backfill-staging
+              cp -R "$generated/data/backfill-staging/." data/backfill-staging/
+            fi
+
+            # Regenerate the global backfill status from the merged state.
+            python "$GITHUB_WORKSPACE/scripts/backfill_status.py" \
+              --state data/backfill-state/field-2025-2026.json \
+              --out-json public/api/v1/backfill-status.json \
+              --out-md public/backfill-status.md
+
+            git config user.name "academic-door-bot"
+            git config user.email "academic-door-bot@users.noreply.github.com"
+            git add public data/translation-cache
+            git add -f data/backfill-state data/backfill-staging 2>/dev/null || true
+            if git diff --cached --quiet; then
+              echo "No historical data changes."
               exit 0
             fi
+            git commit -m "Backfill field journal history"
+            cd "$GITHUB_WORKSPACE"
+          }
+
+          for attempt in 1 2 3 4 5; do
+            publish_and_push
+            if git -C "$RUNNER_TEMP/data-tree" push origin HEAD:data; then
+              exit 0
+            fi
+            echo "Data-branch push rejected (attempt $attempt); re-publishing from the latest data branch."
+            sleep $((attempt * 15))
           done
+          echo "Failed to publish to the data branch after 5 attempts."
           exit 1
