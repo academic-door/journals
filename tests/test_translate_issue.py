@@ -192,7 +192,7 @@ class DeepSeekModelResolutionTests(unittest.TestCase):
     def test_default_model_is_deepseek_chat(self) -> None:
         from scripts.translate_issue import _deepseek_model
 
-        with mock.patch.dict("os.environ", {}, clear=False):
+        with mock.patch.dict("os.environ", {"DEEPSEEK_MODEL": ""}, clear=False):
             self.assertEqual("deepseek-chat", _deepseek_model())
 
     def test_env_override_selects_reasoner(self) -> None:

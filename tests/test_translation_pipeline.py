@@ -473,7 +473,7 @@ class TranslationPipelineTests(unittest.TestCase):
         issue = {"journal_id": "test", "articles": [ARTICLE]}
         with tempfile.TemporaryDirectory() as directory, patch.dict(
             "os.environ",
-            {"DEEPSEEK_API_KEY": "test-deepseek-key"},
+            {"DEEPSEEK_API_KEY": "test-deepseek-key", "DEEPSEEK_MODEL": ""},
             clear=False,
         ):
             cache_path = Path(directory) / "test.json"
