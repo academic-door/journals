@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T15:58:25+00:00
+Updated: 2026-08-06T22:00:13+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -59,7 +59,7 @@ Updated: 2026-08-06T15:58:25+00:00
 | AERI | aeri-8-1 | 2026 | complete |  |
 | AERI | aeri-8-2 | 2026 | complete |  |
 | AJAE | ajae-107-1 | 2025 | translation_partial |  |
-| AJAE | ajae-107-2 | 2025 | translation_partial |  |
+| AJAE | ajae-107-2 | 2025 | complete |  |
 | AJAE | ajae-107-3 | 2025 | complete |  |
 | AJAE | ajae-107-4 | 2025 | complete |  |
 | AJAE | ajae-107-5 | 2025 | complete |  |
@@ -254,13 +254,13 @@ Updated: 2026-08-06T15:58:25+00:00
 | JET | jet-235-c | 2026 | complete |  |
 | JET | jet-236-c | 2026 | complete |  |
 | JF | jf-80-1 | 2025 | complete |  |
-| JF | jf-80-2 | 2025 | translation_partial |  |
-| JF | jf-80-3 | 2025 | translation_partial |  |
+| JF | jf-80-2 | 2025 | complete |  |
+| JF | jf-80-3 | 2025 | complete |  |
 | JF | jf-80-4 | 2025 | translation_partial |  |
-| JF | jf-80-5 | 2025 | translation_partial |  |
+| JF | jf-80-5 | 2025 | complete |  |
 | JF | jf-80-6 | 2025 | complete |  |
 | JF | jf-81-1 | 2026 | complete |  |
-| JF | jf-81-2 | 2026 | translation_partial |  |
+| JF | jf-81-2 | 2026 | complete |  |
 | JF | jf-81-3 | 2026 | complete |  |
 | JF | jf-81-4 | 2026 | translation_partial |  |
 | JFE | jfe-163-c | 2025 | complete |  |
@@ -321,7 +321,7 @@ Updated: 2026-08-06T15:58:25+00:00
 | JME | jme-162-c | 2026 | complete |  |
 | JOE | joe-247-c | 2025 | complete |  |
 | JOE | joe-248-c | 2025 | translation_partial |  |
-| JOE | joe-249-c | 2025 | translation_partial |  |
+| JOE | joe-249-c | 2025 | complete |  |
 | JOE | joe-250-c | 2025 | complete |  |
 | JOE | joe-251-c | 2025 | complete |  |
 | JOE | joe-252-c | 2025 | complete |  |
@@ -382,11 +382,11 @@ Updated: 2026-08-06T15:58:25+00:00
 | JUE | jue-153-c | 2026 | complete |  |
 | JUE | jue-154-c | 2026 | complete |  |
 | LANDECON | landecon-101-1 | 2025 | complete |  |
-| LANDECON | landecon-101-2 | 2025 | translation_partial |  |
+| LANDECON | landecon-101-2 | 2025 | complete |  |
 | LANDECON | landecon-101-3 | 2025 | translation_partial |  |
 | LANDECON | landecon-101-4 | 2025 | complete |  |
 | LANDECON | landecon-102-1 | 2026 | complete |  |
-| LANDECON | landecon-102-2 | 2026 | translation_partial |  |
+| LANDECON | landecon-102-2 | 2026 | complete |  |
 | LANDECON | landecon-102-3 | 2026 | complete |  |
 | LUP | lup-148-c | 2025 | complete |  |
 | LUP | lup-149-c | 2025 | complete |  |
@@ -460,7 +460,7 @@ Updated: 2026-08-06T15:58:25+00:00
 | RFS | rfs-38-2 | 2025 | complete |  |
 | RFS | rfs-38-3 | 2025 | complete |  |
 | RFS | rfs-38-4 | 2025 | complete |  |
-| RFS | rfs-38-5 | 2025 | translation_partial |  |
+| RFS | rfs-38-5 | 2025 | complete |  |
 | RFS | rfs-38-6 | 2025 | complete |  |
 | RFS | rfs-38-7 | 2025 | complete |  |
 | RFS | rfs-38-8 | 2025 | complete |  |
@@ -469,7 +469,7 @@ Updated: 2026-08-06T15:58:25+00:00
 | RFS | rfs-39-2 | 2026 | complete |  |
 | RFS | rfs-39-3 | 2026 | complete |  |
 | RFS | rfs-39-4 | 2026 | complete |  |
-| RFS | rfs-39-5 | 2026 | translation_partial |  |
+| RFS | rfs-39-5 | 2026 | complete |  |
 | RFS | rfs-39-6 | 2026 | complete |  |
 | RFS | rfs-39-7 | 2026 | complete |  |
 | RFS | rfs-39-8 | 2026 | complete |  |
@@ -493,7 +493,7 @@ Updated: 2026-08-06T15:58:25+00:00
 | WD | wd-195-c | 2025 | complete |  |
 | WD | wd-196-c | 2025 | complete |  |
 | WD | wd-197-c | 2026 | complete |  |
-| WD | wd-198-c | 2026 | translation_partial |  |
+| WD | wd-198-c | 2026 | complete |  |
 | WD | wd-199-c | 2026 | complete |  |
 | WD | wd-200-c | 2026 | complete |  |
 | WD | wd-201-c | 2026 | complete |  |
