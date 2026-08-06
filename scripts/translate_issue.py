@@ -276,8 +276,28 @@ def _is_identifier_number(value: str, match: re.Match[str]) -> bool:
     return False
 
 
+CURRENCY_PREFIX_PATTERN = re.compile(
+    r"(?i)(?<![A-Za-z0-9])"
+    r"(?:EUR|USD|GBP|CNY|JPY|CHF|CAD|AUD|HKD|SGD|NZD|SEK|NOK|DKK|PLN|RMB|NTD|TWD)"
+    r"\s*(?P<amount>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
+)
+
+
+def _canonical_number(number: str) -> str:
+    """Normalize a matched number for multiset comparison.
+
+    Thousand separators (``5,503``) and currency-prefixed amounts
+    (``EUR190``) are the same value whether the translation keeps the comma
+    or writes ``5503``/``190欧元``; strip commas and the currency prefix so
+    both sides compare equal.
+    """
+    return number.replace("\u2212", "-").lstrip("+").replace(",", "")
+
+
 def _numbers(value: str) -> list[str]:
     values: list[str] = []
+    for match in CURRENCY_PREFIX_PATTERN.finditer(value):
+        values.append(_canonical_number(match.group("amount")))
     for match in NUMBER_PATTERN.finditer(value):
         # Unit exponents such as ``year−1`` are commonly rendered as “每年” in
         # Chinese. They describe a denominator, not a reported numeric result.
@@ -289,7 +309,7 @@ def _numbers(value: str) -> list[str]:
             continue
         if _is_identifier_number(value, match):
             continue
-        number = match.group("number").replace("\u2212", "-").lstrip("+")
+        number = _canonical_number(match.group("number"))
         if match.group("percent_word") and not number.endswith("%"):
             number += "%"
         elif (

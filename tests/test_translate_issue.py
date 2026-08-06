@@ -94,5 +94,56 @@ class ChineseNumeralCanonicalizationTests(unittest.TestCase):
 
 
 
+
+    def test_currency_prefixed_and_thousands_separated_numbers(self) -> None:
+        from scripts.translate_issue import _numbers
+
+        # Currency codes attached directly to the amount (EUR190) and
+        # thousand separators (5,503) must be recognized and canonicalized so
+        # a translation writing 190欧元 or 5503 does not look invented.
+        self.assertIn("190", _numbers("by EUR190 per capita"))
+        self.assertIn("5503", _numbers("a EUR5,503 grant"))
+        self.assertIn("9093", _numbers("about n = 9,093 income"))
+        self.assertNotIn("5,503", _numbers("a EUR5,503 grant"))
+
+    def test_currency_amount_translation_passes_validation(self) -> None:
+        from scripts.translate_issue import validate_translation
+
+        article = {
+            "article_type": "research",
+            "title_en": "Fiscal consolidation in Germany",
+            "abstract_en": (
+                "We investigate the consequences of a large-scale fiscal "
+                "consolidation program for German municipalities. Identification "
+                "relies on a difference-in-differences approach exploiting "
+                "political discretion in the program's assignment rule. We find "
+                "that targeted jurisdictions improved their fiscal balance by "
+                "EUR190 per capita and year net of the program-induced grants. "
+                "Local consolidation strategies differed significantly by "
+                "population size, which we rationalize with agglomeration "
+                "economies. Spending cuts and tax increases had little effect "
+                "on the local economy. However, we detect declines in "
+                "population levels and house prices as well as electoral "
+                "backlash in smaller municipalities that disproportionally "
+                "increased the property tax and cut spending on local public "
+                "services."
+            ),
+        }
+        translated = {
+            "title_cn": "德国的地方财政整顿",
+            "abstract_cn": (
+                "我们研究了一项针对德国市政当局的大规模财政整顿计划的后果。"
+                "识别依赖于利用计划分配规则中政治自由裁量权的双重差分方法。"
+                "我们发现，扣除计划带来的拨款后，目标辖区的财政平衡每年人均"
+                "提高了190欧元。当地的整合策略因人口规模而显著不同，我们用"
+                "集聚经济对此进行了解释。削减支出和增税对当地经济影响不大。"
+                "然而，我们发现在较小城市中，人口水平和房价下降以及选举反弹，"
+                "这些城市不成比例地提高了财产税并削减了地方公共服务支出。"
+            ),
+        }
+        validate_translation(article, translated)  # should not raise
+
+
+
 if __name__ == "__main__":
     unittest.main()

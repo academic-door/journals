@@ -315,7 +315,7 @@ class TranslationPipelineTests(unittest.TestCase):
         # Chinese labels with optional whitespace and 第N轮 forms.
         self.assertEqual(_numbers("实验 1 比较了"), [])
         self.assertEqual(_numbers("研究2使用了"), [])
-        self.assertEqual(_numbers("第2轮n = 9,093笔交易"), ["9,093"])
+        self.assertEqual(_numbers("第2轮n = 9,093笔交易"), ["9093"])
         # Years remain counted even after Chinese label nouns.
         self.assertEqual(_numbers("研究1959古巴革命"), ["1959"])
 
