@@ -1178,6 +1178,10 @@ def translate_missing(
                     # A numeric-validation failure is often a transient model
                     # slip; retry DeepSeek on the next article instead of
                     # condemning the whole provider for the run.
+                    print(
+                        f"[translate] deepseek translation failed for {doi}: {error}",
+                        flush=True,
+                    )
                     primary_error = error
             else:
                 primary_error = TranslationError(
