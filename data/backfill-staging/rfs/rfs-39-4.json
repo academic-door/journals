@@ -141,13 +141,13 @@
       "source_sequence": 1054,
       "article_type": "research-article",
       "title_en": "Banking-Crisis Interventions across Time and Space",
-      "title_cn": "银行危机干预的时空维度",
+      "title_cn": "",
       "authors": [
         "Andrew Metrick",
         "Paul Schmelzing"
       ],
       "abstract_en": "We present a new database of banking-crisis interventions, covering 1,946 interventions in 20 categories across 143 countries. We demonstrate that crisis-intervention patterns are significantly related to income and fiscal variables and to measures of the political system and currency regime. GDP losses following crises are economically significant and are larger for wealthier countries, with some evidence that these losses are mitigated by democratic political systems and liberal currency regimes. Finally, intervention frequencies reached an apex during the post–Bretton Woods era, continuing a secular increase since at least the late seventeenth century.",
-      "abstract_cn": "我们提供了一个新的银行危机干预数据库，涵盖143个国家的20个类别中的1,946项干预措施。我们证明，危机干预模式与收入和财政变量以及政治体制和货币制度的衡量指标显著相关。危机后的GDP损失在经济上显著，且对较富裕国家而言更大，有证据表明民主政治体制和自由货币制度能减轻这些损失。最后，干预频率在后布雷顿森林时代达到顶峰，延续了至少自十七世纪末以来的长期增长趋势。",
+      "abstract_cn": "",
       "abstract_snippet_en": "",
       "doi": "10.1093/rfs/hhaf071",
       "source_url": "https://doi.org/10.1093/rfs/hhaf071",
@@ -159,15 +159,15 @@
         "abstract_en": "crossref"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:33:20+00:00",
-        "source_hash": "7d8e83863e188617aa75e9df29ea19bb88577ab610460cf2cd2f533315c50901"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -310,11 +310,12 @@
     "doi_complete": 7,
     "authors_complete": 7,
     "abstract_en_complete": 7,
-    "translation_complete": 7,
+    "translation_complete": 6,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
+      "crossref_provisional_roster",
+      "translation_incomplete"
     ],
     "official_item_count": 7,
     "publishable_item_count": 7,
