@@ -296,9 +296,15 @@ def _canonical_number(number: str) -> str:
 
 def _numbers(value: str) -> list[str]:
     values: list[str] = []
+    currency_spans: list[tuple[int, int]] = []
     for match in CURRENCY_PREFIX_PATTERN.finditer(value):
+        currency_spans.append(match.span())
         values.append(_canonical_number(match.group("amount")))
     for match in NUMBER_PATTERN.finditer(value):
+        # Currency-prefixed amounts (USD 17.88) were already captured above;
+        # do not count their digits a second time via the generic pattern.
+        if any(start <= match.start() < end for start, end in currency_spans):
+            continue
         # Unit exponents such as ``year−1`` are commonly rendered as “每年” in
         # Chinese. They describe a denominator, not a reported numeric result.
         if (

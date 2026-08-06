@@ -105,6 +105,11 @@ class ChineseNumeralCanonicalizationTests(unittest.TestCase):
         self.assertIn("5503", _numbers("a EUR5,503 grant"))
         self.assertIn("9093", _numbers("about n = 9,093 income"))
         self.assertNotIn("5,503", _numbers("a EUR5,503 grant"))
+        # A spaced currency prefix must not double-count the amount.
+        self.assertEqual(
+            ["17.88", "9.42"],
+            _numbers("worth USD 17.88 and USD 9.42 per acre"),
+        )
 
     def test_currency_amount_translation_passes_validation(self) -> None:
         from scripts.translate_issue import validate_translation
