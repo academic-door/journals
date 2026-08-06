@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T12:41:36+00:00
+Updated: 2026-08-06T12:42:25+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -107,25 +107,25 @@ Updated: 2026-08-06T12:41:36+00:00
 | EJ | ej-136-675 | 2026 | complete |  |
 | EJ | ej-136-676 | 2026 | complete |  |
 | EJ | ej-136-677 | 2026 | complete |  |
-| ERE | ere-88-1 | 2025 | complete |  |
-| ERE | ere-88-10 | 2025 | complete |  |
-| ERE | ere-88-11 | 2025 | complete |  |
-| ERE | ere-88-12 | 2025 | complete |  |
-| ERE | ere-88-2 | 2025 | complete |  |
+| ERE | ere-88-1 | 2025 | translation_partial |  |
+| ERE | ere-88-10 | 2025 | translation_partial |  |
+| ERE | ere-88-11 | 2025 | translation_partial |  |
+| ERE | ere-88-12 | 2025 | translation_partial |  |
+| ERE | ere-88-2 | 2025 | translation_partial |  |
 | ERE | ere-88-3 | 2025 | translation_partial |  |
-| ERE | ere-88-4 | 2025 | complete |  |
-| ERE | ere-88-5 | 2025 | complete |  |
+| ERE | ere-88-4 | 2025 | translation_partial |  |
+| ERE | ere-88-5 | 2025 | translation_partial |  |
 | ERE | ere-88-6 | 2025 | translation_partial |  |
-| ERE | ere-88-7 | 2025 | complete |  |
-| ERE | ere-88-8 | 2025 | complete |  |
-| ERE | ere-88-9 | 2025 | complete |  |
+| ERE | ere-88-7 | 2025 | translation_partial |  |
+| ERE | ere-88-8 | 2025 | translation_partial |  |
+| ERE | ere-88-9 | 2025 | translation_partial |  |
 | ERE | ere-89-1 | 2026 | translation_partial |  |
-| ERE | ere-89-2 | 2026 | complete |  |
-| ERE | ere-89-3 | 2026 | complete |  |
-| ERE | ere-89-4 | 2026 | complete |  |
-| ERE | ere-89-5 | 2026 | complete |  |
-| ERE | ere-89-6 | 2026 | complete |  |
-| ERE | ere-89-7 | 2026 | complete |  |
+| ERE | ere-89-2 | 2026 | translation_partial |  |
+| ERE | ere-89-3 | 2026 | translation_partial |  |
+| ERE | ere-89-4 | 2026 | translation_partial |  |
+| ERE | ere-89-5 | 2026 | translation_partial |  |
+| ERE | ere-89-6 | 2026 | translation_partial |  |
+| ERE | ere-89-7 | 2026 | translation_partial |  |
 | ERE | ere-89-8 | 2026 | complete |  |
 | FOODPOLICY | foodpolicy-130-c | 2025 | complete |  |
 | FOODPOLICY | foodpolicy-131-c | 2025 | complete |  |

@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-06T12:21:22+00:00",
   "expected_article_count": 17,
   "research_article_count": 17,
-  "status": "ready",
+  "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
@@ -19,13 +19,13 @@
       "source_sequence": 1,
       "article_type": "research-article",
       "title_en": "Cournot Competition and Green Innovation in a Dynamic Oligopoly",
-      "title_cn": "古诺竞争与动态寡头市场中的绿色创新",
+      "title_cn": "",
       "authors": [
         "Guiomar Martín-Herrán",
         "Santiago J. Rubio"
       ],
       "abstract_en": "In this paper we analyze a dynamic Cournot oligopoly to study the relationship between competition and green innovation. Firms face a tax on emissions and react to this tax investing in an abatement technology. The tax is given by the feedback Stackelberg equilibrium of a dynamic policy game between a regulator and a polluting oligopoly where environmental damages depend on the pollution stock. For constant marginal damages, we find that firms’ R&D investment increases monotonically with the number of firms in the industry because competition increases the tax. This effect is explained by the fact that the tax can be decomposed in two terms, one negative that reflects the divergence between the price and the marginal revenue because of the market power of firms, and another positive that reflects the divergence between the social valuation of the pollution stock and the private valuation. When the number of firms in the industry increases, the absolute value of the first term decreases and the tax increases, leading to more investment. Moreover, as in this case firms increase their stock of abatement capital, net emissions decrease causing a reduction of the pollution stock.",
-      "abstract_cn": "在本文中，我们分析了一个动态古诺寡头市场，以研究竞争与绿色创新之间的关系。企业面临排放税，并通过投资减排技术来应对此税。该税由监管者与污染性寡头市场之间的动态政策博弈的反馈斯塔克尔伯格均衡给出，其中环境损害取决于污染存量。对于恒定的边际损害，我们发现企业的研发投资随行业内企业数量的增加而单调增加，因为竞争提高了税率。这一效应可通过以下事实解释：税率可分解为两项，一项为负，反映了由于企业市场势力导致的价格与边际收益之间的偏离；另一项为正，反映了污染存量的社会估值与私人估值之间的偏离。当行业内企业数量增加时，第一项的绝对值减小，税率上升，从而导致更多投资。此外，由于在这种情况下企业增加了其减排资本存量，净排放减少，进而导致污染存量下降。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-024-00951-1",
       "source_url": "https://doi.org/10.1007/s10640-024-00951-1",
       "publication_date": "2025",
@@ -37,21 +37,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i11d10.1007_s10640-024-00951-1.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:30:59+00:00",
-        "source_hash": "fb5d6d332f66d1babdecdf64b2d406a40f434cf9cf5b7a40f50980384201519f"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-024-00952-0",
@@ -59,13 +53,13 @@
       "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Individual and Firm Taxation in a CO $$_2$$ Emitting Economy",
-      "title_cn": "CO $$_2$$ 排放经济体中的个人和企业税收",
+      "title_cn": "",
       "authors": [
         "Luca Lambertini",
         "Stefan Wrzaczek"
       ],
-      "abstract_en": "Typical problems of negative effects of CO $$_{2}$$ emissions are that (i) they are suffered and generated not by the same agent and that (ii) individuals consider them as too small to influence the aggregated effect. Additionally, only little is known about how the behavior depends on the age-composition of a population and individual age-dependent life-cycle effects. We address these issues by an overlapping generations (OLG) structured population and a firm sector producing a homogeneous final consumption good. While firms generate CO $$_{2}$$ emission during the production process, individuals suffer from the aggregated effect. We analyze the difference between the decentralized market and the social welfare solution and study to which extent social optimality can be attained with different taxes on individual consumption and/or production. We find that firm taxation is always sufficient to reach the socially optimal level of CO $$_{2}$$ emissions. A social optimal distribution of consumption across cohorts, however, can only be attained by firm taxes in the steady state. In the general case, i.e., along a dynamic transitional path, additionally age-specific individual taxation is needed.",
-      "abstract_cn": "CO $$_{2}$$ 排放负面影响的典型问题是 (i) 它们不是由同一主体遭受和产生的，以及 (ii) 个人认为它们太小而无法影响总体效应。此外，人们对这种行为如何取决于人口的年龄构成以及个体年龄相关的生命周期影响知之甚少。我们通过重叠世代（OLG）结构的人口和生产同质最终消费品的公司部门来解决这些问题。虽然企业在生产过程中产生 CO $$_{2}$$ 排放，但个人却受到聚合效应的影响。我们分析了去中心化市场和社会福利解决方案之间的差异，并研究了通过对个人消费和/或生产征收不同的税收可以在多大程度上实现社会最优。我们发现，企业税收始终足以达到 CO $$_{2}$$ 排放的社会最优水平。然而，跨群体消费的社会最优分配只能通过稳定状态下的固定税收来实现。在一般情况下，即沿着动态过渡路径，还需要针对特定​​年龄的个人征税。",
+      "abstract_en": "Abstract Typical problems of negative effects of CO $$_{2}$$ emissions are that (i) they are suffered and generated not by the same agent and that (ii) individuals consider them as too small to influence the aggregated effect. Additionally, only little is known about how the behavior depends on the age-composition of a population and individual age-dependent life-cycle effects. We address these issues by an overlapping generations (OLG) structured population and a firm sector producing a homogeneous final consumption good. While firms generate CO $$_{2}$$ emission during the production process, individuals suffer from the aggregated effect. We analyze the difference between the decentralized market and the social welfare solution and study to which extent social optimality can be attained with different taxes on individual consumption and/or production. We find that firm taxation is always sufficient to reach the socially optimal level of CO $$_{2}$$ emissions. A social optimal distribution of consumption across cohorts, however, can only be attained by firm taxes in the steady state. In the general case, i.e., along a dynamic transitional path, additionally age-specific individual taxation is needed.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-024-00952-0",
       "source_url": "https://doi.org/10.1007/s10640-024-00952-0",
       "publication_date": "2025",
@@ -77,21 +71,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i11d10.1007_s10640-024-00952-0.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "google-translate",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-06T12:31:12+00:00",
-        "source_hash": "d5d726d0f5254cf2d0bc3a8fba40841a1d54ab54cc128aaed92d8f153568416d"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-00956-4",
@@ -99,13 +87,13 @@
       "source_sequence": 3,
       "article_type": "research-article",
       "title_en": "Production, Environment, and Population Growth",
-      "title_cn": "生产、环境与人口增长",
+      "title_cn": "",
       "authors": [
         "Ratbek Dzhumashev",
         "Gennadi Kazakevitch"
       ],
-      "abstract_en": "This paper analyses the joint evolution of production, environment, and population in the long run. The paper demonstrates that the link between output, resources, and population creates obstacles to sustained growth. This is because the law of conservation of mass implies that long-run growth of output would depend on increasing resource use. The amount of resources used in production directly increases pollution and causes environmental deterioration. Income growth and a fall in the quality of the environment raise the relative cost of living and affect fertility negatively. This leads to a trade-off between income growth and population growth. If resource use damages the environment at an increasing rate, then the sustainability of the environment requires that the total resource use should be capped. In this case, any per capita growth comes at the cost of a static or even falling population. The only way to ameliorate such a strict trade-off is to promote ’green’ technologies and policies that allow for growth with lesser pollution.",
-      "abstract_cn": "本文分析了长期内生产、环境与人口的联合演变。文章证明，产出、资源与人口之间的联系构成了持续增长的障碍。这是因为质量守恒定律意味着产出的长期增长将依赖于资源使用的增加。生产过程中使用的资源量直接加剧了污染并导致环境恶化。收入增长和环境质量下降提高了相对生活成本，并对生育率产生负面影响。这导致了收入增长与人口增长之间的权衡。如果资源使用以递增速率损害环境，那么环境的可持续性要求总资源使用量应被限制。在这种情况下，任何人均增长都以静态甚至下降的人口为代价。缓解这种严格权衡的唯一途径是推广‘绿色’技术和政策，以实现污染较少的增长。",
+      "abstract_en": "Abstract This paper analyses the joint evolution of production, environment, and population in the long run. The paper demonstrates that the link between output, resources, and population creates obstacles to sustained growth. This is because the law of conservation of mass implies that long-run growth of output would depend on increasing resource use. The amount of resources used in production directly increases pollution and causes environmental deterioration. Income growth and a fall in the quality of the environment raise the relative cost of living and affect fertility negatively. This leads to a trade-off between income growth and population growth. If resource use damages the environment at an increasing rate, then the sustainability of the environment requires that the total resource use should be capped. In this case, any per capita growth comes at the cost of a static or even falling population. The only way to ameliorate such a strict trade-off is to promote ’green’ technologies and policies that allow for growth with lesser pollution.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-00956-4",
       "source_url": "https://doi.org/10.1007/s10640-025-00956-4",
       "publication_date": "2025",
@@ -117,21 +105,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i11d10.1007_s10640-025-00956-4.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:02:50+00:00",
-        "source_hash": "c6dc1fe13940b8cb3e3e257d4c73bddb251575201c57bc44ec752aac1469c43a"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-00976-0",
@@ -139,13 +121,13 @@
       "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "The Great Divide: Environmental Migration as a Response to Climate Change and Policy in North and South",
-      "title_cn": "巨大鸿沟：环境迁移作为南北对气候变化与政策的回应",
+      "title_cn": "",
       "authors": [
         "Lucas Bretschger",
         "Anastasios Xepapadeas"
       ],
-      "abstract_en": "We study environmental migration in an endogenously growing world economy divided into developed and less developed countries. Climate change has a regional impact; it affects incomes and induces international migration. We derive analytical solutions for the migration stock in market equilibrium and in social optimum and calculate its effects on income and development. We find that international migration raises welfare at a global level and at the aggregate level in the North. Migration augments average welfare in the South but reduces welfare per capita in the North. When returns to knowledge capital are decreasing, steady migration can support a constant consumption growth rate at the world level. Climate policy implemented by the North reduces migration and improves global welfare. In the quantitative part we illustrate long-run development paths under different assumptions and parameter constellations.",
-      "abstract_cn": "我们研究了一个内生增长的世界经济中的环境迁移，该经济分为发达国家和欠发达国家。气候变化具有区域影响；它影响收入并引发国际迁移。我们推导了市场均衡和社会最优状态下迁移存量的解析解，并计算了其对收入和发展的影响。我们发现，国际迁移在全球层面和北方总体层面提高了福利。迁移增加了南方的平均福利，但降低了北方的人均福利。当知识资本的回报递减时，稳定的迁移可以支持世界层面恒定的消费增长率。北方实施的气候政策减少了迁移并改善了全球福利。在定量部分，我们展示了在不同假设和参数组合下的长期发展路径。",
+      "abstract_en": "Abstract We study environmental migration in an endogenously growing world economy divided into developed and less developed countries. Climate change has a regional impact; it affects incomes and induces international migration. We derive analytical solutions for the migration stock in market equilibrium and in social optimum and calculate its effects on income and development. We find that international migration raises welfare at a global level and at the aggregate level in the North. Migration augments average welfare in the South but reduces welfare per capita in the North. When returns to knowledge capital are decreasing, steady migration can support a constant consumption growth rate at the world level. Climate policy implemented by the North reduces migration and improves global welfare. In the quantitative part we illustrate long-run development paths under different assumptions and parameter constellations.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-00976-0",
       "source_url": "https://doi.org/10.1007/s10640-025-00976-0",
       "publication_date": "2025",
@@ -157,21 +139,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i11d10.1007_s10640-025-00976-0.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:02:52+00:00",
-        "source_hash": "6bf7b1c8fdd3fa6c1a4335f045b882c20ca5ec5f92478290f41238213db4c30b"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-00979-x",
@@ -179,14 +155,14 @@
       "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "Benefits and Perils of Integrated Data Systems in Managing Sustainable Fishing Quotas",
-      "title_cn": "综合数据系统在可持续捕捞配额管理中的益处与风险",
+      "title_cn": "",
       "authors": [
         "D. Radi",
         "F. Lamantia",
         "G.I. Bischi"
       ],
-      "abstract_en": "The paper examines how auditing and punishment can be employed to manage a common property resource, specifically a fishery, through a regulation scheme that involves pre-assigned multi-annual quotas. The decision to adhere to or exceed the assigned fishing quota is modeled as a two-player game. In the absence of auditing, the model yields noncompliance with the quota, known as the tragedy of the commons, which is the only Nash equilibrium of the game. With the introduction of formal enforcement, which offsets the additional profit from noncompliance, and extensive auditing through an integrated data control system, adherence to the quota becomes the only Nash equilibrium of the model. A dynamic version of this game, with logistic biomass growth and quadratic costs of harvesting, confirms that a digitized and integrated fishery control system may enhance sustainability. However, the study also highlights the potential risks associated with fishing quotas and enforcement that are not properly adjusted for the resource and are not updated as frequently as necessary.",
-      "abstract_cn": "本文探讨了如何通过审计和惩罚来管理一种公共资源，特别是渔业，采用一种涉及预先分配多年配额的监管方案。遵守或超出指定捕捞配额的决定被建模为两人博弈。在没有审计的情况下，模型产生配额不遵守的情况，即公地悲剧，这是博弈的唯一纳什均衡。引入正式执法（抵消不遵守带来的额外利润）以及通过综合数据控制系统进行广泛审计后，遵守配额成为模型的唯一纳什均衡。该博弈的动态版本，具有逻辑斯蒂生物量增长和二次捕捞成本，证实了数字化和综合渔业控制系统可能增强可持续性。然而，研究也强调了捕捞配额和执法未针对资源适当调整且未按需频繁更新所带来的潜在风险。",
+      "abstract_en": "Abstract The paper examines how auditing and punishment can be employed to manage a common property resource, specifically a fishery, through a regulation scheme that involves pre-assigned multi-annual quotas. The decision to adhere to or exceed the assigned fishing quota is modeled as a two-player game. In the absence of auditing, the model yields noncompliance with the quota, known as the tragedy of the commons, which is the only Nash equilibrium of the game. With the introduction of formal enforcement, which offsets the additional profit from noncompliance, and extensive auditing through an integrated data control system, adherence to the quota becomes the only Nash equilibrium of the model. A dynamic version of this game, with logistic biomass growth and quadratic costs of harvesting, confirms that a digitized and integrated fishery control system may enhance sustainability. However, the study also highlights the potential risks associated with fishing quotas and enforcement that are not properly adjusted for the resource and are not updated as frequently as necessary.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-00979-x",
       "source_url": "https://doi.org/10.1007/s10640-025-00979-x",
       "publication_date": "2025",
@@ -198,21 +174,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i11d10.1007_s10640-025-00979-x.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:02:55+00:00",
-        "source_hash": "e46d3ab933302b7c67bbfacb2007aff93b77c0212f56b7d7cdf3141ef2b27b39"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-00983-1",
@@ -220,14 +190,14 @@
       "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "A Game of Transboundary Pollution under Endogenous Ecological Uncertainty",
-      "title_cn": "内生生态不确定性下的跨界污染博弈",
+      "title_cn": "",
       "authors": [
         "Davide La Torre",
         "Simone Marsiglio",
         "Fabio Privileggi"
       ],
       "abstract_en": "We analyze a dynamic game of transboundary pollution control in discrete time in a stochastic framework in which the pollution stock affects the probability of shock realizations. We allow the likelihood of the most adverse shock realization to increase or decrease with the pollution stock to represent the different effects that climate change may induce on ecological and social dynamics. We contrast the noncooperative and cooperative scenarios to quantify the consequences of free riding on the economy’s stochastic steady state, which is characterized by an invariant pollution distribution. In both the noncooperative and cooperative frameworks the invariant distribution is supported on strictly positive pollution levels, suggesting that even cooperation cannot ensure complete pollution eradication. Under cooperation though the support is leftward shifted with respect to the noncooperative case, and the size of such a leftward shift which quantifies the inefficiency induced by free riding tends to be larger when the probability function increases with pollution. Moreover, both noncooperation and cooperation nontrivially interact with the monotonicity properties of the probability function affecting the shape of the steady state pollution distribution over its support, thus making it difficult to draw general conclusions on whether on average environmental outcomes under increasing probabilities are more or less desirable than under decreasing probabilities.",
-      "abstract_cn": "我们在随机框架中分析了离散时间内跨境污染控制的动态博弈，其中污染存量影响冲击实现的概率。我们允许最不利冲击实现的可能性随着污染存量的增加或减少而增加或减少，以代表气候变化可能对生态和社会动态造成的不同影响。我们对比了非合作和合作情景，以量化搭便车对经济随机稳定状态的影响，其特点是污染分布不变。在非合作和合作框架中，不变分布都受到严格的正污染水平的支持，这表明即使合作也不能确保完全消除污染。在合作情况下，尽管支持度相对于非合作情况左移，但当概率函数随着污染增加时，量化搭便车引起的低效率的左移的大小往往会更大。此外，非合作和合作都与概率函数的单调性相互作用，影响稳态污染分布在其支持下的形状，因此很难就平均环境结果在增加概率下比在减少概率下更理想还是更不理想得出一般性结论。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-00983-1",
       "source_url": "https://doi.org/10.1007/s10640-025-00983-1",
       "publication_date": "2025",
@@ -239,21 +209,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i11d10.1007_s10640-025-00983-1.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "google-translate",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-06T12:31:25+00:00",
-        "source_hash": "835a4cfd9ff69c39fe273f3f1318bb33ef06024e7a0c8cb9b285b3581cfcffe1"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-00984-0",
@@ -261,7 +225,7 @@
       "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "Brown Price and Green Firms: An ETS Price Floor for a Clean Transition?",
-      "title_cn": "棕色价格与绿色企业：清洁转型的碳排放交易体系价格下限？",
+      "title_cn": "",
       "authors": [
         "Simone Borghesi",
         "Nicola Comincioli",
@@ -269,8 +233,8 @@
         "Jacco J. J. Thijssen",
         "Sergio Vergalli"
       ],
-      "abstract_en": "We examine the optimal behavior of carbon-emitting companies operating under the European Union Emission Trading System (EU ETS), under which firms are obliged to purchase emission permits on the secondary market if their emissions exceed their allowance. Specifically, we consider the scenario where firms are endowed with the (real) option to undertake a “green” investment to cut their emissions and, thus, permit expenditures. The central challenge is the determination of the optimal time for investment within a stochastic framework characterized by uncertainty in EU ETS permit prices. We address the problem for a heterogeneous group of companies with diverse technological capabilities across industrial sectors. Furthermore, we incorporate a price floor for permit prices to mirror policy efforts aimed at promoting green transition by elevating emission costs. We solve this problem analytically and through numerical simulations calibrated to real market data. In addition to offering insights into individual firm behavior, our findings can support regulators in refining environmental policies, particularly regarding the role of permits price floor and its potential to expedite the green transition.",
-      "abstract_cn": "我们研究了在欧洲联盟排放交易体系（EU ETS）下运营的碳排放企业的优化行为，在该体系下，如果企业的排放量超过其配额，则必须从二级市场购买排放许可。具体来说，我们考虑了企业拥有进行“绿色”投资以减少排放从而减少许可支出的（实物）期权的情景。核心挑战在于，在EU ETS许可价格不确定性的随机框架内确定最优投资时机。我们针对跨工业部门具有不同技术能力的异质性企业群体解决了这一问题。此外，我们引入了许可价格下限，以反映通过提高排放成本来促进绿色转型的政策努力。我们通过解析方法和基于真实市场数据校准的数值模拟来解决这一问题。除了提供对企业个体行为的见解外，我们的发现还可以支持监管机构完善环境政策，特别是关于许可价格下限的作用及其加速绿色转型的潜力。",
+      "abstract_en": "Abstract We examine the optimal behavior of carbon-emitting companies operating under the European Union Emission Trading System (EU ETS), under which firms are obliged to purchase emission permits on the secondary market if their emissions exceed their allowance. Specifically, we consider the scenario where firms are endowed with the (real) option to undertake a “green” investment to cut their emissions and, thus, permit expenditures. The central challenge is the determination of the optimal time for investment within a stochastic framework characterized by uncertainty in EU ETS permit prices. We address the problem for a heterogeneous group of companies with diverse technological capabilities across industrial sectors. Furthermore, we incorporate a price floor for permit prices to mirror policy efforts aimed at promoting green transition by elevating emission costs. We solve this problem analytically and through numerical simulations calibrated to real market data. In addition to offering insights into individual firm behavior, our findings can support regulators in refining environmental policies, particularly regarding the role of permits price floor and its potential to expedite the green transition.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-00984-0",
       "source_url": "https://doi.org/10.1007/s10640-025-00984-0",
       "publication_date": "2025",
@@ -282,21 +246,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i11d10.1007_s10640-025-00984-0.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:02:58+00:00",
-        "source_hash": "04283287c83b4e363f13810713e7e8324bff6ace1b1a22f0053262ba9b47e3f1"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-00991-1",
@@ -304,14 +262,14 @@
       "source_sequence": 8,
       "article_type": "research-article",
       "title_en": "Climateflation and Monetary Policy in an Environmental OLG Growth Model",
-      "title_cn": "环境OLG增长模型中的气候通胀与货币政策",
+      "title_cn": "",
       "authors": [
         "Marwil J. Dávila-Fernández",
         "Germana Giombini",
         "Edgar J. Sánchez-Carrera"
       ],
-      "abstract_en": "Central banks are gradually acknowledging that climate change can potentially impact price stability, and the term climateflation has entered the vocabulary of policymakers. The present paper contributes to the emerging literature around this concept. We develop an Overlapping Generations (OLG) model to study the interplay between conventional monetary policy and the environment when the so-called “independence hypothesis” does not hold, i.e. money is not neutral in the long run. We aim to provide some initial insights on the macroeconomic and environmental implications of using a Taylor rule to manage interest rates under two critical assumptions. First, environmental quality (degradation) has a positive (negative) externality on production through a damage function. Second, we innovate by linking the environment to inflation through expectations in a modified Phillips curve. Central banks shape wealth composition via the individual’s intertemporal optimisation problem, breaking the “independence hypothesis”. Numerical experiments allow us to assess the relationship between environmental quality and economic activity when (i) expectations are more responsive to climateflation , (ii) the monetary authority responds strongly to inflation deviations from its target, (iii) there is an increase in the inflation target, and (iv) whether fiscal policy is green expansionary.",
-      "abstract_cn": "中央银行逐渐认识到气候变化可能影响价格稳定，术语“气候通胀”已进入政策制定者的词汇表。本文对围绕这一概念的新兴文献做出了贡献。我们开发了一个世代交叠（OLG）模型，研究当所谓的“独立性假说”不成立，即货币在长期内并非中性时，传统货币政策与环境之间的相互作用。我们旨在提供关于在两个关键假设下使用泰勒规则管理利率的宏观经济和环境影响的初步见解。首先，环境质量（退化）通过损害函数对生产产生正（负）外部性。其次，我们通过修改后的菲利普斯曲线中的预期将环境与通货膨胀联系起来，这是一项创新。中央银行通过个体的跨期优化问题塑造财富构成，打破了“独立性假说”。数值实验使我们能够评估环境质量与经济活动之间的关系，当（i）预期对气候通胀反应更敏感，（ii）货币当局对偏离其目标的通胀偏差反应强烈，（iii）通胀目标提高，以及（iv）财政政策是否具有绿色扩张性。",
+      "abstract_en": "Abstract Central banks are gradually acknowledging that climate change can potentially impact price stability, and the term climateflation has entered the vocabulary of policymakers. The present paper contributes to the emerging literature around this concept. We develop an Overlapping Generations (OLG) model to study the interplay between conventional monetary policy and the environment when the so-called “independence hypothesis” does not hold, i.e. money is not neutral in the long run. We aim to provide some initial insights on the macroeconomic and environmental implications of using a Taylor rule to manage interest rates under two critical assumptions. First, environmental quality (degradation) has a positive (negative) externality on production through a damage function. Second, we innovate by linking the environment to inflation through expectations in a modified Phillips curve. Central banks shape wealth composition via the individual’s intertemporal optimisation problem, breaking the “independence hypothesis”. Numerical experiments allow us to assess the relationship between environmental quality and economic activity when (i) expectations are more responsive to climateflation , (ii) the monetary authority responds strongly to inflation deviations from its target, (iii) there is an increase in the inflation target, and (iv) whether fiscal policy is green expansionary.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-00991-1",
       "source_url": "https://doi.org/10.1007/s10640-025-00991-1",
       "publication_date": "2025",
@@ -323,21 +281,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i11d10.1007_s10640-025-00991-1.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:03:06+00:00",
-        "source_hash": "da16e5f2e9411efc0116cd206b78049a39acae154b3fa9216602fcb58c27db37"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-00994-y",
@@ -345,13 +297,13 @@
       "source_sequence": 9,
       "article_type": "research-article",
       "title_en": "The Dynamics of Fertility Under Environmental Concerns",
-      "title_cn": "环境关切下的生育动态",
+      "title_cn": "",
       "authors": [
         "Paolo Melindi-Ghidi",
         "Thomas Seegmuller"
       ],
       "abstract_en": "Recent data from US states reveal a negative correlation between environmental degradation and environmental concerns, which in turn seem inversely linked to fertility rates. We introduce a dynamic model to examine explicitly this interplay and explain the observed positive correlation between the carbon intensity of the economy and fertility in data from US states. The key ingredient of our model is that preferences for the number of children and environmental concerns may be complementary or substitutable. Interesting results occur when environmental concerns and the number of children are substitutable. At a stable steady state, a stronger effect of environmental concerns on household preferences reduces the number of children, as stressed by recent literature. The dynamics show that lower fertility rates are associated with lower environmental impacts from economic production, such as reduced carbon intensity.",
-      "abstract_cn": "美国各州的最新数据显示，环境退化与环境关切之间存在负相关，而环境关切似乎又与生育率呈反向关系。我们引入一个动态模型来明确检验这种相互作用，并解释美国各州数据中观察到的经济碳强度与生育率之间的正相关关系。我们模型的关键要素在于，对子女数量的偏好与环境关切可能是互补的或可替代的。当环境关切与子女数量可替代时，出现了有趣的结果。在稳定的稳态下，环境关切对家庭偏好的更强影响会减少子女数量，正如近期文献所强调的那样。动态分析表明，较低的生育率与经济生产带来的较低环境影响（如降低的碳强度）相关联。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-00994-y",
       "source_url": "https://doi.org/10.1007/s10640-025-00994-y",
       "publication_date": "2025",
@@ -363,21 +315,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i11d10.1007_s10640-025-00994-y.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:31:28+00:00",
-        "source_hash": "00dc4042a0af8228bcc1cab927001e9b32b97fc9b151983c019cff6fdf794f5c"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-01006-9",
@@ -385,13 +331,13 @@
       "source_sequence": 10,
       "article_type": "research-article",
       "title_en": "Shallow Lakes and Loading Constraints: A Normative Approach",
-      "title_cn": "浅水湖泊与负荷约束：一种规范分析方法",
+      "title_cn": "",
       "authors": [
         "Alessandro Bellocchi",
         "Giuseppe Travaglini"
       ],
       "abstract_en": "The economic-ecological system of shallow lakes is characterized by nonlinearity and hysteresis. A Pigouvian tax is traditionally used to reconcile stakeholders’ interests, but it does not guarantee an oligotrophic state of the lake. A different approach to pollution control is that of quantitative regulation. In our model, an environmental authority introduces a cap on the growth rate of phosphorus stock to save the lake. We get three main results. First, the adoption of a quantity constraint affects stakeholders’ decisions not only when it is binding but even when it is still slack. Indeed, the community finds it optimal to anticipate the effect of the latent constraint at the beginning of the planning horizon. As a result, phosphorus loading may even increase in intermediate periods, before the constraint binds. Second, our model shows that an optimal management path emerges in the intermediate stages, and the cap can drive the shallow lake toward the oligotrophic state. Finally, results crucially depend on the fine-tuning of the constraint. If initial conditions allow, the saddle path converging to the oligotrophic steady state can be approached. Therefore, moderate policy changes have long-term effects on the health of the lake.",
-      "abstract_cn": "浅水湖泊的经济-生态系统具有非线性和滞后性特征。传统上，庇古税被用来协调利益相关者的利益，但它并不能保证湖泊处于贫营养状态。污染控制的另一种方法是数量规制。在我们的模型中，环境管理部门通过引入磷存量增长率的限制来拯救湖泊。我们得到三个主要结果。首先，数量约束的采用不仅在其约束力生效时影响利益相关者的决策，即使在其尚未生效时也是如此。实际上，社区发现在规划期初预见潜在约束的影响是最优的。因此，在约束生效之前，磷负荷在中间阶段甚至可能增加。其次，我们的模型表明，在中间阶段会出现最优管理路径，并且该限制可以引导浅水湖泊向贫营养状态转变。最后，结果关键取决于约束的精细调整。如果初始条件允许，可以接近收敛于贫营养稳态的鞍点路径。因此，适度的政策变化对湖泊健康具有长期影响。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-01006-9",
       "source_url": "https://doi.org/10.1007/s10640-025-01006-9",
       "publication_date": "2025",
@@ -403,21 +349,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i11d10.1007_s10640-025-01006-9.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:31:31+00:00",
-        "source_hash": "5c443bf6bc26472fd1375db7aa0a7e6b5086f7cb981e3cd0567f7d05ced632ca"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-01017-6",
@@ -425,7 +365,7 @@
       "source_sequence": 11,
       "article_type": "research-article",
       "title_en": "A Dynamic Oligopoly with International Trade and the Environment: An Evolutionary Approach",
-      "title_cn": "国际贸易与环境下的动态寡头垄断：一种演化方法",
+      "title_cn": "",
       "authors": [
         "Domenico Buccella",
         "Luciano Fanti",
@@ -433,7 +373,7 @@
         "Mauro Sodini"
       ],
       "abstract_en": "This article examines a dynamic oligopoly model in which firms choose between dirty and green technologies under international trade. We begin by analysing the static problem of Nash equilibrium in an oligopolistic industry where goods are sold both domestically and abroad. Using an evolutionary approach, we then study the resulting dynamic system, focusing on the emergence of different long-term scenarios shaped by technological characteristics and the parameters of environmental and trade policies. Our findings demonstrate how environmental taxes and import tariffs strategically influence the transition to green technologies.",
-      "abstract_cn": "本文考察了一个动态寡头垄断模型，在该模型中，企业在国际贸易背景下选择污染技术或绿色技术。我们首先分析了寡头垄断行业中纳什均衡的静态问题，其中商品在国内和国外销售。随后，我们采用演化方法研究由此产生的动态系统，重点关注由技术特征以及环境与贸易政策参数所塑造的不同长期情景的出现。我们的研究结果展示了环境税和进口关税如何战略性地影响向绿色技术的转型。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-01017-6",
       "source_url": "https://doi.org/10.1007/s10640-025-01017-6",
       "publication_date": "2025",
@@ -445,21 +385,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i11d10.1007_s10640-025-01017-6.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:31:33+00:00",
-        "source_hash": "3c17f3e274e86285a9c12fa0ad173a7bb80615eca4f3c031ca71e5a118864a3a"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-01019-4",
@@ -467,14 +401,14 @@
       "source_sequence": 12,
       "article_type": "research-article",
       "title_en": "Environmental Regulation and Inspection Delegation with Stock Pollution",
-      "title_cn": "库存污染环境监管检查组",
+      "title_cn": "",
       "authors": [
         "Carmen Arguedas",
         "Francisco Cabo",
         "Guiomar Martín-Herrán"
       ],
-      "abstract_en": "In this paper, we model a differential game played à la Stackelberg between a regulator and a polluting firm in a stock pollution context. The regulator can be a single body deciding on the emission standard and the probability of inspection overtime as functions of the pollution stock. Alternatively, the regulator can delegate the inspection activities to a local agency that maximizes revenues coming from fines net of inspection costs. Although the objective of the agency departs from social welfare, decentralization can be welfare improving, crucially depending on the type of strategic interaction between the local agency and the polluting firm, as well as on the firm anticipating the effects of current pollution decisions on future regulatory policy. Up to our kowledge, this is the first paper dealing with hierarchical regulation in a stock pollution context.",
-      "abstract_cn": "在本文中，我们模拟了库存污染背景下监管机构和污染企业之间的 Stackelberg 差异博弈。监管机构可以是一个单一机构，根据污染存量决定排放标准和超时检查的概率。或者，监管机构可以将检查活动委托给当地机构，以最大限度地提高扣除检查成本后的罚款收入。尽管机构的目标偏离了社会福利，但权力下放可以改善福利，这在很大程度上取决于地方机构与污染企业之间战略互动的类型，以及企业对当前污染决策对未来监管政策影响的预期。据我们所知，这是第一篇涉及存量污染背景下分级监管的论文。",
+      "abstract_en": "Abstract In this paper, we model a differential game played à la Stackelberg between a regulator and a polluting firm in a stock pollution context. The regulator can be a single body deciding on the emission standard and the probability of inspection overtime as functions of the pollution stock. Alternatively, the regulator can delegate the inspection activities to a local agency that maximizes revenues coming from fines net of inspection costs. Although the objective of the agency departs from social welfare, decentralization can be welfare improving, crucially depending on the type of strategic interaction between the local agency and the polluting firm, as well as on the firm anticipating the effects of current pollution decisions on future regulatory policy. Up to our kowledge, this is the first paper dealing with hierarchical regulation in a stock pollution context.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-01019-4",
       "source_url": "https://doi.org/10.1007/s10640-025-01019-4",
       "publication_date": "2025",
@@ -486,21 +420,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i11d10.1007_s10640-025-01019-4.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "google-translate",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-06T11:03:17+00:00",
-        "source_hash": "782327e9c588a7ea60796c6f9a76842244cfe3520588699a92e24d824e5e75ea"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-01021-w",
@@ -508,13 +436,13 @@
       "source_sequence": 13,
       "article_type": "research-article",
       "title_en": "Balancing Climate Change and Economic Development: The Case of China",
-      "title_cn": "平衡气候变化与经济发展：以中国为例",
+      "title_cn": "",
       "authors": [
         "Fan Lin",
         "Danyang Xie"
       ],
       "abstract_en": "Due to the rapid and substantial accumulation of carbon emissions, climate change has emerged as a critical environmental concern in the context of economic development, damaging social welfare. Focused on the largest emitter, we analyze China’s economic growth and climate change relationship by proposing a dynamic general equilibrium integrated assessment model (IAM) accounting for disparity and interaction across regions and sectors. After scrutinized calibration with data from multiple sources, our simulation findings suggest that without intervention, China’s temperature rises could reach $$3.5^\\circ C$$ and $$3.4^\\circ C$$ in advanced and backward regions by 2100, respectively. Implied by the socially optimal path, policies of carbon taxes and lump-sum household rebates could cut down carbon emissions substantially and limit the temperature rises to around $$3.0^\\circ C$$ across both regions, yielding considerable welfare benefits. However, if China takes the hard road to Paris Agreement’s $$2^\\circ C$$ limit without exceptional low-carbon technology advancements and other preparations, significant social welfare losses could occur.",
-      "abstract_cn": "由于碳排放的快速且大量累积，气候变化已成为经济发展背景下的一项关键环境问题，损害了社会福利。聚焦于最大排放国，我们通过提出一个考虑区域和部门间差异及互动的动态一般均衡综合评估模型（IAM），分析中国的经济增长与气候变化关系。经过多源数据的细致校准，我们的模拟结果表明，若无干预，到2100年，中国发达地区和落后地区的温度升幅可能分别达到3.5°C和3.4°C。根据社会最优路径，碳税和一次性家庭退税政策可以大幅削减碳排放，并将两个地区的温度升幅限制在约3.0°C，从而带来可观的社会福利收益。然而，如果中国在没有特殊低碳技术进步和其他准备的情况下，硬性追求《巴黎协定》的2°C限制目标，则可能发生显著的社会福利损失。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-01021-w",
       "source_url": "https://doi.org/10.1007/s10640-025-01021-w",
       "publication_date": "2025",
@@ -526,23 +454,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i11d10.1007_s10640-025-01021-w.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:31:36+00:00",
-        "source_hash": "867815bf904ac4bc8e50791628878e021c8c061801be0f6534874ecf5c1026f8"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "yes",
-        "evidence": "title",
-        "matched_terms": [
-          "China"
-        ],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-01028-3",
@@ -550,13 +470,13 @@
       "source_sequence": 14,
       "article_type": "research-article",
       "title_en": "Green Consumers and the Transition to Sustainable Production",
-      "title_cn": "绿色消费者与可持续生产的转型",
+      "title_cn": "",
       "authors": [
         "Ahmed Kouider Aissa",
         "Alessandro Tampieri"
       ],
-      "abstract_en": "We investigate the interaction between consumers’ environmental concern, environmental corporate social responsibility (ECSR), and environmental regulation during the transition towards sustainable production. We study an economy in which a subpopulation of consumers is sensitive to environmental issues. In this setting, we analyse the steady-state equilibrium in a framework à la Droste (Games Econ Behav 40(2):232–269, 2002), where firms compete in quantities and decide whether or not to engage in ECSR activities, which ultimately reduce the impact of production on the environment. We find that the variation of social welfare with the increase of ECSR firms is U-shaped, driven by the variation in consumer surplus, while environmental damage is minimised when all firms adopt ECSR practices. Therefore, the short-run social incentives to pursue a transition towards sustainable production are scarce. In contrast, there exists a private incentive to internalise emissions and to proliferate ECSR firms, as profits increase with the proportion of ECSR firms.",
-      "abstract_cn": "我们研究了在向可持续生产转型过程中，消费者的环境关注、企业环境社会责任（ECSR）与环境规制之间的相互作用。我们考察了一个经济体中，部分消费者对环境问题敏感。在此设定下，我们分析了在Droste（Games Econ Behav 40(2):232-269, 2002）框架下的稳态均衡，其中企业在产量上竞争，并决定是否参与ECSR活动，这些活动最终会减少生产对环境的影响。我们发现，社会福利随ECSR企业增加的变化呈U型，这由消费者剩余的变化驱动，而当所有企业都采用ECSR实践时，环境损害最小化。因此，短期内追求可持续生产转型的社会激励不足。相反，存在一种私人激励来内化排放并促进ECSR企业的扩散，因为利润随ECSR企业比例的增加而增加。",
+      "abstract_en": "Abstract We investigate the interaction between consumers’ environmental concern, environmental corporate social responsibility (ECSR), and environmental regulation during the transition towards sustainable production. We study an economy in which a subpopulation of consumers is sensitive to environmental issues. In this setting, we analyse the steady-state equilibrium in a framework à la Droste (Games Econ Behav 40(2):232–269, 2002), where firms compete in quantities and decide whether or not to engage in ECSR activities, which ultimately reduce the impact of production on the environment. We find that the variation of social welfare with the increase of ECSR firms is U-shaped, driven by the variation in consumer surplus, while environmental damage is minimised when all firms adopt ECSR practices. Therefore, the short-run social incentives to pursue a transition towards sustainable production are scarce. In contrast, there exists a private incentive to internalise emissions and to proliferate ECSR firms, as profits increase with the proportion of ECSR firms.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-01028-3",
       "source_url": "https://doi.org/10.1007/s10640-025-01028-3",
       "publication_date": "2025",
@@ -568,21 +488,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i11d10.1007_s10640-025-01028-3.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:03:20+00:00",
-        "source_hash": "1f9ae652dfb8c90ca41adb0801686e8a96c82770ec0bd49b1e22225447fb0f3e"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-01033-6",
@@ -590,12 +504,12 @@
       "source_sequence": 15,
       "article_type": "research-article",
       "title_en": "Mitigation, Adaptation and Cooperation in Response to Climate Disaster",
-      "title_cn": "气候灾难应对中的减缓、适应与合作",
+      "title_cn": "",
       "authors": [
         "Simon Elgersma"
       ],
-      "abstract_en": "We analyze the tradeoff between mitigation and adaptation in response to irreversible climate disaster in a transboundary pollution differential game with a stochastic regime shift. Countries can reduce their emissions to decrease the likelihood that the shift occurs, or proactively invest in adaptation to reduce the impact of the shift. We characterize the social optimum and the non-cooperative Markov-perfect Nash equilibrium (MPNE). In the social optimum, adaptation complements mitigation and increases expected welfare. In contrast, in the MPNE the option to adapt crowds out mitigation, reduces precautionary behavior, and decreases expected welfare. Our analysis stresses the importance of strategic interactions when countries can use multiple policy instruments to combat climate change.",
-      "abstract_cn": "我们在一个具有随机制度转移的跨界污染微分博弈中，分析了应对不可逆气候灾难时减缓与适应之间的权衡。各国可以减少排放以降低转移发生的可能性，或主动投资于适应措施以减少转移的影响。我们刻画了社会最优状态和非合作马尔可夫完美纳什均衡（MPNE）。在社会最优状态下，适应补充减缓并提高预期福利。相反，在MPNE中，适应的选项挤出了减缓，减少了预防性行为，并降低了预期福利。我们的分析强调了当各国可以使用多种政策工具应对气候变化时战略互动的重要性。",
+      "abstract_en": "Abstract We analyze the tradeoff between mitigation and adaptation in response to irreversible climate disaster in a transboundary pollution differential game with a stochastic regime shift. Countries can reduce their emissions to decrease the likelihood that the shift occurs, or proactively invest in adaptation to reduce the impact of the shift. We characterize the social optimum and the non-cooperative Markov-perfect Nash equilibrium (MPNE). In the social optimum, adaptation complements mitigation and increases expected welfare. In contrast, in the MPNE the option to adapt crowds out mitigation, reduces precautionary behavior, and decreases expected welfare. Our analysis stresses the importance of strategic interactions when countries can use multiple policy instruments to combat climate change.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-01033-6",
       "source_url": "https://doi.org/10.1007/s10640-025-01033-6",
       "publication_date": "2025",
@@ -607,21 +521,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i11d10.1007_s10640-025-01033-6.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:03:22+00:00",
-        "source_hash": "07a7a04cfecce4b7cacfc2ec487176cf5afe36234ab21e23817b13050f1a6140"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-01048-z",
@@ -629,14 +537,14 @@
       "source_sequence": 16,
       "article_type": "research-article",
       "title_en": "The Cultural Multiplier of Climate Policy",
-      "title_cn": "气候政策的文化乘数效应",
+      "title_cn": "",
       "authors": [
         "Daniel Torren-Peraire",
         "Jeroen C. J. M. van den Bergh",
         "Ivan Savin"
       ],
-      "abstract_en": "To achieve deep decarbonisation, the design of climate policy needs to account for consumption choices being influenced not only by pricing but also by social learning. This involves changes that pertain to the whole spectrum of consumption, likely involving shifts in lifestyles. In this regard, it is crucial to consider social learning not only in the short term but also slower and longer-term cultural change. Against this background, we analyse the interaction between climate policy and cultural change, focusing on carbon pricing. We extend the notion of “social multiplier” of environmental policy derived in an earlier study to the context of multiple consumer needs while allowing for behavioural spillovers between these, giving rise to a “cultural multiplier”. We develop a model to assess how this multiplier contributes to the effectiveness of carbon pricing. Our results show that the cultural multiplier stimulates a greater reduction in emissions compared to fixed preferences and the social multiplier. These findings are also good news for policy acceptance since the cultural multiplier greatly increases the effectiveness of a carbon price, meaning a lower price suffices for a given emissions-reduction goal. At high carbon prices, the distinction between social and cultural multiplier effects diminishes, as the strong price signal drives even resistant individuals toward low-carbon consumption. By varying economic and social conditions, such as substitutability between low- and high-carbon goods, social network structure, proximity of like-minded individuals, diversity of consumption lifestyles, and heterogeneity of preferences, the model provides insight into how cultural change can be leveraged to secure maximum effectiveness of climate policy.",
-      "abstract_cn": "为了实现深度脱碳，气候政策的设计需要考虑消费选择不仅受定价影响，还受社会学习影响。这涉及与整个消费谱系相关的变革，可能包括生活方式的转变。在这方面，不仅需要考虑短期社会学习，还需考虑较慢且长期的文化变迁。在此背景下，我们分析了气候政策与文化变迁之间的相互作用，重点关注碳定价。我们将先前研究中提出的环境政策“社会乘数”概念扩展到多种消费需求的情境，同时允许这些需求之间存在行为溢出效应，从而产生“文化乘数”。我们开发了一个模型来评估这一乘数如何促进碳定价的有效性。我们的结果表明，与固定偏好和社会乘数相比，文化乘数促进了更大的减排量。这些发现对政策接受度也是好消息，因为文化乘数大大提高了碳价格的有效性，意味着在给定的减排目标下，较低的价格就足够了。在高碳价格下，社会乘数效应与文化乘数效应之间的差异减小，因为强烈的价格信号促使即使是抵制者也转向低碳消费。通过改变经济和社会条件，如低碳与高碳商品之间的可替代性、社交网络结构、志同道合个体的邻近性、消费生活方式的多样性以及偏好的异质性，该模型提供了关于如何利用文化变迁以确保气候政策最大有效性的见解。",
+      "abstract_en": "Abstract To achieve deep decarbonisation, the design of climate policy needs to account for consumption choices being influenced not only by pricing but also by social learning. This involves changes that pertain to the whole spectrum of consumption, likely involving shifts in lifestyles. In this regard, it is crucial to consider social learning not only in the short term but also slower and longer-term cultural change. Against this background, we analyse the interaction between climate policy and cultural change, focusing on carbon pricing. We extend the notion of “social multiplier” of environmental policy derived in an earlier study to the context of multiple consumer needs while allowing for behavioural spillovers between these, giving rise to a “cultural multiplier”. We develop a model to assess how this multiplier contributes to the effectiveness of carbon pricing. Our results show that the cultural multiplier stimulates a greater reduction in emissions compared to fixed preferences and the social multiplier. These findings are also good news for policy acceptance since the cultural multiplier greatly increases the effectiveness of a carbon price, meaning a lower price suffices for a given emissions-reduction goal. At high carbon prices, the distinction between social and cultural multiplier effects diminishes, as the strong price signal drives even resistant individuals toward low-carbon consumption. By varying economic and social conditions, such as substitutability between low- and high-carbon goods, social network structure, proximity of like-minded individuals, diversity of consumption lifestyles, and heterogeneity of preferences, the model provides insight into how cultural change can be leveraged to secure maximum effectiveness of climate policy.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-01048-z",
       "source_url": "https://doi.org/10.1007/s10640-025-01048-z",
       "publication_date": "2025",
@@ -648,21 +556,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i11d10.1007_s10640-025-01048-z.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:03:26+00:00",
-        "source_hash": "254dcc41c5fd40a1f43fb2c82532d9ca25cc331d65142745aab0b425b15161b8"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-01049-y",
@@ -670,14 +572,14 @@
       "source_sequence": 17,
       "article_type": "research-article",
       "title_en": "Taste for Nature and Long-Run Cycles",
-      "title_cn": "对自然的偏好与长期周期",
+      "title_cn": "",
       "authors": [
         "Stefano Bosi",
         "David Desmarchelier",
         "Thai Ha-Huy"
       ],
       "abstract_en": "From a dynamic perspective, the existing literature on renewable resources in a Ramsey economy is puzzling. On the one hand, the central planner’s solution leads to the occurrence of limit cycles around the lower steady state (Wirl, J Econ Dyn Control 28, 2004); on the other hand, limit cycles arise in a market economy around the higher steady state (Bosi, Math Soc Sci 96, 2018). To reconcile these findings, we study the competitive equilibrium of a discrete-time Ramsey model with a renewable resource, where preferences are represented by two different utility functions with Constant Static Elasticity of Substitution (CSES) and Constant Intertemporal Elasticity of Substitution (CIES). In the CSES case, we recover the dynamics highlighted by Wirl (J Econ Dyn Control 28, 2004), while, in the CIES case, the ones obtained by Bosi, Math Soc Sci 96, 2018. Moreover, this conclusion is robust under two alternative regeneration processes for the resource (power and logistic laws). In other words, the dynamics seems to depend more on the preference structure than on the market structure (central planner versus market economy).",
-      "abstract_cn": "从动态角度看，现有关于拉姆齐经济中可再生资源的文献令人困惑。一方面，中央计划者的解导致围绕较低稳态出现极限环（Wirl, J Econ Dyn Control 28, 2004）；另一方面，在市场经济中，极限环出现在较高稳态附近（Bosi, Math Soc Sci 96, 2018）。为调和这些发现，我们研究了一个具有可再生资源的离散时间拉姆齐模型的竞争均衡，其中偏好由两种不同的效用函数表示，分别具有恒定静态替代弹性（CSES）和恒定跨期替代弹性（CIES）。在CSES情形下，我们重现了Wirl（J Econ Dyn Control 28, 2004）强调的动态，而在CIES情形下，则重现了Bosi, Math Soc Sci 96, 2018获得的动态。此外，这一结论在资源的两种替代再生过程（幂律和逻辑斯蒂律）下是稳健的。换言之，动态似乎更多地依赖于偏好结构而非市场结构（中央计划者与市场经济）。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-01049-y",
       "source_url": "https://doi.org/10.1007/s10640-025-01049-y",
       "publication_date": "2025",
@@ -689,21 +591,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i11d10.1007_s10640-025-01049-y.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:31:48+00:00",
-        "source_hash": "0b45f28135a32a1c3b6bc0d0f10e2809563c230b6f8e0c919dceafaa92beed9b"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     }
   ],
   "quality": {
@@ -718,37 +614,10 @@
     "doi_complete": 17,
     "authors_complete": 17,
     "abstract_en_complete": 17,
-    "translation_complete": 17,
+    "translation_complete": 0,
     "duplicate_count": 0,
-    "flags": [],
-    "official_item_count": 17,
-    "publishable_item_count": 17,
-    "content_counts": {
-      "official_items": 17,
-      "observed_items": 17,
-      "publishable_items": 17,
-      "research_articles": 17,
-      "comments": 0,
-      "short_communications": 0,
-      "corrections": 0,
-      "editorial_material": 0,
-      "front_matter": 0,
-      "other_excluded": 0,
-      "catalog_content_items": 17
-    }
-  },
-  "content_counts": {
-    "official_items": 17,
-    "observed_items": 17,
-    "publishable_items": 17,
-    "research_articles": 17,
-    "comments": 0,
-    "short_communications": 0,
-    "corrections": 0,
-    "editorial_material": 0,
-    "front_matter": 0,
-    "other_excluded": 0,
-    "catalog_content_items": 17
-  },
-  "issue_label": "Vol. 88 · No. 11"
+    "flags": [
+      "translation_incomplete"
+    ]
+  }
 }

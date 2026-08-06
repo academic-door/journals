@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-06T12:26:46+00:00",
   "expected_article_count": 5,
   "research_article_count": 5,
-  "status": "ready",
+  "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
@@ -19,14 +19,14 @@
       "source_sequence": 1,
       "article_type": "research-article",
       "title_en": "The Establishment of Pilot Free Trade Zones and Carbon Emissions",
-      "title_cn": "自贸试验区设立与碳排放",
+      "title_cn": "",
       "authors": [
         "Jie Xing",
         "Qingfang Yao",
         "Mingyi Wang"
       ],
       "abstract_en": "This study evaluates the impact of the Pilot Free Trade Zones (PFTZs) on the carbon emissions of enterprises located within the zones. By manually identifying PFTZs’ boundaries and employing a spatial regression discontinuity (SRD) design, we find that the establishment of the PFTZs significantly reduces the carbon emission intensity of enterprises within the zones. This conclusion remains valid across a series of robustness tests. Mechanism analysis reveals that the PFTZs drives emission reductions by intensifying market competition, stimulating green technology innovation, and alleviating financing constraints. Furthermore, heterogeneity analyses indicate that these effects are more pronounced in heavily polluting industries, technology-intensive enterprises, non-state-owned enterprises, and areas with a larger scale of construction. This study provides a vital theoretical basis for China’s green and high-quality development strategies in the current context of carbon reduction.",
-      "abstract_cn": "本研究评估了自贸试验区（PFTZs）对区内企业碳排放的影响。通过手动识别自贸试验区的边界并采用空间断点回归（SRD）设计，我们发现自贸试验区的设立显著降低了区内企业的碳排放强度。这一结论在一系列稳健性检验中依然成立。机制分析显示，自贸试验区通过加剧市场竞争、激发绿色技术创新以及缓解融资约束来推动减排。此外，异质性分析表明，这些效应在重污染行业、技术密集型企业、非国有企业以及建设规模较大的地区中更为显著。本研究为当前碳减排背景下中国的绿色高质量发展战略提供了重要的理论基础。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-026-01099-w",
       "source_url": "https://doi.org/10.1007/s10640-026-01099-w",
       "publication_date": "2026",
@@ -38,23 +38,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v89y2026i7d10.1007_s10640-026-01099-w.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:35:32+00:00",
-        "source_hash": "eac2611fb361cf15c866fa0feef8891308cc8f1ea2194f789a3bc041a8d4c4e2"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "yes",
-        "evidence": "abstract",
-        "matched_terms": [
-          "China’s"
-        ],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-026-01096-z",
@@ -62,7 +54,7 @@
       "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Restoration Responsibility in a Dynamic Game of Deforestation, Production, and Pollution Accumulation",
-      "title_cn": "森林砍伐、生产与污染累积动态博弈中的恢复责任",
+      "title_cn": "",
       "authors": [
         "Fouad El Ouardighi",
         "Giorgio Gnecco",
@@ -70,7 +62,7 @@
         "Marcello Sanguineti"
       ],
       "abstract_en": "This paper examines which country should undertake forest restoration when production and deforestation jointly degrade environmental absorption capacity. We develop a two-country dynamic game in which a forest owner derives revenues from deforestation while a non-owner benefits from production; both generate emissions, but only deforestation directly reduces carbon sink efficiency. Restoration is costly and subject to inertia. Consistent with international governance frameworks, the restoring country commits to a predetermined restoration path, while the non-restorer may either commit or retain strategic flexibility. Under homogeneous strategies, long-run environmental outcomes are independent of which country restores. Under heterogeneous strategies, however, the allocation of restoration responsibility becomes crucial: assigning restoration to the producer may aggravate environmental degradation and lead to history-dependent, potentially irreversible dynamics, whereas assigning it to the deforester mitigates opportunistic behavior and promotes more stable outcomes. A novel finding is that history-dependency is both control-specific and parameter-dependent: the deforester’s deforestation and restoration controls exhibit strong Skiba behavior robustly across parametric regimes, while the producer’s emissions exhibit weak Skiba behavior when economically dominant but become more sensitive to initial conditions when the deforester dominates. These results reflect an asymmetry in transmission channels and suggest that robust environmental protection requires aligning restoration responsibilities with forest ownership.",
-      "abstract_cn": "本文考察了当生产和森林砍伐共同削弱环境吸收能力时，哪个国家应承担森林恢复责任。我们构建了一个两国动态博弈模型，其中森林所有者从森林砍伐中获得收入，而非所有者则从生产中获益；两者都产生排放，但只有森林砍伐直接降低碳汇效率。恢复成本高昂且存在惯性。与国际治理框架一致，恢复国承诺遵循预定的恢复路径，而非恢复国可以选择承诺或保持战略灵活性。在同质策略下，长期环境结果与哪个国家进行恢复无关。然而，在异质策略下，恢复责任的分配变得至关重要：将恢复责任分配给生产者可能加剧环境退化并导致依赖于历史、可能不可逆的动态，而将其分配给森林砍伐者则能缓解机会主义行为并促进更稳定的结果。一个新颖的发现是，历史依赖性既具有控制特异性又具有参数依赖性：森林砍伐者的砍伐和恢复控制在不同参数区间内表现出强烈的Skiba行为，而生产者的排放在其经济占优时表现出较弱的Skiba行为，但在森林砍伐者占优时对初始条件更为敏感。这些结果反映了传导渠道的不对称性，并表明稳健的环境保护需要将恢复责任与森林所有权对齐。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-026-01096-z",
       "source_url": "https://doi.org/10.1007/s10640-026-01096-z",
       "publication_date": "2026",
@@ -82,21 +74,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v89y2026i7d10.1007_s10640-026-01096-z.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:35:36+00:00",
-        "source_hash": "864f73d3e3294dfb27fdd05f7a550a987757027538249b495397de00f558d36f"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-026-01100-6",
@@ -104,15 +90,15 @@
       "source_sequence": 3,
       "article_type": "research-article",
       "title_en": "Catastrophic Wildfires & Suicide",
-      "title_cn": "灾难性野火与自杀",
+      "title_cn": "",
       "authors": [
         "Chandler Hubbard",
         "Nino Abashidze",
         "Hannah Hennighausen",
         "Alexander James"
       ],
-      "abstract_en": "We estimate the impact of catastrophic wildfires on suicide. Leveraging an eight-year panel of county-by-month restricted-use mortality data for California, we find that catastrophic wildfires that destroy at least 2% of a county’s housing stock cause a 47% increase in the suicide rate (roughly nine excess suicides) in the six-month aftermath of an event. Exploring sources of heterogeneity, effects are largely driven by men. Mechanisms are explored and suggest that suicide results from the loss of property and direct loss of life, rather than smoke exposure. These findings suggest that wildfires may be deadlier and more expensive than previously thought.",
-      "abstract_cn": "我们估计了灾难性野火对自杀的影响。利用加利福尼亚州按县-月划分的八年限制使用死亡率数据面板，我们发现，摧毁一个县至少2%住房存量的灾难性野火，在事件发生后的六个月内导致自杀率上升47%（约额外九起自杀）。在探讨异质性来源时，影响主要由男性驱动。我们探索了机制，结果表明自杀源于财产损失和直接生命损失，而非烟雾暴露。这些发现表明，野火可能比之前认为的更致命、代价更高。",
+      "abstract_en": "Abstract We estimate the impact of catastrophic wildfires on suicide. Leveraging an eight-year panel of county-by-month restricted-use mortality data for California, we find that catastrophic wildfires that destroy at least 2% of a county’s housing stock cause a 47% increase in the suicide rate (roughly nine excess suicides) in the six-month aftermath of an event. Exploring sources of heterogeneity, effects are largely driven by men. Mechanisms are explored and suggest that suicide results from the loss of property and direct loss of life, rather than smoke exposure. These findings suggest that wildfires may be deadlier and more expensive than previously thought.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-026-01100-6",
       "source_url": "https://doi.org/10.1007/s10640-026-01100-6",
       "publication_date": "2026",
@@ -124,21 +110,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v89y2026i7d10.1007_s10640-026-01100-6.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:10:17+00:00",
-        "source_hash": "277d2f0755e5d9a0e7301397ba8a9a779b5689d1a0db132326b5454eed5ed524"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-026-01090-5",
@@ -146,13 +126,13 @@
       "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Zero Fare, Cleaner Air? The Causal Effect of Luxembourg’s Free Public Transportation Policy on Transport Emissions",
-      "title_cn": "零票价，更清洁的空气？卢森堡免费公共交通政策对交通排放的因果影响",
+      "title_cn": "",
       "authors": [
         "Tobias Eibinger",
         "Sachintha Fernando"
       ],
-      "abstract_en": "In March 2020, Luxembourg became the first country to make public transport free. We use this unique setting to evaluate the policy’s impact on transport emissions using a synthetic difference-in-differences framework. We use spatial emissions data to construct a panel of NUTS 2 regions in the EU from 2016 to 2022. We estimate an average reduction of 5.9% in road transport CO 2 and overall road transport GHG emissions, with larger effects for NO x . These findings are robust against confounding shifts in working from home and commuting patterns, vehicle fleet electrification, and the localized effects of the COVID-19 pandemic. Complementary event-study evidence from automatic traffic counters and air quality stations through 2023 corroborates our findings and suggests larger effects on weekends.",
-      "abstract_cn": "三月2020，卢森堡成为第一个免费提供公共交通的国家。我们利用这种独特的设置，利用综合双重差分框架来评估政策对交通排放的影响。我们使用空间排放数据构建了 2016 到 2022 期间欧盟 NUTS 2 区域的面板。我们估计道路运输二氧化碳 2 和总体道路运输温室气体排放量平均减少 5.9%，其中对氮氧化物 (NO x) 的影响更大。这些发现有力地证明了在家工作和通勤模式、车队电气化以及新冠肺炎19大流行的局部影响等混杂变化。来自自动交通计数器和空气质量站的补充事件研究证据2023证实了我们的发现，并表明周末的影响更大。",
+      "abstract_en": "Abstract In March 2020, Luxembourg became the first country to make public transport free. We use this unique setting to evaluate the policy’s impact on transport emissions using a synthetic difference-in-differences framework. We use spatial emissions data to construct a panel of NUTS 2 regions in the EU from 2016 to 2022. We estimate an average reduction of 5.9% in road transport CO 2 and overall road transport GHG emissions, with larger effects for NO x . These findings are robust against confounding shifts in working from home and commuting patterns, vehicle fleet electrification, and the localized effects of the COVID-19 pandemic. Complementary event-study evidence from automatic traffic counters and air quality stations through 2023 corroborates our findings and suggests larger effects on weekends.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-026-01090-5",
       "source_url": "https://doi.org/10.1007/s10640-026-01090-5",
       "publication_date": "2026",
@@ -164,21 +144,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v89y2026i7d10.1007_s10640-026-01090-5.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "google-translate",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-06T11:10:15+00:00",
-        "source_hash": "88f7076d7b36c7ce31de12ff29cc3eb4dab99656eaeda9e42931736c3108fb70"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-026-01091-4",
@@ -186,14 +160,14 @@
       "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "Director Appointments, Boardroom Networks, and Firm Environmental Performance",
-      "title_cn": "董事任命、董事会网络与企业环境绩效",
+      "title_cn": "",
       "authors": [
         "Mingyuan Chen",
         "Dakshina G. De Silva",
         "Aurelie Slechten"
       ],
-      "abstract_en": "Using BoardEx (2000–2017), we create a dynamic network connecting firms and board directors in the United States. We use the Environmental Protection Agency’s Toxics Release Inventory to measure environmental performance at the director and firm-level. We first examine how candidates’ environmental performance and networks affect their probability to be appointed to the board. We find that firms are likely to appoint influential directors with good environmental records and similar characteristics. We then show that directors’ past environmental records affect their current firm’s chemical releases. We address endogeneity concerns related to directors’ appointments and firms’ environmental performance by modeling directors’ network formation.",
-      "abstract_cn": "利用BoardEx数据（2000-2017年），我们构建了一个连接美国公司与董事的动态网络。我们使用环境保护署的有毒物质排放清单来衡量董事和公司层面的环境绩效。我们首先考察候选人的环境绩效和网络如何影响他们被任命为董事的概率。我们发现，公司倾向于任命具有良好环境记录和相似特征的有影响力的董事。然后，我们表明董事过去的环境记录会影响他们当前公司的化学物质排放。我们通过模拟董事网络的形成来解决与董事任命和公司环境绩效相关的内生性问题。",
+      "abstract_en": "Abstract Using BoardEx (2000–2017), we create a dynamic network connecting firms and board directors in the United States. We use the Environmental Protection Agency’s Toxics Release Inventory to measure environmental performance at the director and firm-level. We first examine how candidates’ environmental performance and networks affect their probability to be appointed to the board. We find that firms are likely to appoint influential directors with good environmental records and similar characteristics. We then show that directors’ past environmental records affect their current firm’s chemical releases. We address endogeneity concerns related to directors’ appointments and firms’ environmental performance by modeling directors’ network formation.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-026-01091-4",
       "source_url": "https://doi.org/10.1007/s10640-026-01091-4",
       "publication_date": "2026",
@@ -205,21 +179,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v89y2026i7d10.1007_s10640-026-01091-4.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:10:02+00:00",
-        "source_hash": "05eccf57b970dbda7d337d113775d0c7b45f8a877c08df0ae153a52346a377d5"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     }
   ],
   "quality": {
@@ -234,37 +202,10 @@
     "doi_complete": 5,
     "authors_complete": 5,
     "abstract_en_complete": 5,
-    "translation_complete": 5,
+    "translation_complete": 0,
     "duplicate_count": 0,
-    "flags": [],
-    "official_item_count": 5,
-    "publishable_item_count": 5,
-    "content_counts": {
-      "official_items": 5,
-      "observed_items": 5,
-      "publishable_items": 5,
-      "research_articles": 5,
-      "comments": 0,
-      "short_communications": 0,
-      "corrections": 0,
-      "editorial_material": 0,
-      "front_matter": 0,
-      "other_excluded": 0,
-      "catalog_content_items": 5
-    }
-  },
-  "content_counts": {
-    "official_items": 5,
-    "observed_items": 5,
-    "publishable_items": 5,
-    "research_articles": 5,
-    "comments": 0,
-    "short_communications": 0,
-    "corrections": 0,
-    "editorial_material": 0,
-    "front_matter": 0,
-    "other_excluded": 0,
-    "catalog_content_items": 5
-  },
-  "issue_label": "Vol. 89 · No. 7"
+    "flags": [
+      "translation_incomplete"
+    ]
+  }
 }

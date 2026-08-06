@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-06T12:25:50+00:00",
   "expected_article_count": 6,
   "research_article_count": 6,
-  "status": "ready",
+  "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
@@ -19,15 +19,15 @@
       "source_sequence": 1,
       "article_type": "research-article",
       "title_en": "Relocation of Toxic-Releasing Facilities and Effects on Environmental Inequality in the United States",
-      "title_cn": "有毒排放设施迁移及其对美国环境不平等的影响",
+      "title_cn": "",
       "authors": [
         "Xiao Wang",
         "George Deltas",
         "Madhu Khanna",
         "Xiang Bi"
       ],
-      "abstract_en": "We investigate the impact of industrial facility relocation on the distribution of pollution incidence across different socioeconomic groups in the US. While facilities that relocated reduced their emissions by 68% relative to 1990, the extent of their reduction was 22% points lower than had they not relocated. We also find that most facilities moved to communities with lower income compared to their origin communities and that these facilities reduced their emissions by less than facilities that moved to higher income communities. Relocations resulted in larger emissions reductions in population dense locations, as facilities relocated primarily to lower density areas.",
-      "abstract_cn": "我们研究了工业设施迁移对美国不同社会经济群体间污染分布的影响。虽然迁移的设施相对于68%年减少了1990的排放，但其减少幅度比未迁移情况下低22%个百分点。我们还发现，大多数设施迁往收入低于原社区的地区，且这些设施的减排量少于迁往高收入社区的设施。迁移导致人口密集地区的排放减少更多，因为设施主要迁往低密度地区。",
+      "abstract_en": "Abstract We investigate the impact of industrial facility relocation on the distribution of pollution incidence across different socioeconomic groups in the US. While facilities that relocated reduced their emissions by 68% relative to 1990, the extent of their reduction was 22% points lower than had they not relocated. We also find that most facilities moved to communities with lower income compared to their origin communities and that these facilities reduced their emissions by less than facilities that moved to higher income communities. Relocations resulted in larger emissions reductions in population dense locations, as facilities relocated primarily to lower density areas.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-026-01076-3",
       "source_url": "https://doi.org/10.1007/s10640-026-01076-3",
       "publication_date": "2026",
@@ -39,21 +39,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v89y2026i3d10.1007_s10640-026-01076-3.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:08:47+00:00",
-        "source_hash": "cfc0b5dac6527cefbd6feae6792d13c95017a222ab6212dc74b41a6f5b3d60fd"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-026-01075-4",
@@ -61,13 +55,13 @@
       "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Effect of a Policy Intervention to Stimulate Lead Service Line Replacement: Evidence from Wisconsin",
-      "title_cn": "刺激铅服务管线更换的政策干预效果：来自威斯康星州的证据",
+      "title_cn": "",
       "authors": [
         "Chanheung Cho",
         "Younghyeon Jeon"
       ],
       "abstract_en": "Lead contamination in drinking water remains a serious public health risk in the United States, yet public water systems with aging lead service lines still serve many households. Replacement efforts have been slow, limited by financial and logistical barriers. In 2018, the state of Wisconsin implemented a public infrastructure policy providing financial assistance for the voluntary replacement of lead service lines, aiming to improve compliance with the Safe Drinking Water Act (SDWA) and reduce associated health risks. This study estimates the causal effect of the policy using a synthetic difference-in-differences (SDID) approach, comparing SDWA violations in Wisconsin’s public water systems to those in a synthetic control. The results indicate that the policy reduced the violations by about 28.7% relative to the control group’s average post-treatment violations—suggesting improved regulatory compliance and safer drinking water. An event study analysis confirms the robustness of these findings. The results provide new empirical evidence on the effectiveness of state-level interventions in enhancing public health compliance and demonstrate the value of the SDID method as a robust tool for environmental policy evaluation.",
-      "abstract_cn": "饮用水中的铅污染在美国仍然是一个严重的公共卫生风险，然而拥有老化铅服务管线的公共供水系统仍为许多家庭提供服务。更换工作进展缓慢，受到财政和后勤障碍的限制。2018年，威斯康星州实施了一项公共基础设施政策，为自愿更换铅服务管线提供财政援助，旨在提高对《安全饮用水法》（SDWA）的合规性并减少相关健康风险。本研究使用合成双重差分（SDID）方法估计该政策的因果效应，将威斯康星州公共供水系统的SDWA违规情况与合成对照组进行比较。结果表明，相对于对照组平均干预后违规情况，该政策使违规减少了约28.7%，表明监管合规性提高和饮用水更安全。事件研究分析证实了这些发现的稳健性。这些结果为州级干预措施在增强公共卫生合规性方面的有效性提供了新的实证证据，并展示了SDID方法作为环境政策评估稳健工具的价值。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-026-01075-4",
       "source_url": "https://doi.org/10.1007/s10640-026-01075-4",
       "publication_date": "2026",
@@ -79,21 +73,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v89y2026i3d10.1007_s10640-026-01075-4.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:34:42+00:00",
-        "source_hash": "6c6adb3871c427fb278406af84c0acde4f53f44a944d1c4ac22c15c1e8eda667"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-026-01066-5",
@@ -101,7 +89,7 @@
       "source_sequence": 3,
       "article_type": "research-article",
       "title_en": "Assessing Omitted Variable Bias in Ricardian models’ Estimates of Climate Change Impacts",
-      "title_cn": "评估李嘉图模型中气候变化影响估计的遗漏变量偏误",
+      "title_cn": "",
       "authors": [
         "Charlotte Fabri",
         "Sergei Schaub",
@@ -109,7 +97,7 @@
         "Tobias Dalhaus"
       ],
       "abstract_en": "Assessing the impact of climate change on agricultural productivity is crucial for targeted adaptation and policy planning. In this context, the Ricardian model is often used to estimate the impact of climate change on economic measures on farms. The model regresses agricultural land values (or other proxies for agricultural productivity) on historical climate and control variables using cross-sectional data. Despite its wide utilisation, the model has frequently been criticised for its proneness to omitted variable bias. In this study, we replicate the results of eight published Ricardian studies and assess how robust their estimates are to omitted variable bias, using tests developed by Oster in J Bus Econ Stat 37(2):187–204, 2019 and Diegert, Masten & Poirier in arXiv, 2023. We find that the majority of the climate coefficients tested in this study are likely relatively sensitive to omitted variable bias. Yet, these test results must be interpreted in light of the model setup, especially the included control variables, as they are the benchmark for evaluating sensitivity to omitted variable bias. This is also key for the general use of the tests. Additionally, it appears that other model choices, such as the decision on the dependent variable or sample delimitation, affect the coefficients’ robustness. We suggest that future research on climate change impacts on agriculture using the Ricardian approach should be complemented with the presented coefficient stability tests to support the validity of their results.",
-      "abstract_cn": "评估气候变化对农业生产力的影响对于有针对性的适应和政策规划至关重要。在此背景下，李嘉图模型常被用于估计气候变化对农场经济指标的影响。该模型利用横截面数据，将农业土地价值（或其他农业生产力的代理变量）对历史气候和控制变量进行回归。尽管该模型被广泛使用，但经常因其易受遗漏变量偏误影响而受到批评。在本研究中，我们复制了八项已发表的李嘉图研究的结果，并使用Oster在《商业与经济统计杂志》37(2):187-204, 2019以及Diegert、Masten和Poirier在arXiv, 2023中开发的检验方法，评估其估计对遗漏变量偏误的稳健性。我们发现，本研究中测试的大多数气候系数可能对遗漏变量偏误相对敏感。然而，这些检验结果必须结合模型设定，特别是所包含的控制变量来解释，因为它们是评估对遗漏变量偏误敏感性的基准。这对于检验的一般使用也至关重要。此外，其他模型选择，如因变量的决定或样本界定，似乎也会影响系数的稳健性。我们建议，未来使用李嘉图方法研究气候变化对农业影响的研究，应辅以所提出的系数稳定性检验，以支持其结果的有效性。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-026-01066-5",
       "source_url": "https://doi.org/10.1007/s10640-026-01066-5",
       "publication_date": "2026",
@@ -121,21 +109,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v89y2026i3d10.1007_s10640-026-01066-5.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:34:46+00:00",
-        "source_hash": "cfb5e9246a4f1239b124c42d0b4b3cc8393bf4bfa679fe9a302696752e1e1ee0"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-026-01073-6",
@@ -143,14 +125,14 @@
       "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "A (Green) Switch in Time Saves Nine: Assessing the Environmental Damage of the European Truck Cartel",
-      "title_cn": "及时（绿色）转变省九分：评估欧洲卡车卡特尔的環境损害",
+      "title_cn": "",
       "authors": [
         "Ilona Dielen",
         "Patrice Bougette",
         "Christophe Charlier"
       ],
       "abstract_en": "This study examines how the cartel of European truck manufacturers coordinated the timing of compliance with emission standards, generating additional air pollution without violating environmental regulations. Although firms formally complied with environmental law, collusion restricted competition over cleaner technologies, highlighting that anticompetitive agreements can have significant environmental and health consequences. First, we quantify the volume of particulate emissions attributable to cartel behavior by constructing two plausible counterfactual scenarios for truck fleet composition, identifying substantial excess emissions of approximately 119 thousand tonnes of fine particulate matter (PM $$_{2.5}$$ ). Second, we estimate the health impact of traffic-related PM $$_{2.5}$$ emissions on infant respiratory outcomes using a panel of 199 European subregions observed over an 18-year period. To address endogeneity concerns, we exploit exogenous variation in EURO emission standards through a shift-share instrumental-variable strategy. The resulting elasticity allows us to compute the number of infant respiratory hospital admissions attributable to the cartel under counterfactual competitive conditions. We estimate that earlier, competition-driven adoption of cleaner technologies could have reduced average yearly infant hospital admissions by 12–18 cases per 1000 births at the NUTS 2 level.",
-      "abstract_cn": "本研究考察了欧洲卡车制造商卡特尔如何协调遵守排放标准的时间，从而在不违反环境法规的情况下产生额外的空气污染。尽管企业形式上遵守了环境法，但合谋限制了对更清洁技术的竞争，突显了反竞争协议可能带来显著的环境和健康后果。首先，我们通过构建两个合理的反事实情景来量化可归因于卡特尔行为的颗粒物排放量，识别出约119千吨细颗粒物（PM $$_{2.5}$$）的超额排放。其次，我们利用一个包含199个欧洲次区域、观察期长达18年的面板数据，估计交通相关PM $$_{2.5}$$排放对婴儿呼吸系统结果的影响。为解决内生性问题，我们利用EURO排放标准的外生变化，采用转移份额工具变量策略。由此得到的弹性使我们能够计算在反事实竞争条件下可归因于卡特尔行为的婴儿呼吸系统住院人数。我们估计，在NUTS 2层面，更早的、由竞争驱动的清洁技术采用本可使平均每年每1000名新生儿的婴儿住院人数减少12-18例。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-026-01073-6",
       "source_url": "https://doi.org/10.1007/s10640-026-01073-6",
       "publication_date": "2026",
@@ -162,21 +144,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v89y2026i3d10.1007_s10640-026-01073-6.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:34:50+00:00",
-        "source_hash": "15b10e6ecefd861e01f5cd547170388e9a125bce5fd5121fdb35fbd609c64175"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-01055-0",
@@ -184,13 +160,13 @@
       "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "How Important are IEAs for Mitigation if Countries are of the Homo Moralis Type?",
-      "title_cn": "如果国家属于道德人类型，国际环境协议对减缓气候变化有多重要？",
+      "title_cn": "",
       "authors": [
         "Thomas Eichner",
         "Rüdiger Pethig"
       ],
-      "abstract_en": "We analyze international environmental agreements in a two-stage game when governments have homo moralis preferences à la Alger and Weibull, Econometrica 81, 2013, Alger and Weibull, Games Econom Behav 98, 2016). The countries base their decisions on the material welfare obtained on the hypothesis that all other countries act as they with predetermined probability. They are assumed to act morally w.r.t. both membership and emissions. We investigate the interaction and impact of that moral behavior on coalition formation and material welfare. The membership morality tends to increase while the emissions morality tends to decrease the coalition size, but the outcome is not smoothly determined by these opposite forces.",
-      "abstract_cn": "我们在一个两阶段博弈中分析国际环境协议，此时政府具有阿尔及尔和韦布尔（《计量经济学》81，2013；《博弈与经济行为》98，2016）所定义的道德人偏好。各国基于一个假设做出决策，即所有其他国家以预定概率像它们一样行动。它们被认为在成员资格和排放方面都表现出道德行为。我们研究了这种道德行为对联盟形成和物质福利的相互作用及影响。成员资格道德倾向于增加联盟规模，而排放道德倾向于减少联盟规模，但结果并非由这些相反力量平滑决定。",
+      "abstract_en": "Abstract We analyze international environmental agreements in a two-stage game when governments have homo moralis preferences à la Alger and Weibull, Econometrica 81, 2013, Alger and Weibull, Games Econom Behav 98, 2016). The countries base their decisions on the material welfare obtained on the hypothesis that all other countries act as they with predetermined probability. They are assumed to act morally w.r.t. both membership and emissions. We investigate the interaction and impact of that moral behavior on coalition formation and material welfare. The membership morality tends to increase while the emissions morality tends to decrease the coalition size, but the outcome is not smoothly determined by these opposite forces.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-01055-0",
       "source_url": "https://doi.org/10.1007/s10640-025-01055-0",
       "publication_date": "2026",
@@ -202,21 +178,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v89y2026i3d10.1007_s10640-025-01055-0.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:08:45+00:00",
-        "source_hash": "dc2c7133a2d44d148cdaedd52467be05e4d905bc35671147810e15fd03dfb945"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-026-01074-5",
@@ -224,13 +194,13 @@
       "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "Environmental Regulation, Firm Heterogeneity and Macroeconomic Volatility",
-      "title_cn": "环境规制、企业异质性与宏观经济波动",
+      "title_cn": "",
       "authors": [
         "Fabio Di Dio",
         "Lorenzo Frattarolo"
       ],
       "abstract_en": "This paper investigates how firm heterogeneity affects the transmission of macroeconomic shocks and the volatility of key macroeconomic variables under environmental regulation. To address this question, we compare a representative-agent (Rep) benchmark to a heterogeneous-firm (Het) model subject to the same aggregate shocks and operate under the same cap-and-trade regime. The findings are as follows. First, macroeconomic volatility is higher in the presence of firm heterogeneity relative to a representative-agent counterpart. This result holds regardless of the origin of the macroeconomic shock considered. Second, the investment decisions of the heterogeneous firms are nonlinear and exhibit stronger reactions to shocks, particularly for smaller firms with lower capital and less efficiency in abatement activities. Third, a carbon pricing shock causes a more significant decline in investment and a rapid increase in abatement costs due to higher marginal emissions costs than the analogous Rep counterpart. The key micro-parameters are estimated consistently with data of regulated firms under the EU Emissions Trading System (EU ETS).",
-      "abstract_cn": "本文研究了在企业异质性存在的情况下，环境规制如何影响宏观经济冲击的传导以及关键宏观经济变量的波动性。为解答此问题，我们将代表性主体（Rep）基准模型与异质性企业（Het）模型进行比较，两者面临相同的总体冲击，并在相同的总量控制与交易制度下运行。研究结果如下：第一，与代表性主体模型相比，存在企业异质性时宏观经济波动性更高。这一结论在考虑任何来源的宏观经济冲击时均成立。第二，异质性企业的投资决策是非线性的，并对冲击表现出更强的反应，尤其是对于资本较少且减排活动效率较低的小型企业。第三，碳定价冲击导致投资下降更为显著，且由于边际排放成本较高，减排成本迅速增加，与相应的Rep模型相比更为明显。关键微观参数与欧盟排放交易体系（EU ETS）下受规制企业的数据一致估计得出。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-026-01074-5",
       "source_url": "https://doi.org/10.1007/s10640-026-01074-5",
       "publication_date": "2026",
@@ -242,21 +212,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v89y2026i3d10.1007_s10640-026-01074-5.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:35:03+00:00",
-        "source_hash": "cde7cad672de7ce5023c61b77abca3a6609887ed26b29130fc39156ff22a3fef"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     }
   ],
   "quality": {
@@ -271,37 +235,10 @@
     "doi_complete": 6,
     "authors_complete": 6,
     "abstract_en_complete": 6,
-    "translation_complete": 6,
+    "translation_complete": 0,
     "duplicate_count": 0,
-    "flags": [],
-    "official_item_count": 6,
-    "publishable_item_count": 6,
-    "content_counts": {
-      "official_items": 6,
-      "observed_items": 6,
-      "publishable_items": 6,
-      "research_articles": 6,
-      "comments": 0,
-      "short_communications": 0,
-      "corrections": 0,
-      "editorial_material": 0,
-      "front_matter": 0,
-      "other_excluded": 0,
-      "catalog_content_items": 6
-    }
-  },
-  "content_counts": {
-    "official_items": 6,
-    "observed_items": 6,
-    "publishable_items": 6,
-    "research_articles": 6,
-    "comments": 0,
-    "short_communications": 0,
-    "corrections": 0,
-    "editorial_material": 0,
-    "front_matter": 0,
-    "other_excluded": 0,
-    "catalog_content_items": 6
-  },
-  "issue_label": "Vol. 89 · No. 3"
+    "flags": [
+      "translation_incomplete"
+    ]
+  }
 }

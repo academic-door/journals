@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-06T12:20:58+00:00",
   "expected_article_count": 7,
   "research_article_count": 7,
-  "status": "ready",
+  "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
@@ -19,7 +19,7 @@
       "source_sequence": 1,
       "article_type": "research-article",
       "title_en": "Welfare and Distribution in State-Led Wildlife Management",
-      "title_cn": "国家主导的野生动物管理中的福利与分配",
+      "title_cn": "",
       "authors": [
         "Bailey Kirkland (University of Wyoming)",
         "Jacob Hochard (University of Wyoming)",
@@ -27,7 +27,7 @@
         "David Finnoff (University of Wyoming)"
       ],
       "abstract_en": "The North American Model of Wildlife Conservation calls for the treatment of wildlife as a public resource and entrusts states as the primary management authority. As such and dating back to colonial law, states provide their residents with privileged access to hunting and fishing opportunities in the form of higher quotas and lower license prices. The implied value of these resident harvest privileges to state decision-makers is revealed in the tradeoff between foregone revenue-increasing opportunities from nonresident consumers and the preservation of access for resident consumers. We present the first natural capital valuation of the forgone welfare of such policies by recovering net present values for Wyoming’s iconic Jackson elk herd. Herd population dynamics and the legal and institutional context surrounding management and hunting behavior reveal three key findings: (i) the net present value of the Jackson herd is $207.5 million of which 76% benefits the State of Wyoming, (ii) resident hunting privileges result in a welfare loss of $11.8 million and (iii) a reoccurring policy proposal to increase “state protectionism of elk\" by changing resident hunting quotas from 80 to 90% would forego an additional $7.8 million in welfare, but would increase the herd’s value to the state. While regional in its application, our use of policy simulations provides a generalizable approach to assessing the distributional impacts of current, not necessarily optimal, resource management tendencies.",
-      "abstract_cn": "北美野生动物保护模式要求将野生动物视为公共资源，并委托各州作为主要管理权威。因此，追溯到殖民法律，各州以更高的配额和更低的许可证价格的形式，向其居民提供狩猎和捕鱼机会的特权。这些居民收获特权对州决策者的隐含价值，体现在放弃从非居民消费者那里增加收入的机会与保留居民消费者获取机会之间的权衡中。我们通过恢复怀俄明州标志性的杰克逊麋鹿群的净现值，首次对这些政策所放弃的福利进行了自然资本估值。种群动态以及围绕管理和狩猎行为的法律与制度背景揭示了三个关键发现：（i）杰克逊麋鹿群的净现值为207.5亿美元，其中76%惠及怀俄明州；（ii）居民狩猎特权导致11.8万美元的福利损失；（iii）一项反复提出的政策提案，即将居民狩猎配额从80改为90%以增加“国家对麋鹿的保护主义”，将额外放弃7.8万美元的福利，但会增加该鹿群对州的价值。虽然其应用具有区域性，但我们使用政策模拟的方法提供了一种可推广的途径，用于评估当前（不一定是最优的）资源管理倾向的分配影响。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-024-00895-6",
       "source_url": "https://doi.org/10.1007/s10640-024-00895-6",
       "publication_date": "2025",
@@ -39,21 +39,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i1d10.1007_s10640-024-00895-6.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:30:44+00:00",
-        "source_hash": "4c9eef68cf60a7373b63bacbb82b5478eb41b172787478d20c02270145dd3296"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-024-00907-5",
@@ -61,7 +55,7 @@
       "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Extended Producer Responsibility and Trade Flows in Waste: The Case of Batteries",
-      "title_cn": "延伸生产者责任与废弃物贸易流动：以电池为例",
+      "title_cn": "",
       "authors": [
         "Marco Compagnoni (University of Milano-Bicocca)",
         "Marco Grazzi (Catholic University of the Sacred Heart Sant’Anna School of Advanced Studies)",
@@ -72,7 +66,7 @@
         "Chiara Tomasi"
       ],
       "abstract_en": "In the debate on international waste trade, the focus on resource efficiency and recycling has gradually begun to accompany the focus on negative environmental externalities. In this context, we examine the impact of extended producer responsibility (EPR) on the export of waste batteries (WB). EPR is considered as a key policy for the “marketization of waste”. WB are a hazardous waste that also contain a high concentration of critical raw materials. As such, they are of strategic importance for the recovery of critical resources, while at the same time requiring proper environmental management. Therefore, it is crucial to understand where WB are treated and how this is affected by related policies. Our results, based on difference-in-difference models in a gravity framework, show a consistent increase in WB exports after EPR implementation compared to the trend for other wastes. This result is likely to be an indirect consequence of the ability of EPR to support growth in waste collection rates, more accurate tracking of transboundary waste flows, and specialization of national waste management systems. In particular, WB exports appear to be directed to countries with more advanced waste management systems, more stringent environmental regulations, and limited endowments of the mineral resources typically contained in batteries.",
-      "abstract_cn": "在国际废弃物贸易的讨论中，对资源效率和回收利用的关注已逐渐开始伴随对负面环境外部性的关注。在此背景下，我们考察了延伸生产者责任（EPR）对废电池（WB）出口的影响。EPR被视为废弃物“市场化”的关键政策。废电池是一种危险废弃物，同时也含有高浓度的关键原材料。因此，它们对于关键资源的回收具有战略重要性，同时需要适当的环境管理。因此，了解废电池在何处处理以及相关政策如何影响这一点至关重要。我们的结果基于引力框架中的双重差分模型，显示与其它废弃物的趋势相比，EPR实施后废电池出口持续增加。这一结果可能是EPR支持废弃物收集率增长、越境废弃物流动更准确追踪以及国家废弃物管理系统专业化的间接后果。特别是，废电池出口似乎流向废弃物管理系统更先进、环境法规更严格以及通常含于电池中的矿产资源禀赋有限的国家。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-024-00907-5",
       "source_url": "https://doi.org/10.1007/s10640-024-00907-5",
       "publication_date": "2025",
@@ -84,21 +78,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i1d10.1007_s10640-024-00907-5.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:01:48+00:00",
-        "source_hash": "af93cae31d65ce7c296cc79c866413427cdebfb6339d034905684a42d53c6342"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-024-00923-5",
@@ -106,7 +94,7 @@
       "source_sequence": 3,
       "article_type": "research-article",
       "title_en": "Simple Stated Preference Questions Can Enhance Transdisciplinary Projects: Linking Perceived Risks With Willingness to Spray and Pay",
-      "title_cn": "简单的陈述性偏好问题可以增强跨学科项目：将感知风险与喷洒和支付意愿联系起来",
+      "title_cn": "",
       "authors": [
         "Aaron J. Enriquez (Fort Collins Science Center)",
         "Kevin Berry (University of Alaska Anchorage)",
@@ -117,7 +105,7 @@
         "Maria Diuk-Wasser (Columbia University)"
       ],
       "abstract_en": "Transdisciplinary projects can uncover crucial insights on people’s past and future risk-mitigation behavior. We focus on a novel risk context: increasing health threats from ticks on Staten Island, a New York City borough where the combination of high population density and extensive park systems and green spaces has resulted in a rise in locally-acquired tick-transmitted disease cases. We administered a knowledge, attitudes, and practices survey that additionally included simple economic stated preference questions about people’s willingness to spray tick pesticides in the future. We first analyze factors that are correlated with people’s perceptions of two types of risks: exposure to ticks and infection with Lyme disease. Next, we use the nonmarket valuation questions to test people’s willingness to spray and pay as a function of attributes of the hypothetical pesticides, including cost, effectiveness, and type. Across all model specifications, overall willingness to pay (WTP) to spray increases with increases in pesticide effectiveness, as well as with favorable pesticide type (organic). We uncover threshold pesticide effectiveness levels at which WTP to spray turns positive, and we find that lower pesticide effectiveness is required for organic pesticide. Finally, we test how perceived risks and various individual-specific characteristics correlate with WTP to spray. Combinations of higher perceived risks are linked both with higher WTP and lower breakeven pesticide effectiveness. Our work shows that a broad range of variables influence demand for self-protection actions, both directly and indirectly (through their effects on perceived risks). Such insights on people’s tradeoffs carry important policy implications, but they can be missed if economic information is either not elicited or elicited alone.",
-      "abstract_cn": "跨学科项目可以揭示关于人们过去和未来风险缓解行为的关键见解。我们关注一个新颖的风险背景：纽约市斯塔滕岛蜱虫带来的健康威胁日益增加，该行政区人口密度高，公园系统和绿地广泛，导致本地获得性蜱传疾病病例增加。我们进行了一项知识、态度和实践调查，其中还包括关于人们未来喷洒蜱虫杀虫剂意愿的简单经济陈述性偏好问题。我们首先分析与人们对两种风险感知相关的因素：接触蜱虫和感染莱姆病。接下来，我们使用非市场估值问题来测试人们喷洒和支付的意愿，作为假设杀虫剂属性（包括成本、有效性和类型）的函数。在所有模型规格中，总体支付意愿（WTP）随杀虫剂有效性的提高以及有利的杀虫剂类型（有机）而增加。我们发现了WTP转为正值时的阈值杀虫剂有效性水平，并发现有机杀虫剂所需的有效性较低。最后，我们测试了感知风险和各种个体特定特征如何与喷洒WTP相关。较高感知风险的组合与较高的WTP和较低的盈亏平衡杀虫剂有效性相关。我们的工作表明，广泛的变量直接影响或间接（通过其对感知风险的影响）影响自我保护行动的需求。这些关于人们权衡的见解具有重要的政策含义，但如果经济信息未被引出或单独引出，这些见解可能会被遗漏。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-024-00923-5",
       "source_url": "https://doi.org/10.1007/s10640-024-00923-5",
       "publication_date": "2025",
@@ -129,21 +117,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i1d10.1007_s10640-024-00923-5.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:01:52+00:00",
-        "source_hash": "70b92c6ad224ab7eaa7b52b87df383da6a5b0d890af428140033faeabd35aa11"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-024-00924-4",
@@ -151,14 +133,14 @@
       "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Domestic Pollution Havens: Linking Interregional Capital Flight and Water Pollution Regulation in China",
-      "title_cn": "国内污染避难所：中国区域间资本流动与水污染规制之间的联系",
+      "title_cn": "",
       "authors": [
         "Kerui Du (Xiamen University)",
         "Qilin Huang (The Chinese University of Hong Kong)",
         "Presley K. Wesseh (Xiamen University)"
       ],
       "abstract_en": "This paper investigates whether stricter water pollution regulation induces capital flight toward relatively less-regulated regions in China. Exploiting a unique firm dataset, we construct an interregional investment network at the city pair level and examine the impact of a typical water pollution regulation as a natural experiment on interregional investment. We find that water pollution regulation does not significantly affect interregional investment flows. However, when considering geographical distance, there is substantial economic significance observed for close-range capital flight. These results suggest that the investment transfer of polluting industries is more likely to occur in local areas due to relatively small frictions in capital flow between geographically adjacent regions. Additionally, our findings indicate that strict water pollution regulation has a greater impact on private firms and foreign firms. Our study sheds light on a critical but always overlooked role of capital flow friction in pollution havens hypothesis and provides new evidence on the domestic pollution havens with geographical restrictions.",
-      "abstract_cn": "本文研究了更严格的水污染规制是否会导致资本向中国规制相对较松的地区流动。利用独特的企业数据集，我们构建了城市对层面的区域间投资网络，并将典型的水污染规制作为自然实验，考察其对区域间投资的影响。我们发现，水污染规制并未显著影响区域间投资流动。然而，在考虑地理距离时，近距离资本流动表现出显著的经济重要性。这些结果表明，由于地理相邻地区之间资本流动摩擦相对较小，污染行业的投资转移更可能发生在局部地区。此外，我们的研究结果表明，严格的水污染规制对私营企业和外资企业的影响更大。我们的研究揭示了资本流动摩擦在污染避难所假说中一个关键但常被忽视的作用，并为具有地理限制的国内污染避难所提供了新的证据。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-024-00924-4",
       "source_url": "https://doi.org/10.1007/s10640-024-00924-4",
       "publication_date": "2025",
@@ -170,23 +152,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i1d10.1007_s10640-024-00924-4.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:30:47+00:00",
-        "source_hash": "e2765557b9edbc5b3e05854f323aec9862f5eec892115792d5584cdf7ecaf7ab"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "yes",
-        "evidence": "title",
-        "matched_terms": [
-          "China"
-        ],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-024-00926-2",
@@ -194,13 +168,13 @@
       "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "The Distributional Effects of Temperature Changes: Evidence from China’s Cement Industry",
-      "title_cn": "温度变化的分配效应：来自中国水泥行业的证据",
+      "title_cn": "",
       "authors": [
         "Chunhua Wang (Shanghai Jiao Tong University)",
         "Chunhua Wang"
       ],
       "abstract_en": "The distributional effects of climate change are important, yet understudied. Using a panel of firm-level data on the cement industry and plausibly exogenous variation in temperature within counties in China, this article investigates how producers and consumers split the economic cost of high temperatures. The results suggest that extremely high temperatures reduce TFP and increase the marginal cost of cement production. However, there is an incomplete pass-through of the increased cost to consumers in the form of higher product price. Relative to a day with a mean temperature between 12–15°C, an additional day with a temperature exceeding 30°C can increase the price by approximately 0.22%. On average, consumers bear more than 50% of the cost burden associated with high temperatures.",
-      "abstract_cn": "气候变化的分配效应很重要，但研究不足。利用水泥行业企业层面的面板数据以及中国县域内温度的外生变化，本文研究了生产者和消费者如何分担高温的经济成本。结果表明，极端高温降低了全要素生产率，并增加了水泥生产的边际成本。然而，成本增加并未完全转嫁给消费者，表现为产品价格上升的不完全传导。相对于平均温度在12-15°C的一天，额外一天温度超过30°C可使价格上升约0.22%。平均而言，消费者承担了与高温相关的超过50%的成本负担。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-024-00926-2",
       "source_url": "https://doi.org/10.1007/s10640-024-00926-2",
       "publication_date": "2025",
@@ -212,23 +186,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i1d10.1007_s10640-024-00926-2.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:30:49+00:00",
-        "source_hash": "c64c35f1a12a3b979d3ca0d840475fb544def3846b391d6cf98c12d1de792268"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "yes",
-        "evidence": "title",
-        "matched_terms": [
-          "China’s"
-        ],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-024-00929-z",
@@ -236,7 +202,7 @@
       "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "Effectiveness and Heterogeneous Effects of Purchase Grants for Electric Vehicles",
-      "title_cn": "电动汽车购买补贴的有效性和异质效应",
+      "title_cn": "",
       "authors": [
         "Peter Haan (Free University Berlin, German Institute for Economic Research (DIW Berlin) and Berlin School of Economics)",
         "Adrián Santonja (German Institute for Economic Research (DIW Berlin) and University of Potsdam.)",
@@ -244,7 +210,7 @@
         "Aleksandar Zaklan"
       ],
       "abstract_en": "We evaluate German purchase subsidies for battery electric vehicles (BEVs) and plug-in hybrid electric vehicles (PHEVs) using data on new vehicle registrations in Germany during 2015-2022. We account for confounding time trends and interacting EU-level $$\\text {CO}_{2}$$ standards using neighboring countries as a control group. We find that 40% of BEV and 25% of PHEV registrations were subsidy-induced. The program had strong distributional effects, with greater uptake in wealthier and greener counties. We estimate implied abatement costs of 870 euro per ton of $$\\text {CO}_{2}$$ for BEVs and 2,470 euro for PHEVs, suggesting that policy makers should re-balance support schemes away from PHEVs.",
-      "abstract_cn": "我们使用2015-2022期间德国新车注册数据评估德国对纯电动汽车（BEV）和插电式混合动力电动汽车（PHEV）的购买补贴。我们使用邻国作为对照组，考虑了混杂的时间趋势和相互作用的欧盟级别 $$\\text {CO}_{2}$$ 标准。我们发现 40% 的 BEV 和 25% 的 PHEV 注册是由补贴引起的。该计划具有很强的分配效应，在较富裕和较环保的县中得到了更多的采用。我们估计纯电动汽车每吨 $$\\text {CO}_{2}$$ 的隐含减排成本为 870 欧元，插电式混合动力汽车的隐含减排成本为 2,470 欧元，这表明政策制定者应重新平衡对插电式混合动力汽车的支持计划。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-024-00929-z",
       "source_url": "https://doi.org/10.1007/s10640-024-00929-z",
       "publication_date": "2025",
@@ -256,21 +222,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i1d10.1007_s10640-024-00929-z.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "google-translate",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-06T11:02:04+00:00",
-        "source_hash": "ce0c94917d1954bb3a5655733b31cd6c8a47bc12247593730d90f1da4d3e6cbb"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-024-00931-5",
@@ -278,14 +238,14 @@
       "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "International Climate Justice: What the People Think",
-      "title_cn": "国际气候正义：民众的看法",
+      "title_cn": "",
       "authors": [
         "Auriane Meilland (CIRED, AgroParisTech, CIRAD, CNRS, EHESS, Ecole des Ponts ParisTech, Univ Paris-Saclay, UMR 8568, CIRED)",
         "Yann Kervinio (CIRED, Ecole des Ponts, Institut Polytechnique de Paris, AgroParisTech, EHESS, CIRAD, CNRS, Univ. Paris-Saclay)",
         "Aurélie Méjean (Centre National de la Recherche Scientifique (CNRS), Centre International de Recherche sur l’Environnement et le Developpement (CIRED))"
       ],
       "abstract_en": "Are countries contributing their fair share to the Paris Agreement? The answer to this central question can rely on knowledge about existing– and potentially shared– views about fairness. Yet, current studies on existing fairness views are rare and often have a limited practical scope. In this article, we design and administer a survey to elicit fairness judgements among French and US citizens regarding these issues. We find that in both countries, most respondents think that principles of climate justice should be settled internationally even if they go against some countries’ interests, and express a preference for common (rather than differentiated) responsibilities - all the more likely when they are concerned about climate change. We observe support for two theoretical effort sharing rules: a convergence towards equal per capita emissions, and an operationalized version of grandfathering. Our survey also shows inconsistencies in observed fairness judgements, and that citizens have difficulties coordinating on simple judgements regarding existing nationally determined contributions. We eventually call for the progressive development of standardised surveys on these questions.",
-      "abstract_cn": "各国是否对《巴黎协定》做出了公平的贡献？这一核心问题的答案可以依赖于关于现有——以及可能共享的——公平观点的知识。然而，目前关于现有公平观点的研究很少，且往往实践范围有限。在本文中，我们设计并实施了一项调查，以获取法国和美国公民关于这些问题的公平判断。我们发现，在这两个国家中，大多数受访者认为气候正义原则应在国际上解决，即使这些原则违背某些国家的利益，并且他们倾向于共同（而非区别）责任——当他们对气候变化感到担忧时，这种倾向更为明显。我们观察到对两种理论努力分担规则的支持：一种趋向于人均排放量相等，另一种是祖父条款的操作化版本。我们的调查还显示了观察到的公平判断中的不一致性，以及公民在就现有国家自主贡献做出简单判断时存在困难。我们最终呼吁逐步发展关于这些问题的标准化调查。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-024-00931-5",
       "source_url": "https://doi.org/10.1007/s10640-024-00931-5",
       "publication_date": "2025",
@@ -297,21 +257,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i1d10.1007_s10640-024-00931-5.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:30:53+00:00",
-        "source_hash": "b45ec594337244a1fb598a9610f7e0af034598746a4fd1ec9a4c5ee019c1185c"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     }
   ],
   "quality": {
@@ -325,45 +279,17 @@
     "excluded_items": [
       {
         "title_en": "Correction to: Extended Producer Responsibility and Trade Flows in Waste: The Case of Batteries",
-        "reason": "correction_notice",
-        "doi": "10.1007/s10640-024-00913-7",
-        "article_type": "correction"
+        "reason": "non_research_title",
+        "doi": "10.1007/s10640-024-00913-7"
       }
     ],
     "doi_complete": 7,
     "authors_complete": 7,
     "abstract_en_complete": 7,
-    "translation_complete": 7,
+    "translation_complete": 0,
     "duplicate_count": 0,
-    "flags": [],
-    "official_item_count": 8,
-    "publishable_item_count": 7,
-    "content_counts": {
-      "official_items": 8,
-      "observed_items": 8,
-      "publishable_items": 7,
-      "research_articles": 7,
-      "comments": 0,
-      "short_communications": 0,
-      "corrections": 1,
-      "editorial_material": 0,
-      "front_matter": 0,
-      "other_excluded": 0,
-      "catalog_content_items": 8
-    }
-  },
-  "content_counts": {
-    "official_items": 8,
-    "observed_items": 8,
-    "publishable_items": 7,
-    "research_articles": 7,
-    "comments": 0,
-    "short_communications": 0,
-    "corrections": 1,
-    "editorial_material": 0,
-    "front_matter": 0,
-    "other_excluded": 0,
-    "catalog_content_items": 8
-  },
-  "issue_label": "Vol. 88 · No. 1"
+    "flags": [
+      "translation_incomplete"
+    ]
+  }
 }

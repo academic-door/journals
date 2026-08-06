@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-06T12:26:25+00:00",
   "expected_article_count": 7,
   "research_article_count": 7,
-  "status": "ready",
+  "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
@@ -19,14 +19,14 @@
       "source_sequence": 1,
       "article_type": "research-article",
       "title_en": "Introducing and Terminating Monetary Incentives in Non-Regenerating Forests: Insights from a Framed Field Experiment",
-      "title_cn": "非再生森林中货币激励的引入与终止：来自框架田野实验的见解",
+      "title_cn": "",
       "authors": [
         "Nils Christian Hoenow",
         "Gunther Bensch",
         "Michael Kirk"
       ],
-      "abstract_en": "In regions with low soil fertility, smallholder farmers often clear forest to sustain agricultural yields. This pattern becomes more problematic where forest regrowth is slow, contributing to local forest loss and global environmental challenges such as climate change and biodiversity decline. This paper presents findings from a framed field experiment that examines how different types of monetary incentives affect forest-clearing decisions in northern Namibia, a semi-arid region with negligible forest regrowth. We implemented a common-pool resource game with 518 smallholder farmers across 25 villages, in which a forest stock declines dynamically based on participants’ clearing decisions, without immediate regrowth. The game spans three periods: a baseline without incentives, an intervention period where participants receive either individual rewards, collective rewards, an individual fee, or no incentives (control group), and a post-incentive phase. This setup allows us to assess both the immediate effects of incentives and their persistence after incentive removal. All incentive types reduce clearing compared to the baseline, but not significantly more than in the control condition, where clearing also declined – an unexpected trend likely linked to features of the dynamic game design. Incentive effects largely dissipate after removal, with no strong evidence of lasting motivational crowding-in or crowding-out. Overall, our results suggest that moderate payments may be insufficient to sustain cooperation in persistent resource dilemmas. More broadly, they highlight the importance of multifaceted analysis including control conditions and careful experimental framing in field-laboratory studies, coupled with caution in generalizing findings to other settings or policy applications.",
-      "abstract_cn": "在土壤肥力低的地区，小农常常通过砍伐森林来维持农业产量。在森林再生缓慢的地区，这种模式变得更加问题重重，导致当地森林损失和全球环境挑战，如气候变化和生物多样性下降。本文介绍了一项框架田野实验的结果，该实验考察了不同类型的货币激励如何影响纳米比亚北部（一个森林再生几乎为零的半干旱地区）的森林砍伐决策。我们实施了一个公共池资源博弈，涉及25个村庄的518名小农，其中森林存量根据参与者的砍伐决策动态下降，且没有即时再生。博弈分为三个阶段：无激励的基线期、干预期（参与者接受个人奖励、集体奖励、个人费用或无激励（对照组）），以及激励后阶段。这种设置使我们能够评估激励的即时效应及其在激励移除后的持续性。所有激励类型相比基线减少了砍伐，但并未显著多于对照组，对照组中砍伐也有所下降——这一意外趋势可能与动态博弈设计的特征有关。激励效应在移除后基本消散，没有强有力的证据表明存在持久的动机挤入或挤出。总体而言，我们的结果表明，适度的支付可能不足以在持续的资源困境中维持合作。更广泛地说，它们强调了在田野实验室研究中包括控制条件和仔细的实验框架的多方面分析的重要性，以及对将发现推广到其他环境或政策应用持谨慎态度。",
+      "abstract_en": "Abstract In regions with low soil fertility, smallholder farmers often clear forest to sustain agricultural yields. This pattern becomes more problematic where forest regrowth is slow, contributing to local forest loss and global environmental challenges such as climate change and biodiversity decline. This paper presents findings from a framed field experiment that examines how different types of monetary incentives affect forest-clearing decisions in northern Namibia, a semi-arid region with negligible forest regrowth. We implemented a common-pool resource game with 518 smallholder farmers across 25 villages, in which a forest stock declines dynamically based on participants’ clearing decisions, without immediate regrowth. The game spans three periods: a baseline without incentives, an intervention period where participants receive either individual rewards, collective rewards, an individual fee, or no incentives (control group), and a post-incentive phase. This setup allows us to assess both the immediate effects of incentives and their persistence after incentive removal. All incentive types reduce clearing compared to the baseline, but not significantly more than in the control condition, where clearing also declined – an unexpected trend likely linked to features of the dynamic game design. Incentive effects largely dissipate after removal, with no strong evidence of lasting motivational crowding-in or crowding-out. Overall, our results suggest that moderate payments may be insufficient to sustain cooperation in persistent resource dilemmas. More broadly, they highlight the importance of multifaceted analysis including control conditions and careful experimental framing in field-laboratory studies, coupled with caution in generalizing findings to other settings or policy applications.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-026-01095-0",
       "source_url": "https://doi.org/10.1007/s10640-026-01095-0",
       "publication_date": "2026",
@@ -38,21 +38,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v89y2026i6d10.1007_s10640-026-01095-0.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:09:56+00:00",
-        "source_hash": "cb1d1e154b4c3777388709998f7fe391e4d015a4572119f00dc1a480251d44a8"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-026-01085-2",
@@ -60,15 +54,15 @@
       "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Adjacency Externality and the Timing of Timber Harvesting – The Case of Windthrow Risk",
-      "title_cn": "邻接外部性与木材采伐时机——以风倒风险为例",
+      "title_cn": "",
       "authors": [
         "Jussi Lintunen",
         "Matti Hyyrynen",
         "Jonathan Holder",
         "Mikko Peltoniemi"
       ],
-      "abstract_en": "We examine the timing of timber harvesting, when neighboring forest stands interact through windthrow risk. Positive adjacency externality stems from the sheltering effect of tall trees whereas negative externality stems from a windthrow-prone border created by clear felling or wind damage. We model wind damages as catastrophic, which call for immediate salvage harvest and regeneration. We augment previous optimal rotation results by extending the analysis to a dynamic harvest policy, where harvest age depends on the age of the neighboring stand. We examine both an efficient equilibrium and an inefficient noncooperative Markov perfect equilibrium. In the efficient equilibrium, where the externality is internalized, harvest is delayed when the neighboring stand is mature. This delay provides shelter by postponing harvest-created border risks. In the noncooperative equilibrium, the shelter is not provided, yet the harvest age adapts to increased risk-levels due to the border effect. We numerically test the magnitude of the border effect under various model assumptions and find that pricing the carbon externality makes the harvest policy more responsive to the adjacency externality.",
-      "abstract_cn": "我们研究了当邻近林分通过风倒风险相互作用时，木材采伐的时机问题。正邻接外部性源于高大树木的庇护效应，而负外部性则源于皆伐或风害造成的易风倒边界。我们将风害建模为灾难性事件，需要立即进行抢救性采伐和更新。我们通过将分析扩展到动态采伐政策，其中采伐年龄取决于邻近林分的年龄，从而增强了先前的最优轮伐结果。我们同时考察了有效均衡和低效的非合作马尔可夫完美均衡。在有效均衡中，外部性被内部化，当邻近林分成熟时，采伐被延迟。这种延迟通过推迟采伐造成的边界风险来提供庇护。在非合作均衡中，庇护不被提供，但采伐年龄会适应因边界效应而增加的风险水平。我们在各种模型假设下数值测试了边界效应的幅度，并发现对碳外部性定价会使采伐政策对邻接外部性更加敏感。",
+      "abstract_en": "Abstract We examine the timing of timber harvesting, when neighboring forest stands interact through windthrow risk. Positive adjacency externality stems from the sheltering effect of tall trees whereas negative externality stems from a windthrow-prone border created by clear felling or wind damage. We model wind damages as catastrophic, which call for immediate salvage harvest and regeneration. We augment previous optimal rotation results by extending the analysis to a dynamic harvest policy, where harvest age depends on the age of the neighboring stand. We examine both an efficient equilibrium and an inefficient noncooperative Markov perfect equilibrium. In the efficient equilibrium, where the externality is internalized, harvest is delayed when the neighboring stand is mature. This delay provides shelter by postponing harvest-created border risks. In the noncooperative equilibrium, the shelter is not provided, yet the harvest age adapts to increased risk-levels due to the border effect. We numerically test the magnitude of the border effect under various model assumptions and find that pricing the carbon externality makes the harvest policy more responsive to the adjacency externality.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-026-01085-2",
       "source_url": "https://doi.org/10.1007/s10640-026-01085-2",
       "publication_date": "2026",
@@ -80,21 +74,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v89y2026i6d10.1007_s10640-026-01085-2.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:09:18+00:00",
-        "source_hash": "c2475ed522c27643ded684ddaa61a124971c8e620b3705d7511b844d5dd992c8"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-026-01086-1",
@@ -102,13 +90,13 @@
       "source_sequence": 3,
       "article_type": "research-article",
       "title_en": "Harnessing Social Information to Improve Public Support for Pigouvian Taxes",
-      "title_cn": "利用社会信息提升公众对庇古税的支持",
+      "title_cn": "",
       "authors": [
         "Marion Dupoux",
         "Benjamin Ouvrard"
       ],
       "abstract_en": "Pigouvian taxes are often unpopular among the general public. We test the effectiveness of pro-tax social information in increasing support for such taxes. In a lab experiment that involves a market game with externalities, we provide subjects with information about other participants’ views about the “right thing to do” (voting, or not, for the tax policy). We also elicit personal, normative, and positive beliefs. Our findings demonstrate a causal effect of social information provision on subjects’ support for the tax, and that subjects’ changes in beliefs is a causal mechanism through which this increased support for the tax is made possible. We therefore highlight the important role of beliefs in voting behaviors and the acceptability of Pigouvian taxes.",
-      "abstract_cn": "庇古税在公众中往往不受欢迎。我们测试了支持税收的社会信息在增加对此类税收支持方面的有效性。在一个涉及外部性的市场博弈实验室实验中，我们向受试者提供关于其他参与者对“正确做法”（投票支持或不支持税收政策）的看法的信息。我们还引出了个人、规范性和实证信念。我们的研究结果表明，社会信息的提供对受试者支持税收具有因果效应，并且受试者信念的变化是这种增加税收支持得以实现的因果机制。因此，我们强调了信念在投票行为及庇古税可接受性中的重要作用。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-026-01086-1",
       "source_url": "https://doi.org/10.1007/s10640-026-01086-1",
       "publication_date": "2026",
@@ -120,21 +108,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v89y2026i6d10.1007_s10640-026-01086-1.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:35:30+00:00",
-        "source_hash": "ff8232e78591701bd1cbaac60e3019443220f64a2b09aaa2116408bf8e775145"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-026-01094-1",
@@ -142,14 +124,14 @@
       "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Population Ageing and the Environment: A Comparative Study of Nature-Concerning and Action-Requiring Outcomes",
-      "title_cn": "人口老龄化与环境：关注自然与要求行动结果的比较研究",
+      "title_cn": "",
       "authors": [
         "Andreas Irmen",
         "Maria Krelifa",
         "Anastasia Litina"
       ],
-      "abstract_en": "This study examines an under-explored implication of population ageing: its relationship with environmental outcomes at the country level and environmental attitudes at the individual level. The analysis introduces a novel classification of environmental outcomes, distinguishing between action-requiring and nature-concerning dimensions based on the degree of civic engagement necessary for their realisation. Using panel data from a broad set of countries over the period 1995–2018, population ageing is shown to be associated with improvements in environmental outcomes that require limited civic engagement, while no systematic relationship is observed for outcomes that rely on active public participation. Complementary evidence from individual-level survey data for 2005–2016 indicates that ageing societies exhibit lower levels of environmental engagement, without a corresponding decline in underlying environmental concern. The findings contribute to the literature on demographic change and environmental performance by highlighting the role of civic engagement as a mediating mechanism and suggest that ageing societies may face specific challenges in sustaining participatory forms of environmental action.",
-      "abstract_cn": "本研究探讨了人口老龄化一个未被充分研究的含义：其与国家层面环境结果及个体层面环境态度的关系。分析引入了一种新颖的环境结果分类，根据实现这些结果所需的公民参与程度，区分了要求行动和关注自然两个维度。利用1995-2018年间广泛国家面板数据，研究表明人口老龄化与需要有限公民参与的环境结果改善相关，而对于依赖公众积极参与的结果则未观察到系统性关系。来自2005-2016年个体层面调查数据的补充证据表明，老龄化社会表现出较低的环境参与水平，而潜在的环境关注并未相应下降。这些发现通过强调公民参与作为中介机制的作用，为人口变化与环境绩效的文献做出贡献，并表明老龄化社会在维持参与式环境行动方面可能面临特定挑战。",
+      "abstract_en": "Abstract This study examines an under-explored implication of population ageing: its relationship with environmental outcomes at the country level and environmental attitudes at the individual level. The analysis introduces a novel classification of environmental outcomes, distinguishing between action-requiring and nature-concerning dimensions based on the degree of civic engagement necessary for their realisation. Using panel data from a broad set of countries over the period 1995–2018, population ageing is shown to be associated with improvements in environmental outcomes that require limited civic engagement, while no systematic relationship is observed for outcomes that rely on active public participation. Complementary evidence from individual-level survey data for 2005–2016 indicates that ageing societies exhibit lower levels of environmental engagement, without a corresponding decline in underlying environmental concern. The findings contribute to the literature on demographic change and environmental performance by highlighting the role of civic engagement as a mediating mechanism and suggest that ageing societies may face specific challenges in sustaining participatory forms of environmental action.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-026-01094-1",
       "source_url": "https://doi.org/10.1007/s10640-026-01094-1",
       "publication_date": "2026",
@@ -161,21 +143,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v89y2026i6d10.1007_s10640-026-01094-1.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:09:52+00:00",
-        "source_hash": "bc542cbcce458cf09234b88529dfa4ff04ff31ccc78be2f514c9dc76cb8fce5a"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-026-01088-z",
@@ -183,7 +159,7 @@
       "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "Realtor Forecasting Accuracy on Homebuyer Preferences for Energy Efficiency",
-      "title_cn": "房地产经纪人对购房者能源效率偏好的预测准确性",
+      "title_cn": "",
       "authors": [
         "Erik Gråd",
         "Anna Kristina Edenbrandt",
@@ -191,8 +167,8 @@
         "Emilia Mattsson",
         "Jens Rommel"
       ],
-      "abstract_en": "Residential energy use is a major contributor to total energy consumption and CO 2 emissions, and energy costs can take up high shares of household spending. In this context, we make three contributions to the literature. First, using a discrete choice experiment with 1,389 prospective homebuyers in Sweden, we investigate how homebuyers account for energy efficiency of buildings compared to other attributes when looking for a new home. Second, we elicit forecasts from a sample of 252 realtors whom we ask to predict homebuyers’ preferences, allowing us to shed light on the role these important mediators play regarding energy efficiency in the housing market. Third, we estimate how providing prior information on homebuyers’ choices affects realtors’ forecasting accuracy. For homebuyers, we find that energy efficiency ranks low overall. Realtors’ forecasting accuracy is lower for the energy efficiency attribute. Providing realtors with more prior information has sizeable positive effects on forecasting accuracy, and information also affects self-reported difficulty of and confidence in the forecasts.",
-      "abstract_cn": "住宅能源使用是总能源消耗和二氧化碳2排放的主要贡献者，能源成本在家庭支出中占据很大比例。在这种背景下，我们对文献做出了三项贡献。首先，我们对瑞典的1,389位潜在购房者进行了离散选择实验，研究了购房者在寻找新房时如何考虑建筑物的能源效率与其他属性的比较。其次，我们从252房地产经纪人样本中得出预测，我们要求他们预测购房者的偏好，从而使我们能够阐明这些重要的中介因素在住房市场能源效率方面所发挥的作用。第三，我们估计提供有关购房者选择的先验信息如何影响房地产经纪人的预测准确性。对于购房者来说，我们发现能源效率总体排名较低。房地产经纪人对能源效率属性的预测准确性较低。为房地产经纪人提供更多先验信息对预测准确性具有相当大的积极影响，并且信息还会影响自我报告的预测难度和信心。",
+      "abstract_en": "Abstract Residential energy use is a major contributor to total energy consumption and CO 2 emissions, and energy costs can take up high shares of household spending. In this context, we make three contributions to the literature. First, using a discrete choice experiment with 1,389 prospective homebuyers in Sweden, we investigate how homebuyers account for energy efficiency of buildings compared to other attributes when looking for a new home. Second, we elicit forecasts from a sample of 252 realtors whom we ask to predict homebuyers’ preferences, allowing us to shed light on the role these important mediators play regarding energy efficiency in the housing market. Third, we estimate how providing prior information on homebuyers’ choices affects realtors’ forecasting accuracy. For homebuyers, we find that energy efficiency ranks low overall. Realtors’ forecasting accuracy is lower for the energy efficiency attribute. Providing realtors with more prior information has sizeable positive effects on forecasting accuracy, and information also affects self-reported difficulty of and confidence in the forecasts.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-026-01088-z",
       "source_url": "https://doi.org/10.1007/s10640-026-01088-z",
       "publication_date": "2026",
@@ -204,21 +180,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v89y2026i6d10.1007_s10640-026-01088-z.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "google-translate",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-06T11:09:31+00:00",
-        "source_hash": "50c54c77e89e567567f42b8a4830d9ae1330e7c5ba678f331d6e3a1bca7206a1"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-026-01093-2",
@@ -226,13 +196,13 @@
       "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "Tax Progressivity of Carbon and Gasoline Taxes: The Role of Income Inequality",
-      "title_cn": "碳税与汽油税的累进性：收入不平等的作用",
+      "title_cn": "",
       "authors": [
         "Julius J. Andersson",
         "Giles Atkinson"
       ],
-      "abstract_en": "We present a simple model showing how income inequality and the income elasticity of demand jointly shape the tax progressivity of indirect taxes, with rising inequality increasing the regressivity of taxes on necessities. We test the model’s predictions by analyzing the Swedish carbon tax on transport fuel. We find that the tax becomes increasingly regressive over time, closely tracking rising income inequality. We also show that the relative incidence shifts from regressive to progressive when using annual expenditure rather than annual income as the welfare measure, as expenditure is more evenly distributed. A cross-country analysis of gasoline taxes in high-income nations further supports our findings, establishing a strong correlation between higher inequality and greater regressivity. Our model helps policymakers identify when complementary redistributive measures such as lump-sum transfers may become necessary.",
-      "abstract_cn": "我们提出了一个简单模型，展示收入不平等和需求的收入弹性如何共同塑造间接税的累进性，其中不平等加剧会增加对必需品税收的累退性。我们通过分析瑞典对运输燃料征收的碳税来检验模型的预测。我们发现，该税种随时间推移变得越来越累退，与收入不平等的上升紧密相关。我们还表明，当使用年度支出而非年度收入作为福利衡量标准时，相对负担从累退转为累进，因为支出的分布更为均匀。对高收入国家汽油税的跨国分析进一步支持了我们的发现，确立了更高不平等与更大累退性之间的强相关性。我们的模型有助于政策制定者识别何时可能需要补充性再分配措施，如一次性转移支付。",
+      "abstract_en": "Abstract We present a simple model showing how income inequality and the income elasticity of demand jointly shape the tax progressivity of indirect taxes, with rising inequality increasing the regressivity of taxes on necessities. We test the model’s predictions by analyzing the Swedish carbon tax on transport fuel. We find that the tax becomes increasingly regressive over time, closely tracking rising income inequality. We also show that the relative incidence shifts from regressive to progressive when using annual expenditure rather than annual income as the welfare measure, as expenditure is more evenly distributed. A cross-country analysis of gasoline taxes in high-income nations further supports our findings, establishing a strong correlation between higher inequality and greater regressivity. Our model helps policymakers identify when complementary redistributive measures such as lump-sum transfers may become necessary.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-026-01093-2",
       "source_url": "https://doi.org/10.1007/s10640-026-01093-2",
       "publication_date": "2026",
@@ -244,21 +214,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v89y2026i6d10.1007_s10640-026-01093-2.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:09:48+00:00",
-        "source_hash": "bd2b3e543f72d69bf45cc2cf1525386a00a97553faac31e78e377ddde3ea980a"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-026-01089-y",
@@ -266,12 +230,12 @@
       "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "The Green Peace Dividend: The Effects of Militarisation on Emissions and the Green Transition",
-      "title_cn": "绿色和平红利：军事化对排放和绿色转型的影响",
+      "title_cn": "",
       "authors": [
         "Balázs Markó"
       ],
-      "abstract_en": "This paper argues that military buildups lead to a significant rise in greenhouse gas emissions and can disrupt the green transition. Identifying military spending shocks, I use local projections to show that a percentage point rise in the military spending share leads to a 0.9–2% rise in total emissions, as well as a 1% rise in emission intensity, depending on the economy’s overall emission intensity. Using a dynamic production network model calibrated for the US, I find that a permanent shock of the same size would increase total emissions by between 0.25% and 1.38%, and emission intensity by between 0.12% and 1.06%. The empirical analysis tentatively suggests that green patenting may be reduced by 10–25% following such a shock, and the model suggests that investment in renewables could be crowded out by defence spending under certain circumstances, hindering the energy transition. I show in a directed technical change model that crowding out green innovation could result in the growth rate - not just the level - of emissions becoming higher. These effects can significantly raise climate damages. Depending on the social cost of carbon and the composition of a military spending shock, I estimate that permanently doubling the military spending share in the US in 2017 (equal to 3.3% of GDP) would have led to climate damages equivalent to between 0.05–1.81% of US GDP per year.",
-      "abstract_cn": "本文认为，军事集结会导致温室气体排放大幅增加，并可能破坏绿色转型。在确定军费开支冲击时，我使用当地预测来表明，军费开支份额每增加一个百分点，就会导致总排放量增加 0.9-2%，以及排放强度 1% 增加，具体取决于经济体的总体排放强度。使用针对美国校准的动态生产网络模型，我发现相同规模的永久性冲击将使总排放量增加 0.25% 和 1.38% 之间，排放强度增加 0.12% 和 1.06% 之间。实证分析初步表明，在这种冲击之后，绿色专利申请可能会减少10-25%，并且该模型表明，在某些情况下，对可再生能源的投资可能会被国防开支挤出，从而阻碍能源转型。我在定向技术变革模型中表明，排挤绿色创新可能会导致排放量的增长率（而不仅仅是水平）变得更高。这些影响会显着加剧气候损害。根据碳的社会成本和军费开支冲击的构成，我估计，如果 2017 美国军费开支份额永久翻倍（相当于 GDP 的 3.3%），将导致每年相当于美国 GDP 0.05-1.81% 的气候损害。",
+      "abstract_en": "Abstract This paper argues that military buildups lead to a significant rise in greenhouse gas emissions and can disrupt the green transition. Identifying military spending shocks, I use local projections to show that a percentage point rise in the military spending share leads to a 0.9–2% rise in total emissions, as well as a 1% rise in emission intensity, depending on the economy’s overall emission intensity. Using a dynamic production network model calibrated for the US, I find that a permanent shock of the same size would increase total emissions by between 0.25% and 1.38%, and emission intensity by between 0.12% and 1.06%. The empirical analysis tentatively suggests that green patenting may be reduced by 10–25% following such a shock, and the model suggests that investment in renewables could be crowded out by defence spending under certain circumstances, hindering the energy transition. I show in a directed technical change model that crowding out green innovation could result in the growth rate - not just the level - of emissions becoming higher. These effects can significantly raise climate damages. Depending on the social cost of carbon and the composition of a military spending shock, I estimate that permanently doubling the military spending share in the US in 2017 (equal to 3.3% of GDP) would have led to climate damages equivalent to between 0.05–1.81% of US GDP per year.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-026-01089-y",
       "source_url": "https://doi.org/10.1007/s10640-026-01089-y",
       "publication_date": "2026",
@@ -283,21 +247,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v89y2026i6d10.1007_s10640-026-01089-y.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "google-translate",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-06T11:09:45+00:00",
-        "source_hash": "b30e3c8ced34dfa629766bf7983ef18577fb84c05053ebad648b135ade5ea2e4"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     }
   ],
   "quality": {
@@ -312,37 +270,10 @@
     "doi_complete": 7,
     "authors_complete": 7,
     "abstract_en_complete": 7,
-    "translation_complete": 7,
+    "translation_complete": 0,
     "duplicate_count": 0,
-    "flags": [],
-    "official_item_count": 7,
-    "publishable_item_count": 7,
-    "content_counts": {
-      "official_items": 7,
-      "observed_items": 7,
-      "publishable_items": 7,
-      "research_articles": 7,
-      "comments": 0,
-      "short_communications": 0,
-      "corrections": 0,
-      "editorial_material": 0,
-      "front_matter": 0,
-      "other_excluded": 0,
-      "catalog_content_items": 7
-    }
-  },
-  "content_counts": {
-    "official_items": 7,
-    "observed_items": 7,
-    "publishable_items": 7,
-    "research_articles": 7,
-    "comments": 0,
-    "short_communications": 0,
-    "corrections": 0,
-    "editorial_material": 0,
-    "front_matter": 0,
-    "other_excluded": 0,
-    "catalog_content_items": 7
-  },
-  "issue_label": "Vol. 89 · No. 6"
+    "flags": [
+      "translation_incomplete"
+    ]
+  }
 }

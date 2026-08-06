@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-06T12:26:14+00:00",
   "expected_article_count": 1,
   "research_article_count": 1,
-  "status": "ready",
+  "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
@@ -19,14 +19,14 @@
       "source_sequence": 1,
       "article_type": "research-article",
       "title_en": "Assessing the Impact of Separate Biowaste Collection on Residual Household Waste an Analysis at the French Intermunicipal Level",
-      "title_cn": "评估单独生物垃圾收集对剩余生活垃圾的影响：法国市镇间层面的分析",
+      "title_cn": "",
       "authors": [
         "Aissatou Ndimblane",
         "Olivier Aznar",
         "Kassoum Ayouba"
       ],
       "abstract_en": "This study evaluates the effectiveness of separate biowaste collection implemented by French local authorities by assessing its impact on the quantities of residual household waste collected per capita. Using a staggered Difference-in-Differences approach, we first examine the dynamic effect of biowaste separation policies on residual household waste. We then explore the heterogeneity of this effect across various economic and sociodemographic contexts, as well as under different waste pricing systems. Our findings reveal that, in the period following adoption, there was a significant average reduction of approximately 19.56 kg per capita in residual household waste among intermunicipal entities that implemented separate biowaste collection. However, this initial reduction is not sustained over time. The heterogeneity analysis shows that low-density areas and intermunicipal entities with limited tourist accommodations experience larger reductions in residual household waste after implementing separate biowaste collection, compared to high-density and high-tourism areas. Furthermore, our results suggest that incentive-based pricing systems significantly contribute to reducing residual household waste. Based on these results, we suggest ways to improve local public waste management policies.",
-      "abstract_cn": "本研究通过评估法国地方政府实施的单独生物垃圾收集对人均剩余生活垃圾收集量的影响，来评价其有效性。采用交错双重差分方法，我们首先考察了生物垃圾分离政策对剩余生活垃圾的动态效应。随后，我们探讨了该效应在不同经济和社会人口背景以及不同垃圾定价体系下的异质性。我们的研究结果显示，在政策采纳后的时期内，实施单独生物垃圾收集的市镇间实体中，人均剩余生活垃圾显著平均减少了约19.56公斤。然而，这一初步减少并未随时间持续。异质性分析表明，与高密度和高旅游区域相比，低密度地区和旅游住宿有限的市镇间实体在实施单独生物垃圾收集后，剩余生活垃圾的减少幅度更大。此外，我们的结果表明，激励性定价体系显著有助于减少剩余生活垃圾。基于这些结果，我们提出了改进地方公共垃圾管理政策的建议。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-026-01087-0",
       "source_url": "https://doi.org/10.1007/s10640-026-01087-0",
       "publication_date": "2026",
@@ -38,21 +38,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v89y2026i5d10.1007_s10640-026-01087-0.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:35:27+00:00",
-        "source_hash": "b18161c5e6c878862a4902f9cc5364c239dd031a4adc7fdfdf4b29b92995d760"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     }
   ],
   "quality": {
@@ -67,37 +61,10 @@
     "doi_complete": 1,
     "authors_complete": 1,
     "abstract_en_complete": 1,
-    "translation_complete": 1,
+    "translation_complete": 0,
     "duplicate_count": 0,
-    "flags": [],
-    "official_item_count": 1,
-    "publishable_item_count": 1,
-    "content_counts": {
-      "official_items": 1,
-      "observed_items": 1,
-      "publishable_items": 1,
-      "research_articles": 1,
-      "comments": 0,
-      "short_communications": 0,
-      "corrections": 0,
-      "editorial_material": 0,
-      "front_matter": 0,
-      "other_excluded": 0,
-      "catalog_content_items": 1
-    }
-  },
-  "content_counts": {
-    "official_items": 1,
-    "observed_items": 1,
-    "publishable_items": 1,
-    "research_articles": 1,
-    "comments": 0,
-    "short_communications": 0,
-    "corrections": 0,
-    "editorial_material": 0,
-    "front_matter": 0,
-    "other_excluded": 0,
-    "catalog_content_items": 1
-  },
-  "issue_label": "Vol. 89 · No. 5"
+    "flags": [
+      "translation_incomplete"
+    ]
+  }
 }

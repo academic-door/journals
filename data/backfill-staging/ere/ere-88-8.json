@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-06T12:23:24+00:00",
   "expected_article_count": 9,
   "research_article_count": 9,
-  "status": "ready",
+  "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
@@ -19,7 +19,7 @@
       "source_sequence": 1,
       "article_type": "comment",
       "title_en": "A New Era of Data Availability for Environmental and Resource Economics Papers",
-      "title_cn": "环境与资源经济学论文数据可得性的新时代",
+      "title_cn": "",
       "authors": [
         "Ian J. Bateman",
         "Ana Espinola-Arredondo",
@@ -39,23 +39,16 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1007/s10640-025-01008-7"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:34:03+00:00",
-        "source_hash": "767c063a3d26e48fcb51e4a5781d28bdd4c032f3a8db59cae4943347c910abee"
+        "status": "blocked",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing",
         "abstract_en_missing"
-      ],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-00999-7",
@@ -63,13 +56,13 @@
       "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Internal Carbon Pricing in the Multidivisional Firm",
-      "title_cn": "多部门企业中的内部碳定价",
+      "title_cn": "",
       "authors": [
         "Manon Desjardins",
         "Bernard Sinclair-Desgagné"
       ],
       "abstract_en": "In response to environmental concerns, big corporations, which largely allocate resources through so-called ‘internal markets’, often seek to have the associated internal (or transfer) prices incorporate their social cost of pollution. We develop a theoretical rationale and framework to analyze this phenomenon. Our model involves two vertically related subsidiaries located in different jurisdictions. We examine how transfer prices would convey the mandatory carbon fares holding in each jurisdiction, consider the impact on each subsidiary’s production and emissions abatement, and point out the ramifications for the organization of the firm and public policy. Thereby, we also capture how the firm’s internal carbon pricing interacts with fiscal compliance. Through transfer pricing, finally, a carbon fare in one jurisdiction can have an incidence on the other jurisdiction’s subsidiary; implications for environmental governance are briefly discussed.",
-      "abstract_cn": "为应对环境关切，大型企业主要通过所谓的“内部市场”分配资源，往往寻求使相关的内部（或转移）价格包含其污染的社会成本。我们发展了一个理论依据和框架来分析这一现象。我们的模型涉及位于不同司法管辖区的两个纵向关联子公司。我们考察转移价格如何传达各司法管辖区强制性的碳费用，考虑其对每个子公司的生产和减排的影响，并指出对企业组织和公共政策的影响。由此，我们还捕捉了企业内部碳定价如何与财政合规相互作用。最后，通过转移定价，一个司法管辖区的碳费用可能对另一司法管辖区的子公司产生影响；简要讨论了环境治理的含义。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-00999-7",
       "source_url": "https://doi.org/10.1007/s10640-025-00999-7",
       "publication_date": "2025",
@@ -81,21 +74,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i8d10.1007_s10640-025-00999-7.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:34:06+00:00",
-        "source_hash": "f94f14e583b2dea15051893b2844a5fcae4578d7e407463c59a4b7985d080ba4"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-01000-1",
@@ -103,13 +90,13 @@
       "source_sequence": 3,
       "article_type": "research-article",
       "title_en": "A Method for Deriving Stated Preference Estimates of the Average Social Cost of Carbon",
-      "title_cn": "一种推导平均社会碳成本陈述性偏好估计的方法",
+      "title_cn": "",
       "authors": [
         "Matthew Ashenfarb",
         "Matthew J. Kotchen"
       ],
       "abstract_en": "This paper develops a method for deriving stated preference (SP) estimates of the average social cost of carbon (ASCC) for use in evaluation of the benefits and costs of climate policy. We illustrate the approach with a general population survey in the United States, combined with a benefits transfer to other countries. We estimate a global ASCC of $39 per tonne. The estimate is sensitive to assumptions about the income elasticity of WTP and the rate of change in marginal abatement costs. Reasonable scenarios create a range of estimates between $12-$118 per tonne. We also examine the impact of distributional weighting based on the elasticity of the marginal utility of income, providing distributionally-weighted estimates of the global ASCC for use in all countries. We argue that a SP estimate of the ASCC is a useful complement to existing estimates of the marginal social cost of carbon (SCC) based on different valuation approaches. Our framework also enables translation of global benefit measures into corresponding WTP amounts, and this provides a useful benchmark for interpreting other SCC estimates in the literature.",
-      "abstract_cn": "本文开发了一种方法，用于推导平均社会碳成本（ASCC）的陈述性偏好（SP）估计，以用于评估气候政策的收益和成本。我们通过美国的一般人口调查，并结合向其他国家的效益转移来展示该方法。我们估计全球ASCC为每吨$39美元。该估计对支付意愿（WTP）的收入弹性和边际减排成本变化率的假设敏感。合理的情景产生了每吨$12-$118美元的估计范围。我们还基于收入边际效用弹性考察了分配权重的影响，提供了适用于所有国家的全球ASCC分配加权估计。我们认为，ASCC的SP估计是对基于不同估值方法的现有边际社会碳成本（SCC）估计的有用补充。我们的框架还能将全球效益度量转化为相应的WTP金额，这为解释文献中其他SCC估计提供了一个有用的基准。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-01000-1",
       "source_url": "https://doi.org/10.1007/s10640-025-01000-1",
       "publication_date": "2025",
@@ -121,21 +108,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i8d10.1007_s10640-025-01000-1.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:34:09+00:00",
-        "source_hash": "e8d7ef67ac9ec6b15347caec94dd3cf6e06e7c83baa081114cf6dcf7cbf7c433"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-01002-z",
@@ -143,12 +124,12 @@
       "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Unintended Effects of Germany’s Nuclear Phase Out: A Rise in Mortality Due to Non-Communicable Respiratory Diseases",
-      "title_cn": "德国核淘汰的意外效应：非传染性呼吸系统疾病死亡率上升",
+      "title_cn": "",
       "authors": [
         "Tuomas Kaariaho"
       ],
-      "abstract_en": "The discussion on nuclear power balances its risks against carbon emissions resulting from nuclear phase-out. This paper studies an important unintended consequence of abandoning nuclear power: the adverse health effects of increased air pollutants. I use the synthetic control method to study the causal effect of the German nuclear phase-out on mortality. I find that the nuclear plant closures resulted in 17 life years lost each year per 100,000 inhabitants or roughly 170 premature deaths per year from non-communicable respiratory diseases. This effect accounts for an 8% increase in mortality due to respiratory diseases and corresponds to around one billion euros per year in lost lives.",
-      "abstract_cn": "关于核能的讨论在其风险与核淘汰导致的碳排放之间进行权衡。本文研究了放弃核能的一个重要意外后果：空气污染物增加对健康的不利影响。我使用合成控制法研究德国核淘汰对死亡率的因果效应。我发现，核电站关闭导致每年每100,000名居民损失17生命年，或每年因非传染性呼吸系统疾病导致约170例过早死亡。这一效应占呼吸系统疾病死亡率增加的8%，相当于每年因生命损失约十亿欧元。",
+      "abstract_en": "Abstract The discussion on nuclear power balances its risks against carbon emissions resulting from nuclear phase-out. This paper studies an important unintended consequence of abandoning nuclear power: the adverse health effects of increased air pollutants. I use the synthetic control method to study the causal effect of the German nuclear phase-out on mortality. I find that the nuclear plant closures resulted in 17 life years lost each year per 100,000 inhabitants or roughly 170 premature deaths per year from non-communicable respiratory diseases. This effect accounts for an 8% increase in mortality due to respiratory diseases and corresponds to around one billion euros per year in lost lives.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-01002-z",
       "source_url": "https://doi.org/10.1007/s10640-025-01002-z",
       "publication_date": "2025",
@@ -160,21 +141,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i8d10.1007_s10640-025-01002-z.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:06:42+00:00",
-        "source_hash": "f5f9df08daffbd81e0a53f9e92c1f3abe7a943464637cfab581972aa52c78331"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-01003-y",
@@ -182,14 +157,14 @@
       "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "DISE: A Dynamic Integrated Space-Economy Model for Orbital Debris Mitigation Policy Evaluation",
-      "title_cn": "DISE：用于轨道碎片减缓政策评估的动态综合空间-经济模型",
+      "title_cn": "",
       "authors": [
         "Anelí Bongers",
         "César Ortiz",
         "José L. Torres"
       ],
-      "abstract_en": "This paper presents the Dynamic Integrated Space-Economy (DISE) model, designed to study the economic implications of alternative policies to mitigate orbital debris. The DISE model combines a standard neoclassical growth model with a physical space model for orbital debris dynamics. The economic model categorizes capital assets into two types: Earth’s capital and Space’s capital (i.e., satellites). The orbital debris model describes the dynamic of three types of objects: derelict satellites, rocket bodies, and fragments. DISE is intended to calculate the cost of space debris and its impact on the global economy. The model is simulated for a horizon of 200 years, starting from 2024, under different scenarios, including a clean space environment, laissez-faire, derelict satellites de-orbiting policy, all intact objects de-orbiting policy, debris-free launch systems, a combination of de-orbiting and debris-free launch vehicles, and collision avoidance. We find that the implementation of de-orbiting and debris-free launch systems mitigation policies is not enough to ensure space environmental sustainability, as in the long run the main source of debris generation would be collisions. Without any debris mitigation intervention, the cost of orbital debris would be more than 0.5% of world GDP in the long-run.",
-      "abstract_cn": "本文提出了动态综合空间-经济（DISE）模型，旨在研究减缓轨道碎片的替代政策的经济影响。DISE模型将标准新古典增长模型与轨道碎片动力学的物理空间模型相结合。经济模型将资本资产分为两类：地球资本和空间资本（即卫星）。轨道碎片模型描述了三种类型物体的动态：废弃卫星、火箭体和碎片。DISE旨在计算空间碎片的成本及其对全球经济的影响。该模型在从2024年开始的200年时间范围内，在不同情景下进行模拟，包括清洁空间环境、自由放任、废弃卫星脱轨政策、所有完好物体脱轨政策、无碎片发射系统、脱轨与无碎片发射载具的组合以及碰撞规避。我们发现，实施脱轨和无碎片发射系统的减缓政策不足以确保空间环境的可持续性，因为从长远来看，碎片产生的主要来源将是碰撞。如果没有任何碎片减缓干预措施，长期内轨道碎片的成本将超过世界GDP的0.5%。",
+      "abstract_en": "Abstract This paper presents the Dynamic Integrated Space-Economy (DISE) model, designed to study the economic implications of alternative policies to mitigate orbital debris. The DISE model combines a standard neoclassical growth model with a physical space model for orbital debris dynamics. The economic model categorizes capital assets into two types: Earth’s capital and Space’s capital (i.e., satellites). The orbital debris model describes the dynamic of three types of objects: derelict satellites, rocket bodies, and fragments. DISE is intended to calculate the cost of space debris and its impact on the global economy. The model is simulated for a horizon of 200 years, starting from 2024, under different scenarios, including a clean space environment, laissez-faire, derelict satellites de-orbiting policy, all intact objects de-orbiting policy, debris-free launch systems, a combination of de-orbiting and debris-free launch vehicles, and collision avoidance. We find that the implementation of de-orbiting and debris-free launch systems mitigation policies is not enough to ensure space environmental sustainability, as in the long run the main source of debris generation would be collisions. Without any debris mitigation intervention, the cost of orbital debris would be more than 0.5% of world GDP in the long-run.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-01003-y",
       "source_url": "https://doi.org/10.1007/s10640-025-01003-y",
       "publication_date": "2025",
@@ -201,21 +176,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i8d10.1007_s10640-025-01003-y.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:06:49+00:00",
-        "source_hash": "f416c18d0180b9973c6e993839a1db430f0b4494f9a61105ace570487edf05f3"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-01004-x",
@@ -223,14 +192,14 @@
       "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "Natural Resources, Technology Improvements, and Growth",
-      "title_cn": "自然资源、技术进步与增长",
+      "title_cn": "",
       "authors": [
         "Fidel Perez-Sebastian",
         "Ohad Raveh",
         "Frederick van der Ploeg"
       ],
-      "abstract_en": "We study, analytically and empirically, how technological changes affect the nexus between resource abundance and economic growth. Our two-sector model indicates that capital-augmenting technological improvements can be contemporaneously contractionary in resource-rich economies, and expansionary elsewhere, due to differences in the size of the elasticity of substitution between labor and capital. In addition, such improvements yield relatively steeper expansionary patterns in resource-rich economies in the longer run. We test these predictions using a panel of U.S. states and counties. Our identification strategy rests on geographically-entrenched differences in resource endowments, and the adoption of plausibly exogenous technology shocks at the national level. Our core estimates corroborate our predictions. First, we document persistent differences in the elasticity of substitution between capital and labor across the natural-resource dimension. Second, we find that an increase in TFP is on impact contractionary in resource-rich states, but is non-contractionary (at worst) in resource-poor ones. Third, we illustrate that in the longer term a positive technology shock expands output and inputs in resource-rich economies relatively more strongly. Our results shed light on hitherto overlooked potential adverse effects of natural resource abundance.",
-      "abstract_cn": "我们从分析和实证角度研究技术变化如何影响资源丰裕度与经济增长之间的关系。我们的两部门模型表明，资本增强型技术进步在资源丰富的经济体中可能同时产生紧缩效应，而在其他地方则产生扩张效应，这是由于劳动与资本之间替代弹性大小的差异所致。此外，从长期来看，此类改进在资源丰富的经济体中会产生相对更陡峭的扩张模式。我们使用美国各州和县的平衡面板数据来检验这些预测。我们的识别策略依赖于地理上根深蒂固的资源禀赋差异，以及在国家层面采用看似外生的技术冲击。我们的核心估计证实了我们的预测。首先，我们记录了在自然资源维度上资本与劳动替代弹性的持续差异。其次，我们发现全要素生产率的提高在资源丰富的州立即产生紧缩效应，但在资源贫乏的州（最坏情况下）不产生紧缩效应。第三，我们说明，在长期内，正向技术冲击在资源丰富的经济体中相对更强烈地扩大产出和投入。我们的结果揭示了自然资源丰裕度迄今被忽视的潜在不利影响。",
+      "abstract_en": "Abstract We study, analytically and empirically, how technological changes affect the nexus between resource abundance and economic growth. Our two-sector model indicates that capital-augmenting technological improvements can be contemporaneously contractionary in resource-rich economies, and expansionary elsewhere, due to differences in the size of the elasticity of substitution between labor and capital. In addition, such improvements yield relatively steeper expansionary patterns in resource-rich economies in the longer run. We test these predictions using a panel of U.S. states and counties. Our identification strategy rests on geographically-entrenched differences in resource endowments, and the adoption of plausibly exogenous technology shocks at the national level. Our core estimates corroborate our predictions. First, we document persistent differences in the elasticity of substitution between capital and labor across the natural-resource dimension. Second, we find that an increase in TFP is on impact contractionary in resource-rich states, but is non-contractionary (at worst) in resource-poor ones. Third, we illustrate that in the longer term a positive technology shock expands output and inputs in resource-rich economies relatively more strongly. Our results shed light on hitherto overlooked potential adverse effects of natural resource abundance.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-01004-x",
       "source_url": "https://doi.org/10.1007/s10640-025-01004-x",
       "publication_date": "2025",
@@ -242,21 +211,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i8d10.1007_s10640-025-01004-x.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:06:52+00:00",
-        "source_hash": "889162be65c5e5d24a15edfcc655e8f743da22d4cffe0f9d79d8db2268284a33"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-01005-w",
@@ -264,7 +227,7 @@
       "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "A Stated Preference Study to Explore Market-Based Instruments to Reduce Car Usage",
-      "title_cn": "一项关于探索减少汽车使用市场工具的陈述偏好研究",
+      "title_cn": "",
       "authors": [
         "Christopher Tate",
         "Alberto Longo",
@@ -273,8 +236,8 @@
         "Leandro Garcia",
         "Ruth Hunter"
       ],
-      "abstract_en": "Car dependency is becoming an increasingly difficult problem for policymakers to contend with, and requires targeted policy solutions that balance the need for greater urban mobility with reduced congestion. We investigated public preferences for welfare measures designed to encourage car use reduction and promote more sustainable urban environments. Cross-sectional survey data were obtained from n = 773 car owners living in Belfast, United Kingdom. A discrete choice experiment was used to elicit the willingness-to-pay (WTP) for a congestion charge that would finance policies to reduce car usage. A contingent valuation question assessed the willingness-to-accept (WTA) a monetary incentive to reduce car usage. WTP values were computed using a mixed logit model, and an interval data model was used to assess the factors that were correlated with WTA. We also calculated the benefit to the economy of reduced car usage. WTP for different policy measures ranged from £2.12 to £11. The highest WTP value was observed for improvements to public transport frequency, coverage, and connectivity. The median WTA value to reduce car usage by one day per week was £3. As a result of reduced emissions and road casualties, it was estimated that this intervention would generate benefits worth £3.83 m, however this was greatly outweighed by the costs involved.",
-      "abstract_cn": "汽车依赖正成为政策制定者日益棘手的问题，需要有针对性的政策解决方案，以平衡更大的城市流动性需求与减少拥堵。我们调查了公众对旨在鼓励减少汽车使用和促进更可持续城市环境的福利措施的偏好。横截面调查数据来自居住在英国贝尔法斯特的n = 773名车主。采用离散选择实验来引出为减少汽车使用政策融资的拥堵收费的支付意愿（WTP）。一项条件价值评估问题评估了减少汽车使用的货币激励的接受意愿（WTA）。使用混合logit模型计算WTP值，并使用区间数据模型评估与WTA相关的因素。我们还计算了减少汽车使用对经济的效益。不同政策措施的WTP值从£2.12到£11不等。最高的WTP值出现在公共交通频率、覆盖范围和连通性的改善上。每周减少一天汽车使用的中位数WTA值为£3。由于排放和道路伤亡的减少，估计这项干预措施将产生价值£3.83百万的效益，然而这远低于所涉及的成本。",
+      "abstract_en": "Abstract Car dependency is becoming an increasingly difficult problem for policymakers to contend with, and requires targeted policy solutions that balance the need for greater urban mobility with reduced congestion. We investigated public preferences for welfare measures designed to encourage car use reduction and promote more sustainable urban environments. Cross-sectional survey data were obtained from n = 773 car owners living in Belfast, United Kingdom. A discrete choice experiment was used to elicit the willingness-to-pay (WTP) for a congestion charge that would finance policies to reduce car usage. A contingent valuation question assessed the willingness-to-accept (WTA) a monetary incentive to reduce car usage. WTP values were computed using a mixed logit model, and an interval data model was used to assess the factors that were correlated with WTA. We also calculated the benefit to the economy of reduced car usage. WTP for different policy measures ranged from £2.12 to £11. The highest WTP value was observed for improvements to public transport frequency, coverage, and connectivity. The median WTA value to reduce car usage by one day per week was £3. As a result of reduced emissions and road casualties, it was estimated that this intervention would generate benefits worth £3.83 m, however this was greatly outweighed by the costs involved.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-01005-w",
       "source_url": "https://doi.org/10.1007/s10640-025-01005-w",
       "publication_date": "2025",
@@ -286,21 +249,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i8d10.1007_s10640-025-01005-w.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:06:56+00:00",
-        "source_hash": "a2d0fcec0d3a500616cbb3aa24307fcbad34c879dd93d166c15ef9a205dd4763"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-01007-8",
@@ -308,13 +265,13 @@
       "source_sequence": 8,
       "article_type": "research-article",
       "title_en": "Air Pollution and COVID-19 Severity",
-      "title_cn": "空气污染与COVID-19严重程度",
+      "title_cn": "",
       "authors": [
         "Maria Alsina-Pujols",
         "Judit Vall Castelló"
       ],
-      "abstract_en": "Air pollution is a major concern that constitutes an important part of the climate change thread. Furthermore, since the outbreak of the pandemic, there is an increased interest in understanding the role of environmental conditions in determining the severity of infectious diseases. We contribute to this debate by quantifying the effect of short-term exposure to air pollution on COVID-19 mortality. We construct a novel county-level dataset of daily COVID-19 mortality and, in order to overcome the potential endogeneity problems caused by factors related to both the virus and mortality rates (such as county-level economic conditions), we use wind speed as an instrument for air pollution. Our results show that being exposed to one additional unit of nitrogen dioxide, particulate matter, and nitrogen oxides, increases COVID-19 mortality by a factor of 1.1–1.3. From a policy perspective, our findings provide insights on the design of public health actions to minimize the spread of contagious diseases and to maximize the positive impacts of pollution reduction policies on population health.",
-      "abstract_cn": "空气污染是一个主要关切，构成了气候变化问题的重要组成部分。此外，自疫情爆发以来，人们越来越关注环境条件在决定传染病严重程度中的作用。我们通过量化短期暴露于空气污染对COVID-19死亡率的影响，为这一讨论做出贡献。我们构建了一个新颖的县级每日COVID-19死亡率数据集，并且为了克服由与病毒和死亡率相关的因素（如县级经济状况）引起的潜在内生性问题，我们使用风速作为空气污染的工具变量。我们的结果表明，暴露于额外一单位的二氧化氮、颗粒物和氮氧化物，会使COVID-19死亡率增加1.1-1.3倍。从政策角度来看，我们的发现为设计公共卫生行动提供了见解，以最小化传染病的传播，并最大化污染减少政策对人口健康的积极影响。",
+      "abstract_en": "Abstract Air pollution is a major concern that constitutes an important part of the climate change thread. Furthermore, since the outbreak of the pandemic, there is an increased interest in understanding the role of environmental conditions in determining the severity of infectious diseases. We contribute to this debate by quantifying the effect of short-term exposure to air pollution on COVID-19 mortality. We construct a novel county-level dataset of daily COVID-19 mortality and, in order to overcome the potential endogeneity problems caused by factors related to both the virus and mortality rates (such as county-level economic conditions), we use wind speed as an instrument for air pollution. Our results show that being exposed to one additional unit of nitrogen dioxide, particulate matter, and nitrogen oxides, increases COVID-19 mortality by a factor of 1.1–1.3. From a policy perspective, our findings provide insights on the design of public health actions to minimize the spread of contagious diseases and to maximize the positive impacts of pollution reduction policies on population health.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-01007-8",
       "source_url": "https://doi.org/10.1007/s10640-025-01007-8",
       "publication_date": "2025",
@@ -326,21 +283,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i8d10.1007_s10640-025-01007-8.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:06:59+00:00",
-        "source_hash": "6922d17ee5c2ce225801d7c0c25f252441c1aceecfb040ab3d7d9973aa6d220d"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-01013-w",
@@ -348,14 +299,14 @@
       "source_sequence": 9,
       "article_type": "research-article",
       "title_en": "Municipal Waste Policies and Spill over Effects",
-      "title_cn": "城市垃圾政策与溢出效应",
+      "title_cn": "",
       "authors": [
         "Alessandro Bucciol",
         "Roberta Muri",
         "Francesca Rossi"
       ],
       "abstract_en": "Using a unique dataset of administrative data from municipalities in the Veneto region of Italy for 2010–2019, we develop a spatial econometric model to study the effects of two waste management policies: Door-to-Door collection and Pay-As-You-Throw tariff. We focus on the impact of these policies on waste sorting and accumulation, with particular attention to spatial spillovers. Both policies show similar effects on the outcome variables, leading to an increase in waste sorting and a reduction in waste accumulation; interestingly, we also find evidence of spatial spillovers. However, we identify unintended negative spillovers, where waste is diverted to neighboring municipalities with less stringent regimes, potentially undermining policy effectiveness. This study is the first to use a spatial econometric model to investigate how the adoption of a policy in a municipality affects waste production in surrounding areas, highlighting the need for coordinated decisions in the implementation of waste management policies.",
-      "abstract_cn": "利用意大利威尼托大区各市镇2010-2019年行政数据的独特数据集，我们构建了一个空间计量经济模型，以研究两种垃圾管理政策的影响：上门收集和按量付费 tariff。我们关注这些政策对垃圾分类和累积的影响，特别关注空间溢出效应。两种政策对结果变量表现出相似的影响，导致垃圾分类增加和垃圾累积减少；有趣的是，我们还发现了空间溢出效应的证据。然而，我们识别出意外的负面溢出，即垃圾被转移到邻近政策较宽松的市镇，这可能削弱政策有效性。本研究首次使用空间计量经济模型来调查一个市镇采用政策如何影响周边地区的垃圾产生，强调了在实施垃圾管理政策时协调决策的必要性。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-01013-w",
       "source_url": "https://doi.org/10.1007/s10640-025-01013-w",
       "publication_date": "2025",
@@ -367,21 +318,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i8d10.1007_s10640-025-01013-w.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:34:12+00:00",
-        "source_hash": "37b3398a46ab4305375054b6587ddd652a08701cecad473f85ae859a63fe3815"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     }
   ],
   "quality": {
@@ -396,37 +341,10 @@
     "doi_complete": 9,
     "authors_complete": 9,
     "abstract_en_complete": 9,
-    "translation_complete": 9,
+    "translation_complete": 0,
     "duplicate_count": 0,
-    "flags": [],
-    "official_item_count": 9,
-    "publishable_item_count": 9,
-    "content_counts": {
-      "official_items": 9,
-      "observed_items": 9,
-      "publishable_items": 9,
-      "research_articles": 8,
-      "comments": 1,
-      "short_communications": 0,
-      "corrections": 0,
-      "editorial_material": 0,
-      "front_matter": 0,
-      "other_excluded": 0,
-      "catalog_content_items": 9
-    }
-  },
-  "content_counts": {
-    "official_items": 9,
-    "observed_items": 9,
-    "publishable_items": 9,
-    "research_articles": 8,
-    "comments": 1,
-    "short_communications": 0,
-    "corrections": 0,
-    "editorial_material": 0,
-    "front_matter": 0,
-    "other_excluded": 0,
-    "catalog_content_items": 9
-  },
-  "issue_label": "Vol. 88 · No. 8"
+    "flags": [
+      "translation_incomplete"
+    ]
+  }
 }

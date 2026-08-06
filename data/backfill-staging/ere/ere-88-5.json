@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-06T12:22:30+00:00",
   "expected_article_count": 10,
   "research_article_count": 10,
-  "status": "ready",
+  "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
@@ -19,13 +19,13 @@
       "source_sequence": 1,
       "article_type": "research-article",
       "title_en": "Effectiveness and Distributional Impacts of Conservation Policies: The Role of Labor Markets",
-      "title_cn": "保护政策的有效性与分配影响：劳动力市场的作用",
+      "title_cn": "",
       "authors": [
         "Srabashi Ray",
         "Thomas W. Hertel"
       ],
       "abstract_en": "Conservation policies are critical for sustainable management of natural resources. Ray et al. (2023) argues that rigidities in labor markets dampens the impact of conservation policies, in terms of changes in employment and production while also ignoring endogenous change in wages. In this paper, we find that the interaction between conservation policies and labor markets are more complex. We develop a stylized two-input framework that identifies key parameters that determine the effectiveness (in terms of resources conserved) and distributional effects of a conservation policy (amongst consumers, resource owners and farmworkers) depending on the representation of labor markets. The empirical application of the theoretical model is motivated by the dual challenges of increasing scarcity in agricultural workers and over-exploitation of groundwater for irrigated crop production in the Western US. We use the SIMPLE-G-CZ (Simplified International Model of agricultural Prices, Land use, and the Environment, Gridded with Commuting Zones), which is a partial equilibrium model for agricultural production with spatially explicit labor markets. The SIMPLE framework uses data from multiple sources to incorporate the heterogeneity in biophysical conditions that underlie producer behavior with high spatial granularity. Our analysis shows that a key analytical relationship (i.e., Condition C1), can identify the subset of grid-cells where ignoring labor markets would over-estimate effectiveness and under-estimate adverse distributional impacts of a conservation policy. Restrictions on labor mobility, limits spatial spillover effects, that can facilitate relocation of production away from resource-scarce regions to alleviate stress on over-exploited resources. Conservation policies are expected to increase resource rental rates, reflecting the scarcity in resources. However, lack of alternative employment opportunities within a labor shed can lead to job losses and lower wages, especially in rural communities heavily reliant on the agricultural sector, aggravating distributional concerns.",
-      "abstract_cn": "保护政策对于自然资源的可持续管理至关重要。Ray等人（2023）认为，劳动力市场的刚性会削弱保护政策在就业和生产变化方面的影响，同时忽略了工资的内生变化。在本文中，我们发现保护政策与劳动力市场之间的相互作用更为复杂。我们开发了一个简化的两投入框架，该框架识别了决定保护政策有效性（以资源保护量衡量）和分配效应（在消费者、资源所有者和农场工人之间）的关键参数，具体取决于劳动力市场的表现形式。理论模型的实证应用受到美国西部农业工人日益稀缺和灌溉作物生产地下水过度开采双重挑战的推动。我们使用SIMPLE-G-CZ（简化国际农产品价格、土地利用与环境模型，按通勤区网格化），这是一个具有空间明确劳动力市场的农业生产部分均衡模型。SIMPLE框架利用多源数据，以高空间粒度纳入生产者行为背后的生物物理条件异质性。我们的分析表明，一个关键的分析关系（即条件C1）可以识别出忽略劳动力市场会高估保护政策有效性并低估其不利分配影响的网格单元子集。劳动力流动的限制限制了空间溢出效应，这种溢出效应可以促进生产从资源稀缺地区转移，以缓解对过度开发资源的压力。保护政策预计将提高资源租金率，反映资源的稀缺性。然而，在劳动力覆盖区内缺乏替代就业机会可能导致失业和工资下降，尤其是在严重依赖农业部门的农村社区，从而加剧分配问题。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-024-00950-2",
       "source_url": "https://doi.org/10.1007/s10640-024-00950-2",
       "publication_date": "2025",
@@ -37,21 +37,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i5d10.1007_s10640-024-00950-2.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:05:34+00:00",
-        "source_hash": "bd5359a85c898cc02d7fd7e487a021f9b53cec1d7f4651916fba2cc0d10ef558"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-00963-5",
@@ -59,14 +53,14 @@
       "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Estimating the Flood Risk Discount: Evidence From a One-off National Information Shock",
-      "title_cn": "估算洪水风险折扣：来自一次性全国信息冲击的证据",
+      "title_cn": "",
       "authors": [
         "Tom Gillespie",
         "Ronan C. Lyons",
         "Thomas K. J. McDermott"
       ],
-      "abstract_en": "Flood risk is a highly pervasive and costly natural hazard globally. With significant increases in flood risk expected over coming decades, future exposure to flood risk and associated costs will depend heavily on how private consumption decisions respond to new information about risk. We exploit a one-off national information treatment in the form of the release in 2011, for the first time, of detailed flood risk maps for Ireland, to test the effect of new information about flood risk on housing prices across a national housing market. We combine rich dwelling-level information on over 475,000 dwellings for the period 2006-2015 with detailed official data relating to flood risk, events and defences. Our core finding is that information matters. The price of housing responded clearly to the release of flood risk maps at the end of 2011, with the emergence of a 4% price discount for dwellings at risk of flooding.",
-      "abstract_cn": "洪水风险是全球范围内高度普遍且代价高昂的自然灾害。随着未来几十年洪水风险的显著增加，未来面临洪水风险及相关成本将在很大程度上取决于私人消费决策如何响应关于风险的新信息。我们利用一次性全国信息处理，即2011年首次发布爱尔兰详细洪水风险地图，来检验关于洪水风险的新信息对全国住房市场价格的影响。我们将2006-2015年间超过475,000套住宅的详细住宅层面信息与关于洪水风险、事件和防御措施的详细官方数据相结合。我们的核心发现是信息至关重要。住房价格在2011年底对洪水风险地图的发布做出了明确反应，出现了面临洪水风险的住宅4%的价格折扣。",
+      "abstract_en": "Abstract Flood risk is a highly pervasive and costly natural hazard globally. With significant increases in flood risk expected over coming decades, future exposure to flood risk and associated costs will depend heavily on how private consumption decisions respond to new information about risk. We exploit a one-off national information treatment in the form of the release in 2011, for the first time, of detailed flood risk maps for Ireland, to test the effect of new information about flood risk on housing prices across a national housing market. We combine rich dwelling-level information on over 475,000 dwellings for the period 2006-2015 with detailed official data relating to flood risk, events and defences. Our core finding is that information matters. The price of housing responded clearly to the release of flood risk maps at the end of 2011, with the emergence of a 4% price discount for dwellings at risk of flooding.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-00963-5",
       "source_url": "https://doi.org/10.1007/s10640-025-00963-5",
       "publication_date": "2025",
@@ -78,21 +72,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i5d10.1007_s10640-025-00963-5.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:05:37+00:00",
-        "source_hash": "55d63fbe4b3ee61cf2cba8d4abb614583516b8ef421e1dd152ae3940890c680f"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-00964-4",
@@ -100,12 +88,12 @@
       "source_sequence": 3,
       "article_type": "research-article",
       "title_en": "Stoicism and the Tragedy of the Commons",
-      "title_cn": "斯多葛主义与公地悲剧",
+      "title_cn": "",
       "authors": [
         "Gregory Ponthiere"
       ],
       "abstract_en": "This paper revisits the Tragedy of the Commons - a Pareto-dominated overuse of a common resource - through the lenses of Stoicism, and, in particular, of the Stoic discipline of desires, according to which one should wish for nothing that is not under one’s control. Two economic accounts of the Stoic discipline of desires are explored: the I1 account (a requirement of indifference between outcomes differing only on things out of control) and the I2 account (requiring indifference between outcomes that are the best under each circumstance). When studying the implications of Stoicism for the outcome of an N-players simultaneous common pool resource game, it is shown that, under each of account of the Stoic discipline of desires, it is either the case that there is no overuse of the common resource at the symmetric Nash equilibrium, or the case that a suboptimal use of the common resource, if it occurs, is not seen as \"tragic\" at all.",
-      "abstract_cn": "本文通过斯多葛主义，特别是斯多葛学派的欲望纪律，重新审视公地悲剧——一种帕累托占优的公共资源过度使用。根据该纪律，人们不应渴望任何不在自己控制范围内的事物。本文探讨了斯多葛学派欲望纪律的两种经济学解释：I1解释（要求对仅在不可控事物上有所不同的结果保持无差异）和I2解释（要求对每种情况下最佳的结果保持无差异）。在研究斯多葛主义对N人同时行动公共池资源博弈结果的影响时，表明在每种欲望纪律的解释下，要么对称纳什均衡中不存在公共资源的过度使用，要么即使发生次优的公共资源使用，也根本不被视为“悲剧”。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-00964-4",
       "source_url": "https://doi.org/10.1007/s10640-025-00964-4",
       "publication_date": "2025",
@@ -117,21 +105,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i5d10.1007_s10640-025-00964-4.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:33:16+00:00",
-        "source_hash": "cfcbee4efeaf8824315e36d9833268b7afe270f5dfe8a4b3bfa819a65a391551"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-00965-3",
@@ -139,7 +121,7 @@
       "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Beyond Green Preferences: Demand-side and Supply-side Drivers in the Low-Carbon Transition",
-      "title_cn": "超越绿色偏好：低碳转型中的需求侧与供给侧驱动因素",
+      "title_cn": "",
       "authors": [
         "Massimiliano Carlo Pietro Rizzati",
         "Emanuele Ciola",
@@ -147,8 +129,8 @@
         "Davide Bazzana",
         "Sergio Vergalli"
       ],
-      "abstract_en": "Green preferences are often seen as crucial for mitigating climate change. Yet, it remains unclear whether they alone can drive the shift toward a low-carbon economy and what the distributional consequences might be. This paper studies the macroeconomic, environmental, and distributional effects of green preferences among consumers and producers using the agent-based integrated assessment MATRIX model. We compare scenarios with varying pro-environmental attitudes to conventional supply-side climate policies like carbon taxes and cap-and-trade mechanisms, with and without abatement investment subsidies and alternative redistribution strategies. Without an active policy, achieving a low-carbon transition requires unrealistically high values of green preferences among consumers and producers. Conversely, carbon taxes and cap-and-trade mechanisms can reach that objective, but at the cost of increased instability and inequality. Moderate abatement subsidies can balance those effects, reducing emissions while mitigating both economic and distributional challenges, especially when environmental revenues fund social transfers instead of tax cuts.",
-      "abstract_cn": "绿色偏好常被视为减缓气候变化的关键。然而，目前尚不清楚仅靠绿色偏好能否推动向低碳经济的转型，以及其可能带来的分配后果。本文利用基于主体的综合评估模型MATRIX，研究了消费者和生产者绿色偏好的宏观经济、环境及分配效应。我们将不同环保态度情景与传统的供给侧气候政策（如碳税和总量控制与交易机制）进行比较，并考虑有无减排投资补贴及替代性再分配策略。在没有积极政策的情况下，实现低碳转型需要消费者和生产者具有不切实际的高绿色偏好值。相反，碳税和总量控制与交易机制可以实现该目标，但代价是增加不稳定性和不平等性。适度的减排补贴可以平衡这些影响，在减少排放的同时缓解经济与分配挑战，尤其是当环境收入用于资助社会转移支付而非减税时。",
+      "abstract_en": "Abstract Green preferences are often seen as crucial for mitigating climate change. Yet, it remains unclear whether they alone can drive the shift toward a low-carbon economy and what the distributional consequences might be. This paper studies the macroeconomic, environmental, and distributional effects of green preferences among consumers and producers using the agent-based integrated assessment MATRIX model. We compare scenarios with varying pro-environmental attitudes to conventional supply-side climate policies like carbon taxes and cap-and-trade mechanisms, with and without abatement investment subsidies and alternative redistribution strategies. Without an active policy, achieving a low-carbon transition requires unrealistically high values of green preferences among consumers and producers. Conversely, carbon taxes and cap-and-trade mechanisms can reach that objective, but at the cost of increased instability and inequality. Moderate abatement subsidies can balance those effects, reducing emissions while mitigating both economic and distributional challenges, especially when environmental revenues fund social transfers instead of tax cuts.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-00965-3",
       "source_url": "https://doi.org/10.1007/s10640-025-00965-3",
       "publication_date": "2025",
@@ -160,21 +142,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i5d10.1007_s10640-025-00965-3.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:05:40+00:00",
-        "source_hash": "3b3138dbb2f93bb58894518031c918bb68d6ea116059615d96485569dc2511a4"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-00966-2",
@@ -182,15 +158,15 @@
       "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "When Climate Change Turns Good Plant Bad–A Dynamic Multispecies Model of Reindeer Herding in a Changing Arctic",
-      "title_cn": "当气候变化使好植物变坏——北极变化环境中驯鹿放牧的动态多物种模型",
+      "title_cn": "",
       "authors": [
         "Pham M. Nhat",
         "Claire W. Armstrong",
         "Charles B. Sims",
         "Kari Anne Bråthen"
       ],
-      "abstract_en": "In many Nordic countries, climate-induced encroachment of the native and allelopathic Empetrum nigrum (crowberry) on other palatable vegetation decreases pasture quality for the culturally important reindeer herds. Unfortunately, current pasture management plans do not include pasture quality indicators. To argue for the importance of pasture quality and provide adaptation guidance, we develop a three-species bioeconomic model (reindeer-vegetation-crowberry) with three controls (reindeer slaughter, supplementary feeding of reindeer, and crowberry control). Our model indicates that without human intervention, vegetation biomass and reindeer herd size will decline due to crowberry’s allelopathic effects, resulting in 42% loss in reindeer stock and 40% (100 million NOK) profit loss. Human interventions, specifically supplementary feeding and crowberry control, reduces the profit loss by half. To incentivize these interventions, which are partially public goods, the paper proposes a conditional subsidy program that only compensates herders for crowberry control when the shadow value of crowberry becomes negative. This approach can be generalized to other regions experiencing similar ecological changes, in which habitat quality is a crucial yet often overlooked factor.",
-      "abstract_cn": "在许多北欧国家，气候引起的本地化感植物黑果岩须兰（crowberry）对其他可食用植被的侵占，降低了具有文化重要性的驯鹿牧群的牧场质量。不幸的是，当前的牧场管理计划并未包含牧场质量指标。为了论证牧场质量的重要性并提供适应指导，我们开发了一个三物种生物经济模型（驯鹿-植被-黑果岩须兰），并设有三个控制变量（驯鹿屠宰、驯鹿补充饲喂和黑果岩须兰控制）。我们的模型表明，在没有人为干预的情况下，由于黑果岩须兰的化感作用，植被生物量和驯鹿种群规模将下降，导致驯鹿存栏量损失42%，利润损失40%（100百万挪威克朗）。人为干预，特别是补充饲喂和黑果岩须兰控制，可将利润损失减少一半。为了激励这些部分属于公共品的干预措施，本文提出了一项有条件的补贴计划，仅当黑果岩须兰的影子价值变为负值时，才对牧民的黑果岩须兰控制进行补偿。该方法可推广到经历类似生态变化的其他地区，在这些地区，栖息地质量是一个关键但往往被忽视的因素。",
+      "abstract_en": "Abstract In many Nordic countries, climate-induced encroachment of the native and allelopathic Empetrum nigrum (crowberry) on other palatable vegetation decreases pasture quality for the culturally important reindeer herds. Unfortunately, current pasture management plans do not include pasture quality indicators. To argue for the importance of pasture quality and provide adaptation guidance, we develop a three-species bioeconomic model (reindeer-vegetation-crowberry) with three controls (reindeer slaughter, supplementary feeding of reindeer, and crowberry control). Our model indicates that without human intervention, vegetation biomass and reindeer herd size will decline due to crowberry’s allelopathic effects, resulting in 42% loss in reindeer stock and 40% (100 million NOK) profit loss. Human interventions, specifically supplementary feeding and crowberry control, reduces the profit loss by half. To incentivize these interventions, which are partially public goods, the paper proposes a conditional subsidy program that only compensates herders for crowberry control when the shadow value of crowberry becomes negative. This approach can be generalized to other regions experiencing similar ecological changes, in which habitat quality is a crucial yet often overlooked factor.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-00966-2",
       "source_url": "https://doi.org/10.1007/s10640-025-00966-2",
       "publication_date": "2025",
@@ -202,21 +178,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i5d10.1007_s10640-025-00966-2.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:05:44+00:00",
-        "source_hash": "a245b54afd9443e818d50f637a7f75bd0a80ac44874212afd8b1253d12225555"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-00967-1",
@@ -224,7 +194,7 @@
       "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "The Importance of EU Coordination: Citizen Preferences for Climate Leadership and the Role of Conditional Cooperation",
-      "title_cn": "欧盟协调的重要性：公民对气候领导力的偏好与条件合作的作用",
+      "title_cn": "",
       "authors": [
         "Fredrik Carlsson",
         "Mitesh Kataria",
@@ -232,8 +202,8 @@
         "Åsa Löfgren",
         "Thomas Sterner"
       ],
-      "abstract_en": "We use a choice experiment to investigate the support for climate leadership among representative panels of citizens in seven European countries. We find that people tend to be conditional cooperators and are more positive about their country being a climate leader if assured that other countries will follow suit. At realistic cost levels, a majority oppose their country taking the lead, and most do not expect that taking the lead will result in other countries following suit. The lack of support is explained by expectations that such leadership will result in other countries free riding. One important implication of our study is that coordination at the European Union level, as demonstrated by the Fit for 55 package, is essential.",
-      "abstract_cn": "我们通过一项选择实验，调查了七个欧洲国家代表性公民小组对气候领导力的支持情况。我们发现，人们倾向于成为条件合作者，并且如果确信其他国家也会效仿，他们对自己国家成为气候领导者的态度更为积极。在现实成本水平下，大多数人反对自己国家率先行动，且多数人并不预期率先行动会导致其他国家效仿。缺乏支持的原因在于，人们预期这种领导力会导致其他国家搭便车。我们研究的一个重要启示是，欧盟层面的协调，如“Fit for 55”一揽子计划所示，至关重要。",
+      "abstract_en": "Abstract We use a choice experiment to investigate the support for climate leadership among representative panels of citizens in seven European countries. We find that people tend to be conditional cooperators and are more positive about their country being a climate leader if assured that other countries will follow suit. At realistic cost levels, a majority oppose their country taking the lead, and most do not expect that taking the lead will result in other countries following suit. The lack of support is explained by expectations that such leadership will result in other countries free riding. One important implication of our study is that coordination at the European Union level, as demonstrated by the Fit for 55 package, is essential.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-00967-1",
       "source_url": "https://doi.org/10.1007/s10640-025-00967-1",
       "publication_date": "2025",
@@ -245,21 +215,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i5d10.1007_s10640-025-00967-1.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:05:46+00:00",
-        "source_hash": "0159914fc58e7b4c893fa783ff900565e042cd8cbb2edc710bcc640ef69b25b8"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-00969-z",
@@ -267,7 +231,7 @@
       "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "Ben Franklin’s Whistle, Cost Expectations, and the Choice of Valuation Format",
-      "title_cn": "本·富兰克林的哨子、成本预期与估值格式的选择",
+      "title_cn": "",
       "authors": [
         "Michael Hanemann",
         "Jon Krosnick",
@@ -280,7 +244,7 @@
         "Penny Visser"
       ],
       "abstract_en": "Contingent valuation surveys have used a variety of formats for the valuation question, including open-ended (OE) and single-bounded closed-ended (CE) elicitation. The OE format assesses maximum WTP directly, whereas the CE format assesses it indirectly. When the two formats have been compared, responses have often been different: the CE format often generated a larger estimate of WTP than the OE format. That finding has spawned a large literature in economics and marketing. We propose an explanation for the difference in OE and CE responses rooted in the psychology of questionnaire design, which focuses on a phenomenon pointed out long ago by Benjamin Franklin for a private good that could also apply to a public good. The hypothesis is that respondents are averse to paying more for something than they think it should cost them. To test this hypothesis, an experiment embedded in a representative sample survey measured respondents’ perceptions of the cost of providing a public good, as well as their valuations using an OE or CE valuation format. Findings are consistent with Ben Franklin-like aversion to overpaying in the OE format, which leads OE responses to understate true willingness to pay. The CE format yielded more valid measurements of economic value. This paper introduces a new non-parametric approach to the estimation of WTP as a function of covariates using CE data.",
-      "abstract_cn": "条件估值调查在估值问题中使用了多种格式，包括开放式（OE）和单边界封闭式（CE）诱导。OE格式直接评估最大支付意愿（WTP），而CE格式则间接评估。当比较这两种格式时，回答往往不同：CE格式通常比OE格式产生更大的WTP估计值。这一发现催生了经济学和市场营销领域的大量文献。我们提出了一种基于问卷设计心理学的解释，针对OE和CE回答之间的差异，该解释聚焦于本杰明·富兰克林很久以前指出的一个现象，该现象适用于私人物品，也可能适用于公共物品。假设是，受访者厌恶为某物支付超过他们认为其应花费的成本。为检验这一假设，一项嵌入在代表性样本调查中的实验测量了受访者对提供公共物品成本的感知，以及他们使用OE或CE估值格式的估值。结果与OE格式中类似富兰克林式的过度支付厌恶一致，这导致OE回答低估了真实的支付意愿。CE格式产生了更有效的经济价值测量。本文引入了一种新的非参数方法，使用CE数据估计WTP作为协变量的函数。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-00969-z",
       "source_url": "https://doi.org/10.1007/s10640-025-00969-z",
       "publication_date": "2025",
@@ -292,21 +256,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i5d10.1007_s10640-025-00969-z.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:33:19+00:00",
-        "source_hash": "a79f12b365b82b2cf9654656d7afbccddbfd9e9ef97a7556ba816f5b0b6e0895"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-00970-6",
@@ -314,7 +272,7 @@
       "source_sequence": 8,
       "article_type": "research-article",
       "title_en": "Representation, Peer Pressure and Punishment in a Public Goods Game",
-      "title_cn": "公共品博弈中的代表、同伴压力与惩罚",
+      "title_cn": "",
       "authors": [
         "Hyoyoung Kim",
         "Doruk İriş",
@@ -322,7 +280,7 @@
         "Alessandro Tavoni"
       ],
       "abstract_en": "In our repeated public goods experiment, randomly chosen representatives make decisions on contributions and punishment for both themselves and their team. Confirming previous findings, punishment prevents the decline to the zero-contribution Nash Equilibrium. With punishment, contributions range from 50 to 80%, compared to approximately 30% without it. We also observe a nuanced interplay between hierarchical decision-making and punishment on public good provision. Compared to self-representation, the positive contribution trend is less pronounced when representatives govern the entire team, especially when non-representatives cannot signal preferences, resulting in contributions plateauing around 50% of the endowment.",
-      "abstract_cn": "在我们的重复公共品实验中，随机选出的代表为自己和团队做出贡献和惩罚的决定。证实了先前的研究结果，惩罚阻止了贡献下降至零贡献的纳什均衡。在有惩罚的情况下，贡献率在50到80%%之间，而没有惩罚时约为30%%。我们还观察到层级决策与惩罚在公共品供给上的微妙交互作用。与自我代表相比，当代表管理整个团队时，正向贡献趋势不那么明显，尤其是当非代表无法表达偏好时，导致贡献率稳定在禀赋的50%左右。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-00970-6",
       "source_url": "https://doi.org/10.1007/s10640-025-00970-6",
       "publication_date": "2025",
@@ -334,21 +292,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i5d10.1007_s10640-025-00970-6.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:33:21+00:00",
-        "source_hash": "7a8662d7aba5a29fd4e7fac88d31fc1036412759a51b9511ae02fe06117ccb7d"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-00971-5",
@@ -356,12 +308,12 @@
       "source_sequence": 9,
       "article_type": "research-article",
       "title_en": "Can Anti-ESG Policy Protect Targeted Industries from Divestment?",
-      "title_cn": "反ESG政策能否保护目标行业免受撤资影响？",
+      "title_cn": "",
       "authors": [
         "Jonah J. Allen"
       ],
       "abstract_en": "This study examines the efficacy and implications of state-level anti-Environmental, Social, and Governance (ESG) policies by investigating the impact of Texas’s anti-ESG policy on oil and gas (O&G) drilling activity through a difference-in-regression-discontinuity design comparing the Texas and New Mexico Permian. I find that the policy had no significant effect on new drilling activity, a key indicator of the long-term success of the state’s O&G sector. This suggests that banks did not respond to the policy by adapting shorter-duration lending behavior, which has been subject to industry-wide changes in recent years and is particularly relevant to regulators seeking to protect O&G investment within state borders. The paper highlights the need for further research into firms’ response to anti-ESG policy, which may be unsuccessful in its aims to protect state industry or influence banks to adapt lending behavior. This research contributes to the nascent literature on anti-ESG policies in the United States.",
-      "abstract_cn": "本研究通过比较德克萨斯州和新墨西哥州二叠纪盆地的断点回归设计，考察了州级反环境、社会和治理（ESG）政策的有效性和影响，具体研究了德克萨斯州的反ESG政策对石油和天然气（O&G）钻探活动的影响。我发现该政策对新钻探活动没有显著影响，而新钻探活动是该州油气行业长期成功的关键指标。这表明银行并未通过调整短期贷款行为来响应政策，而近年来该行为经历了行业范围内的变化，并且对于寻求保护州内油气投资的监管者尤为重要。本文强调需要进一步研究企业对反ESG政策的反应，这些政策可能无法实现其保护州内产业或影响银行调整贷款行为的目标。本研究为美国反ESG政策的新兴文献做出了贡献。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-00971-5",
       "source_url": "https://doi.org/10.1007/s10640-025-00971-5",
       "publication_date": "2025",
@@ -373,21 +325,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i5d10.1007_s10640-025-00971-5.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:33:24+00:00",
-        "source_hash": "bb23d5793b404679a06fb801e5632d72c1f24adb53d67d638a63af13aff30c45"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     },
     {
       "paper_id": "doi:10.1007/s10640-025-00972-4",
@@ -395,14 +341,14 @@
       "source_sequence": 10,
       "article_type": "research-article",
       "title_en": "From the Beach to the Backyard: How Harmful Algal Blooms Impact Housing Renovation Decisions",
-      "title_cn": "从海滩到后院：有害藻华如何影响房屋翻新决策",
+      "title_cn": "",
       "authors": [
         "Will Georgic",
         "W. Jason Beasley",
         "David Wolf"
       ],
-      "abstract_en": "Harmful algal blooms (HABs) impose a wide range of costs on surrounding communities. While the effects of HABs on real estate transactions are well studied, less is understood about whether homeowners make alterations to their homes in response to worsening water quality conditions. Using discrete-time duration analysis, 8 years’ worth of satellite imagery, and residential construction permit data from six Ohio counties bordering Lake Erie, we find a positive and robust estimate of the elasticity of residential pool construction with respect to algal intensity. This suggests homeowners substitute a home renovation for recreational access. We later replace pool construction decisions with those for detached garages and find a negative relationship, indicating that alternative home renovations could be considered as complements to local environmental quality. These findings are consistent with the predictions derived from a theoretical model of homeowner utility maximization and they help to provide a more holistic understanding of the damages caused by HAB proliferation.",
-      "abstract_cn": "有害藻华（HABs）给周边社区带来了广泛的成本。虽然有害藻华对房地产交易的影响已被充分研究，但关于房主是否会因水质条件恶化而对其房屋进行改造，了解甚少。利用离散时间持续时间分析、8年的卫星影像以及来自伊利湖沿岸六个俄亥俄县住宅建设许可数据，我们发现住宅泳池建设对藻类强度的弹性估计为正且稳健。这表明房主用房屋翻新替代了休闲娱乐的便利。随后，我们将泳池建设决策替换为独立车库的建设决策，发现存在负相关关系，表明替代性房屋翻新可能被视为当地环境质量的互补品。这些发现与房主效用最大化的理论模型预测一致，并有助于更全面地理解有害藻华扩散所造成的损害。",
+      "abstract_en": "Abstract Harmful algal blooms (HABs) impose a wide range of costs on surrounding communities. While the effects of HABs on real estate transactions are well studied, less is understood about whether homeowners make alterations to their homes in response to worsening water quality conditions. Using discrete-time duration analysis, 8 years’ worth of satellite imagery, and residential construction permit data from six Ohio counties bordering Lake Erie, we find a positive and robust estimate of the elasticity of residential pool construction with respect to algal intensity. This suggests homeowners substitute a home renovation for recreational access. We later replace pool construction decisions with those for detached garages and find a negative relationship, indicating that alternative home renovations could be considered as complements to local environmental quality. These findings are consistent with the predictions derived from a theoretical model of homeowner utility maximization and they help to provide a more holistic understanding of the damages caused by HAB proliferation.",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-00972-4",
       "source_url": "https://doi.org/10.1007/s10640-025-00972-4",
       "publication_date": "2025",
@@ -414,21 +360,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i5d10.1007_s10640-025-00972-4.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T11:05:59+00:00",
-        "source_hash": "0dfe98e6a0919e1ca4bb48914ccb24c27a3817806e6a6ed1d10508bcf33f7f37"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ]
     }
   ],
   "quality": {
@@ -443,37 +383,10 @@
     "doi_complete": 10,
     "authors_complete": 10,
     "abstract_en_complete": 10,
-    "translation_complete": 10,
+    "translation_complete": 0,
     "duplicate_count": 0,
-    "flags": [],
-    "official_item_count": 10,
-    "publishable_item_count": 10,
-    "content_counts": {
-      "official_items": 10,
-      "observed_items": 10,
-      "publishable_items": 10,
-      "research_articles": 10,
-      "comments": 0,
-      "short_communications": 0,
-      "corrections": 0,
-      "editorial_material": 0,
-      "front_matter": 0,
-      "other_excluded": 0,
-      "catalog_content_items": 10
-    }
-  },
-  "content_counts": {
-    "official_items": 10,
-    "observed_items": 10,
-    "publishable_items": 10,
-    "research_articles": 10,
-    "comments": 0,
-    "short_communications": 0,
-    "corrections": 0,
-    "editorial_material": 0,
-    "front_matter": 0,
-    "other_excluded": 0,
-    "catalog_content_items": 10
-  },
-  "issue_label": "Vol. 88 · No. 5"
+    "flags": [
+      "translation_incomplete"
+    ]
+  }
 }
