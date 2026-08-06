@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T12:04:36+00:00
+Updated: 2026-08-06T12:05:44+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -185,6 +185,13 @@ Updated: 2026-08-06T12:04:36+00:00
 | JEEM | jeem-138-c | 2026 | complete |  |
 | JEEM | jeem-139-c | 2026 | complete |  |
 | JEEM | jeem-140-c | 2026 | complete |  |
+| JEP | jep-39-1 | 2025 | complete |  |
+| JEP | jep-39-2 | 2025 | complete |  |
+| JEP | jep-39-3 | 2025 | complete |  |
+| JEP | jep-39-4 | 2025 | complete |  |
+| JEP | jep-40-1 | 2026 | complete |  |
+| JEP | jep-40-2 | 2026 | complete |  |
+| JEP | jep-40-3 | 2026 | complete |  |
 | JET | jet-223-c | 2025 | complete |  |
 | JET | jet-224-c | 2025 | complete |  |
 | JET | jet-225-c | 2025 | complete |  |
