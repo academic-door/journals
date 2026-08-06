@@ -978,6 +978,9 @@ class LatestIssuePreferenceTests(unittest.TestCase):
             older_archive["issue_id"] = "jep-40-2"
             older_archive["issue"] = "2"
             older_archive["publication_date"] = "May 2026"
+            # Also ensure an unparseable current label ("Summer 2026") is not
+            # outranked by an older parseable archive.
+            current["publication_date"] = "Summer 2026"
             (issues_dir / "current.json").write_text(
                 json.dumps(current, ensure_ascii=False), encoding="utf-8"
             )

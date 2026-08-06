@@ -1317,9 +1317,17 @@ def load_available_issues(
             # publisher "current" detection can lag behind; the site's
             # "latest" label must not point at an older issue than the list.
             newest_archived = _newest_publishable_archived(config["id"])
-            if newest_archived and archive_publication_sort_key(
+            current_sort_key = archive_publication_sort_key(issue)
+            if (
                 newest_archived
-            ) > archive_publication_sort_key(issue):
+                and current_sort_key[0] > 0
+                and archive_publication_sort_key(newest_archived)
+                > current_sort_key
+            ):
+                # Only promote the archive when the detected current issue has
+                # a parseable publication date; an unparseable label such as
+                # "Summer 2026" must not sort as year zero and lose to an
+                # older archived issue.
                 issue = newest_archived
             try:
                 issue = normalize_issue_content(issue)
