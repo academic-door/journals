@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T11:00:31+00:00
+Updated: 2026-08-06T11:00:51+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -17,16 +17,6 @@ Updated: 2026-08-06T11:00:31+00:00
 | AERI | aeri-7-4 | 2025 | complete |  |
 | AERI | aeri-8-1 | 2026 | complete |  |
 | AERI | aeri-8-2 | 2026 | complete |  |
-| ECTA | ecta-93-1 | 2025 | complete |  |
-| ECTA | ecta-93-2 | 2025 | complete |  |
-| ECTA | ecta-93-3 | 2025 | complete |  |
-| ECTA | ecta-93-4 | 2025 | complete |  |
-| ECTA | ecta-93-5 | 2025 | complete |  |
-| ECTA | ecta-93-6 | 2025 | complete |  |
-| ECTA | ecta-94-1 | 2026 | complete |  |
-| ECTA | ecta-94-2 | 2026 | complete |  |
-| ECTA | ecta-94-3 | 2026 | complete |  |
-| ECTA | ecta-94-4 | 2026 | complete |  |
 | EER | eer-171-c | 2025 | complete |  |
 | EER | eer-172-c | 2025 | complete |  |
 | EER | eer-173-c | 2025 | complete |  |
@@ -282,6 +272,13 @@ Updated: 2026-08-06T11:00:31+00:00
 | QE | qe-17-2 | 2026 | complete |  |
 | QE | qe-17-3 | 2026 | complete |  |
 | QE | qe-17-4 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
+| TE | te-20-1 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
+| TE | te-20-2 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
+| TE | te-20-3 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
+| TE | te-20-4 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
+| TE | te-21-1 | 2026 | complete |  |
+| TE | te-21-2 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
+| TE | te-21-3 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
 | WD | wd-185-c | 2025 | translation_partial |  |
 | WD | wd-186-c | 2025 | translation_partial |  |
 | WD | wd-187-c | 2025 | complete |  |

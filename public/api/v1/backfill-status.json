@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-08-06T11:00:31+00:00",
+  "updated_at": "2026-08-06T11:00:51+00:00",
   "summary": {
-    "complete": 268,
+    "complete": 259,
     "translation_partial": 33,
-    "blocked": 1,
+    "blocked": 7,
     "collected": 0,
     "pending": 0
   },
@@ -100,78 +100,6 @@
         "issue_id": "aeri-8-2",
         "year": 2026,
         "volume": "8",
-        "status": "complete",
-        "last_error": ""
-      }
-    ],
-    "ECTA": [
-      {
-        "issue_id": "ecta-93-1",
-        "year": 2025,
-        "volume": "93",
-        "status": "complete",
-        "last_error": ""
-      },
-      {
-        "issue_id": "ecta-93-2",
-        "year": 2025,
-        "volume": "93",
-        "status": "complete",
-        "last_error": ""
-      },
-      {
-        "issue_id": "ecta-93-3",
-        "year": 2025,
-        "volume": "93",
-        "status": "complete",
-        "last_error": ""
-      },
-      {
-        "issue_id": "ecta-93-4",
-        "year": 2025,
-        "volume": "93",
-        "status": "complete",
-        "last_error": ""
-      },
-      {
-        "issue_id": "ecta-93-5",
-        "year": 2025,
-        "volume": "93",
-        "status": "complete",
-        "last_error": ""
-      },
-      {
-        "issue_id": "ecta-93-6",
-        "year": 2025,
-        "volume": "93",
-        "status": "complete",
-        "last_error": ""
-      },
-      {
-        "issue_id": "ecta-94-1",
-        "year": 2026,
-        "volume": "94",
-        "status": "complete",
-        "last_error": ""
-      },
-      {
-        "issue_id": "ecta-94-2",
-        "year": 2026,
-        "volume": "94",
-        "status": "complete",
-        "last_error": ""
-      },
-      {
-        "issue_id": "ecta-94-3",
-        "year": 2026,
-        "volume": "94",
-        "status": "complete",
-        "last_error": ""
-      },
-      {
-        "issue_id": "ecta-94-4",
-        "year": 2026,
-        "volume": "94",
         "status": "complete",
         "last_error": ""
       }
@@ -1993,6 +1921,57 @@
         "issue_id": "qe-17-4",
         "year": 2026,
         "volume": "17",
+        "status": "blocked",
+        "last_error": "MetadataFallbackError: Crossref returned no usable recent issue"
+      }
+    ],
+    "TE": [
+      {
+        "issue_id": "te-20-1",
+        "year": 2025,
+        "volume": "20",
+        "status": "blocked",
+        "last_error": "MetadataFallbackError: Crossref returned no usable recent issue"
+      },
+      {
+        "issue_id": "te-20-2",
+        "year": 2025,
+        "volume": "20",
+        "status": "blocked",
+        "last_error": "MetadataFallbackError: Crossref returned no usable recent issue"
+      },
+      {
+        "issue_id": "te-20-3",
+        "year": 2025,
+        "volume": "20",
+        "status": "blocked",
+        "last_error": "MetadataFallbackError: Crossref returned no usable recent issue"
+      },
+      {
+        "issue_id": "te-20-4",
+        "year": 2025,
+        "volume": "20",
+        "status": "blocked",
+        "last_error": "MetadataFallbackError: Crossref returned no usable recent issue"
+      },
+      {
+        "issue_id": "te-21-1",
+        "year": 2026,
+        "volume": "21",
+        "status": "complete",
+        "last_error": ""
+      },
+      {
+        "issue_id": "te-21-2",
+        "year": 2026,
+        "volume": "21",
+        "status": "blocked",
+        "last_error": "MetadataFallbackError: Crossref returned no usable recent issue"
+      },
+      {
+        "issue_id": "te-21-3",
+        "year": 2026,
+        "volume": "21",
         "status": "blocked",
         "last_error": "MetadataFallbackError: Crossref returned no usable recent issue"
       }
