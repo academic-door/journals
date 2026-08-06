@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-06T08:51:11+00:00",
   "expected_article_count": 16,
   "research_article_count": 16,
-  "status": "ready",
+  "status": "incomplete",
   "articles": [
     {
       "paper_id": "doi:10.1016/j.landusepol.2025.107609",
@@ -18,7 +18,7 @@
       "source_sequence": 1,
       "article_type": "research-article",
       "title_en": "Avoiding Access Inequity Due to classification errors in zero-deforestation value chains: Coffee and the European union deforestation regulation",
-      "title_cn": "避免零毁林价值链中分类错误导致的准入不公平：咖啡与欧盟毁林法规",
+      "title_cn": "",
       "authors": [
         "Caleb Gallemore",
         "Gezahegn Berecha",
@@ -35,7 +35,7 @@
         "Nestory Yamungu"
       ],
       "abstract_en": "European Union’s Regulation 2023/115, commonly known as the European Union Deforestation Regulation (EUDR), promises to be a watershed event in global deforestation governance. A significant example of the hardening of soft law, spurred by major corporations committing to zero-deforestation supply chains, the EUDR is also a substantial wager on the efficacy of satellite-based remote sensing technologies for effective global forest governance. As remote sensing becomes more deeply embedded into global environmental governance, it is necessary to pay attention to the possibility that misclassification errors - mistaking one type of land cover for another - could become institutional errors with real consequences for those targeted by these initiatives. If compliant producers were to be excluded from zero-deforestation markets due to uncertainties resulting from misclassification errors, this would raise questions about the initiative’s access equity. To develop recommendations for a strategy for avoiding this eventuality, we examine how classification errors could shape the EUDR’s effects in the coffee sector. Coffee, a commodity predominantly cultivated for export by smallholders under tree shade, faces heightened susceptibility to the legislation, given the European market’s significant influence on global consumption. Using ground-truth points collected in coffee-growing regions in Ethiopia and Tanzania, combined with other open datasets, we assess the rate at which five global land cover datasets identify coffee production as forest, finding high rates of misclassification in some geographies, particularly for shade-grown and agroforestry cultivation. Then, following a systematic review of remote sensing studies designed to detect the presence of coffee, we use quantile regression analysis to identify strategies that could be used to reduce classification accuracy for coffee to unproblematic rates. Based on these assessments, we argue that, even in a hard case like coffee, access inequities due to misclassification errors could be mitigated substantially by starting with a global dataset and then building regional, commodity-specific datasets. We suggest that finding ways to compensate and include smallholders, cooperatives, and other producer groups in a project of building monitoring datasets as a public good may be an appropriate strategy for the EUDR and similar zero-deforestation initiatives.",
-      "abstract_cn": "欧盟第2023/115号法规，通常称为欧盟毁林法规（EUDR），有望成为全球毁林治理的分水岭事件。这是软法硬化的重要实例，由主要企业承诺零毁林供应链所推动，EUDR也是对基于卫星的遥感技术在有效全球森林治理中效力的重大押注。随着遥感技术更深入地融入全球环境治理，有必要关注错分类错误——将一种土地覆盖类型误认为另一种——可能成为制度性错误，并对这些倡议针对的对象产生实际后果的可能性。如果因错分类错误导致的不确定性而使合规生产者被排除在零毁林市场之外，这将引发关于该倡议准入公平性的问题。为制定避免这种情况的策略建议，我们研究了分类错误如何影响EUDR在咖啡行业的效果。咖啡是一种主要由小农在树荫下种植用于出口的商品，鉴于欧洲市场对全球消费的重大影响，该立法对其具有更高的敏感性。利用在埃塞俄比亚和坦桑尼亚咖啡种植区收集的地面实况点，结合其他开放数据集，我们评估了五个全球土地覆盖数据集将咖啡生产识别为森林的比率，发现某些地理区域存在高错分类率，特别是对于荫蔽种植和农林复合种植。然后，在对旨在检测咖啡存在的遥感研究进行系统回顾后，我们使用分位数回归分析来确定可用于将咖啡分类准确性降低到无问题水平的策略。基于这些评估，我们认为，即使在像咖啡这样的困难案例中，通过从全球数据集开始，然后构建区域性的、特定商品的数据集，可以大幅缓解因错分类错误导致的准入不公平。我们建议，寻找方法补偿并纳入小农、合作社和其他生产者群体，将其作为公共产品构建监测数据集的项目，可能是EUDR和类似零毁林倡议的适当策略。",
+      "abstract_cn": "",
       "doi": "10.1016/j.landusepol.2025.107609",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837725001437",
       "publication_date": "February 2025",
@@ -47,15 +47,15 @@
         "repec": "https://ideas.repec.org/a/eee/lauspo/v157y2025ics0264837725001437.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T14:13:50+00:00",
-        "source_hash": "5d1635f7a704057a6742ddbaba8a1152a4cccf5128336b0ba153bc91792ce6b3"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -708,10 +708,12 @@
     "doi_complete": 16,
     "authors_complete": 16,
     "abstract_en_complete": 16,
-    "translation_complete": 16,
+    "translation_complete": 15,
     "duplicate_count": 0,
     "repec_item_count": 16,
-    "flags": [],
+    "flags": [
+      "translation_incomplete"
+    ],
     "official_item_count": 16,
     "publishable_item_count": 16,
     "content_counts": {
