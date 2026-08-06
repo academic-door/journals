@@ -184,14 +184,14 @@
       "source_sequence": 2005,
       "article_type": "research-article",
       "title_en": "The Debt‐Equity Spread",
-      "title_cn": "",
+      "title_cn": "债权股利差",
       "authors": [
         "HUI CHEN",
         "ZHIYAO CHEN",
         "JUN LI"
       ],
       "abstract_en": "We propose a measure of the valuation gap between debt and equity—debt‐equity spread (DES)—based on the difference between actual and equity‐implied credit spreads. DES predicts cross‐sectional stock and bond returns in opposite directions. This predictability is unique compared to existing mispricing measures and cannot be explained by exposures to various risk factors. High‐DES firms are more likely to issue equity and retire debt, and have more insider equity selling. These findings are consistent with DES capturing relative mispricing between debt and equity, and provide empirical support for the model of partially segmented markets in Greenwood, Hanson, and Liao (2018, Review of Financial Studies 31, 3307–3343).",
-      "abstract_cn": "",
+      "abstract_cn": "我们提出了一种衡量债务和股权之间估值差距的方法——债务股权利差（DES）——基于实际信用利差和股权隐含信用利差之间的差异。 DES 以相反方向预测横截面股票和债券回报。与现有的错误定价措施相比，这种可预测性是独一无二的，并且不能用各种风险因素来解释。高 DES 公司更有可能发行股票和偿还债务，并且有更多的内部股权出售。这些发现与 DES 捕获债务和股权之间相对错误定价的结果一致，并为 Greenwood、Hanson 和 Liao 的部分分割市场模型提供了实证支持（2018，《金融研究评论》31，3307-3343）。",
       "abstract_snippet_en": "",
       "doi": "10.1111/jofi.70060",
       "source_url": "https://doi.org/10.1111/jofi.70060",
@@ -203,15 +203,15 @@
         "abstract_en": "crossref"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-01T05:25:09+00:00",
+        "source_hash": "26d081491acd3daa657be73029e506a12c3acd12d78eb8ade68f297945f2655e"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -624,7 +624,7 @@
     "doi_complete": 14,
     "authors_complete": 14,
     "abstract_en_complete": 13,
-    "translation_complete": 12,
+    "translation_complete": 13,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
