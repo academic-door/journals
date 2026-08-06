@@ -882,7 +882,12 @@ def request_translation(
                         retry_after = int(getattr(error.response, "headers", {}).get("Retry-After", "0"))
                     except (TypeError, ValueError):
                         retry_after = 0
-                time.sleep(max(retry_after, 5 if status_code == 429 else 2**attempt))
+                if status_code == 429:
+                    # DeepSeek rate limits are bursty; wait progressively
+                    # longer so a throttled key can clear within one article.
+                    time.sleep(max(retry_after, 10 * (attempt + 1)))
+                else:
+                    time.sleep(2**attempt)
     raise TranslationError(
         f"Translation failed after {retries} attempts: {last_error}"
     )
@@ -1081,6 +1086,7 @@ def translate_missing(
                         provider_name="deepseek",
                         protect_numbers=True,
                         max_tokens=8192,
+                        retries=5,
                     )
                 except ProviderUnavailableError as error:
                     provider_availability["deepseek"] = str(error)
