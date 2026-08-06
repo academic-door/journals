@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T12:56:48+00:00
+Updated: 2026-08-06T13:27:30+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -196,7 +196,7 @@ Updated: 2026-08-06T12:56:48+00:00
 | JEBO | jebo-239-c | 2025 | complete |  |
 | JEBO | jebo-240-c | 2025 | translation_partial |  |
 | JEBO | jebo-241-c | 2026 | complete |  |
-| JEBO | jebo-242-c | 2026 | complete |  |
+| JEBO | jebo-242-c | 2026 | blocked | possible_incomplete_volume: 8 articles collected vs current issue 23; needs offi |
 | JEBO | jebo-243-c | 2026 | complete |  |
 | JEBO | jebo-244-c | 2026 | complete |  |
 | JEBO | jebo-245-c | 2026 | complete |  |
@@ -284,7 +284,6 @@ Updated: 2026-08-06T12:56:48+00:00
 | JFE | jfe-181-c | 2026 | complete |  |
 | JFE | jfe-182-c | 2026 | complete |  |
 | JFE | jfe-183-c | 2026 | complete |  |
-| JFE | jfe-184-c | 2026 | translation_partial |  |
 | JIE | jie-153-c | 2025 | complete |  |
 | JIE | jie-154-c | 2025 | complete |  |
 | JIE | jie-155-c | 2025 | complete |  |
@@ -296,7 +295,6 @@ Updated: 2026-08-06T12:56:48+00:00
 | JIE | jie-161-c | 2026 | complete |  |
 | JIE | jie-162-c | 2026 | complete |  |
 | JIE | jie-163-c | 2026 | complete |  |
-| JIE | jie-164-c | 2026 | translation_partial |  |
 | JLE | jle-43-1 | 2025 | complete |  |
 | JLE | jle-43-2 | 2025 | translation_partial |  |
 | JLE | jle-43-3 | 2025 | translation_partial |  |
@@ -370,7 +368,7 @@ Updated: 2026-08-06T12:56:48+00:00
 | JPubE | jpube-259-c | 2026 | complete |  |
 | JPubE | jpube-260-c | 2026 | complete |  |
 | JPubE | jpube-261-c | 2026 | complete |  |
-| JPubE | jpube-262-c | 2026 | translation_partial |  |
+| JPubE | jpube-262-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 262/ |
 | JUE | jue-145-c | 2025 | complete |  |
 | JUE | jue-146-c | 2025 | complete |  |
 | JUE | jue-147-c | 2025 | complete |  |
@@ -410,8 +408,8 @@ Updated: 2026-08-06T12:56:48+00:00
 | LUP | lup-167-c | 2026 | complete |  |
 | LUP | lup-168-c | 2026 | complete |  |
 | LUP | lup-169-c | 2026 | complete |  |
-| LUP | lup-170-c | 2026 | translation_partial |  |
-| LUP | lup-171-c | 2026 | translation_partial |  |
+| LUP | lup-170-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 170/ |
+| LUP | lup-171-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 171/ |
 | QE | qe-16-1 | 2025 | complete |  |
 | QE | qe-16-2 | 2025 | complete |  |
 | QE | qe-16-3 | 2025 | complete |  |
@@ -502,5 +500,5 @@ Updated: 2026-08-06T12:56:48+00:00
 | WD | wd-204-c | 2026 | complete |  |
 | WD | wd-205-c | 2026 | complete |  |
 | WD | wd-206-c | 2026 | complete |  |
-| WD | wd-207-c | 2026 | translation_partial |  |
-| WD | wd-208-c | 2026 | translation_partial |  |
+| WD | wd-207-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 207/ |
+| WD | wd-208-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 208/ |
