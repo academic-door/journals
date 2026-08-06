@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T14:16:15+00:00
+Updated: 2026-08-06T14:16:32+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -395,7 +395,7 @@ Updated: 2026-08-06T14:16:15+00:00
 | LUP | lup-154-c | 2025 | complete |  |
 | LUP | lup-155-c | 2025 | complete |  |
 | LUP | lup-156-c | 2025 | complete |  |
-| LUP | lup-157-c | 2025 | translation_partial |  |
+| LUP | lup-157-c | 2025 | complete |  |
 | LUP | lup-158-c | 2025 | translation_partial |  |
 | LUP | lup-159-c | 2025 | translation_partial |  |
 | LUP | lup-160-c | 2026 | complete |  |
