@@ -116,16 +116,36 @@ def collector_for_issue(
         if isinstance(issue_ref, HistoricalIssue) and journal_config.get(
             "repec_series_code"
         ):
-            from collectors.metadata_fallback import fetch_repec_history_issue
-
-            return lambda: fetch_repec_history_issue(
-                journal_id=journal_config["id"],
-                journal_name=journal_config["name"],
-                issn=str(journal_config["issn"]),
-                volume=issue_ref.volume,
-                issue=issue_ref.issue,
-                repec_series_code=journal_config["repec_series_code"],
+            from collectors.metadata_fallback import (
+                fetch_crossref_current_issue,
+                fetch_repec_history_issue,
             )
+
+            def _collect_repec() -> dict[str, Any]:
+                try:
+                    return fetch_repec_history_issue(
+                        journal_id=journal_config["id"],
+                        journal_name=journal_config["name"],
+                        issn=str(journal_config["issn"]),
+                        volume=issue_ref.volume,
+                        issue=issue_ref.issue,
+                        repec_series_code=journal_config["repec_series_code"],
+                    )
+                except Exception:
+                    # RePEc may not index the volume under the same
+                    # volume/issue split; fall back to the Crossref roster.
+                    return fetch_crossref_current_issue(
+                        journal_id=journal_config["id"],
+                        journal_name=journal_config["name"],
+                        issn=str(journal_config["issn"]),
+                        current_issue_url=issue_url,
+                        target_volume=issue_ref.volume,
+                        target_issue="",
+                        output_issue=issue_ref.issue.upper(),
+                        start_year=int(issue_ref.year) - 2,
+                    )
+
+            return _collect_repec
         from collectors.wiley import fetch_current_issue
 
         return lambda: fetch_current_issue(
