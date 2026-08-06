@@ -19,7 +19,7 @@
       "source_sequence": 1,
       "article_type": "research-article",
       "title_en": "Switching Off: Energy Saving Goals Outshine Incentives—Evidence from a Field Experiment",
-      "title_cn": "",
+      "title_cn": "关闭开关：节能目标优于激励——来自实地实验的证据",
       "authors": [
         "Natalia Borzino",
         "Benjamin Hiepler",
@@ -28,8 +28,8 @@
         "Renate Schubert",
         "Verena Tiefenbeck"
       ],
-      "abstract_en": "Abstract Feedback interventions are a promising tool for promoting household energy conservation and addressing climate change. This study examines whether their effectiveness improves with incentivized energy saving goals through a field experiment involving 422 Singaporean households over eight months. All treatment groups received tailored feedback reports, energy saving goals, and tips. Two groups also received additional incentives: monetary rewards or environmental donations. Households receiving only feedback, goals and savings tips reduced electricity use by 16% compared to the control group, but those offered additional monetary or environmental incentives achieved no further savings. Notabl the effects persisted marginally post-intervention in the goal treatment. These results indicate that low-cost behavioral strategies like feedback, savings tips and goal setting can be as effective as costly incentives, providing a scalable and economical pathway for energy conservation initiatives.",
-      "abstract_cn": "",
+      "abstract_en": "Feedback interventions are a promising tool for promoting household energy conservation and addressing climate change. This study examines whether their effectiveness improves with incentivized energy saving goals through a field experiment involving 422 Singaporean households over eight months. All treatment groups received tailored feedback reports, energy saving goals, and tips. Two groups also received additional incentives: monetary rewards or environmental donations. Households receiving only feedback, goals and savings tips reduced electricity use by 16% compared to the control group, but those offered additional monetary or environmental incentives achieved no further savings. Notabl the effects persisted marginally post-intervention in the goal treatment. These results indicate that low-cost behavioral strategies like feedback, savings tips and goal setting can be as effective as costly incentives, providing a scalable and economical pathway for energy conservation initiatives.",
+      "abstract_cn": "反馈干预是促进家庭节能和应对气候变化的有前景的工具。本研究通过一项涉及422户新加坡家庭、为期八个月的实地实验，考察了其有效性是否因激励性节能目标而提高。所有治疗组均收到定制反馈报告、节能目标和提示。其中两组还获得了额外激励：金钱奖励或环境捐赠。仅接受反馈、目标和节能提示的家庭与对照组相比，用电量减少了16%，但提供额外金钱或环境激励的家庭并未实现进一步节约。值得注意的是，在目标治疗组中，干预后的效果在边际上持续存在。这些结果表明，反馈、节能提示和目标设定等低成本行为策略可以与昂贵的激励措施同样有效，为节能倡议提供了一条可扩展且经济的途径。",
       "doi": "10.1007/s10640-025-00973-3",
       "source_url": "https://doi.org/10.1007/s10640-025-00973-3",
       "publication_date": "2025",
@@ -41,15 +41,21 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i6d10.1007_s10640-025-00973-3.html"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T11:06:05+00:00",
+        "source_hash": "284eb3a1331111115b17e9f74c9294872f688187cf896ea2a03d3f75d7144e6b"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ]
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1007/s10640-025-00975-1",
@@ -84,7 +90,15 @@
       "quality_flags": [
         "title_cn_missing",
         "abstract_cn_missing"
-      ]
+      ],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1007/s10640-025-00977-z",
@@ -92,13 +106,13 @@
       "source_sequence": 3,
       "article_type": "research-article",
       "title_en": "The Impact of Pollution Levies on Firms’ Energy Consumption and Production: Evidence from China’s Pollution Levy Standard Reform",
-      "title_cn": "",
+      "title_cn": "排污费对企业能源消耗和生产的影响：来自中国排污费标准改革的证据",
       "authors": [
         "Huan-yu Cui",
         "Yue-qun Cao"
       ],
       "abstract_en": "This paper investigates the impact of pollution levies on firms’ energy consumption and production activities using a difference-in-differences design for China’s 11th Five-Year Plan pollution levy standard reform. This reform was rigorously enforced due to the crucial role of emission reduction targets in political assessments. Using a firm-level pollution and production dataset from 2001 to 2014, we find that (1) compared to firms in an unreformed region, those in a reformed region reduced their energy consumption by 4.2%, SO2 emissions by 12.16%, and lost TFP by 4.82%. (2) Reform-induced energy savings are mainly driven by polluting industries, occur only after the government links emission reduction targets to performance appraisals, and are mainly driven by reformed districts under politicians with promotion prospects. (3) Increased investment in energy-efficient equipment and technologies, reduced production, and a more rational allocation of energy are the main channels through which energy savings and emission reductions are achieved, but they also result in TFP losses. (4) Cost estimates for the study sample indicate that about 1.31 × 104 RMB will be lost for every ton of standard coal saved. This paper provides important policy implications for enhancing energy saving and reducing emissions through pollution levies in developing countries.",
-      "abstract_cn": "",
+      "abstract_cn": "本文利用中国“十一五”规划排污费标准改革的双重差分设计，研究了排污费对企业能源消耗和生产活动的影响。由于减排目标在政治考核中的关键作用，这项改革得到了严格执行。利用11年至2001年的企业层面污染和生产数据集，我们发现：（2014）与未改革地区的企业相比，改革地区的企业能源消耗减少了1，二氧化硫排放减少了4.2%，全要素生产率损失了12.16%。（4.82%）改革带来的节能主要由污染行业驱动，仅在政府将减排目标与绩效评估挂钩后才出现，并且主要由有晋升前景的政治家领导下的改革地区驱动。（2）增加对节能设备和技术投资、减少生产以及更合理的能源配置是实现节能和减排的主要渠道，但也导致了全要素生产率的损失。（3）研究样本的成本估算表明，每节约一吨标准煤将损失约4×1.31^104元人民币。本文为发展中国家通过排污费促进节能和减排提供了重要的政策启示。",
       "doi": "10.1007/s10640-025-00977-z",
       "source_url": "https://doi.org/10.1007/s10640-025-00977-z",
       "publication_date": "2025",
@@ -110,15 +124,23 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i6d10.1007_s10640-025-00977-z.html"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T12:33:43+00:00",
+        "source_hash": "f158d135152bcbd623e3c95d3aebc925a8b537caf4dcac8d9929b575134d3cea"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ]
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China’s"
+        ],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1007/s10640-025-00978-y",
@@ -126,13 +148,13 @@
       "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "A Coalitional Great Fish War Model with Quasi-Hyperbolic Discounting",
-      "title_cn": "",
+      "title_cn": "具有准双曲贴现的联盟大鱼战争模型",
       "authors": [
         "Joakim Alderborn",
         "Jesús Marín-Solano"
       ],
-      "abstract_en": "Abstract This paper studies the coalitional great fish war model in a setting with βδ -preferences (or quasi-hyperbolic discounting). We derive the equilibrium strategies and payoffs in this coalition game under non-cooperation, full cooperation, and partial cooperation, under simultaneous moves and with first-mover advantage for the coalition. We focus on the effects of the short-run discount factor β on the sustainability of cooperation. We find that the introduction of quasi-hyperbolic discounting can have a significant impact on the existence of stable coalitions. In particular, in contrast with the standard case of exponential discount functions, in which the coalitions of more than two players are always unstable under simultaneous moves, the grand coalition can be stable if the bias towards the present is sufficiently high (i.e., for small values of β ). In addition, we show that, under simultaneous moves, there can be up to three sustainable coalitions, including the grand coalition, and larger coalitions are better from an ecological perspective, since total harvesting is lower. Thus, the consideration of quasi-hyperbolic discounting offers a promising avenue to address the challenge posed by small coalitions.",
-      "abstract_cn": "",
+      "abstract_en": "This paper studies the coalitional great fish war model in a setting with βδ -preferences (or quasi-hyperbolic discounting). We derive the equilibrium strategies and payoffs in this coalition game under non-cooperation, full cooperation, and partial cooperation, under simultaneous moves and with first-mover advantage for the coalition. We focus on the effects of the short-run discount factor β on the sustainability of cooperation. We find that the introduction of quasi-hyperbolic discounting can have a significant impact on the existence of stable coalitions. In particular, in contrast with the standard case of exponential discount functions, in which the coalitions of more than two players are always unstable under simultaneous moves, the grand coalition can be stable if the bias towards the present is sufficiently high (i.e., for small values of β ). In addition, we show that, under simultaneous moves, there can be up to three sustainable coalitions, including the grand coalition, and larger coalitions are better from an ecological perspective, since total harvesting is lower. Thus, the consideration of quasi-hyperbolic discounting offers a promising avenue to address the challenge posed by small coalitions.",
+      "abstract_cn": "本文在βδ-偏好（或准双曲贴现）的设定下研究联盟大鱼战争模型。我们在非合作、完全合作和部分合作的情况下，在同时行动以及联盟具有先动优势的条件下，推导了该联盟博弈中的均衡策略和收益。我们关注短期贴现因子β对合作可持续性的影响。我们发现，准双曲贴现的引入可能对稳定联盟的存在产生显著影响。特别是，与指数贴现函数的标准情形（在同时行动下，超过两个参与者的联盟总是不稳定的）相比，如果对现在的偏向足够高（即β值较小），大联盟可以是稳定的。此外，我们表明，在同时行动下，最多可以存在三个可持续联盟，包括大联盟，并且从生态角度看，较大的联盟更好，因为总捕捞量较低。因此，考虑准双曲贴现为解决小联盟带来的挑战提供了一条有前景的途径。",
       "doi": "10.1007/s10640-025-00978-y",
       "source_url": "https://doi.org/10.1007/s10640-025-00978-y",
       "publication_date": "2025",
@@ -144,15 +166,21 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i6d10.1007_s10640-025-00978-y.html"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T11:06:08+00:00",
+        "source_hash": "2522adf2d0d52d5d4d6ea9ba45976c5110187a43bd87ab6ab1642a2e80badd51"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ]
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1007/s10640-025-00981-3",
@@ -160,15 +188,15 @@
       "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "Economic and Food Security Impacts of Climate Disasters and Mitigation Policies: Insights from Nigeria",
-      "title_cn": "",
+      "title_cn": "气候灾害与减缓政策的经济和粮食安全影响：来自尼日利亚的见解",
       "authors": [
         "Luis Escalante",
         "Pierre Mamboundou",
         "Carine Meyimdjui",
         "Oluwasola E. Omoju"
       ],
-      "abstract_en": "Abstract Climate disasters, exacerbated by climate change, are becoming more frequent and severe, leading to significant socioeconomic and food system implications. Using econometrics and a dynamic general equilibrium model, this study examines the economic impact of climate disasters in Nigeria and evaluates the effect of mitigation strategies. The results show that the direct effects of climate disaster shocks on crop production spill over to other sectors of the economy, resulting in an overall 2.11% fall in real GDP. The analysis also highlights the substantial influence of climate disasters on Nigeria’s food systems and the consequent increase in food insecurity, particularly in the northern region, where the likelihood of food shortages increases by 6.50%. The analysis of mitigation measures suggests that a mix of policies is more efficient than stand-alone policies. Specifically, we found that a combined strategy of cash transfers for rural households and tax reductions for urban households is the best option, as it improves consumption and employment. However, it also leads to increased food imports and vulnerability. Complementing this strategy with targeted investments and subsidies is key to strengthening crop resilience and mitigating disaster impacts.",
-      "abstract_cn": "",
+      "abstract_en": "Climate disasters, exacerbated by climate change, are becoming more frequent and severe, leading to significant socioeconomic and food system implications. Using econometrics and a dynamic general equilibrium model, this study examines the economic impact of climate disasters in Nigeria and evaluates the effect of mitigation strategies. The results show that the direct effects of climate disaster shocks on crop production spill over to other sectors of the economy, resulting in an overall 2.11% fall in real GDP. The analysis also highlights the substantial influence of climate disasters on Nigeria’s food systems and the consequent increase in food insecurity, particularly in the northern region, where the likelihood of food shortages increases by 6.50%. The analysis of mitigation measures suggests that a mix of policies is more efficient than stand-alone policies. Specifically, we found that a combined strategy of cash transfers for rural households and tax reductions for urban households is the best option, as it improves consumption and employment. However, it also leads to increased food imports and vulnerability. Complementing this strategy with targeted investments and subsidies is key to strengthening crop resilience and mitigating disaster impacts.",
+      "abstract_cn": "气候灾害，因气候变化而加剧，正变得更加频繁和严重，导致显著的社会经济和粮食系统影响。本研究运用计量经济学和动态一般均衡模型，考察了尼日利亚气候灾害的经济影响，并评估了减缓策略的效果。结果表明，气候灾害冲击对作物生产的直接影响会溢出到经济的其他部门，导致实际GDP总体下降2.11%。分析还强调了气候灾害对尼日利亚粮食系统的重大影响以及随之而来的粮食不安全加剧，特别是在北部地区，粮食短缺的可能性增加了6.50%。对减缓措施的分析表明，政策组合比单一政策更有效。具体而言，我们发现，为农村家庭提供现金转移和为城市家庭减税的组合策略是最佳选择，因为它改善了消费和就业。然而，这也导致了粮食进口增加和脆弱性上升。将这一策略与有针对性的投资和补贴相结合，是增强作物韧性并减轻灾害影响的关键。",
       "doi": "10.1007/s10640-025-00981-3",
       "source_url": "https://doi.org/10.1007/s10640-025-00981-3",
       "publication_date": "2025",
@@ -180,15 +208,21 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i6d10.1007_s10640-025-00981-3.html"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T11:06:11+00:00",
+        "source_hash": "022edc6130842ad2d3f0b94d1e7db01431dfe6427e070da9b4032ce2f7e0cc8c"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ]
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1007/s10640-025-00982-2",
@@ -196,14 +230,14 @@
       "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "Local Economic Impacts of Wind Power Deployment in Denmark",
-      "title_cn": "",
+      "title_cn": "丹麦风电部署的地方经济影响",
       "authors": [
         "Claire Gavard",
         "Jonas Göbel",
         "Niklas Schoch"
       ],
-      "abstract_en": "Abstract An argument sometimes used to support renewable energy is that it may contribute to job creation. On the other hand, these technologies often face local opposition. In the case of Denmark, the country with the longest wind power experience, we examine whether the installation of new turbines had local economic benefits. Using the Danish master data register of wind turbines and detailed data on the municipal budget, personal income and sectoral employment from Statistics Denmark, we build a panel covering 250 municipalities. We use a quasi-experimental set-up and exploit time and regional variations at the municipal level. We find that the deployment of wind power contributed to the increase in personal income for entrepreneurs and reduced dependence on social benefits. As municipalities received payments from wind investors ahead of the construction, the new wind revenues were also followed by increases in local public spending. We find only very minor effects on employment in some sectors, and the aggregate local employment does not change significantly. Heterogeneity analyses indicate that the increases in local entrepreneurial income are largely driven by small installations, whilst increases in municipal budget and reductions in the dependence on social benefits are induced by larger installations.",
-      "abstract_cn": "",
+      "abstract_en": "An argument sometimes used to support renewable energy is that it may contribute to job creation. On the other hand, these technologies often face local opposition. In the case of Denmark, the country with the longest wind power experience, we examine whether the installation of new turbines had local economic benefits. Using the Danish master data register of wind turbines and detailed data on the municipal budget, personal income and sectoral employment from Statistics Denmark, we build a panel covering 250 municipalities. We use a quasi-experimental set-up and exploit time and regional variations at the municipal level. We find that the deployment of wind power contributed to the increase in personal income for entrepreneurs and reduced dependence on social benefits. As municipalities received payments from wind investors ahead of the construction, the new wind revenues were also followed by increases in local public spending. We find only very minor effects on employment in some sectors, and the aggregate local employment does not change significantly. Heterogeneity analyses indicate that the increases in local entrepreneurial income are largely driven by small installations, whilst increases in municipal budget and reductions in the dependence on social benefits are induced by larger installations.",
+      "abstract_cn": "有时支持可再生能源的论点是它可能有助于创造就业。另一方面，这些技术常常面临地方反对。以丹麦为例，这个拥有最长风电经验的国家，我们考察了新涡轮机的安装是否带来了地方经济利益。利用丹麦风力涡轮机主数据登记册以及丹麦统计局关于市政预算、个人收入和部门就业的详细数据，我们构建了一个覆盖250个市政的面板。我们采用准实验设置，并利用市政层面的时间和区域变化。我们发现，风电部署促进了企业家个人收入的增加，并减少了对社会福利的依赖。由于市政在建设前从风电投资者那里收到款项，新的风电收入也伴随着地方公共支出的增加。我们发现某些部门的就业影响非常小，总体地方就业没有显著变化。异质性分析表明，地方企业家收入的增加主要由小型安装驱动，而市政预算的增加和社会福利依赖的减少则由大型安装引起。",
       "doi": "10.1007/s10640-025-00982-2",
       "source_url": "https://doi.org/10.1007/s10640-025-00982-2",
       "publication_date": "2025",
@@ -215,15 +249,21 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i6d10.1007_s10640-025-00982-2.html"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T11:06:14+00:00",
+        "source_hash": "b3db488002f996b21a652c290636e54d2fdda3e8a319bcee59e1a163a05ee18d"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ]
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1007/s10640-025-00985-z",
@@ -231,13 +271,13 @@
       "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "Behavioral Responses to Environmental Emergency Alerts and Temporary Driving Restrictions: Evidence from Cyclists in Mexico City",
-      "title_cn": "",
+      "title_cn": "对环境紧急警报和临时驾驶限制的行为反应：来自墨西哥城骑行者的证据",
       "authors": [
         "José Eduardo Castro Pérez",
         "Daniel Flores"
       ],
       "abstract_en": "We evaluate the impact of environmental emergency alerts and temporary driving restrictions on cycling activity in Mexico City for the period 2019–2023. Although environmental alerts and driving restrictions are closely linked, they do not necessarily occur simultaneously. We are careful to disentangle their differentiated effect using an administrative dataset that allows us to distinguish cyclists’ trip purposes as commuting and leisure. We find that environmental alerts are effective, yet limited, persuading cyclists to reduce their cycling activity by about 6–29% during highly polluted days. Moreover, we confirm that temporary driving restrictions are effective, increasing commuting cycling activity in a range of 4–15%. However, the effectiveness of driving restrictions is achieved at the expense of lower-income commuters. While higher-income commuters continue to drive thanks to their greater availability of cars, lower-income commuters are pushed to opt for cleaner means of transportation—such as bicycles—at a higher cost for their health.",
-      "abstract_cn": "",
+      "abstract_cn": "我们评估了2019-2023年期间环境紧急警报和临时驾驶限制对墨西哥城骑行活动的影响。尽管环境警报和驾驶限制密切相关，但它们不一定同时发生。我们利用一个行政数据集，能够区分骑行者的出行目的为通勤和休闲，从而谨慎地分离出它们的差异化效应。我们发现，环境警报是有效的，但效果有限，在高污染日能说服骑行者减少约6-29%的骑行活动。此外，我们确认临时驾驶限制是有效的，使通勤骑行活动增加了4-15%的范围。然而，驾驶限制的有效性是以低收入通勤者的代价实现的。高收入通勤者由于拥有更多汽车而继续驾驶，而低收入通勤者则被迫选择更清洁的交通方式——如自行车——这对他们的健康造成了更高的成本。",
       "doi": "10.1007/s10640-025-00985-z",
       "source_url": "https://doi.org/10.1007/s10640-025-00985-z",
       "publication_date": "2025",
@@ -249,15 +289,21 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i6d10.1007_s10640-025-00985-z.html"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T12:33:46+00:00",
+        "source_hash": "465d88480f56a3a8c7fec9cf64afaf97acb654188b8de81e9e647a3e7b1c89ae"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ]
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1007/s10640-025-00987-x",
@@ -265,13 +311,13 @@
       "source_sequence": 8,
       "article_type": "research-article",
       "title_en": "Toxic Roads",
-      "title_cn": "",
+      "title_cn": "有毒的道路",
       "authors": [
         "Caterina Gennaioli",
         "Gaia Narciso"
       ],
-      "abstract_en": "Abstract This paper explores road construction’s unintended consequences on health. Drawing evidence from a large-scale road development program in Ethiopia, we investigate the impact of road construction on infant mortality. Along major routes, we find that an additional road increases the probability of infant mortality by 3 percentage points. The empirical evidence suggests that waste exposure associated with road construction is a likely explanation for our findings. A large set of robustness checks rules out confounding factors such as migration and urbanization, and alternative mechanisms such as traffic pollution.",
-      "abstract_cn": "",
+      "abstract_en": "This paper explores road construction’s unintended consequences on health. Drawing evidence from a large-scale road development program in Ethiopia, we investigate the impact of road construction on infant mortality. Along major routes, we find that an additional road increases the probability of infant mortality by 3 percentage points. The empirical evidence suggests that waste exposure associated with road construction is a likely explanation for our findings. A large set of robustness checks rules out confounding factors such as migration and urbanization, and alternative mechanisms such as traffic pollution.",
+      "abstract_cn": "本文探讨了道路建设对健康产生的非预期后果。利用埃塞俄比亚一项大规模道路发展项目的证据，我们研究了道路建设对婴儿死亡率的影响。在主要路线沿线，我们发现每增加一条道路会使婴儿死亡率提高3个百分点。经验证据表明，与道路建设相关的废弃物暴露可能是我们研究结果的一个合理解释。一系列稳健性检验排除了迁移和城市化等混杂因素，以及交通污染等替代机制的影响。",
       "doi": "10.1007/s10640-025-00987-x",
       "source_url": "https://doi.org/10.1007/s10640-025-00987-x",
       "publication_date": "2025",
@@ -283,15 +329,21 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i6d10.1007_s10640-025-00987-x.html"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T11:06:16+00:00",
+        "source_hash": "0b7609a1f7fd5c02bb4303136e0b52d2ba35cd9fce527c0289183952d0dcc55c"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ]
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     }
   ],
   "quality": {
@@ -306,10 +358,39 @@
     "doi_complete": 8,
     "authors_complete": 8,
     "abstract_en_complete": 8,
-    "translation_complete": 0,
+    "translation_complete": 7,
     "duplicate_count": 0,
     "flags": [
       "translation_incomplete"
-    ]
-  }
+    ],
+    "official_item_count": 8,
+    "publishable_item_count": 8,
+    "content_counts": {
+      "official_items": 8,
+      "observed_items": 8,
+      "publishable_items": 8,
+      "research_articles": 8,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 8
+    }
+  },
+  "content_counts": {
+    "official_items": 8,
+    "observed_items": 8,
+    "publishable_items": 8,
+    "research_articles": 8,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 8
+  },
+  "issue_label": "Vol. 88 · No. 6"
 }
