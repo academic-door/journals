@@ -42,7 +42,8 @@ permissions:
   models: read
 
 concurrency:
-  group: field-history-backfill
+  # Parallelize per-journal backfills; only the same journal serializes.
+  group: field-history-backfill-${{ github.event.inputs.journal || 'ALL' }}
   cancel-in-progress: false
 
 jobs:
