@@ -10,6 +10,8 @@ journals:
     enabled: true
     collections:
       - top5
+    fallback: crossref
+
   JPE:
     id: jpe
     name: Journal of Political Economy
@@ -275,6 +277,8 @@ journals:
     current_issue_url: https://onlinelibrary.wiley.com/toc/15557561/current
     enabled: true
     collections: [fields]
+    fallback: crossref
+
   RAND:
     id: rand
     name: The RAND Journal of Economics
@@ -289,6 +293,8 @@ journals:
     current_issue_url: https://onlinelibrary.wiley.com/toc/17562171/current
     enabled: true
     collections: [fields]
+    fallback: crossref
+
   AEJMICRO:
     id: aejmicro
     name: "American Economic Journal: Microeconomics"
@@ -595,3 +601,4 @@ journals:
     current_issue_url: https://link.springer.com/journal/10640/volumes-and-issues
     enabled: true
     collections: [fields]
+    fallback: crossref

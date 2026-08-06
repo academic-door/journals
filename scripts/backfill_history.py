@@ -61,6 +61,24 @@ def collector_for_issue(
     issue_url = (
         issue_ref.official_url if isinstance(issue_ref, HistoricalIssue) else str(issue_ref)
     )
+    if isinstance(issue_ref, HistoricalIssue) and (
+        journal_config.get("fallback") == "crossref" or collector == "crossref"
+    ):
+        # Unified history path: collect by volume from the Crossref roster.
+        from collectors.metadata_fallback import fetch_crossref_current_issue
+
+        return lambda: fetch_crossref_current_issue(
+            journal_id=journal_config["id"],
+            journal_name=journal_config["name"],
+            issn=str(journal_config["issn"]),
+            current_issue_url=issue_url,
+            target_volume=issue_ref.volume,
+            target_issue=(
+                issue_ref.issue if issue_ref.issue != "c" else ""
+            ),
+            output_issue=issue_ref.issue.upper(),
+            start_year=int(issue_ref.year) - 2,
+        )
     if collector == "aea":
         if (
             isinstance(issue_ref, HistoricalIssue)
