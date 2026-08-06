@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T11:00:13+00:00
+Updated: 2026-08-06T11:00:18+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -11,26 +11,6 @@ Updated: 2026-08-06T11:00:13+00:00
 | AEJMICRO | aejmicro-18-1 | 2026 | complete |  |
 | AEJMICRO | aejmicro-18-2 | 2026 | complete |  |
 | AEJMICRO | aejmicro-18-3 | 2026 | complete |  |
-| AER | aer-115-1 | 2025 | complete |  |
-| AER | aer-115-10 | 2025 | complete |  |
-| AER | aer-115-11 | 2025 | complete |  |
-| AER | aer-115-12 | 2025 | complete |  |
-| AER | aer-115-2 | 2025 | complete |  |
-| AER | aer-115-3 | 2025 | complete |  |
-| AER | aer-115-4 | 2025 | complete |  |
-| AER | aer-115-5 | 2025 | complete |  |
-| AER | aer-115-6 | 2025 | complete |  |
-| AER | aer-115-7 | 2025 | complete |  |
-| AER | aer-115-8 | 2025 | complete |  |
-| AER | aer-115-9 | 2025 | complete |  |
-| AER | aer-116-1 | 2026 | complete |  |
-| AER | aer-116-2 | 2026 | complete |  |
-| AER | aer-116-3 | 2026 | complete |  |
-| AER | aer-116-4 | 2026 | complete |  |
-| AER | aer-116-5 | 2026 | complete |  |
-| AER | aer-116-6 | 2026 | complete |  |
-| AER | aer-116-7 | 2026 | complete |  |
-| AER | aer-116-8 | 2026 | complete |  |
 | AERI | aeri-7-1 | 2025 | complete |  |
 | AERI | aeri-7-2 | 2025 | complete |  |
 | AERI | aeri-7-3 | 2025 | translation_partial |  |
@@ -228,6 +208,25 @@ Updated: 2026-08-06T11:00:13+00:00
 | JOE | joe-255-c | 2026 | complete |  |
 | JOE | joe-256-c | 2026 | complete |  |
 | JOE | joe-257-c | 2026 | complete |  |
+| JPE | jpe-133-1 | 2025 | complete |  |
+| JPE | jpe-133-10 | 2025 | complete |  |
+| JPE | jpe-133-11 | 2025 | complete |  |
+| JPE | jpe-133-12 | 2025 | complete |  |
+| JPE | jpe-133-2 | 2025 | complete |  |
+| JPE | jpe-133-3 | 2025 | complete |  |
+| JPE | jpe-133-4 | 2025 | complete |  |
+| JPE | jpe-133-5 | 2025 | complete |  |
+| JPE | jpe-133-6 | 2025 | complete |  |
+| JPE | jpe-133-7 | 2025 | complete |  |
+| JPE | jpe-133-8 | 2025 | complete |  |
+| JPE | jpe-133-9 | 2025 | complete |  |
+| JPE | jpe-134-1 | 2026 | complete |  |
+| JPE | jpe-134-2 | 2026 | complete |  |
+| JPE | jpe-134-3 | 2026 | complete |  |
+| JPE | jpe-134-4 | 2026 | complete |  |
+| JPE | jpe-134-5 | 2026 | complete |  |
+| JPE | jpe-134-6 | 2026 | complete |  |
+| JPE | jpe-134-7 | 2026 | complete |  |
 | JPubE | jpube-241-c | 2025 | complete |  |
 | JPubE | jpube-242-c | 2025 | complete |  |
 | JPubE | jpube-243-c | 2025 | complete |  |
