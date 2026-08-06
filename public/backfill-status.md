@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T11:58:25+00:00
+Updated: 2026-08-06T12:03:50+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -223,6 +223,12 @@ Updated: 2026-08-06T11:58:25+00:00
 | JIE | jie-162-c | 2026 | complete |  |
 | JIE | jie-163-c | 2026 | complete |  |
 | JIE | jie-164-c | 2026 | translation_partial |  |
+| JLE | jle-68-1 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable issue 68/1 |
+| JLE | jle-68-2 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable issue 68/2 |
+| JLE | jle-68-3 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable issue 68/3 |
+| JLE | jle-68-4 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable issue 68/4 |
+| JLE | jle-69-1 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 69/1 |
+| JLE | jle-69-2 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 69/2 |
 | JME | jme-149-c | 2025 | complete |  |
 | JME | jme-150-c | 2025 | complete |  |
 | JME | jme-151-c | 2025 | complete |  |
