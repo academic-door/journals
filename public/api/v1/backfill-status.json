@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-08-06T07:38:16+00:00",
+  "updated_at": "2026-08-06T07:39:27+00:00",
   "summary": {
     "complete": 213,
     "translation_partial": 29,
-    "blocked": 0,
+    "blocked": 2,
     "collected": 0,
     "pending": 0
   },
@@ -321,6 +321,22 @@
         "volume": "159",
         "status": "complete",
         "last_error": ""
+      }
+    ],
+    "IER": [
+      {
+        "issue_id": "ier-66-c",
+        "year": 2025,
+        "volume": "66",
+        "status": "blocked",
+        "last_error": "MetadataFallbackError: RePEc serial page has no issue 66/c"
+      },
+      {
+        "issue_id": "ier-67-c",
+        "year": 2026,
+        "volume": "67",
+        "status": "blocked",
+        "last_error": "MetadataFallbackError: RePEc serial page has no issue 67/c"
       }
     ],
     "JDE": [
