@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T11:05:10+00:00
+Updated: 2026-08-06T11:06:09+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -80,17 +80,6 @@ Updated: 2026-08-06T11:05:10+00:00
 | IER | ier-67-1 | 2026 | complete |  |
 | IER | ier-67-2 | 2026 | complete |  |
 | IER | ier-67-3 | 2026 | complete |  |
-| JAERE | jaere-12-1 | 2025 | complete |  |
-| JAERE | jaere-12-2 | 2025 | complete |  |
-| JAERE | jaere-12-3 | 2025 | complete |  |
-| JAERE | jaere-12-4 | 2025 | complete |  |
-| JAERE | jaere-12-5 | 2025 | complete |  |
-| JAERE | jaere-12-6 | 2025 | translation_partial |  |
-| JAERE | jaere-13-1 | 2026 | translation_partial |  |
-| JAERE | jaere-13-2 | 2026 | translation_partial |  |
-| JAERE | jaere-13-3 | 2026 | translation_partial |  |
-| JAERE | jaere-13-4 | 2026 | complete |  |
-| JAERE | jaere-13-5 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 13/5 |
 | JDE | jde-172-c | 2025 | complete |  |
 | JDE | jde-173-c | 2025 | complete |  |
 | JDE | jde-174-c | 2025 | complete |  |
@@ -160,6 +149,16 @@ Updated: 2026-08-06T11:05:10+00:00
 | JET | jet-234-c | 2026 | complete |  |
 | JET | jet-235-c | 2026 | complete |  |
 | JET | jet-236-c | 2026 | complete |  |
+| JF | jf-80-1 | 2025 | complete |  |
+| JF | jf-80-2 | 2025 | translation_partial |  |
+| JF | jf-80-3 | 2025 | translation_partial |  |
+| JF | jf-80-4 | 2025 | translation_partial |  |
+| JF | jf-80-5 | 2025 | translation_partial |  |
+| JF | jf-80-6 | 2025 | complete |  |
+| JF | jf-81-1 | 2026 | complete |  |
+| JF | jf-81-2 | 2026 | translation_partial |  |
+| JF | jf-81-3 | 2026 | complete |  |
+| JF | jf-81-4 | 2026 | translation_partial |  |
 | JFE | jfe-163-c | 2025 | complete |  |
 | JFE | jfe-164-c | 2025 | complete |  |
 | JFE | jfe-165-c | 2025 | complete |  |
@@ -219,6 +218,25 @@ Updated: 2026-08-06T11:05:10+00:00
 | JOE | joe-255-c | 2026 | complete |  |
 | JOE | joe-256-c | 2026 | complete |  |
 | JOE | joe-257-c | 2026 | complete |  |
+| JPE | jpe-133-1 | 2025 | complete |  |
+| JPE | jpe-133-10 | 2025 | complete |  |
+| JPE | jpe-133-11 | 2025 | complete |  |
+| JPE | jpe-133-12 | 2025 | complete |  |
+| JPE | jpe-133-2 | 2025 | complete |  |
+| JPE | jpe-133-3 | 2025 | complete |  |
+| JPE | jpe-133-4 | 2025 | complete |  |
+| JPE | jpe-133-5 | 2025 | complete |  |
+| JPE | jpe-133-6 | 2025 | complete |  |
+| JPE | jpe-133-7 | 2025 | complete |  |
+| JPE | jpe-133-8 | 2025 | complete |  |
+| JPE | jpe-133-9 | 2025 | complete |  |
+| JPE | jpe-134-1 | 2026 | complete |  |
+| JPE | jpe-134-2 | 2026 | complete |  |
+| JPE | jpe-134-3 | 2026 | complete |  |
+| JPE | jpe-134-4 | 2026 | complete |  |
+| JPE | jpe-134-5 | 2026 | complete |  |
+| JPE | jpe-134-6 | 2026 | complete |  |
+| JPE | jpe-134-7 | 2026 | complete |  |
 | JPubE | jpube-241-c | 2025 | complete |  |
 | JPubE | jpube-242-c | 2025 | complete |  |
 | JPubE | jpube-243-c | 2025 | complete |  |
@@ -283,13 +301,6 @@ Updated: 2026-08-06T11:05:10+00:00
 | QE | qe-17-2 | 2026 | complete |  |
 | QE | qe-17-3 | 2026 | complete |  |
 | QE | qe-17-4 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
-| TE | te-20-1 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
-| TE | te-20-2 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
-| TE | te-20-3 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
-| TE | te-20-4 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
-| TE | te-21-1 | 2026 | complete |  |
-| TE | te-21-2 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
-| TE | te-21-3 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
 | WD | wd-185-c | 2025 | translation_partial |  |
 | WD | wd-186-c | 2025 | translation_partial |  |
 | WD | wd-187-c | 2025 | complete |  |
