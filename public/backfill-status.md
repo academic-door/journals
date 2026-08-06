@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T11:06:09+00:00
+Updated: 2026-08-06T11:07:33+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -149,16 +149,6 @@ Updated: 2026-08-06T11:06:09+00:00
 | JET | jet-234-c | 2026 | complete |  |
 | JET | jet-235-c | 2026 | complete |  |
 | JET | jet-236-c | 2026 | complete |  |
-| JF | jf-80-1 | 2025 | complete |  |
-| JF | jf-80-2 | 2025 | translation_partial |  |
-| JF | jf-80-3 | 2025 | translation_partial |  |
-| JF | jf-80-4 | 2025 | translation_partial |  |
-| JF | jf-80-5 | 2025 | translation_partial |  |
-| JF | jf-80-6 | 2025 | complete |  |
-| JF | jf-81-1 | 2026 | complete |  |
-| JF | jf-81-2 | 2026 | translation_partial |  |
-| JF | jf-81-3 | 2026 | complete |  |
-| JF | jf-81-4 | 2026 | translation_partial |  |
 | JFE | jfe-163-c | 2025 | complete |  |
 | JFE | jfe-164-c | 2025 | complete |  |
 | JFE | jfe-165-c | 2025 | complete |  |
@@ -301,6 +291,26 @@ Updated: 2026-08-06T11:06:09+00:00
 | QE | qe-17-2 | 2026 | complete |  |
 | QE | qe-17-3 | 2026 | complete |  |
 | QE | qe-17-4 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
+| RFS | rfs-38-1 | 2025 | complete |  |
+| RFS | rfs-38-10 | 2025 | complete |  |
+| RFS | rfs-38-11 | 2025 | complete |  |
+| RFS | rfs-38-12 | 2025 | complete |  |
+| RFS | rfs-38-2 | 2025 | complete |  |
+| RFS | rfs-38-3 | 2025 | complete |  |
+| RFS | rfs-38-4 | 2025 | complete |  |
+| RFS | rfs-38-5 | 2025 | translation_partial |  |
+| RFS | rfs-38-6 | 2025 | complete |  |
+| RFS | rfs-38-7 | 2025 | complete |  |
+| RFS | rfs-38-8 | 2025 | complete |  |
+| RFS | rfs-38-9 | 2025 | complete |  |
+| RFS | rfs-39-1 | 2026 | complete |  |
+| RFS | rfs-39-2 | 2026 | complete |  |
+| RFS | rfs-39-3 | 2026 | complete |  |
+| RFS | rfs-39-4 | 2026 | complete |  |
+| RFS | rfs-39-5 | 2026 | translation_partial |  |
+| RFS | rfs-39-6 | 2026 | complete |  |
+| RFS | rfs-39-7 | 2026 | complete |  |
+| RFS | rfs-39-8 | 2026 | complete |  |
 | WD | wd-185-c | 2025 | translation_partial |  |
 | WD | wd-186-c | 2025 | translation_partial |  |
 | WD | wd-187-c | 2025 | complete |  |
