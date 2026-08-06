@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T12:09:56+00:00
+Updated: 2026-08-06T12:10:10+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -441,6 +441,26 @@ Updated: 2026-08-06T12:09:56+00:00
 | RES | res-93-2 | 2026 | complete |  |
 | RES | res-93-3 | 2026 | complete |  |
 | RES | res-93-4 | 2026 | complete |  |
+| RFS | rfs-38-1 | 2025 | complete |  |
+| RFS | rfs-38-10 | 2025 | complete |  |
+| RFS | rfs-38-11 | 2025 | complete |  |
+| RFS | rfs-38-12 | 2025 | complete |  |
+| RFS | rfs-38-2 | 2025 | complete |  |
+| RFS | rfs-38-3 | 2025 | complete |  |
+| RFS | rfs-38-4 | 2025 | complete |  |
+| RFS | rfs-38-5 | 2025 | translation_partial |  |
+| RFS | rfs-38-6 | 2025 | complete |  |
+| RFS | rfs-38-7 | 2025 | complete |  |
+| RFS | rfs-38-8 | 2025 | complete |  |
+| RFS | rfs-38-9 | 2025 | complete |  |
+| RFS | rfs-39-1 | 2026 | complete |  |
+| RFS | rfs-39-2 | 2026 | complete |  |
+| RFS | rfs-39-3 | 2026 | complete |  |
+| RFS | rfs-39-4 | 2026 | translation_partial |  |
+| RFS | rfs-39-5 | 2026 | translation_partial |  |
+| RFS | rfs-39-6 | 2026 | complete |  |
+| RFS | rfs-39-7 | 2026 | complete |  |
+| RFS | rfs-39-8 | 2026 | complete |  |
 | TE | te-20-1 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
 | TE | te-20-2 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
 | TE | te-20-3 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
