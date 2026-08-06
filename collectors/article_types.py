@@ -180,12 +180,17 @@ def normalize_issue_taxonomy(
             str(article.get("title_en", "")),
             forced or str(article.get("article_type", "")),
         )
-        # A bare person-name title with no English abstract is a memorial or
-        # fellows announcement (front matter), not a research article.
+        # A bare person-name title is a memorial or fellows announcement
+        # (front matter), not a research article: either it has no English
+        # abstract (the Crossref record is an empty announcement) or it has no
+        # authors (the person is the subject of the notice, not the author).
         if (
             atype == "research-article"
-            and not str(article.get("abstract_en", "")).strip()
             and is_person_name_title(str(article.get("title_en", "")))
+            and (
+                not str(article.get("abstract_en", "")).strip()
+                or not article.get("authors")
+            )
         ):
             atype = "front-matter"
         article["article_type"] = atype
@@ -261,6 +266,8 @@ def normalize_issue_taxonomy(
     quality["translation_complete"] = sum(
         translation_is_complete(item) for item in articles
     )
+    quality["doi_complete"] = sum(bool(item.get("doi")) for item in articles)
+    quality["authors_complete"] = sum(bool(item.get("authors")) for item in articles)
 
     flags = [
         str(flag)
