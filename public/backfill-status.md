@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T13:15:07+00:00
+Updated: 2026-08-06T13:16:16+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -408,6 +408,8 @@ Updated: 2026-08-06T13:15:07+00:00
 | LUP | lup-167-c | 2026 | complete |  |
 | LUP | lup-168-c | 2026 | complete |  |
 | LUP | lup-169-c | 2026 | complete |  |
+| LUP | lup-170-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 170/ |
+| LUP | lup-171-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 171/ |
 | QE | qe-16-1 | 2025 | complete |  |
 | QE | qe-16-2 | 2025 | complete |  |
 | QE | qe-16-3 | 2025 | complete |  |

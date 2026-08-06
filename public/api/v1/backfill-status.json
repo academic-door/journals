@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-08-06T13:15:07+00:00",
+  "updated_at": "2026-08-06T13:16:16+00:00",
   "summary": {
     "complete": 429,
     "translation_partial": 59,
-    "blocked": 8,
+    "blocked": 10,
     "collected": 0,
     "pending": 0
   },
@@ -2901,6 +2901,20 @@
         "volume": "169",
         "status": "complete",
         "last_error": ""
+      },
+      {
+        "issue_id": "lup-170-c",
+        "year": 2026,
+        "volume": "170",
+        "status": "blocked",
+        "last_error": "MetadataFallbackError: Crossref returned no usable issue 170/"
+      },
+      {
+        "issue_id": "lup-171-c",
+        "year": 2026,
+        "volume": "171",
+        "status": "blocked",
+        "last_error": "MetadataFallbackError: Crossref returned no usable issue 171/"
       }
     ],
     "QE": [
