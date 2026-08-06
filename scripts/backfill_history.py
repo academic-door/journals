@@ -112,7 +112,7 @@ def collector_for_issue(
         from collectors.oup import fetch_current_issue
 
         return lambda: fetch_current_issue(journal_config["id"], issue_url)
-    if collector == "wiley":
+    if collector in ("wiley", "repec"):
         if isinstance(issue_ref, HistoricalIssue) and journal_config.get(
             "repec_series_code"
         ):
