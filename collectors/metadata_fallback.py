@@ -2031,6 +2031,109 @@ def fetch_official_rss_issue(
     }
 
 
+def enrich_missing_metadata(
+    issue: dict[str, Any],
+    *,
+    session: requests.Session | None = None,
+    timeout: int = 45,
+) -> dict[str, Any]:
+    """Fill missing English abstracts and authors for a collected issue.
+
+    Historical backfills often fall back to Crossref, which lacks abstracts
+    for some articles (and authors for a few). Before translating, try the
+    publisher metadata chain: Elsevier Article Metadata API (for Elsevier
+    DOIs), Semantic Scholar batch, then OpenAlex. Every source is best-effort;
+    failures leave the article unchanged so the issue keeps its honest flags.
+    """
+
+    articles = issue.get("articles", [])
+    if not articles:
+        return issue
+    client = session or _session()
+    missing_abstract = [
+        article
+        for article in articles
+        if not str(article.get("abstract_en", "")).strip()
+    ]
+    missing_authors = [
+        article
+        for article in articles
+        if not article.get("authors")
+    ]
+    seen_dois: set[str] = set()
+    targets: list[dict[str, Any]] = []
+    for article in missing_abstract + missing_authors:
+        doi = str(article.get("doi", "")).strip().lower()
+        if doi and doi not in seen_dois:
+            seen_dois.add(doi)
+            targets.append(article)
+    if not targets:
+        return issue
+
+    # 1) Semantic Scholar batch (authors + abstracts in one call).
+    semantic = _semantic_scholar_metadata_batch(
+        client,
+        [str(article.get("doi", "")) for article in targets],
+        timeout=min(timeout, 10),
+    )
+    for article in articles:
+        doi = str(article.get("doi", "")).strip().lower()
+        if not doi:
+            continue
+        metadata = semantic.get(doi, {})
+        if not article.get("authors") and metadata.get("authors"):
+            article["authors"] = list(metadata["authors"])
+        if not str(article.get("abstract_en", "")).strip() and metadata.get(
+            "abstract"
+        ):
+            article["abstract_en"] = str(metadata["abstract"])
+            article.setdefault("sources", {})["abstract_en"] = "semantic-scholar"
+
+    # 2) Elsevier Article Metadata API for Elsevier DOIs.
+    for article in targets:
+        doi = str(article.get("doi", "")).strip().lower()
+        if not doi.startswith("10.1016/"):
+            continue
+        if (
+            str(article.get("abstract_en", "")).strip()
+            and article.get("authors")
+        ):
+            continue
+        try:
+            lookup = _elsevier_lookup(client, "", doi=doi, timeout=timeout)
+        except Exception:
+            continue
+        abstract = str(lookup.get("abstract", "")).strip()
+        if abstract and not str(article.get("abstract_en", "")).strip():
+            article["abstract_en"] = abstract
+            article.setdefault("sources", {})["abstract_en"] = str(
+                lookup.get("source", "elsevier-api")
+            )
+
+    # 3) OpenAlex for anything still missing.
+    for article in targets:
+        doi = str(article.get("doi", "")).strip()
+        if not doi:
+            continue
+        if (
+            str(article.get("abstract_en", "")).strip()
+            and article.get("authors")
+        ):
+            continue
+        try:
+            authors, abstract, url = _openalex_metadata(
+                client, doi, timeout=timeout
+            )
+        except Exception:
+            continue
+        if not article.get("authors") and authors:
+            article["authors"] = authors
+        if not str(article.get("abstract_en", "")).strip() and abstract:
+            article["abstract_en"] = abstract
+            article.setdefault("sources", {})["abstract_en"] = "openalex"
+    return issue
+
+
 def fetch_crossref_current_issue(
     *,
     journal_id: str,

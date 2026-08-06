@@ -5,6 +5,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from types import SimpleNamespace
+from unittest import mock
 from unittest.mock import patch
 
 from collectors.history import HistoricalIssue
@@ -505,6 +506,108 @@ class ElsevierSearchRosterFilterTests(unittest.TestCase):
                 volume="242",
                 session=FakeSession(),
             )
+
+
+
+
+
+class MetadataEnrichmentTests(unittest.TestCase):
+    def test_enrichment_fills_missing_abstract_and_authors(self) -> None:
+        from collectors.metadata_fallback import enrich_missing_metadata
+
+        issue = {
+            "journal_id": "wd",
+            "articles": [
+                {
+                    "doi": "10.1016/j.worlddev.2026.100001",
+                    "title_en": "GVC sustainability",
+                    "authors": [],
+                    "abstract_en": "",
+                    "sources": {"roster": "crossref"},
+                },
+                {
+                    "doi": "10.1016/j.worlddev.2026.100002",
+                    "title_en": "Mining in development",
+                    "authors": ["A. Author"],
+                    "abstract_en": "Already present.",
+                    "sources": {"roster": "crossref"},
+                },
+            ],
+        }
+        # Fake responses: Semantic Scholar returns nothing, Elsevier returns
+        # an abstract for the first DOI, OpenAlex returns nothing.
+        def fake_get(*args, **kwargs):
+            class R:
+                status_code = 404
+                content = b""
+                headers = {}
+
+                def raise_for_status(self):
+                    return None
+
+            return R()
+
+        class FakeSession:
+            def get(self, *args, **kwargs):
+                return fake_get()
+
+            def post(self, *args, **kwargs):
+                class R:
+                    status_code = 200
+
+                    def raise_for_status(self):
+                        return None
+
+                    def json(self):
+                        return [None]
+
+                return R()
+
+        with (
+            mock.patch(
+                "collectors.metadata_fallback._elsevier_lookup",
+                return_value={
+                    "abstract": "Filled by Elsevier.",
+                    "source": "elsevier-api",
+                },
+            ),
+            mock.patch(
+                "collectors.metadata_fallback._openalex_metadata",
+                return_value=([], "", ""),
+            ),
+        ):
+            enriched = enrich_missing_metadata(
+                issue, session=FakeSession(), timeout=5
+            )
+        self.assertEqual(
+            "Filled by Elsevier.",
+            enriched["articles"][0]["abstract_en"],
+        )
+        self.assertEqual(
+            "elsevier-api",
+            enriched["articles"][0]["sources"]["abstract_en"],
+        )
+        self.assertEqual(
+            "Already present.",
+            enriched["articles"][1]["abstract_en"],
+        )
+
+    def test_enrichment_is_noop_when_nothing_missing(self) -> None:
+        from collectors.metadata_fallback import enrich_missing_metadata
+
+        issue = {
+            "journal_id": "x",
+            "articles": [
+                {
+                    "doi": "10.1/x",
+                    "title_en": "T",
+                    "authors": ["A"],
+                    "abstract_en": "Full.",
+                }
+            ],
+        }
+        result = enrich_missing_metadata(issue, session=None, timeout=5)
+        self.assertIs(issue, result)
 
 
 

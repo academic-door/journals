@@ -412,6 +412,11 @@ def run_issue(
             refresh=current_status not in ("complete", "translation_partial"),
         )
         update_state(state, issue_ref, status="collected")
+        # Fill missing English abstracts/authors before translating so
+        # articles that only had a Crossref roster can still be translated.
+        from collectors.metadata_fallback import enrich_missing_metadata
+
+        issue = enrich_missing_metadata(issue)
         issue = apply_translation_cache(issue)
         translation_report = None
         if translate:
