@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-08-06T13:14:21+00:00",
+  "updated_at": "2026-08-06T13:15:07+00:00",
   "summary": {
     "complete": 429,
     "translation_partial": 59,
-    "blocked": 7,
+    "blocked": 8,
     "collected": 0,
     "pending": 0
   },
@@ -2615,6 +2615,13 @@
         "volume": "261",
         "status": "complete",
         "last_error": ""
+      },
+      {
+        "issue_id": "jpube-262-c",
+        "year": 2026,
+        "volume": "262",
+        "status": "blocked",
+        "last_error": "MetadataFallbackError: Crossref returned no usable issue 262/"
       }
     ],
     "JUE": [
