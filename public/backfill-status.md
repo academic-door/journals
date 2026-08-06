@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T12:06:38+00:00
+Updated: 2026-08-06T12:06:41+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -11,6 +11,13 @@ Updated: 2026-08-06T12:06:38+00:00
 | AEJAPP | aejapp-18-1 | 2026 | complete |  |
 | AEJAPP | aejapp-18-2 | 2026 | complete |  |
 | AEJAPP | aejapp-18-3 | 2026 | complete |  |
+| AEJMACRO | aejmacro-17-1 | 2025 | complete |  |
+| AEJMACRO | aejmacro-17-2 | 2025 | complete |  |
+| AEJMACRO | aejmacro-17-3 | 2025 | complete |  |
+| AEJMACRO | aejmacro-17-4 | 2025 | complete |  |
+| AEJMACRO | aejmacro-18-1 | 2026 | complete |  |
+| AEJMACRO | aejmacro-18-2 | 2026 | complete |  |
+| AEJMACRO | aejmacro-18-3 | 2026 | complete |  |
 | AEJMICRO | aejmicro-17-1 | 2025 | complete |  |
 | AEJMICRO | aejmicro-17-2 | 2025 | complete |  |
 | AEJMICRO | aejmicro-17-3 | 2025 | complete |  |
