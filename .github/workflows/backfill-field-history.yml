@@ -105,10 +105,17 @@ jobs:
           state = json.load(open(sys.argv[1], encoding="utf-8"))
           journal = sys.argv[2]
           entries = state.get("issues", {}).values()
+          journal_entries = [
+              entry for entry in entries
+              if journal == "ALL" or entry.get("journal", "") == journal
+          ]
+          if not journal_entries:
+              # A journal with no checkpoints at all has never been discovered
+              # or collected; it must run so discovery can populate the plan.
+              print(1)
+              raise SystemExit(0)
           actionable = 0
-          for entry in entries:
-              if journal != "ALL" and entry.get("journal", "") != journal:
-                  continue
+          for entry in journal_entries:
               status = entry.get("status", "")
               if status == "complete":
                   continue
