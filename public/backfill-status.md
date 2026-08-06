@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T07:59:22+00:00
+Updated: 2026-08-06T07:44:13+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -23,6 +23,8 @@ Updated: 2026-08-06T07:59:22+00:00
 | EER | eer-187-c | 2026 | complete |  |
 | EER | eer-188-c | 2026 | complete |  |
 | EER | eer-189-c | 2026 | complete |  |
+| EJ | ej-135-c | 2025 | blocked | MetadataFallbackError: Crossref returned no usable issue 135/c |
+| EJ | ej-136-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 136/c |
 | FOODPOLICY | foodpolicy-130-c | 2025 | complete |  |
 | FOODPOLICY | foodpolicy-131-c | 2025 | complete |  |
 | FOODPOLICY | foodpolicy-132-c | 2025 | complete |  |
@@ -48,14 +50,8 @@ Updated: 2026-08-06T07:59:22+00:00
 | GEB | geb-157-c | 2026 | complete |  |
 | GEB | geb-158-c | 2026 | complete |  |
 | GEB | geb-159-c | 2026 | complete |  |
-| IER | ier-66-1 | 2025 | complete |  |
-| IER | ier-66-2 | 2025 | complete |  |
-| IER | ier-66-3 | 2025 | complete |  |
-| IER | ier-66-4 | 2025 | complete |  |
-| IER | ier-66-5 | 2025 | complete |  |
-| IER | ier-67-1 | 2026 | complete |  |
-| IER | ier-67-2 | 2026 | complete |  |
-| IER | ier-67-3 | 2026 | complete |  |
+| IER | ier-66-c | 2025 | blocked | MetadataFallbackError: RePEc serial page has no issue 66/c |
+| IER | ier-67-c | 2026 | blocked | MetadataFallbackError: RePEc serial page has no issue 67/c |
 | JDE | jde-172-c | 2025 | complete |  |
 | JDE | jde-173-c | 2025 | complete |  |
 | JDE | jde-174-c | 2025 | complete |  |

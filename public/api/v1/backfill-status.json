@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-08-06T07:59:22+00:00",
+  "updated_at": "2026-08-06T07:44:13+00:00",
   "summary": {
-    "complete": 221,
+    "complete": 213,
     "translation_partial": 29,
-    "blocked": 0,
+    "blocked": 4,
     "collected": 0,
     "pending": 0
   },
@@ -142,6 +142,22 @@
         "volume": "189",
         "status": "complete",
         "last_error": ""
+      }
+    ],
+    "EJ": [
+      {
+        "issue_id": "ej-135-c",
+        "year": 2025,
+        "volume": "135",
+        "status": "blocked",
+        "last_error": "MetadataFallbackError: Crossref returned no usable issue 135/c"
+      },
+      {
+        "issue_id": "ej-136-c",
+        "year": 2026,
+        "volume": "136",
+        "status": "blocked",
+        "last_error": "MetadataFallbackError: Crossref returned no usable issue 136/c"
       }
     ],
     "FOODPOLICY": [
@@ -325,60 +341,18 @@
     ],
     "IER": [
       {
-        "issue_id": "ier-66-1",
+        "issue_id": "ier-66-c",
         "year": 2025,
         "volume": "66",
-        "status": "complete",
-        "last_error": ""
+        "status": "blocked",
+        "last_error": "MetadataFallbackError: RePEc serial page has no issue 66/c"
       },
       {
-        "issue_id": "ier-66-2",
-        "year": 2025,
-        "volume": "66",
-        "status": "complete",
-        "last_error": ""
-      },
-      {
-        "issue_id": "ier-66-3",
-        "year": 2025,
-        "volume": "66",
-        "status": "complete",
-        "last_error": ""
-      },
-      {
-        "issue_id": "ier-66-4",
-        "year": 2025,
-        "volume": "66",
-        "status": "complete",
-        "last_error": ""
-      },
-      {
-        "issue_id": "ier-66-5",
-        "year": 2025,
-        "volume": "66",
-        "status": "complete",
-        "last_error": ""
-      },
-      {
-        "issue_id": "ier-67-1",
+        "issue_id": "ier-67-c",
         "year": 2026,
         "volume": "67",
-        "status": "complete",
-        "last_error": ""
-      },
-      {
-        "issue_id": "ier-67-2",
-        "year": 2026,
-        "volume": "67",
-        "status": "complete",
-        "last_error": ""
-      },
-      {
-        "issue_id": "ier-67-3",
-        "year": 2026,
-        "volume": "67",
-        "status": "complete",
-        "last_error": ""
+        "status": "blocked",
+        "last_error": "MetadataFallbackError: RePEc serial page has no issue 67/c"
       }
     ],
     "JDE": [
