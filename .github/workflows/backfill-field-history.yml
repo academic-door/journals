@@ -36,6 +36,13 @@ on:
         required: true
         default: "120"
         type: string
+      translation_model:
+        description: >-
+          DeepSeek model ID for translations (default deepseek-chat; use
+          deepseek-reasoner for a targeted high-fidelity retry pass)
+        required: false
+        default: deepseek-chat
+        type: string
 
 permissions:
   contents: write
@@ -140,6 +147,7 @@ jobs:
           ELSEVIER_API_KEY: ${{ secrets.ELSEVIER_API_KEY }}
           ELSEVIER_INST_TOKEN: ${{ secrets.ELSEVIER_INST_TOKEN }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DEEPSEEK_MODEL: ${{ inputs.translation_model || 'deepseek-chat' }}
         run: |
           mkdir -p output
           global_flags=""

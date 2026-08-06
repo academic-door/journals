@@ -18,6 +18,16 @@ GITHUB_MODELS_ENDPOINT = "https://models.github.ai/inference/chat/completions"
 # GitHub Models (OpenAI-compatible chat completions API).
 DEEPSEEK_ENDPOINT = "https://api.deepseek.com/chat/completions"
 DEEPSEEK_MODEL = "deepseek-chat"
+
+
+def _deepseek_model() -> str:
+    """Resolve the DeepSeek model, honoring the DEEPSEEK_MODEL environment
+    override so operators can switch models (e.g. deepseek-reasoner) without
+    code changes."""
+    configured = os.environ.get("DEEPSEEK_MODEL", "").strip()
+    return configured or DEEPSEEK_MODEL
+
+
 GOOGLE_TRANSLATE_ENDPOINT = "https://translate.googleapis.com/translate_a/single"
 GOOGLE_MIN_REQUEST_INTERVAL_SECONDS = float(
     os.getenv("GOOGLE_TRANSLATE_MIN_INTERVAL", "2.0")
@@ -1210,7 +1220,7 @@ def translate_missing(
                     translated = request_translation(
                         article,
                         token=deepseek_key,
-                        model=DEEPSEEK_MODEL,
+                        model=_deepseek_model(),
                         endpoint=DEEPSEEK_ENDPOINT,
                         session=session,
                         provider_name="deepseek",
@@ -1290,7 +1300,7 @@ def translate_missing(
                     "model": (
                         selected_model
                         if provider == "github-models"
-                        else DEEPSEEK_MODEL
+                        else _deepseek_model()
                         if provider == "deepseek"
                         else "gtx-en-zh-CN"
                     ),
