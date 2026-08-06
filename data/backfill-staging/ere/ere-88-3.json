@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-06T12:22:05+00:00",
   "expected_article_count": 9,
   "research_article_count": 9,
-  "status": "ready",
+  "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
@@ -180,13 +180,13 @@
       "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "Irreversible Adaptation and Knightian Climate Uncertainty",
-      "title_cn": "不可逆适应与奈特式气候不确定性",
+      "title_cn": "",
       "authors": [
         "Dong Yan",
         "Charles Sims"
       ],
       "abstract_en": "We model a setting where a firm must choose when to adapt to climate-induced resource scarcity based on objective expectations of climate change (climate projections), and is influenced by both risk (annual variability in climate projections) and ambiguity (inability to assign probabilities to various climate projections). We show that the effect of risk on the timing of adaptation depends on the presence of diminishing returns in the firm’s production technology, while the effect of ambiguity depends on whether there is ambiguity in resource supply trends, instantaneous variance, or both. We apply our model to the decision-making process for adopting water-saving irrigation technology in California's Central Valley. By analyzing sixty-four downscaled climate projections for water availability in the region, we quantify the climate variability and ambiguity faced by agricultural firms and determine the optimal timing for adaptation.",
-      "abstract_cn": "我们构建了一个模型，在该模型中，企业必须基于对气候变化的客观预期（气候预测）来选择何时适应气候导致的资源稀缺，并同时受到风险（气候预测的年际变化）和模糊性（无法为各种气候预测分配概率）的影响。我们表明，风险对适应时机的影响取决于企业生产函数中是否存在边际收益递减，而模糊性的影响则取决于资源供应趋势、瞬时方差或两者是否存在模糊性。我们将模型应用于加利福尼亚中央谷地采用节水灌溉技术的决策过程。通过分析该地区水资源可利用性的六十四种降尺度气候预测，我们量化了农业企业面临的气候变异性和模糊性，并确定了最优适应时机。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-024-00945-z",
       "source_url": "https://doi.org/10.1007/s10640-024-00945-z",
       "publication_date": "2025",
@@ -198,15 +198,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i3d10.1007_s10640-024-00945-z.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T13:27:23+00:00",
-        "source_hash": "ad5a6c14c81a31c1bbbb26b8d253ba4663f78080dc85a254cff902593f77881c"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -398,9 +398,11 @@
     "doi_complete": 9,
     "authors_complete": 9,
     "abstract_en_complete": 9,
-    "translation_complete": 9,
+    "translation_complete": 8,
     "duplicate_count": 0,
-    "flags": [],
+    "flags": [
+      "translation_incomplete"
+    ],
     "official_item_count": 10,
     "publishable_item_count": 9,
     "content_counts": {
