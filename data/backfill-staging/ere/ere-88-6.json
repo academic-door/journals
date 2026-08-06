@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-06T12:22:44+00:00",
   "expected_article_count": 8,
   "research_article_count": 8,
-  "status": "ready",
+  "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
@@ -63,14 +63,14 @@
       "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Heat Waves and Housing Markets: Assessing the Effects on Real Estate Prices in China",
-      "title_cn": "热浪与住房市场：评估对中国房地产价格的影响",
+      "title_cn": "",
       "authors": [
         "Fanglin Chen",
         "Jie Zhang",
         "Zhongfei Chen"
       ],
       "abstract_en": "The risks brought about by climate change are complex and varied. A comprehensive study of the economic impact of climate change on various industries can help take proactive measures to enhance economic resilience. We use the panel data samples of monthly data at city level from 2010 to 2020 in China to explore the effects and mechanisms of heatwaves on real estate prices. Our research finds that for every 1 unit increase in standardized temperature, it will reduce housing prices by approximately CNY110 per square meter. The heterogeneity analyses indicate that in inland areas, areas with high fiscal pressure, and good development of the primary industry, this impact is even stronger. In addition, the exploration of potential mechanisms indicates that extreme high temperatures will reduce the proportion of employed people in the secondary industry, increase the proportion of employed people in the tertiary industry, reduce employment opportunities, inhibit agricultural development, and lower the willingness of foreign investment. These factors will lead to a decrease in housing prices from the demand side. This study analyzed the potential impact of climate risk on property value, contributing to a better understanding of the uncertain market environment.",
-      "abstract_cn": "气候变化带来的风险复杂多样。全面研究气候变化对各行业的经济影响，有助于采取积极措施增强经济韧性。我们利用2010年至2020年中国城市层面的月度面板数据样本，探讨热浪对房地产价格的影响及其机制。研究发现，标准化温度每增加1个单位，房价将大约每平方米减少110元人民币。异质性分析表明，在内陆地区、财政压力大的地区以及第一产业发展良好的地区，这种影响更为显著。此外，潜在机制的探索表明，极端高温将减少第二产业就业人口比例，增加第三产业就业人口比例，减少就业机会，抑制农业发展，并降低外商投资意愿。这些因素将从需求侧导致房价下降。本研究分析了气候风险对财产价值的潜在影响，有助于更好地理解不确定的市场环境。",
+      "abstract_cn": "",
       "doi": "10.1007/s10640-025-00975-1",
       "source_url": "https://doi.org/10.1007/s10640-025-00975-1",
       "publication_date": "2025",
@@ -82,15 +82,15 @@
         "repec": "https://ideas.repec.org/a/kap/enreec/v88y2025i6d10.1007_s10640-025-00975-1.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T14:00:08+00:00",
-        "source_hash": "dc755207affbc4df05f157b7ff4935fd4f04e55cbbcdff063905322c77baa20a"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "yes",
         "evidence": "title",
@@ -358,9 +358,11 @@
     "doi_complete": 8,
     "authors_complete": 8,
     "abstract_en_complete": 8,
-    "translation_complete": 8,
+    "translation_complete": 7,
     "duplicate_count": 0,
-    "flags": [],
+    "flags": [
+      "translation_incomplete"
+    ],
     "official_item_count": 8,
     "publishable_item_count": 8,
     "content_counts": {
