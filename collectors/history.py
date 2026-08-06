@@ -235,7 +235,9 @@ def discover_official_issues(
         )
     if definition.get("year_ranges"):
         for year in year_values:
-            year_definition = definition["year_ranges"].get(str(year))
+            year_definition = definition["year_ranges"].get(
+                year
+            ) or definition["year_ranges"].get(str(year))
             if not year_definition:
                 continue
             for issue_number in year_definition["issues"]:

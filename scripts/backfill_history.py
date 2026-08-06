@@ -62,6 +62,24 @@ def collector_for_issue(
         issue_ref.official_url if isinstance(issue_ref, HistoricalIssue) else str(issue_ref)
     )
     if collector == "aea":
+        if (
+            isinstance(issue_ref, HistoricalIssue)
+            and journal_config.get("fallback") == "crossref"
+        ):
+            from collectors.metadata_fallback import fetch_crossref_current_issue
+
+            return lambda: fetch_crossref_current_issue(
+                journal_id=journal_config["id"],
+                journal_name=journal_config["name"],
+                issn=str(journal_config["issn"]),
+                current_issue_url=issue_url,
+                target_volume=issue_ref.volume,
+                target_issue=(
+                    issue_ref.issue if issue_ref.issue != "c" else ""
+                ),
+                output_issue=issue_ref.issue.upper(),
+                start_year=int(issue_ref.year) - 2,
+            )
         from collectors.aea import fetch_current_issue
 
         return lambda: fetch_current_issue(

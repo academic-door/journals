@@ -71,3 +71,27 @@ journals:
     platform: crossref
     issn: 0013-0133
     issue_url_template: https://academic.oup.com/ej/issue/{volume}/{issue}
+  JEEA:
+    platform: crossref
+    issn: 1542-4766
+    issue_url_template: https://academic.oup.com/jeea/issue/{volume}/{issue}
+  QE:
+    platform: year_ranges
+    issn: 1759-7331
+    issue_url_template: https://onlinelibrary.wiley.com/toc/17597331/{volume}/{issue}
+    allowed_host: onlinelibrary.wiley.com
+    year_ranges:
+      2025:
+        volume: "16"
+        issues: [1, 2, 3, 4]
+      2026:
+        volume: "17"
+        issues: [1, 2, 3, 4]
+  AEJMICRO:
+    platform: crossref
+    issn: 1945-7669
+    issue_url_template: https://www.aeaweb.org/journals/mic/issue/{volume}/{issue}
+  AERI:
+    platform: crossref
+    issn: 2640-205X
+    issue_url_template: https://www.aeaweb.org/journals/aeri/issue/{volume}/{issue}
