@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T11:29:47+00:00
+Updated: 2026-08-06T11:32:55+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -312,6 +312,12 @@ Updated: 2026-08-06T11:29:47+00:00
 | QE | qe-17-2 | 2026 | complete |  |
 | QE | qe-17-3 | 2026 | complete |  |
 | QE | qe-17-4 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
+| RAND | rand-56-1 | 2025 | complete |  |
+| RAND | rand-56-2 | 2025 | complete |  |
+| RAND | rand-56-3 | 2025 | complete |  |
+| RAND | rand-56-4 | 2025 | complete |  |
+| RAND | rand-57-1 | 2026 | complete |  |
+| RAND | rand-57-2 | 2026 | complete |  |
 | TE | te-20-1 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
 | TE | te-20-2 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
 | TE | te-20-3 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
