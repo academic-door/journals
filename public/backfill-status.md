@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T13:12:47+00:00
+Updated: 2026-08-06T13:14:21+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -497,3 +497,5 @@ Updated: 2026-08-06T13:12:47+00:00
 | WD | wd-204-c | 2026 | complete |  |
 | WD | wd-205-c | 2026 | complete |  |
 | WD | wd-206-c | 2026 | complete |  |
+| WD | wd-207-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 207/ |
+| WD | wd-208-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 208/ |
