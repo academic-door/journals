@@ -140,7 +140,11 @@ def collector_for_issue(
                         issn=str(journal_config["issn"]),
                         current_issue_url=issue_url,
                         target_volume=issue_ref.volume,
-                        target_issue="",
+                        target_issue=(
+                            issue_ref.issue
+                            if issue_ref.issue != "c"
+                            else ""
+                        ),
                         output_issue=issue_ref.issue.upper(),
                         start_year=int(issue_ref.year) - 2,
                     )

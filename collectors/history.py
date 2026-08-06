@@ -187,32 +187,35 @@ def discover_crossref_issues(
             volume = str(item.get("volume", "")).strip()
             if not volume or not volume.isdigit():
                 continue
-            by_year = found.get(volume, {})
+            issue = str(item.get("issue", "") or "").strip()
+            by_issue = found.setdefault(volume, {})
+            by_year = by_issue.setdefault(issue, {})
             by_year.setdefault(_item_year(item), 0)
             by_year[_item_year(item)] += 1
-            found[volume] = by_year
         cursor = str(payload.get("next-cursor", "") or "")
     issues: dict[str, HistoricalIssue] = {}
-    for volume, year_counts in found.items():
-        year, _ = max(year_counts.items(), key=lambda pair: (pair[1], pair[0]))
-        if year not in wanted:
-            continue
-        url = issue_url_template.format(
-            volume=volume,
-            issue="C",
-            issue_lower="c",
-            year=year,
-        )
-        _add(
-            issues,
-            journal=journal,
-            year=year,
-            volume=volume,
-            issue="c",
-            url=url,
-            allowed_host=urlparse(url).hostname or "",
-        )
-    return sorted(issues.values(), key=lambda item: (item.year, int(item.volume)))
+    for volume, issue_map in found.items():
+        for issue, year_counts in issue_map.items():
+            year, _ = max(year_counts.items(), key=lambda pair: (pair[1], pair[0]))
+            if year not in wanted:
+                continue
+            normalized_issue = issue or "c"
+            url = issue_url_template.format(
+                volume=volume,
+                issue=normalized_issue.upper(),
+                issue_lower=normalized_issue.lower(),
+                year=year,
+            )
+            _add(
+                issues,
+                journal=journal,
+                year=year,
+                volume=volume,
+                issue=normalized_issue,
+                url=url,
+                allowed_host=urlparse(url).hostname or "",
+            )
+    return sorted(issues.values(), key=lambda item: (item.year, int(item.volume), item.issue))
 
 
 def discover_official_issues(
