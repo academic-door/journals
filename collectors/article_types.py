@@ -17,23 +17,41 @@ ARTICLE_TYPES = {
 PUBLISHABLE_TYPES = {"research-article", "comment", "short-communication"}
 CORRECTION_PATTERN = re.compile(
     r"^\s*(?:corrigendum|erratum|correction|addendum)(?:\s+to\b|:|\s*$)|"
-    r"\bretraction\s+(?:notice|note)\b",
+    r"\bretraction\s+(?:notice|note)\b|"
+    r"^retraction(?:\s+of\b|:|\s*$)|^expression\s+of\s+concern",
     re.IGNORECASE,
 )
 EDITORIAL_PATTERN = re.compile(
-    r"editorial\s+board|editors?[’']?\s+notes?|recent\s+referees|"
+    r"editorial\s+board|editors?[’'＊]?s?\s+notes?|recent\s+referees|"
     r"acknowledg(?:e)?ments?\s+of\s+referees|annual\s+report|"
+    r"report\s+of\s+the\s+est\b|annual\s+membership\s+meeting|"
+    r"prizes?\s+for\s+\d{4}|fischer\s+black\s+prize|brattle\s+group|"
+    r"dimensional\s+fund\s+advisors|excellence\s+in\s+refereeing\s+award|"
     r"^\s*editorial(?:\s|:|$)|"
     r"^\s*(?:an\s+)?issue\s+dedicated\s+to\b|"
-    r"^\s*special\s+issue\b|"
+    r"^\s*special\s+issue\b|themed\s+issue\b|"
+    r"^introductory\s+essay\b|^\s*presidents?\s*$|"
     r"\bintroduction(?:\s+to\b|\s*:|\s*$)",
     re.IGNORECASE,
 )
 FRONT_MATTER_PATTERN = re.compile(
     r"front\s*matter|back\s*matter|table\s+of\s+contents|"
-    r"issue\s+information|submission\s+of\s+manuscripts",
+    r"issue\s+information|submission\s+of\s+manuscripts|"
+    r"fellows?(?:\s+of\b|:|\s*$)|^award\s+winning\s+theses?\s*$",
     re.IGNORECASE,
 )
+# Bare person-name titles ("Titus Awokuse", "Gerald 'Jerry' Shively") are
+# memorials/fellows announcements in many journals; when such an item also has
+# no abstract, it is front matter, not research.
+PERSON_NAME_PATTERN = re.compile(
+    r"^[A-Z][A-Za-z.'\-]*(?:\s+['\"“（(]?[A-Z][A-Za-z.'\-()]*){0,4}$"
+)
+
+
+def is_person_name_title(title: str) -> bool:
+    return bool(PERSON_NAME_PATTERN.fullmatch(str(title or "").strip()))
+
+
 SHORT_PATTERN = re.compile(
     r"short\s+communication|short\s+paper|research\s+note|brief\s+report",
     re.IGNORECASE,
@@ -158,13 +176,46 @@ def normalize_issue_taxonomy(
     for article in articles:
         doi = str(article.get("doi", "")).strip().lower()
         forced = type_overrides.get(doi, "")
-        article["article_type"] = canonical_article_type(
+        atype = canonical_article_type(
             str(article.get("title_en", "")),
             forced or str(article.get("article_type", "")),
         )
+        # A bare person-name title with no English abstract is a memorial or
+        # fellows announcement (front matter), not a research article.
+        if (
+            atype == "research-article"
+            and not str(article.get("abstract_en", "")).strip()
+            and is_person_name_title(str(article.get("title_en", "")))
+        ):
+            atype = "front-matter"
+        article["article_type"] = atype
 
     quality = issue.setdefault("quality", {})
     excluded = quality.setdefault("excluded_items", [])
+    # Reclassification is authoritative: items that normalized to a
+    # non-publishable type (correction/editorial/front-matter/other) must not
+    # count toward the publishable roster or block translation completion.
+    kept: list[dict[str, Any]] = []
+    for article in articles:
+        if is_publishable_type(str(article.get("article_type", ""))):
+            kept.append(article)
+        else:
+            excluded.append(
+                {
+                    "title_en": article.get("title_en", ""),
+                    "doi": article.get("doi", ""),
+                    "article_type": article.get("article_type", "other"),
+                    "reason": exclusion_reason(
+                        str(article.get("article_type", "other"))
+                    ),
+                }
+            )
+    articles[:] = kept
+    for index, article in enumerate(articles, start=1):
+        article["sequence"] = index
+        article.setdefault("source_sequence", 0)
+        article["source_sequence"] = article["source_sequence"] or index
+
     for item in excluded:
         item_type = canonical_article_type(
             str(item.get("title_en", "")),

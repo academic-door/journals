@@ -89,5 +89,73 @@ class ArticleTypeTests(unittest.TestCase):
         self.assertIn("translation_incomplete", normalized["quality"]["flags"])
 
 
+
+    def test_front_matter_and_editorial_families_classify_correctly(self) -> None:
+        from collectors.article_types import canonical_article_type
+
+        cases = {
+            "AAEA fellows": "front-matter",
+            "AAEA Fellows": "front-matter",
+            "Award winning theses": "front-matter",
+            "Presidents": "editorial",
+            "Editor's Note": "editorial",
+            "Editors' Note": "editorial",
+            "Themed issue: Quantile regression and data heterogeneity": "editorial",
+            "2025 JAERE Excellence in Refereeing Award": "editorial",
+            "Report of the EST and of the 2025 Annual Membership Meeting": "editorial",
+            "Retraction of: Mortgage Finance and Climate Change": "correction",
+            "Expression of Concern: Man versus Machine Learning": "correction",
+        }
+        for title, expected in cases.items():
+            self.assertEqual(
+                expected,
+                canonical_article_type(title, "research-article"),
+                title,
+            )
+
+    def test_person_name_without_abstract_is_excluded_as_front_matter(self) -> None:
+        import copy
+
+        from collectors.article_types import normalize_issue_taxonomy
+
+        issue = {
+            "expected_article_count": 2,
+            "research_article_count": 2,
+            "articles": [
+                {
+                    "paper_id": "doi:10.1/real",
+                    "doi": "10.1/real",
+                    "title_en": "Research paper",
+                    "title_cn": "研究论文",
+                    "abstract_en": "A complete abstract.",
+                    "abstract_cn": "完整摘要。",
+                    "article_type": "research-article",
+                    "authors": ["A"],
+                },
+                {
+                    "paper_id": "doi:10.1/memorial",
+                    "doi": "10.1/memorial",
+                    "title_en": "Titus Awokuse",
+                    "title_cn": "",
+                    "abstract_en": "",
+                    "abstract_cn": "",
+                    "article_type": "research-article",
+                    "authors": ["Jesse Tack"],
+                },
+            ],
+            "quality": {"excluded_items": [], "flags": []},
+        }
+        normalized = normalize_issue_taxonomy(copy.deepcopy(issue))
+        self.assertEqual(1, normalized["content_counts"]["publishable_items"])
+        self.assertEqual(1, normalized["research_article_count"])
+        self.assertEqual(1, len(normalized["articles"]))
+        self.assertEqual("10.1/real", normalized["articles"][0]["doi"])
+        self.assertEqual(
+            "front_matter",
+            normalized["quality"]["excluded_items"][0]["reason"],
+        )
+
+
+
 if __name__ == "__main__":
     unittest.main()
