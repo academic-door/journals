@@ -150,5 +150,41 @@ class ChineseNumeralCanonicalizationTests(unittest.TestCase):
 
 
 
+
+    def test_section_identifier_number_is_not_invented(self) -> None:
+        from scripts.translate_issue import validate_translation
+
+        article = {
+            "article_type": "research",
+            "title_en": "Graduate medical education subsidies",
+            "abstract_en": (
+                "We quantify the impact of federal subsidies for graduate "
+                "medical education on primary care physician supply by "
+                "examining the impact of Section 5503 of the Affordable Care "
+                "Act, which increased the number of residents that teaching "
+                "hospitals in rural and high-need areas could receive "
+                "subsidies for training. Instrumenting for selection into the "
+                "program using its eligibility criteria, we find that the "
+                "provision increased both recruitment of residents into "
+                "primary care and time spent at teaching hospitals in "
+                "high-need areas, resulting in a 4.1 percent increase in "
+                "primary care physician supply."
+            ),
+        }
+        translated = {
+            "title_cn": "研究生医学教育补贴",
+            "abstract_cn": (
+                "我们量化了联邦研究生医学教育补贴对初级保健医生供给的影响，"
+                "考察了《平价医疗法案》第5503条的影响，该条款增加了农村和高需求"
+                "地区教学医院可获得培训补贴的住院医师人数。利用其资格标准对项目"
+                "选择进行工具变量处理，我们发现该条款提高了初级保健住院医师的"
+                "招聘人数以及在高需求地区教学医院的时间，从而使初级保健医生供给"
+                "增加了4.1%。"
+            ),
+        }
+        validate_translation(article, translated)  # should not raise
+
+
+
 if __name__ == "__main__":
     unittest.main()

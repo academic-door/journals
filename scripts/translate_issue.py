@@ -327,6 +327,21 @@ def _numbers(value: str) -> list[str]:
     return values
 
 
+def _identifier_numbers(value: str) -> list[str]:
+    """Numbers that the numeric validator skips because they are section,
+    table or figure identifiers rather than reported data values.
+
+    The source side skips them (``Section 5503``), so a translation that
+    renders the identifier with the Arabic digit (``第5503条``) must get the
+    same exemption instead of being flagged as an invented number.
+    """
+    return [
+        _canonical_number(match.group("number"))
+        for match in NUMBER_PATTERN.finditer(value)
+        if _is_identifier_number(value, match)
+    ]
+
+
 def _source_hash(article: dict[str, Any]) -> str:
     source = f"{article.get('title_en', '')}\n{article.get('abstract_en', '')}"
     return sha256(source.encode("utf-8")).hexdigest()
@@ -846,10 +861,16 @@ def validate_translation(article: dict[str, Any], translated: dict[str, Any]) ->
         raise TranslationError("Chinese abstract is suspiciously short")
     if "```" in title_cn or "```" in abstract_cn:
         raise TranslationError("Translation must not contain Markdown fences")
-    source_numbers = Counter(
-        _numbers(f"{article.get('title_en', '')}\n{article.get('abstract_en', '')}")
-    )
-    translated_numbers = Counter(_numbers(f"{title_cn}\n{abstract_cn}"))
+    source_text = f"{article.get('title_en', '')}\n{article.get('abstract_en', '')}"
+    translated_text = f"{title_cn}\n{abstract_cn}"
+    source_numbers = Counter(_numbers(source_text))
+    translated_numbers = Counter(_numbers(translated_text))
+    # Identifier labels (Section 5503, Table 2, 第5503条) are not data
+    # values: exempt the source's identifier numbers on the translation side
+    # too, so rendering them with Arabic digits is not flagged as invented.
+    for identifier_number in _identifier_numbers(source_text):
+        if translated_numbers[identifier_number] > 0:
+            translated_numbers[identifier_number] -= 1
     if source_numbers != translated_numbers:
         missing_numbers = list((source_numbers - translated_numbers).elements())
         added_numbers = list((translated_numbers - source_numbers).elements())
