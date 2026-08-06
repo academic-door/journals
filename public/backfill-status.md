@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T11:07:33+00:00
+Updated: 2026-08-06T11:10:18+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -47,6 +47,26 @@ Updated: 2026-08-06T11:07:33+00:00
 | EJ | ej-136-675 | 2026 | complete |  |
 | EJ | ej-136-676 | 2026 | complete |  |
 | EJ | ej-136-677 | 2026 | complete |  |
+| ERE | ere-88-1 | 2025 | translation_partial |  |
+| ERE | ere-88-10 | 2025 | translation_partial |  |
+| ERE | ere-88-11 | 2025 | translation_partial |  |
+| ERE | ere-88-12 | 2025 | translation_partial |  |
+| ERE | ere-88-2 | 2025 | translation_partial |  |
+| ERE | ere-88-3 | 2025 | translation_partial |  |
+| ERE | ere-88-4 | 2025 | translation_partial |  |
+| ERE | ere-88-5 | 2025 | translation_partial |  |
+| ERE | ere-88-6 | 2025 | translation_partial |  |
+| ERE | ere-88-7 | 2025 | translation_partial |  |
+| ERE | ere-88-8 | 2025 | translation_partial |  |
+| ERE | ere-88-9 | 2025 | translation_partial |  |
+| ERE | ere-89-1 | 2026 | translation_partial |  |
+| ERE | ere-89-2 | 2026 | translation_partial |  |
+| ERE | ere-89-3 | 2026 | translation_partial |  |
+| ERE | ere-89-4 | 2026 | translation_partial |  |
+| ERE | ere-89-5 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 89/5 |
+| ERE | ere-89-6 | 2026 | translation_partial |  |
+| ERE | ere-89-7 | 2026 | translation_partial |  |
+| ERE | ere-89-8 | 2026 | complete |  |
 | FOODPOLICY | foodpolicy-130-c | 2025 | complete |  |
 | FOODPOLICY | foodpolicy-131-c | 2025 | complete |  |
 | FOODPOLICY | foodpolicy-132-c | 2025 | complete |  |
@@ -208,25 +228,6 @@ Updated: 2026-08-06T11:07:33+00:00
 | JOE | joe-255-c | 2026 | complete |  |
 | JOE | joe-256-c | 2026 | complete |  |
 | JOE | joe-257-c | 2026 | complete |  |
-| JPE | jpe-133-1 | 2025 | complete |  |
-| JPE | jpe-133-10 | 2025 | complete |  |
-| JPE | jpe-133-11 | 2025 | complete |  |
-| JPE | jpe-133-12 | 2025 | complete |  |
-| JPE | jpe-133-2 | 2025 | complete |  |
-| JPE | jpe-133-3 | 2025 | complete |  |
-| JPE | jpe-133-4 | 2025 | complete |  |
-| JPE | jpe-133-5 | 2025 | complete |  |
-| JPE | jpe-133-6 | 2025 | complete |  |
-| JPE | jpe-133-7 | 2025 | complete |  |
-| JPE | jpe-133-8 | 2025 | complete |  |
-| JPE | jpe-133-9 | 2025 | complete |  |
-| JPE | jpe-134-1 | 2026 | complete |  |
-| JPE | jpe-134-2 | 2026 | complete |  |
-| JPE | jpe-134-3 | 2026 | complete |  |
-| JPE | jpe-134-4 | 2026 | complete |  |
-| JPE | jpe-134-5 | 2026 | complete |  |
-| JPE | jpe-134-6 | 2026 | complete |  |
-| JPE | jpe-134-7 | 2026 | complete |  |
 | JPubE | jpube-241-c | 2025 | complete |  |
 | JPubE | jpube-242-c | 2025 | complete |  |
 | JPubE | jpube-243-c | 2025 | complete |  |
@@ -291,26 +292,13 @@ Updated: 2026-08-06T11:07:33+00:00
 | QE | qe-17-2 | 2026 | complete |  |
 | QE | qe-17-3 | 2026 | complete |  |
 | QE | qe-17-4 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
-| RFS | rfs-38-1 | 2025 | complete |  |
-| RFS | rfs-38-10 | 2025 | complete |  |
-| RFS | rfs-38-11 | 2025 | complete |  |
-| RFS | rfs-38-12 | 2025 | complete |  |
-| RFS | rfs-38-2 | 2025 | complete |  |
-| RFS | rfs-38-3 | 2025 | complete |  |
-| RFS | rfs-38-4 | 2025 | complete |  |
-| RFS | rfs-38-5 | 2025 | translation_partial |  |
-| RFS | rfs-38-6 | 2025 | complete |  |
-| RFS | rfs-38-7 | 2025 | complete |  |
-| RFS | rfs-38-8 | 2025 | complete |  |
-| RFS | rfs-38-9 | 2025 | complete |  |
-| RFS | rfs-39-1 | 2026 | complete |  |
-| RFS | rfs-39-2 | 2026 | complete |  |
-| RFS | rfs-39-3 | 2026 | complete |  |
-| RFS | rfs-39-4 | 2026 | complete |  |
-| RFS | rfs-39-5 | 2026 | translation_partial |  |
-| RFS | rfs-39-6 | 2026 | complete |  |
-| RFS | rfs-39-7 | 2026 | complete |  |
-| RFS | rfs-39-8 | 2026 | complete |  |
+| TE | te-20-1 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
+| TE | te-20-2 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
+| TE | te-20-3 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
+| TE | te-20-4 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
+| TE | te-21-1 | 2026 | complete |  |
+| TE | te-21-2 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
+| TE | te-21-3 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
 | WD | wd-185-c | 2025 | translation_partial |  |
 | WD | wd-186-c | 2025 | translation_partial |  |
 | WD | wd-187-c | 2025 | complete |  |
