@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T11:02:57+00:00
+Updated: 2026-08-06T11:03:30+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -11,26 +11,6 @@ Updated: 2026-08-06T11:02:57+00:00
 | AEJMICRO | aejmicro-18-1 | 2026 | complete |  |
 | AEJMICRO | aejmicro-18-2 | 2026 | complete |  |
 | AEJMICRO | aejmicro-18-3 | 2026 | complete |  |
-| AER | aer-115-1 | 2025 | complete |  |
-| AER | aer-115-10 | 2025 | complete |  |
-| AER | aer-115-11 | 2025 | complete |  |
-| AER | aer-115-12 | 2025 | complete |  |
-| AER | aer-115-2 | 2025 | complete |  |
-| AER | aer-115-3 | 2025 | complete |  |
-| AER | aer-115-4 | 2025 | complete |  |
-| AER | aer-115-5 | 2025 | complete |  |
-| AER | aer-115-6 | 2025 | complete |  |
-| AER | aer-115-7 | 2025 | complete |  |
-| AER | aer-115-8 | 2025 | complete |  |
-| AER | aer-115-9 | 2025 | complete |  |
-| AER | aer-116-1 | 2026 | complete |  |
-| AER | aer-116-2 | 2026 | complete |  |
-| AER | aer-116-3 | 2026 | complete |  |
-| AER | aer-116-4 | 2026 | complete |  |
-| AER | aer-116-5 | 2026 | complete |  |
-| AER | aer-116-6 | 2026 | complete |  |
-| AER | aer-116-7 | 2026 | complete |  |
-| AER | aer-116-8 | 2026 | complete |  |
 | AERI | aeri-7-1 | 2025 | complete |  |
 | AERI | aeri-7-2 | 2025 | complete |  |
 | AERI | aeri-7-3 | 2025 | translation_partial |  |
@@ -155,6 +135,13 @@ Updated: 2026-08-06T11:02:57+00:00
 | JEEM | jeem-138-c | 2026 | complete |  |
 | JEEM | jeem-139-c | 2026 | complete |  |
 | JEEM | jeem-140-c | 2026 | complete |  |
+| JEP | jep-39-1 | 2025 | complete |  |
+| JEP | jep-39-2 | 2025 | complete |  |
+| JEP | jep-39-3 | 2025 | complete |  |
+| JEP | jep-39-4 | 2025 | complete |  |
+| JEP | jep-40-1 | 2026 | complete |  |
+| JEP | jep-40-2 | 2026 | complete |  |
+| JEP | jep-40-3 | 2026 | complete |  |
 | JET | jet-223-c | 2025 | complete |  |
 | JET | jet-224-c | 2025 | complete |  |
 | JET | jet-225-c | 2025 | complete |  |
@@ -292,12 +279,6 @@ Updated: 2026-08-06T11:02:57+00:00
 | QE | qe-17-2 | 2026 | complete |  |
 | QE | qe-17-3 | 2026 | complete |  |
 | QE | qe-17-4 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
-| RAND | rand-56-1 | 2025 | complete |  |
-| RAND | rand-56-2 | 2025 | complete |  |
-| RAND | rand-56-3 | 2025 | complete |  |
-| RAND | rand-56-4 | 2025 | complete |  |
-| RAND | rand-57-1 | 2026 | complete |  |
-| RAND | rand-57-2 | 2026 | complete |  |
 | WD | wd-185-c | 2025 | translation_partial |  |
 | WD | wd-186-c | 2025 | translation_partial |  |
 | WD | wd-187-c | 2025 | complete |  |
