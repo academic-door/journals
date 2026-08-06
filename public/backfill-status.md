@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T12:33:24+00:00
+Updated: 2026-08-06T12:33:40+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -468,7 +468,7 @@ Updated: 2026-08-06T12:33:24+00:00
 | RFS | rfs-39-1 | 2026 | complete |  |
 | RFS | rfs-39-2 | 2026 | complete |  |
 | RFS | rfs-39-3 | 2026 | complete |  |
-| RFS | rfs-39-4 | 2026 | translation_partial |  |
+| RFS | rfs-39-4 | 2026 | complete |  |
 | RFS | rfs-39-5 | 2026 | translation_partial |  |
 | RFS | rfs-39-6 | 2026 | complete |  |
 | RFS | rfs-39-7 | 2026 | complete |  |
