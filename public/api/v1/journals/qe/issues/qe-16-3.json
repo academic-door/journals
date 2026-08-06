@@ -1,0 +1,389 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "qe-16-3",
+  "journal_id": "qe",
+  "journal_name": "Quantitative Economics",
+  "volume": "16",
+  "issue": "3",
+  "publication_date": "2025",
+  "source_url": "https://ideas.repec.org/s/wly/quante.html",
+  "retrieved_at": "2026-08-06T09:45:08+00:00",
+  "expected_article_count": 8,
+  "research_article_count": 8,
+  "status": "ready",
+  "development_sample": false,
+  "articles": [
+    {
+      "paper_id": "doi:10.3982/qe2547",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Forecasting with shadow rate VARs",
+      "title_cn": "影子利率VAR的预测",
+      "authors": [
+        "Andrea Carriero",
+        "Todd E. Clark",
+        "Massimiliano Marcellino",
+        "Elmar Mertens",
+        "Todd Clark"
+      ],
+      "abstract_en": "Vector autoregressions (VARs) are popular for forecasting, but ill‐suited to handle occasionally binding constraints, like the effective lower bound on nominal interest rates. We examine reduced‐form “shadow rate VARs” that model interest rates as censored observations of a latent shadow rate process and develop an efficient Bayesian estimation algorithm that accommodates large models. When compared to a standard VAR, our better‐performing shadow rate VARs generate superior predictions for interest rates and broadly similar predictions for macroeconomic variables. We obtain this result for shadow rate VARs in which the federal funds rate is the only interest rate and in models including additional interest rates. Our shadow rate VARs also deliver notable gains in forecast accuracy relative to a VAR that omits shorter‐term interest rate data in order to avoid modeling the lower bound.",
+      "abstract_cn": "向量自回归（VAR）常用于预测，但不适合处理偶尔具有约束力的限制，如名义利率的有效下限。我们研究了简化形式的“影子利率VAR”，该模型将利率视为潜在影子利率过程的截尾观测值，并开发了一种能够适应大型模型的高效贝叶斯估计算法。与标准VAR相比，我们表现更好的影子利率VAR在利率预测上产生更优的预测，在宏观经济变量预测上则大致相似。我们在联邦基金利率为唯一利率的影子利率VAR以及包含额外利率的模型中均获得了这一结果。我们的影子利率VAR相对于为避免建模下限而省略短期利率数据的VAR，在预测准确性方面也带来了显著提升。",
+      "doi": "10.3982/qe2547",
+      "source_url": "https://doi.org/10.3982/qe2547",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v16y2025i3p795-822.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T09:45:11+00:00",
+        "source_hash": "44e5b479f31cbaa7852ec6c151065b23beaa76f95a1690716cb8980c8abcead0"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe2465",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Inference in a stationary/nonstationary autoregressive time‐varying‐parameter model",
+      "title_cn": "平稳/非平稳自回归时变参数模型中的推断",
+      "authors": [
+        "Donald W. K. Andrews",
+        "Ming Li"
+      ],
+      "abstract_en": "This paper considers nonparametric estimation and inference in first‐order autoregressive (AR(1)) models with deterministically time‐varying parameters. A key feature of the proposed approach is to allow for time‐varying stationarity in some time periods, time‐varying nonstationarity (i.e., unit root or local‐to‐unit root behavior) in other periods, and smooth transitions between the two. The estimation of the AR parameter at any time point is based on a local least squares regression method, where the relevant initial condition is endogenous. We obtain limit distributions for the AR parameter estimator and t‐statistic at a given point τ in time when the parameter exhibits unit root, local‐to‐unity, or stationary/stationary‐like behavior at time τ. These results are used to construct confidence intervals and median‐unbiased interval estimators for the AR parameter at any specified point in time. The confidence intervals have correct asymptotic coverage probabilities with the coverage holding uniformly over stationary and nonstationary behavior of the observations.",
+      "abstract_cn": "本文考虑了一阶自回归（AR(1)）模型中参数随时间确定性变化时的非参数估计与推断。所提方法的一个关键特征是允许在某些时间段内存在时变平稳性，在其他时间段内存在时变非平稳性（即单位根或局部单位根行为），并在两者之间平滑转换。在任何时间点对AR参数的估计基于局部最小二乘回归方法，其中相关的初始条件是内生的。当参数在时间点τ表现出单位根、局部单位根或平稳/类平稳行为时，我们获得了AR参数估计量和t统计量在给定时间点τ的极限分布。这些结果用于构建AR参数在任意指定时间点的置信区间和中位数无偏区间估计量。这些置信区间具有正确的渐近覆盖概率，且覆盖性在观测值的平稳和非平稳行为上均匀成立。",
+      "doi": "10.3982/qe2465",
+      "source_url": "https://doi.org/10.3982/qe2465",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v16y2025i3p823-858.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T09:45:14+00:00",
+        "source_hash": "a9e2422984ac1b61eda5dc3fa988a933b7ebfceab21c6f10b03bb26e7a8e4ca1"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe1663",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Earnings risk and heterogeneous expected earnings profiles",
+      "title_cn": "收入风险与异质性预期收入轨迹",
+      "authors": [
+        "Scott Drewianka",
+        "Phillip Oberg"
+      ],
+      "abstract_en": "We add to the debate about whether models of earnings dynamics should allow for unobservable heterogeneity in expected earnings growth rates by examining implications for a statistic originally proposed to estimate the variance of persistent earnings shocks. While that statistic is unbiased under a common specification, we derive biases that would arise under alternative models and use them to draw inferences about their empirical relevance and to estimate key parameters. Most results cast doubt on substantial heterogeneity in growth rates, though some leave room for a modest role. Estimates of shocks' variance and persistence are more robust.",
+      "abstract_cn": "我们通过考察一个最初用于估计持久性收入冲击方差的统计量的含义，加入了关于收入动态模型是否应允许预期收入增长率存在不可观测异质性的辩论。虽然该统计量在常见设定下是无偏的，但我们推导了在替代模型下可能产生的偏差，并利用这些偏差来推断其经验相关性及估计关键参数。大多数结果对增长率存在显著异质性表示怀疑，尽管有些结果为其适度作用留有余地。冲击方差和持久性的估计更为稳健。",
+      "doi": "10.3982/qe1663",
+      "source_url": "https://doi.org/10.3982/qe1663",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v16y2025i3p859-897.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T09:45:16+00:00",
+        "source_hash": "64e572fceaef2ef15117043561ca4120dba437eb633204d129305a0ba146c3f5"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe2052",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Dynamic ordered panel logit models",
+      "title_cn": "动态有序面板Logit模型",
+      "authors": [
+        "Bo E. Honoré",
+        "Chris Muris",
+        "Martin Weidner"
+      ],
+      "abstract_en": "This paper studies a dynamic ordered logit model for panel data with fixed effects. The main contribution of the paper is to construct a set of valid moment conditions that are free of the fixed effects. The moment functions can be computed using four or more periods of data, and the paper presents sufficient conditions for the moment conditions to identify the common parameters of the model, namely the regression coefficients, the autoregressive parameters, and the threshold parameters. The availability of moment conditions suggests that these common parameters can be estimated using the generalized method of moments, and the paper documents the performance of this estimator using Monte Carlo simulations and an empirical illustration to self‐reported health status using the British Household Panel Survey.",
+      "abstract_cn": "本文研究了具有固定效应的面板数据动态有序Logit模型。本文的主要贡献在于构建了一组不受固定效应影响的有效矩条件。这些矩函数可以使用四个或更多时期的数据进行计算，并且本文给出了矩条件识别模型共同参数的充分条件，即回归系数、自回归参数和阈值参数。矩条件的可用性表明，这些共同参数可以通过广义矩方法进行估计，本文通过蒙特卡洛模拟和基于英国家庭面板调查的自报健康状况实证示例，记录了该估计量的表现。",
+      "doi": "10.3982/qe2052",
+      "source_url": "https://doi.org/10.3982/qe2052",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v16y2025i3p899-945.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T09:45:18+00:00",
+        "source_hash": "cb602a2b1243868ddc475aa2ae21c917ab1e93d6ee52bacf86e7050fb8e65b73"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe2548",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Asymmetric transmission of oil supply news",
+      "title_cn": "石油供应新闻冲击的非对称传导",
+      "authors": [
+        "Mario Forni",
+        "Alessandro Franconi",
+        "Luca Gambetti",
+        "Luca Sala"
+      ],
+      "abstract_en": "We provide new evidence on the asymmetries in the transmission of oil supply news shocks in the US using a nonlinear Proxy‐SVAR. A shock that increases oil prices has large and persistent effects on real activity and relatively small effects on prices. On the contrary, a shock that reduces oil prices has smaller real effects and large effects on prices. We rationalize these findings through the behavior of uncertainty: uncertainty increases independently of the sign of the shock, amplifying the contractionary real effects of a positive shock and dampening the expansionary real effects of a negative shock. The opposite holds for prices. We find little evidence of an asymmetric response of monetary policy.",
+      "abstract_cn": "我们利用非线性代理SVAR模型，为美国石油供应新闻冲击传导中的非对称性提供了新证据。提高油价的冲击对实际经济活动具有较大且持久的影响，而对价格的影响相对较小。相反，降低油价的冲击对实际经济活动的影响较小，而对价格的影响较大。我们通过不确定性的行为来解释这些发现：不确定性无论冲击的符号如何都会增加，从而放大了正向冲击的紧缩性实际影响，并削弱了负向冲击的扩张性实际影响。对于价格而言，情况则相反。我们几乎没有发现货币政策存在非对称反应的证据。",
+      "doi": "10.3982/qe2548",
+      "source_url": "https://doi.org/10.3982/qe2548",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v16y2025i3p947-979.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T09:45:21+00:00",
+        "source_hash": "f24e858e069a2944080479f7284d2771ae8754f5067e5922b8234149bec0113b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe2288",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Estimation of optimal dynamic treatment assignment rules under policy constraints",
+      "title_cn": "政策约束下最优动态治疗分配规则的估计",
+      "authors": [
+        "Shosei Sakaguchi"
+      ],
+      "abstract_en": "Many policies involve dynamics in their treatment assignments where individuals receive sequential interventions over multiple stages. We study estimation of an optimal dynamic treatment regime that guides the optimal treatment assignment for each individual at each stage based on their history. We propose an empirical welfare maximization approach in this dynamic framework, which estimates the optimal dynamic treatment regime using data from an experimental or quasi‐experimental study while satisfying exogenous constraints on policies. The paper proposes two estimation methods: one solves the treatment assignment problem sequentially through backward induction, and the other solves the entire problem simultaneously across all stages. We establish finite‐sample upper bounds on worst‐case average welfare regrets for these methods and show their optimal n−1/2 convergence rates. We also modify the simultaneous estimation method to accommodate intertemporal budget/capacity constraints.",
+      "abstract_cn": "许多政策在治疗分配中涉及动态过程，个体在多个阶段接受序贯干预。我们研究最优动态治疗方案的估计，该方案根据每个个体的历史指导其在每个阶段的最优治疗分配。我们在这一动态框架中提出了一种经验福利最大化方法，利用实验或准实验研究的数据估计最优动态治疗方案，同时满足政策的外生约束。本文提出了两种估计方法：一种通过逆向归纳法序贯求解治疗分配问题，另一种则同时求解所有阶段的整个问题。我们为这些方法建立了最坏情况平均福利遗憾的有限样本上界，并展示了其最优的n−一/2收敛速率。我们还修改了同时估计方法，以适应跨期预算/容量约束。",
+      "doi": "10.3982/qe2288",
+      "source_url": "https://doi.org/10.3982/qe2288",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v16y2025i3p981-1022.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T09:45:23+00:00",
+        "source_hash": "b16e682f76b4a62b18eca9d610bccae9b6e732ef7016ebd9dd3a6372d9ccabb5"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe2625",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "A unified empirical framework to study neighborhood segregation",
+      "title_cn": "研究社区隔离的统一实证框架",
+      "authors": [
+        "Gregorio Caetano",
+        "Vikram Maheshri"
+      ],
+      "abstract_en": "We incorporate the endogenous feedback loop at the core of the seminal Schelling (1969) model of segregation into a dynamic model of neighborhood choice and use it to study the forces that shaped racial and income segregation in the San Francisco Bay area from 1990 to 2004. Such an analysis requires causal identification of households' responses to the socioeconomic composition of their neighbors. We achieve this with novel instrumental variables that can be rationalized with a dynamic choice model with frictions. These IVs have potentially broad application: studying sorting along any observable demographic dimension, estimating the effects of neighborhood composition on outcomes such as house prices, or identifying other network externalities. We find that discriminatory (taste‐based and statistical) sorting by race and by income is widespread and complex: almost all households respond positively to similar neighbors and negatively to different neighbors, although at varying degrees of intensity. In spite of these discriminatory responses, frictions—moving costs and uncertainty—mitigate their impact on segregation. This implies that sorting on the basis of other neighborhood amenities may have a large impact on segregation and may justify place‐based desegregation policies. Because of these frictions, there is also scope for desegregation policies based on the reallocation of households to succeed.",
+      "abstract_cn": "我们将Schelling（1969）隔离模型核心的内生反馈循环纳入一个动态的社区选择模型中，并利用该模型研究1990年至2004年间塑造旧金山湾区种族和收入隔离的力量。此类分析需要对家庭对其邻居社会经济构成的反应进行因果识别。我们通过新颖的工具变量实现了这一点，这些工具变量可以用带有摩擦的动态选择模型来合理化。这些工具变量具有潜在的广泛应用：研究沿任何可观测人口统计维度的分类，估计社区构成对房价等结果的影响，或识别其他网络外部性。我们发现，按种族和收入进行的歧视性（基于偏好和统计性的）分类是普遍且复杂的：几乎所有家庭都对相似的邻居做出积极反应，对不同的邻居做出消极反应，尽管反应强度各不相同。尽管存在这些歧视性反应，摩擦——迁移成本和不确定性——减轻了它们对隔离的影响。这意味着基于其他社区便利设施的分类可能对隔离产生重大影响，并可能为基于地点的去隔离政策提供依据。由于这些摩擦的存在，基于家庭重新分配的去隔离政策也有成功的空间。",
+      "doi": "10.3982/qe2625",
+      "source_url": "https://doi.org/10.3982/qe2625",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v16y2025i3p1023-1057.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T09:45:26+00:00",
+        "source_hash": "4b57fd2a5fb198731a71c9553660e8b7f235b1fa53b90052863b005b9c5c359f"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe2644",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Testing mean stationarity of intraday volatility curves",
+      "title_cn": "日内波动率曲线的均值平稳性检验",
+      "authors": [
+        "Torben G. Andersen",
+        "Yingwen Tan",
+        "Viktor Todorov",
+        "Zhiyuan Zhang"
+      ],
+      "abstract_en": "We develop a test for mean stationarity of latent volatility curves using high‐frequency data. To derive the asymptotic test size and power, we establish a functional invariance principle for semimartingales under a strong mixing condition. The power properties are analyzed under alternatives featuring deterministic trends in the volatility curve dynamics. Application to S&P 500 futures data provides strong evidence of nonstationary variation in the volatility pattern, with implications for real‐time risk management and market activity measurement, including identification of spot volatility and the size of price jumps.",
+      "abstract_cn": "我们利用高频数据开发了一种针对潜在波动率曲线均值平稳性的检验方法。为推导渐近检验规模和功效，我们在强混合条件下建立了半鞅的函数不变原理。在波动率曲线动态具有确定性趋势的备择假设下分析了功效性质。应用于标普500指数期货数据，提供了波动率模式非平稳变化的强有力证据，这对实时风险管理和市场活动度量具有重要意义，包括识别现货波动率和价格跳跃的大小。",
+      "doi": "10.3982/qe2644",
+      "source_url": "https://doi.org/10.3982/qe2644",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v16y2025i3p1059-1091.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T09:45:28+00:00",
+        "source_hash": "7514eb9d59f194969b3df93bb0b570c440afb28271ca5e3b0e5892c5bd736a8e"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "repec-serial-page",
+    "roster_authority": "repec-publisher-supplied",
+    "roster_match_scope": "repec-issue-section",
+    "publisher_page_status": "blocked",
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 8,
+    "authors_complete": 8,
+    "abstract_en_complete": 8,
+    "translation_complete": 8,
+    "duplicate_count": 0,
+    "flags": [],
+    "official_item_count": 8,
+    "publishable_item_count": 8,
+    "content_counts": {
+      "official_items": 8,
+      "observed_items": 8,
+      "publishable_items": 8,
+      "research_articles": 8,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 8
+    }
+  },
+  "content_counts": {
+    "official_items": 8,
+    "observed_items": 8,
+    "publishable_items": 8,
+    "research_articles": 8,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 8
+  },
+  "issue_label": "Vol. 16 · No. 3"
+}

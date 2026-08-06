@@ -1,0 +1,473 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "qe-16-2",
+  "journal_id": "qe",
+  "journal_name": "Quantitative Economics",
+  "volume": "16",
+  "issue": "2",
+  "publication_date": "2025",
+  "source_url": "https://ideas.repec.org/s/wly/quante.html",
+  "retrieved_at": "2026-08-06T09:44:19+00:00",
+  "expected_article_count": 10,
+  "research_article_count": 10,
+  "status": "ready",
+  "development_sample": false,
+  "articles": [
+    {
+      "paper_id": "doi:10.3982/qe2622",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Linear regression with weak exogeneity",
+      "title_cn": "弱外生性下的线性回归",
+      "authors": [
+        "Anna Mikusheva",
+        "Mikkel Sølvsten",
+        "Mikkel Soelvsten"
+      ],
+      "abstract_en": "This paper studies linear time‐series regressions with many regressors. Weak exogeneity is the most used identifying assumption in time series. Weak exogeneity requires the structural error to have zero conditional expectation given present and past regressor values, allowing errors to correlate with future regressor realizations. We show that weak exogeneity in time‐series regressions with many controls may produce substantial biases and render the least squares (OLS) estimator inconsistent. The bias arises in settings with many regressors because the normalized OLS design matrix remains asymptotically random and correlates with the regression error when only weak (but not strict) exogeneity holds. This bias' magnitude increases with the number of regressors and their average autocorrelation. We propose an innovative approach to bias correction that yields a new estimator with improved properties relative to OLS. We establish consistency and conditional asymptotic Gaussianity of this new estimator and provide a method for inference.",
+      "abstract_cn": "本文研究了包含众多回归元的线性时间序列回归。弱外生性是时间序列中最常用的识别假设。弱外生性要求结构误差在给定当前和过去的回归元值时的条件期望为零，允许误差与未来的回归元实现相关。我们表明，在包含众多控制变量的时间序列回归中，弱外生性可能产生显著偏差，并使最小二乘（OLS）估计量不一致。该偏差在回归元众多的情况下出现，因为当仅存在弱外生性（而非严格外生性）时，归一化的OLS设计矩阵保持渐近随机性并与回归误差相关。该偏差的大小随回归元数量及其平均自相关的增加而增大。我们提出了一种创新的偏差校正方法，该方法产生了一个相对于OLS具有改进性质的新估计量。我们建立了该新估计量的一致性和条件渐近高斯性，并提供了一种推断方法。",
+      "doi": "10.3982/qe2622",
+      "source_url": "https://doi.org/10.3982/qe2622",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v16y2025i2p367-403.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T09:44:22+00:00",
+        "source_hash": "9410040cbd930953414a5322863a326fec08c21a58d279bd684bae58356bc77d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe2055",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Understanding regressions with observations collected at high frequency over long span",
+      "title_cn": "理解高频长时间跨度观测数据的回归分析",
+      "authors": [
+        "Yoosoon Chang",
+        "Ye Lu",
+        "Joon Y. Park"
+      ],
+      "abstract_en": "In this paper, we analyze regressions with observations collected at small time intervals over a long period of time. For the formal asymptotic analysis, we assume that samples are obtained from continuous time stochastic processes, and let the sampling interval δ shrink down to zero and the sample span T increase up to infinity. In this setup, we show that the standard Wald statistic diverges to infinity and the regression becomes spurious as long as δ → 0 sufficiently fast relative to T → ∞. Such a phenomenon is indeed what is frequently observed in practice for the type of regressions considered in the paper. In contrast, our asymptotic theory predicts that the spuriousness disappears if we use the robust version of the Wald test with an appropriate long‐run variance estimate. This is supported, strongly and unambiguously, by our empirical illustration using the regression of long‐term on short‐term interest rates.",
+      "abstract_cn": "在本文中，我们分析了在长时间段内以小区间间隔收集观测数据的回归问题。对于正式渐近分析，我们假设样本来自连续时间随机过程，并让采样间隔δ缩小至零，同时样本跨度T增加至无穷大。在此设置下，我们表明，只要δ相对于T→∞足够快地趋近于0，标准Wald统计量将发散至无穷大，回归变得虚假。这种现象确实在本文所考虑的回归类型中经常在实践中观察到。相反，我们的渐近理论预测，如果我们使用带有适当长期方差估计的稳健版Wald检验，虚假性将消失。这一点通过我们使用长期利率对短期利率回归的实证说明得到了强烈且明确的支持。",
+      "doi": "10.3982/qe2055",
+      "source_url": "https://doi.org/10.3982/qe2055",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v16y2025i2p405-457.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T09:44:24+00:00",
+        "source_hash": "eee745834bd0a93b03302562a5760ee3976e611d4d4c1359630ab0360c8cbde4"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe2585",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Real‐time detection of local no‐arbitrage violations",
+      "title_cn": "局部无套利违规的实时检测",
+      "authors": [
+        "Torben G. Andersen",
+        "Viktor Todorov",
+        "Bo Zhou"
+      ],
+      "abstract_en": "This paper focuses on the task of detecting local episodes involving violation of the standard Itô semimartingale assumption for financial asset prices in real time that might induce arbitrage opportunities. Our proposed detectors, defined as stopping rules, are applied sequentially to continually incoming high‐frequency data. We show that they are asymptotically exponentially distributed in the absence of Itô semimartingale violations. On the other hand, when a violation occurs, we can achieve immediate detection under infill asymptotics. A Monte Carlo study demonstrates that the asymptotic results provide a good approximation to the finite‐sample behavior of the sequential detectors. An empirical application to S&P 500 index futures data corroborates the effectiveness of our detectors in swiftly identifying the emergence of an extreme return persistence episode in real time.",
+      "abstract_cn": "本文关注于实时检测金融资产价格中违反标准Itô半鞅假设的局部事件，这些事件可能引发套利机会。我们提出的检测器，定义为停止规则，被顺序应用于持续到达的高频数据。我们证明，在没有Itô半鞅违规的情况下，它们渐近地服从指数分布。另一方面，当违规发生时，我们可以在填充渐近下实现即时检测。蒙特卡洛研究表明，渐近结果为顺序检测器的有限样本行为提供了良好的近似。对S&P 500指数期货数据的实证应用证实了我们的检测器在实时快速识别极端收益持续性事件出现方面的有效性。",
+      "doi": "10.3982/qe2585",
+      "source_url": "https://doi.org/10.3982/qe2585",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v16y2025i2p459-495.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T09:44:33+00:00",
+        "source_hash": "6d06863e475357d126b5b126d45e4530daf4f9111452b88336366bd277bb4e40"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe2316",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "An experimental study of decentralized matching",
+      "title_cn": "分散匹配的实验研究",
+      "authors": [
+        "Federico Echenique",
+        "Alejandro Robinson‐Cortés",
+        "Leeat Yariv"
+      ],
+      "abstract_en": "We present an experimental study of decentralized two‐sided matching markets with no transfers. Experimental participants are informed of everyone's preferences and can make arbitrary nonbinding match offers that get finalized when a period of market inactivity has elapsed. Several insights emerge. First, stable outcomes are prevalent. Second, while centralized clearinghouses commonly aim at implementing extremal stable matchings, our decentralized markets most frequently culminate in the median stable matching. Third, preferences' cardinal representations impact the stable partners with whom participants match. Last, the dynamics underlying our results exhibit strategic sophistication, with agents successfully avoiding cycles of blocking pairs.",
+      "abstract_cn": "我们展示了一项关于无转移支付的分散双边匹配市场的实验研究。实验参与者被告知所有人的偏好，并可以做出任意非约束性的匹配提议，这些提议在市场不活跃一段时间后最终确定。研究得出几点见解。首先，稳定结果普遍存在。其次，虽然集中清算所通常旨在实施极端稳定匹配，但我们的分散市场最常以中位稳定匹配告终。第三，偏好的基数表示影响参与者匹配到的稳定伙伴。最后，我们结果背后的动态表现出策略性复杂性，代理人成功避免了阻塞对的循环。",
+      "doi": "10.3982/qe2316",
+      "source_url": "https://doi.org/10.3982/qe2316",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v16y2025i2p497-533.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T09:44:35+00:00",
+        "source_hash": "1c207aad3808fd23acccc9771df7c30b219cdf6918723265a989d6d10fdd1a23"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe1868",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Economic consequences of vertical mismatch",
+      "title_cn": "垂直错配的经济后果",
+      "authors": [
+        "Pietro Garibaldi",
+        "Pedro Gomes",
+        "Thepthida Sopraseuth"
+      ],
+      "abstract_en": "We study two first‐order economic consequences of vertical mismatch, using a simple (neoclassical) model of under and overemployment. Individuals of high type can perform both skilled and unskilled jobs, but only a fraction of low‐type workers can perform skilled jobs. People have different costs over these jobs. First, we calibrate the model to match U.S. CPS time series since the 1980s. To control for unobserved heterogeneity, we compute wages based on workers who have switched between skilled and unskilled jobs. We show that changes in educational mismatch has contributed one‐sixth as much as skilled‐bias technological progress for the rise in the college premium. Second, we calibrate the model to match moments of the 50 United States, to measure the output costs of frictions generating mismatch. The cost of frictions is 0.26% of output on average but varies between 0.06% to 0.77% across states. The key variable that explains the output cost of vertical mismatch is not the percentage of mismatched workers but their wage relative to well‐matched workers.",
+      "abstract_cn": "我们使用简单的（新古典主义）就业不足和过度就业模型研究了垂直错配的两个一阶经济后果。高类型的个人可以从事熟练和非技能的工作，但只有一小部分低类型的工人可以从事熟练的工作。人们对这些工作有不同的成本。首先，我们校准模型以匹配自 1980 以来的美国 CPS 时间序列。为了控制未观察到的异质性，我们根据在熟练工作和非熟练工作之间转换的工人来计算工资。我们发现，教育不匹配的变化对大学溢价上涨的贡献是技能偏见技术进步的六分之一。其次，我们校准模型以匹配50美国的力矩，以衡量产生不匹配的摩擦的输出成本。摩擦成本平均为产出的 0.26%，但各州之间差异在 0.06% 到 0.77% 之间。解释垂直不匹配产出成本的关键变量不是不匹配工人的百分比，而是他们相对于匹配良好工人的工资。",
+      "doi": "10.3982/qe1868",
+      "source_url": "https://doi.org/10.3982/qe1868",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v16y2025i2p535-564.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-06T09:44:47+00:00",
+        "source_hash": "85022e16f56033c8408f481a4b959efa8b692251556a45afb9088e5b0d5bda12"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe1637",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Insurance, redistribution, and the inequality of lifetime income",
+      "title_cn": "保险、再分配与终身收入不平等",
+      "authors": [
+        "Peter Haan",
+        "Daniel Kemptner",
+        "Victoria Prowse",
+        "Maximilian Schaller",
+        "Victoria Liza Prowse"
+      ],
+      "abstract_en": "Individuals vary considerably in how much they earn during their lifetimes. This study examines the role of the tax‐and‐transfer system in mitigating such inequalities, which could otherwise lead to disparities in living standards. Utilizing a life‐cycle model, we determine that the tax‐and‐transfer system offsets 45% of lifetime earnings inequality attributed to differences in productive abilities and education. Additionally, the system insures against 47% of lifetime earnings risk. Implementing a lifetime tax reform that links annual taxes to prior employment could enhance the system's insurance function, though it may involve tradeoffs in terms of employment and overall welfare.",
+      "abstract_cn": "个体在其一生中的收入差异显著。本研究考察了税收与转移支付系统在缓解此类不平等（否则可能导致生活水平差异）中的作用。利用生命周期模型，我们确定税收与转移支付系统抵消了因生产能力差异和教育差异导致的终身收入不平等的45%。此外，该系统为47%的终身收入风险提供了保险。实施一项将年度税收与先前就业挂钩的终身税收改革，可以增强该系统的保险功能，尽管可能在就业和整体福利方面涉及权衡取舍。",
+      "doi": "10.3982/qe1637",
+      "source_url": "https://doi.org/10.3982/qe1637",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v16y2025i2p565-613.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T09:44:49+00:00",
+        "source_hash": "419e45a28f3364f1acdcac7ecbae650fbef9a7da6e2cd5e0419ee63e7ddbfcf2"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe1492",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Demographic transition, industrial policies, and Chinese economic growth",
+      "title_cn": "人口转型、产业政策与中国经济增长",
+      "authors": [
+        "Michael Dotsey",
+        "Wenli Li",
+        "Fang Yang"
+      ],
+      "abstract_en": "We build a unified framework to quantitatively examine how demographic transition and industrial policies have contributed to China's economic growth in the past five decades. On the demographic side, we consider evolutions in government population‐control policies, life expectancy, and pension income replacement. Industrial policies include changes in the speed of the growth of entrepreneurship, industry‐specific interest subsidies, and financial intermediation costs. Our analyses suggest that the demographic transition alone hardly affects the aggregate savings rate, mainly due to general equilibrium feedback effects from prices. However, demographics account for a considerable fraction of the increase in per capita output growth since 1970. By comparison, industrial policy changes contribute significantly to the rise in both the aggregate savings rate and per capita output growth during the period. Notably, the interactions between the demographic transition and industrial policy changes cause aggregate savings to rise, but have little effect on per capita output growth. A novel factor of the model is endogenous human capital accumulation, a driver of per capita output growth. Our results are robust to the endogenization of fertility decisions.",
+      "abstract_cn": "我们构建了一个统一框架，定量考察过去五十年中人口转型和产业政策对中国经济增长的贡献。在人口方面，我们考虑了政府人口控制政策、预期寿命和养老金收入替代率的演变。产业政策包括创业增长速度的变化、行业特定利息补贴以及金融中介成本。我们的分析表明，仅人口转型几乎不影响总储蓄率，这主要是由于价格的一般均衡反馈效应。然而，自1970年以来，人口因素对人均产出增长的增长贡献了相当大的比例。相比之下，产业政策变化在该时期对总储蓄率和人均产出增长的上升均有显著贡献。值得注意的是，人口转型与产业政策变化之间的相互作用导致总储蓄上升，但对人均产出增长影响甚微。模型的一个新颖因素是内生人力资本积累，这是人均产出增长的驱动因素。我们的结果对生育决策的内生化处理是稳健的。",
+      "doi": "10.3982/qe1492",
+      "source_url": "https://doi.org/10.3982/qe1492",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v16y2025i2p615-657.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T09:44:52+00:00",
+        "source_hash": "d106ad7950e18dee95fa91f2c3e445991667e716b67270f64052c6f898e455a7"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "Chinese"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe2160",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "The effects of monetary policy through housing and mortgage choices on aggregate demand",
+      "title_cn": "货币政策通过住房和抵押贷款选择对总需求的影响",
+      "authors": [
+        "Karin Kinnerud"
+      ],
+      "abstract_en": "Housing and mortgage choices are among the largest financial decisions households make and they substantially impact households' liquidity. This paper explores how monetary policy affects aggregate demand by influencing these portfolio choices. To quantify this channel, I build a heterogeneous‐agent life‐cycle model with long‐term mortgages and endogenous house prices. I find that, although only a small fraction of households adjust their housing and mortgage holdings in response to an expansionary monetary policy shock, these households account for over 50% of the increase in aggregate demand. Mortgage refinancing explains approximately four‐fifths of the contribution, whereas adjusted housing choices account for one‐fifth—uncovering a new transmission channel. I also show that the different pass‐through of the policy rate to short and long mortgage rates drives the difference in the house‐price and aggregate demand response between economies with adjustable‐rate as compared to fixed‐rate mortgages.",
+      "abstract_cn": "住房和抵押贷款选择是家庭做出的最大财务决策之一，它们对家庭的流动性有重大影响。本文探讨了货币政策如何通过影响这些投资组合选择来影响总需求。为了量化这一渠道，我构建了一个具有长期抵押贷款和内源性房价的异质性代理人生命周期模型。我发现，尽管只有一小部分家庭因扩张性货币政策冲击而调整其住房和抵押贷款持有量，但这些家庭却占了总需求增长的50%以上。抵押贷款再融资解释了约五分之四的贡献，而调整后的住房选择则占五分之一——揭示了一个新的传导渠道。我还表明，政策利率对短期和长期抵押贷款利率的不同传导导致了浮动利率抵押贷款与固定利率抵押贷款经济体之间房价和总需求反应的差异。",
+      "doi": "10.3982/qe2160",
+      "source_url": "https://doi.org/10.3982/qe2160",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v16y2025i2p659-703.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T09:44:55+00:00",
+        "source_hash": "1d63fb953e9e8aa479f75c34b4b9ea3a8e3390f711f1fe9bf2a491e58c179c4d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe2329",
+      "sequence": 9,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "The role of storage in commodity markets: Indirect inference based on grain data",
+      "title_cn": "商品市场中的储存作用：基于谷物数据的间接推断",
+      "authors": [
+        "Christophe Gouel",
+        "Nicolas Legrand"
+      ],
+      "abstract_en": "We develop an indirect inference approach relying on a linear supply and demand model serving as an auxiliary model to provide the first full empirical test of the rational expectations commodity storage model. We build a rich storage model that incorporates a supply response and four structural shocks and show that exploiting information on both prices and quantities is critical for relaxing previous restrictive identifying assumptions and assessing the empirical consistency of the model's features. Finally, we carry out a structural estimation on the aggregate index of the world's most important staple food products. Our estimations show that supply shocks are the main drivers of food market dynamics and that our storage model is consistent with most of the moments in the data, including the high price persistence so far the subject of a long‐standing puzzle.",
+      "abstract_cn": "我们开发了一种间接推断方法，该方法依赖于一个作为辅助模型的线性供需模型，以提供对理性预期商品储存模型的首次全面实证检验。我们构建了一个包含供给响应和四种结构性冲击的丰富储存模型，并表明利用价格和数量信息对于放宽先前限制性识别假设和评估模型特征的实证一致性至关重要。最后，我们对世界最重要主食产品的总体指数进行了结构性估计。我们的估计表明，供给冲击是食品市场动态的主要驱动因素，并且我们的储存模型与数据中的大多数矩条件一致，包括迄今为止长期困扰研究者的高价格持续性现象。",
+      "doi": "10.3982/qe2329",
+      "source_url": "https://doi.org/10.3982/qe2329",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v16y2025i2p705-747.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T09:44:57+00:00",
+        "source_hash": "2f9a645e874f42450dee9714ef22cfa8fbe7d49d734e2e42ccc69b4f3cc823c6"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe1412",
+      "sequence": 10,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "Power of personalized smoking cessation: A quantitative lifecycle framework for policy evaluation",
+      "title_cn": "个性化戒烟的力量：政策评估的定量生命周期框架",
+      "authors": [
+        "Li‐Shiun Chen",
+        "Ping Wang",
+        "Yao Yao"
+      ],
+      "abstract_en": "Evidence suggests that smokers' responsiveness to cessation medication depends on genotypes. Whether personalized treatment based on genotypes is cost effective compared to standard treatments, however, has been unexplored. We thus construct a lifecycle model with endogenous health evolution and life expectancy and with heterogeneities in genotypes, demographics, and adolescent smoking. We examine the cost effectiveness of three intervention policies: (i) a standard policy where all smokers receive counseling and medication, (ii) a standard policy where some smokers receive counseling and others receive counseling and medication, and (iii) a personalized policy based on genotypes. The personalized policy proves the most cost effective: every dollar of program cost generates about $29 and $40 in value measured over the lifecycle for smokers treated at age 37 and 52, respectively, about 16–22% higher than the two standard policies.",
+      "abstract_cn": "有证据表明，吸烟者对戒烟药物的反应取决于基因型。然而，与标准治疗相比，基于基因型的个性化治疗是否具有成本效益尚未得到探索。因此，我们构建了一个具有内生健康进化和预期寿命以及基因型、人口统计和青少年吸烟异质性的生命周期模型。我们研究了三种干预政策的成本效益：（i）所有吸烟者接受咨询和药物治疗的标准政策，（ii）一些吸烟者接受咨询而其他吸烟者接受咨询和药物治疗的标准政策，以及（iii）基于基因型的个性化政策。个性化政策被证明是最具成本效益的：对于 37 岁和 52 岁接受治疗的吸烟者，每美元计划成本在生命周期中分别产生约 29 和 40 美元的价值，比两种标准政策高出约 16-22%。",
+      "doi": "10.3982/qe1412",
+      "source_url": "https://doi.org/10.3982/qe1412",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v16y2025i2p749-793.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-06T09:45:07+00:00",
+        "source_hash": "e9d1e2ae52af7379f43c00a1596f078bb549f65fea9dc05bc48eaf27af1485e0"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "repec-serial-page",
+    "roster_authority": "repec-publisher-supplied",
+    "roster_match_scope": "repec-issue-section",
+    "publisher_page_status": "blocked",
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 10,
+    "authors_complete": 10,
+    "abstract_en_complete": 10,
+    "translation_complete": 10,
+    "duplicate_count": 0,
+    "flags": [],
+    "official_item_count": 10,
+    "publishable_item_count": 10,
+    "content_counts": {
+      "official_items": 10,
+      "observed_items": 10,
+      "publishable_items": 10,
+      "research_articles": 10,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 10
+    }
+  },
+  "content_counts": {
+    "official_items": 10,
+    "observed_items": 10,
+    "publishable_items": 10,
+    "research_articles": 10,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 10
+  },
+  "issue_label": "Vol. 16 · No. 2"
+}

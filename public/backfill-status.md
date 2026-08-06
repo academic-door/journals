@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T09:38:42+00:00
+Updated: 2026-08-06T09:46:45+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -242,6 +242,14 @@ Updated: 2026-08-06T09:38:42+00:00
 | LUP | lup-169-c | 2026 | complete |  |
 | LUP | lup-170-c | 2026 | translation_partial |  |
 | LUP | lup-171-c | 2026 | translation_partial |  |
+| QE | qe-16-1 | 2025 | complete |  |
+| QE | qe-16-2 | 2025 | complete |  |
+| QE | qe-16-3 | 2025 | complete |  |
+| QE | qe-16-4 | 2025 | translation_partial |  |
+| QE | qe-17-1 | 2026 | complete |  |
+| QE | qe-17-2 | 2026 | complete |  |
+| QE | qe-17-3 | 2026 | complete |  |
+| QE | qe-17-4 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
 | WD | wd-185-c | 2025 | translation_partial |  |
 | WD | wd-186-c | 2025 | translation_partial |  |
 | WD | wd-187-c | 2025 | complete |  |
