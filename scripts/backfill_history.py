@@ -409,7 +409,7 @@ def run_issue(
         issue = collect_or_resume(
             issue_ref,
             journal_config,
-            refresh=current_status != "complete",
+            refresh=current_status not in ("complete", "translation_partial"),
         )
         update_state(state, issue_ref, status="collected")
         issue = apply_translation_cache(issue)
