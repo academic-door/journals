@@ -560,14 +560,14 @@
       "source_sequence": 1021,
       "article_type": "comment",
       "title_en": "Finance and Green Growth: A Comment on De Haas and Popov (2023)",
-      "title_cn": "金融与绿色增长：对De Haas和Popov（2023）的评论",
+      "title_cn": "",
       "authors": [
         "Ariel Listo",
         "Soodeh Saberian",
         "Vincent Thivierge"
       ],
       "abstract_en": "De Haas and Popov (2023) used a forty-eight-country, sixteen-industry and twenty-six-year panel to test how the size and structure of a country’s financial sector affect CO|$_2$| emissions. This comment revisits the results by correcting two coding errors: failing to cluster the SEs and improperly implementing the generalised method of moments (GMM) estimator. Robust SEs are only significant at 10%, while the magnitudes of the GMM results are reduced by a factor of 2 to 4.1 There are inconsistencies between how SEs are calculated in the scripts provided by De Haas and Popov (2023), and how they are described in the main text. For their country panel, the authors stated that the SEs are clustered at the country level. However, in their script, the authors either only adjusted the SEs to account for heteroscedasticity or did not make any SE adjustments. The SEs in Table A1 in Appendix A are clustered at the country level for the first four columns, and account for heteroscedasticity for the GMM estimator. Compared to the results in Table 2 of De Haas and Popov (2023), the precision of the coefficients of interest is reduced. The results are now either statistically insignificant or only significant at the 10% level.",
-      "abstract_cn": "De Haas和Popov（2023）使用了一个涵盖四十八个国家、十六个行业和二十六年的面板数据，来检验一个国家金融部门的规模和结构如何影响CO|$_二$|排放。本评论通过纠正两个编码错误来重新审视其结果：未能对标准误进行聚类，以及不正确地实施了广义矩估计（GMM）估计量。稳健标准误仅在10%的水平上显著，而GMM结果的幅度减少了2到4.1倍。De Haas和Popov（2023）提供的脚本中计算标准误的方式与正文中描述的方式之间存在不一致。对于其国家面板，作者声称标准误在国家层面进行了聚类。然而，在他们的脚本中，作者要么仅调整了标准误以考虑异方差性，要么没有进行任何标准误调整。附录A中表A1的标准误在前四列中在国家层面进行了聚类，而对于GMM估计量则考虑了异方差性。与De Haas和Popov（2023）表2中的结果相比，感兴趣系数的精度有所降低。结果现在要么在统计上不显著，要么仅在10%的水平上显著。",
+      "abstract_cn": "",
       "abstract_snippet_en": "",
       "doi": "10.1093/ej/ueae108",
       "source_url": "https://doi.org/10.1093/ej/ueae108",
@@ -580,15 +580,12 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1093/ej/ueae108"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T08:06:22+00:00",
-        "source_hash": "3d0cd8938c7bc6e5476462f96ae8389a271e0ba9c9703e52e9fc31c57595141f"
+        "status": "missing"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -602,13 +599,13 @@
       "source_sequence": 1024,
       "article_type": "research-article",
       "title_en": "A Reply to Listo, Saberian and Thivierge (2023)",
-      "title_cn": "",
+      "title_cn": "对 Listo、Saberian 和 Thivierge 的回复 (2023)",
       "authors": [
         "Ralph De Haas",
         "Alexander Popov"
       ],
       "abstract_en": "We thank Ariel Listo, Soodeh Saberian and Vincent Thivierge for their careful replication of De Haas and Popov (2023)–using the replication data, code and instructions that we made available at the time of publication and after the usual checks by the Journal's data editor. Here we provide our response to the issues that Listo et al. (2023) bring up. ‘For their country panel, the authors mention in the text that they cluster their standard errors at the country level. However, in their script they either only adjusted their standard errors to account for heteroskedasticity or did not make standard error adjustments.’ This refers to page 642 of the published article where, when introducing the exploratory country-level regression framework, we wrote ‘We cluster the standard errors by country’. At the same time, we wrote in the notes to Table 2 (page 648 of the published article) that the reported SEs in this table are heteroscedasticity robust (as far as the non-generalized method of moments (GMM) results are concerned). While the latter is accurate, the text on page 642 is not. This is an unfortunate and inadvertent oversight, which results from tables being updated during the review process without us fully bringing the related text in line. We should have checked the consistency between the text and the table notes more carefully. Having said that, while definitely regrettable, we believe that the implications of this inconsistency are limited for two reasons. First, the main takeaway from Table 2 is robust to clustering the SEs at the country level. Also, when we include China (see Section 5 below), the point estimate on ‘Equity Share’ has a p-value of .10 in the OLS specification and of .06 in the IV specification. When correctly specifying the GMM model (see Section 2 below), the p-value in this GMM specification is .11.1 Second, we always presented the evidence in Table 2 as suggestive and as a first exploratory step in the data analysis. As we wrote on page 650, ‘[...] we consider these country-level regressions mainly as a first exploratory step in our analysis [...]’. Regarding the GMM case, the answer lies in the claim in the next paragraph of Listo et al. (2023):",
-      "abstract_cn": "",
+      "abstract_cn": "我们感谢 Ariel Listo、Soodeh Saberian 和 Vincent Thivierge 仔细复制了 De Haas 和 Popov (2023)——使用了我们在出版时提供的复制数据、代码和说明，并经过了期刊数据编辑的常规检查。在这里，我们对 Listo 等人提出的问题做出回应。 (2023) 提出。 “对于他们的国家小组，作者在文本中提到他们将标准误差集中在国家层面。然而，在他们的脚本中，他们要么只调整标准误差以考虑异方差性，要么没有进行标准误差调整。”这是指已发表文章的第642页，在介绍探索性国家级回归框架时，我们写道“我们按国家对标准误差进行聚类”。同时，我们在表二（已发表文章的第648页）的注释中写道，该表中报告的SE是异方差稳健的（就非广义矩方法（GMM）结果而言）。虽然后者是准确的，但页面 642 上的文本却不准确。这是一个不幸且无意的疏忽，这是由于我们在审核过程中更新了表格而没有完全使相关文本保持一致所致。我们应该更仔细地检查文本和表注之间的一致性。话虽如此，虽然确实令人遗憾，但我们认为这种不一致的影响是有限的，原因有两个。首先，表 2 的主要结论对于在国家层面对社会企业进行聚类是稳健的。此外，当我们包括中国时（参见下面的 5 节），“股权份额”的点估计在 OLS 规范中的 p 值为 .10，在 IV 规范中为 .06。当正确指定 GMM 模型时（请参阅下面的第 2 节），此 GMM 规范中的 p 值为 .11.1 其次，我们始终将表 2 中的证据作为提示和数据分析中的第一个探索性步骤提供。正如我们在650页上所写，“[...]我们认为这些国家层面的回归主要是我们分析中的第一步探索性步骤[...]”。关于GMM案，答案就在Listo等人下一段的主张中。 （2023）：",
       "abstract_snippet_en": "",
       "doi": "10.1093/ej/ueae107",
       "source_url": "https://doi.org/10.1093/ej/ueae107",
@@ -621,15 +618,15 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1093/ej/ueae107"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-06T14:31:11+00:00",
+        "source_hash": "65284c89751fe98a9833bf189733b06695a455de4511c826cf47c5542095d572"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
