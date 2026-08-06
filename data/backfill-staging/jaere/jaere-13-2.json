@@ -8,8 +8,8 @@
   "publication_date": "March 2026",
   "source_url": "https://www.journals.uchicago.edu/toc/jaere/2026/13/2",
   "retrieved_at": "2026-08-06T12:07:44+00:00",
-  "expected_article_count": 9,
-  "research_article_count": 9,
+  "expected_article_count": 8,
+  "research_article_count": 8,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
@@ -351,46 +351,6 @@
         "matched_terms": [],
         "source": "academic-door-rules-v1"
       }
-    },
-    {
-      "paper_id": "doi:10.1086/740398",
-      "sequence": 9,
-      "source_sequence": 1000000000,
-      "article_type": "research-article",
-      "title_en": "2025 JAERE Excellence in Refereeing Award",
-      "title_cn": "",
-      "authors": [],
-      "abstract_en": "",
-      "abstract_cn": "",
-      "abstract_snippet_en": "",
-      "doi": "10.1086/740398",
-      "source_url": "https://doi.org/10.1086/740398",
-      "publication_date": "2026",
-      "sources": {
-        "issue": "https://www.journals.uchicago.edu/toc/jaere/2026/13/2",
-        "roster": "crossref:issn:2333-5955",
-        "metadata": "crossref",
-        "abstract_en": "",
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1086/740398"
-      },
-      "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
-      },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing",
-        "authors_missing",
-        "abstract_en_missing"
-      ],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
     }
   ],
   "quality": {
@@ -400,16 +360,22 @@
     "roster_authority": "crossref-provisional",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
-    "excluded_item_count": 1,
+    "excluded_item_count": 2,
     "excluded_items": [
       {
         "title_en": "Front Matter",
         "reason": "front_matter",
         "doi": "10.1086/741148",
         "article_type": "front-matter"
+      },
+      {
+        "title_en": "2025 JAERE Excellence in Refereeing Award",
+        "doi": "10.1086/740398",
+        "article_type": "editorial",
+        "reason": "editorial_material"
       }
     ],
-    "doi_complete": 9,
+    "doi_complete": 8,
     "authors_complete": 8,
     "abstract_en_complete": 5,
     "translation_complete": 4,
@@ -421,33 +387,33 @@
       "translation_incomplete"
     ],
     "official_item_count": 10,
-    "publishable_item_count": 9,
+    "publishable_item_count": 8,
     "content_counts": {
       "official_items": 10,
       "observed_items": 10,
-      "publishable_items": 9,
-      "research_articles": 9,
+      "publishable_items": 8,
+      "research_articles": 8,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
-      "editorial_material": 0,
+      "editorial_material": 1,
       "front_matter": 1,
       "other_excluded": 0,
-      "catalog_content_items": 9
+      "catalog_content_items": 8
     }
   },
   "content_counts": {
     "official_items": 10,
     "observed_items": 10,
-    "publishable_items": 9,
-    "research_articles": 9,
+    "publishable_items": 8,
+    "research_articles": 8,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
-    "editorial_material": 0,
+    "editorial_material": 1,
     "front_matter": 1,
     "other_excluded": 0,
-    "catalog_content_items": 9
+    "catalog_content_items": 8
   },
   "issue_label": "Vol. 13 · No. 2"
 }
