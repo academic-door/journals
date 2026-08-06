@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T12:10:14+00:00
+Updated: 2026-08-06T12:31:10+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -123,7 +123,7 @@ Updated: 2026-08-06T12:10:14+00:00
 | ERE | ere-89-2 | 2026 | translation_partial |  |
 | ERE | ere-89-3 | 2026 | translation_partial |  |
 | ERE | ere-89-4 | 2026 | translation_partial |  |
-| ERE | ere-89-5 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 89/5 |
+| ERE | ere-89-5 | 2026 | translation_partial |  |
 | ERE | ere-89-6 | 2026 | translation_partial |  |
 | ERE | ere-89-7 | 2026 | translation_partial |  |
 | ERE | ere-89-8 | 2026 | complete |  |
@@ -297,12 +297,14 @@ Updated: 2026-08-06T12:10:14+00:00
 | JIE | jie-162-c | 2026 | complete |  |
 | JIE | jie-163-c | 2026 | complete |  |
 | JIE | jie-164-c | 2026 | translation_partial |  |
-| JLE | jle-68-1 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable issue 68/1 |
-| JLE | jle-68-2 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable issue 68/2 |
-| JLE | jle-68-3 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable issue 68/3 |
-| JLE | jle-68-4 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable issue 68/4 |
-| JLE | jle-69-1 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 69/1 |
-| JLE | jle-69-2 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 69/2 |
+| JLE | jle-43-1 | 2025 | complete |  |
+| JLE | jle-43-2 | 2025 | translation_partial |  |
+| JLE | jle-43-3 | 2025 | translation_partial |  |
+| JLE | jle-43-4 | 2025 | complete |  |
+| JLE | jle-43-S1 | 2025 | complete |  |
+| JLE | jle-44-1 | 2026 | translation_partial |  |
+| JLE | jle-44-2 | 2026 | translation_partial |  |
+| JLE | jle-44-3 | 2026 | complete |  |
 | JME | jme-149-c | 2025 | complete |  |
 | JME | jme-150-c | 2025 | complete |  |
 | JME | jme-151-c | 2025 | complete |  |
@@ -471,10 +473,10 @@ Updated: 2026-08-06T12:10:14+00:00
 | RFS | rfs-39-6 | 2026 | complete |  |
 | RFS | rfs-39-7 | 2026 | complete |  |
 | RFS | rfs-39-8 | 2026 | complete |  |
-| TE | te-20-1 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
-| TE | te-20-2 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
-| TE | te-20-3 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
-| TE | te-20-4 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
+| TE | te-20-1 | 2025 | translation_partial |  |
+| TE | te-20-2 | 2025 | translation_partial |  |
+| TE | te-20-3 | 2025 | translation_partial |  |
+| TE | te-20-4 | 2025 | translation_partial |  |
 | TE | te-21-1 | 2026 | complete |  |
 | TE | te-21-2 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
 | TE | te-21-3 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
