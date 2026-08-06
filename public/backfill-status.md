@@ -1,9 +1,16 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T11:03:30+00:00
+Updated: 2026-08-06T11:04:12+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
+| AEJAPP | aejapp-17-1 | 2025 | complete |  |
+| AEJAPP | aejapp-17-2 | 2025 | complete |  |
+| AEJAPP | aejapp-17-3 | 2025 | complete |  |
+| AEJAPP | aejapp-17-4 | 2025 | complete |  |
+| AEJAPP | aejapp-18-1 | 2026 | complete |  |
+| AEJAPP | aejapp-18-2 | 2026 | complete |  |
+| AEJAPP | aejapp-18-3 | 2026 | complete |  |
 | AEJMICRO | aejmicro-17-1 | 2025 | complete |  |
 | AEJMICRO | aejmicro-17-2 | 2025 | complete |  |
 | AEJMICRO | aejmicro-17-3 | 2025 | complete |  |
@@ -17,6 +24,16 @@ Updated: 2026-08-06T11:03:30+00:00
 | AERI | aeri-7-4 | 2025 | complete |  |
 | AERI | aeri-8-1 | 2026 | complete |  |
 | AERI | aeri-8-2 | 2026 | complete |  |
+| ECTA | ecta-93-1 | 2025 | complete |  |
+| ECTA | ecta-93-2 | 2025 | complete |  |
+| ECTA | ecta-93-3 | 2025 | complete |  |
+| ECTA | ecta-93-4 | 2025 | complete |  |
+| ECTA | ecta-93-5 | 2025 | complete |  |
+| ECTA | ecta-93-6 | 2025 | complete |  |
+| ECTA | ecta-94-1 | 2026 | complete |  |
+| ECTA | ecta-94-2 | 2026 | complete |  |
+| ECTA | ecta-94-3 | 2026 | complete |  |
+| ECTA | ecta-94-4 | 2026 | complete |  |
 | EER | eer-171-c | 2025 | complete |  |
 | EER | eer-172-c | 2025 | complete |  |
 | EER | eer-173-c | 2025 | complete |  |
@@ -135,13 +152,6 @@ Updated: 2026-08-06T11:03:30+00:00
 | JEEM | jeem-138-c | 2026 | complete |  |
 | JEEM | jeem-139-c | 2026 | complete |  |
 | JEEM | jeem-140-c | 2026 | complete |  |
-| JEP | jep-39-1 | 2025 | complete |  |
-| JEP | jep-39-2 | 2025 | complete |  |
-| JEP | jep-39-3 | 2025 | complete |  |
-| JEP | jep-39-4 | 2025 | complete |  |
-| JEP | jep-40-1 | 2026 | complete |  |
-| JEP | jep-40-2 | 2026 | complete |  |
-| JEP | jep-40-3 | 2026 | complete |  |
 | JET | jet-223-c | 2025 | complete |  |
 | JET | jet-224-c | 2025 | complete |  |
 | JET | jet-225-c | 2025 | complete |  |
