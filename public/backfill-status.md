@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T14:18:17+00:00
+Updated: 2026-08-06T13:49:13+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -115,7 +115,7 @@ Updated: 2026-08-06T14:18:17+00:00
 | ERE | ere-88-3 | 2025 | complete |  |
 | ERE | ere-88-4 | 2025 | complete |  |
 | ERE | ere-88-5 | 2025 | complete |  |
-| ERE | ere-88-6 | 2025 | complete |  |
+| ERE | ere-88-6 | 2025 | translation_partial |  |
 | ERE | ere-88-7 | 2025 | complete |  |
 | ERE | ere-88-8 | 2025 | complete |  |
 | ERE | ere-88-9 | 2025 | complete |  |
@@ -357,7 +357,7 @@ Updated: 2026-08-06T14:18:17+00:00
 | JPubE | jpube-248-c | 2025 | complete |  |
 | JPubE | jpube-249-c | 2025 | complete |  |
 | JPubE | jpube-250-c | 2025 | complete |  |
-| JPubE | jpube-251-c | 2025 | complete |  |
+| JPubE | jpube-251-c | 2025 | translation_partial |  |
 | JPubE | jpube-252-c | 2025 | complete |  |
 | JPubE | jpube-253-c | 2026 | translation_partial |  |
 | JPubE | jpube-254-c | 2026 | complete |  |
@@ -373,7 +373,7 @@ Updated: 2026-08-06T14:18:17+00:00
 | JUE | jue-146-c | 2025 | complete |  |
 | JUE | jue-147-c | 2025 | complete |  |
 | JUE | jue-148-c | 2025 | complete |  |
-| JUE | jue-149-c | 2025 | complete |  |
+| JUE | jue-149-c | 2025 | translation_partial |  |
 | JUE | jue-150-c | 2025 | complete |  |
 | JUE | jue-151-c | 2026 | complete |  |
 | JUE | jue-152-c | 2026 | complete |  |
@@ -395,7 +395,7 @@ Updated: 2026-08-06T14:18:17+00:00
 | LUP | lup-154-c | 2025 | complete |  |
 | LUP | lup-155-c | 2025 | complete |  |
 | LUP | lup-156-c | 2025 | complete |  |
-| LUP | lup-157-c | 2025 | complete |  |
+| LUP | lup-157-c | 2025 | translation_partial |  |
 | LUP | lup-158-c | 2025 | translation_partial |  |
 | LUP | lup-159-c | 2025 | translation_partial |  |
 | LUP | lup-160-c | 2026 | complete |  |
@@ -478,7 +478,7 @@ Updated: 2026-08-06T14:18:17+00:00
 | TE | te-21-1 | 2026 | complete |  |
 | TE | te-21-2 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
 | TE | te-21-3 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
-| WD | wd-185-c | 2025 | complete |  |
+| WD | wd-185-c | 2025 | translation_partial |  |
 | WD | wd-186-c | 2025 | translation_partial |  |
 | WD | wd-187-c | 2025 | complete |  |
 | WD | wd-188-c | 2025 | complete |  |
