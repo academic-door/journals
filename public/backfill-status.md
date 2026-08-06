@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T07:44:13+00:00
+Updated: 2026-08-06T07:46:26+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -50,8 +50,8 @@ Updated: 2026-08-06T07:44:13+00:00
 | GEB | geb-157-c | 2026 | complete |  |
 | GEB | geb-158-c | 2026 | complete |  |
 | GEB | geb-159-c | 2026 | complete |  |
-| IER | ier-66-c | 2025 | blocked | MetadataFallbackError: RePEc serial page has no issue 66/c |
-| IER | ier-67-c | 2026 | blocked | MetadataFallbackError: RePEc serial page has no issue 67/c |
+| IER | ier-66-c | 2025 | blocked | MetadataFallbackError: Crossref returned no usable issue 66/ |
+| IER | ier-67-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 67/ |
 | JDE | jde-172-c | 2025 | complete |  |
 | JDE | jde-173-c | 2025 | complete |  |
 | JDE | jde-174-c | 2025 | complete |  |
