@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T09:58:03+00:00
+Updated: 2026-08-06T10:02:53+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -11,6 +11,12 @@ Updated: 2026-08-06T09:58:03+00:00
 | AEJMICRO | aejmicro-18-1 | 2026 | complete |  |
 | AEJMICRO | aejmicro-18-2 | 2026 | complete |  |
 | AEJMICRO | aejmicro-18-3 | 2026 | complete |  |
+| AERI | aeri-7-1 | 2025 | complete |  |
+| AERI | aeri-7-2 | 2025 | complete |  |
+| AERI | aeri-7-3 | 2025 | translation_partial |  |
+| AERI | aeri-7-4 | 2025 | complete |  |
+| AERI | aeri-8-1 | 2026 | complete |  |
+| AERI | aeri-8-2 | 2026 | complete |  |
 | EER | eer-171-c | 2025 | complete |  |
 | EER | eer-172-c | 2025 | complete |  |
 | EER | eer-173-c | 2025 | complete |  |
