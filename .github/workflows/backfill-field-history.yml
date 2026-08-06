@@ -233,15 +233,23 @@ jobs:
             fi
 
             # Merge the resumable state file by issue key so concurrent
-            # journals never drop each other's checkpoints.
+            # journals never drop each other's checkpoints. This run's own
+            # journal keys are the freshest source for that journal and
+            # overwrite; other journals' keys keep the already-published
+            # (fresher) values already on the data branch.
             mkdir -p data/backfill-state
-            python - "$generated/data/backfill-state/field-2025-2026.json" <<'PY'
+            python - "$generated/data/backfill-state/field-2025-2026.json" "$journal_key" <<'PY'
           import json, os, sys
-          new_path = sys.argv[1]
+          new_path, journal_key = sys.argv[1], sys.argv[2]
           target = "data/backfill-state/field-2025-2026.json"
           new = json.load(open(new_path, encoding="utf-8"))
           existing = json.load(open(target, encoding="utf-8")) if os.path.exists(target) else {"schema_version": "1.0", "issues": {}}
-          existing.setdefault("issues", {}).update(new.get("issues", {}))
+          merged = existing.setdefault("issues", {})
+          for key, value in new.get("issues", {}).items():
+              if journal_key == "ALL" or value.get("journal", "") == journal_key:
+                  merged[key] = value
+              else:
+                  merged.setdefault(key, value)
           json.dump(existing, open(target, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
           PY
 
