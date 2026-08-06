@@ -567,15 +567,98 @@ def _zh_integer(value: int) -> str:
     return base + _zh_integer(rest)
 
 
+
+CN_DIGITS = {
+    "零": 0, "〇": 0, "一": 1, "二": 2, "两": 2, "三": 3, "四": 4,
+    "五": 5, "六": 6, "七": 7, "八": 8, "九": 9,
+}
+CN_UNITS = {"十": 10, "百": 100, "千": 1000, "万": 10000, "亿": 100000000}
+CN_NUMERAL_PATTERN = re.compile(r"[零〇一二两三四五六七八九十百千万亿]+")
+
+
+def _parse_chinese_numeral(value: str) -> int:
+    """Parse a Chinese numeral sequence (up to 亿) into an integer.
+
+    Handles standard forms such as 八十=80, 一百二十三=123, 二〇二五=2025
+    and 二十万=200000.
+    """
+    if not any(char in CN_UNITS for char in value):
+        # Pure digit sequence (e.g. 二〇二五 for 2025): concatenate digits.
+        result = 0
+        for char in value:
+            result = result * 10 + CN_DIGITS[char]
+        return result
+    total = 0
+    section = 0
+    number = 0
+    for char in value:
+        if char in CN_DIGITS:
+            number = CN_DIGITS[char]
+        elif char in CN_UNITS:
+            unit = CN_UNITS[char]
+            if unit < 10000:
+                section += (number or 1) * unit
+                number = 0
+            else:
+                total += (section + number) * unit
+                section = 0
+                number = 0
+    return total + section + number
+
+
+def _canonicalize_chinese_numerals(source: str, translated: str) -> str:
+    """Convert Chinese-written numerals back to Arabic when the source has the
+    same value as an Arabic number.
+
+    Chinese translations routinely render source Arabic numbers as Chinese
+    numerals (e.g. ``80`` -> ``八十``). Those are the same value, not invented
+    numbers; converting only the values that actually occur as Arabic numerals
+    in the source lets the strict multiset validator compare numeric content
+    instead of script form, without disturbing legitimate Chinese renderings
+    of English number words (e.g. ``half a million`` -> ``五十万``).
+    """
+    source_numbers = set(_numbers(source))
+
+    def replace_percent(match: re.Match[str]) -> str:
+        value = _parse_chinese_numeral(match.group(1))
+        rendered = f"{value}%"
+        if rendered in source_numbers:
+            return rendered
+        return match.group(0)
+
+    normalized = re.sub(
+        r"百分之(" + CN_NUMERAL_PATTERN.pattern + r")",
+        replace_percent,
+        translated,
+    )
+
+    def replace_numeral(match: re.Match[str]) -> str:
+        sequence = match.group(0)
+        if len(sequence) < 2:
+            # Single Chinese digits usually render English count words
+            # (``two types`` -> ``两种``) and are ambiguous with data values;
+            # leave them alone.
+            return sequence
+        value = _parse_chinese_numeral(sequence)
+        if str(value) in source_numbers:
+            return str(value)
+        return sequence
+
+    return CN_NUMERAL_PATTERN.sub(replace_numeral, normalized)
+
+
+
 def _normalize_written_number_translations(source: str, translated: str) -> str:
     """Normalize valid Chinese renderings of English month/number words.
 
     This prevents a translated ``December`` -> ``12月`` or ``three percent`` ->
     ``3%`` from being mistaken for an invented Arabic number. Source Arabic
-    numbers remain subject to exact multiset validation.
+    numbers remain subject to exact multiset validation. Chinese-written
+    numerals (``八十`` for 80) are canonicalized back to Arabic first so they
+    compare equal to the source value.
     """
 
-    normalized = translated
+    normalized = _canonicalize_chinese_numerals(source, translated)
     month_abbreviations = {
         "jan": "January", "feb": "February", "mar": "March", "apr": "April",
         "may": "May", "jun": "June", "jul": "July", "aug": "August",
