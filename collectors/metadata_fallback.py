@@ -2351,6 +2351,11 @@ def fetch_elsevier_issue_via_search(
     entries: list[dict[str, Any]] = []
     cursor: str = "*"
     seen_total = 0
+    # Elsevier's Search API can return articles from other journals that share
+    # the same volume number even when ISSN() is in the query. Every
+    # ScienceDirect PII embeds the journal's ISSN (e.g. S01672681 for JEBO),
+    # so drop any entry whose PII does not start with this journal's ISSN.
+    expected_pii_prefix = "S" + re.sub(r"[^0-9]", "", issn)
     for _ in range(20):
         root = search_page(cursor)
         if root is None:
@@ -2358,7 +2363,12 @@ def fetch_elsevier_issue_via_search(
         for entry in root.findall("atom:entry", ns):
             title = entry.findtext("dc:title", "", ns).strip()
             doi = entry.findtext("prism:doi", "", ns).strip()
-            pii = entry.findtext("pii", "", ns).strip() or entry.findtext("sci:pii", "", ns)
+            pii = re.sub(
+                r"[^A-Za-z0-9]",
+                "",
+                entry.findtext("pii", "", ns).strip()
+                or entry.findtext("sci:pii", "", ns),
+            )
             cover_date = entry.findtext("prism:coverDate", "", ns).strip()
             description = entry.findtext("dc:description", "", ns).strip()
             creators = [
@@ -2368,11 +2378,15 @@ def fetch_elsevier_issue_via_search(
             ]
             if not title:
                 continue
+            if not pii.startswith(expected_pii_prefix):
+                # Not this journal's article (shared volume number across
+                # Elsevier titles); never include it in this issue's roster.
+                continue
             entries.append(
                 {
                     "title": title,
                     "doi": doi,
-                    "pii": re.sub(r"[^A-Za-z0-9]", "", pii or ""),
+                    "pii": pii,
                     "cover_date": cover_date,
                     "description": description,
                     "creators": creators,

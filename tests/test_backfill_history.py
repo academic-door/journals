@@ -392,5 +392,122 @@ class BackfillHistoryTests(unittest.TestCase):
         self.assertEqual("b@example.com", message["To"])
 
 
+
+class ElsevierSearchRosterFilterTests(unittest.TestCase):
+    """ScienceDirect Search API results must be scoped to the journal's ISSN.
+
+    The API can return articles from other Elsevier journals that happen to
+    share the same volume number; only entries whose PII embeds this
+    journal's ISSN belong in the issue roster.
+    """
+
+    def test_foreign_journal_entries_are_dropped(self) -> None:
+        import xml.etree.ElementTree as ET
+
+        from collectors import metadata_fallback
+
+        issn = "0167-2681"  # Journal of Economic Behavior & Organization
+        expected_prefix = "S01672681"
+        xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+        <feed xmlns="http://www.w3.org/2005/Atom"
+              xmlns:dc="http://purl.org/dc/elements/1.1/"
+              xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/"
+              xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/"
+              xmlns:sci="http://www.elsevier.com/xml/schemas/sciencedirect">
+          <opensearch:totalResults>2</opensearch:totalResults>
+          <entry>
+            <dc:title>Real JEBO article</dc:title>
+            <prism:doi>10.1016/j.jebo.2026.100001</prism:doi>
+            <sci:pii>{expected_prefix}202600001</sci:pii>
+            <prism:coverDate>2026-02-01</prism:coverDate>
+            <dc:creator>Alice</dc:creator>
+          </entry>
+          <entry>
+            <dc:title>Wrong journal article</dc:title>
+            <prism:doi>10.1016/j.semcdb.2026.100002</prism:doi>
+            <sci:pii>S1044577X26000022</sci:pii>
+            <prism:coverDate>2026-02-01</prism:coverDate>
+            <dc:creator>Bob</dc:creator>
+          </entry>
+        </feed>"""
+
+        class FakeResponse:
+            content = xml.encode("utf-8")
+
+            def raise_for_status(self) -> None:
+                return None
+
+        class FakeSession:
+            def __init__(self) -> None:
+                self.calls = 0
+
+            def get(self, *args, **kwargs):
+                self.calls += 1
+                return FakeResponse()
+
+        session = FakeSession()
+        with (
+            patch.dict("os.environ", {"ELSEVIER_API_KEY": "test-key"}, clear=False),
+            patch.object(
+                metadata_fallback, "_elsevier_lookup", return_value={}
+            ),
+        ):
+            issue = metadata_fallback.fetch_elsevier_issue_via_search(
+                journal_id="jebo",
+                journal_name="Journal of Economic Behavior & Organization",
+                issn=issn,
+                volume="242",
+                session=session,
+            )
+        articles = issue["articles"]
+        self.assertEqual(1, len(articles))
+        self.assertEqual("10.1016/j.jebo.2026.100001", articles[0]["doi"])
+        self.assertEqual("elsevier-search-api", issue["quality"]["roster_authority"])
+        self.assertEqual("10.1016/j.jebo.2026.100001", articles[0]["doi"])
+
+    def test_no_matching_pii_raises(self) -> None:
+        import xml.etree.ElementTree as ET
+
+        from collectors import metadata_fallback
+
+        xml = """<?xml version="1.0" encoding="UTF-8"?>
+        <feed xmlns="http://www.w3.org/2005/Atom"
+              xmlns:dc="http://purl.org/dc/elements/1.1/"
+              xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/"
+              xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/"
+              xmlns:sci="http://www.elsevier.com/xml/schemas/sciencedirect">
+          <opensearch:totalResults>1</opensearch:totalResults>
+          <entry>
+            <dc:title>Only foreign article</dc:title>
+            <prism:doi>10.1016/j.other.2026.1</prism:doi>
+            <sci:pii>S9999999920260001</sci:pii>
+          </entry>
+        </feed>"""
+
+        class FakeResponse:
+            content = xml.encode("utf-8")
+
+            def raise_for_status(self) -> None:
+                return None
+
+        class FakeSession:
+            def get(self, *args, **kwargs):
+                return FakeResponse()
+
+        with (
+            patch.dict("os.environ", {"ELSEVIER_API_KEY": "test-key"}, clear=False),
+            self.assertRaises(metadata_fallback.MetadataFallbackError),
+        ):
+            metadata_fallback.fetch_elsevier_issue_via_search(
+                journal_id="jebo",
+                journal_name="Journal of Economic Behavior & Organization",
+                issn="0167-2681",
+                volume="242",
+                session=FakeSession(),
+            )
+
+
+
+
 if __name__ == "__main__":
     unittest.main()
