@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-06T11:00:18+00:00
+Updated: 2026-08-06T11:00:31+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -17,6 +17,16 @@ Updated: 2026-08-06T11:00:18+00:00
 | AERI | aeri-7-4 | 2025 | complete |  |
 | AERI | aeri-8-1 | 2026 | complete |  |
 | AERI | aeri-8-2 | 2026 | complete |  |
+| ECTA | ecta-93-1 | 2025 | complete |  |
+| ECTA | ecta-93-2 | 2025 | complete |  |
+| ECTA | ecta-93-3 | 2025 | complete |  |
+| ECTA | ecta-93-4 | 2025 | complete |  |
+| ECTA | ecta-93-5 | 2025 | complete |  |
+| ECTA | ecta-93-6 | 2025 | complete |  |
+| ECTA | ecta-94-1 | 2026 | complete |  |
+| ECTA | ecta-94-2 | 2026 | complete |  |
+| ECTA | ecta-94-3 | 2026 | complete |  |
+| ECTA | ecta-94-4 | 2026 | complete |  |
 | EER | eer-171-c | 2025 | complete |  |
 | EER | eer-172-c | 2025 | complete |  |
 | EER | eer-173-c | 2025 | complete |  |
@@ -208,25 +218,6 @@ Updated: 2026-08-06T11:00:18+00:00
 | JOE | joe-255-c | 2026 | complete |  |
 | JOE | joe-256-c | 2026 | complete |  |
 | JOE | joe-257-c | 2026 | complete |  |
-| JPE | jpe-133-1 | 2025 | complete |  |
-| JPE | jpe-133-10 | 2025 | complete |  |
-| JPE | jpe-133-11 | 2025 | complete |  |
-| JPE | jpe-133-12 | 2025 | complete |  |
-| JPE | jpe-133-2 | 2025 | complete |  |
-| JPE | jpe-133-3 | 2025 | complete |  |
-| JPE | jpe-133-4 | 2025 | complete |  |
-| JPE | jpe-133-5 | 2025 | complete |  |
-| JPE | jpe-133-6 | 2025 | complete |  |
-| JPE | jpe-133-7 | 2025 | complete |  |
-| JPE | jpe-133-8 | 2025 | complete |  |
-| JPE | jpe-133-9 | 2025 | complete |  |
-| JPE | jpe-134-1 | 2026 | complete |  |
-| JPE | jpe-134-2 | 2026 | complete |  |
-| JPE | jpe-134-3 | 2026 | complete |  |
-| JPE | jpe-134-4 | 2026 | complete |  |
-| JPE | jpe-134-5 | 2026 | complete |  |
-| JPE | jpe-134-6 | 2026 | complete |  |
-| JPE | jpe-134-7 | 2026 | complete |  |
 | JPubE | jpube-241-c | 2025 | complete |  |
 | JPubE | jpube-242-c | 2025 | complete |  |
 | JPubE | jpube-243-c | 2025 | complete |  |
