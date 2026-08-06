@@ -42,8 +42,11 @@ permissions:
   models: read
 
 concurrency:
-  # Parallelize per-journal backfills; only the same journal serializes.
-  group: field-history-backfill-${{ github.event.inputs.journal || 'ALL' }}
+  # Serialize ALL field backfills (including per-journal dispatches) onto one
+  # group. Parallel publishers each replace the whole public/ tree on the data
+  # branch, which clobbers other journals' archives; one-at-a-time publishing
+  # keeps the shared data branch consistent.
+  group: field-history-backfill-all
   cancel-in-progress: false
 
 jobs:
@@ -189,4 +192,18 @@ jobs:
             exit 0
           fi
           git commit -m "Backfill field journal history"
-          git push origin HEAD:data
+          if git push origin HEAD:data; then
+            exit 0
+          fi
+          # Retry a few times in case a concurrent publisher (e.g. the monitor
+          # workflow) advanced the data branch while we were publishing. Rebase
+          # our additive commit onto the latest data branch and push again.
+          for attempt in 1 2 3 4; do
+            sleep $((attempt * 20))
+            git pull --rebase origin data
+            git commit -m "Backfill field journal history (retry $attempt)" || true
+            if git push origin HEAD:data; then
+              exit 0
+            fi
+          done
+          exit 1
