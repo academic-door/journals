@@ -2487,6 +2487,21 @@ def fetch_elsevier_issue_via_search(
         flags.append("authors_incomplete")
 
     issue_id = f"{journal_id}-{volume}-{str(issue).lower()}"
+    # The Search API coverDate for consecutive volumes is frequently the
+    # first online date and repeats across volumes; Crossref registered
+    # per-volume print cover months are authoritative.
+    try:
+        crossref_items = _crossref_items(issn, session=client, timeout=timeout)
+        issue_publication_date = _publication_date(
+            issn,
+            str(volume),
+            str(issue),
+            crossref_items,
+        )
+    except Exception:
+        issue_publication_date = ""
+    if not issue_publication_date:
+        issue_publication_date = str(entries[0].get("cover_date") or volume)
     return {
         "schema_version": "1.0",
         "issue_id": issue_id,
@@ -2495,7 +2510,7 @@ def fetch_elsevier_issue_via_search(
         "volume": str(volume),
         "issue": str(issue),
         "issue_label": f"Vol. {volume}",
-        "publication_date": str(entries[0].get("cover_date") or volume),
+        "publication_date": issue_publication_date,
         "source_url": official_issue_url or ELSEVIER_SEARCH_API,
         "retrieved_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         "expected_article_count": len(articles),

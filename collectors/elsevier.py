@@ -439,48 +439,34 @@ def fetch_elsevier_repec_history_issue(
     if authors_complete != len(articles):
         flags.append("authors_incomplete")
     now = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
-    month_dates = [
-        str(article.get("publication_date", ""))
-        for article in built
-        if str(article.get("publication_date", "")).strip()
-    ]
-    if month_dates:
-        from collections import Counter
+    # Crossref registered per-volume cover months are authoritative; RePEc
+    # citation dates sometimes repeat the first online month across volumes
+    # (e.g. several JUE volumes all read "February 2025").
+    from collectors.metadata_fallback import _crossref_items, _publication_date
 
-        publication_date = Counter(month_dates).most_common(1)[0][0]
+    try:
+        crossref_items = _crossref_items(issn, session=client, timeout=timeout)
+        crossref_date = _publication_date(
+            issn,
+            str(volume),
+            str(issue),
+            crossref_items,
+        )
+    except Exception:
+        crossref_date = ""
+    if crossref_date:
+        publication_date = crossref_date
     else:
-        publication_date = str(target["year"])
-    if len(publication_date) == 4 and publication_date.isdigit():
-        # RePEc citation meta is sometimes year-only; fall back to the
-        # majority month that Crossref registered for this volume.
-        from collectors.metadata_fallback import _crossref_items
-
-        try:
-            items = _crossref_items(issn, session=client, timeout=timeout)
-        except requests.RequestException:
-            items = []
-        months: list[int] = []
-        for item in items:
-            if str(item.get("volume", "")).strip() != str(volume):
-                continue
-            parts = (item.get("published-print") or {}).get("date-parts", [[]])
-            try:
-                months.append(int(parts[0][1]))
-            except (TypeError, ValueError, IndexError):
-                continue
-        if months:
-            from collections import Counter
-
-            month = Counter(months).most_common(1)[0][0]
-            month_names = [
-                "January", "February", "March", "April", "May", "June",
-                "July", "August", "September", "October", "November",
-                "December",
-            ]
-            if 1 <= month <= 12:
-                publication_date = (
-                    f"{month_names[month - 1]} {publication_date}"
-                )
+        month_dates = [
+            str(article.get("publication_date", ""))
+            for article in built
+            if str(article.get("publication_date", "")).strip()
+        ]
+        publication_date = (
+            Counter(month_dates).most_common(1)[0][0]
+            if month_dates
+            else str(target["year"])
+        )
     return {
         "schema_version": "1.0",
         "issue_id": f"{journal_id}-{volume}-c",
