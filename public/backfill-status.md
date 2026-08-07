@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-07T07:08:38+00:00
+Updated: 2026-08-07T07:31:02+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -298,7 +298,7 @@ Updated: 2026-08-07T07:08:38+00:00
 | JIE | jie-163-c | 2026 | complete |  |
 | JIE | jie-164-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 164/ |
 | JLE | jle-43-1 | 2025 | complete |  |
-| JLE | jle-43-2 | 2025 | translation_partial |  |
+| JLE | jle-43-2 | 2025 | complete |  |
 | JLE | jle-43-3 | 2025 | complete |  |
 | JLE | jle-43-4 | 2025 | complete |  |
 | JLE | jle-43-S1 | 2025 | complete |  |
