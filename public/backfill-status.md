@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-07T03:03:18+00:00
+Updated: 2026-08-07T03:03:25+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -383,7 +383,7 @@ Updated: 2026-08-07T03:03:18+00:00
 | JUE | jue-154-c | 2026 | complete |  |
 | LANDECON | landecon-101-1 | 2025 | complete |  |
 | LANDECON | landecon-101-2 | 2025 | complete |  |
-| LANDECON | landecon-101-3 | 2025 | translation_partial |  |
+| LANDECON | landecon-101-3 | 2025 | complete |  |
 | LANDECON | landecon-101-4 | 2025 | complete |  |
 | LANDECON | landecon-102-1 | 2026 | complete |  |
 | LANDECON | landecon-102-2 | 2026 | complete |  |
