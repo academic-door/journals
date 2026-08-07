@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-07T06:52:52+00:00
+Updated: 2026-08-07T05:57:56+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -119,7 +119,7 @@ Updated: 2026-08-07T06:52:52+00:00
 | ERE | ere-88-7 | 2025 | complete |  |
 | ERE | ere-88-8 | 2025 | complete |  |
 | ERE | ere-88-9 | 2025 | complete |  |
-| ERE | ere-89-1 | 2026 | complete |  |
+| ERE | ere-89-1 | 2026 | translation_partial |  |
 | ERE | ere-89-2 | 2026 | complete |  |
 | ERE | ere-89-3 | 2026 | complete |  |
 | ERE | ere-89-4 | 2026 | complete |  |
@@ -166,9 +166,9 @@ Updated: 2026-08-07T06:52:52+00:00
 | JAERE | jaere-12-4 | 2025 | complete |  |
 | JAERE | jaere-12-5 | 2025 | complete |  |
 | JAERE | jaere-12-6 | 2025 | complete |  |
-| JAERE | jaere-13-1 | 2026 | complete |  |
-| JAERE | jaere-13-2 | 2026 | complete |  |
-| JAERE | jaere-13-3 | 2026 | complete |  |
+| JAERE | jaere-13-1 | 2026 | translation_partial |  |
+| JAERE | jaere-13-2 | 2026 | translation_partial |  |
+| JAERE | jaere-13-3 | 2026 | translation_partial |  |
 | JAERE | jaere-13-4 | 2026 | complete |  |
 | JAERE | jaere-13-5 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 13/5 |
 | JDE | jde-172-c | 2025 | complete |  |
@@ -299,11 +299,11 @@ Updated: 2026-08-07T06:52:52+00:00
 | JIE | jie-164-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 164/ |
 | JLE | jle-43-1 | 2025 | complete |  |
 | JLE | jle-43-2 | 2025 | translation_partial |  |
-| JLE | jle-43-3 | 2025 | complete |  |
+| JLE | jle-43-3 | 2025 | translation_partial |  |
 | JLE | jle-43-4 | 2025 | complete |  |
 | JLE | jle-43-S1 | 2025 | complete |  |
-| JLE | jle-44-1 | 2026 | complete |  |
-| JLE | jle-44-2 | 2026 | complete |  |
+| JLE | jle-44-1 | 2026 | translation_partial |  |
+| JLE | jle-44-2 | 2026 | translation_partial |  |
 | JLE | jle-44-3 | 2026 | complete |  |
 | JME | jme-149-c | 2025 | complete |  |
 | JME | jme-150-c | 2025 | complete |  |
