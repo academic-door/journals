@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-06T09:36:08+00:00",
   "expected_article_count": 15,
   "research_article_count": 15,
-  "status": "ready",
+  "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
@@ -560,14 +560,14 @@
       "source_sequence": 1021,
       "article_type": "comment",
       "title_en": "Finance and Green Growth: A Comment on De Haas and Popov (2023)",
-      "title_cn": "金融与绿色增长：对De Haas和Popov（2023）的评论",
+      "title_cn": "",
       "authors": [
         "Ariel Listo",
         "Soodeh Saberian",
         "Vincent Thivierge"
       ],
       "abstract_en": "De Haas and Popov (2023) used a forty-eight-country, sixteen-industry and twenty-six-year panel to test how the size and structure of a country’s financial sector affect CO|$_2$| emissions. This comment revisits the results by correcting two coding errors: failing to cluster the SEs and improperly implementing the generalised method of moments (GMM) estimator. Robust SEs are only significant at 10%, while the magnitudes of the GMM results are reduced by a factor of 2 to 4.1 There are inconsistencies between how SEs are calculated in the scripts provided by De Haas and Popov (2023), and how they are described in the main text. For their country panel, the authors stated that the SEs are clustered at the country level. However, in their script, the authors either only adjusted the SEs to account for heteroscedasticity or did not make any SE adjustments. The SEs in Table A1 in Appendix A are clustered at the country level for the first four columns, and account for heteroscedasticity for the GMM estimator. Compared to the results in Table 2 of De Haas and Popov (2023), the precision of the coefficients of interest is reduced. The results are now either statistically insignificant or only significant at the 10% level.",
-      "abstract_cn": "De Haas和Popov（2023）使用了四十八个国家、十六个行业和二十六年的面板数据，来检验一个国家金融部门的规模和结构如何影响CO2排放。本评论通过纠正两个编码错误来重新审视其结果：未能对标准误进行聚类，以及不正确地实施广义矩估计（GMM）估计方法。稳健标准误仅在10%水平上显著，而GMM结果的幅度缩小了2到4.1倍。在De Haas和Popov（2023）提供的脚本中，标准误的计算方式与其正文中的描述存在不一致之处。对于其国家面板，作者声称标准误在国家层面聚类。然而，在其脚本中，作者要么只对异方差性进行了标准误调整，要么根本没有进行标准误调整。附录A中表A1的标准误在前四列按国家层面聚类，并对GMM估计器考虑了异方差性。与De Haas和Popov（2023）表二的结果相比，感兴趣系数的精度有所下降。结果现在要么在统计上不显著，要么仅在10%水平上显著。",
+      "abstract_cn": "",
       "abstract_snippet_en": "",
       "doi": "10.1093/ej/ueae108",
       "source_url": "https://doi.org/10.1093/ej/ueae108",
@@ -580,14 +580,12 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1093/ej/ueae108"
       },
       "translation": {
-        "status": "complete",
-        "provider": "operator-manual",
-        "model": "academic-door-manual-v1",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "translated_at": "2026-08-07T07:42:37+00:00",
-        "source_hash": "3d0cd8938c7bc6e5476462f96ae8389a271e0ba9c9703e52e9fc31c57595141f"
+        "status": "missing"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -662,9 +660,11 @@
     "doi_complete": 15,
     "authors_complete": 15,
     "abstract_en_complete": 15,
-    "translation_complete": 15,
+    "translation_complete": 14,
     "duplicate_count": 0,
-    "flags": [],
+    "flags": [
+      "translation_incomplete"
+    ],
     "official_item_count": 17,
     "publishable_item_count": 15,
     "content_counts": {
