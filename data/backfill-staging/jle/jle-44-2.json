@@ -61,7 +61,7 @@
       "source_sequence": 383,
       "article_type": "research-article",
       "title_en": "Decomposing the Parental Education Gradient in Health: Lessons from a Large Sample of Adoptees",
-      "title_cn": "分解健康中的父母教育梯度：来自大规模收养样本的启示",
+      "title_cn": "",
       "authors": [
         "Evelina Björkegren",
         "Mikael Lindahl",
@@ -69,7 +69,7 @@
         "Emilia Simeonova"
       ],
       "abstract_en": "We use data from a sample of adoptees born in Sweden to study to what extent the association between parental educational attainments and adult health of the child can be attributed to pre- or postbirth factors. We find significant and similarly sized associations between the educational attainment of both adoptive and biological parents and children’s adult health outcomes. This suggests that growing up in a more educated household has long-term effects on health. However, the magnitude of these associations is roughly 50% smaller than the corresponding estimates obtained from children raised by their biological parents.",
-      "abstract_cn": "我们使用出生于瑞典的收养者样本数据，研究父母教育程度与子女成年健康之间的关联在多大程度上可归因于出生前或出生后的因素。我们发现，收养父母和亲生父母的教育程度与子女成年健康结果之间均存在显著且规模相似的关联。这表明，在受教育程度较高的家庭中成长对健康具有长期影响。然而，这些关联的幅度大约比从由亲生父母抚养的子女中获得的相应估计值小50%。",
+      "abstract_cn": "",
       "abstract_snippet_en": "",
       "doi": "10.1086/733050",
       "source_url": "https://www.journals.uchicago.edu/doi/abs/10.1086/733050",
@@ -82,15 +82,15 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1086/733050"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-reasoner",
-        "translated_at": "2026-08-07T06:51:25+00:00",
-        "source_hash": "f665808f1b7ad3e4d37681d819541790db92fde8f6d3712d4512e25c733d68ec"
+        "status": "blocked",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -360,13 +360,13 @@
       "source_sequence": 629,
       "article_type": "research-article",
       "title_en": "High School Dropout for Marginal Students: Early-Career Consequences and Labor Market Outcomes",
-      "title_cn": "边缘学生的高中辍学：早期职业后果与劳动力市场结果",
+      "title_cn": "",
       "authors": [
         "Martin Eckhoff Andresen",
         "Sturla A. Løkken"
       ],
       "abstract_en": "We exploit a randomized high-stakes exam in Norwegian high schools to evaluate consequences of exam fail for an academically marginal and policy-relevant group of students. Failing the exam more than doubles the dropout rate. By age 30, we find evidence for lower educational attainment but no significant effects on labor market earnings. This may be explained by flexible pathways in the educational system: failing students are more likely to switch to vocational training and be self-employed in their early careers. We show that marginal students are disadvantaged and provide evidence on how policymakers can target this group.",
-      "abstract_cn": "我们利用挪威高中随机化的高风险考试来评估考试不及格对学业边缘且政策相关的学生群体的后果。考试不及格使辍学率增加一倍以上。到30岁时，我们发现有证据表明教育程度较低，但对劳动力市场收入没有显著影响。这可以通过教育体系中的灵活路径来解释：不及格的学生更有可能在早期职业生涯转向职业培训并自主创业。我们表明边缘学生处于不利地位，并为政策制定者如何针对这一群体提供证据。",
+      "abstract_cn": "",
       "abstract_snippet_en": "",
       "doi": "10.1086/732767",
       "source_url": "https://www.journals.uchicago.edu/doi/abs/10.1086/732767",
@@ -379,15 +379,15 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1086/732767"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-reasoner",
-        "translated_at": "2026-08-07T06:51:31+00:00",
-        "source_hash": "0291a70e483e0fa1b7fc844cedcf3296b30b6be2a7d67844c87a3f139de1be69"
+        "status": "blocked",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -460,11 +460,12 @@
     "doi_complete": 10,
     "authors_complete": 10,
     "abstract_en_complete": 10,
-    "translation_complete": 10,
+    "translation_complete": 8,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
+      "crossref_provisional_roster",
+      "translation_incomplete"
     ],
     "official_item_count": 11,
     "publishable_item_count": 10,

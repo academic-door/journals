@@ -316,13 +316,13 @@
       "source_sequence": 937,
       "article_type": "research-article",
       "title_en": "Occupational Licensing and Labor Market Fluidity",
-      "title_cn": "职业许可与劳动力市场流动性",
+      "title_cn": "",
       "authors": [
         "Morris M. Kleiner",
         "Ming Xu"
       ],
       "abstract_en": "We show that occupational licensing has significant negative effects on labor market fluidity, defined as cross-occupation mobility, and positive effects on wage growth. We find that occupational licensing represents a barrier to entry for both nonemployed workers and employed ones. The effect is more prominent for employed workers than those entering from nonemployment. We also find that average wage growth is higher for licensed workers than nonlicensed workers. We find significant heterogeneity in the licensing effect across different occupation groups. These results hold across various data sources, time spans, and indicators of being licensed.",
-      "abstract_cn": "我们表明，职业许可对劳动力市场流动性（定义为跨职业流动性）具有显著的负向影响，对工资增长具有正向影响。我们发现，职业许可对非就业工人和就业工人而言都构成进入障碍。这种影响对就业工人而言比从非就业状态进入的工人更为显著。我们还发现，持证工人的平均工资增长高于非持证工人。我们发现，在不同职业群体之间，许可效应存在显著的异质性。这些结果在不同的数据来源、时间跨度和持证指标下均成立。",
+      "abstract_cn": "",
       "abstract_snippet_en": "",
       "doi": "10.1086/730120",
       "source_url": "https://www.journals.uchicago.edu/doi/abs/10.1086/730120",
@@ -335,15 +335,15 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1086/730120"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-reasoner",
-        "translated_at": "2026-08-07T06:50:57+00:00",
-        "source_hash": "5094d470f75604464b04efbbc1c81400b307cb9ddffcdcdf1843703714b84394"
+        "status": "blocked",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -376,11 +376,12 @@
     "doi_complete": 8,
     "authors_complete": 8,
     "abstract_en_complete": 8,
-    "translation_complete": 8,
+    "translation_complete": 7,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
+      "crossref_provisional_roster",
+      "translation_incomplete"
     ],
     "official_item_count": 9,
     "publishable_item_count": 8,

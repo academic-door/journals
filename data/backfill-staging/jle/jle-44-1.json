@@ -60,7 +60,7 @@
       "source_sequence": 25,
       "article_type": "research-article",
       "title_en": "Party On: The Labor Market Returns to Social Networks in Adolescence",
-      "title_cn": "派对时间：青春期社交网络的劳动力市场回报",
+      "title_cn": "",
       "authors": [
         "Adriana Lleras-Muney",
         "Matthew Miller",
@@ -68,7 +68,7 @@
         "Veronica Sovero"
       ],
       "abstract_en": "We investigate the returns to adolescent friendships on earnings in adulthood using data from the National Longitudinal Study of Adolescent to Adult Health. Because both education and friendships are jointly determined in adolescence, ordinary least squares estimates of their returns are likely biased. We implement a novel procedure to obtain bounds on the causal returns to friendships: we assume that the returns to schooling range from 5% to 15% (on the basis of prior literature) and instrument for friendships using similarity in age among peers. Having one more friend in adolescence increases earnings between 7% and 14%, substantially more than ordinary least squares estimates would suggest.",
-      "abstract_cn": "我们利用“全国青少年至成人健康纵向研究”的数据，考察青春期友谊对成年期收入的影响。由于教育和友谊在青春期是共同决定的，普通最小二乘法对其回报的估计可能存在偏误。我们采用一种新颖的方法来界定友谊因果回报的边界：我们假设教育回报率在5%至15%之间（基于既有文献），并利用同龄人之间的年龄相似性作为友谊的工具变量。青春期每多一个朋友，收入会增加7%至14%，这一幅度远高于普通最小二乘法估计所显示的水平。",
+      "abstract_cn": "",
       "abstract_snippet_en": "",
       "doi": "10.1086/731308",
       "source_url": "https://www.journals.uchicago.edu/doi/abs/10.1086/731308",
@@ -81,15 +81,15 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1086/731308"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-reasoner",
-        "translated_at": "2026-08-07T06:50:59+00:00",
-        "source_hash": "dffeb86340578f017923a1eef2b70a357fe49571621f3286eb70b71bc26aac99"
+        "status": "blocked",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -108,13 +108,13 @@
       "source_sequence": 53,
       "article_type": "research-article",
       "title_en": "The Long-Run Effects of Consequential School Accountability",
-      "title_cn": "后果性学校问责制的长期效应",
+      "title_cn": "",
       "authors": [
         "Jonathan Mansfield",
         "David Slichter"
       ],
       "abstract_en": "The rise of accountability programs was perhaps the most noticeable change in American education during the 1990s and early 2000s. We measure how these programs affected students’ long-run outcomes. We find increases in income, occupational skill level, and attainment, though the labor market effects are insignificant in most specifications. A typical accountability regime with high-stakes testing in seven grades increased attainment by 0.1 years. Last, the pattern of occupational skill usage does not support concerns about teaching to the test. Our results suggest that accountability was more likely beneficial than harmful for students’ human capital.",
-      "abstract_cn": "问责制项目的兴起也许是1990年代和2000年代初美国教育最显著的变化。我们衡量了这些项目如何影响学生的长期结果。我们发现收入、职业技能水平和受教育程度有所提高，尽管劳动力市场效应在大多数设定中不显著。一个典型的问责制度在七个年级进行高风险测试，使受教育程度增加了0.1年。最后，职业技能使用的模式并不支持对应试教学的担忧。我们的结果表明，问责制更有可能是对学生人力资本有益而非有害。",
+      "abstract_cn": "",
       "abstract_snippet_en": "",
       "doi": "10.1086/731324",
       "source_url": "https://www.journals.uchicago.edu/doi/abs/10.1086/731324",
@@ -127,15 +127,15 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1086/731324"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-reasoner",
-        "translated_at": "2026-08-07T06:51:23+00:00",
-        "source_hash": "b73b819deaa0b2c6bb6b53219e4f3a830a908162e88a03978b41f73caba985e4"
+        "status": "blocked",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -459,11 +459,12 @@
     "doi_complete": 10,
     "authors_complete": 10,
     "abstract_en_complete": 10,
-    "translation_complete": 10,
+    "translation_complete": 8,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
+      "crossref_provisional_roster",
+      "translation_incomplete"
     ],
     "official_item_count": 11,
     "publishable_item_count": 10,
