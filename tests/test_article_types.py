@@ -100,6 +100,8 @@ class ArticleTypeTests(unittest.TestCase):
             "Presidents": "editorial",
             "Editor's Note": "editorial",
             "Editors' Note": "editorial",
+            "Editors’ Report for 2024": "editorial",
+            "Editor’s Report for 2025": "editorial",
             "Themed issue: Quantile regression and data heterogeneity": "editorial",
             "2025 JAERE Excellence in Refereeing Award": "editorial",
             "Report of the EST and of the 2025 Annual Membership Meeting": "editorial",

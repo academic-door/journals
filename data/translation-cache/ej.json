@@ -130,5 +130,16 @@
       "prompt_version": "academic-door-abstract-zh-v2",
       "translated_at": "2026-07-26T20:13:02+00:00"
     }
+  },
+  "10.1093/ej/ueae108": {
+    "title_cn": "金融与绿色增长：对De Haas和Popov（2023）的评论",
+    "abstract_cn": "De Haas和Popov（2023）使用了四十八个国家、十六个行业和二十六年的面板数据，来检验一个国家金融部门的规模和结构如何影响CO2排放。本评论通过纠正两个编码错误来重新审视其结果：未能对标准误进行聚类，以及不正确地实施广义矩估计（GMM）估计方法。稳健标准误仅在10%水平上显著，而GMM结果的幅度缩小了2到4.1倍。在De Haas和Popov（2023）提供的脚本中，标准误的计算方式与其正文中的描述存在不一致之处。对于其国家面板，作者声称标准误在国家层面聚类。然而，在其脚本中，作者要么只对异方差性进行了标准误调整，要么根本没有进行标准误调整。附录A中表A1的标准误在前四列按国家层面聚类，并对GMM估计器考虑了异方差性。与De Haas和Popov（2023）表二的结果相比，感兴趣系数的精度有所下降。结果现在要么在统计上不显著，要么仅在10%水平上显著。",
+    "source_hash": "3d0cd8938c7bc6e5476462f96ae8389a271e0ba9c9703e52e9fc31c57595141f",
+    "translation": {
+      "provider": "operator-manual",
+      "model": "academic-door-manual-v1",
+      "prompt_version": "academic-door-abstract-zh-v2",
+      "translated_at": "2026-08-07T07:42:37+00:00"
+    }
   }
 }
