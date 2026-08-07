@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-07T07:49:53+00:00
+Updated: 2026-08-07T07:54:05+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -96,7 +96,7 @@ Updated: 2026-08-07T07:49:53+00:00
 | EER | eer-187-c | 2026 | complete |  |
 | EER | eer-188-c | 2026 | complete |  |
 | EER | eer-189-c | 2026 | complete |  |
-| EJ | ej-135-667 | 2025 | translation_partial |  |
+| EJ | ej-135-667 | 2025 | complete |  |
 | EJ | ej-135-668 | 2025 | complete |  |
 | EJ | ej-135-669 | 2025 | complete |  |
 | EJ | ej-135-670 | 2025 | complete |  |
