@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-07T02:57:12+00:00
+Updated: 2026-08-07T02:57:32+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -415,7 +415,7 @@ Updated: 2026-08-07T02:57:12+00:00
 | QE | qe-16-1 | 2025 | complete |  |
 | QE | qe-16-2 | 2025 | complete |  |
 | QE | qe-16-3 | 2025 | complete |  |
-| QE | qe-16-4 | 2025 | translation_partial |  |
+| QE | qe-16-4 | 2025 | complete |  |
 | QE | qe-17-1 | 2026 | complete |  |
 | QE | qe-17-2 | 2026 | complete |  |
 | QE | qe-17-3 | 2026 | complete |  |
