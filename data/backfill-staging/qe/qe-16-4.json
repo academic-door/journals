@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-06T09:45:29+00:00",
   "expected_article_count": 9,
   "research_article_count": 9,
-  "status": "ready",
+  "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
@@ -262,7 +262,7 @@
       "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "Aggregate and distributional impacts of LTV policy in China",
-      "title_cn": "中国贷款价值比政策的总体与分配影响",
+      "title_cn": "",
       "authors": [
         "Kaiji Chen",
         "Qing Wang",
@@ -270,7 +270,7 @@
         "Tao Zha"
       ],
       "abstract_en": "We study how China's loan‐to‐value (LTV) policy affects mortgage markets and household consumption, focusing on an abrupt and unprecedented relaxation in LTV limits for secondary houses from 2014Q4 to 2016Q3. Using a rich dataset of over three million loan‐level records from a major Chinese commercial bank, supplemented by survey data on urban household finances, we analyze how this policy shift influenced mortgage demand, house prices, and consumption across household groups and at the aggregate level. We find that this LTV relaxation, aimed at promoting housing investments, spurred a mortgage boom, especially in primary home mortgages, while crowding out household consumption among middle‐aged, high‐education households. Motivated by these findings, we develop and calibrate a dynamic equilibrium model that distinguishes between primary homes for housing services and secondary houses for investment. When the LTV limit for secondary houses is relaxed, demand for these properties surges, increasing house prices and capital gains. Unlike prior literature, we identify a housing investment channel in which these capital gains enable existing homeowners—particularly middle‐aged and high‐income households—to upsize their primary residences. Rising house prices then drive further demand and mortgage borrowing, amplifying the effects of the LTV policy change and reducing these households' nonhousing consumption.",
-      "abstract_cn": "我们研究中国的贷款价值比（LTV）政策如何影响抵押贷款市场与家庭消费，重点关注2014Q4至2016Q3期间针对二手房贷款价值比上限的突然且前所未有的放松。利用来自一家大型中资商业银行的超过三百万条贷款级记录这一丰富数据集，并辅以城市家庭金融调查数据，我们分析了这一政策转变如何影响不同家庭群体的抵押贷款需求、房价和消费，以及其在总体层面的影响。我们发现，这一旨在促进住房投资的贷款价值比放松政策刺激了抵押贷款繁荣，尤其是首套住房抵押贷款，同时挤出了中年、高教育水平家庭的消费。受这些发现启发，我们构建并校准了一个动态均衡模型，该模型区分了用于住房服务的首套住房和用于投资的二手房。当二手房的贷款价值比上限被放松时，对这些房产的需求激增，推高了房价和资本利得。与以往文献不同，我们识别出一种住房投资渠道，在该渠道中，这些资本利得使现有房主——尤其是中年和高收入家庭——能够扩大其首套住房的面积。随后上涨的房价进一步推动需求和抵押贷款借款，放大了贷款价值比政策变化的影响，并减少了这些家庭的非住房消费。",
+      "abstract_cn": "",
       "doi": "10.3982/qe2456",
       "source_url": "https://doi.org/10.3982/qe2456",
       "publication_date": "2025",
@@ -282,15 +282,15 @@
         "repec": "https://ideas.repec.org/a/wly/quante/v16y2025i4p1361-1408.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-reasoner",
-        "translated_at": "2026-08-07T02:57:11+00:00",
-        "source_hash": "8d46a030452b0bb38aecbd081ba3dceb050af18bca0193fbd42da9c9d153f44e"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "yes",
         "evidence": "title",
@@ -395,9 +395,11 @@
     "doi_complete": 9,
     "authors_complete": 9,
     "abstract_en_complete": 9,
-    "translation_complete": 9,
+    "translation_complete": 8,
     "duplicate_count": 0,
-    "flags": [],
+    "flags": [
+      "translation_incomplete"
+    ],
     "official_item_count": 9,
     "publishable_item_count": 9,
     "content_counts": {
