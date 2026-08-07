@@ -60,15 +60,15 @@
       "source_sequence": 25,
       "article_type": "research-article",
       "title_en": "Party On: The Labor Market Returns to Social Networks in Adolescence",
-      "title_cn": "",
+      "title_cn": "派对继续：青春期社交网络的劳动力市场回报",
       "authors": [
         "Adriana Lleras-Muney",
         "Matthew Miller",
         "Shuyang Sheng",
         "Veronica Sovero"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "We investigate the returns to adolescent friendships on earnings in adulthood using data from the National Longitudinal Study of Adolescent to Adult Health. Because both education and friendships are jointly determined in adolescence, OLS estimates of their returns are likely biased. We implement a novel procedure to obtain bounds on the causal returns to friendships: we assume that the returns to schooling range from 5 to 15% (based on prior literature), and instrument for friendships using similarity in age among peers. Having one more friend in adolescence increases earnings between 7 and 14%, substantially more than OLS estimates would suggest.",
+      "abstract_cn": "我们使用全国青少年到成人健康纵向研究的数据，调查青春期友谊对成年后收入的影响。由于教育和友谊在青春期是共同决定的，OLS估计的回报可能有偏。我们实施了一种新程序来获得友谊因果回报的界限：我们假设教育回报范围在5到15%之间（基于先前文献），并使用同龄人之间的年龄相似性作为友谊的工具。青春期多一个朋友会使收入增加7到14%，明显高于OLS估计所暗示的。",
       "abstract_snippet_en": "",
       "doi": "10.1086/731308",
       "source_url": "https://doi.org/10.1086/731308",
@@ -77,18 +77,19 @@
         "issue": "https://www.journals.uchicago.edu/toc/jole/2026/44/1",
         "roster": "crossref:issn:0734-306X",
         "metadata": "crossref",
-        "abstract_en": "",
+        "abstract_en": "semantic-scholar",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1086/731308"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-reasoner",
+        "translated_at": "2026-08-07T03:03:35+00:00",
+        "source_hash": "6e45c5af628824d269ab8ebe5caff9dab7de5bab7f42540409b4c2f36f4a3096"
       },
       "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing",
         "abstract_en_missing"
       ],
       "china_relevance": {
@@ -450,8 +451,8 @@
     ],
     "doi_complete": 10,
     "authors_complete": 10,
-    "abstract_en_complete": 8,
-    "translation_complete": 8,
+    "abstract_en_complete": 9,
+    "translation_complete": 9,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
