@@ -1,51 +1,36 @@
-# 翻译残余清单（2026-08-07）
+# 翻译残余清单（2026-08-07 更新）
 
-自动管道已尽力（前置页排除、deepseek-reasoner 重试、Elsevier API/OpenAlex/Semantic Scholar/Jina 摘要补全）。以下文章在全部自动来源下仍无法完成：缺英文摘要的需浏览器授权抓取出版社页面；翻译失败的需人工翻译或更强模型。
+自动管道 + 浏览器授权捕获（内置浏览器 + 已登录机构账号）已处理大部分缺口。本清单只保留仍无法自动完成的条目。
 
-总文章数：32；涉及卷期：18
+## 本轮已完成（浏览器授权捕获 + reasoner 翻译）
 
-- 缺英文摘要：25
-- 翻译失败：7
+- ERE 89-1：2 篇 Springer 摘要捕获，已发布（tr=7/7）
+- JAERE 13-1 / 13-2 / 13-3：11 篇 Chicago 摘要捕获 + 官网目录确认，已发布（tr=8/8 各期）
+- JLE（Journal of Labor Economics）43-3 / 44-1 / 44-2：5 篇 Chicago 摘要捕获 + 官网目录确认，已发布（tr=8/8、10/10、10/10）
+- 非文章类条目排除（出版社无摘要，官方标注 Editorial/Policy Comment）：wd-186-c（Editorial）、joe-248-c（Editorial）、foodpolicy-137-c 的 Policy Comment（VAT reductions）——对应工作流运行中
 
+## 剩余缺英文摘要（出版社确认无摘要，无法自动补齐）
 
-## missing_english_abstract
+以下 4 篇为真实研究文章，但 ScienceDirect 预置数据 `hasScholarlyAbstract=false`，RePEc 页面“No abstract is available”，Crossref / OpenAlex / Semantic Scholar 均为空。**无法通过抓取或翻译自动解决，需要运营决策**（标题-only 上线 / 等待出版社补充 / 从 PDF 人工提取）：
 
 | 期刊 | 卷期 | DOI | 标题 |
 |---|---|---|---|
-| ERE | ere-89-1 |  | Incentives for Green Technology Adoption and Compliance Under Risk Aversion and  |
-| ERE | ere-89-1 |  | The Impact of Wildfire Smoke Exposure on Crime |
 | FOODPOLICY | foodpolicy-134-c | 10.1016/j.foodpol.2025.102890 | The policy relevance of maximum residue limits analyses |
 | FOODPOLICY | foodpolicy-137-c | 10.1016/j.foodpol.2025.102911 | Evidence for promoting pesticide-free, non-organic cereal production |
-| FOODPOLICY | foodpolicy-137-c | 10.1016/j.foodpol.2025.102912 | Fighting inflation through VAT reductions |
-| JAERE | jaere-13-1 | 10.1086/737533 | Quantifying the Welfare Effects of Electric Vehicle Subsidies: Evidence from Chi |
-| JAERE | jaere-13-1 | 10.1086/736763 | The Incidence of the US-China Solar Trade War |
-| JAERE | jaere-13-1 | 10.1086/736818 | Global Impact of a Unilateral Waste Trade Regulation |
-| JAERE | jaere-13-2 | 10.1086/737530 | Sending Agricultural Water to the Salton Sea to Improve Public Health? An Integr |
-| JAERE | jaere-13-2 | 10.1086/739561 | Decarbonizing Aviation: Cash for Clunkers in the Airline Industry |
-| JAERE | jaere-13-2 | 10.1086/739287 | Nature’s Kidneys: The Role of Wetland Reserve Easements in Restoring Water Quali |
-| JAERE | jaere-13-3 | 10.1086/739941 | The Social Cost of Fiscal Federalism and the Depletion of China’s Native Forests |
-| JAERE | jaere-13-3 | 10.1086/739401 | Comprehensive National Accounting for CO 2 Emissions |
-| JAERE | jaere-13-3 | 10.1086/739399 | Impact of Charging Price Subsidies on the Charging Behavior of Heterogeneous Ele |
-| JAERE | jaere-13-3 | 10.1086/740157 | Glyphosate Use, Water Contamination, and Neonatal Health in the United States |
-| JAERE | jaere-13-3 | 10.1086/739574 | Municipal Governments Under the Clean Water Act |
-| JLE | jle-43-3 | 10.1086/730120 | Occupational Licensing and Labor Market Fluidity |
-| JLE | jle-44-1 | 10.1086/731308 | Party On: The Labor Market Returns to Social Networks in Adolescence |
-| JLE | jle-44-1 | 10.1086/731324 | The Long-Run Effects of Consequential School Accountability |
-| JLE | jle-44-2 | 10.1086/733050 | Decomposing the Parental Education Gradient in Health: Lessons from a Large Samp |
-| JLE | jle-44-2 | 10.1086/732767 | High School Dropout for Marginal Students: Early-Career Consequences and Labor M |
-| JOE | joe-248-c | 10.1016/j.jeconom.2024.105938 | Identification, inference and risk |
-| LUP | lup-153-c | 10.1016/j.landusepol.2025.107544 | Sustainable urban planning for addressing the compounded challenges of rapid urb |
-| WD | wd-186-c | 10.1016/j.worlddev.2024.106850 | The empirics of and policies for sustainability in global value chains |
-| WD | wd-192-c | 10.1016/j.worlddev.2025.107006 | Cracks in the “gold standard”: The Eurocentrism of mining in development economi |
+| WD | wd-192-c | 10.1016/j.worlddev.2025.107006 | Cracks in the “gold standard”: The Eurocentrism of mining in development economics |
+| LUP | lup-153-c | 10.1016/j.landusepol.2025.107544 | Sustainable urban planning for addressing the compounded challenges of rapid urbanization |
 
-## translation_failed
+## 翻译重试中（有英文摘要，reasoner 批次运行中）
 
-| 期刊 | 卷期 | DOI | 标题 |
-|---|---|---|---|
-| EJ | ej-135-667 | 10.1093/ej/ueae108 | Finance and Green Growth: A Comment on De Haas and Popov (2023) |
-| JEBO | jebo-240-c | 10.1016/j.jebo.2025.107296 | Faces matter |
-| JEBO | jebo-240-c | 10.1016/j.jebo.2025.107344 | Old age allowances and cognitive function: A quasi-experimental study of China's |
-| JLE | jle-43-2 | 10.1086/727201 | Effect of Business Uncertainty on Turnover |
-| JPubE | jpube-257-c | 10.1016/j.jpubeco.2026.105613 | Fiscal consequences of corporate tax avoidance |
-| JPubE | jpube-257-c | 10.1016/j.jpubeco.2026.105617 | How do holistic wrap-around anti-poverty programs affect employment and individu |
-| LUP | lup-150-c | 10.1016/j.landusepol.2024.107440 | Co-design in policy development: Leveraging opportunities, addressing challenges |
+| 期刊 | 卷期 | DOI | 标题 | 状态 |
+|---|---|---|---|---|
+| JEBO | jebo-240-c | 10.1016/j.jebo.2025.107296 | Faces matter | missing |
+| JEBO | jebo-240-c | 10.1016/j.jebo.2025.107344 | Old age allowances and cognitive function | pending |
+| JLE | jle-43-2 | 10.1086/727201 | Effect of Business Uncertainty on Turnover | pending |
+| JPubE | jpube-257-c | 10.1016/j.jpubeco.2026.105613 | Fiscal consequences of corporate tax avoidance | pending |
+| JPubE | jpube-257-c | 10.1016/j.jpubeco.2026.105617 | How do holistic wrap-around anti-poverty programs affect employment | pending |
+| LUP | lup-150-c | 10.1016/j.landusepol.2024.107440 | Co-design in policy development | blocked |
+
+## 进行中卷期（出版方未发布完整内容，交给每小时定时任务自动补齐，不处理）
+
+JFE-184、JIE-164、JPubE-262、QE-17-4、TE-21-2/21-3、WD-207/208、LUP-170/171、JEBO-242 特刊等。
