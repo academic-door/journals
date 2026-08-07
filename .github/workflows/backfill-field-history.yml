@@ -148,6 +148,7 @@ jobs:
           ELSEVIER_INST_TOKEN: ${{ secrets.ELSEVIER_INST_TOKEN }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           DEEPSEEK_MODEL: ${{ inputs.translation_model || 'deepseek-chat' }}
+          JINA_API_KEY: ${{ secrets.JINA_API_KEY }}
         run: |
           mkdir -p output
           global_flags=""
