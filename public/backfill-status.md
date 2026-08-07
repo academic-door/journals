@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-07T03:00:18+00:00
+Updated: 2026-08-07T03:02:30+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -312,7 +312,7 @@ Updated: 2026-08-07T03:00:18+00:00
 | JME | jme-153-c | 2025 | complete |  |
 | JME | jme-154-c | 2025 | complete |  |
 | JME | jme-155-c | 2025 | complete |  |
-| JME | jme-156-c | 2025 | translation_partial |  |
+| JME | jme-156-c | 2025 | complete |  |
 | JME | jme-157-c | 2026 | complete |  |
 | JME | jme-158-c | 2026 | complete |  |
 | JME | jme-159-c | 2026 | complete |  |

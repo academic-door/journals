@@ -142,13 +142,13 @@
       "source_sequence": 81,
       "article_type": "research-article",
       "title_en": "The effectiveness of development‐oriented nonreciprocal trade preferences in promoting agricultural trade",
-      "title_cn": "发展导向的非互惠贸易优惠在促进农业贸易方面的有效性",
+      "title_cn": "",
       "authors": [
         "William Ridley",
         "Farzana Shirin"
       ],
       "abstract_en": "Nonreciprocal trade preference (NRTP) programs have proliferated in recent decades as a means to facilitate export‐led growth for beneficiary countries. However, evidence on the efficacy of NRTPs in promoting agricultural exports from preference beneficiaries to preference donors has been mixed. We investigate the impacts of NRTPs on such trade in a structural gravity setting for 23 major agricultural commodities prominent in the export baskets of developing countries. Based on estimates from a commodity‐level gravity model and the structural foundation of the gravity framework, we quantify the trade impacts of NRTP programs in a counterfactual simulation analysis. Our results show that NRTPs were responsible for around $833 million in elevated annual exports (a 1.7% increase) from NRTP beneficiary countries to donor countries as of 2018, and we document considerable heterogeneity in the countries and commodities that undergo the largest impacts. Our findings thus highlight the evolving role of trade policy as a facilitator of export‐driven growth and suggest that NRTP programs are often limited in their capacity to promote agricultural trade.",
-      "abstract_cn": "非互惠贸易优惠（NRTP）项目作为促进受惠国出口导向增长的手段，近几十年来激增。然而，关于NRTP在促进从优惠受惠国向优惠提供国的农产品出口方面的效力的证据好坏参半。我们在一个结构性引力框架中，针对发展中国家出口篮子中突出的23种主要农产品，研究了NRTP对此类贸易的影响。基于商品级引力模型的估计和引力框架的结构基础，我们在反事实模拟分析中量化了NRTP项目的贸易影响。我们的结果表明，截至2018年，NRTP使得从NRTP受惠国到提供国的年出口额增加约$833百万美元（增加1.7%），并且我们记录了国家与商品之间在最大影响上的显著异质性。因此，我们的发现突显了贸易政策作为出口驱动增长促进者的演变作用，并表明NRTP项目在促进农业贸易方面的能力往往有限。",
+      "abstract_cn": "",
       "abstract_snippet_en": "",
       "doi": "10.1111/ajae.12486",
       "source_url": "https://doi.org/10.1111/ajae.12486",
@@ -160,15 +160,15 @@
         "abstract_en": "crossref"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-reasoner",
-        "translated_at": "2026-08-07T02:59:56+00:00",
-        "source_hash": "b7b838dc6f6b14f8cd04cf23e8dc5425f5964aa9ed89681da3b2c0d71559127e"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -601,11 +601,12 @@
     "doi_complete": 14,
     "authors_complete": 14,
     "abstract_en_complete": 14,
-    "translation_complete": 14,
+    "translation_complete": 13,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
+      "crossref_provisional_roster",
+      "translation_incomplete"
     ],
     "official_item_count": 15,
     "publishable_item_count": 14,
