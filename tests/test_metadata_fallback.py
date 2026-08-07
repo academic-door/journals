@@ -1195,6 +1195,23 @@ class ElsevierQuotaTest(unittest.TestCase):
         self.assertNotIn("The authors are grateful", stripped)
         self.assertTrue(stripped.endswith("low"))
 
+    def test_strips_digit_fused_crossref_acknowledgment_before_halfway(self) -> None:
+        from collectors.metadata_fallback import _strip_abstract_footnotes
+
+        body = (
+            "Multinational corporations shift profits to tax havens and "
+            "governments lose tax revenue. " * 12
+        )
+        abstract = (
+            body
+            + "We then investigate potential explanations.11We thank Zareh "
+            "Asatryan and seminar audiences for helpful comments. This "
+            "research is supported by the Czech Science Foundation."
+        )
+        stripped = _strip_abstract_footnotes(abstract)
+        self.assertTrue(stripped.endswith("explanations."))
+        self.assertNotIn("We thank", stripped)
+
     def test_keeps_early_acknowledgment_inside_abstract(self) -> None:
         from collectors.metadata_fallback import _strip_abstract_footnotes
 

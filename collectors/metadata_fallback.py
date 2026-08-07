@@ -416,6 +416,9 @@ def _quota_warning(name: str, snapshot: dict[str, Any]) -> str:
 # grateful to...``). That footnote is not abstract content and its digits trip
 # the translation numeric gate, so strip it when it appears in the tail.
 ABSTRACT_FOOTNOTE_PATTERNS = (
+    # Digit-fused marker (Crossref-style superscript, e.g. "explanations.11We
+    # thank..."): the digit immediately abuts the acknowledgment phrase.
+    r"\d{1,3}(?:The authors|The author|We|I)\s+(?:are\s+(?:grateful|indebted|thankful)\s+to|thank)\b",
     r"(?:\d+\s*)?(?:The authors|The author)\s+are\s+(?:grateful|indebted|thankful)\s+to\b",
     r"(?:\d+\s*)?(?:We|I)\s+are\s+(?:grateful|indebted|thankful)\s+to\b",
     r"(?:\d+\s*)?(?:The authors|The author|We|I)\s+thank\b",
@@ -433,7 +436,7 @@ def _strip_abstract_footnotes(value: str) -> str:
         return value
     for pattern in ABSTRACT_FOOTNOTE_PATTERNS:
         match = re.search(pattern, value, flags=re.IGNORECASE)
-        if match and match.start() >= len(value) * 0.5:
+        if match and match.start() >= len(value) * 0.35:
             stripped = value[: match.start()].strip()
             if len(stripped) >= 100:
                 return stripped

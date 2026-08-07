@@ -152,6 +152,58 @@ class ChineseNumeralCanonicalizationTests(unittest.TestCase):
 
 
 
+    def test_identifier_value_does_not_swallow_same_data_number(self) -> None:
+        from scripts.translate_issue import validate_translation
+
+        article = {
+            "article_type": "research",
+            "title_en": "Faces matter",
+            "abstract_en": (
+                "Facial profile images increase purchase conversion rates by "
+                "6.98 % on average (Study 1). The effect operates through a "
+                "causal effect of faces on perceived trustworthiness (Study 3). "
+                "The observed effects are not explained by profile "
+                "personalisation alone (Studies 2 and 3). Users who upload "
+                "facial images may write more helpful reviews (Study 4)."
+            ),
+        }
+        translated = {
+            "title_cn": "面孔很重要",
+            "abstract_cn": (
+                "面部头像照片平均能使购买转化率提高6.98%（研究1）。该效应通过"
+                "面孔对可信度感知的因果影响起作用（研究3）。所观察到的效应不能"
+                "仅由头像个性化来解释（研究2和3）。上传面部头像的用户可能会撰写"
+                "更有帮助的评论（研究4）。"
+            ),
+        }
+        validate_translation(article, translated)  # data "3" must keep counting
+
+    def test_cjk_identifier_label_does_not_fuse_across_title_boundary(self) -> None:
+        from scripts.translate_issue import validate_translation, TranslationError
+
+        article = {
+            "article_type": "research",
+            "title_en": "Old age allowances and cognitive function: A quasi-experimental study",
+            "abstract_en": (
+                "The population aged 80 and above is the fastest-growing age "
+                "group globally. Old age allowances significantly enhance "
+                "cognitive function."
+            ),
+        }
+        # Title ends with a CJK identifier label ("研究"); the abstract's
+        # leading number must still count as a data value, not an identifier.
+        translated_missing = {
+            "title_cn": "高龄津贴与认知功能：对中国高龄老人的准实验研究",
+            "abstract_cn": "岁及以上人口是全球增长最快的年龄组。高龄津贴显著改善了认知功能。",
+        }
+        with self.assertRaises(TranslationError):
+            validate_translation(article, translated_missing)
+        translated_ok = {
+            "title_cn": "高龄津贴与认知功能：对中国高龄老人的准实验研究",
+            "abstract_cn": "80岁及以上人口是全球增长最快的年龄组。高龄津贴显著改善了认知功能。",
+        }
+        validate_translation(article, translated_ok)
+
     def test_section_identifier_number_is_not_invented(self) -> None:
         from scripts.translate_issue import validate_translation
 

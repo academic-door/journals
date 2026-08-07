@@ -251,7 +251,7 @@ IDENTIFIER_CJK_SORTED = sorted(IDENTIFIER_CJK_WORDS, key=len, reverse=True)
 def _cjk_identifier_label(prefix: str) -> str | None:
     """Return the Chinese identifier label directly preceding the number,
     allowing whitespace between the label and the ordinal ("实验 1")."""
-    stripped = prefix.rstrip()
+    stripped = prefix.rstrip(' \t')
     for label in IDENTIFIER_CJK_SORTED:
         if not stripped.endswith(label):
             continue
@@ -275,7 +275,7 @@ def _is_identifier_number(value: str, match: re.Match[str]) -> bool:
         # studying the 1959 Cuban Revolution). Labels are small ordinals;
         # 4-digit years and statistics must keep counting.
         return len(digits) <= 3
-    if prefix.rstrip().endswith("第"):
+    if prefix.rstrip(' \t').endswith("第"):
         # "第2轮" / "第3阶段": the ordinal marker precedes the digit and the
         # label noun follows it. Same small-ordinal rule as above.
         rest = value[match.end() :].lstrip()
@@ -879,7 +879,12 @@ def validate_translation(article: dict[str, Any], translated: dict[str, Any]) ->
     # values: exempt the source's identifier numbers on the translation side
     # too, so rendering them with Arabic digits is not flagged as invented.
     for identifier_number in _identifier_numbers(source_text):
-        if translated_numbers[identifier_number] > 0:
+        # Only exempt a translation-side occurrence when the translation has
+        # more of that value than the source's actual data count. When the
+        # same value appears both as an identifier and as a data number
+        # (e.g. "Study 3" plus "Studies 2 and 3"), the data occurrence must
+        # keep counting; an unconditional subtraction would swallow it.
+        if translated_numbers[identifier_number] > source_numbers[identifier_number]:
             translated_numbers[identifier_number] -= 1
     if source_numbers != translated_numbers:
         missing_numbers = list((source_numbers - translated_numbers).elements())
