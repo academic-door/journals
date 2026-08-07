@@ -40,6 +40,7 @@ ALLOWED_HOSTS = {
     "www.sciencedirect.com",
     "link.springer.com",
     "journals.uchicago.edu",
+    "www.journals.uchicago.edu",
     "onlinelibrary.wiley.com",
     "academic.oup.com",
     "direct.mit.edu",
