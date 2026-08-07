@@ -19,13 +19,13 @@
       "source_sequence": 921,
       "article_type": "research-article",
       "title_en": "Reconstructing History: Using Language to Estimate Religious Spread",
-      "title_cn": "重构历史：利用语言估计宗教传播",
+      "title_cn": "",
       "authors": [
         "Arthur Blouin",
         "Julian Dyer"
       ],
       "abstract_en": "We introduce a data-driven approach to use language to reconstruct history, and apply the methodology to estimate the geographic origins of religious spread. To validate the approach, we use language data to estimate origins of Islam and Buddhism to within 500km of their true (and uncontested) origins. We then apply the methodology to the more complex (and contested) cases of Christianity, Judaism, and Hinduism. We show that language-based estimates, in these cases, are significantly more aligned with the origin of scripture than with the origin of the religion.",
-      "abstract_cn": "我们引入了一种数据驱动的方法，利用语言重构历史，并将该方法应用于估计宗教传播的地理起源。为验证该方法，我们使用语言数据估计伊斯兰教和佛教的起源，其误差在真实（且无争议）起源的500km以内。然后我们将该方法应用于基督教、犹太教和印度教等更复杂（且有争议）的案例。我们表明，在这些案例中，基于语言的估计与经文起源的一致性显著高于与宗教起源的一致性。",
+      "abstract_cn": "",
       "abstract_snippet_en": "",
       "doi": "10.1017/s0022050725100867",
       "source_url": "https://doi.org/10.1017/s0022050725100867",
@@ -37,15 +37,15 @@
         "abstract_en": "crossref"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-reasoner",
-        "translated_at": "2026-08-07T04:07:28+00:00",
-        "source_hash": "aa7f2a61d5b7cc1a511dfb35bf2115a668e42caefbe8c360c438a3f90e66e05f"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -395,11 +395,12 @@
     "doi_complete": 8,
     "authors_complete": 8,
     "abstract_en_complete": 8,
-    "translation_complete": 8,
+    "translation_complete": 7,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
+      "crossref_provisional_roster",
+      "translation_incomplete"
     ],
     "official_item_count": 16,
     "publishable_item_count": 8,
