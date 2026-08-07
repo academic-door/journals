@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-07T03:02:30+00:00
+Updated: 2026-08-07T03:02:35+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -165,7 +165,7 @@ Updated: 2026-08-07T03:02:30+00:00
 | JAERE | jaere-12-3 | 2025 | complete |  |
 | JAERE | jaere-12-4 | 2025 | complete |  |
 | JAERE | jaere-12-5 | 2025 | complete |  |
-| JAERE | jaere-12-6 | 2025 | translation_partial |  |
+| JAERE | jaere-12-6 | 2025 | complete |  |
 | JAERE | jaere-13-1 | 2026 | translation_partial |  |
 | JAERE | jaere-13-2 | 2026 | translation_partial |  |
 | JAERE | jaere-13-3 | 2026 | translation_partial |  |

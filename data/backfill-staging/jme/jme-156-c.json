@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-06T10:12:40+00:00",
   "expected_article_count": 9,
   "research_article_count": 9,
-  "status": "ready",
+  "status": "incomplete",
   "articles": [
     {
       "paper_id": "doi:10.1016/j.jmoneco.2025.103827",
@@ -60,14 +60,14 @@
       "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Staggered contracts and unemployment during recessions",
-      "title_cn": "衰退期间的交错合同与失业",
+      "title_cn": "",
       "authors": [
         "Effrosyni Adamopoulou",
         "Luis Díez-Catalán",
         "Ernesto Villanueva"
       ],
       "abstract_en": "We analyze the impact of downward nominal wage rigidity (DNWR) due to collective bargaining agreements (CBAs) on wage and employment dynamics during two major recessions in Spain: the low-inflation recession of 2009, which included both short- and long-term CBAs, and the high-inflation recession of 1993, characterized by short-term CBAs. By exploiting variation in the timing of CBA renewals, we find that CBAs signed before recessions result in 1pp higher negotiated wage growth than those signed afterward. We leverage balance sheet data on firms and Social Security data on workers to document that CBA-induced DNWR accounted for 12% of job losses in 2009 due to higher wage growth, mainly among workers near the minimum wage floors. These workers experienced persistent non-employment, particularly if they were covered by long-term CBAs, and reallocation was limited. We find no real impacts in 1993, thus identifying conditions under which CBA-induced DNWR can amplify aggregate shocks.",
-      "abstract_cn": "我们分析了由于集体谈判协议（CBAs）导致的名义工资向下刚性（DNWR）在西班牙两次重大衰退期间对工资和就业动态的影响：2009年的低通胀衰退，该衰退包括短期和长期CBA；以及1993年的高通胀衰退，其特征是短期CBA。通过利用CBA续签时间的差异，我们发现衰退前签订的CBA比衰退后签订的CBA的谈判工资增长率高出1pp。我们利用企业的资产负债表数据和工人的社会保障数据，证明CBA引发的DNWR占2009年因工资增长更高而导致的岗位流失的12%，主要发生在接近最低工资下限的工人中。这些工人经历了持续的非就业，尤其是那些受长期CBA覆盖的工人，且再配置有限。我们在1993年未发现实际影响，从而识别出CBA引发的DNWR可能放大总体冲击的条件。",
+      "abstract_cn": "",
       "doi": "10.1016/j.jmoneco.2025.103830",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0304393225001011",
       "publication_date": "February 2025",
@@ -79,15 +79,15 @@
         "repec": "https://ideas.repec.org/a/eee/moneco/v156y2025ics0304393225001011.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-reasoner",
-        "translated_at": "2026-08-07T03:02:10+00:00",
-        "source_hash": "7aeeb78c698ae26746d7a3844876b2348f1d21df60affebfc32192eddc314adc"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -388,10 +388,12 @@
     "doi_complete": 9,
     "authors_complete": 9,
     "abstract_en_complete": 9,
-    "translation_complete": 9,
+    "translation_complete": 8,
     "duplicate_count": 0,
     "repec_item_count": 9,
-    "flags": [],
+    "flags": [
+      "translation_incomplete"
+    ],
     "official_item_count": 9,
     "publishable_item_count": 9,
     "content_counts": {
