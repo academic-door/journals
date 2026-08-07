@@ -35,7 +35,17 @@ from scripts.update_journals import (
     write_json,
 )
 
-ALLOWED_HOSTS = {"sciencedirect.com", "www.sciencedirect.com"}
+ALLOWED_HOSTS = {
+    "sciencedirect.com",
+    "www.sciencedirect.com",
+    "link.springer.com",
+    "journals.uchicago.edu",
+    "onlinelibrary.wiley.com",
+    "academic.oup.com",
+    "direct.mit.edu",
+    "cambridge.org",
+    "le.uwpress.org",
+}
 FORBIDDEN_KEY_PARTS = {
     "authorization",
     "cookie",
@@ -322,7 +332,7 @@ def import_browser_translation_results(
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Merge privacy-safe official ScienceDirect abstract overlays into issues."
+        description="Merge privacy-safe official publisher abstract overlays into issues."
     )
     parser.add_argument("base", type=Path)
     parser.add_argument("overlay", type=Path)
