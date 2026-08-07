@@ -24,7 +24,7 @@ CORRECTION_PATTERN = re.compile(
 EDITORIAL_PATTERN = re.compile(
     r"editorial\s+board|editors?[’'＊]?s?\s+notes?|recent\s+referees|"
     r"acknowledg(?:e)?ments?\s+of\s+referees|annual\s+report|"
-    r"report\s+of\s+the\s+est\b|annual\s+membership\s+meeting|"
+    r"report\s+of\s+the\s+est\b|report\s+of\s+the\s+editor.+for\s+the\s+year|annual\s+membership\s+meeting|"
     r"prizes?\s+for\s+\d{4}|fischer\s+black\s+prize|brattle\s+group|"
     r"dimensional\s+fund\s+advisors|excellence\s+in\s+refereeing\s+award|"
     r"^\s*editorial(?:\s|:|$)|"
@@ -44,7 +44,7 @@ FRONT_MATTER_PATTERN = re.compile(
 # memorials/fellows announcements in many journals; when such an item also has
 # no abstract, it is front matter, not research.
 PERSON_NAME_PATTERN = re.compile(
-    r"^[A-Z][A-Za-z.'\-]*(?:\s+['\"“（(]?[A-Z][A-Za-z.'\-()]*){0,4}$"
+    r"^[A-Z][A-Za-z.'\-]*(?:\s+['\"“”‘’（(]?[A-Z][A-Za-z.'\-()”]*){0,4}$"
 )
 
 
