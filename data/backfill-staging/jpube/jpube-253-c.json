@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-06T10:13:41+00:00",
   "expected_article_count": 11,
   "research_article_count": 11,
-  "status": "ready",
+  "status": "incomplete",
   "articles": [
     {
       "paper_id": "doi:10.1016/j.jpubeco.2025.105524",
@@ -266,12 +266,12 @@
       "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "The consequences of wildfire liability for firm precaution: Evidence from power shutoffs in California",
-      "title_cn": "野火责任对企业预防措施的后果：来自加州停电的证据",
+      "title_cn": "",
       "authors": [
         "Christopher Malloy"
       ],
       "abstract_en": "This paper examines firm responses to the entire distribution of potential liability by studying power line-ignited fires in California’s electric utility sector. In this setting, when a power line-ignited fire damages a structure, the owner of the power line assumes the cost. The unique setting allows me to estimate how firm precautions vary across the entire distribution of liabilities they face. Using exogenous variation in firms’ expected liabilities from potential fire ignitions across days, I show that, on average, firms are 0.03 percentage points more likely to take costly precautionary actions as the level of expected liability that they face increases by 10 % (mean of 0.6 %). Applying a back of the envelope calculation suggests that, at its mean distribution circuit, the most responsive firm increases precautionary investments by $10 per dollar increase in its expected liability. Furthermore, I show that firms’ precautionary responses weaken as the likelihood of bankruptcy from expected liability increases. Applying the estimates to a stylized model implies that limiting firms’ exposure to liability across their service territory would create aggregate social welfare benefits between $27 million and $270 million.",
-      "abstract_cn": "本文通过研究加州电力公用事业部门中输电线引发的火灾，考察了企业对潜在责任整个分布的反应。在这种背景下，当输电线引发的火灾损坏建筑物时，输电线所有者承担损失。这种独特的环境使我能够估计企业预防措施如何在其面临的全部责任分布中变化。利用企业每日从潜在火灾引燃所面临的预期责任的外生变化，我表明，平均而言，企业面临的责任水平每增加10%，采取代价高昂的预防措施的可能性增加0.03个百分点（平均值为0.6%）。应用一个粗略的估算表明，在其平均配电回路上，响应最积极的企业每增加一美元预期责任，就会增加$10的预防性投资。此外，我表明，随着预期责任导致的破产可能性增加，企业的预防措施反应会减弱。将这些估计应用于一个简化模型意味着，限制企业在其服务区域内的责任敞口，将创造总计在$27百万至$270百万之间的社会福利收益。",
+      "abstract_cn": "",
       "doi": "10.1016/j.jpubeco.2025.105552",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0047272725002518",
       "publication_date": "February 2026",
@@ -283,15 +283,15 @@
         "repec": "https://ideas.repec.org/a/eee/pubeco/v253y2026ics0047272725002518.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-reasoner",
-        "translated_at": "2026-08-07T02:57:32+00:00",
-        "source_hash": "d5f459ce9b0ff6dc83cb5bbdaa583b6ed414fb7c18554201abc6f1c1537bb3e4"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -474,10 +474,12 @@
     "doi_complete": 11,
     "authors_complete": 11,
     "abstract_en_complete": 11,
-    "translation_complete": 11,
+    "translation_complete": 10,
     "duplicate_count": 0,
     "repec_item_count": 11,
-    "flags": [],
+    "flags": [
+      "translation_incomplete"
+    ],
     "official_item_count": 11,
     "publishable_item_count": 11,
     "content_counts": {
