@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-06T10:05:26+00:00",
   "expected_article_count": 39,
   "research_article_count": 39,
-  "status": "ready",
+  "status": "incomplete",
   "articles": [
     {
       "paper_id": "doi:10.1016/j.jebo.2025.107150",
@@ -182,14 +182,14 @@
       "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "Faces matter",
-      "title_cn": "面孔很重要",
+      "title_cn": "",
       "authors": [
         "Lidingrong Huang",
         "Peiran Jiao",
         "Ye Jin"
       ],
       "abstract_en": "Using field and survey experiments, we examine how product reviewers’ facial profile images influence behaviour on e-commerce platforms. Across a series of studies, we show that facial profile images accompanying positive reviews, relative to system default images, increase purchase conversion rates by 6.98 % on average (Study 1). Evidence from a controlled survey experiment suggests this operates through a causal effect of faces on perceived review trustworthiness (Study 3). The effect is unlikely to reflect specific facial traits or expressions, which were not clearly discernible. We further demonstrate that the observed effects are not explained by profile personalisation alone (Studies 2 and 3). As an additional explanation for the face effect, we find that users who upload facial profile images may write more helpful reviews (Study 4). Overall, our findings show that human faces can uniquely and meaningfully promote the perceived trustworthiness of online information, contributing to research on face effects, trust, and e-commerce.",
-      "abstract_cn": "通过实地实验和调查实验，我们考察了电商平台上产品评论者的面部头像照片如何影响行为。在一系列研究中，我们发现，相对于系统默认头像，附带正面评论的面部头像照片平均能使购买转化率提高6.98%（研究1）。来自受控调查实验的证据表明，这一效应是通过面孔对评论可信度感知的因果影响而起作用的（研究3）。该效应不太可能反映特定的面部特征或表情，因为这些特征并不清晰可辨。我们进一步证明，所观察到的效应不能仅由头像个性化来解释（研究2和3）。作为面孔效应的另一种解释，我们发现上传面部头像照片的用户可能会撰写更有帮助的评论（研究4）。总体而言，我们的研究结果表明，人脸能够独特而有意义地提升在线信息的感知可信度，为面孔效应、信任和电子商务领域的研究做出了贡献。",
+      "abstract_cn": "",
       "doi": "10.1016/j.jebo.2025.107296",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0167268125004135",
       "publication_date": "February 2025",
@@ -201,14 +201,12 @@
         "repec": "https://ideas.repec.org/a/eee/jeborg/v240y2025ics0167268125004135.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "operator-manual",
-        "model": "academic-door-manual-v1",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "translated_at": "2026-08-07T07:26:34+00:00",
-        "source_hash": "95fb4e29fde164fdf917831f92b049a0658eb7b4b2fae1db71d1b4ba3dd3211b"
+        "status": "missing"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -1343,13 +1341,13 @@
       "source_sequence": 33,
       "article_type": "research-article",
       "title_en": "Old age allowances and cognitive function: A quasi-experimental study of China's oldest-old",
-      "title_cn": "高龄津贴与认知功能：对中国高龄老人的准实验研究",
+      "title_cn": "",
       "authors": [
         "Guanfu Fang",
         "Tianyu Tang"
       ],
       "abstract_en": "The population aged 80 and above (the oldest-old) represents the fastest-growing age group globally and has the greatest need for maintaining cognitive health. This paper investigates the causal impact of old age allowances on cognitive function among China's oldest-old. Exploiting a regression discontinuity design around old age allowance eligibility thresholds, we demonstrate that these allowances significantly enhance cognitive function. Our empirical analysis indicates that increased healthcare utilization and improvements in physical health are unlikely to be the primary mechanisms. We provide some evidence for the mechanisms that old age allowances increase food consumption, reduce labor participation, expand social engagement, strengthen personal relationships, and alleviate depressive symptoms.",
-      "abstract_cn": "80岁及以上人口（高龄老人）是全球增长最快的年龄组，也是最需要维持认知健康的群体。本文考察高龄津贴对中国高龄老人认知功能的因果影响。利用围绕高龄津贴资格门槛的断点回归设计，我们证明这些津贴能够显著改善认知功能。我们的实证分析表明，医疗利用增加和身体健康改善不太可能是主要机制。我们提供了一些证据表明，高龄津贴会增加食品消费、减少劳动参与、扩大社会交往、增强人际关系并缓解抑郁症状。",
+      "abstract_cn": "",
       "doi": "10.1016/j.jebo.2025.107344",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0167268125004615",
       "publication_date": "February 2025",
@@ -1361,15 +1359,15 @@
         "repec": "https://ideas.repec.org/a/eee/jeborg/v240y2025ics0167268125004615.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "operator-manual",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "academic-door-manual-v1",
-        "translated_at": "2026-08-07T07:26:34+00:00",
-        "source_hash": "293dd2738682fc679fb62e4611fede2da5582b1dc924c3ab663698741ae94c27"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "yes",
         "evidence": "title",
@@ -1641,10 +1639,12 @@
     "doi_complete": 39,
     "authors_complete": 39,
     "abstract_en_complete": 39,
-    "translation_complete": 39,
+    "translation_complete": 37,
     "duplicate_count": 0,
     "repec_item_count": 39,
-    "flags": [],
+    "flags": [
+      "translation_incomplete"
+    ],
     "official_item_count": 39,
     "publishable_item_count": 39,
     "content_counts": {
