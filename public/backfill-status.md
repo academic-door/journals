@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-07T03:34:36+00:00
+Updated: 2026-08-07T03:49:21+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -473,10 +473,10 @@ Updated: 2026-08-07T03:34:36+00:00
 | RFS | rfs-39-6 | 2026 | complete |  |
 | RFS | rfs-39-7 | 2026 | complete |  |
 | RFS | rfs-39-8 | 2026 | complete |  |
-| TE | te-20-1 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
-| TE | te-20-2 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
-| TE | te-20-3 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
-| TE | te-20-4 | 2025 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
+| TE | te-20-1 | 2025 | complete |  |
+| TE | te-20-2 | 2025 | complete |  |
+| TE | te-20-3 | 2025 | complete |  |
+| TE | te-20-4 | 2025 | complete |  |
 | TE | te-21-1 | 2026 | complete |  |
 | TE | te-21-2 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
 | TE | te-21-3 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
