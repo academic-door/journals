@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-07T07:49:53+00:00
+Updated: 2026-08-07T09:20:20+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -96,7 +96,7 @@ Updated: 2026-08-07T07:49:53+00:00
 | EER | eer-187-c | 2026 | complete |  |
 | EER | eer-188-c | 2026 | complete |  |
 | EER | eer-189-c | 2026 | complete |  |
-| EJ | ej-135-667 | 2025 | translation_partial |  |
+| EJ | ej-135-667 | 2025 | complete |  |
 | EJ | ej-135-668 | 2025 | complete |  |
 | EJ | ej-135-669 | 2025 | complete |  |
 | EJ | ej-135-670 | 2025 | complete |  |
@@ -226,11 +226,11 @@ Updated: 2026-08-07T07:49:53+00:00
 | JEEM | jeem-138-c | 2026 | complete |  |
 | JEEM | jeem-139-c | 2026 | complete |  |
 | JEEM | jeem-140-c | 2026 | complete |  |
-| JEH | jeh-85-1 | 2025 | translation_partial |  |
+| JEH | jeh-85-1 | 2025 | complete |  |
 | JEH | jeh-85-2 | 2025 | complete |  |
 | JEH | jeh-85-3 | 2025 | complete |  |
 | JEH | jeh-85-4 | 2025 | complete |  |
-| JEH | jeh-86-1 | 2026 | translation_partial |  |
+| JEH | jeh-86-1 | 2026 | complete |  |
 | JEH | jeh-86-2 | 2026 | complete |  |
 | JEP | jep-39-1 | 2025 | complete |  |
 | JEP | jep-39-2 | 2025 | complete |  |
