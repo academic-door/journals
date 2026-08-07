@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-07T04:09:10+00:00
+Updated: 2026-08-07T04:09:41+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -229,7 +229,7 @@ Updated: 2026-08-07T04:09:10+00:00
 | JEH | jeh-85-1 | 2025 | translation_partial |  |
 | JEH | jeh-85-2 | 2025 | complete |  |
 | JEH | jeh-85-3 | 2025 | complete |  |
-| JEH | jeh-85-4 | 2025 | complete |  |
+| JEH | jeh-85-4 | 2025 | translation_partial |  |
 | JEH | jeh-86-1 | 2026 | translation_partial |  |
 | JEH | jeh-86-2 | 2026 | complete |  |
 | JEP | jep-39-1 | 2025 | complete |  |
