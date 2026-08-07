@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-07T02:58:26+00:00
+Updated: 2026-08-07T03:00:18+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -58,7 +58,7 @@ Updated: 2026-08-07T02:58:26+00:00
 | AERI | aeri-7-4 | 2025 | complete |  |
 | AERI | aeri-8-1 | 2026 | complete |  |
 | AERI | aeri-8-2 | 2026 | complete |  |
-| AJAE | ajae-107-1 | 2025 | translation_partial |  |
+| AJAE | ajae-107-1 | 2025 | complete |  |
 | AJAE | ajae-107-2 | 2025 | complete |  |
 | AJAE | ajae-107-3 | 2025 | complete |  |
 | AJAE | ajae-107-4 | 2025 | complete |  |
