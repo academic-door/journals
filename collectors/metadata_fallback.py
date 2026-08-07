@@ -2031,6 +2031,75 @@ def fetch_official_rss_issue(
     }
 
 
+JINA_READER_ENDPOINT = "https://r.jina.ai/"
+
+
+def _extract_jina_abstract(text: str) -> str:
+    """Best-effort abstract extraction from Jina Reader plain text.
+
+    Jina returns the page as readable text; publisher pages typically have an
+    ``Abstract``/``Summary`` heading followed by the abstract paragraphs.
+    Stop at the next obvious section heading so we never swallow unrelated
+    page text.
+    """
+    import re as _re
+    lines = text.splitlines()
+    for index, line in enumerate(lines):
+        stripped = line.strip()
+        if not stripped:
+            continue
+        if _re.match(r"^(abstract|summary)\s*$", stripped, _re.IGNORECASE):
+            chunks: list[str] = []
+            for following in lines[index + 1 : index + 40]:
+                candidate = following.strip()
+                if not candidate:
+                    if chunks:
+                        break
+                    continue
+                if _re.match(
+                    r"^(keywords|introduction|background|references|"
+                    r"1\.\s|\d+\.\s|methods?|conclusion|highlights)\b",
+                    candidate,
+                    _re.IGNORECASE,
+                ):
+                    break
+                chunks.append(candidate)
+                if len(chunks) >= 12:
+                    break
+            if chunks:
+                return " ".join(chunks).strip()
+    return ""
+
+
+def _jina_reader_metadata(
+    session: requests.Session,
+    doi: str,
+    *,
+    timeout: int,
+    api_key: str,
+) -> tuple[str, list[str]]:
+    """Fetch a DOI landing page through Jina Reader (r.jina.ai).
+
+    Jina can often render publisher pages that block direct bots. Best-effort:
+    any failure returns empty so the article keeps its honest flags.
+    """
+    if not doi or not api_key:
+        return "", []
+    url = f"{JINA_READER_ENDPOINT}https://doi.org/{doi}"
+    headers = {
+        "Accept": "text/plain",
+        "X-Return-Format": "text",
+        "Authorization": f"Bearer {api_key}",
+    }
+    try:
+        response = session.get(url, headers=headers, timeout=timeout)
+        response.raise_for_status()
+        text = response.content.decode("utf-8", errors="replace")
+    except requests.RequestException:
+        return "", []
+    return _extract_jina_abstract(text), []
+
+
 def enrich_missing_metadata(
     issue: dict[str, Any],
     *,
@@ -2131,6 +2200,24 @@ def enrich_missing_metadata(
         if not str(article.get("abstract_en", "")).strip() and abstract:
             article["abstract_en"] = abstract
             article.setdefault("sources", {})["abstract_en"] = "openalex"
+
+    # 4) Jina Reader fallback for publisher pages behind anti-bot.
+    jina_key = os.environ.get("JINA_API_KEY", "").strip()
+    if jina_key:
+        for article in targets:
+            doi = str(article.get("doi", "")).strip()
+            if not doi:
+                continue
+            if str(article.get("abstract_en", "")).strip():
+                continue
+            abstract, authors = _jina_reader_metadata(
+                client, doi, timeout=timeout, api_key=jina_key
+            )
+            if abstract:
+                article["abstract_en"] = abstract
+                article.setdefault("sources", {})["abstract_en"] = "jina-reader"
+            if not article.get("authors") and authors:
+                article["authors"] = authors
     return issue
 
 

@@ -612,5 +612,91 @@ class MetadataEnrichmentTests(unittest.TestCase):
 
 
 
+
+    def test_jina_reader_extracts_abstract(self) -> None:
+        from collectors.metadata_fallback import _extract_jina_abstract
+
+        page = """
+        Title
+        Some preamble text that should be ignored.
+
+        Abstract
+        This is the real abstract sentence one.
+        It continues with sentence two.
+
+        Keywords
+        economics
+        """
+        self.assertEqual(
+            "This is the real abstract sentence one. It continues with sentence two.",
+            _extract_jina_abstract(page),
+        )
+
+    def test_enrichment_uses_jina_when_key_configured(self) -> None:
+        from collectors.metadata_fallback import enrich_missing_metadata
+
+        issue = {
+            "journal_id": "jle",
+            "articles": [
+                {
+                    "doi": "10.1086/736999",
+                    "title_en": "Occupational licensing",
+                    "authors": ["A. Author"],
+                    "abstract_en": "",
+                    "sources": {"roster": "crossref"},
+                }
+            ],
+        }
+
+        class FakeSession:
+            def get(self, *args, **kwargs):
+                class R:
+                    status_code = 200
+
+                    def raise_for_status(self):
+                        return None
+
+                    @property
+                    def content(self):
+                        return b"Abstract\nFilled by Jina Reader.\nKeywords\nx"
+
+                return R()
+
+            def post(self, *args, **kwargs):
+                class R:
+                    status_code = 200
+
+                    def raise_for_status(self):
+                        return None
+
+                    def json(self):
+                        return [None]
+
+                return R()
+
+        with (
+            mock.patch.dict(
+                "os.environ", {"JINA_API_KEY": "test-jina"}, clear=False
+            ),
+            mock.patch(
+                "collectors.metadata_fallback._elsevier_lookup",
+                return_value={"abstract": "", "source": ""},
+            ),
+            mock.patch(
+                "collectors.metadata_fallback._openalex_metadata",
+                return_value=([], "", ""),
+            ),
+        ):
+            enriched = enrich_missing_metadata(
+                issue, session=FakeSession(), timeout=5
+            )
+        self.assertEqual("Filled by Jina Reader.", enriched["articles"][0]["abstract_en"])
+        self.assertEqual(
+            "jina-reader",
+            enriched["articles"][0]["sources"]["abstract_en"],
+        )
+
+
+
 if __name__ == "__main__":
     unittest.main()
