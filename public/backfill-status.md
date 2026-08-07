@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-07T07:31:40+00:00
+Updated: 2026-08-07T07:31:59+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -390,7 +390,7 @@ Updated: 2026-08-07T07:31:40+00:00
 | LANDECON | landecon-102-3 | 2026 | complete |  |
 | LUP | lup-148-c | 2025 | complete |  |
 | LUP | lup-149-c | 2025 | complete |  |
-| LUP | lup-150-c | 2025 | translation_partial |  |
+| LUP | lup-150-c | 2025 | complete |  |
 | LUP | lup-151-c | 2025 | complete |  |
 | LUP | lup-152-c | 2025 | complete |  |
 | LUP | lup-153-c | 2025 | translation_partial |  |
