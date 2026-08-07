@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-06T12:13:12+00:00",
   "expected_article_count": 10,
   "research_article_count": 10,
-  "status": "ready",
+  "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
@@ -61,7 +61,7 @@
       "source_sequence": 319,
       "article_type": "research-article",
       "title_en": "Effect of Business Uncertainty on Turnover",
-      "title_cn": "商业不确定性对人员流动的影响",
+      "title_cn": "",
       "authors": [
         "Omar Bamieh",
         "Decio Coviello",
@@ -69,7 +69,7 @@
         "Nicola Persico"
       ],
       "abstract_en": "We document a causal relationship between business uncertainty and workforce management at the firm level by leveraging litigation-generated quasi-experimental variation in business uncertainty. The causal effects of business uncertainty on turnover, hiring, and separations are of the expected negative direction and of sizable magnitude. These consequences are stronger among firms that operate in sectors in which business uncertainty is intrinsically higher and can be attributed to the effect of regulation-induced business risk on normal operations. In particular, employee turnover, hiring, and separations are ratcheted down to reduce the risk of additional wrongful termination lawsuits.",
-      "abstract_cn": "我们利用诉讼引发的商业不确定性的准实验变化，记录了企业层面商业不确定性与劳动力管理之间的因果关系。商业不确定性对人员流动、招聘和离职的因果效应具有预期的负向方向和相当大的规模。这些后果在商业不确定性本身较高的行业中的企业中更为明显，并可归因于监管引发的商业风险对正常运营的影响。特别是，人员流动、招聘和离职被逐步降低，以减少额外的不当解雇诉讼的风险。",
+      "abstract_cn": "",
       "abstract_snippet_en": "",
       "doi": "10.1086/727201",
       "source_url": "https://www.journals.uchicago.edu/doi/abs/10.1086/727201",
@@ -82,15 +82,15 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1086/727201"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-reasoner",
-        "translated_at": "2026-08-07T07:30:43+00:00",
-        "source_hash": "3be7d40dc6fe40de7f0c4fadce5fb80ecaba488ecd65b8dfd1882c91f3d96001"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -452,9 +452,11 @@
     "doi_complete": 10,
     "authors_complete": 10,
     "abstract_en_complete": 10,
-    "translation_complete": 10,
+    "translation_complete": 9,
     "duplicate_count": 0,
-    "flags": [],
+    "flags": [
+      "translation_incomplete"
+    ],
     "official_item_count": 11,
     "publishable_item_count": 10,
     "content_counts": {
