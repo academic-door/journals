@@ -638,8 +638,8 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "crossref",
-    "roster_authority": "crossref-provisional",
+    "roster_transport": "official-oup-toc+browser-authorized",
+    "roster_authority": "publisher-official-toc",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
     "excluded_item_count": 2,
@@ -663,8 +663,6 @@
     "translation_complete": 14,
     "duplicate_count": 0,
     "flags": [
-      "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster",
       "translation_incomplete"
     ],
     "official_item_count": 17,
@@ -681,6 +679,12 @@
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 17
+    },
+    "browser_capture": {
+      "captured_at": "2026-08-07T09:00:00+00:00",
+      "source_url": "https://academic.oup.com/ej/issue/135/667",
+      "institutional_access_confirmed": true,
+      "privacy_fields_stored": false
     }
   },
   "content_counts": {

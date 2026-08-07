@@ -8,8 +8,8 @@
   "publication_date": "March 2026",
   "source_url": "https://www.cambridge.org/core/journals/journal-of-economic-history",
   "retrieved_at": "2026-08-06T12:04:50+00:00",
-  "expected_article_count": 9,
-  "research_article_count": 9,
+  "expected_article_count": 8,
+  "research_article_count": 8,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
@@ -332,56 +332,16 @@
         "matched_terms": [],
         "source": "academic-door-rules-v1"
       }
-    },
-    {
-      "paper_id": "doi:10.1017/s0022050726101326",
-      "sequence": 9,
-      "source_sequence": 287,
-      "article_type": "research-article",
-      "title_en": "Editors’ Report for 2025",
-      "title_cn": "编辑报告（2025年）",
-      "authors": [],
-      "abstract_en": "An abstract is not available for this content. As you have access to this content, full HTML content is provided on this page. A PDF of this content is also available in through the ‘Save PDF’ action button.",
-      "abstract_cn": "此内容没有摘要。由于您可以访问此内容，本页提供了完整的HTML内容。此内容的PDF也可通过“保存PDF”操作按钮获取。",
-      "abstract_snippet_en": "",
-      "doi": "10.1017/s0022050726101326",
-      "source_url": "https://doi.org/10.1017/s0022050726101326",
-      "publication_date": "2026",
-      "sources": {
-        "issue": "https://www.cambridge.org/core/journals/journal-of-economic-history",
-        "roster": "crossref:issn:0022-0507",
-        "metadata": "crossref",
-        "abstract_en": "openalex",
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1017/s0022050726101326"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:05:39+00:00",
-        "source_hash": "e5c106568f542a37c79af90a9d4ad111e62ddf37fcb5e5f58bf9e8f24b0f9ac5"
-      },
-      "quality_flags": [
-        "authors_missing"
-      ],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
     }
   ],
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "crossref",
-    "roster_authority": "crossref-provisional",
+    "roster_transport": "official-cambridge-toc+browser-authorized",
+    "roster_authority": "publisher-official-toc",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
-    "excluded_item_count": 5,
+    "excluded_item_count": 6,
     "excluded_items": [
       {
         "title_en": "JEH volume 86 issue 1 Cover and Back matter",
@@ -412,45 +372,54 @@
         "reason": "non_publishable_item",
         "doi": "10.1017/s0022050725101290",
         "article_type": "research-article"
+      },
+      {
+        "title_en": "Editors’ Report for 2025",
+        "doi": "10.1017/s0022050726101326",
+        "article_type": "editorial",
+        "reason": "editorial_material"
       }
     ],
-    "doi_complete": 9,
+    "doi_complete": 8,
     "authors_complete": 8,
-    "abstract_en_complete": 9,
-    "translation_complete": 9,
+    "abstract_en_complete": 8,
+    "translation_complete": 8,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
-    ],
+    "flags": [],
     "official_item_count": 14,
-    "publishable_item_count": 9,
+    "publishable_item_count": 8,
     "content_counts": {
       "official_items": 14,
       "observed_items": 14,
-      "publishable_items": 9,
-      "research_articles": 9,
+      "publishable_items": 8,
+      "research_articles": 8,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
-      "editorial_material": 0,
+      "editorial_material": 1,
       "front_matter": 2,
       "other_excluded": 3,
-      "catalog_content_items": 9
+      "catalog_content_items": 8
+    },
+    "browser_capture": {
+      "captured_at": "2026-08-07T09:00:00+00:00",
+      "source_url": "https://www.cambridge.org/core/journals/journal-of-economic-history/issue/6E5CF9ADD420115D9740F77C724BE0E6",
+      "institutional_access_confirmed": true,
+      "privacy_fields_stored": false
     }
   },
   "content_counts": {
     "official_items": 14,
     "observed_items": 14,
-    "publishable_items": 9,
-    "research_articles": 9,
+    "publishable_items": 8,
+    "research_articles": 8,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
-    "editorial_material": 0,
+    "editorial_material": 1,
     "front_matter": 2,
     "other_excluded": 3,
-    "catalog_content_items": 9
+    "catalog_content_items": 8
   },
   "issue_label": "Vol. 86 · No. 1"
 }
