@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-07T03:02:35+00:00
+Updated: 2026-08-07T03:03:12+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -256,7 +256,7 @@ Updated: 2026-08-07T03:02:35+00:00
 | JF | jf-80-1 | 2025 | complete |  |
 | JF | jf-80-2 | 2025 | complete |  |
 | JF | jf-80-3 | 2025 | complete |  |
-| JF | jf-80-4 | 2025 | translation_partial |  |
+| JF | jf-80-4 | 2025 | complete |  |
 | JF | jf-80-5 | 2025 | complete |  |
 | JF | jf-80-6 | 2025 | complete |  |
 | JF | jf-81-1 | 2026 | complete |  |
