@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-07T06:03:40+00:00
+Updated: 2026-08-07T05:57:56+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -119,7 +119,7 @@ Updated: 2026-08-07T06:03:40+00:00
 | ERE | ere-88-7 | 2025 | complete |  |
 | ERE | ere-88-8 | 2025 | complete |  |
 | ERE | ere-88-9 | 2025 | complete |  |
-| ERE | ere-89-1 | 2026 | complete |  |
+| ERE | ere-89-1 | 2026 | translation_partial |  |
 | ERE | ere-89-2 | 2026 | complete |  |
 | ERE | ere-89-3 | 2026 | complete |  |
 | ERE | ere-89-4 | 2026 | complete |  |
