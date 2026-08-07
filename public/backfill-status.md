@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-07T07:31:59+00:00
+Updated: 2026-08-07T07:08:38+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -194,7 +194,7 @@ Updated: 2026-08-07T07:31:59+00:00
 | JEBO | jebo-237-c | 2025 | complete |  |
 | JEBO | jebo-238-c | 2025 | complete |  |
 | JEBO | jebo-239-c | 2025 | complete |  |
-| JEBO | jebo-240-c | 2025 | complete |  |
+| JEBO | jebo-240-c | 2025 | translation_partial |  |
 | JEBO | jebo-241-c | 2026 | complete |  |
 | JEBO | jebo-242-c | 2026 | blocked | possible_incomplete_volume: 8 articles collected vs current issue 23; needs offi |
 | JEBO | jebo-243-c | 2026 | complete |  |
@@ -298,7 +298,7 @@ Updated: 2026-08-07T07:31:59+00:00
 | JIE | jie-163-c | 2026 | complete |  |
 | JIE | jie-164-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 164/ |
 | JLE | jle-43-1 | 2025 | complete |  |
-| JLE | jle-43-2 | 2025 | complete |  |
+| JLE | jle-43-2 | 2025 | translation_partial |  |
 | JLE | jle-43-3 | 2025 | complete |  |
 | JLE | jle-43-4 | 2025 | complete |  |
 | JLE | jle-43-S1 | 2025 | complete |  |
@@ -365,7 +365,7 @@ Updated: 2026-08-07T07:31:59+00:00
 | JPubE | jpube-254-c | 2026 | complete |  |
 | JPubE | jpube-255-c | 2026 | complete |  |
 | JPubE | jpube-256-c | 2026 | complete |  |
-| JPubE | jpube-257-c | 2026 | complete |  |
+| JPubE | jpube-257-c | 2026 | translation_partial |  |
 | JPubE | jpube-258-c | 2026 | complete |  |
 | JPubE | jpube-259-c | 2026 | complete |  |
 | JPubE | jpube-260-c | 2026 | complete |  |
@@ -390,7 +390,7 @@ Updated: 2026-08-07T07:31:59+00:00
 | LANDECON | landecon-102-3 | 2026 | complete |  |
 | LUP | lup-148-c | 2025 | complete |  |
 | LUP | lup-149-c | 2025 | complete |  |
-| LUP | lup-150-c | 2025 | complete |  |
+| LUP | lup-150-c | 2025 | translation_partial |  |
 | LUP | lup-151-c | 2025 | complete |  |
 | LUP | lup-152-c | 2025 | complete |  |
 | LUP | lup-153-c | 2025 | translation_partial |  |
