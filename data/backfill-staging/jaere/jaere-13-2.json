@@ -19,14 +19,14 @@
       "source_sequence": 293,
       "article_type": "research-article",
       "title_en": "Confronting the Carbon Pricing Gap: Second-Best Climate Policy",
-      "title_cn": "",
+      "title_cn": "直面碳定价差距：次优气候政策",
       "authors": [
         "Katheline Schubert",
         "Aude Pommeret",
         "Francesco Ricci"
       ],
       "abstract_en": "Ce travail a aussi été présenté à la conférence LORDE 2022 (Long-Run Dynamics in Economics), LERN Université de Rouen Normandie 30 mars - 1 avril 2022",
-      "abstract_cn": "",
+      "abstract_cn": "这项工作也曾在LORDE 2022（长期动态经济学）会议上展示，LERN 鲁昂诺曼底大学，30三月 - 1四月 2022。",
       "abstract_snippet_en": "",
       "doi": "10.1086/739152",
       "source_url": "https://doi.org/10.1086/739152",
@@ -39,15 +39,15 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1086/739152"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-reasoner",
+        "translated_at": "2026-08-07T03:02:13+00:00",
+        "source_hash": "0d156d9548e4686f9a0e5725dc945302683b3b7d066ad2c844f7e44eff19197e"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -378,7 +378,7 @@
     "doi_complete": 8,
     "authors_complete": 8,
     "abstract_en_complete": 5,
-    "translation_complete": 4,
+    "translation_complete": 5,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
