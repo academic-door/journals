@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-07T07:02:03+00:00
+Updated: 2026-08-07T07:02:22+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -481,7 +481,7 @@ Updated: 2026-08-07T07:02:03+00:00
 | TE | te-21-2 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
 | TE | te-21-3 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
 | WD | wd-185-c | 2025 | complete |  |
-| WD | wd-186-c | 2025 | translation_partial |  |
+| WD | wd-186-c | 2025 | complete |  |
 | WD | wd-187-c | 2025 | complete |  |
 | WD | wd-188-c | 2025 | complete |  |
 | WD | wd-189-c | 2025 | complete |  |
