@@ -54,7 +54,11 @@ jobs:
           cp -R data/translation-cache/. "$main_cache/"
           if git ls-remote --exit-code origin refs/heads/data >/dev/null 2>&1; then
             git fetch origin data
-            git archive origin/data public | tar -x
+            rm -rf public/api
+            git archive origin/data public/api public/project-manifest.json | tar -x
+            if git cat-file -e origin/data:public/backfill-status.md 2>/dev/null; then
+              git show origin/data:public/backfill-status.md > public/backfill-status.md
+            fi
             if git cat-file -e origin/data:data/translation-cache 2>/dev/null; then
               git archive origin/data data/translation-cache | tar -x
             fi
@@ -116,9 +120,11 @@ jobs:
           generated="$RUNNER_TEMP/generated-public"
           generated_cache="$RUNNER_TEMP/generated-translation-cache"
           data_tree="$RUNNER_TEMP/data-tree"
-          mkdir -p "$generated"
+          mkdir -p "$generated/api"
           mkdir -p "$generated_cache"
-          cp -R public/. "$generated/"
+          cp -R public/api/. "$generated/api/"
+          cp public/project-manifest.json "$generated/project-manifest.json"
+          [ ! -f public/backfill-status.md ] || cp public/backfill-status.md "$generated/backfill-status.md"
           cp -R data/translation-cache/. "$generated_cache/"
 
           if git ls-remote --exit-code origin refs/heads/data >/dev/null 2>&1; then
@@ -133,20 +139,21 @@ jobs:
             git rm -rf --ignore-unmatch .
           fi
 
-          # Preserve archives published by backfill workflows that the main
-          # update does not regenerate; generated files overwrite them.
-          existing_public="$RUNNER_TEMP/existing-public"
-          mkdir -p "$existing_public"
-          cp -R public/. "$existing_public/" 2>/dev/null || true
-          rm -rf public data/translation-cache
-          mkdir -p public
+          # The data branch owns generated API/manifest/status files only.
+          # Static site code such as public/search.js always comes from main.
+          rm -rf public/api data/translation-cache
           mkdir -p data/translation-cache
-          cp -R "$existing_public"/. public/ 2>/dev/null || true
-          cp -R "$generated"/. public/
+          mkdir -p public/api
+          cp -R "$generated/api"/. public/api/
+          cp "$generated/project-manifest.json" public/project-manifest.json
+          [ ! -f "$generated/backfill-status.md" ] || cp "$generated/backfill-status.md" public/backfill-status.md
           cp -R "$generated_cache"/. data/translation-cache/
+          git rm -f --ignore-unmatch public/search.js
           git config user.name "academic-door-bot"
           git config user.email "academic-door-bot@users.noreply.github.com"
-          git add public data/translation-cache
+          git add -A public/api data/translation-cache
+          git add public/project-manifest.json
+          [ ! -f public/backfill-status.md ] || git add public/backfill-status.md
           if git diff --cached --quiet; then
             echo "No public data changes."
             exit 0
