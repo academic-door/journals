@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-08T11:33:56+00:00
+Updated: 2026-08-08T11:34:16+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -163,7 +163,7 @@ Updated: 2026-08-08T11:33:56+00:00
 | ENERGY | energy-158-c | 2026 | complete |  |
 | ENERGY | energy-159-c | 2026 | complete |  |
 | ENERGY | energy-160-c | 2026 | complete |  |
-| ENERGY | energy-161-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 161/ |
+| ENERGY | energy-161-c | 2026 | complete |  |
 | ERE | ere-88-1 | 2025 | complete |  |
 | ERE | ere-88-10 | 2025 | complete |  |
 | ERE | ere-88-11 | 2025 | complete |  |
