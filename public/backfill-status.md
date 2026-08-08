@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-08T10:16:57+00:00
+Updated: 2026-08-08T10:19:56+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -145,17 +145,17 @@ Updated: 2026-08-08T10:16:57+00:00
 | EJ | ej-136-677 | 2026 | complete |  |
 | ENERGY | energy-141-c | 2025 | complete |  |
 | ENERGY | energy-142-c | 2025 | translation_partial |  |
-| ENERGY | energy-143-c | 2025 | translation_partial |  |
+| ENERGY | energy-143-c | 2025 | complete |  |
 | ENERGY | energy-144-c | 2025 | complete |  |
 | ENERGY | energy-145-c | 2025 | complete |  |
-| ENERGY | energy-146-c | 2025 | translation_partial |  |
+| ENERGY | energy-146-c | 2025 | complete |  |
 | ENERGY | energy-147-c | 2025 | complete |  |
-| ENERGY | energy-148-c | 2025 | translation_partial |  |
+| ENERGY | energy-148-c | 2025 | complete |  |
 | ENERGY | energy-149-c | 2025 | complete |  |
 | ENERGY | energy-150-c | 2025 | complete |  |
 | ENERGY | energy-151-c | 2025 | complete |  |
 | ENERGY | energy-152-c | 2025 | complete |  |
-| ENERGY | energy-153-c | 2026 | translation_partial |  |
+| ENERGY | energy-153-c | 2026 | complete |  |
 | ENERGY | energy-154-c | 2026 | complete |  |
 | ENERGY | energy-155-c | 2026 | complete |  |
 | ENERGY | energy-156-c | 2026 | complete |  |
