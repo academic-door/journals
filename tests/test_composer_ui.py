@@ -99,12 +99,24 @@ class ComposerUiTest(unittest.TestCase):
         architecture = (ROOT / "docs/architecture.md").read_text(encoding="utf-8")
         self.assertIn("状态页与公共 API", architecture)
 
-    def test_composer_toolbar_stays_on_one_line_on_desktop(self):
-        self.assertIn(".toolbar-actions { display: flex; flex-wrap: nowrap;", self.css)
+    def test_composer_toolbar_uses_two_explicit_publishing_stages(self):
+        self.assertIn('class="composer-toolbar-row composer-source-row"', self.page)
+        self.assertIn('class="composer-toolbar-row composer-publish-row"', self.page)
+        self.assertIn("选择来源", self.page)
+        self.assertIn("排版与导出", self.page)
+        self.assertIn(".composer-toolbar-row {", self.css)
+        self.assertIn(".toolbar-stage {", self.css)
         self.assertIn(".composer-toolbar #journal-select { width: 180px;", self.css)
         self.assertIn(".composer-toolbar #issue-select { width: 180px;", self.css)
         self.assertIn(".composer-toolbar #theme-select { width: 200px;", self.css)
-        self.assertIn(".toolbar-actions { width: 100%; margin-left: 0; flex-wrap: wrap; }", self.css)
+        self.assertIn("@media (max-width: 1180px)", self.css)
+        self.assertIn("grid-template-columns: repeat(2, minmax(0, 1fr));", self.css)
+
+    def test_composer_uses_modern_clipboard_api_without_exec_command(self):
+        self.assertIn("navigator.clipboard?.write", self.page)
+        self.assertIn("navigator.clipboard?.writeText", self.page)
+        self.assertNotIn("document.execCommand", self.page)
+        self.assertIn("当前浏览器仅支持纯文本剪贴板", self.page)
 
     def test_china_filter_and_traceable_relevance_hook_exist(self):
         explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(encoding="utf-8")
@@ -194,6 +206,16 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn("中文翻译中", self.page)
         self.assertIn("可复制发布", self.explorer)
 
+    def test_composer_surfaces_loading_empty_failure_and_stale_states(self):
+        self.assertIn("正在载入卷期与论文", self.page)
+        self.assertIn("暂无可用卷期", self.page)
+        self.assertIn("载入失败，请稍后重试或切换期刊", self.page)
+        self.assertIn("历史卷期暂不可用", self.page)
+        self.assertIn("snapshotAgeHours", self.page)
+        self.assertIn("快照已超过", self.page)
+        self.assertIn("目录顺序仍待官网来源确认", self.page)
+        self.assertIn('.picker-state[data-state="error"]', self.css)
+
     def test_issue_counts_distinguish_publishable_articles_and_corrections(self):
         for source in (self.explorer, self.page):
             self.assertIn("counts.corrections || 0", source)
@@ -203,17 +225,34 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn("api/v1/source-audit.json", self.status_page)
         for label in (
             "监测期刊",
-            "可复制发布",
             "正在补全",
             "最新卷期",
-            "目录内容",
-            "摘要进度",
-            "来源与顺序",
+            "内容就绪",
+            "来源核验",
             "发布状态",
         ):
             self.assertIn(label, self.status_page)
+        self.assertIn("内容可用性", self.status_page)
+        self.assertIn("官方目录核验", self.status_page)
+        self.assertIn("CONTENT READINESS", self.status_page)
+        self.assertIn("SOURCE VERIFICATION", self.status_page)
+        self.assertIn('journal.order_verification === "official_verified"', self.status_page)
         self.assertIn("latest_detected_content_counts", self.status_page)
-        self.assertIn("@media (max-width: 840px)", self.status_page)
+        self.assertIn("journalContentReady", self.status_page)
+        self.assertIn("@media (max-width: 980px)", self.status_page)
+        self.assertIn("<style is:global>", self.status_page)
+
+    def test_search_has_traceable_editorial_entry_points(self):
+        search_page = (ROOT / "src/pages/search/index.astro").read_text(
+            encoding="utf-8"
+        )
+        search_script = (ROOT / "public/search.js").read_text(encoding="utf-8")
+        self.assertIn("中国相关论文", search_page)
+        self.assertIn("按领域进入", search_page)
+        self.assertIn('href="?china=1"', search_page)
+        self.assertIn("initializeFromQuery", search_script)
+        self.assertIn('params.get("china") === "1"', search_script)
+        self.assertIn("form.requestSubmit()", search_script)
 
     def test_composer_selection_and_order_are_persisted(self):
         self.assertIn('id="select-china"', self.page)
@@ -238,6 +277,8 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn('aria-label="上移《${escapeHtml', self.page)
         self.assertIn('aria-label="下移《${escapeHtml', self.page)
         self.assertIn(".move-actions button", self.css)
+        self.assertIn("outline: 3px solid #2f7f6d", self.css)
+        self.assertIn(".move-actions button { width: 44px; height: 44px; }", self.css)
 
     def test_field_collection_contains_all_a_tier_journals(self):
         import yaml

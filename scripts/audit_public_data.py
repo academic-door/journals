@@ -1,7 +1,10 @@
 from __future__ import annotations
 
+import copy
 import json
+import re
 import sys
+from collections import Counter
 from pathlib import Path
 from typing import Any
 
@@ -11,10 +14,18 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from collectors.article_types import abstract_is_complete, translation_is_complete
+from collectors.article_types import (
+    abstract_is_complete,
+    normalize_issue_taxonomy,
+    translation_is_complete,
+)
 from scripts.provenance_ledger import audit_claims, load_ledger
 from scripts.translate_issue import TranslationError, validate_translation
-from scripts.update_journals import PUBLIC_API, validate_issue
+from scripts.update_journals import (
+    PUBLIC_API,
+    article_type_overrides,
+    validate_issue,
+)
 
 
 def read_json(path: Path) -> dict[str, Any]:
@@ -42,6 +53,7 @@ def main(strict_provenance: bool = False) -> int:
     )["collections"]
     configured_by_key = config["journals"]
     collected_ids: set[str] = set()
+    collection_memberships: list[str] = []
     for collection_id, definition in collection_config.items():
         collection = read_json(PUBLIC_API / "collections" / f"{collection_id}.json")
         collection_ids = {
@@ -66,11 +78,22 @@ def main(strict_provenance: bool = False) -> int:
                     "reader-facing order verification is missing"
                 )
         collected_ids.update(collection_ids)
+        collection_memberships.extend(collection_ids)
     all_expected_ids = {journal["id"] for journal in enabled}
     if collected_ids != all_expected_ids:
         findings.append(
             "enabled journals are not covered exactly once by public collections: "
             f"expected {sorted(all_expected_ids)}, got {sorted(collected_ids)}"
+        )
+    duplicate_memberships = sorted(
+        journal_id
+        for journal_id, count in Counter(collection_memberships).items()
+        if count != 1
+    )
+    if duplicate_memberships:
+        findings.append(
+            "enabled journals must appear in exactly one public collection: "
+            + ", ".join(duplicate_memberships)
         )
 
     monitoring_path = PUBLIC_API / "monitoring.json"
@@ -91,6 +114,32 @@ def main(strict_provenance: bool = False) -> int:
         if not surfaced <= known_keys:
             findings.append("monitoring API contains an unknown journal code")
 
+    health_path = PUBLIC_API / "health.json"
+    if not health_path.exists():
+        findings.append("health API is missing")
+    else:
+        health = read_json(health_path)
+        health_summary = health.get("summary", {})
+        if health.get("schema_version") != "1.0":
+            findings.append("health API schema version is invalid")
+        if health_summary.get("enabled_journals") != len(enabled):
+            findings.append("health API enabled journal count is invalid")
+        if health_summary.get("available_journals") != len(enabled):
+            findings.append("health API available journal count is invalid")
+
+    manifest_path = ROOT / "public" / "project-manifest.json"
+    if not manifest_path.exists():
+        findings.append("project manifest is missing")
+    else:
+        manifest = read_json(manifest_path)
+        if manifest.get("journal_count") != len(enabled):
+            findings.append("project manifest journal count is invalid")
+        field_count = len(enabled) - len(
+            collection_config.get("top5", {}).get("journals", [])
+        )
+        if manifest.get("field_journal_count") != field_count:
+            findings.append("project manifest field journal count is invalid")
+
     for journal in enabled:
         path = (
             PUBLIC_API
@@ -108,6 +157,14 @@ def main(strict_provenance: bool = False) -> int:
         except ValueError as error:
             findings.append(f"{journal['id']}: {error}")
             continue
+        normalized = normalize_issue_taxonomy(
+            copy.deepcopy(issue),
+            overrides=article_type_overrides(),
+        )
+        if normalized != issue:
+            findings.append(
+                f"{journal['id']}: snapshot taxonomy is not normalized"
+            )
         quality = issue.get("quality", {})
         if isinstance(quality.get("browser_order_verification"), dict):
             provenance_claims[journal["id"]] = {
@@ -115,6 +172,27 @@ def main(strict_provenance: bool = False) -> int:
                 "issue_id": issue.get("issue_id", ""),
             }
         articles = issue["articles"]
+        issue_year_match = re.search(
+            r"\b(20\d{2})\b", str(issue.get("publication_date", ""))
+        )
+        article_years = [
+            int(match.group(1))
+            for article in articles
+            if (
+                match := re.search(
+                    r"\b(20\d{2})\b",
+                    str(article.get("publication_date", "")),
+                )
+            )
+        ]
+        if issue_year_match and article_years:
+            issue_year = int(issue_year_match.group(1))
+            newest_article_year = max(article_years)
+            if issue_year < newest_article_year:
+                findings.append(
+                    f"{journal['id']}: issue publication year {issue_year} "
+                    f"predates article metadata year {newest_article_year}"
+                )
         totals["journals"] += 1
         totals["articles"] += len(articles)
         if issue["research_article_count"] != len(articles):
@@ -166,6 +244,14 @@ def main(strict_provenance: bool = False) -> int:
         findings.append(
             f"available journals {totals['journals']}/{len(enabled)}"
         )
+    if health_path.exists():
+        health_summary = read_json(health_path).get("summary", {})
+        if health_summary.get("articles") != totals["articles"]:
+            findings.append("health API article count differs from current snapshots")
+        if health_summary.get("translated_articles") != totals["translated"]:
+            findings.append(
+                "health API translation count differs from current snapshots"
+            )
 
     # 人工/浏览器确认的官网顺序不像采集器那样每轮自证，因此单独对账：
     # 公开数据声称"已核对"的，台账里必须有对应且未过期的凭据。

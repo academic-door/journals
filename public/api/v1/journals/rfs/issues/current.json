@@ -1,276 +1,339 @@
 {
   "schema_version": "1.0",
-  "issue_id": "rfs-39-7",
+  "issue_id": "rfs-39-8",
   "journal_id": "rfs",
   "journal_name": "The Review of Financial Studies",
   "volume": "39",
-  "issue": "7",
-  "publication_date": "July 2026",
-  "source_url": "https://academic.oup.com/rfs/issue",
-  "retrieved_at": "2026-07-26T18:30:12+00:00",
+  "issue": "8",
+  "publication_date": "August 2026",
+  "source_url": "https://academic.oup.com/rfs/issue/39/8",
+  "retrieved_at": "2026-08-06T12:09:48+00:00",
   "expected_article_count": 8,
   "research_article_count": 8,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1093/rfs/hhaf078",
+      "paper_id": "doi:10.1093/rfs/hhag030",
       "sequence": 1,
-      "source_sequence": 1909,
+      "source_sequence": 2317,
       "article_type": "research-article",
-      "title_en": "Data-Driven Investors",
-      "title_cn": "数据驱动的投资者",
+      "title_en": "Who Bears Flood Risk? Evidence from Mortgage Markets in Florida",
+      "title_cn": "谁承担洪水风险？来自佛罗里达州抵押贷款市场的证据",
       "authors": [
-        "Maxime Bonelli"
+        "Parinitha Sastry"
       ],
-      "abstract_en": "Abstract How does the increased use of data technologies, like machine learning, by financial intermediaries affect the allocation of capital towards innovation? I study this question in the context of startup financing by venture capitalists (VCs). While VCs adopting data technologies become better at screening startups similar to those in historical data, they tilt their investments towards this pool and become concurrently less likely to finance innovative startups that achieve rare major success. Plausibly exogenous variations in VCs’ screening automation suggest that these effects are causal. These findings highlight how investors’ adoption of data technologies can have real effects through innovation financing.",
-      "abstract_cn": "摘要 金融中介机构使用机器学习等数据技术的增加如何影响资本向创新的配置？我在风险投资（VC）对初创企业融资的背景下研究了这一问题。虽然采用数据技术的VC在筛选与历史数据中相似的初创企业方面表现更佳，但他们倾向于将投资集中于这部分企业，同时变得不太可能为实现罕见重大成功的创新型初创企业提供融资。VC筛选自动化的合理外生变异表明这些效应具有因果性。这些发现强调了投资者采用数据技术如何通过创新融资产生实际影响。",
-      "doi": "10.1093/rfs/hhaf078",
-      "source_url": "https://doi.org/10.1093/rfs/hhaf078",
+      "abstract_en": "Government-provided flood insurance contracts have strict coverage limits, leaving some households underinsured against flood risk. This paper exploits these strict coverage limits as well as staggered flood map updates to show that mortgage lenders screen for uninsurable flood risk by requiring lower loan-to-value ratios at origination. This credit rationing leads delinquency rates to equalize inside and outside of flood zones, and shifts the composition of mortgage borrowers in flood zones toward richer and higher credit quality individuals. I conclude that lenders reduce credit supply when they retain residual uninsured exposures to flood risk, which has distributional consequences for flood zones.",
+      "abstract_cn": "政府提供的洪水保险合同有严格的承保范围限制，导致一些家庭的洪水风险保险不足。本文利用这些严格的承保范围限制以及交错的洪水地图更新来表明抵押贷款机构通过在发起时要求较低的贷款与价值比率来筛选不可保险的洪水风险。这种信贷配给导致洪泛区内外的拖欠率趋于平衡，并使洪泛区抵押贷款借款人的构成转向更富有和信用质量更高的个人。我的结论是，当贷款人保留剩余的未保险的洪水风险敞口时，他们就会减少信贷供应，这会对洪水地区产生分配影响。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/rfs/hhag030",
+      "source_url": "https://doi.org/10.1093/rfs/hhag030",
       "publication_date": "2026",
       "sources": {
-        "issue": "https://academic.oup.com/rfs/issue",
+        "issue": "https://academic.oup.com/rfs/issue/39/8",
         "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T20:05:53+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-01T05:25:59+00:00",
+        "source_hash": "ce1b50ac082e515b5bbf506267f18e4c7cacd1816d89189a8646e4c497860ac2"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1093/rfs/hhaf049",
+      "paper_id": "doi:10.1093/rfs/hhag031",
       "sequence": 2,
-      "source_sequence": 1970,
+      "source_sequence": 2358,
       "article_type": "research-article",
-      "title_en": "Gender Stereotypes and Entrepreneur Financing",
-      "title_cn": "性别刻板印象与创业融资",
+      "title_en": "The Response of Mortgage Supply to Expected Flood Insurance Lapses",
+      "title_cn": "抵押贷款供应对预期洪水保险失效的反应",
       "authors": [
-        "Camille Hebert"
+        "Zhongchen Hu"
       ],
-      "abstract_en": "Abstract I document a significant gender gap in entrepreneurs’ access to early-stage equity financing. Using unique administrative data on French startups, I show that this gap is particularly pronounced in male-dominated sectors. Controlling for a comprehensive set of entrepreneur and startup characteristics—including demographics, backgrounds, and motivations—accounts for 42% of the average gender gap. However, in male-dominated sectors, 80% of the gap remains unexplained. Growth-oriented female entrepreneurs rely more heavily on bank loans, substituting equity with debt. Finally, VC-backed female-founded startups outperform their male counterparts in male-dominated sectors. These findings suggest that context-dependent stereotypes influence equity financing decisions.",
-      "abstract_cn": "摘要 我记录了创业者在早期股权融资中存在显著的性别差距。利用法国初创企业的独特行政数据，我发现这一差距在男性主导的行业中尤为明显。控制了包括人口统计、背景和动机在内的创业者和初创企业的全面特征后，平均性别差距的42%得以解释。然而，在男性主导的行业中，80%的差距仍未得到解释。以增长为导向的女性创业者更依赖银行贷款，用债务替代股权。最后，获得风险投资支持的女性创办的初创企业在男性主导行业中的表现优于男性同行。这些发现表明，情境依赖的刻板印象影响股权融资决策。",
-      "doi": "10.1093/rfs/hhaf049",
-      "source_url": "https://doi.org/10.1093/rfs/hhaf049",
+      "abstract_en": "Flooding is among the costliest natural disasters in many countries. To protect collateral, many mortgage borrowers in the United States are legally required to maintain flood insurance. However, lax enforcement leads to frequent policy lapses. This paper shows that lenders provide credit contingent on borrowers’ insurance incentives. Exploiting exogenous premium rises ($266 annually) that disincentivize insurance take-up, I find mortgage denial rates dramatically increase by 0.49–0.81 pp. By comparison, lowering income by $266 has an effect of only 0.01 pp. Mortgage applicants’ composition remains unchanged, refuting demand-side explanations. Evidence suggests lenders internalize ex-post monitoring costs into ex-ante credit restrictions.",
+      "abstract_cn": "洪水是许多国家损失最惨重的自然灾害之一。为了保护抵押品，美国的许多抵押贷款借款人都被法律要求维持洪水保险。然而，执法不严导致政策失误频频发生。本文表明，贷款人根据借款人的保险激励措施提供信贷。利用外生保费上涨（每年266美元）抑制保险购买的积极性，我发现抵押贷款拒绝率急剧增加0.49-0.81个百分点。相比之下，收入降低266美元仅产生0.01个百分点的影响。抵押贷款申请人的构成保持不变，驳斥了需求方的解释。有证据表明，贷方将事后监控成本内部化为事前信贷限制。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/rfs/hhag031",
+      "source_url": "https://doi.org/10.1093/rfs/hhag031",
       "publication_date": "2026",
       "sources": {
-        "issue": "https://academic.oup.com/rfs/issue",
+        "issue": "https://academic.oup.com/rfs/issue/39/8",
         "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T20:06:02+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-01T05:26:01+00:00",
+        "source_hash": "e57aca4f1dace4d7458d8bf10961d56d9f35c2c015b81fefac0bea7f4d958af9"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1093/rfs/hhag014",
+      "paper_id": "doi:10.1093/rfs/hhaf101",
       "sequence": 3,
-      "source_sequence": 2018,
+      "source_sequence": 2421,
       "article_type": "research-article",
-      "title_en": "The Broader Role of Venture Capital Due Diligence",
-      "title_cn": "风险投资尽职调查的更广泛作用",
+      "title_en": "Cooling Auction Fever: Evidence from the Housing Market",
+      "title_cn": "拍卖热潮降温：来自房地产市场的证据",
       "authors": [
-        "Juanita González-Uribe",
-        "Robyn Klingler-Vidra",
-        "Su Wang",
-        "Xiang Yin"
+        "Antonio Gargano",
+        "Marco Giacoletti"
       ],
-      "abstract_en": "Abstract Analyzing approximately 2,000 applicants to a U.K. seed fund, this study examines how venture capital (VC) due diligence affects startup outcomes independent of funding decisions. Leveraging random reviewer assignment, we find that due diligence increases 2-year growth but lowers continuation rates among nonfunded applicants, reflecting a dynamic of accelerated scaling or exit. Evidence points to a learning mechanism: due diligence exposes founders to advanced website technologies, prompting capability building in digital skills. Firms selected for due diligence adopt these technologies, even before raising external capital. The findings highlight VC due diligence as a formative process influencing startups beyond the funded few.",
-      "abstract_cn": "摘要 本文分析了约2,000名申请英国种子基金的创业公司，研究风险投资（VC）尽职调查如何在不依赖融资决策的情况下影响创业公司结果。利用随机评审员分配，我们发现尽职调查提高了2年的增长率，但降低了未获资助申请者的持续率，反映出加速扩张或退出的动态。证据表明存在学习机制：尽职调查使创始人接触到先进的网站技术，促进数字技能能力的提升。被选中进行尽职调查的公司即使在筹集外部资本之前也采用了这些技术。研究结果强调风险投资尽职调查作为一种塑造过程，对创业公司产生影响，超越了少数获资助者。",
-      "doi": "10.1093/rfs/hhag014",
-      "source_url": "https://doi.org/10.1093/rfs/hhag014",
+      "abstract_en": "We study the effects of underquoting, the practice of setting listing prices below sellers’ reservation values, on housing auctions. Laws introduced in Australia to deter underquoting lead to higher listing prices, but also to declines in sales prices and sales probabilities. We develop a quantitative model to formalize predictions under different assumptions about bidders’ information and rationality. The effects of the laws are matched by a version of the model in which participating bidders overbid. While both behavioral biases arising during the auction and switching costs can explain overbidding, empirical and survey evidence points to behavioral biases as the main mechanism.",
+      "abstract_cn": "我们研究了低价报价（将挂牌价格设定为低于卖家保留价值的做法）对房屋拍卖的影响。澳大利亚为阻止低价报价而出台的法律导致挂牌价格上涨，但也导致销售价格和销售概率下降。我们开发了一个定量模型，以在有关投标人信息和合理性的不同假设下将预测形式化。法律的效果与参与竞标者出价过高的模型版本相匹配。虽然拍卖过程中出现的行为偏差和转换成本都可以解释竞价过高，但经验和调查证据表明行为偏差是主要机制。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/rfs/hhaf101",
+      "source_url": "https://doi.org/10.1093/rfs/hhaf101",
       "publication_date": "2026",
       "sources": {
-        "issue": "https://academic.oup.com/rfs/issue",
+        "issue": "https://academic.oup.com/rfs/issue/39/8",
         "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T20:06:11+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-01T05:26:02+00:00",
+        "source_hash": "b8933addb5a92d52d9c1573f6b230a28e5228da28b0ecafff14282756c34a85f"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1093/rfs/hhaf080",
+      "paper_id": "doi:10.1093/rfs/hhag040",
       "sequence": 4,
-      "source_sequence": 2064,
+      "source_sequence": 2476,
       "article_type": "research-article",
-      "title_en": "Collateral Effects: The Role of FinTech in Small Business Lending",
-      "title_cn": "抵押效应：金融科技在小企业贷款中的作用",
+      "title_en": "Global Capital and Local Assets: House Prices, Quantities, and Elasticities",
+      "title_cn": "全球资本和本地资产：房价、数量和弹性",
       "authors": [
-        "Paul Beaumont",
-        "Huan Tang",
-        "Eric Vansteenberghe"
+        "Caitlin S Gorback",
+        "Benjamin J Keys"
       ],
-      "abstract_en": "Abstract This paper investigates the impact of introducing junior unsecured loans (i.e., FinTech loans) into the small business lending market. Using French administrative data, we find that firms experience a 13% increase in bank credit after receiving a FinTech loan. We use propensity score matching procedures and a shift-share instrument to account for credit demand. The credit increase only occurs when FinTech borrowers invest in new assets, and Fintech borrowers are subsequently more likely to pledge collateral to banks. This suggests that firms use FinTech loans to acquire assets that they then pledge to banks, thereby increasing total borrowing capacity.",
-      "abstract_cn": "摘要 本文研究了引入次级无担保贷款（即金融科技贷款）对小企业贷款市场的影响。利用法国行政数据，我们发现企业在获得金融科技贷款后，银行信贷出现了13%的增长。我们采用倾向得分匹配方法和分行业份额工具变量来控制信贷需求。信贷增长仅在金融科技借款人投资新资产时发生，且金融科技借款人随后更可能向银行提供抵押品。这表明企业利用金融科技贷款获取资产，进而将其抵押给银行，从而提高了总借贷能力。",
-      "doi": "10.1093/rfs/hhaf080",
-      "source_url": "https://doi.org/10.1093/rfs/hhaf080",
+      "abstract_en": "We estimate price elasticities of housing supply for U.S. cities by examining the impact of foreign purchases on housing prices and quantities. After other countries introduced foreign-buyer taxes beginning in 2011, both house prices and quantities increased more in locations with high foreign-born populations. An increase in global capital inflows, instrumented with tax policy changes scaled by immigrant exposure, increased prices and quantities over 2011–2018. We combine these estimates to construct new local supply elasticities, which average 0.26 and range from 0.06 to 0.9. Compared to prior estimates, our elasticities are more inelastic and change cities’ relative rankings.",
+      "abstract_cn": "我们通过研究外国购买对房价和数量的影响来估计美国城市住房供应的价格弹性。在其他国家从2011开始引入外国买家税后，外国出生人口较多的地区的房价和数量都增加了更多。全球资本流入增加，伴随着移民风险规模的税收政策变化，2011-2018期间价格和数量增加。我们结合这些估计来构建新的当地供应弹性，其平均值为 0.26，范围从 0.06 到 0.9。与之前的估计相比，我们的弹性更加缺乏弹性，并改变了城市的相对排名。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/rfs/hhag040",
+      "source_url": "https://doi.org/10.1093/rfs/hhag040",
       "publication_date": "2026",
       "sources": {
-        "issue": "https://academic.oup.com/rfs/issue",
+        "issue": "https://academic.oup.com/rfs/issue/39/8",
         "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T20:06:18+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-01T05:26:05+00:00",
+        "source_hash": "643fcba4318a1f9ff72498726ac1ca37bdc8cd08352f93de23768ebcb2c53ff1"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1093/rfs/hhaf103",
+      "paper_id": "doi:10.1093/rfs/hhag006",
       "sequence": 5,
-      "source_sequence": 2115,
+      "source_sequence": 2517,
       "article_type": "research-article",
-      "title_en": "Asset Overhang and Technological Change",
-      "title_cn": "资产负担过重与技术变革",
+      "title_en": "The Impact of Carcinogenic Risk Exposure on Housing Values: Estimates from Chemical Reclassifications",
+      "title_cn": "致癌风险暴露对住房价值的影响：基于化学品重新分类的估计",
       "authors": [
-        "Hans Degryse",
-        "Tarik Roukny",
-        "Joris Tielens"
+        "Jules van Binsbergen",
+        "João F Cocco",
+        "Marco Grotteria",
+        "S Lakshmi Naaraayanan"
       ],
-      "abstract_en": "Abstract Investors face reduced incentives to finance technological change that devalues their legacy investments. We formalize this “asset overhang” and apply our framework to the climate-banking nexus. Leveraging (1) firm-level data on green innovation and diffusion and (2) the sets of product and technology market peers, we implement a shift-share design that identifies banks’ credit facilities impacted by green firm activities. We find that green firms imposing an asset overhang across all lenders are 3 to 7 percentage points more likely to report tight credit supply conditions. The presence of legacy-free investors mitigates the asset overhang problem, thereby facilitating technological change.",
-      "abstract_cn": "摘要 投资者面临激励减弱的问题，即为贬值其既有投资的技术变革提供融资。我们形式化了这一“资产负担过重”问题，并将我们的框架应用于气候与银行业的关联。利用(1)关于绿色创新与扩散的企业层面数据以及(2)产品和技术市场同行集，我们实施了一种移位-份额设计，识别受绿色企业活动影响的银行信贷设施。我们发现，绿色企业对所有贷款方施加资产负担过重，使其报告信贷供应紧张状况的可能性提高了3至7个百分点。无遗留资产投资者的存在缓解了资产负担过重问题，从而促进了技术变革。",
-      "doi": "10.1093/rfs/hhaf103",
-      "source_url": "https://doi.org/10.1093/rfs/hhaf103",
+      "abstract_en": "We quantify the impact of perceived cancer risk on housing values using widely advertised national reclassifications of chemical carcinogenicity in the United States. Combining these information events with an empirical design that compares changes in house values closer to affected toxic plants against those farther away isolates the effect of cancer risk news from other local factors. Focusing on plants previously emitting reclassified carcinogenic chemicals, we estimate a 1–2% decline in housing values within a 3-mile radius compared to those located farther away. The effects are stronger in areas with higher media presence underscoring the role of salience as a mechanism.",
+      "abstract_cn": "我们利用美国广泛宣传的化学致癌性国家重新分类事件，量化了感知癌症风险对住房价值的影响。将这些信息事件与一种实证设计相结合，该设计比较了受影响的毒物工厂附近与较远地区的房屋价值变化，从而将癌症风险新闻的影响与其他地方因素分离开来。聚焦于先前排放被重新分类的致癌化学品的工厂，我们估计在3英里半径内的住房价值相比位于更远地区的住房下降了1-2%。在媒体关注度较高的地区，这种效应更强，凸显了显著性作为机制的作用。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/rfs/hhag006",
+      "source_url": "https://doi.org/10.1093/rfs/hhag006",
       "publication_date": "2026",
       "sources": {
-        "issue": "https://academic.oup.com/rfs/issue",
+        "issue": "https://academic.oup.com/rfs/issue/39/8",
         "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T20:06:28+00:00"
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T12:09:51+00:00",
+        "source_hash": "9fde398fe28236243e88a1e0a596c5685767bb3d0acfb6c920dd9c49a0db8041"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1093/rfs/hhag026",
+      "paper_id": "doi:10.1093/rfs/hhaf115",
       "sequence": 6,
-      "source_sequence": 2179,
+      "source_sequence": 2549,
       "article_type": "research-article",
-      "title_en": "Excess Commitment in RD",
-      "title_cn": "研发中的过度承诺",
+      "title_en": "Mortgage Design, Repayment Schedules, and Household Borrowing",
+      "title_cn": "抵押贷款设计、还款计划和家庭借贷",
       "authors": [
-        "Marius Guenzel",
-        "Tong Liu"
+        "Claes Bäckman",
+        "Patrick Moran",
+        "Peter van Santen"
       ],
-      "abstract_en": "Abstract We document that firms exhibit “excess” commitment to R&D projects and examine its consequences for innovation outcomes. Using detailed data on pharmaceutical firms’ clinical trial projects, we find that trial delays, empirically uncorrelated with multiple project-quality measures, substantially reduce firms’ subsequent project-termination propensity. This result remains robust when we use variation in clinical trial site congestion to instrument for unexpected delays. Excess commitment intensifies when CEO compensation has greater stock-price sensitivity and the CEO is responsible for the project’s initiation. Our findings have broader implications: delay-driven commitment reduces new drug project initiations, with further evidence suggesting efficiency losses for firms.",
-      "abstract_cn": "摘要 我们记录了企业对研发项目表现出“过度”承诺的现象，并考察其对创新成果的影响。利用制药企业临床试验项目的详细数据，我们发现试验延迟与多项项目质量指标在实证上无相关性，但显著降低了企业后续项目终止的倾向。使用临床试验地点拥堵程度的变异作为意外延迟的工具变量后，该结果依然稳健。当CEO薪酬对股价的敏感度更高且CEO负责项目启动时，过度承诺现象更为显著。我们的研究结果具有更广泛的意义：延迟驱动的承诺减少了新药项目的启动，进一步证据表明企业因此遭受效率损失。",
-      "doi": "10.1093/rfs/hhag026",
-      "source_url": "https://doi.org/10.1093/rfs/hhag026",
+      "abstract_en": "How does the design of debt repayment schedules affect household borrowing? To answer this question, we exploit a Swedish policy reform that eliminated interest-only mortgages for loan-to-value ratios above 50%. We document substantial bunching at the threshold, leading to 5% lower borrowing. Wealthy borrowers drive the results, challenging credit constraints as the primary explanation. We develop a model to evaluate the mechanisms driving household behavior and find that much of the effect comes from households experiencing ongoing flow disutility to amortization payments. Our results indicate that mortgage contracts with low initial payments substantially increase household borrowing and lifetime interest costs.",
+      "abstract_cn": "债务偿还时间表的设计如何影响家庭借贷？为了回答这个问题，我们利用瑞典的一项政策改革，取消了贷款价值比高于50%的只付息抵押贷款。我们记录了门槛上的大量聚集，导致5%借款减少。富裕的借款人推动了结果，挑战信贷限制作为主要解释。我们开发了一个模型来评估驱动家庭行为的机制，发现大部分影响来自于家庭正在经历摊销支付的持续流量负效用。我们的研究结果表明，初始付款较低的抵押贷款合同会大幅增加家庭借贷和终生利息成本。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/rfs/hhaf115",
+      "source_url": "https://doi.org/10.1093/rfs/hhaf115",
       "publication_date": "2026",
       "sources": {
-        "issue": "https://academic.oup.com/rfs/issue",
+        "issue": "https://academic.oup.com/rfs/issue/39/8",
         "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T20:06:34+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-01T05:26:13+00:00",
+        "source_hash": "1f440fa869df213ff2b6cdae60eee9c86b15435e62e7cafbfdf7812a3f1a718d"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1093/rfs/hhaf111",
+      "paper_id": "doi:10.1093/rfs/hhaf114",
       "sequence": 7,
-      "source_sequence": 2222,
+      "source_sequence": 2595,
       "article_type": "research-article",
-      "title_en": "The Structure of Leveraged Buyouts and the Free-Rider Problem",
-      "title_cn": "杠杆收购的结构与搭便车问题",
+      "title_en": "When Two Become One: Foreign Capital and Household Credit Expansion",
+      "title_cn": "当二变成一：外资与家庭信贷扩张",
       "authors": [
-        "Mike Burkart",
-        "Samuel Lee",
-        "Henrik Petri"
+        "Lukas Diebold",
+        "Björn Richter"
       ],
-      "abstract_en": "Abstract We study the structure of public firm buyouts in a model that features the Berle-Means problem (lack of incentives) and the Grossman-Hart problem (holdout). We find that bootstrapping, debt in excess of funding needs, and upfront fees to bidders are socially optimal and increase buyout premiums. These elements make LBO financing tantamount to a “management contract” arranged by an outside manager to receive cash and incentives to manage a firm—except the cash is funded by excess debt imposed on the firm. Our model also rationalizes why PE firms collect fees from their equity partnerships and directly from target firms.",
-      "abstract_cn": "摘要 我们在一个包含Berle-Means问题（激励缺失）和Grossman-Hart问题（阻挠）的模型中研究了上市公司收购的结构。我们发现，套现、超出融资需求的债务以及对竞标者的预付费用是社会最优的，并且提高了收购溢价。这些因素使得杠杆收购融资等同于由外部管理者安排的“管理合同”，该管理者获得现金和激励以管理公司——但现金是由施加在公司上的超额债务提供的。我们的模型还解释了为何私募股权公司从其股权合伙企业及目标公司直接收取费用。",
-      "doi": "10.1093/rfs/hhaf111",
-      "source_url": "https://doi.org/10.1093/rfs/hhaf111",
+      "abstract_en": "Rapid credit expansions predict lower output growth and banking crises, but does it matter who finances them? We identify the ultimate counterparties financing credit expansions in a panel of 33 advanced economies and find that foreign-financed household credit expansions predict lower GDP growth and higher crisis risk, but domestically financed credit expansions do not. Studying the mechanisms, we find that foreign-financed household credit expansions are accompanied by higher supply of foreign capital (reflected in low credit spreads), are followed by elevated credit cycle reversal risk, and lead to higher debt service payments to foreigners which depress aggregate demand.",
+      "abstract_cn": "快速的信贷扩张预示着产出增长放缓和银行危机，但谁为它们提供资金重要吗？我们确定了一组 33 发达经济体中为信贷扩张融资的最终交易对手，并发现外国融资的家庭信贷扩张预示着 GDP 增长率较低和危机风险较高，但国内融资的信贷扩张则不然。通过研究这些机制，我们发现，外国融资的家庭信贷扩张伴随着外国资本供应的增加（反映在较低的信贷利差中），随之而来的是信贷周期逆转风险的上升，并导致对外国人的偿债支付增加，从而抑制了总需求。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/rfs/hhaf114",
+      "source_url": "https://doi.org/10.1093/rfs/hhaf114",
       "publication_date": "2026",
       "sources": {
-        "issue": "https://academic.oup.com/rfs/issue",
+        "issue": "https://academic.oup.com/rfs/issue/39/8",
         "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T20:06:41+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-01T05:26:15+00:00",
+        "source_hash": "9e8cecda27fe9668d4bc071edbc59e9e894fbb9acf2c3673238ef08668043442"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1093/rfs/hhaf116",
+      "paper_id": "doi:10.1093/rfs/hhaf079",
       "sequence": 8,
-      "source_sequence": 2261,
+      "source_sequence": 2643,
       "article_type": "research-article",
-      "title_en": "The Intangibles Song in Takeover Announcements: Good Tempo, Hollow Tune",
-      "title_cn": "收购公告中的无形资产之歌：节奏良好，旋律空洞",
+      "title_en": "Macroeconomic Expectations and Credit Card Spending",
+      "title_cn": "宏观经济预期和信用卡支出",
       "authors": [
-        "Zoran M Filipović",
-        "Alexander F Wagner"
+        "Mikhail Galashin",
+        "Martin Kanz",
+        "Ricardo Perez-Truglia"
       ],
-      "abstract_en": "Abstract Mergers and acquisitions are often motivated by an intention to create value from intangible assets. We develop a word list of intangibles and apply it to takeover announcements. One standard deviation more in intangible-related language (“intangibles talk”) lowers announcement returns for the acquirer by 0.53 percentage points and predicts worse operating performance. Bidder managers appear to believe in the deals nonetheless, as evidenced by insider trades, payment choices, and completion probabilities and speed. Overall, takeover announcement texts reveal important information about hard-to-measure aspects of deal quality.",
-      "abstract_cn": "摘要 兼并与收购通常旨在通过无形资产创造价值。我们开发了一套无形资产词汇表，并将其应用于收购公告中。无形资产相关语言（“无形资产话语”）的标准差增加会使收购方公告收益降低0.53个百分点，并预测更差的经营绩效。尽管如此，竞购方管理者似乎仍然相信这些交易，这从内部人交易、支付方式选择以及交易完成的概率和速度中可见一斑。总体而言，收购公告文本揭示了关于难以衡量的交易质量方面的重要信息。",
-      "doi": "10.1093/rfs/hhaf116",
-      "source_url": "https://doi.org/10.1093/rfs/hhaf116",
+      "abstract_en": "We examine how macroeconomic expectations affect consumer decisions, using an experiment with 2,872 credit card customers at a large commercial bank. In the experiment, participants are randomized into receiving expert forecasts of inflation and the nominal exchange rate. We find that forecasts shift inflation and exchange rate expectations, but do not change spending or self-reported consumption plans as predicted by standard models of intertemporal choice. Results from a supplementary survey experiment suggest that consumers are sophisticated enough to anticipate nominal rigidities and reduce spending on durables for precautionary reasons, counteracting the effects predicted by standard models of intertemporal optimization.",
+      "abstract_cn": "我们通过对一家大型商业银行的 2,872 信用卡客户进行实验，研究宏观经济预期如何影响消费者决策。在实验中，参与者被随机分配接受专家对通货膨胀和名义汇率的预测。我们发现，预测会改变通胀和汇率预期，但不会改变跨期选择标准模型预测的支出或自我报告的消费计划。补充调查实验的结果表明，消费者足够成熟，能够预测名义刚性并出于预防性原因减少耐用品支出，抵消跨期优化标准模型预测的影响。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/rfs/hhaf079",
+      "source_url": "https://doi.org/10.1093/rfs/hhaf079",
       "publication_date": "2026",
       "sources": {
-        "issue": "https://academic.oup.com/rfs/issue",
+        "issue": "https://academic.oup.com/rfs/issue/39/8",
         "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T20:06:48+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-01T05:26:16+00:00",
+        "source_hash": "7fe36783930fbd64a404173571c4752d158180ece51cf4dc42522d8b25118209"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     }
   ],
   "quality": {
@@ -290,6 +353,36 @@
     "flags": [
       "publisher_html_blocked_crossref_fallback",
       "crossref_provisional_roster"
-    ]
-  }
+    ],
+    "official_item_count": 8,
+    "publishable_item_count": 8,
+    "content_counts": {
+      "official_items": 8,
+      "observed_items": 8,
+      "publishable_items": 8,
+      "research_articles": 8,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 8
+    }
+  },
+  "content_counts": {
+    "official_items": 8,
+    "observed_items": 8,
+    "publishable_items": 8,
+    "research_articles": 8,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 8
+  },
+  "issue_label": "Vol. 39 · No. 8",
+  "publication_state": "ready"
 }

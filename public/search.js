@@ -130,4 +130,35 @@ form?.addEventListener("submit", async (event) => {
   }
 });
 
-populateJournals();
+const initializeFromQuery = async () => {
+  await populateJournals();
+  const params = new URLSearchParams(window.location.search);
+  const values = {
+    query: params.get("q") || "",
+    journal: params.get("journal") || "all",
+    field: params.get("field") || "all",
+    year: params.get("year") || "",
+    volume: params.get("volume") || "",
+    issue: params.get("issue") || "",
+  };
+  document.querySelector("#global-search-query").value = values.query;
+  document.querySelector("#global-search-year").value = values.year;
+  document.querySelector("#global-search-volume").value = values.volume;
+  document.querySelector("#global-search-issue").value = values.issue;
+  const journalSelect = document.querySelector("#global-search-journal");
+  const fieldSelect = document.querySelector("#global-search-field");
+  if ([...journalSelect.options].some((option) => option.value === values.journal)) {
+    journalSelect.value = values.journal;
+  }
+  if ([...fieldSelect.options].some((option) => option.value === values.field)) {
+    fieldSelect.value = values.field;
+  }
+  document.querySelector("#global-search-china").checked = params.get("china") === "1";
+  document.querySelector("#global-search-history").checked = params.get("history") === "1";
+  const hasPreset = [...params.keys()].some((key) =>
+    ["q", "journal", "field", "year", "volume", "issue", "china", "history"].includes(key)
+  );
+  if (hasPreset) form.requestSubmit();
+};
+
+initializeFromQuery();

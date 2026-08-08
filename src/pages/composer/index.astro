@@ -12,74 +12,80 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         <p class="section-kicker">ACADEMIC DOOR</p>
         <h1>微信公众号编辑器</h1>
       </div>
-      <span id="save-status" class="sr-only" aria-live="polite">就绪</span>
+      <span id="save-status" class="composer-feedback" aria-live="polite">就绪</span>
     </section>
 
     <section class="composer-toolbar" aria-label="Composer 工具栏">
-      <label class="composer-source">
-        <span>期刊</span>
-        <select id="journal-select" aria-label="选择期刊"></select>
-      </label>
-      <label class="composer-source issue-select">
-        <span>卷期</span>
-        <select id="issue-select" aria-label="选择卷期"></select>
-      </label>
-      <button id="load-current" class="button button-primary" type="button">载入</button>
-      <label class="composer-source theme-select">
-        <span>主题</span>
-        <select id="theme-select" aria-label="选择排版主题">
-          <option value="wechat-default">学术传送门经典（默认）</option>
-        </select>
-      </label>
-      <details class="style-settings">
-        <summary class="button">排版设置</summary>
-        <div class="style-settings-panel">
-          <label>
-            <span>正文字号</span>
-            <select id="font-size-select">
-              <option value="14">小（14px）</option>
-              <option value="15">适中（15px）</option>
-              <option value="16">标准（16px）</option>
-              <option value="17">大（17px）</option>
-            </select>
-          </label>
-          <label>
-            <span>行距</span>
-            <select id="line-height-select">
-              <option value="1.65">紧凑</option>
-              <option value="1.75" selected>舒适</option>
-              <option value="1.9">宽松</option>
-            </select>
-          </label>
-          <label>
-            <span>字体</span>
-            <select id="font-family-select">
-              <option value="classic">经典</option>
-              <option value="sans">现代黑体</option>
-              <option value="serif">中文宋体</option>
-            </select>
-          </label>
-          <label>
-            <span>强调色</span>
-            <input id="accent-color" type="color" value="#ef7060" />
-          </label>
-          <details class="custom-css-settings">
-            <summary>自定义 CSS</summary>
+      <div class="composer-toolbar-row composer-source-row">
+        <div class="toolbar-stage" aria-hidden="true"><b>01</b><span>选择来源</span></div>
+        <label class="composer-source">
+          <span>期刊</span>
+          <select id="journal-select" aria-label="选择期刊"></select>
+        </label>
+        <label class="composer-source issue-select">
+          <span>卷期</span>
+          <select id="issue-select" aria-label="选择卷期"></select>
+        </label>
+        <button id="load-current" class="button button-primary" type="button">载入本期</button>
+      </div>
+      <div class="composer-toolbar-row composer-publish-row">
+        <div class="toolbar-stage" aria-hidden="true"><b>02</b><span>排版与导出</span></div>
+        <label class="composer-source theme-select">
+          <span>主题</span>
+          <select id="theme-select" aria-label="选择排版主题">
+            <option value="wechat-default">学术传送门经典（默认）</option>
+          </select>
+        </label>
+        <details class="style-settings">
+          <summary class="button">排版设置</summary>
+          <div class="style-settings-panel">
             <label>
-              <span>样式仅作用于正文预览，并在复制时转为行内样式</span>
-              <textarea id="custom-css" rows="7" spellcheck="false" placeholder="例如：&#10;h3 { color: #1f6b57; }&#10;blockquote { border-radius: 8px; }"></textarea>
+              <span>正文字号</span>
+              <select id="font-size-select">
+                <option value="14">小（14px）</option>
+                <option value="15">适中（15px）</option>
+                <option value="16">标准（16px）</option>
+                <option value="17">大（17px）</option>
+              </select>
             </label>
-            <small id="custom-css-status">支持普通选择器；不加载外部资源。</small>
-          </details>
-          <button id="reset-style" class="button" type="button">恢复经典默认</button>
+            <label>
+              <span>行距</span>
+              <select id="line-height-select">
+                <option value="1.65">紧凑</option>
+                <option value="1.75" selected>舒适</option>
+                <option value="1.9">宽松</option>
+              </select>
+            </label>
+            <label>
+              <span>字体</span>
+              <select id="font-family-select">
+                <option value="classic">经典</option>
+                <option value="sans">现代黑体</option>
+                <option value="serif">中文宋体</option>
+              </select>
+            </label>
+            <label>
+              <span>强调色</span>
+              <input id="accent-color" type="color" value="#ef7060" />
+            </label>
+            <details class="custom-css-settings">
+              <summary>自定义 CSS</summary>
+              <label>
+                <span>样式仅作用于正文预览，并在复制时转为行内样式</span>
+                <textarea id="custom-css" rows="7" spellcheck="false" placeholder="例如：&#10;h3 { color: #1f6b57; }&#10;blockquote { border-radius: 8px; }"></textarea>
+              </label>
+              <small id="custom-css-status">支持普通选择器；不加载外部资源。</small>
+            </details>
+            <button id="reset-style" class="button" type="button">恢复经典默认</button>
+          </div>
+        </details>
+        <a class="button theme-lab-link" href={`${base}themes/`}>主题实验室</a>
+        <div class="toolbar-actions">
+          <button id="copy-rich" class="button button-primary" type="button">复制富文本</button>
+          <button id="copy-markdown" class="button" type="button">复制 Markdown</button>
+          <button id="export-markdown" class="button" type="button">导出 Markdown</button>
+          <button id="export-html" class="button" type="button">导出 HTML</button>
         </div>
-      </details>
-      <a class="button theme-lab-link" href={`${base}themes/`}>主题实验室</a>
-      <div class="toolbar-actions">
-        <button id="copy-rich" class="button" type="button">复制富文本</button>
-        <button id="copy-markdown" class="button" type="button">复制 Markdown</button>
-        <button id="export-markdown" class="button" type="button">导出 Markdown</button>
-        <button id="export-html" class="button" type="button">导出 HTML</button>
       </div>
     </section>
     <p id="publication-readiness" class="composer-readiness" aria-live="polite" hidden></p>
@@ -194,30 +200,56 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       const abstracts = quality.abstract_en_complete || 0;
       const translations = quality.translation_complete || 0;
       return {
-        ready: issue.publication_state === "ready"
-          || (total > 0 && abstracts === total && translations === total),
+        ready: total > 0 && abstracts === total && translations === total,
         total,
         abstracts,
         translations,
       };
     };
 
+    const renderPickerMessage = (message, state = "idle") => {
+      picker.innerHTML = `<p class="picker-state" data-state="${escapeHtml(state)}">${escapeHtml(message)}</p>`;
+      regenerateButton.disabled = true;
+    };
+
+    const snapshotAgeHours = (issue) => {
+      const timestamp = Date.parse(issue?.retrieved_at || "");
+      return Number.isFinite(timestamp)
+        ? Math.max(0, (Date.now() - timestamp) / 3600000)
+        : 0;
+    };
+
     const renderReadiness = () => {
       const readiness = issueReadiness(currentIssue);
-      if (!currentIssue || readiness.ready) {
+      if (!currentIssue) {
         readinessNotice.hidden = true;
         readinessNotice.textContent = "";
         readinessNotice.dataset.state = "ready";
         publishingButtons.forEach((button) => { button.disabled = false; });
         return;
       }
+      const messages = [];
       const missingAbstracts = Math.max(0, readiness.total - readiness.abstracts);
-      readinessNotice.hidden = false;
-      readinessNotice.dataset.state = "enriching";
-      readinessNotice.textContent = missingAbstracts > 0
-        ? `等待英文摘要 · ${readiness.abstracts}/${readiness.total}；摘要补齐后自动进入翻译。`
-        : `中文翻译中 · ${readiness.translations}/${readiness.total}；整理完成后即可复制发布。`;
-      publishingButtons.forEach((button) => { button.disabled = true; });
+      if (!readiness.ready) {
+        messages.push(missingAbstracts > 0
+          ? `等待英文摘要 · ${readiness.abstracts}/${readiness.total}；摘要补齐后自动进入翻译。`
+          : `中文翻译中 · ${readiness.translations}/${readiness.total}；整理完成后即可复制发布。`);
+      }
+      const flags = new Set(currentIssue.quality?.flags || []);
+      if (
+        flags.has("official_order_unverified")
+        || flags.has("crossref_provisional_roster")
+      ) {
+        messages.push("内容可用于排版；目录顺序仍待官网来源确认。");
+      }
+      const ageHours = snapshotAgeHours(currentIssue);
+      if (ageHours > 36) {
+        messages.push(`快照已超过 ${Math.floor(ageHours / 24)} 天未更新；发布前请核对期刊官网。`);
+      }
+      readinessNotice.hidden = messages.length === 0;
+      readinessNotice.dataset.state = readiness.ready ? "warning" : "enriching";
+      readinessNotice.textContent = messages.join(" ");
+      publishingButtons.forEach((button) => { button.disabled = !readiness.ready; });
     };
 
     const renderInline = (value) =>
@@ -472,6 +504,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
     const renderPicker = () => {
       if (!currentIssue) return;
+      if (!currentIssue.articles?.length) {
+        renderPickerMessage("本期没有可用于发布的研究论文。", "empty");
+        return;
+      }
       picker.innerHTML = orderedIssueArticles(currentIssue).map((article, index) => `
         <div class="article-choice" draggable="true" data-paper-id="${escapeHtml(article.paper_id)}">
           <span class="drag-handle" aria-hidden="true">⋮⋮</span>
@@ -528,6 +564,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       const journals = collection.journals.filter(
         (journal) => journal.latest_issue_url || journal.latest_detected_issue_url
       );
+      if (!journals.length) throw new Error("当前没有可用期刊快照");
       journalSelect.innerHTML = journals.map((journal) =>
         `<option value="${escapeHtml(journal.journal_id)}">${escapeHtml(journal.short_name)}</option>`
       ).join("");
@@ -556,7 +593,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         historyCache.set(journal.journal_id, fetch(url).then((response) => {
           if (!response.ok) throw new Error(`HTTP ${response.status}`);
           return response.json();
-        }).then((payload) => payload.issues || []).catch(() => []));
+        }).then((payload) => payload.issues || []).catch((error) => {
+          saveStatus.textContent = `历史卷期暂不可用：${error.message}；仍可载入最新一期`;
+          return [];
+        }));
       }
       return historyCache.get(journal.journal_id);
     };
@@ -605,6 +645,14 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     };
 
     const paintIssueOptions = (issues, preferredUrl = "") => {
+      if (!issues.length) {
+        issueSelect.innerHTML = '<option value="">暂无可用卷期</option>';
+        issueSelect.disabled = true;
+        issueSelect.title = "暂无可用卷期";
+        document.querySelector("#load-current").disabled = true;
+        if (!currentIssue) renderPickerMessage("该期刊暂无可用于 Composer 的卷期。", "empty");
+        return;
+      }
       issueSelect.innerHTML = issues.map((issue) =>
         `<option value="${escapeHtml(issue.url)}" data-issue-id="${escapeHtml(issue.id)}" data-status="${escapeHtml(issue.status)}">${issue.latest ? "最新 · " : ""}${escapeHtml(issue.label)}</option>`
       ).join("");
@@ -638,7 +686,12 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       const issueUrl = issueSelect.value || journal?.latest_issue_url;
       if (!issueUrl) throw new Error("该期刊尚无可用数据");
       saveStatus.textContent = `正在载入 ${journal.short_name}…`;
+      picker.setAttribute("aria-busy", "true");
+      renderPickerMessage("正在载入卷期与论文…", "loading");
       currentIssue = await fetchIssue(issueUrl);
+      if (!Array.isArray(currentIssue.articles) || !currentIssue.articles.length) {
+        throw new Error("本期没有可用于发布的研究论文");
+      }
       const selectedOption = issueSelect.options[issueSelect.selectedIndex];
       if (selectedOption && issueSelect.options.length === 1) {
         selectedOption.textContent = `${issueLabel(currentIssue)}（最新）`;
@@ -649,6 +702,14 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       updatePreview();
       renderReadiness();
       saveLocal();
+      picker.setAttribute("aria-busy", "false");
+    };
+
+    const reportLoadFailure = (error) => {
+      picker.setAttribute("aria-busy", "false");
+      renderPickerMessage("载入失败，请稍后重试或切换期刊。", "error");
+      publishingButtons.forEach((button) => { button.disabled = true; });
+      saveStatus.textContent = `载入失败：${error.message}`;
     };
 
     const download = (name, type, content) => {
@@ -703,23 +764,22 @@ const base = import.meta.env.BASE_URL.endsWith("/")
             "text/plain": new Blob([text], { type: "text/plain" }),
           }),
         ]);
+        saveStatus.textContent = "富文本已复制，可粘贴到微信后台";
+      } else if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(text);
+        saveStatus.textContent = "当前浏览器仅支持纯文本剪贴板，已复制正文";
       } else {
-        const range = document.createRange();
-        range.selectNodeContents(preview);
-        const selection = window.getSelection();
-        selection.removeAllRanges();
-        selection.addRange(range);
-        document.execCommand("copy");
-        selection.removeAllRanges();
+        throw new Error("浏览器未开放剪贴板权限，请改用导出 HTML");
       }
-      saveStatus.textContent = "富文本已复制，可粘贴到微信后台";
     };
 
     editor.addEventListener("input", () => {
       updatePreview();
       scheduleSave();
     });
-    document.querySelector("#load-current").addEventListener("click", () => loadIssue());
+    document.querySelector("#load-current").addEventListener("click", () =>
+      loadIssue().catch(reportLoadFailure)
+    );
     journalSelect.addEventListener("change", () => renderIssueOptions().catch((error) => {
       saveStatus.textContent = `卷期载入失败：${error.message}`;
     }));
@@ -817,8 +877,13 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       })
     );
     document.querySelector("#copy-markdown").addEventListener("click", async () => {
-      await navigator.clipboard.writeText(editor.value);
-      saveStatus.textContent = "Markdown 已复制";
+      try {
+        if (!navigator.clipboard?.writeText) throw new Error("浏览器未开放剪贴板权限");
+        await navigator.clipboard.writeText(editor.value);
+        saveStatus.textContent = "Markdown 已复制";
+      } catch (error) {
+        saveStatus.textContent = `复制失败：${error.message}`;
+      }
     });
     document.querySelector("#export-markdown").addEventListener("click", () =>
       download("academic-door-draft.md", "text/markdown;charset=utf-8", editor.value)
@@ -891,6 +956,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
     syncStyleControls();
     initialize().catch((error) => {
+      reportLoadFailure(error);
       saveStatus.textContent = `期刊载入失败：${error.message}`;
     });
   </script>

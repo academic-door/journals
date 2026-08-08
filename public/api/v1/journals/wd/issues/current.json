@@ -8,9 +8,9 @@
   "issue_label": "Vol. 206",
   "publication_date": "October 2026",
   "source_url": "https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C",
-  "retrieved_at": "2026-07-26T18:30:34+00:00",
-  "expected_article_count": 20,
-  "research_article_count": 20,
+  "retrieved_at": "2026-08-08T11:58:09+00:00",
+  "expected_article_count": 19,
+  "research_article_count": 19,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
@@ -35,7 +35,30 @@
         "issue": "https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C",
         "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/wdevel/v206y2026ics0305750x26001002.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "abstract_en": "official-sciencedirect-issue",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17856,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17856,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
+        }
       },
       "translation": {
         "status": "complete",
@@ -43,9 +66,16 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T19:46:35+00:00"
+        "translated_at": "2026-07-26T19:46:35+00:00",
+        "source_hash": "89724e81a7e6f6e7b0038f11503100e4cbd55b75e9646e0533b24318fd18f8be"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.worlddev.2026.107449",
@@ -67,7 +97,30 @@
         "issue": "https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C",
         "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/wdevel/v206y2026ics0305750x26001385.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "abstract_en": "official-sciencedirect-issue",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17855,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17855,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
+        }
       },
       "translation": {
         "status": "complete",
@@ -75,9 +128,16 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T19:46:44+00:00"
+        "translated_at": "2026-07-26T19:46:44+00:00",
+        "source_hash": "745875972576e6f9f8dc26cb3922837620228b40dd72e8f0f6c8335b3eeaa876"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.worlddev.2026.107450",
@@ -100,7 +160,30 @@
         "issue": "https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C",
         "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/wdevel/v206y2026ics0305750x26001397.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "abstract_en": "official-sciencedirect-issue",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17854,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17854,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
+        }
       },
       "translation": {
         "status": "complete",
@@ -108,47 +191,20 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T19:46:53+00:00"
+        "translated_at": "2026-07-26T19:46:53+00:00",
+        "source_hash": "73324441103748437ed73aad9cac067542b19b372a9397059b64af203f3f6bcb"
       },
-      "quality_flags": []
-    },
-    {
-      "paper_id": "doi:10.1016/j.worlddev.2026.107451",
-      "sequence": 4,
-      "source_sequence": 4,
-      "article_type": "research-article",
-      "title_en": "No need to wait for reporting − Examining learning from results-based management practices in development cooperation",
-      "title_cn": "无需等待报告 − 研究发展合作中基于结果管理实践的学习",
-      "authors": [
-        "Janet Vähämäki",
-        "Annika Hilgert",
-        "Kathrin Wolf",
-        "Martin Bruder"
-      ],
-      "abstract_en": "With today’s shrinking budgets for development cooperation and criticism that International Development Cooperation Organizations (IDOs) often fail to use performance data to inform decision-making, it is essential to know if and how IDOs learn from their results-based management (RBM) practices. Learning is typically assumed to happen in a cyclical RBM learning loop. Learning is supposed to occur in the final stage of the loop when reporting should inform future decisions. We propose a new heuristic model for learning and observe that learning from results is, in fact, taking place in IDOs, but not in the way previously envisaged. Drawing on qualitative semi-structured interviews with 15 IDOs, we conclude that learning takes place at earlier stages of the RBM cycle, and that the strongest link to learning is in the first stage of planning and forecasting. Moreover, we observe that artifacts, interactive and dynamic dialogue, and drawing on various knowledge sources are key characteristics of learning from results practices. Beyond these, we consider Theories of Change as an artifact to be more likely to enable learning than other artifacts like reports as they visualize how problems will be turned into desirable futures and often mobilize staff in interactive processes. These findings should inform efforts to improve future RBM models to enable learning from results in IDOs by putting more effort into using results information in decision-making, streamlining RBM processes, and providing additional support for processes during the first stage of the RBM loop.",
-      "abstract_cn": "在当今发展合作预算缩减和国际发展合作组织（IDOs）常常未能利用绩效数据来指导决策的批评背景下，了解IDOs是否以及如何从其基于结果管理（RBM）实践中学习至关重要。学习通常被假定发生在循环的RBM学习循环中。学习应该在循环的最后阶段发生，此时报告应为未来的决策提供信息。我们提出了一种新的启发式学习模型，并观察到IDOs实际上确实在从结果中学习，但并不是以先前设想的方式。通过对15 IDOs进行定性半结构化访谈，我们得出结论，学习发生在RBM周期的早期阶段，并且与学习的最强联系在于第一的规划和预测阶段。此外，我们观察到，文物、互动和动态对话以及利用各种知识来源是从结果实践中学习的关键特征。除此之外，我们认为变革理论作为一种文物比其他文物（如报告）更可能促进学习，因为它们可视化问题如何转变为理想的未来，并且通常在互动过程中动员员工。这些发现应为改善未来RBM模型提供信息，以便通过更加努力地在决策中使用结果信息、简化RBM流程以及在RBM循环的第一阶段为过程提供额外支持，从而促进IDOs从结果中学习。",
-      "doi": "10.1016/j.worlddev.2026.107451",
-      "source_url": "https://ideas.repec.org/a/eee/wdevel/v206y2026ics0305750x26001403.html",
-      "publication_date": "2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/eee/wdevel/v206y2026ics0305750x26001403.html",
-        "abstract_en": "official-sciencedirect-issue"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "github-models",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T19:47:02+00:00"
-      },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.worlddev.2026.107452",
-      "sequence": 5,
+      "sequence": 4,
       "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "Long panel studies of small-scale rural societies in the Global South: What is their value, why are they rare, and suggestions to make them happen",
@@ -171,7 +227,30 @@
         "issue": "https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C",
         "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/wdevel/v206y2026ics0305750x26001415.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "abstract_en": "official-sciencedirect-issue",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17852,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17852,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
+        }
       },
       "translation": {
         "status": "complete",
@@ -179,13 +258,20 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T19:47:13+00:00"
+        "translated_at": "2026-07-26T19:47:13+00:00",
+        "source_hash": "363dbe1fcb575c323395ceecb114c69fc2e3d784c25d42c268ecabbe6b68fbd8"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.worlddev.2026.107453",
-      "sequence": 6,
+      "sequence": 5,
       "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "FDI and coal lock-in: The Global South’s development dilemma",
@@ -204,7 +290,30 @@
         "issue": "https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C",
         "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/wdevel/v206y2026ics0305750x26001427.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "abstract_en": "official-sciencedirect-issue",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17851,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17851,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
+        }
       },
       "translation": {
         "status": "complete",
@@ -212,13 +321,20 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T19:47:18+00:00"
+        "translated_at": "2026-07-26T19:47:18+00:00",
+        "source_hash": "b6ce147d81eded97bcc09bb8984e4386a321c9360c5737e787ffbe32ba2cb788"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.worlddev.2026.107454",
-      "sequence": 7,
+      "sequence": 6,
       "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "Unintended consequences of externally aided projects on fiscal transfers: a subnational study of India",
@@ -236,7 +352,30 @@
         "issue": "https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C",
         "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/wdevel/v206y2026ics0305750x26001439.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "abstract_en": "official-sciencedirect-issue",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17850,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17850,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
+        }
       },
       "translation": {
         "status": "complete",
@@ -244,13 +383,20 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T19:47:27+00:00"
+        "translated_at": "2026-07-26T19:47:27+00:00",
+        "source_hash": "fe4b3a5a4be3a1464a620f34a25d7941139beb922b1b035b318c9ff5fe211801"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.worlddev.2026.107455",
-      "sequence": 8,
+      "sequence": 7,
       "source_sequence": 8,
       "article_type": "research-article",
       "title_en": "Corporate governance in microfinance institutions: A systematic review of theoretical perspectives, methodological approaches, and empirical evidence",
@@ -269,7 +415,30 @@
         "issue": "https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C",
         "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/wdevel/v206y2026ics0305750x26001440.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "abstract_en": "official-sciencedirect-issue",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17849,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17849,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
+        }
       },
       "translation": {
         "status": "complete",
@@ -277,13 +446,20 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "mistral-ai/mistral-medium-2505",
-        "translated_at": "2026-07-26T20:14:30+00:00"
+        "translated_at": "2026-07-26T20:14:30+00:00",
+        "source_hash": "d13cadee37c6b14c31e2117f814d2c06355e9337abb4eecb45ba4345d7323555"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.worlddev.2026.107456",
-      "sequence": 9,
+      "sequence": 8,
       "source_sequence": 9,
       "article_type": "research-article",
       "title_en": "The mobilization curse? How oil wealth affects the composition of resistance episodes",
@@ -301,7 +477,30 @@
         "issue": "https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C",
         "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/wdevel/v206y2026ics0305750x26001452.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "abstract_en": "official-sciencedirect-issue",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17848,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17848,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
+        }
       },
       "translation": {
         "status": "complete",
@@ -309,13 +508,20 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T19:48:11+00:00"
+        "translated_at": "2026-07-26T19:48:11+00:00",
+        "source_hash": "5abcb60badd1f8b0aab6b557df3b1e1edf9824f87019abe939c0cfbf58bc3c3e"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.worlddev.2026.107457",
-      "sequence": 10,
+      "sequence": 9,
       "source_sequence": 10,
       "article_type": "research-article",
       "title_en": "Is there a business case for banks to increase lending to women and women-led firms? Cross-country evidence on financial performance",
@@ -332,7 +538,30 @@
         "issue": "https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C",
         "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/wdevel/v206y2026ics0305750x26001464.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "abstract_en": "official-sciencedirect-issue",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17847,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17847,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
+        }
       },
       "translation": {
         "status": "complete",
@@ -340,13 +569,20 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "mistral-ai/mistral-medium-2505",
-        "translated_at": "2026-07-26T20:15:09+00:00"
+        "translated_at": "2026-07-26T20:15:09+00:00",
+        "source_hash": "5fda1067946a5770f03fd249f08afbce2face40c4faa27dd6f26efc2bcf39c8e"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.worlddev.2026.107458",
-      "sequence": 11,
+      "sequence": 10,
       "source_sequence": 11,
       "article_type": "research-article",
       "title_en": "Informal institutions and global trade: Real effects of the elusive",
@@ -363,7 +599,30 @@
         "issue": "https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C",
         "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/wdevel/v206y2026ics0305750x26001476.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "abstract_en": "official-sciencedirect-issue",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17846,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17846,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
+        }
       },
       "translation": {
         "status": "complete",
@@ -371,13 +630,20 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T19:48:54+00:00"
+        "translated_at": "2026-07-26T19:48:54+00:00",
+        "source_hash": "a3701be0a0c7037c9a30550fc11967a2018a5ad3a61a25d9a7d8baed645237ac"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.worlddev.2026.107459",
-      "sequence": 12,
+      "sequence": 11,
       "source_sequence": 12,
       "article_type": "research-article",
       "title_en": "Patrilocal residence and young women’s status: Evidence from Sri Lanka",
@@ -395,7 +661,30 @@
         "issue": "https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C",
         "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/wdevel/v206y2026ics0305750x26001488.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "abstract_en": "official-sciencedirect-issue",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17845,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17845,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
+        }
       },
       "translation": {
         "status": "complete",
@@ -403,13 +692,20 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T19:49:03+00:00"
+        "translated_at": "2026-07-26T19:49:03+00:00",
+        "source_hash": "7002e6ec58862407ca844d0b70e53fba69b6c7e9dcf9c78014ae98337e535fa4"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.worlddev.2026.107461",
-      "sequence": 13,
+      "sequence": 12,
       "source_sequence": 13,
       "article_type": "research-article",
       "title_en": "The impact of trade integration on the business cycles synchronization in West African Countries: Implications for the AfCFTA",
@@ -429,7 +725,30 @@
         "issue": "https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C",
         "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/wdevel/v206y2026ics0305750x26001506.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "abstract_en": "official-sciencedirect-issue",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17844,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17844,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
+        }
       },
       "translation": {
         "status": "complete",
@@ -437,13 +756,22 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "mistral-ai/mistral-medium-2505",
-        "translated_at": "2026-07-26T20:15:33+00:00"
+        "translated_at": "2026-07-26T20:15:33+00:00",
+        "source_hash": "ca8cec72c5a8f52e503352ace4f3e45b12b54cbd75dc2051400e42e2c9394d18"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "大陆"
+        ],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.worlddev.2026.107462",
-      "sequence": 14,
+      "sequence": 13,
       "source_sequence": 14,
       "article_type": "research-article",
       "title_en": "Brazil’s pacifying police units revisited: A failed democratic policing project and lessons for institutional reforms",
@@ -461,7 +789,30 @@
         "issue": "https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C",
         "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/wdevel/v206y2026ics0305750x26001518.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "abstract_en": "official-sciencedirect-issue",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17843,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17843,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
+        }
       },
       "translation": {
         "status": "complete",
@@ -469,13 +820,20 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T19:49:40+00:00"
+        "translated_at": "2026-07-26T19:49:40+00:00",
+        "source_hash": "7f2e292b5945e8f38aae20c2f10929a0f4e86699443c759f1a1a19a28ed736d6"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.worlddev.2026.107464",
-      "sequence": 15,
+      "sequence": 14,
       "source_sequence": 15,
       "article_type": "research-article",
       "title_en": "Diamonds aren’t forever: manufactured substitutes, irreversible substitution, and the new resource curse",
@@ -492,7 +850,30 @@
         "issue": "https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C",
         "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/wdevel/v206y2026ics0305750x26001531.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "abstract_en": "official-sciencedirect-issue",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17842,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17842,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
+        }
       },
       "translation": {
         "status": "complete",
@@ -500,13 +881,20 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T19:49:48+00:00"
+        "translated_at": "2026-07-26T19:49:48+00:00",
+        "source_hash": "078fb2e4e6d9bb57d3186ea220b84850aa2c322464a32a1560f9112db82d87cd"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.worlddev.2026.107465",
-      "sequence": 16,
+      "sequence": 15,
       "source_sequence": 16,
       "article_type": "research-article",
       "title_en": "The disconnects between trade policy and the rhetoric of inclusive trade December 2025",
@@ -526,7 +914,30 @@
         "issue": "https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C",
         "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/wdevel/v206y2026ics0305750x26001543.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "abstract_en": "official-sciencedirect-issue",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17841,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17841,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
+        }
       },
       "translation": {
         "status": "complete",
@@ -534,13 +945,20 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "microsoft/phi-4",
-        "translated_at": "2026-07-26T20:54:20+00:00"
+        "translated_at": "2026-07-26T20:54:20+00:00",
+        "source_hash": "ec9c935369e8936094f5b37c2307f2d1a70ed1935e724c1de19469bd24f923d7"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.worlddev.2026.107466",
-      "sequence": 17,
+      "sequence": 16,
       "source_sequence": 17,
       "article_type": "research-article",
       "title_en": "Heat after the Harvest: Farmer Choices and Perceptions of Crop Residue Burning in Thailand",
@@ -560,7 +978,30 @@
         "issue": "https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C",
         "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/wdevel/v206y2026ics0305750x26001555.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "abstract_en": "official-sciencedirect-issue",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17840,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17840,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
+        }
       },
       "translation": {
         "status": "complete",
@@ -568,13 +1009,20 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T19:50:37+00:00"
+        "translated_at": "2026-07-26T19:50:37+00:00",
+        "source_hash": "1b6ef22c578273224939feadc96c257ed704efff9106829be4d6e4d7fd006662"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.worlddev.2026.107467",
-      "sequence": 18,
+      "sequence": 17,
       "source_sequence": 18,
       "article_type": "research-article",
       "title_en": "Not gone with the wind: Long-run impact of herbicidal warfare in Vietnam",
@@ -593,7 +1041,30 @@
         "issue": "https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C",
         "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/wdevel/v206y2026ics0305750x26001567.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "abstract_en": "official-sciencedirect-issue",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17839,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17839,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
+        }
       },
       "translation": {
         "status": "complete",
@@ -601,13 +1072,20 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T19:50:45+00:00"
+        "translated_at": "2026-07-26T19:50:45+00:00",
+        "source_hash": "bd0ff1b8e567a982465cf73b303c72a027d7312367ab1d5f469438a2f2abf10e"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.worlddev.2026.107468",
-      "sequence": 19,
+      "sequence": 18,
       "source_sequence": 19,
       "article_type": "research-article",
       "title_en": "Here comes the rain: Precipitation shocks and economic outcomes in Ecuador",
@@ -626,7 +1104,30 @@
         "issue": "https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C",
         "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/wdevel/v206y2026ics0305750x26001579.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "abstract_en": "official-sciencedirect-issue",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17838,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17838,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
+        }
       },
       "translation": {
         "status": "complete",
@@ -634,13 +1135,20 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T19:50:52+00:00"
+        "translated_at": "2026-07-26T19:50:52+00:00",
+        "source_hash": "021898430fac0c7a5abb6fbdd9e8b35f47e09dc020ee59c6f5746458857445f0"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.worlddev.2026.107469",
-      "sequence": 20,
+      "sequence": 19,
       "source_sequence": 20,
       "article_type": "research-article",
       "title_en": "EU climate aid and trade interests: strategy or byproduct of closer ties?",
@@ -658,7 +1166,30 @@
         "issue": "https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C",
         "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/wdevel/v206y2026ics0305750x26001580.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "abstract_en": "official-sciencedirect-issue",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17837,
+                "resets_at": "2026-08-05T02:00:21+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17837,
+            "resets_at": "2026-08-05T02:00:21+00:00",
+            "els_status": "OK"
+          }
+        }
       },
       "translation": {
         "status": "complete",
@@ -666,27 +1197,69 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T19:51:00+00:00"
+        "translated_at": "2026-07-26T19:51:00+00:00",
+        "source_hash": "a5480766122db3c8d3434dd5dd60c6541b651da7158afb5357cad58d426428af"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     }
   ],
   "quality": {
     "roster_match": true,
     "order_preserved": true,
     "official_item_count": 20,
-    "excluded_item_count": 0,
-    "excluded_items": [],
-    "doi_complete": 20,
-    "authors_complete": 20,
-    "abstract_en_complete": 20,
-    "translation_complete": 20,
+    "excluded_item_count": 1,
+    "excluded_items": [
+      {
+        "title_en": "No need to wait for reporting − Examining learning from results-based management practices in development cooperation",
+        "doi": "10.1016/j.worlddev.2026.107451",
+        "article_type": "editorial",
+        "reason": "editorial_material"
+      }
+    ],
+    "doi_complete": 19,
+    "authors_complete": 19,
+    "abstract_en_complete": 19,
+    "translation_complete": 19,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_repec_fallback",
       "repec_publisher_supplied_roster",
       "official_order_unverified"
     ],
-    "official_issue_fetch_error": "request failed for https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C: 403 Client Error: Forbidden for url: https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C"
-  }
+    "official_issue_fetch_error": "request failed for https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C: 403 Client Error: Forbidden for url: https://www.sciencedirect.com/journal/world-development/vol/206/suppl/C",
+    "publishable_item_count": 19,
+    "content_counts": {
+      "official_items": 20,
+      "observed_items": 20,
+      "publishable_items": 19,
+      "research_articles": 19,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 1,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 19
+    }
+  },
+  "content_counts": {
+    "official_items": 20,
+    "observed_items": 20,
+    "publishable_items": 19,
+    "research_articles": 19,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 1,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 19
+  },
+  "publication_state": "ready"
 }

@@ -5,7 +5,7 @@
   "journal_name": "Environmental and Resource Economics",
   "volume": "89",
   "issue": "8",
-  "issue_label": "Vol. 89",
+  "issue_label": "Vol. 89 · No. 8",
   "publication_date": "April 2026",
   "source_url": "https://link.springer.com/journal/10640/volumes-and-issues",
   "retrieved_at": "2026-07-26T18:21:40+00:00",
@@ -45,7 +45,13 @@
         "model": "openai/gpt-4.1-nano",
         "translated_at": "2026-07-26T20:10:02+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1007/s10640-026-01102-4",
@@ -80,7 +86,13 @@
         "model": "openai/gpt-4.1-nano",
         "translated_at": "2026-07-26T20:10:08+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1007/s10640-026-01101-5",
@@ -113,7 +125,13 @@
         "model": "mistral-ai/mistral-medium-2505",
         "translated_at": "2026-07-26T20:39:28+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1007/s10640-026-01092-3",
@@ -147,7 +165,13 @@
         "model": "openai/gpt-4.1-nano",
         "translated_at": "2026-07-26T20:10:42+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     }
   ],
   "quality": {
@@ -158,8 +182,9 @@
     "excluded_items": [
       {
         "title_en": "Correction to: How Effective are Intermittent Energy Reports? Evidence from a Long-Term Behavioral Intervention in Energy Conservation",
-        "reason": "non_research_title",
-        "doi": "10.1007/s10640-026-01104-2"
+        "reason": "correction_notice",
+        "doi": "10.1007/s10640-026-01104-2",
+        "article_type": "correction"
       }
     ],
     "doi_complete": 4,
@@ -172,6 +197,33 @@
       "repec_publisher_supplied_roster",
       "official_order_unverified"
     ],
-    "official_issue_fetch_error": ""
+    "official_issue_fetch_error": "",
+    "publishable_item_count": 4,
+    "content_counts": {
+      "official_items": 5,
+      "observed_items": 5,
+      "publishable_items": 4,
+      "research_articles": 4,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 1,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 5
+    }
+  },
+  "content_counts": {
+    "official_items": 5,
+    "observed_items": 5,
+    "publishable_items": 4,
+    "research_articles": 4,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 1,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 5
   }
 }

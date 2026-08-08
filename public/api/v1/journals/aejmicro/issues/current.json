@@ -1,33 +1,33 @@
 {
   "schema_version": "1.0",
-  "issue_id": "aejmicro-18-2",
+  "issue_id": "aejmicro-18-3",
   "journal_id": "aejmicro",
   "journal_name": "American Economic Journal: Microeconomics",
   "volume": "18",
-  "issue": "2",
-  "publication_date": "May 2026",
+  "issue": "3",
+  "publication_date": "August 2026",
   "source_url": "https://www.aeaweb.org/journals/mic/current-issue",
-  "retrieved_at": "2026-07-26T18:28:50+00:00",
-  "expected_article_count": 13,
-  "research_article_count": 13,
+  "retrieved_at": "2026-08-08T11:56:58+00:00",
+  "expected_article_count": 14,
+  "research_article_count": 14,
   "status": "ready",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1257/mic.20240239",
+      "paper_id": "doi:10.1257/mic.20240324",
       "sequence": 1,
       "source_sequence": 2,
       "article_type": "research-article",
-      "title_en": "A Measure of Behavioral Heterogeneity",
-      "title_cn": "行为异质性的度量",
+      "title_en": "Optimal Design of Market Access",
+      "title_cn": "市场准入优化设计",
       "authors": [
-        "Jose Apesteguia",
-        "Miguel A. Ballester"
+        "Takuro Yamashita",
+        "Shuguang Zhu"
       ],
-      "abstract_en": "In this paper, we propose a novel way to measure behavioral heterogeneity in a population of stochastic individuals. Our measure is choice-based; it evaluates the probability that, over a randomly selected menu, the sampled choices of two sampled individuals differ. We provide axiomatic foundations for this measure and a decomposition result that separates heterogeneity into its intrapersonal and interpersonal components.",
-      "abstract_cn": "本文提出了一种测量随机个体群体中行为异质性的全新方法。我们的度量基于选择；它评估在随机选取的菜单上，抽样的二个体的选择存在差异的概率。我们为该度量提供了公理基础，并给出了一个分解结果，将异质性分解为个体内和个体间两个组成部分。",
-      "doi": "10.1257/mic.20240239",
-      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mic.20240239",
+      "abstract_en": "We study a data provider's problem of optimally designing and selling marketing lists that enable a retailer with private types to access consumers with heterogeneous characteristics. When virtual values satisfy a particular form of convexity (named boundary dominance), under certain regularity conditions, the optimal mechanism comprises fully revealing marketing lists, irrespective of whether the retailer's types are vertically or horizontally ordered. Moreover, in the vertical case, the optimal mechanism allows a simple \"fixed-price\" implementation. In the horizontal case, it exhibits no-exclusion and rotation properties. Conversely, if boundary dominance is violated, the optimal mechanism may not be fully revealing.",
+      "abstract_cn": "我们研究了数据提供商优化设计和销售营销列表的问题，使具有私有类型的零售商能够接触具有异构特征的消费者。当虚拟价值满足特定形式的凸性（称为边界优势）时，在一定的规律性条件下，最优机制包括充分揭示营销清单，无论零售商的类型是垂直排序还是水平排序。此外，在垂直情况下，最优机制允许简单的“固定价格”实施。在水平情况下，它表现出不排除和旋转属性。相反，如果边界优势被侵犯，最优机制可能无法完全揭示。",
+      "doi": "10.1257/mic.20240324",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mic.20240324",
       "publication_date": "",
       "sources": {
         "inventory": "official-issue-page",
@@ -38,28 +38,38 @@
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:54:28+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-29T16:21:31+00:00",
+        "source_hash": "aa2cf3542d9f11e968ef28f0cc3ef95b41936dfcbcbc2e812e3524d2a921b682"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1257/mic.20240045",
+      "paper_id": "doi:10.1257/mic.20240380",
       "sequence": 2,
       "source_sequence": 3,
       "article_type": "research-article",
-      "title_en": "Quality and Imperfect Competition",
-      "title_cn": "质量与不完全竞争",
+      "title_en": "The Effects of Sin Taxes and Advertising Restrictions in a Dynamic Equilibrium",
+      "title_cn": "动态平衡中罪恶税和广告限制的影响",
       "authors": [
-        "Germain Gaudin"
+        "Rossi Abi-Rafeh",
+        "Pierre Dubois",
+        "Rachel Griffith",
+        "Martin O'Connell"
       ],
-      "abstract_en": "We study quality distortions when firms hold market power. We develop a model allowing for flexible functional forms of demand in order to extend Spence's (1975) monopoly analysis to imperfect competition. We show that quality distortions are determined by a competition effect that captures the externality a firm exerts on its competitors when raising both its price and its quality, in addition to Spence's (1975) effect related to the shape of total market demand. Our approach also allows us to analyze the effects of commodity taxation and technology shocks on the equilibrium allocation when firms compete in prices and qualities.",
-      "abstract_cn": "我们研究了企业拥有市场力量时的质量扭曲。我们构建了一个允许需求函数形式灵活的模型，以将Spence（1975）的垄断分析扩展到不完全竞争。我们表明，质量扭曲由一种竞争效应决定，该效应捕捉了企业在同时提高价格和质量时对竞争对手施加的外部性，此外还有Spence（1975）关于总市场需求形状的效应。我们的方法还使我们能够分析在企业以价格和质量竞争时，商品税收和技术冲击对均衡配置的影响。",
-      "doi": "10.1257/mic.20240045",
-      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mic.20240045",
+      "abstract_en": "We develop a dynamic equilibrium model of firm competition to analyze the effects of counterfactual policies, such as taxes and advertising restrictions, on pricing, advertising, consumption, and welfare. Using micro-level data, we estimate how consumer exposure to television commercials influences product choice and model firms' strategic competition over advertising budgets and pricing. We exploit firms' practice of delegating advertising slot decisions to agencies to link consumer-level advertising variation to firms' strategic choices. Our results show that a sugar-sweetened beverage tax reduces advertising, while the additional impact of advertising restrictions is significantly weaker when a tax is already in place.",
+      "abstract_cn": "我们开发了企业竞争的动态均衡模型来分析反事实政策（例如税收和广告限制）对定价、广告、消费和福利的影响。使用微观数据，我们估计消费者对电视广告的接触如何影响产品选择以及模型公司在广告预算和定价方面的战略竞争。我们利用公司将广告时段决策委托给代理机构的做法，将消费者层面的广告变化与公司的战略选择联系起来。我们的研究结果表明，含糖饮料税减少了广告，而当税收已经到位时，广告限制的额外影响就会明显减弱。",
+      "doi": "10.1257/mic.20240380",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mic.20240380",
       "publication_date": "",
       "sources": {
         "inventory": "official-issue-page",
@@ -70,32 +80,36 @@
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:54:36+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-29T16:21:32+00:00",
+        "source_hash": "7c91a40d12a10defdbd04d77f137498ae7e6b0e6aee7e77e7b5cea45f2508453"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1257/mic.20240053",
+      "paper_id": "doi:10.1257/mic.20240219",
       "sequence": 3,
       "source_sequence": 4,
       "article_type": "research-article",
-      "title_en": "The Organization of Innovation: Incomplete Contracts and the Outsourcing Decision",
-      "title_cn": "创新的组织形式：不完全合同与外包决策",
+      "title_en": "Exploiting Rivals' Strengths",
+      "title_cn": "利用竞争对手的优势",
       "authors": [
-        "Thomas Jungbauer",
-        "Sean Nicholson",
-        "June Pan",
-        "Michael Waldman",
-        "Lucy Xiaolu Wang"
+        "Giacomo Calzolari",
+        "Vincenzo Denicolò"
       ],
-      "abstract_en": "Why do firms outsource research and development (R&D) for some products while conducting R&D in-house for similar ones? An innovating firm risks cannibalizing its existing products. The more profitable these products, the more the firm wants to limit cannibalization. We apply this logic to the organization of R&D by introducing a novel theoretical model in which developing in-house provides the firm more control over the new product's location in product space. An empirical analysis of our testable predictions using pharmaceutical data concerning patents, patent expiration, and outsourcing at various stages of the R&D process supports our theoretical approach.",
-      "abstract_cn": "为什么企业会对某些产品的研发（R&D）选择外包，而对类似产品则进行内部研发？创新企业面临其新产品可能蚕食现有产品市场的风险。现有产品越有利可图，企业越希望限制这种蚕食。我们将这一逻辑应用于研发组织，提出一个新颖的理论模型，其中内部开发使企业能够更好地控制新产品在产品空间中的位置。基于制药行业关于专利、专利到期及研发过程各阶段外包的数据，我们对模型的可检验预测进行了实证分析，结果支持我们的理论方法。",
-      "doi": "10.1257/mic.20240053",
-      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mic.20240053",
+      "abstract_en": "We analyze oligopolistic competition in which firms use contracts contingent on what buyers purchase from their rivals. We present a new mechanism through which a dominant firm, by using these contracts, can gain more from exploiting its rivals than from foreclosing them. This exploitation is achieved by requiring buyers to source at least a certain share of their total requirements from the dominant firm, though less than 100 percent. By optimally designing these contracts, the dominant firm can earn as much as it would if it were to acquire the rivals' specific technological and marketing capabilities at no cost.",
+      "abstract_cn": "我们分析了寡头垄断竞争，在这种竞争中，企业使用的合同取决于买家从竞争对手那里购买的商品。我们提出了一种新的机制，通过这种机制，占主导地位的公司通过使用这些合同，可以从剥削竞争对手中获得更多收益，而不是通过排除竞争对手获得更多收益。这种剥削是通过要求购买者从占主导地位的公司采购其总需求中至少一定比例（尽管少于[[100%]）来实现的。通过优化设计这些合同，占主导地位的公司可以获得与免费获得竞争对手特定技术和营销能力一样多的收入。",
+      "doi": "10.1257/mic.20240219",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mic.20240219",
       "publication_date": "",
       "sources": {
         "inventory": "official-issue-page",
@@ -106,30 +120,36 @@
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:54:44+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-29T16:21:33+00:00",
+        "source_hash": "61cbd55244ed48b3fefc0c5950199766bf100f3823b51c5a161e29dc56165551"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1257/mic.20240280",
+      "paper_id": "doi:10.1257/mic.20240346",
       "sequence": 4,
       "source_sequence": 5,
       "article_type": "research-article",
-      "title_en": "Self-Enforced Job Matching",
-      "title_cn": "自我执行的职位匹配",
+      "title_en": "Higher-Order Beliefs and (Mis)learning from Prices",
+      "title_cn": "高阶信念和从价格中学习（错误）",
       "authors": [
-        "Ce Liu",
-        "Ziwei Wang",
-        "Hanzhe Zhang"
+        "Kevin He",
+        "Jonathan Libgober"
       ],
-      "abstract_en": "Complementarities and peer effects are common in matching markets, yet incorporating them often leads to nonexistence of stable matchings. We observe that matching is often an ongoing process rather than a static allocation, where long-lived firms interact over time with short-lived workers. We show that when wages are flexible and firms are sufficiently patient, a dynamically stable solution always exists in many-to-one matching markets—even with complementarities and peer effects. Flexible wages are crucial to our result, as they not only facilitate surplus extraction when firms cooperate in no-poaching agreements but also enhance the threat of punishment through bidding wars.",
-      "abstract_cn": "互补性和同伴效应在匹配市场中普遍存在，然而将其纳入模型常常导致稳定匹配的不存在。我们观察到匹配通常是一个持续进行的过程，而非静态分配，其中长期存在的企业与短期存在的工人随时间互动。我们证明，当工资具有灵活性且企业足够耐心时，在多对多匹配市场中，即使存在互补性和同伴效应，也总存在动态稳定解。工资的灵活性对我们的结果至关重要，因为它不仅促进了企业在无挖角协议中合作时的剩余提取，还通过竞价战增强了惩罚威胁。",
-      "doi": "10.1257/mic.20240280",
-      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mic.20240280",
+      "abstract_en": "We study misperceptions of private-signal correlation in an incomplete-information Cournot duopoly game. Exaggerating the correlation between players' demand signals is beneficial when agents hold flexible beliefs about price elasticity but is harmful when their beliefs are dogmatically correct. For agents with flexible beliefs who learn elasticity by observing prices, correlation misperceptions indirectly distort behavior through elasticity misinference. If agents know the true elasticity, this learning channel is eliminated. Correlation misperceptions have opposite direct and indirect effects on behavior, so the presence of elasticity inference can reverse an error's viability.",
+      "abstract_cn": "我们研究不完全信息古诺双寡头博弈中私人信号相关性的误解。当代理人对价格弹性持有灵活的信念时，夸大参与者需求信号之间的相关性是有益的，但当他们的信念教条地正确时，夸大参与者的需求信号之间的相关性是有害的。对于通过观察价格来学习弹性的具有灵活信念的主体来说，相关性错误感知通过弹性错误推断间接扭曲了行为。如果智能体知道真实的弹性，那么这个学习渠道就被消除了。相关性误解对行为具有相反的直接和间接影响，因此弹性推断的存在可以逆转错误的可行性。",
+      "doi": "10.1257/mic.20240346",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mic.20240346",
       "publication_date": "",
       "sources": {
         "inventory": "official-issue-page",
@@ -140,30 +160,36 @@
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:54:52+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-29T16:21:34+00:00",
+        "source_hash": "15ed465be514e6a2ef698b3c7e966129ebc6939558ba55f1e178a3661269dfa1"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1257/mic.20220232",
+      "paper_id": "doi:10.1257/mic.20240308",
       "sequence": 5,
       "source_sequence": 6,
       "article_type": "research-article",
-      "title_en": "Agency Pricing and Bargaining: Evidence from the E-Book Market",
-      "title_cn": "代理定价与议价：来自电子书市场的证据",
+      "title_en": "Collusion by Exclusion in Public Procurement",
+      "title_cn": "公共采购中的共谋排除",
       "authors": [
-        "Babur De los Santos",
-        "Daniel P. O'Brien",
-        "Matthijs R. Wildenbeest"
+        "Regina Seibel",
+        "Samuel Škoda"
       ],
-      "abstract_en": "This paper studies the pricing implications of wholesale and agency contracts when input terms are determined through bargaining. We develop a structural Nash-in-Nash bargaining model and show that the distribution of bargaining power determines whether agency contracts raise or lower retail prices relative to wholesale contracts. We apply the model to the e-book market, which transitioned from wholesale to agency contracts after the expiration of a ban on agency contracting. Estimates indicate that the retailers have most of the bargaining power. Counterfactual simulations show that most-favored-nation clauses raise prices but would lower the profits of the publishers and Amazon.",
-      "abstract_cn": "本文研究了当投入条款通过议价确定时，批发合同和代理合同的定价影响。我们构建了一个结构性的纳什-纳什议价模型，表明议价权力的分布决定了代理合同相较于批发合同是提高还是降低零售价格。我们将该模型应用于电子书市场，该市场在代理合同禁令到期后从批发合同转向代理合同。估计结果表明零售商拥有大部分议价权。反事实模拟显示，最惠国条款会提高价格，但会降低出版商和亚马逊的利润。",
-      "doi": "10.1257/mic.20220232",
-      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mic.20220232",
+      "abstract_en": "This paper studies bid rigging in auctions with bidder preselection. We develop a theoretical model to analyze the optimal behavior of partial bid-rigging cartels and show how commonly used two-stage auction formats, in which the first stage is used to preselect bidders, may be exploited. Based on our theoretical results, we construct a collusion marker reflecting the optimal cartel strategy and, using administrative data on public procurement auctions in Slovakia, we identify bidders suspected of collusion. We show that bidder preselection allows cartels to exclude competitive rivals and thereby increase procurement costs above what would be possible without preselection.",
+      "abstract_cn": "本文研究了预选投标人的拍卖中的串通投标行为。我们开发了一个理论模型来分析部分串通投标的最佳行为，并展示了如何利用常用的二阶段拍卖格式，其中第一阶段用于预选投标人。根据我们的理论结果，我们构建了一个反映最佳卡特尔策略的共谋标记，并利用斯洛伐克公共采购拍卖的管理数据，识别出涉嫌共谋的投标人。我们表明，投标人预选允许卡特尔排除竞争对手，从而使采购成本增加到高于没有预选的情况下可能达到的水平。",
+      "doi": "10.1257/mic.20240308",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mic.20240308",
       "publication_date": "",
       "sources": {
         "inventory": "official-issue-page",
@@ -174,29 +200,37 @@
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:54:59+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-29T16:21:35+00:00",
+        "source_hash": "a72fb6c5697d8988ad2ca0e305afd4b3103390b5d07ea196617a3d0b8da2793a"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1257/mic.20230285",
+      "paper_id": "doi:10.1257/mic.20230234",
       "sequence": 6,
       "source_sequence": 7,
       "article_type": "research-article",
-      "title_en": "Strategic Evidence Disclosure in Networks and Equilibrium Discrimination",
-      "title_cn": "网络中的战略性证据披露与均衡歧视",
+      "title_en": "Welfare of Competitive Price Discrimination with Captive Consumers",
+      "title_cn": "竞争性价格歧视给消费者带来的好处",
       "authors": [
-        "Leonie Baumann",
-        "Rohan Dutta"
+        "Yanlin Chen",
+        "Xianwen Shi",
+        "Jun Zhang"
       ],
-      "abstract_en": "A group of agents with ex ante independent and identically uncertain quality compete for a prize, awarded by a principal. Agents may possess evidence about the quality of those they share a social connection with (neighbors), and themselves. In one equilibrium, adversarial disclosure of evidence leads the principal to statistically discriminate between agents based on their number of neighbors (degree). We identify parameter values for which an agent's ex ante winning probability is monotone in degree. All equilibria that satisfy some robustness criteria lie between this adversarial disclosure equilibrium and a less informative one that features no snitching and no discrimination.",
-      "abstract_cn": "一组具有事前独立且同分布不确定质量的代理人竞争由委托人颁发的奖项。代理人可能拥有关于其社交连接对象（邻居）及自身质量的证据。在一均衡中，证据的对抗性披露导致委托人基于代理人的邻居数量（度数）进行统计歧视。我们确定了使代理人事前获胜概率关于度数单调的参数值。所有满足某些稳健性标准的均衡介于该对抗性披露均衡与一个信息较少的一均衡之间，后者不涉及告密且不存在歧视。",
-      "doi": "10.1257/mic.20230285",
-      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mic.20230285",
+      "abstract_en": "We study the welfare effects of price discrimination in a duopoly with both captive and contested consumers. Using a unified information design approach, we characterize the best and worst market segmentations for producer surplus, consumer surplus, and social surplus. The firm-optimal segmentation, which divides the market into two nested segments, consistently reduces consumer welfare relative to uniform pricing. The consumer-optimal segmentation, which divides the market into a symmetric segment and a nested segment, may sometimes yield a Pareto improvement but does not necessarily coincide with the social-optimal segmentation.",
+      "abstract_cn": "我们研究了双头垄断中价格歧视对福利的影响，其中既有被俘虏的消费者，也有竞争性的消费者。使用统一的信息设计方法，我们描述了生产者剩余、消费者剩余和社会剩余的最佳和最差市场细分。公司最优细分将市场划分为二嵌套细分，相对于统一定价，持续降低消费者福利。消费者最优细分将市场分为对称细分和嵌套细分，有时可能会产生帕累托改进，但不一定与社会最优细分一致。",
+      "doi": "10.1257/mic.20230234",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mic.20230234",
       "publication_date": "",
       "sources": {
         "inventory": "official-issue-page",
@@ -207,30 +241,36 @@
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:55:08+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-29T16:21:36+00:00",
+        "source_hash": "a243c424cde7c1b4f51d7a3dafac671edf6e71049175a1aeb3bfb6635075e439"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1257/mic.20240245",
+      "paper_id": "doi:10.1257/mic.20240208",
       "sequence": 7,
       "source_sequence": 8,
       "article_type": "research-article",
-      "title_en": "Opportunity Hunters: A Model of Competitive Sequential Inspections",
-      "title_cn": "机会猎手：一种竞争性顺序检查模型",
+      "title_en": "The Combinatorial Multi-Round Ascending Auction",
+      "title_cn": "组合多轮升序拍卖",
       "authors": [
-        "Ran Eilat",
-        "Zvika Neeman",
-        "Eilon Solan"
+        "Bernhard Kasberger",
+        "Alexander Teytelboym"
       ],
-      "abstract_en": "We introduce a new type of games, called \"opportunity-hunting games,\" in which two players compete to discover an uncertain event (\"opportunity\") that occurs at an unobserved and random point in time. Players can inspect whether the event has already occurred again and again, but each inspection is costly. Varying the parameters of the model spans the range from games where competition between the players to be the first to identify the opportunity is the dominant force, to games in which free riding on the other player's effort is the dominant force. We characterize the game's unique symmetric Markov perfect equilibrium.",
-      "abstract_cn": "我们引入了一类新型博弈，称为“机会猎手博弈”，其中二名玩家竞争发现一个不确定事件（“机会”），该事件发生在一个未被观察且随机的时间点。玩家可以反复检查该事件是否已经发生，但每次检查都需要付出成本。通过调整模型参数，可以涵盖从玩家之间竞争成为第一以识别机会的主导力量的博弈，到搭便车于其他玩家努力的主导力量的博弈。我们刻画了该博弈的唯一对称马尔可夫完美均衡。",
-      "doi": "10.1257/mic.20240245",
-      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mic.20240245",
+      "abstract_en": "The Combinatorial Multi-Round Ascending Auction (CMRA) is a new auction format used in recent European spectrum auctions. We show that an auction-specific version of truthful bidding leads to an efficient allocation. We then characterize different ex post equilibria that feature truthful bidding, demand expansion, and demand reduction. The truth-telling equilibrium is fragile to small asymmetries in the bidders' caps. Moreover, if bidders are sufficiently symmetric, the CMRA is vulnerable to risk-free collusion. We propose an alternative activity rule that prevents such collusive strategies while keeping other equilibria intact. We discuss outcomes of several Danish CMRAs in light of our equilibrium predictions.",
+      "abstract_cn": "组合多轮升序拍卖（CMRA）是最近欧洲频谱拍卖中使用的一种新拍卖形式。我们证明，真实投标的特定拍卖版本可以带来有效的分配。然后，我们描述了不同的事后均衡，包括真实出价、需求扩张和需求减少。说真话的均衡对于投标人上限的微小不对称是脆弱的。此外，如果投标人足够对称，CMRA 很容易出现无风险的串通行为。我们提出了一种替代活动规则，可以防止此类串通策略，同时保持其他平衡不变。我们根据我们的均衡预测讨论了几个丹麦 CMRA 的结果。",
+      "doi": "10.1257/mic.20240208",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mic.20240208",
       "publication_date": "",
       "sources": {
         "inventory": "official-issue-page",
@@ -241,30 +281,36 @@
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:55:16+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-29T16:21:37+00:00",
+        "source_hash": "46c679691ff25c11529f6985cfb996beedfe903c913a59df1192afc14a6234e5"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1257/mic.20240258",
+      "paper_id": "doi:10.1257/mic.20250251",
       "sequence": 8,
       "source_sequence": 9,
       "article_type": "research-article",
-      "title_en": "Concentration in Product Markets",
-      "title_cn": "产品市场的集中度",
+      "title_en": "Rational Misspecification: Framework and Applications",
+      "title_cn": "合理的错误指定：框架和应用",
       "authors": [
-        "C. Lanier Benkard",
-        "Ali Yurukoglu",
-        "Anthony Lee Zhang"
+        "Ran Eilat",
+        "Kfir Eliaz"
       ],
-      "abstract_en": "This paper measures concentration in narrowly defined product markets for a broad range of consumer goods and services in the United States from 1994 to 2019. We document two main empirical facts. First, concentration levels are high. Of the markets in our sample, 44.4 percent are \"highly concentrated\" as defined by US regulators. Second, market concentration has been decreasing since 1994. The median HHI falls from 2,362 to 2,045. These findings stand in stark contrast to the prior literature, which uses market definitions that are aggregated to a level that is typically too broad to accurately reflect competition in consumer markets.",
-      "abstract_cn": "本文测量了美国从1994到2019期间一系列消费品和服务的狭义产品市场的集中度。我们记录了二个主要的实证事实。第一，集中度水平较高。在我们的样本市场中，44.4%个市场被美国监管机构定义为“高度集中”。第二，自1994以来，市场集中度一直在下降。中位数HHI从2,362降至2,045。这些发现与以往文献形成鲜明对比，后者使用的市场定义通常过于宽泛，难以准确反映消费市场的竞争状况。",
-      "doi": "10.1257/mic.20240258",
-      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mic.20240258",
+      "abstract_en": "This paper proposes a framework for assessing whether misspecified decision-makers would be willing to pay for information that can potentially make them less misspecified. We introduce a prior-free approach, based on \"constrained\" maximal regret, to derive an upper bound on the subjective assessment of potential gains from acquiring a more accurate model. The constraint stems from the information currently available to the decision-maker. We apply our approach to three prominent models of misspecified beliefs: coarse expectations, causal misperceptions, and sampling equilibria.",
+      "abstract_cn": "本文提出了一个框架，用于评估错误指定的决策者是否愿意为可能减少错误指定的信息付费。我们引入了一种基于“约束”最大后悔的无先验方法，以得出对通过获取更准确的模型获得的潜在收益进行主观评估的上限。约束源于决策者当前可用的信息。我们将我们的方法应用于三错误指定信念的突出模型：粗略预期、因果误解和抽样均衡。",
+      "doi": "10.1257/mic.20250251",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mic.20250251",
       "publication_date": "",
       "sources": {
         "inventory": "official-issue-page",
@@ -275,28 +321,36 @@
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:55:24+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-29T16:21:38+00:00",
+        "source_hash": "74d8b96f3d834372268334c7f6f8e215f8bf81f9ea9494cc5d9f9b40f92cbc4a"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1257/mic.20240340",
+      "paper_id": "doi:10.1257/mic.20250190",
       "sequence": 9,
       "source_sequence": 10,
       "article_type": "research-article",
-      "title_en": "Voter Information and Distributive Politics",
-      "title_cn": "选民信息与分配政治",
+      "title_en": "Data Linkages and Privacy Regulation",
+      "title_cn": "数据链接和隐私监管",
       "authors": [
-        "Benjamin Blumenthal"
+        "Rossella Argenziano",
+        "Alessandro Bonatti"
       ],
-      "abstract_en": "Does more information benefit voters? I examine this question in a novel setting of distributive politics and electoral accountability. Homogeneously informed electorates can benefit from less information through improvements in the control or screening of politicians. For heterogeneously informed electorates, I show that the distribution of resources and voter welfare is affected by the nature of informational heterogeneity and by voters' ability to communicate with each other, making less-informed voters better off than their more-informed counterparts in some cases.",
-      "abstract_cn": "更多信息是否有利于选民？我在分配政治和选举问责这一新颖背景下探讨了这一问题。信息均质的选民群体通过对政治家的控制或筛选的改进，可能从较少的信息中受益。对于信息异质的选民群体，我表明资源分配和选民福利受到信息异质性的性质以及选民相互沟通能力的影响，在某些情况下，信息较少的选民比信息较多的选民更为受益。",
-      "doi": "10.1257/mic.20240340",
-      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mic.20240340",
+      "abstract_en": "We assess the efficacy of privacy regulation when consumers are privacy conscious. We develop a model of data linkages where a consumer interacts sequentially with two firms: One firm collects data on consumer behavior, and the other firm leverages the data to set a quality level and a price. A data linkage benefits the consumer in equilibrium when the recipient firm is sufficiently similar to the collecting firm. We endogenize linkage formation under several existing privacy regulations. Voluntary consent requirements benefit consumers in equilibrium, but blanket bans on discriminatory price and quality offers harm them.",
+      "abstract_cn": "当消费者具有隐私意识时，我们评估隐私监管的有效性。我们开发了一个数据链接模型，其中消费者按顺序与二公司进行交互：一公司收集消费者行为数据，另一家公司利用这些数据来设定质量水平和价格。当接收公司与收集公司足够相似时，数据链接对均衡的消费者有利。我们根据几项现有的隐私法规内生了联系的形成。自愿同意要求在均衡状态下有利于消费者，但全面禁止歧视性价格和质量优惠会损害消费者的利益。",
+      "doi": "10.1257/mic.20250190",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mic.20250190",
       "publication_date": "",
       "sources": {
         "inventory": "official-issue-page",
@@ -307,31 +361,35 @@
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:55:30+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-29T16:21:39+00:00",
+        "source_hash": "befa9d3472fcdc5111fe2bb0b887bb96672ed65dce75705ae944c8cf022d433f"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1257/mic.20240188",
+      "paper_id": "doi:10.1257/mic.20250072",
       "sequence": 10,
       "source_sequence": 11,
       "article_type": "research-article",
-      "title_en": "Sharing Model Uncertainty",
-      "title_cn": "共享模型不确定性",
+      "title_en": "The Economics of Discriminatory Job Reservations",
+      "title_cn": "歧视性职位保留的经济学",
       "authors": [
-        "Chiaki Hara",
-        "Sujoy Mukerji",
-        "Frank Riedel",
-        "Jean-Marc Tallon"
+        "James P. Choy"
       ],
-      "abstract_en": "This paper examines efficient allocations in economies where consumers exhibit heterogeneous smooth ambiguity preferences and face model uncertainty with a common set of identifiable models. Aggregate endowment is ambiguous. We characterize economies where the representative consumer is of the smooth ambiguity type and derive efficient sharing rules. Heterogeneous ambiguity aversion leads to sharing rules that systematically differ from those in vNM economies. The representative consumer's ambiguity aversion differs from that of the typical consumer; this leads to more compelling asset-pricing predictions. We focus on point-identified models but show that our insights extend to partially identified models.",
-      "abstract_cn": "本文考察了消费者表现出异质平滑模糊偏好且面临具有共同可识别模型集合的模型不确定性的经济中的有效配置。总禀赋存在模糊性。我们刻画了代表性消费者为平滑模糊类型的经济，并推导了有效的共享规则。异质的模糊厌恶导致共享规则系统性地不同于vNM经济中的规则。代表性消费者的模糊厌恶与典型消费者不同；这带来了更具说服力的资产定价预测。我们关注点识别模型，但表明我们的见解可扩展至部分识别模型。",
-      "doi": "10.1257/mic.20240188",
-      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mic.20240188",
+      "abstract_en": "A society reserves certain jobs for members of a politically dominant social group to maximize the wages of workers in that group. Through an appropriate choice of reserved jobs, the dominant group chooses both the size of the set of reserved jobs and the elasticity of substitution between reserved and unreserved jobs. Optimal discrimination endogenously creates categories of \"good\" and \"bad\" jobs and assigns workers from different social groups into these different categories. The relative scarcity of labor determines whether discrimination or free labor markets are optimal. I apply the model to apartheid South Africa and other discriminatory societies.",
+      "abstract_cn": "一个社会为政治上占主导地位的社会群体的成员保留某些工作，以最大限度地提高该群体工人的工资。通过对保留工作岗位的适当选择，主导群体既选择了保留工作岗位的规模，也选择了保留工作岗位与非保留工作岗位之间的替代弹性。最优歧视内生地创造了“好”和“坏”工作的类别，并将来自不同社会群体的工人分配到这些不同的类别中。劳动力的相对稀缺决定了歧视还是自由劳动力市场是否最优。我将这个模型应用于种族隔离的南非和其他歧视性社会。",
+      "doi": "10.1257/mic.20250072",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mic.20250072",
       "publication_date": "",
       "sources": {
         "inventory": "official-issue-page",
@@ -342,30 +400,35 @@
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:55:39+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-29T16:21:40+00:00",
+        "source_hash": "d2baa51bc5734851d2fb4181ee24bf680e677b51d637c987eaea719e37816aa2"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1257/mic.20240062",
+      "paper_id": "doi:10.1257/mic.20230241",
       "sequence": 11,
       "source_sequence": 12,
       "article_type": "research-article",
-      "title_en": "The Effect of Mergers on Innovation",
-      "title_cn": "兼并对创新的影响",
+      "title_en": "Sequential Protest Formation",
+      "title_cn": "连续抗议队形",
       "authors": [
-        "Kaustav Das",
-        "Tatiana Mayskaya",
-        "Arina Nikandrova"
+        "Benjamin Matta"
       ],
-      "abstract_en": "We study the effect of a merger on R&D activity in a dynamic model with uncertainty about the feasibility of innovation. The merger has three effects: It may reduce the number of follow-up innovations (cannibalization effect), increase the probability of the first game-changer innovation (appropriability effect), and bring this innovation forward in time (informational effect). The model suggests mergers are more desirable when R&D outcomes are highly uncertain, but less so when the innovation path is clearer. A surprising policy implication is that the benefit of the merger may be higher if the first and subsequent innovations are closer substitutes.",
-      "abstract_cn": "我们在一个关于创新可行性存在不确定性的动态模型中研究兼并对研发活动的影响。兼并具有多重效应：它可能减少后续创新的数量（蚕食效应），增加具有颠覆性意义的创新的概率（可占有性效应），并使该创新提前发生（信息效应）。模型表明，当研发结果高度不确定时，兼并更具吸引力；而当创新路径较为明确时，兼并的吸引力则较低。一个令人意外的政策启示是，如果颠覆性创新及其后续创新是更为接近的替代品，兼并的收益可能更高。",
-      "doi": "10.1257/mic.20240062",
-      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mic.20240062",
+      "abstract_en": "People participate in protests even though it is costly, benefits are not exclusive to participants, and each individual is unlikely to be pivotal. Building on these characteristics, I propose a sequential model of protest formation where opportunities to participate arrive stochastically, and the protest succeeds if participation surpasses a threshold. I show a unique equilibrium exists and characterize its dynamics. If the unique equilibrium involves participation, the time between participation decisions shortens as the protest progresses—a pattern observed empirically. A player with an opportunity becomes sequentially pivotal if, after abstaining, the protest will likely end before another opportunity arrives.",
+      "abstract_cn": "人们参与抗议活动，尽管成本高昂，利益也并非参与者独有，而且每个人不太可能发挥关键作用。基于这些特征，我提出了一个抗议形成的序列模型，其中参与的机会是随机到达的，如果参与超过阈值，抗议就会成功。我展示了一种独特的平衡的存在并描述了它的动态。如果独特的均衡涉及参与，那么参与决策之间的时间就会随着抗议的进展而缩短——这是根据经验观察到的模式。如果在弃权后，抗议很可能在另一个机会到来之前结束，那么一个有机会的球员就会变得关键。",
+      "doi": "10.1257/mic.20230241",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mic.20230241",
       "publication_date": "",
       "sources": {
         "inventory": "official-issue-page",
@@ -376,29 +439,36 @@
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:55:46+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-29T16:21:41+00:00",
+        "source_hash": "2e324df940fb593e5ab6186adfa14bc657e075d17c052f6bcbf4d883d1ac2a9c"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1257/mic.20230279",
+      "paper_id": "doi:10.1257/mic.20240042",
       "sequence": 12,
       "source_sequence": 13,
       "article_type": "research-article",
-      "title_en": "On Taking a Skewed Risk More than Once",
-      "title_cn": "关于多次承担偏斜风险",
+      "title_en": "Liquidity Constraints and the Value of Insurance",
+      "title_cn": "流动性限制和保险价值",
       "authors": [
-        "Sebastian Ebert",
-        "Mats Köster"
+        "Keith Marzilli Ericson",
+        "Justin Sydnor"
       ],
-      "abstract_en": "Penny-picking refers to the often-observed phenomenon of repeatedly taking negatively skewed risks and seems directly at odds with evidence on (positive-)skewness-seeking as observed in static settings. We show that penny-picking may not only occur despite skewness-seeking, but—seemingly paradoxically—because of skewness-seeking. With sufficient time available, risks with arbitrary negative skewness can be gambled in such a way that, overall, skewness is positive. Therefore, classical behavioral theories like prospect theory straightforwardly explain penny-picking. More generally, we show that the versatile dynamics of skewness reconcile apparent preference reversals concerning the avoidance and acceptance of (skewed and non-skewed) risks.",
-      "abstract_cn": "“捡便宜”指的是反复承担负偏斜风险的常见现象，这似乎与静态环境中观察到的（正）偏斜寻求行为直接矛盾。我们表明，“捡便宜”不仅可能在偏斜寻求行为存在的情况下发生，而且——看似矛盾地——正是由于偏斜寻求行为而发生。在有足够时间的情况下，可以以一种总体上使偏斜为正的方式赌博任意负偏斜的风险。因此，经典行为理论如前景理论可以直接解释“捡便宜”现象。更一般地，我们展示了偏斜的多样动态如何调和关于规避和接受（偏斜及非偏斜）风险的表面偏好逆转。",
-      "doi": "10.1257/mic.20230279",
-      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mic.20230279",
+      "abstract_en": "Insurance moves resources across both time and states. We study the consumption-smoothing benefits of insurance under liquidity constraints in a model where contracts span multiple consumption periods. The normative benchmarks for insurance demand under liquidity constraints differ qualitatively and quantitatively from the standard model: Individuals may only partially insure at actuarially fair prices, may benefit from insurance when premiums are very high and even sometimes when dominated, and may value insurance against events that will surely happen. Using simulations for health insurance, we highlight how these findings generate insights about how cost-sharing should be designed differently for liquidity-constrained populations.",
+      "abstract_cn": "保险可以跨时间和跨州转移资源。我们在合同跨越多个消费期的模型中研究了流动性约束下保险的消费平滑效益。流动性约束下的保险需求规范基准在质量和数量上都与标准模型不同：个人可能仅以精算公平价格部分投保，当保费非常高甚至有时在占主导地位时可能会从保险中受益，并且可能会针对肯定会发生的事件评估保险。通过对健康保险的模拟，我们强调这些发现如何产生关于如何针对流动性受限人群以不同方式设计成本分摊的见解。",
+      "doi": "10.1257/mic.20240042",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mic.20240042",
       "publication_date": "",
       "sources": {
         "inventory": "official-issue-page",
@@ -409,29 +479,37 @@
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:55:55+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-29T16:21:42+00:00",
+        "source_hash": "d688fb2435231b68eeddebf98e0af2c5862c76eccd72202976158acecfab05a0"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1257/mic.20230120",
+      "paper_id": "doi:10.1257/mic.20240184",
       "sequence": 13,
       "source_sequence": 14,
       "article_type": "research-article",
-      "title_en": "Dynamic Preference \"Reversals\" and Time Inconsistency",
-      "title_cn": "动态偏好“逆转”与时间不一致性",
+      "title_en": "Failures of Contingent Reasoning in Annuitization Decisions",
+      "title_cn": "年金化决策中的或然推理失败",
       "authors": [
-        "Philipp Strack",
+        "Erzo F.P. Luttmer ⓡ",
+        "Priscila De Oliveira ⓡ",
         "Dmitry Taubinsky"
       ],
-      "abstract_en": "We study the possibility of identifying time-inconsistent preferences in empirical designs where preferences are elicited in advance at time 0 and then again at time 1, after the agent receives additional information. For single-peaked preferences, time consistency is rejected only when the time-1 ranking between a pair of alternatives is always the reverse of the time-0 ranking. We establish variations and generalizations of this result. Since such stark reversals are rarely observed, choice-revision designs require stronger identification assumptions than perhaps previously appreciated. But we show that time inconsistency is identifiable in environments where preferences over alternatives can be \"priced out.\"",
-      "abstract_cn": "我们研究了在经验设计中识别时间不一致偏好的可能性，该设计中偏好先在时间0被引出，然后在代理人获得额外信息后于时间1再次引出。对于单峰偏好，只有当时间1对一对备选方案的排序总是时间0排序的完全相反时，时间一致性才被拒绝。我们建立了该结果的变体和推广。由于如此明显的逆转很少被观察到，选择修正设计需要比之前可能认识到的更强的识别假设。但我们表明，在备选方案的偏好可以被“定价”出来的环境中，时间不一致性是可识别的。",
-      "doi": "10.1257/mic.20230120",
-      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mic.20230120",
+      "abstract_en": "This paper studies psychological biases in take-up of annuities, using an incentivized experiment with a probability-based sample (N = 3,038). Choosing an annuity was payoff-maximizing in the experiment at all prices, but take-up was incomplete and price elastic. Reformulating decisions as insurance against a \"bad\" outcome rather than insurance against \"longevity risk\" did not increase take-up. Instead, we find substantial failures of contingent reasoning: Participants underappreciated how annuitization mitigated the need for less-efficient means of saving for retirement. Increasing the salience of the interaction with savings decisions, or eliminating the need to think through this interaction altogether, substantially increased annuity take-up.",
+      "abstract_cn": "本文使用基于概率的样本进行激励实验（N = 3,038），研究了领取年金时的心理偏差。在所有价格的实验中，选择年金都是收益最大化，但采用并不完全且价格有弹性。将决策重新制定为针对“不良”结果的保险，而不是针对“长寿风险”的保险，并没有增加采用率。相反，我们发现条件推理的重大失败：参与者低估了年金化如何减轻对低效退休储蓄方式的需求。提高与储蓄决策的相互作用的显着性，或者消除完全考虑这种相互作用的需要，大大增加了年金的使用。",
+      "doi": "10.1257/mic.20240184",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mic.20240184",
       "publication_date": "",
       "sources": {
         "inventory": "official-issue-page",
@@ -442,33 +520,110 @@
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:56:02+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-29T16:21:43+00:00",
+        "source_hash": "da9f67733a7336952578ec11fc6fd38bb0f38b6e018005fdd759e7a8f820f00c"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1257/mic.20240255",
+      "sequence": 14,
+      "source_sequence": 15,
+      "article_type": "research-article",
+      "title_en": "Product Liability Litigation and Innovation: Evidence from Medical Devices",
+      "title_cn": "产品责任诉讼与创新：来自医疗器械的证据",
+      "authors": [
+        "Alberto Galasso",
+        "Hong Luo"
+      ],
+      "abstract_en": "We study the impact of product liability litigation on new product introductions by leading medical device firms. We find that the defendant firms, and other firms to a lesser extent, reduce their propensity to introduce new products in the litigated product categories during litigation years. We also show that changes to safety regulation influence the likelihood of litigation. Lastly, we show that the potential welfare loss due to litigation appears relatively contained: The decline in new product introductions is not permanent, it does not spill over beyond the litigated categories, and litigation induces firms to develop safer devices.",
+      "abstract_cn": "我们研究产品责任诉讼对领先医疗器械公司新产品推出的影响。我们发现，被告公司和其他公司在诉讼期间减少了在诉讼产品类别中推出新产品的倾向，但程度较轻。我们还表明，安全监管的变化会影响诉讼的可能性。最后，我们表明，诉讼造成的潜在福利损失似乎相对有限：新产品推出的下降不是永久性的，它不会溢出到诉讼类别之外，而且诉讼会促使公司开发更安全的设备。",
+      "doi": "10.1257/mic.20240255",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mic.20240255",
+      "publication_date": "",
+      "sources": {
+        "inventory": "official-issue-page",
+        "title": "official-article-page",
+        "authors": "official-article-page",
+        "abstract": "official-article-page",
+        "doi": "official-article-id"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-07-29T16:21:44+00:00",
+        "source_hash": "df37e3dfc145dbd9aa6bb63caae2b56c7d849d74fa7766ba5abbfd340bbd52b2"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     }
   ],
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "official_item_count": 14,
+    "official_item_count": 15,
     "excluded_item_count": 1,
     "excluded_items": [
       {
         "source_sequence": 1,
         "title_en": "Front Matter",
-        "reason": "non-research-title"
+        "reason": "non-research-title",
+        "article_type": "front-matter"
       }
     ],
     "detail_failure_count": 0,
-    "doi_complete": 13,
-    "authors_complete": 13,
-    "abstract_en_complete": 13,
-    "translation_complete": 13,
+    "doi_complete": 14,
+    "authors_complete": 14,
+    "abstract_en_complete": 14,
+    "translation_complete": 14,
     "duplicate_count": 0,
-    "flags": []
-  }
+    "flags": [],
+    "publishable_item_count": 14,
+    "content_counts": {
+      "official_items": 15,
+      "observed_items": 15,
+      "publishable_items": 14,
+      "research_articles": 14,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 1,
+      "other_excluded": 0,
+      "catalog_content_items": 14
+    }
+  },
+  "content_counts": {
+    "official_items": 15,
+    "observed_items": 15,
+    "publishable_items": 14,
+    "research_articles": 14,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 1,
+    "other_excluded": 0,
+    "catalog_content_items": 14
+  },
+  "issue_label": "Vol. 18 · No. 3",
+  "publication_state": "ready"
 }

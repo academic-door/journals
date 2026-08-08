@@ -1,520 +1,985 @@
 {
   "schema_version": "1.0",
-  "issue_id": "jet-235-c",
+  "issue_id": "jet-236-c",
   "journal_id": "jet",
   "journal_name": "Journal of Economic Theory",
-  "volume": "235",
+  "volume": "236",
   "issue": "C",
-  "issue_label": "Vol. 235",
-  "publication_date": "June 2026",
-  "source_url": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-  "retrieved_at": "2026-07-26T18:28:03+00:00",
-  "expected_article_count": 15,
-  "research_article_count": 15,
-  "status": "incomplete",
+  "issue_label": "Vol. 236",
+  "publication_date": "September 2026",
+  "source_url": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
+  "retrieved_at": "2026-08-08T11:56:11+00:00",
+  "expected_article_count": 14,
+  "research_article_count": 14,
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1016/j.jet.2026.106179",
+      "paper_id": "doi:10.1016/j.jet.2026.106209",
       "sequence": 1,
       "source_sequence": 1,
       "article_type": "research-article",
-      "title_en": "Covert learning and disclosure",
-      "title_cn": "隐秘学习与信息披露",
+      "title_en": "Hold-up in the absence of individual rationality: Asymptotic efficiency and gradualism",
+      "title_cn": "缺乏个体理性时的劫持：渐近效率和渐进主义",
       "authors": [
-        "Matteo Escudé"
+        "Prabal Roy Chowdhury",
+        "Kunal Sengupta"
       ],
-      "abstract_en": "I study a model of information acquisition and transmission in which the sender’s ability to misreport her findings is limited. The sender learns covertly, so a key observation is that in equilibrium she must be deterred from undetectably worsening the meaningof the messages she sends. This force substantially disciplines equilibrium beliefs and behavior: the receiver is maximally skeptical of what the sender claims and learns all discovered information. I exploit these equilibrium properties to characterize the sense in which the sender benefits from her claims being more verifiable, showing that this is akin to increasing her commitment power. Finally, I identify sender- and receiver-optimal falsification environments.",
-      "abstract_cn": "我研究了一个信息获取与传递的模型，其中发送者误报其发现的能力受到限制。发送者以隐秘方式学习，因此一个关键观察是，在均衡中必须阻止发送者无检测地恶化其所发送信息的含义。这一机制显著约束了均衡信念和行为：接收者对发送者的主张持最大程度的怀疑态度，并且学习所有被发现的信息。我利用这些均衡性质来刻画发送者从其主张更具可验证性中获益的意义，表明这类似于增强其承诺能力。最后，我识别了发送者和接收者最优的伪造环境。",
-      "doi": "10.1016/j.jet.2026.106179",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000438",
-      "publication_date": "2026",
+      "abstract_en": "The hold-up problem has given rise to a large and influential literature. We consider a bilateral hold-up problem where bargaining power is asymmetrically distributed among the agents, in particular investing at the efficient level is not “individually rational” for one of the agents. We demonstrate that in the presence of a rich natural setup – that allows for dynamics in transfers, investments and negotiations – there exist subgame perfect equilibria that achieve asymptotic efficiency. This is true both when investments by the two agents are substitutes, as well as when these are complements. Moreover, implementation requires gradualism, with sequential investments and transfers over several periods.",
+      "abstract_cn": "敲诈勒索问题催生了大量有影响力的文献。我们考虑双边劫持问题，其中讨价还价能力在代理人之间分布不对称，特别是在有效水平上的投资对于其中一个代理人来说不是“个体理性的”。我们证明，在存在丰富的自然设置（允许转让、投资和谈判动态）的情况下，存在实现渐近效率的子博弈完美均衡。当两个代理人的投资是替代性的以及互补性的时候都是如此。此外，实施需要循序渐进，分阶段进行连续投资和转移。",
+      "abstract_snippet_en": "The hold-up problem has given rise to a large and influential literature. We consider a bilateral hold-up problem where bargaining power is asymmetrically distributed among the agents, in particular...",
+      "doi": "10.1016/j.jet.2026.106209",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000724?dgcid=rss_sd_all",
+      "publication_date": "September 2026",
       "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000438.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00220531",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 3729,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 3729,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106209",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/680bd08f2172b008e0f9ded028f0a2b97a7eeb1d"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:49:40+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:45:24+00:00",
+        "source_hash": "74204d9c5c68414096fc22eca1974415521265ae6a2dce210ddae4e40e235016"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1016/j.jet.2026.106182",
+      "paper_id": "doi:10.1016/j.jet.2026.106206",
       "sequence": 2,
       "source_sequence": 2,
       "article_type": "research-article",
-      "title_en": "Information design with endogenous state verification",
-      "title_cn": "具有内生状态验证的信息设计",
+      "title_en": "Investment sophistication and wealth inequality",
+      "title_cn": "投资 sophistication 与财富不平等",
       "authors": [
-        "Lily Ling Yang"
+        "Ehsan Azarmsa"
       ],
-      "abstract_en": "We study a persuasion problem in which the receiver has the ability to probabilistically verify the state at a cost. The sender wants to convince the receiver to accept a project, but the receiver is only willing to accept the project when its quality is above a threshold. The optimal disclosure policy strikes a balance between influencing the receiver’s decisions to accept and to verify the quality. It is deterministic and involves at most three messages, each consisting of an acceptance recommendation and a verification recommendation. Under the optimal disclosure policy, the acceptance recommendation exhibits a cutoff structure, while the verification recommendation exhibits a negative assortative structure. Specifically, the optimal disclosure policy recommends acceptance when the quality exceeds a certain threshold. When the quality falls below this threshold, rejection without verification is recommended. For qualities above the threshold, verification is not recommended if the quality lies within the middle range of the interval. Using the characterization of the optimal disclosure policy, we conduct comparative statics and show that verification is recommended when the probability of successful verification is moderate.",
-      "abstract_cn": "我们研究了一个说服问题，其中接收者能够以一定成本对状态进行概率性验证。发送者希望说服接收者接受一个项目，但接收者仅在项目质量高于某一阈值时才愿意接受该项目。最优披露策略在影响接收者接受决策与验证质量决策之间取得平衡。该策略是确定性的，最多包含三条信息，每条信息包括一个接受建议和一个验证建议。在最优披露策略下，接受建议呈现截断结构，而验证建议呈现负配对结构。具体而言，当质量超过某一阈值时，最优披露策略建议接受；当质量低于该阈值时，建议拒绝且不进行验证。对于高于阈值的质量，如果质量位于区间的中间范围内，则不建议进行验证。利用最优披露策略的特征，我们进行了比较静态分析，结果表明当成功验证的概率处于中等水平时，建议进行验证。",
-      "doi": "10.1016/j.jet.2026.106182",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000463",
-      "publication_date": "2026",
+      "abstract_en": "I study the stationary wealth distribution in a dynamic model of financial markets in which investors differ in their levels of investment sophistication. Some investors form beliefs rationally but have access to different information, while others hold incorrect beliefs. For all investor types, the stationary wealth distribution exhibits a thick upper tail, whose thickness depends on the higher moments of portfolio returns relative to the aggregate market. The upper tail of the overall stationary wealth distribution is populated by the group with the thickest tail. I show that this group is either a rational group with an undominated information set or the group with incorrect beliefs, despite the latter earning the lowest expected return. To explain the observed degrees of wealth concentration, it is sufficient that some investor groups earn an expected excess return of 0.89% per annum relative to the aggregate economy – consistent with the risk-adjusted returns generated by hedge funds and private equity funds and their portfolio shares among the ultra-wealthy in the United States. A calibration of the model matches the distribution of average returns for Norwegian households documented by Fagereng et al. (2020).",
+      "abstract_cn": "我研究了一个动态金融市场模型中的稳态财富分布，其中投资者的投资 sophistication 水平不同。一些投资者理性地形成信念但获取的信息不同，而另一些投资者持有错误的信念。对于所有投资者类型，稳态财富分布呈现出厚尾特征，其厚度取决于投资组合回报相对于整体市场的更高阶矩。整体稳态财富分布的上尾由尾部最厚的群体占据。我证明，这一群体要么是拥有无支配信息集的理性群体，要么是持有错误信念的群体，尽管后者获得的预期回报最低。为了解释观察到的财富集中程度，只需某些投资者群体相对于整体经济每年获得 0.89% 的预期超额回报——这与对冲基金和私募股权基金产生的风险调整后回报及其在美国超级富豪中的投资组合份额一致。模型的校准匹配了 Fagereng 等人（2020）记录的挪威家庭平均回报分布。",
+      "abstract_snippet_en": "I study the stationary wealth distribution in a dynamic model of financial markets in which investors differ in their levels of investment sophistication. Some investors form beliefs rationally but...",
+      "doi": "10.1016/j.jet.2026.106206",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000694?dgcid=rss_sd_all",
+      "publication_date": "September 2026",
       "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000463.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00220531",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 3728,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 3728,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106206",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/d21e73fc1ab65119d9437c8e017c3fe679e23129"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:49:48+00:00"
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T11:56:14+00:00",
+        "source_hash": "633dee454978152968692532b9587927cb48b91df044d6b1b897f3d238baa26e"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1016/j.jet.2026.106183",
+      "paper_id": "doi:10.1016/j.jet.2026.106208",
       "sequence": 3,
       "source_sequence": 3,
       "article_type": "research-article",
-      "title_en": "Localized perfection",
-      "title_cn": "局部完美均衡",
+      "title_en": "Classical matching via network formation",
+      "title_cn": "通过网络形成的经典匹配",
       "authors": [
-        "Enxian Chen",
-        "Lei Qiao",
-        "Xiang Sun",
-        "Yeneng Sun"
+        "Evan Sadler"
       ],
-      "abstract_en": "Perfect equilibrium and its refinements are widely studied and typically rely on full-support perturbations. We introduce a δ-localized notion of perfection for games with a continuum of players. It confines perturbations within a δ-neighborhood of the underlying action distribution and eliminates undesirable equilibria from a local perspective. We establish the existence of a pure strategy δ-localized perfect equilibrium and show that it is equivalent to δ-admissible Nash equilibrium. We also study limit versions of δ-localized perfection. Illustrative applications to large routing games and crowd saturation games are presented.",
-      "abstract_cn": "完美均衡及其精炼概念被广泛研究，通常依赖于全支持扰动。我们引入了适用于具有连续玩家的博弈的δ-局部完美概念。该概念将扰动限制在基础行动分布的δ邻域内，并从局部视角消除不良均衡。我们证明了纯策略δ-局部完美均衡的存在性，并表明其等价于δ-可接受纳什均衡。我们还研究了δ-局部完美的极限版本。文中展示了该概念在大规模路径选择博弈和人群饱和博弈中的应用示例。",
-      "doi": "10.1016/j.jet.2026.106183",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000475",
-      "publication_date": "2026",
+      "abstract_en": "Despite addressing similar underlying questions, the literatures on network formation and matching have evolved more or less independently. This paper offers a common framework, studying a general model of network formation without externalities—equivalently, a one-sided many-to-many matching model. I give conditions for the existence and uniqueness of stable graphs, I prove a rural hospital theorem, and I highlight a link-by-link conflict of interest across different stable graphs. Special cases contain and extend classic results for the roommate problem and two-sided matching markets. An iterated deletion algorithm adapted from Gutin et al. (2023) furnishes a crucial tool, reducing network formation games to a normal form with helpful properties.",
+      "abstract_cn": "尽管解决了类似的根本问题，但有关网络形成和匹配的文献或多或少是独立发展的。本文提供了一个通用框架，研究一种没有外部性的网络形成的一般模型——相当于一种单方面的多对多匹配模型。我给出了稳定图的存在性和唯一性的条件，证明了乡村医院定理，并强调了不同稳定图之间逐个链接的利益冲突。特殊情况包含并扩展了室友问题和双边匹配市场的经典结果。改编自 Gutin 等人的迭代删除算法。 (2023) 提供了一个重要的工具，将网络形成博弈简化为具有有用属性的正常形式。",
+      "abstract_snippet_en": "Despite addressing similar underlying questions, the literatures on network formation and matching have evolved more or less independently. This paper offers a common framework, studying a general model...",
+      "doi": "10.1016/j.jet.2026.106208",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000712?dgcid=rss_sd_all",
+      "publication_date": "September 2026",
       "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000475.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00220531",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 3727,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 3727,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106208",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/4aa4914a6c85809ee91616cb4581a2546abd2a34"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:50:04+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:45:37+00:00",
+        "source_hash": "7a5f30292598eb36255330e76206c920343e29af9abce2c0707363baceddff94"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1016/j.jet.2026.106186",
+      "paper_id": "doi:10.1016/j.jet.2026.106218",
       "sequence": 4,
       "source_sequence": 4,
       "article_type": "research-article",
-      "title_en": "Asymmetric optimal auction design with loss-averse bidders",
-      "title_cn": "具有损失厌恶竞标者的非对称最优拍卖设计",
+      "title_en": "Time use and heterogeneous markups",
+      "title_cn": "时间使用和异构标记",
       "authors": [
-        "Akitoshi Muramoto",
-        "Takeharu Sogo"
+        "Brian C. Albrecht",
+        "Thomas Phelan",
+        "Nick Pretnar"
       ],
-      "abstract_en": "We study optimal auctions with expectation-based loss-averse bidders. For ex-ante identical bidders, we establish sufficient conditions under which optimal mechanisms must be asymmetric. While symmetric designs are optimal for bidders with expected-utility preferences, we show that if the degree of loss aversion is sufficiently large relative to valuation variation, a one-bidder optimal design (an extreme form of asymmetry) yields higher expected revenue than any symmetric design with multiple bidders. To address the challenges posed by non-standard preferences, we develop a novel method for deriving the optimal auction. First, we employ the reduced-form auction framework to reformulate the revenue maximization problem as a tractable optimal control problem. We then use the ironing technique of Toikka (2011) to address the monotonicity constraint on the allocation rule, as Myerson’s ironing method is not applicable in our setting. Applying our method to a two-bidder setting with uniformly distributed valuations, we derive the optimal auction in closed form. The resulting mechanism modifies (Myerson, 1981) to reduce auction outcome uncertainty.",
-      "abstract_cn": "我们研究了具有基于期望的损失厌恶竞标者的最优拍卖。对于事前同质的竞标者，我们建立了最优机制必须非对称的充分条件。虽然对于具有期望效用偏好的竞标者，对称设计是最优的，但我们表明，如果损失厌恶程度相对于估值变异足够大，一竞标者的最优设计（一种极端形式的非对称）比任何多竞标者的对称设计都能带来更高的期望收入。为应对非标准偏好带来的挑战，我们开发了一种推导最优拍卖的新方法。第一，我们采用简化形式拍卖框架，将收益最大化问题重新表述为一个可解的最优控制问题。然后，我们使用Toikka（2011）的熨平技术来处理分配规则上的单调性约束，因为Myerson的熨平方法在我们的设定中不适用。将我们的方法应用于具有均匀分布估值的二竞标者设定，我们得出了闭式形式的最优拍卖。所得机制修改了（Myerson，1981），以减少拍卖结果的不确定性。",
-      "doi": "10.1016/j.jet.2026.106186",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000499",
-      "publication_date": "2026",
+      "abstract_en": "We enrich standard models of imperfect competition by allowing consumer demand for market goods to depend non-separably on off-market time. Consumers value final consumption experiences that require both market purchases and time, which reshapes demand elasticities through two opposing forces. First, because time is an input, changes in market prices translate only partially into changes in the cost of an experience and second, households can substitute time for market purchases in response to price variation. We show how these forces alter the mapping from markups to welfare by distinguishing between markups and a holistic counterpart that accounts for the time cost of consumption. In a monopolistically competitive environment with CES preferences over experiences, firm selection and entry is governed solely by the elasticity of substitution between time use and market purchases, and markup dispersion can be consistent with efficiency when time and market purchases are perfect complements. Extending the analysis to oligopolistic competition, we show that forces that raise markups, like greater market concentration and less competitive conduct, also amplify the gap between the usual and holistic markups.",
+      "abstract_cn": "我们通过允许消费者对市场商品的需求不可分割地依赖于非市场时间来丰富不完全竞争的标准模型。消费者重视需要市场购买和时间的最终消费体验，这通过两种相反的力量重塑需求弹性。首先，由于时间是一种投入，市场价格的变化只能部分转化为体验成本的变化；其次，家庭可以用时间代替市场购买，以应对价格变化。我们通过区分加成和考虑消费时间成本的整体对应物，展示了这些力量如何改变从加成到福利的映射。在CES优先于体验的垄断竞争环境中，企业选择和进入仅受时间使用和市场购买之间替代弹性的影响，当时间和市场购买完美互补时，加价分散可以与效率保持一致。将分析扩展到寡头垄断竞争，我们发现提高加价的力量，例如更大的市场集中度和竞争性较低的行为，也会放大通常加价和整体加价之间的差距。",
+      "abstract_snippet_en": "We enrich standard models of imperfect competition by allowing consumer demand for market goods to depend non-separably on off-market time. Consumers value final consumption experiences that require...",
+      "doi": "10.1016/j.jet.2026.106218",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000815?dgcid=rss_sd_all",
+      "publication_date": "September 2026",
       "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000499.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00220531",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 3726,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 3726,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106218",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/d1881b2c17befde248c130c4ebccbec72b948e27"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:50:15+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:45:43+00:00",
+        "source_hash": "d67c8b08822e1f7153d2bc23ee875751e2458944d86b9a9c887094be372e5f89"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1016/j.jet.2026.106187",
+      "paper_id": "doi:10.1016/j.jet.2026.106217",
       "sequence": 5,
       "source_sequence": 5,
       "article_type": "research-article",
-      "title_en": "Nonbossy mechanisms: Mechanism design robust to secondary goals",
-      "title_cn": "非支配机制：对次要目标具有鲁棒性的机制设计",
+      "title_en": "When Lasry-Lions meet Krugman: A mean-field game theory of spatial dynamics",
+      "title_cn": "当拉斯里狮遇到克鲁格曼：空间动力学的平均场博弈论",
       "authors": [
-        "Renato Paes Leme",
-        "Jon Schneider",
-        "Hanrui Zhang"
+        "M. Bahlali",
+        "R. Boucekkine",
+        "Q. Petit"
       ],
-      "abstract_en": "We study mechanism design when agents may have hidden secondary goals which will play a role when the primary utility of the outcomes is the same. We show that in such cases, a mechanism is immune to strategic manipulation if and only if it is incentive compatible with regard to primary utility — a property we term “primary incentive compatibility” — and nonbossy — a well-studied property in the context of matching and allocation mechanisms. We give complete characterizations of primarily incentive-compatible and nonbossy mechanisms in various settings, including auctions with single-parameter agents and public decision settings where all agents share a common outcome. In particular, we show that in the single-item setting, a mechanism is primarily incentive compatible, individually rational, and nonbossy if and only if it is a sequential posted-price mechanism.",
-      "abstract_cn": "我们研究当代理人可能具有隐藏的次要目标且在结果的主要效用相同时次要目标发挥作用的机制设计。我们证明，在此类情况下，机制对策略性操纵免疫当且仅当该机制在主要效用方面具有激励相容性——我们称之为“主要激励相容性”——且非支配——这是匹配和分配机制中广泛研究的性质。我们在多种情境下给出了主要激励相容且非支配机制的完整刻画，包括具有单参数代理人的拍卖以及所有代理人共享共同结果的公共决策情境。特别地，我们证明在单物品情境中，机制主要激励相容、个体理性且非支配当且仅当该机制为顺序定价机制。",
-      "doi": "10.1016/j.jet.2026.106187",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000505",
-      "publication_date": "2026",
+      "abstract_en": "We propose a mean-field game (MFG) approach to study the dynamics of spatial agglomeration in a continuous space-time framework where trade across locations may follow a broad class of static gravity models. Forward-looking intertemporal utility-maximizing agents work and migrate in a two-dimensional geography and face idiosyncratic shocks. Equilibrium wages and prices depend on their common distribution and adjust statically according to the underlying trade model. We first prove existence and uniqueness of the static trade equilibrium. We then prove existence of dynamic equilibria. In the case of a circular economy, we obtain closed-form solutions for small perturbations around the steady state, and we identify the sets of parameters that lead to agglomeration or dispersion. We exploit the MFG structure of the model to explicitly quantify how uncertainty and forward-looking expectations contribute to agglomeration and dispersion. In particular, we show that, regardless of the static trade model, forward-looking expectations always promote agglomeration, but cannot reverse the dominant pattern that would arise under myopic behavior.",
+      "abstract_cn": "我们提出了一种平均场博弈（MFG）方法来研究连续时空框架中空间集聚的动态，其中跨地点的贸易可能遵循广泛的静态重力模型。具有前瞻性的跨期效用最大化主体在二维地理中工作和迁移，并面临特殊的冲击。均衡工资和价格取决于它们的共同分布，并根据基础贸易模型进行静态调整。我们首先证明静态贸易均衡的存在性和唯一性。然后我们证明动态平衡的存在。在循环经济的情况下，我们获得了稳态周围小扰动的封闭式解，并确定了导致聚集或分散的参数集。我们利用模型的 MFG 结构来明确量化不确定性和前瞻性预期如何影响集聚和分散。特别是，我们表明，无论静态贸易模式如何，前瞻性预期总是会促进集聚，但无法扭转短视行为下出现的主导模式。",
+      "abstract_snippet_en": "We propose a mean-field game (MFG) approach to study the dynamics of spatial agglomeration in a continuous space-time framework where trade across locations may follow a broad class of static gravity...",
+      "doi": "10.1016/j.jet.2026.106217",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000803?dgcid=rss_sd_all",
+      "publication_date": "September 2026",
       "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000505.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00220531",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 3725,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 3725,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106217",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/ed5c479f405c2795f9b42621dc16d44da64aac2d"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:50:25+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:45:48+00:00",
+        "source_hash": "825dbff8e7e83a05af4b56ab50185c0a71f0e87234abd59bd23722994213932d"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1016/j.jet.2026.106188",
+      "paper_id": "doi:10.1016/j.jet.2026.106219",
       "sequence": 6,
       "source_sequence": 6,
       "article_type": "research-article",
-      "title_en": "Credit rationing in unsecured debt markets",
-      "title_cn": "无担保债务市场中的信用配给",
+      "title_en": "Robustly optimal voting rule",
+      "title_cn": "鲁棒最优投票规则",
       "authors": [
-        "V. Filipe Martins-da-Rocha",
-        "Toàn Phan",
-        "Yiannis Vailakis"
+        "Noriaki Kiguchi",
+        "Shinpei Noguchi",
+        "Yuta Takahashi"
       ],
-      "abstract_en": "We show that a temporary tightening of unsecured credit limits can raise welfare in competitive economies with limited commitment. When default excludes agents from borrowing but not saving, the value of default becomes price-dependent. Because agents do not internalize the effects of borrowing limits on equilibrium prices and participation constraints, laissez-faire limits need not be welfare-maximizing. A pre-announced, transitory tightening raises bond prices (lowers interest rates), reduces the value of default, and relaxes self-enforcing borrowing limits in earlier periods. If the resulting expansion of risk sharing outweighs the temporary distortion when the cap binds, the policy delivers an ex ante Pareto improvement. The mechanism has a natural macroprudential interpretation, implying, under certain conditions, that reneging cannot be supported by unanimity once the policy is announced, and can also deliver welfare gains even in the absence of output penalties, low interest rates, and bubbly debt limits.",
-      "abstract_cn": "我们表明，在有限承诺的竞争经济中，暂时收紧无担保信用额度可以提高福利。当违约导致代理人被排除在借款之外但不影响储蓄时，违约的价值变得依赖于价格。由于代理人未能内化借款限额对均衡价格和参与约束的影响，自由放任的限额不一定是福利最大化的。预先宣布的暂时性收紧提高了债券价格（降低了利率），减少了违约价值，并放宽了早期的自我执行借款限额。如果由此带来的风险分担扩张超过了限额约束时的暂时扭曲，该政策将带来事前的帕累托改进。该机制具有自然的宏观审慎解释，意味着在某些条件下，一旦政策宣布，违约行为无法通过一致同意支持，并且即使在没有产出惩罚、低利率和泡沫债务限额的情况下，也能带来福利提升。",
-      "doi": "10.1016/j.jet.2026.106188",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000517",
-      "publication_date": "2026",
+      "abstract_en": "We examine optimal strategy-proof voting mechanisms in environments where the designer lacks precise information about the probability distribution of individual utility profiles. This uncertainty over the true distribution is represented by a set of multiple distributions, and the designer evaluates mechanisms using either the worst-case utility sum or worst-case regret. Departing from the existing literature, we do not assume that utility functions are single-peaked or that the set of possible utility functions is maximally rich. In this setting, we show that the median voter rule is the unique optimal mechanism under both criteria. Our result provides a new justification for this well-known mechanism from a welfare perspective.",
+      "abstract_cn": "我们在设计者缺乏有关个体效用分布概率分布的精确信息的环境中研究最佳的策略验证投票机制。真实分布的这种不确定性由一组多重分布表示，设计者使用最坏情况效用总和或最坏情况遗憾来评估机制。与现有文献不同，我们并不假设效用函数是单峰的，或者可能的效用函数集是最丰富的。在这种情况下，我们表明中位选民规则是这两个标准下唯一的最优机制。我们的结果从福利角度为这一众所周知的机制提供了新的理由。",
+      "abstract_snippet_en": "We examine optimal strategy-proof voting mechanisms in environments where the designer lacks precise information about the probability distribution of individual utility profiles. This uncertainty over...",
+      "doi": "10.1016/j.jet.2026.106219",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000827?dgcid=rss_sd_all",
+      "publication_date": "September 2026",
       "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000517.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00220531",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 3724,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 3724,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106219",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/2a67c37f99e9ace79ec6881c396250b1fed17917"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:50:36+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:45:52+00:00",
+        "source_hash": "147951f9606761f7115c912e984faf0ba7622e666744b7515f41efe80a3da1e8"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1016/j.jet.2026.106189",
+      "paper_id": "doi:10.1016/j.jet.2026.106216",
       "sequence": 7,
       "source_sequence": 7,
       "article_type": "research-article",
-      "title_en": "Expectation and confusion: Evidence and theory",
-      "title_cn": "预期与混淆：证据与理论",
+      "title_en": "Minimum price equilibrium in the assignment market: Structural properties and the Serial Vickrey mechanism",
+      "title_cn": "指派市场中的最低价格均衡：结构性质与序列维克里机制",
       "authors": [
-        "Heng Chen",
-        "Yicheng Liu"
+        "Yu Zhou",
+        "Shigehiro Serizawa"
       ],
-      "abstract_en": "In this paper, we characterize a forecasting model where forecasters cannot perfectly distinguish between the two persistent components (trends and cycles) in a dynamic setting. In this model, forecasters jointly update their beliefs about the two components: noisy information about one component is used to update beliefs about the other component. We present diagnostic empirical facts on forecasting behaviors and show that these facts are consistent with our model’s predictions while contradicting those of existing models in the expectation formation literature. To validate our model, we exploit the Federal Reserve’s 2012 adoption of explicit inflation targeting as a policy shock. Structural estimation reveals that this policy change altered the underlying data-generation process, and the corresponding changes in forecasting behavior indeed align with our model’s predictions. Finally, we revisit the standard Forecast Error-Forecast Revision regression approach in this literature. We examine its robustness within our enriched framework and reveal that trend-cycle confusion can interact with behavioral bias and generate horizon-dependent overreaction patterns documented in empirical studies.",
-      "abstract_cn": "本文刻画了一个预测模型，其中预测者在动态环境中无法完全区分两个持久性成分（趋势和周期）。在这个模型中，预测者共同更新他们对这两个成分的信念：关于一个成分的噪声信息被用来更新对另一个成分的信念。我们提出了关于预测行为的诊断性实证事实，并表明这些事实与我们模型的预测一致，而与预期形成文献中现有模型的预测相矛盾。为了验证我们的模型，我们利用美联储2012年采用明确的通胀目标作为政策冲击。结构估计显示，这一政策变化改变了潜在的数据生成过程，而相应的预测行为变化确实与我们模型的预测一致。最后，我们重新审视了这一文献中的标准预测误差-预测修正回归方法。我们在我们的扩展框架内检验了它的稳健性，并揭示了趋势-周期混淆可以与行为偏差相互作用，并产生实证研究中记录的与预测期限相关的过度反应模式。",
-      "doi": "10.1016/j.jet.2026.106189",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000529",
-      "publication_date": "2026",
+      "abstract_en": "We study an assignment market where multiple heterogeneous objects are sold to unit-demand agents who have general preferences that account for income effects and market frictions. The minimum price equilibrium (MPE) is one of the most important equilibrium concepts in such settings, as it demonstrates the possibility of designing efficient and strategy-proof mechanisms. Nevertheless, none of the well-known auction mechanisms that find the MPE in quasilinear settings can identify or even approximate MPEs for general preferences. We establish novel structural properties of MPEs and use these properties as the foundation to design a “Serial Vickrey (SV) mechanism.” The SV mechanism finds an MPE for general preferences through a finite number of indifference prices reported by the agents, each of which represents their willingness to pay for a target object based on their tentatively assigned bundle. Furthermore, the SV mechanism also has desirable dynamic incentive properties.",
+      "abstract_cn": "我们研究了一个指派市场，其中多个异质物品被出售给具有单位需求的代理人，这些代理人拥有考虑收入效应和市场摩擦的一般偏好。最低价格均衡（MPE）是此类设置中最重要的均衡概念之一，因为它展示了设计高效且策略-proof机制的可能性。然而，在拟线性设置中，已知的拍卖机制中没有一个能够识别甚至近似一般偏好下的MPE。我们建立了MPE的新结构性质，并利用这些性质作为设计“序列维克里（SV）机制”的基础。SV机制通过代理人报告的有限数量的无差异价格来找到一般偏好下的MPE，每个价格代表他们基于暂定分配组合对目标物品的支付意愿。此外，SV机制还具有理想的动态激励性质。",
+      "abstract_snippet_en": "We study an assignment market where multiple heterogeneous objects are sold to unit-demand agents who have general preferences that account for income effects and market frictions. The minimum price...",
+      "doi": "10.1016/j.jet.2026.106216",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000797?dgcid=rss_sd_all",
+      "publication_date": "September 2026",
       "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000529.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00220531",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 3723,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 3723,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106216"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "mistral-ai/mistral-medium-2505",
-        "translated_at": "2026-07-26T20:13:22+00:00"
+        "translated_at": "2026-08-08T11:56:17+00:00",
+        "source_hash": "7e29d462be4e883f5a5074dec69b4dcce27b1e85a955ba6976b74aeb6fa6ca44"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1016/j.jet.2026.106190",
+      "paper_id": "doi:10.1016/j.jet.2026.106221",
       "sequence": 8,
       "source_sequence": 8,
       "article_type": "research-article",
-      "title_en": "Positive and negative selection in bargaining",
-      "title_cn": "讨价还价中的正向选择与负向选择",
+      "title_en": "On the efficiency of runnable banking arrangements",
+      "title_cn": "论可挤兑银行安排的效率",
       "authors": [
-        "Dongkyu Chang",
-        "Duk Gyoo Kim",
-        "Wooyoung Lim"
+        "David Andolfatto",
+        "Ed Nosal"
       ],
-      "abstract_en": "In the standard dynamic screening problem between an uninformed seller and a privately informed buyer, theory suggests that the presence (absence) of the buyer’s outside option leads to a substantial surplus for the seller (buyer). This outcome arises from contrasting unraveling processes that theory predicts: negative selection occurs in the absence of an outside option, while positive selection occurs in the presence of it. We examine the validity of these contrasting unraveling processes and report laboratory data that qualitatively deviate from theoretical predictions. We found that the seller’s profit ranking was reversed between the two environments. In particular, in the presence of an outside option, the buyer frequently rejected current-round offers, leading to pervasive delays; and the seller’s reported beliefs about the buyer’s type were qualitatively more consistent with the negative selection than with the theoretically predicted positive selection.",
-      "abstract_cn": "在无信息卖方与私有信息买方之间的标准动态筛选问题中，理论表明买方外部选择权的存在（缺失）会导致卖方（买方）获得显著的剩余。该结果源于理论预测的两种截然不同的剥离过程：在无外部选择权时发生负向选择，而在有外部选择权时发生正向选择。我们检验了这两种截然不同剥离过程的有效性，并报告了实验室数据，这些数据在定性上偏离理论预测。我们发现卖方利润排序在不同环境（二）间发生了逆转。特别是在存在外部选择权的情况下，买方频繁拒绝当前轮次的报价，导致普遍的延迟；且卖方关于买方类型的报告信念在定性上更符合负向选择，而非理论上预测的正向选择。",
-      "doi": "10.1016/j.jet.2026.106190",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000530",
-      "publication_date": "2026",
+      "abstract_en": "Financial arrangements involving illiquid assets financed by liquid liabilities are often viewed as inherently runnable. Diamond and Dybvig (1983) show that this is true when risk-sharing arrangements are not optimally designed. Peck and Shell (2003) and Ennis and Keister (2009, 2016), however, demonstrate that runnable banking arrangements can be constrained-efficient when liquidity demand is uncertain and withdrawals must be processed on a first-come, first-served basis. We show that this insight extends to environments in which redemptions are not subject to a sequential service constraint. Instead, increasing returns to scale in banking-consistent with empirical evidence-can generate regions of the parameter space in which the constrained-efficient allocation is runnable. Runnable banking arrangements can be constrained-efficient when the minimum scale required to realize economies of scale is difficult to attain during large redemption events, when the penalty for failing to achieve scale is small, and when the likelihood of a coordinated run is low",
+      "abstract_cn": "涉及以流动性负债融资的非流动性资产的金融安排通常被视为本质上可挤兑的。Diamond和Dybvig（1983）表明，当风险分担安排未得到最优设计时，情况确实如此。然而，Peck和Shell（2003）以及Ennis和Keister（2009，2016）证明，当流动性需求不确定且取款必须按先到先得的基础处理时，可挤兑银行安排可以是约束有效的。我们表明，这一见解扩展到赎回不受顺序服务约束的环境。相反，银行业中与经验证据一致的规模报酬递增，可以在参数空间中产生约束有效配置可挤兑的区域。当实现规模经济所需的最小规模在大额赎回事件中难以达到、未能达到规模的惩罚较小以及协调挤兑的可能性较低时，可挤兑银行安排可以是约束有效的。",
+      "abstract_snippet_en": "Financial arrangements involving illiquid assets financed by liquid liabilities are often viewed as inherently runnable. Diamond and Dybvig (1983) show that this is true when risk-sharing arrangements...",
+      "doi": "10.1016/j.jet.2026.106221",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000840?dgcid=rss_sd_all",
+      "publication_date": "September 2026",
       "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000530.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00220531",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 3722,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 3722,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106221",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/17a6806b65227ada538812e458fd94b02159a707"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:51:17+00:00"
+        "translated_at": "2026-08-08T11:56:20+00:00",
+        "source_hash": "5e28cca4282a4525f81fe2acafeefba8aac0771f8bda8ce927f1268572aaaf89"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1016/j.jet.2026.106191",
+      "paper_id": "doi:10.1016/j.jet.2026.106225",
       "sequence": 9,
       "source_sequence": 9,
       "article_type": "research-article",
-      "title_en": "Which experiments test a model?",
-      "title_cn": "哪些实验检验一个模型？",
+      "title_en": "On preference for simplicity and probability weighting",
+      "title_cn": "关于对简单性和概率加权的偏好",
       "authors": [
-        "Paul J. Healy",
-        "Greg Leo"
+        "Lasse Mononen"
       ],
-      "abstract_en": "Given a model of preferences, what choice data or experiment is sufficient to definitively test whether a subject is consistent with the model or to classify them into some “type” within the model? We characterize all experiments that test or classify a given model using a novel graph-theoretic construction: the labeled permutohedron. We show how these results can be used to identify the smallest experiments that achieve a particular goal.",
-      "abstract_cn": "给定一个偏好模型，哪些选择数据或实验足以明确检验一个主体是否与该模型一致，或将其归类为模型中的某种“类型”？我们利用一种新颖的图论构造——带标签的置换多面体，刻画了所有能够检验或分类给定模型的实验。我们展示了如何利用这些结果识别实现特定目标的最小实验。",
-      "doi": "10.1016/j.jet.2026.106191",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000542",
-      "publication_date": "2026",
+      "abstract_en": "Complexity aversion in choice under risk is well documented. One of its main behavioral effects is the event-splitting effect. It captures how the value of a lottery changes when one prize is split into two prizes, each with half the original probability. We weaken independence and continuity to accommodate the event-splitting effect. The resulting preferences admit either an expected utility representation with an additive entropy cost of complexity or a power-weighted expected utility representation in which probabilities are weighted by a power function. The model also provides behavioral foundations for logit choice.",
+      "abstract_cn": "在风险下选择复杂性的厌恶是有据可查的。其主要行为效应之一是事件分裂效应。它捕捉到当一个奖品被分成两个奖品（每个奖品的概率是原始概率的一半）时，彩票价值如何变化。我们削弱独立性和连续性以适应事件分裂效应。由此产生的偏好允许具有复杂性的加性熵成本的预期效用表示或功率加权的预期效用表示，其中概率由幂函数加权。该模型还为 Logit 选择提供行为基础。",
+      "abstract_snippet_en": "Complexity aversion in choice under risk is well documented. One of its main behavioral effects is the event-splitting effect. It captures how the value of a lottery changes when one prize is split...",
+      "doi": "10.1016/j.jet.2026.106225",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000888?dgcid=rss_sd_all",
+      "publication_date": "September 2026",
       "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000542.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00220531",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 3721,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 3721,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106225",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/a0a0eb08b21ce6c045ac13e102c67366c929181c"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:51:25+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:46:11+00:00",
+        "source_hash": "d5443153917065d9ba2994aca64d77d903d49c060467610c5a24be0ffe023dc1"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1016/j.jet.2026.106192",
+      "paper_id": "doi:10.1016/j.jet.2026.106222",
       "sequence": 10,
       "source_sequence": 10,
       "article_type": "research-article",
-      "title_en": "The VCG mechanism, the core, and assignment stages in auctions",
-      "title_cn": "VCG机制、核心与拍卖中的分配阶段",
+      "title_en": "Managing persuasion robustly: The optimality of quota rules",
+      "title_cn": "强有力的说服管理：配额规则的最优性",
       "authors": [
-        "Lawrence M. Ausubel",
-        "Oleg Baranov"
+        "Dirk Bergemann",
+        "Tan Gan",
+        "Yingkai Li"
       ],
-      "abstract_en": "The Vickrey-Clarke-Groves (VCG) mechanism is one of the most compelling constructs in mechanism design, but the presence of complementary goods creates the possibility of non-core and even zero-revenue outcomes. In this article, we show that joint feasibility constraints on allocations offer a second pathway to ill-behaved outcomes in the VCG mechanism, even when all bidders have substitutes preferences for the goods. We then develop a theory of complementarities specifically tailored to assignment stages of spectrum auctions. Assignment stages typically guarantee contiguous spectrum to each winner—this proves to be an especially severe joint feasibility constraint. We propose a definition of bidder complementarities and further dichotomize them as direct or indirect. When opponents bid on distinct parts of a bidder’s preferred assignment, they set up a direct bidder complementarity. However, if an assignment is denied through the contiguity restriction, that is called an indirect complementarity. As a result, non-core outcomes, together with all of the accompanying anomalies, can be expected in VCG assignment stages. We then examine a conspicuous recent spectrum auction, the FCC’s Broadcast Incentive Auction, and we provide the first documentation of zero-revenue outcomes in the field. Of 207 assignment stage auctions with at least three bidders, 17.9% produced non-core outcomes relative to the bids and, of these, 3 generated zero revenues. After rescaling bidder values, we find that the majority of assignment stage auctions had the potential for exploitable bidder complementarities and that the vast majority of bidder complementarities—both potential and realized—were indirect.",
-      "abstract_cn": "Vickrey-Clarke-Groves (VCG) 机制是机制设计中最具吸引力的构造之一，但互补品的存在会导致非核心甚至零收入的结果。在本文中，我们表明，即使所有竞标者对商品都有替代偏好，分配的联合可行性约束也为VCG机制中的不良结果提供了第二条途径。然后，我们针对频谱拍卖的分配阶段，发展了一套专门的互补性理论。分配阶段通常保证每个赢家获得连续的频谱——这被证明是一种特别严格的联合可行性约束。我们提出了竞标者互补性的定义，并进一步将其划分为直接或间接互补性。当对手对竞标者偏好的分配的不同部分出价时，他们建立了直接竞标者互补性。然而，如果通过连续性限制拒绝了分配，则称为间接互补性。因此，在VCG分配阶段，可以预期非核心结果，以及所有伴随的异常现象。然后，我们研究了一个显著的近期频谱拍卖，即FCC的广播激励拍卖，并首次记录了现场的零收入结果。在207个至少有三个竞标者的分配阶段拍卖中，17.9%相对于出价产生了非核心结果，其中3个产生了零收入。在重新调整竞标者价值后，我们发现大多数分配阶段拍卖都有可利用的竞标者互补性，并且绝大多数竞标者互补性——无论是潜在的还是已实现的——都是间接的。",
-      "doi": "10.1016/j.jet.2026.106192",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000554",
-      "publication_date": "2026",
+      "abstract_en": "We study a sender-receiver game in which the receiver can commit to a decision rule before the sender determines the information policy. We ask how the receiver should commit, in advance, to a rule that maps the information of the sender into decisions-when the receiver knows neither the sender’s true preferences nor the full range of information the sender could supply. To handle this dual uncertainty, we adopt a unified robust framework that nests max-min utility, min-max regret, and min-max competitive ratio as special cases. Across all criteria, the same answer emerges: the optimal rule is always a quota rule.",
+      "abstract_cn": "我们研究了发送者-接收者博弈，其中接收者可以在发送者确定信息策略之前承诺决策规则。我们询问接收者应如何提前遵守将发送者的信息映射到决策中的规则——当接收者既不知道发送者的真实偏好也不知道发送者可以提供的全部信息时。为了处理这种双重不确定性，我们采用了一个统一的稳健框架，将最大-最小效用、最小-最大遗憾和最小-最大竞争比作为特殊情况。在所有标准中，都会出现相同的答案：最佳规则始终是配额规则。",
+      "abstract_snippet_en": "We study a sender-receiver game in which the receiver can commit to a decision rule before the sender determines the information policy. We ask how the receiver should commit, in advance, to a rule...",
+      "doi": "10.1016/j.jet.2026.106222",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000852?dgcid=rss_sd_all",
+      "publication_date": "September 2026",
       "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000554.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00220531",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 3720,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 3720,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106222"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "mistral-ai/mistral-medium-2505",
-        "translated_at": "2026-07-26T20:13:38+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:46:14+00:00",
+        "source_hash": "ec98a2a728cf07143e1be06d2a73439477df9382a22646828d96fb2d4e6f4bbf"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1016/j.jet.2026.106202",
+      "paper_id": "doi:10.1016/j.jet.2026.106220",
       "sequence": 11,
       "source_sequence": 11,
       "article_type": "research-article",
-      "title_en": "Credit, money and (pseudo-)anonymity",
-      "title_cn": "信用、货币与（伪）匿名性",
+      "title_en": "Informational inertia and the Taylor principle",
+      "title_cn": "信息惯性和泰勒原理",
       "authors": [
-        "Remo Isch-Taudien",
-        "Fabienne Schneider"
+        "Alexander Meyer-Gohde",
+        "Mary Tzaawa-Krenzler"
       ],
-      "abstract_en": "We study pseudonymity—an information regime where agents’ histories are perfectly observable, but linked only to pseudonyms rather than to true identities. A key feature is that agents may open and use multiple pseudonyms simultaneously. In a tractable environment with limited commitment, we characterize the set of stationary credit equilibria under pseudonymity, showing that it forms a strict non-empty subset of equilibria attainable under a no anonymity regime, where histories are publicly linked to true identities. Moreover, money is always essential under pseudonymity, yet cannot co-exist with credit. Finally, imposing optimal fees on pseudonym creation generally raises welfare, whereas making pseudonyms tradable never does.",
-      "abstract_cn": "我们研究伪匿名性——一种信息制度，其中代理人的历史记录是完全可观察的，但仅与伪名相关联，而非真实身份。一个关键特征是代理人可以同时开设并使用多个伪名。在一个具有有限承诺能力的可处理环境中，我们刻画了伪匿名性下的平稳信用均衡集合，表明该集合是无匿名制度下可达均衡的一个严格非空子集，在无匿名制度中，历史记录公开关联真实身份。此外，货币在伪匿名性下始终是必需的，但不能与信用共存。最后，对伪名创建施加最优费用通常会提高福利，而使伪名可交易则从未提高福利。",
-      "doi": "10.1016/j.jet.2026.106202",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000657",
-      "publication_date": "2026",
+      "abstract_en": "The Taylor principle, a more than one-for-one reaction of the nominal interest rate to inflation, is a central tenet of monetary policy to rule out self-fulfilling equilibria. The standard sticky-price model only holds this principle as a sufficient determinacy bound, with substitutes such as output-gap targeting available. We show that if the long-run Phillips curve is vertical, the Taylor principle is necessary and no amount of output-gap, output-growth, or forecast targeting can substitute for the vigorous response to inflation it prescribes. Sticky price models report determinacy bounds as generically model-dependent, nonlinear functions of model parameters. We find that models with vertical long-run Phillips curves share the same determinacy bounds despite differing short-run tradeoffs. These bounds are more conservative, placing tighter restrictions on monetary policy, and more robust, being independent of model-specific parameters and depending solely on monetary policy’s reaction to current inflation.",
+      "abstract_cn": "泰勒原则是名义利率对通货膨胀的一对一反应，是货币政策排除自我实现均衡的核心原则。标准粘性价格模型仅将此原则视为足够的确定性界限，并可使用产出缺口目标等替代品。我们表明，如果长期菲利普斯曲线是垂直的，那么泰勒原则是必要的，并且任何产出缺口、产出增长或预测目标都不能取代它所规定的对通货膨胀的积极反应。粘性价格模型将确定性界限报告为模型参数的一般依赖于模型的非线性函数。我们发现，尽管短期权衡不同，但具有垂直长期菲利普斯曲线的模型具有相同的确定性界限。这些界限更加保守，对货币政策施加更严格的限制，并且更加稳健，独立于模型特定参数，仅取决于货币政策对当前通胀的反应。",
+      "abstract_snippet_en": "•The Taylor principle is necessary, not just sufficient, when long-run Phillips curves are vertical.•Current inflation targeting alone determines equilibrium uniqueness.•Output gap targeting cannot...",
+      "doi": "10.1016/j.jet.2026.106220",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000839?dgcid=rss_sd_all",
+      "publication_date": "September 2026",
       "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000657.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00220531",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 3719,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 3719,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106220",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/48e38b3b8455dc569176fa1e85e4829df34e0ff0"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
+        "model": "gtx-en-zh-CN",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:52:08+00:00"
+        "translated_at": "2026-08-02T08:46:16+00:00",
+        "source_hash": "0128a70a9cacd2d8dd62d514b62615f60d395f8dd70d4d139022113692db57be"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1016/j.jet.2026.106203",
+      "paper_id": "doi:10.1016/j.jet.2026.106226",
       "sequence": 12,
       "source_sequence": 12,
       "article_type": "research-article",
-      "title_en": "Learning through imitation: An experiment",
-      "title_cn": "通过模仿学习：一项实验",
+      "title_en": "Government trading and efficiency in imperfectly competitive financial markets",
+      "title_cn": "不完全竞争金融市场中的政府交易和效率",
       "authors": [
-        "Marina Agranov",
-        "Gabriel Lopez-Moctezuma",
-        "Philipp Strack",
-        "Omer Tamuz"
+        "Daniel Neuhann",
+        "Michael Sockin"
       ],
-      "abstract_en": "We compare how well agents aggregate information in two repeated social learning environments. In the first setting agents have access to a public data set. In the second they have access to the same data, and also to the past actions of others. Despite the fact that actions contain no additional payoff-relevant information, and despite potential herd behavior, free riding and information overload issues, observing and imitating the actions of others leads agents to take the optimal action more often in the second setting. We also investigate the effect of group size, as well as a setting in which agents observe private data and others’ actions.",
-      "abstract_cn": "我们比较了代理人在二重复社会学习环境中聚合信息的效果。在第一环境中，代理人可以访问一个公共数据集。在第二环境中，他们不仅可以访问相同的数据，还可以观察他人的过去行为。尽管这些行为不包含额外的与收益相关的信息，且存在潜在的羊群效应、搭便车和信息过载问题，观察并模仿他人的行为仍使代理人在第二环境中更频繁地采取最优行动。我们还研究了群体规模的影响，以及代理人观察私人数据和他人行为的情形。",
-      "doi": "10.1016/j.jet.2026.106203",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000669",
-      "publication_date": "2026",
+      "abstract_en": "We analyze how public asset purchases affect liquidity, risk sharing and intertemporal smoothing in imperfectly competitive financial markets. Even “neutral” policies, such as budget-balanced trades of risk-free debt, affect liquidity and trading efficiency. Public debt purchases worsen liquidity and risk sharing by increasing price impact, while debt sales improve risk sharing but distort intertemporal trade. “Expansionary” quantitative easing policies can thus reduce trading efficiency. We also derive quantity-based trading rules for optimal public portfolio management. These call for policy to equalize weighted measures of public and private price impact.",
+      "abstract_cn": "我们分析公共资产购买如何影响不完全竞争的金融市场中的流动性、风险分担和跨期平滑。即使是“中性”政策，例如无风险债务的预算平衡交易，也会影响流动性和交易效率。公共债务购买会增加价格影响，从而恶化流动性和风险分担，而债务出售则改善风险分担，但会扭曲跨期贸易。 “扩张性”量化宽松政策可能会降低交易效率。我们还推导出基于数量的交易规则，以实现最佳的公共投资组合管理。这些要求政策平衡公共和私人价格影响的加权衡量标准。",
+      "abstract_snippet_en": "We analyze how public asset purchases affect liquidity, risk sharing and intertemporal smoothing in imperfectly competitive financial markets. Even “neutral” policies, such as budget-balanced trades...",
+      "doi": "10.1016/j.jet.2026.106226",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S002205312600089X?dgcid=rss_sd_all",
+      "publication_date": "September 2026",
       "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000669.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00220531",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 3718,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 3718,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106226",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/ecc64267480846c6eaa3ebdcd7214378acb82642"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:52:17+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:46:22+00:00",
+        "source_hash": "05fdb8886f55be8142376894153900e7757c9b5c094a9edf503b6c04c685b655"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1016/j.jet.2026.106204",
+      "paper_id": "doi:10.1016/j.jet.2026.106223",
       "sequence": 13,
       "source_sequence": 13,
       "article_type": "research-article",
-      "title_en": "The Hard Problem and the Tyranny of the Losers",
-      "title_cn": "难题与输家暴政",
+      "title_en": "When can less be more? Inducing dealer responses in RFQ platforms",
+      "title_cn": "什么时候可以少即是多？在询价平台中诱导经销商响应",
       "authors": [
-        "Stan Cheung",
-        "Marco Mariotti",
-        "Roberto Veneziani"
+        "Bart Zhou Yueshen",
+        "Junyuan Zou"
       ],
-      "abstract_en": "A Hard Problem is a collective choice problem in which the only feasible alternatives to the status quo consist of a welfare gain to some people (the Winners) and a welfare loss to others (the Losers). These problems are typical in a number of settings, such as climate action, anti-trust regulation, and tax design. We study how to make collective choices when faced with Hard Problems. We find that a relatively weak fairness requirement, which we call Expansion Solidarity, necessarily leads to a dictatorship of the Losers, no matter how small their number. Even one single Loser must be given the power to veto any departure from the status quo, regardless of the number of Winners, how large the gains, how small the loss, or how extreme the welfare inequalities.",
-      "abstract_cn": "难题是一种集体选择问题，其中对现状的唯一可行替代方案是部分人（赢家）福利增加而其他人（输家）福利减少。这类问题在多个情境中典型存在，如气候行动、反垄断监管和税收设计。我们研究在面临难题时如何做出集体选择。我们发现，一种相对较弱的公平性要求，即我们称之为扩展团结，必然导致输家的独裁，无论其人数多么少。即使只有单个输家，也必须赋予其否决任何偏离现状的权力，无论赢家人数多少、收益多大、损失多小或福利不平等多么极端。",
-      "doi": "10.1016/j.jet.2026.106204",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000670",
-      "publication_date": "2026",
+      "abstract_en": "We show in a model of RFQ trading that customers may admit only a few dealers, even when more are available, to induce maximum liquidity supply—“less can be more.” The number of admitted dealers is pinned down by a competition elasticity, shaped by dealers’ cost to respond to RFQs. For example, higher search (operating) costs increase (reduce) admitted dealers. A social planner would mandate even fewer dealers than the market outcome, because customers induce excessive dealer competition. The model predicts endogenous market power, yields implications for regulation and design of electronic platforms, and speaks to customer-dealer interactions under market stress.",
+      "abstract_cn": "我们在询价交易模型中表明，即使有更多交易商，客户也可能只接纳少数交易商，以诱导最大的流动性供应——“越少越好”。获准经销商的数量受到竞争弹性的限制，竞争弹性由经销商响应询价的成本决定。例如，较高的搜索（运营）成本会增加（减少）认可的经销商。社会规划者会要求比市场结果更少的经销商，因为客户会引发经销商过度竞争。该模型预测内生市场力量，对电子平台的监管和设计产生影响，并探讨市场压力下客户与经销商的互动。",
+      "abstract_snippet_en": "We show in a model of RFQ trading that customers may admit only a few dealers, even when more are available, to induce maximum liquidity supply—“less can be more.” The number of admitted dealers is...",
+      "doi": "10.1016/j.jet.2026.106223",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000864?dgcid=rss_sd_all",
+      "publication_date": "September 2026",
       "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000670.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00220531",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 3717,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 3717,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106223",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/01d957771de700953434cfa268487d287a285dde"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:52:24+00:00"
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-02T08:46:24+00:00",
+        "source_hash": "8648fdc3fc9c171b67f9383f67a140ebb79d4b8aceb3e5c5c975c24c4cc0162e"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
-      "paper_id": "doi:10.1016/j.jet.2026.106205",
+      "paper_id": "doi:10.1016/j.jet.2026.106227",
       "sequence": 14,
       "source_sequence": 14,
       "article_type": "research-article",
-      "title_en": "The hold-up problem with flexible unobservable investments",
-      "title_cn": "具有灵活不可观测投资的挟持问题",
+      "title_en": "A folk theorem for finitely repeated games with public monitoring",
+      "title_cn": "有限重复博弈中公共监督下的民间定理",
       "authors": [
-        "Daniel Krähmer"
+        "Johannes Hörner",
+        "Jérôme Renault"
       ],
-      "abstract_en": "The paper studies the canonical hold-up problem with one-sided investment by the buyer and full bargaining power by the seller. The buyer can covertly choose any distribution of valuations at a cost and privately observes her valuation. I show that, unlike in the well-understood case with linear costs, if investment costs are strictly convex, the buyer’s equilibrium utility is strictly positive and total welfare is strictly higher than when valuations are public information, thus alleviating the severity of the hold-up problem. In fact, when costs are mean-based or display decreasing risk, the equilibrium outcome might be efficient.",
-      "abstract_cn": "本文研究了买方具有一单边投资且卖方拥有完全议价权的典型挟持问题。买方可以秘密选择任意估值分布，需支付成本，并私下观察其估值。我证明，与线性成本的已知情况不同，如果投资成本是严格凸的，买方的均衡效用严格为正，总福利严格高于估值为公开信息时的情况，从而缓解了挟持问题的严重性。事实上，当成本基于均值或表现出风险递减时，均衡结果可能是有效的。",
-      "doi": "10.1016/j.jet.2026.106205",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000682",
-      "publication_date": "2026",
+      "abstract_en": "We provide a Folk theorem for finitely repeated games under imperfect public monitoring, under a strengthening of the standard assumptions required for finitely repeated games with perfect monitoring, and of those for discounted repeated games under imperfect public monitoring. Our proof uses standard recursive methods and assumes the existence of a public randomization device. Three counterexamples show in which sense our assumptions are tight.",
+      "abstract_cn": "我们在不完美公共监督下为有限重复博弈提供了一个民间定理，这需要加强完美监督下有限重复博弈以及不完美公共监督下贴现重复博弈所需的标准假设。我们的证明使用标准的递归方法，并假设存在一个公共随机化装置。三个反例表明我们的假设在何种意义上是紧致的。",
+      "abstract_snippet_en": "We provide a Folk theorem for finitely repeated games under imperfect public monitoring, under a strengthening of the standard assumptions required for finitely repeated games with perfect monitoring,...",
+      "doi": "10.1016/j.jet.2026.106227",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000906?dgcid=rss_sd_all",
+      "publication_date": "September 2026",
       "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000682.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00220531",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 3716,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 3716,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jet.2026.106227",
+        "semantic_scholar": "https://www.semanticscholar.org/paper/0a47defa18aa4ad53d6f802aca47e2b943656b65"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:52:33+00:00"
+        "translated_at": "2026-08-08T11:56:21+00:00",
+        "source_hash": "e36e4849a8b5f3826a6145dc3ea0a7ccdcbba357f56a2be442f737480c686dcf"
       },
-      "quality_flags": []
-    },
-    {
-      "paper_id": "doi:10.1016/j.jet.2026.106207",
-      "sequence": 15,
-      "source_sequence": 15,
-      "article_type": "research-article",
-      "title_en": "Reference-dependent choice bracketing",
-      "title_cn": "参照依赖的选择分组",
-      "authors": [
-        "Pauline Vorjohann"
-      ],
-      "abstract_en": "I derive a model of choice bracketing from two behavioral axioms in an expected utility framework. The first behavioral axiom establishes a link between narrow bracketing and correlation neglect. The second behavioral axiom identifies the reference point as the connector between broad and narrow preferences. The narrow bracketer is characterized by an inability to process changes from the reference point in different dimensions simultaneously. As a result, her tradeoffs between dimensions are distorted. She evaluates dimensions in isolation, implying a disregard for how they affect one another. When evaluating a dimension, she remains anchored to the reference point in the respective other dimension. This implies that she mistakenly perceives preference interactions in relation to the reference point. I present applications to portfolio choice, consumption bundle choice, and an exchange economy.",
-      "abstract_cn": "我在期望效用框架下，从二行为公理推导出选择分组模型。第一行为公理建立了狭义分组与相关性忽视之间的联系。第二行为公理将参照点确定为广义偏好与狭义偏好之间的连接点。狭义分组者的特征是无法同时处理来自参照点在不同维度上的变化。因此，她在维度之间的权衡被扭曲。她孤立地评估各维度，意味着忽视了它们如何相互影响一。在评估某一维度时，她仍锚定于相应其他维度的参照点。这意味着她错误地将偏好交互视为与参照点相关。我展示了该模型在投资组合选择、消费组合选择及交换经济中的应用。",
-      "doi": "10.1016/j.jet.2026.106207",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000700",
-      "publication_date": "2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000700.html",
-        "abstract_en": "official-sciencedirect-issue"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "github-models",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:52:42+00:00"
-      },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     }
   ],
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "official_item_count": 15,
+    "roster_transport": "official-issue-page+browser-authorized",
+    "roster_authority": "official-issue-page",
+    "roster_match_scope": "rss-volume-items",
+    "rss_url": "https://rss.sciencedirect.com/publication/science/00220531",
+    "official_item_count": 14,
+    "publishable_item_count": 14,
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 15,
-    "authors_complete": 15,
-    "abstract_en_complete": 15,
-    "translation_complete": 15,
+    "doi_complete": 14,
+    "authors_complete": 14,
+    "abstract_en_complete": 14,
+    "translation_complete": 14,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_repec_fallback",
-      "repec_publisher_supplied_roster",
-      "official_order_unverified"
-    ],
-    "official_issue_fetch_error": "request failed for https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C: 403 Client Error: Forbidden for url: https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C"
-  }
+    "flags": [],
+    "order_verification": "official_verified",
+    "browser_order_verification": {
+      "verified_at": "2026-08-03T01:44:08+00:00",
+      "source_url": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/236/suppl/C",
+      "captured_at": "2026-08-03T01:38:34.305Z",
+      "page_item_count": 14,
+      "article_count": 14,
+      "pii_sequence_matched": true,
+      "titles_matched": true,
+      "excluded_items_present": true
+    },
+    "browser_authorized_abstracts": {
+      "captured_at": "2026-08-02T08:15:00.832Z",
+      "institutional_access_confirmed": true,
+      "privacy_fields_stored": false,
+      "applied_count": 11
+    },
+    "content_counts": {
+      "official_items": 14,
+      "observed_items": 14,
+      "publishable_items": 14,
+      "research_articles": 14,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 14
+    }
+  },
+  "content_counts": {
+    "official_items": 14,
+    "observed_items": 14,
+    "publishable_items": 14,
+    "research_articles": 14,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 14
+  },
+  "publication_state": "ready"
 }
