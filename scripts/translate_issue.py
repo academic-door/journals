@@ -581,7 +581,302 @@ def _repair_google_artifacts(source: str, translated: str) -> str:
             repaired,
             count=1,
         )
-        repaired = …2781 tokens truncated…labels (Section 5503, Table 2, 第5503条) are not data
+        repaired = re.sub(
+            r"持续(?:through|至|到)?\s*\d+岁",
+            f"持续至{age}岁",
+            repaired,
+            count=1,
+        )
+
+    return repaired
+
+
+_ZH_DIGITS = "零一二三四五六七八九"
+
+
+def _zh_integer(value: int) -> str:
+    if value < 10:
+        return _ZH_DIGITS[value]
+    if value < 20:
+        return "十" + (_ZH_DIGITS[value - 10] if value > 10 else "")
+    if value < 100:
+        tens, ones = divmod(value, 10)
+        return _ZH_DIGITS[tens] + "十" + (_ZH_DIGITS[ones] if ones else "")
+    if value < 1000:
+        hundreds, rest = divmod(value, 100)
+        base = _ZH_DIGITS[hundreds] + "百"
+        if not rest:
+            return base
+        if rest < 10:
+            return base + "零" + _ZH_DIGITS[rest]
+        return base + _zh_integer(rest)
+    thousands, rest = divmod(value, 1000)
+    base = _ZH_DIGITS[thousands] + "千"
+    if not rest:
+        return base
+    if rest < 100:
+        return base + "零" + _zh_integer(rest)
+    return base + _zh_integer(rest)
+
+
+
+CN_DIGITS = {
+    "零": 0, "〇": 0, "一": 1, "二": 2, "两": 2, "三": 3, "四": 4,
+    "五": 5, "六": 6, "七": 7, "八": 8, "九": 9,
+}
+CN_UNITS = {"十": 10, "百": 100, "千": 1000, "万": 10000, "亿": 100000000}
+CN_NUMERAL_PATTERN = re.compile(r"[零〇一二两三四五六七八九十百千万亿]+")
+
+
+def _parse_chinese_numeral(value: str) -> int:
+    """Parse a Chinese numeral sequence (up to 亿) into an integer.
+
+    Handles standard forms such as 八十=80, 一百二十三=123, 二〇二五=2025
+    and 二十万=200000.
+    """
+    if not any(char in CN_UNITS for char in value):
+        # Pure digit sequence (e.g. 二〇二五 for 2025): concatenate digits.
+        result = 0
+        for char in value:
+            result = result * 10 + CN_DIGITS[char]
+        return result
+    total = 0
+    section = 0
+    number = 0
+    for char in value:
+        if char in CN_DIGITS:
+            number = CN_DIGITS[char]
+        elif char in CN_UNITS:
+            unit = CN_UNITS[char]
+            if unit < 10000:
+                section += (number or 1) * unit
+                number = 0
+            else:
+                total += (section + number) * unit
+                section = 0
+                number = 0
+    return total + section + number
+
+
+def _canonicalize_chinese_numerals(source: str, translated: str) -> str:
+    """Convert Chinese-written numerals back to Arabic when the source has the
+    same value as an Arabic number.
+
+    Chinese translations routinely render source Arabic numbers as Chinese
+    numerals (e.g. ``80`` -> ``八十``). Those are the same value, not invented
+    numbers; converting only the values that actually occur as Arabic numerals
+    in the source lets the strict multiset validator compare numeric content
+    instead of script form, without disturbing legitimate Chinese renderings
+    of English number words (e.g. ``half a million`` -> ``五十万``).
+    """
+    source_numbers = set(_numbers(source))
+
+    def replace_percent(match: re.Match[str]) -> str:
+        value = _parse_chinese_numeral(match.group(1))
+        rendered = f"{value}%"
+        if rendered in source_numbers:
+            return rendered
+        return match.group(0)
+
+    normalized = re.sub(
+        r"百分之(" + CN_NUMERAL_PATTERN.pattern + r")",
+        replace_percent,
+        translated,
+    )
+
+    def replace_numeral(match: re.Match[str]) -> str:
+        sequence = match.group(0)
+        if len(sequence) < 2:
+            # Single Chinese digits usually render English count words
+            # (``two types`` -> ``两种``) and are ambiguous with data values;
+            # leave them alone.
+            return sequence
+        value = _parse_chinese_numeral(sequence)
+        if str(value) in source_numbers:
+            return str(value)
+        return sequence
+
+    return CN_NUMERAL_PATTERN.sub(replace_numeral, normalized)
+
+
+
+def _normalize_written_number_translations(source: str, translated: str) -> str:
+    """Normalize valid Chinese renderings of English month/number words.
+
+    This prevents a translated ``December`` -> ``12月`` or ``three percent`` ->
+    ``3%`` from being mistaken for an invented Arabic number. Source Arabic
+    numbers remain subject to exact multiset validation. Chinese-written
+    numerals (``八十`` for 80) are canonicalized back to Arabic first so they
+    compare equal to the source value.
+    """
+
+    normalized = _canonicalize_chinese_numerals(source, translated)
+    month_abbreviations = {
+        "jan": "January", "feb": "February", "mar": "March", "apr": "April",
+        "may": "May", "jun": "June", "jul": "July", "aug": "August",
+        "sep": "September", "sept": "September", "oct": "October",
+        "nov": "November", "dec": "December",
+    }
+    for month_index, (month, month_cn) in enumerate(MONTH_WORDS_ZH.items(), start=1):
+        source_count = len(re.findall(rf"\b{month}\b", source, flags=re.IGNORECASE))
+        for alias, full in month_abbreviations.items():
+            if full.casefold() == month.casefold():
+                source_count += len(
+                    re.findall(rf"\b{re.escape(alias)}\.?\b", source, flags=re.IGNORECASE)
+                )
+        for _ in range(source_count):
+            normalized, changed = re.subn(
+                rf"(?<!\d){month_index}\s*月",
+                month_cn,
+                normalized,
+                count=1,
+            )
+            if not changed:
+                break
+
+    words = "|".join(NUMBER_WORD_VALUES)
+    percent_pattern = re.compile(
+        rf"\b(?P<low>{words})(?:\s+to\s+(?P<high>{words}))?"
+        r"\s+(?:percent|per\s+cent)\b",
+        re.IGNORECASE,
+    )
+    written_percent_values: list[int] = []
+    for match in percent_pattern.finditer(source):
+        written_percent_values.append(NUMBER_WORD_VALUES[match.group("low").lower()])
+        if match.group("high"):
+            written_percent_values.append(
+                NUMBER_WORD_VALUES[match.group("high").lower()]
+            )
+    for value in written_percent_values:
+        normalized, _changed = re.subn(
+            rf"(?<![\d.]){value}\s*[%％](?!\d)",
+            f"百分之{NUMBER_VALUES_ZH[value]}",
+            normalized,
+            count=1,
+        )
+    word_pattern = re.compile(
+        r"\b(" + "|".join(sorted(NUMBER_WORD_VALUES, key=len, reverse=True)) + r")\b",
+        re.IGNORECASE,
+    )
+    half_unit = re.search(
+        r"\bhalf\s+a\s+(million|billion)\b",
+        source,
+        flags=re.IGNORECASE,
+    )
+    if half_unit:
+        unit = half_unit.group(1).lower()
+        if unit == "million":
+            # half a million = 500,000; Google renders it as 50万.
+            normalized, _changed = re.subn(
+                r"(?<![\d])50\s*万",
+                "五十万",
+                normalized,
+                count=1,
+            )
+        elif unit == "billion":
+            # half a billion = 500,000,000; Google renders it as 5亿.
+            normalized, _changed = re.subn(
+                r"(?<![\d])5\s*亿",
+                "五亿",
+                normalized,
+                count=1,
+            )
+    unit_word = re.search(
+        r"\b(?:a|one)\s+(thousand|million|billion)\b",
+        source,
+        flags=re.IGNORECASE,
+    )
+    if unit_word:
+        unit = unit_word.group(1).lower()
+        unit_zh = {"thousand": "一千", "million": "一百万", "billion": "十亿"}[unit]
+        unit_value = {"thousand": 1000, "million": 1000000, "billion": 1000000000}[unit]
+        unit_patterns = [rf"(?<!\d){unit_value}(?!\d)"]
+        if unit == "thousand":
+            unit_patterns.append(r"(?<!\d)1\s*千(?!\d)")
+        for unit_pattern in unit_patterns:
+            normalized, _changed = re.subn(
+                unit_pattern,
+                unit_zh,
+                normalized,
+                count=1,
+            )
+            if _changed:
+                break
+
+    bn_amount = re.search(r"\$?(\d+)\s*bn\b", source, flags=re.IGNORECASE)
+    if bn_amount:
+        # $20bn = 200亿; normalize the translator's 200亿 to 二百亿 so the
+        # Arabic digit does not count as an invented number.
+        amount = int(bn_amount.group(1))
+        target = amount * 10
+        if re.search(rf"(?<!\d){target}\s*亿", normalized):
+            normalized, _changed = re.subn(
+                rf"(?<!\d){target}\s*亿",
+                _zh_integer(target) + "亿",
+                normalized,
+                count=1,
+            )
+
+    quarter_match = re.search(r"\b(\d{4})\s*Q([1-4])\b", source, re.IGNORECASE)
+    if quarter_match:
+        year = quarter_match.group(1)
+        zh_quarter = {"1": "一", "2": "二", "3": "三", "4": "四"}[quarter_match.group(2)]
+        normalized, _changed = re.subn(
+            rf"(?<![\d]){year}\s*年\s*第{zh_quarter}季度",
+            f"{year}Q{quarter_match.group(2)}",
+            normalized,
+            count=1,
+        )
+    source_digit_counts = Counter(_numbers(source))
+    for match in word_pattern.finditer(source):
+        word = match.group(0).lower()
+        value = NUMBER_WORD_VALUES[word]
+        digit_pattern = re.compile(
+            rf"(?<![\d×xX*.,%％(（A-Za-z]){value}(?![\d×xX*.,%％)）A-Za-z])"
+        )
+        if len(digit_pattern.findall(normalized)) <= source_digit_counts.get(
+            str(value), 0
+        ):
+            # The digit already exists in the source as an Arabic numeral
+            # (e.g. data value 3 in "from 3 to -1 percent"), so a written
+            # "three" elsewhere must not rewrite it.
+            continue
+        normalized, _changed = re.subn(
+            digit_pattern,
+            NUMBER_WORDS_ZH[word],
+            normalized,
+            count=1,
+        )
+    return normalized
+
+
+def validate_translation(article: dict[str, Any], translated: dict[str, Any]) -> None:
+    title_cn = str(translated.get("title_cn", "")).strip()
+    abstract_cn = str(translated.get("abstract_cn", "")).strip()
+    comment_without_abstract = (
+        article.get("article_type") == "comment"
+        and not article.get("abstract_en")
+    )
+    if not title_cn or (not abstract_cn and not comment_without_abstract):
+        raise TranslationError("Chinese title and abstract are both required")
+    if not CJK_PATTERN.search(title_cn) or (
+        abstract_cn and not CJK_PATTERN.search(abstract_cn)
+    ):
+        raise TranslationError("Translation must contain Chinese characters")
+    minimum = (
+        10
+        if article.get("article_type") == "comment"
+        else min(80, max(30, int(len(article["abstract_en"]) * 0.15)))
+    )
+    if not comment_without_abstract and len(abstract_cn) < minimum:
+        raise TranslationError("Chinese abstract is suspiciously short")
+    if "```" in title_cn or "```" in abstract_cn:
+        raise TranslationError("Translation must not contain Markdown fences")
+    source_text = f"{article.get('title_en', '')}\n{article.get('abstract_en', '')}"
+    translated_text = f"{title_cn}\n{abstract_cn}"
+    source_numbers = Counter(_numbers(source_text))
+    translated_numbers = Counter(_numbers(translated_text))
+    # Identifier labels (Section 5503, Table 2, 第5503条) are not data
     # values: exempt the source's identifier numbers on the translation side
     # too, so rendering them with Arabic digits is not flagged as invented.
     for identifier_number in _identifier_numbers(source_text):
