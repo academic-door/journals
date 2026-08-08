@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-08T08:28:17+00:00",
   "expected_article_count": 57,
   "research_article_count": 57,
-  "status": "ready",
+  "status": "incomplete",
   "articles": [
     {
       "paper_id": "doi:10.1016/j.ecolecon.2024.108345",
@@ -806,7 +806,7 @@
       "source_sequence": 20,
       "article_type": "research-article",
       "title_en": "Accounting for water: A global review and indicators of best practice for improved water governance",
-      "title_cn": "水资源核算：全球回顾与改进水治理的最佳实践指标",
+      "title_cn": "",
       "authors": [
         "Michael J. Vardon",
         "Thi Ha Lien Le",
@@ -817,7 +817,7 @@
         "R. Quentin Grafton"
       ],
       "abstract_en": "Effective water governance requires timely and reliable information, yet water data are often scattered or missing. Water accounting organizes existing data to provide decision-makers with the best possible information. We reviewed 271 water accounts from 139 publications from 78 countries and regions to determine their scope and coverage. Account production increased over time and occurs in countries of low- to high-income, small to large size, and at various water stress levels. The System of Environmental-Economic Accounting was the most used water accounting framework (n = 73). Many accounts are “one-off” exercises (n = 138). Twenty-seven countries have regular accounts with a time series extending >10 years. Annual accounts were produced mainly by national statistical offices (n = 14). The most common types of water accounts produced were for physical (i.e., m3) water supply and use (n = 74) and water assets (n = 54), with the level of environmental and economic detail highly variable. Indicators of best practice water accounting are improved engagement between account producers and users for determining users' needs in terms of the range of accounts, the number of industries and water resources recorded, spatial and temporal coverage, production frequency and timeliness, integration with other environmental and economic data, and the quality and accessibility of water accounts.",
-      "abstract_cn": "有效的水治理需要及时可靠的信息，然而水数据往往分散或缺失。水资源核算整合现有数据，为决策者提供尽可能最好的信息。我们回顾了来自78个国家和地区的139篇出版物中的271份水资源账户，以确定其范围和覆盖度。账户的编制随着时间的推移而增加，且发生在低收入到高收入、小规模到大规模以及不同水资源压力水平的国家。环境经济核算体系是最常用的水资源核算框架（n = 73）。许多账户是“一次性”工作（n = 138）。二十七个国家拥有时间序列延伸>10年的定期账户。年度账户主要由国家统计局编制（n = 14）。最常编制的账户类型是实物（即m3）水供应和使用（n = 74）以及水资源资产（n = 54），其环境和经济细节的详细程度差异很大。水资源核算最佳实践的指标包括改进账户编制者和使用者之间的互动，以确定使用者在账户范围、记录的行业和水资源数量、空间和时间覆盖、编制频率和及时性、与其他环境和经济数据的整合，以及水资源账户的质量和可获取性等方面的需求。",
+      "abstract_cn": "",
       "doi": "10.1016/j.ecolecon.2024.108396",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0921800924002933",
       "publication_date": "February 2025",
@@ -829,15 +829,15 @@
         "repec": "https://ideas.repec.org/a/eee/ecolec/v227y2025ics0921800924002933.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-reasoner",
-        "translated_at": "2026-08-08T10:14:06+00:00",
-        "source_hash": "e90e7c4d03522626c3bf5944d7b8e924e244a2725b4050e9b4cdde5479590049"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -2393,10 +2393,12 @@
     "doi_complete": 57,
     "authors_complete": 57,
     "abstract_en_complete": 57,
-    "translation_complete": 57,
+    "translation_complete": 56,
     "duplicate_count": 0,
     "repec_item_count": 57,
-    "flags": [],
+    "flags": [
+      "translation_incomplete"
+    ],
     "official_item_count": 57,
     "publishable_item_count": 57,
     "content_counts": {

@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-08T09:07:53+00:00",
   "expected_article_count": 27,
   "research_article_count": 27,
-  "status": "ready",
+  "status": "incomplete",
   "articles": [
     {
       "paper_id": "doi:10.1016/j.ecolecon.2026.109045",
@@ -142,13 +142,13 @@
       "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Open veins: Drain from Latin America through ecologically unequal exchange",
-      "title_cn": "开放的血管：经由生态不等价交换从拉丁美洲的流失",
+      "title_cn": "",
       "authors": [
         "Morena Hanbury Lemos",
         "Jason Hickel"
       ],
       "abstract_en": "In Open Veins of Latin America (1971), Eduardo Galeano argued that colonial interventions in Latin America organised the regional economy around raw material exports and drained the continent of valuable resources and labour, producing conditions of underdevelopment. Scholars have argued that this dynamic continues today, where the suppression of prices and input costs in peripheral regions enables the global North to appropriate resources and value through ‘unequal exchange’. Building on this analysis and grounded in the Marxist tradition of dependency theory, this study empirically assesses Latin America's position with respect to unequal exchange of natural resources and labour embodied in trade. We use environmentally extended multi-regional input-output (EEMRIO) analysis to measure net flows of embodied materials (biomass, fossil fuels, minerals, and metals), land, and labour between Latin America, the global North, China, and the rest of the global South (1995 to 2020) across seven sectors, along with wage compensation against the labour flows. We find that Latin America has suffered a large drain of all resources to the North over the period. In 2020, the North net-appropriated 935 million tons of materials (including biomass, minerals, metals, and fossil fuels), 4 million km2 of land, and 53 billion hours of labour (worth €816 billion in Northern wages) from Latin America, mostly consumed as manufactured goods and services. We find that Latin America's position in the world economy is increasingly ‘peripheral’ in character. It remains a major supplier of primary commodities to the North, experiences a greater per capita drain of biomass, metals, and land than China or the rest of the global South, and disproportionately suffers the ecological damages of Northern consumption.",
-      "abstract_cn": "在《拉丁美洲被切开的血管》（1971）中，爱德华多·加莱亚诺认为，拉丁美洲的殖民干预使区域经济围绕原材料出口组织起来，并耗尽了这个大陆宝贵的资源和劳动力，产生了不发达的状况。学者们认为，这种动态至今仍在继续，外围地区价格和投入成本的压制使全球北方能够通过‘不等价交换’占有资源和价值。基于这一分析并植根于马克思主义的依附理论传统，本研究实证评估了拉丁美洲在贸易中蕴含的自然资源和劳动的不等价交换方面的地位。我们使用环境扩展的多区域投入产出（EEMRIO）分析来衡量拉丁美洲、全球北方、中国和全球南方其余地区之间（1995年至2020年）七个部门中隐含材料（生物质、化石燃料、矿产和金属）、土地和劳动力的净流量，以及劳动力流动对应的工资补偿。我们发现，在此期间，拉丁美洲遭受了所有资源向北方的大量流失。在2020年，北方从拉丁美洲净占有了935百万吨材料（包括生物质、矿物、金属和化石燃料）、4百万km2土地和53十亿小时的劳动力（按北方工资计算价值€816十亿），这些大部分以制成品和服务的形式被消费。我们发现，拉丁美洲在世界经济中的地位在性质上日益‘外围化’。它仍然是北方初级商品的主要供应者，经历着比中国或全球南方其余地区更大的人均生物质、金属和土地流失，并且不成比例地遭受北方消费造成的生态损害。",
+      "abstract_cn": "",
       "doi": "10.1016/j.ecolecon.2026.109055",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0921800926001400",
       "publication_date": "February 2026",
@@ -160,15 +160,15 @@
         "repec": "https://ideas.repec.org/a/eee/ecolec/v248y2026ics0921800926001400.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-reasoner",
-        "translated_at": "2026-08-08T10:16:26+00:00",
-        "source_hash": "5a6a810bf3949f6d862e9e37a69c95c9e18c5da3dc8b4906e1bf21639eca58f1"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -1158,10 +1158,12 @@
     "doi_complete": 27,
     "authors_complete": 27,
     "abstract_en_complete": 27,
-    "translation_complete": 27,
+    "translation_complete": 26,
     "duplicate_count": 0,
     "repec_item_count": 27,
-    "flags": [],
+    "flags": [
+      "translation_incomplete"
+    ],
     "official_item_count": 27,
     "publishable_item_count": 27,
     "content_counts": {

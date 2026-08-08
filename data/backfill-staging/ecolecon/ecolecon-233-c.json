@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-08T08:42:04+00:00",
   "expected_article_count": 20,
   "research_article_count": 20,
-  "status": "ready",
+  "status": "incomplete",
   "articles": [
     {
       "paper_id": "doi:10.1016/j.ecolecon.2025.108563",
@@ -522,14 +522,14 @@
       "source_sequence": 13,
       "article_type": "research-article",
       "title_en": "Reducing the environmental impact of food consumption through fiscal policies: The case of Spain",
-      "title_cn": "通过财政政策减少食品消费的环境影响：以西班牙为例",
+      "title_cn": "",
       "authors": [
         "María-José Gutiérrez",
         "Belén Inguanzo",
         "Susan Orbe"
       ],
       "abstract_en": "This study examines the environmental impacts of human food consumption from an economic policy perspective, investigating how fiscal policy can mitigate the environmental footprints associated with this consumption. Focusing on carbon emissions (CF), water use (WF), and food loss and waste (FLW), the analysis uses Spain as a case study to estimate price elasticities of footprints (how footprints respond to a 1% price increase in each food category). Optimization techniques are applied to evaluate fiscal food policies based on social preferences for footprint mitigation. Main findings are: (i) increasing the price of specific food categories can lead to unintended increases in some footprints, (ii) generalized VAT increases have a moderate impact, with up to 3% reduction in CF and less than 0.5% reduction in WF and FLW for a 20pp VAT rise, (iii) optimal taxation and subsidy achieve greater reductions, with up to 18% in CF and 11% in WF when social preferences prioritize mitigation of CF and WF, respectively, and (iv) targeted policies may have nutritional trade-offs, such as reducing essential micronutrients or increasing unhealthy components such saturated fats and sodium, emphasizing the need for balanced policy design.",
-      "abstract_cn": "本研究从经济政策视角审视人类食品消费对环境的影响，探究财政政策如何减轻与这种消费相关的环境足迹。分析聚焦于碳排放（CF）、用水（WF）和食物损失与浪费（FLW），以西班牙为案例，估算足迹的价格弹性（即各类食品价格每上涨1%时足迹的响应程度）。应用优化技术，基于社会对足迹减缓的偏好来评估财政食品政策。主要发现如下：（i）提高特定食品类别的价格可能导致某些足迹意外增加；（ii）普遍提高增值税的影响较为温和，增值税上调20pp可使CF最多减少3%，WF和FLW减少不足0.5%；（iii）当社会偏好分别优先减缓CF和WF时，最优税收与补贴可实现更大降幅，CF最多降低18%，WF最多降低11%；（iv）针对性政策可能带来营养权衡，例如减少必需微量营养素或增加饱和脂肪和钠等不健康成分，这强调了平衡政策设计的必要性。",
+      "abstract_cn": "",
       "doi": "10.1016/j.ecolecon.2025.108596",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0921800925000795",
       "publication_date": "February 2025",
@@ -541,15 +541,15 @@
         "repec": "https://ideas.repec.org/a/eee/ecolec/v233y2025ics0921800925000795.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-reasoner",
-        "translated_at": "2026-08-08T10:14:23+00:00",
-        "source_hash": "963c023c0ecf615e426a9c3ec20acaca054e2ed6e25fdc4aeb56780b0dcfadcb"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -858,10 +858,12 @@
     "doi_complete": 20,
     "authors_complete": 20,
     "abstract_en_complete": 20,
-    "translation_complete": 20,
+    "translation_complete": 19,
     "duplicate_count": 0,
     "repec_item_count": 20,
-    "flags": [],
+    "flags": [
+      "translation_incomplete"
+    ],
     "official_item_count": 20,
     "publishable_item_count": 20,
     "content_counts": {
