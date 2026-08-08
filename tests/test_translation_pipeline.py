@@ -130,6 +130,43 @@ class TranslationPipelineTests(unittest.TestCase):
         data = _extract_json('```json\n{"title_cn":"测试","abstract_cn":"摘要"}\n```')
         self.assertEqual(data["title_cn"], "测试")
 
+    def test_github_models_request_uses_current_api_version(self) -> None:
+        class CapturingSession:
+            def __init__(self) -> None:
+                self.headers = {}
+
+            def post(self, *args, **kwargs) -> FakeResponse:
+                self.headers = kwargs["headers"]
+                return FakeResponse()
+
+        session = CapturingSession()
+        request_translation(ARTICLE, token="test-token", session=session)
+        self.assertEqual(session.headers["X-GitHub-Api-Version"], "2026-03-10")
+
+    def test_deepseek_request_uses_non_thinking_json_output(self) -> None:
+        class CapturingSession:
+            def __init__(self) -> None:
+                self.payload = {}
+
+            def post(self, *args, **kwargs) -> FakeResponse:
+                self.payload = kwargs["json"]
+                return FakeResponse()
+
+        session = CapturingSession()
+        request_translation(
+            ARTICLE,
+            token="test-token",
+            model="deepseek-v4-flash",
+            provider_name="deepseek",
+            session=session,
+            json_output=True,
+            disable_thinking=True,
+        )
+        self.assertEqual(
+            session.payload["response_format"], {"type": "json_object"}
+        )
+        self.assertEqual(session.payload["thinking"], {"type": "disabled"})
+
     def test_rejects_missing_numbers(self) -> None:
         with self.assertRaises(TranslationError):
             validate_translation(
@@ -491,7 +528,7 @@ class TranslationPipelineTests(unittest.TestCase):
         )
         self.assertEqual(
             cache[ARTICLE["doi"]]["translation"]["model"],
-            "deepseek-chat",
+            "deepseek-v4-flash",
         )
 
     def test_retranslates_invalid_cached_entry(self) -> None:

@@ -241,11 +241,11 @@ class ChineseNumeralCanonicalizationTests(unittest.TestCase):
 
 
 class DeepSeekModelResolutionTests(unittest.TestCase):
-    def test_default_model_is_deepseek_chat(self) -> None:
+    def test_default_model_is_deepseek_v4_flash(self) -> None:
         from scripts.translate_issue import _deepseek_model
 
         with mock.patch.dict("os.environ", {"DEEPSEEK_MODEL": ""}, clear=False):
-            self.assertEqual("deepseek-chat", _deepseek_model())
+            self.assertEqual("deepseek-v4-flash", _deepseek_model())
 
     def test_env_override_selects_reasoner(self) -> None:
         from scripts.translate_issue import _deepseek_model
@@ -259,7 +259,7 @@ class DeepSeekModelResolutionTests(unittest.TestCase):
         from scripts.translate_issue import _deepseek_model
 
         with mock.patch.dict("os.environ", {"DEEPSEEK_MODEL": "   "}, clear=False):
-            self.assertEqual("deepseek-chat", _deepseek_model())
+            self.assertEqual("deepseek-v4-flash", _deepseek_model())
 
 
 

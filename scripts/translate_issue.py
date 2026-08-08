@@ -14,10 +14,11 @@ import requests
 
 
 GITHUB_MODELS_ENDPOINT = "https://models.github.ai/inference/chat/completions"
+GITHUB_MODELS_API_VERSION = "2026-03-10"
 # Optional primary provider: set DEEPSEEK_API_KEY to prefer DeepSeek over
 # GitHub Models (OpenAI-compatible chat completions API).
 DEEPSEEK_ENDPOINT = "https://api.deepseek.com/chat/completions"
-DEEPSEEK_MODEL = "deepseek-chat"
+DEEPSEEK_MODEL = "deepseek-v4-flash"
 
 
 def _deepseek_model() -> str:
@@ -915,6 +916,7 @@ def _prompt(article: dict[str, Any]) -> list[dict[str, str]]:
                 "英文拼写的数字应翻译为中文文字，不得因此新增阿拉伯数字；"
                 "译文不得添加源标题和摘要中不存在的阿拉伯数字。"
                 "只返回严格 JSON，字段固定为 title_cn 和 abstract_cn，不使用 Markdown。"
+                '输出格式示例：{"title_cn":"中文标题","abstract_cn":"中文摘要"}。'
             ),
         },
         {
@@ -936,6 +938,8 @@ def request_translation(
     provider_name: str = "github-models",
     protect_numbers: bool = False,
     max_tokens: int | None = None,
+    json_output: bool = False,
+    disable_thinking: bool = False,
 ) -> dict[str, str]:
     if not token:
         raise TranslationError(f"{provider_name} token is required")
@@ -964,12 +968,18 @@ def request_translation(
     }
     if max_tokens:
         payload["max_tokens"] = max_tokens
+    if json_output:
+        payload["response_format"] = {"type": "json_object"}
+    if disable_thinking:
+        payload["thinking"] = {"type": "disabled"}
     headers = {
         "Accept": "application/vnd.github+json",
         "Authorization": f"Bearer {token}",
         "Content-Type": "application/json",
         "User-Agent": "Academic-Door-Journals/1.0",
     }
+    if provider_name == "github-models":
+        headers["X-GitHub-Api-Version"] = GITHUB_MODELS_API_VERSION
     last_error: Exception | None = None
     for attempt in range(retries):
         try:
@@ -1232,6 +1242,8 @@ def translate_missing(
                         protect_numbers=True,
                         max_tokens=8192,
                         retries=5,
+                        json_output=True,
+                        disable_thinking=True,
                     )
                 except ProviderUnavailableError as error:
                     provider_availability["deepseek"] = str(error)
