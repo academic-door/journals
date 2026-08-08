@@ -225,7 +225,7 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn("api/v1/source-audit.json", self.status_page)
         for label in (
             "监测期刊",
-            "正在补全",
+            "检测更新补全中",
             "最新卷期",
             "内容就绪",
             "来源核验",
@@ -237,10 +237,22 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn("CONTENT READINESS", self.status_page)
         self.assertIn("SOURCE VERIFICATION", self.status_page)
         self.assertIn('journal.order_verification === "official_verified"', self.status_page)
-        self.assertIn("latest_detected_content_counts", self.status_page)
+        self.assertIn("latest_detected_article_count", self.status_page)
         self.assertIn("journalContentReady", self.status_page)
+        self.assertIn("detectedEnrichmentNeeded", self.status_page)
+        content_gate = self.status_page.split(
+            "const journalContentReady = (journal) => {", 1
+        )[1].split("};", 1)[0]
+        self.assertIn("journal.article_count", content_gate)
+        self.assertIn('journal.content_status === "complete"', content_gate)
+        self.assertNotIn("latest_detected_article_count", content_gate)
         self.assertIn("@media (max-width: 980px)", self.status_page)
         self.assertIn("<style is:global>", self.status_page)
+
+    def test_mobile_composer_controls_have_touch_sized_targets(self):
+        self.assertIn(".composer-toolbar .button,", self.css)
+        self.assertIn(".composer-toolbar .composer-source select,", self.css)
+        self.assertIn(".composer-toolbar .style-settings-panel input { min-height: 44px; }", self.css)
 
     def test_search_has_traceable_editorial_entry_points(self):
         search_page = (ROOT / "src/pages/search/index.astro").read_text(
