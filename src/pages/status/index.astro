@@ -67,18 +67,23 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       return hours > 36 ? `数据快照已超过 ${Math.floor(hours)} 小时未更新` : "数据快照在正常更新窗口内";
     };
     const journalContentReady = (journal) => {
+      const total = Number(journal.article_count ?? 0);
+      const translations = Number(journal.translation_complete ?? 0);
+      return journal.content_status === "complete"
+        && total > 0
+        && translations === total;
+    };
+    const detectedEnrichmentNeeded = (journal) => {
       const total = Number(
         journal.latest_detected_article_count ?? journal.article_count ?? 0
       );
-      const abstracts = Number(
-        journal.latest_detected_abstracts_complete ?? total
-      );
+      const abstracts = Number(journal.latest_detected_abstracts_complete ?? total);
       const translations = Number(
         journal.latest_detected_translations_complete
           ?? journal.translation_complete
           ?? 0
       );
-      return total > 0 && abstracts === total && translations === total;
+      return total > 0 && (abstracts !== total || translations !== total);
     };
     Promise.all([
       fetchJson(`${base}api/v1/health.json`, {}, "健康状态"),
@@ -90,7 +95,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       const journals = [...(top5.journals || []), ...(fields.journals || [])];
       const auditById = new Map((sourceAudit.journals || []).map((item) => [item.journal_id, item]));
       const readyCount = journals.filter(journalContentReady).length;
-      const enrichingCount = journals.length - readyCount;
+      const enrichingCount = journals.filter(detectedEnrichmentNeeded).length;
       const officialOrderCount = journals.filter(
         (journal) => journal.order_verification === "official_verified"
       ).length;
@@ -105,7 +110,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       }
       document.querySelector("#status-summary").innerHTML = `
         <article class="trust-ledger content-ledger">
-          <div><p>CONTENT READINESS</p><h2>内容可用性</h2><span>最新检测卷期能否直接进入 Composer</span></div>
+          <div><p>CONTENT READINESS</p><h2>内容可用性</h2><span>当前可发布卷期能否直接进入 Composer</span></div>
           <strong>${readyCount}<small> / ${journals.length}</small></strong>
         </article>
         <article class="trust-ledger source-ledger">
@@ -114,7 +119,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         </article>
         <div class="status-operations">
           <span><b>${journals.length}</b> 监测期刊</span>
-          <span><b>${enrichingCount}</b> 正在补全</span>
+          <span><b>${enrichingCount}</b> 检测更新补全中</span>
           <span><b>${pendingOrderCount}</b> 等待官网确认</span>
           <span><b>${(monitoring.failed_journals || []).length}</b> 更新受阻</span>
         </div>`;
@@ -139,11 +144,15 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       document.querySelector("#quality-updated").textContent = `最近更新：${health.updated_at || sourceAudit.updated_at || "-"}`;
       document.querySelector("#quality-rows").innerHTML = journals.map((journal) => {
         const audit = auditById.get(journal.journal_id) || {};
-        const snapshot = audit.detected?.available ? audit.detected : audit.current || {};
-        const counts = journal.latest_detected_content_counts || snapshot.content_counts || journal.content_counts || {};
-        const total = journal.latest_detected_article_count || journal.article_count || 0;
-        const abstracts = journal.latest_detected_abstracts_complete ?? 0;
-        const translations = journal.latest_detected_translations_complete ?? journal.translation_complete ?? 0;
+        const snapshot = audit.current || audit.detected || {};
+        const counts = journal.content_counts || snapshot.content_counts || {};
+        const total = journal.article_count || 0;
+        const abstracts = journal.content_status === "complete" ? total : 0;
+        const translations = journal.translation_complete ?? 0;
+        const detectedTotal = journal.latest_detected_article_count ?? total;
+        const detectedAbstracts = journal.latest_detected_abstracts_complete ?? detectedTotal;
+        const detectedTranslations = journal.latest_detected_translations_complete ?? translations;
+        const detectedPending = detectedEnrichmentNeeded(journal);
         const corrections = counts.corrections || 0;
         const comments = counts.comments || 0;
         const shorts = counts.short_communications || 0;
@@ -157,10 +166,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         const ready = journalContentReady(journal);
         return `<div class="quality-row" role="row">
           <strong class="journal-code" role="cell"><b>${escapeHtml(journal.short_name)}</b><small>${escapeHtml(journal.name_cn || journal.name || "")}</small></strong>
-          <span role="cell" data-label="最新卷期"><b>${escapeHtml(sanitizeIssueLabel(journal.latest_detected_issue_label || journal.latest_issue_label) || "等待最新卷期")}</b><small>${escapeHtml(journal.latest_detected_publication_date || journal.publication_date || "日期待确认")}</small></span>
-          <span role="cell" data-label="内容就绪"><b>${total} 篇 · 英文 ${abstracts}/${total} · 中文 ${translations}/${total}</b>${extras ? `<small>${escapeHtml(extras)}</small>` : ""}</span>
+          <span role="cell" data-label="最新卷期"><b>${escapeHtml(sanitizeIssueLabel(journal.latest_issue_label) || "等待最新卷期")}</b><small>${escapeHtml(journal.publication_date || "日期待确认")}</small></span>
+          <span role="cell" data-label="内容就绪"><b>${total} 篇 · 英文 ${abstracts}/${total} · 中文 ${translations}/${total}</b>${extras ? `<small>${escapeHtml(extras)}</small>` : ""}${detectedPending ? `<small>检测更新：英文 ${detectedAbstracts}/${detectedTotal} · 中文 ${detectedTranslations}/${detectedTotal}</small>` : ""}</span>
           <span role="cell" data-label="来源核验"><span class="source-state ${orderVerified ? "verified" : "pending"}">${escapeHtml(orderVerified ? "官网顺序已核对" : "等待官网确认")}</span><small>${escapeHtml(sourceLabels[audit.status] || "来源已记录")} · ${escapeHtml(order)}</small></span>
-          <span role="cell" data-label="发布状态"><span class="state ${ready ? "ready" : "enriching"}">${ready ? "可复制" : "整理中"}</span></span>
+          <span role="cell" data-label="发布状态"><span class="state ${ready ? "ready" : "enriching"}">${ready ? "可复制" : "整理中"}</span>${detectedPending ? "<small>新内容补全中</small>" : ""}</span>
         </div>`;
       }).join("");
     }).catch((error) => {
