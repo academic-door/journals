@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-08T09:06:46+00:00
+Updated: 2026-08-08T09:12:46+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -79,6 +79,30 @@ Updated: 2026-08-08T09:06:46+00:00
 | CER | cer-97-c | 2026 | translation_partial |  |
 | CER | cer-98-c | 2026 | complete |  |
 | CER | cer-99-c | 2026 | complete |  |
+| ECOLECON | ecolecon-227-c | 2025 | translation_partial |  |
+| ECOLECON | ecolecon-228-c | 2025 | complete |  |
+| ECOLECON | ecolecon-229-c | 2025 | complete |  |
+| ECOLECON | ecolecon-230-c | 2025 | complete |  |
+| ECOLECON | ecolecon-231-c | 2025 | complete |  |
+| ECOLECON | ecolecon-232-c | 2025 | complete |  |
+| ECOLECON | ecolecon-233-c | 2025 | translation_partial |  |
+| ECOLECON | ecolecon-234-c | 2025 | complete |  |
+| ECOLECON | ecolecon-235-c | 2025 | complete |  |
+| ECOLECON | ecolecon-236-c | 2025 | complete |  |
+| ECOLECON | ecolecon-237-c | 2025 | complete |  |
+| ECOLECON | ecolecon-238-c | 2025 | complete |  |
+| ECOLECON | ecolecon-239-c | 2026 | translation_partial |  |
+| ECOLECON | ecolecon-240-c | 2026 | complete |  |
+| ECOLECON | ecolecon-241-c | 2026 | translation_partial |  |
+| ECOLECON | ecolecon-242-c | 2026 | complete |  |
+| ECOLECON | ecolecon-243-c | 2026 | complete |  |
+| ECOLECON | ecolecon-244-c | 2026 | complete |  |
+| ECOLECON | ecolecon-245-c | 2026 | complete |  |
+| ECOLECON | ecolecon-246-c | 2026 | complete |  |
+| ECOLECON | ecolecon-247-c | 2026 | complete |  |
+| ECOLECON | ecolecon-248-c | 2026 | translation_partial |  |
+| ECOLECON | ecolecon-249-c | 2026 | complete |  |
+| ECOLECON | ecolecon-250-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 250/ |
 | ECTA | ecta-93-1 | 2025 | complete |  |
 | ECTA | ecta-93-2 | 2025 | complete |  |
 | ECTA | ecta-93-3 | 2025 | complete |  |
