@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-08T10:36:15+00:00
+Updated: 2026-08-08T10:36:37+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -93,7 +93,7 @@ Updated: 2026-08-08T10:36:15+00:00
 | ECOLECON | ecolecon-238-c | 2025 | complete |  |
 | ECOLECON | ecolecon-239-c | 2026 | complete |  |
 | ECOLECON | ecolecon-240-c | 2026 | complete |  |
-| ECOLECON | ecolecon-241-c | 2026 | translation_partial |  |
+| ECOLECON | ecolecon-241-c | 2026 | complete |  |
 | ECOLECON | ecolecon-242-c | 2026 | complete |  |
 | ECOLECON | ecolecon-243-c | 2026 | complete |  |
 | ECOLECON | ecolecon-244-c | 2026 | complete |  |

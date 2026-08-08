@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-08T08:32:27+00:00",
   "expected_article_count": 40,
   "research_article_count": 40,
-  "status": "ready",
+  "status": "incomplete",
   "articles": [
     {
       "paper_id": "doi:10.1016/j.labeco.2025.102761",
@@ -791,12 +791,12 @@
       "source_sequence": 20,
       "article_type": "research-article",
       "title_en": "Gender peer effects in university courses: Evidence from tutorial groups",
-      "title_cn": "大学课程中的性别同伴效应：来自辅导小组的证据",
+      "title_cn": "",
       "authors": [
         "Yuxuan Zhang"
       ],
       "abstract_en": "This paper analyzes the impacts of peer gender composition on students’ educational outcomes using administrative records from a world top-ranking university in Singapore.11In this paper, the term “gender” is used exclusively to refer to the conventional binary categories of male and female. Leveraging a unique tutorial balloting system at the university, I explore the near-random variation in gender composition across different tutorial groups within the same course. A modified version of the commonly used balance test method from the literature is applied to demonstrate random fluctuations in gender ratio across tutorial groups. At the baseline, I found positive and significant impact of having more female peers on both male and female students’ academic performance. Nevertheless, there are substantial heterogeneity across student-level characteristics. This paper, in particular, also established a direct comparison of gender peer effects between quantitative and qualitative fields and found asymmetric impacts on male and female students. Overall, the results imply that the impacts of peer gender composition vary considerably across contexts and policy construction must account for this variability instead of aiming for a one-size-fits-all solution.",
-      "abstract_cn": "本文利用新加坡一所世界顶尖大学的行政记录，分析了同伴性别构成对学生学业成果的影响。借助该校独特的辅导课抽签系统，我利用同一课程内不同辅导小组间性别构成的近似随机变化。本文采用文献中常用平衡检验方法的一个改进版本，以证明各辅导小组间性别比例的随机波动。在基准结果中，我发现拥有更多女性同伴对男生和女生的学业表现均有显著的正向影响。然而，不同学生特征之间存在显著的异质性。本文还特别对定量与定性学科之间的性别同伴效应进行了直接比较，发现其对男生和女生的影响具有不对称性。总体而言，研究结果表明，同伴性别构成的影响在不同情境下差异显著，政策制定必须考虑到这种差异性，而不是追求一刀切的解决方案。",
+      "abstract_cn": "",
       "doi": "10.1016/j.labeco.2025.102804",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0927537125001289",
       "publication_date": "February 2025",
@@ -808,15 +808,15 @@
         "repec": "https://ideas.repec.org/a/eee/labeco/v97y2025ics0927537125001289.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "operator-manual",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "academic-door-manual-v1",
-        "translated_at": "2026-08-08T10:30:00+00:00",
-        "source_hash": "70e73a7dd0d1574fecf38ff4d83f7f4109acabe987beeb01711c3ed4245b0628"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -1650,10 +1650,12 @@
     "doi_complete": 40,
     "authors_complete": 40,
     "abstract_en_complete": 40,
-    "translation_complete": 40,
+    "translation_complete": 39,
     "duplicate_count": 0,
     "repec_item_count": 40,
-    "flags": [],
+    "flags": [
+      "translation_incomplete"
+    ],
     "official_item_count": 40,
     "publishable_item_count": 40,
     "content_counts": {
