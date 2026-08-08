@@ -48,7 +48,7 @@ Academic Door 主页 / 品牌入口
 2. **一个引擎：** TOP5 与 Econ Field Journals 共享采集器接口、Schema、质量门和 Composer，不建立两套平行系统。
 3. **静态优先：** Astro 构建静态网站，GitHub Pages 免费托管；第一阶段不引入服务器和数据库。
 4. **官方优先：** 卷期名单与顺序以期刊官网为准，文章页负责作者、摘要和 DOI，Crossref 只用于补充。
-5. **数据与代码分离：** `main` 保存代码、配置和可复现样板；自动更新结果发布到 `data` 分支，部署时叠加。
+5. **数据与代码分离：** `main` 保存代码、配置和可复现样板；自动更新结果发布到 `data` 分支，部署时只叠加 `public/api/**`、`public/project-manifest.json` 与 `public/backfill-status.md`。静态脚本和样式始终由 `main` 提供。
 6. **人工编辑优先：** Composer 第一阶段采用“网页编辑 → 复制富文本到微信”，不把 Notion 或微信 API 设为必经路径。
 7. **渐进迁移：** 旧工作流继续服务尚未迁移的论文解读；新系统稳定后按栏目逐步下线旧链路，不一次性破坏生产。
 

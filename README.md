@@ -79,7 +79,10 @@ python scripts/backfill_history.py --journal AER --from-year 2025 --to-year 2025
 
 ## 公共接口
 
-`main` 中的 `public/` 是便于本地开发和 PR 审核的基线快照；线上自动更新结果以 `data` 分支为准，部署时会覆盖该快照。
+`main` 中的 `public/` 同时包含可审查的基线数据和站点静态代码。`data`
+分支只拥有 `public/api/**`、`public/project-manifest.json` 与
+`public/backfill-status.md`；部署时仅叠加这三类生成数据。`public/search.js`
+等静态代码始终来自 `main`，数据更新不得覆盖。
 
 ```text
 /journals/api/v1/index.json
