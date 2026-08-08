@@ -3,14 +3,14 @@
   "collection_id": "fields",
   "title": "Econ Field Journals",
   "title_cn": "领域顶刊",
-  "updated_at": "2026-08-08T11:25:37+00:00",
+  "updated_at": "2026-08-08T12:01:39+00:00",
   "data_status": "degraded",
   "content_status": "complete",
   "summary": {
     "configured_journals": 44,
     "available_journals": 44,
-    "articles": 656,
-    "translated_articles": 656
+    "articles": 657,
+    "translated_articles": 657
   },
   "journals": [
     {
@@ -2412,23 +2412,23 @@
       "latest_ready_issue_url": "/journals/api/v1/journals/cer/issues/current.json",
       "latest_issue_label": "Vol. 100",
       "publication_date": "August 2026",
-      "article_count": 4,
-      "translation_complete": 4,
+      "article_count": 5,
+      "translation_complete": 5,
       "content_counts": {
-        "official_items": 4,
-        "observed_items": 4,
-        "publishable_items": 4,
-        "research_articles": 4,
+        "official_items": 5,
+        "observed_items": 5,
+        "publishable_items": 5,
+        "research_articles": 5,
         "comments": 0,
         "short_communications": 0,
         "corrections": 0,
         "editorial_material": 0,
         "front_matter": 0,
         "other_excluded": 0,
-        "catalog_content_items": 4
+        "catalog_content_items": 5
       },
-      "roster_authority": "crossref-provisional",
-      "roster_transport": "crossref",
+      "roster_authority": "publisher-rss",
+      "roster_transport": "sciencedirect-rss",
       "order_verification": "pending_official"
     },
     {
@@ -2565,7 +2565,7 @@
       "collections": [
         "fields"
       ],
-      "status": "ready",
+      "status": "incomplete",
       "latest_detected_issue_id": "labeco-100-c",
       "latest_detected_issue_url": "/journals/api/v1/journals/labeco/issues/detected.json",
       "latest_detected_issue_label": "Vol. 100",
@@ -2590,32 +2590,32 @@
       "latest_detected_roster_transport": "sciencedirect-rss",
       "latest_detected_order_verification": "pending_official",
       "update_state": "ready",
-      "data_status": "healthy",
+      "data_status": "needs_attention",
       "content_status": "complete",
       "latest_issue_id": "labeco-100-c",
       "latest_ready_issue_id": "labeco-100-c",
       "latest_issue_url": "/journals/api/v1/journals/labeco/issues/current.json",
       "latest_ready_issue_url": "/journals/api/v1/journals/labeco/issues/current.json",
       "latest_issue_label": "Vol. 100",
-      "publication_date": "June 2025",
+      "publication_date": "June 2026",
       "article_count": 21,
       "translation_complete": 21,
       "content_counts": {
-        "official_items": 24,
-        "observed_items": 24,
+        "official_items": 25,
+        "observed_items": 25,
         "publishable_items": 21,
         "research_articles": 21,
         "comments": 0,
         "short_communications": 0,
         "corrections": 3,
-        "editorial_material": 0,
+        "editorial_material": 1,
         "front_matter": 0,
         "other_excluded": 0,
         "catalog_content_items": 24
       },
-      "roster_authority": "repec-publisher-supplied",
-      "roster_transport": "repec-serial-page",
-      "order_verification": "official_verified"
+      "roster_authority": "publisher-rss",
+      "roster_transport": "sciencedirect-rss",
+      "order_verification": "pending_official"
     },
     {
       "journal_id": "red",
@@ -2675,8 +2675,8 @@
         "other_excluded": 0,
         "catalog_content_items": 12
       },
-      "roster_authority": "crossref-provisional",
-      "roster_transport": "crossref",
+      "roster_authority": "publisher-rss",
+      "roster_transport": "sciencedirect-rss",
       "order_verification": "pending_official"
     },
     {
