@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-08T10:14:25+00:00
+Updated: 2026-08-08T10:14:29+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -370,7 +370,7 @@ Updated: 2026-08-08T10:14:25+00:00
 | JFE | jfe-182-c | 2026 | complete |  |
 | JFE | jfe-183-c | 2026 | complete |  |
 | JFE | jfe-184-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 184/ |
-| JHE | jhe-100-c | 2025 | translation_partial |  |
+| JHE | jhe-100-c | 2025 | complete |  |
 | JHE | jhe-101-c | 2025 | complete |  |
 | JHE | jhe-102-c | 2025 | complete |  |
 | JHE | jhe-103-c | 2025 | complete |  |

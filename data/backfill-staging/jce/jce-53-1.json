@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-08T08:28:00+00:00",
   "expected_article_count": 14,
   "research_article_count": 14,
-  "status": "ready",
+  "status": "incomplete",
   "articles": [
     {
       "paper_id": "doi:10.1016/j.jce.2024.12.003",
@@ -312,14 +312,14 @@
       "source_sequence": 8,
       "article_type": "research-article",
       "title_en": "Tit-for-tat in antidumping: How did China fight its antidumping wars with its trading partners?",
-      "title_cn": "反倾销中的针锋相对：中国如何与其贸易伙伴进行反倾销战？",
+      "title_cn": "",
       "authors": [
         "Wonkyung Lee",
         "Hong Ma",
         "Yuan Xu"
       ],
       "abstract_en": "Existing studies have examined the determinants of antidumping measures in different countries. Much less attention has been paid to the role of high-frequency bilateral relations in imposing temporary trade barriers. Using quarterly data on antidumping cases from 1997Q1 to 2020Q4, this paper examines the bilateral relationship between China and its major trading partners in imposing antidumping. A bivariate vector autoregressive methodology is employed and Granger causality tests are carried out. We find that antidumping investigations against China by the US significantly lead to and predict the investigations against the US by China, suggesting that the US is the first mover and China is the follower that retaliates. In contrast, in bilateral relations between China and the European Union, Korea, or Japan, there is no evidence of significant causality in either direction. Furthermore, we find that China retaliates against the US both within and across industries. While China’s retaliatory measures have shown some effectiveness in terminating outstanding US investigations, this is not always the case. However, this tit-for-tat behavior does effectively deter future investigations by the US.",
-      "abstract_cn": "现有研究考察了不同国家反倾销措施的决定因素。对于高频双边关系在实施临时贸易壁垒中的作用，关注较少。利用1997Q1至2020Q4的反倾销案件季度数据，本文考察了中国与其主要贸易伙伴在实施反倾销中的双边关系。采用二元向量自回归方法并进行格兰杰因果检验。我们发现，美国对中国发起的反倾销调查显著地导致并预测了中国对美国发起的调查，表明美国是先行者，而中国是进行报复的跟随者。相比之下，在中国与欧盟、韩国或日本的双边关系中，没有证据表明任一方向存在显著的因果关系。此外，我们发现中国在行业内和行业间都对美国进行报复。虽然中国的报复措施在终止美国未决调查方面显示出一定的有效性，但并非总是如此。然而，这种针锋相对的行为确实有效地威慑了美国未来的调查。",
+      "abstract_cn": "",
       "doi": "10.1016/j.jce.2024.12.002",
       "source_url": "https://ideas.repec.org/a/eee/jcecon/v53y2025i1p165-181.html",
       "publication_date": "February 2025",
@@ -331,15 +331,15 @@
         "repec": "https://ideas.repec.org/a/eee/jcecon/v53y2025i1p165-181.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-reasoner",
-        "translated_at": "2026-08-08T10:13:38+00:00",
-        "source_hash": "e7952381dcc597c142213a8f478251a3963a038279b1f4209247b2d258c9fb8e"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "yes",
         "evidence": "title",
@@ -604,10 +604,12 @@
     "doi_complete": 14,
     "authors_complete": 14,
     "abstract_en_complete": 14,
-    "translation_complete": 14,
+    "translation_complete": 13,
     "duplicate_count": 0,
     "repec_item_count": 14,
-    "flags": [],
+    "flags": [
+      "translation_incomplete"
+    ],
     "official_item_count": 14,
     "publishable_item_count": 14,
     "content_counts": {
