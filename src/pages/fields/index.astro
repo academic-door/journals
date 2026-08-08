@@ -1,6 +1,24 @@
 ---
+import { readFileSync } from "node:fs";
+import path from "node:path";
 import Layout from "../../layouts/Layout.astro";
 import Top5Explorer from "../../components/Top5Explorer.astro";
+
+let fieldCount = 44;
+try {
+  const payload = JSON.parse(
+    readFileSync(
+      path.join(process.cwd(), "public", "api", "v1", "collections", "fields.json"),
+      "utf-8",
+    ),
+  );
+  fieldCount =
+    payload?.summary?.configured_journals ??
+    payload?.journals?.length ??
+    fieldCount;
+} catch {
+  // Keep the fallback count when the generated collection is unavailable.
+}
 ---
 
 <Layout title="Econ Field Journals · Academic Door">
@@ -9,7 +27,7 @@ import Top5Explorer from "../../components/Top5Explorer.astro";
       collectionId="fields"
       kicker="ECON FIELD JOURNALS"
       heading="经济学领域顶刊最新卷期"
-      description="按研究领域浏览 Academic Door 当前监测的 36 本高水平经济学期刊。"
+      description={`按研究领域浏览 Academic Door 当前监测的 ${fieldCount} 本高水平经济学期刊。`}
     />
   </main>
 </Layout>
