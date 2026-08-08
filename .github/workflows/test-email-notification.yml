@@ -30,8 +30,11 @@ jobs:
         run: |
           set -euo pipefail
           git fetch origin data
-          rm -rf public
-          git archive origin/data public | tar -x
+          rm -rf public/api
+          git archive origin/data public/api public/project-manifest.json | tar -x
+          if git cat-file -e origin/data:public/backfill-status.md 2>/dev/null; then
+            git show origin/data:public/backfill-status.md > public/backfill-status.md
+          fi
 
       - name: Send one private test email
         env:

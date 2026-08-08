@@ -56,7 +56,11 @@ jobs:
           cp -R data/translation-cache/. "$main_cache/"
           if git ls-remote --exit-code origin refs/heads/data >/dev/null 2>&1; then
             git fetch origin data
-            git archive origin/data public | tar -x
+            rm -rf public/api
+            git archive origin/data public/api public/project-manifest.json | tar -x
+            if git cat-file -e origin/data:public/backfill-status.md 2>/dev/null; then
+              git show origin/data:public/backfill-status.md > public/backfill-status.md
+            fi
             for path in data/translation-cache data/backfill-state data/backfill-staging; do
               if git cat-file -e "origin/data:$path" 2>/dev/null; then
                 git archive origin/data "$path" | tar -x
@@ -99,8 +103,10 @@ jobs:
         run: |
           set -euo pipefail
           generated="$RUNNER_TEMP/generated"
-          mkdir -p "$generated/public" "$generated/data"
-          cp -R public/. "$generated/public/"
+          mkdir -p "$generated/public/api" "$generated/data"
+          cp -R public/api/. "$generated/public/api/"
+          cp public/project-manifest.json "$generated/public/project-manifest.json"
+          [ ! -f public/backfill-status.md ] || cp public/backfill-status.md "$generated/public/backfill-status.md"
           cp -R data/translation-cache "$generated/data/"
           [ ! -d data/backfill-state ] || cp -R data/backfill-state "$generated/data/"
           [ ! -d data/backfill-staging ] || cp -R data/backfill-staging "$generated/data/"
@@ -108,12 +114,18 @@ jobs:
           git worktree add "$RUNNER_TEMP/data-tree" origin/data
           cd "$RUNNER_TEMP/data-tree"
           git switch -C data
-          rm -rf public data/translation-cache data/backfill-state data/backfill-staging
-          cp -R "$generated/public" public
+          rm -rf public/api data/translation-cache data/backfill-state data/backfill-staging
+          mkdir -p public/api
+          cp -R "$generated/public/api"/. public/api/
+          cp "$generated/public/project-manifest.json" public/project-manifest.json
+          [ ! -f "$generated/public/backfill-status.md" ] || cp "$generated/public/backfill-status.md" public/backfill-status.md
           cp -R "$generated/data/." data/
+          git rm -f --ignore-unmatch public/search.js
           git config user.name "academic-door-bot"
           git config user.email "academic-door-bot@users.noreply.github.com"
-          git add public data/translation-cache
+          git add -A public/api data/translation-cache
+          git add public/project-manifest.json
+          [ ! -f public/backfill-status.md ] || git add public/backfill-status.md
           git add -f data/backfill-state data/backfill-staging 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No historical data changes."

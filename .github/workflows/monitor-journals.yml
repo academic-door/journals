@@ -38,7 +38,11 @@ jobs:
           cp -R data/translation-cache/. "$main_cache/"
           if git ls-remote --exit-code origin refs/heads/data >/dev/null 2>&1; then
             git fetch origin data
-            git archive origin/data public | tar -x
+            rm -rf public/api
+            git archive origin/data public/api public/project-manifest.json | tar -x
+            if git cat-file -e origin/data:public/backfill-status.md 2>/dev/null; then
+              git show origin/data:public/backfill-status.md > public/backfill-status.md
+            fi
             if git cat-file -e origin/data:data/translation-cache 2>/dev/null; then
               git archive origin/data data/translation-cache | tar -x
             fi
@@ -142,8 +146,10 @@ jobs:
           generated_cache="$RUNNER_TEMP/generated-translation-cache"
           generated_state="$RUNNER_TEMP/monitor-state.json"
           data_tree="$RUNNER_TEMP/data-tree"
-          mkdir -p "$generated" "$generated_cache"
-          cp -R public/. "$generated/"
+          mkdir -p "$generated/api" "$generated_cache"
+          cp -R public/api/. "$generated/api/"
+          cp public/project-manifest.json "$generated/project-manifest.json"
+          [ ! -f public/backfill-status.md ] || cp public/backfill-status.md "$generated/backfill-status.md"
           cp -R data/translation-cache/. "$generated_cache/"
           cp data/monitoring/state.json "$generated_state"
 
@@ -151,14 +157,19 @@ jobs:
           git worktree add "$data_tree" origin/data
           cd "$data_tree"
           git switch -C data
-          rm -rf public data/translation-cache
-          mkdir -p public data/translation-cache data/monitoring
-          cp -R "$generated"/. public/
+          rm -rf public/api data/translation-cache
+          mkdir -p public/api data/translation-cache data/monitoring
+          cp -R "$generated/api"/. public/api/
+          cp "$generated/project-manifest.json" public/project-manifest.json
+          [ ! -f "$generated/backfill-status.md" ] || cp "$generated/backfill-status.md" public/backfill-status.md
           cp -R "$generated_cache"/. data/translation-cache/
           cp "$generated_state" data/monitoring/state.json
+          git rm -f --ignore-unmatch public/search.js
           git config user.name "academic-door-bot"
           git config user.email "academic-door-bot@users.noreply.github.com"
-          git add public data/translation-cache
+          git add -A public/api data/translation-cache
+          git add public/project-manifest.json
+          [ ! -f public/backfill-status.md ] || git add public/backfill-status.md
           git add -f data/monitoring/state.json
           if git diff --cached --quiet; then
             echo "No journal or monitor-state changes."
