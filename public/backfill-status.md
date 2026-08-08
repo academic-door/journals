@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-08T10:36:37+00:00
+Updated: 2026-08-08T10:38:30+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -144,7 +144,7 @@ Updated: 2026-08-08T10:36:37+00:00
 | EJ | ej-136-676 | 2026 | complete |  |
 | EJ | ej-136-677 | 2026 | complete |  |
 | ENERGY | energy-141-c | 2025 | complete |  |
-| ENERGY | energy-142-c | 2025 | translation_partial |  |
+| ENERGY | energy-142-c | 2025 | complete |  |
 | ENERGY | energy-143-c | 2025 | complete |  |
 | ENERGY | energy-144-c | 2025 | complete |  |
 | ENERGY | energy-145-c | 2025 | complete |  |
@@ -159,10 +159,10 @@ Updated: 2026-08-08T10:36:37+00:00
 | ENERGY | energy-154-c | 2026 | complete |  |
 | ENERGY | energy-155-c | 2026 | complete |  |
 | ENERGY | energy-156-c | 2026 | complete |  |
-| ENERGY | energy-157-c | 2026 | translation_partial |  |
-| ENERGY | energy-158-c | 2026 | translation_partial |  |
+| ENERGY | energy-157-c | 2026 | complete |  |
+| ENERGY | energy-158-c | 2026 | complete |  |
 | ENERGY | energy-159-c | 2026 | complete |  |
-| ENERGY | energy-160-c | 2026 | translation_partial |  |
+| ENERGY | energy-160-c | 2026 | complete |  |
 | ENERGY | energy-161-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 161/ |
 | ERE | ere-88-1 | 2025 | complete |  |
 | ERE | ere-88-10 | 2025 | complete |  |
