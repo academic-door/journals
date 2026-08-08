@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-08T10:19:56+00:00
+Updated: 2026-08-08T10:36:09+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -76,7 +76,7 @@ Updated: 2026-08-08T10:19:56+00:00
 | CER | cer-94-c | 2025 | complete |  |
 | CER | cer-95-c | 2026 | complete |  |
 | CER | cer-96-c | 2026 | complete |  |
-| CER | cer-97-c | 2026 | translation_partial |  |
+| CER | cer-97-c | 2026 | complete |  |
 | CER | cer-98-c | 2026 | complete |  |
 | CER | cer-99-c | 2026 | complete |  |
 | ECOLECON | ecolecon-227-c | 2025 | complete |  |
