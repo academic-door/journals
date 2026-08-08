@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-08T11:34:35+00:00
+Updated: 2026-08-08T11:34:43+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -287,7 +287,7 @@ Updated: 2026-08-08T11:34:35+00:00
 | JEDC | jedc-187-c | 2026 | complete |  |
 | JEDC | jedc-188-c | 2026 | complete |  |
 | JEDC | jedc-189-c | 2026 | complete |  |
-| JEDC | jedc-190-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 190/ |
+| JEDC | jedc-190-c | 2026 | complete |  |
 | JEDC | jedc-191-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 191/ |
 | JEEA | jeea-23-1 | 2025 | complete |  |
 | JEEA | jeea-23-2 | 2025 | complete |  |
