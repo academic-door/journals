@@ -244,8 +244,8 @@ class ComposerUiTest(unittest.TestCase):
 
         config = yaml.safe_load((ROOT / "config/collections.yml").read_text(encoding="utf-8"))
         journals = config["collections"]["fields"]["journals"]
-        self.assertEqual(36, len(journals))
-        self.assertEqual(36, len(set(journals)))
+        self.assertEqual(44, len(journals))
+        self.assertEqual(44, len(set(journals)))
         self.assertTrue({"JDE", "JPubE", "JEEM", "JUE", "AJAE"}.issubset(journals))
 
     def test_field_journals_reuse_top5_reader_with_compact_selectors(self):

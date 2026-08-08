@@ -1002,6 +1002,79 @@ class LatestIssuePreferenceTests(unittest.TestCase):
                 available = load_available_issues(configs, {})
             self.assertEqual("jep-40-3", available["JEP"]["issue_id"])
 
+    def test_new_journal_without_current_uses_newest_archive(self) -> None:
+        import tempfile
+        from pathlib import Path
+
+        from scripts.update_journals import load_available_issues
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            issues_dir = root / "journals" / "jhe" / "issues"
+            issues_dir.mkdir(parents=True)
+            archive = {
+                "schema_version": "1.0",
+                "journal_id": "jhe",
+                "journal_name": "JHE",
+                "issue_id": "jhe-108-c",
+                "volume": "108",
+                "issue": "C",
+                "issue_label": "Vol. 108",
+                "publication_date": "July 2026",
+                "publication_state": "ready",
+                "status": "ready",
+                "expected_article_count": 1,
+                "research_article_count": 1,
+                "articles": [
+                    {
+                        "paper_id": "doi:10.3/x",
+                        "sequence": 1,
+                        "article_type": "research",
+                        "title_en": "Health",
+                        "title_cn": "健康",
+                        "authors": ["A"],
+                        "abstract_en": "Abstract text that is long enough to pass validation for the publication gate.",
+                        "abstract_cn": "摘要文本足够长以通过发布门槛的校验。",
+                        "doi": "10.3/x",
+                        "source_url": "https://doi.org/10.3/x",
+                        "sources": {"roster": "test"},
+                    }
+                ],
+                "quality": {
+                    "translation_complete": 1,
+                    "content_counts": {"publishable_items": 1, "observed_items": 1, "official_items": 1},
+                    "roster_authority": "repec-serial-page",
+                    "roster_transport": "repec-serial-page",
+                    "roster_match": True,
+                    "order_preserved": True,
+                    "doi_complete": 1,
+                    "authors_complete": 1,
+                    "duplicate_count": 0,
+                    "flags": [],
+                },
+            }
+            (issues_dir / "jhe-108-c.json").write_text(
+                json.dumps(archive, ensure_ascii=False), encoding="utf-8"
+            )
+            configs = {
+                "JHE": {
+                    "id": "jhe",
+                    "name": "JHE",
+                    "enabled": True,
+                }
+            }
+            with (
+                mock.patch("scripts.update_journals.PUBLIC_API", root),
+                mock.patch("scripts.update_journals.normalize_issue_content", side_effect=lambda x: x),
+                mock.patch("scripts.update_journals.validate_issue", return_value=None),
+            ):
+                available = load_available_issues(configs, {})
+            self.assertEqual("jhe-108-c", available["JHE"]["issue_id"])
+            written = json.loads(
+                (issues_dir / "current.json").read_text(encoding="utf-8")
+            )
+            self.assertEqual("jhe-108-c", written["issue_id"])
+
 
 
 

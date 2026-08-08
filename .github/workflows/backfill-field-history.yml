@@ -197,6 +197,12 @@ jobs:
             --report output/backfill-report.json
 
       - name: Publish archives, indexes, cache and checkpoints
+        # Preserve collected/translated progress even when a validation step
+        # fails (e.g. a brand-new journal has no current.json until the update
+        # workflow runs). The journal-scoped merge below cannot clobber other
+        # journals' archives, and the resumable state file makes the next run
+        # skip already-complete issues.
+        if: always()
         shell: bash
         run: |
           set -euo pipefail

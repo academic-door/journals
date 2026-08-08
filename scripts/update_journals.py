@@ -1310,6 +1310,12 @@ def load_available_issues(
         issue = refreshed.get(key)
         if issue is None:
             issue = read_json(public_issue_path(config["id"]))
+        if issue is None:
+            # A brand-new journal may not have a live current snapshot yet
+            # (publisher endpoint lag or an in-progress volume). Backfilled
+            # archives are the best available "latest" data and keep the
+            # journal available; the site already prefers the newest archive.
+            issue = _newest_publishable_archived(config["id"])
         if issue:
             # Prefer the newest publishable archived issue when it is newer
             # than the detected current snapshot. The backfill archives new
