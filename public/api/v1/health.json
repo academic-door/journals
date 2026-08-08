@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-08-08T07:15:52+00:00",
+  "updated_at": "2026-08-08T09:06:40+00:00",
   "status": "degraded",
   "content_status": "complete",
   "summary": {
-    "enabled_journals": 41,
-    "available_journals": 41,
-    "articles": 571,
-    "translated_articles": 571
+    "enabled_journals": 49,
+    "available_journals": 47,
+    "articles": 649,
+    "translated_articles": 649
   },
   "checks": {
     "aer_roster_match": true,
@@ -132,6 +132,26 @@
     "lup_primary_transport": false,
     "ere_roster_match": true,
     "ere_order_preserved": true,
-    "ere_primary_transport": false
+    "ere_primary_transport": false,
+    "jhe_roster_match": true,
+    "jhe_order_preserved": true,
+    "jhe_primary_transport": true,
+    "jce_roster_match": true,
+    "jce_order_preserved": true,
+    "jce_primary_transport": true,
+    "cer_roster_match": true,
+    "cer_order_preserved": true,
+    "cer_primary_transport": false,
+    "energy_available": false,
+    "ecolecon_available": false,
+    "labeco_roster_match": true,
+    "labeco_order_preserved": true,
+    "labeco_primary_transport": true,
+    "red_roster_match": true,
+    "red_order_preserved": true,
+    "red_primary_transport": false,
+    "jedc_roster_match": true,
+    "jedc_order_preserved": true,
+    "jedc_primary_transport": true
   }
 }

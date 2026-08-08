@@ -1,0 +1,826 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "red-61-c",
+  "journal_id": "red",
+  "journal_name": "Review of Economic Dynamics",
+  "volume": "61",
+  "issue": "C",
+  "publication_date": "August 2026",
+  "source_url": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/61/suppl/C",
+  "retrieved_at": "2026-08-08T08:31:53+00:00",
+  "expected_article_count": 12,
+  "research_article_count": 12,
+  "status": "incomplete",
+  "development_sample": false,
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.red.2026.101331",
+      "sequence": 1,
+      "source_sequence": 101331,
+      "article_type": "research-article",
+      "title_en": "Who buys high and sells low: Trading against expected returns and wealth inequality",
+      "title_cn": "谁高买低卖：逆预期收益交易与财富不平等",
+      "authors": [
+        "Jung Sakong"
+      ],
+      "abstract_en": "Theories are ambiguous about whether households of higher or lower wealth consistently trade against expected returns. I employ unique matched data on US household trades in the housing market and their wealth to study trade timings and quantify the implications for portfolio returns and wealth inequality. I find that poorer households consistently buy houses when expected returns are low (e.g., after price increases) and sell when expected returns are high (e.g., after price declines). The estimated dispersion in expected portfolio returns from active trades is large, with an interquartile range across the wealth distribution of 65 basis points per year. Back-of-envelope calculations suggest this return dispersion could account for roughly one-fifth of observed wealth concentration beyond what income differences alone explain, within the interquartile range.",
+      "abstract_cn": "理论对于财富较高或较低的家庭是否持续逆预期收益交易并不明确。我利用美国住房市场中家庭交易及其财富的独特匹配数据，研究交易时机并量化其对投资组合收益和财富不平等的影响。我发现较贫困的家庭在预期收益较低时（如价格上涨后）持续购房，在预期收益较高时（如价格下跌后）出售。主动交易导致的预期投资组合收益离散度很大，财富分布的四分位距为每年65个基点。粗略计算表明，这种收益离散度可能解释了观察到的财富集中度中约五分之一，超出仅由收入差异所能解释的部分，且位于四分位距内。",
+      "abstract_snippet_en": "Theories are ambiguous about whether households of higher or lower wealth consistently trade against expected returns. I employ unique matched data on US household trades in the housing market and their...",
+      "doi": "10.1016/j.red.2026.101331",
+      "source_url": "https://doi.org/10.1016/j.red.2026.101331",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/61/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 5657,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 5657,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:19:09+00:00",
+        "source_hash": "02cb04975d99953ecadebe43ed6230a236162a99c032ac4db7ed4e0f2b250d5a"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2026.101342",
+      "sequence": 2,
+      "source_sequence": 101342,
+      "article_type": "research-article",
+      "title_en": "Mortgage securitization and information frictions in general equilibrium",
+      "title_cn": "一般均衡下的抵押贷款证券化与信息摩擦",
+      "authors": [
+        "Salomon Garcia-Villegas"
+      ],
+      "abstract_en": "We develop a general equilibrium model of the U.S. mortgage market where securitization shapes households’ access to credit and housing. The model matches the long-run behavior of mortgage rates, credit growth, and house prices following the development of securitization. Securitization improves market efficiency but is subject to adverse selection: lenders are privately informed about mortgage quality. Surges in household defaults then drive down security prices, reducing lender liquidity and contracting credit supply. Applied to the Global Financial Crisis (GFC), the model replicates two-thirds of the contraction in residential mortgage credit observed in the data. How important were information frictions in accounting for these dynamics? We estimate an information-friction multiplier of around 1.2, suggesting a powerful amplification effect. Evaluating post-GFC credit guarantee policies, we find that expanded coverage has stabilized credit but guarantees remain underpriced. Pricing them to reflect the amplification effect of information frictions covers the associated fiscal costs and delivers welfare gains for all households.",
+      "abstract_cn": "我们开发了美国抵押贷款市场的一般均衡模型，其中证券化决定了家庭获得信贷和住房的机会。该模型与证券化发展后抵押贷款利率、信贷增长和房价的长期行为相匹配。证券化提高了市场效率，但会受到逆向选择的影响：贷款人私下获悉抵押贷款质量。家庭违约激增会压低证券价格，减少贷款人的流动性并收缩信贷供应。该模型应用于全球金融危机（GFC）时，复制了数据中观察到的三分之二的住宅抵押信贷收缩情况。信息摩擦在解释这些动态方面有多重要？我们估计信息摩擦乘数约为 1.2，表明存在强大的放大效应。在评估全球金融危机后的信贷担保政策时，我们发现扩大覆盖范围稳定了信贷，但担保价格仍然偏低。对其定价以反映信息摩擦的放大效应，涵盖相关的财政成本，并为所有家庭带来福利收益。",
+      "abstract_snippet_en": "We develop a general equilibrium model of the U.S. mortgage market where securitization shapes households’ access to credit and housing. The model matches the long-run behavior of mortgage rates, credit...",
+      "doi": "10.1016/j.red.2026.101342",
+      "source_url": "https://doi.org/10.1016/j.red.2026.101342",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/61/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 5656,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 5656,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-08T08:19:44+00:00",
+        "source_hash": "4339ab641c358d3c48b337e315e43815888a9e8f1a20b10ab7e0ad0412fe3a23"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2026.101343",
+      "sequence": 3,
+      "source_sequence": 101343,
+      "article_type": "research-article",
+      "title_en": "Bargaining with renegotiation in models with on-the-job search",
+      "title_cn": "在职搜索模型中的讨价还价与重新谈判",
+      "authors": [
+        "Axel Gottfries"
+      ],
+      "abstract_en": "I present an on-the-job search model with bargaining and renegotiation in which turnover depends on the contracted wage. There is a unique monotone Markov equilibrium. The model encompasses elements of dynamic monopsony and rent sharing. Firms benefit from the reduced turnover associated with a higher wage and workers extract rents due to their bargaining power. Shorter wage contracts reduce the response of turnover to the contracted wage, reducing a firm’s willingness to increase pay, and thereby the worker’s equilibrium share of the match surplus. As renegotiation becomes continuous, linear surplus sharing is obtained. The model further generates spillover effects from minimum wages due to firms’ incentives to increase contracted wages to reduce turnover. These incentives, and therefore the spillovers, are weaker when wage contracts are shorter. Finally, I endogenize the frequency of renegotiation, and find that, generically, the equilibrium features infrequently renegotiated wages.",
+      "abstract_cn": "我提出了一个带有讨价还价和重新谈判的在职搜索模型，其中人员流动取决于合同工资。存在一个唯一的单调马尔可夫均衡。该模型包含了动态买方垄断和租金分享的要素。企业从与更高工资相关的较低人员流动中获益，而工人则因其议价能力而获取租金。较短的工资合同降低了人员流动对合同工资的响应，减少了企业提高工资的意愿，从而降低了工人在匹配盈余中的均衡份额。随着重新谈判变得连续，实现了线性盈余分享。该模型还因企业提高合同工资以减少人员流动的激励，产生了最低工资的溢出效应。当工资合同较短时，这些激励以及由此产生的溢出效应较弱。最后，我将重新谈判的频率内生化，并发现，在一般情况下，均衡特征表现为工资重新谈判不频繁。",
+      "abstract_snippet_en": "I present an on-the-job search model with bargaining and renegotiation in which turnover depends on the contracted wage. There is a unique monotone Markov equilibrium. The model encompasses elements...",
+      "doi": "10.1016/j.red.2026.101343",
+      "source_url": "https://doi.org/10.1016/j.red.2026.101343",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/61/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 5655,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 5655,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:19:16+00:00",
+        "source_hash": "9c46d7a83d651f1403399954ea71c6ad691adabe213ff64cb3b9e8d8beff61b8"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2026.101344",
+      "sequence": 4,
+      "source_sequence": 101344,
+      "article_type": "research-article",
+      "title_en": "Adverse selection and small business finances",
+      "title_cn": "逆向选择与小企业融资",
+      "authors": [
+        "Fan Liang"
+      ],
+      "abstract_en": "This paper develops a competitive search model with asymmetric information and argues that small firms hold liquid assets not only to self-finance their investments but also to signal their investment quality, thereby obtaining better loan terms. Because self-finance is an outside option of borrowing, it affects bank loans and the credit market structure. Monetary policy affects the cost of self-finance and hence affects the market structure and the screening regimes in the credit market. An increase in the policy rate can trigger banks to use screening contracts, which distort allocations. Using U.S. data, I document that dispersion in firms’ cash-to-asset ratios is hump-shaped in policy rates, consistent with the model’s prediction that firms use liquidity holdings to signal.",
+      "abstract_cn": "本文构建了一个具有信息不对称的竞争性搜寻模型，并认为小企业持有流动资产不仅是为了自我融资其投资，也是为了传递其投资质量的信号，从而获得更优的贷款条件。由于自我融资是借款的外部选择，它会影响银行贷款和信贷市场结构。货币政策影响自我融资的成本，进而影响信贷市场的市场结构和筛选机制。政策利率的上升可能促使银行采用筛选合同，这会扭曲资源配置。利用美国数据，本文发现企业现金资产比率的离散程度与政策利率呈倒U型关系，这与模型的预测一致，即企业利用流动性持有来传递信号。",
+      "abstract_snippet_en": "This paper develops a competitive search model with asymmetric information and argues that small firms hold liquid assets not only to self-finance their investments but also to signal their investment...",
+      "doi": "10.1016/j.red.2026.101344",
+      "source_url": "https://doi.org/10.1016/j.red.2026.101344",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/61/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 5654,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 5654,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:19:47+00:00",
+        "source_hash": "bd16026eab6100d02d91b486f1c188ca5a7f4afec38d178bdd98f55238e92bf3"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2026.101345",
+      "sequence": 5,
+      "source_sequence": 101345,
+      "article_type": "research-article",
+      "title_en": "A tractable income process for business cycle analysis",
+      "title_cn": "一个适用于商业周期分析的易处理收入过程",
+      "authors": [
+        "Fatih Guvenen",
+        "Alisdair McKay",
+        "Conor Ryan"
+      ],
+      "abstract_en": "We estimate a tractable income process that is consistent with key facts on individual income risk and its variation over the business cycle. In particular, the estimated process generates income fluctuations that display (i) flat and acyclical variance, (ii) volatile and procyclical skewness, (iii) very high kurtosis, and (iv) a moderate rise in within-cohort inequality over the life cycle, all consistent with the US data. Furthermore, the income process captures the predictable nature of business cycle income risk: income changes during a business cycle episode are partly predicted by income levels before that episode. The estimated process features a time-varying distribution of innovations as well as a factor structure for business cycle exposure. Incorporating the estimated process into a business cycle model adds only one state variable—as in the workhorse persistent-plus-transitory income process—making it a tractable option for modelers.",
+      "abstract_cn": "我们估计了一个易处理的收入过程，该过程与个人收入风险及其在商业周期中变化的关键事实一致。特别是，估计的过程产生的收入波动显示出（i）平坦且非周期性的方差，（ii）波动且顺周期的偏度，（iii）非常高的峰度，以及（iv）在生命周期内队列内不平等适度上升，所有这些都与美国数据一致。此外，收入过程捕捉了商业周期收入风险的可预测性质：商业周期事件期间的收入变化部分由该事件之前的收入水平预测。估计的过程具有时变的创新分布以及商业周期暴露的因子结构。将估计的过程纳入商业周期模型仅增加一个状态变量——如同常用的持久加暂时收入过程——使其成为建模者的一个易处理选项。",
+      "abstract_snippet_en": "We estimate a tractable income process that is consistent with key facts on individual income risk and its variation over the business cycle. In particular, the estimated process generates income fluctuations...",
+      "doi": "10.1016/j.red.2026.101345",
+      "source_url": "https://doi.org/10.1016/j.red.2026.101345",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/61/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 5653,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 5653,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:19:55+00:00",
+        "source_hash": "a91158f26f729e68e80e00ca3ad2a396fa46829e9e4a734220ec1a083e1acf0b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2026.101346",
+      "sequence": 6,
+      "source_sequence": 101346,
+      "article_type": "research-article",
+      "title_en": "Medical innovation and health disparities",
+      "title_cn": "医疗创新与健康不平等",
+      "authors": [
+        "Barton H. Hamilton",
+        "Andrés Hincapié",
+        "Emma C. Kalish",
+        "Nicholas W. Papageorge"
+      ],
+      "abstract_en": "A long-standing question in health economics asks what drives heterogeneity in health investments across sociodemographic groups, which contribute to health disparities. We examine a novel source: variation by sociodemographic groups in the impact of medical treatment side effects. We estimate a lifecycle model of medication and labor supply decisions using data on men infected with human immunodeficiency virus (HIV) and with different levels of completed education. Agents in the model make dynamic medication and work choices as a function of expected income, health, and mortality. We also include utility costs of side effects, which can interact with the utility cost of work, and allow these parameters to vary by education. We use the estimated model to evaluate the disparate impacts of an effective HIV treatment innovation that had harsh side effects: HAART (which stands for highly active antiretroviral treatment). Measured in lifetime utility gains, HAART disproportionately benefited patients with more education in part due to differences in income and mortality, but also due to smaller impacts of side effects on labor supply. We also simulate the effects of a HAART treatment mandate, which mimics assignment to treatment in a clinical trial. The mandate improves health, which might be viewed as a success in a randomized trial. However, this masks the downsides of treatment, including lower labor supply due to side effects, especially for lower-education men. Broadly, viewing heterogeneity in health investments as solely a result of barriers to access is overly simplistic. Individually optimal investments in health may in part reflect the costs of managing side effects and work. If low health investments create negative externalities (e.g., due to increased use of publicly-funded healthcare), the benefits of policies that moderate resulting health-work tradeoffs could outweigh the costs.",
+      "abstract_cn": "健康经济学中的一个长期问题是什么驱动了不同社会人口群体在健康投资上的异质性，这种异质性导致了健康不平等。我们考察了一个新的来源：不同社会人口群体在医疗治疗副作用影响上的差异。我们利用感染人类免疫缺陷病毒（HIV）且教育程度不同的男性数据，估计了一个关于药物和劳动供给决策的生命周期模型。模型中的个体根据预期收入、健康和死亡率做出动态的药物和工作选择。我们还纳入了副作用的效用成本，这些成本可能与工作的效用成本相互作用，并允许这些参数因教育程度而异。我们使用估计的模型来评估一种具有严重副作用的有效HIV治疗创新——HAART（即高效抗逆转录病毒治疗）的不同影响。以终身效用收益衡量，HAART不成比例地惠及了教育程度更高的患者，部分原因是收入和死亡率的差异，但也因为副作用对劳动供给的影响较小。我们还模拟了HAART治疗强制令的效果，该强制令模拟了临床试验中的治疗分配。强制令改善了健康，这在随机试验中可能被视为成功。然而，这掩盖了治疗的负面影响，包括因副作用导致的劳动供给下降，尤其是对教育程度较低的男性。广泛而言，将健康投资的异质性仅仅视为获取障碍的结果是过于简单化的。个体最优的健康投资可能部分反映了管理副作用和工作的成本。如果低健康投资产生负外部性（例如，由于公共资助医疗保健使用的增加），那么调节由此产生的健康-工作权衡的政策收益可能超过其成本。",
+      "abstract_snippet_en": "A long-standing question in health economics asks what drives heterogeneity in health investments across sociodemographic groups, which contribute to health disparities. We examine a novel source: variation...",
+      "doi": "10.1016/j.red.2026.101346",
+      "source_url": "https://doi.org/10.1016/j.red.2026.101346",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/61/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 5652,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 5652,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:19:51+00:00",
+        "source_hash": "c0390b00aed6756da334d2bc3d9d1541adc6ff46543d9fb6978e12a2c2fdce2d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2026.101347",
+      "sequence": 7,
+      "source_sequence": 101347,
+      "article_type": "research-article",
+      "title_en": "An irrelevance theorem for risk aversion and time-varying risk",
+      "title_cn": "风险厌恶与时变风险的一个无关性定理",
+      "authors": [
+        "Andrew Y. Chen",
+        "Francisco Palomino"
+      ],
+      "abstract_en": "We provide a theorem on the role of risk and risk attitudes in macroeconomic models that clarifies and extends the Tallarini (2000) separation result. Under (1) separation of intertemporal and risk preferences, (2) separation of drivers of first and higher moments in the model primitives, and (3) approximate linearity of constraints, risk aversion and time-varying risk are irrelevant for the elasticity of any endogenous variable with respect to state variables that don’t drive variation in higher moments. We discuss how models generate a more prominent role for risk by “breaking” or “adapting” to the assumptions in the theorem.",
+      "abstract_cn": "我们提供了一个关于风险和风险态度在宏观经济模型中作用的定理，该定理阐明并扩展了Tallarini（2000）的分离结果。在（1）跨期偏好与风险偏好分离，（2）模型原始变量中一阶矩与高阶矩驱动因素分离，以及（3）约束近似线性的条件下，风险厌恶和时变风险对于任何内生变量相对于不驱动高阶矩变化的状态变量的弹性而言是无关的。我们讨论了模型如何通过“打破”或“适应”定理中的假设来赋予风险更显著的角色。",
+      "abstract_snippet_en": "We provide a theorem on the role of risk and risk attitudes in macroeconomic models that clarifies and extends the Tallarini (2000) separation result. Under (1) separation of intertemporal and risk...",
+      "doi": "10.1016/j.red.2026.101347",
+      "source_url": "https://doi.org/10.1016/j.red.2026.101347",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/61/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 5651,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 5651,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:19:53+00:00",
+        "source_hash": "f685a5484d5ba67834ff233bf0ce617a48ae6e6a1a9687e4b09c6d6fc136d25c"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2026.101348",
+      "sequence": 8,
+      "source_sequence": 101348,
+      "article_type": "research-article",
+      "title_en": "Means-tested transfers in the U.S.: Facts and parametric estimates",
+      "title_cn": "美国的经济状况调查转移支付：事实与参数估计",
+      "authors": [
+        "Nezih Guner",
+        "Christopher Rauh",
+        "Gustavo Ventura"
+      ],
+      "abstract_en": "How large and important are means-tested transfers to working-age households in the United States? Using microdata from the Survey of Income and Program Participation, we document that a substantial share of households, more than one-third of them, receive transfers in a given year. Conditional on receipt, transfers average about $17,000 in 2016 dollars, exceeding one-fifth of mean household income. For households with no income, total conditional transfers amount to $26,500, nearly one-third of the mean household income. Transfers decline sharply with income but remain surprisingly widespread even in the middle and upper portions of the distribution. The system substantially compresses inequality, and its redistributive role has grown over time, driven largely by the expansion of Medicaid. Non-medical transfers are strongly countercyclical, and benefit reduction rates (the implicit tax rates on the first dollar earned) are significant. We provide parametric estimates of effective transfer functions by program, household type, and income level, ready for use in quantitative work in macroeconomics and public finance.",
+      "abstract_cn": "在美国，针对劳动年龄家庭的经济状况调查转移支付的规模和重要性如何？利用收入与项目参与调查的微观数据，我们记录到，在给定年份中，有相当大比例的家庭（超过三分之一）收到转移支付。在收到转移支付的条件下，平均转移支付金额约为2016年美元的17,000美元，超过平均家庭收入的五分之一。对于无收入家庭，总的条件转移支付金额为26,500美元，接近平均家庭收入的近三分之一。转移支付随收入增加而急剧下降，但在收入分布的中高部分仍然出人意料地普遍。该系统显著压缩了不平等，其再分配作用随时间增强，这主要得益于医疗补助的扩展。非医疗转移支付具有强烈的逆周期性，福利削减率（对第一美元收入的隐性税率）显著。我们提供了按项目、家庭类型和收入水平划分的有效转移函数的参数估计，可直接用于宏观经济学和公共财政的定量研究。",
+      "abstract_snippet_en": "How large and important are means-tested transfers to working-age households in the United States? Using microdata from the Survey of Income and Program Participation, we document that a substantial...",
+      "doi": "10.1016/j.red.2026.101348",
+      "source_url": "https://doi.org/10.1016/j.red.2026.101348",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/61/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 5650,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 5650,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:19:59+00:00",
+        "source_hash": "e6e8dc91a792307b96cac4c61e0c2ab8a2825e10db14ad37f50f1b558baaec2f"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2026.101349",
+      "sequence": 9,
+      "source_sequence": 101349,
+      "article_type": "research-article",
+      "title_en": "Optimal combination of patent instruments in a cumulative-innovation growth model",
+      "title_cn": "累积创新增长模型中专利工具的最优组合",
+      "authors": [
+        "Davin Chor",
+        "Edwin L.-C. Lai"
+      ],
+      "abstract_en": "We develop a tractable general equilibrium model of cumulative innovation and growth to study the optimal combinations of three patent instruments: a patentability requirement to protect against future incremental innovation, a patent breadth to protect against current imitation, and the patent length governing the duration of its validity. New ideas strictly build upon frontier technologies, with the size of productivity improvements drawn from a stochastic distribution. The model features positive knowledge spillovers, and we discuss when this leads to under-investment in R&D in the market equilibrium relative to the social planner’s benchmark. We characterize analytically how each patent instrument affects research incentives, and further establish that the patentability requirement and patent breadth in the welfare-maximizing combination are each set at a strictly lower level than in the R&D-maximizing combination. Calibrating the model to aggregate data, the welfare-maximizing combination of instruments features a large patent breadth, a long patent duration, but a modest patentability requirement. The quantitative analysis points to sizeable welfare gains from these patent policies, while highlighting the importance of having multiple patent instruments.",
+      "abstract_cn": "我们开发了一个可处理的累积创新与增长的一般均衡模型，以研究三种专利工具的最优组合：防止未来增量创新的可专利性要求、防止当前模仿的专利宽度以及决定其有效期限的专利长度。新思想严格建立在前沿技术之上，生产力改进的大小从随机分布中抽取。该模型具有正的知识溢出效应，我们讨论了在何种情况下这会导致市场均衡中的研发投资相对于社会计划者基准不足。我们分析性地刻画了每种专利工具如何影响研究激励，并进一步确立了在福利最大化组合中，可专利性要求和专利宽度各自设定在严格低于研发最大化组合中的水平。将模型校准到总体数据，福利最大化的工具组合具有较大的专利宽度、较长的专利期限，但适度的可专利性要求。定量分析指出了这些专利政策带来的可观福利收益，同时强调了拥有多种专利工具的重要性。",
+      "abstract_snippet_en": "We develop a tractable general equilibrium model of cumulative innovation and growth to study the optimal combinations of three patent instruments: a patentability requirement to protect against future...",
+      "doi": "10.1016/j.red.2026.101349",
+      "source_url": "https://doi.org/10.1016/j.red.2026.101349",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/61/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 5649,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 5649,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:20:29+00:00",
+        "source_hash": "9fa53901a065f4b276e4418ac736e83fedf78891f0bb2c9e47581257f8642253"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2026.101350",
+      "sequence": 10,
+      "source_sequence": 101350,
+      "article_type": "research-article",
+      "title_en": "Household income inequality and optimal trend inflation",
+      "title_cn": "家庭收入不平等与最优趋势通胀",
+      "authors": [
+        "Jong Soo Kim",
+        "Daeha Cho",
+        "Kwang Hwan Kim"
+      ],
+      "abstract_en": "This paper studies the optimal inflation target in a tractable heterogeneous agent New Keynesian (THANK) model with an occasionally binding zero lower bound, incorporating income inequality, income risk, and countercyclical fiscal policy. We analytically characterize how cyclical and long-run inequality, income risk, and fiscal policy shape the welfare trade-off of trend inflation across households. Greater cyclical inequality and income risk increase the marginal benefits of inflation, especially for hand-to-mouth (HtM) households, while long-run inequality reduces marginal benefits. Quantitatively, income inequality and income risk modestly raise the utilitarian optimal inflation rate relative to the representative agent benchmark. We further show that countercyclical fiscal policies lower the marginal benefit of inflation for all households and reduce the optimal inflation target. Finally, adding wealth inequality in the form of private or government debt, in addition to income inequality, raises the optimal inflation target.",
+      "abstract_cn": "本文在一个具有偶尔约束零下限的可处理异质性代理人新凯恩斯（THANK）模型中研究最优通胀目标，该模型纳入了收入不平等、收入风险和逆周期财政政策。我们从分析上刻画了周期性和长期不平等、收入风险以及财政政策如何影响跨家庭的趋势通胀福利权衡。更大的周期不平等和收入风险增加了通胀的边际收益，尤其是对于手到口（HtM）家庭，而长期不平等则降低了边际收益。在数量上，相对于代表性代理人基准，收入不平等和收入风险适度提高了功利主义最优通胀率。我们进一步表明，逆周期财政政策降低了所有家庭的通胀边际收益，并降低了最优通胀目标。最后，在收入不平等之外，加入以私人或政府债务形式存在的财富不平等，会提高最优通胀目标。",
+      "abstract_snippet_en": "This paper studies the optimal inflation target in a tractable heterogeneous agent New Keynesian (THANK) model with an occasionally binding zero lower bound, incorporating income inequality, income...",
+      "doi": "10.1016/j.red.2026.101350",
+      "source_url": "https://doi.org/10.1016/j.red.2026.101350",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/61/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 5648,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 5648,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:20:01+00:00",
+        "source_hash": "3e7d1319b2a11f3363eef33429f85dd33152704b32b458d320ad50de83cf96ed"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2026.101351",
+      "sequence": 11,
+      "source_sequence": 101351,
+      "article_type": "research-article",
+      "title_en": "Haircut, interest rate, and collateral quality in the tri-party repo market: Evidence and theory",
+      "title_cn": "三方回购市场中的折扣率、利率与抵押品质量：证据与理论",
+      "authors": [
+        "Sangyup Choi",
+        "Inkee Jang",
+        "Kee-Youn Kang",
+        "Hyunpyung Kim"
+      ],
+      "abstract_en": "Using transaction-level data from the Korean tri-party repo market, we study how repo contract terms interact with collateral quality. Both haircuts and interest rates rise with collateral risk, consistent with existing evidence. Conditional on collateral quality, however, we find a trade-off: a one-percentage-point increase in the spread is associated with a 1.3-percentage-point reduction in the haircut. The same increase in the interest rate is associated with a smaller reduction in the haircut under heightened market uncertainty, indicating that insurance against default becomes more valuable as default risk rises. We show that the interaction between lenders’ incentives to acquire information and borrowers’ opportunistic default risk explains both the positive unconditional relationship and the negative conditional relationship between haircuts and interest rates.",
+      "abstract_cn": "利用韩国三方回购市场的交易级数据，我们研究了回购合约条款如何与抵押品质量相互作用。折扣率和利率均随抵押品风险上升而上升，这与现有证据一致。然而，在控制抵押品质量后，我们发现了一种权衡关系：利差每增加一个百分点，折扣率降低1.3个百分点。在市场不确定性加剧时，利率的同等增加与折扣率的较小降幅相关，这表明随着违约风险上升，针对违约的保险变得更有价值。我们证明，贷款人获取信息的激励与借款人机会主义违约风险之间的相互作用，解释了折扣率与利率之间正向的无条件关系以及负向的条件关系。",
+      "abstract_snippet_en": "Using transaction-level data from the Korean tri-party repo market, we study how repo contract terms interact with collateral quality. Both haircuts and interest rates rise with collateral risk, consistent...",
+      "doi": "10.1016/j.red.2026.101351",
+      "source_url": "https://doi.org/10.1016/j.red.2026.101351",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/61/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 5647,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 5647,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:20:31+00:00",
+        "source_hash": "ea30f80ffa36a9fe4a9a85acc37b97f01e4bde4bd00866bd44299feb09d9dc96"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2026.101352",
+      "sequence": 12,
+      "source_sequence": 101352,
+      "article_type": "research-article",
+      "title_en": "A DSGE model of downside risk",
+      "title_cn": "下行风险的DSGE模型",
+      "authors": [
+        "Luciano I. de Castro",
+        "Antonio F. Galvao",
+        "David Hong"
+      ],
+      "abstract_en": "This paper develops a DSGE model with recursive quantile preferences and rare disaster risk. In this economy, infinitely lived households maximize the discounted value of the stream of future τ-quantile utilities for τ ∈ (0, 1). The quantile parameter τ captures the households’ downside risk attitude, independent of the elasticity of intertemporal substitution. We establish central properties of the model, including: (i) existence and uniqueness of a fixed point for household value functions, (ii) envelope condition, and the quantile Euler equation. We define the quantile recursive competitive equilibrium and establish its existence and uniqueness. Quantitatively, following a one-standard-deviation positive technology shock, output, consumption, and investment increase on impact and gradually return to baseline. In contrast, labor adjusts differently under recursive quantile preferences: initial labor hours decline, indicating that a preference-based tilt toward downside outcomes alters intratemporal tradeoffs even in an otherwise frictionless setting. Similar qualitative responses arise following rare-disaster shocks.",
+      "abstract_cn": "本文开发了一个具有递归分位数偏好和罕见灾难风险的DSGE模型。在该经济体中，无限期生存的家庭最大化未来τ分位数效用的折现价值，其中τ ∈ (0, 1)。分位数参数τ捕捉家庭的下行风险态度，独立于跨期替代弹性。我们建立了模型的核心性质，包括：(i) 家庭价值函数不动点的存在性和唯一性，(ii) 包络条件，以及分位数欧拉方程。我们定义了分位数递归竞争均衡并确立了其存在性和唯一性。在数量上，面对一个标准差的正向技术冲击，产出、消费和投资在冲击当期增加并逐渐回归基线。相比之下，劳动在递归分位数偏好下的调整不同：初始劳动时间下降，表明对下行结果的偏好倾斜改变了期内权衡，即使在无摩擦的环境中也是如此。类似的性质响应也出现在罕见灾难冲击之后。",
+      "abstract_snippet_en": "This paper develops a DSGE model with recursive quantile preferences and rare disaster risk. In this economy, infinitely lived households maximize the discounted value of the stream of future τ-quantile...",
+      "doi": "10.1016/j.red.2026.101352",
+      "source_url": "https://doi.org/10.1016/j.red.2026.101352",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/61/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 5646,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 5646,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:20:34+00:00",
+        "source_hash": "e519d1f8bfafee0b45892101925cf867320239d61313ecbc652a029857971bb3"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "crossref",
+    "roster_authority": "crossref-provisional",
+    "roster_match_scope": "crossref-issue-group",
+    "publisher_page_status": "blocked",
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 12,
+    "authors_complete": 12,
+    "abstract_en_complete": 12,
+    "translation_complete": 12,
+    "duplicate_count": 0,
+    "flags": [
+      "publisher_html_blocked_crossref_fallback",
+      "crossref_provisional_roster"
+    ],
+    "official_item_count": 12,
+    "publishable_item_count": 12,
+    "content_counts": {
+      "official_items": 12,
+      "observed_items": 12,
+      "publishable_items": 12,
+      "research_articles": 12,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 12
+    }
+  },
+  "content_counts": {
+    "official_items": 12,
+    "observed_items": 12,
+    "publishable_items": 12,
+    "research_articles": 12,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 12
+  },
+  "issue_label": "Vol. 61",
+  "publication_state": "ready"
+}
