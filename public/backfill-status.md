@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-08T10:14:09+00:00
+Updated: 2026-08-08T10:14:22+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -68,13 +68,13 @@ Updated: 2026-08-08T10:14:09+00:00
 | AJAE | ajae-108-3 | 2026 | complete |  |
 | AJAE | ajae-108-4 | 2026 | complete |  |
 | CER | cer-100-c | 2026 | complete |  |
-| CER | cer-89-c | 2025 | translation_partial |  |
+| CER | cer-89-c | 2025 | complete |  |
 | CER | cer-90-c | 2025 | complete |  |
 | CER | cer-91-c | 2025 | complete |  |
 | CER | cer-92-c | 2025 | complete |  |
-| CER | cer-93-c | 2025 | translation_partial |  |
+| CER | cer-93-c | 2025 | complete |  |
 | CER | cer-94-c | 2025 | complete |  |
-| CER | cer-95-c | 2026 | translation_partial |  |
+| CER | cer-95-c | 2026 | complete |  |
 | CER | cer-96-c | 2026 | complete |  |
 | CER | cer-97-c | 2026 | translation_partial |  |
 | CER | cer-98-c | 2026 | complete |  |

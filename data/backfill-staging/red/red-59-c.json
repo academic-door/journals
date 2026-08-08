@@ -336,13 +336,13 @@
       "source_sequence": 101322,
       "article_type": "research-article",
       "title_en": "Protectionism and inequality",
-      "title_cn": "保护主义与不平等",
+      "title_cn": "",
       "authors": [
         "Zhe (Jasmine) Jiang",
         "Zinan Wang"
       ],
       "abstract_en": "This paper studies the distributional outcomes of protectionism. First, we investigate the short-run distributional effects on workers with different skill levels by estimating structural vector autoregressions (VARs) using high-frequency measures of temporary trade barriers for the United States. We then estimate a panel VAR for a sample of thirty-six countries using the applied tariff rates. Across our empirical exercises, we find robust evidence that protectionism reduces the skill premium but increases the employment ratio between high-skilled and low-skilled workers. To rationalize these findings, we build a two-country dynamic general equilibrium model featuring asymmetric search-and-matching (SAM) frictions, capital-skill complementarity (CSC) in production, and producer dynamics. Our model results replicate the empirical patterns. Our counterfactual analysis highlights the interaction between asymmetric SAM and CSC in qualitatively shaping the distributional patterns of protectionism, with producer dynamics magnifying these effects quantitatively.",
-      "abstract_cn": "本文研究保护主义的分配效应。首先，我们通过使用美国临时贸易壁垒的高频度量，估计结构向量自回归（VARs），考察对不同技能水平工人的短期分配效应。然后，我们使用适用关税税率，对三十六国样本估计面板VAR。在我们的实证分析中，我们发现稳健的证据表明，保护主义降低了技能溢价，但提高了高技能与低技能工人之间的就业比率。为合理化这些发现，我们构建了一个具有非对称搜寻匹配（SAM）摩擦、资本技能互补性（CSC）以及生产者动态的两国动态一般均衡模型。我们的模型结果复制了实证模式。我们的反事实分析强调了非对称SAM与CSC之间的相互作用在定性上塑造保护主义分配模式中的作用，而生产者动态则在定量上放大了这些效应。",
+      "abstract_cn": "",
       "abstract_snippet_en": "This paper studies the distributional outcomes of protectionism. First, we investigate the short-run distributional effects on workers with different skill levels by estimating structural vector autoregressions...",
       "doi": "10.1016/j.red.2026.101322",
       "source_url": "https://doi.org/10.1016/j.red.2026.101322",
@@ -377,15 +377,15 @@
         }
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-reasoner",
-        "translated_at": "2026-08-08T10:14:03+00:00",
-        "source_hash": "ca2c3b11273b8cf4a4dd682f87f693cc1fbefc54b240f7be7ede84e3de175581"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -419,11 +419,12 @@
     "doi_complete": 6,
     "authors_complete": 6,
     "abstract_en_complete": 6,
-    "translation_complete": 6,
+    "translation_complete": 5,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
+      "crossref_provisional_roster",
+      "translation_incomplete"
     ],
     "official_item_count": 8,
     "publishable_item_count": 6,
