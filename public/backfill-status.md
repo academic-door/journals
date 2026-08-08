@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-08T08:31:58+00:00
+Updated: 2026-08-08T08:33:10+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -171,6 +171,12 @@ Updated: 2026-08-08T08:31:58+00:00
 | JAERE | jaere-13-3 | 2026 | complete |  |
 | JAERE | jaere-13-4 | 2026 | complete |  |
 | JAERE | jaere-13-5 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 13/5 |
+| JCE | jce-53-1 | 2025 | translation_partial |  |
+| JCE | jce-53-2 | 2025 | complete |  |
+| JCE | jce-53-3 | 2025 | complete |  |
+| JCE | jce-53-4 | 2025 | complete |  |
+| JCE | jce-54-1 | 2026 | complete |  |
+| JCE | jce-54-2 | 2026 | complete |  |
 | JDE | jde-172-c | 2025 | complete |  |
 | JDE | jde-173-c | 2025 | complete |  |
 | JDE | jde-174-c | 2025 | complete |  |
