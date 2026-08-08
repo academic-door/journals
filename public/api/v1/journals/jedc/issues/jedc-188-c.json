@@ -1,0 +1,465 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "jedc-188-c",
+  "journal_id": "jedc",
+  "journal_name": "Journal of Economic Dynamics and Control",
+  "volume": "188",
+  "issue": "C",
+  "publication_date": "September 2025",
+  "source_url": "https://ideas.repec.org/s/eee/dyncon.html",
+  "retrieved_at": "2026-08-08T08:42:37+00:00",
+  "expected_article_count": 10,
+  "research_article_count": 10,
+  "status": "ready",
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.jedc.2026.105333",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "A data-driven econo-financial stress-testing framework to estimate the effect of supply chain networks on financial systemic risk",
+      "title_cn": "基于数据驱动的经济金融压力测试框架：评估供应链网络对金融系统性风险的影响",
+      "authors": [
+        "Jan Fialkowski",
+        "Christian Diem",
+        "András Borsos",
+        "Stefan Thurner"
+      ],
+      "abstract_en": "Supply chain disruptions constitute a widely neglected risk for financial stability. As in financial networks, systemic risk in supply chain networks (SCNs) arises when the local failure of a single or a small group of firms impacts the production of others and might trigger cascading drops in production that affect significant parts of the economy. Here, we study how systemic risk in SCNs translates into financial systemic risk through a mechanism where supply chain contagion leads to correlated bank-firm loan defaults. We propose a financial stress-testing framework for macro-prudential applications that features a national firm level SCN in combination with bank-firm loans and the interbank network. The model is calibrated with a unique data set including about 1 million firm-level supply links, practically all bank-firm loans, and all interbank loans in Hungary. As a showcase we implement a real COVID-19 shock scenario based on firm-level labour data. This model allows us to study how the disruption dynamics in the real economy can lead to and amplify interbank solvency contagion dynamics. We estimate to what extent SCN contagion amplifies financial systemic risk, discuss the relative importance of these contagion channels, and find an increase of interbank contagion of 70% when SCN contagion is present. A key finding is that the interaction of SCN contagion and financial network contagion amplifies financial systemic risks and leads to heavier tails of banks’ loss distributions. We then examine the financial systemic risk of individual firm failures and find that interbank contagion can amplify bank equity losses from supply-chain-contagion-induced defaults by up to 28%. This framework is the first financial systemic risk model that takes real economy shocks mediated by supply chain contagion into account at the agent-level. This opens a path for a direct and event-driven understanding of the dynamical interaction between the real economy and financial systems.",
+      "abstract_cn": "供应链中断构成了金融稳定中一个被广泛忽视的风险。与金融网络类似，供应链网络中的系统性风险产生于单个或一小部分企业的局部失败影响其他企业的生产，并可能引发影响经济重要部分的生产级联下降。在此，我们研究供应链网络中的系统性风险如何通过一种机制转化为金融系统性风险，其中供应链传染导致银行-企业贷款违约的相关性。我们提出了一个用于宏观审慎应用的金融压力测试框架，该框架以国家层面的企业级供应链网络为特征，并结合银行-企业贷款和银行间网络。该模型使用一个独特的数据集进行校准，该数据集包括约1百万条企业级供应链接、几乎所有银行-企业贷款以及匈牙利的所有银行间贷款。作为展示，我们基于企业级劳动力数据实施了一个真实的COVID-19冲击情景。该模型使我们能够研究实体经济中的中断动态如何导致并放大银行间偿付能力传染动态。我们估计了供应链网络传染在多大程度上放大金融系统性风险，讨论了这些传染渠道的相对重要性，并发现当存在供应链网络传染时，银行间传染增加了70%。一个关键发现是，供应链网络传染与金融网络传染的相互作用放大了金融系统性风险，并导致银行损失分布的尾部更重。然后，我们考察了单个企业失败的金融系统性风险，发现银行间传染可以将供应链传染引发的违约导致的银行股权损失放大至多28%。该框架是第一个在代理层面考虑由供应链传染介导的实体经济冲击的金融系统性风险模型。这为直接和事件驱动地理解实体经济与金融系统之间的动态相互作用开辟了道路。",
+      "doi": "10.1016/j.jedc.2026.105333",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188926000795",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/dyncon.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/dyncon/v188y2026ics0165188926000795.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:42:42+00:00",
+        "source_hash": "3b251f6d4adc86e4458ac32ffd5b41ba7d7457c921e5bce40056f68b880684b6"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jedc.2026.105334",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Dynamic order dispersion and volatility persistence in a simple limit order book model",
+      "title_cn": "简单限价订单簿模型中的动态订单分散与波动率持续性",
+      "authors": [
+        "Andrew Hawley",
+        "Blake LeBaron",
+        "Mark Paddrik",
+        "Nathan Palmer"
+      ],
+      "abstract_en": "We extend the dynamics of a basic stylized limit order book model introduced in Chiarella and Iori, (2002). The original model is capable of generating some key market microstructure features, but it cannot recreate longer range persistence in volatility. We explore a very simple and intuitive addition to the stylized, near zero intelligence behavior of traders that is capable of delivering persistent volatility and fat tailed return distributions. Specifically, we introduce a feedback mechanism where agents adjust their order placement in response to recent volatility: when short-term volatility rises relative to long-term volatility, traders place their limit orders farther from the current market price. This volatility-responsive order shading creates a self-reinforcing cycle where higher volatility leads to sparser order books, which in turn amplifies subsequent price movements and volatility. We also extend our results to some well known properties of realized volatility measures. Our model reveals that all these properties are generated by order book patterns which are consistent with empirical liquidity patterns in market microstructure studies. We feel our parsimonious agent-based model may be used as a test bed for developing agents with more complex behavior.",
+      "abstract_cn": "我们扩展了Chiarella和Iori（2002）引入的基本风格化限价订单簿模型的动态。原始模型能够生成一些关键的市场微观结构特征，但无法重现波动率的长期持续性。我们探索了一种非常简单且直观的添加方式，针对交易者的风格化、接近零智能行为，能够产生持续的波动率和厚尾收益分布。具体来说，我们引入了一个反馈机制，其中代理根据近期波动率调整其订单放置：当短期波动率相对于长期波动率上升时，交易者将其限价订单放置在离当前市场价格更远的位置。这种对波动率响应的订单遮蔽创造了一个自我强化的循环，其中更高的波动率导致订单簿更稀疏，进而放大后续的价格变动和波动率。我们还将我们的结果扩展到已实现波动率度量的一些众所周知的性质。我们的模型揭示了所有这些性质都是由与市场微观结构研究中的经验流动性模式一致的订单簿模式生成的。我们认为我们简约的基于代理的模型可以用作开发具有更复杂行为的代理的测试平台。",
+      "doi": "10.1016/j.jedc.2026.105334",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188926000801",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/dyncon.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/dyncon/v188y2026ics0165188926000801.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:42:45+00:00",
+        "source_hash": "7f3e9743a227fbf9092415f184ed979dac01b529ad1dd0754a4203bfe11d07ed"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jedc.2026.105335",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "A dynamic model of capital investment with uncertain demand and Bayesian learning",
+      "title_cn": "不确定需求与贝叶斯学习下的资本投资动态模型",
+      "authors": [
+        "Laura Delaney"
+      ],
+      "abstract_en": "This paper employs a sequential learning framework to extend the static industrial organisation literature regarding optimal capacity choice and timing for incumbents and potential entrants to a dynamic environment with heterogeneous products in which uncertainty over future demand changes over time. The incumbent is uncertain about the quality of the entrant’s product and receives imperfect information signals at random points in time. Based on these signals, the incumbent updates his belief about the entrant’s product in a Bayesian fashion. Once adequately convinced about its true quality, he stops learning and makes a capacity choice according to his conviction. Existing models on capacity choice and timing in an incumbent-entrant context have not accounted for incomplete information and sequential learning in their analyses. As such, there are several novel implications that arise from the modeling framework, as well as new rationales for incumbent inertia and what this suggests in terms of over- and under-investment in capacity relative to the welfare-maximising socially optimal level.",
+      "abstract_cn": "本文采用序贯学习框架，将关于在位者和潜在进入者最优产能选择与时机选择的静态产业组织文献扩展到具有异质性产品且未来需求不确定性随时间变化的动态环境中。在位者对于进入者产品的质量存在不确定性，并在随机时间点接收到不完美的信息信号。基于这些信号，在位者以贝叶斯方式更新其对进入者产品的信念。一旦充分确信其真实质量，他便停止学习并根据自己的信念做出产能选择。现有的关于在位者-进入者情境下产能选择与时机的模型未在其分析中考虑不完全信息和序贯学习。因此，该建模框架产生了若干新的启示，以及关于在位者惰性的新解释，以及这对相对于福利最大化的社会最优水平的产能过度投资和投资不足意味着什么。",
+      "doi": "10.1016/j.jedc.2026.105335",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188926000813",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/dyncon.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/dyncon/v188y2026ics0165188926000813.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:42:47+00:00",
+        "source_hash": "ca23d877ca42837ec92bd068786c9d5c0e792b611df057794371b0fd3237f76e"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jedc.2026.105336",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Restoring existence and uniqueness at the effective lower bound with simple fiscal policy",
+      "title_cn": "通过简单财政政策恢复有效下限处的存在性与唯一性",
+      "authors": [
+        "David Murakami",
+        "Ivan Shchapov",
+        "Yifan Zhang"
+      ],
+      "abstract_en": "The presence of an occasionally binding constraint from the effective lower bound (ELB) in New Keynesian models often leads to multiple or no equilibria. The problem stems from a strong feedback loop between expectations (of inflation and output) and current outcomes at the ELB. With non-existence, the economy cannot settle into a consistent, stable outcome; whilst with multiplicity, non-fundamental shifts in beliefs might trigger belief-driven recessions. To prevent such outcomes, a policymaker needs to ensure their actions will produce a unique minimum state variable solution. We show that simple fiscal policy rules can introduce additional stabilising forces that dampen the feedback loop, thereby ensuring the existence and uniqueness of an equilibrium.",
+      "abstract_cn": "新凯恩斯模型中有效下限（ELB）偶尔起作用的约束常常导致多重均衡或不存在均衡。问题源于在ELB处，预期（对通胀和产出的）与当前结果之间的强反馈循环。当不存在均衡时，经济无法稳定于一致、稳定的结果；而当存在多重均衡时，信念的非基本面变动可能引发由信念驱动的衰退。为防止此类结果，政策制定者需要确保其行动能产生唯一的最小状态变量解。我们表明，简单的财政政策规则可以引入额外的稳定力量，削弱反馈循环，从而确保均衡的存在性和唯一性。",
+      "doi": "10.1016/j.jedc.2026.105336",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188926000825",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/dyncon.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/dyncon/v188y2026ics0165188926000825.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:42:50+00:00",
+        "source_hash": "fe364722a6375b3e4d21882089ac445502384420fc207f03b582490d2b2f8480"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jedc.2026.105337",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "How do stock market experiences shape wealth inequality?",
+      "title_cn": "股市经历如何塑造财富不平等？",
+      "authors": [
+        "Xiaowen Lei"
+      ],
+      "abstract_en": "This paper develops a continuous-time OLG model, incorporating rare disasters and agents who learn more from their own experiences. Disasters such as the Great Depression make investors distrustful of the market. Generations that experience disasters save in the form of safer portfolios, even if similar disasters are not likely to occur again during their lifetimes. “Fearing to attempt” therefore inhibits wealth accumulation by these “depression babies” relative to other generations. This effect is amplified in the general equilibrium since the expected excess return is relatively high following a disaster. When calibrated to US data, the model can explain around half of the old-to-young wealth ratio decrease between the Great Depression and the 1980s, and around 7% of the subsequent increase. The model can also explain about a quarter of the increase of top 1% wealth shares and is consistent with observations of life cycle portfolio choices, and changes in asset returns following disasters.",
+      "abstract_cn": "本文构建了一个连续时间的OLG模型，其中包含罕见灾难以及更多从自身经历中学习的代理人。诸如大萧条之类的灾难使投资者对市场产生不信任。经历过灾难的世代即使在其有生之年类似灾难不太可能再次发生，也会以更安全的投资组合形式进行储蓄。因此，“畏惧尝试”抑制了这些“大萧条婴儿”相对于其他世代的财富积累。由于灾难后预期超额回报相对较高，这一效应在一般均衡中被放大。当用美国数据进行校准后，该模型可以解释大萧条至1980年间老年与青年财富比率下降的大约一半，以及随后上升的大约7%。该模型还能解释顶层1%财富份额增加的大约四分之一，并与生命周期投资组合选择以及灾难后资产回报变化的观察结果一致。",
+      "doi": "10.1016/j.jedc.2026.105337",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188926000837",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/dyncon.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/dyncon/v188y2026ics0165188926000837.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:42:52+00:00",
+        "source_hash": "f806e7ade36febc4b666cda73315f95c3efe4490ca502f1b052a5516c5487196"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jedc.2026.105338",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Bank liability structure under capital requirements in a regime-switching framework",
+      "title_cn": "制度转换框架下资本要求与银行负债结构",
+      "authors": [
+        "Wenli Huang",
+        "Xiang Liu",
+        "Yingjie Niu",
+        "Kezhen Yang"
+      ],
+      "abstract_en": "We develop a regime-switching banking model that incorporates deposit insurance and dual bankruptcy thresholds—one endogenously determined by shareholders and the other exogenously imposed by regulators. Quantitative results indicate that rigid capital regulation tends to amplify risk during economic downturns, while countercyclical adjustments contribute to greater financial stability. Capital regulation should be state-dependent; otherwise, excessively stringent regulation may induce higher leverage, whereas insufficient oversight may undermine regulatory effectiveness. The findings also highlight a trade-off between capital requirements and financial stability. These insights offer guidance for designing countercyclical capital frameworks that help stabilize bank behavior throughout the business cycle.",
+      "abstract_cn": "我们构建了一个包含存款保险和双重破产阈值的制度转换银行模型——其中一个阈值由股东内生决定，另一个由监管机构外生设定。定量结果表明，刚性的资本监管在经济下行期间往往会放大风险，而逆周期调整则有助于增强金融稳定性。资本监管应视状态而定；否则，过度严格的监管可能诱发更高的杠杆率，而监管不足则可能削弱监管有效性。研究结果还凸显了资本要求与金融稳定性之间的权衡关系。这些见解为设计有助于在整个商业周期内稳定银行行为的逆周期资本框架提供了指导。",
+      "doi": "10.1016/j.jedc.2026.105338",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188926000849",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/dyncon.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/dyncon/v188y2026ics0165188926000849.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:42:55+00:00",
+        "source_hash": "151761c70dd0ef718f5db861a343663d68b4954b75275d94e6130ab56a314521"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jedc.2026.105346",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Production and endogenous preferences",
+      "title_cn": "生产与内生偏好",
+      "authors": [
+        "Ilya Dergunov"
+      ],
+      "abstract_en": "This paper proposes a two-sector production model augmented with the endogenous preference evolution mechanism. The preference evolution reflects the popularity of two sectors among investors and captures the idea that preferences for the two goods move endogenously over time. The interaction of preference evolution and market-clearing mechanism generates endogenous movements in Tobin’s Q, risk premia and wealth shares different to the standard production economy of Eberly and Wang (2011). The model also implies that wealth fluctuates across sectors due to the shifts in preferences and subsequently because of expected returns and Sharpe ratios. In the empirical tests, I calibrate the baseline model to the US data sample over 1975–2019 and verify that model predictions are supported in the data.",
+      "abstract_cn": "本文提出了一个包含内生偏好演化机制的两部门生产模型。偏好演化反映了投资者对两个部门的偏好程度，并体现了对两种商品偏好随时间内生变动的观点。偏好演化与市场出清机制的相互作用产生了托宾Q、风险溢价和财富份额的内生变动，这与Eberly和Wang（2011）的标准生产经济不同。该模型还暗示，由于偏好的变化以及随后的预期回报和夏普比率的变化，财富在各部门间波动。在实证检验中，我将基准模型校准到美国1975-2019年的数据样本，并验证了模型预测在数据中得到支持。",
+      "doi": "10.1016/j.jedc.2026.105346",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188926000928",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/dyncon.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/dyncon/v188y2026ics0165188926000928.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:42:57+00:00",
+        "source_hash": "61b4d5b8a24b579e30135c5a6db29e4f623af80f4272f6535c340d71112185ea"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jedc.2026.105348",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Market-based short-rate uncertainty and time-varying expected returns",
+      "title_cn": "基于市场的短期利率不确定性与时变预期收益",
+      "authors": [
+        "Deshui Yu",
+        "Difang Huang",
+        "Ximing Yin"
+      ],
+      "abstract_en": "We show that the cyclical component of market-based short-term interest rate uncertainty (SRU) is a robust predictor of aggregate stock market returns, whereas the slow-moving trend component obscures this predictability. In real-time out-of-sample forecasting, the cyclical component of SRU achieves an R2 of up to 14.22%, significantly outperforming the historical average and a broad set of standard financial and macroeconomic predictors. This predictive performance translates into substantial economic value for mean-variance investors. Mechanistically, the cyclical component captures transient uncertainty shocks that are strongly linked to interest rates, real economic activity, and investor sentiment. A present-value decomposition reveals that the predictive power of cyclical component operates primarily through the cash-flow channel rather than the discount-rate channel.",
+      "abstract_cn": "我们表明，基于市场的短期利率不确定性（SRU）的周期成分是股票市场总回报的稳健预测因子，而其缓慢移动的趋势成分则掩盖了这种可预测性。在实时样本外预测中，SRU的周期成分实现了高达14.22%的R²，显著优于历史平均值以及一系列标准的金融和宏观经济预测因子。这种预测表现转化为均值-方差投资者的实质性经济价值。从机制上看，周期成分捕捉了与利率、实际经济活动和投资者情绪密切相关的暂时性不确定性冲击。现值分解显示，周期成分的预测能力主要通过现金流渠道而非贴现率渠道发挥作用。",
+      "doi": "10.1016/j.jedc.2026.105348",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188926000941",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/dyncon.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/dyncon/v188y2026ics0165188926000941.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:42:59+00:00",
+        "source_hash": "3d0f71fd897dbe520139564085b733e5f76bca0cc3f85feb6e3231f800ec6015"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jedc.2026.105351",
+      "sequence": 9,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "Identifying episodes of fiscal austerity: An LLM-based approach",
+      "title_cn": "识别财政紧缩时期：一种基于大语言模型的方法",
+      "authors": [
+        "Karan Bhasin",
+        "Prakash Loungani"
+      ],
+      "abstract_en": "This paper introduces a hierarchical Large Language Model (LLM) framework for the automated identification of narrative fiscal shocks. We develop a multi-stage architecture to extract austerity episodes from IMF Article IV reports (2004–2020) for 17 OECD countries. Relative to manual coding, our approach improves replicability and auditability by generating a documented sequence of classification steps. Benchmarking against Adler et al. (2024), we find that the LLM-based classification aligns closely with the narrative benchmark, while differing on a small subset of episodes. Local projection estimates indicate that LLM-identified shocks are associated with smaller estimated multipliers than the narrative benchmark, with the difference linked in large part to differences in shock persistence and endogeneity.",
+      "abstract_cn": "本文介绍了一种分层大语言模型（LLM）框架，用于自动识别叙事性财政冲击。我们开发了一个多阶段架构，从国际货币基金组织（IMF）第四条磋商报告（2004-2020）中提取17个OECD国家的紧缩时期。相对于人工编码，我们的方法通过生成一系列有记录的分类步骤，提高了可复制性和可审计性。与Adler等人（2024）的基准比较，我们发现基于LLM的分类与叙事基准高度一致，但在少数时期上存在差异。局部投影估计表明，LLM识别的冲击所关联的估计乘数小于叙事基准，这一差异在很大程度上与冲击持续性和内生性的差异有关。",
+      "doi": "10.1016/j.jedc.2026.105351",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188926000977",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/dyncon.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/dyncon/v188y2026ics0165188926000977.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:43:01+00:00",
+        "source_hash": "dcf19c0925510e8ea1702b59e5c1aba8944a3e76f89a4d487895a9ac0fe51a0f"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jedc.2026.105354",
+      "sequence": 10,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "Bayesian estimation of a large-scale macroeconomic policy agent-based model",
+      "title_cn": "大规模宏观经济政策主体基模型（ABM）的贝叶斯估计",
+      "authors": [
+        "Sylvain Barde"
+      ],
+      "abstract_en": "Empirical parameter estimation of large scale agent-based models has long been recognised as computationally challenging. Their bottom-up nature imposes the use of non-parametric or indirect inference methods, which in turn typically requires a significant amount simulated data. However, their high computational requirements makes the application of these estimation methodologies unfeasible in practice. This hurdle can limit the applicability of agent based models for quantitative policy advice, for example in scenario analysis, in cases where the parameter calibration cannot be checked against empirical data. We show how this problem can be overcome by estimating the Dosi et al. (2015) agent-based model. This extends the original ‘Keynes meets Schumpeter’ model of Dosi et al. (2010) allowing for the interaction of fiscal and monetary policy. 18 free parameters of the model are estimated on 10 standard macroeconomic US variables, using annual and quarterly data, and the estimates obtained are shown to improve the fit of the baseline model on the data. A model-selection exercise is carried out, investigating impact of changing the expectation-formation mechanism. Finally, the original policy experiments are replicated using the new empirical estimates, showing that pushing the model into a low-growth regime leads to several key differences relative to the original conclusions. Overall, the exercise establishes the feasibility and relevance of macro-economic empirical parameter estimation and mechanism selection to ABM designers for improving the fit of scenario analyses.",
+      "abstract_cn": "大规模主体基模型的经验参数估计长期以来被认为在计算上具有挑战性。其自下而上的特性要求使用非参数或间接推断方法，这通常需要大量的模拟数据。然而，其高计算需求使得这些估计方法在实际中难以应用。这一障碍可能限制主体基模型在定量政策建议中的适用性，例如在情景分析中，当参数校准无法与经验数据对照时。我们展示了如何通过估计Dosi等人（2015）的主体基模型来克服这一问题。这扩展了Dosi等人（2010）的原始“凯恩斯遇见熊彼特”模型，允许财政政策和货币政策的相互作用。模型的18个自由参数基于10个标准宏观经济美国变量进行估计，使用年度和季度数据，所得估计显示改善了基线模型对数据的拟合。进行了模型选择练习，考察了改变预期形成机制的影响。最后，使用新的经验估计复制了原始政策实验，表明将模型推入低增长体制会导致与原始结论相比的几个关键差异。总体而言，该练习确立了宏观经济经验参数估计和机制选择对ABM设计者在改进情景分析拟合方面的可行性和相关性。",
+      "doi": "10.1016/j.jedc.2026.105354",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188926000990",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/dyncon.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/dyncon/v188y2026ics0165188926000990.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:43:04+00:00",
+        "source_hash": "3a7650250d5602fbaba878f3fe1e7cb2c028aa5cfe038bfac8a51507b3f08f4f"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "repec-serial-page",
+    "roster_authority": "repec-publisher-supplied",
+    "roster_match_scope": "repec-volume-items",
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 10,
+    "authors_complete": 10,
+    "abstract_en_complete": 10,
+    "translation_complete": 10,
+    "duplicate_count": 0,
+    "repec_item_count": 10,
+    "flags": [],
+    "official_item_count": 10,
+    "publishable_item_count": 10,
+    "content_counts": {
+      "official_items": 10,
+      "observed_items": 10,
+      "publishable_items": 10,
+      "research_articles": 10,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 10
+    }
+  },
+  "content_counts": {
+    "official_items": 10,
+    "observed_items": 10,
+    "publishable_items": 10,
+    "research_articles": 10,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 10
+  },
+  "issue_label": "Vol. 188"
+}

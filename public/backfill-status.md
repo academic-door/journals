@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-08T08:41:02+00:00
+Updated: 2026-08-08T08:44:26+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -210,6 +210,28 @@ Updated: 2026-08-08T08:41:02+00:00
 | JEBO | jebo-247-c | 2026 | complete |  |
 | JEBO | jebo-248-c | 2026 | complete |  |
 | JEBO | jebo-249-c | 2026 | complete |  |
+| JEDC | jedc-170-c | 2025 | complete |  |
+| JEDC | jedc-171-c | 2025 | complete |  |
+| JEDC | jedc-172-c | 2025 | complete |  |
+| JEDC | jedc-173-c | 2025 | complete |  |
+| JEDC | jedc-174-c | 2025 | complete |  |
+| JEDC | jedc-175-c | 2025 | complete |  |
+| JEDC | jedc-176-c | 2025 | complete |  |
+| JEDC | jedc-177-c | 2025 | complete |  |
+| JEDC | jedc-178-c | 2025 | complete |  |
+| JEDC | jedc-179-c | 2025 | complete |  |
+| JEDC | jedc-180-c | 2025 | complete |  |
+| JEDC | jedc-181-c | 2025 | complete |  |
+| JEDC | jedc-182-c | 2026 | complete |  |
+| JEDC | jedc-183-c | 2026 | complete |  |
+| JEDC | jedc-184-c | 2026 | complete |  |
+| JEDC | jedc-185-c | 2026 | complete |  |
+| JEDC | jedc-186-c | 2026 | complete |  |
+| JEDC | jedc-187-c | 2026 | complete |  |
+| JEDC | jedc-188-c | 2026 | complete |  |
+| JEDC | jedc-189-c | 2026 | complete |  |
+| JEDC | jedc-190-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 190/ |
+| JEDC | jedc-191-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 191/ |
 | JEEA | jeea-23-1 | 2025 | complete |  |
 | JEEA | jeea-23-2 | 2025 | complete |  |
 | JEEA | jeea-23-3 | 2025 | complete |  |

@@ -1,0 +1,551 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "jedc-179-c",
+  "journal_id": "jedc",
+  "journal_name": "Journal of Economic Dynamics and Control",
+  "volume": "179",
+  "issue": "C",
+  "publication_date": "September 2025",
+  "source_url": "https://ideas.repec.org/s/eee/dyncon.html",
+  "retrieved_at": "2026-08-08T08:36:15+00:00",
+  "expected_article_count": 12,
+  "research_article_count": 12,
+  "status": "ready",
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.jedc.2025.105161",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "The role of central bank digital currency in an increasingly digital economy",
+      "title_cn": "中央银行数字货币在日益数字化经济中的作用",
+      "authors": [
+        "Benjamin Hemingway"
+      ],
+      "abstract_en": "The introduction of an unremunerated retail central bank digital currency (CBDC) is currently under consideration by several central banks. Motivated by the decline in transactional cash usage and the increase in online sales in the UK, this paper provides a theoretical framework to study the underlying drivers of these trends and the welfare implications of introducing an unremunerated retail CBDC. I develop a cash credit model with physical and digital retail sectors, endogenous entry of firms and directed consumer search. Calibrating to UK data between 2010 and 2022 the model suggests that there are positive welfare gains from introducing an unremunerated retail CBDC, but these have likely declined over time.",
+      "abstract_cn": "目前，几家中央银行正在考虑引入不计息的零售中央银行数字货币（CBDC）。鉴于英国交易性现金使用量的下降和在线销售额的增加，本文提供了一个理论框架来研究这些趋势的潜在驱动因素以及引入不计息零售CBDC的福利影响。我构建了一个包含实体和数字零售部门、企业内生进入和定向消费者搜索的现金信贷模型。根据2010年至2022年间的英国数据进行校准，模型表明引入不计息零售CBDC存在正的福利收益，但这些收益可能随时间推移而下降。",
+      "doi": "10.1016/j.jedc.2025.105161",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188925001277",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/dyncon.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/dyncon/v179y2025ics0165188925001277.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:36:18+00:00",
+        "source_hash": "7e9640907d5f758930d25fc9e412ca83907d5f16854c3123b31244be3b22c70b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jedc.2025.105163",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Execution risk and price improvement under dark pools",
+      "title_cn": "暗池下的执行风险与价格改善",
+      "authors": [
+        "Alejandro Bernales",
+        "Daniel Ladley",
+        "Evangelos Litos",
+        "Marcela Valenzuela"
+      ],
+      "abstract_en": "We develop a theoretical dynamic trading model with heterogeneous agents to examine how introducing a dark pool—running in parallel to a traditional lit exchange organized as a limit order market—primarily affects execution risk and price settings, and how these changes, in turn, influence the welfare of different trader types. Our model’s computational simulations show that the addition of a dark pool reduces liquidity on the traditional lit exchange. This liquidity reduction is evidenced by longer order execution times and a wider effective spread in the traditional lit exchange, driven by the migration of trading activity to the dark pool. We also identify two opposing channels that influence traders’ performance: the execution delay channel and the price improvement channel. Regarding the execution delay channel, dark orders lead to longer execution times for impatient traders (who seek to trade quickly) and shorter execution times for speculators (who wait for favorable execution prices relative to the asset’s fundamental value). This is because dark orders generally have longer (shorter) execution times than market (limit) orders. Regarding the price improvement channel, dark orders offer more favorable prices for impatient traders than market orders, while dark orders can result in less advantageous pricing for speculators. This is because dark orders are typically executed at the midquote of the bid and ask prices from the limit order market. Ultimately, the effect on execution risk, price improvement, and welfare for both impatient traders and speculators depends on which of these two opposing channels prevails.",
+      "abstract_cn": "我们构建了一个包含异质交易者的理论动态交易模型，以考察引入暗池——与传统限价订单市场的公开交易所并行运行——如何主要影响执行风险和价格设定，以及这些变化又如何反过来影响不同类型交易者的福利。我们的模型计算模拟显示，暗池的加入减少了传统公开交易所的流动性。这种流动性减少通过传统公开交易所中更长的订单执行时间和更宽的有效价差得以体现，这是由交易活动向暗池迁移所驱动的。我们还识别出影响交易者表现的两个相反渠道：执行延迟渠道和价格改善渠道。关于执行延迟渠道，暗订单导致不耐烦交易者（寻求快速交易者）的执行时间更长，而投机者（等待相对于资产基本面价值有利的执行价格者）的执行时间更短。这是因为暗订单通常比市价单（限价单）具有更长（更短）的执行时间。关于价格改善渠道，暗订单为不耐烦交易者提供比市价单更有利的价格，而暗订单可能导致投机者获得较不利的定价。这是因为暗订单通常在限价订单市场的买卖报价中点执行。最终，对不耐烦交易者和投机者的执行风险、价格改善和福利的影响取决于这两个相反渠道中哪一个占主导。",
+      "doi": "10.1016/j.jedc.2025.105163",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188925001290",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/dyncon.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/dyncon/v179y2025ics0165188925001290.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:36:21+00:00",
+        "source_hash": "ec772131c77f8d3db07c93503bea23390823e8695217c2413c6ad2216fd018f6"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jedc.2025.105165",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Optimal harvesting under uncertain environment with clusters of catastrophes",
+      "title_cn": "不确定环境下带有灾难聚类的优化捕捞",
+      "authors": [
+        "M'hamed Gaïgi",
+        "Vathana Ly Vath",
+        "Simone Scotti"
+      ],
+      "abstract_en": "The fishery industry is facing increasing challenges in the exploitation of marine resources. Marine resources are classic examples of common-property resources subject to fundamental problems of economic waste and over-exploitation, which may lead to resource destruction, including extinction. The past decades have highlighted the relevance of ecological catastrophes, such as the fate of the cod population in the Northwest Atlantic. These events do not occur with a constant frequency, but are clustered over time. Our objective is to study a harvesting management problem under the assumption that unexpected ecological disasters may occur in clusters. We model this clustering phenomenon using marked Hawkes processes. We characterize our value function as the unique solution to a Hamilton-Jacobi-Bellman inequality. We describe the optimal harvesting strategy by identifying the harvesting and non-harvesting regions. Our results are counterintuitive, challenging the generally accepted belief that, when facing an increasing risk of decimation due to disasters, the optimal harvesting policy should lead to a reduction in harvesting activity. These findings offer valuable insights into the fragile nature of fish resources, potentially explaining the collapse of fisheries in the Northwest Atlantic. Governments and international authorities must take action against the causes of such disasters, such as pollution and the overexploitation of marine resources, in order to reduce the risk of further decimation and to better assess and address the true cost of marine resource extinction. We further enrich our study with numerical analysis, providing additional insights into the optimal harvesting policy.",
+      "abstract_cn": "渔业在海洋资源开发中面临日益严峻的挑战。海洋资源是典型的公共财产资源，容易遭受经济浪费和过度开发等根本性问题，这些问题可能导致资源破坏，包括灭绝。过去几十年突显了生态灾难的相关性，例如西北大西洋鳕鱼种群的命运。这些事件并非以恒定频率发生，而是在时间上聚集。我们的目标是在意外生态灾难可能成簇发生的假设下研究捕捞管理问题。我们使用标记霍克斯过程来建模这种聚类现象。我们将价值函数刻画为哈密顿-雅可比-贝尔曼不等式的唯一解。我们通过识别捕捞区和非捕捞区来描述最优捕捞策略。我们的结果违反直觉，挑战了普遍接受的信念，即当面临灾难导致的种群锐减风险增加时，最优捕捞政策应导致捕捞活动减少。这些发现为鱼类资源的脆弱性提供了宝贵见解，可能解释西北大西洋渔业的崩溃。政府和国际当局必须采取行动应对此类灾难的原因，如污染和海洋资源的过度开发，以降低进一步锐减的风险，并更好地评估和解决海洋资源灭绝的真实成本。我们进一步通过数值分析丰富研究，为最优捕捞政策提供额外见解。",
+      "doi": "10.1016/j.jedc.2025.105165",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188925001319",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/dyncon.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/dyncon/v179y2025ics0165188925001319.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:36:25+00:00",
+        "source_hash": "ace631c70506fb31e294c547ea90969c8f051d3d236da1c8f5f82f523d710181"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jedc.2025.105166",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Systemic risk of commodity traders",
+      "title_cn": "大宗商品交易商的系统性风险",
+      "authors": [
+        "Thorsten Glück",
+        "Zeno Adams"
+      ],
+      "abstract_en": "We examine the disruptions to global commodity flows following the default of a commodity trading firm. The physical commodity network is operated by a handful of large traders that are responsible for the timely delivery of raw materials and inputs to industrial production. We propose a model to simulate the resilience and response time of the network following a shock. Our results suggest that a number of commodity traders carry significant systemic risk. The forced removal of a trader from the network has considerable implications for the prices and availability of physical commodities over a period up to 12 months.",
+      "abstract_cn": "我们研究了大宗商品交易公司违约后全球大宗商品流动的中断。实物大宗商品网络由少数大型交易商运营，这些交易商负责及时向工业生产交付原材料和投入品。我们提出了一个模型来模拟网络在冲击后的韧性和响应时间。我们的结果表明，一些大宗商品交易商承担着显著的系统性风险。交易商被迫退出网络对实物大宗商品的价格和可用性在长达12个月的时间内产生重大影响。",
+      "doi": "10.1016/j.jedc.2025.105166",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188925001320",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/dyncon.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/dyncon/v179y2025ics0165188925001320.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:36:26+00:00",
+        "source_hash": "f4a7f3c89a3d9daf908761ae6ee3ea322916172f519da03ef787f1a9b21d73f7"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jedc.2025.105167",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "The evolution of income and wealth inequality in China",
+      "title_cn": "中国收入与财富不平等的演变",
+      "authors": [
+        "Yan Wang",
+        "Juan Carlos Conesa"
+      ],
+      "abstract_en": "Income and wealth inequality has increased substantially in China in the last decades. We propose a multi-sector model with rich heterogeneity to quantify the impact on inequality of key changes that started in the early 1990s. We find that rural-urban migration has alleviated the increase in income inequality by limiting the increase in the rural-urban income gap, and that the emergence and growth of the private sector is the key driving force behind the increase in wealth inequality. Our quantitative exercise suggests that pretax income concentration will continue to increase until the 2050s, while wealth concentration has already peaked.",
+      "abstract_cn": "在过去几十年中，中国的收入与财富不平等显著加剧。我们提出了一个具有丰富异质性的多部门模型，以量化始于1990年代初的关键变化对不平等的影响。我们发现，农村向城市的迁移通过限制城乡收入差距的扩大，缓解了收入不平等的加剧，而私营部门的出现和增长是财富不平等加剧的关键驱动力。我们的量化分析表明，税前收入集中度将持续上升至2050年，而财富集中度已达到峰值。",
+      "doi": "10.1016/j.jedc.2025.105167",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188925001332",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/dyncon.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/dyncon/v179y2025ics0165188925001332.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:36:29+00:00",
+        "source_hash": "1d5fd10092082687aa6f3ce4a5085f63ef060db0bf134fbc565493a7f1273491"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jedc.2025.105168",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Scenario discovery to address deep uncertainty in monetary policy",
+      "title_cn": "情景发现以应对货币政策中的深度不确定性",
+      "authors": [
+        "Chamon Wieles",
+        "Jan Kwakkel",
+        "Willem L. Auping",
+        "J.W. van den End"
+      ],
+      "abstract_en": "We analyse shock and parameter uncertainty in a Dynamic Stochastic General Equilibrium (DSGE) model by exploratory modelling and analysis (EMA). This method evaluates in a novel way the performance of monetary policy under deep uncertainty about the shock and model parameters. Scenarios are designed based on the outcomes of interest for the policymaker. We assess the performance of different policies on their objectives in the scenarios. This maps out the policy trade-offs and supports the central bank in making robust policy decisions. We find that in response to a negative supply shock, policies with low interest rate smoothing and a strong response to inflation most obviously contribute to price stability under deep uncertainty.",
+      "abstract_cn": "我们通过探索性建模与分析（EMA）分析动态随机一般均衡（DSGE）模型中的冲击和参数不确定性。该方法以新颖的方式评估了在关于冲击和模型参数的深度不确定性下货币政策的绩效。情景基于政策制定者关心的结果设计。我们评估不同政策在情景中对其目标的实现情况。这描绘了政策权衡，并支持中央银行做出稳健的政策决策。我们发现，面对负向供给冲击，低利率平滑和对通胀强烈反应的政策在深度不确定性下最明显地有助于价格稳定。",
+      "doi": "10.1016/j.jedc.2025.105168",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188925001344",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/dyncon.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/dyncon/v179y2025ics0165188925001344.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:36:31+00:00",
+        "source_hash": "627c90bf323f2731c2072d65918e9e7bff90999a518dfa7eecfb08ff3c1530e9"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jedc.2025.105169",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Pride and persistence: Social comparisons in production",
+      "title_cn": "骄傲与坚持：生产中的社会比较",
+      "authors": [
+        "Kun Zhang",
+        "Nick Feltovich",
+        "Yanren Zhang"
+      ],
+      "abstract_en": "Work is ordinary and necessary for most people, but some people work excessively (“work persistence”), seemingly driven by internal forces. We theoretically and experimentally investigate the role of relative performance incentives in causing or exacerbating work persistence. In our setting, agents perform a task over two stages. In the first stage, they can earn prizes, which are allocated either randomly or according to relative performance. Afterwards, they have the opportunity to continue working in a second stage, with payment by piece rate and no competition against others. Our theoretical model of motivated belief updating predicts that agents adjust their beliefs asymmetrically: they attribute their relative performance more to their productivity if they win a prize, and more to luck if they lose. This bias leads winners of the first-stage prize to increase their effort in the subsequent piece-rate stage, but with no corresponding decrease in work effort by losers. Results from a real-effort experiment confirm these predictions: winners' effort in the piece-rate stage is roughly 30 percent higher when earlier bonus prizes had been allocated by performance, compared to when those prizes had been allocated randomly. Losers' effort is also higher – not lower – though this difference is not significant.",
+      "abstract_cn": "工作对大多数人来说是平常的、必要的，但有些人却过度工作（“工作坚持”），似乎是受内力驱使。我们从理论上和实验上研究了相对绩效激励在引起或加剧工作坚持性方面的作用。在我们的设置中，代理分两个阶段执行任务。在第一阶段，他们可以获得奖品，奖品是随机分配的，也可以根据相对表现分配。之后，他们有机会继续第二阶段工作，计件工资，不与其他人竞争。我们的动机信念更新理论模型预测，代理人会不对称地调整他们的信念：如果他们赢得了奖品，他们会将自己的相对表现更多地归因于他们的生产力，而如果他们失败了，他们会更多地归因于运气。这种偏见导致第一阶段奖金的获胜者在随后的计件工资阶段增加努力，但失败者的工作努力却没有相应减少。真实努力实验的结果证实了这些预测：与随机分配奖金相比，当早期奖金按绩效分配时，获奖者在计件工资阶段的努力大约要高出30%。失败者的努力也更高——而不是更低——尽管这种差异并不显着。",
+      "doi": "10.1016/j.jedc.2025.105169",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188925001356",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/dyncon.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/dyncon/v179y2025ics0165188925001356.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-08T08:37:01+00:00",
+        "source_hash": "e71260dac4cb31e305e0d0b0bae6e4f533053840a1ff3fc2650472909a052db6"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jedc.2025.105176",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "SVAR identification with nowcasted macroeconomic data",
+      "title_cn": "基于即时预测宏观经济数据的SVAR识别",
+      "authors": [
+        "Fulvio Corsi",
+        "Luigi Longo",
+        "Francesco Cordoni"
+      ],
+      "abstract_en": "Starting from the theoretical observation that the identification problem of SVAR models arises from contemporaneous dependence among macroeconomic variables, we show, both theoretically and empirically, that such dependence tends to vanish as the observation frequency increases. By adopting nowcasted high-frequency data, we exploit this feature to identify structural shocks using standard short-run restrictions, thereby reducing or even eliminating the reliance on variable ordering. Our empirical analysis is divided into two parts: an illustrative application comparing identification strategies across different frequencies, and a structural section featuring (i) a Proxy(HF-)SVAR to recover exogenous monetary policy shocks, and (ii) an uncertainty shock analysis using high-frequency data to replicate the well-known dynamics found in the literature. The results align with recent findings and highlight the feasibility and usefulness of preserving high-frequency information in all variables.",
+      "abstract_cn": "从理论观察出发，即SVAR模型的识别问题源于宏观经济变量之间的同期依赖性，我们在理论和实证上均表明，随着观测频率的增加，这种依赖性趋于消失。通过采用即时预测的高频数据，我们利用这一特征，使用标准的短期限制来识别结构性冲击，从而减少甚至消除对变量排序的依赖。我们的实证分析分为两部分：一个说明性应用，比较不同频率下的识别策略；以及一个结构性部分，包括（i）一个代理（高频）SVAR来恢复外生货币政策冲击，以及（ii）一个使用高频数据的不确定性冲击分析，以复现文献中众所周知的动态。结果与近期发现一致，并强调了在所有变量中保留高频信息的可行性和有用性。",
+      "doi": "10.1016/j.jedc.2025.105176",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188925001423",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/dyncon.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/dyncon/v179y2025ics0165188925001423.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:37:10+00:00",
+        "source_hash": "46cd6bcd400ff9686ff7757174b7b57bc1482dc478a124e3455e92f8c5a9b5bd"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jedc.2025.105177",
+      "sequence": 9,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "Product technology adoption and aggregate innovation",
+      "title_cn": "产品技术采纳与总体创新",
+      "authors": [
+        "Qiugu He",
+        "Xuan Luo",
+        "Fan Zheng"
+      ],
+      "abstract_en": "We document that a firm's research and development (R&D) expenditure depends on its product diversity. Combining with the fact that Chinese manufacturers often enter new product markets via technology adoption, we develop a quantitative framework of innovation and technology adoption, allowing firms to expand their product scopes. Firms adopt technologies across multiple fields to expand their knowledge base, which in turn serves as an input for subsequent innovation or adoption. Counterfactual analysis from the 2000s reveals that two-thirds of knowledge privately held by all firms is generated through adoption, accounting for one-third of aggregate innovation.",
+      "abstract_cn": "我们记录了企业的研发（R&D）支出取决于其产品多样性。结合中国制造商通常通过技术采纳进入新产品市场的事实，我们构建了一个创新与技术采纳的量化框架，允许企业扩展其产品范围。企业跨多个领域采纳技术以扩展其知识基础，这反过来又作为后续创新或采纳的投入。基于2000年的反事实分析显示，所有企业私人持有的知识中有三分之二是通过采纳产生的，占总体创新的三分之一。",
+      "doi": "10.1016/j.jedc.2025.105177",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188925001435",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/dyncon.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/dyncon/v179y2025ics0165188925001435.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:37:12+00:00",
+        "source_hash": "07ae63b1a1fd827a582e25c95bc4faf11d8a109b87e85ee22c705e947a02450e"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "abstract",
+        "matched_terms": [
+          "Chinese manufacturers"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jedc.2025.105179",
+      "sequence": 10,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "Stackelberg equilibrium strategies between insurance demand and government interventions",
+      "title_cn": "保险需求与政府干预之间的Stackelberg均衡策略",
+      "authors": [
+        "Fudong Wang",
+        "Zhibin Liang",
+        "Yiying Zhang"
+      ],
+      "abstract_en": "This paper investigates Stackelberg equilibrium strategies between insurance demand and government interventions—ex ante premium subsidies and ex post disaster relief—in catastrophe risk management. We develop a continuous-time framework where policyholders' losses follow a compound Poisson process, integrating dual government mechanisms to analyze their interplay. By solving (extended) Hamilton-Jacobi-Bellman (HJB) equations, we derive equilibrium insurance strategies for policyholders under mean-variance preferences and optimize government expenditure policies. First, we demonstrate that subsidies and relief have opposing effects on risk retention: higher subsidies tend to reduce retention, whereas increased relief expectations incentivize retention due to anticipated post-disaster compensation. Specifically, within the framework of a linear relief function, we characterize the relative growth rate of the subsidy relative to the relief coefficient to ensure that the effect of the premium subsidy on the retention level either dominates or is dominated by the impact of the relief payment. Second, for risks exhibiting decreasing mean residual life (DMRL), we derive optimal subsidies in closed-form solutions under proportional or truncated relief structures, depending on disaster probability and relief trends. Third, we innovatively prove that the cost-minimizing relief function adopts a proportional form relative to pre-retention claims, aligning with empirical practices such as FEMA's aid caps. Fourth, extensions to scenarios with loss-increasing and ambiguous relief probabilities are explored within the policyholders' optimization framework, demonstrating robustness and consistency with static expected-utility results. Additionally, we analyze the government's optimal strategy when incorporating policyholders' welfare constraints and conduct a comprehensive social welfare assessment under various intervention scenarios. Our work advances policy design by quantifying the trade-offs between subsidies and relief, providing actionable insights for enhancing societal resilience. Governments can strategically balance interventions to stabilize insurance markets, mitigate fiscal exposure, and incentivize proactive risk management. This study bridges theoretical rigor with practical relevance under dynamic risk models, offering a comprehensive framework for optimizing public-private catastrophe risk-sharing mechanisms.",
+      "abstract_cn": "本文研究了灾难风险管理中保险需求与政府干预——事前保费补贴和事后灾害救济——之间的Stackelberg均衡策略。我们构建了一个连续时间框架，其中保单持有人的损失遵循复合泊松过程，整合双重政府机制以分析其相互作用。通过求解（扩展的）Hamilton-Jacobi-Bellman（HJB）方程，我们推导了均值-方差偏好下保单持有人的均衡保险策略，并优化了政府支出政策。首先，我们证明补贴和救济对风险自留具有相反的影响：较高的补贴倾向于减少自留，而增加的救济预期则因预期的灾后补偿而激励自留。具体而言，在线性救济函数的框架内，我们刻画了补贴相对于救济系数的相对增长率，以确保保费补贴对自留水平的影响要么主导、要么被救济支付的影响所主导。其次，对于具有递减平均剩余寿命（DMRL）的风险，我们在比例或截断救济结构下，根据灾难概率和救济趋势，推导了闭式解中的最优补贴。第三，我们创新性地证明了成本最小化的救济函数相对于自留前索赔采用比例形式，这与FEMA的援助上限等实践经验一致。第四，在保单持有人优化框架内，探讨了损失增加和模糊救济概率情景的扩展，展示了与静态期望效用结果的稳健性和一致性。此外，我们在纳入保单持有人福利约束时分析了政府的最优策略，并在各种干预情景下进行了全面的社会福利评估。我们的工作通过量化补贴与救济之间的权衡推进了政策设计，为增强社会韧性提供了可操作的见解。政府可以战略性地平衡干预措施，以稳定保险市场、减轻财政风险敞口并激励主动风险管理。本研究在动态风险模型下将理论严谨性与实践相关性相结合，为优化公私灾难风险分担机制提供了一个全面框架。",
+      "doi": "10.1016/j.jedc.2025.105179",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188925001459",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/dyncon.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/dyncon/v179y2025ics0165188925001459.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:37:17+00:00",
+        "source_hash": "ef1e247ea4c08e48af37d5c6b6ff194f9a41f9aa2216a12a6f35132c77fb6a62"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jedc.2025.105180",
+      "sequence": 11,
+      "source_sequence": 11,
+      "article_type": "research-article",
+      "title_en": "Ambiguity and information tradeoffs",
+      "title_cn": "模糊性与信息权衡",
+      "authors": [
+        "Nihad Aliyev"
+      ],
+      "abstract_en": "We model investors facing ambiguity about the number of informed traders and characterize equilibrium in both financial and information markets. In the financial market, this ambiguity generates a premium that can be positive or negative, depending on traders' ambiguity attitude. The premium always increases with ambiguity aversion but only increases with ambiguity level when traders are sufficiently ambiguity averse. We show that traders' effective ambiguity aversion increases with the number of informed traders, resulting in a non-monotonic relation between the equity premium and the number of informed traders. In the information market, ambiguity about the number of informed traders emerges endogenously from a range of information acquisition costs.",
+      "abstract_cn": "我们构建了投资者面临关于知情交易者数量模糊性的模型，并刻画了金融市场和信息市场中的均衡。在金融市场中，这种模糊性产生了一个可正可负的溢价，取决于交易者的模糊态度。溢价总是随模糊厌恶增加而增加，但仅在交易者足够模糊厌恶时随模糊水平增加而增加。我们表明，交易者的有效模糊厌恶随知情交易者数量增加而增加，导致股权溢价与知情交易者数量之间存在非单调关系。在信息市场中，关于知情交易者数量的模糊性从一系列信息获取成本中内生地产生。",
+      "doi": "10.1016/j.jedc.2025.105180",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188925001460",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/dyncon.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/dyncon/v179y2025ics0165188925001460.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:37:19+00:00",
+        "source_hash": "d64ba61e0c8be9f039474672e518a6f333fb478897ebac472cd4c0868e114f25"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jedc.2025.105182",
+      "sequence": 12,
+      "source_sequence": 12,
+      "article_type": "research-article",
+      "title_en": "Efficient or systemic banks: Can regulation strike a deal?",
+      "title_cn": "高效银行还是系统性银行：监管能否达成平衡？",
+      "authors": [
+        "Tirupam Goel"
+      ],
+      "abstract_en": "Should there be few large or several small banks? Large banks benefit from scale economies, but their default can be systemic. This paper develops a macroeconomic model with heterogeneous banks to study the efficiency versus financial-stability trade-off. Scale economies and default losses are calibrated using micro-data. Unlike representative bank models, a novel banking-dynamics channel of regulation emerges – the endogenous response in banks' size-distribution matters for welfare. Capital regulation that equalizes leverage, default rate, or expected loss across banks fails to account for the size-dependent trade-off. Optimal regulation is size-dependent, features a hump-shaped welfare response, and induces more medium-sized banks.",
+      "abstract_cn": "应该存在少数大型银行还是多家小型银行？大型银行受益于规模经济，但其违约可能具有系统性影响。本文构建了一个包含异质性银行的宏观经济模型，以研究效率与金融稳定性之间的权衡。规模经济和违约损失通过微观数据进行校准。与代表性银行模型不同，本文揭示了一个新的监管银行动态渠道——银行规模分布的内生反应对福利至关重要。使杠杆率、违约率或预期损失在各银行间均等化的资本监管未能考虑规模依赖的权衡。最优监管是规模依赖的，具有驼峰形的福利响应，并促使更多中型银行的出现。",
+      "doi": "10.1016/j.jedc.2025.105182",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188925001484",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/dyncon.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/dyncon/v179y2025ics0165188925001484.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:37:21+00:00",
+        "source_hash": "79313cf34618f5a78161c5c16b4105ee306574836acb48be28d0bbcd33b9e4fd"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "repec-serial-page",
+    "roster_authority": "repec-publisher-supplied",
+    "roster_match_scope": "repec-volume-items",
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 12,
+    "authors_complete": 12,
+    "abstract_en_complete": 12,
+    "translation_complete": 12,
+    "duplicate_count": 0,
+    "repec_item_count": 12,
+    "flags": [],
+    "official_item_count": 12,
+    "publishable_item_count": 12,
+    "content_counts": {
+      "official_items": 12,
+      "observed_items": 12,
+      "publishable_items": 12,
+      "research_articles": 12,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 12
+    }
+  },
+  "content_counts": {
+    "official_items": 12,
+    "observed_items": 12,
+    "publishable_items": 12,
+    "research_articles": 12,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 12
+  },
+  "issue_label": "Vol. 179"
+}
