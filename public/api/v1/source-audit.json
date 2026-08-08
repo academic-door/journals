@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-08-08T19:31:09+00:00",
+  "updated_at": "2026-08-08T19:45:20+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 49,
@@ -2800,23 +2800,23 @@
       "status": "publisher_feed_verified",
       "current": {
         "available": true,
-        "status": "publisher_feed_verified",
-        "issue_id": "jce-54-c",
+        "status": "official_page_verified",
+        "issue_id": "jce-54-2",
         "publication_date": "June 2026",
         "publication_state": "ready",
-        "source_url": "https://www.sciencedirect.com/journal/journal-of-comparative-economics/vol/54/issue/C",
-        "roster_authority": "publisher-rss",
-        "roster_transport": "sciencedirect-rss",
-        "order_verified": false,
+        "source_url": "https://ideas.repec.org/s/eee/jcecon.html",
+        "roster_authority": "repec-publisher-supplied",
+        "roster_transport": "repec-serial-page",
+        "order_verified": true,
         "content_counts": {
-          "official_items": 17,
-          "observed_items": 17,
+          "official_items": 16,
+          "observed_items": 16,
           "publishable_items": 16,
           "research_articles": 16,
           "comments": 0,
           "short_communications": 0,
           "corrections": 0,
-          "editorial_material": 1,
+          "editorial_material": 0,
           "front_matter": 0,
           "other_excluded": 0,
           "catalog_content_items": 16
@@ -2825,7 +2825,7 @@
         "translations_complete": 16,
         "errors": [],
         "warnings": [
-          "official_order_unverified"
+          "snapshot_uses_alternate_official_source"
         ]
       },
       "detected": {
