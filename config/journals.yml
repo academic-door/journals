@@ -602,3 +602,124 @@ journals:
     enabled: true
     collections: [fields]
     fallback: crossref
+
+  JHE:
+    id: jhe
+    name: Journal of Health Economics
+    short_name: JHE
+    name_cn: 卫生经济学杂志
+    field: urban_macro_labor_metrics_environment
+    tier: A
+    publisher: Elsevier
+    collector: elsevier
+    issn: 0167-6296
+    repec_series_url: https://ideas.repec.org/s/eee/jhecon.html
+    issue_url_template: https://www.sciencedirect.com/journal/journal-of-health-economics/vol/{volume}/suppl/{issue}
+    current_issue_url: https://www.sciencedirect.com/journal/journal-of-health-economics/issues
+    enabled: true
+    collections: [fields]
+  JCE:
+    id: jce
+    name: Journal of Comparative Economics
+    short_name: JCE
+    name_cn: 比较经济学杂志
+    field: public_history_international
+    tier: A
+    publisher: Elsevier
+    collector: elsevier
+    issn: 0147-5967
+    repec_series_url: https://ideas.repec.org/s/eee/jcecon.html
+    issue_url_template: https://www.sciencedirect.com/journal/journal-of-comparative-economics/vol/{volume}/issue/{issue}
+    current_issue_url: https://www.sciencedirect.com/journal/journal-of-comparative-economics/issues
+    enabled: true
+    collections: [fields]
+  CER:
+    id: cer
+    name: China Economic Review
+    short_name: China Econ Review
+    name_cn: 中国经济评论
+    field: development_applied
+    tier: A
+    publisher: Elsevier
+    collector: elsevier
+    issn: 1043-951X
+    repec_series_url: https://ideas.repec.org/s/eee/chieco.html
+    issue_url_template: https://www.sciencedirect.com/journal/china-economic-review/vol/{volume}/suppl/{issue}
+    current_issue_url: https://www.sciencedirect.com/journal/china-economic-review/issues
+    enabled: true
+    collections: [fields]
+  ENERGY:
+    id: energy
+    name: Energy Economics
+    short_name: Energy Economics
+    name_cn: 能源经济学
+    field: agriculture_resources
+    tier: A
+    publisher: Elsevier
+    collector: elsevier
+    issn: 0140-9883
+    repec_series_url: https://ideas.repec.org/s/eee/eneeco.html
+    issue_url_template: https://www.sciencedirect.com/journal/energy-economics/vol/{volume}/suppl/{issue}
+    current_issue_url: https://www.sciencedirect.com/journal/energy-economics/issues
+    enabled: true
+    collections: [fields]
+  ECOLECON:
+    id: ecolecon
+    name: Ecological Economics
+    short_name: Ecological Economics
+    name_cn: 生态经济学
+    field: agriculture_resources
+    tier: A
+    publisher: Elsevier
+    collector: elsevier
+    issn: 0921-8009
+    repec_series_url: https://ideas.repec.org/s/eee/ecolec.html
+    issue_url_template: https://www.sciencedirect.com/journal/ecological-economics/vol/{volume}/suppl/{issue}
+    current_issue_url: https://www.sciencedirect.com/journal/ecological-economics/issues
+    enabled: true
+    collections: [fields]
+  LABECO:
+    id: labeco
+    name: Labour Economics
+    short_name: Labour Economics
+    name_cn: 劳动经济学
+    field: urban_macro_labor_metrics_environment
+    tier: A
+    publisher: Elsevier
+    collector: elsevier
+    issn: 0927-5371
+    repec_series_url: https://ideas.repec.org/s/eee/labeco.html
+    issue_url_template: https://www.sciencedirect.com/journal/labour-economics/vol/{volume}/suppl/{issue}
+    current_issue_url: https://www.sciencedirect.com/journal/labour-economics/issues
+    enabled: true
+    collections: [fields]
+  RED:
+    id: red
+    name: Review of Economic Dynamics
+    short_name: RED
+    name_cn: 经济动态评论
+    field: urban_macro_labor_metrics_environment
+    tier: A
+    publisher: Elsevier
+    collector: elsevier
+    issn: 1094-2025
+    repec_series_url: https://ideas.repec.org/s/red/issued.html
+    issue_url_template: https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/{volume}/suppl/{issue}
+    current_issue_url: https://www.sciencedirect.com/journal/review-of-economic-dynamics/issues
+    enabled: true
+    collections: [fields]
+  JEDC:
+    id: jedc
+    name: Journal of Economic Dynamics and Control
+    short_name: JEDC
+    name_cn: 经济动态与控制杂志
+    field: urban_macro_labor_metrics_environment
+    tier: A
+    publisher: Elsevier
+    collector: elsevier
+    issn: 0165-1889
+    repec_series_url: https://ideas.repec.org/s/eee/dyncon.html
+    issue_url_template: https://www.sciencedirect.com/journal/journal-of-economic-dynamics-and-control/vol/{volume}/suppl/{issue}
+    current_issue_url: https://www.sciencedirect.com/journal/journal-of-economic-dynamics-and-control/issues
+    enabled: true
+    collections: [fields]

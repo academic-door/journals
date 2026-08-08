@@ -170,6 +170,51 @@ class ElsevierCollectorTests(unittest.TestCase):
                     rss_url="https://rss.sciencedirect.com/publication/science/00221996",
                 )
 
+    def test_volume_only_repec_heading_falls_back_to_rss(self):
+        """RED-style RePEc headings (August 2026, Volume 61) skip the
+        inventory parser and use the publisher RSS feed instead."""
+
+        rss_issue = {
+            "issue_id": "red-61-c",
+            "journal_id": "red",
+            "journal_name": "Review of Economic Dynamics",
+            "volume": "61",
+            "issue": "C",
+            "publication_date": "August 2026",
+            "articles": [],
+        }
+        with (
+            patch("collectors.elsevier._session"),
+            patch(
+                "collectors.elsevier._get",
+                return_value=SimpleNamespace(content=b"red repec page"),
+            ),
+            patch(
+                "collectors.elsevier._parse_repec_inventory",
+                side_effect=ElsevierCollectorError(
+                    "RePEc serial page has no usable volume heading"
+                ),
+            ),
+            patch(
+                "collectors.metadata_fallback.fetch_sciencedirect_rss_issue",
+                return_value=rss_issue,
+            ) as fetch_rss,
+        ):
+            result = fetch_current_issue(
+                journal_id="red",
+                journal_name="Review of Economic Dynamics",
+                issn="1094-2025",
+                repec_series_url="https://ideas.repec.org/s/red/issued.html",
+                issue_url_template=(
+                    "https://www.sciencedirect.com/journal/"
+                    "review-of-economic-dynamics/vol/{volume}/suppl/{issue}"
+                ),
+                rss_url="https://rss.sciencedirect.com/publication/science/10942025",
+            )
+
+        self.assertEqual("red-61-c", result["issue_id"])
+        fetch_rss.assert_called_once()
+
     def test_publication_horizon_allows_only_next_month(self):
         today = date(2026, 7, 29)
         self.assertTrue(
@@ -296,6 +341,89 @@ class RepecHistoryCollectorTests(unittest.TestCase):
         self.assertEqual(3, issue["quality"]["repec_item_count"])
         self.assertEqual(["Paper one", "Paper two"], [a["title_en"] for a in issue["articles"]])
         self.assertEqual([1, 2], [a["sequence"] for a in issue["articles"]])
+
+    def test_repec_volume_sections_keyed_by_volume_and_issue(self) -> None:
+        from collectors.elsevier import _parse_repec_volume_sections
+
+        content = b"""
+        <html><body>
+          <h3>2025, Volume 53, Issue 2</h3>
+          <div><ul>
+            <li><a href="/a/eee/jcecon/v53y2025ics0147596725000081.html">Paper two-one</a></li>
+          </ul></div>
+          <h3>2025, Volume 53, Issue 1</h3>
+          <div><ul>
+            <li><a href="/a/eee/jcecon/v53y2025ics0147596725000011.html">Paper one-one</a></li>
+          </ul></div>
+          <h3>2026, Volume 173, Issue C</h3>
+          <div><ul>
+            <li><a href="/a/eee/deveco/v173y2026ics0304387826000001.html">Continuous paper</a></li>
+          </ul></div>
+        </body></html>
+        """
+        sections = _parse_repec_volume_sections(
+            content,
+            "https://ideas.repec.org/s/eee/jcecon.html",
+        )
+        self.assertEqual({"53|1", "53|2", "173|c"}, set(sections))
+        self.assertEqual("1", sections["53|1"]["issue"])
+        self.assertEqual("2", sections["53|2"]["issue"])
+
+    def test_fetch_elsevier_repec_history_issue_matches_specific_issue(self) -> None:
+        from collectors.elsevier import fetch_elsevier_repec_history_issue
+
+        page1 = b"""
+        <html><body>
+          <h3>2026, Volume 54, Issue 2</h3>
+          <div><ul>
+            <li><a href="/a/eee/jcecon/v54y2026ics0147596726000101.html">Issue two paper</a></li>
+          </ul></div>
+          <h3>2026, Volume 54, Issue 1</h3>
+          <div><ul>
+            <li><a href="/a/eee/jcecon/v54y2026ics0147596726000011.html">Issue one paper</a></li>
+          </ul></div>
+        </body></html>
+        """
+
+        class Response:
+            def __init__(self, content: bytes) -> None:
+                self.content = content
+
+            def raise_for_status(self) -> None:
+                return None
+
+        class Session:
+            def get(self, url: str, **kwargs) -> Response:
+                return Response(page1)
+
+        with (
+            patch(
+                "collectors.elsevier._parse_repec_detail",
+                return_value={
+                    "pii": "S0147596726000101",
+                    "title_en": "Issue two paper",
+                    "authors": ["Jane Doe"],
+                    "abstract_en": "Abstract.",
+                    "doi": "10.1016/j.jce.2026.100001",
+                    "source_url": "https://www.sciencedirect.com/science/article/pii/S0147596726000101",
+                    "publication_date": "June 2026",
+                },
+            ),
+            patch("collectors.metadata_fallback._is_no_abstract_notice", return_value=False),
+        ):
+            issue = fetch_elsevier_repec_history_issue(
+                journal_id="jce",
+                journal_name="Journal of Comparative Economics",
+                issn="0147-5967",
+                volume="54",
+                issue="2",
+                repec_series_url="https://ideas.repec.org/s/eee/jcecon.html",
+                session=Session(),
+            )
+        self.assertEqual("jce-54-2", issue["issue_id"])
+        self.assertEqual("2", issue["issue"])
+        self.assertEqual(1, issue["research_article_count"])
+        self.assertEqual(["Issue two paper"], [a["title_en"] for a in issue["articles"]])
 
 
 if __name__ == "__main__":

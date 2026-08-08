@@ -1,14 +1,14 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-07-30T21:45:16+00:00",
-  "status": "healthy",
+  "updated_at": "2026-08-08T07:57:45+00:00",
+  "status": "degraded",
   "summary": {
-    "configured_journals": 41,
+    "configured_journals": 49,
     "official_page_verified": 6,
     "publisher_feed_verified": 2,
     "fallback_verified": 33,
     "needs_attention": 0,
-    "missing": 0,
+    "missing": 8,
     "invariant_errors": 0
   },
   "journals": [
@@ -1467,6 +1467,206 @@
           "content_counts_missing",
           "official_order_unverified"
         ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "JHE",
+      "journal_id": "jhe",
+      "short_name": "JHE",
+      "name": "Journal of Health Economics",
+      "publisher": "Elsevier",
+      "configured_source": "https://www.sciencedirect.com/journal/journal-of-health-economics/issues",
+      "status": "missing",
+      "current": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "JCE",
+      "journal_id": "jce",
+      "short_name": "JCE",
+      "name": "Journal of Comparative Economics",
+      "publisher": "Elsevier",
+      "configured_source": "https://www.sciencedirect.com/journal/journal-of-comparative-economics/issues",
+      "status": "missing",
+      "current": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "CER",
+      "journal_id": "cer",
+      "short_name": "China Econ Review",
+      "name": "China Economic Review",
+      "publisher": "Elsevier",
+      "configured_source": "https://www.sciencedirect.com/journal/china-economic-review/issues",
+      "status": "missing",
+      "current": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "ENERGY",
+      "journal_id": "energy",
+      "short_name": "Energy Economics",
+      "name": "Energy Economics",
+      "publisher": "Elsevier",
+      "configured_source": "https://www.sciencedirect.com/journal/energy-economics/issues",
+      "status": "missing",
+      "current": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "ECOLECON",
+      "journal_id": "ecolecon",
+      "short_name": "Ecological Economics",
+      "name": "Ecological Economics",
+      "publisher": "Elsevier",
+      "configured_source": "https://www.sciencedirect.com/journal/ecological-economics/issues",
+      "status": "missing",
+      "current": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "LABECO",
+      "journal_id": "labeco",
+      "short_name": "Labour Economics",
+      "name": "Labour Economics",
+      "publisher": "Elsevier",
+      "configured_source": "https://www.sciencedirect.com/journal/labour-economics/issues",
+      "status": "missing",
+      "current": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "RED",
+      "journal_id": "red",
+      "short_name": "RED",
+      "name": "Review of Economic Dynamics",
+      "publisher": "Elsevier",
+      "configured_source": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/issues",
+      "status": "missing",
+      "current": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "JEDC",
+      "journal_id": "jedc",
+      "short_name": "JEDC",
+      "name": "Journal of Economic Dynamics and Control",
+      "publisher": "Elsevier",
+      "configured_source": "https://www.sciencedirect.com/journal/journal-of-economic-dynamics-and-control/issues",
+      "status": "missing",
+      "current": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
       },
       "detected": {
         "available": false,

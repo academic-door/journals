@@ -280,7 +280,10 @@ def _parse_repec_volume_sections(
                 {"title_en": title, "detail_url": detail_url, "pii": pii}
             )
         if items:
-            found[volume] = {
+            # Journals with real issue numbers (e.g. Journal of Comparative
+            # Economics Volume 53, Issue 2) publish several issues per volume,
+            # so sections are keyed by volume|issue instead of volume alone.
+            found[f"{volume}|{match.group('issue').lower()}"] = {
                 "year": match.group("year"),
                 "issue": match.group("issue"),
                 "items": items,
@@ -294,6 +297,7 @@ def fetch_elsevier_repec_history_issue(
     journal_name: str,
     issn: str,
     volume: str,
+    issue: str = "",
     repec_series_url: str,
     doi_template: str = "",
     max_pages: int = 40,
@@ -311,6 +315,7 @@ def fetch_elsevier_repec_history_issue(
 
     client = session or _session()
     target: dict[str, Any] | None = None
+    wanted_issue = str(issue or "").casefold()
     for page in range(1, max_pages + 1):
         url = _repec_page_url(repec_series_url, page)
         content = _get(
@@ -320,8 +325,14 @@ def fetch_elsevier_repec_history_issue(
             patient_403=True,
         ).content
         sections = _parse_repec_volume_sections(content, repec_series_url)
-        if str(volume) in sections:
-            target = sections[str(volume)]
+        if wanted_issue:
+            # Real issue numbers must match both volume and issue so a volume
+            # with multiple issues is not collapsed into one section.
+            target = sections.get(f"{volume}|{wanted_issue}")
+        else:
+            # Continuous Elsevier volumes are labelled "Issue C" on RePEc.
+            target = sections.get(f"{volume}|c")
+        if target is not None:
             break
         if not sections and page > 1:
             # Empty page means the pagination ended before the volume.
@@ -467,13 +478,14 @@ def fetch_elsevier_repec_history_issue(
             if month_dates
             else str(target["year"])
         )
+    parsed_issue = str(target.get("issue") or "c").casefold()
     return {
         "schema_version": "1.0",
-        "issue_id": f"{journal_id}-{volume}-c",
+        "issue_id": f"{journal_id}-{volume}-{parsed_issue}",
         "journal_id": journal_id,
         "journal_name": journal_name,
         "volume": volume,
-        "issue": "C",
+        "issue": "C" if parsed_issue == "c" else parsed_issue,
         "publication_date": publication_date,
         "source_url": repec_series_url,
         "retrieved_at": now,
@@ -638,12 +650,22 @@ def fetch_current_issue(
     max_workers: int = DETAIL_WORKERS,
 ) -> dict[str, Any]:
     session = _session()
-    inventory = _parse_repec_inventory(
-        _get(session, repec_series_url).content,
-        repec_series_url,
-    )
-    volume = inventory["volume"]
-    issue_number = inventory["issue"]
+    try:
+        inventory = _parse_repec_inventory(
+            _get(session, repec_series_url).content,
+            repec_series_url,
+        )
+    except ElsevierCollectorError:
+        if not rss_url:
+            raise
+        # Some Elsevier serial pages use a volume-only heading format
+        # (e.g. Review of Economic Dynamics: "August 2026, Volume 61")
+        # that does not match the "Volume X, Issue Y" inventory parser.
+        # The publisher RSS feed is the authoritative current-issue
+        # transport for those journals.
+        inventory = None
+    volume = inventory["volume"] if inventory else ""
+    issue_number = inventory["issue"] if inventory else ""
     if rss_url:
         try:
             from collectors.metadata_fallback import (
@@ -669,6 +691,10 @@ def fetch_current_issue(
             # RePEc remains the last-known-good transport when the optional
             # publisher RSS or enrichment APIs are temporarily unavailable.
             pass
+    if inventory is None:
+        raise ElsevierCollectorError(
+            f"RePEc serial page has no usable volume heading for {repec_series_url}"
+        )
     publication_date = _crossref_issue_date(
         session,
         issn,

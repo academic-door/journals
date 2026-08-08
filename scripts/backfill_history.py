@@ -212,6 +212,7 @@ def collector_for_issue(
                     journal_name=journal_config["name"],
                     issn=str(journal_config["issn"]),
                     volume=issue_ref.volume,
+                    issue=issue_ref.issue,
                     repec_series_url=journal_config.get("repec_series_url", ""),
                     doi_template=journal_config.get("doi_template", ""),
                 )

@@ -65,12 +65,15 @@ class SourceAlignmentAuditTests(unittest.TestCase):
     def test_repository_audit_covers_every_enabled_journal(self) -> None:
         payload = build_audit()
         journal_ids = [item["journal_id"] for item in payload["journals"]]
-        self.assertEqual(41, payload["summary"]["configured_journals"])
-        self.assertEqual(41, len(journal_ids))
-        self.assertEqual(41, len(set(journal_ids)))
+        self.assertEqual(49, payload["summary"]["configured_journals"])
+        self.assertEqual(49, len(journal_ids))
+        self.assertEqual(49, len(set(journal_ids)))
         self.assertIn("aer", journal_ids)
         self.assertIn("jeem", journal_ids)
         self.assertIn("wd", journal_ids)
+        self.assertIn("jhe", journal_ids)
+        self.assertIn("jce", journal_ids)
+        self.assertIn("red", journal_ids)
 
 if __name__ == "__main__":
     unittest.main()
