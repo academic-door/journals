@@ -1,0 +1,514 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "red-57-c",
+  "journal_id": "red",
+  "journal_name": "Review of Economic Dynamics",
+  "volume": "57",
+  "issue": "C",
+  "publication_date": "July 2025",
+  "source_url": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/57/suppl/C",
+  "retrieved_at": "2026-08-08T08:29:51+00:00",
+  "expected_article_count": 7,
+  "research_article_count": 7,
+  "status": "incomplete",
+  "development_sample": false,
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.red.2025.101272",
+      "sequence": 1,
+      "source_sequence": 101272,
+      "article_type": "research-article",
+      "title_en": "Worker-firm screening and the business cycle",
+      "title_cn": "工人与企业筛选及商业周期",
+      "authors": [
+        "Jake Bradley"
+      ],
+      "abstract_en": "To understand the co-movement of vacancies and employment, an equilibrium model with two-sided screening is developed. On one side of the market, both employed and unemployed workers can evaluate multiple job openings simultaneously and decide which ones to apply for. On the other side, firms assess multiple applicants and choose their preferred candidates. This model is calibrated to reflect the U.S. economy. Consistent with data, the model generates significant volatility in vacancies, unemployment, and labor market flows over the business cycle. Moreover, differences in the search behaviors of employed and unemployed workers offer a theoretical explanation for the shift in the Beveridge curve observed after the 2008 recession.",
+      "abstract_cn": "为理解职位空缺与就业的联动性，本文构建了一个具有双向筛选的均衡模型。在市场的一侧，无论是就业者还是失业者，都可以同时评估多个职位空缺，并决定申请哪些职位。在市场的另一侧，企业评估多个申请者，并选择其偏好的候选人。该模型经过校准以反映美国经济。与数据一致，该模型在商业周期中产生了职位空缺、失业和劳动力市场流动的显著波动性。此外，就业者与失业者搜索行为的差异为2008年衰退后观察到的贝弗里奇曲线移动提供了理论解释。",
+      "abstract_snippet_en": "To understand the co-movement of vacancies and employment, an equilibrium model with two-sided screening is developed. On one side of the market, both employed and unemployed workers can evaluate multiple...",
+      "doi": "10.1016/j.red.2025.101272",
+      "source_url": "https://doi.org/10.1016/j.red.2025.101272",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/57/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 5761,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 5761,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:29:53+00:00",
+        "source_hash": "2c0d530dd1dd48beb3d387c064786a8fae44579df5f403428672041db96dc813"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2025.101284",
+      "sequence": 2,
+      "source_sequence": 101284,
+      "article_type": "research-article",
+      "title_en": "The neoclassical model and the welfare costs of selection",
+      "title_cn": "新古典模型与选择的福利成本",
+      "authors": [
+        "Fabrice Collard",
+        "Omar Licandro"
+      ],
+      "abstract_en": "This paper embeds firm dynamics into the Neoclassical model in a framework with partially reversible capital and investment distortions, allowing for a simple characterization of the transitional dynamics of economies moving towards greater selection. At equilibrium, aggregate technology is Neoclassical, with the quality of capital and the depreciation rate depending on selection. As investment distortions are corrected, selection increases, and both output per capita and welfare rise at the steady state. However, selection destroys existing production capacities, leading to transitional welfare losses. When calibrated to the US, the model shows that developing countries reducing investment distortions to US levels would experience substantial steady-state welfare gains, though transitional costs could absorb 70% to 76% of these gains. While the associated welfare gains from selection at steady-state are significant, between 10% and 23%, transitional costs largely offset these additional welfare gains.",
+      "abstract_cn": "本文在部分可逆资本和投资扭曲的框架下，将企业动态嵌入新古典模型，从而能够简单刻画经济体向更强选择过渡的动态过程。在均衡状态下，总体技术呈现新古典特征，资本质量和折旧率取决于选择程度。随着投资扭曲的纠正，选择增加，稳态下人均产出和福利均上升。然而，选择会摧毁现有生产能力，导致过渡性福利损失。以美国数据进行校准后，模型显示，将投资扭曲降至美国水平的发展中国家将获得显著的稳态福利收益，但过渡成本可能吸收这些收益的70%至76%。尽管稳态下选择带来的福利收益显著，介于10%至23%之间，但过渡成本在很大程度上抵消了这些额外福利收益。",
+      "abstract_snippet_en": "This paper embeds firm dynamics into the Neoclassical model in a framework with partially reversible capital and investment distortions, allowing for a simple characterization of the transitional dynamics...",
+      "doi": "10.1016/j.red.2025.101284",
+      "source_url": "https://doi.org/10.1016/j.red.2025.101284",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/57/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 5758,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 5758,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:29:55+00:00",
+        "source_hash": "656231ffe4798fb4bee463ff1d883df88b10ba894c4296e4eabca224d5512f30"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2025.101285",
+      "sequence": 3,
+      "source_sequence": 101285,
+      "article_type": "research-article",
+      "title_en": "Solving DSGE models with incomplete markets by perturbation",
+      "title_cn": "通过扰动方法求解具有不完全市场的DSGE模型",
+      "authors": [
+        "Guillermo Hausmann-Guil"
+      ],
+      "abstract_en": "DSGE models with incomplete markets (with one or many assets) are typically challenging to solve due to their lack of stable dynamics as risk goes to zero. To bypass this difficulty, I propose to first approximate the local dynamics of a tractable auxiliary model and then apply regular perturbation to some of the parameters to reach the model of interest. This method is easy to implement with available packages and allows researchers to solve a wide class of DSGE models around a large subset of the state-space while still relying on the implicit function theorems. Exploiting these properties, the paper develops a simple algorithm to find an auxiliary model whose deterministic steady state equals the stochastic steady state of the model of interest and builds the perturbation solution around this point. The lead application extends the two-period, multi-asset model of Coeurdacier and Gourinchas (2016, JME) to an infinite horizon setup. The calibrated model with bonds and equities delivers a large level of equity home bias and a natural link between trade and financial openness, with external asset positions comparable to the data. However, the model generates excessive risk-sharing and counterfactual co-movements of gross capital flows.",
+      "abstract_cn": "具有不完全市场（含一种或多种资产）的DSGE模型通常因风险趋零时缺乏稳定动态而难以求解。为绕过这一困难，我提出先近似一个易处理的辅助模型的局部动态，然后对某些参数应用正则扰动以达到目标模型。该方法易于用现有软件包实现，并允许研究人员在状态空间的大子集上求解广泛的DSGE模型，同时仍依赖隐函数定理。利用这些性质，本文开发了一种简单算法来寻找一个辅助模型，其确定性稳态等于目标模型的随机稳态，并围绕该点构建扰动解。主要应用将Coeurdacier和Gourinchas（2016，JME）的两期多资产模型扩展到无限期界设定。校准后的债券和股票模型产生了显著的股权本土偏好以及贸易与金融开放之间的自然联系，外部资产头寸与数据相当。然而，该模型产生了过度的风险分担和与事实不符的总资本流动共同运动。",
+      "abstract_snippet_en": "DSGE models with incomplete markets (with one or many assets) are typically challenging to solve due to their lack of stable dynamics as risk goes to zero. To bypass this difficulty, I propose to first...",
+      "doi": "10.1016/j.red.2025.101285",
+      "source_url": "https://doi.org/10.1016/j.red.2025.101285",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/57/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 5756,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 5756,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:29:58+00:00",
+        "source_hash": "18d3f04c513f184ad25af4a30d32aeff96395523b317ca639bd3b28ac89449ec"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2025.101286",
+      "sequence": 4,
+      "source_sequence": 101286,
+      "article_type": "research-article",
+      "title_en": "Searching for wage growth: Policy responses to the “new machine age”",
+      "title_cn": "寻找工资增长：对“新机器时代”的政策回应",
+      "authors": [
+        "Andrew Berg",
+        "Edward F. Buffie",
+        "Mariarosaria Comunale",
+        "Chris Papageorgiou",
+        "Luis-Felipe Zanna"
+      ],
+      "abstract_en": "The current wave of technological revolution is changing the way policies work. This paper examines the growth and distributional implications of cuts in the corporate tax rate and public investment in infrastructure and education in a neoclassical growth model with “robot” capital (a broad definition of robots, Artificial Intelligence, computers, big data, digitalization, networks, sensors and servos). We find that incorporating robot capital into the model makes a big difference to policy outcomes: the trickle-down effects of corporate tax cuts on unskilled wages are attenuated, and the advantages of investment in infrastructure, and especially in education, are bigger. Based on our calibrations, grounded in new empirical estimates, infrastructure investment and corporate tax cuts dominate investment in education in a “traditional” economy. However, in an economy with robots, infrastructure investment dominates corporate tax cuts, while investment in education tends to produce the highest welfare gains of all.",
+      "abstract_cn": "当前的技术革命浪潮正在改变政策运作的方式。本文在一个包含“机器人”资本（机器人、人工智能、计算机、大数据、数字化、网络、传感器和伺服机构的广义定义）的新古典增长模型中，研究了企业税率削减以及基础设施和教育公共投资对增长和分配的影响。我们发现，将机器人资本纳入模型对政策结果产生了重大影响：企业减税对非技术工人工资的涓滴效应被削弱，而基础设施投资，尤其是教育投资的优势则更为显著。基于我们的校准，以及新的实证估计，在“传统”经济中，基础设施投资和企业减税优于教育投资。然而，在存在机器人的经济中，基础设施投资优于企业减税，而教育投资在所有选项中往往产生最高的福利收益。",
+      "abstract_snippet_en": "The current wave of technological revolution is changing the way policies work. This paper examines the growth and distributional implications of cuts in the corporate tax rate and public investment...",
+      "doi": "10.1016/j.red.2025.101286",
+      "source_url": "https://doi.org/10.1016/j.red.2025.101286",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/57/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 5754,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 5754,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:30:01+00:00",
+        "source_hash": "bcf3f9e9bcd6b9b70d8ea9d71950e09d137770c3ca1cb91d60639dedfca9368d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2025.101287",
+      "sequence": 5,
+      "source_sequence": 101287,
+      "article_type": "research-article",
+      "title_en": "Securitization and house price growth",
+      "title_cn": "证券化与房价增长",
+      "authors": [
+        "Genevieve Nelson"
+      ],
+      "abstract_en": "From 2000-2006 U.S. house prices and mortgage credit grew while the relative cost of mortgage credit fell – particularly for privately securitized mortgages – suggesting a credit supply expansion. This paper compares innovations in the securitization of mortgage credit (a credit supply shock) to other candidate credit supply shocks. I model a two-layered mortgage market. This generates a novel balance sheet effect: changes in aggregate mortgage credit quantity are linked to changes in mortgage spreads via the interaction of financially constrained commercial banks and mortgage securitizers. Innovation in securitization (a direct relaxation of the securitizers' financial constraint) matches mortgage market dynamics.",
+      "abstract_cn": "从2000-2006年，美国房价和抵押贷款信贷增长，而抵押贷款信贷的相对成本下降——尤其是对于私人证券化的抵押贷款——表明信贷供给扩张。本文比较了抵押贷款信贷证券化的创新（信贷供给冲击）与其他候选信贷供给冲击。我建立了一个两层抵押贷款市场模型。这产生了一种新颖的资产负债表效应：总抵押贷款信贷量的变化通过金融受限的商业银行与抵押贷款证券化者的相互作用与抵押贷款利差的变化相关联。证券化的创新（直接放松证券化者的金融约束）与抵押贷款市场动态相匹配。",
+      "abstract_snippet_en": "From 2000-2006 U.S. house prices and mortgage credit grew while the relative cost of mortgage credit fell – particularly for privately securitized mortgages – suggesting a credit supply expansion. This...",
+      "doi": "10.1016/j.red.2025.101287",
+      "source_url": "https://doi.org/10.1016/j.red.2025.101287",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/57/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 5752,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 5752,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:30:03+00:00",
+        "source_hash": "8ab3db0fdbbad9fa84cdbabf911182dc35710a7561cf24f6c97693f0c9d73e15"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2025.101288",
+      "sequence": 6,
+      "source_sequence": 101288,
+      "article_type": "research-article",
+      "title_en": "The distribution of household debt in the United States, 1950-2022",
+      "title_cn": "美国家庭债务的分布，1950-2022年",
+      "authors": [
+        "Alina K. Bartscher",
+        "Moritz Kuhn",
+        "Moritz Schularick",
+        "Ulrike I. Steins"
+      ],
+      "abstract_en": "Using new household-level data, we study the secular increase in U.S. household debt and its distribution since 1950. Most of the debt were mortgages, which initially grew because more households borrowed. Yet after 1980, debt mostly grew because households borrowed more. We uncover home equity extraction, concentrated in the white middle class, as the largest cause, strongly affecting intergenerational inequality and life-cycle debt profiles. Remarkably, the additional debt did not lower households' net worth because of rising house prices. We conclude that asset-price-based borrowing became an integral part of households' consumption-saving decisions, yet at the cost of higher financial fragility.",
+      "abstract_cn": "利用新的家庭层面数据，我们研究了自1950年以来美国家庭债务的长期增长及其分布。大部分债务为抵押贷款，最初因更多家庭借贷而增长。然而在1980年之后，债务增长主要源于家庭借贷金额的增加。我们发现，集中于白人中产阶级的房屋净值提取是最大的原因，强烈影响了代际不平等和生命周期债务曲线。值得注意的是，由于房价上涨，额外债务并未降低家庭的净资产。我们得出结论，基于资产价格的借贷已成为家庭消费-储蓄决策的组成部分，但代价是更高的金融脆弱性。",
+      "abstract_snippet_en": "Using new household-level data, we study the secular increase in U.S. household debt and its distribution since 1950. Most of the debt were mortgages, which initially grew because more households borrowed....",
+      "doi": "10.1016/j.red.2025.101288",
+      "source_url": "https://doi.org/10.1016/j.red.2025.101288",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/57/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 5750,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 5750,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:30:05+00:00",
+        "source_hash": "fef121102abd0fbf5231b4bab63b3370651eee3c10ad7b4b0411d09025868d54"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2025.101289",
+      "sequence": 7,
+      "source_sequence": 101289,
+      "article_type": "research-article",
+      "title_en": "Strategic complementarity in labor demand: Evidence from US industry leading firms",
+      "title_cn": "劳动力需求中的战略互补性：来自美国行业领先企业的证据",
+      "authors": [
+        "Andrew Yizhou Liu"
+      ],
+      "abstract_en": "This paper examines strategic complementarity in labor demand among industry-leading firms in U.S. local labor markets. Using online vacancy postings and a shift-share instrumental variable approach, I find that a 10% increase in other firms' vacancy postings reduces a firm's own postings by 5% to 8%. I identify wage adjustments and matching frictions as key channels underlying this complementarity. The findings highlight how strategic interactions among large firms shape labor market dynamics.",
+      "abstract_cn": "本文考察了美国地方劳动力市场中行业领先企业之间劳动力需求的战略互补性。利用在线职位发布和转移份额工具变量方法，我发现其他企业职位发布增加10%会使企业自身的职位发布减少5%至8%。我识别出工资调整和匹配摩擦是这种互补性的关键渠道。研究结果凸显了大企业之间的战略互动如何塑造劳动力市场动态。",
+      "abstract_snippet_en": "This paper examines strategic complementarity in labor demand among industry-leading firms in U.S. local labor markets. Using online vacancy postings and a shift-share instrumental variable approach,...",
+      "doi": "10.1016/j.red.2025.101289",
+      "source_url": "https://doi.org/10.1016/j.red.2025.101289",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/57/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 5748,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 5748,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T08:30:07+00:00",
+        "source_hash": "d06c655674d356630bc46b77bbea64b9c792664e77573268f03f2f101e17d727"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "crossref",
+    "roster_authority": "crossref-provisional",
+    "roster_match_scope": "crossref-issue-group",
+    "publisher_page_status": "blocked",
+    "excluded_item_count": 1,
+    "excluded_items": [
+      {
+        "title_en": "Editorial Board",
+        "reason": "editorial_material",
+        "doi": "10.1016/s1094-2025(25)00026-2",
+        "article_type": "editorial"
+      }
+    ],
+    "doi_complete": 7,
+    "authors_complete": 7,
+    "abstract_en_complete": 7,
+    "translation_complete": 7,
+    "duplicate_count": 0,
+    "flags": [
+      "publisher_html_blocked_crossref_fallback",
+      "crossref_provisional_roster"
+    ],
+    "official_item_count": 8,
+    "publishable_item_count": 7,
+    "content_counts": {
+      "official_items": 8,
+      "observed_items": 8,
+      "publishable_items": 7,
+      "research_articles": 7,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 1,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 7
+    }
+  },
+  "content_counts": {
+    "official_items": 8,
+    "observed_items": 8,
+    "publishable_items": 7,
+    "research_articles": 7,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 1,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 7
+  },
+  "issue_label": "Vol. 57"
+}

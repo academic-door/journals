@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-08T04:33:00+00:00
+Updated: 2026-08-08T08:31:58+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -433,6 +433,13 @@ Updated: 2026-08-08T04:33:00+00:00
 | RAND | rand-56-4 | 2025 | complete |  |
 | RAND | rand-57-1 | 2026 | complete |  |
 | RAND | rand-57-2 | 2026 | complete |  |
+| RED | red-55-c | 2025 | complete |  |
+| RED | red-56-c | 2025 | complete |  |
+| RED | red-57-c | 2025 | complete |  |
+| RED | red-58-c | 2025 | complete |  |
+| RED | red-59-c | 2026 | translation_partial |  |
+| RED | red-60-c | 2026 | complete |  |
+| RED | red-61-c | 2026 | complete |  |
 | RES | res-92-1 | 2025 | complete |  |
 | RES | res-92-2 | 2025 | complete |  |
 | RES | res-92-3 | 2025 | complete |  |
