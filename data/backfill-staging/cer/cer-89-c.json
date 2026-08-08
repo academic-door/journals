@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-08T08:28:06+00:00",
   "expected_article_count": 22,
   "research_article_count": 22,
-  "status": "ready",
+  "status": "incomplete",
   "articles": [
     {
       "paper_id": "doi:10.1016/j.chieco.2024.102300",
@@ -830,14 +830,14 @@
       "source_sequence": 20,
       "article_type": "research-article",
       "title_en": "Environmental regulation and equilibrium unemployment in China: Evidence from a multiple-sector search and matching model",
-      "title_cn": "环境规制与中国均衡失业：来自多部门搜寻匹配模型的证据",
+      "title_cn": "",
       "authors": [
         "Zhe Li",
         "Pinjie Lyu",
         "Jianfei Sun"
       ],
       "abstract_en": "We build a two-sector general equilibrium model that incorporates abatement technologies and search-and-matching frictions in the labor market to examine how different environmental regulations affect emission reduction and unemployment. By emphasizing the role of various decisions of micro firms, labor market frictions, and the cross-sectoral labor movement in the transmission process of environmental regulation, we demonstrate the conflict between environmental regulation and unemployment in different parts and aspects of economic behavior, providing a theoretical basis for analyzing and solving the contradiction of “environmental governance-economic sustainability-unemployment”. Using Chinese data to calibrate the model, we find that the equilibrium unemployment caused by the environmental regulation during the 12th Five-Year Plan period is far less than the reduction in production employment of directly regulated enterprises caused by the same environmental regulation, which proves that the econometric regression method with regulated enterprises as the research object will greatly overestimate the unemployment effect of environmental regulation. However, we predict that during the 14th Five-Year Plan period, as environmental regulations become stricter, the intertwining of strict regulations and labor market frictions will make the transfer effect less effective in mitigating the direct negative impact of environmental regulations on employment. We also discover that there are two main reasons why quotas generate less unemployment than emission taxes when the same total emission reduction target is achieved: (1) Quota leads to more job creation caused by abatement requirements, while emission tax does not cause such job creation until a reasonably high threshold is reached. The emission tax causes the shrinking of the polluting sector by adding the cost of the emission tax to the product price and transferring it to consumers, which boosts the negative scale effect of environmental regulation on unemployment. (2) Under the emission tax, more unemployed workers move into the clean sector, resulting in labor market congestion and economic structural imbalances, cutting down the ability of the clean sector to absorb unemployed workers.",
-      "abstract_cn": "我们构建了一个两部门一般均衡模型，该模型纳入了劳动力市场中的减排技术和搜寻匹配摩擦，以考察不同环境规制如何影响减排与失业。通过强调微观企业的各种决策、劳动力市场摩擦以及跨部门劳动力流动在环境规制传导过程中的作用，我们展示了环境规制与失业在经济行为不同部分和方面的冲突，为分析和解决“环境治理-经济可持续性-失业”矛盾提供了理论基础。利用中国数据校准模型，我们发现，在12五年计划期间，环境规制引起的均衡失业远小于同一环境规制导致的直接受规制企业生产性就业的减少，这证明以受规制企业为研究对象的计量回归方法将大幅高估环境规制的失业效应。然而，我们预测，在14五年计划期间，随着环境规制变得更加严格，严格规制与劳动力市场摩擦的相互交织将使转移效应在缓解环境规制对就业的直接负面影响方面效果减弱。我们还发现，在实现相同总减排目标时，配额比排放税产生更少失业的原因主要有两个：(1) 配额会导致减排要求带来更多的就业创造，而排放税在达到相当高的门槛之前不会产生此类就业创造。排放税通过将排放税成本加到产品价格上并转嫁给消费者，导致污染部门萎缩，从而加剧了环境规制对失业的负向规模效应。(2) 在排放税下，更多失业工人进入清洁部门，导致劳动力市场拥堵和经济结构失衡，削弱了清洁部门吸收失业工人的能力。",
+      "abstract_cn": "",
       "doi": "10.1016/j.chieco.2024.102336",
       "source_url": "https://ideas.repec.org/a/eee/chieco/v89y2025ics1043951x24002256.html",
       "publication_date": "February 2025",
@@ -849,15 +849,15 @@
         "repec": "https://ideas.repec.org/a/eee/chieco/v89y2025ics1043951x24002256.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-reasoner",
-        "translated_at": "2026-08-08T10:14:00+00:00",
-        "source_hash": "9bdf58b5aa0fd9987628d6aa393c77914a44fb6d83d813214d6864ee875af9a1"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "yes",
         "evidence": "title",
@@ -963,10 +963,12 @@
     "doi_complete": 22,
     "authors_complete": 22,
     "abstract_en_complete": 22,
-    "translation_complete": 22,
+    "translation_complete": 21,
     "duplicate_count": 0,
     "repec_item_count": 22,
-    "flags": [],
+    "flags": [
+      "translation_incomplete"
+    ],
     "official_item_count": 22,
     "publishable_item_count": 22,
     "content_counts": {

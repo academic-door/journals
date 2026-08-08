@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-08T08:40:46+00:00",
   "expected_article_count": 26,
   "research_article_count": 26,
-  "status": "ready",
+  "status": "incomplete",
   "articles": [
     {
       "paper_id": "doi:10.1016/j.chieco.2025.102449",
@@ -191,14 +191,14 @@
       "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "Does policy uncertainty affect firms' exchange rate exposure? Evidence from China11",
-      "title_cn": "政策不确定性是否影响企业的汇率风险暴露？来自 China11 的证据",
+      "title_cn": "",
       "authors": [
         "Qing He",
         "Bailin Liang",
         "Ce Zhang"
       ],
       "abstract_en": "Analyzing data from 3616 Chinese listed firms, we find a strong positive relationship between policy uncertainty and firms' exchange rate exposure. This result remains robust after controlling for macroeconomic conditions and addressing endogeneity issues. Notably, policy uncertainty's impact is significantly stronger for firms with a higher degree of international involvement and for poorly-governed firms. Interestingly, firms use financial hedging more intensively and reduce their operational hedging in high-uncertainty periods. Our results suggest that policy uncertainty exacerbates the impact of currency movements on firms' financial performance, as firms become increasingly involved in international operations. Consequently, firms should strengthen their corporate governance and make effective use of hedging tools.",
-      "abstract_cn": "通过分析来自 3616 家中国上市公司的数据，我们发现政策不确定性与企业的汇率风险暴露之间存在强烈的正相关关系。在控制宏观经济条件并解决内生性问题后，这一结果依然稳健。值得注意的是，政策不确定性对国际参与程度较高的企业和治理不善的企业影响显著更强。有趣的是，在高不确定性时期，企业更密集地使用金融对冲，并减少经营对冲。我们的结果表明，随着企业日益参与国际经营，政策不确定性加剧了汇率变动对企业财务绩效的影响。因此，企业应加强公司治理并有效利用对冲工具。",
+      "abstract_cn": "",
       "doi": "10.1016/j.chieco.2025.102599",
       "source_url": "https://ideas.repec.org/a/eee/chieco/v95y2026ics1043951x25002573.html",
       "publication_date": "February 2026",
@@ -210,15 +210,15 @@
         "repec": "https://ideas.repec.org/a/eee/chieco/v95y2026ics1043951x25002573.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-reasoner",
-        "translated_at": "2026-08-08T10:14:13+00:00",
-        "source_hash": "418f28b04da7324886115647bee9d6db576a5346fd6d32ae1a833e1133c7d25f"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -1144,10 +1144,12 @@
     "doi_complete": 26,
     "authors_complete": 26,
     "abstract_en_complete": 26,
-    "translation_complete": 26,
+    "translation_complete": 25,
     "duplicate_count": 0,
     "repec_item_count": 26,
-    "flags": [],
+    "flags": [
+      "translation_incomplete"
+    ],
     "official_item_count": 26,
     "publishable_item_count": 26,
     "content_counts": {

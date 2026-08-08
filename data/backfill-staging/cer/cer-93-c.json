@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-08T08:35:15+00:00",
   "expected_article_count": 13,
   "research_article_count": 13,
-  "status": "ready",
+  "status": "incomplete",
   "articles": [
     {
       "paper_id": "doi:10.1016/j.chieco.2025.102429",
@@ -445,13 +445,13 @@
       "source_sequence": 11,
       "article_type": "research-article",
       "title_en": "Fiscal multipliers, sectoral heterogeneity and reallocation in China",
-      "title_cn": "中国的财政乘数、部门异质性及资源再配置",
+      "title_cn": "",
       "authors": [
         "Ying He",
         "Changhua Yu"
       ],
       "abstract_en": "This paper investigates the impact of sectoral heterogeneity on fiscal multipliers in China, focusing on resource reallocation between the capital-intensive heavy sector and the labor-intensive light sector. By applying a Bayesian SVAR model to identify fiscal spending shocks over 1992Q1–2015Q3, we find an aggregate output multiplier of 0.76, with output multipliers of 1.09 for the heavy sector and − 0.25 for the light sector. Fiscal spending shocks lead to rising labor costs, declining capital costs, and the disappearance of light-sector firms—all driven by factor reallocation. Our two-sector model with heterogeneous producers and financial frictions explains these dynamics, highlighting the role of fiscal policy in reshaping sectoral outputs.",
-      "abstract_cn": "本文研究部门异质性对中国财政乘数的影响，重点关注资本密集型重工业部门与劳动密集型轻工业部门之间的资源再配置。通过应用贝叶斯SVAR模型识别1992Q1–2015Q3期间的财政支出冲击，我们发现总体产出乘数为0.76，重工业部门产出乘数为1.09，轻工业部门为− 0.25。财政支出冲击导致劳动力成本上升、资本成本下降以及轻工业部门企业消失——所有这些都由要素再配置驱动。我们的包含异质性生产者和金融摩擦的两部门模型解释了这些动态，凸显了财政政策在重塑部门产出中的作用。",
+      "abstract_cn": "",
       "doi": "10.1016/j.chieco.2025.102456",
       "source_url": "https://ideas.repec.org/a/eee/chieco/v93y2025ics1043951x25001142.html",
       "publication_date": "February 2025",
@@ -463,15 +463,15 @@
         "repec": "https://ideas.repec.org/a/eee/chieco/v93y2025ics1043951x25001142.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-reasoner",
-        "translated_at": "2026-08-08T10:14:07+00:00",
-        "source_hash": "41360d1813a75ce4e101ca99246ee8fe0d3151e887bd9d301825b0ee3746faac"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "yes",
         "evidence": "title",
@@ -575,10 +575,12 @@
     "doi_complete": 13,
     "authors_complete": 13,
     "abstract_en_complete": 13,
-    "translation_complete": 13,
+    "translation_complete": 12,
     "duplicate_count": 0,
     "repec_item_count": 13,
-    "flags": [],
+    "flags": [
+      "translation_incomplete"
+    ],
     "official_item_count": 13,
     "publishable_item_count": 13,
     "content_counts": {
