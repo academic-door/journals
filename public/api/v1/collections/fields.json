@@ -3,14 +3,14 @@
   "collection_id": "fields",
   "title": "Econ Field Journals",
   "title_cn": "领域顶刊",
-  "updated_at": "2026-08-08T09:06:40+00:00",
+  "updated_at": "2026-08-08T09:59:13+00:00",
   "data_status": "degraded",
   "content_status": "complete",
   "summary": {
     "configured_journals": 44,
-    "available_journals": 42,
-    "articles": 584,
-    "translated_articles": 584
+    "available_journals": 44,
+    "articles": 637,
+    "translated_articles": 637
   },
   "journals": [
     {
@@ -2441,7 +2441,7 @@
       "collections": [
         "fields"
       ],
-      "status": "unavailable",
+      "status": "ready",
       "latest_detected_issue_id": "energy-161-c",
       "latest_detected_issue_url": "/journals/api/v1/journals/energy/issues/detected.json",
       "latest_detected_issue_label": "Vol. 161",
@@ -2465,7 +2465,33 @@
       "latest_detected_roster_authority": "publisher-rss",
       "latest_detected_roster_transport": "sciencedirect-rss",
       "latest_detected_order_verification": "pending_official",
-      "update_state": "enriching"
+      "update_state": "enriching",
+      "data_status": "healthy",
+      "content_status": "complete",
+      "latest_issue_id": "energy-159-c",
+      "latest_ready_issue_id": "energy-159-c",
+      "latest_issue_url": "/journals/api/v1/journals/energy/issues/current.json",
+      "latest_ready_issue_url": "/journals/api/v1/journals/energy/issues/current.json",
+      "latest_issue_label": "Vol. 159",
+      "publication_date": "May 2025",
+      "article_count": 23,
+      "translation_complete": 23,
+      "content_counts": {
+        "official_items": 23,
+        "observed_items": 23,
+        "publishable_items": 23,
+        "research_articles": 23,
+        "comments": 0,
+        "short_communications": 0,
+        "corrections": 0,
+        "editorial_material": 0,
+        "front_matter": 0,
+        "other_excluded": 0,
+        "catalog_content_items": 23
+      },
+      "roster_authority": "repec-publisher-supplied",
+      "roster_transport": "repec-serial-page",
+      "order_verification": "official_verified"
     },
     {
       "journal_id": "ecolecon",
@@ -2477,7 +2503,57 @@
       "collections": [
         "fields"
       ],
-      "status": "unavailable"
+      "status": "ready",
+      "data_status": "healthy",
+      "content_status": "complete",
+      "latest_issue_id": "ecolecon-249-c",
+      "latest_ready_issue_id": "ecolecon-249-c",
+      "latest_issue_url": "/journals/api/v1/journals/ecolecon/issues/current.json",
+      "latest_ready_issue_url": "/journals/api/v1/journals/ecolecon/issues/current.json",
+      "latest_issue_label": "Vol. 249",
+      "publication_date": "January 2025",
+      "article_count": 30,
+      "translation_complete": 30,
+      "content_counts": {
+        "official_items": 33,
+        "observed_items": 33,
+        "publishable_items": 30,
+        "research_articles": 30,
+        "comments": 0,
+        "short_communications": 0,
+        "corrections": 3,
+        "editorial_material": 0,
+        "front_matter": 0,
+        "other_excluded": 0,
+        "catalog_content_items": 33
+      },
+      "roster_authority": "repec-publisher-supplied",
+      "roster_transport": "repec-serial-page",
+      "order_verification": "official_verified",
+      "latest_detected_issue_id": "ecolecon-249-c",
+      "latest_detected_issue_url": "/journals/api/v1/journals/ecolecon/issues/current.json",
+      "latest_detected_issue_label": "Vol. 249",
+      "latest_detected_publication_date": "January 2025",
+      "latest_detected_article_count": 30,
+      "latest_detected_abstracts_complete": 30,
+      "latest_detected_translations_complete": 30,
+      "latest_detected_content_counts": {
+        "official_items": 33,
+        "observed_items": 33,
+        "publishable_items": 30,
+        "research_articles": 30,
+        "comments": 0,
+        "short_communications": 0,
+        "corrections": 3,
+        "editorial_material": 0,
+        "front_matter": 0,
+        "other_excluded": 0,
+        "catalog_content_items": 33
+      },
+      "latest_detected_roster_authority": "repec-publisher-supplied",
+      "latest_detected_roster_transport": "repec-serial-page",
+      "latest_detected_order_verification": "official_verified",
+      "update_state": "ready"
     },
     {
       "journal_id": "labeco",

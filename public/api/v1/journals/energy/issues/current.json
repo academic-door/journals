@@ -1,0 +1,1030 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "energy-159-c",
+  "journal_id": "energy",
+  "journal_name": "Energy Economics",
+  "volume": "159",
+  "issue": "C",
+  "publication_date": "May 2025",
+  "source_url": "https://ideas.repec.org/s/eee/eneeco.html",
+  "retrieved_at": "2026-08-08T09:33:26+00:00",
+  "expected_article_count": 23,
+  "research_article_count": 23,
+  "status": "ready",
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.eneco.2026.109324",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "A novel grey multivariable model for forecasting electricity consumption considering the accumulative time lag effects from energy transition and technological innovation",
+      "title_cn": "考虑能源转型与技术创新累积时滞效应的新型灰色多变量电力消费预测模型",
+      "authors": [
+        "Ying Cai",
+        "Junjie Wang",
+        "Nannan Song",
+        "Yaoguo Dang"
+      ],
+      "abstract_en": "The accurate identification of driven factors and precise prediction of the electricity consumption (EC) are crucial for green economic development and dual‑carbon goals. However, existing studies ignore the accumulative time lag effects from energy transition and technological innovation on EC. In order to achieve an accurate prediction, this study proposes a forecasting framework combining feature identification strategy and a novel grey multivariate model. Firstly, 15 potential driven factors are screened from six dimensions, and random forest regression is used to identify the key influencing factors. In addition, time delay factors and its time lag periods are recognized by cross-correlation analysis. The analysis results indicate that the key driven factors of EC are electricity generation, energy consumption and regional gross domestic product, with importance coefficients of 0.38, 0.33, 0.23, respectively, and the time delay factors are fixed asset investment, renewable energy generation proportion and R&D expenditure intensity. Secondly, a novel grey multivariate model with accumulative time lag effects is constructed. And the ordinary least squares estimation and nonlinear programmer are utilized to solve the unknown parameters. In case study, four typical prefectures in China are taken as examples to verify the superiority, validity and robustness of the proposed model. Finally, EC for China's 30 provinces and municipalities are conducted for 2023–2030 under different scenarios. The regional heterogeneity is emphasized based on prediction results under three scenarios.",
+      "abstract_cn": "准确识别驱动因素并精确预测电力消费（EC）对于绿色经济发展和双碳目标至关重要。然而，现有研究忽视了能源转型和技术创新对电力消费的累积时滞效应。为实现精确预测，本研究提出了一种结合特征识别策略和新型灰色多变量模型的预测框架。首先，从六个维度筛选出15个潜在驱动因素，并使用随机森林回归识别关键影响因素。此外，通过交叉相关分析识别时滞因素及其时滞周期。分析结果表明，电力消费的关键驱动因素为发电量、能源消费和地区生产总值，其重要性系数分别为0.38、0.33、0.23，时滞因素为固定资产投资、可再生能源发电占比和研发支出强度。其次，构建了具有累积时滞效应的新型灰色多变量模型，并利用普通最小二乘估计和非线性规划求解未知参数。在案例研究中，以中国四个典型地级市为例，验证了所提模型的优越性、有效性和稳健性。最后，在不同情景下对中国30个省和直辖市进行了2023-2030年的电力消费预测，并基于三种情景下的预测结果强调了区域异质性。",
+      "doi": "10.1016/j.eneco.2026.109324",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988326002033",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v159y2026ics0140988326002033.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:33:30+00:00",
+        "source_hash": "ced2e051fee2d28e7a9850e70c82e720c907f86a6263af6016354f5de7d5b1b1"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "abstract",
+        "matched_terms": [
+          "China's"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2026.109338",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Temperature sensitivity of residential energy demand on the global scale: A Bayesian Partial Pooling Model",
+      "title_cn": "全球范围内住宅能源需求的温度敏感性：一种贝叶斯部分池化模型",
+      "authors": [
+        "Peer Lasse Hinrichsen",
+        "Katrin Rehdanz",
+        "Richard S.J. Tol"
+      ],
+      "abstract_en": "This paper contributes to the limited literature on the temperature sensitivity of residential energy demand on a global scale. Using a Bayesian Partial Pooling model, we estimate country-specific intercepts and slopes, focusing on non-linear temperature response functions. The results, based on data for up to 126 countries spanning from 1978 to 2023, indicate a higher demand for residential electricity and natural gas at temperatures below -5°C and a higher demand for electricity at temperatures above 30°C. For temperatures above 23°C, the relationship between power demand and temperature steepens. Demand in developed countries is more sensitive to high temperatures than in less developed countries, possibly due to an inability to meet cooling demands in the latter.",
+      "abstract_cn": "本文对全球范围内住宅能源需求温度敏感性的有限文献做出了贡献。使用贝叶斯部分池化模型，我们估计了国家特定的截距和斜率，重点关注非线性温度响应函数。基于多达126个国家、时间跨度从1978年到2023年的数据，结果显示，在低于-5°C的温度下，住宅电力和天然气的需求更高，而在高于30°C的温度下，电力需求更高。对于高于23°C的温度，电力需求与温度之间的关系变得更加陡峭。发达国家的需求对高温的敏感性高于欠发达国家，这可能是由于后者无法满足制冷需求所致。",
+      "doi": "10.1016/j.eneco.2026.109338",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988326002173",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v159y2026ics0140988326002173.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:33:33+00:00",
+        "source_hash": "b0381d8918ce40e56f651f3054a4fc6d8db9346014ec3cb3c73185e92117a6ba"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2026.109373",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Spillover effects and cost-sharing of carbon emissions in supply chain: Evidence from green factory certification policy in China",
+      "title_cn": "供应链中碳排放的溢出效应与成本分担：来自中国绿色工厂认证政策的证据",
+      "authors": [
+        "Junqi Liu",
+        "Jinyu Chen",
+        "Yangyang Li",
+        "Tianqi Liu"
+      ],
+      "abstract_en": "The synergistic governance within supply chain serves as a crucial driver for advancing sustainable economic development. Using China's Green Factory Certification (GFC) as a quasi-natural experiment, this study examines the spillover effects on carbon intensity across the supply chain. Based on a dataset of A-share listed companies from 2010 to 2023, our multi-period DID analysis reveals a distinct asymmetric feature: focal firms' GFC significantly reduces the carbon intensity of their suppliers, yet demonstrates no significant impact on clients. it remains robust across various tests. Mechanism analysis elucidates that GFC facilitates carbon reduction by stimulating green innovation of suppliers and improving supply-demand matching condition. Moreover, heterogeneity analysis demonstrates that these spillover effects are more pronounced for small-scale suppliers, and are further intensified by stringent environmental regulations and close geographical distance. Finally, further analysis proves suppliers can share the cost of focal firms while clients cannot.",
+      "abstract_cn": "供应链内的协同治理是推动可持续经济发展的重要驱动力。以中国绿色工厂认证（GFC）作为准自然实验，本研究考察了供应链中碳强度的溢出效应。基于2010年至2023年A股上市公司的数据集，我们的多期双重差分分析揭示了一个显著的非对称特征：焦点企业的GFC显著降低了其供应商的碳强度，但对客户没有显著影响。这一结果在多种检验中保持稳健。机制分析表明，GFC通过刺激供应商的绿色创新和改善供需匹配条件来促进碳减排。此外，异质性分析显示，这些溢出效应在小规模供应商中更为显著，并且受到严格的环境规制和紧密的地理距离的进一步强化。最后，进一步分析证明供应商能够分担焦点企业的成本，而客户则不能。",
+      "doi": "10.1016/j.eneco.2026.109373",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988326002525",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v159y2026ics0140988326002525.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:33:36+00:00",
+        "source_hash": "bf051dfc694c942336ec5905418cbc502eb1d2e0cb50c9bef2c9185df4e946d0"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2026.109375",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Probabilistic load forecasting in Europe: Capturing meteorological, socio-economic and political risks",
+      "title_cn": "欧洲概率负荷预测：捕捉气象、社会经济与政治风险",
+      "authors": [
+        "Monika Zimmermann",
+        "Florian Ziel"
+      ],
+      "abstract_en": "Electricity in Europe is delivered through an interconnected grid that requires continuous balancing of supply and demand while large-scale storage remains limited. Trading, contracting and generation decisions therefore rely on high-resolution mid-term load forecasts capturing cross-country dependencies and uncertainty in meteorological, socio-economic and political conditions. Yet fine-resolution models at this horizon remain scarce—and probabilistic multivariate frameworks across countries rarer still. We propose a novel probabilistic mid-term forecasting model for hourly electricity demand that is multivariate across 24 European countries. Demand is decomposed within an interpretable Generalized Additive Model (GAM) into calendar and temperature effects, including a climate trend, an endogenously retrieved unit-root socio-economic and political component, and short-term autoregressive deviations. Uncertainty in these components is modelled jointly across countries and propagated through forecasted trajectories. In a forecasting study based on more than nine years of hourly data (2015–2024), the model outperforms standard benchmarks in terms of Continuous Ranked Probability Scores. The latent socio-economic component is shown to align with external macroeconomic, energy-market and uncertainty indicators. Beyond probabilistic forecasting, the trajectory-based design enables gigawatt-level attribution of individual drivers under risk scenarios. We demonstrate this by showing how extreme weather events translate into country-specific demand deviations, revealing elevated cold-weather vulnerability in countries with high shares of electric heating.",
+      "abstract_cn": "欧洲的电力通过互联电网输送，这要求在大型储能仍然有限的情况下持续平衡供需。因此，交易、签约和发电决策依赖于高分辨率的中期负荷预测，这些预测需捕捉跨国依赖关系以及气象、社会经济和政治条件的不确定性。然而，在这一时间尺度上，精细分辨率模型仍然稀缺——而跨国家的概率多变量框架则更为罕见。我们提出了一种新颖的概率中期预测模型，用于每小时电力需求，该模型在24个欧洲国家之间具有多变量特性。需求在一个可解释的广义加性模型（GAM）中被分解为日历效应和温度效应，包括气候趋势、一个内生提取的单位根社会经济与政治成分，以及短期自回归偏差。这些成分的不确定性在各国之间联合建模，并通过预测轨迹进行传播。在一项基于超过九年每小时数据（2015-2024）的预测研究中，该模型在连续排序概率得分方面优于标准基准。潜在的社会经济成分被证明与外部宏观经济、能源市场和不确定性指标相一致。除了概率预测，基于轨迹的设计还能够在风险情景下对个体驱动因素进行吉瓦级归因。我们通过展示极端天气事件如何转化为特定国家的需求偏差来证明这一点，揭示了在电加热占比高的国家中，寒冷天气脆弱性较高。",
+      "doi": "10.1016/j.eneco.2026.109375",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988326002549",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v159y2026ics0140988326002549.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:33:39+00:00",
+        "source_hash": "5a221cb71fbd5ef76aad59a898429779e6dee261ae852b1e57b31331f170b98a"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2026.109379",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "The impact of green financial and monetary policy on the low-carbon energy transition: Global empirical evidence",
+      "title_cn": "绿色金融与货币政策对低碳能源转型的影响：全球经验证据",
+      "authors": [
+        "Lukas Rischen"
+      ],
+      "abstract_en": "Aligning economic pathways with a 2°C climate target implies rapid decarbonisation and a substantial increase in renewable energy (RE) investment and deployment. The financial system plays a key role in mobilising these investments. To support transition efforts and address related climate risks, financial regulators and central banks increasingly adopt green financial and monetary policies (GFMP). However, empirical evidence on the effects of GFMP on the low-carbon energy transition remains scarce. This paper sheds light on the impact of GFMP on RE capacity, a measure of RE investment and key transition indicator. I construct a country-level GFMP index capturing the flow and stock of policy intensity and mix across 26 countries for the years 2000 to 2023. Leveraging this index, I deploy two-way fixed effects and quantile panel regressions to quantify aggregate, policy type-specific, and heterogeneous conditional effects. Results show a positive relationship between GFMP intensity and RE capacity. On average, each adopted GFMP is associated with an addition of 0.016 gigawatt RE capacity per million capita, corresponding to 4.8 Mt CO2 emissions avoided when displacing fossil energy sources. Distinguishing by policy type, I find incentive-based instruments are about twice as effective as informational instruments. Both the adoption of GFMP and the size of effect shows heterogeneity. This study provides an early empirical quantification of the impact of GFMP on the energy transition, with findings holding important policy implications for the green transition.",
+      "abstract_cn": "将经济路径与2°C气候目标对齐意味着快速脱碳以及可再生能源（RE）投资和部署的大幅增加。金融体系在动员这些投资中扮演关键角色。为支持转型努力并应对相关气候风险，金融监管机构和中央银行越来越多地采用绿色金融与货币政策（GFMP）。然而，关于GFMP对低碳能源转型影响的实证证据仍然稀缺。本文揭示了GFMP对可再生能源装机容量（衡量可再生能源投资和关键转型指标）的影响。我构建了一个国家层面的GFMP指数，捕捉了26个国家在2000年至2023年间政策强度和组合的流量与存量。利用这一指数，我采用双向固定效应和分位数面板回归来量化总体、政策类型特定以及异质性的条件效应。结果显示GFMP强度与可再生能源装机容量之间存在正相关关系。平均而言，每采用一项GFMP与人均百万人口增加0.016吉瓦可再生能源装机容量相关，相当于在替代化石能源时避免4.8百万吨二氧化碳排放。按政策类型区分，我发现激励型工具的效果大约是信息型工具的两倍。GFMP的采用及其效应大小均显示出异质性。本研究提供了GFMP对能源转型影响的早期实证量化，其发现对绿色转型具有重要的政策含义。",
+      "doi": "10.1016/j.eneco.2026.109379",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988326002586",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v159y2026ics0140988326002586.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:33:43+00:00",
+        "source_hash": "3ee75e7d82e6c4e045ce3c1cde512be3eb106ed4cc551497abf87ae192a1af24"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2026.109380",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Population aging and China's energy transition: Industrial reallocation and upgrading",
+      "title_cn": "人口老龄化与中国能源转型：产业再配置与升级",
+      "authors": [
+        "Jieyun Ma",
+        "Xiaoyuan Yu",
+        "Yun Hao",
+        "Weixin Hong",
+        "Zeyu Gong"
+      ],
+      "abstract_en": "Population aging is associated with slower improvement in the energy consumption transition (TRE, measured as the clean-energy share of final consumption), operating mainly through weaker industrial reallocation efficiency (IRE) and more limited, regionally heterogeneous industrial upgrading (ISU). To investigate these dynamics, we apply a spatial econometric panel approach to provincial-level data in China from 2005 to 2021. Our analysis demonstrates that demographic shifts hinder the energy transition by amplifying aggregate reallocation frictions and widening the mismatch between sectoral output and employment shares. Furthermore, population aging in neighboring regions creates significant spatial spillovers that impede the local clean-energy transition. Policymakers should therefore integrate demographic trends into long-term energy planning. Overcoming these constraints requires targeted support for labor mobility and technological upgrading, alongside robust cross-regional policy coordination.",
+      "abstract_cn": "人口老龄化与能源消费转型（TRE，以最终消费中清洁能源占比衡量）改善速度放缓相关，主要通过削弱产业再配置效率（IRE）以及更有限且区域异质的产业升级（ISU）发挥作用。为探究这些动态，我们采用空间计量面板方法，基于中国2005年至2021年的省级数据进行分析。我们的分析表明，人口结构变化通过加剧总体再配置摩擦并扩大部门产出与就业份额之间的错配，阻碍了能源转型。此外，邻近地区的人口老龄化产生了显著的空间溢出效应，抑制了本地清洁能源转型。因此，政策制定者应将人口趋势纳入长期能源规划。克服这些制约因素需要针对劳动力流动和技术升级提供定向支持，并辅以强有力的跨区域政策协调。",
+      "doi": "10.1016/j.eneco.2026.109380",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988326002598",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v159y2026ics0140988326002598.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:33:45+00:00",
+        "source_hash": "0a683d530146f59dff8fb928570a249e2c59e8787fe0559d39a50f6c27350373"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China's"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2026.109381",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "The propagation of ESG practices through multinational corporations",
+      "title_cn": "跨国公司ESG实践的传播",
+      "authors": [
+        "Xiaoxue Hu",
+        "Dongxu Li",
+        "Rose Liao"
+      ],
+      "abstract_en": "Multinational firms are increasingly required to comply with evolving environmental, social, and governance (ESG) regulations in their host countries, raising the question of whether such regulations shape corporate behavior in firms' home countries. Using data on Chinese multinational firms from 2015 to 2020 and hand-collected information on cross-country changes in mandatory ESG regulations, this study examines cross-border spillovers of ESG regulation propagated through multinational networks. The results indicate that firms with subsidiaries in countries that adopt more stringent ESG regulations subsequently increase domestic R&D expenditure, generate more green innovation, and receive higher ESG ratings. These effects are more pronounced when exposure is concentrated in financially developed host countries and among firms subject to greater institutional investor monitoring, consistent with financial-market discipline as the underlying mechanism. Further evidence indicates local spillovers in ESG-related outcomes: cities with greater exposure to multinationals affected by foreign ESG regulation experience larger declines in air pollution. Overall, the findings suggest that ESG regulations can propagate across borders via multinational networks, with important implications for emerging markets seeking to strengthen ESG practices.",
+      "abstract_cn": "跨国公司日益需要遵守东道国不断演变的环境、社会和治理（ESG）法规，这引发了一个问题：此类法规是否会影响企业母国的企业行为。利用2015年至2020年中国跨国公司的数据以及手工收集的跨国强制性ESG法规变化信息，本研究考察了通过跨国网络传播的ESG法规的跨境溢出效应。结果表明，在采用更严格ESG法规的国家设有子公司的企业，随后增加了国内研发支出，产生了更多绿色创新，并获得了更高的ESG评级。当风险敞口集中在金融发达的东道国以及受到更多机构投资者监督的企业中时，这些效应更为显著，这与金融市场纪律作为潜在机制相一致。进一步的证据表明，ESG相关结果存在本地溢出效应：受外国ESG法规影响的跨国公司敞口较大的城市，空气污染下降幅度更大。总体而言，研究结果表明，ESG法规可以通过跨国网络跨境传播，这对寻求加强ESG实践的新兴市场具有重要意义。",
+      "doi": "10.1016/j.eneco.2026.109381",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988326002604",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v159y2026ics0140988326002604.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:33:48+00:00",
+        "source_hash": "6908f382d1e5ac736ce42db272044fc5f5d62ccd5035a18460d48c01f657d04d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2026.109382",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Do sustainability-linked bonds reward greater sustainability by design?",
+      "title_cn": "可持续发展挂钩债券是否在设计上奖励更强的可持续性？",
+      "authors": [
+        "An Chen",
+        "Maria Hinken",
+        "Gunter Löffler"
+      ],
+      "abstract_en": "Sustainability-linked bonds (SLBs) are a new financial instrument designed to create incentives for sustainable behavior on the part of the issuing companies or institutions. SLBs feature increased coupon payments if key performance indicators do not reach sustainability performance targets. In a standard pricing framework, we find that fair issue yields of SLBs, and hence their financing costs, are non-monotonic in the planned sustainability performance and the ambition of the sustainability targets. As a result, issuers that commit themselves to greater sustainability are not always rewarded through a lower issue yield, and increasing the ambition of the sustainability target has ambiguous effects. The rewards that the SLB offers over its lifetime through a reduction of penalty payments are also non-monotonic. They tend to go to zero if the target is made very ambitious.",
+      "abstract_cn": "可持续发展挂钩债券（SLBs）是一种新型金融工具，旨在激励发行公司或机构采取可持续行为。SLBs的特点是，如果关键绩效指标未达到可持续发展绩效目标，则票息支付会增加。在标准定价框架下，我们发现SLBs的公平发行收益率，及其融资成本，在计划中的可持续绩效和可持续发展目标的雄心程度上是非单调的。因此，承诺更高可持续性的发行者并不总是通过较低的发行收益率获得奖励，而提高可持续发展目标的雄心程度则具有模糊效应。SLBs在其存续期内通过减少罚金支付所提供的奖励也是非单调的。如果目标设定得非常雄心勃勃，这些奖励往往趋于零。",
+      "doi": "10.1016/j.eneco.2026.109382",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988326002616",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v159y2026ics0140988326002616.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:33:51+00:00",
+        "source_hash": "f2cd0708f53cb8f6466a680826bad47ad27d26a57ac170448a1cb369ea954a94"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2026.109383",
+      "sequence": 9,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "Dynamics production strategies of duopoly heterogeneous automakers in the context of energy transition: A bounded rationality perspective",
+      "title_cn": "能源转型背景下双寡头异质汽车制造商的动态生产策略：有限理性视角",
+      "authors": [
+        "Jinhuan Tang",
+        "Qiong Wu",
+        "Dan Zhao",
+        "Shoufeng Ji"
+      ],
+      "abstract_en": "China's dual-credit policy is reshaping competition between new energy vehicle (NEV) and fuel vehicle (FV) manufacturers, raising a practical question: how can firms adjust production and fuel-saving choices without destabilizing the market? We develop a long-term repeated game model with boundedly rational firms to study joint adjustments in NEV output, FV output, and FV fuel-saving effort under dual-credit compliance. Calibrated with Chinese market parameters, the model shows that the speed of firms' adjustments is pivotal: gradual updates keep quantities and profits stable, whereas aggressive updates generate dynamically unstable cycles that amplify credit price shocks. The results indicate that faster fuel-saving adjustments tend to reduce an FV maker's own profits while benefiting its NEV rival; reducing the FV fuel-saving cost coefficient increases FV output and profits while lowering total emissions. Policy implications are twofold. First, regulators can enhance market stability, thereby facilitating NEV adoption, by progressively tightening target stringency, imposing caps on credit-price volatility, and promoting disclosure to reduce informational noise. Second, firms should implement stepwise adjustment rules rather than one-shot changes when responding to credit targets. Together, these practices support a more orderly transition toward low-carbon mobility.",
+      "abstract_cn": "中国的双积分政策正在重塑新能源汽车（NEV）和燃油车（FV）制造商之间的竞争，引发了一个现实问题：企业如何在不让市场失稳的情况下调整生产和节油选择？我们构建了一个包含有限理性企业的长期重复博弈模型，研究在双积分合规约束下，新能源汽车产量、燃油车产量和燃油车节油努力的联合调整。利用中国市场参数进行校准后，模型显示企业调整速度至关重要：渐进式更新保持产量和利润稳定，而激进式更新则产生动态不稳定的周期，放大积分价格冲击。结果表明，更快的节油调整往往降低燃油车制造商自身的利润，同时惠及其新能源汽车竞争对手；降低燃油车节油成本系数会增加燃油车产量和利润，同时降低总排放。政策启示有两点。第一，监管机构可以通过逐步收紧目标严格度、对积分价格波动设置上限以及促进信息披露以减少信息噪声，来增强市场稳定性，从而促进新能源汽车的普及。第二，企业在响应积分目标时应采用逐步调整规则，而非一次性变更。这些做法共同支持向低碳出行更有序的转型。",
+      "doi": "10.1016/j.eneco.2026.109383",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988326002628",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v159y2026ics0140988326002628.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:33:54+00:00",
+        "source_hash": "267d98b3e405202e3b15750cac65ae5d5e343ea4f5f3d7b4f03af1fee9599d8d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "abstract",
+        "matched_terms": [
+          "China's"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2026.109385",
+      "sequence": 10,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "Nonrenewable resources, endogenous reserves and environmental policy",
+      "title_cn": "不可再生资源、内生储量与环境政策",
+      "authors": [
+        "Pauli Lappi"
+      ],
+      "abstract_en": "This study develops a model for nonrenewable resource exploration and extraction containing all the relevant stages of operation from exploration to site reclamation, and uses the model for two purposes: to analyse the optimal exploration, development, and extraction decisions of a mining firm, and to design optimal environmental and biodiversity policies. The main novelty is the endogenization of reserves through the discovery process. The private solution is characterized, including conditions under which exploration and mine development are not performed. Then, the planner’s problem is analysed and compared with the private solution, and the optimal policy is derived. It is shown among other things that the discoveries must be richer in the social optimum than in the private optimum for it to be optimal to build a mine. In addition, corrective taxes have an informational advantage compared to the much used standards in that the regulator need not be informed of the reserve level.",
+      "abstract_cn": "本研究构建了一个包含从勘探到场地复垦所有相关操作阶段的不可再生资源勘探与开采模型，并利用该模型实现两个目的：分析矿业公司的最优勘探、开发与开采决策，以及设计最优的环境与生物多样性政策。主要创新点在于通过发现过程实现储量的内生性。刻画了私人解决方案，包括不进行勘探和矿山开发的条件。随后，分析了规划者的问题并与私人解决方案进行比较，并推导出最优政策。研究表明，在其他条件相同的情况下，社会最优下的发现必须比私人最优下的发现更丰富，才值得建设矿山。此外，与广泛使用的标准相比，矫正性税收具有信息优势，因为监管者无需了解储量水平。",
+      "doi": "10.1016/j.eneco.2026.109385",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988326002641",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v159y2026ics0140988326002641.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:33:57+00:00",
+        "source_hash": "1a528a9376da5943f7e087bda452e12d9cb61c1789cf3521c2cf2f6633e9ec7e"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2026.109386",
+      "sequence": 11,
+      "source_sequence": 11,
+      "article_type": "research-article",
+      "title_en": "Crude oil price pattern recognition and prediction based on sub-series clustering",
+      "title_cn": "基于子序列聚类的原油价格模式识别与预测",
+      "authors": [
+        "Kaiyue Lin",
+        "Hui Qu"
+      ],
+      "abstract_en": "Crude oil prices exhibit pronounced time-varying fluctuations and recurring local patterns. This study proposes a novel sub-series clustering framework for crude oil price pattern recognition and forecasting. Key findings demonstrate that: (1) the proposed method substantially reduces prediction errors for WTI crude oil futures prices, with particularly strong improvements during periods of elevated volatility; (2) the newly developed Multi-scale Trend (MsT) measure provides an effective quantification of sub-series similarity by capturing price dynamics across multiple temporal horizons, leading to enhanced forecasting accuracy; and (3) the framework maintains robust performance across alternative sample splits and different choices of cluster-level prediction models, remains stable when incorporating exogenous variables, and exhibits strong generalizability across diverse commodity markets.",
+      "abstract_cn": "原油价格表现出显著的时间变化波动和重复出现的局部模式。本研究提出了一种新颖的子序列聚类框架，用于原油价格模式识别和预测。主要发现表明：（1）所提出的方法大幅降低了WTI原油期货价格的预测误差，在高波动时期改善尤为显著；（2）新开发的多尺度趋势（MsT）度量通过捕捉多个时间范围内的价格动态，有效量化了子序列相似性，从而提高了预测准确性；（3）该框架在替代样本划分和不同聚类级预测模型选择下保持稳健性能，在纳入外生变量时保持稳定，并在多种商品市场中展现出强大的泛化能力。",
+      "doi": "10.1016/j.eneco.2026.109386",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988326002653",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v159y2026ics0140988326002653.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:33:59+00:00",
+        "source_hash": "eca2aa7302561b86390761e242f03a618c7c56f91c3ef8c33f2c91422db5c7ad"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2026.109387",
+      "sequence": 12,
+      "source_sequence": 12,
+      "article_type": "research-article",
+      "title_en": "Greening the implementation of the African Continental Free Trade Area Agreement",
+      "title_cn": "非洲大陆自由贸易区协定的绿色实施",
+      "authors": [
+        "Lionel Fontagné",
+        "Stephen Karingi",
+        "Simon Mevel",
+        "Cristina Mitaritonna",
+        "Yu Zheng"
+      ],
+      "abstract_en": "The African Continental Free Trade Area (AfCFTA) seeks to establish a single market for goods and services, enhance intra-African trade, and promote sustainable socioeconomic development. However, achieving these goals must be carefully balanced against the continent’s persistent challenges, including climate change and limited electricity access. This paper explores the trade–climate–energy nexus in Africa using MIRAGE-Power, a dynamic computable general equilibrium (CGE) model which captures interactions between trade and energy systems. We evaluate several scenarios: the standalone implementation of AfCFTA, as well as combinations of AfCFTA with climate policy measures such as the adoption of countries’ Nationally Determined Contributions (NDCs), a carbon pricing scheme based on the IMF’s international carbon price floor, and a coordinated mitigation effort proportional to national emissions. Our results indicate that aligning trade and climate policies, particularly through power sector decarbonization and regional grid integration, can generate mutually reinforcing benefits. While climate policies pose trade-offs with economic growth and energy access, a well-designed, equitable carbon pricing framework can mitigate these tensions. Reinvesting carbon revenues in renewable energy and cross-border electricity infrastructure can further support Africa’s green transition while improving energy access across the continent.",
+      "abstract_cn": "非洲大陆自由贸易区（AfCFTA）旨在建立商品和服务的单一市场，增强非洲内部贸易，并促进可持续的社会经济发展。然而，实现这些目标必须与非洲大陆持续存在的挑战（包括气候变化和电力供应有限）谨慎平衡。本文使用MIRAGE-Power（一种动态可计算一般均衡（CGE）模型，捕捉贸易与能源系统之间的相互作用）探讨非洲的贸易-气候-能源关系。我们评估了多种情景：单独实施AfCFTA，以及AfCFTA与气候政策措施的组合，例如采用各国的国家自主贡献（NDCs）、基于国际货币基金组织国际碳价格下限的碳定价方案，以及按国家排放比例协调的减缓努力。我们的结果表明，协调贸易与气候政策，特别是通过电力部门脱碳和区域电网整合，可以产生相互加强的效益。虽然气候政策对经济增长和能源获取带来权衡，但设计良好、公平的碳定价框架可以缓解这些紧张关系。将碳收入再投资于可再生能源和跨境电力基础设施，可以进一步支持非洲的绿色转型，同时改善整个非洲大陆的能源获取。",
+      "doi": "10.1016/j.eneco.2026.109387",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988326002665",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v159y2026ics0140988326002665.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:34:02+00:00",
+        "source_hash": "9b885cda75209a3516ec1dd3d97ced9e5c88399c02115bc7181f9028c25e4e01"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "大陆"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2026.109388",
+      "sequence": 13,
+      "source_sequence": 13,
+      "article_type": "research-article",
+      "title_en": "How does stochasticity affect the efficiency of solar power plants? The applications of stochastic directional distance function approach",
+      "title_cn": "随机性如何影响太阳能发电厂的效率？随机方向距离函数方法的应用",
+      "authors": [
+        "Xian-Peng Chen",
+        "Bai-Chen Xie",
+        "Hui Wang",
+        "Eoghan O'Neill"
+      ],
+      "abstract_en": "Increased solar power generation leads to greater complexity of power systems and significantly impacts energy security. It requires new theoretical models for efficiency assessment to characterize stochasticity of renewable resource inputs. These efficiency assessments provide analytical tools for policymakers in improving energy efficiency and combating climate change. Extending the axiomatic system of stochastic efficiency evaluation, this study proposes a new chance-constrained data envelopment analysis based on a directional distance function, to capture the statistical noise of volatile solar radiation. This method provides a practical measure of efficiency, and therefore models the performance of intermittent solar power generation within a joint production framework by means of a benchmarking analysis. This provides a robust analytical tool for energy economists and policymakers to assess the operational efficiency and cost-effectiveness of solar plants under high resource volatility. Its advantages and practicality are demonstrated by an empirical study of the power plants in Qinghai, China. Further analysis of geographical and seasonal variations indicates that environmental heterogeneity distorts the operational performance of solar power plants, and differences in the ability to adjust supply to demand are at the root of inefficiency gaps among plants.",
+      "abstract_cn": "太阳能发电量的增加导致电力系统复杂性增大，并对能源安全产生显著影响。这需要新的效率评估理论模型来刻画可再生资源输入的随机性。这些效率评估为政策制定者提高能源效率和应对气候变化提供了分析工具。本研究扩展了随机效率评估的公理体系，提出了一种基于方向距离函数的新机会约束数据包络分析方法，以捕捉波动性太阳辐射的统计噪声。该方法提供了一种实用的效率度量方式，因此通过基准分析在联合生产框架内模拟间歇性太阳能发电的性能。这为能源经济学家和政策制定者评估高资源波动性下太阳能发电厂的运营效率和成本效益提供了稳健的分析工具。其优势和实用性通过对中国青海省发电厂的实证研究得以展示。进一步的地理和季节变化分析表明，环境异质性扭曲了太阳能发电厂的运营绩效，而供应调整以适应需求的能力差异是各电厂效率差距的根源。",
+      "doi": "10.1016/j.eneco.2026.109388",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988326002677",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v159y2026ics0140988326002677.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:34:06+00:00",
+        "source_hash": "e27035d0962b8daee27f1c51e6eebe150658b0079bdc9c15dbde217d4c26cf34"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2026.109392",
+      "sequence": 14,
+      "source_sequence": 14,
+      "article_type": "research-article",
+      "title_en": "Early consumer response to electric buses in urban areas: Evidence from a discrete choice experiment",
+      "title_cn": "城市地区电动公交的早期消费者反应：来自离散选择实验的证据",
+      "authors": [
+        "Mirko Giagnorio",
+        "Siqi Feng",
+        "Tiziana D’Alfonso",
+        "Ricardo A. Daziano"
+      ],
+      "abstract_en": "Electric buses (e-buses) are receiving increasing attention from planners and decision-makers worldwide. However, the user perspective remains understudied, limiting understanding of how urban travellers respond to bus fleet electrification. This study addresses this research gap by investigating whether and how e-buses can enhance public transport attractiveness by improving ride comfort and leveraging environmental benefits. We conducted a web-based discrete choice experiment in Rome, Italy, and then estimated a hybrid choice model with latent variables capturing e-bus awareness, perceived environmental benefits, personal norms, and social norms. The model extends beyond travel times and costs to quantify the impacts of four service attributes of public transport on travel mode choice. Results show that travellers recognise the distinctive features of e-buses, such as cleaner, quieter, and smoother rides, though perceptions depend on prior familiarity with the technology. Notably, e-bus introduction would improve the external costs of transport and waiting conditions at bus stops. These advantages are most valued by regular users of public transport, indicating limited potential for inducing modal shift from private vehicles. In fact, car users appear less sensitive to environmental benefits and social norms, which helps explain their lower acceptance of e-buses. The findings enable targeted communication and effective policy design that highlight the advantages of e-buses to consumers who are more likely to adopt them.",
+      "abstract_cn": "电动公交车（e-buses）正受到全球规划者和决策者越来越多的关注。然而，用户视角的研究仍然不足，限制了对城市出行者如何响应公交车队电动化的理解。本研究通过调查电动公交车是否以及如何通过改善乘坐舒适性和利用环境效益来增强公共交通吸引力，填补了这一研究空白。我们在意大利罗马进行了一项基于网络的离散选择实验，然后估计了一个混合选择模型，其中包含捕捉电动公交认知、感知环境效益、个人规范和社会规范的潜在变量。该模型超越了出行时间和成本，量化了公共交通的四个服务属性对出行方式选择的影响。结果表明，出行者认识到电动公交的独特特征，如更清洁、更安静、更平稳的乘坐体验，尽管认知取决于对技术的先前熟悉程度。值得注意的是，电动公交的引入将改善交通的外部成本和公交站点的等待条件。这些优势最受公共交通常规用户的重视，表明诱导从私家车转移的潜力有限。事实上，汽车用户对环境效益和社会规范的敏感性较低，这有助于解释他们对电动公交的接受度较低。研究结果能够实现有针对性的沟通和有效的政策设计，突出电动公交对更可能采用它们的消费者的优势。",
+      "doi": "10.1016/j.eneco.2026.109392",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988326002719",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v159y2026ics0140988326002719.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:34:09+00:00",
+        "source_hash": "e191e8825239bfc821c1705382a6126396485a1676632ed824884919481280db"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2026.109393",
+      "sequence": 15,
+      "source_sequence": 15,
+      "article_type": "research-article",
+      "title_en": "Attaining carbon neutrality goals in the energy sector: A MCDM study towards sustainable energy development",
+      "title_cn": "实现能源部门碳中和目标：面向可持续能源发展的多准则决策研究",
+      "authors": [
+        "Anchal Gupta",
+        "Ashish Dwivedi",
+        "Sachin Kumar Mangla",
+        "Harreet Kaur",
+        "Manjari Garg",
+        "Sarah Ben Amor"
+      ],
+      "abstract_en": "The energy sector is considered to be one of the major producers of carbon emissions. The carbon emissions represent a significant contributor to global environmental degradation. Thus, there is a need to reduce carbon emissions and promote long-term sustainable development. This study provides insights into strategic policy approaches that target carbon footprint reduction and thereby enhance energy sustainability. This study develops a decision-making framework for assessing carbon emissions and developing carbon reduction programs. Initially, the study addresses significant concerns in the energy sector using the Situation-Actor-Process-Learnings-Actions-Performance (SAP-LAP) approach. After variable identification from SAP-LAP analysis, an Interpretive Ranking Process (IRP) is applied to establish interrelationships between actions and performance measures, and finally, actions are ranked. The results from the study underscore the necessity of proactive efforts such as carbon pricing mechanisms, subsidised and incentive energy utilization plans, and personnel and sustainable infrastructure requirements for enhancing energy resource efficiency to promote sustainability. The results highlight the necessity for strategic efforts and policies to reduce carbon emissions and support the goal of sustainable energy development. The findings from the IRP approach conclude that major initiatives, such as Government approvals, strategic planning, and smart grid integration, are the most effective steps in reaching carbon neutrality. Such findings present actionable recommendations for policymakers and business leaders to help make investment decisions and policy interventions to speed up the shift to clean energy. This study offers a novel contribution by identifying practical policy aligned actions and prioritizing them to strengthen overall performance while reducing emissions in the energy sectors of developing economies.",
+      "abstract_cn": "能源部门被认为是碳排放的主要来源之一。碳排放是全球环境恶化的重要贡献因素。因此，有必要减少碳排放并促进长期可持续发展。本研究提供了针对碳足迹减少的战略政策方法见解，从而增强能源可持续性。本研究开发了一个决策框架，用于评估碳排放和制定碳减排计划。首先，研究使用情境-行动者-过程-学习-行动-绩效（SAP-LAP）方法处理能源部门中的重大问题。在通过SAP-LAP分析识别变量后，应用解释性排序过程（IRP）建立行动与绩效度量之间的相互关系，最后对行动进行排序。研究结果强调了诸如碳定价机制、补贴和激励性能源利用计划以及人员和可持续基础设施需求等主动努力的必要性，以提高能源资源效率促进可持续性。结果突出了减少碳排放和支持可持续能源发展目标的战略努力和政策的必要性。IRP方法的发现得出结论，诸如政府批准、战略规划和智能电网整合等主要举措是实现碳中和的最有效步骤。这些发现为政策制定者和商业领袖提供了可操作的建议，以帮助做出投资决策和政策干预，加速向清洁能源的转变。本研究通过识别实际政策对齐的行动并对其进行优先排序，以加强整体绩效同时减少发展中经济体能源部门的排放，提供了新颖的贡献。",
+      "doi": "10.1016/j.eneco.2026.109393",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988326002720",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v159y2026ics0140988326002720.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:34:13+00:00",
+        "source_hash": "51dae762fb9019213d131228e3931ef8525012745ec1a63a327e59e724b630a4"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2026.109394",
+      "sequence": 16,
+      "source_sequence": 16,
+      "article_type": "research-article",
+      "title_en": "Extreme weather shocks and electricity security: Evidence from China",
+      "title_cn": "极端天气冲击与电力安全：来自中国的证据",
+      "authors": [
+        "Xiuqin Wu",
+        "Xinghao Li"
+      ],
+      "abstract_en": "Extreme weather poses growing risks to electricity security, yet its multidimensional effects remain underexplored. Using panel data for 30 Chinese provinces from 2008 to 2020, this study constructs a composite electricity security index and combines it with meteorological data from the GSOD dataset to estimate the impact of extreme weather. Fixed-effects estimates show that extreme heat significantly reduces electricity security, with the strongest effects concentrated in availability and sustainability. Mechanism analysis indicates that extreme heat increases residential electricity demand and reshapes the generation mix: hydropower and wind generation per unit of installed capacity decline, while thermal and solar generation per unit of installed capacity rise. The adverse effects are stronger in provinces participating in the “West-to-East Power Transmission” program as electricity exporters. Further results show that provinces connected to ultra-high-voltage transmission lines are more vulnerable to extreme heat, particularly exporting provinces, suggesting that rigid interprovincial transmission obligations may amplify local supply stress. These findings highlight the importance of dispatch flexibility and region-specific adaptation in strengthening power system resilience under climate stress.",
+      "abstract_cn": "极端天气对电力安全构成日益严重的风险，但其多维影响仍未得到充分探讨。利用2008年至2020年中国30个省份的面板数据，本研究构建了一个综合电力安全指数，并将其与GSOD数据集中的气象数据相结合，以估计极端天气的影响。固定效应估计显示，极端高温显著降低了电力安全，其最强效应集中在可用性和可持续性方面。机制分析表明，极端高温增加了居民用电需求，并重塑了发电结构：单位装机容量的水电和风电发电量下降，而单位装机容量的火电和太阳能发电量上升。在参与“西电东送”计划作为电力输出省份的地区，不利影响更为显著。进一步的结果显示，连接特高压输电线路的省份更容易受到极端高温的影响，尤其是输出省份，这表明刚性的省际输电义务可能加剧当地供应压力。这些发现强调了调度灵活性和区域特定适应措施在气候压力下增强电力系统韧性的重要性。",
+      "doi": "10.1016/j.eneco.2026.109394",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988326002732",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v159y2026ics0140988326002732.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:34:16+00:00",
+        "source_hash": "a2a35e68e2746e0113130f967c5c425f4b7453b64ab2ea004f959659f9440b5e"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2026.109402",
+      "sequence": 17,
+      "source_sequence": 17,
+      "article_type": "research-article",
+      "title_en": "Climate risk and agricultural green productivity: The role of adaptive technologies in China",
+      "title_cn": "气候风险与农业绿色生产率：中国适应性技术的作用",
+      "authors": [
+        "Xin Peng",
+        "Kuan Zhang",
+        "Jiajia Li"
+      ],
+      "abstract_en": "The application of intelligent technology to facility agriculture is of great significance for agriculture adapting to climate risks. This article employs text and data mining techniques to collect data on agricultural facility, smart agri-equipment and intelligent facility of China's 2418 counties, and combines the data of 1430 farmers, to innovatively construct an adaptive technology index system. Based on this, an empirical analysis is conducted on the impacts of climate risks on agricultural green productivity and the impact mechanism. And the moderating role of adaptive technologies in the impacts of climate risks on agricultural green productivity is further examined. This study finds that climate risks, especially extreme precipitation, have a significant negative impact on agricultural green productivity. Climate risks can affect agricultural green productivity through influencing factor input, agricultural output and pollutant emissions. The results about the moderating role of adaptive technologies show that agricultural facility and intelligent facility can significantly improve the impact of extreme cold on agricultural green productivity; and intelligent facility has a greater improving moderating effect than agricultural facility. This study contributes to the formulation of climate policies from the perspective of adaptive technology, further facilitating agricultural sustainable development.",
+      "abstract_cn": "将智能技术应用于设施农业对于农业适应气候风险具有重要意义。本文采用文本和数据挖掘技术，收集中国2418个县的农业设施、智能农机装备和智能设施数据，并结合1430个农户的数据，创新性地构建了适应性技术指标体系。在此基础上，实证分析了气候风险对农业绿色生产率的影响及其作用机制，并进一步考察了适应性技术在气候风险影响农业绿色生产率中的调节作用。研究发现，气候风险，尤其是极端降水，对农业绿色生产率有显著的负面影响。气候风险可以通过影响要素投入、农业产出和污染物排放来影响农业绿色生产率。关于适应性技术调节作用的结果表明，农业设施和智能设施能够显著改善极端寒冷对农业绿色生产率的影响；且智能设施的改善调节效应大于农业设施。本研究有助于从适应性技术的角度制定气候政策，进一步促进农业可持续发展。",
+      "doi": "10.1016/j.eneco.2026.109402",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988326002811",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v159y2026ics0140988326002811.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:34:19+00:00",
+        "source_hash": "0129c590ccc5c2c778ff3c6917e189b30f67a625812bbf7a02d7b34354ac7afe"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2026.109403",
+      "sequence": 18,
+      "source_sequence": 18,
+      "article_type": "research-article",
+      "title_en": "International crude oil price shocks and inflation tail risk tracing: New interpretation from four-component decomposition",
+      "title_cn": "国际原油价格冲击与通胀尾部风险追踪：四成分分解的新解释",
+      "authors": [
+        "Haiying Liu",
+        "Fangyu Tian",
+        "Tingting Zhao",
+        "Dayu Liu"
+      ],
+      "abstract_en": "This paper proposes a novel incomplete identified Bayesian-estimated Structural Vector Autoregression (S-VAR) model to re-decompose the international crude oil price into four components. Our research finds that: (1) Compared to the shocks from demand sides, supply shocks are the dominant cause of fluctuations in international crude oil prices; (2) For China, before 2010, imported inflation was mainly transmitted through channels related to oil consumption demand and specific demand; however, after 2010, the transmission channels shifted towards global economic activities; (3) The estimated distribution of inflation-at-risk suggests that sudden changes in global economic activity have become the core factor shaping the inflation distribution, serving as a prerequisite for warning against imported inflation and as a key basis for assessing the right-tail risks of inflation; (4) The extreme inflation risk forecast indicates that, at the present stage, China has not shown signs of right-tail inflation risks, and the probability of an outbreak of imported inflation or systemic deflation remains relatively low. This not only represents a significant positive aspect of China’s macroeconomic fundamentals but also provides valuable room for economic rebound in the post-pandemic period. This research provides insights for China to mitigate the risks of crude oil supply disruptions, conduct preemptive measures against potential shocks, and thus avoid being affected by tail risks of inflation.",
+      "abstract_cn": "本文提出了一种新颖的不完全识别贝叶斯估计结构向量自回归（S-VAR）模型，将国际原油价格重新分解为四个成分。研究发现：（1）与需求侧冲击相比，供给侧冲击是国际原油价格波动的主要原因；（2）对于中国，在2010年之前，输入性通胀主要通过石油消费需求和特定需求相关渠道传导；然而，在2010年之后，传导渠道转向全球经济活动；（3）通胀风险估计分布表明，全球经济活动的突然变化已成为塑造通胀分布的核心因素，作为预警输入性通胀的前提条件和评估通胀右尾风险的关键依据；（4）极端通胀风险预测显示，现阶段中国尚未出现右尾通胀风险的迹象，输入性通胀或系统性通缩爆发的概率仍然相对较低。这不仅是中国宏观经济基本面的重要积极方面，也为疫情后时期的经济反弹提供了宝贵空间。本研究为中国缓解原油供应中断风险、对潜在冲击采取预防性措施，从而避免受到通胀尾部风险的影响提供了见解。",
+      "doi": "10.1016/j.eneco.2026.109403",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988326002823",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v159y2026ics0140988326002823.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:34:22+00:00",
+        "source_hash": "8fa3c0b2b027070ee08c4876eb21d735b6f525396482ba4329e208a2d71b2523"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "abstract",
+        "matched_terms": [
+          "China’s"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2026.109409",
+      "sequence": 19,
+      "source_sequence": 19,
+      "article_type": "research-article",
+      "title_en": "Environmental dividends of population migration: The collaborative reduction of pollutant and carbon emissions",
+      "title_cn": "人口迁移的环境红利：污染物与碳排放的协同减排",
+      "authors": [
+        "Yan Bu",
+        "Bole Zhang",
+        "Ziteng Wang"
+      ],
+      "abstract_en": "Large-scale interregional population migration (PM) in China exerts a profound impact on the environment, and how PM affects the Collaborative Reduction of Pollutant and Carbon Emissions (CRPC) has become a critical issue in environmental economics. Using panel data from 278 Chinese cities (2006–2021) and quantifying CRPC through a marginal abatement cost approach, this study shows that PM significantly promotes CRPC. The effect is more pronounced in cities governed by local-origin officials, those included in key environmental protection programs, and those with a healthier government-business relationship. From a full production-process perspective, PM fosters CRPC improvement through three interconnected pathways: enhancing green innovation capacity (source prevention), optimizing labor allocation (process optimization), and facilitating industrial agglomeration (end-of-pipe governance). Talent introduction policies further reinforce these mechanisms. Further analysis reveals that relaxing hukou restrictions amplifies the environmental dividend of migration, and that this migration-induced dividend materializes only when local R&D intensity exceeds a threshold of 1.92%.",
+      "abstract_cn": "中国大规模跨区域人口迁移对环境产生深远影响，人口迁移如何影响污染物与碳排放的协同减排已成为环境经济学中的关键问题。利用中国278个城市的面板数据（2006-2021年），并通过边际减排成本方法量化协同减排，本研究表明人口迁移显著促进了协同减排。这一效应在本地籍官员治理的城市、纳入重点环境保护计划的城市以及政商关系更为健康的城市中更为显著。从全生产过程视角来看，人口迁移通过三条相互关联的路径促进协同减排改善：提升绿色创新能力（源头预防）、优化劳动力配置（过程优化）以及促进产业集聚（末端治理）。人才引进政策进一步强化了这些机制。进一步分析显示，放宽户籍限制放大了迁移的环境红利，且这种迁移带来的红利仅在当地研发强度超过1.92%的阈值时才会显现。",
+      "doi": "10.1016/j.eneco.2026.109409",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988326002884",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v159y2026ics0140988326002884.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:34:25+00:00",
+        "source_hash": "b271e2a48d53a5d41cc988a4432e1fac9be326a9fe3fd481fdcae58f330c7175"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "abstract",
+        "matched_terms": [
+          "in China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2026.109410",
+      "sequence": 20,
+      "source_sequence": 20,
+      "article_type": "research-article",
+      "title_en": "Power generators' emission reduction strategies under China's CEA and CCER schemes: A game-theoretic economic simulation",
+      "title_cn": "中国CEA与CCER机制下电力企业的减排策略：一项博弈论经济模拟",
+      "authors": [
+        "Yu-Jie Hu",
+        "Ai-Ling Luo",
+        "Yue-Jun Zhang"
+      ],
+      "abstract_en": "The dynamic economic effects of multi-mechanism carbon market designs on Chinese power generators' emission-reduction and supply-chain decisions remain underexplored. We develop profit-based models to study how technological abatement, China Emissions Allowance (CEA) trading, and Chinese Certified Emission Reduction (CCER) trading interact, and simulate their economic impacts on power producers. The analysis yields three main results. First, generation firms, especially those with a high share of clean electricity, are highly sensitive to the allocation benchmark and its annual decline rate. This underscores the importance of benchmark design for investment signals. Second, the profitability of coal-fired plants depends critically on collaboration costs with energy service companies (ESCOs). Lower collaboration costs favor coal-fired plants, whereas higher costs shift profits toward clean-energy producers and alter market structure. Third, tighter carbon market supervision promotes technological upgrading in clean-energy firms and can improve the profitability of coal-fired plants through more effective use of the CCER market. These results have implications for market design and firm strategy. We suggest adjusting allowance benchmarks dynamically with technological progress and setting CCER offset caps and substitution ratios that reflect firm characteristics. Coal-fired generators should invest in low-carbon technologies before entering the market at scale, while clean-energy producers benefit from early participation.",
+      "abstract_cn": "多机制碳市场设计对中国电力企业减排及供应链决策的动态经济影响仍未得到充分探讨。我们构建基于利润的模型，研究技术减排、中国碳排放配额（CEA）交易与中国核证自愿减排量（CCER）交易之间的相互作用，并模拟其对电力生产者的经济影响。分析得出三个主要结果。第一，发电企业，尤其是清洁电力占比高的企业，对分配基准及其年度下降率高度敏感。这凸显了基准设计对投资信号的重要性。第二，燃煤电厂的盈利能力关键取决于与能源服务公司（ESCOs）的合作成本。较低的合作成本有利于燃煤电厂，而较高的成本则将利润转向清洁能源生产者并改变市场结构。第三，更严格的碳市场监管促进清洁能源企业的技术升级，并可通过更有效地利用CCER市场提高燃煤电厂的盈利能力。这些结果对市场设计和企业战略具有启示意义。我们建议根据技术进步动态调整配额基准，并设定反映企业特征的CCER抵消上限和替代比例。燃煤发电企业应在大规模进入市场前投资低碳技术，而清洁能源生产者则受益于早期参与。",
+      "doi": "10.1016/j.eneco.2026.109410",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988326002896",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v159y2026ics0140988326002896.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:34:28+00:00",
+        "source_hash": "2180cd832f7f5e2a119906a38b56fd6766afa918bcc7e2c52a0fff7e59f46ed8"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China's"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2026.109412",
+      "sequence": 21,
+      "source_sequence": 21,
+      "article_type": "research-article",
+      "title_en": "Fiscal reforms with energy transition and climate benefits in oil exporting countries: The case of Nigeria",
+      "title_cn": "石油出口国能源转型与气候效益的财政改革：以尼日利亚为例",
+      "authors": [
+        "Maksym Chepeliev",
+        "Grzegorz Peszko",
+        "Dominique van der Mensbrugghe"
+      ],
+      "abstract_en": "This paper presents an incentive-compatible approach to engaging oil-exporting countries in climate policy by aligning mitigation with their own economic interests. It quantifies how alternative fiscal and industrial policies affect economic diversification and emissions in Nigeria, Africa's largest oil producer, and analyzes how domestic reforms interact with climate and energy policies implemented by trading partners.",
+      "abstract_cn": "本文提出了一种激励相容的方法，通过将减排与石油出口国自身经济利益相结合，促使它们参与气候政策。文章量化了替代性财政和产业政策如何影响非洲最大石油生产国尼日利亚的经济多样化和排放，并分析了国内改革如何与贸易伙伴实施的气候和能源政策相互作用。",
+      "doi": "10.1016/j.eneco.2026.109412",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988326002914",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v159y2026ics0140988326002914.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:34:30+00:00",
+        "source_hash": "2c910daee86dae3d866dab6fbfd1d0f7361ab94f5faba1793fd955d8cbdcff73"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2026.109413",
+      "sequence": 22,
+      "source_sequence": 22,
+      "article_type": "research-article",
+      "title_en": "Artificial intelligence-powered hybrid probability density prediction for ultra-short-term offshore wind power: A model integrating TVFEMD, R2CMSE, and MCQRNNG",
+      "title_cn": "基于人工智能的混合概率密度预测用于超短期海上风电：集成TVFEMD、R2CMSE和MCQRNNG的模型",
+      "authors": [
+        "Haiying Liu",
+        "Ming Yang"
+      ],
+      "abstract_en": "The volatility of offshore wind power poses challenges for grid stability, necessitating reliable uncertainty quantification beyond deterministic forecasts. We propose a TRMG model that integrates time-varying filter empirical mode decomposition (TVFEMD), rapid refined composite multi-timescale entropy (R2CMSE), and an AI-based monotonic composite quantile regression neural network (QRNN) with Gaussian kernel estimation (MCQRNNG) for probabilistic prediction. Experiments conducted on TenneT offshore wind data demonstrated the TRMG’s strategic emphasis on uncertainty metrics over point accuracy. Compared to the EMD-based hybrid ERMG, TRMG reduces interval width by 53.846% (prediction interval normalized averaged width (PINAW): 0.036 vs. 0.078) and probabilistic error by 29.062% (pinball loss: 29.745 vs. 41.931 MW). Compared with the sample-entropy-based TSMG model, TRMG achieved superior coverage (prediction interval coverage probability: 0.841 vs. 0.403), 25.000% narrower intervals (PINAW: 0.036 vs. 0.048), and 70.555% lower distributional errors (pinball loss: 29.745 vs. 101.018 MW). Notably, when compared with the unconstrained quantile model TRQG with identical inputs, TRMG delivered 82.439% tighter intervals (PINAW: 0.036 vs. 0.205) through the monotonicity constraints of the MCQRNN, eliminated quantile crossing (0.000 vs. 0.510 MW for the two-layer QRNN), and provided the narrowest prediction bounds in the industry. The TRMG equips grid operators with decision-ready uncertainty estimates, which are essential for renewable integration and energy-security planning.",
+      "abstract_cn": "海上风电的波动性对电网稳定性构成挑战，需要超越确定性预测的可靠不确定性量化。我们提出了一种TRMG模型，该模型集成了时变滤波经验模态分解（TVFEMD）、快速精细复合多尺度熵（R2CMSE）以及基于人工智能的单调复合分位数回归神经网络（QRNN）与高斯核估计（MCQRNNG），用于概率预测。在TenneT海上风电数据上进行的实验表明，TRMG在不确定性指标上优于点精度。与基于EMD的混合ERMG相比，TRMG将区间宽度减少了53.846%（预测区间归一化平均宽度（PINAW）：0.036对比0.078），概率误差减少了29.062%（弹球损失：29.745对比41.931兆瓦）。与基于样本熵的TSMG模型相比，TRMG实现了更高的覆盖率（预测区间覆盖概率：0.841对比0.403），区间宽度窄了25.000%（PINAW：0.036对比0.048），分布误差降低了70.555%（弹球损失：29.745对比101.018兆瓦）。值得注意的是，与具有相同输入的无约束分位数模型TRQG相比，TRMG通过MCQRNNG的单调性约束提供了82.439%更紧的区间（PINAW：0.036对比0.205），消除了分位数交叉（两层QRNN为0.000对比0.510兆瓦），并提供了行业中最窄的预测边界。TRMG为电网运营商提供了可直接用于决策的不确定性估计，这对于可再生能源并网和能源安全规划至关重要。",
+      "doi": "10.1016/j.eneco.2026.109413",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988326002926",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v159y2026ics0140988326002926.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:34:34+00:00",
+        "source_hash": "9b323ca1e4b683cf39a78a776a6b34185597949576967c22f2abb8eb16d7d7aa"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2026.109384",
+      "sequence": 23,
+      "source_sequence": 23,
+      "article_type": "research-article",
+      "title_en": "Gender ideology, neighborhood spillover, and cooking fuel choices in rural China",
+      "title_cn": "性别观念、邻里溢出效应与中国农村炊事燃料选择",
+      "authors": [
+        "Jiafeng Gu"
+      ],
+      "abstract_en": "Gender ideology can affect household energy consumption; however, the existing literature has ignored this aspect. Using data from household surveys, this study employs econometric modeling to examine the impact of gender ideology on household cooking fuel choices and their underlying mechanisms. The results show that an emancipatory gender ideology can substantially promote adoption of clean cooking fuels by households. The results of the mechanistic analysis show that gender ideology encourages the adoption of clean cooking fuels through two pathways: increased internet use and exercise. Furthermore, the impact of gender ideology on households' choice of cooking fuel is moderated by income and the importance of internet, with neighborhood spillover effects and heterogeneity. The HOUSE model, developed by integrating households and neighbors, clarifies the complex relationship between gender ideology and household cooking fuel choice. This study provides meaningful theoretical and practical guidance for encouraging rural households to adopt cleaner cooking fuel.",
+      "abstract_cn": "性别观念可以影响家庭能源消费；然而，现有文献忽视了这一方面。利用家庭调查数据，本研究采用计量经济学模型考察性别观念对家庭炊事燃料选择的影响及其内在机制。结果表明，解放性的性别观念能显著促进家庭采用清洁炊事燃料。机制分析结果显示，性别观念通过增加互联网使用和锻炼两条途径鼓励采用清洁炊事燃料。此外，性别观念对家庭炊事燃料选择的影响受到收入和互联网重要性的调节，并存在邻里溢出效应和异质性。通过整合家庭与邻里开发的HOUSE模型，阐明了性别观念与家庭炊事燃料选择之间的复杂关系。本研究为鼓励农村家庭采用更清洁的炊事燃料提供了有意义的理论和实践指导。",
+      "doi": "10.1016/j.eneco.2026.109384",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S014098832600263X",
+      "publication_date": "February 2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v159y2026ics014098832600263x.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:34:36+00:00",
+        "source_hash": "a3c7226b1d46fc18e82c69a3671986470a0ea85de53d2c8a826dc74195e89dc2"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "repec-serial-page",
+    "roster_authority": "repec-publisher-supplied",
+    "roster_match_scope": "repec-volume-items",
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 23,
+    "authors_complete": 23,
+    "abstract_en_complete": 23,
+    "translation_complete": 23,
+    "duplicate_count": 0,
+    "repec_item_count": 23,
+    "flags": [],
+    "official_item_count": 23,
+    "publishable_item_count": 23,
+    "content_counts": {
+      "official_items": 23,
+      "observed_items": 23,
+      "publishable_items": 23,
+      "research_articles": 23,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 23
+    }
+  },
+  "content_counts": {
+    "official_items": 23,
+    "observed_items": 23,
+    "publishable_items": 23,
+    "research_articles": 23,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 23
+  },
+  "issue_label": "Vol. 159",
+  "publication_state": "ready"
+}
