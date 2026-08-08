@@ -8,9 +8,9 @@
   "issue_label": "Vol. 109",
   "publication_date": "September 2026",
   "source_url": "https://www.sciencedirect.com/journal/journal-of-health-economics/vol/109/suppl/C",
-  "retrieved_at": "2026-08-08T11:59:50+00:00",
-  "expected_article_count": 2,
-  "research_article_count": 2,
+  "retrieved_at": "2026-08-08T18:17:14+00:00",
+  "expected_article_count": 3,
+  "research_article_count": 3,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
@@ -49,7 +49,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 3646,
+                "remaining": 3302,
                 "resets_at": "2026-08-12T02:35:01+00:00",
                 "els_status": "OK"
               }
@@ -57,7 +57,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 3646,
+            "remaining": 3302,
             "resets_at": "2026-08-12T02:35:01+00:00",
             "els_status": "OK"
           }
@@ -111,7 +111,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 3645,
+                "remaining": 3301,
                 "resets_at": "2026-08-12T02:35:01+00:00",
                 "els_status": "OK"
               }
@@ -119,7 +119,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 3645,
+            "remaining": 3301,
             "resets_at": "2026-08-12T02:35:01+00:00",
             "els_status": "OK"
           }
@@ -142,6 +142,70 @@
         "matched_terms": [],
         "source": "academic-door-rules-v1"
       }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jhealeco.2026.103174",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Consolidation of Local Health Authorities and mortality in the Italian NHS",
+      "title_cn": "地方卫生当局的整合和意大利 NHS 的死亡率",
+      "authors": [
+        "Silvia Balia",
+        "Rinaldo Brau",
+        "Sara Pau"
+      ],
+      "abstract_en": "This paper studies the health consequences of administrative centralization in healthcare, focusing on the consolidation of Local Health Authorities (LHAs) within the Italian National Health Service. This type of reform fits within a broader set of cost-containment efforts aimed at reducing administrative expenditures and exploiting economies of scale. In the Italian case, the reform centralized governance and expanded the scale of health administration, creating authorities with substantially larger catchment areas and shifting decision-making to more heterogeneous jurisdictions. Such changes may affect the responsiveness of healthcare provision to local needs, the coordination of service delivery, and access to care. Using an event-study Difference-in-Differences design, we estimate the policy’s impact on municipal mortality rates, accounting for heterogeneous treatment effects and co-occurring fiscal adjustment policies. We find a significant increase in mortality starting four years after implementation, with an average treatment effect on the treated of 2.1%. The effects are concentrated in municipalities belonging to absorbed LHAs and in those exposed to mergers involving relatively large pre-reform LHAs and substantial post-merger expansions in catchment areas; they are also unevenly distributed, creating new vulnerable areas. Welfare estimates based on life-years lost indicate that the monetary costs of increased mortality exceed plausible administrative savings by roughly an order of magnitude.",
+      "abstract_cn": "本文研究了医疗保健行政集中化对健康的影响，重点关注意大利国家卫生服务体系内地方卫生当局 (LHA) 的整合。此类改革适合旨在减少行政支出和利用规模经济的更广泛的成本控制努力。以意大利为例，改革集中了治理并扩大了卫生管理规模，建立了管辖范围更大的当局，并将决策权转移到更加多元化的司法管辖区。这些变化可能会影响医疗保健服务对当地需求的响应、服务提供的协调以及获得护理的机会。使用事件研究双重差分法设计，我们估计了该政策对城市死亡率的影响，并考虑了异质性治疗效果和同时发生的财政调整政策。我们发现实施四年后死亡率显着增加，平均治疗效果为2.1%。影响集中在属于被吸收的地方行政区的城市，以及那些受到涉及改革前相对较大的地方行政区合并以及合并后集水区大幅扩张的影响的城市；它们的分布也不均匀，造成了新的脆弱地区。基于生命损失年数的福利估计表明，死亡率增加的货币成本超出了合理的行政节省大约一个数量级。",
+      "abstract_snippet_en": "This paper studies the health consequences of administrative centralization in healthcare, focusing on the consolidation of Local Health Authorities (LHAs) within the Italian National Health Service....",
+      "doi": "10.1016/j.jhealeco.2026.103174",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S016762962600072X?dgcid=rss_sd_all",
+      "publication_date": "September 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-health-economics/vol/109/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/01676296",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 3300,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 3300,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-08T18:17:48+00:00",
+        "source_hash": "3c963cabad9d3b58e5e353da95a06b0446b7dc7d8e96e84911d91907622ed34a"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     }
   ],
   "quality": {
@@ -151,14 +215,14 @@
     "roster_authority": "publisher-rss",
     "roster_match_scope": "rss-volume-items",
     "rss_url": "https://rss.sciencedirect.com/publication/science/01676296",
-    "official_item_count": 2,
-    "publishable_item_count": 2,
+    "official_item_count": 3,
+    "publishable_item_count": 3,
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 2,
-    "authors_complete": 2,
-    "abstract_en_complete": 2,
-    "translation_complete": 2,
+    "doi_complete": 3,
+    "authors_complete": 3,
+    "abstract_en_complete": 3,
+    "translation_complete": 3,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_sciencedirect_rss_fallback",
@@ -166,31 +230,31 @@
       "official_order_unverified"
     ],
     "content_counts": {
-      "official_items": 2,
-      "observed_items": 2,
-      "publishable_items": 2,
-      "research_articles": 2,
+      "official_items": 3,
+      "observed_items": 3,
+      "publishable_items": 3,
+      "research_articles": 3,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 2
+      "catalog_content_items": 3
     }
   },
   "content_counts": {
-    "official_items": 2,
-    "observed_items": 2,
-    "publishable_items": 2,
-    "research_articles": 2,
+    "official_items": 3,
+    "observed_items": 3,
+    "publishable_items": 3,
+    "research_articles": 3,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 2
+    "catalog_content_items": 3
   },
   "publication_state": "ready"
 }
