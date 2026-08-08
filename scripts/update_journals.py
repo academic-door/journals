@@ -1368,6 +1368,8 @@ def _newest_publishable_archived(
 def update_indexes(
     journal_configs: dict[str, dict[str, Any]],
     issues: dict[str, dict[str, Any]],
+    *,
+    archive_current: bool = True,
 ) -> None:
     updated_at = now_iso()
     collection_config = yaml.safe_load(
@@ -1520,7 +1522,7 @@ def update_indexes(
         else:
             checks[f"{config['id']}_available"] = False
         journal_entries[key] = entry
-        if issue:
+        if issue and archive_current:
             archive_issue(issue)
             write_archive_index(
                 config["id"],
@@ -1603,6 +1605,9 @@ def update_indexes(
         "url": "https://academic-door.github.io/journals/",
         "updated_at": updated_at,
         "status": health["status"],
+        "journal_count": enabled_count,
+        "available_journal_count": usable_count,
+        "field_journal_count": max(0, enabled_count - 5),
         "latest_title": f"期刊最新卷期 · {usable_count}/{enabled_count} 家期刊可用",
         "latest_url": "https://academic-door.github.io/journals/",
         "data_url": "https://academic-door.github.io/journals/api/v1/index.json",

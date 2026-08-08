@@ -15,6 +15,16 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       <p class="section-kicker">SEARCH</p>
       <h1>跨刊检索</h1>
     </section>
+    <nav class="curated-paths" aria-label="编辑型研究入口">
+      <a href="?china=1">
+        <span>中国相关论文</span>
+        <small>从 49 刊最新卷期中筛选</small>
+      </a>
+      <a href={base + "fields/"}>
+        <span>按领域进入</span>
+        <small>浏览 44 本领域期刊</small>
+      </a>
+    </nav>
 
     <form id="global-search-form" class="global-search-toolbar" role="search" data-base={base}>
       <label class="global-search-input">

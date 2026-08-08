@@ -735,12 +735,48 @@ def _date_year(item: dict[str, Any]) -> str:
 
 
 def _publication_date(issn: str, volume: str, issue: str, items: list[dict]) -> str:
-    year = next((_date_year(item) for item in items if _date_year(item)), "")
+    requested_volume = str(volume or "").strip().casefold()
+    requested_issue = str(issue or "").strip().casefold()
+    candidates = list(items)
+
+    if requested_volume:
+        candidates = [
+            item
+            for item in candidates
+            if str(item.get("volume") or "").strip().casefold()
+            == requested_volume
+        ]
+        if not candidates:
+            return ""
+
+    if requested_issue and requested_issue != "c":
+        issue_candidates = [
+            item
+            for item in candidates
+            if str(item.get("issue") or "").strip().casefold()
+            == requested_issue
+        ]
+        # Some continuous-volume Crossref records omit the issue field. For
+        # numbered issues, however, use an exact match whenever Crossref
+        # exposes one so sibling issues cannot collapse onto the same month.
+        if issue_candidates:
+            candidates = issue_candidates
+        elif any(str(item.get("issue") or "").strip() for item in candidates):
+            # Do not substitute a sibling issue's month when Crossref exposes
+            # issue numbers but has no record for the requested one. Leaving
+            # the date unchanged is safer than repeating one month across an
+            # entire volume.
+            return ""
+
+    years = [year for item in candidates if (year := _date_year(item))]
+    year = Counter(years).most_common(1)[0][0] if years else ""
     month = MONTHS_BY_ISSUE.get(issn, {}).get(issue, "")
     if month and year:
         return f"{month} {year}"
     dated_months: list[int] = []
-    for item in items:
+    for item in candidates:
+        if year and _date_year(item) != year:
+            continue
         for key in ("published-print", "published", "issued", "published-online"):
             parts = item.get(key, {}).get("date-parts", [])
             if parts and parts[0] and len(parts[0]) >= 2:

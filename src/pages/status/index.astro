@@ -10,6 +10,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     <section class="page-heading compact-heading">
       <p class="section-kicker">DATA STATUS</p>
       <h1>数据状态</h1>
+      <p class="status-intro">内容能否复制发布，与目录顺序是否经过官方来源核验，分开计算。</p>
     </section>
     <p id="monitor-note" class="monitor-note" aria-live="polite"></p>
     <section id="status-summary" class="status-summary" aria-live="polite">
@@ -27,9 +28,8 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         <div class="quality-row quality-header" role="row">
           <span role="columnheader">期刊</span>
           <span role="columnheader">最新卷期</span>
-          <span role="columnheader">目录内容</span>
-          <span role="columnheader">摘要进度</span>
-          <span role="columnheader">来源与顺序</span>
+          <span role="columnheader">内容就绪</span>
+          <span role="columnheader">来源核验</span>
           <span role="columnheader">发布状态</span>
         </div>
         <div id="quality-rows"></div>
@@ -41,37 +41,83 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       String(value).replace(/[&<>"']/g, (character) => ({
         "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
       }[character]));
-    const fetchJson = (url, fallback = {}) => fetch(url)
-      .then((response) => response.ok ? response.json() : fallback)
-      .catch(() => fallback);
+    const fetchFailures = [];
+    const fetchJson = (url, fallback = {}, label = url) => fetch(url)
+      .then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      })
+      .catch((error) => {
+        fetchFailures.push(`${label}：${error.message}`);
+        return fallback;
+      });
     const sanitizeIssueLabel = (value = "") =>
       String(value).replace(/\s*[·,]?\s*No\.\s*C\b/gi, "").trim();
     const sourceLabels = {
       official_page_verified: "官网页面已核对",
       publisher_feed_verified: "官方订阅源已核对",
-      fallback_verified: "多源交叉核对",
+      fallback_verified: "替代来源已核对",
       needs_attention: "来源需要检查",
       missing: "等待数据",
     };
+    const snapshotFreshness = (value = "") => {
+      const updated = Date.parse(value);
+      if (!Number.isFinite(updated)) return "更新时间未知";
+      const hours = Math.max(0, (Date.now() - updated) / 36e5);
+      return hours > 36 ? `数据快照已超过 ${Math.floor(hours)} 小时未更新` : "数据快照在正常更新窗口内";
+    };
+    const journalContentReady = (journal) => {
+      const total = Number(
+        journal.latest_detected_article_count ?? journal.article_count ?? 0
+      );
+      const abstracts = Number(
+        journal.latest_detected_abstracts_complete ?? total
+      );
+      const translations = Number(
+        journal.latest_detected_translations_complete
+          ?? journal.translation_complete
+          ?? 0
+      );
+      return total > 0 && abstracts === total && translations === total;
+    };
     Promise.all([
-      fetchJson(`${base}api/v1/health.json`),
-      fetchJson(`${base}api/v1/collections/top5.json`, { journals: [] }),
-      fetchJson(`${base}api/v1/collections/fields.json`, { journals: [] }),
-      fetchJson(`${base}api/v1/source-audit.json`, { journals: [], summary: {} }),
-      fetchJson(`${base}api/v1/monitoring.json`, { failed_journals: [], warning_journals: [], awaiting_official_journals: [] }),
+      fetchJson(`${base}api/v1/health.json`, {}, "健康状态"),
+      fetchJson(`${base}api/v1/collections/top5.json`, { journals: [] }, "TOP5 集合"),
+      fetchJson(`${base}api/v1/collections/fields.json`, { journals: [] }, "领域期刊集合"),
+      fetchJson(`${base}api/v1/source-audit.json`, { journals: [], summary: {} }, "来源审计"),
+      fetchJson(`${base}api/v1/monitoring.json`, { failed_journals: [], warning_journals: [], awaiting_official_journals: [] }, "更新监控"),
     ]).then(([health, top5, fields, sourceAudit, monitoring]) => {
       const journals = [...(top5.journals || []), ...(fields.journals || [])];
       const auditById = new Map((sourceAudit.journals || []).map((item) => [item.journal_id, item]));
-      const readyCount = journals.filter((journal) => journal.update_state === "ready").length;
+      const readyCount = journals.filter(journalContentReady).length;
       const enrichingCount = journals.length - readyCount;
-      const sourceSummary = sourceAudit.summary || {};
+      const officialOrderCount = journals.filter(
+        (journal) => journal.order_verification === "official_verified"
+      ).length;
+      const pendingOrderCount = journals.filter(
+        (journal) => journal.order_verification !== "official_verified"
+      ).length;
+      if (!journals.length) {
+        document.querySelector("#status-summary").innerHTML = `
+          <div class="status-empty"><strong>状态数据暂时不可用</strong><span>请刷新页面；若持续出现，请查看更新监控。</span></div>`;
+        document.querySelector("#quality-rows").innerHTML = "";
+        return;
+      }
       document.querySelector("#status-summary").innerHTML = `
-        <div><strong>${journals.length}</strong><span>监测期刊</span></div>
-        <div><strong>${readyCount}</strong><span>可复制发布</span></div>
-        <div><strong>${enrichingCount}</strong><span>正在补全</span></div>
-        <div><strong>${sourceSummary.needs_attention || 0}</strong><span>需要检查</span></div>
-        <div><strong>${(monitoring.failed_journals || []).length}</strong><span>更新受阻</span></div>
-        <div><strong>${(monitoring.awaiting_official_journals || []).length}</strong><span>等待官网确认</span></div>`;
+        <article class="trust-ledger content-ledger">
+          <div><p>CONTENT READINESS</p><h2>内容可用性</h2><span>最新检测卷期能否直接进入 Composer</span></div>
+          <strong>${readyCount}<small> / ${journals.length}</small></strong>
+        </article>
+        <article class="trust-ledger source-ledger">
+          <div><p>SOURCE VERIFICATION</p><h2>官方目录核验</h2><span>当前可发布快照的目录与顺序是否已核对</span></div>
+          <strong>${officialOrderCount}<small> / ${journals.length}</small></strong>
+        </article>
+        <div class="status-operations">
+          <span><b>${journals.length}</b> 监测期刊</span>
+          <span><b>${enrichingCount}</b> 正在补全</span>
+          <span><b>${pendingOrderCount}</b> 等待官网确认</span>
+          <span><b>${(monitoring.failed_journals || []).length}</b> 更新受阻</span>
+        </div>`;
       // 监测告警此前只存在于 monitoring.json 与 Actions 日志里，状态页看不到；
       // 期刊连续更新失败属于读者应当知情的信息，因此在这里如实列出。
       const blocked = monitoring.failed_journals || [];
@@ -79,13 +125,16 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       const awaitingOfficial = monitoring.awaiting_official_journals || [];
       const monitorNote = document.querySelector("#monitor-note");
       if (monitorNote) {
-        monitorNote.textContent = blocked.length
+        const monitoringMessage = blocked.length
           ? `以下期刊连续更新失败，页面继续展示上一份已核对数据：${blocked.join("、")}${awaitingOfficial.length ? `；等待官网确认：${awaitingOfficial.join("、")}` : ""}${watching.length ? `；待确认：${watching.join("、")}` : ""}`
           : awaitingOfficial.length
             ? `已发现新一期，等待官网确认（页面继续展示上一份已核对数据）：${awaitingOfficial.join("、")}${watching.length ? `；待确认：${watching.join("、")}` : ""}`
             : watching.length
-              ? `全部期刊更新正常；待确认：${watching.join("、")}`
+              ? `监测任务可用；待确认：${watching.join("、")}`
               : "全部期刊更新正常。";
+        const freshness = snapshotFreshness(health.updated_at || sourceAudit.updated_at);
+        const failureMessage = fetchFailures.length ? `；读取异常：${fetchFailures.join("、")}` : "";
+        monitorNote.textContent = `${monitoringMessage} ${freshness}${failureMessage}`;
       }
       document.querySelector("#quality-updated").textContent = `最近更新：${health.updated_at || sourceAudit.updated_at || "-"}`;
       document.querySelector("#quality-rows").innerHTML = journals.map((journal) => {
@@ -103,17 +152,15 @@ const base = import.meta.env.BASE_URL.endsWith("/")
           comments ? `评论 ${comments}` : "",
           shorts ? `短文 ${shorts}` : "",
         ].filter(Boolean).join(" · ");
-        const order = snapshot.order_verified === false || journal.latest_detected_order_verification === "pending_official"
-          ? "顺序自动复核中"
-          : "顺序已核对";
-        const ready = journal.update_state === "ready";
+        const orderVerified = journal.order_verification === "official_verified";
+        const order = orderVerified ? "可发布快照顺序已核对" : "可发布快照等待官网确认";
+        const ready = journalContentReady(journal);
         return `<div class="quality-row" role="row">
-          <strong class="journal-code" role="cell">${escapeHtml(journal.short_name)}</strong>
-          <span role="cell" data-label="最新卷期">${escapeHtml(sanitizeIssueLabel(journal.latest_detected_issue_label || journal.latest_issue_label) || "等待最新卷期")}</span>
-          <span role="cell" data-label="目录内容"><b>${total} 篇</b>${extras ? `<small>${escapeHtml(extras)}</small>` : ""}</span>
-          <span role="cell" data-label="摘要进度"><b>英文 ${abstracts}/${total}</b><small>中文 ${translations}/${total}</small></span>
-          <span role="cell" data-label="来源与顺序"><b>${escapeHtml(sourceLabels[audit.status] || "来源已记录")}</b><small>${escapeHtml(order)}</small></span>
-          <span role="cell" data-label="发布状态"><span class="state ${ready ? "ready" : "enriching"}">${ready ? "可发布" : "整理中"}</span></span>
+          <strong class="journal-code" role="cell"><b>${escapeHtml(journal.short_name)}</b><small>${escapeHtml(journal.name_cn || journal.name || "")}</small></strong>
+          <span role="cell" data-label="最新卷期"><b>${escapeHtml(sanitizeIssueLabel(journal.latest_detected_issue_label || journal.latest_issue_label) || "等待最新卷期")}</b><small>${escapeHtml(journal.latest_detected_publication_date || journal.publication_date || "日期待确认")}</small></span>
+          <span role="cell" data-label="内容就绪"><b>${total} 篇 · 英文 ${abstracts}/${total} · 中文 ${translations}/${total}</b>${extras ? `<small>${escapeHtml(extras)}</small>` : ""}</span>
+          <span role="cell" data-label="来源核验"><span class="source-state ${orderVerified ? "verified" : "pending"}">${escapeHtml(orderVerified ? "官网顺序已核对" : "等待官网确认")}</span><small>${escapeHtml(sourceLabels[audit.status] || "来源已记录")} · ${escapeHtml(order)}</small></span>
+          <span role="cell" data-label="发布状态"><span class="state ${ready ? "ready" : "enriching"}">${ready ? "可复制" : "整理中"}</span></span>
         </div>`;
       }).join("");
     }).catch((error) => {
@@ -122,48 +169,72 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   </script>
 </Layout>
 
-<style>
+<style is:global>
   .compact-heading { padding-bottom: 1.25rem; }
+  .status-intro { max-width: 620px; margin: .55rem 0 0; color: #62625e; }
   .monitor-note { margin: 0 0 1.25rem; color: #62625e; font-size: .82rem; line-height: 1.6; }
   .status-summary {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    border-block: 1px solid var(--line, #d9d9d5);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border: 1px solid var(--line, #d9d9d5);
     margin-bottom: 2.5rem;
   }
-  .status-summary > div { padding: 1rem 1.25rem; border-right: 1px solid var(--line, #d9d9d5); }
-  .status-summary > div:last-child { border-right: 0; }
-  .status-summary strong { display: block; font-size: 1.45rem; }
-  .status-summary span { color: #62625e; font-size: .82rem; }
+  .trust-ledger { display: flex; align-items: end; justify-content: space-between; gap: 1.5rem; min-height: 148px; padding: 1.35rem 1.5rem; }
+  .trust-ledger + .trust-ledger { border-left: 1px solid var(--line, #d9d9d5); }
+  .trust-ledger p { margin: 0; color: #72726d; font-size: .68rem; font-weight: 750; letter-spacing: .12em; }
+  .trust-ledger h2 { margin: .18rem 0 .25rem; font-size: 1.2rem; }
+  .trust-ledger span { color: #62625e; font-size: .78rem; }
+  .trust-ledger > strong { color: var(--green, #0b4639); font-family: Georgia, "Noto Serif SC", serif; font-size: clamp(2.4rem, 5vw, 4.4rem); font-weight: 500; line-height: .85; letter-spacing: -.055em; }
+  .trust-ledger > strong small { color: #777772; font-family: inherit; font-size: .34em; letter-spacing: 0; }
+  .source-ledger > strong { color: #855e18; }
+  .status-operations { display: grid; grid-column: 1 / -1; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line, #d9d9d5); }
+  .status-operations span { padding: .72rem 1.5rem; color: #62625e; font-size: .78rem; }
+  .status-operations span + span { border-left: 1px solid var(--line, #d9d9d5); }
+  .status-operations b { color: var(--ink, #17201d); font-size: 1rem; }
+  .status-empty { grid-column: 1 / -1; padding: 1.25rem; }
+  .status-empty strong, .status-empty span { display: block; }
+  .status-empty span { color: #62625e; font-size: .82rem; }
   .quality-heading { display: flex; justify-content: space-between; align-items: end; gap: 1rem; margin-bottom: 1rem; }
   .quality-heading h2 { margin: .2rem 0 0; }
   .quality-heading > p { color: #70706b; font-size: .78rem; }
   .quality-row {
     display: grid;
-    grid-template-columns: minmax(58px,.5fr) minmax(165px,1.55fr) minmax(120px,1fr) minmax(125px,1fr) minmax(160px,1.35fr) minmax(82px,.7fr);
-    gap: 1rem;
+    grid-template-columns: minmax(130px,1.05fr) minmax(150px,1.1fr) minmax(210px,1.7fr) minmax(220px,1.65fr) minmax(84px,.6fr);
+    gap: 1.15rem;
     align-items: center;
-    padding: .9rem .65rem;
+    padding: .95rem .8rem;
     border-bottom: 1px solid var(--line, #e1e1dd);
   }
+  .quality-row:not(.quality-header):nth-child(even) { background: color-mix(in srgb, var(--paper, #fff) 62%, transparent); }
   .quality-header { color: #70706b; font-size: .72rem; text-transform: uppercase; }
   .quality-row > span { min-width: 0; font-size: .82rem; }
   .quality-row b, .quality-row small { display: block; }
   .quality-row b { font-weight: 600; }
-  .quality-row small { color: #777772; margin-top: .18rem; }
-  .journal-code { font-size: .82rem; }
-  .state { display: inline-block; font-size: .75rem; font-weight: 650; }
+  .quality-row small { color: #6c6c67; margin-top: .18rem; }
+  .journal-code b, .journal-code small { display: block; }
+  .journal-code b { font-size: .84rem; }
+  .journal-code small { margin-top: .15rem; color: #6c6c67; font-size: .7rem; font-weight: 500; }
+  .state, .source-state { display: inline-block; padding: .18rem .48rem; border-radius: 999px; font-size: .72rem; font-weight: 700; white-space: nowrap; }
   .state.ready { color: #237345; }
-  .state.enriching { color: #8a5b13; }
-  @media (max-width: 840px) {
-    .status-summary { grid-template-columns: repeat(2, minmax(0,1fr)); }
-    .status-summary > div:nth-child(2n) { border-right: 0; }
-    .status-summary > div:not(:nth-last-child(-n+1)) { border-bottom: 1px solid var(--line, #d9d9d5); }
+  .state.enriching { color: #8a5b13; background: #fff7e6; }
+  .source-state.verified { color: #237345; background: #e7f0ec; }
+  .source-state.pending { color: #855e18; background: #fff7e6; }
+  @media (max-width: 980px) {
+    .trust-ledger { align-items: start; flex-direction: column; min-height: 0; }
     .quality-header { display: none; }
     .quality-row { grid-template-columns: 72px minmax(0,1fr); gap: .55rem 1rem; padding: 1rem .25rem; }
-    .journal-code { grid-row: 1 / span 5; align-self: start; padding-top: .15rem; }
+    .journal-code { grid-row: 1 / span 4; align-self: start; padding-top: .15rem; }
     .quality-row > span { display: grid; grid-template-columns: 88px minmax(0,1fr); gap: .5rem; }
-    .quality-row > span::before { content: attr(data-label); color: #777772; font-size: .72rem; }
+    .quality-row > span::before { content: attr(data-label); color: #6c6c67; font-size: .72rem; }
     .quality-heading { align-items: start; flex-direction: column; }
+  }
+  @media (max-width: 620px) {
+    .status-summary { grid-template-columns: 1fr; }
+    .trust-ledger + .trust-ledger { border-top: 1px solid var(--line, #d9d9d5); border-left: 0; }
+    .status-operations { grid-template-columns: 1fr; }
+    .status-operations span + span { border-top: 1px solid var(--line, #d9d9d5); border-left: 0; }
+    .quality-row { grid-template-columns: 1fr; padding: 1rem .6rem; }
+    .journal-code { grid-row: auto; }
+    .quality-row > span { grid-template-columns: 100px minmax(0,1fr); }
   }
 </style>

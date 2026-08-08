@@ -1000,6 +1000,66 @@ class MetadataFallbackTests(unittest.TestCase):
         self.assertEqual("June", MONTHS_BY_ISSUE["0924-6460"]["6"])
         self.assertEqual("July", MONTHS_BY_ISSUE["0924-6460"]["7"])
 
+    def test_publication_date_filters_crossref_items_by_volume(self) -> None:
+        items = [
+            {
+                "volume": "160",
+                "published-print": {"date-parts": [[2026, 8]]},
+            },
+            {
+                "volume": "160",
+                "published-print": {"date-parts": [[2026, 8]]},
+            },
+            {
+                "volume": "159",
+                "published-print": {"date-parts": [[2026, 7]]},
+            },
+        ]
+        self.assertEqual(
+            "July 2026",
+            _publication_date("0167-2681", "159", "C", items),
+        )
+        self.assertEqual(
+            "",
+            _publication_date("0167-2681", "158", "C", items),
+        )
+
+    def test_publication_date_prefers_exact_numbered_issue(self) -> None:
+        items = [
+            {
+                "volume": "54",
+                "issue": "1",
+                "published-print": {"date-parts": [[2026, 3]]},
+            },
+            {
+                "volume": "54",
+                "issue": "2",
+                "published-print": {"date-parts": [[2026, 6]]},
+            },
+        ]
+        self.assertEqual(
+            "June 2026",
+            _publication_date("0147-5967", "54", "2", items),
+        )
+
+    def test_publication_date_never_borrows_a_sibling_issue_month(self) -> None:
+        items = [
+            {
+                "volume": "54",
+                "issue": "1",
+                "published": {"date-parts": [[2026, 3, 1]]},
+            },
+            {
+                "volume": "54",
+                "issue": "2",
+                "published": {"date-parts": [[2026, 6, 1]]},
+            },
+        ]
+        self.assertEqual(
+            "",
+            _publication_date("0147-5967", "54", "3", items),
+        )
+
     def test_get_content_patient_403_retries_then_succeeds(self) -> None:
         import requests
 

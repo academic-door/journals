@@ -31,6 +31,7 @@ EDITORIAL_PATTERN = re.compile(
     r"^\s*(?:an\s+)?issue\s+dedicated\s+to\b|"
     r"^\s*special\s+issue\b|themed\s+issue\b|"
     r"^introductory\s+essay\b|^\s*presidents?\s*$|"
+    r"^\s*introduction\s+by\s+(?:the\s+)?editors?\b|"
     r"\bintroduction(?:\s+to\b|\s*:|\s*$)",
     re.IGNORECASE,
 )

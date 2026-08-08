@@ -99,6 +99,8 @@ jobs:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: |
           python scripts/update_journals.py --journal "${{ inputs.journal || 'ALL' }}" --translate ${{ inputs.re-enrich-elsevier && '--re-enrich-elsevier' || '' }}
+          python scripts/repair_history_dates.py
+          python scripts/rebuild_public_snapshot.py --check
           python scripts/audit_public_data.py --strict-provenance
           python scripts/audit_source_alignment.py --strict
           python -m unittest discover -s tests -v
