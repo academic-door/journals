@@ -1,0 +1,824 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "energy-152-c",
+  "journal_id": "energy",
+  "journal_name": "Energy Economics",
+  "volume": "152",
+  "issue": "C",
+  "publication_date": "May 2025",
+  "source_url": "https://ideas.repec.org/s/eee/eneeco.html",
+  "retrieved_at": "2026-08-08T09:11:21+00:00",
+  "expected_article_count": 18,
+  "research_article_count": 18,
+  "status": "ready",
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.eneco.2025.108906",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Oil price expectations in explosive phases",
+      "title_cn": "爆炸性阶段的油价预期",
+      "authors": [
+        "Robinson Kruse-Becher",
+        "Philip Letixerant"
+      ],
+      "abstract_en": "Accurate oil price expectations are of great importance for a variety of economic and financial applications. We find that state-of-the-art market-based expectations only weakly outperform a simple no-change benchmark. This gives rise to changing the perspective from an unconditional to a conditional evaluation method. This consideration is relevant when the forecasting methods potentially behave very differently conditional on certain time-varying economic states. Strikingly, it seems that the no-change benchmark outperforms market-based expectations systematically during turbulent market phases. The entertained conditional predictive ability framework allows us to study the role of important state variables for the time-varying performance explicitly. Among these are established variables from the related oil market literature, covering oil price change measures, volatility as well as supply and demand. Additionally, we suggest a novel and complementing indicator for oil price explosiveness. Our results robustly indicate the existence of conditional time-variation. Furthermore, they underline the importance of the new indicator reflecting temporary exuberance and subsequently collapsing oil prices. We find similar results when evaluating expectations obtained from the Energy Information Administration. Besides various robustness checks and extensions, the practical usefulness is further illustrated in an out-of-sample oil price forecasting exercise. Our findings may have consequences for a variety of economic and financial applications e.g. construction of expectational shocks and testing for speculative oil price bubbles.",
+      "abstract_cn": "准确的油价预期对于多种经济和金融应用至关重要。我们发现，最先进的市场化预期仅微弱地优于简单的无变化基准。这促使我们将视角从无条件评估方法转向条件评估方法。当预测方法在某些时变经济状态下可能表现迥异时，这一考虑尤为重要。引人注目的是，在动荡的市场阶段，无变化基准似乎系统性地优于市场化预期。我们所采用的条件预测能力框架使我们能够明确研究重要状态变量在时变表现中的作用。其中包括来自相关石油市场文献的既有变量，涵盖油价变化度量、波动性以及供需。此外，我们提出了一种新颖且互补的油价爆炸性指标。我们的结果稳健地表明存在条件时变性。此外，它们强调了反映暂时性繁荣及随后油价崩溃的新指标的重要性。在评估来自能源信息管理局的预期时，我们发现了类似的结果。除了各种稳健性检验和扩展之外，样本外油价预测练习进一步说明了其实用性。我们的发现可能对多种经济和金融应用产生影响，例如预期冲击的构建和投机性油价泡沫的检验。",
+      "doi": "10.1016/j.eneco.2025.108906",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988325007339",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v152y2025ics0140988325007339.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:11:26+00:00",
+        "source_hash": "a26d203067141c83c51e8aba29dc838e1d785529df3c97a5a46c301303698320"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2025.108919",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "DEA for big wide data based on regularization approaches: An application to energy efficiency analysis",
+      "title_cn": "基于正则化方法的大宽数据DEA：能源效率分析的应用",
+      "authors": [
+        "Mengyuan Wang",
+        "Ya Chen",
+        "Valentin Zelenyuk"
+      ],
+      "abstract_en": "In data envelopment analysis (DEA), the problem of the curse of dimensionality is a tough nut to crack when a relatively large dimension of inputs and outputs exists, especially in the context of big wide data. To solve the problem of the curse of dimensionality, the existing literature has proposed several LASSO-type methods combining LASSO and adaptive LASSO (ALASSO) with DEA or sign-constrained convex nonparametric least squares (SCNLS), e.g., LASSO＋DEA, ALASSO＋DEA, and ALASSO-SCNLS. In this paper, we propose another hybrid approach by combining the non-negative least squares (NNLS) regression with DEA, and call it NNLS＋DEA. Compared to the existing LASSO-type methods, NNLS＋DEA has a simpler penalty function for regularization, does not have a tuning parameter, and does not require cross-validation. When comparing the performance of NNLS＋DEA with the LASSO-type methods, our Monte Carlo simulations show that: (1) LASSO＋DEA shows better performance compared to ALASSO＋DEA and ALASSO-SCNLS despite the merit of consistent variable selection of the ALASSO; (2) NNLS＋DEA shows slightly better performance than LASSO＋DEA for relatively small sample sizes or considerably large dimensions; (3) NNLS＋DEA clearly dominates LASSO＋DEA in the computing time, especially for large dimensions. Finally, we also provide an empirical illustration, applying NNLS＋DEA to estimate efficiency with real data for Swedish electricity distribution system operators and for Chinese provincial energy data.",
+      "abstract_cn": "在数据包络分析（DEA）中，当输入和输出的维度相对较大时，尤其是在大宽数据的背景下，维度灾难问题是一个难以解决的难题。为了解决维度灾难问题，现有文献提出了几种LASSO类型的方法，将LASSO和自适应LASSO（ALASSO）与DEA或符号约束凸非参数最小二乘（SCNLS）相结合，例如LASSO＋DEA、ALASSO＋DEA和ALASSO-SCNLS。在本文中，我们提出了另一种混合方法，将非负最小二乘（NNLS）回归与DEA相结合，并称之为NNLS＋DEA。与现有的LASSO类型方法相比，NNLS＋DEA具有更简单的正则化惩罚函数，没有调优参数，并且不需要交叉验证。在比较NNLS＋DEA与LASSO类型方法的性能时，我们的蒙特卡洛模拟表明：（1）尽管ALASSO具有一致变量选择的优点，但LASSO＋DEA相比ALASSO＋DEA和ALASSO-SCNLS表现出更好的性能；（2）对于相对较小的样本量或相当大的维度，NNLS＋DEA比LASSO＋DEA表现出略好的性能；（3）NNLS＋DEA在计算时间上明显优于LASSO＋DEA，尤其是在大维度情况下。最后，我们还提供了一个实证示例，将NNLS＋DEA应用于瑞典电力配电系统运营商和中国的省级能源数据的实际数据，以估计效率。",
+      "doi": "10.1016/j.eneco.2025.108919",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988325007467",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v152y2025ics0140988325007467.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:11:29+00:00",
+        "source_hash": "8b63a17ba8b0a10e2c3606fa9e63e555324eba801abace8cea85f40279492971"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2025.108942",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Promoting willingness to pay for environmental charges in electricity tariff: Evidence from a randomized survey experiment",
+      "title_cn": "提升对电费中环境收费支付意愿的研究：来自随机调查实验的证据",
+      "authors": [
+        "Sungmin Lim",
+        "Syngjoo Choi",
+        "Jong Ho Hong",
+        "Booyuel Kim",
+        "Heerae Lee",
+        "Jinwook Shin"
+      ],
+      "abstract_en": "Despite a strong economic rationale, internalizing environmental externalities often encounters public resistance, impeding effective policy implementation. We conduct a randomized survey experiment with 4214 Korean electricity consumers to examine the causal effects of four information treatments on willingness to pay (WTP) for environmental charges in electricity tariffs: (i) emphasizing the substantial under-internalization of external costs; (ii) signaling bipartisan consensus on climate policy; (iii) showcasing successful international cooperation; and (iv) providing a cross-country comparison of climate efforts. Among the four treatments, only treatment (i) significantly increased WTP by 15%, with consistent positive effects across political subgroups. The other treatments exhibited a shared pattern of politically divergent responses — decreasing WTP among conservatives, increasing it among moderates, and having insignificant effect among liberals — leading to null average effects. Notably, this divergence emerged exclusively among those with inaccurate prior knowledge of existing charges. Our results demonstrate that effective communication for corrective pricing critically depends on transcending political divisions, with fairness-based frames highlighting cost responsibility showing the most promise.",
+      "abstract_cn": "尽管存在强有力的经济理由，将环境外部性内部化常常遭遇公众阻力，阻碍了有效政策的实施。我们对4214名韩国电力消费者进行了一项随机调查实验，以检验四种信息处理对电费中环境收费支付意愿（WTP）的因果效应：（i）强调外部成本内部化严重不足；（ii）传递气候政策的两党共识信号；（iii）展示成功的国际合作；（iv）提供气候努力的跨国比较。在四种处理中，仅处理（i）显著提高了支付意愿15%，且在不同政治子群体中效果一致。其他处理则表现出政治分歧反应的共同模式——保守派支付意愿降低，温和派支付意愿增加，自由派影响不显著——导致平均效应为零。值得注意的是，这种分歧仅出现在对现有收费有错误先验知识的群体中。我们的结果表明，有效沟通矫正性定价的关键在于超越政治分歧，而基于公平性、强调成本责任的框架显示出最大的潜力。",
+      "doi": "10.1016/j.eneco.2025.108942",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988325007698",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v152y2025ics0140988325007698.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:11:32+00:00",
+        "source_hash": "815a4078ce61b33f922e8ca9564c36724647b8264ac9b666d2ad98bb9025d7f2"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2025.108947",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Understanding energy security in geopolitical contexts: Insights from decomposing energy diversification indexes",
+      "title_cn": "地缘政治背景下的能源安全理解：基于能源多元化指数分解的洞察",
+      "authors": [
+        "Thuy Dao",
+        "Haithem Awijen",
+        "Rizwan Ahmed",
+        "Hachmi Ben Ameur"
+      ],
+      "abstract_en": "This study examines the influence of technological innovation and geopolitical risk on energy security by analyzing energy diversification indices—the Adjusted Herfindahl–Hirschman Index (HHI) and Country Diversification Index (CDI)—across 117 nations from 2002 to 2021. Utilizing Pooled OLS, Feasible Generalized Least Squares (FGLS), and Multilevel Regression models, we evaluate the impact of patent-driven innovation and geopolitical volatility on energy diversification, political risk, and covariance effects. Our study concentrates on significant geopolitical events, such as the Iraq War, the Annexation of Crimea, and the 2014 Oil Price Collapse. Findings indicate that technological innovation consistently improves diversification and covariance dimensions, however, its impact on risk is contingent upon specific events. Conversely, geopolitical risk exhibits inconsistent statistical significance, indicating a more intricate, indirect influence on energy security outcomes. These findings provide practical recommendations for policymakers aiming to integrate an innovation-focused energy strategy with resilience to geopolitical disruptions.",
+      "abstract_cn": "本研究通过分析2002年至2021年间117个国家的能源多元化指数——调整后的赫芬达尔-赫希曼指数（HHI）和国家多元化指数（CDI），考察了技术创新和地缘政治风险对能源安全的影响。利用混合OLS、可行广义最小二乘法（FGLS）和多层次回归模型，我们评估了专利驱动的创新和地缘政治波动对能源多元化、政治风险和协方差效应的影响。我们的研究聚焦于重大地缘政治事件，如伊拉克战争、克里米亚并入和2014年油价暴跌。研究结果表明，技术创新持续改善多元化和协方差维度，然而，其对风险的影响取决于具体事件。相反，地缘政治风险在统计显著性上表现不一致，表明其对能源安全结果存在更复杂、间接的影响。这些发现为政策制定者提供了实用建议，旨在将创新导向的能源战略与对地缘政治干扰的韧性相结合。",
+      "doi": "10.1016/j.eneco.2025.108947",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988325007741",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v152y2025ics0140988325007741.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:11:35+00:00",
+        "source_hash": "83b66b2489b75f60fbf099ee3843d9651abb7c4f0c22b904b977bef4b5979239"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2025.108948",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Operational uncertainty and the missing money problem",
+      "title_cn": "运行不确定性与缺失资金问题",
+      "authors": [
+        "Han Shu",
+        "Siva Visvesvaran",
+        "Jacob Mays"
+      ],
+      "abstract_en": "This study investigates how algorithmic choices in power system operations affect the total compensation available to different technologies participating in wholesale electricity markets. We focus on systems that utilize capacity payments. The need for capacity payments arises due to the “missing money” problem, i.e., that prices in short-term markets for energy and ancillary services are suppressed below the level required to support resource adequacy. Capacity payments to different technologies are calibrated under the assumption that price suppression occurs only in instances of scarcity, such that market operators can restore theoretically efficient remuneration by tying capacity payments to estimates of production during scarcity events. However, the complexity of power system operations creates challenges with short-term price formation that can lead to price suppression in non-scarcity hours. Compensating for this form of price suppression through capacity payments results in inefficient remuneration overall. In simulations using data from the New York Independent System Operator, we show that current configurations can result in elevated payments to peaking power plants relative to technologies whose production is spread over more hours of the year (e.g., nuclear, wind, and hydropower). The results reinforce the case for price formation reforms that shift the composition of overall revenue in wholesale electricity markets away from capacity toward energy and ancillary services.",
+      "abstract_cn": "本研究探讨了电力系统运行中的算法选择如何影响参与批发电力市场的不同技术可获得的总补偿。我们关注使用容量支付的系统。容量支付的需求源于“缺失资金”问题，即短期能源和辅助服务市场的价格被抑制在支持资源充足性所需的水平之下。对不同技术的容量支付是在假设价格抑制仅发生在稀缺情况下进行校准的，这样市场运营商可以通过将容量支付与稀缺事件期间的生产估计挂钩来恢复理论上有效的报酬。然而，电力系统运行的复杂性给短期价格形成带来了挑战，可能导致非稀缺时段的电价抑制。通过容量支付补偿这种形式的价格抑制会导致整体报酬效率低下。在使用纽约独立系统运营商数据的模拟中，我们表明当前的配置可能导致对调峰电厂的支付相对于其生产分布在一年中更多小时的技术（如核电、风电和水电）更高。结果强化了价格形成改革的理由，即应将批发电力市场总收入的构成从容量转向能源和辅助服务。",
+      "doi": "10.1016/j.eneco.2025.108948",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988325007753",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v152y2025ics0140988325007753.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:11:38+00:00",
+        "source_hash": "52c791e721722709db0bbc0b935f349dea8d8f2b7c4d037741a791d624697ed3"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2025.108950",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Environmental bonds and public liability for resource extraction site cleanup",
+      "title_cn": "环境债券与资源开采场地清理的公共责任",
+      "authors": [
+        "Margaret Insley"
+      ],
+      "abstract_en": "Governments have been left with large liabilities for cleanup at natural resource extraction sites after firms have declared bankruptcy. This research studies the impact of different forms of financial assurance on a firm’s optimal actions over the full life cycle of a hypothetical natural gas well, in a world of uncertain natural gas prices, when firm bankruptcy may shift cleanup costs to the government. A firm’s optimal control problem is described by an HJB equation with the natural gas price modelled as a stochastic differential equation. The firm is assumed to declare bankruptcy if the lease value is negative. The impact of financial assurance is examined in relation to firm investment decisions, the cleanup liability imposed on government, and resource taxation revenue. Sureties in the form of a Cash Deposit and a Surety Bond are contrasted with the case of no financial assurance requirement. Numerical results demonstrate that in the presence of distortionary taxes, there is a trade off between indemnifying the government against cleanup costs versus maintaining government tax and royalty revenues. A numerically plausible case is presented in which the total value of the natural gas well (to the firm and the government) is not increased by the imposition of a strict form of financial assurance. It is important to consider financial assurance in the context of the suite of royalties and taxes collected by governments from the oil and gas industry as well as any potential environmental damages from shut-in oil and gas wells.",
+      "abstract_cn": "企业在宣告破产后，政府不得不承担自然资源开采场地清理的巨大责任。本研究探讨了在天然气价格不确定的世界中，不同形式的财务保证对企业在一口假设天然气井整个生命周期内最优行动的影响，此时企业破产可能将清理成本转嫁给政府。企业的最优控制问题由HJB方程描述，其中天然气价格被建模为随机微分方程。假设如果租赁价值为负，企业将宣告破产。财务保证的影响从企业投资决策、政府承担的清理责任以及资源税收收入三个方面进行考察。现金存款和保证债券形式的担保与无财务保证要求的情况进行了对比。数值结果表明，在存在扭曲性税收的情况下，在保障政府免受清理成本影响与维持政府税收和特许权使用费收入之间存在权衡。本文提出了一个数值上合理的案例，在该案例中，严格形式的财务保证的实施并未增加天然气井的总价值（对企业或政府而言）。重要的是，在考虑政府从石油和天然气行业征收的特许权使用费和税收组合以及关停油气井可能造成的任何潜在环境损害时，应综合考虑财务保证。",
+      "doi": "10.1016/j.eneco.2025.108950",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988325007777",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v152y2025ics0140988325007777.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:11:41+00:00",
+        "source_hash": "407608a5adf08a412fbb9f31e4dce7e56a71ac60a8cd66dc16e401af3add67b7"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2025.108951",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Self-enforcing international environmental agreements with climate tipping events",
+      "title_cn": "具有气候临界事件的自我执行国际环境协定",
+      "authors": [
+        "Lei Zhu",
+        "Zhihao Yan",
+        "Xin Liu",
+        "Xiaobing Zhang",
+        "Pengfei Liu"
+      ],
+      "abstract_en": "International environmental agreements (IEAs) can increase the efficiency of emission abatement and achieve climate change mitigation. Tipping events bring catastrophic and irreversible damages to ecological systems and human societies. This paper uses a game-theoretic model to investigate the effect of possible tipping events on countries’ emission and participation decisions in IEAs. Results show that if the emissions threshold of the tipping events is high, the possibility of tipping has no effect on the stable number of participants in IEAs. However, if the threshold for tipping is low, the damage associated with climate tipping determines if the climate system would cross the tipping point and the effect of possible tipping events increases the size of a stable coalition in a Stackelberg equilibrium. In a Nash equilibrium, the possibility of tipping would decrease the scope of participation in IEAs if the tipping damage is high, and induce more signatories in the IEAs if the tipping damage is moderate.",
+      "abstract_cn": "国际环境协定（IEAs）可以提高减排效率并实现气候变化缓解。临界事件给生态系统和人类社会带来灾难性和不可逆转的损害。本文使用博弈论模型研究可能的临界事件对各国在IEAs中的排放和参与决策的影响。结果表明，如果临界事件的排放阈值较高，临界可能性对IEAs中稳定参与者的数量没有影响。然而，如果临界阈值较低，与气候临界相关的损害决定了气候系统是否会越过临界点，并且可能的临界事件的影响增加了Stackelberg均衡中稳定联盟的规模。在纳什均衡中，如果临界损害较高，临界可能性会减少IEAs的参与范围，而如果临界损害适中，则会吸引更多签署国加入IEAs。",
+      "doi": "10.1016/j.eneco.2025.108951",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988325007789",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v152y2025ics0140988325007789.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:11:43+00:00",
+        "source_hash": "a8282727f7bc80788b88300248de41bbdefc27a53e7a97faa0ebe2810cc8b17a"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2025.108954",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Can artificial intelligence curb greenwashing? Firm-level evidence based on large language model",
+      "title_cn": "人工智能能否遏制漂绿行为？基于大语言模型的企业层面证据",
+      "authors": [
+        "Ling-Yun He",
+        "Liang Wang"
+      ],
+      "abstract_en": "Amid growing scrutiny of corporate environmental disclosures, concerns have intensified regarding the prevalence of greenwashing. Although the rapid advancement of artificial intelligence (AI) has drawn increasing attention for its transformative potential in corporate governance, its implications for environmental disclosure have only begun to receive scholarly attention and warrant further investigation. This paper investigates the impact of artificial intelligence adoption on corporate greenwashing using a panel dataset of Chinese A-share listed firms from 2011 to 2022. Leveraging a novel AI adoption index derived from a fine-tuned large language model (LLM), we conduct empirical tests to assess the relationship between AI use and firms’ greenwashing strategies. Our findings reveal that AI adoption significantly reduces the incidence of greenwashing, which remains robust across multiple validation checks. Decomposition analysis across different technological categories shows that planning and decision systems constitute the most influential strand of AI in curbing greenwashing. Mechanism analysis indicates that this effect operates through enhanced operational efficiency, improved human capital structure, and increased green innovation. Additional heterogeneity analysis across subsamples reveals that the deterrent impact exhibits greater intensity in firms characterized by non-state-owned firms, polluting sectors, and technology-intensive enterprises. By highlighting the governance potential of AI in promoting credible environmental disclosure, this study provides new empirical evidence on the intersection of digital transformation and corporate sustainability.",
+      "abstract_cn": "在企业环境信息披露受到日益严格审视的背景下，对漂绿行为普遍性的担忧不断加剧。尽管人工智能（AI）的快速发展因其在公司治理中的变革潜力而受到越来越多的关注，但其对环境信息披露的影响才刚刚开始受到学术界的重视，有待进一步研究。本文利用2011年至2022年中国A股上市公司的面板数据集，考察了人工智能采用对企业漂绿行为的影响。借助从微调的大语言模型（LLM）中得出的新型AI采用指数，我们进行了实证检验，以评估AI使用与企业漂绿策略之间的关系。研究结果表明，AI采用显著降低了漂绿行为的发生率，这一结论在多种稳健性检验中依然成立。跨不同技术类别的分解分析显示，规划与决策系统是AI遏制漂绿行为中最具影响力的部分。机制分析表明，这一效应通过提高运营效率、优化人力资本结构和增加绿色创新来实现。进一步的子样本异质性分析显示，这种威慑效应在非国有企业、污染行业和技术密集型企业中表现得更为强烈。通过强调AI在促进可信环境信息披露方面的治理潜力，本研究为数字转型与企业可持续性的交叉领域提供了新的经验证据。",
+      "doi": "10.1016/j.eneco.2025.108954",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988325007819",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v152y2025ics0140988325007819.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:11:46+00:00",
+        "source_hash": "d4bda75dad81bba5f773e8f6984f5934eb47d6ee4b3cb91d5400219d626200d7"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2025.108956",
+      "sequence": 9,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "Can digital collaboration curb corporate greenwashing: A perspective from government-bank-enterprise digital collaboration",
+      "title_cn": "数字协作能否抑制企业漂绿：来自政府-银行-企业数字协作的视角",
+      "authors": [
+        "Shiyi Chen",
+        "Jiafu Tian",
+        "Juan Lu",
+        "Qiang Bao"
+      ],
+      "abstract_en": "Can governments, banks, and enterprises strike a digital collaboration to rectify corporate greenwashing in the dual context of digital empowerment and rising environmental pollution? This study examine how corporate greenwashing is affected by government-bank-enterprise digital collaboration (GBEC) using data from 2011 to 2022. The findings demonstrate how governments, banks, and enterprises can work together digitally to reduce corporate greenwashing significantly. This study also identifies three critical mechanisms—the technical effect, management effect and capital effect. Additionally, GBEC can greatly reduce corporate greenwashing behavior to state-owned firms, highly polluting firms, and firms with low environmental regulation. Subsequent investigation shows that the impact of GBEC on greenwashing is moderated by isomorphic pressure. This study bridges the gap in the studies by offering a fresh study viewpoint for advancing firm social responsibility and rectifying corporate greenwashing practices in the digital age.",
+      "abstract_cn": "在数字赋能与环境污染加剧的双重背景下，政府、银行与企业能否通过数字协作来纠正企业漂绿行为？本研究利用2011年至2022年的数据，考察了政府-银行-企业数字协作（GBEC）如何影响企业漂绿。研究结果表明，政府、银行和企业如何通过数字协作显著减少企业漂绿。本研究还识别了三种关键机制——技术效应、管理效应和资本效应。此外，GBEC能大幅减少国有企业、高污染企业和环境规制较低企业的漂绿行为。进一步研究表明，GBEC对漂绿的影响受到同构压力的调节。本研究通过为数字时代推进企业社会责任和纠正企业漂绿实践提供新的研究视角，弥补了现有研究的空白。",
+      "doi": "10.1016/j.eneco.2025.108956",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988325007832",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v152y2025ics0140988325007832.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:11:48+00:00",
+        "source_hash": "0c19026bce1d35dc81f384860ede6d29244c7235851f4b4f8a2f8820789023e4"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2025.108957",
+      "sequence": 10,
+      "source_sequence": 11,
+      "article_type": "research-article",
+      "title_en": "The impact of Electric Vehicle adoption on residential electricity consumption: Insights from Sweden",
+      "title_cn": "电动汽车采用对居民电力消费的影响：来自瑞典的见解",
+      "authors": [
+        "Evelina Jansson"
+      ],
+      "abstract_en": "This paper studies residential charging behavior of Electric Vehicles (EVs) and its potential implications for electricity distribution grids in Sweden. Using a unique data set of almost 5,000 households living in the municipality of Umeå, Sweden, I estimate how adoption of an EV affects a household’s electricity consumption, and more specifically how the effect varies by type of EV (Battery Electric Vehicles (BEVs) and Plug-In Hybrid Vehicles (PHEVs)), and hour of the day. I find that adoption of a BEV (PHEV) increases an average household’s hourly electricity consumption by 20% (10%). Estimates of EV charging vary substantially by hour of the day, and most charging takes place during evening hours, when grid load is typically high. This implies that residential charging of EVs will further add to peak demand if households are not provided incentives to reallocate charging to off-peak hours. Peak hour pricing or off-peak discounts could be effective strategies to mitigate increased pressure on the grid.",
+      "abstract_cn": "本文研究了瑞典电动汽车（EV）的居民充电行为及其对电力分配电网的潜在影响。利用瑞典于默奥市近5,000户家庭的独特数据集，我估算了采用电动汽车如何影响家庭的电力消费，更具体地说，这种影响如何因电动汽车类型（纯电动汽车（BEV）和插电式混合动力汽车（PHEV））以及一天中的不同时段而变化。我发现，采用纯电动汽车（插电式混合动力汽车）会使普通家庭的每小时电力消费增加20%（10%）。电动汽车充电的估计值在不同时段差异显著，且大部分充电发生在晚间时段，此时电网负荷通常较高。这意味着，如果不为家庭提供将充电重新安排至非高峰时段的激励措施，居民电动汽车充电将进一步增加峰值需求。高峰时段定价或非高峰折扣可能是缓解电网压力增加的有效策略。",
+      "doi": "10.1016/j.eneco.2025.108957",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988325007844",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v152y2025ics0140988325007844.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:11:51+00:00",
+        "source_hash": "0632643efed009eceb4ad8a325604b78d859bc38271627282c164a9c6cd98de3"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2025.108959",
+      "sequence": 11,
+      "source_sequence": 12,
+      "article_type": "research-article",
+      "title_en": "Data-driven coordination and optimization of the digital economy and urban–rural integration",
+      "title_cn": "数字经济与城乡融合的数据驱动协调与优化",
+      "authors": [
+        "Fan Liu",
+        "Di Wang",
+        "CongHu Liu",
+        "Guangdong Tian"
+      ],
+      "abstract_en": "Fostering the coordinated development of the digital economy (DE) and urban–rural integration (URI) is considered a critical pathway to achieving sustainable growth. In this paper, we present a data-driven method for measuring, identifying, and testing the coupling coordination degree between DE and URI (DE–URI CCD). First, relevant data on DE and URI were collected, and an evaluation index system was established. Subsequently, the Technique for Order of Preference by Similarity to Ideal Solution method was applied to measure development levels, and the CCD model was used to assess their coordination. Meanwhile, the Dagum Gini coefficient was applied to identify regional differences, and the convergence model was employed to verify the convergence characteristics of the levels. Using 2013–2022 panel data from 30 Chinese provinces and cities, the findings show that (1) DE–URI CCD is rising in China with significant variations across regions; (2) inter-regional differences are the primary source of regional CCD disparities; and (3) economic development level and education level of labor force have varied impacts on CCD, exhibiting significant regional heterogeneities. To address these challenges, we propose a multi-level “National–Regional–Provincial” collaborative strategy, emphasizing the need for tailored policies that account for regional specificities. This research not only enriches the theoretical and methodological foundations of sustainable regional development but also provides actionable insights for policymakers aiming to bridge the urban–rural divide in the digital era. By aligning with the United Nations Sustainable Development Goals (SDGs), particularly SDG 11 (Sustainable Cities and Communities), this work underscores the importance of integrating digital innovation with inclusive development frameworks.",
+      "abstract_cn": "促进数字经济（DE）与城乡融合（URI）的协调发展被认为是实现可持续增长的关键路径。本文提出了一种数据驱动的方法，用于衡量、识别和检验数字经济与城乡融合之间的耦合协调度（DE–URI CCD）。首先，收集了DE和URI的相关数据，并建立了评价指标体系。随后，应用逼近理想解排序法（TOPSIS）衡量发展水平，并使用CCD模型评估其协调性。同时，采用Dagum基尼系数识别区域差异，并运用收敛模型验证水平的收敛特征。利用2013-2022年中国30个省市的面板数据，研究发现：（1）中国的DE–URI CCD呈上升趋势，但区域间差异显著；（2）区域间差异是区域CCD差异的主要来源；（3）经济发展水平和劳动力受教育水平对CCD的影响各异，表现出显著的区域异质性。为应对这些挑战，我们提出了多层次的“国家—区域—省级”协同战略，强调需要针对区域特殊性制定定制化政策。本研究不仅丰富了可持续区域发展的理论与方法论基础，也为政策制定者在数字时代弥合城乡差距提供了可操作的见解。通过与联合国可持续发展目标（SDGs）特别是SDG 11（可持续城市和社区）保持一致，本研究强调了将数字创新与包容性发展框架相结合的重要性。",
+      "doi": "10.1016/j.eneco.2025.108959",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988325007868",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v152y2025ics0140988325007868.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:11:55+00:00",
+        "source_hash": "7060db199fdd3652d9b45d9a9ee0477fc2e1f6cd0c7c7dbe6ffd5586e05e07d1"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "abstract",
+        "matched_terms": [
+          "in China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2025.108962",
+      "sequence": 12,
+      "source_sequence": 13,
+      "article_type": "research-article",
+      "title_en": "How does household engagement in the public-welfare carbon generalized system of preferences affect household carbon emissions? Evidence from ant forest and household survey data in China",
+      "title_cn": "家庭参与公益碳普惠如何影响家庭碳排放？来自蚂蚁森林和中国家庭追踪调查数据的证据",
+      "authors": [
+        "Yuanying Chi",
+        "Yuxi Wu",
+        "Yanzhao Zhang",
+        "Zhengzao Wang",
+        "Mengwan Zhang",
+        "Xufeng Zhang"
+      ],
+      "abstract_en": "The Carbon Generalized System of Preferences (CGSP) is an innovative mechanism proposed in China to quantify households' energy-saving and carbon-reducing behaviors and provide corresponding incentives. This mechanism is significant for promoting low-carbon consumption and fostering green and sustainable lifestyles. This study examines the influence of household engagement in the Public Welfare-oriented Carbon Generalized System of Preferences (PW-CGSP) on household carbon mitigation. The 2016 version of Ant Forest, an online public welfare project, was adopted as a quasi-natural experiment, and a generalized difference-in-differences model using household data from the 2014–2020 China Family Panel Studies (CFPS) was employed. The findings reveal that, first, participation in Ant Forest significantly curbs the growth of household carbon emissions (HCE). This conclusion remains robust after applying machine learning methods and various robustness checks. Second, the carbon-reduction effects of participation exhibit heterogeneity across space, household characteristics, and consumption structure. Specifically, the effect is stronger in urban than in rural areas and is more pronounced in the eastern and northeastern regions. Moreover, small-scale households experience relatively large reductions. From the perspective of household consumption structure, strong suppressive effects is observed on HCE from household appliances and supplies, and food consumption. Finally, participation in Ant Forest partly reduces HCE by enhancing environmental awareness among household members. The study outlines policy recommendations, including adopting gamification designs to further incentivize user behavior and developing differentiated mechanisms tailored to local conditions.",
+      "abstract_cn": "碳普惠制是中国提出的创新机制，旨在量化家庭节能减碳行为并提供相应激励。该机制对于促进低碳消费和培育绿色可持续生活方式具有重要意义。本研究考察了家庭参与公益型碳普惠制对家庭碳减排的影响。采用2016年版蚂蚁森林这一在线公益项目作为准自然实验，并利用2014-2020年中国家庭追踪调查（CFPS）的家庭数据，构建广义双重差分模型。研究发现：第一，参与蚂蚁森林显著抑制了家庭碳排放的增长。在应用机器学习方法和多种稳健性检验后，这一结论依然稳健。第二，参与的碳减排效应在空间、家庭特征和消费结构方面表现出异质性。具体而言，城市地区的效应强于农村地区，东部和东北地区的效应更为显著。此外，小规模家庭经历了相对较大的减排。从家庭消费结构来看，对家用电器及用品和食品消费产生的家庭碳排放具有较强抑制作用。最后，参与蚂蚁森林部分通过提升家庭成员的环境意识来减少家庭碳排放。研究提出了政策建议，包括采用游戏化设计以进一步激励用户行为，以及因地制宜发展差异化机制。",
+      "doi": "10.1016/j.eneco.2025.108962",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988325007893",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v152y2025ics0140988325007893.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:11:57+00:00",
+        "source_hash": "c513d52df937e31f9f911f9f3237fb07fb602d57e1e6c0ff4f51293c1357c464"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2025.108964",
+      "sequence": 13,
+      "source_sequence": 14,
+      "article_type": "research-article",
+      "title_en": "The effects of the energy star program on consumer electronics",
+      "title_cn": "能源之星计划对消费电子产品的影响",
+      "authors": [
+        "Scott J. Savage"
+      ],
+      "abstract_en": "I design choice experiments to estimate consumer preferences for energy-efficient televisions. I use my estimates to simulate the prices for the important strategic players following the removal of the blue energy star label from their television models. My results show four main findings. The representative household is willing to pay an additional $71 for a television with the label, which is 25 % more efficient than conventional models. Willingness-to-pay exceeds the typical household's utility-bill savings. Prices and profits decline for all models without the label. And, the overall decrease in welfare is about 14 % of total firm profits in the baseline, with over half of this decrease matching foregone utility-bill savings. On the one hand, my findings suggest that the blue energy star label helps firms and consumers make informed decisions about the branding and quality of energy efficiency. On the other hand, sizeable benefits appear to arise from mechanisms that are independent from cost savings, such as the green premium.",
+      "abstract_cn": "我设计了选择实验来估计消费者对节能电视的偏好。我利用我的估计结果模拟了在蓝色能源之星标签从其电视型号上移除后，重要战略参与者的价格变化。我的结果显示了四个主要发现。代表性家庭愿意为带有该标签的电视额外支付71美元，这比传统型号节能25%。支付意愿超过了典型家庭的公用事业账单节省。所有没有标签的型号的价格和利润都会下降。并且，总体福利下降约为基准情况下企业总利润的14%，其中超过一半的下降对应于放弃的公用事业账单节省。一方面，我的发现表明蓝色能源之星标签帮助企业和消费者就能源效率的品牌和质量做出明智决策。另一方面，可观的收益似乎来自于与成本节省无关的机制，例如绿色溢价。",
+      "doi": "10.1016/j.eneco.2025.108964",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988325007911",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v152y2025ics0140988325007911.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:12:00+00:00",
+        "source_hash": "e17ebe7319e746d7faa949feaee68aa24608155dc4a07db6e5e298a6b465a5e9"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2025.108968",
+      "sequence": 14,
+      "source_sequence": 15,
+      "article_type": "research-article",
+      "title_en": "How are patent decisions affected by environmental regulation?",
+      "title_cn": "环境规制如何影响专利决策？",
+      "authors": [
+        "Pak-Sing Choi",
+        "Ana Espínola-Arredondo",
+        "Félix Muñoz-García",
+        "Eugenio Diaz-Farina"
+      ],
+      "abstract_en": "This paper examines how the presence of environmental regulation may induce shorter or longer patents. In the absence of environmental regulation, the patent office faces a well-known tradeoff: a longer patent yields a welfare benefit from inducing more R&D investment, but generates a welfare loss from allowing a longer monopoly during the patent period. When environmental policy is present, we show that the welfare loss is emphasized (ameliorated) when the environmental agency is less (more) flexible than the patent office, thus inducing shorter (longer) patents. We also consider green innovations, showing that environmental policy becomes less stringent, and patent decisions approach those in the absence of regulation.",
+      "abstract_cn": "本文考察了环境规制的存在如何可能导致专利期限缩短或延长。在没有环境规制的情况下，专利局面临一个众所周知的权衡：更长的专利期限通过激励更多的研发投资带来福利收益，但同时也因在专利期内允许更长的垄断而造成福利损失。当存在环境政策时，我们表明，当环境机构比专利局更不灵活（更灵活）时，福利损失被加剧（缓解），从而导致专利期限缩短（延长）。我们还考虑了绿色创新，表明环境政策变得不那么严格，专利决策趋近于没有规制时的情形。",
+      "doi": "10.1016/j.eneco.2025.108968",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988325007959",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v152y2025ics0140988325007959.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:12:02+00:00",
+        "source_hash": "6a7f1b93c8f80b5c2f79dafb44f6a3caf017e63e8fc52b98ce1c4fa5cb6085e5"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2025.108969",
+      "sequence": 15,
+      "source_sequence": 16,
+      "article_type": "research-article",
+      "title_en": "Optimal bidding for a bundle of power transmission infrastructure works",
+      "title_cn": "电力传输基础设施工程捆绑的最优投标",
+      "authors": [
+        "Valentina Apablaza",
+        "Andrés Hernando",
+        "Mauricio G. Villena"
+      ],
+      "abstract_en": "Motivated by recent reforms in Chile’s electricity market, where bundled auctions are used to attract participation and accelerate investment, we develop a theoretical model that explains the strategic role of private financing conditions in such settings. We put forward an optimal bidding mechanism for a bundle of power transmission infrastructure works. Specifically, the regulator auctions two works altogether: one is to be developed and operated by the winning bidder, while the other is an owner-operated and financed expansion of an existing work. Participants bid jointly for both contracts, and the package is awarded based on the lowest total bid. The costs are divided into a common developing part for all participants and a private part related to financing. The optimal bidder offers the expected value of the costs, adjusted for the cost advantage over the second lowest bidder. This approach efficiently allocates the works to the firm with the lowest combined costs. However, rents persist due to the informational and cost advantage in financing. When a bidder expects higher costs, it requests a higher payment, which reduces its chances of winning the bid.",
+      "abstract_cn": "受智利电力市场近期改革的启发，其中捆绑拍卖被用于吸引参与和加速投资，我们开发了一个理论模型来解释私人融资条件在此类环境中的战略作用。我们提出了一种针对电力传输基础设施工程捆绑的最优投标机制。具体而言，监管机构同时拍卖两项工程：一项由中标者开发和运营，另一项是对现有工程的所有者运营和融资扩建。参与者对两个合同联合投标，并根据最低总投标额授予该组合。成本分为所有参与者共同的开发部分和与融资相关的私人部分。最优投标者提供成本的期望值，并根据相对于第二低投标者的成本优势进行调整。这种方法将工程有效分配给总成本最低的公司。然而，由于融资中的信息和成本优势，租金仍然存在。当投标者预期成本较高时，它会要求更高的支付，这降低了其赢得投标的机会。",
+      "doi": "10.1016/j.eneco.2025.108969",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988325007960",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v152y2025ics0140988325007960.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:12:05+00:00",
+        "source_hash": "f8aaed5e371cb90c99b9fc7138baabab0ebac66c5f0baa19da15819c5ca00f83"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2025.108976",
+      "sequence": 16,
+      "source_sequence": 17,
+      "article_type": "research-article",
+      "title_en": "Is the Government always greener?",
+      "title_cn": "政府总是更绿色吗？",
+      "authors": [
+        "Caterina Di Tommaso",
+        "Salvatore Perdichizzi",
+        "Samuel Vigne",
+        "Andrea Zaghini"
+      ],
+      "abstract_en": "We investigate whether public issuers obtain cheaper funding for green projects than their private peers. Analysing 5.905 green bonds placed worldwide between 2014 and 2021, we find that government entities secure yields about 50 basis points below comparable non-government bonds, with the discount widening to nearly 70 basis points in 2019–2021. Sovereigns lead this advantage, but the benefit is visible across the whole public sector. Country characteristics – strong climate-policy scores, high public-debt ratios, and lower income levels – help explain cross-sectional differences in the spread, while episodes of heightened geopolitical or policy uncertainty further enlarge it. Taken together, the evidence points to a clear “public balance-sheet premium”, indicating that green-bond pricing is jointly governed by issuer identity and time-varying global risk conditions.",
+      "abstract_cn": "我们调查了公共发行人在绿色项目融资方面是否比私人同行获得更便宜的资金。通过分析2014至2021年间全球发行的5.905只绿色债券，我们发现政府实体获得的收益率比可比的非政府债券低约50个基点，且在2019-2021年间这一折扣扩大至近70个基点。主权国家在这一优势中领先，但这一好处在整个公共部门都可见。国家特征——较强的气候政策得分、较高的公共债务比率和较低的收入水平——有助于解释利差的横截面差异，而地缘政治或政策不确定性加剧的时期进一步扩大了这一差异。综合来看，证据指向一个明确的“公共资产负债表溢价”，表明绿色债券定价同时受发行人身份和随时间变化的全球风险状况共同影响。",
+      "doi": "10.1016/j.eneco.2025.108976",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988325008060",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v152y2025ics0140988325008060.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:12:07+00:00",
+        "source_hash": "d691b2f6a554b33ec65e6d7b01e1962b1660cc222884f37d703935596d815307"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2025.108977",
+      "sequence": 17,
+      "source_sequence": 18,
+      "article_type": "research-article",
+      "title_en": "Geopolitical risk and extreme spillovers among oil-based energy commodities",
+      "title_cn": "地缘政治风险与石油类能源商品间的极端溢出效应",
+      "authors": [
+        "Evžen Kočenda",
+        "Peter Albrecht",
+        "Daniel Pastorek"
+      ],
+      "abstract_en": "We investigate the impact and propagation of geopolitical risk among oil-based energy commodities. First, we endogenously identify key geopolitical events affecting the connectedness among the oil-based commodities and then evaluate their transitory and persistent impacts. We identify four major shocks that resulted in persistent shifts in connectedness: the 9/11 attacks, the Crimea crisis, the political shift in Nigeria, and the Russian invasion of Ukraine. Using a quantile-based framework, we demonstrate that volatility transmissions due to geopolitical risk are not uniform but significantly depend on market conditions. Notably, heating oil and crude oil are identified as primary transmitters of risk, especially during economic turmoil. We quantify the negative economic and financial impacts of geopolitical risks through a multivariate dynamic portfolio analysis and through an impact on the profitability of ten global banks with high exposure to oil commodities. Our findings enhance the understanding of how geopolitical shocks influence connectedness and informed portfolio decisions, highlighting the need for adaptive strategies in finance.",
+      "abstract_cn": "我们研究了地缘政治风险对石油类能源商品的影响及其传播机制。首先，我们内生地识别了影响石油类商品间关联性的关键地缘政治事件，并评估了它们的暂时性和持续性影响。我们识别出四个导致关联性发生持久转变的重大冲击：9/11袭击、克里米亚危机、尼日利亚政治变动以及俄罗斯入侵乌克兰。利用基于分位数的框架，我们证明地缘政治风险引起的波动率传导并非均匀一致，而是显著依赖于市场状况。值得注意的是，取暖油和原油被识别为主要的风险传递者，尤其是在经济动荡时期。我们通过多元动态投资组合分析以及评估对十家高度涉足石油商品业务的全球银行盈利能力的影响，量化了地缘政治风险的负面经济和金融影响。我们的发现加深了对地缘政治冲击如何影响关联性及知情投资组合决策的理解，强调了在金融领域采取适应性策略的必要性。",
+      "doi": "10.1016/j.eneco.2025.108977",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988325008072",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v152y2025ics0140988325008072.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-08T09:12:14+00:00",
+        "source_hash": "8d339ba8243a4bdf05e9e336269e6edb9e7c38759ccc8f898c92090b3933a20b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.eneco.2025.108979",
+      "sequence": 18,
+      "source_sequence": 19,
+      "article_type": "research-article",
+      "title_en": "Energy price shocks in the European Union: Macroeconomic impacts, distributional effects and policy responses",
+      "title_cn": "欧盟的能源价格冲击：宏观经济影响、分配效应和政策应对",
+      "authors": [
+        "Elise Kremer",
+        "Severin Reissl",
+        "Luca E. Fierro",
+        "Johannes Emmerling",
+        "Francesco Lamperti",
+        "Andrea Roventini"
+      ],
+      "abstract_en": "The macroeconomic consequences of energy shocks, their distributional effects, and the potential remedies have recently scaled up the EU policy agenda. In this paper, we employ an agent-based, stock-flow consistent model empirically calibrated to the EU27 economy to evaluate the macroeconomic effects of an energy price shock akin to that which took place in 2022. Our focus is on a scenario in which the economy experiences a sudden, sharp increase in the price of imported fossil fuels, which affects the price of energy and thereby firms’ production costs and output prices. We show that the magnitude and persistence of the resulting inflationary episode, as well as the effects on functional income distribution, employment and economic activity, strongly depend on government intervention, the sensitivity of nominal wage claims to inflation, and the extent to which increases (and subsequent decreases) in the price of energy inputs are passed on into final output prices. We find that an empirically calibrated mix of transfer payments can be very effective in mitigating the macroeconomic impacts of the energy price shock. However, such policy interventions are never able to fully countervail the shift towards profits of the income distribution. Additional price-targeting measures to ensure the full pass-through of energy price decreases once the shock recedes offer a solution to this issue.",
+      "abstract_cn": "能源冲击的宏观经济后果、其分配效应以及潜在的补救措施最近扩大了欧盟政策议程的范围。在本文中，我们采用基于代理的库存流量一致模型，根据 EU27 经济经验进行校准，以评估类似于 2022 发生的能源价格冲击的宏观经济影响。我们的重点是经济经历进口化石燃料价格突然大幅上涨的情况，这会影响能源价格，从而影响企业的生产成本和产出价格。我们表明，由此产生的通货膨胀事件的规模和持续时间，以及对功能性收入分配、就业和经济活动的影响，在很大程度上取决于政府干预、名义工资要求对通货膨胀的敏感性，以及能源投入价格的上涨（以及随后的下降）传递到最终产出价格的程度。我们发现，经过经验校准的转移支付组合可以非常有效地减轻能源价格冲击的宏观经济影响。然而，此类政策干预永远无法完全抵消收入分配向利润的转变。额外的价格目标措施可确保冲击消退后能源价格全面下跌，这为这一问题提供了解决方案。",
+      "doi": "10.1016/j.eneco.2025.108979",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988325008096",
+      "publication_date": "February 2025",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/eneeco.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/eneeco/v152y2025ics0140988325008096.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-08T09:12:45+00:00",
+        "source_hash": "faf255aa90709d27748be302711e00bb68ed551cab19883cc0a811952b1d0e1a"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "repec-serial-page",
+    "roster_authority": "repec-publisher-supplied",
+    "roster_match_scope": "repec-volume-items",
+    "excluded_item_count": 2,
+    "excluded_items": [
+      {
+        "title_en": "Corrigendum to ‘Carbon risk and technological Mergers and Acquisitions(M&A): The perspective of institutional pressures’ [Energy Economics Volume 143, March 2025, 108213]",
+        "reason": "correction_notice",
+        "doi": "10.1016/j.eneco.2025.108971",
+        "article_type": "correction"
+      },
+      {
+        "title_en": "ESG report tone and bond spreads",
+        "doi": "10.1016/j.eneco.2025.108955",
+        "article_type": "editorial",
+        "reason": "editorial_material"
+      }
+    ],
+    "doi_complete": 18,
+    "authors_complete": 18,
+    "abstract_en_complete": 18,
+    "translation_complete": 18,
+    "duplicate_count": 0,
+    "repec_item_count": 20,
+    "flags": [],
+    "official_item_count": 20,
+    "publishable_item_count": 18,
+    "content_counts": {
+      "official_items": 20,
+      "observed_items": 20,
+      "publishable_items": 18,
+      "research_articles": 18,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 1,
+      "editorial_material": 1,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 19
+    }
+  },
+  "content_counts": {
+    "official_items": 20,
+    "observed_items": 20,
+    "publishable_items": 18,
+    "research_articles": 18,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 1,
+    "editorial_material": 1,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 19
+  },
+  "issue_label": "Vol. 152"
+}
