@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-08T08:33:10+00:00
+Updated: 2026-08-08T08:37:10+00:00
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -387,6 +387,16 @@ Updated: 2026-08-08T08:33:10+00:00
 | JUE | jue-152-c | 2026 | complete |  |
 | JUE | jue-153-c | 2026 | complete |  |
 | JUE | jue-154-c | 2026 | complete |  |
+| LABECO | labeco-100-c | 2026 | complete |  |
+| LABECO | labeco-102-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 102/ |
+| LABECO | labeco-92-c | 2025 | complete |  |
+| LABECO | labeco-93-c | 2025 | complete |  |
+| LABECO | labeco-94-c | 2025 | complete |  |
+| LABECO | labeco-95-c | 2025 | complete |  |
+| LABECO | labeco-96-c | 2025 | complete |  |
+| LABECO | labeco-97-c | 2025 | translation_partial |  |
+| LABECO | labeco-98-c | 2026 | complete |  |
+| LABECO | labeco-99-c | 2026 | complete |  |
 | LANDECON | landecon-101-1 | 2025 | complete |  |
 | LANDECON | landecon-101-2 | 2025 | complete |  |
 | LANDECON | landecon-101-3 | 2025 | complete |  |
