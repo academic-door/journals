@@ -938,6 +938,10 @@ main,
   .composer-heading { display: block; }
   .composer-feedback { display: inline-block; max-width: 100%; margin-top: 12px; text-align: left; }
   .composer-toolbar { position: static; }
+  .composer-toolbar .button,
+  .composer-toolbar .composer-source select,
+  .composer-toolbar .style-settings-panel select,
+  .composer-toolbar .style-settings-panel input { min-height: 44px; }
   .composer-toolbar-row { align-items: flex-start; }
   .toolbar-stage { flex-basis: 100%; border-right: 0; }
   .composer-source { flex: 1 1 220px; display: grid; gap: 5px; }
