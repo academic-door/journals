@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-08T08:28:50+00:00",
   "expected_article_count": 7,
   "research_article_count": 7,
-  "status": "ready",
+  "status": "incomplete",
   "articles": [
     {
       "paper_id": "doi:10.1016/j.jhealeco.2024.102942",
@@ -262,14 +262,14 @@
       "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "Implications of the decline in LGBT rights for population mental health: Evidence from Polish “LGBT-free zones”",
-      "title_cn": "LGBT权利下降对人口心理健康的影响：来自波兰“无LGBT区域”的证据",
+      "title_cn": "",
       "authors": [
         "Chad D. Meyerhoefer",
         "Bingjin Xue",
         "Anna Poznańska"
       ],
       "abstract_en": "Theories of minority stress suggest recent legislation limiting LGBT rights can reduce the health of LGBT individuals and their families. We investigate how the creation of LGBT-free zones across Poland during 2019 and 2020 affected mental health and mortality. We find that annual suicide attempts increased by 16.5 %, or 5 attempts per 100k, deaths from external causes, including automobile accidents, suicides and other accidents and injuries increased 10.6 %, or 5.6 deaths per 100k, and suicide deaths increased 17.0 % (p = 0.108), or 1.9 deaths per 100k, in LGBT-free zones. The rise in suicide attempts was concentrated among individuals aged 13–18 and 45–49 and coincided with an 8.8 % increase in sales of prescription drugs for addictive disorders. However, there was no change in the use of psychotropic medications used to treat mental health conditions, indicative of limited access to mental health care.",
-      "abstract_cn": "少数群体压力理论认为，近期限制LGBT权利的立法可能会降低LGBT个体及其家人的健康。我们调查了2019年和2020年期间波兰各地创建无LGBT区域如何影响心理健康和死亡率。我们发现，在无LGBT区域，年度自杀未遂增加了16.5 %，即每100k人增加5次；外部原因导致的死亡（包括车祸、自杀及其他事故和伤害）增加了10.6 %，即每100k人增加5.6例；自杀死亡增加了17.0 %（p = 0.108），即每100k人增加1.9例。自杀未遂的增加集中在13-18岁和45-49岁的人群中，并且与成瘾障碍处方药销售增加8.8 %同时发生。然而，用于治疗心理健康状况的精神药物使用没有变化，这表明心理健康护理的可及性有限。",
+      "abstract_cn": "",
       "doi": "10.1016/j.jhealeco.2025.102973",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0167629625000074",
       "publication_date": "February 2025",
@@ -281,15 +281,15 @@
         "repec": "https://ideas.repec.org/a/eee/jhecon/v100y2025ics0167629625000074.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-reasoner",
-        "translated_at": "2026-08-08T10:13:55+00:00",
-        "source_hash": "ea660ac4a652f05f7b3c58f704233f92301a6d31d375fe600174f5441dd70b0c"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -309,10 +309,12 @@
     "doi_complete": 7,
     "authors_complete": 7,
     "abstract_en_complete": 7,
-    "translation_complete": 7,
+    "translation_complete": 6,
     "duplicate_count": 0,
     "repec_item_count": 7,
-    "flags": [],
+    "flags": [
+      "translation_incomplete"
+    ],
     "official_item_count": 7,
     "publishable_item_count": 7,
     "content_counts": {
