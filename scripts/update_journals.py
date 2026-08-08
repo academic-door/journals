@@ -1697,7 +1697,24 @@ def main() -> int:
         "available_journals": sorted(available),
     }
     write_json(UPDATE_REPORT, final_report)
-    return 1 if any(item["result"] == "failed" for item in reports) else 0
+    return _update_exit_code(reports, available)
+
+
+def _update_exit_code(
+    reports: list[dict[str, Any]],
+    available: dict[str, dict[str, Any]],
+) -> int:
+    failed_journals = {
+        str(report.get("journal_id") or report.get("journal", "")).casefold()
+        for report in reports
+        if report["result"] == "failed"
+    }
+    # A brand-new journal whose live current collection fails (e.g. an
+    # in-progress volume beyond the publication horizon) is still usable when
+    # the archive fallback produced a current snapshot. Do not block the whole
+    # data publish for that transitional state; a journal with no data at all
+    # still fails the run.
+    return 1 if failed_journals - {key.casefold() for key in available} else 0
 
 
 if __name__ == "__main__":

@@ -1075,6 +1075,24 @@ class LatestIssuePreferenceTests(unittest.TestCase):
             )
             self.assertEqual("jhe-108-c", written["issue_id"])
 
+    def test_update_exit_code_allows_failed_but_archived_journal(self) -> None:
+        from scripts.update_journals import _update_exit_code
+
+        reports = [
+            {"journal": "ENERGY", "journal_id": "energy", "result": "failed"},
+            {"journal": "JHE", "journal_id": "jhe", "result": "updated"},
+        ]
+        # ENERGY failed live collection but archive fallback made it available.
+        self.assertEqual(
+            0,
+            _update_exit_code(reports, {"ENERGY": {}, "JHE": {}}),
+        )
+        # A failed journal with no data still fails the run.
+        self.assertEqual(
+            1,
+            _update_exit_code(reports, {"JHE": {}}),
+        )
+
 
 
 
