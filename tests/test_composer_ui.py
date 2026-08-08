@@ -295,7 +295,7 @@ class ComposerUiTest(unittest.TestCase):
         fields = json.loads(
             (ROOT / "public/api/v1/collections/fields.json").read_text(encoding="utf-8")
         )
-        self.assertEqual(36, len(fields["journals"]))
+        self.assertEqual(44, len(fields["journals"]))
         for journal in fields["journals"]:
             self.assertTrue(journal["latest_issue_label"], journal["journal_id"])
             self.assertTrue(journal["publication_date"], journal["journal_id"])
