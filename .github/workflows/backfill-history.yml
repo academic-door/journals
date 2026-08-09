@@ -2,9 +2,10 @@ name: Backfill TOP5 history (deprecated)
 
 # Disabled: the unified field-history backfill (backfill-field-history.yml)
 # covers all 49 journals including the TOP5. This entry is kept only as a
-# historical record of the old top5-2025-2026 state file and is no longer
-# triggerable.
-on: {}
+# historical record of the old top5-2025-2026 state file. The job below is
+# hard-disabled with `if: false`, so manual dispatch is a no-op.
+on:
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -16,6 +17,7 @@ concurrency:
 
 jobs:
   backfill:
+    if: false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
