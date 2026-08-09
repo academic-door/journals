@@ -1,9 +1,25 @@
 {
-  "schema_version": "1.0",
-  "updated_at": "2026-08-09T10:57:46+00:00",
-  "latest_count": 723,
-  "history_count": 9620,
+  "schema_version": "1.1",
+  "updated_at": "2026-08-09T11:28:32+00:00",
+  "latest_count": 726,
+  "history_count": 9623,
   "issue_count": 597,
+  "china_latest_count": 62,
   "latest_url": "/journals/api/v1/search/latest.json",
-  "all_url": "/journals/api/v1/search/all.json"
+  "all_url": "/journals/api/v1/search/all.json",
+  "china_latest_url": "/journals/api/v1/search/china-latest.json",
+  "years": [
+    {
+      "year": 2026,
+      "url": "/journals/api/v1/search/years/2026.json",
+      "issue_count": 256,
+      "record_count": 4259
+    },
+    {
+      "year": 2025,
+      "url": "/journals/api/v1/search/years/2025.json",
+      "issue_count": 341,
+      "record_count": 5364
+    }
+  ]
 }
