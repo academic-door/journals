@@ -111,9 +111,19 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn(".composer-toolbar #journal-select { width: 180px;", self.css)
         self.assertIn(".composer-toolbar #issue-select { width: 180px;", self.css)
         self.assertIn(".composer-toolbar #theme-select { width: 200px;", self.css)
-        self.assertIn("gap: 8px; margin-left: 0;", self.css)
+        self.assertIn("gap: 8px;", self.css)
+        self.assertIn(".composer-source-row {", self.css)
+        self.assertIn(".composer-publish-row {", self.css)
         self.assertIn("@media (max-width: 1180px)", self.css)
         self.assertIn("grid-template-columns: repeat(2, minmax(0, 1fr));", self.css)
+
+    def test_composer_workspace_widens_header_and_footer(self):
+        layout = (ROOT / "src/layouts/Layout.astro").read_text(encoding="utf-8")
+        self.assertIn("workspace?: boolean", layout)
+        self.assertIn('class={workspace ? "workspace-layout" : undefined}', layout)
+        self.assertIn('title="Academic Door Journals · 微信公众号编辑器" workspace', self.page)
+        self.assertIn(".workspace-layout .site-header,", self.css)
+        self.assertIn("width: min(1500px, calc(100% - 40px));", self.css)
 
     def test_composer_uses_modern_clipboard_api_without_exec_command(self):
         self.assertIn("navigator.clipboard?.write", self.page)

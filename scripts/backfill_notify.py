@@ -50,15 +50,16 @@ def build_message(
     counts: dict[str, int],
     report: dict[str, Any],
     settings: SMTPSettings,
+    period: str = "2023-2024",
 ) -> EmailMessage:
     total = sum(counts.values())
     subject = (
-        "[Academic Door] 历史回填批次完成："
+        f"[Academic Door] 历史回填批次完成（{period}）："
         f"完成 {counts['complete']} · 部分 {counts['translation_partial']} · "
         f"被拦 {counts['blocked']}"
     )
     lines = [
-        "Academic Door 领域刊 2025-2026 历史回填批次已结束。",
+        f"Academic Door 领域刊 {period} 历史回填批次已结束。",
         "",
         f"进度：共 {total} 卷 — 完成 {counts['complete']}，"
         f"部分翻译 {counts['translation_partial']}，"
@@ -96,13 +97,18 @@ def main() -> int:
     parser.add_argument("--report", default="")
     args = parser.parse_args()
 
-    counts = status_counts(load_state(Path(args.state)))
+    state_path = Path(args.state)
+    counts = status_counts(load_state(state_path))
     report = load_report(args.report)
     settings = SMTPSettings.from_environment()
     if settings is None:
         print("SMTP not configured; skip email")
         return 0
-    message = build_message(counts, report, settings)
+    import re as _re
+
+    period_match = _re.search(r"(\d{4})-(\d{4})", state_path.name)
+    period = period_match.group(0) if period_match else "2023-2024"
+    message = build_message(counts, report, settings, period=period)
     send_message(message, settings)
     print("email sent")
     return 0

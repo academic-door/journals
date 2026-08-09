@@ -4,11 +4,13 @@ import "../styles/global.css";
 interface Props {
   title?: string;
   description?: string;
+  workspace?: boolean;
 }
 
 const {
   title = "Academic Door Journals",
   description = "经济学期刊监测、中文目录与 Academic Door Composer",
+  workspace = false,
 } = Astro.props;
 const base = import.meta.env.BASE_URL.endsWith("/")
   ? import.meta.env.BASE_URL
@@ -26,7 +28,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     <link rel="apple-touch-icon" href="https://academic-door.github.io/assets/academic-door-mark.png" />
     <title>{title}</title>
   </head>
-  <body>
+  <body class={workspace ? "workspace-layout" : undefined}>
     <header class="site-header">
       <a class="brand" href={base}>
         <img

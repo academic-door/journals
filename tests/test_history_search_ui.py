@@ -26,6 +26,21 @@ class HistoryAndSearchUiTests(unittest.TestCase):
         self.assertIn('form?.addEventListener("submit"', script)
         self.assertNotIn("records={", page)
 
+    def test_search_page_loads_index_metadata_in_parallel(self) -> None:
+        script = (ROOT / "public" / "search.js").read_text(encoding="utf-8")
+        self.assertIn("api/v1/search/index.json", script)
+        self.assertIn("Promise.allSettled([", script)
+        self.assertIn("populateJournals()", script)
+
+    def test_search_page_uses_china_dedicated_and_year_sliced_indexes(self) -> None:
+        script = (ROOT / "public" / "search.js").read_text(encoding="utf-8")
+        self.assertIn("api/v1/search/china-latest.json", script)
+        self.assertIn("api/v1/search/years/${filters.year}.json", script)
+        self.assertIn("api/v1/search/years/${year}.json", script)
+        self.assertIn("继续载入更早年份", script)
+        self.assertIn("显示更多结果", script)
+        self.assertIn('class="search-result skeleton"', script)
+
     def test_main_navigation_links_to_search(self) -> None:
         source = (ROOT / "src" / "layouts" / "Layout.astro").read_text(
             encoding="utf-8"
