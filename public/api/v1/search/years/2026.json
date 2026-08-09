@@ -2,9 +2,9 @@
   "schema_version": "1.0",
   "scope": "year",
   "year": 2026,
-  "updated_at": "2026-08-09T20:52:12+00:00",
+  "updated_at": "2026-08-09T22:07:39+00:00",
   "issue_count": 256,
-  "record_count": 4259,
+  "record_count": 4265,
   "records": [
     {
       "journal_id": "jep",
@@ -2237,6 +2237,57 @@
       "china_related": false
     },
     {
+      "journal_id": "joe",
+      "journal_short_name": "JoE",
+      "journal_name": "Journal of Econometrics",
+      "field": "urban_macro_labor_metrics_environment",
+      "tier": "A",
+      "issue_id": "joe-257-c",
+      "volume": "257",
+      "issue": "C",
+      "issue_label": "Vol. 257",
+      "publication_date": "September 2026",
+      "sequence": 17,
+      "paper_id": "doi:10.1016/j.jeconom.2026.106300",
+      "title_en": "Heterogeneous predictability on mutual fund alphas: A sparse clustering GMM approach",
+      "title_cn": "共同基金阿尔法的异质性可预测性：一种稀疏聚类GMM方法",
+      "authors": [
+        "Liyuan Cui",
+        "Guanhao Feng",
+        "Jiangshan Yang"
+      ],
+      "abstract_en": "Mutual fund managers’ skills, measured by risk-adjusted alphas, are predictable using fund characteristics identified by machine learning (e.g., Kaniel et al., 2023, JFE; DeMiguel et al., 2023, JFE). However, alpha’s predictive power varies across funds and periods, with most funds exhibiting negligible alphas. To model this heterogeneous predictability, this paper introduces Sparse Clustering GMM, a nonparametric approach for identifying latent fund groups. SCGMM clusters funds using estimated alphas and identifies group-specific parameters tied to market predictors. The method accounts for heterogeneity in cross-sectional grouping and time-varying mechanisms across predictors, without requiring prior cluster information or time-varying specifications. We establish consistency for group recovery and time-varying parameter estimation. Empirically, using monthly U.S. mutual fund data, we find that predictable alpha is concentrated in a small subset of funds, with the majority of funds exhibiting near-zero, weakly predictable alphas. The skilled clusters also exhibit lower benchmark R2, moderate expense ratios, and longer manager tenure.",
+      "abstract_cn": "共同基金经理的技能，以风险调整后的阿尔法衡量，可以通过机器学习识别的基金特征进行预测（例如，Kaniel等，2023，JFE；DeMiguel等，2023，JFE）。然而，阿尔法的预测能力因基金和时期而异，大多数基金的阿尔法可忽略不计。为了模拟这种异质性可预测性，本文引入了稀疏聚类GMM，一种用于识别潜在基金组的非参数方法。SCGMM使用估计的阿尔法对基金进行聚类，并识别与市场预测因子相关的组特定参数。该方法考虑了横截面分组中的异质性和跨预测因子的时变机制，无需先验聚类信息或时变设定。我们建立了组恢复和时变参数估计的一致性。实证上，使用美国月度共同基金数据，我们发现可预测的阿尔法集中在一小部分基金中，大多数基金的阿尔法接近零，可预测性较弱。技能较高的聚类还表现出较低的基准R2、适中的费用比率和更长的经理任期。",
+      "doi": "10.1016/j.jeconom.2026.106300",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626001211?dgcid=rss_sd_all",
+      "china_related": false
+    },
+    {
+      "journal_id": "joe",
+      "journal_short_name": "JoE",
+      "journal_name": "Journal of Econometrics",
+      "field": "urban_macro_labor_metrics_environment",
+      "tier": "A",
+      "issue_id": "joe-257-c",
+      "volume": "257",
+      "issue": "C",
+      "issue_label": "Vol. 257",
+      "publication_date": "September 2026",
+      "sequence": 18,
+      "paper_id": "doi:10.1016/j.jeconom.2026.106309",
+      "title_en": "Testing coefficient stability in spatial regression",
+      "title_cn": "空间回归中系数稳定性的检验",
+      "authors": [
+        "Ulrich K. Müller",
+        "Mark W. Watson"
+      ],
+      "abstract_en": "This paper develops a test for coefficient variability in spatial regressions. The test is designed to have good power for a wide range of persistent patterns of coefficient variation, be applicable in a wide range of spatial designs, and accommodate spatial correlation in regressors and regression errors. The test approximates the locally best invariant test for coefficient stability in a Gaussian regression model with martingale-like coefficient variation under the alternative, and is thus a spatial generalization of the Nyblom (1989) test of coefficient stability in time series regressions.",
+      "abstract_cn": "本文开发了一种检验空间回归中系数变异性的方法。该检验旨在对广泛的持续性系数变化模式具有良好的功效，适用于广泛的空间设计，并能容纳回归变量和回归误差中的空间相关性。该检验近似于高斯回归模型中系数稳定性检验的局部最优不变检验，其中备择假设下系数变化具有类似鞅的性质，因此是Nyblom（1989）时间序列回归中系数稳定性检验的空间推广。",
+      "doi": "10.1016/j.jeconom.2026.106309",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626001302?dgcid=rss_sd_all",
+      "china_related": false
+    },
+    {
       "journal_id": "jme",
       "journal_short_name": "JME",
       "journal_name": "Journal of Monetary Economics",
@@ -2413,6 +2464,32 @@
       "abstract_cn": "本文研究了医疗保健行政集中化对健康的影响，重点关注意大利国家卫生服务体系内地方卫生当局 (LHA) 的整合。此类改革适合旨在减少行政支出和利用规模经济的更广泛的成本控制努力。以意大利为例，改革集中了治理并扩大了卫生管理规模，建立了管辖范围更大的当局，并将决策权转移到更加多元化的司法管辖区。这些变化可能会影响医疗保健服务对当地需求的响应、服务提供的协调以及获得护理的机会。使用事件研究双重差分法设计，我们估计了该政策对城市死亡率的影响，并考虑了异质性治疗效果和同时发生的财政调整政策。我们发现实施四年后死亡率显着增加，平均治疗效果为2.1%。影响集中在属于被吸收的地方行政区的城市，以及那些受到涉及改革前相对较大的地方行政区合并以及合并后集水区大幅扩张的影响的城市；它们的分布也不均匀，造成了新的脆弱地区。基于生命损失年数的福利估计表明，死亡率增加的货币成本超出了合理的行政节省大约一个数量级。",
       "doi": "10.1016/j.jhealeco.2026.103174",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S016762962600072X?dgcid=rss_sd_all",
+      "china_related": false
+    },
+    {
+      "journal_id": "jhe",
+      "journal_short_name": "JHE",
+      "journal_name": "Journal of Health Economics",
+      "field": "urban_macro_labor_metrics_environment",
+      "tier": "A",
+      "issue_id": "jhe-109-c",
+      "volume": "109",
+      "issue": "C",
+      "issue_label": "Vol. 109",
+      "publication_date": "September 2026",
+      "sequence": 4,
+      "paper_id": "doi:10.1016/j.jhealeco.2026.103173",
+      "title_en": "Hospital Billing Regulations and Financial Well-being: Evidence from California’s Fair Pricing Law",
+      "title_cn": "医院账单规定与财务福祉：来自加州公平定价法的证据",
+      "authors": [
+        "Yaa Akosa Antwi",
+        "Marion Aouad",
+        "Nathan Blascak"
+      ],
+      "abstract_en": "We examine the financial consequences of the 2007 California Fair Pricing Law, which places a price ceiling on hospital bills for financially vulnerable individuals. Using cross-sectional variation in exposure to the law, proxied by county-level uninsured rates, we estimate its impact on individual financial outcomes. We find that the law reduces the likelihood of incurring non-medical debt in collections and the number of non-medical accounts in collections. In addition, we find evidence that credit scores increased and suggestive evidence that the number of delinquent accounts decreased for individuals in more exposed counties. Our results suggest hospital billing regulations can improve targeted individuals’ financial outcomes.",
+      "abstract_cn": "我们研究了2007年加州公平定价法的财务后果，该法对财务脆弱人群的医院账单设定了价格上限。利用法律暴露程度的横截面差异，以县级未保险率作为代理，我们估计了其对个人财务结果的影响。我们发现，该法降低了产生非医疗催收债务的可能性以及非医疗催收账户的数量。此外，我们发现证据表明，在暴露程度更高的县，个人信用评分有所提高，并且有提示性证据表明拖欠账户数量有所减少。我们的结果表明，医院账单规定可以改善目标人群的财务结果。",
+      "doi": "10.1016/j.jhealeco.2026.103173",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0167629626000718?dgcid=rss_sd_all",
       "china_related": false
     },
     {
@@ -2891,12 +2968,12 @@
       "sequence": 2,
       "paper_id": "doi:10.1016/j.jet.2026.106206",
       "title_en": "Investment sophistication and wealth inequality",
-      "title_cn": "投资成熟度与财富不平等",
+      "title_cn": "投资 sophistication 与财富不平等",
       "authors": [
         "Ehsan Azarmsa"
       ],
       "abstract_en": "I study the stationary wealth distribution in a dynamic model of financial markets in which investors differ in their levels of investment sophistication. Some investors form beliefs rationally but have access to different information, while others hold incorrect beliefs. For all investor types, the stationary wealth distribution exhibits a thick upper tail, whose thickness depends on the higher moments of portfolio returns relative to the aggregate market. The upper tail of the overall stationary wealth distribution is populated by the group with the thickest tail. I show that this group is either a rational group with an undominated information set or the group with incorrect beliefs, despite the latter earning the lowest expected return. To explain the observed degrees of wealth concentration, it is sufficient that some investor groups earn an expected excess return of 0.89% per annum relative to the aggregate economy – consistent with the risk-adjusted returns generated by hedge funds and private equity funds and their portfolio shares among the ultra-wealthy in the United States. A calibration of the model matches the distribution of average returns for Norwegian households documented by Fagereng et al. (2020).",
-      "abstract_cn": "我研究了一个金融市场动态模型中的稳态财富分布，在该模型中，投资者的投资成熟度水平各不相同。一些投资者理性地形成信念，但获取的信息不同，而另一些投资者则持有错误的信念。对于所有投资者类型，稳态财富分布都呈现出厚尾特征，其厚度取决于投资组合回报相对于整体市场的更高阶矩。整体稳态财富分布的上尾由尾部最厚的群体占据。我证明，该群体要么是拥有无支配信息集的理性群体，要么是持有错误信念的群体，尽管后者的预期回报最低。为了解释观察到的财富集中程度，只需某些投资者群体相对于整体经济每年获得0.89%%的预期超额回报即可——这与对冲基金和私募股权基金产生的风险调整后回报及其在美国超级富豪中的投资组合份额一致。模型的校准与Fagereng等人（2020）记录的挪威家庭平均回报分布相匹配。",
+      "abstract_cn": "我研究了一个动态金融市场模型中的稳态财富分布，在该模型中，投资者的投资 sophistication 水平不同。一些投资者理性地形成信念，但获得不同的信息，而另一些投资者持有错误的信念。对于所有投资者类型，稳态财富分布呈现出厚上尾，其厚度取决于投资组合回报相对于总体市场的更高矩。总体稳态财富分布的上尾由尾部最厚的群体占据。我表明，该群体要么是具有无支配信息集的理性群体，要么是持有错误信念的群体，尽管后者获得的预期回报最低。为了解释观察到的财富集中程度，只需某些投资者群体相对于总体经济每年获得 0.89% 的预期超额回报——这与对冲基金和私募股权基金产生的风险调整后回报及其在美国超级富豪中的投资组合份额一致。模型的校准匹配了 Fagereng 等人（2020）记录的挪威家庭平均回报分布。",
       "doi": "10.1016/j.jet.2026.106206",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000694?dgcid=rss_sd_all",
       "china_related": false
@@ -3048,7 +3125,7 @@
         "Ed Nosal"
       ],
       "abstract_en": "Financial arrangements involving illiquid assets financed by liquid liabilities are often viewed as inherently runnable. Diamond and Dybvig (1983) show that this is true when risk-sharing arrangements are not optimally designed. Peck and Shell (2003) and Ennis and Keister (2009, 2016), however, demonstrate that runnable banking arrangements can be constrained-efficient when liquidity demand is uncertain and withdrawals must be processed on a first-come, first-served basis. We show that this insight extends to environments in which redemptions are not subject to a sequential service constraint. Instead, increasing returns to scale in banking-consistent with empirical evidence-can generate regions of the parameter space in which the constrained-efficient allocation is runnable. Runnable banking arrangements can be constrained-efficient when the minimum scale required to realize economies of scale is difficult to attain during large redemption events, when the penalty for failing to achieve scale is small, and when the likelihood of a coordinated run is low",
-      "abstract_cn": "涉及以流动性负债融资的非流动性资产的金融安排通常被视为本质上可运行的。Diamond和Dybvig（1983）表明，当风险分担安排未得到最优设计时，情况确实如此。然而，Peck和Shell（2003）以及Ennis和Keister（2009，2016）证明，当流动性需求不确定且取款必须按先到先得原则处理时，可运行的银行安排可以是约束有效的。我们表明，这一见解扩展到赎回不受顺序服务约束的环境。相反，银行业中与经验证据一致的规模报酬递增，可以在参数空间中产生约束有效配置可运行的区域。当实现规模经济所需的最小规模在大规模赎回事件中难以达到、未能达到规模的惩罚较小以及协调运行的可能性较低时，可运行的银行安排可以是约束有效的。",
+      "abstract_cn": "涉及由流动性负债融资的非流动性资产的金融安排通常被视为本质上可运行的。Diamond和Dybvig（1983）表明，当风险分担安排未得到最优设计时，情况确实如此。然而，Peck和Shell（2003）以及Ennis和Keister（2009，2016）证明，当流动性需求不确定且取款必须按先到先得的原则处理时，可运行的银行安排可以是约束有效的。我们表明，这一见解扩展到赎回不受顺序服务约束的环境。相反，银行业中与经验证据一致的规模报酬递增，可以在参数空间中产生约束有效配置可运行的区域。当实现规模经济所需的最小规模在大规模赎回事件中难以达到时，当未能达到规模的惩罚较小时，以及当协调运行的可能性较低时，可运行的银行安排可以是约束有效的。",
       "doi": "10.1016/j.jet.2026.106221",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000840?dgcid=rss_sd_all",
       "china_related": false
@@ -3198,7 +3275,7 @@
         "Jérôme Renault"
       ],
       "abstract_en": "We provide a Folk theorem for finitely repeated games under imperfect public monitoring, under a strengthening of the standard assumptions required for finitely repeated games with perfect monitoring, and of those for discounted repeated games under imperfect public monitoring. Our proof uses standard recursive methods and assumes the existence of a public randomization device. Three counterexamples show in which sense our assumptions are tight.",
-      "abstract_cn": "我们为不完全公共监督下的有限重复博弈提供了一个民间定理，该定理在加强完美监督下有限重复博弈所需的标准假设以及不完全公共监督下贴现重复博弈所需的标准假设的基础上成立。我们的证明使用标准的递归方法，并假设存在一个公共随机化装置。三个反例表明我们的假设在何种意义上是紧致的。",
+      "abstract_cn": "我们为不完全公共监督下的有限重复博弈提供了一个民间定理，该定理在加强完美监督下有限重复博弈所需的标准假设以及不完全公共监督下贴现重复博弈所需的标准假设的基础上成立。我们的证明使用标准的递归方法，并假设存在一个公共随机化装置。三个反例表明我们的假设在何种意义上是紧的。",
       "doi": "10.1016/j.jet.2026.106227",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000906?dgcid=rss_sd_all",
       "china_related": false
@@ -4016,14 +4093,14 @@
       "sequence": 12,
       "paper_id": "doi:10.1016/j.jebo.2026.107692",
       "title_en": "Measuring the Sources of Taste-Based Discrimination Using List Experiments",
-      "title_cn": "利用列表实验测量基于偏好的歧视来源",
+      "title_cn": "使用列表实验测量基于品味的歧视来源",
       "authors": [
         "Ariel Listo",
         "Ercio A. Muñoz",
         "Dario Sansone"
       ],
       "abstract_en": "This study uses a large, nationally representative online survey in Chile comparing double list experiments, which reduce social desirability bias, with direct questions on attitudes among supervisors, co-workers, and customers toward gay individuals. Respondents underreported their discomfort with gay individuals by 15-23 percentage points, with the largest bias and lowest comfort levels observed when asked about supervising gay employees. These patterns were mirrored in incentivized donation behavior: individuals who refused to donate in a lottery to LGBTQ-related nonprofits reported lower comfort levels and exhibited greater misreporting. Finally, respondents consistently underestimated the broader societal support for gay employees and co-workers.",
-      "abstract_cn": "本研究利用智利一项大型、具有全国代表性的在线调查，比较了双重列表实验（可减少社会期望偏差）与直接询问主管、同事和顾客对同性恋者态度的问题。受访者对其与同性恋者相处的不适感低报了15-23个百分点，其中在询问关于监督同性恋员工时，偏差最大且舒适度最低。这些模式在激励性捐赠行为中得到了印证：拒绝在彩票中向LGBTQ相关非营利组织捐赠的个人报告了较低的舒适度，并表现出更大的误报。最后，受访者一致低估了社会对同性恋员工和同事的更广泛支持。",
+      "abstract_cn": "本研究利用智利一项大型、具有全国代表性的在线调查，比较了双重列表实验（可减少社会期望偏差）与直接询问主管、同事和顾客对同性恋者态度的问题。受访者低估了他们对同性恋者的不适感，低估幅度为15-23个百分点，其中在询问关于监督同性恋员工时，偏差最大且舒适度最低。这些模式在激励性捐赠行为中得到了反映：在彩票中拒绝向LGBTQ相关非营利组织捐赠的个人报告了较低的舒适度，并表现出更大的误报。最后，受访者一致低估了社会对同性恋员工和同事的更广泛支持。",
       "doi": "10.1016/j.jebo.2026.107692",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0167268126002799?dgcid=rss_sd_all",
       "china_related": false
@@ -4049,7 +4126,7 @@
         "Arno Riedl"
       ],
       "abstract_en": "We conduct an artefactual field experiment in real-existing trade networks to analyze how individual network degree affects bargaining demands and outcomes. We combine data from a bilateral bargaining experiment with data of trade networks in 24 villages in Uganda. To identify the effect of individual degree in the village trade network we experimentally vary the disclosure of participants’ identities in a bargaining pair. We state hypotheses on how degree will affect behavior and find partial support for them. Specifically, we observe that individual degree affects bargaining demands in the predicted direction when one of the bargainers is informed about the network positions but not when either no or both sides are informed. Moreover, network degree affects the likelihood of agreements and earnings, irrespective of the knowledge of the network positions of bargaining partners.",
-      "abstract_cn": "我们在真实存在的贸易网络中开展了一项人工实地实验，以分析个体网络度如何影响讨价还价的要求和结果。我们将双边讨价还价实验的数据与乌干达24个村庄的贸易网络数据相结合。为了识别村庄贸易网络中个体度的影响，我们在实验中对讨价还价双方的身份披露进行了变化。我们提出了关于度如何影响行为的假设，并发现了部分支持。具体而言，我们观察到，当讨价还价者之一被告知网络位置时，个体度以预测的方向影响讨价还价要求，但当双方均未被告知或双方均被告知时则不然。此外，无论讨价还价伙伴的网络位置是否被知晓，网络度都会影响达成协议的可能性和收益。",
+      "abstract_cn": "我们在真实存在的贸易网络中开展了一项人工实地实验，以分析个体网络度如何影响讨价还价的要求和结果。我们将双边讨价还价实验的数据与乌干达24个村庄的贸易网络数据相结合。为了识别个体在村庄贸易网络中度的效应，我们在实验中对讨价还价双方的身份披露进行了变化。我们提出了关于度如何影响行为的假设，并发现了对这些假设的部分支持。具体而言，我们观察到，当讨价还价者中的一方被告知网络位置时，个体度以预测的方向影响讨价还价要求，但当双方都未被告知或双方都被告知时则不然。此外，无论讨价还价伙伴的网络位置是否被知晓，网络度都会影响达成协议的可能性和收益。",
       "doi": "10.1016/j.jebo.2026.107694",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0167268126002817?dgcid=rss_sd_all",
       "china_related": false
@@ -4365,6 +4442,31 @@
       "abstract_cn": "本文研究了COVID-19疫情如何影响意大利企业对未来增长和价格的预期，以及企业层面不确定性与预测误差之间的联系。利用意大利银行INVIND调查的企业层面面板数据，我们记录了增长预期形成在近三十年间保持稳定，包括COVID-19疫情期间，并且增长预测在样本的每一年都对实际结果具有预测内容。企业自我报告的增长不确定性在危机年份对预测准确性具有信息性，但在2020-2021年期间并非如此，当时不确定性由共同的总体冲击驱动。在总体层面，企业间的横截面分歧预测了后续实际结果的离散程度，且可预测性仅从预期指向结果。劳动力短缺是疫情扰乱企业预期的主要渠道，比需求、供应或金融渠道更为重要。价格领域与实际增长不同，预期价格对实际价格的响应在1990年代末、2008-2009年金融危机和2022年通胀飙升期间减弱，而主观价格不确定性仍然是预测误差的稳定预测因子。",
       "doi": "10.1016/j.jebo.2026.107716",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0167268126003033?dgcid=rss_sd_all",
+      "china_related": false
+    },
+    {
+      "journal_id": "jebo",
+      "journal_short_name": "JEBO",
+      "journal_name": "Journal of Economic Behavior & Organization",
+      "field": "theory",
+      "tier": "A",
+      "issue_id": "jebo-249-c",
+      "volume": "249",
+      "issue": "C",
+      "issue_label": "Vol. 249",
+      "publication_date": "September 2026",
+      "sequence": 26,
+      "paper_id": "doi:10.1016/j.jebo.2026.107722",
+      "title_en": "First-generation status as a criterion for affirmative action: Education and labour market effects of a tuition waiver in India",
+      "title_cn": "第一代身份作为平权行动的标准：印度学费减免的教育与劳动力市场效应",
+      "authors": [
+        "Gopinath Annadurai",
+        "Soham Sahoo"
+      ],
+      "abstract_en": "We evaluate the First-Generation Graduate Scholarship scheme implemented in the Indian state of Tamil Nadu, which waives tuition fees for first-generation college students in technical education. The scheme represents a large-scale non-identity-based affirmative action policy in higher education, using first-generation status as the basis for eligibility. Using household survey data in difference-in-differences (DiD) and synthetic DiD frameworks, we find substantial improvements in enrollment, stream choice, and graduation in technical courses, with downstream effects on regular employment, occupational choices, and household welfare. Male students gained more than female students. The scheme also increased reliance on education loans to cover residual costs. The findings suggest that policies based on first-generation status can promote intergenerational mobility by expanding higher education access and improving labour market outcomes.",
+      "abstract_cn": "我们评估了印度泰米尔纳德邦实施的“第一代毕业生奖学金计划”，该计划免除技术教育中第一代大学生的学费。该计划代表了高等教育中一项大规模的非身份为基础的平权行动政策，以第一代身份作为资格依据。利用家庭调查数据，在双重差分（DiD）和合成双重差分框架下，我们发现技术课程的入学率、专业选择和毕业率显著提高，并对正规就业、职业选择和家庭福利产生下游影响。男性学生比女性学生获益更多。该计划还增加了对教育贷款的依赖以覆盖剩余成本。研究结果表明，基于第一代身份的政策可以通过扩大高等教育入学机会和改善劳动力市场结果来促进代际流动性。",
+      "doi": "10.1016/j.jebo.2026.107722",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0167268126003094?dgcid=rss_sd_all",
       "china_related": false
     },
     {
@@ -5914,14 +6016,14 @@
       "publication_date": "September 2026",
       "sequence": 5,
       "paper_id": "doi:10.1016/j.foodpol.2026.103147",
-      "title_en": "zero pu“Carbon food labels have limited effects on grocery shopping behavior: Evidence from a randomized experiment”",
-      "title_cn": "零碳食品标签对杂货购物行为的影响有限：来自随机实验的证据",
+      "title_en": "Carbon food labels have limited effects on grocery shopping behavior: Evidence from a randomized experiment",
+      "title_cn": "碳食品标签对杂货购物行为影响有限：来自随机实验的证据",
       "authors": [
         "Maiken Maier",
         "Lukas Paul Fesenfeld"
       ],
       "abstract_en": "Demand-side food policies are increasingly recognized as important tools for aligning consumption patterns with climate change mitigation targets, and carbon food labels have attracted growing attention as a potential policy instrument. However, evidence on their effectiveness remains mixed, and causal evaluation results from assessing the effects of carbon food labels in real-world supermarket settings is scarce. This study presents evidence from pre-registered randomized field-embedded survey experiment with behavioral outcomes, combining a representative sample of 2,372 Swiss residents with transaction-level purchasing data covering more than five million daily food purchase decisions made by 1,601 consumers over several years. In collaboration with one of Switzerland’s largest grocery retailers, we evaluate the causal impact of an information treatment designed to increase awareness of one of the world’s first carbon food labels implemented in grocery stores on both stated preferences and revealed purchasing behavior. The results show that the information treatment significantly increases label awareness and leads to small but positive effects on attitudes, perceived behavioral control, and intentions to consider the climate compatibility of food purchases. When tracing these effects into revealed purchasing behavior, the treatment also affects actual food purchases, but effects are modest and heterogeneous across food categories. Rather than inducing broad shifts away from meat consumption, the information treatment primarily leads to a higher overall share of labeled products purchased, increased purchases of labeled convenience products, and a partial reallocation within meat consumption (e.g., lower beef and higher pork purchases). We find no evidence of substantial reductions in overall meat purchases or large cross-category substitutions toward plant-based foods. While heavy meat eaters do not react negatively to the treatment, men and more right-wing individuals show a modest behavioral backlash. Overall, the results suggest that carbon food labels capacity to substantially alter habitual food consumption patterns in stimulus-intensive retail environments is limited and should be thus complemented by additional demand-side measures.",
-      "abstract_cn": "需求侧食品政策日益被认为是使消费模式与气候变化减缓目标保持一致的重要工具，而碳食品标签作为一种潜在的政策工具已引起越来越多的关注。然而，关于其有效性的证据仍然不一，且在真实超市环境中评估碳食品标签影响的因果评价结果十分稀缺。本研究提供了来自预注册的随机实地嵌入调查实验的证据，该实验结合了行为结果，将2,372名瑞士居民的代表性样本与涵盖一,1,601名消费者多年间超过五百万次日常食品购买决策的交易级购买数据相结合。我们与瑞士最大的杂货零售商之一合作，评估了一项旨在提高对全球首批在杂货店实施的碳食品标签之一认知度的信息处理对陈述偏好和揭示性购买行为的因果影响。结果表明，信息处理显著提高了标签认知度，并对态度、感知行为控制和考虑食品购买气候兼容性的意图产生了虽小但积极的影响。当将这些影响追踪到揭示性购买行为时，处理也影响了实际食品购买，但效果温和且在不同食品类别间存在异质性。信息处理并未引发肉类消费的广泛转变，而主要导致购买标签产品的总体份额增加、标签便利产品购买增加以及肉类消费内的部分重新分配（例如，牛肉购买减少和猪肉购买增加）。我们未发现总体肉类购买大幅减少或向植物性食品大规模跨类别替代的证据。虽然重度肉类消费者对处理没有负面反应，但男性和更右翼的个体表现出适度的行为反弹。总体而言，结果表明，在刺激密集的零售环境中，碳食品标签大幅改变习惯性食品消费模式的能力有限，因此应辅以额外的需求侧措施。",
+      "abstract_cn": "需求侧食品政策日益被认为是使消费模式与气候变化减缓目标相一致的重要工具，而碳食品标签作为一种潜在的政策工具受到越来越多的关注。然而，关于其有效性的证据仍然不一，评估碳食品标签在现实超市环境中影响的因果评价结果稀缺。本研究提供了来自预注册的随机实地嵌入调查实验的证据，该实验结合了行为结果，将2,372名瑞士居民的代表性样本与涵盖1,601名消费者多年超过五百万次日常食品购买决策的交易级购买数据相结合。我们与瑞士最大的杂货零售商之一合作，评估了一项旨在提高人们对杂货店中实施的世界上首批碳食品标签之一的认识的信息处理的因果影响，该影响既体现在陈述偏好上，也体现在揭示的购买行为上。结果表明，信息处理显著提高了标签意识，并对态度、感知行为控制和考虑食品购买气候兼容性的意图产生了小而积极的影响。在将这些影响追踪到揭示的购买行为时，处理也影响了实际食品购买，但影响适中且在不同食品类别中存在异质性。信息处理并未引发肉类消费的广泛转变，而是主要导致购买标签产品的总体份额增加，购买标签便利产品增加，以及肉类消费内的部分重新分配（例如，牛肉减少和猪肉增加）。我们没有发现总体肉类购买大幅减少或向植物性食品大规模跨类别替代的证据。虽然重度肉类食用者对处理没有负面反应，但男性和更右翼的个体表现出适度的行为反弹。总体而言，结果表明，在刺激密集的零售环境中，碳食品标签大幅改变习惯性食品消费模式的能力有限，因此应辅以额外的需求侧措施。",
       "doi": "10.1016/j.foodpol.2026.103147",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0306919226001168?dgcid=rss_sd_all",
       "china_related": false
@@ -6016,6 +6118,32 @@
       "doi": "10.1016/j.foodpol.2026.103163",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0306919226001326?dgcid=rss_sd_all",
       "china_related": true
+    },
+    {
+      "journal_id": "foodpolicy",
+      "journal_short_name": "Food Policy",
+      "journal_name": "Food Policy",
+      "field": "agriculture_resources",
+      "tier": "A",
+      "issue_id": "foodpolicy-143-c",
+      "volume": "143",
+      "issue": "C",
+      "issue_label": "Vol. 143",
+      "publication_date": "September 2026",
+      "sequence": 9,
+      "paper_id": "doi:10.1016/j.foodpol.2026.103162",
+      "title_en": "Comparing carrots and sticks to create a more circular food system",
+      "title_cn": "比较胡萝卜与大棒以构建更循环的食品系统",
+      "authors": [
+        "Junyoung Jeong",
+        "Yongyang Cai",
+        "Brian E. Roe"
+      ],
+      "abstract_en": "Circular economy solutions within the food system have prioritized prevention. Prevention policies can be formulated as carrots, e.g., waste abatement subsidies, or sticks, e.g., waste disposal taxes, and applied at one or more segments along the food supply chain. We develop a general equilibrium model of the U.S. Midwest that endogenizes food waste decisions and policy responses at key supply chain links. Existing models of circular food systems often fail to endogenize the amount of food waste and seldom apply multiple policies at different food supply chain stages. Our results identify how carrots and sticks differ across targeted supply chain stages. Waste abatement subsidies primarily result in a decrease in waste rates, while a food waste tax leads consumers to adjust both food purchases and waste rates equally. Subsidizing waste abatement can be five times more effective than a food waste tax in reducing food waste, despite both yielding comparable emissions reductions. 88% of emissions reduction caused by a tax derives from reduced food demand (and thus supply). With abatement subsidies, 28% of emissions reduction derives from decreased landfill deposits and 64% from reduced food supply. Our results also suggest that policies aimed at consumers can have four times greater impacts than those applied upstream. Lastly, as their combinations typically generate additive effects, carrots and sticks can complement one another, further informing an optimal policy suite that reduces food waste, while mitigating unintended consequences (e.g., rebound effects or consumption reduction).",
+      "abstract_cn": "食品系统内的循环经济解决方案优先考虑预防。预防政策可以表述为胡萝卜，例如废物减排补贴，或大棒，例如废物处理税，并应用于食品供应链的一个或多个环节。我们开发了一个美国中西部的可计算一般均衡模型，该模型内生化关键供应链环节的食品浪费决策和政策响应。现有的循环食品系统模型往往未能内生化食品浪费量，并且很少在食品供应链的不同阶段应用多种政策。我们的结果揭示了胡萝卜和大棒在目标供应链环节上的差异。废物减排补贴主要导致浪费率下降，而食品浪费税则使消费者同等调整食品购买量和浪费率。在减少食品浪费方面，补贴废物减排的效果可能是食品浪费税的五倍，尽管两者都能实现相当的减排量。税收引起的减排中，88%源于食品需求（从而供应）的减少。通过减排补贴，减排的28%来自垃圾填埋场沉积物的减少，64%来自食品供应的减少。我们的结果还表明，针对消费者的政策可能比上游政策产生四倍更大的影响。最后，由于它们的组合通常产生叠加效应，胡萝卜和大棒可以相互补充，进一步为最优政策组合提供信息，以减少食品浪费，同时减轻意外后果（例如反弹效应或消费减少）。",
+      "doi": "10.1016/j.foodpol.2026.103162",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0306919226001314?dgcid=rss_sd_all",
+      "china_related": false
     },
     {
       "journal_id": "energy",
@@ -7530,7 +7658,7 @@
         "Robert J.R. Elliott"
       ],
       "abstract_en": "This paper documents visual media bias in the portrayal of politicians in UK newspaper coverage during the 2016 Brexit referendum. We use computer vision and machine-learning techniques to measure facial emotion and contextual sentiment, captured from the background and surrounding visual elements in political images. Focusing on 64,089 images collected from seven national newspapers between February and August 2016, we find substantial partisan visual bias in tabloid newspapers, operating through both facial expressions and contextual tone. For instance, moving from a fully pro-Remain to a fully pro-Leave newspaper is associated with a 19-point increase in the aggregate facial emotion score of pro-Leave politicians relative to pro-Remain politicians, indicating more favorable visual portrayals, roughly 10 percent of the full scale. The bias is especially pronounced in front-page images and those featuring key political figures, while no comparable patterns are observed in broadsheet newspapers. Moreover, the partisan bias diminishes immediately after the referendum vote, suggesting that it was concentrated during the campaign period. Our results show that partisan newspapers may differ not only in textual coverage but also in visual portrayals of political actors, highlighting the growing importance of imagery in political communication.",
-      "abstract_cn": "本文记录了2016年英国脱欧公投期间英国报纸报道中对政治人物描绘的视觉媒体偏见。我们使用计算机视觉和机器学习技术来测量面部情绪和情境情感，这些情感从政治图像的背景和周围视觉元素中捕获。聚焦于2016年二月至八月从七家全国性报纸收集的64,089张图像，我们发现小报报纸中存在显著的党派视觉偏见，这种偏见通过面部表情和情境语气同时体现。例如，从完全支持留欧的报纸转向完全支持脱欧的报纸，与脱欧派政治人物相对于留欧派政治人物的总体面部情绪得分增加19个百分点相关，表明视觉描绘更为有利，约占全量程的10%。这种偏见在头版图像和以关键政治人物为特色的图像中尤为明显，而在大报报纸中未观察到类似模式。此外，党派偏见在公投投票后立即减弱，表明其集中在竞选期间。我们的结果表明，党派报纸不仅在文本报道上可能存在差异，而且在政治人物的视觉描绘上也可能存在差异，凸显了图像在政治传播中日益增长的重要性。",
+      "abstract_cn": "本文记录了2016年英国脱欧公投期间英国报纸报道中对政治人物描绘的视觉媒体偏见。我们使用计算机视觉和机器学习技术来测量面部情绪和情境情感，这些情感从政治图像的背景和周围视觉元素中捕获。聚焦于2016年二月至八月从七家全国性报纸收集的64,089张图像，我们发现小报报纸中存在显著的党派视觉偏见，这种偏见通过面部表情和情境基调同时体现。例如，从完全支持留欧的报纸转向完全支持脱欧的报纸，与脱欧派政治人物相对于留欧派政治人物的总体面部情绪得分增加19个百分点相关，表明视觉描绘更为有利，约占全量程的10%。这种偏见在头版图像和突出关键政治人物的图像中尤为明显，而在大报报纸中未观察到类似模式。此外，党派偏见在公投投票后立即减弱，表明其集中在竞选期间。我们的结果表明，党派报纸不仅在文本报道上可能存在差异，而且在政治人物的视觉描绘上也可能存在差异，凸显了图像在政治传播中日益增长的重要性。",
       "doi": "10.1016/j.euroecorev.2026.105422",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001662?dgcid=rss_sd_all",
       "china_related": false
@@ -7630,7 +7758,7 @@
         "Felix Strobel"
       ],
       "abstract_en": "Climate policy uncertainty (CPU) shocks can induce capital reallocation from carbon-intensive sectors to low-emitting sectors. We first show, using a DSGE model with financial frictions and various climate policy tools, that CPU shocks (i) lower the market value of the “dirty” sector relative to the “green” sector and (ii) reduce real investment in the “dirty” sector relative to the “green” sector. The financial channel plays a key role for this reallocation. Second, we document that these results align with firm-level evidence from the US. We find that empirical CPU shocks (i) cause financial markets to revalue firms in carbon-intensive sectors relative to firms in low-emitting sectors, and (ii) lead to substantial investment reallocation, particularly from manufacturing towards services.",
-      "abstract_cn": "气候政策不确定性（CPU）冲击可以诱导资本从碳密集型部门向低排放部门再配置。我们首先使用一个包含金融摩擦和各种气候政策工具的DSGE模型表明，CPU冲击（i）降低了“肮脏”部门相对于“绿色”部门的市场价值，并且（ii）减少了“肮脏”部门相对于“绿色”部门的实际投资。金融渠道在这一再配置中起着关键作用。其次，我们记录了这些结果与美国企业层面的证据一致。我们发现，实证CPU冲击（i）导致金融市场对碳密集型部门企业的重新估值相对于低排放部门企业，并且（ii）导致显著的投资再配置，特别是从制造业向服务业。",
+      "abstract_cn": "气候政策不确定性（CPU）冲击可以诱导资本从碳密集型部门向低排放部门再配置。我们首先使用一个包含金融摩擦和各种气候政策工具的DSGE模型表明，CPU冲击（i）降低了“肮脏”部门相对于“绿色”部门的市值，并且（ii）减少了“肮脏”部门相对于“绿色”部门的实际投资。金融渠道在这一再配置中起着关键作用。其次，我们记录了这些结果与美国企业层面的证据一致。我们发现，实证CPU冲击（i）导致金融市场对碳密集型部门企业的重新估值相对于低排放部门企业，并且（ii）导致大量的投资再配置，特别是从制造业向服务业。",
       "doi": "10.1016/j.euroecorev.2026.105435",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001790?dgcid=rss_sd_all",
       "china_related": false
@@ -7655,7 +7783,7 @@
         "Nikolaus Wolf"
       ],
       "abstract_en": "Fossil fuels have shaped the European economy since the Industrial Revolution. We use new long-run panel data to analyze the effect of both, coal and oil on economic growth between 1900 and 2015, exploiting variation at the level of European NUTS2 and NUTS3 regions. We show that the reversal of fortune of coal regions resulted from the second energy transition. Specifically, an “oil invasion” in the early 1960s turned regional coal abundance from a blessing into a curse. Human capital accumulation contributed to this reversal of fortune and fully explains the negative effects until today. Finally, we show that coal regions with pre-industrial urban centers were more resilient than others, in line with Glaeser’s “reinvention hypothesis”.",
-      "abstract_cn": "自工业革命以来，化石燃料塑造了欧洲经济。我们使用新的长期面板数据，利用欧洲NUTS2和NUTS3区域层面的变异，分析了1900年至2015年间煤炭和石油对经济增长的影响。我们表明，煤炭地区的命运逆转源于第二次能源转型。具体而言，1960年代初的“石油入侵”将区域煤炭丰富度从福音转变为诅咒。人力资本积累促成了这一命运逆转，并完全解释了至今的负面影响。最后，我们表明，拥有前工业时代城市中心的煤炭地区比其他地区更具韧性，这与格莱泽的“再发明假说”一致。",
+      "abstract_cn": "自工业革命以来，化石燃料塑造了欧洲经济。我们使用新的长期面板数据，利用欧洲NUTS2和NUTS3区域层面的变异，分析了1900年至2015年间煤炭和石油对经济增长的影响。我们表明，煤炭地区命运的逆转源于第二次能源转型。具体而言，1960年代初的“石油入侵”将区域煤炭丰富度从福音转变为诅咒。人力资本积累促成了这一命运逆转，并完全解释了至今的负面影响。最后，我们表明，拥有前工业时代城市中心的煤炭地区比其他地区更具韧性，这与格莱泽的“再发明假说”一致。",
       "doi": "10.1016/j.euroecorev.2026.105432",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001765?dgcid=rss_sd_all",
       "china_related": false
@@ -7798,6 +7926,31 @@
       "issue_label": "Vol. 189",
       "publication_date": "September 2026",
       "sequence": 17,
+      "paper_id": "doi:10.1016/j.euroecorev.2026.105447",
+      "title_en": "Relative income and global inequality: Evidence from the United Kingdom",
+      "title_cn": "相对收入与全球不平等：来自英国的证据",
+      "authors": [
+        "Anca Balietti",
+        "Diego Marino Fages"
+      ],
+      "abstract_en": "This paper provides a direct replication of Fehr et al. (2022), who examine whether information about individuals’ position in the global income distribution affects preferences over global inequality. Whereas the original study draws on a representative sample from Germany, we analyze a broadly representative UK sample (N=2116). UK respondents underestimate their global rank by about 2.4 deciles on average, yet randomly providing accurate rank information has no detectable effect on real-stakes donations to international anti-poverty NGOs or on policy attitudes toward global redistribution, international organizations, globalization, or immigration. The estimated average treatment effects are small, close to zero, and precisely estimated. A data-driven heterogeneity analysis reveals no sizable or systematic differences in subgroup responses. Overall, the results reinforce the evidence that correcting global income misperceptions alone is unlikely to shift preferences over global inequality in the European settings studied so far.",
+      "abstract_cn": "本文对Fehr等人（2022）的研究进行了直接复制，该研究考察了关于个人在全球收入分配中位置的信息是否影响其对全球不平等的偏好。原始研究基于德国的代表性样本，而我们分析了一个广泛代表性的英国样本（N=2116）。英国受访者平均低估其全球排名约2.4个十分位，但随机提供准确的排名信息对向国际反贫困非政府组织的实际捐赠或对全球再分配、国际组织、全球化或移民的政策态度没有可检测的影响。估计的平均处理效应很小，接近于零，且估计精确。数据驱动的异质性分析显示，亚组反应没有显著或系统性差异。总体而言，结果强化了证据，即仅纠正全球收入误解不太可能改变在所研究的欧洲环境中对全球不平等的偏好。",
+      "doi": "10.1016/j.euroecorev.2026.105447",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001911?dgcid=rss_sd_all",
+      "china_related": false
+    },
+    {
+      "journal_id": "eer",
+      "journal_short_name": "EER",
+      "journal_name": "European Economic Review",
+      "field": "general",
+      "tier": "A",
+      "issue_id": "eer-189-c",
+      "volume": "189",
+      "issue": "C",
+      "issue_label": "Vol. 189",
+      "publication_date": "September 2026",
+      "sequence": 18,
       "paper_id": "doi:10.1016/j.euroecorev.2026.105424",
       "title_en": "The double-edged sword of facilitated giving: Field evidence on sales and donations",
       "title_cn": "便利捐赠的双刃剑：销售和捐赠的现场证据",
@@ -7822,7 +7975,7 @@
       "issue": "C",
       "issue_label": "Vol. 189",
       "publication_date": "September 2026",
-      "sequence": 18,
+      "sequence": 19,
       "paper_id": "doi:10.1016/j.euroecorev.2026.105423",
       "title_en": "Gender identity and power imbalance in a group contest",
       "title_cn": "团体竞赛中的性别认同和权力失衡",
@@ -7847,17 +8000,17 @@
       "issue": "C",
       "issue_label": "Vol. 189",
       "publication_date": "September 2026",
-      "sequence": 19,
+      "sequence": 20,
       "paper_id": "doi:10.1016/j.euroecorev.2026.105436",
       "title_en": "A small volume reduction that melts down the market: Auctions with endogenous rationing",
-      "title_cn": "导致市场崩溃的小幅减量：具有内生配给的拍卖",
+      "title_cn": "小幅缩减成交量导致市场崩溃：内生配给的拍卖",
       "authors": [
         "Karl-Martin Ehrhart",
         "Ann-Katrin Fleck",
         "Marion Ott"
       ],
       "abstract_en": "Auctions with endogenous rationing are motivated by the regulatory requirement of so-called proportionality of public support and are used to allocate support for renewable energy. They reduce the auctioned volume below the tender volume when competition is low. We show theoretically that endogenous rationing has the extreme effect of deterring any participation when single-unit bidders have participation costs. Our experiment provides support for a strong negative effect on participation. We derive optimal mechanisms for three objectives and several designs for their implementation. They do not use endogenous rationing and exhibit the usual tradeoffs between objectives. However, reducing participation costs, as opposed to increasing the number of potential bidders, contributes to all three objectives and helps ensure proportionality.",
-      "abstract_cn": "具有内生配给的拍卖是由所谓的公共支持比例性的监管要求所驱动，并用于分配对可再生能源的支持。当竞争较低时，它们将拍卖量减少到招标量以下。我们从理论上表明，当单一单位投标人具有参与成本时，内生配给具有阻止任何参与的极端效应。我们的实验为参与度的强烈负面效应提供了支持。我们为三个目标推导了最优机制，并为其实施设计了多种方案。它们不使用内生配给，并表现出目标之间的通常权衡。然而，降低参与成本，而不是增加潜在投标人的数量，有助于实现所有三个目标，并有助于确保比例性。",
+      "abstract_cn": "内生配给的拍卖源于对公共支持所谓比例性的监管要求，并用于分配可再生能源支持。当竞争较低时，它们将拍卖量减少到招标量以下。我们从理论上表明，当单一单位投标人存在参与成本时，内生配给具有阻止任何参与的极端效应。我们的实验为参与度的强烈负面效应提供了支持。我们为三个目标推导了最优机制，并为其实施设计了多种方案。这些机制不使用内生配给，并表现出目标之间的通常权衡。然而，降低参与成本，而非增加潜在投标人的数量，有助于实现所有三个目标，并有助于确保比例性。",
       "doi": "10.1016/j.euroecorev.2026.105436",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001807?dgcid=rss_sd_all",
       "china_related": false
@@ -90263,7 +90416,7 @@
         "Amanda Pallais"
       ],
       "abstract_en": "How does proximity to coworkers affect training and productivity? We study software engineers at a Fortune 500 firm from 2019 to 2024, leveraging two shocks to proximity: the office closures in 2020 and the subsequent return-to-office mandates in 2022 and 2023. In both cases, co-located teams experienced bigger changes in proximity than distributed ones, facilitating difference-in-differences designs. We find that sitting near teammates increases coding feedback by 18.3% and improves code quality. Gains are concentrated among less-tenured and younger employees, who are building human capital. However, there is a trade-off: experienced engineers write less code when sitting near teammates. In national U.S. data, we find evidence that the rise of remote work has had scarring effects on young college graduates. In remotable jobs, young graduates’ unemployment rate increased relative to older graduates’ post-pandemic (2022–2024) compared to pre-pandemic (2017–2019), a pattern we do not observe in non-remotable jobs.",
-      "abstract_cn": "与同事的邻近性如何影响培训和生产力？我们研究了2019年至2024年间一家财富500强公司的软件工程师，利用了两个邻近性冲击：2020年的办公室关闭以及随后2022年和2023年的返岗要求。在这两种情况下，同地办公的团队比分布式团队经历了更大的邻近性变化，这有助于采用双重差分设计。我们发现，坐在队友附近会使编码反馈增加18.3%，并提高代码质量。收益集中在资历较浅和较年轻的员工中，他们正在积累人力资本。然而，存在一个权衡：经验丰富的工程师在坐在队友附近时写的代码更少。在美国全国数据中，我们发现远程工作的兴起对年轻大学毕业生产生了疤痕效应。在可远程工作的职业中，年轻毕业生的失业率相对于年长毕业生在疫情后（2022-2024年）比疫情前（2017-2019年）有所上升，而这一模式在不可远程工作的职业中并未观察到。",
+      "abstract_cn": "与同事的邻近性如何影响培训和生产力？我们研究了2019年至2024年间一家财富500强公司的软件工程师，利用了两个邻近性冲击：2020年的办公室关闭以及随后2022年和2023年的返岗要求。在这两种情况下，同地办公的团队比分布式团队经历了更大的邻近性变化，这有助于进行双重差分设计。我们发现，坐在队友附近会使编码反馈增加18.3%，并提高代码质量。收益集中在资历较浅和较年轻的员工身上，他们正在积累人力资本。然而，存在一个权衡：经验丰富的工程师在坐在队友附近时写的代码更少。在美国全国数据中，我们发现远程工作的兴起对年轻大学毕业生产生了疤痕效应。在可远程工作的职业中，年轻毕业生的失业率相对于年长毕业生在疫情后（2022-2024年）比疫情前（2017-2019年）有所上升，而我们在不可远程工作的职业中没有观察到这种模式。",
       "doi": "10.1093/qje/qjag027",
       "source_url": "https://academic.oup.com/qje/article/141/3/1825/8676722?rss=1",
       "china_related": false
@@ -90287,7 +90440,7 @@
         "Virginia Minni"
       ],
       "abstract_en": "Why do managers matter for firm performance? This article provides evidence of the critical role of managers in matching workers to jobs within the firm using the universe of personnel records from a large multinational firm. The data cover 200,000 white-collar workers and 30,000 managers over 11 years in 100 countries. I identify good managers by their speed of promotion and leverage exogenous variation induced by the rotation of managers across teams. I find that good managers cause workers to reallocate within the firm through lateral and vertical transfers and generate large and persistent gains in workers’ career progression and productivity. My results imply that the visible hands of managers match workers’ specific skills to specialized jobs, leading to an improvement in the productivity of existing workers that outlasts the managers’ time at the firm.",
-      "abstract_cn": "为什么管理者对企业绩效至关重要？本文利用一家大型跨国公司的全体员工人事记录，提供了管理者在企业内部将工人与岗位匹配的关键作用的证据。数据涵盖200,000名白领工人和30,000名管理者，时间跨度为11年，涉及100个国家。我通过管理者的晋升速度来识别优秀管理者，并利用管理者跨团队轮换所产生的外生变异。我发现，优秀管理者通过横向和纵向调动促使工人在企业内部重新配置，并为工人的职业发展和生产力带来持续且显著的收益。我的结果表明，管理者的有形之手将工人的特定技能与专业化岗位相匹配，从而提高了现有工人的生产力，这种提升在管理者离开企业后依然持续。",
+      "abstract_cn": "为什么管理者对企业绩效至关重要？本文利用一家大型跨国公司的全体员工人事记录，提供了管理者在企业内部将工人与岗位匹配的关键作用的证据。数据涵盖200,000名白领工人和30,000名管理者，跨越11年，涉及100个国家。我通过管理者的晋升速度来识别优秀管理者，并利用管理者跨团队轮换所产生的外生变异。我发现，优秀管理者促使工人在企业内部通过横向和纵向调动进行重新分配，并为工人的职业发展和生产力带来巨大且持续的收益。我的结果表明，管理者的可见之手将工人的特定技能与专业化岗位相匹配，从而提高了现有工人的生产力，这种提升在管理者离开企业后仍然持续。",
       "doi": "10.1093/qje/qjag017",
       "source_url": "https://academic.oup.com/qje/article/141/3/1871/8537773?rss=1",
       "china_related": false
@@ -90314,7 +90467,7 @@
         "Andrei Shleifer"
       ],
       "abstract_en": "We present a theory of choice in which attention to the features of options is determined by the decision maker’s categorization of the current problem in a set of problems she solved in the past. Categorization depends on goal-relevant and contextual problem-level features. The model yields heterogeneity in attention and choice in a given problem based on different past experiences and instability when changes in irrelevant context cause recategorization. We show that heterogeneous and unstable representations of a choice problem unify major biases in judgment and decision making.",
-      "abstract_cn": "我们提出了一种选择理论，其中对选项特征的关注由决策者将当前问题归类为她过去解决过的一组问题中的某一类所决定。归类取决于目标相关和情境性的问题层面特征。该模型基于不同的过往经历，在给定问题中产生注意力和选择的异质性，并且当无关情境的变化导致重新归类时产生不稳定性。我们表明，选择问题的异质性和不稳定性表征统一了判断与决策中的主要偏差。",
+      "abstract_cn": "我们提出了一种选择理论，其中对选项特征的关注由决策者将当前问题归类为她过去解决过的一组问题中的某一类所决定。归类取决于目标相关和情境层面的问题特征。该模型基于不同的过往经历，在给定问题中产生注意力和选择的异质性，并且当无关情境的变化导致重新归类时产生不稳定性。我们表明，选择问题的异质性和不稳定性表征统一了判断与决策中的主要偏差。",
       "doi": "10.1093/qje/qjag023",
       "source_url": "https://academic.oup.com/qje/article/141/3/1921/8703194?rss=1",
       "china_related": false
@@ -90340,7 +90493,7 @@
         "David E Weinstein"
       ],
       "abstract_en": "This article examines the global adoption of technology in the late nineteenth century. We construct several novel data sets to test the idea that the codification of technical knowledge in the vernacular was necessary for countries to absorb the technologies of the first Industrial Revolution. We find that comparative advantage shifted to industries that could benefit from these technologies in countries and colonies with access to codified technical knowledge, but not in other regions. Using the rapid and unprecedented codification of technical knowledge in Meiji Japan as a natural experiment, we show that this pattern emerged only after the Japanese government codified vast amounts of technical knowledge. Our findings shed new light on the frictions associated with technological diffusion and offer a novel explanation for why Meiji Japan was unique among non-Western countries in successfully industrializing during the first wave of globalization.",
-      "abstract_cn": "本文考察了十九世纪末期技术的全球采用情况。我们构建了几个新颖的数据集来检验这样一个观点：即技术知识在本国语言中的法典化是各国吸收第一次工业革命技术的必要条件。我们发现，在能够获取法典化技术知识的国家和殖民地，比较优势转向了能够从这些技术中受益的行业，而在其他地区则没有。利用明治日本技术知识快速且前所未有的法典化作为自然实验，我们表明这种模式仅在日本政府将大量技术知识法典化之后才出现。我们的发现为与技术扩散相关的摩擦提供了新的视角，并为明治日本为何在第一次全球化浪潮中成为非西方国家中唯一成功实现工业化的国家提供了新颖的解释。",
+      "abstract_cn": "本文考察了十九世纪末期技术的全球采用情况。我们构建了几个新颖的数据集来检验这样一个观点：即技术知识在本土语言中的法典化是各国吸收第一次工业革命技术的必要条件。我们发现，在能够获取法典化技术知识的国家和殖民地，比较优势转向了能够从这些技术中受益的行业，而在其他地区则不然。以明治日本技术知识快速且前所未有的法典化作为自然实验，我们表明这种模式仅在日本政府将大量技术知识法典化之后才出现。我们的发现为技术扩散相关的摩擦提供了新的视角，并为明治日本为何在第一次全球化浪潮中成为非西方国家中唯一成功实现工业化的国家提供了新颖的解释。",
       "doi": "10.1093/qje/qjag021",
       "source_url": "https://academic.oup.com/qje/article/141/3/1965/8651080?rss=1",
       "china_related": false
@@ -90366,7 +90519,7 @@
         "Marcio Cruz"
       ],
       "abstract_en": "We study technology sophistication using a novel approach that measures the sophistication of the most advanced (MAX) and the most widely used (MOST) technologies in key business functions within establishments. Using data from over 21,000 establishments across 15 countries, we find that establishments generally underutilize the most sophisticated technologies available in a business function. These MAX-MOST gaps are persistent and strongly associated with productivity both across establishments and countries. At the establishment level, there is substantial variation in both MAX and MOST, with MOST showing a more skewed distribution. MAX and MOST follow different life cycle patterns in low-income countries and among small establishments, and they exhibit different associations with several establishment characteristics and performance indicators. This evidence underscores the different nature of the technology upgrading processes that drive MAX and MOST.",
-      "abstract_cn": "我们采用一种新颖的方法研究技术复杂度，该方法衡量企业内部关键业务功能中最先进（MAX）和最广泛使用（MOST）技术的复杂度。利用来自15个国家超过21,000家企业的数据，我们发现企业通常未充分利用业务功能中可用的最复杂技术。这些MAX-MOST差距是持续存在的，并且与企业层面和国家层面的生产率密切相关。在企业层面，MAX和MOST均存在显著差异，其中MOST的分布更为偏斜。在低收入国家和小型企业中，MAX和MOST遵循不同的生命周期模式，并且它们与若干企业特征和绩效指标表现出不同的关联。这一证据强调了驱动MAX和MOST的技术升级过程具有不同性质。",
+      "abstract_cn": "我们采用一种新颖的方法研究技术复杂度，该方法衡量企业内部关键业务功能中最先进（MAX）和最广泛使用（MOST）技术的复杂度。利用来自15个国家超过21,000家企业的数据，我们发现企业通常未充分利用业务功能中可用的最先进技术。这些MAX-MOST差距是持续存在的，并且与企业层面和国家层面的生产率密切相关。在企业层面，MAX和MOST均存在显著差异，其中MOST的分布更为偏斜。在低收入国家和小型企业中，MAX和MOST遵循不同的生命周期模式，并且它们与若干企业特征和绩效指标表现出不同的关联。这一证据强调了驱动MAX和MOST的技术升级过程具有不同性质。",
       "doi": "10.1093/qje/qjag018",
       "source_url": "https://academic.oup.com/qje/article/141/3/2025/8537769?rss=1",
       "china_related": false
@@ -90417,7 +90570,7 @@
         "Yousra Neberai"
       ],
       "abstract_en": "This article examines how the American Medical Association (AMA) helped shape the development of the U.S. health insurance system in the critical period after World War II. Working with the political public relations firm Campaigns, Inc., the AMA launched a nationwide campaign to weaken support for national health insurance by framing it as “socialized medicine,” while simultaneously enrolling people in private health insurance plans to shift demand away from a public alternative. Drawing on newly assembled archival data, we find that greater exposure to the campaign explains about 20% of the rise in private health insurance enrollment and a comparable decline in public support for a national program. The campaign also appears to have influenced policy making through coordinated messaging, resolutions passed by civic organizations, congressional rhetoric, and political donations. These findings suggest that the rise of private health insurance in the United States was not solely due to macroeconomic forces or collective bargaining; rather, it was also enabled by a strategic, interest group–financed effort to shape citizen views and influence policy.",
-      "abstract_cn": "本文考察了美国医学会（AMA）如何在二战后关键时期帮助塑造了美国医疗保险体系的发展。通过与政治公关公司Campaigns, Inc.合作，AMA发起了一场全国性运动，通过将国家医疗保险定性为“社会化医疗”来削弱对其的支持，同时将人们纳入私人医疗保险计划，以将需求从公共替代方案转移开。利用新整理的档案数据，我们发现，对该运动的更大接触解释了私人医疗保险参保率上升的约20%，以及公众对国家计划支持率的相应下降。该运动似乎还通过协调一致的信息传递、民间组织通过的决议、国会言论和政治捐款影响了政策制定。这些发现表明，美国私人医疗保险的兴起并非仅仅归因于宏观经济力量或集体谈判；相反，它还得益于一个由利益集团资助的战略性努力，旨在塑造公民观点并影响政策。",
+      "abstract_cn": "本文考察了美国医学会（AMA）如何在二战后关键时期帮助塑造了美国医疗保险体系的发展。通过与政治公关公司Campaigns, Inc.合作，AMA发起了一场全国性运动，通过将国家医疗保险定性为“社会化医疗”来削弱对其的支持，同时将人们纳入私人医疗保险计划，以将需求从公共替代方案转移开。利用新整理的档案数据，我们发现，对该运动的更大暴露解释了私人医疗保险参保率上升的约20%，以及公众对国家计划支持率的相应下降。该运动似乎还通过协调信息传递、公民组织通过的决议、国会言论和政治捐款影响了政策制定。这些发现表明，美国私人医疗保险的兴起并非仅仅归因于宏观经济力量或集体谈判；相反，它还得益于一个由利益集团资助的战略性努力，旨在塑造公民观点并影响政策。",
       "doi": "10.1093/qje/qjag024",
       "source_url": "https://academic.oup.com/qje/article/141/3/2147/8669893?rss=1",
       "china_related": false
@@ -90443,7 +90596,7 @@
         "David Thesmar"
       ],
       "abstract_en": "Since 1967, all French firms with more than 100 employees have been required to share a fraction of their excess profits with their employees. Through this scheme, firms with excess profits distribute, on average, 10.5% of their pretax income to workers. In 1990, the eligibility threshold was reduced to 50 employees. We exploit this regulatory change to identify the effects of mandated profit-sharing on firms and their employees. The cost of mandated profit-sharing for firms is evident in the significant bunching at the 100-employee threshold observed prior to the reform, which completely disappears post-reform. Using a difference-in-differences strategy, we find that at the firm level, mandated profit-sharing (i) increases the labor share by 1.8 percentage points, (ii) reduces the profit share by 1.4 percentage points, and (iii) has small to nonexistent effects on investment and productivity. At the employee level, mandated profit-sharing increases lower-skilled workers’ total compensation and leaves high-skilled workers’ total compensation unchanged. Overall, mandated profit-sharing redistributes excess profits to lower-skilled workers in the firm without generating significant distortions or productivity effects.",
-      "abstract_cn": "自1967年以来，法国所有员工超过100人的企业都被要求将其超额利润的一部分与员工分享。通过这一计划，有超额利润的企业平均将税前收入的10.5%分配给工人。1990年，资格门槛降低到50名员工。我们利用这一监管变化来识别强制性利润分享对企业及其员工的影响。强制性利润分享对企业的成本在改革前观察到的100名员工门槛处的显著聚集现象中显而易见，而这一现象在改革后完全消失。使用双重差分策略，我们发现在企业层面，强制性利润分享（i）将劳动份额提高了1.8个百分点，（ii）将利润份额降低了1.4个百分点，（iii）对投资和生产力的影响很小或不存在。在员工层面，强制性利润分享增加了低技能工人的总薪酬，而高技能工人的总薪酬保持不变。总体而言，强制性利润分享将超额利润重新分配给企业中的低技能工人，而不会产生显著的扭曲或生产力影响。",
+      "abstract_cn": "自1967年以来，法国所有员工超过100人的企业都被要求将超额利润的一部分与员工分享。通过这一计划，有超额利润的企业平均将税前收入的10.5%分配给工人。1990年，资格门槛降低到50名员工。我们利用这一监管变化来识别强制性利润分享对企业及其员工的影响。强制性利润分享对企业的成本在改革前观察到的100名员工门槛处的显著聚集现象中显而易见，而这一现象在改革后完全消失。使用双重差分策略，我们发现在企业层面，强制性利润分享（i）将劳动份额提高了1.8个百分点，（ii）将利润份额降低了1.4个百分点，（iii）对投资和生产力的影响很小或不存在。在员工层面，强制性利润分享增加了低技能工人的总薪酬，而高技能工人的总薪酬保持不变。总体而言，强制性利润分享将超额利润重新分配给企业中的低技能工人，而不会产生显著的扭曲或生产力影响。",
       "doi": "10.1093/qje/qjag022",
       "source_url": "https://academic.oup.com/qje/article/141/3/2205/8662148?rss=1",
       "china_related": false
@@ -90469,7 +90622,7 @@
         "César Sosa-Padilla"
       ],
       "abstract_en": "This article investigates how a government should manage international reserves when it faces the risk of a rollover crisis. We ask: Should the government accumulate reserves or reduce debt to make itself less vulnerable? We show that the optimal policy entails initially reducing debt, followed by a subsequent increase in both debt and reserves as the government approaches a safe zone. Furthermore, we find that issuing additional debt to accumulate reserves can lead to a reduction in sovereign spreads. Evidence from a panel of emerging economies is consistent with these predictions: increases in reserves financed by public external borrowing are associated with lower spreads, and reserve holdings are not systematically drawn down during crisis episodes.",
-      "abstract_cn": "本文研究当政府面临滚动危机风险时，应如何管理国际储备。我们提出的问题是：政府应积累储备还是减少债务以降低自身脆弱性？我们表明，最优政策是先减少债务，随后随着政府接近安全区域，债务和储备均增加。此外，我们发现，发行额外债务以积累储备可导致主权利差下降。来自新兴经济体面板数据的证据与这些预测一致：由公共外部借款融资的储备增加与较低的利差相关，且储备持有在危机期间并未系统性减少。",
+      "abstract_cn": "本文研究当政府面临滚动危机风险时，应如何管理国际储备。我们提出的问题是：政府应积累储备还是减少债务以降低自身脆弱性？我们表明，最优政策是先减少债务，随后随着政府接近安全区域，债务和储备均增加。此外，我们发现，发行额外债务以积累储备可能导致主权利差下降。来自新兴经济体面板数据的证据与这些预测一致：由公共外部借款融资的储备增加与较低的利差相关，且在危机期间储备持有量并未系统性减少。",
       "doi": "10.1093/qje/qjag025",
       "source_url": "https://academic.oup.com/qje/article/141/3/2269/8676721?rss=1",
       "china_related": false
@@ -90494,7 +90647,7 @@
         "Guillermo Ordoñez"
       ],
       "abstract_en": "Stock markets play a dual role: they provide information about firms’ fundamentals, which improves resource allocations, and they provide liquidity. We propose a setting in which these two roles interact: if stocks are used more intensively for liquidity, then prices reveal less information about fundamentals. We structurally estimate stock price informativeness for several countries and show that it declines when alternative liquidity sources, such as banks, are in distress. To study the real effects of this mechanism, we devise a strategy to integrate our stock-trading module into a dynamic general equilibrium model with heterogeneous firms. We calibrate the model to the United States and simulate recessions with and without banking distress. In a standalone recession, prices become more informative and allocation improves, mitigating output losses by 4.4%. If the recession coincides with banking distress, agents rely more on stock markets to obtain liquidity, prices become less informative, and allocation deteriorates, magnifying output losses by 22%.",
-      "abstract_cn": "股票市场扮演着双重角色：它们提供关于企业基本面的信息，从而改善资源配置，并且它们提供流动性。我们提出了一个这两种角色相互作用的设定：如果股票被更密集地用于流动性目的，那么价格揭示的基本面信息就会减少。我们对几个国家的股价信息含量进行了结构性估计，并表明当银行等替代性流动性来源陷入困境时，股价信息含量会下降。为了研究这一机制的实际影响，我们设计了一种策略，将我们的股票交易模块整合到一个具有异质性企业的动态一般均衡模型中。我们将模型校准到美国，并模拟了有和没有银行困境的衰退。在独立衰退中，价格变得更具信息性，配置得到改善，从而将产出损失减轻了4.4%。如果衰退与银行困境同时发生，代理人更依赖股票市场获取流动性，价格信息含量降低，配置恶化，从而将产出损失放大了22%。",
+      "abstract_cn": "股票市场扮演着双重角色：它们提供关于企业基本面的信息，从而改善资源配置，并且它们提供流动性。我们提出了一个这两种角色相互作用的设定：如果股票被更密集地用于流动性目的，那么价格揭示的基本面信息就会减少。我们对几个国家的股价信息含量进行了结构性估计，并表明当替代性流动性来源（如银行）陷入困境时，股价信息含量会下降。为了研究这一机制的实际效应，我们设计了一种策略，将我们的股票交易模块整合到一个具有异质性企业的动态一般均衡模型中。我们将模型校准到美国，并模拟了有和没有银行困境的衰退。在独立衰退中，价格变得更具信息性，配置得到改善，从而将产出损失减轻了4.4%。如果衰退与银行困境同时发生，代理人更依赖股票市场获取流动性，价格信息含量降低，配置恶化，从而将产出损失放大了22%。",
       "doi": "10.1093/qje/qjag029",
       "source_url": "https://academic.oup.com/qje/article/141/3/2313/8698258?rss=1",
       "china_related": false
@@ -90520,7 +90673,7 @@
         "Nicholas Ryan"
       ],
       "abstract_en": "We study rainmaking as an instrumental religious belief. We present a model in which a religious leader tries to persuade people to believe. Praying for rain can persuade only where the hazard of rainfall during a dry spell is increasing over time, so that prayer is most likely to succeed when people most want rain. We present evidence from prayers for rain in Murcia, Spain, where the hazard rate is increasing, that the church’s prayers for rain predict rainfall over two centuries. To generalize this finding, we gather an original data set of whether ethnic groups around the world traditionally prayed for rain. We find that ethnic groups facing an increasing rainfall hazard are 47% more likely to pray for rain, consistent with our model’s prediction that societies are more likely to pray for rain where prayer is persuasive.",
-      "abstract_cn": "我们研究祈雨作为一种工具性宗教信仰。我们提出了一个模型，其中宗教领袖试图说服人们相信。只有在干旱期降雨风险随时间增加的情况下，祈雨才能说服人们，因此当人们最需要雨时，祈祷最有可能成功。我们提供了来自西班牙穆尔西亚祈雨的证据，那里的风险率在增加，教堂的祈雨祈祷在两个世纪内预测了降雨。为了推广这一发现，我们收集了一个原始数据集，关于世界各地的族群是否传统上祈雨。我们发现，面临降雨风险增加的族群祈雨的可能性高出47%，这与我们模型的预测一致，即社会在祈祷具有说服力的地方更可能祈雨。",
+      "abstract_cn": "我们研究祈雨作为一种工具性宗教信仰。我们提出了一个模型，其中宗教领袖试图说服人们相信。只有在干旱期降雨风险随时间增加的情况下，祈雨才能说服人们，因此当人们最需要雨时，祈祷最有可能成功。我们提供了来自西班牙穆尔西亚祈雨的证据，那里的风险率在增加，表明教会的祈雨在两个世纪内预测了降雨。为了推广这一发现，我们收集了一个原始数据集，关于世界各地的族群是否传统上祈雨。我们发现，面临降雨风险增加的族群祈雨的可能性高出47%，这与我们模型的预测一致，即社会在祈祷具有说服力的地方更可能祈雨。",
       "doi": "10.1093/qje/qjag026",
       "source_url": "https://academic.oup.com/qje/article/141/3/2363/8676046?rss=1",
       "china_related": false
@@ -90546,7 +90699,7 @@
         "E Anna Weber"
       ],
       "abstract_en": "Do men negatively respond when women first enter an occupation? We answer this question by studying the end of one of the final explicit occupational barriers to women in the United States: in 2016, the U.S. military opened all positions to women, including historically male-only combat occupations. We exploit the staggered integration of women into combat units to estimate the causal effects of the introduction of female colleagues on men’s job performance, behavior, and perceptions of workplace quality, using monthly administrative personnel records and rich survey responses. We find that integrating women into previously all-male units does not negatively affect men’s performance or behavioral outcomes, including retention, promotions, demotions, separations for misconduct, criminal investigations, and medical conditions. Most of our results are precise enough to rule out small detrimental effects. However, there is a wedge between men’s perceptions and performance. The integration of women causes a negative shift in male soldiers’ perceptions of workplace quality. The decline is driven by units integrated with female officers, likely arising from female officers increasing men’s awareness of workplace problems or from men’s dissatisfaction from working with women in positions of authority—even though men in such units show some performance gains. If male-dominated workplaces are reluctant to incorporate women due to expectations that men will become less productive, our paper provides evidence to weigh against that notion.",
-      "abstract_cn": "当女性首次进入某一职业时，男性是否会做出负面反应？我们通过研究美国最终明确的职业性别壁垒之一的终结来回答这个问题：在2016年，美国军队向女性开放了所有职位，包括历史上仅限男性的战斗职业。我们利用女性逐步融入战斗部队的阶段性安排，使用月度行政人事记录和丰富的调查回复，估计引入女性同事对男性工作表现、行为和工作场所质量感知的因果效应。我们发现，将女性融入先前全男性单位并不会对男性的表现或行为结果产生负面影响，包括留任、晋升、降级、因行为不当而退伍、刑事调查和医疗状况。我们的大多数结果足够精确，可以排除小的不利影响。然而，男性的感知与表现之间存在差距。女性的融入导致男性士兵对工作场所质量的感知出现负面转变。这种下降是由融入女性军官的单位驱动的，可能源于女性军官提高了男性对工作场所问题的认识，或者男性对与处于权威职位的女性共事的不满——尽管此类单位中的男性在表现上有所提升。如果男性主导的工作场所因预期男性生产力下降而不愿接纳女性，我们的论文提供了反对这一观点的证据。",
+      "abstract_cn": "当女性首次进入某一职业时，男性是否会做出负面反应？我们通过研究美国最终明确的职业性别壁垒之一的终结来回答这个问题：在2016年，美国军队向女性开放了所有职位，包括历史上仅限男性的战斗职业。我们利用女性逐步融入战斗部队的阶段性安排，使用月度行政人事记录和丰富的调查问卷回复，估计引入女性同事对男性工作表现、行为和工作场所质量感知的因果效应。我们发现，将女性融入先前全男性单位并不会对男性的表现或行为结果产生负面影响，包括留任、晋升、降级、因行为不当而退伍、刑事调查和医疗状况。我们的大多数结果足够精确，可以排除小的有害影响。然而，男性的感知与表现之间存在差距。女性的融入导致男性士兵对工作场所质量的感知出现负面转变。这种下降是由与女性军官融合的单位驱动的，可能源于女性军官提高了男性对工作场所问题的认识，或者男性对与担任权威职位的女性共事的不满——尽管此类单位中的男性在表现上有所提升。如果男性主导的工作场所因预期男性生产力下降而不愿接纳女性，我们的论文提供了反对这一观点的证据。",
       "doi": "10.1093/qje/qjag016",
       "source_url": "https://academic.oup.com/qje/article/141/3/2423/8551347?rss=1",
       "china_related": false
@@ -90572,7 +90725,7 @@
         "Ashley Wong"
       ],
       "abstract_en": "Women continue to be underrepresented in corporate leadership positions. This article studies the role of social connections in women’s career advancement. We investigate whether access to a larger share of female peers in business school affects the gender gap in senior managerial positions. Merging administrative data from a top 10 U.S. business school with public LinkedIn profiles, we first document that female MBAs are 24% less likely than male MBAs to enter senior management within 15 years of graduation. Next we use the exogenous assignment of students into sections to show that a larger proportion of female MBA section peers increases the likelihood of entering senior management for women but not for men. This effect is driven by female-friendly firms, such as those with more generous maternity leave policies and greater work-schedule flexibility. A larger proportion of female MBA peers induces women to transition to these firms where they attain senior management roles. A survey of female MBA alumnae reveals three key mechanisms: (i) information sharing, especially related to gender-specific advice, (ii) higher ambitions and self-confidence, and (iii) increasing support from male MBA peers. These findings highlight the role of social connections in reducing the gender gap in senior management positions.",
-      "abstract_cn": "女性在企业领导职位中的代表性仍然不足。本文研究了社会关系在女性职业晋升中的作用。我们考察商学院中女性同伴比例的增加是否会影响高级管理职位的性别差距。通过将美国一所顶尖10商学院的行政数据与公开的LinkedIn个人资料合并，我们首先记录了女性MBA毕业生在毕业15年内进入高级管理层的可能性比男性MBA毕业生低24%%。接下来，我们利用学生分班的外生分配来表明，女性MBA同伴比例的增加会提高女性进入高级管理层的可能性，但对男性没有影响。这一效应由对女性友好的公司驱动，例如那些拥有更慷慨的产假政策和更大工作日程灵活性的公司。女性MBA同伴比例的增加促使女性转向这些公司，并在那里获得高级管理职位。对女性MBA校友的调查揭示了三个关键机制：（i）信息共享，特别是与性别相关的建议，（ii）更高的抱负和自信心，以及（iii）来自男性MBA同伴的更多支持。这些发现强调了社会关系在减少高级管理职位性别差距中的作用。",
+      "abstract_cn": "女性在企业领导职位中的代表性仍然不足。本文研究了社会关系在女性职业晋升中的作用。我们考察了在商学院中接触更多女性同伴是否会影响高级管理职位的性别差距。通过将美国一所顶尖10商学院的行政数据与公开的LinkedIn个人资料合并，我们首先记录了女性MBA毕业生在毕业15年内进入高级管理层的可能性比男性MBA毕业生低24%%。接下来，我们利用学生被外生分配到不同小组的情况，表明女性MBA同伴比例的增加会提高女性进入高级管理层的可能性，但对男性没有影响。这一效应由对女性友好的公司驱动，例如那些提供更慷慨的产假政策和更大工作灵活性的公司。女性MBA同伴比例的增加促使女性转向这些公司，并在那里获得高级管理职位。对女性MBA校友的调查揭示了三个关键机制：（i）信息共享，特别是与性别相关的建议，（ii）更高的抱负和自信心，以及（iii）来自男性MBA同伴的更多支持。这些发现强调了社会关系在减少高级管理职位性别差距中的作用。",
       "doi": "10.1093/qje/qjag015",
       "source_url": "https://academic.oup.com/qje/article/141/3/2499/8507231?rss=1",
       "china_related": false
@@ -90591,7 +90744,7 @@
       "sequence": 14,
       "paper_id": "doi:10.1093/qje/qjag020",
       "title_en": "Collusion with Optimal Information Disclosure*",
-      "title_cn": "最优信息披露下的合谋",
+      "title_cn": "最优信息披露下的合谋*",
       "authors": [
         "Takuo Sugaya",
         "Alexander Wolitzky"
@@ -90623,7 +90776,7 @@
         "Rudi Rocha"
       ],
       "abstract_en": "Theory predicts that outsourcing public services to the private sector can reduce costs and improve efficiency but can also induce cost-cutting and compromise quality. We assess the Brazilian Organizações Sociais de Saude model (OSS), which outsources management of public hospital services to the private sector while the state remains the residual claimant. We show that this enhances hospital production and operational efficiency without adverse effects on hospital quality and equity. Increased inpatient production addresses previously unmet demand, expanding local access to hospital care and reducing population mortality. Performance gains arise from improved operational efficiency achieved through increased hospital management capacity. This facilitates staffing adjustments, favoring higher-skilled personnel, dismissing lower-productivity staff, and adopting flexible, performance-tied employment contracts. Effects are larger among private organizations with more management experience, underscoring returns to managerial capacity. Our findings show that incentive-ownership structures can address the quantity-quality trade-off in public service delivery, even when contracts are incomplete and quality is hard to measure.",
-      "abstract_cn": "理论预测，将公共服务外包给私营部门可以降低成本并提高效率，但也可能引发削减成本并损害质量。我们评估了巴西的卫生社会组织（OSS）模式，该模式将公立医院服务的管理外包给私营部门，而国家仍作为剩余索取者。我们表明，这提高了医院的生产和运营效率，且未对医院质量和公平性产生不利影响。住院生产的增加满足了此前未满足的需求，扩大了当地获得医院护理的机会，并降低了人口死亡率。绩效提升源于通过提高医院管理能力而实现的运营效率改善。这促进了人员调整，偏向于更高技能的人员，解雇低生产率员工，并采用灵活的、与绩效挂钩的雇佣合同。在管理经验更丰富的私人组织中，效果更大，凸显了管理能力的回报。我们的研究结果表明，激励-所有权结构可以解决公共服务提供中的数量-质量权衡，即使合同不完整且质量难以衡量。",
+      "abstract_cn": "理论预测，将公共服务外包给私营部门可以降低成本并提高效率，但也可能引发削减成本并损害质量。我们评估了巴西的卫生社会组织（OSS）模式，该模式将公立医院服务的管理外包给私营部门，而国家仍作为剩余索取者。我们表明，这提高了医院的生产和运营效率，且未对医院质量和公平性产生不利影响。住院生产的增加满足了此前未满足的需求，扩大了当地获得医院护理的机会，并降低了人口死亡率。绩效提升源于通过增强医院管理能力实现的运营效率改善。这促进了人员调整，偏向更高技能人员，解雇低生产率员工，并采用灵活的、与绩效挂钩的雇佣合同。在管理经验更丰富的私人组织中，效应更大，凸显了管理能力的回报。我们的研究结果表明，激励-所有权结构可以解决公共服务提供中的数量-质量权衡，即使合同不完整且质量难以衡量。",
       "doi": "10.1093/qje/qjag028",
       "source_url": "https://academic.oup.com/qje/article/141/3/2597/8676724?rss=1",
       "china_related": false

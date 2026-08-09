@@ -2517,5 +2517,27 @@
       "prompt_version": "academic-door-abstract-zh-v2",
       "translated_at": "2026-08-06T11:50:33+00:00"
     }
+  },
+  "10.1016/j.jeconom.2026.106300": {
+    "title_cn": "共同基金阿尔法的异质性可预测性：一种稀疏聚类GMM方法",
+    "abstract_cn": "共同基金经理的技能，以风险调整后的阿尔法衡量，可以通过机器学习识别的基金特征进行预测（例如，Kaniel等，2023，JFE；DeMiguel等，2023，JFE）。然而，阿尔法的预测能力因基金和时期而异，大多数基金的阿尔法可忽略不计。为了模拟这种异质性可预测性，本文引入了稀疏聚类GMM，一种用于识别潜在基金组的非参数方法。SCGMM使用估计的阿尔法对基金进行聚类，并识别与市场预测因子相关的组特定参数。该方法考虑了横截面分组中的异质性和跨预测因子的时变机制，无需先验聚类信息或时变设定。我们建立了组恢复和时变参数估计的一致性。实证上，使用美国月度共同基金数据，我们发现可预测的阿尔法集中在一小部分基金中，大多数基金的阿尔法接近零，可预测性较弱。技能较高的聚类还表现出较低的基准R2、适中的费用比率和更长的经理任期。",
+    "source_hash": "dd1ffda9f2505800c8103fbfe24685bd11e9e2572a1b5f559bf63d09bf11c81e",
+    "translation": {
+      "provider": "deepseek",
+      "model": "deepseek-v4-flash",
+      "prompt_version": "academic-door-abstract-zh-v2",
+      "translated_at": "2026-08-09T22:05:44+00:00"
+    }
+  },
+  "10.1016/j.jeconom.2026.106309": {
+    "title_cn": "空间回归中系数稳定性的检验",
+    "abstract_cn": "本文开发了一种检验空间回归中系数变异性的方法。该检验旨在对广泛的持续性系数变化模式具有良好的功效，适用于广泛的空间设计，并能容纳回归变量和回归误差中的空间相关性。该检验近似于高斯回归模型中系数稳定性检验的局部最优不变检验，其中备择假设下系数变化具有类似鞅的性质，因此是Nyblom（1989）时间序列回归中系数稳定性检验的空间推广。",
+    "source_hash": "02d40d3890f945b12133590bedaf78283a1cc8704263f0aa58d70a2ba6e0b1f2",
+    "translation": {
+      "provider": "deepseek",
+      "model": "deepseek-v4-flash",
+      "prompt_version": "academic-door-abstract-zh-v2",
+      "translated_at": "2026-08-09T22:05:46+00:00"
+    }
   }
 }
