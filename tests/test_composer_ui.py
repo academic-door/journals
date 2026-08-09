@@ -253,6 +253,14 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn(".composer-toolbar .button,", self.css)
         self.assertIn(".composer-toolbar .composer-source select,", self.css)
         self.assertIn(".composer-toolbar .style-settings-panel input { min-height: 44px; }", self.css)
+        self.assertIn(
+            ".style-settings:not([open]) > .style-settings-panel { display: none; }",
+            self.css,
+        )
+        self.assertIn(".composer-publish-row > .style-settings,", self.css)
+        self.assertIn(".composer-publish-row > .theme-lab-link { width: 100%; }", self.css)
+        self.assertIn("grid-template-columns: repeat(2, minmax(0, 1fr));", self.css)
+        self.assertIn(".style-settings-panel > label { min-width: 0; }", self.css)
 
     def test_search_has_traceable_editorial_entry_points(self):
         search_page = (ROOT / "src/pages/search/index.astro").read_text(
