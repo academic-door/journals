@@ -1,6 +1,11 @@
 # Field journal history backfill status
 
-Updated: 2026-08-09T10:58:12+00:00
+Updated: 2026-08-09T11:37:44+00:00
+
+| Period | Complete | Partial | Blocked | Pending |
+|---|---|---|---|---|
+| 2023-2024 | 0 | 0 | 0 | 0 |
+| 2025-2026 | 595 | 4 | 14 | 0 |
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
