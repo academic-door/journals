@@ -663,10 +663,17 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     };
 
     const immediateIssueOptionsFor = (journal) => {
+      const immediateLabel = (label, publicationDate) => [
+        sanitizeSummaryIssueLabel(label),
+        formatIssuePeriod(publicationDate),
+      ].filter(Boolean).join(" · ");
       const ready = journal?.latest_issue_url ? [{
         id: journal.latest_issue_id || "current",
         url: journal.latest_issue_url,
-        label: sanitizeSummaryIssueLabel(journal.latest_issue_label) || "最新一期",
+        label: immediateLabel(
+          journal.latest_issue_label,
+          journal.publication_date,
+        ) || "最新一期",
         status: "ready",
         latest: false,
       }] : [];
@@ -674,12 +681,18 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       const detected = journal?.latest_detected_issue_url
         && (
           detectedId !== journal.latest_issue_id
-          || journal.latest_detected_issue_url !== journal.latest_issue_url
+          || (
+            journal.latest_detected_issue_url !== journal.latest_issue_url
+            && journal.update_state !== "ready"
+          )
         )
         ? [{
             id: detectedId || "detected",
             url: journal.latest_detected_issue_url,
-            label: sanitizeSummaryIssueLabel(journal.latest_detected_issue_label) || "最新卷期",
+            label: immediateLabel(
+              journal.latest_detected_issue_label,
+              journal.latest_detected_publication_date,
+            ) || "最新卷期",
             status: "enriching",
             latest: true,
           }]
@@ -755,7 +768,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       }
       const selectedOption = issueSelect.options[issueSelect.selectedIndex];
       if (selectedOption && issueSelect.options.length === 1) {
-        selectedOption.textContent = `${issueLabel(currentIssue)}（最新）`;
+        selectedOption.textContent = [
+          issueLabel(currentIssue),
+          formatIssuePeriod(currentIssue.publication_date),
+        ].filter(Boolean).join(" · ") + "（最新）";
       }
       applyPickerPreference();
       renderPicker();
