@@ -1,10 +1,10 @@
 # Field journal history backfill status
 
-Updated: 2026-08-09T12:02:19+00:00
+Updated: 2026-08-09T23:22:47+00:00
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 32 | 4 | 3 | 0 |
+| 2023-2024 | 51 | 7 | 4 | 0 |
 | 2025-2026 | 595 | 4 | 14 | 0 |
 
 | Journal | Issue | Year | Status | Note |
@@ -86,12 +86,24 @@ Updated: 2026-08-09T12:02:19+00:00
 | AER | aer-116-6 | 2026 | complete |  |
 | AER | aer-116-7 | 2026 | complete |  |
 | AER | aer-116-8 | 2026 | complete |  |
+| AERI | aeri-5-1 | 2023 | complete |  |
+| AERI | aeri-5-2 | 2023 | complete |  |
+| AERI | aeri-5-3 | 2023 | complete |  |
+| AERI | aeri-5-4 | 2023 | complete |  |
+| AERI | aeri-6-1 | 2024 | complete |  |
+| AERI | aeri-6-2 | 2024 | complete |  |
 | AERI | aeri-7-1 | 2025 | complete |  |
 | AERI | aeri-7-2 | 2025 | complete |  |
 | AERI | aeri-7-3 | 2025 | complete |  |
 | AERI | aeri-7-4 | 2025 | complete |  |
 | AERI | aeri-8-1 | 2026 | complete |  |
 | AERI | aeri-8-2 | 2026 | complete |  |
+| AJAE | ajae-105-1 | 2023 | complete |  |
+| AJAE | ajae-105-2 | 2023 | complete |  |
+| AJAE | ajae-105-3 | 2023 | complete |  |
+| AJAE | ajae-105-4 | 2023 | complete |  |
+| AJAE | ajae-105-5 | 2023 | complete |  |
+| AJAE | ajae-106-1 | 2024 | complete |  |
 | AJAE | ajae-107-1 | 2025 | complete |  |
 | AJAE | ajae-107-2 | 2025 | complete |  |
 | AJAE | ajae-107-3 | 2025 | complete |  |
@@ -102,6 +114,11 @@ Updated: 2026-08-09T12:02:19+00:00
 | AJAE | ajae-108-3 | 2026 | complete |  |
 | AJAE | ajae-108-4 | 2026 | complete |  |
 | CER | cer-100-c | 2026 | complete |  |
+| CER | cer-77-c | 2023 | complete |  |
+| CER | cer-78-c | 2023 | complete |  |
+| CER | cer-79-c | 2023 | complete |  |
+| CER | cer-80-c | 2023 | complete |  |
+| CER | cer-81-c | 2023 | translation_partial |  |
 | CER | cer-89-c | 2025 | complete |  |
 | CER | cer-90-c | 2025 | complete |  |
 | CER | cer-91-c | 2025 | complete |  |
@@ -113,6 +130,12 @@ Updated: 2026-08-09T12:02:19+00:00
 | CER | cer-97-c | 2026 | complete |  |
 | CER | cer-98-c | 2026 | complete |  |
 | CER | cer-99-c | 2026 | complete |  |
+| ECOLECON | ecolecon-203-c | 2023 | complete |  |
+| ECOLECON | ecolecon-204-c | 2023 | blocked | possible_incomplete_volume: 14 articles collected vs current issue 30; needs off |
+| ECOLECON | ecolecon-205-c | 2023 | translation_partial |  |
+| ECOLECON | ecolecon-206-c | 2023 | complete |  |
+| ECOLECON | ecolecon-207-c | 2023 | complete |  |
+| ECOLECON | ecolecon-208-c | 2023 | translation_partial |  |
 | ECOLECON | ecolecon-227-c | 2025 | complete |  |
 | ECOLECON | ecolecon-228-c | 2025 | complete |  |
 | ECOLECON | ecolecon-229-c | 2025 | complete |  |
