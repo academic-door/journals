@@ -122,13 +122,34 @@ MONTHS_BY_ISSUE = {
         "5": "September",
         "6": "November",
     },
+    # The Econometric Society's Wiley journals publish four numbered issues on
+    # the same official cover-month calendar. Crossref records for these DOI
+    # prefixes expose only a year, so the issue number is the stable source.
+    "1555-7561": {"1": "January", "2": "May", "3": "July", "4": "November"},
+    "1933-6837": {"1": "January", "2": "May", "3": "July", "4": "November"},
+    "1759-7331": {"1": "January", "2": "May", "3": "July", "4": "November"},
+    "1759-7323": {"1": "January", "2": "May", "3": "July", "4": "November"},
     # Environmental and Resource Economics (Springer). Crossref records online
-    # publication dates, so map official issue months for the 2026 volume.
+    # publication dates, so use the official monthly issue calendar.
     "0924-6460": {
-        "5": "May",
-        "6": "June",
-        "7": "July",
-        "8": "August",
+        str(index): month
+        for index, month in enumerate(
+            (
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December",
+            ),
+            start=1,
+        )
     },
 
     "0012-9682": {

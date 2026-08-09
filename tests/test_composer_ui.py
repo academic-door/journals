@@ -34,7 +34,7 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn("applyStyleSettings();", self.page)
 
     def test_saved_markdown_is_regenerated_after_format_changes(self):
-        self.assertIn('const COMPOSER_FORMAT_VERSION = "3";', self.page)
+        self.assertIn('const COMPOSER_FORMAT_VERSION = "4";', self.page)
         self.assertIn("formatVersion: COMPOSER_FORMAT_VERSION,", self.page)
         self.assertIn(
             "if (state.formatVersion === COMPOSER_FORMAT_VERSION)", self.page
@@ -74,6 +74,8 @@ class ComposerUiTest(unittest.TestCase):
     def test_issue_period_display_uses_spaced_chinese_date(self):
         self.assertIn("return `${iso[1]} 年 ${Number(iso[2])} 月`;", self.page)
         self.assertIn("return `${month[2]} 年 ${months[month[1].toLowerCase()]} 月`;", self.page)
+        self.assertIn('return `${raw} 年 · 月份待核验`;', self.page)
+        self.assertIn('summer: "夏季"', self.page)
 
     def test_sciencedirect_route_token_is_not_rendered_as_issue_number(self):
         for source in (self.page, self.explorer):
@@ -109,6 +111,7 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn(".composer-toolbar #journal-select { width: 180px;", self.css)
         self.assertIn(".composer-toolbar #issue-select { width: 180px;", self.css)
         self.assertIn(".composer-toolbar #theme-select { width: 200px;", self.css)
+        self.assertIn("gap: 8px; margin-left: 0;", self.css)
         self.assertIn("@media (max-width: 1180px)", self.css)
         self.assertIn("grid-template-columns: repeat(2, minmax(0, 1fr));", self.css)
 
@@ -283,15 +286,19 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn("issuePreferences,", self.page)
         self.assertIn("selected: [...selectedIds]", self.page)
         self.assertIn("order: [...pickerOrder]", self.page)
+        self.assertIn('id="selection-status"', self.page)
+        self.assertIn("已恢复上次选择", self.page)
 
     def test_composer_outputs_only_selected_articles_in_chosen_order(self):
         self.assertIn(
-            "orderedIssueArticles(issue).filter((article) => selected.has(article.paper_id))",
+            "ordered.filter((article) => selected.has(article.paper_id))",
             self.page,
         )
         self.assertIn("editor.value = articleMarkdown(currentIssue, selectedIds);", self.page)
         self.assertIn("regenerateFromSelection", self.page)
-        self.assertIn("本次选取其中 ${articles.length} 篇", self.page)
+        self.assertIn("当前稿件按“中国相关”筛选", self.page)
+        self.assertIn("当前稿件为自定义选择", self.page)
+        self.assertIn("原目录第 ${selection.selectedChinaArticles", self.page)
 
     def test_composer_picker_has_accessible_move_controls(self):
         self.assertIn('aria-label="上移《${escapeHtml', self.page)
