@@ -197,6 +197,10 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn("!excludedIds.has(issue.issue_id)", self.page)
         self.assertIn("immediate.concat(archived)", self.page)
         self.assertIn("latest_detected_issue_url", self.page)
+        self.assertIn("journal.latest_detected_publication_date", self.page)
+        self.assertIn("journal.publication_date", self.page)
+        self.assertIn('journal.update_state !== "ready"', self.page)
+        self.assertIn("formatIssuePeriod(currentIssue.publication_date)", self.page)
         self.assertIn('requestedParams.get("issue")', self.page)
         self.assertIn("option.dataset.issueId === requestedIssue", self.page)
 
