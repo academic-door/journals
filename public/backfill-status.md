@@ -1,14 +1,20 @@
 # Field journal history backfill status
 
-Updated: 2026-08-09T11:41:41+00:00
+Updated: 2026-08-09T12:02:19+00:00
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 0 | 0 | 0 | 0 |
+| 2023-2024 | 32 | 4 | 3 | 0 |
 | 2025-2026 | 595 | 4 | 14 | 0 |
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
+| AEJAPP | aejapp-15-1 | 2023 | complete |  |
+| AEJAPP | aejapp-15-2 | 2023 | complete |  |
+| AEJAPP | aejapp-15-3 | 2023 | complete |  |
+| AEJAPP | aejapp-15-4 | 2023 | complete |  |
+| AEJAPP | aejapp-16-1 | 2024 | complete |  |
+| AEJAPP | aejapp-16-2 | 2024 | translation_partial |  |
 | AEJAPP | aejapp-17-1 | 2025 | complete |  |
 | AEJAPP | aejapp-17-2 | 2025 | complete |  |
 | AEJAPP | aejapp-17-3 | 2025 | complete |  |
@@ -16,6 +22,12 @@ Updated: 2026-08-09T11:41:41+00:00
 | AEJAPP | aejapp-18-1 | 2026 | complete |  |
 | AEJAPP | aejapp-18-2 | 2026 | complete |  |
 | AEJAPP | aejapp-18-3 | 2026 | complete |  |
+| AEJMACRO | aejmacro-15-1 | 2023 | complete |  |
+| AEJMACRO | aejmacro-15-2 | 2023 | complete |  |
+| AEJMACRO | aejmacro-15-3 | 2023 | complete |  |
+| AEJMACRO | aejmacro-15-4 | 2023 | complete |  |
+| AEJMACRO | aejmacro-16-1 | 2024 | complete |  |
+| AEJMACRO | aejmacro-16-2 | 2024 | complete |  |
 | AEJMACRO | aejmacro-17-1 | 2025 | complete |  |
 | AEJMACRO | aejmacro-17-2 | 2025 | complete |  |
 | AEJMACRO | aejmacro-17-3 | 2025 | complete |  |
@@ -23,6 +35,12 @@ Updated: 2026-08-09T11:41:41+00:00
 | AEJMACRO | aejmacro-18-1 | 2026 | complete |  |
 | AEJMACRO | aejmacro-18-2 | 2026 | complete |  |
 | AEJMACRO | aejmacro-18-3 | 2026 | complete |  |
+| AEJMICRO | aejmicro-15-1 | 2023 | complete |  |
+| AEJMICRO | aejmicro-15-2 | 2023 | complete |  |
+| AEJMICRO | aejmicro-15-3 | 2023 | complete |  |
+| AEJMICRO | aejmicro-15-4 | 2023 | complete |  |
+| AEJMICRO | aejmicro-16-1 | 2024 | complete |  |
+| AEJMICRO | aejmicro-16-2 | 2024 | translation_partial |  |
 | AEJMICRO | aejmicro-17-1 | 2025 | complete |  |
 | AEJMICRO | aejmicro-17-2 | 2025 | complete |  |
 | AEJMICRO | aejmicro-17-3 | 2025 | complete |  |
@@ -30,6 +48,11 @@ Updated: 2026-08-09T11:41:41+00:00
 | AEJMICRO | aejmicro-18-1 | 2026 | complete |  |
 | AEJMICRO | aejmicro-18-2 | 2026 | complete |  |
 | AEJMICRO | aejmicro-18-3 | 2026 | complete |  |
+| AEJPOL | aejpol-15-1 | 2023 | complete |  |
+| AEJPOL | aejpol-15-2 | 2023 | complete |  |
+| AEJPOL | aejpol-15-3 | 2023 | complete |  |
+| AEJPOL | aejpol-15-4 | 2023 | complete |  |
+| AEJPOL | aejpol-16-1 | 2024 | complete |  |
 | AEJPOL | aejpol-17-1 | 2025 | complete |  |
 | AEJPOL | aejpol-17-2 | 2025 | complete |  |
 | AEJPOL | aejpol-17-3 | 2025 | complete |  |
@@ -37,6 +60,12 @@ Updated: 2026-08-09T11:41:41+00:00
 | AEJPOL | aejpol-18-1 | 2026 | complete |  |
 | AEJPOL | aejpol-18-2 | 2026 | complete |  |
 | AEJPOL | aejpol-18-3 | 2026 | complete |  |
+| AER | aer-114-1 | 2024 | complete |  |
+| AER | aer-114-10 | 2024 | complete |  |
+| AER | aer-114-11 | 2024 | complete |  |
+| AER | aer-114-12 | 2024 | complete |  |
+| AER | aer-114-2 | 2024 | complete |  |
+| AER | aer-114-3 | 2024 | complete |  |
 | AER | aer-115-1 | 2025 | complete |  |
 | AER | aer-115-10 | 2025 | complete |  |
 | AER | aer-115-11 | 2025 | complete |  |
@@ -239,6 +268,10 @@ Updated: 2026-08-09T11:41:41+00:00
 | JCE | jce-53-4 | 2025 | complete |  |
 | JCE | jce-54-1 | 2026 | complete |  |
 | JCE | jce-54-2 | 2026 | complete |  |
+| JDE | jde-166-c | 2024 | translation_partial |  |
+| JDE | jde-167-c | 2024 | complete |  |
+| JDE | jde-168-c | 2024 | complete |  |
+| JDE | jde-169-c | 2024 | translation_partial |  |
 | JDE | jde-172-c | 2025 | complete |  |
 | JDE | jde-173-c | 2025 | complete |  |
 | JDE | jde-174-c | 2025 | complete |  |
@@ -431,6 +464,12 @@ Updated: 2026-08-09T11:41:41+00:00
 | JOE | joe-255-c | 2026 | complete |  |
 | JOE | joe-256-c | 2026 | complete |  |
 | JOE | joe-257-c | 2026 | complete |  |
+| JPE | jpe-132-1 | 2024 | blocked | MetadataFallbackError: RePEc serial page has no issue 132/1 |
+| JPE | jpe-132-10 | 2024 | complete |  |
+| JPE | jpe-132-11 | 2024 | complete |  |
+| JPE | jpe-132-12 | 2024 | complete |  |
+| JPE | jpe-132-2 | 2024 | blocked | MetadataFallbackError: RePEc serial page has no issue 132/2 |
+| JPE | jpe-132-3 | 2024 | blocked | MetadataFallbackError: RePEc serial page has no issue 132/3 |
 | JPE | jpe-133-1 | 2025 | complete |  |
 | JPE | jpe-133-10 | 2025 | complete |  |
 | JPE | jpe-133-11 | 2025 | complete |  |
