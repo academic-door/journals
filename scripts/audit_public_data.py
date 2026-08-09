@@ -28,6 +28,105 @@ from scripts.update_journals import (
 )
 
 
+MONTH_NUMBERS = {
+    month.lower(): number
+    for number, month in enumerate(
+        (
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+        ),
+        start=1,
+    )
+}
+SEASON_MONTHS = {
+    "spring": 3,
+    "summer": 6,
+    "fall": 9,
+    "autumn": 9,
+    "winter": 12,
+}
+
+
+def issue_period_ordinal(value: str) -> int | None:
+    raw = str(value or "").strip()
+    iso_match = re.fullmatch(r"(20\d{2})-(0[1-9]|1[0-2])(?:-\d{2})?", raw)
+    if iso_match:
+        return int(iso_match.group(1)) * 12 + int(iso_match.group(2)) - 1
+    month_match = re.fullmatch(r"([A-Za-z]+)\s+(20\d{2})", raw)
+    if month_match:
+        month = MONTH_NUMBERS.get(month_match.group(1).lower())
+        if month is None:
+            month = SEASON_MONTHS.get(month_match.group(1).lower())
+        if month is not None:
+            return int(month_match.group(2)) * 12 + month - 1
+    cn_match = re.fullmatch(r"(20\d{2})年(1[0-2]|[1-9])月", raw)
+    if cn_match:
+        return int(cn_match.group(1)) * 12 + int(cn_match.group(2)) - 1
+    return None
+
+
+def audit_history_periods(journal_id: str, issues: list[dict[str, Any]]) -> list[str]:
+    findings: list[str] = []
+    dated: list[tuple[dict[str, Any], int]] = []
+    for issue in issues:
+        ordinal = issue_period_ordinal(str(issue.get("publication_date", "")))
+        if ordinal is None:
+            findings.append(
+                f"{journal_id}:{issue.get('issue_id', 'unknown')}: "
+                "history publication date requires a month or official season"
+            )
+            continue
+        dated.append((issue, ordinal))
+
+    continuous = [
+        (issue, ordinal)
+        for issue, ordinal in dated
+        if str(issue.get("volume", "")).isdigit()
+        and str(issue.get("issue", "")).strip().casefold() == "c"
+    ]
+    continuous.sort(key=lambda item: int(item[0]["volume"]))
+    for (previous, previous_period), (current, current_period) in zip(
+        continuous,
+        continuous[1:],
+    ):
+        if current_period < previous_period:
+            findings.append(
+                f"{journal_id}:{current.get('issue_id')}: publication date "
+                f"{current.get('publication_date')} precedes "
+                f"{previous.get('issue_id')} ({previous.get('publication_date')})"
+            )
+
+    numbered_by_volume: dict[int, list[tuple[dict[str, Any], int]]] = {}
+    for issue, ordinal in dated:
+        volume = str(issue.get("volume", ""))
+        number = str(issue.get("issue", ""))
+        if volume.isdigit() and number.isdigit():
+            numbered_by_volume.setdefault(int(volume), []).append((issue, ordinal))
+    for volume_issues in numbered_by_volume.values():
+        volume_issues.sort(key=lambda item: int(item[0]["issue"]))
+        for (previous, previous_period), (current, current_period) in zip(
+            volume_issues,
+            volume_issues[1:],
+        ):
+            if current_period < previous_period:
+                findings.append(
+                    f"{journal_id}:{current.get('issue_id')}: publication date "
+                    f"{current.get('publication_date')} precedes "
+                    f"{previous.get('issue_id')} ({previous.get('publication_date')})"
+                )
+    return findings
+
+
 def read_json(path: Path) -> dict[str, Any]:
     data = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(data, dict):
@@ -152,6 +251,20 @@ def main(strict_provenance: bool = False) -> int:
             findings.append(f"{journal['id']}: current issue JSON is missing")
             continue
         issue = read_json(path)
+        if issue_period_ordinal(str(issue.get("publication_date", ""))) is None:
+            findings.append(
+                f"{journal['id']}: current publication date requires a month "
+                "or official season"
+            )
+        history_path = path.parent / "index.json"
+        if history_path.exists():
+            history = read_json(history_path)
+            findings.extend(
+                audit_history_periods(
+                    journal["id"],
+                    list(history.get("issues", [])),
+                )
+            )
         try:
             validate_issue(issue)
         except ValueError as error:

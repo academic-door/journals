@@ -454,8 +454,7 @@ main,
 }
 .toolbar-stage b { color: var(--green); font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.74rem; }
 .toolbar-stage span { white-space: nowrap; }
-.toolbar-actions { display: flex; flex-wrap: nowrap; gap: 8px; }
-.toolbar-actions { margin-left: auto; }
+.toolbar-actions { display: flex; flex-wrap: nowrap; gap: 8px; margin-left: 0; }
 .composer-toolbar .button { min-height: 40px; white-space: nowrap; }
 .journal-toolbar .button.active { color: white; background: var(--green); border-color: var(--green); }
 .composer-source { display: flex; flex: 0 1 auto; align-items: center; gap: 8px; min-width: 0; color: var(--muted); font-size: 0.78rem; font-weight: 750; }
@@ -553,6 +552,24 @@ main,
 .panel-heading h2 { margin: 0; font-size: 1.02rem; }
 .sidebar-help { color: var(--muted); font-size: 0.8rem; }
 .picker-actions { display: flex; flex-wrap: wrap; gap: 7px; margin: 0 0 9px; }
+.selection-status {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  margin: 0 0 3px;
+  padding: 4px 9px;
+  color: var(--green);
+  background: color-mix(in srgb, var(--green) 8%, white);
+  border: 1px solid color-mix(in srgb, var(--green) 24%, var(--line));
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+.selection-status[data-state="filtered"] {
+  color: #7a4a00;
+  background: #fff7e6;
+  border-color: #eed39a;
+}
 .button-compact { min-height: 32px; padding: 5px 9px; font-size: 0.72rem; }
 .article-picker { display: grid; max-height: 560px; overflow: auto; }
 .picker-state {
@@ -875,7 +892,7 @@ main,
   .composer-grid { grid-template-columns: 260px minmax(0, 1fr); }
   .preview-panel { grid-column: 1 / -1; border-left: 0; border-top: 1px solid var(--line); }
   .composer-toolbar-row { flex-wrap: wrap; }
-  .composer-publish-row .toolbar-actions { width: calc(100% - 102px); margin-left: 102px; flex-wrap: wrap; }
+  .composer-publish-row .toolbar-actions { flex: 1 1 520px; width: auto; margin-left: 102px; flex-wrap: wrap; }
 }
 
 @media (max-width: 1000px) and (min-width: 801px) {

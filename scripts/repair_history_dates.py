@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -12,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from collectors.metadata_fallback import _crossref_items, _publication_date
+from collectors.metadata_fallback import MONTHS_BY_ISSUE, _crossref_items, _publication_date
 from scripts.update_journals import (
     JOURNALS_PATH,
     PUBLIC_API,
@@ -64,6 +65,14 @@ def repair_journal(
             items,
         )
         current = str(issue.get("publication_date", "")).strip()
+        if not repaired or re.fullmatch(r"\d{4}", repaired):
+            year_match = re.search(r"\b(20\d{2})\b", current or repaired)
+            official_month = MONTHS_BY_ISSUE.get(str(config["issn"]), {}).get(
+                str(issue.get("issue", "")),
+                "",
+            )
+            if year_match and official_month:
+                repaired = f"{official_month} {year_match.group(1)}"
         if not repaired or repaired == current:
             continue
         changes.append(f"{issue.get('issue_id', path.stem)}: {current} -> {repaired}")
@@ -143,7 +152,7 @@ def main(
             archive_current=False,
         )
     print(
-        "Elsevier date repair: "
+        "History date repair: "
         f"{total_archives} snapshots checked, {len(all_changes)} changes"
     )
     return 0
@@ -152,8 +161,8 @@ def main(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description=(
-            "Repair checked-in Elsevier current and archive dates using "
-            "Crossref records filtered by the snapshot's exact volume and issue."
+            "Repair checked-in current and archive dates using Crossref records "
+            "filtered by exact volume/issue plus official issue calendars."
         )
     )
     parser.add_argument(

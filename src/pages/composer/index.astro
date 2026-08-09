@@ -100,6 +100,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
           <button id="select-china" class="button button-compact" type="button">仅保留中国相关</button>
           <button id="select-all" class="button button-compact" type="button">恢复全部</button>
         </div>
+        <p id="selection-status" class="selection-status" aria-live="polite">尚未载入论文</p>
         <p class="sidebar-help">勾选决定最终内容；拖动或使用箭头调整顺序。</p>
         <div id="article-picker" class="article-picker">
           <p>载入期刊后显示论文。</p>
@@ -131,7 +132,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 
   <script is:inline define:vars={{ base }}>
     const STORAGE_KEY = "academic-door-composer-v1";
-    const COMPOSER_FORMAT_VERSION = "3";
+    const COMPOSER_FORMAT_VERSION = "4";
     const editor = document.querySelector("#markdown-editor");
     const preview = document.querySelector("#wechat-preview");
     const picker = document.querySelector("#article-picker");
@@ -148,6 +149,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     const customCss = document.querySelector("#custom-css");
     const customCssStatus = document.querySelector("#custom-css-status");
     const customStyle = document.querySelector("#composer-custom-style");
+    const selectionStatus = document.querySelector("#selection-status");
     const DEFAULT_STYLE = Object.freeze({
       fontSize: "14",
       lineHeight: "1.75",
@@ -171,6 +173,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     let pickerOrder = [];
     let selectedIds = new Set();
     let issuePreferences = {};
+    let selectionWasRestored = false;
     const publishingButtons = [
       "#copy-rich",
       "#copy-markdown",
@@ -334,9 +337,17 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       const iso = raw.match(/^(\d{4})-(\d{2})/);
       if (iso) return `${iso[1]} 年 ${Number(iso[2])} 月`;
       const month = raw.match(/^(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{4})$/i);
-      if (!month) return raw;
-      const months = { january: 1, february: 2, march: 3, april: 4, may: 5, june: 6, july: 7, august: 8, september: 9, october: 10, november: 11, december: 12 };
-      return `${month[2]} 年 ${months[month[1].toLowerCase()]} 月`;
+      if (month) {
+        const months = { january: 1, february: 2, march: 3, april: 4, may: 5, june: 6, july: 7, august: 8, september: 9, october: 10, november: 11, december: 12 };
+        return `${month[2]} 年 ${months[month[1].toLowerCase()]} 月`;
+      }
+      const season = raw.match(/^(Spring|Summer|Fall|Autumn|Winter)\s+(\d{4})$/i);
+      if (season) {
+        const seasons = { spring: "春季", summer: "夏季", fall: "秋季", autumn: "秋季", winter: "冬季" };
+        return `${season[2]} 年${seasons[season[1].toLowerCase()]}`;
+      }
+      if (/^\d{4}$/.test(raw)) return `${raw} 年 · 月份待核验`;
+      return raw;
     };
 
     const scopedCustomCss = (css) => {
@@ -430,6 +441,47 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       return ordered.concat(issue.articles.filter((article) => !orderedIds.has(article.paper_id)));
     };
 
+    const selectionDetails = (issue, selected) => {
+      const ordered = orderedIssueArticles(issue);
+      const articles = ordered.filter((article) => selected.has(article.paper_id));
+      const chinaArticles = ordered.filter((article) => chinaRelevance(article).status === "yes");
+      const selectedChinaArticles = articles.filter(
+        (article) => chinaRelevance(article).status === "yes"
+      );
+      const chinaIds = new Set(chinaArticles.map((article) => article.paper_id));
+      const chinaOnly = chinaIds.size > 0
+        && articles.length === chinaIds.size
+        && articles.every((article) => chinaIds.has(article.paper_id));
+      return {
+        ordered,
+        articles,
+        chinaArticles,
+        selectedChinaArticles,
+        chinaOnly,
+        total: ordered.length,
+      };
+    };
+
+    const renderSelectionStatus = () => {
+      if (!currentIssue?.articles?.length) {
+        selectionStatus.textContent = "尚未载入论文";
+        selectionStatus.dataset.state = "idle";
+        return;
+      }
+      const selection = selectionDetails(currentIssue, selectedIds);
+      const prefix = selectionWasRestored && selection.articles.length !== selection.total
+        ? "已恢复上次选择 · "
+        : "";
+      selectionStatus.textContent = selection.articles.length === selection.total
+        ? `已选全部 ${selection.total} 篇`
+        : selection.chinaOnly
+          ? `${prefix}中国相关筛选 · 已选 ${selection.articles.length}/${selection.total} 篇`
+          : `${prefix}自定义选择 · 已选 ${selection.articles.length}/${selection.total} 篇`;
+      selectionStatus.dataset.state = selection.articles.length === selection.total
+        ? "all"
+        : "filtered";
+    };
+
     const issueLabel = (issue = {}) => {
       const volume = String(issue.volume || "").trim();
       const number = String(issue.issue || "").trim();
@@ -466,8 +518,8 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     };
 
     const articleMarkdown = (issue, selected) => {
-      const articles = orderedIssueArticles(issue).filter((article) => selected.has(article.paper_id));
-      const chinaArticles = articles.filter((article) => chinaRelevance(article).status === "yes");
+      const selection = selectionDetails(issue, selected);
+      const articles = selection.articles;
       const period = formatIssuePeriod(issue.publication_date);
       const issueArticleCount = issue.research_article_count || issue.articles.length;
       const counts = issue.content_counts || issue.quality?.content_counts || {};
@@ -477,9 +529,15 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         ? `> 当前为开发样板，正式发布前请确认完整文章数和摘要。`
         : [
             issuePeriodLine(issue, period),
-            `> ${issue.journal_name} ${issueLabel(issue)} ${issue.publication_state === "enriching" ? "当前已收录" : "共收录"} ${issueCountLabel}。`,
-            articles.length !== issueArticleCount ? `> 本次选取其中 ${articles.length} 篇。` : "",
-            chinaArticles.length ? `> 与中国相关的研究有 ${chinaArticles.length} 篇（第 ${chinaArticles.map((article) => articles.indexOf(article) + 1).join("、")} 篇）。` : "",
+            `> ${issue.journal_name} ${issueLabel(issue)} ${issue.publication_state === "enriching" ? "当前已收录" : "本期共收录"} ${issueCountLabel}。`,
+            articles.length !== issueArticleCount
+              ? selection.chinaOnly
+                ? `> 当前稿件按“中国相关”筛选，已选 ${articles.length}/${issueArticleCount} 篇（原目录第 ${selection.selectedChinaArticles.map((article) => selection.ordered.indexOf(article) + 1).join("、")} 篇）。`
+                : `> 当前稿件为自定义选择，已选 ${articles.length}/${issueArticleCount} 篇。`
+              : "",
+            articles.length === issueArticleCount && selection.chinaArticles.length
+              ? `> 与中国相关的研究有 ${selection.chinaArticles.length} 篇（第 ${selection.chinaArticles.map((article) => selection.ordered.indexOf(article) + 1).join("、")} 篇）。`
+              : "",
           ].filter(Boolean).join("\n");
       const toc = articles.map((article, index) =>
         `${index + 1}. **${article.title_en}**\n   ${article.title_cn || "中文标题待补全"}\n   ${article.authors.join(", ")}`
@@ -524,6 +582,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
           </span>
         </div>`).join("");
       regenerateButton.disabled = false;
+      renderSelectionStatus();
     };
 
     const regenerateFromSelection = () => {
@@ -544,6 +603,8 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       selectedIds = Array.isArray(saved.selected)
         ? new Set(saved.selected.filter((paperId) => validIds.has(paperId)))
         : new Set(allIds);
+      selectionWasRestored = Array.isArray(saved.selected)
+        && selectedIds.size !== allIds.length;
     };
 
     const loadCollection = async () => {
@@ -785,6 +846,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     }));
     picker.addEventListener("change", (event) => {
       if (!event.target.matches('input[type="checkbox"]')) return;
+      selectionWasRestored = false;
       if (event.target.checked) selectedIds.add(event.target.value);
       else selectedIds.delete(event.target.value);
       regenerateFromSelection();
@@ -832,12 +894,14 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         return;
       }
       selectedIds = new Set(chinaIds);
+      selectionWasRestored = false;
       renderPicker();
       regenerateFromSelection();
     });
     document.querySelector("#select-all").addEventListener("click", () => {
       if (!currentIssue) return;
       selectedIds = new Set(currentIssue.articles.map((article) => article.paper_id));
+      selectionWasRestored = false;
       renderPicker();
       regenerateFromSelection();
     });
@@ -900,7 +964,8 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       if (saved) {
         try {
           state = JSON.parse(saved);
-          issuePreferences = state.issuePreferences && typeof state.issuePreferences === "object"
+          issuePreferences = state.formatVersion === COMPOSER_FORMAT_VERSION
+            && state.issuePreferences && typeof state.issuePreferences === "object"
             ? state.issuePreferences
             : {};
           currentTheme = Array.from(themeSelect.options).some(

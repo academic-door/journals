@@ -1000,6 +1000,31 @@ class MetadataFallbackTests(unittest.TestCase):
         self.assertEqual("June", MONTHS_BY_ISSUE["0924-6460"]["6"])
         self.assertEqual("July", MONTHS_BY_ISSUE["0924-6460"]["7"])
 
+    def test_econometric_society_wiley_issues_use_official_calendar(self) -> None:
+        from collectors.metadata_fallback import MONTHS_BY_ISSUE
+
+        expected = {"1": "January", "2": "May", "3": "July", "4": "November"}
+        self.assertEqual(expected, MONTHS_BY_ISSUE["1555-7561"])
+        self.assertEqual(expected, MONTHS_BY_ISSUE["1759-7331"])
+        self.assertEqual(
+            "January 2025",
+            _publication_date(
+                "1555-7561",
+                "20",
+                "1",
+                [{"volume": "20", "issue": "1", "published": {"date-parts": [[2025]]}}],
+            ),
+        )
+        self.assertEqual(
+            "November 2025",
+            _publication_date(
+                "1759-7331",
+                "16",
+                "4",
+                [{"volume": "16", "issue": "4", "published": {"date-parts": [[2025]]}}],
+            ),
+        )
+
     def test_publication_date_filters_crossref_items_by_volume(self) -> None:
         items = [
             {
