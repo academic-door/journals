@@ -45,6 +45,14 @@ main,
   margin-inline: auto;
 }
 
+/* Composer uses a wider workspace so the header, toolbar and the three-pane
+   grid share the same 1500px measure on desktop. */
+.workspace-layout .site-header,
+.workspace-layout main,
+.workspace-layout .site-footer {
+  width: min(1500px, calc(100% - 40px));
+}
+
 .site-header {
   display: flex;
   align-items: center;
@@ -380,6 +388,35 @@ main,
 .search-result-abstracts { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); }
 .search-result-abstracts p { margin: 0; color: #48534e; font-size: 0.82rem; line-height: 1.75; }
 .result-limit { color: var(--muted); text-align: center; }
+.search-result.skeleton {
+  min-height: 150px;
+  padding: 22px 24px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.skeleton-line {
+  height: 14px;
+  margin: 10px 0;
+  background: linear-gradient(90deg, var(--wash) 25%, #eef1ef 50%, var(--wash) 75%);
+  background-size: 200% 100%;
+  border-radius: 6px;
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+}
+.skeleton-meta { width: 40%; }
+.skeleton-title { width: 72%; height: 18px; }
+.skeleton-text { width: 100%; }
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+.load-more-button,
+#load-earlier-years {
+  justify-self: center;
+  min-width: 180px;
+  margin-top: 8px;
+}
+.continue-years { color: var(--muted); text-align: center; }
 
 .page-heading {
   padding: 46px 0 28px;
@@ -409,7 +446,7 @@ main,
 .health-card ul { margin: 20px 0 0; padding: 0; list-style: none; }
 .health-card li { display: flex; justify-content: space-between; gap: 20px; padding: 10px 0; border-top: 1px solid var(--line); }
 
-.composer-page { width: min(1500px, calc(100% - 28px)); }
+.composer-page { width: min(1500px, calc(100% - 40px)); }
 .composer-heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; }
 .composer-feedback {
   max-width: min(520px, 48vw);
@@ -433,16 +470,21 @@ main,
   backdrop-filter: blur(12px);
 }
 .composer-toolbar-row {
-  display: flex;
+  display: grid;
   align-items: center;
   gap: 10px;
   min-width: 0;
   padding: 7px 0;
 }
 .composer-toolbar-row + .composer-toolbar-row { border-top: 1px dotted var(--line); }
+.composer-source-row {
+  grid-template-columns: 92px minmax(0, 220px) minmax(0, 220px) auto;
+}
+.composer-publish-row {
+  grid-template-columns: 92px minmax(0, 240px) auto auto minmax(0, 1fr);
+}
 .toolbar-stage {
   display: grid;
-  flex: 0 0 92px;
   grid-template-columns: 25px minmax(0, 1fr);
   align-items: baseline;
   gap: 7px;
@@ -454,7 +496,13 @@ main,
 }
 .toolbar-stage b { color: var(--green); font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.74rem; }
 .toolbar-stage span { white-space: nowrap; }
-.toolbar-actions { display: flex; flex-wrap: nowrap; gap: 8px; margin-left: 0; }
+.toolbar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-left: 0;
+}
 .composer-toolbar .button { min-height: 40px; white-space: nowrap; }
 .journal-toolbar .button.active { color: white; background: var(--green); border-color: var(--green); }
 .composer-source { display: flex; flex: 0 1 auto; align-items: center; gap: 8px; min-width: 0; color: var(--muted); font-size: 0.78rem; font-weight: 750; }
@@ -891,8 +939,14 @@ main,
   .global-search-toolbar { grid-template-columns: minmax(240px, 1fr) repeat(2, minmax(130px, 0.65fr)); }
   .composer-grid { grid-template-columns: 260px minmax(0, 1fr); }
   .preview-panel { grid-column: 1 / -1; border-left: 0; border-top: 1px solid var(--line); }
-  .composer-toolbar-row { flex-wrap: wrap; }
-  .composer-publish-row .toolbar-actions { flex: 1 1 520px; width: auto; margin-left: 102px; flex-wrap: wrap; }
+  .composer-source-row,
+  .composer-publish-row {
+    grid-template-columns: 92px minmax(0, 1fr) minmax(0, 1fr) auto;
+  }
+  .composer-publish-row {
+    grid-template-columns: 92px minmax(0, 1fr) minmax(0, 1fr) auto auto minmax(0, 1fr);
+  }
+  .toolbar-actions { justify-content: flex-start; }
 }
 
 @media (max-width: 1000px) and (min-width: 801px) {
@@ -960,9 +1014,11 @@ main,
   .composer-toolbar .composer-source select,
   .composer-toolbar .style-settings-panel select,
   .composer-toolbar .style-settings-panel input { min-height: 44px; }
-  .composer-toolbar-row { align-items: flex-start; }
-  .toolbar-stage { flex-basis: 100%; border-right: 0; }
-  .composer-source { flex: 1 1 220px; display: grid; gap: 5px; }
+  .composer-source-row,
+  .composer-publish-row { grid-template-columns: 1fr; }
+  .composer-toolbar-row { align-items: stretch; }
+  .toolbar-stage { grid-column: 1 / -1; border-right: 0; }
+  .composer-source { display: grid; gap: 5px; width: 100%; }
   .composer-toolbar #journal-select,
   .composer-toolbar #issue-select,
   .composer-toolbar #theme-select { width: 100%; }
@@ -990,6 +1046,7 @@ main,
   .theme-lab-controls { grid-template-columns: 1fr; }
   .composer-publish-row > .style-settings,
   .composer-publish-row > .theme-lab-link { width: 100%; }
+  .composer-publish-row .toolbar-actions { grid-column: 1 / -1; }
   .style-settings > summary { display: flex; align-items: center; justify-content: center; min-height: 44px; }
   .style-settings-panel {
     position: static;
@@ -1016,7 +1073,7 @@ main,
   .paper-header { grid-template-columns: 1fr; }
   .paper-number { padding: 0; }
   .paper-content h3 { font-size: 1.2rem; }
-  .composer-page { width: calc(100% - 16px); }
+  .composer-page { width: calc(100% - 24px); }
   .composer-publish-row .toolbar-actions { grid-template-columns: 1fr; }
   .theme-lab-stage { padding: 14px; }
 }

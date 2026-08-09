@@ -13,6 +13,9 @@ from scripts.backfill_history import (
     atomic_write_json,
     collector_for_issue,
     history_completeness_block,
+    is_actionable,
+    retry_class_for,
+    rotate_journals,
     run_issue,
 )
 
@@ -27,6 +30,73 @@ class BackfillHistoryTests(unittest.TestCase):
                 json.loads(path.read_text(encoding="utf-8")),
             )
             self.assertFalse(path.with_suffix(".json.tmp").exists())
+
+    def test_retry_class_separates_manual_and_transient_failures(self) -> None:
+        self.assertEqual("translation", retry_class_for("translation_partial", ""))
+        self.assertEqual("manual", retry_class_for("blocked", "possible_incomplete_volume"))
+        self.assertEqual("transient", retry_class_for("blocked", "HTTP 503 timeout"))
+        self.assertEqual(
+            "missing_abstract",
+            retry_class_for("blocked", "CrossrefRosterError: abstract missing"),
+        )
+        self.assertEqual("in_progress", retry_class_for("blocked", "publisher not finalised"))
+        self.assertEqual("manual", retry_class_for("blocked", "UnexpectedError"))
+
+    def test_is_actionable_skips_manual_and_future_retries(self) -> None:
+        self.assertTrue(is_actionable(None))
+        self.assertFalse(is_actionable({"status": "complete"}))
+        self.assertFalse(
+            is_actionable(
+                {"status": "blocked", "retry_class": "manual", "last_error": ""}
+            )
+        )
+        self.assertFalse(
+            is_actionable(
+                {
+                    "status": "blocked",
+                    "retry_class": "transient",
+                    "next_retry_at": "2099-01-01T00:00:00+00:00",
+                }
+            )
+        )
+        self.assertTrue(
+            is_actionable(
+                {"status": "blocked", "retry_class": "transient", "next_retry_at": ""}
+            )
+        )
+
+    def test_rotate_journals_rotates_by_last_run_and_respects_cap(self) -> None:
+        state = {
+            "issues": {
+                "aer-1-1": {"journal": "AER", "year": 2023, "status": "complete"},
+                "jde-1-1": {
+                    "journal": "JDE",
+                    "year": 2023,
+                    "status": "blocked",
+                    "retry_class": "transient",
+                },
+                "jpe-1-1": {
+                    "journal": "JPE",
+                    "year": 2023,
+                    "status": "blocked",
+                    "retry_class": "manual",
+                },
+            },
+            "rotation": {
+                "last_run_at": {
+                    "AER": "2026-08-09T00:00:00+00:00",
+                    "JDE": "2026-08-08T00:00:00+00:00",
+                }
+            },
+        }
+        history = {"journals": {"AER": {}, "JDE": {}, "JPE": {}, "QE": {}}}
+        chosen = rotate_journals(
+            state, history, years=range(2023, 2025), max_journals=2
+        )
+        # JDE is eligible (transient) and ran earlier than AER; QE has never
+        # run so it is eligible too. Never-run journals sort first, so the
+        # cap keeps the batch to QE + JDE.
+        self.assertEqual(["QE", "JDE"], chosen)
 
     def test_historical_collector_uses_exact_url_not_current_url(self) -> None:
         config = {

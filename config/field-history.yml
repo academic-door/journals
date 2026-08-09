@@ -1,5 +1,7 @@
 schema_version: "1.0"
 years:
+  - 2023
+  - 2024
   - 2025
   - 2026
 journals:
@@ -81,6 +83,12 @@ journals:
     issue_url_template: https://onlinelibrary.wiley.com/toc/17597331/{volume}/{issue}
     allowed_host: onlinelibrary.wiley.com
     year_ranges:
+      2023:
+        volume: "14"
+        issues: [1, 2, 3, 4]
+      2024:
+        volume: "15"
+        issues: [1, 2, 3, 4]
       2025:
         volume: "16"
         issues: [1, 2, 3, 4]

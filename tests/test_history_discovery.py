@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import unittest
+from pathlib import Path
 
 from collectors.history import discover_official_issues, parse_archive
 
@@ -92,6 +93,29 @@ class HistoryDiscoveryTests(unittest.TestCase):
             years=[2025],
         )
         self.assertEqual(["jpe-133-1", "jpe-133-2"], [item.issue_id for item in issues])
+
+    def test_qe_2023_and_2024_volumes_are_mapped_from_field_config(self) -> None:
+        import yaml
+
+        config = yaml.safe_load(
+            (Path(__file__).resolve().parents[1] / "config/field-history.yml").read_text(
+                encoding="utf-8"
+            )
+        )
+        qe = config["journals"]["QE"]
+        self.assertIn(2023, config["years"])
+        self.assertIn(2024, config["years"])
+        self.assertEqual("14", qe["year_ranges"][2023]["volume"])
+        self.assertEqual("15", qe["year_ranges"][2024]["volume"])
+        issues = discover_official_issues(
+            "QE",
+            qe,
+            years=[2023, 2024],
+        )
+        ids = [item.issue_id for item in issues]
+        self.assertIn("qe-14-1", ids)
+        self.assertIn("qe-15-4", ids)
+        self.assertEqual(8, len(ids))
 
 
 

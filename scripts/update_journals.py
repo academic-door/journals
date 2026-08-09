@@ -677,6 +677,61 @@ def write_search_indexes(
     latest_records.sort(key=record_key, reverse=True)
     history_records.sort(key=record_key, reverse=True)
     search_root = api_root / "search"
+
+    def _year_of(record: dict[str, Any]) -> int | None:
+        match = re.search(r"(20\d{2})", str(record.get("publication_date", "")))
+        return int(match.group(1)) if match else None
+
+    # China-related latest papers are the default destination of the
+    # "中国相关论文" entry. Keeping them in one small file avoids downloading
+    # the full latest index before the first result appears.
+    china_latest = [record for record in latest_records if record.get("china_related")]
+    write_json(
+        search_root / "china-latest.json",
+        {
+            "schema_version": "1.0",
+            "scope": "china-latest",
+            "updated_at": updated_at,
+            "record_count": len(china_latest),
+            "records": china_latest,
+        },
+    )
+
+    # Split the history index by publication year so a filtered search only
+    # downloads the year it needs, and an unfiltered history search can load
+    # newest-first without waiting for the whole 27 MB all.json.
+    by_year: dict[int, list[dict[str, Any]]] = {}
+    for record in history_records:
+        year = _year_of(record)
+        if year is None:
+            continue
+        by_year.setdefault(year, []).append(record)
+
+    year_entries: list[dict[str, Any]] = []
+    for year in sorted(by_year, reverse=True):
+        year_records = by_year[year]
+        year_issue_ids = {record.get("issue_id") for record in year_records}
+        write_json(
+            search_root / "years" / f"{year}.json",
+            {
+                "schema_version": "1.0",
+                "scope": "year",
+                "year": year,
+                "updated_at": updated_at,
+                "issue_count": len(year_issue_ids),
+                "record_count": len(year_records),
+                "records": year_records,
+            },
+        )
+        year_entries.append(
+            {
+                "year": year,
+                "url": f"/journals/api/v1/search/years/{year}.json",
+                "issue_count": len(year_issue_ids),
+                "record_count": len(year_records),
+            }
+        )
+
     write_json(
         search_root / "latest.json",
         {
@@ -701,13 +756,16 @@ def write_search_indexes(
     write_json(
         search_root / "index.json",
         {
-            "schema_version": "1.0",
+            "schema_version": "1.1",
             "updated_at": updated_at,
             "latest_count": len(latest_records),
             "history_count": len(history_records),
             "issue_count": issue_count,
+            "china_latest_count": len(china_latest),
             "latest_url": "/journals/api/v1/search/latest.json",
             "all_url": "/journals/api/v1/search/all.json",
+            "china_latest_url": "/journals/api/v1/search/china-latest.json",
+            "years": year_entries,
         },
     )
 

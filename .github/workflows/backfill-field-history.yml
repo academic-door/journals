@@ -1,15 +1,16 @@
 name: Backfill field journal history
 
 on:
-  # Auto-continue until every volume is complete or blocked: each run resumes
-  # the shared state file and skips already-complete issues, so the loop is
-  # self-terminating (no data changes once everything is done).
+  # Daily rotating batch (06:35 Beijing = 22:35 UTC). Each ALL run picks up to
+  # --max-journals journals with actionable pending work, so one large journal
+  # cannot starve the queue. The 2023-2024 campaign runs first; manual
+  # dispatch can target any year range.
   schedule:
-    - cron: "17 * * * *"
+    - cron: "35 22 * * *"
   workflow_dispatch:
     inputs:
       journal:
-        description: Field journal code or ALL
+        description: Field journal code or ALL (rotation picks max_journals)
         required: true
         default: ALL
         type: choice
@@ -17,24 +18,29 @@ on:
       from_year:
         description: From publication year
         required: true
-        default: "2025"
+        default: "2023"
         type: choice
-        options: ["2025", "2026"]
+        options: ["2023", "2024", "2025", "2026"]
       to_year:
         description: To publication year
         required: true
-        default: "2026"
+        default: "2024"
         type: choice
-        options: ["2025", "2026"]
+        options: ["2023", "2024", "2025", "2026"]
       max_issues:
-        description: Maximum issues in this resumable batch
+        description: Maximum issues per journal per round
         required: true
-        default: "12"
+        default: "6"
         type: string
       max_translations:
-        description: Maximum new translations per run
+        description: Maximum new translations per journal per round
         required: true
-        default: "120"
+        default: "80"
+        type: string
+      max_journals:
+        description: Maximum journals per ALL round
+        required: true
+        default: "4"
         type: string
       translation_model:
         description: >-
@@ -53,7 +59,7 @@ concurrency:
   # step below MERGES journal-scoped files into the shared data branch instead
   # of replacing the whole public/ tree, so parallel publishers no longer
   # clobber each other's archives.
-  group: field-history-backfill-${{ github.event.inputs.journal || 'ALL' }}
+  group: field-history-backfill-${{ github.event.inputs.journal || 'ALL' }}-${{ github.event.inputs.from_year || '2023' }}-${{ github.event.inputs.to_year || '2024' }}
   cancel-in-progress: false
 
 jobs:
@@ -107,41 +113,24 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          state="data/backfill-state/field-2025-2026.json"
+          state="data/backfill-state/field-${{ inputs.from_year || '2023' }}-${{ inputs.to_year || '2024' }}.json"
           journal_key="${{ inputs.journal || 'ALL' }}"
-          has_pending=false
-          if [ -f "$state" ]; then
-            pending=$(python - "$state" "$journal_key" <<'PY'
-          import json, sys
-          state = json.load(open(sys.argv[1], encoding="utf-8"))
-          journal = sys.argv[2]
-          entries = state.get("issues", {}).values()
-          journal_entries = [
-              entry for entry in entries
-              if journal == "ALL" or entry.get("journal", "") == journal
-          ]
-          if not journal_entries:
-              # A journal with no checkpoints at all has never been discovered
-              # or collected; it must run so discovery can populate the plan.
-              print(1)
-              raise SystemExit(0)
-          actionable = 0
-          for entry in journal_entries:
-              status = entry.get("status", "")
-              if status == "complete":
-                  continue
-              if status == "blocked" and "possible_incomplete_volume" in entry.get("last_error", ""):
-                  continue
-              actionable += 1
-          print(actionable)
-          PY
-          )
-            [ "$pending" -gt 0 ] && has_pending=true
-          else
+          pending=$(python scripts/backfill_history.py \
+            --config config/field-history.yml \
+            --state "$state" \
+            --journal "$journal_key" \
+            --from-year "${{ inputs.from_year || '2023' }}" \
+            --to-year "${{ inputs.to_year || '2024' }}" \
+            --max-journals "${{ inputs.max_journals || '4' }}" \
+            --print-pending-journals)
+          echo "Pending journals: $pending"
+          if [ "$pending" != "[]" ]; then
             has_pending=true
+          else
+            has_pending=false
           fi
           echo "has_pending=$has_pending" >> "$GITHUB_OUTPUT"
-          echo "Pending actionable volumes: $pending"
+          echo "state=$state" >> "$GITHUB_OUTPUT"
 
       - name: Collect, translate, validate and archive
         if: steps.check.outputs.has_pending == 'true'
@@ -163,17 +152,19 @@ jobs:
           fi
           python scripts/backfill_history.py \
             --config config/field-history.yml \
-            --state data/backfill-state/field-2025-2026.json \
+            --state "data/backfill-state/field-${{ inputs.from_year || '2023' }}-${{ inputs.to_year || '2024' }}.json" \
             --journal "${{ inputs.journal || 'ALL' }}" \
-            --from-year "${{ inputs.from_year || '2025' }}" \
-            --to-year "${{ inputs.to_year || '2026' }}" \
+            --from-year "${{ inputs.from_year || '2023' }}" \
+            --to-year "${{ inputs.to_year || '2024' }}" \
             --translate \
-            --max-issues "${{ inputs.max_issues || '12' }}" \
-            --max-translations "${{ inputs.max_translations || '120' }}" \
-            --max-minutes 75 \
+            --max-issues "${{ inputs.max_issues || '6' }}" \
+            --max-translations "${{ inputs.max_translations || '80' }}" \
+            --max-journals "${{ inputs.max_journals || '4' }}" \
+            --max-minutes 35 \
             $global_flags \
             --report-json output/backfill-report.json
           python scripts/backfill_status.py \
+            --state data/backfill-state/field-2023-2024.json \
             --state data/backfill-state/field-2025-2026.json \
             --out-json public/api/v1/backfill-status.json \
             --out-md public/backfill-status.md
@@ -196,9 +187,7 @@ jobs:
           SMTP_FROM: ${{ secrets.SMTP_FROM }}
           NOTIFICATION_EMAIL_TO: ${{ secrets.NOTIFICATION_EMAIL_TO }}
         run: |
-          python scripts/backfill_notify.py \
-            --state data/backfill-state/field-2025-2026.json \
-            --report output/backfill-report.json
+          python scripts/backfill_notify.py             --state "data/backfill-state/field-${{ inputs.from_year || '2023' }}-${{ inputs.to_year || '2024' }}.json"             --report output/backfill-report.json
 
       - name: Publish archives, indexes, cache and checkpoints
         # Preserve collected/translated progress even when a validation step
@@ -220,6 +209,7 @@ jobs:
           [ ! -d data/backfill-staging ] || cp -R data/backfill-staging "$generated/data/"
 
           journal_key="${{ inputs.journal || 'ALL' }}"
+          state_name="field-${{ inputs.from_year || '2023' }}-${{ inputs.to_year || '2024' }}.json"
 
           publish_and_push() {
             git fetch origin data
@@ -263,10 +253,10 @@ jobs:
             # overwrite; other journals' keys keep the already-published
             # (fresher) values already on the data branch.
             mkdir -p data/backfill-state
-            python - "$generated/data/backfill-state/field-2025-2026.json" "$journal_key" <<'PY'
+            python - "$generated/data/backfill-state/$state_name" "$journal_key" "$state_name" <<'PY'
           import json, os, sys
-          new_path, journal_key = sys.argv[1], sys.argv[2]
-          target = "data/backfill-state/field-2025-2026.json"
+          new_path, journal_key, state_name = sys.argv[1], sys.argv[2], sys.argv[3]
+          target = f"data/backfill-state/{state_name}"
           new = json.load(open(new_path, encoding="utf-8"))
           existing = json.load(open(target, encoding="utf-8")) if os.path.exists(target) else {"schema_version": "1.0", "issues": {}}
           merged = existing.setdefault("issues", {})
@@ -275,6 +265,10 @@ jobs:
                   merged[key] = value
               else:
                   merged.setdefault(key, value)
+          rotation = existing.setdefault("rotation", {}).setdefault("last_run_at", {})
+          for journal, stamp in new.get("rotation", {}).get("last_run_at", {}).items():
+              if journal_key == "ALL" or journal == journal_key:
+                  rotation[journal] = stamp
           json.dump(existing, open(target, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
           PY
 
@@ -283,11 +277,8 @@ jobs:
               cp -R "$generated/data/backfill-staging/." data/backfill-staging/
             fi
 
-            # Regenerate the global backfill status from the merged state.
-            python "$GITHUB_WORKSPACE/scripts/backfill_status.py" \
-              --state data/backfill-state/field-2025-2026.json \
-              --out-json public/api/v1/backfill-status.json \
-              --out-md public/backfill-status.md
+            # Regenerate the global backfill status from the merged states.
+            python "$GITHUB_WORKSPACE/scripts/backfill_status.py"               --state data/backfill-state/field-2023-2024.json               --state data/backfill-state/field-2025-2026.json               --out-json public/api/v1/backfill-status.json               --out-md public/backfill-status.md
 
             git rm -f --ignore-unmatch public/search.js
             git config user.name "academic-door-bot"

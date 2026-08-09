@@ -1,30 +1,11 @@
-name: Backfill TOP5 history
+name: Backfill TOP5 history (deprecated)
 
+# Disabled: the unified field-history backfill (backfill-field-history.yml)
+# covers all 49 journals including the TOP5. This entry is kept only as a
+# historical record of the old top5-2025-2026 state file. The job below is
+# hard-disabled with `if: false`, so manual dispatch is a no-op.
 on:
   workflow_dispatch:
-    inputs:
-      journal:
-        description: TOP5 journal code
-        required: true
-        default: AER
-        type: choice
-        options: [AER, JPE, QJE, RES, ECTA]
-      year:
-        description: Publication year
-        required: true
-        default: "2025"
-        type: choice
-        options: ["2025", "2026"]
-      max_issues:
-        description: Maximum issues in this resumable batch
-        required: true
-        default: "12"
-        type: string
-      max_translations:
-        description: Maximum new translations per issue
-        required: true
-        default: "50"
-        type: string
 
 permissions:
   contents: write
@@ -36,6 +17,7 @@ concurrency:
 
 jobs:
   backfill:
+    if: false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7

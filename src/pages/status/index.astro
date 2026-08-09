@@ -35,6 +35,25 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         <div id="quality-rows"></div>
       </div>
     </section>
+    <section class="history-section" aria-labelledby="history-title">
+      <div class="quality-heading">
+        <div>
+          <p class="section-kicker">HISTORY COVERAGE</p>
+          <h2 id="history-title">历史覆盖</h2>
+        </div>
+        <p id="history-updated"></p>
+      </div>
+      <div class="history-table" role="table" aria-label="历史年份覆盖状态">
+        <div class="history-row history-header" role="row">
+          <span role="columnheader">年份</span>
+          <span role="columnheader">发现卷期</span>
+          <span role="columnheader">内容完整</span>
+          <span role="columnheader">等待补全</span>
+          <span role="columnheader">官方核验</span>
+        </div>
+        <div id="history-rows">正在读取历史覆盖……</div>
+      </div>
+    </section>
   </main>
   <script is:inline define:vars={{ base }}>
     const escapeHtml = (value = "") =>
@@ -91,7 +110,8 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       fetchJson(`${base}api/v1/collections/fields.json`, { journals: [] }, "领域期刊集合"),
       fetchJson(`${base}api/v1/source-audit.json`, { journals: [], summary: {} }, "来源审计"),
       fetchJson(`${base}api/v1/monitoring.json`, { failed_journals: [], warning_journals: [], awaiting_official_journals: [] }, "更新监控"),
-    ]).then(([health, top5, fields, sourceAudit, monitoring]) => {
+      fetchJson(`${base}api/v1/backfill-status.json`, { periods: {}, years: {} }, "历史回填状态"),
+    ]).then(([health, top5, fields, sourceAudit, monitoring, backfillStatus]) => {
       const journals = [...(top5.journals || []), ...(fields.journals || [])];
       const auditById = new Map((sourceAudit.journals || []).map((item) => [item.journal_id, item]));
       const readyCount = journals.filter(journalContentReady).length;
@@ -172,6 +192,43 @@ const base = import.meta.env.BASE_URL.endsWith("/")
           <span role="cell" data-label="发布状态"><span class="state ${ready ? "ready" : "enriching"}">${ready ? "可复制" : "整理中"}</span>${detectedPending ? "<small>新内容补全中</small>" : ""}</span>
         </div>`;
       }).join("");
+      const verifiedById = new Set(
+        journals
+          .filter((journal) => journal.order_verification === "official_verified")
+          .map((journal) => journal.journal_id)
+      );
+      const historyRows = document.querySelector("#history-rows");
+      const historyUpdated = document.querySelector("#history-updated");
+      const years = backfillStatus.years || {};
+      const yearKeys = Object.keys(years).sort((a, b) => b.localeCompare(a));
+      if (!yearKeys.length) {
+        historyRows.innerHTML = `<p class="status-empty">历史回填尚未开始，正在等待每日批次。</p>`;
+      } else {
+        historyRows.innerHTML = yearKeys.map((year) => {
+          const bucket = years[year] || {};
+          const summary = bucket.summary || {};
+          const complete = summary.complete || 0;
+          const awaiting = (summary.translation_partial || 0)
+            + (summary.blocked || 0)
+            + (summary.collected || 0)
+            + (summary.pending || 0);
+          const verified = (bucket.journals || []).filter(
+            (journalId) => verifiedById.has(journalId)
+          ).length;
+          return `<div class="history-row" role="row">
+            <span role="cell" data-label="年份"><b>${year} 年</b></span>
+            <span role="cell" data-label="发现卷期">${bucket.issue_count || 0} 卷</span>
+            <span role="cell" data-label="内容完整"><span class="state ready">${complete} 卷</span></span>
+            <span role="cell" data-label="等待补全"><span class="state enriching">${awaiting} 卷</span></span>
+            <span role="cell" data-label="官方核验">${verified} 刊</span>
+          </div>`;
+        }).join("");
+      }
+      if (historyUpdated) {
+        historyUpdated.textContent = backfillStatus.updated_at
+          ? `最近更新：${backfillStatus.updated_at}`
+          : "等待首次批次";
+      }
     }).catch((error) => {
       document.querySelector("#status-summary").textContent = `状态读取失败：${error.message}`;
     });
@@ -200,6 +257,19 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   .status-operations span { padding: .72rem 1.5rem; color: #62625e; font-size: .78rem; }
   .status-operations span + span { border-left: 1px solid var(--line, #d9d9d5); }
   .status-operations b { color: var(--ink, #17201d); font-size: 1rem; }
+  .history-section { margin: 2.5rem 0 3.5rem; }
+  .history-table { border-top: 1px solid var(--line, #e1e1dd); }
+  .history-row {
+    display: grid;
+    grid-template-columns: minmax(120px, 1fr) repeat(4, minmax(140px, 1fr));
+    gap: 1.15rem;
+    align-items: center;
+    padding: .95rem .8rem;
+    border-bottom: 1px solid var(--line, #e1e1dd);
+  }
+  .history-row:not(.history-header):nth-child(even) { background: color-mix(in srgb, var(--paper, #fff) 62%, transparent); }
+  .history-header { color: #70706b; font-size: .72rem; text-transform: uppercase; }
+  .history-row > span { min-width: 0; font-size: .82rem; }
   .status-empty { grid-column: 1 / -1; padding: 1.25rem; }
   .status-empty strong, .status-empty span { display: block; }
   .status-empty span { color: #62625e; font-size: .82rem; }
@@ -229,6 +299,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   .source-state.verified { color: #237345; background: #e7f0ec; }
   .source-state.pending { color: #855e18; background: #fff7e6; }
   @media (max-width: 980px) {
+    .history-header { display: none; }
+    .history-row { grid-template-columns: 72px minmax(0, 1fr); gap: .55rem 1rem; padding: 1rem .25rem; }
+    .history-row > span { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: .5rem; }
+    .history-row > span::before { content: attr(data-label); color: #6c6c67; font-size: .72rem; }
     .trust-ledger { align-items: start; flex-direction: column; min-height: 0; }
     .quality-header { display: none; }
     .quality-row { grid-template-columns: 72px minmax(0,1fr); gap: .55rem 1rem; padding: 1rem .25rem; }
@@ -238,6 +312,8 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     .quality-heading { align-items: start; flex-direction: column; }
   }
   @media (max-width: 620px) {
+    .history-row { grid-template-columns: 1fr; padding: 1rem .6rem; }
+    .history-row > span { grid-template-columns: 100px minmax(0, 1fr); }
     .status-summary { grid-template-columns: 1fr; }
     .trust-ledger + .trust-ledger { border-top: 1px solid var(--line, #d9d9d5); border-left: 0; }
     .status-operations { grid-template-columns: 1fr; }

@@ -252,6 +252,70 @@ def staging_path(issue: HistoricalIssue) -> Path:
     return STAGING_ROOT / issue.journal.casefold() / f"{issue.issue_id}.json"
 
 
+MANUAL_RETRY_CLASSES = {"manual", "missing_abstract", "in_progress"}
+TRANSIENT_RETRY_CLASSES = {"transient", "translation"}
+
+
+def retry_class_for(status: str, error: str = "") -> str:
+    """Classify a checkpoint so scheduled runs stop hammering unactionable work.
+
+    - translation: partial translations that should be retried after a short
+      backoff with the current model.
+    - transient: HTTP/timeout failures that may resolve on the next attempt.
+    - in_progress: the publisher has not finalised the volume yet; wait for
+      the regular monitor instead of re-collecting every hour.
+    - missing_abstract: the source has no English abstract; requires an
+      enrichment source or a manual/browser-authorized capture.
+    - manual: anything else needs an operator or a different tool.
+    """
+    if status == "translation_partial":
+        return "translation"
+    error_text = str(error or "").lower()
+    if "possible_incomplete_volume" in error_text:
+        return "manual"
+    if any(
+        marker in error_text
+        for marker in (
+            "in progress",
+            "awaiting",
+            "not yet published",
+            "not finalised",
+            "not finalized",
+            "publisher has not",
+        )
+    ):
+        return "in_progress"
+    if "abstract" in error_text and any(
+        marker in error_text for marker in ("missing", "unavailable", "no abstract")
+    ):
+        return "missing_abstract"
+    if any(
+        marker in error_text
+        for marker in (
+            "timeout",
+            "http 429",
+            "http 5",
+            "http 4",
+            "connection",
+            "temporarily",
+            "rate limit",
+            "retry",
+        )
+    ):
+        return "transient"
+    return "manual"
+
+
+def next_retry_after(retry_class: str, now) -> str | None:
+    """Backoff window for retryable classes; manual classes get no retry."""
+    if retry_class not in TRANSIENT_RETRY_CLASSES:
+        return None
+    hours = 6 if retry_class == "translation" else 2
+    from datetime import timedelta
+
+    return (now + timedelta(hours=hours)).replace(microsecond=0).isoformat()
+
+
 def update_state(
     state: dict[str, Any],
     issue: HistoricalIssue,
@@ -259,8 +323,10 @@ def update_state(
     status: str,
     error: str = "",
 ) -> None:
-    state.setdefault("schema_version", "1.0")
-    state.setdefault("issues", {})[issue.issue_id] = {
+    from datetime import datetime, timezone
+
+    retry_class = retry_class_for(status, error)
+    entry = {
         "journal": issue.journal,
         "year": issue.year,
         "volume": issue.volume,
@@ -268,8 +334,41 @@ def update_state(
         "official_url": issue.official_url,
         "status": status,
         "last_error": error,
+        "retry_class": retry_class,
     }
+    next_at = next_retry_after(retry_class, datetime.now(timezone.utc))
+    if next_at:
+        entry["next_retry_at"] = next_at
+    state.setdefault("schema_version", "1.0")
+    state.setdefault("issues", {})[issue.issue_id] = entry
     atomic_write_json(STATE_PATH, state)
+
+
+def is_actionable(entry: dict[str, Any] | None) -> bool:
+    """Whether a checkpoint should be retried by the scheduled backfill."""
+    if not entry:
+        return True
+    status = entry.get("status", "")
+    if status == "complete":
+        return False
+    retry_class = entry.get("retry_class") or retry_class_for(
+        status, entry.get("last_error", "")
+    )
+    if retry_class in MANUAL_RETRY_CLASSES:
+        return False
+    next_at = entry.get("next_retry_at")
+    if next_at:
+        from datetime import datetime, timezone
+
+        try:
+            parsed = datetime.fromisoformat(str(next_at))
+            if parsed.tzinfo is None:
+                parsed = parsed.replace(tzinfo=timezone.utc)
+            if parsed > datetime.now(timezone.utc):
+                return False
+        except ValueError:
+            pass
+    return True
 
 
 def _is_browser_captured_staging(path: Path) -> bool:
@@ -381,17 +480,17 @@ def run_issue(
     current_error = (
         state.get("issues", {}).get(issue_ref.issue_id, {}).get("last_error", "")
     )
-    if (
-        current_status == "blocked"
-        and "possible_incomplete_volume" in current_error
-        and not _is_browser_captured_staging(staging_path(issue_ref))
-    ):
+    entry = state.get("issues", {}).get(issue_ref.issue_id)
+    if not is_actionable(entry) and current_status != "complete":
+        retry_class = entry.get("retry_class") or retry_class_for(
+            current_status, current_error
+        )
         return {
             "issue_id": issue_ref.issue_id,
             "result": "blocked",
             "error": (
-                "possible_incomplete_volume (skipped: needs official page or "
-                "browser-authorized capture)"
+                f"{retry_class} (skipped: not actionable by the scheduled "
+                "backfill)"
             ),
         }
     archive_path = (
@@ -469,6 +568,52 @@ def run_issue(
         }
 
 
+def rotate_journals(
+    state: dict[str, Any],
+    history: dict[str, Any],
+    *,
+    years: range,
+    max_journals: int,
+) -> list[str]:
+    """Pick up to max_journals journals with actionable pending work.
+
+    Works purely from the resumable state file (no publisher API calls), so
+    the workflow's pending-check step stays cheap even when nothing is due.
+    Journals that have never run (no checkpoints in the requested years) are
+    always eligible so the first batch can discover and collect them. Eligible
+    journals are ordered by their last run timestamp (oldest first).
+    """
+    from datetime import datetime, timezone
+
+    wanted_years = set(years)
+    candidates: set[str] = set()
+    for key in history["journals"]:
+        entries = [
+            entry
+            for entry in state.get("issues", {}).values()
+            if entry.get("journal") == key and entry.get("year") in wanted_years
+        ]
+        if not entries or any(is_actionable(entry) for entry in entries):
+            candidates.add(key)
+    if not candidates:
+        return []
+    last_run: dict[str, str] = state.setdefault("rotation", {}).setdefault(
+        "last_run_at", {}
+    )
+
+    def _sort_key(journal: str) -> tuple[int, str]:
+        stamp = last_run.get(journal, "")
+        try:
+            parsed = datetime.fromisoformat(stamp)
+            if parsed.tzinfo is None:
+                parsed = parsed.replace(tzinfo=timezone.utc)
+            return (int(parsed.timestamp()), journal)
+        except (ValueError, TypeError):
+            return (0, journal)
+
+    return sorted(candidates, key=_sort_key)[:max_journals]
+
+
 def main() -> int:
     global STATE_PATH
     parser = argparse.ArgumentParser()
@@ -487,8 +632,21 @@ def main() -> int:
     parser.add_argument("--to-year", type=int, default=2026)
     parser.add_argument("--translate", action="store_true")
     parser.add_argument("--plan-only", action="store_true")
-    parser.add_argument("--max-issues", type=int, default=1)
-    parser.add_argument("--max-translations", type=int, default=50)
+    parser.add_argument("--max-issues", type=int, default=6)
+    parser.add_argument("--max-translations", type=int, default=80)
+    parser.add_argument("--max-journals", type=int, default=4)
+    parser.add_argument(
+        "--print-pending-journals",
+        action="store_true",
+        help="print a JSON list of up to --max-journals journals with "
+        "actionable pending work and exit (no collection happens)",
+    )
+    parser.add_argument(
+        "--aggregate-only",
+        action="store_true",
+        help="regenerate per-journal archive indexes and global search/health "
+        "indexes without collecting anything (used by the batch aggregate job)",
+    )
     parser.add_argument(
         "--report-json",
         default="",
@@ -504,8 +662,8 @@ def main() -> int:
     parser.add_argument(
         "--max-minutes",
         type=int,
-        default=0,
-        help="stop cleanly after this many minutes (0=unlimited); "
+        default=35,
+        help="stop cleanly after this many minutes per journal (0=unlimited); "
         "partial progress is still published so a cancelled runner loses "
         "at most the in-flight issue",
     )
@@ -520,6 +678,25 @@ def main() -> int:
     selected = [
         key for key in history["journals"] if args.journal == "ALL" or key == args.journal
     ]
+
+    state_path = Path(args.state)
+    state = load_json(state_path, {"schema_version": "1.0", "issues": {}})
+    scoped_history = {
+        "journals": {key: history["journals"][key] for key in selected}
+    }
+
+    # The pending check must not hit publisher APIs: the workflow runs it every
+    # scheduled round and it should stay cheap when nothing is due.
+    if args.print_pending_journals:
+        chosen = rotate_journals(
+            state,
+            scoped_history,
+            years=years,
+            max_journals=args.max_journals,
+        )
+        print(json.dumps(chosen))
+        return 0
+
     plan: list[HistoricalIssue] = []
     for key in selected:
         plan.extend(
@@ -535,13 +712,10 @@ def main() -> int:
         )
         return 0
 
-    state_path = Path(args.state)
-    state = load_json(state_path, {"schema_version": "1.0", "issues": {}})
-
     def _needs_processing(issue: HistoricalIssue) -> bool:
         entry = state.get("issues", {}).get(issue.issue_id, {})
         if entry.get("status") != "complete":
-            return True
+            return is_actionable(entry)
         # A complete marker with no archive usually means a concurrent
         # publisher overwrote the public tree; re-archive from staging.
         archive = (
@@ -553,50 +727,92 @@ def main() -> int:
         )
         return not archive.exists()
 
-    pending = [issue for issue in plan if _needs_processing(issue)][: args.max_issues]
-    reports: list[dict[str, Any]] = []
-    remaining_translations = args.max_translations
-    import time as _time
+    pending_by_journal: dict[str, list[HistoricalIssue]] = {}
+    for issue in plan:
+        if _needs_processing(issue):
+            pending_by_journal.setdefault(issue.journal, []).append(issue)
 
-    started_at = _time.monotonic()
-    budget_seconds = args.max_minutes * 60 if args.max_minutes > 0 else 0
+    if args.aggregate_only:
+        for key in selected:
+            write_archive_index(
+                journals[key]["id"],
+                journals[key]["name"],
+                updated_at=now_iso(),
+            )
+        if not args.skip_global_indexes:
+            update_indexes(journals, load_available_issues(journals, {}))
+        print(json.dumps({"aggregate_only": True, "journals": selected}))
+        return 0
+
+    # ALL rotates through up to --max-journals journals per round so one large
+    # journal cannot starve the queue; a specific journal always runs itself.
+    if args.journal == "ALL":
+        chosen = rotate_journals(
+            state,
+            scoped_history,
+            years=years,
+            max_journals=args.max_journals,
+        )
+        pending_by_journal = {
+            key: pending_by_journal[key]
+            for key in chosen
+            if key in pending_by_journal
+        }
+        if not pending_by_journal:
+            print(json.dumps({"results": [], "remaining_translation_budget": 0}))
+            return 1
+
+    reports: list[dict[str, Any]] = []
+    import time as _time
+    from datetime import datetime, timezone
+
     time_budget_reached = False
     summary_lines = [
-        "| Issue | Result | Detail |",
-        "|---|---|---|",
+        "| Journal | Issue | Result | Detail |",
+        "|---|---|---|---|",
     ]
-    for issue in pending:
-        if args.translate and remaining_translations <= 0:
-            break
-        if budget_seconds and (_time.monotonic() - started_at) >= budget_seconds:
-            time_budget_reached = True
-            print(
-                f"[backfill] time budget {args.max_minutes}m reached; "
-                "publishing partial progress"
+    for journal_key in pending_by_journal:
+        remaining_translations = args.max_translations
+        started_at = _time.monotonic()
+        budget_seconds = args.max_minutes * 60 if args.max_minutes > 0 else 0
+        for issue in pending_by_journal[journal_key][: args.max_issues]:
+            if args.translate and remaining_translations <= 0:
+                break
+            if budget_seconds and (_time.monotonic() - started_at) >= budget_seconds:
+                time_budget_reached = True
+                print(
+                    f"[backfill] {journal_key} time budget {args.max_minutes}m "
+                    "reached; publishing partial progress"
+                )
+                break
+            report = run_issue(
+                issue,
+                journals[issue.journal],
+                state,
+                translate=args.translate,
+                max_translations=remaining_translations,
             )
-            break
-        report = run_issue(
-            issue,
-            journals[issue.journal],
-            state,
-            translate=args.translate,
-            max_translations=remaining_translations,
-        )
-        reports.append(report)
-        translation = report.get("translation") or {}
-        remaining_translations -= int(translation.get("translated", 0))
-        result = report.get("result", "")
-        detail = report.get("error") or report.get("issue_id", "")
-        print(f"[backfill] {issue.issue_id}: {result} {detail}")
-        summary_lines.append(
-            f"| {issue.issue_id} | {result} | {str(detail).replace('|', '/')} |"
-        )
+            reports.append(report)
+            translation = report.get("translation") or {}
+            remaining_translations -= int(translation.get("translated", 0))
+            result = report.get("result", "")
+            detail = report.get("error") or report.get("issue_id", "")
+            print(f"[backfill] {issue.issue_id}: {result} {detail}")
+            summary_lines.append(
+                f"| {issue.journal} | {issue.issue_id} | {result} | "
+                f"{str(detail).replace('|', '/')} |"
+            )
+        state.setdefault("rotation", {}).setdefault("last_run_at", {})[
+            journal_key
+        ] = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+        atomic_write_json(state_path, state)
+
     step_summary = os.environ.get("GITHUB_STEP_SUMMARY", "")
     if step_summary:
         with open(step_summary, "a", encoding="utf-8") as handle:
             handle.write("### Field history backfill batch\n")
             handle.write("\n".join(summary_lines) + "\n")
-    for key in selected:
+    for key in pending_by_journal:
         write_archive_index(
             journals[key]["id"],
             journals[key]["name"],
@@ -606,7 +822,7 @@ def main() -> int:
         update_indexes(journals, load_available_issues(journals, {}))
     final_report = {
         "results": reports,
-        "remaining_translation_budget": remaining_translations,
+        "remaining_translation_budget": 0,
         "time_budget_reached": time_budget_reached,
     }
     if args.report_json:

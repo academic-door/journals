@@ -619,7 +619,7 @@ class PublicationGateTests(unittest.TestCase):
                     "title_en": title,
                     "title_cn": "测试论文",
                     "authors": ["Test Author"],
-                    "abstract_en": "Evidence from China." if issue is old_issue else "Abstract",
+                    "abstract_en": "Evidence from China." if issue is old_issue else "Evidence from Chinese firms.",
                     "abstract_cn": "摘要",
                     "source_url": "https://example.org/paper",
                 }
@@ -647,6 +647,9 @@ class PublicationGateTests(unittest.TestCase):
             latest = json.loads((root / "search" / "latest.json").read_text(encoding="utf-8"))
             history = json.loads((root / "search" / "all.json").read_text(encoding="utf-8"))
             manifest = json.loads((root / "search" / "index.json").read_text(encoding="utf-8"))
+            china = json.loads((root / "search" / "china-latest.json").read_text(encoding="utf-8"))
+            year_2021 = json.loads((root / "search" / "years" / "2021.json").read_text(encoding="utf-8"))
+            year_2022 = json.loads((root / "search" / "years" / "2022.json").read_text(encoding="utf-8"))
         self.assertEqual(1, latest["record_count"])
         self.assertEqual(2, history["record_count"])
         self.assertEqual(2, manifest["issue_count"])
@@ -654,6 +657,19 @@ class PublicationGateTests(unittest.TestCase):
         self.assertEqual("1", old_record["volume"])
         self.assertEqual("1", old_record["issue"])
         self.assertTrue(old_record["china_related"])
+        self.assertEqual(1, china["record_count"])
+        self.assertEqual("demo-2-1", china["records"][0]["issue_id"])
+        self.assertEqual(1, year_2021["record_count"])
+        self.assertEqual(1, year_2022["record_count"])
+        self.assertEqual("2021", str(year_2021["year"]))
+        self.assertEqual(2, len(manifest["years"]))
+        self.assertEqual(2022, manifest["years"][0]["year"])
+        self.assertEqual(2021, manifest["years"][1]["year"])
+        self.assertEqual(
+            "/journals/api/v1/search/china-latest.json",
+            manifest["china_latest_url"],
+        )
+        self.assertIn("years/2021.json", manifest["years"][1]["url"])
 
 
     def test_stale_translation_cache_is_not_applied_to_revised_source(self) -> None:
