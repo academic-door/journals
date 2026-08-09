@@ -510,6 +510,7 @@ main,
   border-radius: 12px;
   box-shadow: 0 16px 36px rgb(11 47 40 / 16%);
 }
+.style-settings:not([open]) > .style-settings-panel { display: none; }
 .style-settings-panel > label,
 .custom-css-settings label { display: grid; gap: 6px; color: var(--muted); font-size: 0.75rem; font-weight: 750; }
 .style-settings-panel select,
@@ -970,7 +971,20 @@ main,
   .theme-lab-heading { display: block; }
   .theme-lab-heading .button { display: inline-flex; margin-top: 18px; }
   .theme-lab-controls { grid-template-columns: 1fr; }
-  .style-settings-panel { position: fixed; top: 120px; right: 16px; left: 16px; width: auto; }
+  .composer-publish-row > .style-settings,
+  .composer-publish-row > .theme-lab-link { width: 100%; }
+  .style-settings > summary { display: flex; align-items: center; justify-content: center; min-height: 44px; }
+  .style-settings-panel {
+    position: static;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    margin-top: 8px;
+    box-sizing: border-box;
+  }
+  .style-settings-panel > label { min-width: 0; }
+  .style-settings-panel select,
+  .style-settings-panel input,
+  .style-settings-panel textarea { min-width: 0; }
 }
 
 @media (max-width: 560px) {
