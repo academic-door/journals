@@ -1,10 +1,10 @@
 # Field journal history backfill status
 
-Updated: 2026-08-09T23:22:47+00:00
+Updated: 2026-08-10T23:26:33+00:00
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 51 | 7 | 4 | 0 |
+| 2023-2024 | 66 | 11 | 4 | 0 |
 | 2025-2026 | 595 | 4 | 14 | 0 |
 
 | Journal | Issue | Year | Status | Note |
@@ -160,6 +160,12 @@ Updated: 2026-08-09T23:22:47+00:00
 | ECOLECON | ecolecon-248-c | 2026 | complete |  |
 | ECOLECON | ecolecon-249-c | 2026 | complete |  |
 | ECOLECON | ecolecon-250-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 250/ |
+| ECTA | ecta-91-1 | 2023 | complete |  |
+| ECTA | ecta-91-2 | 2023 | translation_partial |  |
+| ECTA | ecta-91-3 | 2023 | translation_partial |  |
+| ECTA | ecta-91-4 | 2023 | complete |  |
+| ECTA | ecta-91-5 | 2023 | complete |  |
+| ECTA | ecta-91-6 | 2023 | complete |  |
 | ECTA | ecta-93-1 | 2025 | complete |  |
 | ECTA | ecta-93-2 | 2025 | complete |  |
 | ECTA | ecta-93-3 | 2025 | complete |  |
@@ -170,6 +176,10 @@ Updated: 2026-08-09T23:22:47+00:00
 | ECTA | ecta-94-2 | 2026 | complete |  |
 | ECTA | ecta-94-3 | 2026 | complete |  |
 | ECTA | ecta-94-4 | 2026 | complete |  |
+| EER | eer-151-c | 2023 | complete |  |
+| EER | eer-152-c | 2023 | complete |  |
+| EER | eer-153-c | 2023 | complete |  |
+| EER | eer-154-c | 2023 | translation_partial |  |
 | EER | eer-171-c | 2025 | complete |  |
 | EER | eer-172-c | 2025 | complete |  |
 | EER | eer-173-c | 2025 | complete |  |
@@ -189,6 +199,12 @@ Updated: 2026-08-09T23:22:47+00:00
 | EER | eer-187-c | 2026 | complete |  |
 | EER | eer-188-c | 2026 | complete |  |
 | EER | eer-189-c | 2026 | complete |  |
+| EJ | ej-133-650 | 2023 | complete |  |
+| EJ | ej-133-651 | 2023 | complete |  |
+| EJ | ej-133-652 | 2023 | complete |  |
+| EJ | ej-133-653 | 2023 | complete |  |
+| EJ | ej-133-654 | 2023 | complete |  |
+| EJ | ej-133-655 | 2023 | complete |  |
 | EJ | ej-135-667 | 2025 | complete |  |
 | EJ | ej-135-668 | 2025 | complete |  |
 | EJ | ej-135-669 | 2025 | complete |  |
@@ -200,6 +216,9 @@ Updated: 2026-08-09T23:22:47+00:00
 | EJ | ej-136-675 | 2026 | complete |  |
 | EJ | ej-136-676 | 2026 | complete |  |
 | EJ | ej-136-677 | 2026 | complete |  |
+| ENERGY | energy-117-c | 2023 | complete |  |
+| ENERGY | energy-118-c | 2023 | complete |  |
+| ENERGY | energy-119-c | 2023 | translation_partial |  |
 | ENERGY | energy-141-c | 2025 | complete |  |
 | ENERGY | energy-142-c | 2025 | complete |  |
 | ENERGY | energy-143-c | 2025 | complete |  |
