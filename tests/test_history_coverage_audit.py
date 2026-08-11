@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import json
+import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -57,6 +59,18 @@ def ready_issue() -> dict:
 
 
 class HistoryCoverageAuditTests(unittest.TestCase):
+    def test_script_entrypoint_resolves_repo_imports(self) -> None:
+        script = Path(__file__).resolve().parents[1] / "scripts" / "audit_history_coverage.py"
+        with tempfile.TemporaryDirectory() as directory:
+            result = subprocess.run(
+                [sys.executable, str(script), "--help"],
+                cwd=directory,
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+        self.assertEqual(0, result.returncode, result.stderr)
+
     def _fixture(self, root: Path) -> tuple[list[dict], dict, Path]:
         api_root = root / "api"
         issue_dir = api_root / "journals" / "aer" / "issues"
