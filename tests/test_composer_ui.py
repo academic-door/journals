@@ -93,8 +93,9 @@ class ComposerUiTest(unittest.TestCase):
         self.assertNotIn('class="abstract-label">English Abstract</p>', explorer)
         self.assertNotIn('class="abstract-label">中文摘要</p>', explorer)
 
-    def test_content_page_keeps_source_status_out_of_reader_view(self):
+    def test_content_page_surfaces_source_pending_without_internal_provenance(self):
         explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(encoding="utf-8")
+        self.assertIn("内容已齐，待来源核验", explorer)
         self.assertNotIn("官网目录已核对", explorer)
         self.assertNotIn("目录顺序待官网复核", explorer)
         self.assertNotIn("Crossref 备用来源", explorer)
@@ -217,10 +218,13 @@ class ComposerUiTest(unittest.TestCase):
     def test_composer_blocks_export_until_detected_issue_is_ready(self):
         self.assertIn('id="publication-readiness"', self.page)
         self.assertIn("const issueReadiness", self.page)
-        self.assertIn("publishingButtons.forEach", self.page)
-        self.assertIn("button.disabled = true", self.page)
+        self.assertIn("const issuePublicationState", self.page)
+        self.assertIn('readiness.publicationState === "ready"', self.page)
+        self.assertIn("setPublishingEnabled(false", self.page)
+        self.assertIn("requirePublicationReady", self.page)
         self.assertIn("等待英文摘要", self.page)
         self.assertIn("中文翻译中", self.page)
+        self.assertIn("内容已齐，待来源核验", self.page)
         self.assertIn("可复制发布", self.explorer)
 
     def test_composer_surfaces_loading_empty_failure_and_stale_states(self):
@@ -249,9 +253,9 @@ class ComposerUiTest(unittest.TestCase):
             "发布状态",
         ):
             self.assertIn(label, self.status_page)
-        self.assertIn("内容可用性", self.status_page)
+        self.assertIn("可发布卷期", self.status_page)
         self.assertIn("官方目录核验", self.status_page)
-        self.assertIn("CONTENT READINESS", self.status_page)
+        self.assertIn("PUBLICATION READINESS", self.status_page)
         self.assertIn("SOURCE VERIFICATION", self.status_page)
         self.assertIn('journal.order_verification === "official_verified"', self.status_page)
         self.assertIn("latest_detected_article_count", self.status_page)
@@ -265,6 +269,75 @@ class ComposerUiTest(unittest.TestCase):
         self.assertNotIn("latest_detected_article_count", content_gate)
         self.assertIn("@media (max-width: 980px)", self.status_page)
         self.assertIn("<style is:global>", self.status_page)
+
+    def test_truthful_history_uses_v12_archive_provenance(self):
+        self.assertLess(
+            self.status_page.index('class="history-section"'),
+            self.status_page.index('class="quality-section"'),
+        )
+        for field in (
+            "bucket.coverage",
+            "bucket.by_journal",
+            'countOf(coverage, "discovered")',
+            'countOf(coverage, "archived")',
+            'countOf(coverage, "source_verified")',
+            'countOf(coverage, "publication_ready")',
+            "missing_issue_ids",
+            "source_pending_issue_ids",
+        ):
+            self.assertIn(field, self.status_page)
+        self.assertNotIn("verifiedById", self.status_page)
+        self.assertIn("旧版接口只记录已发现条目", self.status_page)
+        self.assertIn('Number.parseFloat(backfillStatus.schema_version || "0") >= 1.2', self.status_page)
+
+    def test_status_timestamps_are_localised(self):
+        self.assertIn('new Intl.DateTimeFormat("zh-CN"', self.status_page)
+        self.assertIn("formatTimestamp(backfillStatus.updated_at)", self.status_page)
+        self.assertIn("formatTimestamp(health.updated_at || sourceAudit.updated_at)", self.status_page)
+
+    def test_top5_tabs_use_roving_keyboard_navigation(self):
+        self.assertIn('tabindex="${active && enabled ? "0" : "-1"}"', self.explorer)
+        for key in ("ArrowLeft", "ArrowRight", "Home", "End"):
+            self.assertIn(key, self.explorer)
+        self.assertIn("state.pendingTabFocus", self.explorer)
+
+    def test_composer_publish_actions_start_disabled_and_use_one_gate(self):
+        for control_id in ("copy-rich", "copy-markdown", "export-markdown", "export-html"):
+            marker = f'id="{control_id}"'
+            control = self.page.split(marker, 1)[1].split(">", 1)[0]
+            self.assertIn("disabled", control)
+            self.assertIn('aria-describedby="publication-readiness"', control)
+        self.assertIn('issuePublicationState(currentIssue) === "ready"', self.page)
+        self.assertIn('issue.issue_id === journal.latest_issue_id', self.page)
+        self.assertIn('journal.order_verification === "official_verified"', self.page)
+        self.assertGreaterEqual(self.page.count("requirePublicationReady()"), 4)
+
+    def test_legacy_crossref_ready_is_conservatively_blocked(self):
+        import json
+
+        for journal_id in ("jpe", "res", "ecta"):
+            issue = json.loads(
+                (ROOT / "public/api/v1/journals" / journal_id / "issues/current.json")
+                .read_text(encoding="utf-8")
+            )
+            self.assertIn(issue["publication_state"], {"ready", "source_pending"})
+            quality = issue.get("quality", {})
+            self.assertTrue(
+                "crossref_provisional_roster" in quality.get("flags", [])
+                or "crossref" in str(quality.get("roster_authority", "")).lower()
+                or "crossref" in str(quality.get("roster_transport", "")).lower()
+            )
+        for source in (self.page, self.explorer):
+            self.assertIn('flags.has("crossref_provisional_roster")', source)
+            self.assertIn("/crossref/i.test(authority)", source)
+            self.assertIn("/crossref/i.test(transport)", source)
+            self.assertIn('["content_status", "source_status", "publication_state"].every', source)
+            self.assertNotIn(
+                "if (issue?.publication_state) return issue.publication_state;",
+                source,
+            )
+        self.assertIn("journalSourceEvidence", self.status_page)
+        self.assertIn("if (evidence.provisional) return \"source_pending\"", self.status_page)
 
     def test_mobile_composer_controls_have_touch_sized_targets(self):
         self.assertIn(".composer-toolbar .button,", self.css)

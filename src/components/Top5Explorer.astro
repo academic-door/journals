@@ -183,6 +183,54 @@ const initialIssue = initialIssuePath
     return Number(entry.volume || 0) * 100 + Number(entry.issue || 0);
   };
 
+  const hasOwn = (value, key) => Object.prototype.hasOwnProperty.call(value || {}, key);
+  const issueSourceEvidence = (issue) => {
+    const quality = issue?.quality || {};
+    const journal = state.activeJournal || {};
+    const isCurrent = Boolean(issue?.issue_id && issue.issue_id === journal.latest_issue_id);
+    const flags = new Set([...(quality.flags || []), ...(issue?.quality_flags || [])]);
+    const authority = String(
+      issue?.roster_authority || quality.roster_authority || (isCurrent ? journal.roster_authority : "") || ""
+    );
+    const transport = String(
+      issue?.roster_transport || quality.roster_transport || (isCurrent ? journal.roster_transport : "") || ""
+    );
+    const provisional = issue?.source_status === "source_pending"
+      || flags.has("crossref_provisional_roster")
+      || /crossref/i.test(authority)
+      || /crossref/i.test(transport);
+    const official = ["official_verified", "publisher_verified"].includes(issue?.source_status)
+      || /^(?:official|publisher)/i.test(authority)
+      || (isCurrent && journal.order_verification === "official_verified");
+    return { provisional, official };
+  };
+  const publicationStateForIssue = (issue) => {
+    const evidence = issueSourceEvidence(issue);
+    if (evidence.provisional) return "source_pending";
+    const hasTruthfulContract = ["content_status", "source_status", "publication_state"].every(
+      (key) => hasOwn(issue, key)
+    );
+    if (hasTruthfulContract) {
+      if (issue.content_status !== "complete") {
+        return issue.content_status === "blocked" ? "blocked" : "translation_partial";
+      }
+      if (!["official_verified", "publisher_verified"].includes(issue.source_status)) {
+        return "source_pending";
+      }
+      return issue.publication_state === "ready" ? "ready" : issue.publication_state;
+    }
+    const journal = state.activeJournal || {};
+    const isLegacyCurrent = Boolean(
+      issue?.issue_id
+      && issue.issue_id === journal.latest_issue_id
+      && journal.latest_issue_url
+      && journal.content_status === "complete"
+      && evidence.official
+      && ["ready", "complete"].includes(journal.update_state || journal.status)
+    );
+    return isLegacyCurrent ? "ready" : "unknown";
+  };
+
   const fetchIssueUrl = (url) => {
     if (!state.issueCache.has(url)) {
       state.issueCache.set(url, fetch(url).then((response) => {
@@ -244,6 +292,8 @@ const initialIssue = initialIssuePath
           role="tab"
           data-journal="${escapeHtml(journal.journal_id)}"
           aria-selected="${active}"
+          aria-controls="issue-summary"
+          tabindex="${active && enabled ? "0" : "-1"}"
           class="${active ? "active" : ""}"
           ${enabled ? "" : "disabled"}
         >
@@ -267,6 +317,35 @@ const initialIssue = initialIssuePath
         if (journal) loadIssue(journal);
       });
     });
+    tabs.onkeydown = (event) => {
+      if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+      const buttons = [...tabs.querySelectorAll('button[role="tab"]:not(:disabled)')];
+      if (!buttons.length) return;
+      const current = Math.max(0, buttons.indexOf(document.activeElement));
+      const nextIndex = event.key === "Home"
+        ? 0
+        : event.key === "End"
+          ? buttons.length - 1
+          : (current + (event.key === "ArrowRight" ? 1 : -1) + buttons.length) % buttons.length;
+      const next = buttons[nextIndex];
+      const journal = state.collection.journals.find(
+        (item) => item.journal_id === next.dataset.journal
+      );
+      event.preventDefault();
+      if (!journal) return;
+      state.pendingTabFocus = journal.journal_id;
+      loadIssue(journal).catch((error) => {
+        document.querySelector("#issue-summary").innerHTML =
+          `<p class="error-message">卷期载入失败：${escapeHtml(error.message)}</p>`;
+      });
+    };
+    if (state.pendingTabFocus) {
+      const pending = tabs.querySelector(
+        `button[data-journal="${CSS.escape(state.pendingTabFocus)}"]`
+      );
+      state.pendingTabFocus = "";
+      if (pending) window.requestAnimationFrame(() => pending.focus());
+    }
   };
 
   const renderIssue = () => {
@@ -283,8 +362,11 @@ const initialIssue = initialIssuePath
     const counts = issue.content_counts || quality.content_counts || {};
     const corrections = counts.corrections || 0;
     const issueCountLabel = `${total} 篇学术文章${corrections ? `，另有 ${corrections} 篇勘误` : ""}`;
-    const ready = issue.publication_state === "ready"
+    const publicationState = publicationStateForIssue(issue);
+    const ready = publicationState === "ready";
+    const contentReady = issue.content_status === "complete"
       || (abstracts === total && translated === total);
+    const sourcePending = publicationState === "source_pending";
     const publicationDate = formatDate(issue.publication_date);
     composerLink.href = `${base}composer/?journal=${encodeURIComponent(issue.journal_id)}&issue=${encodeURIComponent(issue.issue_id)}`;
 
@@ -302,9 +384,15 @@ const initialIssue = initialIssuePath
         <div class="issue-note ${ready ? "complete" : ""}">
           ${ready
             ? "可复制发布"
+            : sourcePending
+              ? "内容已齐，待来源核验"
             : abstracts < total
               ? `等待英文摘要 · ${abstracts}/${total}`
-              : `中文翻译中 · ${translated}/${total}`}
+              : translated < total
+                ? `中文翻译中 · ${translated}/${total}`
+                : contentReady
+                  ? "发布状态待确认"
+                  : "内容整理中"}
         </div>
         <div class="issue-note">中国相关：${issue.articles.filter((article) => chinaRelevance(article).status === "yes").length} 篇</div>
       </div>`;
@@ -399,6 +487,9 @@ const initialIssue = initialIssuePath
         url: displayIssueUrl(state.activeJournal),
         latest: true,
         ready: detectedId === readyId,
+        publication_state: state.activeJournal.latest_detected_publication_state
+          || state.activeJournal.publication_state
+          || (detectedId === readyId ? "ready" : "unknown"),
       },
       ...(readyId && readyId !== detectedId && state.activeJournal.latest_issue_url ? [{
         issue_id: readyId,
@@ -407,6 +498,9 @@ const initialIssue = initialIssuePath
         url: state.activeJournal.latest_issue_url,
         latest: false,
         ready: true,
+        publication_state: state.activeJournal.latest_publication_state
+          || state.activeJournal.publication_state
+          || "ready",
       }] : []),
       ...entries
         .filter((entry) => entry.issue_id !== detectedId && entry.issue_id !== readyId)
@@ -419,6 +513,7 @@ const initialIssue = initialIssuePath
       >
         ${entry.latest ? "最新 · " : ""}${escapeHtml(entry.issue_label)}
         ${entry.publication_date ? ` · ${escapeHtml(formatDate(entry.publication_date))}` : ""}
+        ${entry.publication_state === "source_pending" ? " · 待来源核验" : ""}
       </option>
     `).join("");
     select.disabled = options.length === 0;

@@ -74,6 +74,7 @@ const resultCard = (record) => `
       <span>${escapeHtml(record.issue_label)}</span>
       <span>${escapeHtml(record.publication_date)}</span>
       ${record.china_related ? '<span class="china-tag">中国相关</span>' : ""}
+      ${record.publication_state === "source_pending" ? '<span class="source-pending-tag">内容已齐，待来源核验</span>' : ""}
     </div>
     <h2>${escapeHtml(record.title_cn || record.title_en)}</h2>
     <p class="paper-title-en">${escapeHtml(record.title_en)}</p>

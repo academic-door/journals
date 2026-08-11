@@ -41,6 +41,15 @@ class HistoryAndSearchUiTests(unittest.TestCase):
         self.assertIn("显示更多结果", script)
         self.assertIn('class="search-result skeleton"', script)
 
+    def test_search_results_disclose_source_pending_records(self) -> None:
+        script = (ROOT / "public" / "search.js").read_text(encoding="utf-8")
+        styles = (ROOT / "src" / "styles" / "global.css").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn('record.publication_state === "source_pending"', script)
+        self.assertIn("内容已齐，待来源核验", script)
+        self.assertIn(".source-pending-tag", styles)
+
     def test_main_navigation_links_to_search(self) -> None:
         source = (ROOT / "src" / "layouts" / "Layout.astro").read_text(
             encoding="utf-8"
