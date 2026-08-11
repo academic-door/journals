@@ -6,6 +6,7 @@ import argparse
 import json
 import os
 import sys
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Callable
 
@@ -15,7 +16,11 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from collectors.history import HistoricalIssue, discover_official_issues
+from collectors.history import (
+    HistoricalIssue,
+    discover_official_issues,
+    historical_issue_sort_key,
+)
 from scripts.translate_issue import translate_missing
 from scripts.update_journals import (
     JOURNALS_PATH,
@@ -23,10 +28,13 @@ from scripts.update_journals import (
     TRANSLATION_CACHE,
     apply_translation_cache,
     archive_issue,
-    is_archivable_snapshot,
+    issue_content_status,
+    issue_publication_state,
+    issue_source_status,
     load_available_issues,
     normalize_issue_content,
     now_iso,
+    stamp_issue_readiness,
     update_indexes,
     validate_issue,
     write_archive_index,
@@ -36,6 +44,13 @@ from scripts.update_journals import (
 HISTORY_CONFIG = ROOT / "config" / "top5-history.yml"
 STATE_PATH = ROOT / "data" / "backfill-state" / "top5-2025-2026.json"
 STAGING_ROOT = ROOT / "data" / "backfill-staging"
+STATE_SCHEMA_VERSION = "1.1"
+COLLECTOR_REVISION = "history-integrity-2026-08-11"
+DISCOVERY_MAX_AGE = timedelta(days=14)
+
+VERIFIED_SOURCE_STATUSES = {"official_verified", "publisher_verified"}
+READY_STATUSES = {"ready"}
+LEGACY_READY_STATUSES = {"complete"}
 
 
 def atomic_write_json(path: Path, payload: object) -> None:
@@ -61,103 +76,162 @@ def collector_for_issue(
     issue_url = (
         issue_ref.official_url if isinstance(issue_ref, HistoricalIssue) else str(issue_ref)
     )
-    if isinstance(issue_ref, HistoricalIssue) and (
-        journal_config.get("fallback") == "crossref" or collector == "crossref"
-    ):
-        # Unified history path: collect by volume from the Crossref roster.
+
+    def _require_exact_issue(candidate: dict[str, Any]) -> dict[str, Any]:
+        if not isinstance(issue_ref, HistoricalIssue):
+            return candidate
+        received_volume = str(candidate.get("volume", "")).casefold()
+        received_issue = str(candidate.get("issue", "")).casefold()
+        if (
+            received_volume != str(issue_ref.volume).casefold()
+            or received_issue != str(issue_ref.issue).casefold()
+        ):
+            raise ValueError(
+                f"Official page mismatch: expected {issue_ref.volume}/{issue_ref.issue}, "
+                f"received {candidate.get('volume')}/{candidate.get('issue')}"
+            )
+        return candidate
+
+    def _crossref() -> dict[str, Any]:
         from collectors.metadata_fallback import fetch_crossref_current_issue
 
-        return lambda: fetch_crossref_current_issue(
+        if not isinstance(issue_ref, HistoricalIssue):
+            raise ValueError("Crossref history requires a volume/issue reference")
+        candidate = fetch_crossref_current_issue(
             journal_id=journal_config["id"],
             journal_name=journal_config["name"],
             issn=str(journal_config["issn"]),
             current_issue_url=issue_url,
             target_volume=issue_ref.volume,
             target_issue=(
-                issue_ref.issue if issue_ref.issue != "c" else ""
+                issue_ref.issue if issue_ref.issue.casefold() != "c" else ""
             ),
             output_issue=issue_ref.issue.upper(),
             start_year=int(issue_ref.year) - 2,
         )
-    if collector == "aea":
-        if (
-            isinstance(issue_ref, HistoricalIssue)
-            and journal_config.get("fallback") == "crossref"
+        quality = candidate.setdefault("quality", {})
+        flags = quality.setdefault("flags", [])
+        for flag in (
+            "publisher_html_blocked_crossref_fallback",
+            "crossref_provisional_roster",
         ):
-            from collectors.metadata_fallback import fetch_crossref_current_issue
+            if flag not in flags:
+                flags.append(flag)
+        quality["roster_authority"] = "crossref-provisional"
+        quality.setdefault("roster_transport", "crossref")
+        candidate["source_status"] = "source_pending"
+        candidate["publication_state"] = "source_pending"
+        return candidate
 
-            return lambda: fetch_crossref_current_issue(
-                journal_id=journal_config["id"],
-                journal_name=journal_config["name"],
-                issn=str(journal_config["issn"]),
-                current_issue_url=issue_url,
-                target_volume=issue_ref.volume,
-                target_issue=(
-                    issue_ref.issue if issue_ref.issue != "c" else ""
-                ),
-                output_issue=issue_ref.issue.upper(),
-                start_year=int(issue_ref.year) - 2,
-            )
+    if collector == "crossref":
+        # Crossref is discovery/metadata support only.  It can be archived for
+        # review, but the explicit provisional markers prevent promotion.
+        return _crossref
+
+    if collector == "aea":
         from collectors.aea import fetch_current_issue
 
-        return lambda: fetch_current_issue(
-            issue_url,
-            journal_id=journal_config["id"],
-            journal_name=journal_config["name"],
-        )
-    if collector == "chicago":
-        if (
-            isinstance(issue_ref, HistoricalIssue)
-            and journal_config.get("fallback") == "crossref-repec"
-        ):
-            from collectors.metadata_fallback import fetch_repec_history_issue
+        def _collect_aea() -> dict[str, Any]:
+            try:
+                return _require_exact_issue(
+                    fetch_current_issue(
+                        issue_url,
+                        journal_id=journal_config["id"],
+                        journal_name=journal_config["name"],
+                    )
+                )
+            except Exception:
+                if (
+                    isinstance(issue_ref, HistoricalIssue)
+                    and journal_config.get("fallback") == "crossref"
+                ):
+                    return _crossref()
+                raise
 
-            return lambda: fetch_repec_history_issue(
-                journal_id=journal_config["id"],
-                journal_name=journal_config["name"],
-                issn=str(journal_config["issn"]),
-                volume=issue_ref.volume,
-                issue=issue_ref.issue,
-                repec_series_code=journal_config.get(
-                    "repec_series_code", "ucp/jpolec"
-                ),
-            )
+        return _collect_aea
+    if collector == "chicago":
         from collectors.chicago import fetch_current_issue
 
-        return lambda: fetch_current_issue(
-            issue_url,
-            journal_id=journal_config["id"],
-            journal_name=journal_config["name"],
-        )
-    if collector == "oup":
-        if (
-            isinstance(issue_ref, HistoricalIssue)
-            and journal_config.get("fallback") == "crossref"
-        ):
-            from collectors.metadata_fallback import fetch_crossref_current_issue
+        def _collect_chicago() -> dict[str, Any]:
+            try:
+                # JPE must always try the exact official issue page first.
+                return _require_exact_issue(
+                    fetch_current_issue(
+                        issue_url,
+                        journal_id=journal_config["id"],
+                        journal_name=journal_config["name"],
+                    )
+                )
+            except Exception:
+                if not isinstance(issue_ref, HistoricalIssue):
+                    raise
+                if journal_config.get("fallback") == "crossref-repec":
+                    from collectors.metadata_fallback import fetch_repec_history_issue
 
-            return lambda: fetch_crossref_current_issue(
-                journal_id=journal_config["id"],
-                journal_name=journal_config["name"],
-                issn=str(journal_config["issn"]),
-                current_issue_url=issue_url,
-                target_volume=issue_ref.volume,
-                target_issue=issue_ref.issue,
-                start_year=int(issue_ref.year) - 1,
-            )
+                    try:
+                        return fetch_repec_history_issue(
+                            journal_id=journal_config["id"],
+                            journal_name=journal_config["name"],
+                            issn=str(journal_config["issn"]),
+                            volume=issue_ref.volume,
+                            issue=issue_ref.issue,
+                            repec_series_code=journal_config.get(
+                                "repec_series_code", "ucp/jpolec"
+                            ),
+                        )
+                    except Exception:
+                        return _crossref()
+                raise
+
+        return _collect_chicago
+    if collector == "oup":
         from collectors.oup import fetch_current_issue
 
-        return lambda: fetch_current_issue(journal_config["id"], issue_url)
-    if collector in ("wiley", "repec"):
-        if isinstance(issue_ref, HistoricalIssue) and journal_config.get(
-            "repec_series_code"
-        ):
-            from collectors.metadata_fallback import (
-                fetch_crossref_current_issue,
-                fetch_repec_history_issue,
-            )
+        def _collect_oup() -> dict[str, Any]:
+            try:
+                return _require_exact_issue(
+                    fetch_current_issue(journal_config["id"], issue_url)
+                )
+            except Exception:
+                if (
+                    isinstance(issue_ref, HistoricalIssue)
+                    and journal_config.get("fallback") == "crossref"
+                ):
+                    return _crossref()
+                raise
 
-            def _collect_repec() -> dict[str, Any]:
+        return _collect_oup
+    if collector in ("wiley", "repec"):
+        from collectors.wiley import fetch_current_issue
+
+        def _collect_wiley() -> dict[str, Any]:
+            official_error: Exception | None = None
+            if collector == "wiley":
+                try:
+                    return _require_exact_issue(
+                        fetch_current_issue(
+                            issue_url,
+                            journal_id=journal_config["id"],
+                            journal_name=journal_config["name"],
+                            expected_volume=(
+                                issue_ref.volume
+                                if isinstance(issue_ref, HistoricalIssue)
+                                else ""
+                            ),
+                            expected_issue=(
+                                issue_ref.issue
+                                if isinstance(issue_ref, HistoricalIssue)
+                                else ""
+                            ),
+                        )
+                    )
+                except Exception as error:
+                    official_error = error
+            if isinstance(issue_ref, HistoricalIssue) and journal_config.get(
+                "repec_series_code"
+            ):
+                from collectors.metadata_fallback import fetch_repec_history_issue
+
                 try:
                     return fetch_repec_history_issue(
                         journal_id=journal_config["id"],
@@ -168,37 +242,19 @@ def collector_for_issue(
                         repec_series_code=journal_config["repec_series_code"],
                     )
                 except Exception:
-                    # RePEc may not index the volume under the same
-                    # volume/issue split; fall back to the Crossref roster.
-                    return fetch_crossref_current_issue(
-                        journal_id=journal_config["id"],
-                        journal_name=journal_config["name"],
-                        issn=str(journal_config["issn"]),
-                        current_issue_url=issue_url,
-                        target_volume=issue_ref.volume,
-                        target_issue=(
-                            issue_ref.issue
-                            if issue_ref.issue != "c"
-                            else ""
-                        ),
-                        output_issue=issue_ref.issue.upper(),
-                        start_year=int(issue_ref.year) - 2,
-                    )
+                    if journal_config.get("fallback") == "crossref":
+                        return _crossref()
+                    raise
+            if official_error is not None:
+                if (
+                    isinstance(issue_ref, HistoricalIssue)
+                    and journal_config.get("fallback") == "crossref"
+                ):
+                    return _crossref()
+                raise official_error
+            raise ValueError("RePEc history requires a configured series code")
 
-            return _collect_repec
-        from collectors.wiley import fetch_current_issue
-
-        return lambda: fetch_current_issue(
-            issue_url,
-            journal_id=journal_config["id"],
-            journal_name=journal_config["name"],
-            expected_volume=(
-                issue_ref.volume if isinstance(issue_ref, HistoricalIssue) else ""
-            ),
-            expected_issue=(
-                issue_ref.issue if isinstance(issue_ref, HistoricalIssue) else ""
-            ),
-        )
+        return _collect_wiley
     if collector == "elsevier":
         if not isinstance(issue_ref, HistoricalIssue):
             raise ValueError("Elsevier history requires a volume/issue reference")
@@ -206,25 +262,12 @@ def collector_for_issue(
         from collectors.metadata_fallback import fetch_crossref_current_issue
 
         def _collect() -> dict[str, Any]:
-            try:
-                return fetch_elsevier_repec_history_issue(
-                    journal_id=journal_config["id"],
-                    journal_name=journal_config["name"],
-                    issn=str(journal_config["issn"]),
-                    volume=issue_ref.volume,
-                    issue=issue_ref.issue,
-                    repec_series_url=journal_config.get("repec_series_url", ""),
-                    doi_template=journal_config.get("doi_template", ""),
-                )
-            except Exception:
-                # RePEc archive may not cover the volume; try the official
-                # ScienceDirect Search API roster first, then Crossref.
-                from collectors.metadata_fallback import (
-                    fetch_elsevier_issue_via_search,
-                )
+            from collectors.metadata_fallback import fetch_elsevier_issue_via_search
 
-                try:
-                    return fetch_elsevier_issue_via_search(
+            try:
+                # The ScienceDirect API is the publisher-owned roster.
+                return _require_exact_issue(
+                    fetch_elsevier_issue_via_search(
                         journal_id=journal_config["id"],
                         journal_name=journal_config["name"],
                         issn=str(journal_config["issn"]),
@@ -232,17 +275,20 @@ def collector_for_issue(
                         issue=issue_ref.issue,
                         official_issue_url=issue_url,
                     )
-                except Exception:
-                    return fetch_crossref_current_issue(
+                )
+            except Exception:
+                try:
+                    return fetch_elsevier_repec_history_issue(
                         journal_id=journal_config["id"],
                         journal_name=journal_config["name"],
                         issn=str(journal_config["issn"]),
-                        current_issue_url=issue_url,
-                        target_volume=issue_ref.volume,
-                        target_issue="",
-                        output_issue="C",
-                        start_year=int(issue_ref.year) - 2,
+                        volume=issue_ref.volume,
+                        issue=issue_ref.issue,
+                        repec_series_url=journal_config.get("repec_series_url", ""),
+                        doi_template=journal_config.get("doi_template", ""),
                     )
+                except Exception:
+                    return _crossref()
 
         return _collect
     raise ValueError(f"Historical backfill is not configured for {collector}")
@@ -253,7 +299,7 @@ def staging_path(issue: HistoricalIssue) -> Path:
 
 
 MANUAL_RETRY_CLASSES = {"manual", "missing_abstract", "in_progress"}
-TRANSIENT_RETRY_CLASSES = {"transient", "translation"}
+TRANSIENT_RETRY_CLASSES = {"transient", "translation", "source"}
 
 
 def retry_class_for(status: str, error: str = "") -> str:
@@ -270,7 +316,13 @@ def retry_class_for(status: str, error: str = "") -> str:
     """
     if status == "translation_partial":
         return "translation"
+    if status == "source_pending":
+        return "source"
+    if status == "collected":
+        return "transient"
     error_text = str(error or "").lower()
+    if "archive_missing" in error_text:
+        return "transient"
     if "possible_incomplete_volume" in error_text:
         return "manual"
     if any(
@@ -310,10 +362,150 @@ def next_retry_after(retry_class: str, now) -> str | None:
     """Backoff window for retryable classes; manual classes get no retry."""
     if retry_class not in TRANSIENT_RETRY_CLASSES:
         return None
-    hours = 6 if retry_class == "translation" else 2
-    from datetime import timedelta
+    hours = 24 if retry_class == "source" else (6 if retry_class == "translation" else 2)
 
     return (now + timedelta(hours=hours)).replace(microsecond=0).isoformat()
+
+
+def source_status_for_issue(issue: dict[str, Any]) -> str:
+    """Infer source authority conservatively for legacy archive JSON."""
+
+    return issue_source_status(issue)
+
+
+def issue_integrity(issue: dict[str, Any]) -> dict[str, Any]:
+    """Return content/source/publication truth without trusting legacy labels."""
+
+    if not isinstance(issue, dict):
+        return {
+            "archive_valid": False,
+            "content_status": "blocked",
+            "source_status": "source_pending",
+            "publication_state": "blocked",
+            "reason": "archive_not_object",
+        }
+    try:
+        stamp_issue_readiness(issue)
+        content_status = issue_content_status(issue)
+        source_status = issue_source_status(issue)
+        publication_state = issue_publication_state(issue)
+    except Exception as error:
+        return {
+            "archive_valid": False,
+            "content_status": "blocked",
+            "source_status": "source_pending",
+            "publication_state": "blocked",
+            "reason": f"archive_content_gate_error: {type(error).__name__}: {error}",
+        }
+    archive_valid = content_status != "blocked"
+    reason = (
+        "archive_content_gate_failed"
+        if content_status == "blocked"
+        else ("translation_incomplete" if content_status == "translation_partial" else "")
+    )
+    return {
+        "archive_valid": archive_valid,
+        "content_status": content_status,
+        "source_status": source_status,
+        "publication_state": publication_state,
+        "reason": reason,
+    }
+
+
+def inspect_archive(
+    path: Path,
+    *,
+    expected_issue_id: str = "",
+    expected_journal_id: str = "",
+    write_back: bool = False,
+) -> dict[str, Any]:
+    """Read, normalize and gate an archive; existence alone is never success."""
+
+    if not path.exists():
+        return {
+            "archive_exists": False,
+            "archive_valid": False,
+            "content_status": "blocked",
+            "source_status": "source_pending",
+            "publication_state": "blocked",
+            "reason": "archive_missing",
+        }
+    try:
+        original = load_json(path, {})
+        normalized = normalize_issue_content(
+            json.loads(json.dumps(original, ensure_ascii=False))
+        )
+        validate_issue(normalized)
+    except Exception as error:
+        return {
+            "archive_exists": True,
+            "archive_valid": False,
+            "content_status": "blocked",
+            "source_status": "source_pending",
+            "publication_state": "blocked",
+            "reason": f"archive_invalid: {type(error).__name__}: {error}",
+        }
+    integrity = issue_integrity(normalized)
+    if expected_issue_id and normalized.get("issue_id") != expected_issue_id:
+        integrity.update(
+            archive_valid=False,
+            content_status="blocked",
+            publication_state="blocked",
+            reason=(
+                f"archive_issue_id_mismatch: expected {expected_issue_id}, "
+                f"got {normalized.get('issue_id', '')}"
+            ),
+        )
+    if expected_journal_id and normalized.get("journal_id") != expected_journal_id:
+        integrity.update(
+            archive_valid=False,
+            content_status="blocked",
+            publication_state="blocked",
+            reason=(
+                f"archive_journal_id_mismatch: expected {expected_journal_id}, "
+                f"got {normalized.get('journal_id', '')}"
+            ),
+        )
+    normalized.update(
+        content_status=integrity["content_status"],
+        source_status=integrity["source_status"],
+        publication_state=integrity["publication_state"],
+    )
+    if write_back and normalized != original:
+        atomic_write_json(path, normalized)
+    return {**integrity, "archive_exists": True, "issue": normalized}
+
+
+def _status_fields(status: str, integrity: dict[str, Any] | None) -> dict[str, str]:
+    if integrity:
+        return {
+            "content_status": str(integrity.get("content_status", "blocked")),
+            "source_status": str(integrity.get("source_status", "source_pending")),
+            "publication_state": str(integrity.get("publication_state", status)),
+        }
+    if status == "ready":
+        return {
+            "content_status": "complete",
+            "source_status": "official_verified",
+            "publication_state": "ready",
+        }
+    if status == "source_pending":
+        return {
+            "content_status": "complete",
+            "source_status": "source_pending",
+            "publication_state": "source_pending",
+        }
+    if status == "translation_partial":
+        return {
+            "content_status": "translation_partial",
+            "source_status": "source_pending",
+            "publication_state": "translation_partial",
+        }
+    return {
+        "content_status": "blocked",
+        "source_status": "source_pending",
+        "publication_state": "blocked",
+    }
 
 
 def update_state(
@@ -322,9 +514,8 @@ def update_state(
     *,
     status: str,
     error: str = "",
+    integrity: dict[str, Any] | None = None,
 ) -> None:
-    from datetime import datetime, timezone
-
     retry_class = retry_class_for(status, error)
     entry = {
         "journal": issue.journal,
@@ -335,11 +526,13 @@ def update_state(
         "status": status,
         "last_error": error,
         "retry_class": retry_class,
+        **_status_fields(status, integrity),
     }
     next_at = next_retry_after(retry_class, datetime.now(timezone.utc))
     if next_at:
         entry["next_retry_at"] = next_at
-    state.setdefault("schema_version", "1.0")
+    state["schema_version"] = STATE_SCHEMA_VERSION
+    state["updated_at"] = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     state.setdefault("issues", {})[issue.issue_id] = entry
     atomic_write_json(STATE_PATH, state)
 
@@ -349,7 +542,7 @@ def is_actionable(entry: dict[str, Any] | None) -> bool:
     if not entry:
         return True
     status = entry.get("status", "")
-    if status == "complete":
+    if status in READY_STATUSES | LEGACY_READY_STATUSES:
         return False
     retry_class = entry.get("retry_class") or retry_class_for(
         status, entry.get("last_error", "")
@@ -369,6 +562,131 @@ def is_actionable(entry: dict[str, Any] | None) -> bool:
         except ValueError:
             pass
     return True
+
+
+def discovery_authority(definition: dict[str, Any]) -> str:
+    return (
+        "crossref_candidate"
+        if str(definition.get("platform", "")).casefold() == "crossref"
+        else "official_archive"
+    )
+
+
+def record_discovery(
+    state: dict[str, Any],
+    journal: str,
+    issues: list[HistoricalIssue],
+    definition: dict[str, Any],
+    *,
+    refreshed_at: str | None = None,
+) -> None:
+    """Persist the authoritative discovery snapshot independently of state."""
+
+    ordered = sorted(issues, key=historical_issue_sort_key)
+    stamp = refreshed_at or datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    state["schema_version"] = STATE_SCHEMA_VERSION
+    state["updated_at"] = stamp
+    state.setdefault("discovery", {})[journal] = {
+        "issue_ids": [issue.issue_id for issue in ordered],
+        "issue_years": {issue.issue_id: issue.year for issue in ordered},
+        "issue_refs": {
+            issue.issue_id: {
+                "journal": issue.journal,
+                "year": issue.year,
+                "volume": issue.volume,
+                "issue": issue.issue,
+                "official_url": issue.official_url,
+            }
+            for issue in ordered
+        },
+        "authority": discovery_authority(definition),
+        "refreshed_at": stamp,
+        "collector_revision": COLLECTOR_REVISION,
+    }
+    atomic_write_json(STATE_PATH, state)
+
+
+def plan_from_discovery(
+    state: dict[str, Any], journals: list[str], years: range
+) -> list[HistoricalIssue]:
+    """Render a read-only plan from the last persisted discovery snapshot."""
+
+    wanted_years = set(years)
+    result: list[HistoricalIssue] = []
+    for journal in journals:
+        snapshot = state.get("discovery", {}).get(journal, {}) or {}
+        refs = snapshot.get("issue_refs", {}) or {}
+        for issue_id in snapshot.get("issue_ids", []):
+            raw = refs.get(issue_id) or state.get("issues", {}).get(issue_id, {})
+            try:
+                item = HistoricalIssue(
+                    journal=str(raw.get("journal") or journal),
+                    year=int(raw["year"]),
+                    volume=str(raw["volume"]),
+                    issue=str(raw.get("issue") or str(issue_id).rsplit("-", 1)[-1]),
+                    official_url=str(raw["official_url"]),
+                )
+            except (KeyError, TypeError, ValueError):
+                continue
+            if item.year in wanted_years:
+                result.append(item)
+    return sorted(result, key=historical_issue_sort_key)
+
+
+def migrate_legacy_state(
+    state: dict[str, Any],
+    journals: dict[str, Any],
+    *,
+    public_api: Path = PUBLIC_API,
+) -> bool:
+    """Upgrade 1.0 checkpoints and re-gate every claimed archive in place."""
+
+    changed = str(state.get("schema_version", "1.0")) != STATE_SCHEMA_VERSION
+    state["schema_version"] = STATE_SCHEMA_VERSION
+    for issue_id, entry in state.setdefault("issues", {}).items():
+        status = str(entry.get("status", "") or "")
+        if status not in {
+            "complete",
+            "ready",
+            "source_pending",
+            "translation_partial",
+        }:
+            continue
+        journal_key = str(entry.get("journal", ""))
+        config = journals.get(journal_key) or journals.get(journal_key.upper())
+        if not config:
+            continue
+        archive = (
+            public_api
+            / "journals"
+            / str(config["id"])
+            / "issues"
+            / f"{issue_id}.json"
+        )
+        integrity = inspect_archive(
+            archive,
+            expected_issue_id=issue_id,
+            expected_journal_id=str(config["id"]),
+            write_back=True,
+        )
+        migrated_status = str(integrity["publication_state"])
+        next_error = str(integrity.get("reason", "")) if migrated_status == "blocked" else ""
+        next_retry = retry_class_for(migrated_status, next_error)
+        desired = {
+            "status": migrated_status,
+            "last_error": next_error,
+            "retry_class": next_retry,
+            **_status_fields(migrated_status, integrity),
+        }
+        if any(entry.get(key) != value for key, value in desired.items()):
+            entry.update(desired)
+            # A legacy `complete` claim that is downgraded must be retried in
+            # this very run; the normal backoff is written after that attempt.
+            entry.pop("next_retry_at", None)
+            changed = True
+    if changed:
+        state["updated_at"] = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    return changed
 
 
 def _is_browser_captured_staging(path: Path) -> bool:
@@ -481,9 +799,42 @@ def run_issue(
         state.get("issues", {}).get(issue_ref.issue_id, {}).get("last_error", "")
     )
     entry = state.get("issues", {}).get(issue_ref.issue_id)
-    if not is_actionable(entry) and current_status != "complete":
-        retry_class = entry.get("retry_class") or retry_class_for(
-            current_status, current_error
+    archive_path = (
+        PUBLIC_API
+        / "journals"
+        / journal_config["id"]
+        / "issues"
+        / f"{issue_ref.issue_id}.json"
+    )
+    if archive_path.exists():
+        archive_integrity = inspect_archive(
+            archive_path,
+            expected_issue_id=issue_ref.issue_id,
+            expected_journal_id=str(journal_config["id"]),
+            write_back=True,
+        )
+        if archive_integrity.get("publication_state") == "ready":
+            update_state(
+                state,
+                issue_ref,
+                status="ready",
+                integrity=archive_integrity,
+            )
+            return {"issue_id": issue_ref.issue_id, "result": "already_ready"}
+        if current_status in LEGACY_READY_STATUSES:
+            # A legacy complete marker may hide provisional or incomplete
+            # content.  Recollect it now instead of trusting the filename.
+            entry = {
+                **(entry or {}),
+                "status": archive_integrity["publication_state"],
+                "retry_class": "",
+                "next_retry_at": "",
+            }
+            current_status = str(archive_integrity["publication_state"])
+            current_error = str(archive_integrity.get("reason", ""))
+    if not is_actionable(entry):
+        retry_class = (entry or {}).get("retry_class") or retry_class_for(
+            str(current_status or ""), current_error
         )
         return {
             "issue_id": issue_ref.issue_id,
@@ -493,23 +844,11 @@ def run_issue(
                 "backfill)"
             ),
         }
-    archive_path = (
-        PUBLIC_API
-        / "journals"
-        / journal_config["id"]
-        / "issues"
-        / f"{issue_ref.issue_id}.json"
-    )
-    if current_status == "complete" and archive_path.exists():
-        return {"issue_id": issue_ref.issue_id, "result": "already_complete"}
-    if archive_path.exists():
-        update_state(state, issue_ref, status="complete")
-        return {"issue_id": issue_ref.issue_id, "result": "already_archived"}
     try:
         issue = collect_or_resume(
             issue_ref,
             journal_config,
-            refresh=current_status not in ("complete", "translation_partial"),
+            refresh=current_status not in ("ready", "translation_partial"),
         )
         update_state(state, issue_ref, status="collected")
         # Fill missing English abstracts/authors before translating so
@@ -529,12 +868,38 @@ def run_issue(
         issue = normalize_issue_content(issue)
         validate_issue(issue)
         atomic_write_json(staging_path(issue_ref), issue)
-        if not is_archivable_snapshot(issue):
-            update_state(state, issue_ref, status="translation_partial")
+        integrity = issue_integrity(issue)
+        if integrity["content_status"] == "translation_partial":
+            issue.update(
+                content_status=integrity["content_status"],
+                source_status=integrity["source_status"],
+                publication_state=integrity["publication_state"],
+            )
+            atomic_write_json(staging_path(issue_ref), issue)
+            update_state(
+                state,
+                issue_ref,
+                status="translation_partial",
+                integrity=integrity,
+            )
             return {
                 "issue_id": issue_ref.issue_id,
                 "result": "translation_partial",
                 "translation": translation_report,
+            }
+        if integrity["content_status"] == "blocked":
+            reason = str(integrity.get("reason", "archive_content_gate_failed"))
+            update_state(
+                state,
+                issue_ref,
+                status="blocked",
+                error=reason,
+                integrity=integrity,
+            )
+            return {
+                "issue_id": issue_ref.issue_id,
+                "result": "blocked",
+                "error": reason,
             }
         block_reason = history_completeness_block(issue, journal_config)
         if block_reason:
@@ -544,13 +909,41 @@ def run_issue(
                 "result": "blocked",
                 "error": "possible_incomplete_volume",
             }
-        target = archive_issue(issue)
+        issue.update(
+            content_status=integrity["content_status"],
+            source_status=integrity["source_status"],
+            publication_state=integrity["publication_state"],
+        )
+        atomic_write_json(staging_path(issue_ref), issue)
+        target = archive_issue(issue, replace_non_ready=True)
         if target is None:
             raise ValueError("Historical issue failed archive publication gate")
-        update_state(state, issue_ref, status="complete")
+        readback_integrity = inspect_archive(
+            target,
+            expected_issue_id=issue_ref.issue_id,
+            expected_journal_id=str(journal_config["id"]),
+            write_back=True,
+        )
+        final_status = str(readback_integrity["publication_state"])
+        if final_status not in {"ready", "source_pending"}:
+            raise ValueError(
+                "Historical issue failed archive read-back gate: "
+                + str(readback_integrity.get("reason", final_status))
+            )
+        update_state(
+            state,
+            issue_ref,
+            status=final_status,
+            error=(
+                "source authority pending official verification"
+                if final_status == "source_pending"
+                else ""
+            ),
+            integrity=readback_integrity,
+        )
         return {
             "issue_id": issue_ref.issue_id,
-            "result": "complete",
+            "result": final_status,
             "articles": issue["research_article_count"],
             "translation": translation_report,
         }
@@ -574,6 +967,9 @@ def rotate_journals(
     *,
     years: range,
     max_journals: int,
+    journals: dict[str, Any] | None = None,
+    public_api: Path = PUBLIC_API,
+    now: datetime | None = None,
 ) -> list[str]:
     """Pick up to max_journals journals with actionable pending work.
 
@@ -583,18 +979,62 @@ def rotate_journals(
     always eligible so the first batch can discover and collect them. Eligible
     journals are ordered by their last run timestamp (oldest first).
     """
-    from datetime import datetime, timezone
-
     wanted_years = set(years)
+    current_time = now or datetime.now(timezone.utc)
     candidates: set[str] = set()
     for key in history["journals"]:
-        entries = [
-            entry
-            for entry in state.get("issues", {}).values()
-            if entry.get("journal") == key and entry.get("year") in wanted_years
-        ]
-        if not entries or any(is_actionable(entry) for entry in entries):
+        snapshot = state.get("discovery", {}).get(key)
+        if not isinstance(snapshot, dict):
             candidates.add(key)
+            continue
+        try:
+            refreshed = datetime.fromisoformat(str(snapshot.get("refreshed_at", "")))
+            if refreshed.tzinfo is None:
+                refreshed = refreshed.replace(tzinfo=timezone.utc)
+        except (ValueError, TypeError):
+            candidates.add(key)
+            continue
+        if (
+            current_time - refreshed >= DISCOVERY_MAX_AGE
+            or snapshot.get("collector_revision") != COLLECTOR_REVISION
+        ):
+            candidates.add(key)
+            continue
+        issue_years = snapshot.get("issue_years", {}) or {}
+        issue_ids = [
+            str(issue_id)
+            for issue_id in snapshot.get("issue_ids", [])
+            if not issue_years or issue_years.get(issue_id) in wanted_years
+        ]
+        for issue_id in issue_ids:
+            entry = state.get("issues", {}).get(issue_id)
+            if not entry:
+                candidates.add(key)
+                break
+            if is_actionable(entry):
+                candidates.add(key)
+                break
+            if (
+                journals
+                and str(entry.get("status", "")) in READY_STATUSES | LEGACY_READY_STATUSES
+            ):
+                config = journals.get(key)
+                if config:
+                    archive = (
+                        public_api
+                        / "journals"
+                        / str(config["id"])
+                        / "issues"
+                        / f"{issue_id}.json"
+                    )
+                    integrity = inspect_archive(
+                        archive,
+                        expected_issue_id=issue_id,
+                        expected_journal_id=str(config["id"]),
+                    )
+                    if integrity.get("publication_state") != "ready":
+                        candidates.add(key)
+                        break
     if not candidates:
         return []
     last_run: dict[str, str] = state.setdefault("rotation", {}).setdefault(
@@ -632,6 +1072,12 @@ def main() -> int:
     parser.add_argument("--to-year", type=int, default=2026)
     parser.add_argument("--translate", action="store_true")
     parser.add_argument("--plan-only", action="store_true")
+    parser.add_argument(
+        "--refresh-discovery-only",
+        action="store_true",
+        help="migrate legacy state, re-gate existing archives and persist "
+        "official discovery snapshots without collecting or translating",
+    )
     parser.add_argument("--max-issues", type=int, default=6)
     parser.add_argument("--max-translations", type=int, default=80)
     parser.add_argument("--max-journals", type=int, default=4)
@@ -681,9 +1127,42 @@ def main() -> int:
 
     state_path = Path(args.state)
     state = load_json(state_path, {"schema_version": "1.0", "issues": {}})
+    if args.plan_only:
+        plan = plan_from_discovery(state, selected, years)
+        print(
+            json.dumps(
+                [issue.__dict__ for issue in plan],
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
+        return 0
+    if migrate_legacy_state(state, journals):
+        atomic_write_json(state_path, state)
     scoped_history = {
         "journals": {key: history["journals"][key] for key in selected}
     }
+
+    if args.refresh_discovery_only:
+        refreshed: dict[str, int] = {}
+        for key in selected:
+            discovered = discover_official_issues(
+                key, history["journals"][key], years=years
+            )
+            record_discovery(state, key, discovered, history["journals"][key])
+            refreshed[key] = len(discovered)
+        print(
+            json.dumps(
+                {
+                    "refresh_discovery_only": True,
+                    "journals": refreshed,
+                    "issue_count": sum(refreshed.values()),
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
+        return 0
 
     # The pending check must not hit publisher APIs: the workflow runs it every
     # scheduled round and it should stay cheap when nothing is due.
@@ -693,44 +1172,10 @@ def main() -> int:
             scoped_history,
             years=years,
             max_journals=args.max_journals,
+            journals=journals,
         )
         print(json.dumps(chosen))
         return 0
-
-    plan: list[HistoricalIssue] = []
-    for key in selected:
-        plan.extend(
-            discover_official_issues(key, history["journals"][key], years=years)
-        )
-    if args.plan_only:
-        print(
-            json.dumps(
-                [issue.__dict__ for issue in plan],
-                ensure_ascii=False,
-                indent=2,
-            )
-        )
-        return 0
-
-    def _needs_processing(issue: HistoricalIssue) -> bool:
-        entry = state.get("issues", {}).get(issue.issue_id, {})
-        if entry.get("status") != "complete":
-            return is_actionable(entry)
-        # A complete marker with no archive usually means a concurrent
-        # publisher overwrote the public tree; re-archive from staging.
-        archive = (
-            PUBLIC_API
-            / "journals"
-            / journals[issue.journal]["id"]
-            / "issues"
-            / f"{issue.issue_id}.json"
-        )
-        return not archive.exists()
-
-    pending_by_journal: dict[str, list[HistoricalIssue]] = {}
-    for issue in plan:
-        if _needs_processing(issue):
-            pending_by_journal.setdefault(issue.journal, []).append(issue)
 
     if args.aggregate_only:
         for key in selected:
@@ -744,28 +1189,64 @@ def main() -> int:
         print(json.dumps({"aggregate_only": True, "journals": selected}))
         return 0
 
-    # ALL rotates through up to --max-journals journals per round so one large
-    # journal cannot starve the queue; a specific journal always runs itself.
+    # ALL chooses from the persisted discovery snapshots before doing network
+    # work.  Only the selected journals are refreshed, avoiding 49 archive
+    # requests merely to decide which four journals should run.
+    collection_selected = selected
     if args.journal == "ALL":
-        chosen = rotate_journals(
+        collection_selected = rotate_journals(
             state,
             scoped_history,
             years=years,
             max_journals=args.max_journals,
+            journals=journals,
         )
-        pending_by_journal = {
-            key: pending_by_journal[key]
-            for key in chosen
-            if key in pending_by_journal
-        }
-        if not pending_by_journal:
+        if not collection_selected:
             print(json.dumps({"results": [], "remaining_translation_budget": 0}))
-            return 1
+            return 0
+
+    plan: list[HistoricalIssue] = []
+    for key in collection_selected:
+        discovered = discover_official_issues(
+            key, history["journals"][key], years=years
+        )
+        plan.extend(discovered)
+        record_discovery(state, key, discovered, history["journals"][key])
+    plan.sort(key=historical_issue_sort_key)
+
+    def _needs_processing(issue: HistoricalIssue) -> bool:
+        entry = state.get("issues", {}).get(issue.issue_id, {})
+        archive = (
+            PUBLIC_API
+            / "journals"
+            / journals[issue.journal]["id"]
+            / "issues"
+            / f"{issue.issue_id}.json"
+        )
+        archive_integrity = inspect_archive(
+            archive,
+            expected_issue_id=issue.issue_id,
+            expected_journal_id=str(journals[issue.journal]["id"]),
+        )
+        if archive_integrity.get("publication_state") == "ready":
+            return str(entry.get("status", "")) != "ready"
+        if not entry:
+            return True
+        if str(entry.get("status", "")) in READY_STATUSES | LEGACY_READY_STATUSES:
+            return True
+        return is_actionable(entry)
+
+    pending_by_journal: dict[str, list[HistoricalIssue]] = {}
+    for issue in plan:
+        if _needs_processing(issue):
+            pending_by_journal.setdefault(issue.journal, []).append(issue)
+
+    if not pending_by_journal:
+        print(json.dumps({"results": [], "remaining_translation_budget": 0}))
+        return 0
 
     reports: list[dict[str, Any]] = []
     import time as _time
-    from datetime import datetime, timezone
-
     time_budget_reached = False
     summary_lines = [
         "| Journal | Issue | Result | Detail |",

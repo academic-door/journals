@@ -17,11 +17,15 @@ from scripts.update_journals import (
     is_detected_snapshot,
     is_publishable_snapshot,
     issue_is_newer,
+    issue_content_status,
+    issue_publication_state,
+    issue_source_status,
     merge_issue_audit_metadata,
     order_verification_status,
     write_archive_index,
     write_search_indexes,
 )
+from scripts.rebuild_public_snapshot import snapshot_requires_normalization
 
 
 COMPLETE_ISSUE = {
@@ -87,6 +91,53 @@ class PublicationGateTests(unittest.TestCase):
         # A previously published last-known-good snapshot must remain usable
         # in public indexes; collect_one blocks new provisional promotion.
         self.assertTrue(is_publishable_snapshot(issue))
+
+    def test_content_and_source_readiness_are_independent(self) -> None:
+        official = archive_fixture("demo-1-1", "1")
+        official["source_url"] = "https://www.aeaweb.org/journals/aer/issue/1"
+        self.assertEqual("complete", issue_content_status(official))
+        self.assertEqual("official_verified", issue_source_status(official))
+        self.assertEqual("ready", issue_publication_state(official))
+
+        publisher = copy.deepcopy(official)
+        publisher["quality"].update(
+            {
+                "roster_authority": "publisher-rss",
+                "roster_transport": "publisher-rss",
+            }
+        )
+        self.assertEqual("publisher_verified", issue_source_status(publisher))
+        self.assertEqual("ready", issue_publication_state(publisher))
+
+        provisional = copy.deepcopy(publisher)
+        provisional["quality"].update(
+            {
+                "roster_authority": "crossref-provisional",
+                "roster_transport": "crossref",
+                "flags": ["crossref_provisional_roster"],
+            }
+        )
+        self.assertEqual("complete", issue_content_status(provisional))
+        self.assertEqual("source_pending", issue_source_status(provisional))
+        self.assertEqual("source_pending", issue_publication_state(provisional))
+
+    def test_static_fallback_allows_one_time_additive_readiness_migration(self) -> None:
+        original = archive_fixture("demo-1-1", "1")
+        normalized = {
+            **copy.deepcopy(original),
+            "content_status": "complete",
+            "source_status": "source_pending",
+            "publication_state": "source_pending",
+        }
+        self.assertFalse(snapshot_requires_normalization(original, normalized))
+        original.update(
+            {
+                "content_status": "complete",
+                "source_status": "official_verified",
+                "publication_state": "ready",
+            }
+        )
+        self.assertTrue(snapshot_requires_normalization(original, normalized))
 
     def test_new_crossref_provisional_roster_preserves_previous(self) -> None:
         import tempfile
@@ -591,6 +642,45 @@ class PublicationGateTests(unittest.TestCase):
         self.assertNotIn("publication_date", stored)
         self.assertIsNone(rejected)
 
+    def test_provisional_archive_can_only_upgrade_to_verified_ready(self) -> None:
+        import json
+        import tempfile
+        from pathlib import Path
+
+        provisional = archive_fixture("demo-1-1", "1")
+        provisional["quality"].update(
+            roster_authority="crossref-provisional",
+            roster_transport="crossref",
+            flags=["crossref_provisional_roster"],
+        )
+        verified = copy.deepcopy(provisional)
+        verified["quality"].update(
+            roster_authority="official-issue-page",
+            roster_transport="official-issue-page",
+            flags=[],
+        )
+        verified["articles"][0]["abstract_en"] = "Official reconciled abstract."
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            path = archive_issue(provisional, api_root=root)
+            archive_issue(verified, api_root=root, replace_non_ready=True)
+            promoted = json.loads(path.read_text(encoding="utf-8"))
+
+            attempted_downgrade = copy.deepcopy(provisional)
+            attempted_downgrade["articles"][0]["abstract_en"] = "Downgraded."
+            archive_issue(
+                attempted_downgrade,
+                api_root=root,
+                replace_non_ready=True,
+            )
+            preserved = json.loads(path.read_text(encoding="utf-8"))
+
+        self.assertEqual("official_verified", promoted["source_status"])
+        self.assertEqual("ready", promoted["publication_state"])
+        self.assertEqual("Official reconciled abstract.", preserved["articles"][0]["abstract_en"])
+        self.assertEqual("ready", preserved["publication_state"])
+
     def test_untranslated_snapshot_is_not_archived(self) -> None:
         import tempfile
         from pathlib import Path
@@ -657,6 +747,9 @@ class PublicationGateTests(unittest.TestCase):
         self.assertEqual("1", old_record["volume"])
         self.assertEqual("1", old_record["issue"])
         self.assertTrue(old_record["china_related"])
+        self.assertEqual("complete", old_record["content_status"])
+        self.assertEqual("source_pending", old_record["source_status"])
+        self.assertEqual("source_pending", old_record["publication_state"])
         self.assertEqual(1, china["record_count"])
         self.assertEqual("demo-2-1", china["records"][0]["issue_id"])
         self.assertEqual(1, year_2021["record_count"])
@@ -910,8 +1003,8 @@ class LatestIssuePreferenceTests(unittest.TestCase):
                 "quality": {
                     "translation_complete": 1,
                     "content_counts": {"publishable_items": 1, "observed_items": 1, "official_items": 1},
-                    "roster_authority": "crossref",
-                    "roster_transport": "crossref",
+                    "roster_authority": "official-issue-page",
+                    "roster_transport": "official-issue-page",
                 },
             }
             archived = dict(current)

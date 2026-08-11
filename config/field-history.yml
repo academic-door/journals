@@ -104,13 +104,29 @@ journals:
     issn: 2640-205X
     issue_url_template: https://www.aeaweb.org/journals/aeri/issue/{volume}/{issue}
   AER:
-    platform: crossref
+    platform: aea
     issn: 0002-8282
+    archive_url: https://www.aeaweb.org/journals/aer/issues
+    allowed_host: www.aeaweb.org
     issue_url_template: https://www.aeaweb.org/journals/aer/issue/{volume}/{issue}
   JPE:
-    platform: crossref
+    platform: year_ranges
     issn: 0022-3808
+    allowed_host: www.journals.uchicago.edu
     issue_url_template: https://www.journals.uchicago.edu/toc/jpe/{year}/{volume}/{issue}
+    year_ranges:
+      2023:
+        volume: "131"
+        issues: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      2024:
+        volume: "132"
+        issues: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      2025:
+        volume: "133"
+        issues: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      2026:
+        volume: "134"
+        issues: [1, 2, 3, 4, 5, 6, 7]
   QJE:
     platform: crossref
     issn: 0033-5533

@@ -42,6 +42,8 @@ def status_counts(state: dict[str, Any]) -> dict[str, int]:
     }
     for entry in state.get("issues", {}).values():
         status = str(entry.get("status", "") or "pending")
+        if status == "ready":
+            status = "complete"
         counts[status if status in counts else "pending"] += 1
     return counts
 
