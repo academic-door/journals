@@ -1,10 +1,10 @@
 # Field journal history backfill status
 
-Updated: 2026-08-10T23:26:33+00:00
+Updated: 2026-08-11T23:37:31+00:00
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 66 | 11 | 4 | 0 |
+| 2023-2024 | 79 | 21 | 4 | 0 |
 | 2025-2026 | 595 | 4 | 14 | 0 |
 
 | Journal | Issue | Year | Status | Note |
@@ -240,6 +240,12 @@ Updated: 2026-08-10T23:26:33+00:00
 | ENERGY | energy-159-c | 2026 | complete |  |
 | ENERGY | energy-160-c | 2026 | complete |  |
 | ENERGY | energy-161-c | 2026 | complete |  |
+| ERE | ere-84-1 | 2023 | translation_partial |  |
+| ERE | ere-84-2 | 2023 | translation_partial |  |
+| ERE | ere-84-3 | 2023 | translation_partial |  |
+| ERE | ere-84-4 | 2023 | translation_partial |  |
+| ERE | ere-85-1 | 2023 | translation_partial |  |
+| ERE | ere-85-2 | 2023 | translation_partial |  |
 | ERE | ere-88-1 | 2025 | complete |  |
 | ERE | ere-88-10 | 2025 | complete |  |
 | ERE | ere-88-11 | 2025 | complete |  |
@@ -260,6 +266,12 @@ Updated: 2026-08-10T23:26:33+00:00
 | ERE | ere-89-6 | 2026 | complete |  |
 | ERE | ere-89-7 | 2026 | complete |  |
 | ERE | ere-89-8 | 2026 | complete |  |
+| FOODPOLICY | foodpolicy-114-c | 2023 | complete |  |
+| FOODPOLICY | foodpolicy-115-c | 2023 | complete |  |
+| FOODPOLICY | foodpolicy-116-c | 2023 | complete |  |
+| FOODPOLICY | foodpolicy-117-c | 2023 | complete |  |
+| FOODPOLICY | foodpolicy-118-c | 2023 | translation_partial |  |
+| FOODPOLICY | foodpolicy-119-c | 2023 | complete |  |
 | FOODPOLICY | foodpolicy-130-c | 2025 | complete |  |
 | FOODPOLICY | foodpolicy-131-c | 2025 | complete |  |
 | FOODPOLICY | foodpolicy-132-c | 2025 | complete |  |
@@ -274,6 +286,11 @@ Updated: 2026-08-10T23:26:33+00:00
 | FOODPOLICY | foodpolicy-141-c | 2026 | complete |  |
 | FOODPOLICY | foodpolicy-142-c | 2026 | complete |  |
 | FOODPOLICY | foodpolicy-143-c | 2026 | complete |  |
+| GEB | geb-137-c | 2023 | complete |  |
+| GEB | geb-138-c | 2023 | complete |  |
+| GEB | geb-139-c | 2023 | complete |  |
+| GEB | geb-140-c | 2023 | complete |  |
+| GEB | geb-141-c | 2023 | translation_partial |  |
 | GEB | geb-149-c | 2025 | complete |  |
 | GEB | geb-150-c | 2025 | complete |  |
 | GEB | geb-151-c | 2025 | complete |  |
@@ -285,6 +302,12 @@ Updated: 2026-08-10T23:26:33+00:00
 | GEB | geb-157-c | 2026 | complete |  |
 | GEB | geb-158-c | 2026 | complete |  |
 | GEB | geb-159-c | 2026 | complete |  |
+| IER | ier-64-1 | 2023 | translation_partial |  |
+| IER | ier-64-2 | 2023 | complete |  |
+| IER | ier-64-3 | 2023 | complete |  |
+| IER | ier-64-4 | 2023 | complete |  |
+| IER | ier-65-1 | 2024 | complete |  |
+| IER | ier-65-2 | 2024 | translation_partial |  |
 | IER | ier-66-1 | 2025 | complete |  |
 | IER | ier-66-2 | 2025 | complete |  |
 | IER | ier-66-3 | 2025 | complete |  |
