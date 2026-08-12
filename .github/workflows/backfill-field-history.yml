@@ -54,6 +54,48 @@ on:
         required: false
         default: false
         type: boolean
+  workflow_call:
+    inputs:
+      journal:
+        description: Field journal code or ALL
+        required: false
+        default: ALL
+        type: string
+      from_year:
+        description: From publication year
+        required: false
+        default: "2023"
+        type: string
+      to_year:
+        description: To publication year
+        required: false
+        default: "2024"
+        type: string
+      max_issues:
+        description: Maximum issues per journal per round
+        required: false
+        default: "6"
+        type: string
+      max_translations:
+        description: Maximum new translations per journal per round
+        required: false
+        default: "80"
+        type: string
+      max_journals:
+        description: Maximum journals per ALL round
+        required: false
+        default: "4"
+        type: string
+      translation_model:
+        description: Translation model ID
+        required: false
+        default: deepseek-chat
+        type: string
+      refresh_discovery_only:
+        description: Refresh discovery snapshots and re-gate archives only
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
