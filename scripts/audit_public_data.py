@@ -24,6 +24,9 @@ from scripts.translate_issue import TranslationError, validate_translation
 from scripts.update_journals import (
     PUBLIC_API,
     article_type_overrides,
+    issue_content_status,
+    issue_publication_state,
+    issue_source_status,
     validate_issue,
 )
 
@@ -279,6 +282,24 @@ def main(strict_provenance: bool = False) -> int:
                 f"{journal['id']}: snapshot taxonomy is not normalized"
             )
         quality = issue.get("quality", {})
+        readiness_fields = ("content_status", "source_status", "publication_state")
+        if all(field in issue for field in readiness_fields):
+            expected_readiness = {
+                "content_status": issue_content_status(issue),
+                "source_status": issue_source_status(issue),
+                "publication_state": issue_publication_state(issue),
+            }
+            for field, expected in expected_readiness.items():
+                if issue.get(field) != expected:
+                    findings.append(
+                        f"{journal['id']}: {field}={issue.get(field)!r}, expected {expected!r}"
+                    )
+            if issue.get("publication_state") == "ready" and issue.get(
+                "source_status"
+            ) not in {"official_verified", "publisher_verified"}:
+                findings.append(
+                    f"{journal['id']}: ready publication lacks verified source"
+                )
         if isinstance(quality.get("browser_order_verification"), dict):
             provenance_claims[journal["id"]] = {
                 **quality,

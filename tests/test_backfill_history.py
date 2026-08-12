@@ -1,8 +1,11 @@
 from __future__ import annotations
 
 import json
+import io
 import tempfile
 import unittest
+from contextlib import redirect_stdout
+from datetime import datetime, timezone
 from pathlib import Path
 from types import SimpleNamespace
 from unittest import mock
@@ -10,10 +13,14 @@ from unittest.mock import patch
 
 from collectors.history import HistoricalIssue
 from scripts.backfill_history import (
+    COLLECTOR_REVISION,
     atomic_write_json,
     collector_for_issue,
     history_completeness_block,
     is_actionable,
+    migrate_legacy_state,
+    main as backfill_main,
+    plan_from_discovery,
     retry_class_for,
     rotate_journals,
     run_issue,
@@ -68,7 +75,7 @@ class BackfillHistoryTests(unittest.TestCase):
     def test_rotate_journals_rotates_by_last_run_and_respects_cap(self) -> None:
         state = {
             "issues": {
-                "aer-1-1": {"journal": "AER", "year": 2023, "status": "complete"},
+                "aer-1-1": {"journal": "AER", "year": 2023, "status": "ready"},
                 "jde-1-1": {
                     "journal": "JDE",
                     "year": 2023,
@@ -88,15 +95,66 @@ class BackfillHistoryTests(unittest.TestCase):
                     "JDE": "2026-08-08T00:00:00+00:00",
                 }
             },
+            "discovery": {
+                "AER": {
+                    "issue_ids": ["aer-1-1"],
+                    "issue_years": {"aer-1-1": 2023},
+                    "refreshed_at": "2026-08-10T00:00:00+00:00",
+                    "collector_revision": COLLECTOR_REVISION,
+                },
+                "JDE": {
+                    "issue_ids": ["jde-1-1"],
+                    "issue_years": {"jde-1-1": 2023},
+                    "refreshed_at": "2026-08-10T00:00:00+00:00",
+                    "collector_revision": COLLECTOR_REVISION,
+                },
+                "JPE": {
+                    "issue_ids": ["jpe-1-1"],
+                    "issue_years": {"jpe-1-1": 2023},
+                    "refreshed_at": "2026-08-10T00:00:00+00:00",
+                    "collector_revision": COLLECTOR_REVISION,
+                },
+            },
         }
         history = {"journals": {"AER": {}, "JDE": {}, "JPE": {}, "QE": {}}}
         chosen = rotate_journals(
-            state, history, years=range(2023, 2025), max_journals=2
+            state,
+            history,
+            years=range(2023, 2025),
+            max_journals=2,
+            now=datetime(2026, 8, 11, tzinfo=timezone.utc),
         )
-        # JDE is eligible (transient) and ran earlier than AER; QE has never
-        # run so it is eligible too. Never-run journals sort first, so the
-        # cap keeps the batch to QE + JDE.
+        # AER is truly ready in a fresh discovery snapshot; JPE is manual.
+        # JDE is retryable and QE has no discovery snapshot, so both rotate.
         self.assertEqual(["QE", "JDE"], chosen)
+
+    def test_rotate_detects_unregistered_issue_in_fresh_snapshot(self) -> None:
+        state = {
+            "schema_version": "1.1",
+            "issues": {
+                "aer-114-1": {"journal": "AER", "year": 2024, "status": "ready"}
+            },
+            "discovery": {
+                "AER": {
+                    "issue_ids": ["aer-114-1", "aer-114-2", "aer-114-10"],
+                    "issue_years": {
+                        "aer-114-1": 2024,
+                        "aer-114-2": 2024,
+                        "aer-114-10": 2024,
+                    },
+                    "refreshed_at": "2026-08-10T00:00:00+00:00",
+                    "collector_revision": COLLECTOR_REVISION,
+                }
+            },
+        }
+        chosen = rotate_journals(
+            state,
+            {"journals": {"AER": {}}},
+            years=range(2024, 2025),
+            max_journals=1,
+            now=datetime(2026, 8, 11, tzinfo=timezone.utc),
+        )
+        self.assertEqual(["AER"], chosen)
 
     def test_historical_collector_uses_exact_url_not_current_url(self) -> None:
         config = {
@@ -134,13 +192,20 @@ class BackfillHistoryTests(unittest.TestCase):
             "1",
             "https://onlinelibrary.wiley.com/toc/14680262/2025/93/1",
         )
-        with patch(
-            "collectors.metadata_fallback.fetch_repec_history_issue",
-            return_value={"issue_id": "ecta-93-1"},
-        ) as fetch:
+        with (
+            patch(
+                "collectors.wiley.fetch_current_issue",
+                side_effect=RuntimeError("publisher blocked"),
+            ) as official,
+            patch(
+                "collectors.metadata_fallback.fetch_repec_history_issue",
+                return_value={"issue_id": "ecta-93-1"},
+            ) as fetch,
+        ):
             result = collector_for_issue(config, issue)()
 
         self.assertEqual("ecta-93-1", result["issue_id"])
+        official.assert_called_once()
         fetch.assert_called_once_with(
             journal_id="ecta",
             journal_name="Econometrica",
@@ -148,6 +213,87 @@ class BackfillHistoryTests(unittest.TestCase):
             volume="93",
             issue="1",
             repec_series_code="wly/emetrp",
+        )
+
+    def test_wiley_official_collector_precedes_fallback_with_real_config(self) -> None:
+        import yaml
+
+        journals = yaml.safe_load(
+            (Path(__file__).resolve().parents[1] / "config/journals.yml").read_text(
+                encoding="utf-8"
+            )
+        )["journals"]
+        config = journals["ECTA"]
+        issue = HistoricalIssue(
+            "ECTA",
+            2025,
+            "93",
+            "1",
+            "https://onlinelibrary.wiley.com/toc/14680262/2025/93/1",
+        )
+        official_payload = {"issue_id": "ecta-93-1", "volume": "93", "issue": "1"}
+        with (
+            patch(
+                "collectors.wiley.fetch_current_issue", return_value=official_payload
+            ) as official,
+            patch("collectors.metadata_fallback.fetch_repec_history_issue") as fallback,
+        ):
+            result = collector_for_issue(config, issue)()
+        self.assertIs(official_payload, result)
+        official.assert_called_once()
+        fallback.assert_not_called()
+
+    def test_jpe_fallback_order_is_official_then_repec_then_crossref(self) -> None:
+        import yaml
+
+        config = yaml.safe_load(
+            (Path(__file__).resolve().parents[1] / "config/journals.yml").read_text(
+                encoding="utf-8"
+            )
+        )["journals"]["JPE"]
+        issue = HistoricalIssue(
+            "JPE",
+            2024,
+            "132",
+            "4",
+            "https://www.journals.uchicago.edu/toc/jpe/2024/132/4",
+        )
+        crossref_payload = {
+            "issue_id": "jpe-132-4",
+            "volume": "132",
+            "issue": "4",
+            "quality": {"flags": []},
+        }
+        calls: list[str] = []
+
+        def official(*args, **kwargs):
+            calls.append("official")
+            raise RuntimeError("blocked")
+
+        def repec(*args, **kwargs):
+            calls.append("repec")
+            raise RuntimeError("missing")
+
+        def crossref(*args, **kwargs):
+            calls.append("crossref")
+            return crossref_payload
+
+        with (
+            patch("collectors.chicago.fetch_current_issue", side_effect=official),
+            patch(
+                "collectors.metadata_fallback.fetch_repec_history_issue",
+                side_effect=repec,
+            ),
+            patch(
+                "collectors.metadata_fallback.fetch_crossref_current_issue",
+                side_effect=crossref,
+            ),
+        ):
+            result = collector_for_issue(config, issue)()
+        self.assertEqual(["official", "repec", "crossref"], calls)
+        self.assertEqual("source_pending", result["source_status"])
+        self.assertIn(
+            "crossref_provisional_roster", result["quality"]["flags"]
         )
 
 
@@ -334,7 +480,7 @@ class BackfillHistoryTests(unittest.TestCase):
             },
         }
 
-    def test_run_issue_archives_complete_elsevier_volume(self) -> None:
+    def test_run_issue_keeps_crossref_volume_source_pending(self) -> None:
         import scripts.update_journals as update_journals_mod
 
         real_block = history_completeness_block
@@ -376,8 +522,8 @@ class BackfillHistoryTests(unittest.TestCase):
                 ),
                 patch(
                     "scripts.backfill_history.archive_issue",
-                    side_effect=lambda item: update_journals_mod.archive_issue(
-                        item, api_root=root / "public"
+                    side_effect=lambda item, **kwargs: update_journals_mod.archive_issue(
+                        item, api_root=root / "public", **kwargs
                     ),
                 ),
             ):
@@ -393,11 +539,229 @@ class BackfillHistoryTests(unittest.TestCase):
                     translate=False,
                     max_translations=0,
                 )
-            self.assertEqual("complete", report["result"])
+            self.assertEqual("source_pending", report["result"])
             archived = root / "public" / "journals" / "jde" / "issues" / "jde-172-c.json"
             self.assertTrue(archived.exists())
             state = json.loads((root / "state.json").read_text(encoding="utf-8"))
-            self.assertEqual("complete", state["issues"]["jde-172-c"]["status"])
+            self.assertEqual("1.1", state["schema_version"])
+            self.assertEqual(
+                "source_pending", state["issues"]["jde-172-c"]["status"]
+            )
+            archived_payload = json.loads(archived.read_text(encoding="utf-8"))
+            self.assertEqual("complete", archived_payload["content_status"])
+            self.assertEqual("source_pending", archived_payload["source_status"])
+            self.assertEqual("source_pending", archived_payload["publication_state"])
+
+    def test_legacy_complete_state_is_reconciled_against_archive_truth(self) -> None:
+        issue = self._complete_elsevier_issue()
+        verified = json.loads(json.dumps(issue))
+        verified["issue_id"] = "aer-114-1"
+        verified["journal_id"] = "aer"
+        verified["source_url"] = "https://www.aeaweb.org/issues/700"
+        verified["quality"]["flags"] = []
+        verified["quality"]["roster_authority"] = "official-issue-page"
+        verified["quality"]["roster_transport"] = "official-issue-page"
+        partial = json.loads(json.dumps(verified))
+        partial["issue_id"] = "aer-114-2"
+        partial["articles"][0]["abstract_cn"] = ""
+
+        with tempfile.TemporaryDirectory() as directory:
+            api_root = Path(directory) / "api"
+            issue_dir = api_root / "journals" / "aer" / "issues"
+            issue_dir.mkdir(parents=True)
+            (issue_dir / "aer-114-1.json").write_text(
+                json.dumps(verified), encoding="utf-8"
+            )
+            (issue_dir / "aer-114-2.json").write_text(
+                json.dumps(partial), encoding="utf-8"
+            )
+            state = {
+                "schema_version": "1.0",
+                "issues": {
+                    "aer-114-1": {"journal": "AER", "status": "complete"},
+                    "aer-114-2": {"journal": "AER", "status": "complete"},
+                    "aer-114-3": {"journal": "AER", "status": "complete"},
+                },
+            }
+            changed = migrate_legacy_state(
+                state, {"AER": {"id": "aer"}}, public_api=api_root
+            )
+            ready_archive = json.loads(
+                (issue_dir / "aer-114-1.json").read_text(encoding="utf-8")
+            )
+        self.assertTrue(changed)
+        self.assertEqual("1.1", state["schema_version"])
+        self.assertEqual("ready", state["issues"]["aer-114-1"]["status"])
+        self.assertEqual(
+            "translation_partial", state["issues"]["aer-114-2"]["status"]
+        )
+        self.assertEqual("blocked", state["issues"]["aer-114-3"]["status"])
+        self.assertEqual("ready", ready_archive["publication_state"])
+
+    def test_source_pending_archive_upgrades_to_official_ready(self) -> None:
+        import scripts.update_journals as update_journals_mod
+
+        provisional = self._complete_elsevier_issue()
+        provisional.update(
+            issue_id="aer-114-1",
+            journal_id="aer",
+            journal_name="American Economic Review",
+            volume="114",
+            issue="1",
+            source_url="https://www.aeaweb.org/issues/700",
+        )
+        verified = json.loads(json.dumps(provisional))
+        verified["quality"]["flags"] = []
+        verified["quality"]["roster_authority"] = "official-issue-page"
+        verified["quality"]["roster_transport"] = "official-issue-page"
+        ref = HistoricalIssue(
+            "AER", 2024, "114", "1", "https://www.aeaweb.org/issues/700"
+        )
+        state = {
+            "schema_version": "1.1",
+            "issues": {
+                "aer-114-1": {
+                    "journal": "AER",
+                    "year": 2024,
+                    "volume": "114",
+                    "issue": "1",
+                    "status": "source_pending",
+                    "retry_class": "source",
+                }
+            },
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            update_journals_mod.archive_issue(provisional, api_root=root / "public")
+            with (
+                patch(
+                    "collectors.aea.fetch_current_issue", return_value=verified
+                ) as official,
+                patch("scripts.backfill_history.STAGING_ROOT", root / "staging"),
+                patch("scripts.backfill_history.STATE_PATH", root / "state.json"),
+                patch("scripts.backfill_history.PUBLIC_API", root / "public"),
+                patch(
+                    "scripts.backfill_history.apply_translation_cache",
+                    side_effect=lambda item: item,
+                ),
+                patch(
+                    "scripts.backfill_history.history_completeness_block",
+                    return_value="",
+                ),
+                patch(
+                    "scripts.backfill_history.archive_issue",
+                    side_effect=lambda item, **kwargs: update_journals_mod.archive_issue(
+                        item, api_root=root / "public", **kwargs
+                    ),
+                ),
+            ):
+                report = run_issue(
+                    ref,
+                    {
+                        "id": "aer",
+                        "name": "American Economic Review",
+                        "collector": "aea",
+                        "fallback": "crossref",
+                        "issn": "0002-8282",
+                    },
+                    state,
+                    translate=False,
+                    max_translations=0,
+                )
+            archived = json.loads(
+                (
+                    root
+                    / "public"
+                    / "journals"
+                    / "aer"
+                    / "issues"
+                    / "aer-114-1.json"
+                ).read_text(encoding="utf-8")
+            )
+        official.assert_called_once()
+        self.assertEqual("ready", report["result"], report)
+        self.assertEqual("official_verified", archived["source_status"])
+        self.assertEqual("ready", archived["publication_state"])
+
+    def test_plan_uses_persisted_discovery_without_refresh(self) -> None:
+        state = {
+            "discovery": {
+                "AER": {
+                    "issue_ids": ["aer-114-1", "aer-114-10", "aer-114-2"],
+                    "issue_refs": {
+                        issue_id: {
+                            "journal": "AER",
+                            "year": 2024,
+                            "volume": "114",
+                            "issue": issue_id.rsplit("-", 1)[-1],
+                            "official_url": f"https://www.aeaweb.org/issues/{issue_id}",
+                        }
+                        for issue_id in (
+                            "aer-114-1",
+                            "aer-114-10",
+                            "aer-114-2",
+                        )
+                    },
+                }
+            }
+        }
+        plan = plan_from_discovery(state, ["AER"], range(2024, 2025))
+        self.assertEqual(
+            ["aer-114-1", "aer-114-2", "aer-114-10"],
+            [item.issue_id for item in plan],
+        )
+
+    def test_refresh_discovery_only_persists_snapshot_without_collection(self) -> None:
+        import scripts.backfill_history as backfill_module
+
+        discovered = [
+            HistoricalIssue(
+                "AER", 2025, "115", "1", "https://www.aeaweb.org/issues/800"
+            ),
+            HistoricalIssue(
+                "AER", 2025, "115", "2", "https://www.aeaweb.org/issues/801"
+            ),
+        ]
+        old_state_path = backfill_module.STATE_PATH
+        with tempfile.TemporaryDirectory() as directory:
+            state_path = Path(directory) / "field-2025-2026.json"
+            argv = [
+                "backfill_history.py",
+                "--config",
+                str(Path(__file__).resolve().parents[1] / "config/top5-history.yml"),
+                "--state",
+                str(state_path),
+                "--journal",
+                "AER",
+                "--from-year",
+                "2025",
+                "--to-year",
+                "2026",
+                "--refresh-discovery-only",
+            ]
+            try:
+                with (
+                    patch("sys.argv", argv),
+                    patch(
+                        "scripts.backfill_history.discover_official_issues",
+                        return_value=discovered,
+                    ) as discover,
+                    patch("scripts.backfill_history.run_issue") as collect,
+                    redirect_stdout(io.StringIO()),
+                ):
+                    result = backfill_main()
+                state = json.loads(state_path.read_text(encoding="utf-8"))
+            finally:
+                backfill_module.STATE_PATH = old_state_path
+        self.assertEqual(0, result)
+        discover.assert_called_once()
+        collect.assert_not_called()
+        self.assertEqual("1.1", state["schema_version"])
+        self.assertEqual(
+            ["aer-115-1", "aer-115-2"],
+            state["discovery"]["AER"]["issue_ids"],
+        )
+        self.assertEqual({}, state["issues"])
 
     def test_run_issue_skips_blocked_thin_volume_without_recollect(self) -> None:
         ref = HistoricalIssue(
@@ -441,13 +805,14 @@ class BackfillHistoryTests(unittest.TestCase):
         state = {
             "issues": {
                 "jde-172-c": {"status": "complete"},
+                "jde-176-c": {"status": "ready"},
                 "jde-175-c": {"status": "translation_partial"},
                 "jde-173-c": {"status": "blocked"},
                 "jde-174-c": {"status": ""},
             }
         }
         counts = status_counts(state)
-        self.assertEqual(1, counts["complete"])
+        self.assertEqual(2, counts["complete"])
         self.assertEqual(1, counts["translation_partial"])
         self.assertEqual(1, counts["blocked"])
         self.assertEqual(1, counts["pending"])
@@ -457,7 +822,7 @@ class BackfillHistoryTests(unittest.TestCase):
             {"results": [{"issue_id": "jde-172-c", "result": "complete"}]},
             settings,
         )
-        self.assertIn("完成 1", message["Subject"])
+        self.assertIn("完成 2", message["Subject"])
         self.assertIn("jde-172-c: complete", message.get_content())
         self.assertEqual("a@example.com", message["From"])
         self.assertEqual("b@example.com", message["To"])

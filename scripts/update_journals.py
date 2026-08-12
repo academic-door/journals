@@ -78,6 +78,108 @@ def comment_without_abstract(article: dict[str, Any]) -> bool:
     return article.get("article_type") == "comment" and not article.get("abstract_en")
 
 
+def issue_content_status(issue: dict[str, Any]) -> str:
+    """Classify content completeness independently from source authority."""
+
+    count = int(issue.get("research_article_count", 0))
+    if not is_publishable_snapshot(issue):
+        return "blocked"
+    if count > 0 and int(issue.get("quality", {}).get("translation_complete", 0)) == count:
+        return "complete"
+    return "translation_partial"
+
+
+def issue_source_status(issue: dict[str, Any]) -> str:
+    """Return the strongest source authority supported by issue evidence.
+
+    Crossref is useful for discovery and metadata enrichment, but it is never
+    authoritative for issue membership or order.  Publisher TOC/RSS and
+    publisher-supplied serial feeds are accepted as publisher verification;
+    an official issue page (including an authorised browser capture) is the
+    strongest level.
+    """
+
+    quality = issue.get("quality", {})
+    flags = {str(flag) for flag in quality.get("flags", [])}
+    authority = str(quality.get("roster_authority", "")).strip().casefold()
+    transport = str(quality.get("roster_transport", "")).strip().casefold()
+    source_url = str(issue.get("source_url", "")).strip().casefold()
+
+    if (
+        "crossref_provisional_roster" in flags
+        or "crossref-provisional" in authority
+        or authority == "crossref"
+        or transport == "crossref"
+        or transport.startswith("crossref-")
+    ):
+        return "source_pending"
+
+    browser_marker = quality.get("browser_order_verification", {})
+    browser_verified = (
+        isinstance(browser_marker, dict)
+        and bool(browser_marker.get("pii_sequence_matched"))
+    ) or bool(quality.get("browser_capture"))
+    if (
+        authority == "official-issue-page"
+        or browser_verified
+        or "official-issue-page" in transport
+    ):
+        return "official_verified"
+
+    publisher_authorities = {
+        "publisher-rss",
+        "repec-publisher-supplied",
+        "elsevier-search-api",
+        "repec-serial-page",
+    }
+    if authority in publisher_authorities or transport in {
+        "publisher-rss",
+        "sciencedirect-rss",
+        "repec-serial-page",
+        "elsevier-search-api",
+    }:
+        return "publisher_verified"
+
+    # Older AEA/OUP/Wiley snapshots predate explicit roster provenance.  A
+    # clean snapshot whose source itself is an official publisher issue page
+    # retains its verifiable authority during the 1.1 state migration.
+    official_hosts = (
+        "aeaweb.org/",
+        "academic.oup.com/",
+        "journals.uchicago.edu/",
+        "onlinelibrary.wiley.com/",
+    )
+    if not authority and not transport and any(host in source_url for host in official_hosts):
+        return "official_verified"
+    return "source_pending"
+
+
+def issue_publication_state(issue: dict[str, Any]) -> str:
+    """Combine content and source gates into the public publishing state."""
+
+    content_status = issue_content_status(issue)
+    source_status = issue_source_status(issue)
+    if content_status == "complete" and source_status in {
+        "official_verified",
+        "publisher_verified",
+    }:
+        return "ready"
+    if content_status == "complete":
+        return "source_pending"
+    if content_status == "translation_partial":
+        return "translation_partial"
+    return "blocked"
+
+
+def stamp_issue_readiness(issue: dict[str, Any]) -> dict[str, Any]:
+    """Add the additive 1.0 issue readiness contract in-place."""
+
+    issue["content_status"] = issue_content_status(issue)
+    issue["source_status"] = issue_source_status(issue)
+    issue["publication_state"] = issue_publication_state(issue)
+    return issue
+
+
 def article_type_overrides() -> dict[str, str]:
     try:
         payload = json.loads(ARTICLE_TYPE_OVERRIDES_PATH.read_text(encoding="utf-8"))
@@ -103,7 +205,7 @@ def normalize_issue_content(issue: dict[str, Any]) -> dict[str, Any]:
         issue.get("issue"),
         issue.get("issue_label"),
     )
-    return annotate_issue(issue)
+    return stamp_issue_readiness(annotate_issue(issue))
 
 
 def now_iso() -> str:
@@ -461,9 +563,7 @@ def write_detected_snapshot(issue: dict[str, Any]) -> Path:
 
     if not is_detected_snapshot(issue):
         raise ValueError("detected issue failed the roster quality gate")
-    issue["publication_state"] = (
-        "ready" if is_archivable_snapshot(issue) else "enriching"
-    )
+    stamp_issue_readiness(issue)
     target = detected_issue_path(str(issue["journal_id"]))
     write_json(target, issue)
     readback = read_json(target)
@@ -486,8 +586,15 @@ def archive_issue(
     issue: dict[str, Any],
     *,
     api_root: Path = PUBLIC_API,
+    replace_non_ready: bool = False,
 ) -> Path | None:
-    """Save one immutable, fully validated issue snapshot."""
+    """Save one validated issue snapshot.
+
+    Published-ready archives remain immutable.  A provisional archive may be
+    replaced only when the same issue is recollected with complete content and
+    verified publisher authority.  This permits a Crossref candidate to be
+    promoted after official reconciliation without opening a downgrade path.
+    """
 
     journal_id = str(issue.get("journal_id", ""))
     issue_id = str(issue.get("issue_id", ""))
@@ -497,11 +604,34 @@ def archive_issue(
         or not is_archivable_snapshot(issue)
     ):
         return None
+    stamp_issue_readiness(issue)
     target = api_root / "journals" / journal_id / "issues" / f"{issue_id}.json"
     existing = read_json(target)
     if existing is not None:
-        if existing.get("issue_id") != issue_id:
+        identity_fields = ("issue_id", "journal_id", "volume", "issue")
+        if any(
+            str(existing.get(field, "")).casefold()
+            != str(issue.get(field, "")).casefold()
+            for field in identity_fields
+        ):
             raise RuntimeError(f"archive collision at {target}")
+        if not replace_non_ready:
+            return target
+        existing_state = issue_publication_state(existing)
+        candidate_is_ready = (
+            issue.get("content_status") == "complete"
+            and issue.get("source_status")
+            in {"official_verified", "publisher_verified"}
+            and issue.get("publication_state") == "ready"
+        )
+        if existing_state == "ready" or not candidate_is_ready:
+            return target
+        temporary = target.with_suffix(target.suffix + ".tmp")
+        temporary.write_text(
+            json.dumps(issue, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        temporary.replace(target)
         return target
     write_json(target, issue)
     return target
@@ -568,6 +698,7 @@ def write_archive_index(
 ) -> None:
     entries = []
     for issue in archived_issues(journal_id, api_root=api_root):
+        stamp_issue_readiness(issue)
         entries.append(
             {
                 "issue_id": issue["issue_id"],
@@ -577,6 +708,9 @@ def write_archive_index(
                 "publication_date": issue.get("publication_date", ""),
                 "retrieved_at": issue.get("retrieved_at", ""),
                 "article_count": issue.get("research_article_count", 0),
+                "content_status": issue["content_status"],
+                "source_status": issue["source_status"],
+                "publication_state": issue["publication_state"],
                 "url": (
                     f"/journals/api/v1/journals/{journal_id}/issues/"
                     f"{issue['issue_id']}.json"
@@ -629,6 +763,9 @@ def search_record(
         "doi": article.get("doi", ""),
         "source_url": article.get("source_url", ""),
         "china_related": relevance.get("status") == "yes",
+        "content_status": issue_content_status(issue),
+        "source_status": issue_source_status(issue),
+        "publication_state": issue_publication_state(issue),
     }
 
 
@@ -1316,7 +1453,11 @@ def collect_one(
             )
         if previous and previous.get("issue_id") != issue.get("issue_id"):
             archive_issue(previous)
-        issue["publication_state"] = "ready"
+        stamp_issue_readiness(issue)
+        if issue["publication_state"] != "ready":
+            raise ValueError(
+                "issue content is complete but source authority is not publication-ready"
+            )
         write_json(target, issue)
         write_detected_snapshot(issue)
         readback = read_json(target)
@@ -1398,8 +1539,7 @@ def load_available_issues(
                 validate_issue(issue)
             except ValueError:
                 continue
-            if issue.get("publication_state") != "ready":
-                issue = {**issue, "publication_state": "ready"}
+            stamp_issue_readiness(issue)
             write_json(public_issue_path(config["id"]), issue)
             available[key] = issue
     return available
@@ -1417,6 +1557,7 @@ def _newest_publishable_archived(
         issue
         for issue in archived_issues(journal_id, api_root=api_root)
         if is_publishable_snapshot(issue)
+        and issue_publication_state(issue) == "ready"
     ]
     if not candidates:
         return None
@@ -1457,6 +1598,7 @@ def update_indexes(
         }
         detected = read_json(detected_issue_path(config["id"]))
         if detected and is_detected_snapshot(detected):
+            stamp_issue_readiness(detected)
             detected_total = int(detected.get("research_article_count", 0))
             detected_abstracts = int(
                 detected.get("quality", {}).get("abstract_en_complete", 0)
@@ -1496,14 +1638,18 @@ def update_indexes(
                     "latest_detected_order_verification": order_verification_status(
                         detected
                     ),
+                    "latest_detected_content_status": detected["content_status"],
+                    "latest_detected_source_status": detected["source_status"],
+                    "latest_detected_publication_state": detected["publication_state"],
                     "update_state": (
-                        "ready"
-                        if detected.get("publication_state") == "ready"
+                        detected["publication_state"]
+                        if detected["publication_state"] != "blocked"
                         else "enriching"
                     ),
                 }
             )
         if issue and is_publishable_snapshot(issue):
+            stamp_issue_readiness(issue)
             usable_count += 1
             translated = issue["quality"]["translation_complete"]
             total = issue["research_article_count"]
@@ -1515,9 +1661,9 @@ def update_indexes(
                     "data_status": (
                         "healthy" if not structural_flags(issue) else "needs_attention"
                     ),
-                    "content_status": (
-                        "complete" if translated == total else "translation_incomplete"
-                    ),
+                    "content_status": issue["content_status"],
+                    "source_status": issue["source_status"],
+                    "publication_state": issue["publication_state"],
                     "latest_issue_id": issue["issue_id"],
                     "latest_ready_issue_id": issue["issue_id"],
                     "latest_issue_url": (
@@ -1569,7 +1715,10 @@ def update_indexes(
                         "latest_detected_order_verification": entry.get(
                             "order_verification", "pending_official"
                         ),
-                        "update_state": "ready",
+                        "latest_detected_content_status": issue["content_status"],
+                        "latest_detected_source_status": issue["source_status"],
+                        "latest_detected_publication_state": issue["publication_state"],
+                        "update_state": issue["publication_state"],
                     }
                 )
             checks[f"{config['id']}_roster_match"] = issue["quality"]["roster_match"]

@@ -81,10 +81,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         </details>
         <a class="button theme-lab-link" href={`${base}themes/`}>主题实验室</a>
         <div class="toolbar-actions">
-          <button id="copy-rich" class="button button-primary" type="button">复制富文本</button>
-          <button id="copy-markdown" class="button" type="button">复制 Markdown</button>
-          <button id="export-markdown" class="button" type="button">导出 Markdown</button>
-          <button id="export-html" class="button" type="button">导出 HTML</button>
+          <button id="copy-rich" class="button button-primary" type="button" aria-describedby="publication-readiness" disabled>复制富文本</button>
+          <button id="copy-markdown" class="button" type="button" aria-describedby="publication-readiness" disabled>复制 Markdown</button>
+          <button id="export-markdown" class="button" type="button" aria-describedby="publication-readiness" disabled>导出 Markdown</button>
+          <button id="export-html" class="button" type="button" aria-describedby="publication-readiness" disabled>导出 HTML</button>
         </div>
       </div>
     </section>
@@ -196,8 +196,62 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       return { status: titleMatch || abstractMatch ? "yes" : "no" };
     };
 
+    const selectedJournal = () => collection?.journals.find(
+      (journal) => journal.journal_id === journalSelect.value
+    );
+
+    const hasOwn = (value, key) => Object.prototype.hasOwnProperty.call(value || {}, key);
+    const issueSourceEvidence = (issue) => {
+      const quality = issue?.quality || {};
+      const journal = selectedJournal() || {};
+      const isCurrent = Boolean(
+        issue?.issue_id
+        && issue.issue_id === journal.latest_issue_id
+        && issueSelect.value === journal.latest_issue_url
+      );
+      const flags = new Set([...(quality.flags || []), ...(issue?.quality_flags || [])]);
+      const authority = String(
+        issue?.roster_authority || quality.roster_authority || (isCurrent ? journal.roster_authority : "") || ""
+      );
+      const transport = String(
+        issue?.roster_transport || quality.roster_transport || (isCurrent ? journal.roster_transport : "") || ""
+      );
+      const provisional = issue?.source_status === "source_pending"
+        || flags.has("crossref_provisional_roster")
+        || /crossref/i.test(authority)
+        || /crossref/i.test(transport);
+      const official = ["official_verified", "publisher_verified"].includes(issue?.source_status)
+        || /^(?:official|publisher)/i.test(authority)
+        || (isCurrent && journal.order_verification === "official_verified");
+      return { provisional, official, isCurrent };
+    };
+    const issuePublicationState = (issue) => {
+      const evidence = issueSourceEvidence(issue);
+      if (evidence.provisional) return "source_pending";
+      const hasTruthfulContract = ["content_status", "source_status", "publication_state"].every(
+        (key) => hasOwn(issue, key)
+      );
+      if (hasTruthfulContract) {
+        if (issue.content_status !== "complete") {
+          return issue.content_status === "blocked" ? "blocked" : "translation_partial";
+        }
+        if (!["official_verified", "publisher_verified"].includes(issue.source_status)) {
+          return "source_pending";
+        }
+        return issue.publication_state === "ready" ? "ready" : issue.publication_state;
+      }
+      const journal = selectedJournal() || {};
+      const isLegacyCurrent = Boolean(
+        evidence.isCurrent
+        && journal.content_status === "complete"
+        && evidence.official
+        && ["ready", "complete"].includes(journal.update_state || journal.status)
+      );
+      return isLegacyCurrent ? "ready" : "unknown";
+    };
+
     const issueReadiness = (issue) => {
-      if (!issue) return { ready: false, total: 0, abstracts: 0, translations: 0 };
+      if (!issue) return { ready: false, total: 0, abstracts: 0, translations: 0, publicationState: "unknown" };
       const quality = issue.quality || {};
       const total = issue.research_article_count || issue.articles?.length || 0;
       const abstracts = quality.abstract_en_complete || 0;
@@ -207,7 +261,16 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         total,
         abstracts,
         translations,
+        publicationState: issuePublicationState(issue),
       };
+    };
+
+    const setPublishingEnabled = (enabled, reason = "") => {
+      publishingButtons.forEach((button) => {
+        button.disabled = !enabled;
+        button.setAttribute("aria-disabled", String(!enabled));
+        button.title = enabled ? "" : reason;
+      });
     };
 
     const renderPickerMessage = (message, state = "idle") => {
@@ -227,8 +290,8 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       if (!currentIssue) {
         readinessNotice.hidden = true;
         readinessNotice.textContent = "";
-        readinessNotice.dataset.state = "ready";
-        publishingButtons.forEach((button) => { button.disabled = false; });
+        readinessNotice.dataset.state = "waiting";
+        setPublishingEnabled(false, "请先载入卷期并等待发布状态核验");
         return;
       }
       const messages = [];
@@ -238,21 +301,32 @@ const base = import.meta.env.BASE_URL.endsWith("/")
           ? `等待英文摘要 · ${readiness.abstracts}/${readiness.total}；摘要补齐后自动进入翻译。`
           : `中文翻译中 · ${readiness.translations}/${readiness.total}；整理完成后即可复制发布。`);
       }
-      const flags = new Set(currentIssue.quality?.flags || []);
-      if (
-        flags.has("official_order_unverified")
-        || flags.has("crossref_provisional_roster")
-      ) {
-        messages.push("内容可用于排版；目录顺序仍待官网来源确认。");
+      if (readiness.publicationState === "source_pending") {
+        messages.push("内容已齐，待来源核验；目录顺序仍待官网来源确认。可继续核对排版，复制与导出暂不可用。");
+      } else if (readiness.publicationState === "blocked") {
+        messages.push("该卷期发布受阻；可查看现有内容，但复制与导出暂不可用。");
+      } else if (readiness.publicationState === "unknown") {
+        messages.push("当前卷期缺少可验证的发布状态；可继续核对排版，复制与导出暂不可用。");
       }
       const ageHours = snapshotAgeHours(currentIssue);
       if (ageHours > 36) {
         messages.push(`快照已超过 ${Math.floor(ageHours / 24)} 天未更新；发布前请核对期刊官网。`);
       }
       readinessNotice.hidden = messages.length === 0;
-      readinessNotice.dataset.state = readiness.ready ? "warning" : "enriching";
+      const publicationReady = readiness.publicationState === "ready";
+      readinessNotice.dataset.state = publicationReady ? "warning" : "enriching";
       readinessNotice.textContent = messages.join(" ");
-      publishingButtons.forEach((button) => { button.disabled = !readiness.ready; });
+      setPublishingEnabled(
+        publicationReady,
+        publicationReady ? "" : "仅发布状态为 ready 的卷期可以复制或导出"
+      );
+    };
+
+    const requirePublicationReady = () => {
+      if (issuePublicationState(currentIssue) === "ready") return true;
+      renderReadiness();
+      saveStatus.textContent = "当前卷期尚未达到可发布状态，复制与导出已停用";
+      return false;
     };
 
     const renderInline = (value) =>
@@ -675,6 +749,9 @@ const base = import.meta.env.BASE_URL.endsWith("/")
           journal.publication_date,
         ) || "最新一期",
         status: "ready",
+        publicationState: journal.latest_publication_state
+          || journal.publication_state
+          || "unknown",
         latest: false,
       }] : [];
       const detectedId = journal?.latest_detected_issue_id;
@@ -694,6 +771,9 @@ const base = import.meta.env.BASE_URL.endsWith("/")
               journal.latest_detected_publication_date,
             ) || "最新卷期",
             status: "enriching",
+            publicationState: journal.latest_detected_publication_state
+              || journal.publication_state
+              || "unknown",
             latest: true,
           }]
         : [];
@@ -713,6 +793,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
           formatIssuePeriod(issue.publication_date),
         ].filter(Boolean).join(" · "),
         status: "archive",
+        publicationState: issue.publication_state || "unknown",
         latest: false,
       })).filter((issue) => issue.url);
       return immediate.concat(archived);
@@ -728,7 +809,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         return;
       }
       issueSelect.innerHTML = issues.map((issue) =>
-        `<option value="${escapeHtml(issue.url)}" data-issue-id="${escapeHtml(issue.id)}" data-status="${escapeHtml(issue.status)}">${issue.latest ? "最新 · " : ""}${escapeHtml(issue.label)}</option>`
+        `<option value="${escapeHtml(issue.url)}" data-issue-id="${escapeHtml(issue.id)}" data-status="${escapeHtml(issue.status)}" data-publication-state="${escapeHtml(issue.publicationState)}">${issue.latest ? "最新 · " : ""}${escapeHtml(issue.label)}${issue.publicationState === "source_pending" ? " · 待来源核验" : ""}</option>`
       ).join("");
       if (preferredUrl && issues.some((issue) => issue.url === preferredUrl)) {
         issueSelect.value = preferredUrl;
@@ -762,6 +843,8 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       saveStatus.textContent = `正在载入 ${journal.short_name}…`;
       picker.setAttribute("aria-busy", "true");
       renderPickerMessage("正在载入卷期与论文…", "loading");
+      currentIssue = null;
+      renderReadiness();
       currentIssue = await fetchIssue(issueUrl);
       if (!Array.isArray(currentIssue.articles) || !currentIssue.articles.length) {
         throw new Error("本期没有可用于发布的研究论文");
@@ -783,9 +866,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     };
 
     const reportLoadFailure = (error) => {
+      currentIssue = null;
       picker.setAttribute("aria-busy", "false");
       renderPickerMessage("载入失败，请稍后重试或切换期刊。", "error");
-      publishingButtons.forEach((button) => { button.disabled = true; });
+      setPublishingEnabled(false, "卷期载入失败，复制与导出不可用");
       saveStatus.textContent = `载入失败：${error.message}`;
     };
 
@@ -832,6 +916,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     };
 
     const copyRichText = async () => {
+      if (!requirePublicationReady()) return;
       const html = cloneWithInlineStyles(preview);
       const text = preview.innerText;
       if (window.ClipboardItem && navigator.clipboard?.write) {
@@ -957,6 +1042,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       })
     );
     document.querySelector("#copy-markdown").addEventListener("click", async () => {
+      if (!requirePublicationReady()) return;
       try {
         if (!navigator.clipboard?.writeText) throw new Error("浏览器未开放剪贴板权限");
         await navigator.clipboard.writeText(editor.value);
@@ -965,10 +1051,12 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         saveStatus.textContent = `复制失败：${error.message}`;
       }
     });
-    document.querySelector("#export-markdown").addEventListener("click", () =>
-      download("academic-door-draft.md", "text/markdown;charset=utf-8", editor.value)
-    );
+    document.querySelector("#export-markdown").addEventListener("click", () => {
+      if (!requirePublicationReady()) return;
+      download("academic-door-draft.md", "text/markdown;charset=utf-8", editor.value);
+    });
     document.querySelector("#export-html").addEventListener("click", () => {
+      if (!requirePublicationReady()) return;
       const html = `<!doctype html><meta charset="utf-8"><article>${cloneWithInlineStyles(preview)}</article>`;
       download("academic-door-draft.html", "text/html;charset=utf-8", html);
     });

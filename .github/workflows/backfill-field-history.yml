@@ -49,17 +49,63 @@ on:
         required: false
         default: deepseek-chat
         type: string
+      refresh_discovery_only:
+        description: Refresh discovery snapshots and re-gate archives only
+        required: false
+        default: false
+        type: boolean
+  workflow_call:
+    inputs:
+      journal:
+        description: Field journal code or ALL
+        required: false
+        default: ALL
+        type: string
+      from_year:
+        description: From publication year
+        required: false
+        default: "2023"
+        type: string
+      to_year:
+        description: To publication year
+        required: false
+        default: "2024"
+        type: string
+      max_issues:
+        description: Maximum issues per journal per round
+        required: false
+        default: "6"
+        type: string
+      max_translations:
+        description: Maximum new translations per journal per round
+        required: false
+        default: "80"
+        type: string
+      max_journals:
+        description: Maximum journals per ALL round
+        required: false
+        default: "4"
+        type: string
+      translation_model:
+        description: Translation model ID
+        required: false
+        default: deepseek-chat
+        type: string
+      refresh_discovery_only:
+        description: Refresh discovery snapshots and re-gate archives only
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
   models: read
 
 concurrency:
-  # Run different journals in parallel (same journal serializes). The publish
-  # step below MERGES journal-scoped files into the shared data branch instead
-  # of replacing the whole public/ tree, so parallel publishers no longer
-  # clobber each other's archives.
-  group: field-history-backfill-${{ github.event.inputs.journal || 'ALL' }}-${{ github.event.inputs.from_year || '2023' }}-${{ github.event.inputs.to_year || '2024' }}
+  # Every workflow that writes the shared data branch uses this group. Long
+  # collection runs are serialized until publishing is split into a dedicated
+  # single-writer job; correctness takes priority over monitor latency.
+  group: journal-data-update
   cancel-in-progress: false
 
 jobs:
@@ -108,6 +154,18 @@ jobs:
               target_path.write_text(json.dumps(base, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
           PY
 
+      - name: Snapshot data publication baseline
+        shell: bash
+        run: |
+          python scripts/publish_data_delta.py snapshot \
+            --root . \
+            --output "$RUNNER_TEMP/data-baseline" \
+            --path public/api/v1/journals \
+            --path data/translation-cache \
+            --path data/backfill-state \
+            --path data/backfill-staging \
+            --exclude 'public/api/v1/journals/*/issues/index.json'
+
       - name: Check pending work
         id: check
         shell: bash
@@ -115,6 +173,12 @@ jobs:
           set -euo pipefail
           state="data/backfill-state/field-${{ inputs.from_year || '2023' }}-${{ inputs.to_year || '2024' }}.json"
           journal_key="${{ inputs.journal || 'ALL' }}"
+          if [ "${{ inputs.refresh_discovery_only || false }}" = "true" ]; then
+            echo "Discovery-only refresh requested for $journal_key."
+            echo "has_pending=true" >> "$GITHUB_OUTPUT"
+            echo "state=$state" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           pending=$(python scripts/backfill_history.py \
             --config config/field-history.yml \
             --state "$state" \
@@ -133,6 +197,7 @@ jobs:
           echo "state=$state" >> "$GITHUB_OUTPUT"
 
       - name: Collect, translate, validate and archive
+        id: collect
         if: steps.check.outputs.has_pending == 'true'
         env:
           PYTHONPATH: ${{ github.workspace }}
@@ -145,6 +210,10 @@ jobs:
         run: |
           mkdir -p output
           global_flags=""
+          mode_flags="--translate"
+          if [ "${{ inputs.refresh_discovery_only || false }}" = "true" ]; then
+            mode_flags="--refresh-discovery-only"
+          fi
           if [ "${{ inputs.journal || 'ALL' }}" != "ALL" ]; then
             # Per-journal runs must not regenerate global collections/health
             # indexes from their partial snapshot; the ALL run does that.
@@ -156,7 +225,7 @@ jobs:
             --journal "${{ inputs.journal || 'ALL' }}" \
             --from-year "${{ inputs.from_year || '2023' }}" \
             --to-year "${{ inputs.to_year || '2024' }}" \
-            --translate \
+            $mode_flags \
             --max-issues "${{ inputs.max_issues || '6' }}" \
             --max-translations "${{ inputs.max_translations || '80' }}" \
             --max-journals "${{ inputs.max_journals || '4' }}" \
@@ -189,118 +258,158 @@ jobs:
         run: |
           python scripts/backfill_notify.py             --state "data/backfill-state/field-${{ inputs.from_year || '2023' }}-${{ inputs.to_year || '2024' }}.json"             --report output/backfill-report.json
 
-      - name: Publish archives, indexes, cache and checkpoints
-        # Preserve collected/translated progress even when a validation step
-        # fails (e.g. a brand-new journal has no current.json until the update
-        # workflow runs). The journal-scoped merge below cannot clobber other
-        # journals' archives, and the resumable state file makes the next run
-        # skip already-complete issues.
-        if: always()
+      - name: Publish validated archives, indexes, cache and checkpoints
+        if: steps.collect.outcome == 'success'
+        env:
+          STRICT_HISTORY_COVERAGE_ENABLED: ${{ vars.STRICT_HISTORY_COVERAGE_ENABLED }}
         shell: bash
         run: |
           set -euo pipefail
-          generated="$RUNNER_TEMP/generated"
-          mkdir -p "$generated/public/api" "$generated/data"
-          cp -R public/api/. "$generated/public/api/"
-          cp public/project-manifest.json "$generated/public/project-manifest.json"
-          [ ! -f public/backfill-status.md ] || cp public/backfill-status.md "$generated/public/backfill-status.md"
-          cp -R data/translation-cache "$generated/data/"
-          [ ! -d data/backfill-state ] || cp -R data/backfill-state "$generated/data/"
-          [ ! -d data/backfill-staging ] || cp -R data/backfill-staging "$generated/data/"
+          baseline="$RUNNER_TEMP/data-baseline"
+          generated="$RUNNER_TEMP/generated-data"
+          data_tree="$RUNNER_TEMP/data-tree"
+          python scripts/publish_data_delta.py snapshot \
+            --root . \
+            --output "$generated" \
+            --path public/api/v1/journals \
+            --path data/translation-cache \
+            --path data/backfill-state \
+            --path data/backfill-staging \
+            --exclude 'public/api/v1/journals/*/issues/index.json'
 
-          journal_key="${{ inputs.journal || 'ALL' }}"
-          state_name="field-${{ inputs.from_year || '2023' }}-${{ inputs.to_year || '2024' }}.json"
-
-          publish_and_push() {
-            git fetch origin data
-            if [ -d "$RUNNER_TEMP/data-tree" ]; then
-              git worktree remove --force "$RUNNER_TEMP/data-tree" 2>/dev/null || true
-              rm -rf "$RUNNER_TEMP/data-tree"
+          for attempt in 1 2 3 4 5; do
+            if ! git fetch origin data; then
+              sleep $((attempt * 15))
+              continue
             fi
-            git worktree add "$RUNNER_TEMP/data-tree" origin/data
-            cd "$RUNNER_TEMP/data-tree"
-            git switch -C data
+            git worktree remove --force "$data_tree" 2>/dev/null || true
+            rm -rf "$data_tree"
+            git worktree add "$data_tree" origin/data
+            git -C "$data_tree" switch -C data
+            if ! python scripts/publish_data_delta.py apply \
+              --baseline "$baseline" \
+              --generated "$generated" \
+              --target "$data_tree" \
+              --path public/api/v1/journals \
+              --path data/translation-cache \
+              --path data/backfill-state \
+              --path data/backfill-staging \
+              --exclude 'public/api/v1/journals/*/issues/index.json'; then
+              sleep $((attempt * 15))
+              continue
+            fi
 
-            # Merge instead of replace: the shared data branch is written by
-            # parallel per-journal publishers, so deleting public/ wholesale
-            # would clobber other journals' archives.
-            if [ "$journal_key" = "ALL" ]; then
-              rm -rf public/api
-              mkdir -p public/api
-              cp -R "$generated/public/api"/. public/api/
-              cp "$generated/public/project-manifest.json" public/project-manifest.json
-              [ ! -f "$generated/public/backfill-status.md" ] || cp "$generated/public/backfill-status.md" public/backfill-status.md
-              mkdir -p data/translation-cache
-              cp -R "$generated/data/translation-cache/." data/translation-cache/ 2>/dev/null || true
-            else
-              journal_id=$(python -c "import sys; print(sys.argv[1].lower())" "$journal_key")
-              mkdir -p "public/api/v1/journals/$journal_id/issues"
-              cp -R "$generated/public/api/v1/journals/$journal_id/issues/." "public/api/v1/journals/$journal_id/issues/"
-              mkdir -p data/translation-cache
-              if [ -f "$generated/data/translation-cache/$journal_id.json" ]; then
-                cp "$generated/data/translation-cache/$journal_id.json" "data/translation-cache/$journal_id.json"
+            rm -rf "$GITHUB_WORKSPACE/public/api"
+            mkdir -p "$GITHUB_WORKSPACE/public"
+            cp -R "$data_tree/public/api" "$GITHUB_WORKSPACE/public/api"
+            python scripts/rebuild_public_snapshot.py
+            python scripts/publish_data_delta.py rebuild-archive-indexes \
+              --root "$GITHUB_WORKSPACE"
+            state_args=()
+            for state in \
+              data/backfill-state/field-2023-2024.json \
+              data/backfill-state/field-2025-2026.json; do
+              if [ -f "$data_tree/$state" ]; then
+                state_args+=(--state "$data_tree/$state")
               fi
-              if [ -d "$generated/data/backfill-staging/$journal_id" ]; then
-                mkdir -p data/backfill-staging
-                rm -rf "data/backfill-staging/$journal_id"
-                cp -R "$generated/data/backfill-staging/$journal_id" "data/backfill-staging/$journal_id"
+            done
+            python scripts/backfill_status.py \
+              "${state_args[@]}" \
+              --api-root public/api/v1 \
+              --out-json public/api/v1/backfill-status.json \
+              --out-md public/backfill-status.md
+            python scripts/audit_source_alignment.py --strict
+            if [ -f scripts/audit_history_coverage.py ]; then
+              history_flags=()
+              if [ "${STRICT_HISTORY_COVERAGE_ENABLED:-false}" = "true" ]; then
+                history_flags+=(--strict)
               fi
+              python scripts/audit_history_coverage.py \
+                "${state_args[@]}" \
+                --api-root public/api/v1 \
+                --report-json "$RUNNER_TEMP/history-coverage.json" \
+                "${history_flags[@]}"
             fi
+            python scripts/rebuild_public_snapshot.py --check
+            python scripts/audit_public_data.py --strict-provenance
+            python scripts/audit_privacy.py
+            mkdir -p "$data_tree/public/api"
+            cp -R "$GITHUB_WORKSPACE/public/api/." "$data_tree/public/api/"
+            cp "$GITHUB_WORKSPACE/public/project-manifest.json" \
+              "$data_tree/public/project-manifest.json"
+            cp "$GITHUB_WORKSPACE/public/backfill-status.md" \
+              "$data_tree/public/backfill-status.md"
 
-            # Merge the resumable state file by issue key so concurrent
-            # journals never drop each other's checkpoints. This run's own
-            # journal keys are the freshest source for that journal and
-            # overwrite; other journals' keys keep the already-published
-            # (fresher) values already on the data branch.
-            mkdir -p data/backfill-state
-            python - "$generated/data/backfill-state/$state_name" "$journal_key" "$state_name" <<'PY'
-          import json, os, sys
-          new_path, journal_key, state_name = sys.argv[1], sys.argv[2], sys.argv[3]
-          target = f"data/backfill-state/{state_name}"
-          new = json.load(open(new_path, encoding="utf-8"))
-          existing = json.load(open(target, encoding="utf-8")) if os.path.exists(target) else {"schema_version": "1.0", "issues": {}}
-          merged = existing.setdefault("issues", {})
-          for key, value in new.get("issues", {}).items():
-              if journal_key == "ALL" or value.get("journal", "") == journal_key:
-                  merged[key] = value
-              else:
-                  merged.setdefault(key, value)
-          rotation = existing.setdefault("rotation", {}).setdefault("last_run_at", {})
-          for journal, stamp in new.get("rotation", {}).get("last_run_at", {}).items():
-              if journal_key == "ALL" or journal == journal_key:
-                  rotation[journal] = stamp
-          json.dump(existing, open(target, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
-          PY
-
-            if [ -d "$generated/data/backfill-staging" ]; then
-              mkdir -p data/backfill-staging
-              cp -R "$generated/data/backfill-staging/." data/backfill-staging/
-            fi
-
-            # Regenerate the global backfill status from the merged states.
-            python "$GITHUB_WORKSPACE/scripts/backfill_status.py"               --state data/backfill-state/field-2023-2024.json               --state data/backfill-state/field-2025-2026.json               --out-json public/api/v1/backfill-status.json               --out-md public/backfill-status.md
-
-            git rm -f --ignore-unmatch public/search.js
-            git config user.name "academic-door-bot"
-            git config user.email "academic-door-bot@users.noreply.github.com"
-            git add -A public/api data/translation-cache
-            git add public/project-manifest.json public/backfill-status.md
-            git add -f data/backfill-state data/backfill-staging 2>/dev/null || true
-            if git diff --cached --quiet; then
+            git -C "$data_tree" rm -f --ignore-unmatch public/search.js
+            git -C "$data_tree" config user.name "academic-door-bot"
+            git -C "$data_tree" config user.email "academic-door-bot@users.noreply.github.com"
+            git -C "$data_tree" add -A public/api data/translation-cache
+            git -C "$data_tree" add public/project-manifest.json public/backfill-status.md
+            git -C "$data_tree" add -f data/backfill-state data/backfill-staging 2>/dev/null || true
+            if git -C "$data_tree" diff --cached --quiet; then
               echo "No historical data changes."
               exit 0
             fi
-            git commit -m "Backfill field journal history"
-            cd "$GITHUB_WORKSPACE"
-          }
-
-          for attempt in 1 2 3 4 5; do
-            publish_and_push
-            if git -C "$RUNNER_TEMP/data-tree" push origin HEAD:data; then
+            git -C "$data_tree" commit -m "Backfill field journal history"
+            if git -C "$data_tree" push origin HEAD:data; then
               exit 0
             fi
-            echo "Data-branch push rejected (attempt $attempt); re-publishing from the latest data branch."
+            echo "Data changed during publish; refetching and reapplying the delta."
             sleep $((attempt * 15))
           done
-          echo "Failed to publish to the data branch after 5 attempts."
+          echo "Failed to publish the validated backfill delta after five attempts."
+          exit 1
+
+      - name: Preserve failed-run cache and checkpoints only
+        if: >-
+          always() && steps.collect.outcome == 'failure' &&
+          inputs.refresh_discovery_only != true
+        shell: bash
+        run: |
+          set -euo pipefail
+          baseline="$RUNNER_TEMP/data-baseline"
+          generated="$RUNNER_TEMP/failed-checkpoints"
+          data_tree="$RUNNER_TEMP/checkpoint-data-tree"
+          python scripts/publish_data_delta.py snapshot \
+            --root . \
+            --output "$generated" \
+            --path data/translation-cache \
+            --path data/backfill-state \
+            --path data/backfill-staging
+
+          # Public API and manifest paths are intentionally absent here.
+          for attempt in 1 2 3 4 5; do
+            if ! git fetch origin data; then
+              sleep $((attempt * 15))
+              continue
+            fi
+            git worktree remove --force "$data_tree" 2>/dev/null || true
+            rm -rf "$data_tree"
+            git worktree add "$data_tree" origin/data
+            git -C "$data_tree" switch -C data
+            if ! python scripts/publish_data_delta.py apply \
+              --baseline "$baseline" \
+              --generated "$generated" \
+              --target "$data_tree" \
+              --path data/translation-cache \
+              --path data/backfill-state \
+              --path data/backfill-staging; then
+              sleep $((attempt * 15))
+              continue
+            fi
+            git -C "$data_tree" config user.name "academic-door-bot"
+            git -C "$data_tree" config user.email "academic-door-bot@users.noreply.github.com"
+            git -C "$data_tree" add data/translation-cache
+            git -C "$data_tree" add -f data/backfill-state data/backfill-staging 2>/dev/null || true
+            if git -C "$data_tree" diff --cached --quiet; then
+              echo "No failed-run checkpoints changed."
+              exit 0
+            fi
+            git -C "$data_tree" commit -m "Preserve failed backfill checkpoints"
+            if git -C "$data_tree" push origin HEAD:data; then
+              exit 0
+            fi
+            sleep $((attempt * 15))
+          done
+          echo "Failed to preserve backfill checkpoints after five attempts."
           exit 1

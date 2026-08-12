@@ -16,6 +16,28 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     <section id="status-summary" class="status-summary" aria-live="polite">
       <p>正在读取状态……</p>
     </section>
+    <section class="history-section" aria-labelledby="history-title">
+      <div class="quality-heading">
+        <div>
+          <p class="section-kicker">HISTORY COVERAGE</p>
+          <h2 id="history-title">历史覆盖</h2>
+          <p class="section-note">按年份与期刊核对发现卷期、缺失卷期、内容与来源状态；临时来源不会计入可发布。</p>
+        </div>
+        <p id="history-updated"></p>
+      </div>
+      <div class="history-table" role="table" aria-label="历史年份与期刊覆盖状态">
+        <div class="history-row history-header" role="row">
+          <span role="columnheader">年份</span>
+          <span role="columnheader">期刊</span>
+          <span role="columnheader">发现 / 归档</span>
+          <span role="columnheader">内容就绪</span>
+          <span role="columnheader">来源核验</span>
+          <span role="columnheader">可发布</span>
+          <span role="columnheader">缺失 / 阻塞</span>
+        </div>
+        <div id="history-rows" role="rowgroup">正在读取历史覆盖……</div>
+      </div>
+    </section>
     <section class="quality-section" aria-labelledby="quality-title">
       <div class="quality-heading">
         <div>
@@ -32,26 +54,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
           <span role="columnheader">来源核验</span>
           <span role="columnheader">发布状态</span>
         </div>
-        <div id="quality-rows"></div>
-      </div>
-    </section>
-    <section class="history-section" aria-labelledby="history-title">
-      <div class="quality-heading">
-        <div>
-          <p class="section-kicker">HISTORY COVERAGE</p>
-          <h2 id="history-title">历史覆盖</h2>
-        </div>
-        <p id="history-updated"></p>
-      </div>
-      <div class="history-table" role="table" aria-label="历史年份覆盖状态">
-        <div class="history-row history-header" role="row">
-          <span role="columnheader">年份</span>
-          <span role="columnheader">发现卷期</span>
-          <span role="columnheader">内容完整</span>
-          <span role="columnheader">等待补全</span>
-          <span role="columnheader">官方核验</span>
-        </div>
-        <div id="history-rows">正在读取历史覆盖……</div>
+        <div id="quality-rows" role="rowgroup"></div>
       </div>
     </section>
   </main>
@@ -79,6 +82,19 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       needs_attention: "来源需要检查",
       missing: "等待数据",
     };
+    const formatTimestamp = (value = "") => {
+      const timestamp = Date.parse(value);
+      if (!Number.isFinite(timestamp)) return "更新时间未知";
+      return new Intl.DateTimeFormat("zh-CN", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+        timeZoneName: "short",
+      }).format(new Date(timestamp));
+    };
     const snapshotFreshness = (value = "") => {
       const updated = Date.parse(value);
       if (!Number.isFinite(updated)) return "更新时间未知";
@@ -91,6 +107,50 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       return journal.content_status === "complete"
         && total > 0
         && translations === total;
+    };
+    const hasOwn = (value, key) => Object.prototype.hasOwnProperty.call(value || {}, key);
+    const journalSourceEvidence = (journal) => {
+      const flags = new Set([...(journal.quality?.flags || []), ...(journal.quality_flags || [])]);
+      const authority = String(journal.roster_authority || "");
+      const transport = String(journal.roster_transport || "");
+      const provisional = journal.source_status === "source_pending"
+        || flags.has("crossref_provisional_roster")
+        || /crossref/i.test(authority)
+        || /crossref/i.test(transport);
+      const official = ["official_verified", "publisher_verified"].includes(journal.source_status)
+        || /^(?:official|publisher)/i.test(authority)
+        || journal.order_verification === "official_verified";
+      return { provisional, official };
+    };
+    const journalSourceStatus = (journal) => {
+      const evidence = journalSourceEvidence(journal);
+      if (evidence.provisional) return "source_pending";
+      if (["official_verified", "publisher_verified"].includes(journal.source_status)) {
+        return journal.source_status;
+      }
+      return evidence.official ? "official_verified" : "source_pending";
+    };
+    const journalPublicationState = (journal) => {
+      const evidence = journalSourceEvidence(journal);
+      if (evidence.provisional) return "source_pending";
+      const hasTruthfulContract = ["content_status", "source_status", "publication_state"].every(
+        (key) => hasOwn(journal, key)
+      );
+      if (hasTruthfulContract) {
+        if (journal.content_status !== "complete") {
+          return journal.content_status === "blocked" ? "blocked" : "translation_partial";
+        }
+        if (!["official_verified", "publisher_verified"].includes(journal.source_status)) {
+          return "source_pending";
+        }
+        return journal.publication_state === "ready" ? "ready" : journal.publication_state;
+      }
+      if (
+        journalContentReady(journal)
+        && evidence.official
+        && ["ready", "complete"].includes(journal.update_state || journal.status)
+      ) return "ready";
+      return journalContentReady(journal) ? "source_pending" : "translation_partial";
     };
     const detectedEnrichmentNeeded = (journal) => {
       const total = Number(
@@ -114,13 +174,16 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     ]).then(([health, top5, fields, sourceAudit, monitoring, backfillStatus]) => {
       const journals = [...(top5.journals || []), ...(fields.journals || [])];
       const auditById = new Map((sourceAudit.journals || []).map((item) => [item.journal_id, item]));
-      const readyCount = journals.filter(journalContentReady).length;
+      const contentReadyCount = journals.filter(journalContentReady).length;
+      const readyCount = journals.filter(
+        (journal) => journalPublicationState(journal) === "ready"
+      ).length;
       const enrichingCount = journals.filter(detectedEnrichmentNeeded).length;
       const officialOrderCount = journals.filter(
-        (journal) => journal.order_verification === "official_verified"
+        (journal) => ["official_verified", "publisher_verified"].includes(journalSourceStatus(journal))
       ).length;
       const pendingOrderCount = journals.filter(
-        (journal) => journal.order_verification !== "official_verified"
+        (journal) => journalSourceStatus(journal) === "source_pending"
       ).length;
       if (!journals.length) {
         document.querySelector("#status-summary").innerHTML = `
@@ -128,9 +191,9 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         document.querySelector("#quality-rows").innerHTML = "";
         return;
       }
-      document.querySelector("#status-summary").innerHTML = `
+        document.querySelector("#status-summary").innerHTML = `
         <article class="trust-ledger content-ledger">
-          <div><p>CONTENT READINESS</p><h2>内容可用性</h2><span>当前可发布卷期能否直接进入 Composer</span></div>
+          <div><p>PUBLICATION READINESS</p><h2>可发布卷期</h2><span>内容完整且来源核验通过，才可复制导出</span><small>${contentReadyCount} 刊内容已完整</small></div>
           <strong>${readyCount}<small> / ${journals.length}</small></strong>
         </article>
         <article class="trust-ledger source-ledger">
@@ -156,12 +219,12 @@ const base = import.meta.env.BASE_URL.endsWith("/")
             ? `已发现新一期，等待官网确认（页面继续展示上一份已核对数据）：${awaitingOfficial.join("、")}${watching.length ? `；待确认：${watching.join("、")}` : ""}`
             : watching.length
               ? `监测任务可用；待确认：${watching.join("、")}`
-              : "全部期刊更新正常。";
+              : "未检测到更新任务失败。";
         const freshness = snapshotFreshness(health.updated_at || sourceAudit.updated_at);
         const failureMessage = fetchFailures.length ? `；读取异常：${fetchFailures.join("、")}` : "";
         monitorNote.textContent = `${monitoringMessage} ${freshness}${failureMessage}`;
       }
-      document.querySelector("#quality-updated").textContent = `最近更新：${health.updated_at || sourceAudit.updated_at || "-"}`;
+      document.querySelector("#quality-updated").textContent = `最近更新：${formatTimestamp(health.updated_at || sourceAudit.updated_at)}`;
       document.querySelector("#quality-rows").innerHTML = journals.map((journal) => {
         const audit = auditById.get(journal.journal_id) || {};
         const snapshot = audit.current || audit.detected || {};
@@ -181,52 +244,97 @@ const base = import.meta.env.BASE_URL.endsWith("/")
           comments ? `评论 ${comments}` : "",
           shorts ? `短文 ${shorts}` : "",
         ].filter(Boolean).join(" · ");
-        const orderVerified = journal.order_verification === "official_verified";
-        const order = orderVerified ? "可发布快照顺序已核对" : "可发布快照等待官网确认";
-        const ready = journalContentReady(journal);
+        const sourceStatus = journalSourceStatus(journal);
+        const orderVerified = ["official_verified", "publisher_verified"].includes(sourceStatus);
+        const order = orderVerified ? "目录与顺序已核对" : "临时来源，等待官网确认";
+        const publicationState = journalPublicationState(journal);
+        const ready = publicationState === "ready";
+        const publicationLabel = ready
+          ? "可复制"
+          : publicationState === "source_pending"
+            ? "内容已齐，待来源核验"
+            : publicationState === "blocked"
+              ? "发布阻塞"
+              : "内容补全中";
         return `<div class="quality-row" role="row">
           <strong class="journal-code" role="cell"><b>${escapeHtml(journal.short_name)}</b><small>${escapeHtml(journal.name_cn || journal.name || "")}</small></strong>
           <span role="cell" data-label="最新卷期"><b>${escapeHtml(sanitizeIssueLabel(journal.latest_issue_label) || "等待最新卷期")}</b><small>${escapeHtml(journal.publication_date || "日期待确认")}</small></span>
           <span role="cell" data-label="内容就绪"><b>${total} 篇 · 英文 ${abstracts}/${total} · 中文 ${translations}/${total}</b>${extras ? `<small>${escapeHtml(extras)}</small>` : ""}${detectedPending ? `<small>检测更新：英文 ${detectedAbstracts}/${detectedTotal} · 中文 ${detectedTranslations}/${detectedTotal}</small>` : ""}</span>
-          <span role="cell" data-label="来源核验"><span class="source-state ${orderVerified ? "verified" : "pending"}">${escapeHtml(orderVerified ? "官网顺序已核对" : "等待官网确认")}</span><small>${escapeHtml(sourceLabels[audit.status] || "来源已记录")} · ${escapeHtml(order)}</small></span>
-          <span role="cell" data-label="发布状态"><span class="state ${ready ? "ready" : "enriching"}">${ready ? "可复制" : "整理中"}</span>${detectedPending ? "<small>新内容补全中</small>" : ""}</span>
+          <span role="cell" data-label="来源核验"><span class="source-state ${orderVerified ? "verified" : "pending"}">${escapeHtml(orderVerified ? "官方来源已核对" : "等待官网确认")}</span><small>${escapeHtml(sourceLabels[audit.status] || "来源已记录")} · ${escapeHtml(order)}</small></span>
+          <span role="cell" data-label="发布状态"><span class="state ${ready ? "ready" : "enriching"}">${escapeHtml(publicationLabel)}</span>${detectedPending ? "<small>新内容补全中</small>" : ""}</span>
         </div>`;
       }).join("");
-      const verifiedById = new Set(
-        journals
-          .filter((journal) => journal.order_verification === "official_verified")
-          .map((journal) => journal.journal_id)
-      );
       const historyRows = document.querySelector("#history-rows");
       const historyUpdated = document.querySelector("#history-updated");
       const years = backfillStatus.years || {};
       const yearKeys = Object.keys(years).sort((a, b) => b.localeCompare(a));
+      const countOf = (coverage, key) => Math.max(0, Number(coverage?.[key] || 0));
+      const renderCoverageRow = (year, journalId, coverage, summary = false) => {
+        const discovered = countOf(coverage, "discovered");
+        const archived = countOf(coverage, "archived");
+        const contentReady = countOf(coverage, "content_ready");
+        const sourceVerified = countOf(coverage, "source_verified");
+        const publicationReady = countOf(coverage, "publication_ready");
+        const missing = countOf(coverage, "missing");
+        const sourcePending = countOf(coverage, "source_pending");
+        const contentBlocked = Math.max(0, archived - contentReady);
+        const missingIds = Array.isArray(coverage?.missing_issue_ids)
+          ? coverage.missing_issue_ids.filter(Boolean)
+          : [];
+        const sourcePendingIds = Array.isArray(coverage?.source_pending_issue_ids)
+          ? coverage.source_pending_issue_ids.filter(Boolean)
+          : [];
+        const missingPreview = missingIds.length
+          ? `${missingIds.slice(0, 3).join("、")}${missingIds.length > 3 ? ` 等 ${missingIds.length} 期` : ""}`
+          : "";
+        const sourcePreview = sourcePendingIds.length
+          ? `${sourcePendingIds.slice(0, 2).join("、")}${sourcePendingIds.length > 2 ? ` 等 ${sourcePendingIds.length} 期` : ""}`
+          : "";
+        return `<div class="history-row${summary ? " history-year-summary" : ""}" role="row">
+          <span role="cell" data-label="年份"><b>${escapeHtml(year)} 年</b>${summary ? "<small>年度合计</small>" : ""}</span>
+          <strong class="journal-code" role="cell" data-label="期刊">${summary ? "全部期刊" : escapeHtml(journalId)}</strong>
+          <span role="cell" data-label="发现 / 归档"><b>${discovered} / ${archived}</b><small>发现 / 已归档</small></span>
+          <span role="cell" data-label="内容就绪"><span class="state ${contentBlocked ? "enriching" : "ready"}">${contentReady} 期</span>${contentBlocked ? `<small>${contentBlocked} 期内容阻塞</small>` : ""}</span>
+          <span role="cell" data-label="来源核验"><b>${sourceVerified} 期</b>${sourcePending ? `<small>${sourcePending} 期临时来源待核验${sourcePreview ? `：${escapeHtml(sourcePreview)}` : ""}</small>` : ""}</span>
+          <span role="cell" data-label="可发布"><span class="state ${publicationReady === archived && !missing ? "ready" : "enriching"}">${publicationReady} 期</span></span>
+          <span role="cell" data-label="缺失 / 阻塞"><b>${missing} 期缺失</b>${missingPreview ? `<small title="${escapeHtml(missingIds.join("、"))}">${escapeHtml(missingPreview)}</small>` : ""}${contentBlocked || sourcePending ? `<small>${contentBlocked} 期内容阻塞 · ${sourcePending} 期来源阻塞</small>` : ""}</span>
+        </div>`;
+      };
+      const supportsTruthfulCoverage = Number.parseFloat(backfillStatus.schema_version || "0") >= 1.2;
       if (!yearKeys.length) {
         historyRows.innerHTML = `<p class="status-empty">历史回填尚未开始，正在等待每日批次。</p>`;
+      } else if (!supportsTruthfulCoverage) {
+        historyRows.innerHTML = `<div class="status-empty"><strong>历史状态接口正在升级</strong><span>旧版接口只记录已发现条目，不能据此判断漏期或历史来源核验；为避免误导，以下仅显示记录数。</span></div>`
+          + yearKeys.map((year) => {
+            const recorded = Number(years[year]?.issue_count || 0);
+            return `<div class="history-row history-legacy" role="row">
+              <span role="cell" data-label="年份"><b>${escapeHtml(year)} 年</b></span>
+              <strong class="journal-code" role="cell" data-label="期刊">旧版汇总</strong>
+              <span role="cell" data-label="发现 / 归档">${recorded} 条已记录</span>
+              <span role="cell" data-label="内容就绪">不可计算</span>
+              <span role="cell" data-label="来源核验">不可计算</span>
+              <span role="cell" data-label="可发布">不可计算</span>
+              <span role="cell" data-label="缺失 / 阻塞">等待 1.2 状态</span>
+            </div>`;
+          }).join("");
       } else {
         historyRows.innerHTML = yearKeys.map((year) => {
           const bucket = years[year] || {};
-          const summary = bucket.summary || {};
-          const complete = summary.complete || 0;
-          const awaiting = (summary.translation_partial || 0)
-            + (summary.blocked || 0)
-            + (summary.collected || 0)
-            + (summary.pending || 0);
-          const verified = (bucket.journals || []).filter(
-            (journalId) => verifiedById.has(journalId)
-          ).length;
-          return `<div class="history-row" role="row">
-            <span role="cell" data-label="年份"><b>${year} 年</b></span>
-            <span role="cell" data-label="发现卷期">${bucket.issue_count || 0} 卷</span>
-            <span role="cell" data-label="内容完整"><span class="state ready">${complete} 卷</span></span>
-            <span role="cell" data-label="等待补全"><span class="state enriching">${awaiting} 卷</span></span>
-            <span role="cell" data-label="官方核验">${verified} 刊</span>
-          </div>`;
+          const byJournal = bucket.by_journal || {};
+          const entries = Array.isArray(byJournal)
+            ? byJournal.map((item) => [item.journal_id || item.journal || "?", item])
+            : Object.entries(byJournal);
+          return [
+            renderCoverageRow(year, "全部期刊", bucket.coverage || {}, true),
+            ...entries
+              .sort(([left], [right]) => left.localeCompare(right))
+              .map(([journalId, coverage]) => renderCoverageRow(year, journalId, coverage)),
+          ].join("");
         }).join("");
       }
       if (historyUpdated) {
         historyUpdated.textContent = backfillStatus.updated_at
-          ? `最近更新：${backfillStatus.updated_at}`
+          ? `最近更新：${formatTimestamp(backfillStatus.updated_at)}`
           : "等待首次批次";
       }
     }).catch((error) => {
@@ -238,6 +346,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
 <style is:global>
   .compact-heading { padding-bottom: 1.25rem; }
   .status-intro { max-width: 620px; margin: .55rem 0 0; color: #62625e; }
+  .section-note { max-width: 680px; margin: .35rem 0 0; color: #62625e; font-size: .78rem; line-height: 1.55; }
   .monitor-note { margin: 0 0 1.25rem; color: #62625e; font-size: .82rem; line-height: 1.6; }
   .status-summary {
     display: grid;
@@ -250,6 +359,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   .trust-ledger p { margin: 0; color: #72726d; font-size: .68rem; font-weight: 750; letter-spacing: .12em; }
   .trust-ledger h2 { margin: .18rem 0 .25rem; font-size: 1.2rem; }
   .trust-ledger span { color: #62625e; font-size: .78rem; }
+  .trust-ledger div > small { display: block; margin-top: .32rem; color: #70706b; font-size: .7rem; }
   .trust-ledger > strong { color: var(--green, #0b4639); font-family: Georgia, "Noto Serif SC", serif; font-size: clamp(2.4rem, 5vw, 4.4rem); font-weight: 500; line-height: .85; letter-spacing: -.055em; }
   .trust-ledger > strong small { color: #777772; font-family: inherit; font-size: .34em; letter-spacing: 0; }
   .source-ledger > strong { color: #855e18; }
@@ -261,15 +371,18 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   .history-table { border-top: 1px solid var(--line, #e1e1dd); }
   .history-row {
     display: grid;
-    grid-template-columns: minmax(120px, 1fr) repeat(4, minmax(140px, 1fr));
-    gap: 1.15rem;
+    grid-template-columns: minmax(72px,.55fr) minmax(80px,.55fr) minmax(105px,.75fr) minmax(105px,.75fr) minmax(150px,1.2fr) minmax(90px,.65fr) minmax(170px,1.4fr);
+    gap: .8rem;
     align-items: center;
     padding: .95rem .8rem;
     border-bottom: 1px solid var(--line, #e1e1dd);
   }
   .history-row:not(.history-header):nth-child(even) { background: color-mix(in srgb, var(--paper, #fff) 62%, transparent); }
+  .history-year-summary { background: color-mix(in srgb, var(--green-soft, #e7f0ec) 56%, white); border-top: 2px solid var(--green, #0b4639); }
   .history-header { color: #70706b; font-size: .72rem; text-transform: uppercase; }
   .history-row > span { min-width: 0; font-size: .82rem; }
+  .history-row b, .history-row small { display: block; }
+  .history-row small { margin-top: .16rem; color: #6c6c67; font-size: .7rem; line-height: 1.45; overflow-wrap: anywhere; }
   .status-empty { grid-column: 1 / -1; padding: 1.25rem; }
   .status-empty strong, .status-empty span { display: block; }
   .status-empty span { color: #62625e; font-size: .82rem; }
@@ -301,8 +414,8 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   @media (max-width: 980px) {
     .history-header { display: none; }
     .history-row { grid-template-columns: 72px minmax(0, 1fr); gap: .55rem 1rem; padding: 1rem .25rem; }
-    .history-row > span { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: .5rem; }
-    .history-row > span::before { content: attr(data-label); color: #6c6c67; font-size: .72rem; }
+    .history-row > span, .history-row > strong { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: .5rem; }
+    .history-row > span::before, .history-row > strong::before { content: attr(data-label); color: #6c6c67; font-size: .72rem; font-weight: 500; }
     .trust-ledger { align-items: start; flex-direction: column; min-height: 0; }
     .quality-header { display: none; }
     .quality-row { grid-template-columns: 72px minmax(0,1fr); gap: .55rem 1rem; padding: 1rem .25rem; }
@@ -313,7 +426,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   }
   @media (max-width: 620px) {
     .history-row { grid-template-columns: 1fr; padding: 1rem .6rem; }
-    .history-row > span { grid-template-columns: 100px minmax(0, 1fr); }
+    .history-row > span, .history-row > strong { grid-template-columns: 110px minmax(0, 1fr); }
     .status-summary { grid-template-columns: 1fr; }
     .trust-ledger + .trust-ledger { border-top: 1px solid var(--line, #d9d9d5); border-left: 0; }
     .status-operations { grid-template-columns: 1fr; }

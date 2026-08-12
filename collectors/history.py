@@ -23,6 +23,40 @@ VOLUME_ISSUE_PATTERN = re.compile(
 )
 
 
+def natural_issue_key(value: object) -> tuple[tuple[int, object], ...]:
+    """Sort issue labels numerically while keeping supplements deterministic.
+
+    Publisher archives mix plain issue numbers (``1``, ``10``), continuous
+    issue labels (``C``), and supplements (``S1``/``Suppl 1``).  A string sort
+    permanently strands issues 2-9 behind 10-12 when a batch cap is applied.
+    Tokenising digits and text gives stable ordering without assuming that
+    every publisher uses the same supplement spelling.
+    """
+
+    normalized = re.sub(r"\s+", "", str(value or "").casefold())
+    tokens = re.findall(r"\d+|[a-z]+|[^a-z\d]+", normalized)
+    key: list[tuple[int, object]] = []
+    for token in tokens:
+        if token.isdigit():
+            key.append((0, int(token)))
+        elif token.isalpha():
+            key.append((1, token))
+        else:
+            key.append((2, token))
+    return tuple(key) or ((3, ""),)
+
+
+def historical_issue_sort_key(
+    item: "HistoricalIssue",
+) -> tuple[int, tuple[tuple[int, object], ...], tuple[tuple[int, object], ...], str]:
+    return (
+        item.year,
+        natural_issue_key(item.volume),
+        natural_issue_key(item.issue),
+        item.official_url,
+    )
+
+
 @dataclass(frozen=True)
 class HistoricalIssue:
     journal: str
@@ -120,10 +154,7 @@ def parse_archive(
                 url=href.split("?", 1)[0].split("#", 1)[0],
                 allowed_host=allowed_host,
             )
-    return sorted(
-        found.values(),
-        key=lambda item: (item.year, int(item.volume), int(item.issue)),
-    )
+    return sorted(found.values(), key=historical_issue_sort_key)
 
 
 def _item_year(item: dict) -> int:
@@ -215,7 +246,7 @@ def discover_crossref_issues(
                 url=url,
                 allowed_host=urlparse(url).hostname or "",
             )
-    return sorted(issues.values(), key=lambda item: (item.year, int(item.volume), item.issue))
+    return sorted(issues.values(), key=historical_issue_sort_key)
 
 
 def discover_official_issues(
@@ -255,10 +286,7 @@ def discover_official_issues(
                     url=url,
                     allowed_host=definition["allowed_host"],
                 )
-        return sorted(
-            found.values(),
-            key=lambda item: (item.year, int(item.volume), int(item.issue)),
-        )
+        return sorted(found.values(), key=historical_issue_sort_key)
     archive_template = definition.get("archive_url_template")
     archive_urls = (
         [archive_template.format(year=year) for year in year_values]
@@ -275,7 +303,4 @@ def discover_official_issues(
             allowed_host=definition["allowed_host"],
         ):
             found[issue.issue_id] = issue
-    return sorted(
-        found.values(),
-        key=lambda item: (item.year, int(item.volume), int(item.issue)),
-    )
+    return sorted(found.values(), key=historical_issue_sort_key)

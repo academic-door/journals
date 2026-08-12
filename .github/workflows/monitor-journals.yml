@@ -75,6 +75,19 @@ jobs:
               )
           PY
 
+      - name: Snapshot data publication baseline
+        shell: bash
+        run: |
+          python scripts/publish_data_delta.py snapshot \
+            --root . \
+            --output "$RUNNER_TEMP/data-baseline" \
+            --path public/api/v1/journals \
+            --path public/api/v1/monitoring.json \
+            --path data/translation-cache \
+            --path data/monitoring/state.json \
+            --path data/monitoring/email-notifications.json \
+            --exclude 'public/api/v1/journals/*/issues/index.json'
+
       - name: Detect changes and update confirmed journals
         id: monitor
         env:
@@ -139,44 +152,111 @@ jobs:
 
       - name: Publish data and monitoring state
         id: publish
+        env:
+          STRICT_HISTORY_COVERAGE_ENABLED: ${{ vars.STRICT_HISTORY_COVERAGE_ENABLED }}
         shell: bash
         run: |
           set -euo pipefail
-          generated="$RUNNER_TEMP/generated-public"
-          generated_cache="$RUNNER_TEMP/generated-translation-cache"
-          generated_state="$RUNNER_TEMP/monitor-state.json"
+          baseline="$RUNNER_TEMP/data-baseline"
+          generated="$RUNNER_TEMP/generated-data"
           data_tree="$RUNNER_TEMP/data-tree"
-          mkdir -p "$generated/api" "$generated_cache"
-          cp -R public/api/. "$generated/api/"
-          cp public/project-manifest.json "$generated/project-manifest.json"
-          [ ! -f public/backfill-status.md ] || cp public/backfill-status.md "$generated/backfill-status.md"
-          cp -R data/translation-cache/. "$generated_cache/"
-          cp data/monitoring/state.json "$generated_state"
+          python scripts/publish_data_delta.py snapshot \
+            --root . \
+            --output "$generated" \
+            --path public/api/v1/journals \
+            --path public/api/v1/monitoring.json \
+            --path data/translation-cache \
+            --path data/monitoring/state.json \
+            --exclude 'public/api/v1/journals/*/issues/index.json'
 
-          git fetch origin data
-          git worktree add "$data_tree" origin/data
-          cd "$data_tree"
-          git switch -C data
-          rm -rf public/api data/translation-cache
-          mkdir -p public/api data/translation-cache data/monitoring
-          cp -R "$generated/api"/. public/api/
-          cp "$generated/project-manifest.json" public/project-manifest.json
-          [ ! -f "$generated/backfill-status.md" ] || cp "$generated/backfill-status.md" public/backfill-status.md
-          cp -R "$generated_cache"/. data/translation-cache/
-          cp "$generated_state" data/monitoring/state.json
-          git rm -f --ignore-unmatch public/search.js
-          git config user.name "academic-door-bot"
-          git config user.email "academic-door-bot@users.noreply.github.com"
-          git add -A public/api data/translation-cache
-          git add public/project-manifest.json
-          [ ! -f public/backfill-status.md ] || git add public/backfill-status.md
-          git add -f data/monitoring/state.json
-          if git diff --cached --quiet; then
-            echo "No journal or monitor-state changes."
-            exit 0
-          fi
-          git commit -m "Monitor journal updates"
-          git push origin HEAD:data
+          for attempt in 1 2 3 4 5; do
+            if ! git fetch origin data; then
+              sleep $((attempt * 10))
+              continue
+            fi
+            git worktree remove --force "$data_tree" 2>/dev/null || true
+            rm -rf "$data_tree"
+            git worktree add "$data_tree" origin/data
+            git -C "$data_tree" switch -C data
+            if ! python scripts/publish_data_delta.py apply \
+              --baseline "$baseline" \
+              --generated "$generated" \
+              --target "$data_tree" \
+              --path public/api/v1/journals \
+              --path public/api/v1/monitoring.json \
+              --path data/translation-cache \
+              --path data/monitoring/state.json \
+              --exclude 'public/api/v1/journals/*/issues/index.json'; then
+              sleep $((attempt * 10))
+              continue
+            fi
+
+            # Rebuild all derived outputs from the freshly merged source tree.
+            rm -rf "$GITHUB_WORKSPACE/public/api"
+            mkdir -p "$GITHUB_WORKSPACE/public"
+            cp -R "$data_tree/public/api" "$GITHUB_WORKSPACE/public/api"
+            python scripts/rebuild_public_snapshot.py
+            python scripts/publish_data_delta.py rebuild-archive-indexes \
+              --root "$GITHUB_WORKSPACE"
+            state_args=()
+            for state in \
+              data/backfill-state/field-2023-2024.json \
+              data/backfill-state/field-2025-2026.json; do
+              if [ -f "$data_tree/$state" ]; then
+                state_args+=(--state "$data_tree/$state")
+              fi
+            done
+            if [ "${#state_args[@]}" -gt 0 ]; then
+              python scripts/backfill_status.py \
+                "${state_args[@]}" \
+                --api-root public/api/v1 \
+                --out-json public/api/v1/backfill-status.json \
+                --out-md public/backfill-status.md
+            fi
+            python scripts/audit_source_alignment.py --strict
+            if [ -f scripts/audit_history_coverage.py ] && [ "${#state_args[@]}" -gt 0 ]; then
+              history_flags=()
+              if [ "${STRICT_HISTORY_COVERAGE_ENABLED:-false}" = "true" ]; then
+                history_flags+=(--strict)
+              fi
+              python scripts/audit_history_coverage.py \
+                "${state_args[@]}" \
+                --api-root public/api/v1 \
+                --report-json "$RUNNER_TEMP/history-coverage.json" \
+                "${history_flags[@]}"
+            fi
+            python scripts/rebuild_public_snapshot.py --check
+            python scripts/audit_public_data.py --strict-provenance
+            python scripts/audit_privacy.py
+            mkdir -p "$data_tree/public/api"
+            cp -R "$GITHUB_WORKSPACE/public/api/." "$data_tree/public/api/"
+            cp "$GITHUB_WORKSPACE/public/project-manifest.json" \
+              "$data_tree/public/project-manifest.json"
+            if [ -f "$GITHUB_WORKSPACE/public/backfill-status.md" ]; then
+              cp "$GITHUB_WORKSPACE/public/backfill-status.md" \
+                "$data_tree/public/backfill-status.md"
+            fi
+
+            git -C "$data_tree" rm -f --ignore-unmatch public/search.js
+            git -C "$data_tree" config user.name "academic-door-bot"
+            git -C "$data_tree" config user.email "academic-door-bot@users.noreply.github.com"
+            git -C "$data_tree" add -A public/api data/translation-cache
+            git -C "$data_tree" add public/project-manifest.json
+            [ ! -f "$data_tree/public/backfill-status.md" ] || git -C "$data_tree" add public/backfill-status.md
+            git -C "$data_tree" add -f data/monitoring/state.json
+            if git -C "$data_tree" diff --cached --quiet; then
+              echo "No journal or monitor-state changes."
+              exit 0
+            fi
+            git -C "$data_tree" commit -m "Monitor journal updates"
+            if git -C "$data_tree" push origin HEAD:data; then
+              exit 0
+            fi
+            echo "Data changed during publish; refetching and reapplying the delta."
+            sleep $((attempt * 10))
+          done
+          echo "Failed to publish the validated monitor delta after five attempts."
+          exit 1
 
       - name: Sync audited issues to private Composer
         id: composer
@@ -245,21 +325,45 @@ jobs:
             echo "No email notification state was produced."
             exit 0
           fi
-          state_copy="$RUNNER_TEMP/email-notifications.json"
-          data_tree="$RUNNER_TEMP/data-tree"
-          cp "$state" "$state_copy"
-          cd "$data_tree"
-          mkdir -p data/monitoring
-          cp "$state_copy" data/monitoring/email-notifications.json
-          git config user.name "academic-door-bot"
-          git config user.email "academic-door-bot@users.noreply.github.com"
-          git add -f data/monitoring/email-notifications.json
-          if git diff --cached --quiet; then
-            echo "Email notification state is unchanged."
-            exit 0
-          fi
-          git commit -m "Update journal email notification state"
-          git push origin HEAD:data
+          baseline="$RUNNER_TEMP/data-baseline"
+          generated="$RUNNER_TEMP/email-state-generated"
+          data_tree="$RUNNER_TEMP/email-state-data-tree"
+          python scripts/publish_data_delta.py snapshot \
+            --root . \
+            --output "$generated" \
+            --path data/monitoring/email-notifications.json
+          for attempt in 1 2 3 4 5; do
+            if ! git fetch origin data; then
+              sleep $((attempt * 10))
+              continue
+            fi
+            git worktree remove --force "$data_tree" 2>/dev/null || true
+            rm -rf "$data_tree"
+            git worktree add "$data_tree" origin/data
+            git -C "$data_tree" switch -C data
+            if ! python scripts/publish_data_delta.py apply \
+              --baseline "$baseline" \
+              --generated "$generated" \
+              --target "$data_tree" \
+              --path data/monitoring/email-notifications.json; then
+              sleep $((attempt * 10))
+              continue
+            fi
+            git -C "$data_tree" config user.name "academic-door-bot"
+            git -C "$data_tree" config user.email "academic-door-bot@users.noreply.github.com"
+            git -C "$data_tree" add -f data/monitoring/email-notifications.json
+            if git -C "$data_tree" diff --cached --quiet; then
+              echo "Email notification state is unchanged."
+              exit 0
+            fi
+            git -C "$data_tree" commit -m "Update journal email notification state"
+            if git -C "$data_tree" push origin HEAD:data; then
+              exit 0
+            fi
+            sleep $((attempt * 10))
+          done
+          echo "Failed to persist email notification state after five attempts."
+          exit 1
 
       - name: Open or close private email failure alert
         if: always() && steps.publish.outcome == 'success'

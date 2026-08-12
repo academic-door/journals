@@ -22,6 +22,29 @@ from scripts.update_journals import (
     write_json,
 )
 
+READINESS_FIELDS = ("content_status", "source_status", "publication_state")
+
+
+def snapshot_requires_normalization(
+    original: dict[str, Any],
+    normalized: dict[str, Any],
+) -> bool:
+    """Compare snapshots while allowing the one-time additive 1.0 migration.
+
+    Main keeps a last-known-good static fallback while live data is owned by
+    the data branch.  A code PR must therefore remain testable before the data
+    publisher stamps the three new readiness fields.  Once any readiness
+    field exists, all derived values are checked normally.
+    """
+
+    if not all(field in original for field in READINESS_FIELDS):
+        original = copy.deepcopy(original)
+        normalized = copy.deepcopy(normalized)
+        for field in READINESS_FIELDS:
+            original.pop(field, None)
+            normalized.pop(field, None)
+    return normalized != original
+
 
 def load_normalized_issues() -> tuple[
     dict[str, dict[str, Any]],
@@ -42,7 +65,7 @@ def load_normalized_issues() -> tuple[
             continue
         normalized = normalize_issue_content(copy.deepcopy(issue))
         validate_issue(normalized)
-        if normalized != issue:
+        if snapshot_requires_normalization(issue, normalized):
             changed.append(journal["id"])
         issues[key] = normalized
     return issues, changed, missing

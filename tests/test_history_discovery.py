@@ -3,10 +3,26 @@ from __future__ import annotations
 import unittest
 from pathlib import Path
 
-from collectors.history import discover_official_issues, parse_archive
+from collectors.history import (
+    HistoricalIssue,
+    discover_official_issues,
+    historical_issue_sort_key,
+    parse_archive,
+)
 
 
 class HistoryDiscoveryTests(unittest.TestCase):
+    def test_numeric_issue_order_keeps_supplements_stable(self) -> None:
+        labels = ["1", "10", "11", "12", "2", "3", "S1", "S2"]
+        issues = [
+            HistoricalIssue("AER", 2024, "114", label, f"https://example/{label}")
+            for label in labels
+        ]
+        self.assertEqual(
+            ["1", "2", "3", "10", "11", "12", "S1", "S2"],
+            [item.issue for item in sorted(issues, key=historical_issue_sort_key)],
+        )
+
     def test_discovers_aer_official_issue_links_and_filters_years(self) -> None:
         content = b"""
         <a href="/issues/828">December 2025 (Vol. 115, No. 12)</a>
@@ -116,6 +132,49 @@ class HistoryDiscoveryTests(unittest.TestCase):
         self.assertIn("qe-14-1", ids)
         self.assertIn("qe-15-4", ids)
         self.assertEqual(8, len(ids))
+
+    def test_aer_and_jpe_2024_use_complete_official_discovery(self) -> None:
+        import yaml
+
+        config = yaml.safe_load(
+            (Path(__file__).resolve().parents[1] / "config/field-history.yml").read_text(
+                encoding="utf-8"
+            )
+        )["journals"]
+        aer = config["AER"]
+        self.assertEqual("aea", aer["platform"])
+        self.assertEqual(
+            "https://www.aeaweb.org/journals/aer/issues",
+            aer["archive_url"],
+        )
+        aer_archive = "".join(
+            f'<a href="/issues/{700 + number}">Month 2024 '
+            f'(Vol. 114, No. {number})</a>'
+            for number in range(1, 13)
+        ).encode()
+        aer_issues = parse_archive(
+            aer_archive,
+            aer["archive_url"],
+            journal="AER",
+            platform="aea",
+            years=[2024],
+            allowed_host=aer["allowed_host"],
+        )
+        self.assertEqual(
+            [f"aer-114-{number}" for number in range(1, 13)],
+            [item.issue_id for item in aer_issues],
+        )
+
+        jpe = config["JPE"]
+        self.assertEqual("year_ranges", jpe["platform"])
+        jpe_issues = discover_official_issues("JPE", jpe, years=[2024])
+        self.assertEqual(
+            [f"jpe-132-{number}" for number in range(1, 13)],
+            [item.issue_id for item in jpe_issues],
+        )
+        self.assertTrue(
+            all(jpe["allowed_host"] in item.official_url for item in jpe_issues)
+        )
 
 
 

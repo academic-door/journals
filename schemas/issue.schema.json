@@ -70,7 +70,24 @@
     "publication_state": {
       "enum": [
         "enriching",
-        "ready"
+        "ready",
+        "source_pending",
+        "translation_partial",
+        "blocked"
+      ]
+    },
+    "content_status": {
+      "enum": [
+        "complete",
+        "translation_partial",
+        "blocked"
+      ]
+    },
+    "source_status": {
+      "enum": [
+        "official_verified",
+        "publisher_verified",
+        "source_pending"
       ]
     },
     "development_sample": {

@@ -30,6 +30,17 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Switch to activity branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git ls-remote --exit-code origin refs/heads/activity >/dev/null 2>&1; then
+            git fetch origin activity
+            git switch -C activity origin/activity
+          else
+            git switch -c activity
+          fi
+
       - name: Append transparent check-in record
         shell: bash
         run: |
@@ -89,4 +100,4 @@ jobs:
 
           git add "$log_file"
           git commit -F commit-message.txt
-          git push
+          git push origin HEAD:activity
