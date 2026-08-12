@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "issues": {
     "jpe-132-1": {
       "journal": "JPE",
@@ -17,9 +17,12 @@
       "volume": "132",
       "issue": "10",
       "official_url": "https://www.journals.uchicago.edu/toc/jpe/2024/132/10",
-      "status": "complete",
+      "status": "ready",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "jpe-132-11": {
       "journal": "JPE",
@@ -27,9 +30,12 @@
       "volume": "132",
       "issue": "11",
       "official_url": "https://www.journals.uchicago.edu/toc/jpe/2024/132/11",
-      "status": "complete",
+      "status": "ready",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "jpe-132-12": {
       "journal": "JPE",
@@ -37,9 +43,12 @@
       "volume": "132",
       "issue": "12",
       "official_url": "https://www.journals.uchicago.edu/toc/jpe/2024/132/12",
-      "status": "complete",
+      "status": "ready",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "jpe-132-2": {
       "journal": "JPE",
@@ -67,9 +76,12 @@
       "volume": "114",
       "issue": "1",
       "official_url": "https://www.aeaweb.org/journals/aer/issue/114/1",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aer-114-10": {
       "journal": "AER",
@@ -77,9 +89,12 @@
       "volume": "114",
       "issue": "10",
       "official_url": "https://www.aeaweb.org/journals/aer/issue/114/10",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aer-114-11": {
       "journal": "AER",
@@ -87,9 +102,12 @@
       "volume": "114",
       "issue": "11",
       "official_url": "https://www.aeaweb.org/journals/aer/issue/114/11",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aer-114-12": {
       "journal": "AER",
@@ -97,9 +115,12 @@
       "volume": "114",
       "issue": "12",
       "official_url": "https://www.aeaweb.org/journals/aer/issue/114/12",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aer-114-2": {
       "journal": "AER",
@@ -107,9 +128,12 @@
       "volume": "114",
       "issue": "2",
       "official_url": "https://www.aeaweb.org/journals/aer/issue/114/2",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aer-114-3": {
       "journal": "AER",
@@ -117,9 +141,12 @@
       "volume": "114",
       "issue": "3",
       "official_url": "https://www.aeaweb.org/journals/aer/issue/114/3",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "jde-166-c": {
       "journal": "JDE",
@@ -127,10 +154,12 @@
       "volume": "166",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/166/suppl/C",
-      "status": "translation_partial",
-      "last_error": "",
-      "retry_class": "translation",
-      "next_retry_at": "2026-08-09T17:39:08+00:00"
+      "status": "blocked",
+      "last_error": "archive_missing",
+      "retry_class": "transient",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "jde-167-c": {
       "journal": "JDE",
@@ -138,9 +167,12 @@
       "volume": "167",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/167/suppl/C",
-      "status": "complete",
+      "status": "ready",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "jde-168-c": {
       "journal": "JDE",
@@ -148,9 +180,12 @@
       "volume": "168",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/168/suppl/C",
-      "status": "complete",
+      "status": "ready",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "jde-169-c": {
       "journal": "JDE",
@@ -158,10 +193,12 @@
       "volume": "169",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/169/suppl/C",
-      "status": "translation_partial",
-      "last_error": "",
-      "retry_class": "translation",
-      "next_retry_at": "2026-08-09T17:41:17+00:00"
+      "status": "blocked",
+      "last_error": "archive_missing",
+      "retry_class": "transient",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "aejapp-15-1": {
       "journal": "AEJAPP",
@@ -169,9 +206,12 @@
       "volume": "15",
       "issue": "1",
       "official_url": "https://www.aeaweb.org/journals/app/issue/15/1",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aejapp-15-2": {
       "journal": "AEJAPP",
@@ -179,9 +219,12 @@
       "volume": "15",
       "issue": "2",
       "official_url": "https://www.aeaweb.org/journals/app/issue/15/2",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aejapp-15-3": {
       "journal": "AEJAPP",
@@ -189,9 +232,12 @@
       "volume": "15",
       "issue": "3",
       "official_url": "https://www.aeaweb.org/journals/app/issue/15/3",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aejapp-15-4": {
       "journal": "AEJAPP",
@@ -199,9 +245,12 @@
       "volume": "15",
       "issue": "4",
       "official_url": "https://www.aeaweb.org/journals/app/issue/15/4",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aejapp-16-1": {
       "journal": "AEJAPP",
@@ -209,9 +258,12 @@
       "volume": "16",
       "issue": "1",
       "official_url": "https://www.aeaweb.org/journals/app/issue/16/1",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aejapp-16-2": {
       "journal": "AEJAPP",
@@ -219,10 +271,12 @@
       "volume": "16",
       "issue": "2",
       "official_url": "https://www.aeaweb.org/journals/app/issue/16/2",
-      "status": "translation_partial",
-      "last_error": "",
-      "retry_class": "translation",
-      "next_retry_at": "2026-08-09T17:50:58+00:00"
+      "status": "blocked",
+      "last_error": "archive_missing",
+      "retry_class": "transient",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "aejmacro-15-1": {
       "journal": "AEJMACRO",
@@ -230,9 +284,12 @@
       "volume": "15",
       "issue": "1",
       "official_url": "https://www.aeaweb.org/journals/macro/issue/15/1",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aejmacro-15-2": {
       "journal": "AEJMACRO",
@@ -240,9 +297,12 @@
       "volume": "15",
       "issue": "2",
       "official_url": "https://www.aeaweb.org/journals/macro/issue/15/2",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aejmacro-15-3": {
       "journal": "AEJMACRO",
@@ -250,9 +310,12 @@
       "volume": "15",
       "issue": "3",
       "official_url": "https://www.aeaweb.org/journals/macro/issue/15/3",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aejmacro-15-4": {
       "journal": "AEJMACRO",
@@ -260,9 +323,12 @@
       "volume": "15",
       "issue": "4",
       "official_url": "https://www.aeaweb.org/journals/macro/issue/15/4",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aejmacro-16-1": {
       "journal": "AEJMACRO",
@@ -270,9 +336,12 @@
       "volume": "16",
       "issue": "1",
       "official_url": "https://www.aeaweb.org/journals/macro/issue/16/1",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aejmacro-16-2": {
       "journal": "AEJMACRO",
@@ -280,9 +349,12 @@
       "volume": "16",
       "issue": "2",
       "official_url": "https://www.aeaweb.org/journals/macro/issue/16/2",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aejmicro-15-1": {
       "journal": "AEJMICRO",
@@ -290,9 +362,12 @@
       "volume": "15",
       "issue": "1",
       "official_url": "https://www.aeaweb.org/journals/mic/issue/15/1",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aejmicro-15-2": {
       "journal": "AEJMICRO",
@@ -300,9 +375,12 @@
       "volume": "15",
       "issue": "2",
       "official_url": "https://www.aeaweb.org/journals/mic/issue/15/2",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aejmicro-15-3": {
       "journal": "AEJMICRO",
@@ -310,9 +388,12 @@
       "volume": "15",
       "issue": "3",
       "official_url": "https://www.aeaweb.org/journals/mic/issue/15/3",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aejmicro-15-4": {
       "journal": "AEJMICRO",
@@ -320,9 +401,12 @@
       "volume": "15",
       "issue": "4",
       "official_url": "https://www.aeaweb.org/journals/mic/issue/15/4",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aejmicro-16-1": {
       "journal": "AEJMICRO",
@@ -330,9 +414,12 @@
       "volume": "16",
       "issue": "1",
       "official_url": "https://www.aeaweb.org/journals/mic/issue/16/1",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aejmicro-16-2": {
       "journal": "AEJMICRO",
@@ -340,10 +427,12 @@
       "volume": "16",
       "issue": "2",
       "official_url": "https://www.aeaweb.org/journals/mic/issue/16/2",
-      "status": "translation_partial",
-      "last_error": "",
-      "retry_class": "translation",
-      "next_retry_at": "2026-08-09T17:57:26+00:00"
+      "status": "blocked",
+      "last_error": "archive_missing",
+      "retry_class": "transient",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "aejpol-15-1": {
       "journal": "AEJPOL",
@@ -351,9 +440,12 @@
       "volume": "15",
       "issue": "1",
       "official_url": "https://www.aeaweb.org/journals/pol/issue/15/1",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aejpol-15-2": {
       "journal": "AEJPOL",
@@ -361,9 +453,12 @@
       "volume": "15",
       "issue": "2",
       "official_url": "https://www.aeaweb.org/journals/pol/issue/15/2",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aejpol-15-3": {
       "journal": "AEJPOL",
@@ -371,9 +466,12 @@
       "volume": "15",
       "issue": "3",
       "official_url": "https://www.aeaweb.org/journals/pol/issue/15/3",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aejpol-15-4": {
       "journal": "AEJPOL",
@@ -381,9 +479,12 @@
       "volume": "15",
       "issue": "4",
       "official_url": "https://www.aeaweb.org/journals/pol/issue/15/4",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aejpol-16-1": {
       "journal": "AEJPOL",
@@ -391,9 +492,12 @@
       "volume": "16",
       "issue": "1",
       "official_url": "https://www.aeaweb.org/journals/pol/issue/16/1",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aeri-5-1": {
       "journal": "AERI",
@@ -401,9 +505,12 @@
       "volume": "5",
       "issue": "1",
       "official_url": "https://www.aeaweb.org/journals/aeri/issue/5/1",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aeri-5-2": {
       "journal": "AERI",
@@ -411,9 +518,12 @@
       "volume": "5",
       "issue": "2",
       "official_url": "https://www.aeaweb.org/journals/aeri/issue/5/2",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aeri-5-3": {
       "journal": "AERI",
@@ -421,9 +531,12 @@
       "volume": "5",
       "issue": "3",
       "official_url": "https://www.aeaweb.org/journals/aeri/issue/5/3",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aeri-5-4": {
       "journal": "AERI",
@@ -431,9 +544,12 @@
       "volume": "5",
       "issue": "4",
       "official_url": "https://www.aeaweb.org/journals/aeri/issue/5/4",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aeri-6-1": {
       "journal": "AERI",
@@ -441,9 +557,12 @@
       "volume": "6",
       "issue": "1",
       "official_url": "https://www.aeaweb.org/journals/aeri/issue/6/1",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "aeri-6-2": {
       "journal": "AERI",
@@ -451,9 +570,12 @@
       "volume": "6",
       "issue": "2",
       "official_url": "https://www.aeaweb.org/journals/aeri/issue/6/2",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "ajae-105-1": {
       "journal": "AJAE",
@@ -461,9 +583,12 @@
       "volume": "105",
       "issue": "1",
       "official_url": "https://onlinelibrary.wiley.com/toc/14678276/2023/105/1",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "ajae-105-2": {
       "journal": "AJAE",
@@ -471,9 +596,12 @@
       "volume": "105",
       "issue": "2",
       "official_url": "https://onlinelibrary.wiley.com/toc/14678276/2023/105/2",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "ajae-105-3": {
       "journal": "AJAE",
@@ -481,9 +609,12 @@
       "volume": "105",
       "issue": "3",
       "official_url": "https://onlinelibrary.wiley.com/toc/14678276/2023/105/3",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "ajae-105-4": {
       "journal": "AJAE",
@@ -491,9 +622,12 @@
       "volume": "105",
       "issue": "4",
       "official_url": "https://onlinelibrary.wiley.com/toc/14678276/2023/105/4",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "ajae-105-5": {
       "journal": "AJAE",
@@ -501,9 +635,12 @@
       "volume": "105",
       "issue": "5",
       "official_url": "https://onlinelibrary.wiley.com/toc/14678276/2023/105/5",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "ajae-106-1": {
       "journal": "AJAE",
@@ -511,9 +648,12 @@
       "volume": "106",
       "issue": "1",
       "official_url": "https://onlinelibrary.wiley.com/toc/14678276/2024/106/1",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "cer-77-c": {
       "journal": "CER",
@@ -521,9 +661,12 @@
       "volume": "77",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/china-economic-review/vol/77/suppl/C",
-      "status": "complete",
+      "status": "ready",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "cer-78-c": {
       "journal": "CER",
@@ -531,9 +674,12 @@
       "volume": "78",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/china-economic-review/vol/78/suppl/C",
-      "status": "complete",
+      "status": "ready",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "cer-79-c": {
       "journal": "CER",
@@ -541,9 +687,12 @@
       "volume": "79",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/china-economic-review/vol/79/suppl/C",
-      "status": "complete",
+      "status": "ready",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "cer-80-c": {
       "journal": "CER",
@@ -551,9 +700,12 @@
       "volume": "80",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "cer-81-c": {
       "journal": "CER",
@@ -561,10 +713,12 @@
       "volume": "81",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/china-economic-review/vol/81/suppl/C",
-      "status": "translation_partial",
-      "last_error": "",
-      "retry_class": "translation",
-      "next_retry_at": "2026-08-10T05:15:51+00:00"
+      "status": "blocked",
+      "last_error": "archive_missing",
+      "retry_class": "transient",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "ecolecon-203-c": {
       "journal": "ECOLECON",
@@ -572,9 +726,12 @@
       "volume": "203",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/ecological-economics/vol/203/suppl/C",
-      "status": "complete",
+      "status": "ready",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "ecolecon-204-c": {
       "journal": "ECOLECON",
@@ -592,10 +749,12 @@
       "volume": "205",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/ecological-economics/vol/205/suppl/C",
-      "status": "translation_partial",
-      "last_error": "",
-      "retry_class": "translation",
-      "next_retry_at": "2026-08-10T05:20:11+00:00"
+      "status": "blocked",
+      "last_error": "archive_missing",
+      "retry_class": "transient",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "ecolecon-206-c": {
       "journal": "ECOLECON",
@@ -603,9 +762,12 @@
       "volume": "206",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/ecological-economics/vol/206/suppl/C",
-      "status": "complete",
+      "status": "ready",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "ecolecon-207-c": {
       "journal": "ECOLECON",
@@ -613,9 +775,12 @@
       "volume": "207",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/ecological-economics/vol/207/suppl/C",
-      "status": "complete",
+      "status": "ready",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "ecolecon-208-c": {
       "journal": "ECOLECON",
@@ -623,10 +788,12 @@
       "volume": "208",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/ecological-economics/vol/208/suppl/C",
-      "status": "translation_partial",
-      "last_error": "",
-      "retry_class": "translation",
-      "next_retry_at": "2026-08-10T05:22:19+00:00"
+      "status": "blocked",
+      "last_error": "archive_missing",
+      "retry_class": "transient",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "ecta-91-1": {
       "journal": "ECTA",
@@ -634,9 +801,12 @@
       "volume": "91",
       "issue": "1",
       "official_url": "https://onlinelibrary.wiley.com/toc/14680262/2023/91/1",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "ecta-91-2": {
       "journal": "ECTA",
@@ -644,10 +814,12 @@
       "volume": "91",
       "issue": "2",
       "official_url": "https://onlinelibrary.wiley.com/toc/14680262/2023/91/2",
-      "status": "translation_partial",
-      "last_error": "",
-      "retry_class": "translation",
-      "next_retry_at": "2026-08-11T05:10:39+00:00"
+      "status": "blocked",
+      "last_error": "archive_missing",
+      "retry_class": "transient",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "ecta-91-3": {
       "journal": "ECTA",
@@ -655,10 +827,12 @@
       "volume": "91",
       "issue": "3",
       "official_url": "https://onlinelibrary.wiley.com/toc/14680262/2023/91/3",
-      "status": "translation_partial",
-      "last_error": "",
-      "retry_class": "translation",
-      "next_retry_at": "2026-08-11T05:11:04+00:00"
+      "status": "blocked",
+      "last_error": "archive_missing",
+      "retry_class": "transient",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "ecta-91-4": {
       "journal": "ECTA",
@@ -666,9 +840,12 @@
       "volume": "91",
       "issue": "4",
       "official_url": "https://onlinelibrary.wiley.com/toc/14680262/2023/91/4",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "ecta-91-5": {
       "journal": "ECTA",
@@ -676,9 +853,12 @@
       "volume": "91",
       "issue": "5",
       "official_url": "https://onlinelibrary.wiley.com/toc/14680262/2023/91/5",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "ecta-91-6": {
       "journal": "ECTA",
@@ -686,9 +866,12 @@
       "volume": "91",
       "issue": "6",
       "official_url": "https://onlinelibrary.wiley.com/toc/14680262/2023/91/6",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "eer-151-c": {
       "journal": "EER",
@@ -696,9 +879,12 @@
       "volume": "151",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/european-economic-review/vol/151/suppl/C",
-      "status": "complete",
+      "status": "ready",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "eer-152-c": {
       "journal": "EER",
@@ -706,9 +892,12 @@
       "volume": "152",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/european-economic-review/vol/152/suppl/C",
-      "status": "complete",
+      "status": "ready",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "eer-153-c": {
       "journal": "EER",
@@ -716,9 +905,12 @@
       "volume": "153",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/european-economic-review/vol/153/suppl/C",
-      "status": "complete",
+      "status": "ready",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "eer-154-c": {
       "journal": "EER",
@@ -726,10 +918,12 @@
       "volume": "154",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/european-economic-review/vol/154/suppl/C",
-      "status": "translation_partial",
-      "last_error": "",
-      "retry_class": "translation",
-      "next_retry_at": "2026-08-11T05:18:08+00:00"
+      "status": "blocked",
+      "last_error": "archive_missing",
+      "retry_class": "transient",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "ej-133-650": {
       "journal": "EJ",
@@ -737,9 +931,12 @@
       "volume": "133",
       "issue": "650",
       "official_url": "https://academic.oup.com/ej/issue/133/650",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "ej-133-651": {
       "journal": "EJ",
@@ -747,9 +944,12 @@
       "volume": "133",
       "issue": "651",
       "official_url": "https://academic.oup.com/ej/issue/133/651",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "ej-133-652": {
       "journal": "EJ",
@@ -757,9 +957,12 @@
       "volume": "133",
       "issue": "652",
       "official_url": "https://academic.oup.com/ej/issue/133/652",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "ej-133-653": {
       "journal": "EJ",
@@ -767,9 +970,12 @@
       "volume": "133",
       "issue": "653",
       "official_url": "https://academic.oup.com/ej/issue/133/653",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "ej-133-654": {
       "journal": "EJ",
@@ -777,9 +983,12 @@
       "volume": "133",
       "issue": "654",
       "official_url": "https://academic.oup.com/ej/issue/133/654",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "ej-133-655": {
       "journal": "EJ",
@@ -787,9 +996,12 @@
       "volume": "133",
       "issue": "655",
       "official_url": "https://academic.oup.com/ej/issue/133/655",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "energy-117-c": {
       "journal": "ENERGY",
@@ -797,9 +1009,12 @@
       "volume": "117",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/energy-economics/vol/117/suppl/C",
-      "status": "complete",
+      "status": "ready",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "energy-118-c": {
       "journal": "ENERGY",
@@ -807,9 +1022,12 @@
       "volume": "118",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/energy-economics/vol/118/suppl/C",
-      "status": "complete",
+      "status": "ready",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "energy-119-c": {
       "journal": "ENERGY",
@@ -817,10 +1035,12 @@
       "volume": "119",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/energy-economics/vol/119/suppl/C",
-      "status": "translation_partial",
-      "last_error": "",
-      "retry_class": "translation",
-      "next_retry_at": "2026-08-11T05:26:04+00:00"
+      "status": "blocked",
+      "last_error": "archive_missing",
+      "retry_class": "transient",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "ere-84-1": {
       "journal": "ERE",
@@ -828,10 +1048,12 @@
       "volume": "84",
       "issue": "1",
       "official_url": "https://link.springer.com/journal/10640/volumes-and-issues",
-      "status": "translation_partial",
-      "last_error": "",
-      "retry_class": "translation",
-      "next_retry_at": "2026-08-12T05:22:07+00:00"
+      "status": "blocked",
+      "last_error": "archive_missing",
+      "retry_class": "transient",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "ere-84-2": {
       "journal": "ERE",
@@ -839,10 +1061,12 @@
       "volume": "84",
       "issue": "2",
       "official_url": "https://link.springer.com/journal/10640/volumes-and-issues",
-      "status": "translation_partial",
-      "last_error": "",
-      "retry_class": "translation",
-      "next_retry_at": "2026-08-12T05:22:23+00:00"
+      "status": "blocked",
+      "last_error": "archive_missing",
+      "retry_class": "transient",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "ere-84-3": {
       "journal": "ERE",
@@ -850,10 +1074,12 @@
       "volume": "84",
       "issue": "3",
       "official_url": "https://link.springer.com/journal/10640/volumes-and-issues",
-      "status": "translation_partial",
-      "last_error": "",
-      "retry_class": "translation",
-      "next_retry_at": "2026-08-12T05:22:37+00:00"
+      "status": "blocked",
+      "last_error": "archive_missing",
+      "retry_class": "transient",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "ere-84-4": {
       "journal": "ERE",
@@ -861,10 +1087,12 @@
       "volume": "84",
       "issue": "4",
       "official_url": "https://link.springer.com/journal/10640/volumes-and-issues",
-      "status": "translation_partial",
-      "last_error": "",
-      "retry_class": "translation",
-      "next_retry_at": "2026-08-12T05:23:18+00:00"
+      "status": "blocked",
+      "last_error": "archive_missing",
+      "retry_class": "transient",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "ere-85-1": {
       "journal": "ERE",
@@ -872,10 +1100,12 @@
       "volume": "85",
       "issue": "1",
       "official_url": "https://link.springer.com/journal/10640/volumes-and-issues",
-      "status": "translation_partial",
-      "last_error": "",
-      "retry_class": "translation",
-      "next_retry_at": "2026-08-12T05:24:04+00:00"
+      "status": "blocked",
+      "last_error": "archive_missing",
+      "retry_class": "transient",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "ere-85-2": {
       "journal": "ERE",
@@ -883,10 +1113,12 @@
       "volume": "85",
       "issue": "2",
       "official_url": "https://link.springer.com/journal/10640/volumes-and-issues",
-      "status": "translation_partial",
-      "last_error": "",
-      "retry_class": "translation",
-      "next_retry_at": "2026-08-12T05:24:10+00:00"
+      "status": "blocked",
+      "last_error": "archive_missing",
+      "retry_class": "transient",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "foodpolicy-114-c": {
       "journal": "FOODPOLICY",
@@ -894,9 +1126,12 @@
       "volume": "114",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/food-policy/vol/114/suppl/C",
-      "status": "complete",
+      "status": "ready",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "foodpolicy-115-c": {
       "journal": "FOODPOLICY",
@@ -904,9 +1139,12 @@
       "volume": "115",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/food-policy/vol/115/suppl/C",
-      "status": "complete",
+      "status": "ready",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "foodpolicy-116-c": {
       "journal": "FOODPOLICY",
@@ -914,9 +1152,12 @@
       "volume": "116",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/food-policy/vol/116/suppl/C",
-      "status": "complete",
+      "status": "ready",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "foodpolicy-117-c": {
       "journal": "FOODPOLICY",
@@ -924,9 +1165,12 @@
       "volume": "117",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/food-policy/vol/117/suppl/C",
-      "status": "complete",
+      "status": "ready",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "foodpolicy-118-c": {
       "journal": "FOODPOLICY",
@@ -934,10 +1178,12 @@
       "volume": "118",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/food-policy/vol/118/suppl/C",
-      "status": "translation_partial",
-      "last_error": "",
-      "retry_class": "translation",
-      "next_retry_at": "2026-08-12T05:28:55+00:00"
+      "status": "blocked",
+      "last_error": "archive_missing",
+      "retry_class": "transient",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "foodpolicy-119-c": {
       "journal": "FOODPOLICY",
@@ -945,9 +1191,12 @@
       "volume": "119",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/food-policy/vol/119/suppl/C",
-      "status": "complete",
+      "status": "ready",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "geb-137-c": {
       "journal": "GEB",
@@ -955,9 +1204,12 @@
       "volume": "137",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/137/suppl/C",
-      "status": "complete",
+      "status": "ready",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "geb-138-c": {
       "journal": "GEB",
@@ -965,9 +1217,12 @@
       "volume": "138",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/138/suppl/C",
-      "status": "complete",
+      "status": "ready",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "geb-139-c": {
       "journal": "GEB",
@@ -975,9 +1230,12 @@
       "volume": "139",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/139/suppl/C",
-      "status": "complete",
+      "status": "ready",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "geb-140-c": {
       "journal": "GEB",
@@ -985,9 +1243,12 @@
       "volume": "140",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/140/suppl/C",
-      "status": "complete",
+      "status": "ready",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "geb-141-c": {
       "journal": "GEB",
@@ -995,10 +1256,12 @@
       "volume": "141",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/games-and-economic-behavior/vol/141/suppl/C",
-      "status": "translation_partial",
-      "last_error": "",
-      "retry_class": "translation",
-      "next_retry_at": "2026-08-12T05:33:19+00:00"
+      "status": "blocked",
+      "last_error": "archive_missing",
+      "retry_class": "transient",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "ier-64-1": {
       "journal": "IER",
@@ -1006,10 +1269,12 @@
       "volume": "64",
       "issue": "1",
       "official_url": "https://onlinelibrary.wiley.com/toc/14682354/64",
-      "status": "translation_partial",
-      "last_error": "",
-      "retry_class": "translation",
-      "next_retry_at": "2026-08-12T05:33:54+00:00"
+      "status": "blocked",
+      "last_error": "archive_missing",
+      "retry_class": "transient",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "ier-64-2": {
       "journal": "IER",
@@ -1017,9 +1282,12 @@
       "volume": "64",
       "issue": "2",
       "official_url": "https://onlinelibrary.wiley.com/toc/14682354/64",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "ier-64-3": {
       "journal": "IER",
@@ -1027,9 +1295,12 @@
       "volume": "64",
       "issue": "3",
       "official_url": "https://onlinelibrary.wiley.com/toc/14682354/64",
-      "status": "complete",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "source",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "ier-64-4": {
       "journal": "IER",
@@ -1037,9 +1308,12 @@
       "volume": "64",
       "issue": "4",
       "official_url": "https://onlinelibrary.wiley.com/toc/14682354/64",
-      "status": "complete",
+      "status": "ready",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "ier-65-1": {
       "journal": "IER",
@@ -1047,9 +1321,12 @@
       "volume": "65",
       "issue": "1",
       "official_url": "https://onlinelibrary.wiley.com/toc/14682354/65",
-      "status": "complete",
+      "status": "ready",
       "last_error": "",
-      "retry_class": "manual"
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "ier-65-2": {
       "journal": "IER",
@@ -1057,10 +1334,303 @@
       "volume": "65",
       "issue": "2",
       "official_url": "https://onlinelibrary.wiley.com/toc/14682354/65",
+      "status": "blocked",
+      "last_error": "archive_missing",
+      "retry_class": "transient",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
+    },
+    "jaere-10-1": {
+      "journal": "JAERE",
+      "year": 2023,
+      "volume": "10",
+      "issue": "1",
+      "official_url": "https://www.journals.uchicago.edu/toc/jaere/2023/10/1",
+      "status": "blocked",
+      "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2023/10/1",
+      "retry_class": "manual",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
+    },
+    "jaere-10-2": {
+      "journal": "JAERE",
+      "year": 2023,
+      "volume": "10",
+      "issue": "2",
+      "official_url": "https://www.journals.uchicago.edu/toc/jaere/2023/10/2",
+      "status": "blocked",
+      "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2023/10/2",
+      "retry_class": "manual",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
+    },
+    "jaere-10-3": {
+      "journal": "JAERE",
+      "year": 2023,
+      "volume": "10",
+      "issue": "3",
+      "official_url": "https://www.journals.uchicago.edu/toc/jaere/2023/10/3",
+      "status": "blocked",
+      "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2023/10/3",
+      "retry_class": "manual",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
+    },
+    "jaere-10-4": {
+      "journal": "JAERE",
+      "year": 2023,
+      "volume": "10",
+      "issue": "4",
+      "official_url": "https://www.journals.uchicago.edu/toc/jaere/2023/10/4",
+      "status": "blocked",
+      "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2023/10/4",
+      "retry_class": "manual",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
+    },
+    "jaere-10-5": {
+      "journal": "JAERE",
+      "year": 2023,
+      "volume": "10",
+      "issue": "5",
+      "official_url": "https://www.journals.uchicago.edu/toc/jaere/2023/10/5",
+      "status": "blocked",
+      "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2023/10/5",
+      "retry_class": "manual",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
+    },
+    "jaere-10-6": {
+      "journal": "JAERE",
+      "year": 2023,
+      "volume": "10",
+      "issue": "6",
+      "official_url": "https://www.journals.uchicago.edu/toc/jaere/2023/10/6",
+      "status": "blocked",
+      "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2023/10/6",
+      "retry_class": "manual",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
+    },
+    "jce-51-1": {
+      "journal": "JCE",
+      "year": 2023,
+      "volume": "51",
+      "issue": "1",
+      "official_url": "https://www.sciencedirect.com/journal/journal-of-comparative-economics/vol/51/issue/1",
+      "status": "ready",
+      "last_error": "",
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
+    },
+    "jce-51-2": {
+      "journal": "JCE",
+      "year": 2023,
+      "volume": "51",
+      "issue": "2",
+      "official_url": "https://www.sciencedirect.com/journal/journal-of-comparative-economics/vol/51/issue/2",
+      "status": "ready",
+      "last_error": "",
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
+    },
+    "jce-51-3": {
+      "journal": "JCE",
+      "year": 2023,
+      "volume": "51",
+      "issue": "3",
+      "official_url": "https://www.sciencedirect.com/journal/journal-of-comparative-economics/vol/51/issue/3",
       "status": "translation_partial",
       "last_error": "",
       "retry_class": "translation",
-      "next_retry_at": "2026-08-12T05:37:22+00:00"
+      "content_status": "translation_partial",
+      "source_status": "publisher_verified",
+      "publication_state": "translation_partial",
+      "next_retry_at": "2026-08-13T05:23:58+00:00"
+    },
+    "jce-51-4": {
+      "journal": "JCE",
+      "year": 2023,
+      "volume": "51",
+      "issue": "4",
+      "official_url": "https://www.sciencedirect.com/journal/journal-of-comparative-economics/vol/51/issue/4",
+      "status": "ready",
+      "last_error": "",
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
+    },
+    "jce-52-1": {
+      "journal": "JCE",
+      "year": 2024,
+      "volume": "52",
+      "issue": "1",
+      "official_url": "https://www.sciencedirect.com/journal/journal-of-comparative-economics/vol/52/issue/1",
+      "status": "ready",
+      "last_error": "",
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
+    },
+    "jce-52-2": {
+      "journal": "JCE",
+      "year": 2024,
+      "volume": "52",
+      "issue": "2",
+      "official_url": "https://www.sciencedirect.com/journal/journal-of-comparative-economics/vol/52/issue/2",
+      "status": "translation_partial",
+      "last_error": "",
+      "retry_class": "translation",
+      "content_status": "translation_partial",
+      "source_status": "publisher_verified",
+      "publication_state": "translation_partial",
+      "next_retry_at": "2026-08-13T05:26:19+00:00"
+    },
+    "aer-113-1": {
+      "journal": "AER",
+      "year": 2023,
+      "volume": "113",
+      "issue": "1",
+      "official_url": "https://www.aeaweb.org/issues/705",
+      "status": "ready",
+      "last_error": "",
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "official_verified",
+      "publication_state": "ready"
+    },
+    "aer-113-2": {
+      "journal": "AER",
+      "year": 2023,
+      "volume": "113",
+      "issue": "2",
+      "official_url": "https://www.aeaweb.org/issues/708",
+      "status": "ready",
+      "last_error": "",
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "official_verified",
+      "publication_state": "ready"
+    },
+    "aer-113-3": {
+      "journal": "AER",
+      "year": 2023,
+      "volume": "113",
+      "issue": "3",
+      "official_url": "https://www.aeaweb.org/issues/713",
+      "status": "ready",
+      "last_error": "",
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "official_verified",
+      "publication_state": "ready"
+    },
+    "aer-113-4": {
+      "journal": "AER",
+      "year": 2023,
+      "volume": "113",
+      "issue": "4",
+      "official_url": "https://www.aeaweb.org/issues/716",
+      "status": "ready",
+      "last_error": "",
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "official_verified",
+      "publication_state": "ready"
+    },
+    "aer-113-5": {
+      "journal": "AER",
+      "year": 2023,
+      "volume": "113",
+      "issue": "5",
+      "official_url": "https://www.aeaweb.org/issues/719",
+      "status": "ready",
+      "last_error": "",
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "official_verified",
+      "publication_state": "ready"
+    },
+    "aer-113-6": {
+      "journal": "AER",
+      "year": 2023,
+      "volume": "113",
+      "issue": "6",
+      "official_url": "https://www.aeaweb.org/issues/724",
+      "status": "ready",
+      "last_error": "",
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "official_verified",
+      "publication_state": "ready"
+    },
+    "jde-160-c": {
+      "journal": "JDE",
+      "year": 2023,
+      "volume": "160",
+      "issue": "c",
+      "official_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/160/suppl/C",
+      "status": "translation_partial",
+      "last_error": "",
+      "retry_class": "translation",
+      "content_status": "translation_partial",
+      "source_status": "publisher_verified",
+      "publication_state": "translation_partial",
+      "next_retry_at": "2026-08-13T05:30:14+00:00"
+    },
+    "jde-161-c": {
+      "journal": "JDE",
+      "year": 2023,
+      "volume": "161",
+      "issue": "c",
+      "official_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/161/suppl/C",
+      "status": "translation_partial",
+      "last_error": "",
+      "retry_class": "translation",
+      "content_status": "translation_partial",
+      "source_status": "publisher_verified",
+      "publication_state": "translation_partial",
+      "next_retry_at": "2026-08-13T05:31:46+00:00"
+    },
+    "jde-162-c": {
+      "journal": "JDE",
+      "year": 2023,
+      "volume": "162",
+      "issue": "c",
+      "official_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/162/suppl/C",
+      "status": "ready",
+      "last_error": "",
+      "retry_class": "manual",
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
+    },
+    "jde-163-c": {
+      "journal": "JDE",
+      "year": 2023,
+      "volume": "163",
+      "issue": "c",
+      "official_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/163/suppl/C",
+      "status": "translation_partial",
+      "last_error": "",
+      "retry_class": "translation",
+      "content_status": "translation_partial",
+      "source_status": "publisher_verified",
+      "publication_state": "translation_partial",
+      "next_retry_at": "2026-08-13T05:32:57+00:00"
     }
   },
   "rotation": {
@@ -1080,7 +1650,571 @@
       "ERE": "2026-08-11T23:24:10+00:00",
       "FOODPOLICY": "2026-08-11T23:29:49+00:00",
       "GEB": "2026-08-11T23:33:19+00:00",
-      "IER": "2026-08-11T23:37:22+00:00"
+      "IER": "2026-08-11T23:37:22+00:00",
+      "JAERE": "2026-08-12T23:20:55+00:00",
+      "JCE": "2026-08-12T23:26:19+00:00",
+      "AER": "2026-08-12T23:28:28+00:00",
+      "JDE": "2026-08-12T23:32:57+00:00"
+    }
+  },
+  "updated_at": "2026-08-12T23:32:57+00:00",
+  "discovery": {
+    "AER": {
+      "issue_ids": [
+        "aer-113-1",
+        "aer-113-2",
+        "aer-113-3",
+        "aer-113-4",
+        "aer-113-5",
+        "aer-113-6",
+        "aer-113-7",
+        "aer-113-8",
+        "aer-113-9",
+        "aer-113-10",
+        "aer-113-11",
+        "aer-113-12",
+        "aer-114-1",
+        "aer-114-2",
+        "aer-114-3",
+        "aer-114-4",
+        "aer-114-5",
+        "aer-114-6",
+        "aer-114-7",
+        "aer-114-8",
+        "aer-114-9",
+        "aer-114-10",
+        "aer-114-11",
+        "aer-114-12"
+      ],
+      "issue_years": {
+        "aer-113-1": 2023,
+        "aer-113-2": 2023,
+        "aer-113-3": 2023,
+        "aer-113-4": 2023,
+        "aer-113-5": 2023,
+        "aer-113-6": 2023,
+        "aer-113-7": 2023,
+        "aer-113-8": 2023,
+        "aer-113-9": 2023,
+        "aer-113-10": 2023,
+        "aer-113-11": 2023,
+        "aer-113-12": 2023,
+        "aer-114-1": 2024,
+        "aer-114-2": 2024,
+        "aer-114-3": 2024,
+        "aer-114-4": 2024,
+        "aer-114-5": 2024,
+        "aer-114-6": 2024,
+        "aer-114-7": 2024,
+        "aer-114-8": 2024,
+        "aer-114-9": 2024,
+        "aer-114-10": 2024,
+        "aer-114-11": 2024,
+        "aer-114-12": 2024
+      },
+      "issue_refs": {
+        "aer-113-1": {
+          "journal": "AER",
+          "year": 2023,
+          "volume": "113",
+          "issue": "1",
+          "official_url": "https://www.aeaweb.org/issues/705"
+        },
+        "aer-113-2": {
+          "journal": "AER",
+          "year": 2023,
+          "volume": "113",
+          "issue": "2",
+          "official_url": "https://www.aeaweb.org/issues/708"
+        },
+        "aer-113-3": {
+          "journal": "AER",
+          "year": 2023,
+          "volume": "113",
+          "issue": "3",
+          "official_url": "https://www.aeaweb.org/issues/713"
+        },
+        "aer-113-4": {
+          "journal": "AER",
+          "year": 2023,
+          "volume": "113",
+          "issue": "4",
+          "official_url": "https://www.aeaweb.org/issues/716"
+        },
+        "aer-113-5": {
+          "journal": "AER",
+          "year": 2023,
+          "volume": "113",
+          "issue": "5",
+          "official_url": "https://www.aeaweb.org/issues/719"
+        },
+        "aer-113-6": {
+          "journal": "AER",
+          "year": 2023,
+          "volume": "113",
+          "issue": "6",
+          "official_url": "https://www.aeaweb.org/issues/724"
+        },
+        "aer-113-7": {
+          "journal": "AER",
+          "year": 2023,
+          "volume": "113",
+          "issue": "7",
+          "official_url": "https://www.aeaweb.org/issues/727"
+        },
+        "aer-113-8": {
+          "journal": "AER",
+          "year": 2023,
+          "volume": "113",
+          "issue": "8",
+          "official_url": "https://www.aeaweb.org/issues/730"
+        },
+        "aer-113-9": {
+          "journal": "AER",
+          "year": 2023,
+          "volume": "113",
+          "issue": "9",
+          "official_url": "https://www.aeaweb.org/issues/733"
+        },
+        "aer-113-10": {
+          "journal": "AER",
+          "year": 2023,
+          "volume": "113",
+          "issue": "10",
+          "official_url": "https://www.aeaweb.org/issues/736"
+        },
+        "aer-113-11": {
+          "journal": "AER",
+          "year": 2023,
+          "volume": "113",
+          "issue": "11",
+          "official_url": "https://www.aeaweb.org/issues/740"
+        },
+        "aer-113-12": {
+          "journal": "AER",
+          "year": 2023,
+          "volume": "113",
+          "issue": "12",
+          "official_url": "https://www.aeaweb.org/issues/743"
+        },
+        "aer-114-1": {
+          "journal": "AER",
+          "year": 2024,
+          "volume": "114",
+          "issue": "1",
+          "official_url": "https://www.aeaweb.org/issues/747"
+        },
+        "aer-114-2": {
+          "journal": "AER",
+          "year": 2024,
+          "volume": "114",
+          "issue": "2",
+          "official_url": "https://www.aeaweb.org/issues/749"
+        },
+        "aer-114-3": {
+          "journal": "AER",
+          "year": 2024,
+          "volume": "114",
+          "issue": "3",
+          "official_url": "https://www.aeaweb.org/issues/753"
+        },
+        "aer-114-4": {
+          "journal": "AER",
+          "year": 2024,
+          "volume": "114",
+          "issue": "4",
+          "official_url": "https://www.aeaweb.org/issues/757"
+        },
+        "aer-114-5": {
+          "journal": "AER",
+          "year": 2024,
+          "volume": "114",
+          "issue": "5",
+          "official_url": "https://www.aeaweb.org/issues/760"
+        },
+        "aer-114-6": {
+          "journal": "AER",
+          "year": 2024,
+          "volume": "114",
+          "issue": "6",
+          "official_url": "https://www.aeaweb.org/issues/764"
+        },
+        "aer-114-7": {
+          "journal": "AER",
+          "year": 2024,
+          "volume": "114",
+          "issue": "7",
+          "official_url": "https://www.aeaweb.org/issues/768"
+        },
+        "aer-114-8": {
+          "journal": "AER",
+          "year": 2024,
+          "volume": "114",
+          "issue": "8",
+          "official_url": "https://www.aeaweb.org/issues/771"
+        },
+        "aer-114-9": {
+          "journal": "AER",
+          "year": 2024,
+          "volume": "114",
+          "issue": "9",
+          "official_url": "https://www.aeaweb.org/issues/774"
+        },
+        "aer-114-10": {
+          "journal": "AER",
+          "year": 2024,
+          "volume": "114",
+          "issue": "10",
+          "official_url": "https://www.aeaweb.org/issues/778"
+        },
+        "aer-114-11": {
+          "journal": "AER",
+          "year": 2024,
+          "volume": "114",
+          "issue": "11",
+          "official_url": "https://www.aeaweb.org/issues/781"
+        },
+        "aer-114-12": {
+          "journal": "AER",
+          "year": 2024,
+          "volume": "114",
+          "issue": "12",
+          "official_url": "https://www.aeaweb.org/issues/785"
+        }
+      },
+      "authority": "official_archive",
+      "refreshed_at": "2026-08-12T23:19:58+00:00",
+      "collector_revision": "history-integrity-2026-08-11"
+    },
+    "JAERE": {
+      "issue_ids": [
+        "jaere-10-1",
+        "jaere-10-2",
+        "jaere-10-3",
+        "jaere-10-4",
+        "jaere-10-5",
+        "jaere-10-6",
+        "jaere-11-1",
+        "jaere-11-2",
+        "jaere-11-3",
+        "jaere-11-4",
+        "jaere-11-5",
+        "jaere-11-6",
+        "jaere-11-S1"
+      ],
+      "issue_years": {
+        "jaere-10-1": 2023,
+        "jaere-10-2": 2023,
+        "jaere-10-3": 2023,
+        "jaere-10-4": 2023,
+        "jaere-10-5": 2023,
+        "jaere-10-6": 2023,
+        "jaere-11-1": 2024,
+        "jaere-11-2": 2024,
+        "jaere-11-3": 2024,
+        "jaere-11-4": 2024,
+        "jaere-11-5": 2024,
+        "jaere-11-6": 2024,
+        "jaere-11-S1": 2024
+      },
+      "issue_refs": {
+        "jaere-10-1": {
+          "journal": "JAERE",
+          "year": 2023,
+          "volume": "10",
+          "issue": "1",
+          "official_url": "https://www.journals.uchicago.edu/toc/jaere/2023/10/1"
+        },
+        "jaere-10-2": {
+          "journal": "JAERE",
+          "year": 2023,
+          "volume": "10",
+          "issue": "2",
+          "official_url": "https://www.journals.uchicago.edu/toc/jaere/2023/10/2"
+        },
+        "jaere-10-3": {
+          "journal": "JAERE",
+          "year": 2023,
+          "volume": "10",
+          "issue": "3",
+          "official_url": "https://www.journals.uchicago.edu/toc/jaere/2023/10/3"
+        },
+        "jaere-10-4": {
+          "journal": "JAERE",
+          "year": 2023,
+          "volume": "10",
+          "issue": "4",
+          "official_url": "https://www.journals.uchicago.edu/toc/jaere/2023/10/4"
+        },
+        "jaere-10-5": {
+          "journal": "JAERE",
+          "year": 2023,
+          "volume": "10",
+          "issue": "5",
+          "official_url": "https://www.journals.uchicago.edu/toc/jaere/2023/10/5"
+        },
+        "jaere-10-6": {
+          "journal": "JAERE",
+          "year": 2023,
+          "volume": "10",
+          "issue": "6",
+          "official_url": "https://www.journals.uchicago.edu/toc/jaere/2023/10/6"
+        },
+        "jaere-11-1": {
+          "journal": "JAERE",
+          "year": 2024,
+          "volume": "11",
+          "issue": "1",
+          "official_url": "https://www.journals.uchicago.edu/toc/jaere/2024/11/1"
+        },
+        "jaere-11-2": {
+          "journal": "JAERE",
+          "year": 2024,
+          "volume": "11",
+          "issue": "2",
+          "official_url": "https://www.journals.uchicago.edu/toc/jaere/2024/11/2"
+        },
+        "jaere-11-3": {
+          "journal": "JAERE",
+          "year": 2024,
+          "volume": "11",
+          "issue": "3",
+          "official_url": "https://www.journals.uchicago.edu/toc/jaere/2024/11/3"
+        },
+        "jaere-11-4": {
+          "journal": "JAERE",
+          "year": 2024,
+          "volume": "11",
+          "issue": "4",
+          "official_url": "https://www.journals.uchicago.edu/toc/jaere/2024/11/4"
+        },
+        "jaere-11-5": {
+          "journal": "JAERE",
+          "year": 2024,
+          "volume": "11",
+          "issue": "5",
+          "official_url": "https://www.journals.uchicago.edu/toc/jaere/2024/11/5"
+        },
+        "jaere-11-6": {
+          "journal": "JAERE",
+          "year": 2024,
+          "volume": "11",
+          "issue": "6",
+          "official_url": "https://www.journals.uchicago.edu/toc/jaere/2024/11/6"
+        },
+        "jaere-11-S1": {
+          "journal": "JAERE",
+          "year": 2024,
+          "volume": "11",
+          "issue": "S1",
+          "official_url": "https://www.journals.uchicago.edu/toc/jaere/2024/11/S1"
+        }
+      },
+      "authority": "crossref_candidate",
+      "refreshed_at": "2026-08-12T23:19:59+00:00",
+      "collector_revision": "history-integrity-2026-08-11"
+    },
+    "JCE": {
+      "issue_ids": [
+        "jce-51-1",
+        "jce-51-2",
+        "jce-51-3",
+        "jce-51-4",
+        "jce-52-1",
+        "jce-52-2",
+        "jce-52-3",
+        "jce-52-4"
+      ],
+      "issue_years": {
+        "jce-51-1": 2023,
+        "jce-51-2": 2023,
+        "jce-51-3": 2023,
+        "jce-51-4": 2023,
+        "jce-52-1": 2024,
+        "jce-52-2": 2024,
+        "jce-52-3": 2024,
+        "jce-52-4": 2024
+      },
+      "issue_refs": {
+        "jce-51-1": {
+          "journal": "JCE",
+          "year": 2023,
+          "volume": "51",
+          "issue": "1",
+          "official_url": "https://www.sciencedirect.com/journal/journal-of-comparative-economics/vol/51/issue/1"
+        },
+        "jce-51-2": {
+          "journal": "JCE",
+          "year": 2023,
+          "volume": "51",
+          "issue": "2",
+          "official_url": "https://www.sciencedirect.com/journal/journal-of-comparative-economics/vol/51/issue/2"
+        },
+        "jce-51-3": {
+          "journal": "JCE",
+          "year": 2023,
+          "volume": "51",
+          "issue": "3",
+          "official_url": "https://www.sciencedirect.com/journal/journal-of-comparative-economics/vol/51/issue/3"
+        },
+        "jce-51-4": {
+          "journal": "JCE",
+          "year": 2023,
+          "volume": "51",
+          "issue": "4",
+          "official_url": "https://www.sciencedirect.com/journal/journal-of-comparative-economics/vol/51/issue/4"
+        },
+        "jce-52-1": {
+          "journal": "JCE",
+          "year": 2024,
+          "volume": "52",
+          "issue": "1",
+          "official_url": "https://www.sciencedirect.com/journal/journal-of-comparative-economics/vol/52/issue/1"
+        },
+        "jce-52-2": {
+          "journal": "JCE",
+          "year": 2024,
+          "volume": "52",
+          "issue": "2",
+          "official_url": "https://www.sciencedirect.com/journal/journal-of-comparative-economics/vol/52/issue/2"
+        },
+        "jce-52-3": {
+          "journal": "JCE",
+          "year": 2024,
+          "volume": "52",
+          "issue": "3",
+          "official_url": "https://www.sciencedirect.com/journal/journal-of-comparative-economics/vol/52/issue/3"
+        },
+        "jce-52-4": {
+          "journal": "JCE",
+          "year": 2024,
+          "volume": "52",
+          "issue": "4",
+          "official_url": "https://www.sciencedirect.com/journal/journal-of-comparative-economics/vol/52/issue/4"
+        }
+      },
+      "authority": "crossref_candidate",
+      "refreshed_at": "2026-08-12T23:19:59+00:00",
+      "collector_revision": "history-integrity-2026-08-11"
+    },
+    "JDE": {
+      "issue_ids": [
+        "jde-160-c",
+        "jde-161-c",
+        "jde-162-c",
+        "jde-163-c",
+        "jde-164-c",
+        "jde-165-c",
+        "jde-166-c",
+        "jde-167-c",
+        "jde-168-c",
+        "jde-169-c",
+        "jde-170-c",
+        "jde-171-c"
+      ],
+      "issue_years": {
+        "jde-160-c": 2023,
+        "jde-161-c": 2023,
+        "jde-162-c": 2023,
+        "jde-163-c": 2023,
+        "jde-164-c": 2023,
+        "jde-165-c": 2023,
+        "jde-166-c": 2024,
+        "jde-167-c": 2024,
+        "jde-168-c": 2024,
+        "jde-169-c": 2024,
+        "jde-170-c": 2024,
+        "jde-171-c": 2024
+      },
+      "issue_refs": {
+        "jde-160-c": {
+          "journal": "JDE",
+          "year": 2023,
+          "volume": "160",
+          "issue": "c",
+          "official_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/160/suppl/C"
+        },
+        "jde-161-c": {
+          "journal": "JDE",
+          "year": 2023,
+          "volume": "161",
+          "issue": "c",
+          "official_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/161/suppl/C"
+        },
+        "jde-162-c": {
+          "journal": "JDE",
+          "year": 2023,
+          "volume": "162",
+          "issue": "c",
+          "official_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/162/suppl/C"
+        },
+        "jde-163-c": {
+          "journal": "JDE",
+          "year": 2023,
+          "volume": "163",
+          "issue": "c",
+          "official_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/163/suppl/C"
+        },
+        "jde-164-c": {
+          "journal": "JDE",
+          "year": 2023,
+          "volume": "164",
+          "issue": "c",
+          "official_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/164/suppl/C"
+        },
+        "jde-165-c": {
+          "journal": "JDE",
+          "year": 2023,
+          "volume": "165",
+          "issue": "c",
+          "official_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/165/suppl/C"
+        },
+        "jde-166-c": {
+          "journal": "JDE",
+          "year": 2024,
+          "volume": "166",
+          "issue": "c",
+          "official_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/166/suppl/C"
+        },
+        "jde-167-c": {
+          "journal": "JDE",
+          "year": 2024,
+          "volume": "167",
+          "issue": "c",
+          "official_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/167/suppl/C"
+        },
+        "jde-168-c": {
+          "journal": "JDE",
+          "year": 2024,
+          "volume": "168",
+          "issue": "c",
+          "official_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/168/suppl/C"
+        },
+        "jde-169-c": {
+          "journal": "JDE",
+          "year": 2024,
+          "volume": "169",
+          "issue": "c",
+          "official_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/169/suppl/C"
+        },
+        "jde-170-c": {
+          "journal": "JDE",
+          "year": 2024,
+          "volume": "170",
+          "issue": "c",
+          "official_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/170/suppl/C"
+        },
+        "jde-171-c": {
+          "journal": "JDE",
+          "year": 2024,
+          "volume": "171",
+          "issue": "c",
+          "official_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/171/suppl/C"
+        }
+      },
+      "authority": "crossref_candidate",
+      "refreshed_at": "2026-08-12T23:20:00+00:00",
+      "collector_revision": "history-integrity-2026-08-11"
     }
   }
 }
