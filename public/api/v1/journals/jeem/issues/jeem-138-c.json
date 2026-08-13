@@ -9,8 +9,8 @@
   "publication_date": "June 2026",
   "source_url": "https://www.sciencedirect.com/journal/journal-of-environmental-economics-and-management/vol/138/suppl/C",
   "retrieved_at": "2026-07-28T05:36:37+00:00",
-  "expected_article_count": 39,
-  "research_article_count": 39,
+  "expected_article_count": 38,
+  "research_article_count": 38,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
@@ -46,7 +46,15 @@
         "model": "gtx-en-zh-CN",
         "translated_at": "2026-07-25T13:34:57+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "abstract",
+        "matched_terms": [
+          "in China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103313",
@@ -80,7 +88,13 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:28:45+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103311",
@@ -113,7 +127,13 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:28:29+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103308",
@@ -148,7 +168,13 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:28:13+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103310",
@@ -180,7 +206,13 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:28:17+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103315",
@@ -211,7 +243,13 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:28:59+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103314",
@@ -244,7 +282,15 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:28:54+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103324",
@@ -275,42 +321,17 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:29:22+00:00"
       },
-      "quality_flags": []
-    },
-    {
-      "paper_id": "doi:10.1016/j.jeem.2026.103325",
-      "sequence": 9,
-      "source_sequence": 9,
-      "article_type": "research-article",
-      "title_en": "Fog or smog? The impact of uncensored reporting on pollution on individuals’ environmental preferences",
-      "title_cn": "雾还是霾？未审查污染报道对个人环境偏好的影响",
-      "authors": [
-        "Sven A. Hartmann"
-      ],
-      "abstract_en": "This paper analyzes the causal effect of exposure to uncensored environmental reporting on individuals’ environmental preferences and pro-environmental behavior. We exploit a natural experiment occurring in the German Democratic Republic, where geographic characteristics determined access to Western TV. Western media provided information on environmental pollution, a topic censored in East German state media. Using individual-level data from the German Socio-Economic Panel, we find a positive and persistent effect of Western TV exposure on environmental concerns and participation in environmental organizations. Complementing these findings, the analysis of county-level data reveals additional changes in pro-environmental behavior. Specifically, we show that Western TV induced GDR citizens to submit complaint letters on environmental issues to local authorities. Furthermore, regions with Western TV access exhibited stronger electoral support for the Green Party in the first two federal elections of reunified Germany. These results highlight the influential role of mass media in shaping both environmental preferences and corresponding behavior.",
-      "abstract_cn": "本文分析了接触未审查环境报道对个人环境偏好和环保行为的因果影响。我们利用发生在德意志民主共和国的一项自然实验，其中地理特征决定了对西方电视的接收。西方媒体提供了关于环境污染的信息，而该主题在东德国家媒体中被审查。利用德国社会经济面板的个体层面数据，我们发现接触西方电视对环境关切和参与环保组织有正向且持续的影响。作为补充，县级数据分析揭示了环保行为的额外变化。具体而言，我们显示西方电视促使东德公民向地方政府提交关于环境问题的投诉信。此外，拥有西方电视接收的地区在德国统一后 第一 二 联邦选举中对绿党的选举支持更强。这些结果强调了大众媒体在塑造环境偏好及相关行为方面的影响力。",
-      "doi": "10.1016/j.jeem.2026.103325",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0095069626000458",
-      "publication_date": "2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-environmental-economics-and-management/vol/138/suppl/C",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/eee/jeeman/v138y2026ics0095069626000458.html",
-        "abstract_en": "official-sciencedirect-issue"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "github-models",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1",
-        "translated_at": "2026-07-25T13:29:32+00:00"
-      },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103323",
-      "sequence": 10,
+      "sequence": 9,
       "source_sequence": 10,
       "article_type": "research-article",
       "title_en": "The impact of personalised digital information on vehicle choices in developing countries",
@@ -339,11 +360,17 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:29:16+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103330",
-      "sequence": 11,
+      "sequence": 10,
       "source_sequence": 11,
       "article_type": "research-article",
       "title_en": "Unwillingly informed: the prosocial impact of third-party informers",
@@ -373,11 +400,17 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:30:14+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103332",
-      "sequence": 12,
+      "sequence": 11,
       "source_sequence": 12,
       "article_type": "research-article",
       "title_en": "Solving Nash equilibria in nonlinear differential games for common-pool resources",
@@ -406,11 +439,17 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:30:49+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103333",
-      "sequence": 13,
+      "sequence": 12,
       "source_sequence": 13,
       "article_type": "research-article",
       "title_en": "Drying the wetland: Water scarcity in the Brazilian pantanal",
@@ -439,11 +478,17 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:31:01+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103331",
-      "sequence": 14,
+      "sequence": 13,
       "source_sequence": 14,
       "article_type": "research-article",
       "title_en": "Impacts of natural resource traceability programs: evidence from the United States’ seafood import monitoring program",
@@ -472,11 +517,17 @@
         "model": "gtx-en-zh-CN",
         "translated_at": "2026-07-25T13:30:40+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103328",
-      "sequence": 15,
+      "sequence": 14,
       "source_sequence": 15,
       "article_type": "research-article",
       "title_en": "The effect of the conservation stewardship program on ambient water quality in the Illinois river basin",
@@ -504,11 +555,17 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:29:47+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103337",
-      "sequence": 16,
+      "sequence": 15,
       "source_sequence": 16,
       "article_type": "research-article",
       "title_en": "Yesterday once more: The impacts of environmental regulations on multinational corporations’ reinvestment allocation in China",
@@ -538,11 +595,19 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:31:47+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103334",
-      "sequence": 17,
+      "sequence": 16,
       "source_sequence": 17,
       "article_type": "research-article",
       "title_en": "Environmental regulation informed by biased stakeholders",
@@ -570,11 +635,17 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:31:12+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103336",
-      "sequence": 18,
+      "sequence": 17,
       "source_sequence": 18,
       "article_type": "research-article",
       "title_en": "The impacts of global warming on forestry: an age-structured Ricardian approach",
@@ -603,11 +674,17 @@
         "model": "gtx-en-zh-CN",
         "translated_at": "2026-07-25T13:31:38+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103339",
-      "sequence": 19,
+      "sequence": 18,
       "source_sequence": 19,
       "article_type": "research-article",
       "title_en": "Interactions of behavioral interventions across pro-environmental domains: A natural field experiment",
@@ -637,11 +714,17 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:32:06+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103329",
-      "sequence": 20,
+      "sequence": 19,
       "source_sequence": 20,
       "article_type": "research-article",
       "title_en": "Disentangling the greening of the labor market: The role of changing occupations and worker flows",
@@ -671,11 +754,17 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:30:02+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103344",
-      "sequence": 21,
+      "sequence": 20,
       "source_sequence": 21,
       "article_type": "research-article",
       "title_en": "Incentivizing capital investments in electric vehicle attributes to stimulate demand",
@@ -702,11 +791,17 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:32:55+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103342",
-      "sequence": 22,
+      "sequence": 21,
       "source_sequence": 22,
       "article_type": "research-article",
       "title_en": "Unseen damage: Bushfire, infant health and early child development",
@@ -733,11 +828,17 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:32:46+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103345",
-      "sequence": 23,
+      "sequence": 22,
       "source_sequence": 23,
       "article_type": "research-article",
       "title_en": "Compliance, environmental regulation, and quota markets",
@@ -767,11 +868,17 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:33:05+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103349",
-      "sequence": 24,
+      "sequence": 23,
       "source_sequence": 24,
       "article_type": "research-article",
       "title_en": "Does the media respond to political messaging? Evidence from local newspaper coverage of climate change",
@@ -799,11 +906,17 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:33:48+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103346",
-      "sequence": 25,
+      "sequence": 24,
       "source_sequence": 25,
       "article_type": "research-article",
       "title_en": "Strategic free-riding in pest control: Theory and evidence in organic-conventional mixed landscapes",
@@ -832,11 +945,17 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:33:17+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103343",
-      "sequence": 26,
+      "sequence": 25,
       "source_sequence": 26,
       "article_type": "research-article",
       "title_en": "Smallholders’ willingness to pay for information: A comparison of individual purchase decisions with contributions to a club good. Evidence from Indonesian rice farmers",
@@ -866,11 +985,17 @@
         "model": "gtx-en-zh-CN",
         "translated_at": "2026-07-25T13:35:38+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103348",
-      "sequence": 27,
+      "sequence": 26,
       "source_sequence": 27,
       "article_type": "research-article",
       "title_en": "The mental health toll of heat stress in India",
@@ -897,11 +1022,17 @@
         "model": "gtx-en-zh-CN",
         "translated_at": "2026-07-25T13:33:39+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103341",
-      "sequence": 28,
+      "sequence": 27,
       "source_sequence": 28,
       "article_type": "research-article",
       "title_en": "Light after the darkness: Estimating the impact of power outages on subsequent solar installations",
@@ -929,11 +1060,17 @@
         "model": "gtx-en-zh-CN",
         "translated_at": "2026-07-25T13:32:36+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103356",
-      "sequence": 29,
+      "sequence": 28,
       "source_sequence": 29,
       "article_type": "research-article",
       "title_en": "Evaluating the effectiveness of mobile emission standards: Evidence from California’s LEV program",
@@ -960,11 +1097,17 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:34:31+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103358",
-      "sequence": 30,
+      "sequence": 29,
       "source_sequence": 30,
       "article_type": "research-article",
       "title_en": "Timing, uncertainty, and opportunity cost: Lessons for ecosystem modification on the Colorado River",
@@ -995,11 +1138,17 @@
         "model": "gtx-en-zh-CN",
         "translated_at": "2026-07-25T13:34:45+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103326",
-      "sequence": 31,
+      "sequence": 30,
       "source_sequence": 31,
       "article_type": "research-article",
       "title_en": "Option pricing in a cap-and-trade market: Evidence from New Zealand fisheries",
@@ -1028,11 +1177,17 @@
         "model": "gtx-en-zh-CN",
         "translated_at": "2026-07-25T13:35:23+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103322",
-      "sequence": 32,
+      "sequence": 31,
       "source_sequence": 32,
       "article_type": "research-article",
       "title_en": "Smoke signals: Understanding temporal dynamics of wildfire exposure on health and education",
@@ -1062,11 +1217,17 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:29:09+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103327",
-      "sequence": 33,
+      "sequence": 32,
       "source_sequence": 33,
       "article_type": "research-article",
       "title_en": "Deforestation, market linkages, and health: Evidence from slaughterhouse closures in Colombia",
@@ -1094,11 +1255,17 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:29:37+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103335",
-      "sequence": 34,
+      "sequence": 33,
       "source_sequence": 34,
       "article_type": "research-article",
       "title_en": "Power plays in the jungle: Political alignment and environmental degradation in Colombia",
@@ -1127,11 +1294,17 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:31:26+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103355",
-      "sequence": 35,
+      "sequence": 34,
       "source_sequence": 35,
       "article_type": "research-article",
       "title_en": "Trained to reduce food waste: Evidence from an RCT with micro-sized and small enterprises in Cusco's hospitality industry",
@@ -1160,11 +1333,17 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:34:15+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103312",
-      "sequence": 36,
+      "sequence": 35,
       "source_sequence": 36,
       "article_type": "research-article",
       "title_en": "The illusion of free electricity: Household responses to solar panel program in Singapore",
@@ -1192,11 +1371,17 @@
         "model": "gtx-en-zh-CN",
         "translated_at": "2026-07-25T13:35:11+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103347",
-      "sequence": 37,
+      "sequence": 36,
       "source_sequence": 37,
       "article_type": "research-article",
       "title_en": "When national canal meets local pipelines: Clean water supply, local infrastructure and health benefits",
@@ -1225,11 +1410,19 @@
         "model": "gtx-en-zh-CN",
         "translated_at": "2026-07-25T13:33:29+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "abstract",
+        "matched_terms": [
+          "China’s"
+        ],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103338",
-      "sequence": 38,
+      "sequence": 37,
       "source_sequence": 38,
       "article_type": "research-article",
       "title_en": "Too hot to haul? the impact of temperature on labor supply and performance of truck drivers",
@@ -1259,11 +1452,19 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:31:56+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "abstract",
+        "matched_terms": [
+          "in China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jeem.2026.103352",
-      "sequence": 39,
+      "sequence": 38,
       "source_sequence": 39,
       "article_type": "research-article",
       "title_en": "Ecological costs of energy infrastructure: Evidence from migratory bird tracking",
@@ -1295,25 +1496,68 @@
         "model": "gtx-en-zh-CN",
         "translated_at": "2026-07-25T13:34:04+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     }
   ],
   "quality": {
     "roster_match": true,
     "order_preserved": true,
     "official_item_count": 39,
-    "excluded_item_count": 0,
-    "excluded_items": [],
-    "doi_complete": 39,
-    "authors_complete": 39,
-    "abstract_en_complete": 39,
-    "translation_complete": 39,
+    "excluded_item_count": 1,
+    "excluded_items": [
+      {
+        "title_en": "Fog or smog? The impact of uncensored reporting on pollution on individuals’ environmental preferences",
+        "doi": "10.1016/j.jeem.2026.103325",
+        "article_type": "editorial",
+        "reason": "editorial_material"
+      }
+    ],
+    "doi_complete": 38,
+    "authors_complete": 38,
+    "abstract_en_complete": 38,
+    "translation_complete": 38,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_repec_fallback",
       "repec_publisher_supplied_roster",
       "official_order_override_applied"
     ],
-    "official_issue_fetch_error": "request failed for https://www.sciencedirect.com/journal/journal-of-environmental-economics-and-management/vol/138/suppl/C: 403 Client Error: Forbidden for url: https://www.sciencedirect.com/journal/journal-of-environmental-economics-and-management/vol/138/suppl/C"
-  }
+    "official_issue_fetch_error": "request failed for https://www.sciencedirect.com/journal/journal-of-environmental-economics-and-management/vol/138/suppl/C: 403 Client Error: Forbidden for url: https://www.sciencedirect.com/journal/journal-of-environmental-economics-and-management/vol/138/suppl/C",
+    "publishable_item_count": 38,
+    "content_counts": {
+      "official_items": 39,
+      "observed_items": 39,
+      "publishable_items": 38,
+      "research_articles": 38,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 1,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 38
+    }
+  },
+  "content_counts": {
+    "official_items": 39,
+    "observed_items": 39,
+    "publishable_items": 38,
+    "research_articles": 38,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 1,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 38
+  },
+  "content_status": "complete",
+  "source_status": "source_pending",
+  "publication_state": "source_pending"
 }

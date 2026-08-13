@@ -8,8 +8,8 @@
   "publication_date": "July 2025",
   "source_url": "https://ideas.repec.org/s/wly/emetrp.html",
   "retrieved_at": "2026-07-29T05:29:07+00:00",
-  "expected_article_count": 14,
-  "research_article_count": 14,
+  "expected_article_count": 13,
+  "research_article_count": 13,
   "status": "ready",
   "development_sample": false,
   "articles": [
@@ -535,46 +535,6 @@
         "matched_terms": [],
         "source": "academic-door-rules-v1"
       }
-    },
-    {
-      "paper_id": "doi:10.3982/ecta22259",
-      "sequence": 14,
-      "source_sequence": 14,
-      "article_type": "research-article",
-      "title_en": "Corrigendum: Financial Frictions and the Wealth Distribution",
-      "title_cn": "勘误表：金融摩擦与财富分配",
-      "authors": [
-        "Jesús Fernández-Villaverde",
-        "Samuel Hurtado",
-        "Galo Nuño"
-      ],
-      "abstract_en": "We postulate a continuous‐time heterogeneous agent model with a financial sector and households to study the nonlinear linkages between aggregate and financial variables. In our model, the interaction between the supply of bonds by the financial sector and the precautionary demand for bonds by households produces significant endogenous aggregate risk. This risk makes the economy transition between a high‐leverage region and a low‐leverage region, which, in turn, creates state dependence in impulse responses: the same shock starting from the high‐leverage region gets propagated and amplified more than when the shock arrives when leverage is low. State dependence in impulse responses generates a time‐varying aggregate precautionary savings motive that, by moving the risk‐free rate, justifies the leverage level of the financial sector in each region. Finally, we illustrate the usefulness of neutral networks to solve for the nonlinear perceived law of motion of the model, and the importance of household heterogeneity in driving its quantitative properties. (This abstract was borrowed from another version of this item.)",
-      "abstract_cn": "我们假设一个包含金融部门和家庭的连续时间异质代理模型来研究总量变量和金融变量之间的非线性联系。在我们的模型中，金融部门的债券供应与家庭对债券的预防性需求之间的相互作用产生了显着的内生总体风险。这种风险使得经济在高杠杆区域和低杠杆区域之间转变，这反过来又造成脉冲响应的国家依赖性：从高杠杆区域开始的相同冲击比杠杆低时冲击到达时传播和放大得更多。脉冲响应中的国家依赖性产生了随时间变化的总体预防性储蓄动机，通过改变无风险利率，证明每个地区金融部门的杠杆水平是合理的。最后，我们说明了神经网络在解决模型的非线性感知运动规律方面的有用性，以及家庭异质性在驱动其定量特性方面的重要性。 （此摘要借自本项目的另一个版本。）",
-      "doi": "10.3982/ecta22259",
-      "source_url": "https://doi.org/10.3982/ecta22259",
-      "publication_date": "2025",
-      "sources": {
-        "issue": "https://ideas.repec.org/s/wly/emetrp.html",
-        "roster": "repec-serial-page",
-        "metadata": "crossref",
-        "abstract_en": "repec-publisher-supplied",
-        "repec": "https://ideas.repec.org/a/wly/emetrp/v93y2025i4p1491-1496.html"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "google-translate",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T05:29:22+00:00"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
     }
   ],
   "quality": {
@@ -584,19 +544,58 @@
     "roster_authority": "repec-publisher-supplied",
     "roster_match_scope": "repec-issue-section",
     "publisher_page_status": "blocked",
-    "excluded_item_count": 1,
+    "excluded_item_count": 2,
     "excluded_items": [
       {
         "title_en": "Erratum to “Robust Priors in Nonlinear Panel Data Models”",
-        "reason": "non_research_title",
-        "doi": "10.3982/ecta23441"
+        "reason": "correction_notice",
+        "doi": "10.3982/ecta23441",
+        "article_type": "correction"
+      },
+      {
+        "title_en": "Corrigendum: Financial Frictions and the Wealth Distribution",
+        "doi": "10.3982/ecta22259",
+        "article_type": "correction",
+        "reason": "correction_notice"
       }
     ],
-    "doi_complete": 14,
-    "authors_complete": 14,
-    "abstract_en_complete": 14,
-    "translation_complete": 14,
+    "doi_complete": 13,
+    "authors_complete": 13,
+    "abstract_en_complete": 13,
+    "translation_complete": 13,
     "duplicate_count": 0,
-    "flags": []
-  }
+    "flags": [],
+    "official_item_count": 15,
+    "publishable_item_count": 13,
+    "content_counts": {
+      "official_items": 15,
+      "observed_items": 15,
+      "publishable_items": 13,
+      "research_articles": 9,
+      "comments": 4,
+      "short_communications": 0,
+      "corrections": 2,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 15
+    }
+  },
+  "content_counts": {
+    "official_items": 15,
+    "observed_items": 15,
+    "publishable_items": 13,
+    "research_articles": 9,
+    "comments": 4,
+    "short_communications": 0,
+    "corrections": 2,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 15
+  },
+  "issue_label": "Vol. 93 · No. 4",
+  "content_status": "complete",
+  "source_status": "publisher_verified",
+  "publication_state": "ready"
 }

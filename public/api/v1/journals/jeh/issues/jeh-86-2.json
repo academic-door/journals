@@ -42,7 +42,13 @@
         "model": "openai/gpt-4.1-mini",
         "translated_at": "2026-07-26T19:58:04+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1017/s0022050725101046",
@@ -73,7 +79,13 @@
         "model": "openai/gpt-4.1-mini",
         "translated_at": "2026-07-26T19:58:13+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1017/s0022050725101113",
@@ -105,7 +117,13 @@
         "model": "openai/gpt-4.1-mini",
         "translated_at": "2026-07-26T19:58:21+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1017/s0022050725101095",
@@ -140,7 +158,13 @@
         "model": "openai/gpt-4.1-mini",
         "translated_at": "2026-07-26T19:58:27+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1017/s0022050725101058",
@@ -172,7 +196,13 @@
         "model": "openai/gpt-4.1-mini",
         "translated_at": "2026-07-26T19:58:35+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1017/s002205072510106x",
@@ -203,7 +233,13 @@
         "model": "openai/gpt-4.1-mini",
         "translated_at": "2026-07-26T19:58:40+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1017/s0022050725101034",
@@ -235,7 +271,13 @@
         "model": "openai/gpt-4.1-mini",
         "translated_at": "2026-07-26T19:58:45+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     }
   ],
   "quality": {
@@ -249,63 +291,75 @@
     "excluded_items": [
       {
         "title_en": "Before the Fed: J.P. Morgan, America’s Lender of Last Resort. By Jon Moen and Mary Tone Rodgers. Cambridge: Cambridge University Press, 2025. Pp. 270. $45.00, hardcover; $45.00, eBook.",
-        "reason": "non_research_title",
-        "doi": "10.1017/s0022050726101363"
+        "reason": "non_publishable_item",
+        "doi": "10.1017/s0022050726101363",
+        "article_type": "research-article"
       },
       {
         "title_en": "Private Finance, Public Power: A History of Bank Supervision in America. By Peter Conti-Brown and Sean H. Vanatta. Princeton: Princeton University Press, 2025. Pp. 412. $39.95, hardcover.",
-        "reason": "non_research_title",
-        "doi": "10.1017/s0022050726101351"
+        "reason": "non_publishable_item",
+        "doi": "10.1017/s0022050726101351",
+        "article_type": "research-article"
       },
       {
         "title_en": "JEH volume 86 issue 2 Cover and Front matter",
-        "reason": "non_research_title",
-        "doi": "10.1017/s0022050725101149"
+        "reason": "front_matter",
+        "doi": "10.1017/s0022050725101149",
+        "article_type": "front-matter"
       },
       {
         "title_en": "Abstracts of Papers Presented at the 2025 Annual Meeting",
-        "reason": "non_research_title",
-        "doi": "10.1017/s0022050726101582"
+        "reason": "non_publishable_item",
+        "doi": "10.1017/s0022050726101582",
+        "article_type": "research-article"
       },
       {
         "title_en": "Summaries of Doctoral Dissertations",
-        "reason": "non_research_title",
-        "doi": "10.1017/s0022050726101594"
+        "reason": "non_publishable_item",
+        "doi": "10.1017/s0022050726101594",
+        "article_type": "research-article"
       },
       {
         "title_en": "Philadelphia Merchants on Western Waters: Commerce and Empire in the Riverine West, 1750–1803. By Kim M. Gruenwald. Baltimore: Johns Hopkins University Press, 2025. Pp. 193. $64.95, hardcover; $64.95 e-book.",
-        "reason": "non_research_title",
-        "doi": "10.1017/s0022050726101375"
+        "reason": "non_publishable_item",
+        "doi": "10.1017/s0022050726101375",
+        "article_type": "research-article"
       },
       {
         "title_en": "Droughts, Conflicts, and the Importance of Democratic Legitimacy: Evidence from Pre-Industrial Europe —ADDENDUM",
-        "reason": "non_research_title",
-        "doi": "10.1017/s0022050726101417"
+        "reason": "non_publishable_item",
+        "doi": "10.1017/s0022050726101417",
+        "article_type": "research-article"
       },
       {
         "title_en": "Happily Ever After: Immigration, Natives’ Marriage, and Fertility —ADDENDUM",
-        "reason": "non_research_title",
-        "doi": "10.1017/s0022050726101399"
+        "reason": "non_publishable_item",
+        "doi": "10.1017/s0022050726101399",
+        "article_type": "research-article"
       },
       {
         "title_en": "JEH volume 86 issue 2 Cover and Back matter",
-        "reason": "non_research_title",
-        "doi": "10.1017/s0022050725101150"
+        "reason": "front_matter",
+        "doi": "10.1017/s0022050725101150",
+        "article_type": "front-matter"
       },
       {
         "title_en": "Small, Medium, Large: How the Government Made the U.S. into a Manufacturing Powerhouse. By Coleen A. Dunlavy. Cambridge, UK and Hoboken, NJ: Polity Press, 2024. Pp. xii, 226. $29.95 cloth; $24.00 ebook.",
-        "reason": "non_research_title",
-        "doi": "10.1017/s0022050726101387"
+        "reason": "non_publishable_item",
+        "doi": "10.1017/s0022050726101387",
+        "article_type": "research-article"
       },
       {
         "title_en": "It Takes Money to Make MPs: Evidence from 160 Years of British Campaign Spending —ADDENDUM",
-        "reason": "non_research_title",
-        "doi": "10.1017/s0022050726101405"
+        "reason": "non_publishable_item",
+        "doi": "10.1017/s0022050726101405",
+        "article_type": "research-article"
       },
       {
         "title_en": "Editors’ Notes",
-        "reason": "non_research_title",
-        "doi": "10.1017/s0022050726101612"
+        "reason": "editorial_material",
+        "doi": "10.1017/s0022050726101612",
+        "article_type": "editorial"
       }
     ],
     "doi_complete": 7,
@@ -316,6 +370,38 @@
     "flags": [
       "publisher_html_blocked_crossref_fallback",
       "crossref_provisional_roster"
-    ]
-  }
+    ],
+    "official_item_count": 19,
+    "publishable_item_count": 7,
+    "content_counts": {
+      "official_items": 19,
+      "observed_items": 19,
+      "publishable_items": 7,
+      "research_articles": 7,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 1,
+      "front_matter": 2,
+      "other_excluded": 9,
+      "catalog_content_items": 7
+    }
+  },
+  "content_counts": {
+    "official_items": 19,
+    "observed_items": 19,
+    "publishable_items": 7,
+    "research_articles": 7,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 1,
+    "front_matter": 2,
+    "other_excluded": 9,
+    "catalog_content_items": 7
+  },
+  "issue_label": "Vol. 86 · No. 2",
+  "content_status": "complete",
+  "source_status": "source_pending",
+  "publication_state": "source_pending"
 }

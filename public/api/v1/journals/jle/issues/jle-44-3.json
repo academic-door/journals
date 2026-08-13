@@ -43,7 +43,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T20:03:48+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1086/734862",
@@ -77,7 +83,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T20:03:53+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1086/734087",
@@ -113,7 +125,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T20:04:01+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1086/733494",
@@ -145,7 +163,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T20:04:08+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1086/733225",
@@ -181,7 +205,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T20:04:17+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1086/733049",
@@ -216,7 +246,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T20:04:25+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1086/733490",
@@ -250,7 +286,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T20:04:32+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1086/733226",
@@ -283,7 +325,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T20:04:40+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1086/733051",
@@ -317,7 +365,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T20:04:48+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1086/733493",
@@ -350,7 +404,13 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-26T20:43:11+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     }
   ],
   "quality": {
@@ -364,8 +424,9 @@
     "excluded_items": [
       {
         "title_en": "Front Matter",
-        "reason": "non_research_title",
-        "doi": "10.1086/742950"
+        "reason": "front_matter",
+        "doi": "10.1086/742950",
+        "article_type": "front-matter"
       }
     ],
     "doi_complete": 10,
@@ -376,6 +437,38 @@
     "flags": [
       "publisher_html_blocked_crossref_fallback",
       "crossref_provisional_roster"
-    ]
-  }
+    ],
+    "official_item_count": 11,
+    "publishable_item_count": 10,
+    "content_counts": {
+      "official_items": 11,
+      "observed_items": 11,
+      "publishable_items": 10,
+      "research_articles": 10,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 1,
+      "other_excluded": 0,
+      "catalog_content_items": 10
+    }
+  },
+  "content_counts": {
+    "official_items": 11,
+    "observed_items": 11,
+    "publishable_items": 10,
+    "research_articles": 10,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 1,
+    "other_excluded": 0,
+    "catalog_content_items": 10
+  },
+  "issue_label": "Vol. 44 · No. 3",
+  "content_status": "complete",
+  "source_status": "source_pending",
+  "publication_state": "source_pending"
 }

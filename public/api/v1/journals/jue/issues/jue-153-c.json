@@ -44,7 +44,13 @@
         "model": "gtx-en-zh-CN",
         "translated_at": "2026-07-25T13:36:50+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jue.2026.103856",
@@ -76,7 +82,13 @@
         "model": "gtx-en-zh-CN",
         "translated_at": "2026-07-25T13:37:03+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jue.2026.103857",
@@ -113,7 +125,13 @@
         "model": "gtx-en-zh-CN",
         "translated_at": "2026-07-25T13:37:16+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jue.2026.103860",
@@ -146,7 +164,13 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:40:59+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jue.2026.103858",
@@ -177,7 +201,13 @@
         "model": "gtx-en-zh-CN",
         "translated_at": "2026-07-25T13:38:33+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jue.2026.103861",
@@ -210,7 +240,13 @@
         "model": "gtx-en-zh-CN",
         "translated_at": "2026-07-25T13:38:46+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jue.2026.103859",
@@ -242,7 +278,13 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:37:26+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jue.2026.103863",
@@ -277,7 +319,13 @@
         "model": "gtx-en-zh-CN",
         "translated_at": "2026-07-25T13:38:08+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jue.2026.103862",
@@ -308,7 +356,13 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-25T13:37:55+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.jue.2026.103864",
@@ -342,7 +396,15 @@
         "model": "gtx-en-zh-CN",
         "translated_at": "2026-07-25T13:38:21+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China’s"
+        ],
+        "source": "academic-door-rules-v1"
+      }
     }
   ],
   "quality": {
@@ -353,8 +415,9 @@
     "excluded_items": [
       {
         "title_en": "Corrigendum to “Judge for Yourself? The Impact of Controls on the Rental Market in Interwar New York” [Journal of Urban Economics, Volume 153 (2026), Article 103859]",
-        "reason": "non_research_title",
-        "doi": "10.1016/j.jue.2026.103865"
+        "reason": "correction_notice",
+        "doi": "10.1016/j.jue.2026.103865",
+        "article_type": "correction"
       }
     ],
     "doi_complete": 10,
@@ -367,6 +430,36 @@
       "repec_publisher_supplied_roster",
       "official_order_override_applied"
     ],
-    "official_issue_fetch_error": "request failed for https://www.sciencedirect.com/journal/journal-of-urban-economics/vol/153/suppl/C: 403 Client Error: Forbidden for url: https://www.sciencedirect.com/journal/journal-of-urban-economics/vol/153/suppl/C"
-  }
+    "official_issue_fetch_error": "request failed for https://www.sciencedirect.com/journal/journal-of-urban-economics/vol/153/suppl/C: 403 Client Error: Forbidden for url: https://www.sciencedirect.com/journal/journal-of-urban-economics/vol/153/suppl/C",
+    "publishable_item_count": 10,
+    "content_counts": {
+      "official_items": 11,
+      "observed_items": 11,
+      "publishable_items": 10,
+      "research_articles": 10,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 1,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 11
+    }
+  },
+  "content_counts": {
+    "official_items": 11,
+    "observed_items": 11,
+    "publishable_items": 10,
+    "research_articles": 10,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 1,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 11
+  },
+  "content_status": "complete",
+  "source_status": "source_pending",
+  "publication_state": "source_pending"
 }

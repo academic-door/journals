@@ -8,8 +8,8 @@
   "publication_date": "October 2025",
   "source_url": "https://academic.oup.com/jeea/issue/23/5",
   "retrieved_at": "2026-08-06T09:49:16+00:00",
-  "expected_article_count": 10,
-  "research_article_count": 10,
+  "expected_article_count": 9,
+  "research_article_count": 9,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
@@ -178,50 +178,8 @@
       }
     },
     {
-      "paper_id": "doi:10.1093/jeea/jvaf007",
-      "sequence": 5,
-      "source_sequence": 1773,
-      "article_type": "research-article",
-      "title_en": "Global Profit Shifting of Multinational Companies: Evidence from Country-by-Country Reporting Micro Data",
-      "title_cn": "跨国公司的全球利润转移：基于国别报告微观数据的证据",
-      "authors": [
-        "Clemens Fuest",
-        "Stefan Greil",
-        "Felix Hugger",
-        "Florian Neumeier"
-      ],
-      "abstract_en": "We use micro data from country-by-country reports of more than 3,600 multinational companies to analyze global profit shifting to avoid taxes. Unlike other data sets, country-by-country reports provide detailed information about the global economic activities of multinational companies, including those in tax haven countries. We find that these companies reduce their tax burden by €39 billion per year by shifting profits to low-tax countries. Extrapolating our results to the universe of large multinational enterprises indicates a global loss in corporate tax revenues of €162 billion per year (12% of their overall tax payments). We show that taking into account non-linearities in profit shifting and subsidiaries reporting zero profits is key for accurately estimating profit shifting.",
-      "abstract_cn": "我们利用超过3,600家跨国公司的国别报告微观数据来分析为避税而进行的全球利润转移。与其他数据集不同，国别报告提供了跨国公司全球经济活动的详细信息，包括在避税天堂国家的活动。我们发现，这些公司通过将利润转移到低税国家，每年减少税负39亿欧元。将我们的结果外推到所有大型跨国企业，表明全球企业所得税收入每年损失162亿欧元（占其总税收支付的12%）。我们表明，考虑利润转移中的非线性和报告零利润的子公司对于准确估计利润转移至关重要。",
-      "abstract_snippet_en": "",
-      "doi": "10.1093/jeea/jvaf007",
-      "source_url": "https://doi.org/10.1093/jeea/jvaf007",
-      "publication_date": "2025",
-      "sources": {
-        "issue": "https://academic.oup.com/jeea/issue/23/5",
-        "roster": "crossref:issn:1542-4766",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-06T09:49:29+00:00",
-        "source_hash": "7030551fd593230a28b6372fd764749fcb05818b332ef1a083a6a440cfb40d6c"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
       "paper_id": "doi:10.1093/jeea/jvaf005",
-      "sequence": 6,
+      "sequence": 5,
       "source_sequence": 1809,
       "article_type": "research-article",
       "title_en": "The Transmission of Negative Nominal Interest Rates in Finland",
@@ -262,7 +220,7 @@
     },
     {
       "paper_id": "doi:10.1093/jeea/jvaf009",
-      "sequence": 7,
+      "sequence": 6,
       "source_sequence": 1838,
       "article_type": "research-article",
       "title_en": "Complexity and Time",
@@ -303,7 +261,7 @@
     },
     {
       "paper_id": "doi:10.1093/jeea/jvaf008",
-      "sequence": 8,
+      "sequence": 7,
       "source_sequence": 1868,
       "article_type": "research-article",
       "title_en": "Mandated Sick Pay: Coverage, Utilization, and Crowding-in",
@@ -344,7 +302,7 @@
     },
     {
       "paper_id": "doi:10.1093/jeea/jvaf010",
-      "sequence": 9,
+      "sequence": 8,
       "source_sequence": 1908,
       "article_type": "research-article",
       "title_en": "Personality Traits and Cognitive Ability in Political Selection",
@@ -386,7 +344,7 @@
     },
     {
       "paper_id": "doi:10.1093/jeea/jvaf012",
-      "sequence": 10,
+      "sequence": 9,
       "source_sequence": 1950,
       "article_type": "research-article",
       "title_en": "Cost and Benefits of Climate Change Adaptation Policies: Evidence from an RCT and Extreme Flooding in Pakistan",
@@ -432,45 +390,55 @@
     "roster_authority": "crossref-provisional",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
-    "excluded_item_count": 0,
-    "excluded_items": [],
-    "doi_complete": 10,
-    "authors_complete": 10,
-    "abstract_en_complete": 10,
-    "translation_complete": 10,
+    "excluded_item_count": 1,
+    "excluded_items": [
+      {
+        "title_en": "Global Profit Shifting of Multinational Companies: Evidence from Country-by-Country Reporting Micro Data",
+        "doi": "10.1093/jeea/jvaf007",
+        "article_type": "editorial",
+        "reason": "editorial_material"
+      }
+    ],
+    "doi_complete": 9,
+    "authors_complete": 9,
+    "abstract_en_complete": 9,
+    "translation_complete": 9,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
       "crossref_provisional_roster"
     ],
     "official_item_count": 10,
-    "publishable_item_count": 10,
+    "publishable_item_count": 9,
     "content_counts": {
       "official_items": 10,
       "observed_items": 10,
-      "publishable_items": 10,
-      "research_articles": 10,
+      "publishable_items": 9,
+      "research_articles": 9,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
-      "editorial_material": 0,
+      "editorial_material": 1,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 10
+      "catalog_content_items": 9
     }
   },
   "content_counts": {
     "official_items": 10,
     "observed_items": 10,
-    "publishable_items": 10,
-    "research_articles": 10,
+    "publishable_items": 9,
+    "research_articles": 9,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
-    "editorial_material": 0,
+    "editorial_material": 1,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 10
+    "catalog_content_items": 9
   },
-  "issue_label": "Vol. 23 · No. 5"
+  "issue_label": "Vol. 23 · No. 5",
+  "content_status": "complete",
+  "source_status": "source_pending",
+  "publication_state": "source_pending"
 }

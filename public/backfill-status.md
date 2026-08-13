@@ -1,13 +1,13 @@
 # Field journal history backfill status
 
-Updated: 2026-08-13T09:13:32+00:00
+Updated: 2026-08-13T09:21:01+00:00
 
-Discovery coverage: 708 discovered · 80 archived · 28 publication ready · 628 missing · 52 source pending
+Discovery coverage: 1324 discovered · 673 archived · 434 publication ready · 651 missing · 239 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
 | 2023-2024 | 27 | 0 | 47 | 52 |
-| 2025-2026 | 407 | 4 | 15 | 187 |
+| 2025-2026 | 407 | 0 | 19 | 187 |
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -284,10 +284,10 @@ Discovery coverage: 708 discovered · 80 archived · 28 publication ready · 628
 | FOODPOLICY | foodpolicy-131-c | 2025 | ready |  |
 | FOODPOLICY | foodpolicy-132-c | 2025 | ready |  |
 | FOODPOLICY | foodpolicy-133-c | 2025 | ready |  |
-| FOODPOLICY | foodpolicy-134-c | 2025 | blocked |  |
+| FOODPOLICY | foodpolicy-134-c | 2025 | blocked | archive_missing |
 | FOODPOLICY | foodpolicy-135-c | 2025 | ready |  |
 | FOODPOLICY | foodpolicy-136-c | 2025 | ready |  |
-| FOODPOLICY | foodpolicy-137-c | 2025 | blocked |  |
+| FOODPOLICY | foodpolicy-137-c | 2025 | blocked | archive_missing |
 | FOODPOLICY | foodpolicy-138-c | 2026 | ready |  |
 | FOODPOLICY | foodpolicy-139-c | 2026 | ready |  |
 | FOODPOLICY | foodpolicy-140-c | 2026 | ready |  |
@@ -632,7 +632,7 @@ Discovery coverage: 708 discovered · 80 archived · 28 publication ready · 628
 | LUP | lup-150-c | 2025 | ready |  |
 | LUP | lup-151-c | 2025 | ready |  |
 | LUP | lup-152-c | 2025 | ready |  |
-| LUP | lup-153-c | 2025 | blocked |  |
+| LUP | lup-153-c | 2025 | blocked | archive_missing |
 | LUP | lup-154-c | 2025 | ready |  |
 | LUP | lup-155-c | 2025 | ready |  |
 | LUP | lup-156-c | 2025 | ready |  |
@@ -733,7 +733,7 @@ Discovery coverage: 708 discovered · 80 archived · 28 publication ready · 628
 | WD | wd-189-c | 2025 | ready |  |
 | WD | wd-190-c | 2025 | ready |  |
 | WD | wd-191-c | 2025 | ready |  |
-| WD | wd-192-c | 2025 | blocked |  |
+| WD | wd-192-c | 2025 | blocked | archive_missing |
 | WD | wd-193-c | 2025 | ready |  |
 | WD | wd-194-c | 2025 | ready |  |
 | WD | wd-195-c | 2025 | ready |  |

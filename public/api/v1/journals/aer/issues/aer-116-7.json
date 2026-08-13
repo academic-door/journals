@@ -46,7 +46,13 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-24T10:40:08+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1257/aer.20241925",
@@ -81,7 +87,13 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-24T10:40:12+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1257/aer.20231613",
@@ -114,7 +126,13 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-24T10:40:18+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1257/aer.20230344",
@@ -146,7 +164,13 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-24T10:40:23+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1257/aer.20240642",
@@ -179,7 +203,13 @@
         "model": "openai/gpt-4.1",
         "translated_at": "2026-07-24T10:40:28+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1257/aer.20240673",
@@ -215,7 +245,13 @@
         "glossary_version": "1",
         "model": "gpt-5.6"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1257/aer.20230849",
@@ -248,7 +284,13 @@
         "glossary_version": "1",
         "model": "gpt-5.6"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1257/aer.20231521",
@@ -282,7 +324,13 @@
         "glossary_version": "1",
         "model": "gpt-5.6"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1257/aer.20230242",
@@ -314,7 +362,13 @@
         "glossary_version": "1",
         "model": "gpt-5.6"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1257/aer.20250064",
@@ -347,7 +401,13 @@
         "glossary_version": "1",
         "model": "gpt-5.6"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     }
   ],
   "quality": {
@@ -359,27 +419,32 @@
       {
         "source_sequence": 1,
         "title_en": "Front Matter",
-        "reason": "non-research-title"
+        "reason": "non-research-title",
+        "article_type": "front-matter"
       },
       {
         "source_sequence": 2,
         "title_en": "Nobel Lecture: The Past and Future of Innovation: Can Progress Be Sustained?",
-        "reason": "non-research-title"
+        "reason": "non-research-title",
+        "article_type": "research-article"
       },
       {
         "source_sequence": 3,
         "title_en": "Nobel Lecture: The Economics of Creative Destruction",
-        "reason": "non-research-title"
+        "reason": "non-research-title",
+        "article_type": "research-article"
       },
       {
         "source_sequence": 4,
         "title_en": "Nobel Lecture: Creative Destruction and Economic Growth",
-        "reason": "non-research-title"
+        "reason": "non-research-title",
+        "article_type": "research-article"
       },
       {
         "source_sequence": 15,
         "title_en": "The Effect of High-Tech Clusters on the Productivity of Top Inventors: Comment",
-        "reason": "non-research-title"
+        "reason": "non-research-title",
+        "article_type": "comment"
       }
     ],
     "detail_failure_count": 0,
@@ -388,6 +453,37 @@
     "abstract_en_complete": 10,
     "translation_complete": 10,
     "duplicate_count": 0,
-    "flags": []
-  }
+    "flags": [],
+    "publishable_item_count": 10,
+    "content_counts": {
+      "official_items": 15,
+      "observed_items": 15,
+      "publishable_items": 10,
+      "research_articles": 10,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 1,
+      "other_excluded": 4,
+      "catalog_content_items": 10
+    }
+  },
+  "content_counts": {
+    "official_items": 15,
+    "observed_items": 15,
+    "publishable_items": 10,
+    "research_articles": 10,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 1,
+    "other_excluded": 4,
+    "catalog_content_items": 10
+  },
+  "issue_label": "Vol. 116 · No. 7",
+  "content_status": "complete",
+  "source_status": "official_verified",
+  "publication_state": "ready"
 }

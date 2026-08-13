@@ -24,8 +24,8 @@
         "Clément de Chaisemartin",
         "Xavier D’Haultfœuille"
       ],
-      "abstract_en": "Abstract We study treatment-effect estimation using panel data. The treatment may be nonbinary, nonabsorbing, and the outcome may be affected by treatment lags. We make a parallel-trends assumption and propose event-study estimators of the effect of being exposed to a weakly higher treatment dose for ℓ periods. We also propose normalized estimators that estimate a weighted average of the effects of the current treatment and its lags. We also analyze commonly used two-way fixed-effects regressions. Unlike our estimators, they can be biased in the presence of heterogeneous treatment effects. A local-projection version of those regressions is biased even with homogeneous effects.",
-      "abstract_cn": "摘要 我们研究使用面板数据进行的处理效应估计。处理可能是非二元的、非吸收的，结果可能受到处理滞后的影响。我们做出平行趋势假设，并提出事件研究估计器，用于估计在 ℓ 个时期内暴露于弱更高处理剂量的效果。我们还提出了归一化估计器，估计当前处理及其滞后的效果的加权平均。我们还分析了常用的 二 方式固定效应回归。与我们的估计器不同，在存在异质处理效应的情况下，它们可能会产生偏差。即使在同质效应下，这些回归的局部投影版本也会产生偏差。",
+      "abstract_en": "We study treatment-effect estimation using panel data. The treatment may be nonbinary, nonabsorbing, and the outcome may be affected by treatment lags. We make a parallel-trends assumption and propose event-study estimators of the effect of being exposed to a weakly higher treatment dose for ℓ periods. We also propose normalized estimators that estimate a weighted average of the effects of the current treatment and its lags. We also analyze commonly used two-way fixed-effects regressions. Unlike our estimators, they can be biased in the presence of heterogeneous treatment effects. A local-projection version of those regressions is biased even with homogeneous effects.",
+      "abstract_cn": "我们研究使用面板数据进行的处理效应估计。处理可能是非二元的、非吸收的，结果可能受到处理滞后的影响。我们做出平行趋势假设，并提出事件研究估计器，用于估计在 ℓ 个时期内暴露于弱更高处理剂量的效果。我们还提出了归一化估计器，估计当前处理及其滞后的效果的加权平均。我们还分析了常用的 二 方式固定效应回归。与我们的估计器不同，在存在异质处理效应的情况下，它们可能会产生偏差。即使在同质效应下，这些回归的局部投影版本也会产生偏差。",
       "doi": "10.1162/rest_a_01414",
       "source_url": "https://doi.org/10.1162/rest_a_01414",
       "publication_date": "2026",
@@ -43,7 +43,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T19:51:13+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1162/rest_a_01519",
@@ -58,8 +64,8 @@
         "Zubin Jelveh",
         "Max Kapustin"
       ],
-      "abstract_en": "Abstract Using Chicago police data, we train a machine learning model to predict the risk of being shot in the next 18 months. Out-of-sample accuracy is strikingly high. A central concern with using police data is “baking in” bias, or overestimating risk for groups likelier to interact with police conditional on behavior. Our predictions, however, accurately recover risk across demographic groups. Legal, ethical, and practical barriers should prevent using victimization predictions to target law enforcement. But using them to target social services could increase both the potential for interventions to reduce shootings and the available statistical power to detect those reductions.",
-      "abstract_cn": "摘要 使用芝加哥警察数据，我们训练了一个机器学习模型，以预测在接下来的 18 个月内被枪击的风险。样本外准确率显著高。使用警察数据的一个主要担忧是“固化”偏见，或在行为条件下高估与警察互动更可能的群体的风险。然而，我们的预测准确地恢复了各个群体的风险。法律、伦理和实际障碍应当阻止使用受害预测来针对执法。但将其用于针对社会服务可能会增加减少枪击事件的干预潜力以及检测这些减少的可用统计能力。",
+      "abstract_en": "Using Chicago police data, we train a machine learning model to predict the risk of being shot in the next 18 months. Out-of-sample accuracy is strikingly high. A central concern with using police data is “baking in” bias, or overestimating risk for groups likelier to interact with police conditional on behavior. Our predictions, however, accurately recover risk across demographic groups. Legal, ethical, and practical barriers should prevent using victimization predictions to target law enforcement. But using them to target social services could increase both the potential for interventions to reduce shootings and the available statistical power to detect those reductions.",
+      "abstract_cn": "使用芝加哥警察数据，我们训练了一个机器学习模型，以预测在接下来的 18 个月内被枪击的风险。样本外准确率显著高。使用警察数据的一个主要担忧是“固化”偏见，或在行为条件下高估与警察互动更可能的群体的风险。然而，我们的预测准确地恢复了各个群体的风险。法律、伦理和实际障碍应当阻止使用受害预测来针对执法。但将其用于针对社会服务可能会增加减少枪击事件的干预潜力以及检测这些减少的可用统计能力。",
       "doi": "10.1162/rest_a_01519",
       "source_url": "https://doi.org/10.1162/rest_a_01519",
       "publication_date": "2026",
@@ -77,7 +83,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T19:51:17+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1162/rest_a_01438",
@@ -89,8 +101,8 @@
       "authors": [
         "Andrei Munteanu"
       ],
-      "abstract_en": "Abstract This study examines the impact of school choice on academic achievement. I use differences in the number of schools across similar Romanian towns, generating variation in school choice for local students, who compete for seats via test scores. I find that more school choice results in increased sorting of students by admission scores across different schools. Sorting widens achievement gaps between high- and low-admission score students. High-scorers having access to better teachers and peer effects are the primary factors explaining these widening gaps. Last, between-school competition via school choice does not increase average achievement levels.",
-      "abstract_cn": "摘要 本研究考察了学校选择对学业成就的影响。我利用罗马尼亚相似城镇之间学校数量的差异，产生了当地学生的学校选择变异，这些学生通过考试成绩竞争入学名额。我发现，更多的学校选择导致学生在不同学校之间的入学成绩分层加剧。这种分层扩大了高入学分数学生与低入学分数学生之间的成就差距。高分学生能够接触到更好的教师和同伴效应是解释这些差距扩大的主要因素。最后，通过学校选择的校际竞争并未提高平均学业水平。",
+      "abstract_en": "This study examines the impact of school choice on academic achievement. I use differences in the number of schools across similar Romanian towns, generating variation in school choice for local students, who compete for seats via test scores. I find that more school choice results in increased sorting of students by admission scores across different schools. Sorting widens achievement gaps between high- and low-admission score students. High-scorers having access to better teachers and peer effects are the primary factors explaining these widening gaps. Last, between-school competition via school choice does not increase average achievement levels.",
+      "abstract_cn": "本研究考察了学校选择对学业成就的影响。我利用罗马尼亚相似城镇之间学校数量的差异，产生了当地学生的学校选择变异，这些学生通过考试成绩竞争入学名额。我发现，更多的学校选择导致学生在不同学校之间的入学成绩分层加剧。这种分层扩大了高入学分数学生与低入学分数学生之间的成就差距。高分学生能够接触到更好的教师和同伴效应是解释这些差距扩大的主要因素。最后，通过学校选择的校际竞争并未提高平均学业水平。",
       "doi": "10.1162/rest_a_01438",
       "source_url": "https://doi.org/10.1162/rest_a_01438",
       "publication_date": "2026",
@@ -108,7 +120,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T19:51:26+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1162/rest_a_01405",
@@ -121,8 +139,8 @@
         "Olivia J. Healy",
         "Jennifer A. Heissel"
       ],
-      "abstract_en": "Abstract This paper explores whether and why a maternal child penalty to earnings would emerge even without changes in employment and hours worked. Using a matched event study design, we trace monthly changes in determinants of wages (job performance, human capital accumulation, and promotions). Data come from a usefully unusual setting with required multiyear employment and detailed personnel data: the U.S. Marine Corps. Mothers’ job performance initially declines, and gaps in promotion grow through 24 months postbirth. Fathers’ physical fitness performance drops somewhat but recovers. These patterns lead mothers to earn relatively lower wages, even absent changes in employment postbirth.",
-      "abstract_cn": "摘要 本文探讨了即使在就业和工作时间没有变化的情况下，母亲的儿童惩罚如何以及为何会出现在收入中。通过匹配事件研究设计，我们追踪了工资决定因素（月度变化，包括工作表现、人力资本积累和晋升）。数据来自一个非常特殊的环境，要求多年的就业和详细的人事数据：美国海军陆战队。母亲的工作表现最初下降，晋升差距在产后 24 个月内扩大。父亲的身体素质表现略有下降，但随后恢复。这些模式导致母亲的工资相对较低，即使在产后就业没有变化的情况下。",
+      "abstract_en": "This paper explores whether and why a maternal child penalty to earnings would emerge even without changes in employment and hours worked. Using a matched event study design, we trace monthly changes in determinants of wages (job performance, human capital accumulation, and promotions). Data come from a usefully unusual setting with required multiyear employment and detailed personnel data: the U.S. Marine Corps. Mothers’ job performance initially declines, and gaps in promotion grow through 24 months postbirth. Fathers’ physical fitness performance drops somewhat but recovers. These patterns lead mothers to earn relatively lower wages, even absent changes in employment postbirth.",
+      "abstract_cn": "本文探讨了即使在就业和工作时间没有变化的情况下，母亲的儿童惩罚如何以及为何会出现在收入中。通过匹配事件研究设计，我们追踪了工资决定因素（月度变化，包括工作表现、人力资本积累和晋升）。数据来自一个非常特殊的环境，要求多年的就业和详细的人事数据：美国海军陆战队。母亲的工作表现最初下降，晋升差距在产后 24 个月内扩大。父亲的身体素质表现略有下降，但随后恢复。这些模式导致母亲的工资相对较低，即使在产后就业没有变化的情况下。",
       "doi": "10.1162/rest_a_01405",
       "source_url": "https://doi.org/10.1162/rest_a_01405",
       "publication_date": "2026",
@@ -140,7 +158,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T19:51:34+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1162/rest_a_01436",
@@ -154,8 +178,8 @@
         "Asha Sundaram",
         "Cristina J. Tello-Trillo"
       ],
-      "abstract_en": "Abstract We examine how the 1993 Family and Medical Leave Act (FMLA) impacts the gender composition at U.S. firms experiencing a negative demand shock. Combining changes in Chinese imports across industries between 2000 and 2003 and a sharp regression discontinuity to identify FMLA status, we find that an increase in import competition decreases the share of female employment, earnings, and promotions at FMLA relative to non-FMLA firms. This effect is driven by women in prime child-bearing ages and without college degrees and is pronounced at firms with all male managers. These results suggest that job-protected leave mandates may exacerbate gender inequalities in response to adverse shocks.",
-      "abstract_cn": "摘要 我们研究了1993年《家庭和医疗休假法案》（FMLA）如何影响经历负面需求冲击的美国企业的性别构成。通过结合2000年至2003年期间中国进口在各行业的变化以及一个鲜明的回归不连续性来识别FMLA状态，我们发现进口竞争的增加降低了FMLA企业相对于非FMLA企业的女性就业份额、收入和晋升。这一效应由处于主要生育年龄且没有大学学历的女性驱动，并且在全部为男性管理者的企业中尤为显著。这些结果表明，带薪休假法案可能会加剧对不利冲击的性别不平等。",
+      "abstract_en": "We examine how the 1993 Family and Medical Leave Act (FMLA) impacts the gender composition at U.S. firms experiencing a negative demand shock. Combining changes in Chinese imports across industries between 2000 and 2003 and a sharp regression discontinuity to identify FMLA status, we find that an increase in import competition decreases the share of female employment, earnings, and promotions at FMLA relative to non-FMLA firms. This effect is driven by women in prime child-bearing ages and without college degrees and is pronounced at firms with all male managers. These results suggest that job-protected leave mandates may exacerbate gender inequalities in response to adverse shocks.",
+      "abstract_cn": "我们研究了1993年《家庭和医疗休假法案》（FMLA）如何影响经历负面需求冲击的美国企业的性别构成。通过结合2000年至2003年期间中国进口在各行业的变化以及一个鲜明的回归不连续性来识别FMLA状态，我们发现进口竞争的增加降低了FMLA企业相对于非FMLA企业的女性就业份额、收入和晋升。这一效应由处于主要生育年龄且没有大学学历的女性驱动，并且在全部为男性管理者的企业中尤为显著。这些结果表明，带薪休假法案可能会加剧对不利冲击的性别不平等。",
       "doi": "10.1162/rest_a_01436",
       "source_url": "https://doi.org/10.1162/rest_a_01436",
       "publication_date": "2026",
@@ -173,7 +197,15 @@
         "model": "mistral-ai/mistral-medium-2505",
         "translated_at": "2026-07-26T20:17:01+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "abstract",
+        "matched_terms": [
+          "Chinese imports"
+        ],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1162/rest_a_01453",
@@ -186,8 +218,8 @@
         "Timothy J. Moore",
         "Kevin T. Schnepel"
       ],
-      "abstract_en": "Abstract In 2001, a large and sustained supply shock halted a heroin epidemic in Australia. We use drug offenses to identify individual opioid users and examine how the shock affected their mortality risks and criminal activity over the next eight years. Initially, gains from fewer overdoses are offset by drug substitution and more crime, including homicides. Most adverse effects dissipate over time, whereas persistent mortality reductions save the lives of around one in 48 individuals in our sample. Our results demonstrate that reducing the supply of illicit opioids can lead to meaningful longer-term improvements, even when the short-term effects are ambiguous.",
-      "abstract_cn": "摘要 在2001，澳大利亚的一次大规模且持续的供应冲击终止了海洛因流行。我们利用毒品犯罪来识别个体阿片类药物使用者，并考察这一冲击如何影响他们在接下来的八年中的死亡风险和犯罪活动。最初，因过量死亡减少带来的收益被药物替代和更多犯罪（包括谋杀）所抵消。大多数不利影响随着时间的推移而消散，而持续的死亡率降低使我们样本中约一的48个体的生命得以拯救。我们的结果表明，减少非法阿片类药物的供应可以带来有意义的长期改善，即使短期效果不明确。",
+      "abstract_en": "In 2001, a large and sustained supply shock halted a heroin epidemic in Australia. We use drug offenses to identify individual opioid users and examine how the shock affected their mortality risks and criminal activity over the next eight years. Initially, gains from fewer overdoses are offset by drug substitution and more crime, including homicides. Most adverse effects dissipate over time, whereas persistent mortality reductions save the lives of around one in 48 individuals in our sample. Our results demonstrate that reducing the supply of illicit opioids can lead to meaningful longer-term improvements, even when the short-term effects are ambiguous.",
+      "abstract_cn": "在2001，澳大利亚的一次大规模且持续的供应冲击终止了海洛因流行。我们利用毒品犯罪来识别个体阿片类药物使用者，并考察这一冲击如何影响他们在接下来的八年中的死亡风险和犯罪活动。最初，因过量死亡减少带来的收益被药物替代和更多犯罪（包括谋杀）所抵消。大多数不利影响随着时间的推移而消散，而持续的死亡率降低使我们样本中约一的48个体的生命得以拯救。我们的结果表明，减少非法阿片类药物的供应可以带来有意义的长期改善，即使短期效果不明确。",
       "doi": "10.1162/rest_a_01453",
       "source_url": "https://doi.org/10.1162/rest_a_01453",
       "publication_date": "2026",
@@ -205,7 +237,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T19:52:16+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1162/rest_a_01446",
@@ -218,8 +256,8 @@
         "Enrico Berkes",
         "Peter Nencka"
       ],
-      "abstract_en": "Abstract Between 1883 and 1919, Andrew Carnegie funded the construction of more than 1,500 public libraries across the United States, reducing the costs of accessing knowledge for millions. We study the effect of these libraries on innovation. Patenting in recipient places increased on average by 10%–12% in the 20 years following library construction relative to a novel control group of cities that applied for but did not build libraries. We show that access to scientific knowledge and increased collaboration opportunities are possible mechanisms.",
-      "abstract_cn": "摘要 在1883和1919之间，安德鲁·卡内基资助了美国超过1,500座公共图书馆的建设，降低了数百万人的知识获取成本。我们研究了这些图书馆对创新的影响。在图书馆建设后的10%年中，受益地区的专利申请平均增加了12%–20，相较于一组新颖的对照城市，这些城市申请了但未建成图书馆。我们表明，获取科学知识和增加合作机会是可能的机制。",
+      "abstract_en": "Between 1883 and 1919, Andrew Carnegie funded the construction of more than 1,500 public libraries across the United States, reducing the costs of accessing knowledge for millions. We study the effect of these libraries on innovation. Patenting in recipient places increased on average by 10%–12% in the 20 years following library construction relative to a novel control group of cities that applied for but did not build libraries. We show that access to scientific knowledge and increased collaboration opportunities are possible mechanisms.",
+      "abstract_cn": "在1883和1919之间，安德鲁·卡内基资助了美国超过1,500座公共图书馆的建设，降低了数百万人的知识获取成本。我们研究了这些图书馆对创新的影响。在图书馆建设后的10%年中，受益地区的专利申请平均增加了12%–20，相较于一组新颖的对照城市，这些城市申请了但未建成图书馆。我们表明，获取科学知识和增加合作机会是可能的机制。",
       "doi": "10.1162/rest_a_01446",
       "source_url": "https://doi.org/10.1162/rest_a_01446",
       "publication_date": "2026",
@@ -237,7 +275,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T19:52:23+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1162/rest_a_01455",
@@ -251,8 +295,8 @@
         "Jonathan Rose",
         "Stan Veuger"
       ],
-      "abstract_en": "Abstract We study the aftermath of the 1968 Washington, D.C. civil disturbance to illuminate the mechanisms that drive urban redevelopment in the presence of low demand and racial tension. Using a within-block identification strategy, we show that destruction caused lots to remain vacant for the next thirty years and only recently converge in terms of structure value. The city acted to preclude for-profit land owners from leaving land vacant until demand conditions improved by purchasing nearly half of all properties in damaged neighborhoods. Despite this and other steps, the city had limited success in speeding up redevelopment.",
-      "abstract_cn": "摘要 我们研究了1968华盛顿特区民事骚乱后的情况，以阐明在低需求和种族紧张的情况下推动城市再开发的机制。通过使用区内识别策略，我们表明，破坏导致土地在接下来的三十年内保持空置，直到最近在结构价值上才趋于一致。市政府采取行动，防止营利性土地所有者在需求条件改善之前将土地闲置，通过购买受损社区近一半的物业来实现。尽管采取了这些和其他措施，市政府在加速再开发方面的成功有限。",
+      "abstract_en": "We study the aftermath of the 1968 Washington, D.C. civil disturbance to illuminate the mechanisms that drive urban redevelopment in the presence of low demand and racial tension. Using a within-block identification strategy, we show that destruction caused lots to remain vacant for the next thirty years and only recently converge in terms of structure value. The city acted to preclude for-profit land owners from leaving land vacant until demand conditions improved by purchasing nearly half of all properties in damaged neighborhoods. Despite this and other steps, the city had limited success in speeding up redevelopment.",
+      "abstract_cn": "我们研究了1968华盛顿特区民事骚乱后的情况，以阐明在低需求和种族紧张的情况下推动城市再开发的机制。通过使用区内识别策略，我们表明，破坏导致土地在接下来的三十年内保持空置，直到最近在结构价值上才趋于一致。市政府采取行动，防止营利性土地所有者在需求条件改善之前将土地闲置，通过购买受损社区近一半的物业来实现。尽管采取了这些和其他措施，市政府在加速再开发方面的成功有限。",
       "doi": "10.1162/rest_a_01455",
       "source_url": "https://doi.org/10.1162/rest_a_01455",
       "publication_date": "2026",
@@ -270,7 +314,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T19:52:32+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1162/rest_a_01466",
@@ -283,8 +333,8 @@
         "Enea Baselgia",
         "Isabel Z. Martínez"
       ],
-      "abstract_en": "Abstract We present a new data set we built based on Swiss rich lists going back to 1989. We show, among other things, that 60% of the super-rich are heirs—a fraction twice as large as in the United States—and that wealth mobility at the very top has declined significantly. We find that top 0.01% wealth shares are higher than what previous estimates based on wealth tax statistics suggest. At the same time, we argue that rich list data lead to overestimating wealth inequality. Although rich lists are valuable to study the super-rich, we recommend using reported wealth figures with caution.",
-      "abstract_cn": "摘要 我们展示了一个基于瑞士富豪榜构建的新数据集，数据追溯至1989。我们显示，超级富豪中60%是继承者的比例是美国的两倍，并且财富流动性在顶层显著下降。我们发现，顶级0.01%财富份额高于基于财富税统计的先前估计。同时，我们认为富豪榜数据导致对财富不平等的高估。尽管富豪榜在研究超级富豪方面具有价值，但我们建议谨慎使用报告的财富数据。",
+      "abstract_en": "We present a new data set we built based on Swiss rich lists going back to 1989. We show, among other things, that 60% of the super-rich are heirs—a fraction twice as large as in the United States—and that wealth mobility at the very top has declined significantly. We find that top 0.01% wealth shares are higher than what previous estimates based on wealth tax statistics suggest. At the same time, we argue that rich list data lead to overestimating wealth inequality. Although rich lists are valuable to study the super-rich, we recommend using reported wealth figures with caution.",
+      "abstract_cn": "我们展示了一个基于瑞士富豪榜构建的新数据集，数据追溯至1989。我们显示，超级富豪中60%是继承者的比例是美国的两倍，并且财富流动性在顶层显著下降。我们发现，顶级0.01%财富份额高于基于财富税统计的先前估计。同时，我们认为富豪榜数据导致对财富不平等的高估。尽管富豪榜在研究超级富豪方面具有价值，但我们建议谨慎使用报告的财富数据。",
       "doi": "10.1162/rest_a_01466",
       "source_url": "https://doi.org/10.1162/rest_a_01466",
       "publication_date": "2026",
@@ -302,7 +352,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T19:52:41+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1162/rest_a_01447",
@@ -316,8 +372,8 @@
         "Oren Reshef",
         "Gauri Subramani"
       ],
-      "abstract_en": "Abstract Women are underrepresented in patenting. In this study, we consider differential responsiveness to rejection as a contributor to the gender gap in invention. Leveraging the prosecution histories of almost one million U.S. patent applications and the quasirandom assignment of applications to examiners, we show that women are 3.6–6.9 percentage points less likely to continue in the application process following an early-stage rejection. Conditional on applying for a patent, male-female disparities in the propensity to abandon applications account for more than half of the overall gender gap in issued patents. We provide suggestive evidence that institutional support can help reduce the attrition gap.",
-      "abstract_cn": "摘要 女性在专利申请中代表性不足。在本研究中，我们考虑拒绝的差异响应性作为导致发明性别差距的一个因素。利用近 一 百万 件美国专利申请的审查历史和申请随机分配给审查员的准随机分配，我们显示女性在早期拒绝后继续申请过程的可能性低于 3.6-6.9 个百分点。在申请专利的条件下，男性与女性在放弃申请的倾向上的差异占已发放专利总体性别差距的一半以上。我们提供了暗示性证据，表明制度支持可以帮助减少流失差距。",
+      "abstract_en": "Women are underrepresented in patenting. In this study, we consider differential responsiveness to rejection as a contributor to the gender gap in invention. Leveraging the prosecution histories of almost one million U.S. patent applications and the quasirandom assignment of applications to examiners, we show that women are 3.6–6.9 percentage points less likely to continue in the application process following an early-stage rejection. Conditional on applying for a patent, male-female disparities in the propensity to abandon applications account for more than half of the overall gender gap in issued patents. We provide suggestive evidence that institutional support can help reduce the attrition gap.",
+      "abstract_cn": "女性在专利申请中代表性不足。在本研究中，我们考虑拒绝的差异响应性作为导致发明性别差距的一个因素。利用近 一 百万 件美国专利申请的审查历史和申请随机分配给审查员的准随机分配，我们显示女性在早期拒绝后继续申请过程的可能性低于 3.6-6.9 个百分点。在申请专利的条件下，男性与女性在放弃申请的倾向上的差异占已发放专利总体性别差距的一半以上。我们提供了暗示性证据，表明制度支持可以帮助减少流失差距。",
       "doi": "10.1162/rest_a_01447",
       "source_url": "https://doi.org/10.1162/rest_a_01447",
       "publication_date": "2026",
@@ -335,7 +391,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T19:52:46+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1162/rest_a_01444",
@@ -350,8 +412,8 @@
         "Harry Anthony Patrinos",
         "Joshua Graff Zivin"
       ],
-      "abstract_en": "Abstract Addressing climate change requires individual behavior change and voter support for pro-climate policies, yet surprisingly little is known about how to achieve these outcomes. In this paper, we estimate causal effects of additional education on pro-climate outcomes using new compulsory schooling law data across 20 European countries. We analyze effects on pro-climate beliefs and behaviors, as well as novel data on policy preferences and voting for green parties. Results show that a year of education substantially increases pro-climate beliefs, behaviors, and policy preferences.",
-      "abstract_cn": "摘要 应对气候变化需要个人行为的改变和选民对支持气候政策的支持，但令人惊讶的是，关于如何实现这些结果的知识却非常有限。本文利用20欧洲国家的新强制教育法数据，估计了额外教育对支持气候结果的因果效应。我们分析了对支持气候信念和行为的影响，以及关于政策偏好和投票支持绿色政党的新数据。结果表明，一年的教育显著增加了支持气候的信念、行为和政策偏好。",
+      "abstract_en": "Addressing climate change requires individual behavior change and voter support for pro-climate policies, yet surprisingly little is known about how to achieve these outcomes. In this paper, we estimate causal effects of additional education on pro-climate outcomes using new compulsory schooling law data across 20 European countries. We analyze effects on pro-climate beliefs and behaviors, as well as novel data on policy preferences and voting for green parties. Results show that a year of education substantially increases pro-climate beliefs, behaviors, and policy preferences.",
+      "abstract_cn": "应对气候变化需要个人行为的改变和选民对支持气候政策的支持，但令人惊讶的是，关于如何实现这些结果的知识却非常有限。本文利用20欧洲国家的新强制教育法数据，估计了额外教育对支持气候结果的因果效应。我们分析了对支持气候信念和行为的影响，以及关于政策偏好和投票支持绿色政党的新数据。结果表明，一年的教育显著增加了支持气候的信念、行为和政策偏好。",
       "doi": "10.1162/rest_a_01444",
       "source_url": "https://doi.org/10.1162/rest_a_01444",
       "publication_date": "2026",
@@ -369,7 +431,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T19:52:52+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1162/rest_a_01454",
@@ -382,8 +450,8 @@
         "Adam M. Lavecchia",
         "Alisa Tazhitdinova"
       ],
-      "abstract_en": "Abstract Using panel data on a 20% random sample of Canadian taxpayers, we study behavioral responses to the cancellation of a lifetime capital gains exemption that resulted in increased capital gains taxation for some individuals. We show that the exemption did not change the number of taxpayers reporting positive capital gains, and thus unlikely resulted in increased participation in capital markets. Furthermore, our results suggest that the cancellation increased the long-run capital gains realizations of tax filers with more unused exemption room but had a small, statistically insignificant impact on the capital gains realizations of those with little unused exemption room.",
-      "abstract_cn": "摘要 使用关于20%随机样本的加拿大纳税人的面板数据，我们研究了对终身资本利得免税额取消的行为反应，该取消导致某些个人的资本利得税增加。我们表明，该免税额并未改变报告正资本利得的纳税人数，因此不太可能导致资本市场参与的增加。此外，我们的结果表明，取消免税额增加了拥有更多未使用免税额的纳税人的长期资本利得实现，但对那些未使用免税额较少的纳税人的资本利得实现影响较小，且在统计上不显著。",
+      "abstract_en": "Using panel data on a 20% random sample of Canadian taxpayers, we study behavioral responses to the cancellation of a lifetime capital gains exemption that resulted in increased capital gains taxation for some individuals. We show that the exemption did not change the number of taxpayers reporting positive capital gains, and thus unlikely resulted in increased participation in capital markets. Furthermore, our results suggest that the cancellation increased the long-run capital gains realizations of tax filers with more unused exemption room but had a small, statistically insignificant impact on the capital gains realizations of those with little unused exemption room.",
+      "abstract_cn": "使用关于20%随机样本的加拿大纳税人的面板数据，我们研究了对终身资本利得免税额取消的行为反应，该取消导致某些个人的资本利得税增加。我们表明，该免税额并未改变报告正资本利得的纳税人数，因此不太可能导致资本市场参与的增加。此外，我们的结果表明，取消免税额增加了拥有更多未使用免税额的纳税人的长期资本利得实现，但对那些未使用免税额较少的纳税人的资本利得实现影响较小，且在统计上不显著。",
       "doi": "10.1162/rest_a_01454",
       "source_url": "https://doi.org/10.1162/rest_a_01454",
       "publication_date": "2026",
@@ -401,7 +469,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T19:53:05+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1162/rest_a_01445",
@@ -413,8 +487,8 @@
       "authors": [
         "Daniel Ringo"
       ],
-      "abstract_en": "Abstract Does monetary policy influence who becomes a homeowner? Lower-income home buyers may be more sensitive to interest rates, at least in part because they more frequently come up against binding payment-to-income ratio constraints in credit decisions. Exploiting the timing of high-frequency observations of individual mortgage rate locks around monetary policy shocks, I find that a 1 percentage point policy-induced increase in mortgage rates lowers the presence of lower-income households in the population of home buyers by 1 to 2 percentage points immediately following the shock. Effects are substantially stronger among first-time home buyers and persist for approximately one year.",
-      "abstract_cn": "摘要 货币政策是否影响谁成为房主？低收入购房者可能对利率更为敏感，至少部分原因是他们在信贷决策中更频繁地面临支付与收入比率的约束。利用货币政策冲击期间个体抵押贷款利率锁定的高频观察时机，我发现政策引致的抵押贷款利率增加 1 个百分点，导致低收入家庭在购房人群中的比例下降 1 至 2 个百分点，且这一影响在冲击后立即显现。对于 第一 次购房者，影响显著更强，并持续约 一 年。",
+      "abstract_en": "Does monetary policy influence who becomes a homeowner? Lower-income home buyers may be more sensitive to interest rates, at least in part because they more frequently come up against binding payment-to-income ratio constraints in credit decisions. Exploiting the timing of high-frequency observations of individual mortgage rate locks around monetary policy shocks, I find that a 1 percentage point policy-induced increase in mortgage rates lowers the presence of lower-income households in the population of home buyers by 1 to 2 percentage points immediately following the shock. Effects are substantially stronger among first-time home buyers and persist for approximately one year.",
+      "abstract_cn": "货币政策是否影响谁成为房主？低收入购房者可能对利率更为敏感，至少部分原因是他们在信贷决策中更频繁地面临支付与收入比率的约束。利用货币政策冲击期间个体抵押贷款利率锁定的高频观察时机，我发现政策引致的抵押贷款利率增加 1 个百分点，导致低收入家庭在购房人群中的比例下降 1 至 2 个百分点，且这一影响在冲击后立即显现。对于 第一 次购房者，影响显著更强，并持续约 一 年。",
       "doi": "10.1162/rest_a_01445",
       "source_url": "https://doi.org/10.1162/rest_a_01445",
       "publication_date": "2026",
@@ -432,7 +506,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T19:53:13+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1162/rest_a_01442",
@@ -445,8 +525,8 @@
         "Kwok Hao Lee",
         "Brandon Joel Tan"
       ],
-      "abstract_en": "Abstract We propose a quantitative spatial model featuring heterogeneous worker groups and their travel to consume nontradable goods and services. We consider the opening of the Downtown Line in Singapore, which connected regions where high-income households have residential amenities to where nontraded sectors are productive. Leveraging transit farecard data, we show that high-income workers saw large welfare gains but low-income workers gained little. Everyone enjoyed improved access to consumption opportunities, but low-income jobs in nontradables moved to less attractive workplaces. Abstracting from consumption travel understates the disparate impact across worker groups threefold.",
-      "abstract_cn": "摘要 我们提出了一个定量空间模型，涉及异质工人群体及其出行以消费非贸易商品和服务。我们考虑了新加坡市中心线的开通，该线路连接了高收入家庭拥有居住便利的地区与非贸易部门生产力较高的地区。利用交通卡数据，我们显示高收入工人获得了巨大的福利增益，而低收入工人获益甚微。每个人都享受到了改善的消费机会，但低收入的非贸易工作转移到了吸引力较低的工作场所。忽视消费出行会低估不同工人群体之间的差异影响三倍。",
+      "abstract_en": "We propose a quantitative spatial model featuring heterogeneous worker groups and their travel to consume nontradable goods and services. We consider the opening of the Downtown Line in Singapore, which connected regions where high-income households have residential amenities to where nontraded sectors are productive. Leveraging transit farecard data, we show that high-income workers saw large welfare gains but low-income workers gained little. Everyone enjoyed improved access to consumption opportunities, but low-income jobs in nontradables moved to less attractive workplaces. Abstracting from consumption travel understates the disparate impact across worker groups threefold.",
+      "abstract_cn": "我们提出了一个定量空间模型，涉及异质工人群体及其出行以消费非贸易商品和服务。我们考虑了新加坡市中心线的开通，该线路连接了高收入家庭拥有居住便利的地区与非贸易部门生产力较高的地区。利用交通卡数据，我们显示高收入工人获得了巨大的福利增益，而低收入工人获益甚微。每个人都享受到了改善的消费机会，但低收入的非贸易工作转移到了吸引力较低的工作场所。忽视消费出行会低估不同工人群体之间的差异影响三倍。",
       "doi": "10.1162/rest_a_01442",
       "source_url": "https://doi.org/10.1162/rest_a_01442",
       "publication_date": "2026",
@@ -464,7 +544,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T19:53:20+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1162/rest_a_01456",
@@ -477,8 +563,8 @@
         "Adam McCloskey",
         "Pascal Michaillat"
       ],
-      "abstract_en": "Abstract P-hacking is prevalent in reality but absent from classical hypothesis-testing theory. We therefore build a model of hypothesis testing that accounts for p-hacking. From the model, we derive critical values such that, if they are used to determine significance, and if p-hacking adjusts to the new significance standards, then spurious significant results do not occur more often than intended. Because of p-hacking, such robust critical values are larger than classical critical values. In the model calibrated to medical science, the robust critical value is the classical critical value for the same test statistic but with one-fifth of the significance level.",
-      "abstract_cn": "摘要 P值操控在现实中普遍存在，但在经典假设检验理论中缺失。因此，我们建立了一个考虑P值操控的假设检验模型。根据该模型，我们推导出临界值，以便在使用这些临界值确定显著性时，如果P值操控调整到新的显著性标准，则虚假显著结果的发生频率不会超过预期。由于P值操控，这些稳健的临界值大于经典临界值。在针对医学科学校准的模型中，稳健临界值是相同检验统计量的经典临界值，但显著性水平为一-第五。",
+      "abstract_en": "P-hacking is prevalent in reality but absent from classical hypothesis-testing theory. We therefore build a model of hypothesis testing that accounts for p-hacking. From the model, we derive critical values such that, if they are used to determine significance, and if p-hacking adjusts to the new significance standards, then spurious significant results do not occur more often than intended. Because of p-hacking, such robust critical values are larger than classical critical values. In the model calibrated to medical science, the robust critical value is the classical critical value for the same test statistic but with one-fifth of the significance level.",
+      "abstract_cn": "P值操控在现实中普遍存在，但在经典假设检验理论中缺失。因此，我们建立了一个考虑P值操控的假设检验模型。根据该模型，我们推导出临界值，以便在使用这些临界值确定显著性时，如果P值操控调整到新的显著性标准，则虚假显著结果的发生频率不会超过预期。由于P值操控，这些稳健的临界值大于经典临界值。在针对医学科学校准的模型中，稳健临界值是相同检验统计量的经典临界值，但显著性水平为一-第五。",
       "doi": "10.1162/rest_a_01456",
       "source_url": "https://doi.org/10.1162/rest_a_01456",
       "publication_date": "2026",
@@ -496,7 +582,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T19:53:27+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1162/rest_a_01459",
@@ -508,8 +600,8 @@
       "authors": [
         "Zhongjian Lin"
       ],
-      "abstract_en": "Abstract This paper provides a method to study quantile effects in discrete choice with social interactions. The method is based on a behavioral social interactions model from quantile preference in decision making and demonstrates peer effects on different quantiles of discrete outcomes. The peer effects parameters are estimated by a nested pseudoscore (NPS) approach, which is developed to tackle the computational burden pertaining to the social interactions model. Consistency and asymptotic normality are established for the proposed NPS estimator. We illustrate the finite sample performance of the model and the estimator by Monte Carlo experiments and an application of peer effects among students on exercise decisions, using the National Longitudinal Study of Adolescent Health dataset.",
-      "abstract_cn": "摘要 本文提供了一种研究具有社会互动的离散选择中分位数效应的方法。该方法基于决策中的分位数偏好行为社会互动模型，并展示了对离散结果不同分位数的同伴效应。通过嵌套伪得分（NPS）方法估计同伴效应参数，该方法旨在解决与社会互动模型相关的计算负担。为所提出的NPS估计量建立了一致性和渐近正态性。我们通过蒙特卡洛实验和对学生在锻炼决策中的同伴效应的应用，使用国家青少年健康纵向研究数据集，说明了模型和估计量的有限样本表现。",
+      "abstract_en": "This paper provides a method to study quantile effects in discrete choice with social interactions. The method is based on a behavioral social interactions model from quantile preference in decision making and demonstrates peer effects on different quantiles of discrete outcomes. The peer effects parameters are estimated by a nested pseudoscore (NPS) approach, which is developed to tackle the computational burden pertaining to the social interactions model. Consistency and asymptotic normality are established for the proposed NPS estimator. We illustrate the finite sample performance of the model and the estimator by Monte Carlo experiments and an application of peer effects among students on exercise decisions, using the National Longitudinal Study of Adolescent Health dataset.",
+      "abstract_cn": "本文提供了一种研究具有社会互动的离散选择中分位数效应的方法。该方法基于决策中的分位数偏好行为社会互动模型，并展示了对离散结果不同分位数的同伴效应。通过嵌套伪得分（NPS）方法估计同伴效应参数，该方法旨在解决与社会互动模型相关的计算负担。为所提出的NPS估计量建立了一致性和渐近正态性。我们通过蒙特卡洛实验和对学生在锻炼决策中的同伴效应的应用，使用国家青少年健康纵向研究数据集，说明了模型和估计量的有限样本表现。",
       "doi": "10.1162/rest_a_01459",
       "source_url": "https://doi.org/10.1162/rest_a_01459",
       "publication_date": "2026",
@@ -527,7 +619,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T19:53:35+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1162/rest_a_01441",
@@ -539,8 +637,8 @@
       "authors": [
         "Gregory Fletcher Cox"
       ],
-      "abstract_en": "Abstract This paper describes how to reparametrize low-dimensional factor models with one or two factors to fit weak identification theory developed for generalized method of moments models. Some identification-robust tests, here called “plug-in” tests, require a reparametrization to distinguish weakly identified parameters from strongly identified parameters. The reparametrizations in this paper make plug-in tests available for subvector hypotheses in low-dimensional factor models with one or two factors. Simulations show that the plug-in tests are less conservative than identification-robust tests that use the original parametrization. An empirical application to a factor model of parental investments in children is included.",
-      "abstract_cn": "摘要 本文描述了如何对具有一或二因子的低维因子模型进行重新参数化，以适应为广义矩方法模型开发的弱识别理论。一些识别稳健性测试，在这里称为“插入”测试，需要重新参数化以区分弱识别参数和强识别参数。本文中的重新参数化使得在具有一或二因子的低维因子模型中可以进行子向量假设的插入测试。模拟结果表明，插入测试比使用原参数化的识别稳健性测试更不保守。文中还包括对父母对子女投资的因子模型的实证应用。",
+      "abstract_en": "This paper describes how to reparametrize low-dimensional factor models with one or two factors to fit weak identification theory developed for generalized method of moments models. Some identification-robust tests, here called “plug-in” tests, require a reparametrization to distinguish weakly identified parameters from strongly identified parameters. The reparametrizations in this paper make plug-in tests available for subvector hypotheses in low-dimensional factor models with one or two factors. Simulations show that the plug-in tests are less conservative than identification-robust tests that use the original parametrization. An empirical application to a factor model of parental investments in children is included.",
+      "abstract_cn": "本文描述了如何对具有一或二因子的低维因子模型进行重新参数化，以适应为广义矩方法模型开发的弱识别理论。一些识别稳健性测试，在这里称为“插入”测试，需要重新参数化以区分弱识别参数和强识别参数。本文中的重新参数化使得在具有一或二因子的低维因子模型中可以进行子向量假设的插入测试。模拟结果表明，插入测试比使用原参数化的识别稳健性测试更不保守。文中还包括对父母对子女投资的因子模型的实证应用。",
       "doi": "10.1162/rest_a_01441",
       "source_url": "https://doi.org/10.1162/rest_a_01441",
       "publication_date": "2026",
@@ -558,7 +656,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T19:53:42+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1162/rest_a_01426",
@@ -572,8 +676,8 @@
         "Jesse M. Cunha",
         "Patrick Veith"
       ],
-      "abstract_en": "Abstract We study the influence of workplace peers on a high-stakes, irreversible retirement plan choice. Midcareer U.S. military personnel choose between higher future pension payouts or an immediate bonus plus lower future payouts. With peers defined as those who have locked in their choices and personnel assignment rules ensuring that peer groups are exogenously formed, we capture the causal impact of peers. Greater peer take-up of the bonus, which is difficult to compare to the alternative plan but often extremely costly over one’s lifetime, discourages choosers from selecting the bonus. Peers have special impact within professional, race, and gender groups.",
-      "abstract_cn": "摘要 我们研究了工作场所同伴对高风险、不可逆转的退休计划选择的影响。中年美国军人选择更高的未来养老金支付或立即获得奖金加上较低的未来支付。由于同伴被定义为那些已经锁定选择的人，并且人员分配规则确保同伴群体是外生形成的，我们捕捉到同伴的因果影响。更多同伴选择奖金，这与替代计划难以比较，但在一的生命周期中往往极其昂贵，抑制了选择者选择奖金。同伴在专业、种族和性别群体中具有特殊影响。",
+      "abstract_en": "We study the influence of workplace peers on a high-stakes, irreversible retirement plan choice. Midcareer U.S. military personnel choose between higher future pension payouts or an immediate bonus plus lower future payouts. With peers defined as those who have locked in their choices and personnel assignment rules ensuring that peer groups are exogenously formed, we capture the causal impact of peers. Greater peer take-up of the bonus, which is difficult to compare to the alternative plan but often extremely costly over one’s lifetime, discourages choosers from selecting the bonus. Peers have special impact within professional, race, and gender groups.",
+      "abstract_cn": "我们研究了工作场所同伴对高风险、不可逆转的退休计划选择的影响。中年美国军人选择更高的未来养老金支付或立即获得奖金加上较低的未来支付。由于同伴被定义为那些已经锁定选择的人，并且人员分配规则确保同伴群体是外生形成的，我们捕捉到同伴的因果影响。更多同伴选择奖金，这与替代计划难以比较，但在一的生命周期中往往极其昂贵，抑制了选择者选择奖金。同伴在专业、种族和性别群体中具有特殊影响。",
       "doi": "10.1162/rest_a_01426",
       "source_url": "https://doi.org/10.1162/rest_a_01426",
       "publication_date": "2026",
@@ -591,7 +695,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T19:53:50+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1162/rest_a_01428",
@@ -606,8 +716,8 @@
         "Tarun Khanna",
         "Kyle Schirmann"
       ],
-      "abstract_en": "Abstract This paper reports causal evidence on how the extent of hybrid work—the number of days worked from home relative to days worked from office—affects employee attitudes and performance. Workers who spent around two days in the office each week on average self-reported greater work-life balance, more job satisfaction, and lower isolation from colleagues compared to workers who spent more or fewer days in the office. Employees in the intermediate hybrid condition received no different performance ratings compared to peers who spent more or fewer days in the office.",
-      "abstract_cn": "摘要 本文报告了混合工作程度——在家工作天数与在办公室工作天数的比例——如何影响员工态度和绩效的因果证据。每周在办公室工作约二天的员工自我报告的工作与生活平衡更好，工作满意度更高，与同事的孤立感更低，相比于在办公室工作天数更多或更少的员工。处于中间混合状态的员工与在办公室工作天数更多或更少的同事相比，绩效评分没有显著差异。",
+      "abstract_en": "This paper reports causal evidence on how the extent of hybrid work—the number of days worked from home relative to days worked from office—affects employee attitudes and performance. Workers who spent around two days in the office each week on average self-reported greater work-life balance, more job satisfaction, and lower isolation from colleagues compared to workers who spent more or fewer days in the office. Employees in the intermediate hybrid condition received no different performance ratings compared to peers who spent more or fewer days in the office.",
+      "abstract_cn": "本文报告了混合工作程度——在家工作天数与在办公室工作天数的比例——如何影响员工态度和绩效的因果证据。每周在办公室工作约二天的员工自我报告的工作与生活平衡更好，工作满意度更高，与同事的孤立感更低，相比于在办公室工作天数更多或更少的员工。处于中间混合状态的员工与在办公室工作天数更多或更少的同事相比，绩效评分没有显著差异。",
       "doi": "10.1162/rest_a_01428",
       "source_url": "https://doi.org/10.1162/rest_a_01428",
       "publication_date": "2026",
@@ -625,7 +735,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T19:53:57+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1162/rest_a_01451",
@@ -639,8 +755,8 @@
         "Sotiris Georganas",
         "Matthias Sutter"
       ],
-      "abstract_en": "Abstract In markets with asymmetric information between sellers and buyers, feedback mechanisms are important to increase market efficiency and reduce the informational disadvantage of buyers. Feedback mechanisms might work because of self-selection of more trustworthy sellers into markets with such mechanisms or because of reputational concerns of sellers. We show in a field experiment how to disentangle self-selection from reputation effects. Based on 476 taxi rides with four different types of taxis, we find strong evidence for reputation effects but little support for self-selection effects. We discuss policy implications of our findings.",
-      "abstract_cn": "摘要 在卖方与买方之间存在信息不对称的市场中，反馈机制对于提高市场效率和减少买方的信息劣势至关重要。反馈机制可能是因为更可信的卖方自我选择进入具有此类机制的市场，或者是因为卖方的声誉担忧。我们在一项实地实验中展示了如何将自我选择与声誉效应剥离。基于476出租车乘坐与四种类不同的出租车，我们发现声誉效应的证据强烈，但自我选择效应的支持较少。我们讨论了研究结果的政策含义。",
+      "abstract_en": "In markets with asymmetric information between sellers and buyers, feedback mechanisms are important to increase market efficiency and reduce the informational disadvantage of buyers. Feedback mechanisms might work because of self-selection of more trustworthy sellers into markets with such mechanisms or because of reputational concerns of sellers. We show in a field experiment how to disentangle self-selection from reputation effects. Based on 476 taxi rides with four different types of taxis, we find strong evidence for reputation effects but little support for self-selection effects. We discuss policy implications of our findings.",
+      "abstract_cn": "在卖方与买方之间存在信息不对称的市场中，反馈机制对于提高市场效率和减少买方的信息劣势至关重要。反馈机制可能是因为更可信的卖方自我选择进入具有此类机制的市场，或者是因为卖方的声誉担忧。我们在一项实地实验中展示了如何将自我选择与声誉效应剥离。基于476出租车乘坐与四种类不同的出租车，我们发现声誉效应的证据强烈，但自我选择效应的支持较少。我们讨论了研究结果的政策含义。",
       "doi": "10.1162/rest_a_01451",
       "source_url": "https://doi.org/10.1162/rest_a_01451",
       "publication_date": "2026",
@@ -658,7 +774,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T19:54:06+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1162/rest_a_01427",
@@ -671,8 +793,8 @@
         "Brent W. Ambrose",
         "Maxence Valentin"
       ],
-      "abstract_en": "Abstract The U.S. tax system allows taxpayers to deduct local taxes from their taxable incomes. Using school district referendum results, we employ a continuous treatment two-way fixed-effects framework to provide causal evidence of a positive relation between the demand for local public goods and the share of residents deducting local taxes. We find that a 1 percentage point decrease in the share of residents deducting property taxes reduces tax and bond referendum approval rates by approximately 0.97 percentage points. Because these federal tax deductions disproportionately benefit higher-income individuals, they potentially widen disparities in public service provision across jurisdictions.",
-      "abstract_cn": "摘要 美国税制允许纳税人从应税收入中扣除地方税。通过使用学区公投结果，我们采用连续处理二方式的固定效应框架，提供了地方公共物品需求与扣除地方税居民比例之间正相关关系的因果证据。我们发现，扣除财产税居民比例减少1个百分点，税收和债券公投批准率大约减少0.97个百分点。由于这些联邦税收扣除不成比例地惠及高收入个人，因此它们可能加大不同管辖区之间公共服务提供的差距。",
+      "abstract_en": "The U.S. tax system allows taxpayers to deduct local taxes from their taxable incomes. Using school district referendum results, we employ a continuous treatment two-way fixed-effects framework to provide causal evidence of a positive relation between the demand for local public goods and the share of residents deducting local taxes. We find that a 1 percentage point decrease in the share of residents deducting property taxes reduces tax and bond referendum approval rates by approximately 0.97 percentage points. Because these federal tax deductions disproportionately benefit higher-income individuals, they potentially widen disparities in public service provision across jurisdictions.",
+      "abstract_cn": "美国税制允许纳税人从应税收入中扣除地方税。通过使用学区公投结果，我们采用连续处理二方式的固定效应框架，提供了地方公共物品需求与扣除地方税居民比例之间正相关关系的因果证据。我们发现，扣除财产税居民比例减少1个百分点，税收和债券公投批准率大约减少0.97个百分点。由于这些联邦税收扣除不成比例地惠及高收入个人，因此它们可能加大不同管辖区之间公共服务提供的差距。",
       "doi": "10.1162/rest_a_01427",
       "source_url": "https://doi.org/10.1162/rest_a_01427",
       "publication_date": "2026",
@@ -690,7 +812,13 @@
         "model": "openai/gpt-4o-mini",
         "translated_at": "2026-07-26T19:54:12+00:00"
       },
-      "quality_flags": []
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     }
   ],
   "quality": {
@@ -704,8 +832,9 @@
     "excluded_items": [
       {
         "title_en": "<i>Review of Economics and Statistics</i>\n                    2026 Annual\n                    Report",
-        "reason": "non_research_title",
-        "doi": "10.1162/rest.e.1731"
+        "reason": "editorial_material",
+        "doi": "10.1162/rest.e.1731",
+        "article_type": "editorial"
       }
     ],
     "doi_complete": 21,
@@ -716,6 +845,38 @@
     "flags": [
       "publisher_html_blocked_crossref_fallback",
       "crossref_provisional_roster"
-    ]
-  }
+    ],
+    "official_item_count": 22,
+    "publishable_item_count": 21,
+    "content_counts": {
+      "official_items": 22,
+      "observed_items": 22,
+      "publishable_items": 21,
+      "research_articles": 21,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 1,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 21
+    }
+  },
+  "content_counts": {
+    "official_items": 22,
+    "observed_items": 22,
+    "publishable_items": 21,
+    "research_articles": 21,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 1,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 21
+  },
+  "issue_label": "Vol. 108 · No. 4",
+  "content_status": "complete",
+  "source_status": "source_pending",
+  "publication_state": "source_pending"
 }

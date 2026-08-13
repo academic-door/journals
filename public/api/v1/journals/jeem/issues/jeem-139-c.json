@@ -1156,7 +1156,7 @@
       "paper_id": "doi:10.1016/j.jeem.2026.103396",
       "sequence": 30,
       "source_sequence": 31,
-      "article_type": "research-article",
+      "article_type": "short-communication",
       "title_en": "Do economic principles explain orbital use in space?",
       "title_cn": "经济学原理可以解释太空中的轨道使用吗？",
       "authors": [
@@ -1393,8 +1393,9 @@
     "excluded_items": [
       {
         "title_en": "Corrigendum to “A helping hand for the regulator: The role of industry associations in firm water pollution abatement in China” [J. Environ. Econ. Manag. 137 (2026) 103306]",
-        "reason": "non_research_title",
-        "doi": "10.1016/j.jeem.2026.103395"
+        "reason": "correction_notice",
+        "doi": "10.1016/j.jeem.2026.103395",
+        "article_type": "correction"
       }
     ],
     "doi_complete": 35,
@@ -1407,6 +1408,36 @@
       "repec_publisher_supplied_roster",
       "official_order_unverified"
     ],
-    "official_issue_fetch_error": "request failed for https://www.sciencedirect.com/journal/journal-of-environmental-economics-and-management/vol/139/suppl/C: 403 Client Error: Forbidden for url: https://www.sciencedirect.com/journal/journal-of-environmental-economics-and-management/vol/139/suppl/C"
-  }
+    "official_issue_fetch_error": "request failed for https://www.sciencedirect.com/journal/journal-of-environmental-economics-and-management/vol/139/suppl/C: 403 Client Error: Forbidden for url: https://www.sciencedirect.com/journal/journal-of-environmental-economics-and-management/vol/139/suppl/C",
+    "publishable_item_count": 35,
+    "content_counts": {
+      "official_items": 36,
+      "observed_items": 36,
+      "publishable_items": 35,
+      "research_articles": 34,
+      "comments": 0,
+      "short_communications": 1,
+      "corrections": 1,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 36
+    }
+  },
+  "content_counts": {
+    "official_items": 36,
+    "observed_items": 36,
+    "publishable_items": 35,
+    "research_articles": 34,
+    "comments": 0,
+    "short_communications": 1,
+    "corrections": 1,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 36
+  },
+  "content_status": "complete",
+  "source_status": "source_pending",
+  "publication_state": "source_pending"
 }
