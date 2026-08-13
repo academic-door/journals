@@ -69,7 +69,7 @@ class PublishDataDeltaTests(unittest.TestCase):
             )
 
             self.assertEqual(
-                '{"a": "this-run", "b": "other-run"}\n',
+                '{\n  "a": "this-run",\n  "b": "other-run"\n}\n',
                 (target / relative).read_text(),
             )
 
