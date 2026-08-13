@@ -50,6 +50,29 @@ class PublishDataDeltaTests(unittest.TestCase):
                 "public/api/v1/journals/a/issues/a-2.json", report["changed"]
             )
 
+    def test_merges_disjoint_json_changes_from_two_publishers(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            baseline = root / "baseline"
+            generated = root / "generated"
+            target = root / "target"
+            relative = "data/translation-cache/qje.json"
+            self.write(baseline, relative, '{"a": "old", "b": "old"}')
+            self.write(generated, relative, '{"a": "this-run", "b": "old"}')
+            self.write(target, relative, '{"a": "old", "b": "other-run"}')
+
+            apply_delta(
+                baseline=baseline,
+                generated=generated,
+                target=target,
+                paths=[Path("data/translation-cache")],
+            )
+
+            self.assertEqual(
+                '{"a": "this-run", "b": "other-run"}\n',
+                (target / relative).read_text(),
+            )
+
     def test_rejects_same_path_concurrent_change(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
