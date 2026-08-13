@@ -1,12 +1,12 @@
 # Field journal history backfill status
 
-Updated: 2026-08-13T09:36:13+00:00
+Updated: 2026-08-13T09:40:54+00:00
 
-Discovery coverage: 1324 discovered · 680 archived · 441 publication ready · 644 missing · 239 source pending
+Discovery coverage: 1324 discovered · 685 archived · 441 publication ready · 639 missing · 244 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 33 | 0 | 41 | 52 |
+| 2023-2024 | 33 | 0 | 42 | 57 |
 | 2025-2026 | 407 | 0 | 19 | 187 |
 
 | Journal | Issue | Year | Status | Note |
@@ -553,6 +553,12 @@ Discovery coverage: 1324 discovered · 680 archived · 441 publication ready · 
 | JOE | joe-255-c | 2026 | ready |  |
 | JOE | joe-256-c | 2026 | ready |  |
 | JOE | joe-257-c | 2026 | ready |  |
+| JPE | jpe-131-1 | 2023 | source_pending | source authority pending official verification |
+| JPE | jpe-131-2 | 2023 | source_pending | source authority pending official verification |
+| JPE | jpe-131-3 | 2023 | source_pending | source authority pending official verification |
+| JPE | jpe-131-4 | 2023 | source_pending | source authority pending official verification |
+| JPE | jpe-131-5 | 2023 | blocked | archive_content_gate_failed |
+| JPE | jpe-131-6 | 2023 | source_pending | source authority pending official verification |
 | JPE | jpe-132-1 | 2024 | blocked | MetadataFallbackError: RePEc serial page has no issue 132/1 |
 | JPE | jpe-132-10 | 2024 | ready |  |
 | JPE | jpe-132-11 | 2024 | ready |  |
