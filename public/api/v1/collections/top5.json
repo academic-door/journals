@@ -3,7 +3,7 @@
   "collection_id": "top5",
   "title": "Top 5 Economics Journals",
   "title_cn": "经济学 TOP5",
-  "updated_at": "2026-08-11T23:37:23+00:00",
+  "updated_at": "2026-08-13T09:13:18+00:00",
   "data_status": "degraded",
   "content_status": "complete",
   "summary": {
@@ -47,9 +47,14 @@
       "latest_detected_roster_authority": "official-issue-page",
       "latest_detected_roster_transport": "official-issue-page",
       "latest_detected_order_verification": "official_verified",
+      "latest_detected_content_status": "complete",
+      "latest_detected_source_status": "official_verified",
+      "latest_detected_publication_state": "ready",
       "update_state": "ready",
       "data_status": "healthy",
       "content_status": "complete",
+      "source_status": "official_verified",
+      "publication_state": "ready",
       "latest_issue_id": "aer-116-8",
       "latest_ready_issue_id": "aer-116-8",
       "latest_issue_url": "/journals/api/v1/journals/aer/issues/current.json",
@@ -88,6 +93,8 @@
       "status": "incomplete",
       "data_status": "needs_attention",
       "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending",
       "latest_issue_id": "jpe-134-7",
       "latest_ready_issue_id": "jpe-134-7",
       "latest_issue_url": "/journals/api/v1/journals/jpe/issues/current.json",
@@ -135,7 +142,10 @@
       "latest_detected_roster_authority": "crossref-provisional",
       "latest_detected_roster_transport": "crossref",
       "latest_detected_order_verification": "pending_official",
-      "update_state": "ready"
+      "latest_detected_content_status": "complete",
+      "latest_detected_source_status": "source_pending",
+      "latest_detected_publication_state": "source_pending",
+      "update_state": "source_pending"
     },
     {
       "journal_id": "qje",
@@ -171,9 +181,14 @@
       "latest_detected_roster_authority": "publisher-rss",
       "latest_detected_roster_transport": "publisher-rss",
       "latest_detected_order_verification": "official_verified",
+      "latest_detected_content_status": "complete",
+      "latest_detected_source_status": "publisher_verified",
+      "latest_detected_publication_state": "ready",
       "update_state": "ready",
       "data_status": "healthy",
       "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready",
       "latest_issue_id": "qje-141-3",
       "latest_ready_issue_id": "qje-141-3",
       "latest_issue_url": "/journals/api/v1/journals/qje/issues/current.json",
@@ -212,6 +227,8 @@
       "status": "incomplete",
       "data_status": "needs_attention",
       "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending",
       "latest_issue_id": "res-93-4",
       "latest_ready_issue_id": "res-93-4",
       "latest_issue_url": "/journals/api/v1/journals/res/issues/current.json",
@@ -259,7 +276,10 @@
       "latest_detected_roster_authority": "crossref-provisional",
       "latest_detected_roster_transport": "crossref-newer-than-rss",
       "latest_detected_order_verification": "pending_official",
-      "update_state": "ready"
+      "latest_detected_content_status": "complete",
+      "latest_detected_source_status": "source_pending",
+      "latest_detected_publication_state": "source_pending",
+      "update_state": "source_pending"
     },
     {
       "journal_id": "ecta",
@@ -274,6 +294,8 @@
       "status": "incomplete",
       "data_status": "needs_attention",
       "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending",
       "latest_issue_id": "ecta-94-4",
       "latest_ready_issue_id": "ecta-94-4",
       "latest_issue_url": "/journals/api/v1/journals/ecta/issues/current.json",
@@ -321,7 +343,10 @@
       "latest_detected_roster_authority": "crossref-provisional",
       "latest_detected_roster_transport": "crossref",
       "latest_detected_order_verification": "pending_official",
-      "update_state": "ready"
+      "latest_detected_content_status": "complete",
+      "latest_detected_source_status": "source_pending",
+      "latest_detected_publication_state": "source_pending",
+      "update_state": "source_pending"
     }
   ]
 }
