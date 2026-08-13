@@ -783,7 +783,9 @@ class BackfillHistoryTests(unittest.TestCase):
                 }
             },
         }
-        with patch(
+        with tempfile.TemporaryDirectory() as directory, patch(
+            "scripts.backfill_history.PUBLIC_API", Path(directory) / "public"
+        ), patch(
             "collectors.metadata_fallback.fetch_crossref_current_issue"
         ) as fetch:
             report = run_issue(
