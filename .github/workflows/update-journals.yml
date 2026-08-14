@@ -1,35 +1,21 @@
 name: Update journal data
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - ".github/workflows/update-journals.yml"
-      - "collectors/**"
-      - "config/**"
-      - "data/translation-cache/**"
-      - "data/order-overrides/**"
-      - "schemas/**"
-      - "scripts/**"
-      - "requirements.txt"
+  # Monitoring and the history-sprint workflow are the only scheduled
+  # writers.  This entry point remains available for a deliberate, targeted
+  # repair and never launches a surprise ALL sweep after every code merge.
   workflow_dispatch:
     inputs:
       journal:
         description: Any configured journal code, or ALL
         required: true
-        default: ALL
+        default: AER
         type: string
       re-enrich-elsevier:
         description: Force Elsevier API abstract lookups even when abstracts already exist
         required: false
         default: false
         type: boolean
-  schedule:
-    # Daily full sweep is the safety net. The lightweight monitor runs every
-    # two hours and deep-collects only journals with confirmed changes.
-    - cron: "35 21 * * *"
-
 permissions:
   contents: write
   issues: write

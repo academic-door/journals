@@ -171,14 +171,22 @@ def discovery_expectations(
             if not isinstance(snapshot, dict):
                 continue
             issue_years = snapshot.get("issue_years", {}) or {}
+            issue_refs = snapshot.get("issue_refs", {}) or {}
             for issue_id in snapshot.get("issue_ids", []):
                 issue_id = str(issue_id)
                 entry = merged_issues.get(issue_id, {})
+                reference = issue_refs.get(issue_id, {})
+                if not isinstance(reference, dict):
+                    reference = {}
                 year = issue_years.get(issue_id) or entry.get("year")
                 expected[issue_id] = {
                     "issue_id": issue_id,
                     "journal": str(journal),
                     "year": year,
+                    "volume": reference.get("volume") or entry.get("volume", ""),
+                    "issue": reference.get("issue") or entry.get("issue", ""),
+                    "official_url": reference.get("official_url")
+                    or entry.get("official_url", ""),
                     "authority": str(snapshot.get("authority", "")),
                     "refreshed_at": str(snapshot.get("refreshed_at", "")),
                     "collector_revision": str(snapshot.get("collector_revision", "")),

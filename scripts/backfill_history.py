@@ -1068,6 +1068,12 @@ def main() -> int:
         help="resumable state json path",
     )
     parser.add_argument("--journal", default="ALL", help="journal key or ALL")
+    parser.add_argument(
+        "--journals",
+        default="",
+        help="comma-separated journal keys for an explicit parallel shard; "
+        "when set, rotation is disabled",
+    )
     parser.add_argument("--from-year", type=int, default=2025)
     parser.add_argument("--to-year", type=int, default=2026)
     parser.add_argument("--translate", action="store_true")
@@ -1118,12 +1124,26 @@ def main() -> int:
     history_path = Path(args.config)
     history = yaml.safe_load(history_path.read_text(encoding="utf-8"))
     journals = yaml.safe_load(JOURNALS_PATH.read_text(encoding="utf-8"))["journals"]
+    requested_journals = [
+        value.strip() for value in str(args.journals).split(",") if value.strip()
+    ]
+    if requested_journals and args.journal != "ALL":
+        parser.error("use either --journal or --journals, not both")
+    unknown = [key for key in requested_journals if key not in history["journals"]]
+    if unknown:
+        parser.error(f"unknown journal key(s): {', '.join(unknown)}")
     if args.journal != "ALL" and args.journal not in history["journals"]:
         parser.error(f"unknown journal key: {args.journal}")
     years = range(args.from_year, args.to_year + 1)
-    selected = [
-        key for key in history["journals"] if args.journal == "ALL" or key == args.journal
-    ]
+    selected = (
+        requested_journals
+        if requested_journals
+        else [
+            key
+            for key in history["journals"]
+            if args.journal == "ALL" or key == args.journal
+        ]
+    )
 
     state_path = Path(args.state)
     state = load_json(state_path, {"schema_version": "1.0", "issues": {}})
@@ -1193,7 +1213,7 @@ def main() -> int:
     # work.  Only the selected journals are refreshed, avoiding 49 archive
     # requests merely to decide which four journals should run.
     collection_selected = selected
-    if args.journal == "ALL":
+    if args.journal == "ALL" and not requested_journals:
         collection_selected = rotate_journals(
             state,
             scoped_history,
