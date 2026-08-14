@@ -1,0 +1,619 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "qje-139-2",
+  "journal_id": "qje",
+  "journal_name": "The Quarterly Journal of Economics",
+  "volume": "139",
+  "issue": "2",
+  "publication_date": "May 2024",
+  "source_url": "https://academic.oup.com/qje/issue/139/2",
+  "retrieved_at": "2026-08-14T04:45:18+00:00",
+  "expected_article_count": 12,
+  "research_article_count": 12,
+  "status": "incomplete",
+  "development_sample": false,
+  "articles": [
+    {
+      "paper_id": "doi:10.1093/qje/qjad044",
+      "sequence": 1,
+      "source_sequence": 693,
+      "article_type": "research-article",
+      "title_en": "Wealth of Two Nations: The U.S. Racial Wealth Gap, 1860–2020",
+      "title_cn": "两个国家的财富：美国种族财富差距，1860-2020",
+      "authors": [
+        "Ellora Derenoncourt",
+        "Chi Hyun Kim",
+        "Moritz Kuhn",
+        "Moritz Schularick"
+      ],
+      "abstract_en": "The racial wealth gap is the largest of the economic disparities between Black and white Americans, with a white-to-Black per capita wealth ratio of 6 to 1. It is also among the most persistent. In this article, we construct the first continuous series on white-to-Black per capita wealth ratios from 1860 to 2020, drawing on historical census data, early state tax records, and historical waves of the Survey of Consumer Finances, among other sources. Incorporating these data into a parsimonious model of wealth accumulation for each racial group, we document the role played by initial conditions, income growth, savings behavior, and capital returns in the evolution of the gap. Given vastly different starting conditions under slavery, racial wealth convergence would remain a distant scenario, even if wealth-accumulating conditions had been equal across the two groups since Emancipation. Relative to this equal-conditions benchmark, we find that observed convergence has followed an even slower path over the past 150 years, with convergence stalling after 1950. Since the 1980s, the wealth gap has widened again as capital gains have predominantly benefited white households, and convergence via income growth and savings has come to a halt.",
+      "abstract_cn": "种族财富差距是美国黑人与白人之间最大的经济差距，白人至黑人人均财富比率为6比1。它也是最持久的差距之一。在本文中，我们利用历史人口普查数据、早期州税收记录以及消费者金融调查的历史波次等来源，构建了从1860年到2020年白人至黑人人均财富比率的首个连续序列。将这些数据纳入一个简洁的财富积累模型，针对每个种族群体，我们记录了初始条件、收入增长、储蓄行为和资本回报在差距演变中所起的作用。鉴于奴隶制下截然不同的起始条件，即使自解放以来两个群体的财富积累条件相同，种族财富趋同仍将是一个遥远的情景。相对于这一同等条件的基准，我们发现观察到的趋同在过去150年中遵循了更缓慢的路径，趋同在1950年后停滞。自1980年以来，财富差距再次扩大，因为资本收益主要惠及白人家庭，而通过收入增长和储蓄实现的趋同已停止。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/qje/qjad044",
+      "source_url": "https://doi.org/10.1093/qje/qjad044",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://academic.oup.com/qje/issue/139/2",
+        "roster": "crossref:issn:0033-5533",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-14T04:45:21+00:00",
+        "source_hash": "a310c2bfd6b770b17a0f8af1aa65d8cf7121e22a84d43097af58946959791c3d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/qje/qjad055",
+      "sequence": 2,
+      "source_sequence": 751,
+      "article_type": "research-article",
+      "title_en": "Machine Learning as a Tool for Hypothesis Generation",
+      "title_cn": "机器学习作为假设生成的工具",
+      "authors": [
+        "Jens Ludwig",
+        "Sendhil Mullainathan"
+      ],
+      "abstract_en": "While hypothesis testing is a highly formalized activity, hypothesis generation remains largely informal. We propose a systematic procedure to generate novel hypotheses about human behavior, which uses the capacity of machine learning algorithms to notice patterns people might not. We illustrate the procedure with a concrete application: judge decisions about whom to jail. We begin with a striking fact: the defendant’s face alone matters greatly for the judge’s jailing decision. In fact, an algorithm given only the pixels in the defendant’s mug shot accounts for up to half of the predictable variation. We develop a procedure that allows human subjects to interact with this black-box algorithm to produce hypotheses about what in the face influences judge decisions. The procedure generates hypotheses that are both interpretable and novel: they are not explained by demographics (e.g., race) or existing psychology research, nor are they already known (even if tacitly) to people or experts. Though these results are specific, our procedure is general. It provides a way to produce novel, interpretable hypotheses from any high-dimensional data set (e.g., cell phones, satellites, online behavior, news headlines, corporate filings, and high-frequency time series). A central tenet of our article is that hypothesis generation is a valuable activity, and we hope this encourages future work in this largely “prescientific” stage of science.",
+      "abstract_cn": "尽管假设检验是一项高度形式化的活动，假设生成在很大程度上仍然是非正式的。我们提出了一种系统性的程序来生成关于人类行为的新颖假设，该程序利用机器学习算法注意到人们可能忽略的模式的能力。我们通过一个具体应用来展示该程序：法官关于监禁谁的决定。我们从一个惊人的事实开始：被告的面部本身对法官的监禁决定影响重大。实际上，仅根据被告面部照片中的像素运行的算法，就能解释多达一半的可预测变异。我们开发了一个程序，允许人类受试者与该黑箱算法互动，以生成关于面部哪些特征影响法官决定的假设。该程序生成的假设既具有可解释性又具有新颖性：它们不能由人口统计学特征（如种族）或现有心理学研究解释，也不是人们或专家已知的（即使是默认的）。尽管这些结果是具体的，我们的程序是通用的。它提供了一种从任何高维数据集（如手机、卫星、在线行为、新闻标题、公司文件和高频时间序列）中生成新颖、可解释假设的方法。我们文章的一个核心原则是，假设生成是一项有价值的活动，我们希望这能鼓励未来在这一科学的“前科学”阶段的工作。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/qje/qjad055",
+      "source_url": "https://doi.org/10.1093/qje/qjad055",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://academic.oup.com/qje/issue/139/2",
+        "roster": "crossref:issn:0033-5533",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-14T04:45:25+00:00",
+        "source_hash": "37aeaac912ddd0fca02ffd66ad3febb4846391750a4ec8cfd29089ca2fe8a050"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/qje/qjad048",
+      "sequence": 3,
+      "source_sequence": 829,
+      "article_type": "research-article",
+      "title_en": "The Economic Impacts of COVID-19: Evidence from a New Public Database Built Using Private Sector Data",
+      "title_cn": "COVID-19的经济影响：基于私营部门数据构建的新公共数据库的证据",
+      "authors": [
+        "Raj Chetty",
+        "John N Friedman",
+        "Michael Stepner",
+        "Hamidah Alatas",
+        "Camille Baker",
+        "Harvey Barnhard",
+        "Matt Bell",
+        "Gregory Bruich",
+        "Tina Chelidze",
+        "Lucas Chu",
+        "Westley Cineus",
+        "Sebi Devlin-Foltz",
+        "Michael Droste",
+        "Dhruv Gaur",
+        "Federico Gonzalez",
+        "Rayshauna Gray",
+        "Abigail Hiller",
+        "Matthew Jacob",
+        "Tyler Jacobson",
+        "Margaret Kallus",
+        "Fiona Kastel",
+        "Laura Kincaide",
+        "Caitlin Kupsc",
+        "Sarah LaBauve",
+        "Lucía Lamas",
+        "Maddie Marino",
+        "Kai Matheson",
+        "Jared Miller",
+        "Christian Mott",
+        "Kate Musen",
+        "Danny Onorato",
+        "Sarah Oppenheimer",
+        "Trina Ott",
+        "Lynn Overmann",
+        "Max Pienkny",
+        "Jeremiah Prince",
+        "Sebastian Puerta",
+        "Daniel Reuter",
+        "Peter Ruhm",
+        "Tom Rutter",
+        "Emanuel Schertz",
+        "Shannon Felton Spence",
+        "Krista Stapleford",
+        "Kamelia Stavreva",
+        "Ceci Steyn",
+        "James Stratton",
+        "Clare Suter",
+        "Elizabeth Thach",
+        "Nicolaj Thor",
+        "Amanda Wahlers",
+        "Kristen Watkins",
+        "Alanna Williams",
+        "David Williams",
+        "Chase Williamson",
+        "Shady Yassin",
+        "Ruby Zhang",
+        "Austin Zheng"
+      ],
+      "abstract_en": "We build a publicly available database that tracks economic activity in the United States at a granular level in real time using anonymized data from private companies. We report weekly statistics on consumer spending, business revenues, job postings, and employment rates disaggregated by county, sector, and income group. Using the publicly available data, we show how the COVID-19 pandemic affected the economy by analyzing heterogeneity in its effects across subgroups. High-income individuals reduced spending sharply in March 2020, particularly in sectors that require in-person interaction. This reduction in spending greatly reduced the revenues of small businesses in affluent, dense areas. Those businesses laid off many of their employees, leading to widespread job losses, especially among low-wage workers in such areas. High-wage workers experienced a V-shaped recession that lasted a few weeks, whereas low-wage workers experienced much larger, more persistent job losses. Even though consumer spending and job postings had recovered fully by December 2021, employment rates in low-wage jobs remained depressed in areas that were initially hard hit, indicating that the temporary fall in labor demand led to a persistent reduction in labor supply. Building on this diagnostic analysis, we evaluate the effects of fiscal stimulus policies designed to stem the downward spiral in economic activity. Cash stimulus payments led to sharp increases in spending early in the pandemic, but much smaller responses later in the pandemic, especially for high-income households. Real-time estimates of marginal propensities to consume provided better forecasts of the impacts of subsequent rounds of stimulus payments than historical estimates. Overall, our findings suggest that fiscal policies can stem secondary declines in consumer spending and job losses, but cannot restore full employment when the initial shock to consumer spending arises from health concerns. More broadly, our analysis demonstrates how public statistics constructed from private sector data can support many research and real-time policy analyses, providing a new tool for empirical macroeconomics.",
+      "abstract_cn": "我们构建了一个公开可用的数据库，利用私营公司的匿名数据，实时跟踪美国经济活动的细粒度变化。我们报告了按县、行业和收入群体分类的消费者支出、企业收入、职位发布和就业率的每周统计数据。利用这些公开数据，我们通过分析疫情影响的异质性，展示了COVID-19疫情如何影响经济。高收入个体在2020年三月大幅减少了支出，尤其是在需要面对面互动的行业。这种支出减少大大降低了富裕、人口密集地区小企业的收入。这些企业解雇了许多员工，导致广泛的失业，尤其是在这些地区的低工资工人中。高工资工人经历了持续数周的V型衰退，而低工资工人则经历了更大、更持久的失业。尽管到2021年十二月，消费者支出和职位发布已完全恢复，但最初受重创地区的低工资就业率仍然低迷，这表明劳动力需求的暂时下降导致了劳动力供给的持续减少。基于这一诊断分析，我们评估了旨在阻止经济活动螺旋式下降的财政刺激政策的效果。现金刺激支付在疫情初期导致支出急剧增加，但在疫情后期反应小得多，尤其是对高收入家庭。边际消费倾向的实时估计比历史估计更好地预测了后续刺激支付轮次的影响。总体而言，我们的研究结果表明，财政政策可以阻止消费者支出和失业的二次下降，但当初始消费者支出冲击源于健康担忧时，无法恢复充分就业。更广泛地说，我们的分析展示了从私营部门数据构建的公共统计如何支持许多研究和实时政策分析，为实证宏观经济学提供了一种新工具。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/qje/qjad048",
+      "source_url": "https://doi.org/10.1093/qje/qjad048",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://academic.oup.com/qje/issue/139/2",
+        "roster": "crossref:issn:0033-5533",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-14T04:45:29+00:00",
+        "source_hash": "fbc4e9ea114c05e1c8996213f4811a131212fdb5c74a5bbf9c4c866f60dfc2ae"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/qje/qjad054",
+      "sequence": 4,
+      "source_sequence": 891,
+      "article_type": "research-article",
+      "title_en": "Logs with Zeros? Some Problems and Solutions",
+      "title_cn": "含零的对数？一些问题与解决方案",
+      "authors": [
+        "Jiafeng Chen",
+        "Jonathan Roth"
+      ],
+      "abstract_en": "When studying an outcome Y that is weakly positive but can equal zero (e.g., earnings), researchers frequently estimate an average treatment effect (ATE) for a “log-like” transformation that behaves like log (Y) for large Y but is defined at zero (e.g., log (1 + Y), $\\operatorname{arcsinh}(Y)$). We argue that ATEs for log-like transformations should not be interpreted as approximating percentage effects, since unlike a percentage, they depend on the units of the outcome. In fact, we show that if the treatment affects the extensive margin, one can obtain a treatment effect of any magnitude simply by rescaling the units of Y before taking the log-like transformation. This arbitrary unit dependence arises because an individual-level percentage effect is not well-defined for individuals whose outcome changes from zero to nonzero when receiving treatment, and the units of the outcome implicitly determine how much weight the ATE for a log-like transformation places on the extensive margin. We further establish a trilemma: when the outcome can equal zero, there is no treatment effect parameter that is an average of individual-level treatment effects, unit invariant, and point identified. We discuss several alternative approaches that may be sensible in settings with an intensive and extensive margin, including (i) expressing the ATE in levels as a percentage (e.g., using Poisson regression), (ii) explicitly calibrating the value placed on the intensive and extensive margins, and (iii) estimating separate effects for the two margins (e.g., using Lee bounds). We illustrate these approaches in three empirical applications.",
+      "abstract_cn": "当研究一个弱非负但可能等于零的结果变量Y（例如收入）时，研究者经常估计一个“类对数”变换的平均处理效应（ATE），该变换在Y较大时行为类似于log(Y)，但在零处有定义（例如log(1+Y)，arcsinh(Y)）。我们认为，类对数变换的ATE不应被解释为近似百分比效应，因为与百分比不同，它们依赖于结果变量的单位。实际上，我们表明，如果处理影响扩展边际，只需在取类对数变换之前重新缩放Y的单位，就可以获得任意大小的处理效应。这种任意的单位依赖性产生的原因是，对于结果从零变为非零的个体，个体层面的百分比效应并未明确定义，而结果变量的单位隐含地决定了类对数变换的ATE在扩展边际上赋予的权重。我们进一步确立了一个三难困境：当结果变量可以等于零时，不存在一个既是个体层面处理效应的平均值、又具有单位不变性、且能被点识别的处理效应参数。我们讨论了在存在集约边际和扩展边际的情况下可能合理的几种替代方法，包括（i）将水平值的ATE表示为百分比（例如，使用泊松回归），（ii）明确校准对集约边际和扩展边际赋予的价值，以及（iii）分别估计两个边际的效应（例如，使用Lee界）。我们在三个实证应用中说明了这些方法。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/qje/qjad054",
+      "source_url": "https://doi.org/10.1093/qje/qjad054",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://academic.oup.com/qje/issue/139/2",
+        "roster": "crossref:issn:0033-5533",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-14T04:45:33+00:00",
+        "source_hash": "a892dd0926b8e49d02816d61ac6376e3c2e398780c52fc0fcfa58b08540027c5"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/qje/qjad045",
+      "sequence": 5,
+      "source_sequence": 937,
+      "article_type": "research-article",
+      "title_en": "Violence against Women at Work",
+      "title_cn": "工作场所中对女性的暴力行为",
+      "authors": [
+        "Abi Adams-Prassl",
+        "Kristiina Huttunen",
+        "Emily Nix",
+        "Ning Zhang"
+      ],
+      "abstract_en": "We link every police report in Finland to administrative data to identify violence between colleagues and the economic consequences for victims, perpetrators, and firms. This new approach to observe when one colleague attacks another overcomes previous data constraints limiting evidence on this phenomenon to self-reported surveys that do not identify perpetrators. We document large, persistent labor market effects of between-colleague violence on victims and perpetrators. Male perpetrators experience substantially weaker consequences after attacking female colleagues. Perpetrators’ relative economic power in male-female violence partly explains this asymmetry. Turning to broader implications for firm recruitment and retention, we find that male-female violence causes a decline in the proportion of women at the firm, both because fewer new women are hired and current female employees leave. Management plays a key role in mediating the effects on the wider workforce. Only male-managed firms lose women. Female-managed firms exhibit a key difference relative to male-managed firms: male perpetrators are less likely to remain employed after attacking their female colleagues.",
+      "abstract_cn": "我们将芬兰的每一份警方报告与行政数据相连接，以识别同事之间的暴力行为以及受害者、施暴者和企业所面临的经济后果。这种观察同事间攻击的新方法克服了以往数据限制，这些限制使得关于此现象的证据仅限于自我报告调查，而无法识别施暴者。我们记录了同事间暴力对受害者和施暴者产生的巨大且持久的劳动力市场影响。男性施暴者在攻击女性同事后所承受的后果显著较轻。施暴者在男女暴力中的相对经济权力部分解释了这种不对称性。转向对企业招聘和留任的更广泛影响，我们发现男女暴力导致企业中女性比例下降，这既是因为新招聘的女性减少，也是因为现有女性员工离职。管理层在调节对更广泛员工队伍的影响方面发挥着关键作用。只有男性管理的企业会失去女性员工。女性管理的企业相对于男性管理的企业表现出一个关键差异：男性施暴者在攻击女性同事后继续受雇的可能性较低。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/qje/qjad045",
+      "source_url": "https://doi.org/10.1093/qje/qjad045",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://academic.oup.com/qje/issue/139/2",
+        "roster": "crossref:issn:0033-5533",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-14T04:45:37+00:00",
+        "source_hash": "dedf5e530f1a3edb9fee586c2a24dee6b97f46a706b91edbec176a63292e3791"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/qje/qjad049",
+      "sequence": 6,
+      "source_sequence": 993,
+      "article_type": "research-article",
+      "title_en": "Monitoring for Waste: Evidence from Medicare Audits",
+      "title_cn": "废物监测：医疗保险审计的证据",
+      "authors": [
+        "Maggie Shi"
+      ],
+      "abstract_en": "This article examines the trade-offs of monitoring for wasteful public spending. By penalizing unnecessary spending, monitoring improves the quality of public expenditure and incentivizes firms to invest in compliance technology. I study a large Medicare program that monitored for unnecessary health care spending and consider its effect on government savings, provider behavior, and patient health. Every dollar Medicare spent on monitoring generated $24–$29 in government savings. The majority of savings stem from the deterrence of future care, rather than reclaimed payments from prior care. I do not find evidence that the health of the marginal patient is harmed, indicating that monitoring primarily deters low-value care. Monitoring does increase provider administrative costs, but these costs are mostly incurred up-front and include investments in technology to assess the medical necessity of care.",
+      "abstract_cn": "本文探讨了监控浪费性公共支出的权衡。通过惩罚不必要的支出，监控可以提高公共支出的质量，并激励企业投资于合规技术。我研究了一个大型医疗保险计划，该计划监控不必要的医疗保健支出，并考虑其对政府储蓄、提供者行为和患者健康的影响。医疗保险用于监测的每一美元都会产生 $24–$29 的政府储蓄。大部分节省源于未来护理的威慑，而不是从先前护理中收回的付款。我没有发现边缘患者的健康受到损害的证据，这表明监测主要阻止低价值护理。监控确实会增加提供者的管理成本，但这些成本大部分是预先产生的，包括评估护理的医疗必要性的技术投资。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/qje/qjad049",
+      "source_url": "https://doi.org/10.1093/qje/qjad049",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://academic.oup.com/qje/issue/139/2",
+        "roster": "crossref:issn:0033-5533",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-14T04:46:04+00:00",
+        "source_hash": "324bdbdb084893d69cd1b644282f25800752a8b4f6ef8056885e92de1304c8cd"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/qje/qjad052",
+      "sequence": 7,
+      "source_sequence": 1051,
+      "article_type": "research-article",
+      "title_en": "The Impact of Public School Choice: Evidence from Los Angeles’s Zones of Choice",
+      "title_cn": "公立学校选择的影响：来自洛杉矶选择区的证据",
+      "authors": [
+        "Christopher Campos",
+        "Caitlin Kearns"
+      ],
+      "abstract_en": "Does a school district that expands school choice provide better outcomes for students than a neighborhood-based assignment system? This article studies the Zones of Choice (ZOC) program, a school choice initiative of the Los Angeles Unified School District (LAUSD) that created small high school markets in some neighborhoods but left attendance zone boundaries in place throughout the rest of the district. We study market-level effects of choice on student achievement and college enrollment using a difference-in-differences design. Student outcomes in ZOC markets increased markedly, narrowing achievement and college enrollment gaps between ZOC neighborhoods and the rest of the district. The effects of ZOC are larger for schools exposed to more competition, supporting the notion that competition is a key channel. Demand estimates suggest families place substantial weight on schools’ academic quality, providing schools with competition-induced incentives to improve their effectiveness. The evidence demonstrates that public school choice programs have the potential to improve school quality and reduce neighborhood-based disparities in educational opportunity.",
+      "abstract_cn": "一个扩大学校选择的学区是否比基于邻里的分配制度为学生提供更好的结果？本文研究了选择区（ZOC）项目，这是洛杉矶联合学区（LAUSD）的一项学校选择倡议，该倡议在一些社区创建了小规模高中市场，但在学区的其余部分保留了入学区域边界。我们使用双重差分设计研究了选择对学业成绩和大学入学的市场层面影响。ZOC市场中的学生成绩显著提高，缩小了ZOC社区与学区其他部分之间的成绩和大学入学差距。ZOC对面临更多竞争的学校影响更大，支持了竞争是关键渠道的观点。需求估计表明，家庭对学校的学术质量给予实质性重视，为学校提供了竞争引发的提高效率的激励。证据表明，公立学校选择项目有潜力提高学校质量并减少基于邻里的教育机会差距。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/qje/qjad052",
+      "source_url": "https://doi.org/10.1093/qje/qjad052",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://academic.oup.com/qje/issue/139/2",
+        "roster": "crossref:issn:0033-5533",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-14T04:46:07+00:00",
+        "source_hash": "f4f1ec187c714b369781cd1f926e1e8780ecd71a68a6233af720479b34b187ca"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/qje/qjad050",
+      "sequence": 8,
+      "source_sequence": 1095,
+      "article_type": "research-article",
+      "title_en": "A Retrieved-Context Theory of Financial Decisions",
+      "title_cn": "金融决策的检索-情境理论",
+      "authors": [
+        "Jessica A Wachter",
+        "Michael Jacob Kahana"
+      ],
+      "abstract_en": "Studies of human memory indicate that features of an event evoke memories of prior associated contextual states, which in turn become associated with the current event’s features. This retrieved-context mechanism allows the remote past to influence the present, even as agents gradually update their beliefs about their environment. We apply a version of retrieved-context theory, drawn from the literature on human memory, to explain three types of evidence in the financial economics literature: the role of early life experience in shaping investment choices, occurrence of financial crises, and the effect of fear on asset allocation. These applications suggest a recasting of neoclassical rational expectations in terms of beliefs as governed by principles of human memory.",
+      "abstract_cn": "对人类记忆的研究表明，一个事件的特征会唤起对先前相关情境状态的记忆，而这些记忆反过来又与当前事件的特征相关联。这种检索-情境机制使得遥远的过去能够影响现在，即使主体逐渐更新其对环境的信念。我们将检索-情境理论的一个版本（源自人类记忆文献）应用于解释金融经济学文献中的三类证据：早期生活经历在塑造投资选择中的作用、金融危机的发生以及恐惧对资产配置的影响。这些应用表明，新古典理性预期应被重新表述为受人类记忆原则支配的信念。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/qje/qjad050",
+      "source_url": "https://doi.org/10.1093/qje/qjad050",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://academic.oup.com/qje/issue/139/2",
+        "roster": "crossref:issn:0033-5533",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-14T04:46:09+00:00",
+        "source_hash": "20a387f343cfac2ca2ae69662fa7435c834b9753c72f3828238f4fbce2bbe7ee"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/qje/qjad051",
+      "sequence": 9,
+      "source_sequence": 1149,
+      "article_type": "research-article",
+      "title_en": "Organizational Structure and Pricing: Evidence from a Large U.S. Airline",
+      "title_cn": "组织结构与定价：来自美国大型航空公司的证据",
+      "authors": [
+        "Ali Hortaçsu",
+        "Olivia R Natan",
+        "Hayden Parsley",
+        "Timothy Schwieg",
+        "Kevin R Williams"
+      ],
+      "abstract_en": "Firms facing complex objectives often decompose the problems they face, delegating different parts of the decision to distinct subunits. Using comprehensive data and internal models from a large U.S. airline, we establish that airline pricing is not well approximated by a model of the firm as a unitary decision maker. We show that observed prices, however, can be rationalized by accounting for organizational structure and for the decisions by departments that are tasked with supplying inputs to the observed pricing heuristic. Simulating the prices the firm would charge if it were a rational, unitary decision maker results in lower welfare than we estimate under observed practices. Finally, we discuss why counterfactual estimates of welfare and market power may be biased if prices are set through decomposition, but we instead assume that they are set by unitary decision makers.",
+      "abstract_cn": "面临复杂目标的企业通常会分解所面临的问题，将决策的不同部分委托给不同的子单位。利用一家美国大型航空公司的全面数据和内部模型，我们确定航空定价并不能很好地近似为将企业视为单一决策者的模型。我们表明，观察到的价格可以通过考虑组织结构以及负责向观察到的定价启发式提供投入的部门的决策来合理化。模拟如果企业是理性的、单一的决策者将收取的价格，会导致福利低于我们在观察到的实践下估计的福利。最后，我们讨论了如果价格是通过分解设定的，但相反我们假设它们是由单一决策者设定的，那么反事实的福利和市场势力估计可能会有偏差的原因。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/qje/qjad051",
+      "source_url": "https://doi.org/10.1093/qje/qjad051",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://academic.oup.com/qje/issue/139/2",
+        "roster": "crossref:issn:0033-5533",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-14T04:46:12+00:00",
+        "source_hash": "bff52509c98afaf34299e32acfc50f80ac9e13fc75c40ef09dc1cc8484496699"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/qje/qjad047",
+      "sequence": 10,
+      "source_sequence": 1201,
+      "article_type": "research-article",
+      "title_en": "The Evolution of Market Power in the U.S. Automobile Industry",
+      "title_cn": "美国汽车行业市场势力的演变",
+      "authors": [
+        "Paul L E Grieco",
+        "Charles Murry",
+        "Ali Yurukoglu"
+      ],
+      "abstract_en": "We construct measures of industry performance and welfare in the U.S. automobile market from 1980 to 2018. We estimate a demand model using product-level data on market shares, prices, and attributes, and consumer-level data on demographics, purchases, and stated second choices. We estimate marginal costs assuming Nash-Bertrand pricing. We relate trends in consumer welfare and markups to trends in market structure and the composition of products. Although real prices rose, we find that markups decreased substantially, and the fraction of total surplus accruing to consumers increased. Consumer welfare increased over time due to improved product quality and improved production technology.",
+      "abstract_cn": "我们构建了1980年至2018年美国汽车市场的行业绩效和福利衡量指标。我们使用市场份额、价格和属性的产品级数据，以及人口统计、购买和陈述的第二选择等消费者级数据来估计需求模型。我们假设纳什-伯特兰定价来估计边际成本。我们将消费者福利和加成率的趋势与市场结构和产品构成的变化联系起来。尽管实际价格上涨，我们发现加成率大幅下降，消费者获得的总剩余份额增加。由于产品质量的提高和生产技术的改进，消费者福利随时间增加。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/qje/qjad047",
+      "source_url": "https://doi.org/10.1093/qje/qjad047",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://academic.oup.com/qje/issue/139/2",
+        "roster": "crossref:issn:0033-5533",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-14T04:46:14+00:00",
+        "source_hash": "6094a40d8a32bfb3d1b0e2e8d76f052acd69eafc27c2d2071ba5a14a6f3e605c"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/qje/qjad046",
+      "sequence": 11,
+      "source_sequence": 1255,
+      "article_type": "research-article",
+      "title_en": "Grantmaking, Grading on a Curve, and the Paradox of Relative Evaluation in Nonmarkets",
+      "title_cn": "资助、曲线分级以及非市场中相对评价的悖论",
+      "authors": [
+        "Jérôme Adda",
+        "Marco Ottaviani"
+      ],
+      "abstract_en": "The article develops a model of nonmarket allocation of resources such as the awarding of grants to meritorious projects, honors to outstanding students, or journal slots to quality publications. On the supply side, the available budget of grants is awarded to applicants who are evaluated most favorably according to the noisy information available to reviewers. On the demand side, stronger candidates are more likely to obtain grants and thus self-select into applying, given that applications are costly. We establish that if evaluation is perfect, grading on a curve inefficiently discourages even the very best candidates from applying. More generally, when the budget is insufficient to award grants to all applicants, the equilibrium unravels if information is symmetric enough—the paradox of relative evaluation. Leveraging a technique based on the quantile function pioneered by Lehmann, we characterize a broad set of nonmarket allocation rules under which an increase in evaluation noise in a field (or course) raises equilibrium applications in that field, and reduces applications in all other fields. We empirically confirm these comparative statics by exploiting a change in the rule for apportioning the total budget to applications in different fields at the European Research Council, showing that a 1 standard deviation increase in own evaluation noise leads to a 0.4 standard deviation increase in the number of applications and budget share. Moreover, we derive insights for the design of evaluation institutions, particularly regarding the endogenous choice of noise by fields or courses and the optimal aggregation of fields into panels.",
+      "abstract_cn": "这篇文章开发了一种非市场资源配置模型，例如向优秀项目授予助学金、向优秀学生授予荣誉，或者向优质出版物授予期刊名额。在供给方面，可用的补助金预算被授予根据审阅者可获得的嘈杂信息而得到最有利评估的申请人。在需求方面，考虑到申请成本高昂，实力较强的候选人更有可能获得资助，从而自我选择申请。我们发现，如果评估是完美的，那么即使是最优秀的候选人，曲线评分也会降低申请的效率。更一般地说，当预算不足以向所有申请人提供资助时，如果信息足够对称，则均衡就会瓦解——相对评估的悖论。利用基于莱曼开创的分位数函数的技术，我们描述了一系列广泛的非市场分配规则，在这些规则下，一个领域（或课程）中评估噪声的增加会提高该领域的均衡应用，并减少所有其他领域的应用。我们通过利用欧洲研究理事会将总预算分配给不同领域的应用程序的规则的变化，从经验上证实了这些比较静态数据，结果表明，自身评估噪声的 1 标准差增加会导致应用程序数量和预算份额的 0.4 标准差增加。此外，我们还为评估机构的设计提供了见解，特别是关于按领域或课程对噪声的内生选择以及将领域最佳聚合到面板中。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/qje/qjad046",
+      "source_url": "https://doi.org/10.1093/qje/qjad046",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://academic.oup.com/qje/issue/139/2",
+        "roster": "crossref:issn:0033-5533",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-14T04:46:47+00:00",
+        "source_hash": "7a4ee354afc619c5cdaea40d6addb5404d0155a89703c1861a1550e8a9a5fe32"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/qje/qjad053",
+      "sequence": 12,
+      "source_sequence": 1321,
+      "article_type": "research-article",
+      "title_en": "How Americans Respond to Idiosyncratic and Exogenous Changes in Household Wealth and Unearned Income",
+      "title_cn": "美国人如何应对家庭财富和非劳动收入的特殊外生变化",
+      "authors": [
+        "Mikhail Golosov",
+        "Michael Graber",
+        "Magne Mogstad",
+        "David Novgorodsky"
+      ],
+      "abstract_en": "We study how Americans respond to idiosyncratic and exogenous changes in household wealth and unearned income. Our analyses combine administrative data on U.S. lottery winners with an event study design. We first examine individual and household earnings responses to these windfall gains, finding significant and sizable wealth and income effects. On average, an extra ${\\$}$1 of unearned income in a given period reduces household labor earnings by about 50 cents, decreases total labor taxes by 10 cents, and increases consumption expenditure by 60 cents. These effects are heterogeneous across the income distribution, with households in higher quartiles of the income distribution reducing their earnings by a larger amount. Next we examine margins of adjustment other than earnings and, in the course of doing so, address a number of important economic questions about how additional wealth or unearned income affect retirement decisions and labor market dynamics, family formation and dissolution, entrepreneurship and self-employment, and geographic mobility and neighborhood choice. Last, we carefully compare our findings to those reported in existing lottery studies. This comparison reveals that existing U.S. studies substantially underestimate wealth and income effects because they use measures that understate the earnings responses and overstate the after-tax wealth changes associated with lottery wins.",
+      "abstract_cn": "我们研究了美国人如何应对家庭财富和非劳动收入的特殊外生变化。我们的分析将美国彩票中奖者的行政数据与事件研究设计相结合。我们首先考察个人和家庭收入对这些意外之财的反应，发现了显著且可观的财富效应和收入效应。平均而言，在给定时期内，额外1美元的非劳动收入会使家庭劳动收入减少约50美分，使总劳动税减少10美分，并使消费支出增加60美分。这些效应在收入分配中具有异质性，收入分配较高四分位数的家庭减少的收入幅度更大。接下来，我们考察了收入以外的调整边际，并在此过程中解决了一些重要的经济问题，即额外财富或非劳动收入如何影响退休决策和劳动力市场动态、家庭形成和解体、创业和自雇以及地理流动性和社区选择。最后，我们仔细将我们的发现与现有彩票研究中的报告进行了比较。这一比较揭示，现有的美国研究大大低估了财富效应和收入效应，因为它们使用的衡量标准低估了收入反应，并高估了与彩票中奖相关的税后财富变化。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/qje/qjad053",
+      "source_url": "https://doi.org/10.1093/qje/qjad053",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://academic.oup.com/qje/issue/139/2",
+        "roster": "crossref:issn:0033-5533",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-14T04:46:55+00:00",
+        "source_hash": "7122abedc8854cd154a76d84d36def1767d386f6beabac504f311b1c21ce1876"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "crossref",
+    "roster_authority": "crossref-provisional",
+    "roster_match_scope": "crossref-issue-group",
+    "publisher_page_status": "blocked",
+    "excluded_item_count": 1,
+    "excluded_items": [
+      {
+        "title_en": "Acknowledgment of Referees",
+        "reason": "editorial_material",
+        "doi": "10.1093/qje/qjae002",
+        "article_type": "editorial"
+      }
+    ],
+    "doi_complete": 12,
+    "authors_complete": 12,
+    "abstract_en_complete": 12,
+    "translation_complete": 12,
+    "duplicate_count": 0,
+    "flags": [
+      "publisher_html_blocked_crossref_fallback",
+      "crossref_provisional_roster"
+    ],
+    "official_item_count": 13,
+    "publishable_item_count": 12,
+    "content_counts": {
+      "official_items": 13,
+      "observed_items": 13,
+      "publishable_items": 12,
+      "research_articles": 12,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 1,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 12
+    }
+  },
+  "source_status": "source_pending",
+  "publication_state": "source_pending",
+  "content_counts": {
+    "official_items": 13,
+    "observed_items": 13,
+    "publishable_items": 12,
+    "research_articles": 12,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 1,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 12
+  },
+  "issue_label": "Vol. 139 · No. 2",
+  "content_status": "complete"
+}

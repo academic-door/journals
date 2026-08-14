@@ -1,12 +1,12 @@
 # Field journal history backfill status
 
-Updated: 2026-08-14T02:48:05+00:00
+Updated: 2026-08-14T04:49:12+00:00
 
-Discovery coverage: 1324 discovered · 685 archived · 441 publication ready · 639 missing · 244 source pending
+Discovery coverage: 1324 discovered · 690 archived · 441 publication ready · 634 missing · 249 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 33 | 0 | 42 | 57 |
+| 2023-2024 | 33 | 1 | 42 | 62 |
 | 2025-2026 | 407 | 0 | 19 | 187 |
 
 | Journal | Issue | Year | Status | Note |
@@ -553,12 +553,12 @@ Discovery coverage: 1324 discovered · 685 archived · 441 publication ready · 
 | JOE | joe-255-c | 2026 | ready |  |
 | JOE | joe-256-c | 2026 | ready |  |
 | JOE | joe-257-c | 2026 | ready |  |
-| JPE | jpe-131-1 | 2023 | source_pending | source authority pending official verification |
-| JPE | jpe-131-2 | 2023 | source_pending | source authority pending official verification |
-| JPE | jpe-131-3 | 2023 | source_pending | source authority pending official verification |
-| JPE | jpe-131-4 | 2023 | source_pending | source authority pending official verification |
+| JPE | jpe-131-1 | 2023 | source_pending |  |
+| JPE | jpe-131-2 | 2023 | source_pending |  |
+| JPE | jpe-131-3 | 2023 | source_pending |  |
+| JPE | jpe-131-4 | 2023 | source_pending |  |
 | JPE | jpe-131-5 | 2023 | blocked | archive_content_gate_failed |
-| JPE | jpe-131-6 | 2023 | source_pending | source authority pending official verification |
+| JPE | jpe-131-6 | 2023 | source_pending |  |
 | JPE | jpe-132-1 | 2024 | blocked | MetadataFallbackError: RePEc serial page has no issue 132/1 |
 | JPE | jpe-132-10 | 2024 | ready |  |
 | JPE | jpe-132-11 | 2024 | ready |  |
@@ -665,6 +665,12 @@ Discovery coverage: 1324 discovered · 685 archived · 441 publication ready · 
 | QE | qe-17-2 | 2026 | ready |  |
 | QE | qe-17-3 | 2026 | ready |  |
 | QE | qe-17-4 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
+| QJE | qje-138-2 | 2023 | source_pending | source authority pending official verification |
+| QJE | qje-138-3 | 2023 | source_pending | source authority pending official verification |
+| QJE | qje-138-4 | 2023 | source_pending | source authority pending official verification |
+| QJE | qje-139-1 | 2024 | translation_partial |  |
+| QJE | qje-139-2 | 2024 | source_pending | source authority pending official verification |
+| QJE | qje-139-3 | 2024 | source_pending | source authority pending official verification |
 | QJE | qje-140-1 | 2025 | source_pending |  |
 | QJE | qje-140-2 | 2025 | source_pending |  |
 | QJE | qje-140-3 | 2025 | source_pending |  |

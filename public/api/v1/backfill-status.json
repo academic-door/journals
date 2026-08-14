@@ -1,21 +1,21 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-08-14T02:48:05+00:00",
+  "updated_at": "2026-08-14T04:49:12+00:00",
   "summary": {
     "complete": 440,
-    "translation_partial": 0,
+    "translation_partial": 1,
     "blocked": 61,
     "collected": 0,
-    "pending": 244
+    "pending": 249
   },
   "coverage": {
     "discovered": 1324,
-    "archived": 685,
-    "content_ready": 685,
+    "archived": 690,
+    "content_ready": 690,
     "source_verified": 441,
     "publication_ready": 441,
-    "missing": 639,
-    "source_pending": 244,
+    "missing": 634,
+    "source_pending": 249,
     "missing_issue_ids": [
       "aejapp-16-2",
       "aejapp-16-3",
@@ -548,12 +548,7 @@
       "qe-15-3",
       "qe-15-4",
       "qe-17-4",
-      "qje-138-2",
-      "qje-138-3",
-      "qje-138-4",
       "qje-139-1",
-      "qje-139-2",
-      "qje-139-3",
       "qje-139-4",
       "rand-54-1",
       "rand-54-2",
@@ -839,6 +834,11 @@
       "landecon-102-2",
       "landecon-102-3",
       "lup-169-c",
+      "qje-138-2",
+      "qje-138-3",
+      "qje-138-4",
+      "qje-139-2",
+      "qje-139-3",
       "qje-140-1",
       "qje-140-2",
       "qje-140-3",
@@ -1123,22 +1123,22 @@
     },
     "QJE": {
       "discovered": 14,
-      "archived": 7,
-      "content_ready": 7,
+      "archived": 12,
+      "content_ready": 12,
       "source_verified": 1,
       "publication_ready": 1,
-      "missing": 7,
-      "source_pending": 6,
+      "missing": 2,
+      "source_pending": 11,
       "missing_issue_ids": [
-        "qje-138-2",
-        "qje-138-3",
-        "qje-138-4",
         "qje-139-1",
-        "qje-139-2",
-        "qje-139-3",
         "qje-139-4"
       ],
       "source_pending_issue_ids": [
+        "qje-138-2",
+        "qje-138-3",
+        "qje-138-4",
+        "qje-139-2",
+        "qje-139-3",
         "qje-140-1",
         "qje-140-2",
         "qje-140-3",
@@ -1150,35 +1150,36 @@
       "years": {
         "2023": {
           "discovered": 3,
-          "archived": 0,
-          "content_ready": 0,
+          "archived": 3,
+          "content_ready": 3,
           "source_verified": 0,
           "publication_ready": 0,
-          "missing": 3,
-          "source_pending": 0,
-          "missing_issue_ids": [
+          "missing": 0,
+          "source_pending": 3,
+          "missing_issue_ids": [],
+          "source_pending_issue_ids": [
             "qje-138-2",
             "qje-138-3",
             "qje-138-4"
           ],
-          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "2024": {
           "discovered": 4,
-          "archived": 0,
-          "content_ready": 0,
+          "archived": 2,
+          "content_ready": 2,
           "source_verified": 0,
           "publication_ready": 0,
-          "missing": 4,
-          "source_pending": 0,
+          "missing": 2,
+          "source_pending": 2,
           "missing_issue_ids": [
             "qje-139-1",
-            "qje-139-2",
-            "qje-139-3",
             "qje-139-4"
           ],
-          "source_pending_issue_ids": [],
+          "source_pending_issue_ids": [
+            "qje-139-2",
+            "qje-139-3"
+          ],
           "blocked_issue_ids": []
         },
         "2025": {
@@ -12572,7 +12573,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
+        "last_error": "",
         "retry_class": "source"
       },
       {
@@ -12584,7 +12585,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
+        "last_error": "",
         "retry_class": "source"
       },
       {
@@ -12596,7 +12597,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
+        "last_error": "",
         "retry_class": "source"
       },
       {
@@ -12608,7 +12609,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
+        "last_error": "",
         "retry_class": "source"
       },
       {
@@ -12632,7 +12633,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
+        "last_error": "",
         "retry_class": "source"
       },
       {
@@ -13922,6 +13923,78 @@
     ],
     "QJE": [
       {
+        "issue_id": "qje-138-2",
+        "year": 2023,
+        "volume": "138",
+        "issue": "2",
+        "status": "source_pending",
+        "content_status": "complete",
+        "source_status": "source_pending",
+        "publication_state": "source_pending",
+        "last_error": "source authority pending official verification",
+        "retry_class": "source"
+      },
+      {
+        "issue_id": "qje-138-3",
+        "year": 2023,
+        "volume": "138",
+        "issue": "3",
+        "status": "source_pending",
+        "content_status": "complete",
+        "source_status": "source_pending",
+        "publication_state": "source_pending",
+        "last_error": "source authority pending official verification",
+        "retry_class": "source"
+      },
+      {
+        "issue_id": "qje-138-4",
+        "year": 2023,
+        "volume": "138",
+        "issue": "4",
+        "status": "source_pending",
+        "content_status": "complete",
+        "source_status": "source_pending",
+        "publication_state": "source_pending",
+        "last_error": "source authority pending official verification",
+        "retry_class": "source"
+      },
+      {
+        "issue_id": "qje-139-1",
+        "year": 2024,
+        "volume": "139",
+        "issue": "1",
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "source_pending",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
+      },
+      {
+        "issue_id": "qje-139-2",
+        "year": 2024,
+        "volume": "139",
+        "issue": "2",
+        "status": "source_pending",
+        "content_status": "complete",
+        "source_status": "source_pending",
+        "publication_state": "source_pending",
+        "last_error": "source authority pending official verification",
+        "retry_class": "source"
+      },
+      {
+        "issue_id": "qje-139-3",
+        "year": 2024,
+        "volume": "139",
+        "issue": "3",
+        "status": "source_pending",
+        "content_status": "complete",
+        "source_status": "source_pending",
+        "publication_state": "source_pending",
+        "last_error": "source authority pending official verification",
+        "retry_class": "source"
+      },
+      {
         "issue_id": "qje-140-1",
         "year": 2025,
         "volume": "140",
@@ -15033,21 +15106,21 @@
     "2023-2024": {
       "summary": {
         "complete": 33,
-        "translation_partial": 0,
+        "translation_partial": 1,
         "blocked": 42,
         "collected": 0,
-        "pending": 57
+        "pending": 62
       },
-      "issue_count": 132,
-      "updated_at": "2026-08-13T09:39:44+00:00",
+      "issue_count": 138,
+      "updated_at": "2026-08-14T04:47:40+00:00",
       "coverage": {
         "discovered": 708,
-        "archived": 91,
-        "content_ready": 91,
+        "archived": 96,
+        "content_ready": 96,
         "source_verified": 34,
         "publication_ready": 34,
-        "missing": 617,
-        "source_pending": 57,
+        "missing": 612,
+        "source_pending": 62,
         "missing_issue_ids": [
           "aejapp-16-2",
           "aejapp-16-3",
@@ -15564,12 +15637,7 @@
           "qe-15-2",
           "qe-15-3",
           "qe-15-4",
-          "qje-138-2",
-          "qje-138-3",
-          "qje-138-4",
           "qje-139-1",
-          "qje-139-2",
-          "qje-139-3",
           "qje-139-4",
           "rand-54-1",
           "rand-54-2",
@@ -15724,7 +15792,12 @@
           "jpe-131-2",
           "jpe-131-3",
           "jpe-131-4",
-          "jpe-131-6"
+          "jpe-131-6",
+          "qje-138-2",
+          "qje-138-3",
+          "qje-138-4",
+          "qje-139-2",
+          "qje-139-3"
         ],
         "blocked_issue_ids": []
       }
@@ -15971,9 +16044,9 @@
         "translation_partial": 0,
         "blocked": 32,
         "collected": 0,
-        "pending": 43
+        "pending": 46
       },
-      "issue_count": 102,
+      "issue_count": 105,
       "journals": [
         "AEJAPP",
         "AEJMACRO",
@@ -15995,16 +16068,17 @@
         "JAERE",
         "JCE",
         "JDE",
-        "JPE"
+        "JPE",
+        "QJE"
       ],
       "coverage": {
         "discovered": 352,
-        "archived": 70,
-        "content_ready": 70,
+        "archived": 73,
+        "content_ready": 73,
         "source_verified": 27,
         "publication_ready": 27,
-        "missing": 282,
-        "source_pending": 43,
+        "missing": 279,
+        "source_pending": 46,
         "missing_issue_ids": [
           "aer-113-10",
           "aer-113-11",
@@ -16236,9 +16310,6 @@
           "qe-14-2",
           "qe-14-3",
           "qe-14-4",
-          "qje-138-2",
-          "qje-138-3",
-          "qje-138-4",
           "rand-54-1",
           "rand-54-2",
           "rand-54-3",
@@ -16332,7 +16403,10 @@
           "jpe-131-2",
           "jpe-131-3",
           "jpe-131-4",
-          "jpe-131-6"
+          "jpe-131-6",
+          "qje-138-2",
+          "qje-138-3",
+          "qje-138-4"
         ],
         "blocked_issue_ids": []
       },
@@ -17150,18 +17224,18 @@
         },
         "QJE": {
           "discovered": 3,
-          "archived": 0,
-          "content_ready": 0,
+          "archived": 3,
+          "content_ready": 3,
           "source_verified": 0,
           "publication_ready": 0,
-          "missing": 3,
-          "source_pending": 0,
-          "missing_issue_ids": [
+          "missing": 0,
+          "source_pending": 3,
+          "missing_issue_ids": [],
+          "source_pending_issue_ids": [
             "qje-138-2",
             "qje-138-3",
             "qje-138-4"
           ],
-          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "RAND": {
@@ -17309,12 +17383,12 @@
     "2024": {
       "summary": {
         "complete": 6,
-        "translation_partial": 0,
+        "translation_partial": 1,
         "blocked": 10,
         "collected": 0,
-        "pending": 14
+        "pending": 16
       },
-      "issue_count": 30,
+      "issue_count": 33,
       "journals": [
         "AEJAPP",
         "AEJMACRO",
@@ -17326,16 +17400,17 @@
         "IER",
         "JCE",
         "JDE",
-        "JPE"
+        "JPE",
+        "QJE"
       ],
       "coverage": {
         "discovered": 355,
-        "archived": 20,
-        "content_ready": 20,
+        "archived": 22,
+        "content_ready": 22,
         "source_verified": 6,
         "publication_ready": 6,
-        "missing": 335,
-        "source_pending": 14,
+        "missing": 333,
+        "source_pending": 16,
         "missing_issue_ids": [
           "aejapp-16-2",
           "aejapp-16-3",
@@ -17623,8 +17698,6 @@
           "qe-15-3",
           "qe-15-4",
           "qje-139-1",
-          "qje-139-2",
-          "qje-139-3",
           "qje-139-4",
           "rand-55-1",
           "rand-55-2",
@@ -17687,7 +17760,9 @@
           "aer-114-3",
           "aeri-6-1",
           "aeri-6-2",
-          "ajae-106-1"
+          "ajae-106-1",
+          "qje-139-2",
+          "qje-139-3"
         ],
         "blocked_issue_ids": []
       },
@@ -18533,19 +18608,20 @@
         },
         "QJE": {
           "discovered": 4,
-          "archived": 0,
-          "content_ready": 0,
+          "archived": 2,
+          "content_ready": 2,
           "source_verified": 0,
           "publication_ready": 0,
-          "missing": 4,
-          "source_pending": 0,
+          "missing": 2,
+          "source_pending": 2,
           "missing_issue_ids": [
             "qje-139-1",
-            "qje-139-2",
-            "qje-139-3",
             "qje-139-4"
           ],
-          "source_pending_issue_ids": [],
+          "source_pending_issue_ids": [
+            "qje-139-2",
+            "qje-139-3"
+          ],
           "blocked_issue_ids": []
         },
         "RAND": {
