@@ -48,6 +48,57 @@ def _digest(path: Path) -> str | None:
     return digest.hexdigest()
 
 
+def _merge_nonconflicting_json(
+    relative: Path,
+    baseline_path: Path,
+    generated_path: Path,
+    target_path: Path,
+) -> bool | None:
+    """Merge disjoint top-level JSON changes from two data writers.
+
+    Return None when the file is not a JSON object suitable for a
+    three-way merge, True when the target was kept or updated, and
+    False when both writers changed the same key differently.
+    """
+
+    if relative.suffix.lower() != ".json":
+        return None
+    try:
+        baseline_value = json.loads(baseline_path.read_text(encoding="utf-8"))
+        generated_value = json.loads(generated_path.read_text(encoding="utf-8"))
+        target_value = json.loads(target_path.read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError, UnicodeDecodeError):
+        return None
+    if not all(
+        isinstance(value, dict)
+        for value in (baseline_value, generated_value, target_value)
+    ):
+        return None
+
+    missing = object()
+    merged = dict(target_value)
+    for key in set(baseline_value) | set(generated_value) | set(target_value):
+        baseline_item = baseline_value.get(key, missing)
+        generated_item = generated_value.get(key, missing)
+        target_item = target_value.get(key, missing)
+        if generated_item == baseline_item:
+            continue
+        if target_item != baseline_item and target_item != generated_item:
+            return False
+        if generated_item is missing:
+            merged.pop(key, None)
+        else:
+            merged[key] = generated_item
+
+    if merged != target_value:
+        target_path.parent.mkdir(parents=True, exist_ok=True)
+        target_path.write_text(
+            json.dumps(merged, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+    return True
+
+
 def _copy_file(source: Path, target: Path) -> None:
     if source.is_symlink():
         raise ValueError(f"publication snapshots may not contain symlinks: {source}")
@@ -178,7 +229,16 @@ def apply_delta(
         target_path = target / relative
         target_hash = _digest(target_path)
         if target_hash not in {baseline_hash, generated_hash}:
-            conflicts.append(relative.as_posix())
+            merge_result = _merge_nonconflicting_json(
+                relative,
+                baseline / relative,
+                generated / relative,
+                target_path,
+            )
+            if merge_result is False:
+                conflicts.append(relative.as_posix())
+            elif merge_result is None:
+                conflicts.append(relative.as_posix())
             continue
 
         if generated_hash is None:

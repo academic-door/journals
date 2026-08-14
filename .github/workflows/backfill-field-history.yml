@@ -362,7 +362,8 @@ jobs:
 
       - name: Preserve failed-run cache and checkpoints only
         if: >-
-          always() && steps.collect.outcome == 'failure' &&
+          always() &&
+          (steps.collect.outcome == 'failure' || steps.publish.outcome == 'failure') &&
           inputs.refresh_discovery_only != true
         shell: bash
         run: |
