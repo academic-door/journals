@@ -1,15 +1,13 @@
 # Field journal history backfill status
 
-Updated: 2026-08-14T22:42:20+00:00
+Updated: 2026-08-14T23:16:22+00:00
 
-Discovery coverage: 1324 discovered · 696 archived · 457 publication ready · 628 missing · 239 source pending
+Discovery coverage: 1324 discovered · 711 archived · 467 publication ready · 613 missing · 244 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 39 | 1 | 42 | 56 |
-| 2024-2024 | 12 | 0 | 0 | 0 |
-| 2025-2026 | 1 | 0 | 0 | 0 |
-| 2026-2026 | 6 | 0 | 0 | 0 |
+| 2023-2024 | 49 | 4 | 46 | 61 |
+| 2025-2026 | 411 | 0 | 19 | 183 |
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -76,12 +74,6 @@ Discovery coverage: 1324 discovered · 696 archived · 457 publication ready · 
 | AER | aer-114-12 | 2024 | ready |  |
 | AER | aer-114-2 | 2024 | ready |  |
 | AER | aer-114-3 | 2024 | ready |  |
-| AER | aer-114-4 | 2024 | ready |  |
-| AER | aer-114-5 | 2024 | ready |  |
-| AER | aer-114-6 | 2024 | ready |  |
-| AER | aer-114-7 | 2024 | ready |  |
-| AER | aer-114-8 | 2024 | ready |  |
-| AER | aer-114-9 | 2024 | ready |  |
 | AER | aer-115-1 | 2025 | ready |  |
 | AER | aer-115-10 | 2025 | ready |  |
 | AER | aer-115-11 | 2025 | ready |  |
@@ -381,6 +373,10 @@ Discovery coverage: 1324 discovered · 696 archived · 457 publication ready · 
 | JDE | jde-181-c | 2026 | ready |  |
 | JDE | jde-182-c | 2026 | source_pending |  |
 | JDE | jde-183-c | 2026 | ready |  |
+| JEBO | jebo-205-c | 2023 | translation_partial |  |
+| JEBO | jebo-206-c | 2023 | ready |  |
+| JEBO | jebo-207-c | 2023 | ready |  |
+| JEBO | jebo-208-c | 2023 | translation_partial |  |
 | JEBO | jebo-229-c | 2025 | ready |  |
 | JEBO | jebo-230-c | 2025 | ready |  |
 | JEBO | jebo-231-c | 2025 | ready |  |
@@ -402,6 +398,12 @@ Discovery coverage: 1324 discovered · 696 archived · 457 publication ready · 
 | JEBO | jebo-247-c | 2026 | source_pending |  |
 | JEBO | jebo-248-c | 2026 | source_pending |  |
 | JEBO | jebo-249-c | 2026 | ready |  |
+| JEDC | jedc-146-c | 2023 | ready |  |
+| JEDC | jedc-147-c | 2023 | translation_partial |  |
+| JEDC | jedc-148-c | 2023 | blocked | possible_incomplete_volume: 4 articles collected vs current issue 16; needs offi |
+| JEDC | jedc-149-c | 2023 | ready |  |
+| JEDC | jedc-150-c | 2023 | ready |  |
+| JEDC | jedc-151-c | 2023 | blocked | possible_incomplete_volume: 3 articles collected vs current issue 16; needs offi |
 | JEDC | jedc-170-c | 2025 | ready |  |
 | JEDC | jedc-171-c | 2025 | ready |  |
 | JEDC | jedc-172-c | 2025 | ready |  |
@@ -424,6 +426,12 @@ Discovery coverage: 1324 discovered · 696 archived · 457 publication ready · 
 | JEDC | jedc-189-c | 2026 | ready |  |
 | JEDC | jedc-190-c | 2026 | ready |  |
 | JEDC | jedc-191-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 191/ |
+| JEEA | jeea-21-1 | 2023 | source_pending | source authority pending official verification |
+| JEEA | jeea-21-2 | 2023 | source_pending | source authority pending official verification |
+| JEEA | jeea-21-3 | 2023 | source_pending | source authority pending official verification |
+| JEEA | jeea-21-4 | 2023 | source_pending | source authority pending official verification |
+| JEEA | jeea-21-5 | 2023 | translation_partial |  |
+| JEEA | jeea-21-6 | 2023 | source_pending | source authority pending official verification |
 | JEEA | jeea-23-1 | 2025 | source_pending |  |
 | JEEA | jeea-23-2 | 2025 | source_pending |  |
 | JEEA | jeea-23-3 | 2025 | source_pending |  |
@@ -434,6 +442,12 @@ Discovery coverage: 1324 discovered · 696 archived · 457 publication ready · 
 | JEEA | jeea-24-2 | 2026 | source_pending |  |
 | JEEA | jeea-24-3 | 2026 | source_pending |  |
 | JEEA | jeea-24-4 | 2026 | source_pending |  |
+| JEEM | jeem-117-c | 2023 | ready |  |
+| JEEM | jeem-118-c | 2023 | blocked | archive_content_gate_failed |
+| JEEM | jeem-119-c | 2023 | ready |  |
+| JEEM | jeem-120-c | 2023 | ready |  |
+| JEEM | jeem-121-c | 2023 | ready |  |
+| JEEM | jeem-122-c | 2023 | ready |  |
 | JEEM | jeem-129-c | 2025 | ready |  |
 | JEEM | jeem-130-c | 2025 | ready |  |
 | JEEM | jeem-131-c | 2025 | ready |  |
@@ -673,12 +687,12 @@ Discovery coverage: 1324 discovered · 696 archived · 457 publication ready · 
 | QE | qe-17-2 | 2026 | ready |  |
 | QE | qe-17-3 | 2026 | ready |  |
 | QE | qe-17-4 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
-| QJE | qje-138-2 | 2023 | source_pending | source authority pending official verification |
-| QJE | qje-138-3 | 2023 | source_pending | source authority pending official verification |
-| QJE | qje-138-4 | 2023 | source_pending | source authority pending official verification |
-| QJE | qje-139-1 | 2024 | translation_partial |  |
-| QJE | qje-139-2 | 2024 | source_pending | source authority pending official verification |
-| QJE | qje-139-3 | 2024 | source_pending | source authority pending official verification |
+| QJE | qje-138-2 | 2023 | source_pending |  |
+| QJE | qje-138-3 | 2023 | source_pending |  |
+| QJE | qje-138-4 | 2023 | source_pending |  |
+| QJE | qje-139-1 | 2024 | blocked | archive_missing |
+| QJE | qje-139-2 | 2024 | source_pending |  |
+| QJE | qje-139-3 | 2024 | source_pending |  |
 | QJE | qje-140-1 | 2025 | source_pending |  |
 | QJE | qje-140-2 | 2025 | source_pending |  |
 | QJE | qje-140-3 | 2025 | source_pending |  |
