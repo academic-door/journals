@@ -83,6 +83,7 @@ jobs:
             --output "$RUNNER_TEMP/data-baseline" \
             --path public/api/v1/journals \
             --path public/api/v1/monitoring.json \
+            --path public/api/v1/gap-manifest.json \
             --path data/translation-cache \
             --path data/monitoring/state.json \
             --path data/monitoring/email-notifications.json \
@@ -98,19 +99,6 @@ jobs:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: |
           python scripts/journal_monitor.py --run-updates --translate
-
-      - name: Retry incomplete detected issues
-        env:
-          PYTHONPATH: ${{ github.workspace }}
-          GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || github.token }}
-          ELSEVIER_API_KEY: ${{ secrets.ELSEVIER_API_KEY }}
-          ELSEVIER_INST_TOKEN: ${{ secrets.ELSEVIER_INST_TOKEN }}
-          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-        run: |
-          python scripts/update_journals.py \
-            --journal ALL \
-            --translate \
-            --enrich-detected
 
       - name: Check whether any issue was updated
         id: changed
@@ -128,14 +116,7 @@ jobs:
               item.get("result") == "updated"
               for item in result.get("deep_updates", [])
           )
-          update_result = json.loads(
-              Path("output/journal-update-report.json").read_text(encoding="utf-8")
-          )
-          self_heal_changed = any(
-              item.get("result") in {"updated", "detected_progress"}
-              for item in update_result.get("results", [])
-          )
-          changed = monitor_changed or self_heal_changed
+          changed = monitor_changed
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
               output.write(f"has_updates={'true' if changed else 'false'}\n")
           PY
@@ -165,6 +146,7 @@ jobs:
             --output "$generated" \
             --path public/api/v1/journals \
             --path public/api/v1/monitoring.json \
+            --path public/api/v1/gap-manifest.json \
             --path data/translation-cache \
             --path data/monitoring/state.json \
             --exclude 'public/api/v1/journals/*/issues/index.json'
@@ -199,11 +181,9 @@ jobs:
             python scripts/publish_data_delta.py rebuild-archive-indexes \
               --root "$GITHUB_WORKSPACE"
             state_args=()
-            for state in \
-              data/backfill-state/field-2023-2024.json \
-              data/backfill-state/field-2025-2026.json; do
-              if [ -f "$data_tree/$state" ]; then
-                state_args+=(--state "$data_tree/$state")
+            for state in "$data_tree"/data/backfill-state/*.json; do
+              if [ -f "$state" ]; then
+                state_args+=(--state "$state")
               fi
             done
             if [ "${#state_args[@]}" -gt 0 ]; then
@@ -212,6 +192,11 @@ jobs:
                 --api-root public/api/v1 \
                 --out-json public/api/v1/backfill-status.json \
                 --out-md public/backfill-status.md
+              python scripts/build_gap_manifest.py \
+                "${state_args[@]}" \
+                --api-root public/api/v1 \
+                --out-json public/api/v1/gap-manifest.json \
+                --out-md public/gap-manifest.md
             fi
             python scripts/audit_source_alignment.py --strict
             if [ -f scripts/audit_history_coverage.py ] && [ "${#state_args[@]}" -gt 0 ]; then
@@ -236,6 +221,10 @@ jobs:
               cp "$GITHUB_WORKSPACE/public/backfill-status.md" \
                 "$data_tree/public/backfill-status.md"
             fi
+            if [ -f "$GITHUB_WORKSPACE/public/gap-manifest.md" ]; then
+              cp "$GITHUB_WORKSPACE/public/gap-manifest.md" \
+                "$data_tree/public/gap-manifest.md"
+            fi
 
             git -C "$data_tree" rm -f --ignore-unmatch public/search.js
             git -C "$data_tree" config user.name "academic-door-bot"
@@ -243,6 +232,7 @@ jobs:
             git -C "$data_tree" add -A public/api data/translation-cache
             git -C "$data_tree" add public/project-manifest.json
             [ ! -f "$data_tree/public/backfill-status.md" ] || git -C "$data_tree" add public/backfill-status.md
+            [ ! -f "$data_tree/public/gap-manifest.md" ] || git -C "$data_tree" add public/gap-manifest.md
             git -C "$data_tree" add -f data/monitoring/state.json
             if git -C "$data_tree" diff --cached --quiet; then
               echo "No journal or monitor-state changes."

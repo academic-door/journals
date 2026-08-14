@@ -217,13 +217,14 @@ class EmailNotificationTests(unittest.TestCase):
             self.assertNotIn("email-state-tree", source)
             self.assertIn('data_tree="$RUNNER_TEMP/data-tree"', source)
 
-    def test_monitor_retries_detected_issues_every_cycle(self):
+    def test_monitor_does_not_run_a_redundant_all_journal_retry(self):
         root = Path(__file__).resolve().parents[1]
         source = (
             root / ".github" / "workflows" / "monitor-journals.yml"
         ).read_text(encoding="utf-8")
-        self.assertIn("--enrich-detected", source)
-        self.assertIn('"detected_progress"', source)
+        self.assertNotIn("--enrich-detected", source)
+        self.assertNotIn("--journal ALL", source)
+        self.assertIn("--run-updates --translate", source)
 
     def test_script_entrypoint_runs_without_pythonpath(self):
         result = subprocess.run(
