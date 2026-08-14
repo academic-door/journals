@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-14T08:11:28Z",
   "expected_article_count": 29,
   "research_article_count": 29,
-  "status": "incomplete",
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
@@ -67,7 +67,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T22:26:08+08:00",
+        "translated_at": "2026-07-29T14:26:08+00:00",
         "source_hash": "4504ed1db6e083f5fb4f1bbc1e393262c616f11cabf88f001a8c8e676d3a44b8"
       },
       "quality_flags": [],
@@ -131,7 +131,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "deepseek-chat",
-        "translated_at": "2026-08-04T23:02:48+08:00",
+        "translated_at": "2026-08-04T15:02:48+00:00",
         "source_hash": "2e05c6fc91bda0c07eadc672636a2a386f5ac01dda430f82a0077ac006bdadd8"
       },
       "quality_flags": [],
@@ -195,7 +195,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "deepseek-chat",
-        "translated_at": "2026-08-04T23:02:40+08:00",
+        "translated_at": "2026-08-04T15:02:40+00:00",
         "source_hash": "d4cd066c6a68d511a993ab024a982a304f6da03238304e9f15d7f2561670a97c"
       },
       "quality_flags": [],
@@ -259,7 +259,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "deepseek-chat",
-        "translated_at": "2026-08-04T23:02:46+08:00",
+        "translated_at": "2026-08-04T15:02:46+00:00",
         "source_hash": "bfe9510495f789a2f3eaf691a63700ffc615b7c5057bcfc0b6af3c9d88e63fe0"
       },
       "quality_flags": [],
@@ -323,7 +323,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T22:26:08+08:00",
+        "translated_at": "2026-07-29T14:26:08+00:00",
         "source_hash": "72aab053c482dcf9ecdf5f7668ba8889125cd2bdf8671c8ec6181e89978f4071"
       },
       "quality_flags": [],
@@ -386,7 +386,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T22:26:10+08:00",
+        "translated_at": "2026-07-29T14:26:10+00:00",
         "source_hash": "27ac2eb9cff3d07242cd0b2c45f0881897481fe8c62882931feaf633bcad8527"
       },
       "quality_flags": [],
@@ -403,14 +403,14 @@
       "source_sequence": 105392,
       "article_type": "research-article",
       "title_en": "Geopolitical risk shocks: When size matters",
-      "title_cn": "",
+      "title_cn": "地缘政治风险冲击：规模的重要性",
       "authors": [
         "Davide Brignone",
         "Luca Gambetti",
         "Martino Ricci"
       ],
       "abstract_en": "We investigate the economic effects of geopolitical risk (GPR) shocks on the US economy, with a focus on non-linear transmission mechanisms. Using a VARX framework, we show that larger positive shocks have a disproportionately greater impact, pointing to the existence of an amplification channel driven by rising uncertainty that leads to sharp declines in private demand and equity prices. In contrast, the prices’ responses are relatively muted, reflecting the offsetting effects of reduced demand and increasing supply-side pressures. Decomposing GPR into Threats and Acts shocks helps explain this result: Threats shocks behave as second-moment uncertainty disturbances that significantly raise oil prices and inflation expectations, exerting upward pressure on domestic prices, while Acts shocks transmit more similarly to first-moment negative demand shocks.",
-      "abstract_cn": "",
+      "abstract_cn": "我们研究了地缘政治风险（GPR）冲击对美国经济的经济效应，重点关注非线性传导机制。使用VARX框架，我们表明较大的正向冲击具有不成比例的更大影响，表明存在由不确定性上升驱动的放大渠道，导致私人需求和股票价格急剧下降。相比之下，价格的反应相对温和，反映了需求减少和供给侧压力增加的抵消效应。将GPR分解为威胁冲击和行动冲击有助于解释这一结果：威胁冲击表现为二阶矩不确定性扰动，显著提高油价和通胀预期，对国内价格产生上行压力，而行动冲击的传导更类似于一阶矩负向需求冲击。",
       "doi": "10.1016/j.euroecorev.2026.105392",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001364",
       "publication_date": "2026",
@@ -421,12 +421,20 @@
         "abstract_en": "official-sciencedirect-article"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-14T08:24:13+00:00",
+        "source_hash": "e42201d10ede5e8b1b782b848ce14445e111be192cc08b57c87fc2f6fedd0f7d"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ]
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.euroecorev.2026.105401",
@@ -481,7 +489,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-04T23:03:08+08:00",
+        "translated_at": "2026-08-04T15:03:08+00:00",
         "source_hash": "f0579bc29d0a1f87afd6620299b66a77ece047287c51c14c02d779fa98a9e33a"
       },
       "quality_flags": [],
@@ -498,13 +506,13 @@
       "source_sequence": 105406,
       "article_type": "research-article",
       "title_en": "Optimal tax rates in endogenous reward mechanisms: An inverted U-shaped impact on sustaining cooperation",
-      "title_cn": "",
+      "title_cn": "内生奖励机制中的最优税率：对维持合作的倒U型影响",
       "authors": [
         "Shan Jin",
         "Xiaomeng Zhang"
       ],
       "abstract_en": "Cooperation is fundamental to the functioning of societies and has been extensively examined across economics, sociology, and biology. Traditional mechanisms for sustaining cooperation, such as punishment and exogenous rewards, often entail significant drawbacks, including resource wastage and dependence on external inputs. In response to these limitations, Yang et al. (2018) introduced an endogenous reward mechanism that maintains cooperation by imposing a tax on participants and allowing them to vote on the allocation of the collected tax revenue, thereby rewarding individuals with higher cooperative tendencies. This study aims to replicate and extend Yang et al. (2018)’s findings by employing a larger sample size and exploring the effects of varying tax rates on the sustainability of cooperation. Our results confirm that the endogenous reward mechanism effectively sustains cooperation, replicating Yang et al. (2018) conclusions at the 20% tax rate. Moreover, we discovered that the maintenance of cooperation follows an inverted U-shaped relationship with the tax rate, peaking at 60%. Higher and lower tax rates were found to be less effective in sustaining cooperative behavior. These findings provide valuable insights into optimizing tax rates for promoting cooperation.",
-      "abstract_cn": "",
+      "abstract_cn": "合作是社会运作的基础，已在经济学、社会学和生物学领域得到广泛研究。传统的维持合作机制，如惩罚和外部奖励，往往存在显著缺陷，包括资源浪费和对外部投入的依赖。针对这些局限性，Yang等人（2018）提出了一种内生奖励机制，通过对参与者征税并允许他们就所征税款的分配进行投票，从而奖励合作倾向较高的个体，以此维持合作。本研究旨在通过采用更大的样本量并探索不同税率对合作可持续性的影响，来复制并扩展Yang等人（2018）的研究结果。我们的结果证实，内生奖励机制能有效维持合作，在20%税率下复制了Yang等人（2018）的结论。此外，我们发现合作的维持与税率呈倒U型关系，在60%时达到峰值。较高和较低的税率在维持合作行为方面效果较差。这些发现为优化促进合作的税率提供了有价值的见解。",
       "doi": "10.1016/j.euroecorev.2026.105406",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001509",
       "publication_date": "2026",
@@ -515,12 +523,20 @@
         "abstract_en": "official-sciencedirect-article"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-14T08:24:16+00:00",
+        "source_hash": "7e8a4a4f633ba9048f3409accdc686c243bc305f11c68588b50ffa9fb11f7d45"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ]
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.euroecorev.2026.105409",
@@ -575,7 +591,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-04T23:03:17+08:00",
+        "translated_at": "2026-08-04T15:03:17+00:00",
         "source_hash": "3ab474df5d90f9f998123d1a801559fbd8683bdfdda9eaed23674a85466a613d"
       },
       "quality_flags": [],
@@ -638,7 +654,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-04T23:03:10+08:00",
+        "translated_at": "2026-08-04T15:03:10+00:00",
         "source_hash": "29fae9398365a9c5bdcb6fdd8b6a44e1e48b5967fe5b926681afaeb099dbc0b4"
       },
       "quality_flags": [],
@@ -655,14 +671,14 @@
       "source_sequence": 105412,
       "article_type": "research-article",
       "title_en": "Measuring the euro area output gap",
-      "title_cn": "",
+      "title_cn": "衡量欧元区产出缺口",
       "authors": [
         "Matteo Barigozzi",
         "Claudio Lissona",
         "Matteo Luciani"
       ],
       "abstract_en": "We measure the euro area (EA) output gap and potential output using a non-stationary dynamic factor model estimated on a large dataset of macroeconomic and financial variables. Our results indicate that, between 2012 and 2024, the EA economy was consistently tighter than suggested by institutional estimates, implying that its weak growth reflects a potential output problem rather than a business-cycle one. Moreover, we find that the decline in trend inflation – rather than economic slack – kept core inflation below 2% before the pandemic, while cyclical co-movements account for at least 30% of the post-pandemic rise in core inflation. Finally, relative to other model-based measures, our estimates display substantially smaller quasi-real-time revisions.",
-      "abstract_cn": "",
+      "abstract_cn": "我们使用在大规模宏观经济和金融变量数据集上估计的非平稳动态因子模型来衡量欧元区（EA）产出缺口和潜在产出。我们的结果表明，在2012年至2024年间，EA经济持续比机构估计所显示的要紧张，这意味着其疲弱增长反映的是潜在产出问题而非商业周期问题。此外，我们发现趋势通胀的下降——而非经济松弛——在疫情前使核心通胀保持在2%以下，而周期性共同变动至少占疫情后核心通胀上升的30%。最后，相对于其他基于模型的衡量指标，我们的估计显示出明显更小的准实时修正。",
       "doi": "10.1016/j.euroecorev.2026.105412",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S001429212600156X",
       "publication_date": "2026",
@@ -673,12 +689,20 @@
         "abstract_en": "official-sciencedirect-article"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-14T08:24:18+00:00",
+        "source_hash": "a6e3dab9fb1f57e1f5e456400f4d63c30e15d76d67f950bc020e32f647ce96c4"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ]
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.euroecorev.2026.105411",
@@ -734,7 +758,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-04T23:03:21+08:00",
+        "translated_at": "2026-08-04T15:03:21+00:00",
         "source_hash": "461cefea01f680c6f29aef636b037d7360c69b1ac57ba1aa6ac3e2734501c965"
       },
       "quality_flags": [],
@@ -797,7 +821,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "deepseek-chat",
-        "translated_at": "2026-08-05T01:54:53+08:00",
+        "translated_at": "2026-08-04T17:54:53+00:00",
         "source_hash": "59f9792c26a215dbdbb4b45d37fae100b4fc10d7e2ca495a14551bd2442b4db7"
       },
       "quality_flags": [],
@@ -861,7 +885,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-04T23:03:22+08:00",
+        "translated_at": "2026-08-04T15:03:22+00:00",
         "source_hash": "9c74e0c9dce0169540e098713c8e2547899d913a6327dd31fbe7fdaa42bf637f"
       },
       "quality_flags": [],
@@ -878,14 +902,14 @@
       "source_sequence": 105413,
       "article_type": "research-article",
       "title_en": "Immigrants’ social identity, racial hate crimes, and public backlash: Evidence from the ”San Gennaro massacre”",
-      "title_cn": "",
+      "title_cn": "移民的社会认同、种族仇恨犯罪与公众反弹：来自“圣真纳罗大屠杀”的证据",
       "authors": [
         "Maria Rosaria Carillo",
         "Tiziana Venittelli",
         "Alberto Zazzaro"
       ],
       "abstract_en": "We study how racial hate crimes influence immigrants’ social identity and sense of belonging to the host country. We focus on the 2008 “San Gennaro massacre”, an attack by a Camorra clan against African immigrants in Southern Italy. Using a difference-in-differences (DiD) approach, we show that the event increased the sense of belonging to Italy among Africans living in the affected area, driven by both a fear effect and a solidarity effect. We further document that this shift in social identification spread to other African immigrant communities, particularly those residing in municipalities characterized by a strong presence of organized crime and by a strong local public reaction of solidarity. Finally, we find that this increase in identification with Italy is persistent over time and is not associated with a weakening of ethnic identity.",
-      "abstract_cn": "",
+      "abstract_cn": "我们研究种族仇恨犯罪如何影响移民的社会认同和对东道国的归属感。我们聚焦于2008年的“圣真纳罗大屠杀”，即卡莫拉家族对意大利南部非洲移民的袭击。采用双重差分（DiD）方法，我们表明该事件增加了受影响地区非洲人对意大利的归属感，这既由恐惧效应也由团结效应驱动。我们进一步记录到，这种社会认同的转变扩散到了其他非洲移民社区，特别是那些居住在组织犯罪势力强大且当地公众团结反应强烈的市镇的社区。最后，我们发现这种对意大利认同感的增强随时间持续，并且与族裔认同的削弱无关。",
       "doi": "10.1016/j.euroecorev.2026.105413",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001571",
       "publication_date": "2026",
@@ -896,12 +920,20 @@
         "abstract_en": "official-sciencedirect-article"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-14T08:24:21+00:00",
+        "source_hash": "586ff20467cae1f2d10c4c5df7671962d4efb0af46041c9bb022373ffc82e3e5"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ]
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.euroecorev.2026.105407",
@@ -955,7 +987,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-04T23:03:12+08:00",
+        "translated_at": "2026-08-04T15:03:12+00:00",
         "source_hash": "e104ce1d23101fd19a30778d42fffee6305b6d153f1cb56cf8299a132fb67ef2"
       },
       "quality_flags": [],
@@ -1018,7 +1050,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-04T23:03:24+08:00",
+        "translated_at": "2026-08-04T15:03:24+00:00",
         "source_hash": "7a15ad28e0be3c0ec6e02ec491764b06aed4785a0596f305aa679800f9847bef"
       },
       "quality_flags": [],
@@ -1082,7 +1114,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-04T23:03:19+08:00",
+        "translated_at": "2026-08-04T15:03:19+00:00",
         "source_hash": "609e05a8a7e0603171be8b2eb81ef0b7d06a0dca31a856807939c304eceda218"
       },
       "quality_flags": [],
@@ -1147,7 +1179,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-04T23:03:27+08:00",
+        "translated_at": "2026-08-04T15:03:27+00:00",
         "source_hash": "986b179bdea1be366d3c76ba597beb272020871ace57b9acc159f3e56c4c6f62"
       },
       "quality_flags": [],
@@ -1211,7 +1243,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T22:26:10+08:00",
+        "translated_at": "2026-07-29T14:26:10+00:00",
         "source_hash": "1a3cab59a49faee29e1a1a116e8b78e8beab1b06ca5cca279f4b8ea72baf3fb0"
       },
       "quality_flags": [],
@@ -1277,7 +1309,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "deepseek-chat",
-        "translated_at": "2026-08-05T01:54:50+08:00",
+        "translated_at": "2026-08-04T17:54:50+00:00",
         "source_hash": "bb2130b41fed68fecfec195f311f887b6483fcd61a10c00269b421fb8f3899d8"
       },
       "quality_flags": [],
@@ -1340,7 +1372,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T22:26:16+08:00",
+        "translated_at": "2026-07-29T14:26:16+00:00",
         "source_hash": "242c708891bfd8eb626cb485986e0d1e3936ea14ecfcd5e1bfbaec9f6567fe5c"
       },
       "quality_flags": [],
@@ -1404,7 +1436,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "deepseek-chat",
-        "translated_at": "2026-08-04T23:02:37+08:00",
+        "translated_at": "2026-08-04T15:02:37+00:00",
         "source_hash": "14a56582db087f2dff70f798fc6cfe886b021f9ee96a839b63046064c921b2e6"
       },
       "quality_flags": [],
@@ -1468,7 +1500,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "deepseek-chat",
-        "translated_at": "2026-08-04T23:02:43+08:00",
+        "translated_at": "2026-08-04T15:02:43+00:00",
         "source_hash": "cc3d83bd5fb1f98e4c048d1c2a7b7772ec03969deb2c0c2f9dbe75a9c4f87ebd"
       },
       "quality_flags": [],
@@ -1533,7 +1565,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T22:26:11+08:00",
+        "translated_at": "2026-07-29T14:26:11+00:00",
         "source_hash": "2f9877d941c6938586b6bda0b561b3b7d5ef3a0d307c540c99d6cab05e747ea3"
       },
       "quality_flags": [],
@@ -1596,7 +1628,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T22:26:06+08:00",
+        "translated_at": "2026-07-29T14:26:06+00:00",
         "source_hash": "d30add8045679d3a4132189c54f3d0d0b24470ccc53f11d24cad56b0f3cb4661"
       },
       "quality_flags": [],
@@ -1613,14 +1645,14 @@
       "source_sequence": 105418,
       "article_type": "research-article",
       "title_en": "The economic impact of low- and high-frequency temperature changes",
-      "title_cn": "",
+      "title_cn": "低频和高频温度变化的经济影响",
       "authors": [
         "Nikolay Gospodinov",
         "Ignacio Lopez Gaffney",
         "Serena Ng"
       ],
       "abstract_en": "Variations in the low- and high-frequency components of temperature may have distinct impacts on economic outcomes. Parametric and non-parametric estimates from three panels of data all find significant heterogeneity in the relative importance of the two components, but there is clear evidence in each panel of a common, slowly evolving low-frequency factor that is highly correlated with the low-frequency factor of economic activity. In regressions that quantify the output effects of the components, we find that one-way clustered standard errors often lead to size distortions, and that an additive fixed effect specification does not adequately control for common time effects. Using bootstrap inference to assess estimates from our preferred interactive fixed effect specification, we only find a marginally significant effect of the high-frequency component on growth in the U.S. panel. However, the effect of the low-frequency component is significant in the European and International panels, suggesting that the increase in the low-frequency temperature component over the post-1980 period is associated with a reduction in economic growth of approximately 1.3 percentage points. The findings are corroborated by time series estimation using data at the unit and national levels.",
-      "abstract_cn": "",
+      "abstract_cn": "温度的低频和高频分量的变化可能对经济结果产生明显的影响。 三组数据的参数和非参数估计都发现二组成部分的相对重要性存在显着异质性，但每个组中都有明确的证据表明有一个共同的、缓慢演变的低频因素，该因素与经济活动的低频因素高度相关。在量化组件输出效应的回归中，我们发现一方式聚集的标准误差通常会导致尺寸扭曲，并且加性固定效应规范不能充分控制常见的时间效应。使用引导推理来评估我们首选的交互式固定效应规范的估计值，我们只发现高频成分对美国面板的增长有轻微的显着影响。然而，低频成分的影响在欧洲和国际面板中很显着，这表明1980后时期低频温度成分的增加与经济增长约1.3个百分点的下降有关。使用单位和国家层面的数据进行的时间序列估计证实了这些发现。",
       "doi": "10.1016/j.euroecorev.2026.105418",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001625",
       "publication_date": "2026",
@@ -1631,12 +1663,20 @@
         "abstract_en": "official-sciencedirect-article"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "google-translate",
+        "model": "gtx-en-zh-CN",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-07-30T23:20:41+00:00",
+        "source_hash": "72dcf9e4e9047fcb587d2e7285b219f277f4ccdabebefde885844ae0d9ddd834"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ]
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     },
     {
       "paper_id": "doi:10.1016/j.euroecorev.2026.105390",
@@ -1644,12 +1684,12 @@
       "source_sequence": 105390,
       "article_type": "research-article",
       "title_en": "Pregnancy ambivalence: Expectations, preferences and contraceptive choice",
-      "title_cn": "",
+      "title_cn": "怀孕的矛盾心理：预期、偏好与避孕选择",
       "authors": [
         "Adeline Delavande"
       ],
       "abstract_en": "We utilize novel probabilistic expectations data related to contraception, such as the perceived chances of pregnancy or contracting a sexually transmitted disease, to investigate the underlying factors contributing to the differences in contraceptive choices across various demographic groups in the United States. Women from groups with disproportionately higher rates of unintended pregnancies, such as Black women and those with lower income, exhibit relatively accurate perceptions about contraceptive effectiveness. This finding suggests that systematic misperceptions about contraceptive efficacy play a limited role in explaining the variation in contraceptive choice across different groups. We then combine data on contraception choice with the expectations data to make inference on women’s preferences for birth control methods’ attributes. We find heterogeneity in preferences for becoming pregnant: non-Black women with a college degree would be willing to pay $260 per month to avoid a pregnancy, while Black women without a degree and low income women exhibit a willingness to pay to avoid pregnancy not statistically different from zero, suggesting an ambivalence toward pregnancy. These results highlight that differences in contraceptive choices and outcomes are primarily driven by varying preferences for pregnancy, with limited disutility among groups experiencing higher rates of unintended pregnancies.",
-      "abstract_cn": "",
+      "abstract_cn": "我们利用与避孕相关的新型概率预期数据，例如感知到的怀孕或感染性传播疾病的可能性，来调查美国不同人口群体之间避孕选择差异的潜在因素。意外怀孕率不成比例地较高的群体中的女性，如黑人女性和低收入女性，对避孕有效性表现出相对准确的认知。这一发现表明，关于避孕功效的系统性误解在解释不同群体间避孕选择的差异方面作用有限。然后，我们将避孕选择数据与预期数据相结合，以推断女性对避孕方法属性的偏好。我们发现对怀孕的偏好存在异质性：拥有大学学位的非黑人女性愿意每月支付260美元以避免怀孕，而没有学位的黑人女性和低收入女性避免怀孕的支付意愿在统计上与零无显著差异，这表明她们对怀孕存在矛盾心理。这些结果强调，避孕选择和结果的差异主要由对怀孕的不同偏好驱动，而在意外怀孕率较高的群体中，避免怀孕的负效用有限。",
       "doi": "10.1016/j.euroecorev.2026.105390",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126001340",
       "publication_date": "2026",
@@ -1660,12 +1700,20 @@
         "abstract_en": "official-sciencedirect-article"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-14T08:24:23+00:00",
+        "source_hash": "f5c59ef44995a8657bd4ed8250063b271a364ee55c0e843f02e6ef117e4d2746"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ]
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     }
   ],
   "quality": {
@@ -1699,11 +1747,9 @@
     "doi_complete": 29,
     "authors_complete": 29,
     "abstract_en_complete": 29,
-    "translation_complete": 23,
+    "translation_complete": 29,
     "duplicate_count": 0,
-    "flags": [
-      "translation_incomplete"
-    ],
+    "flags": [],
     "official_item_count": 32,
     "publishable_item_count": 29,
     "content_counts": {
@@ -1747,5 +1793,7 @@
     "catalog_content_items": 29
   },
   "issue_label": "Vol. 188",
-  "publication_state": "enriching"
+  "publication_state": "ready",
+  "content_status": "complete",
+  "source_status": "official_verified"
 }
