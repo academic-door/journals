@@ -1,12 +1,12 @@
 # Field journal history backfill status
 
-Updated: 2026-08-14T04:49:12+00:00
+Updated: 2026-08-14T05:10:11+00:00
 
-Discovery coverage: 1324 discovered · 690 archived · 441 publication ready · 634 missing · 249 source pending
+Discovery coverage: 1324 discovered · 696 archived · 453 publication ready · 628 missing · 243 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 33 | 1 | 42 | 62 |
+| 2023-2024 | 39 | 1 | 42 | 56 |
 | 2025-2026 | 407 | 0 | 19 | 187 |
 
 | Journal | Issue | Year | Status | Note |
@@ -68,12 +68,12 @@ Discovery coverage: 1324 discovered · 690 archived · 441 publication ready · 
 | AER | aer-113-4 | 2023 | ready |  |
 | AER | aer-113-5 | 2023 | ready |  |
 | AER | aer-113-6 | 2023 | ready |  |
-| AER | aer-114-1 | 2024 | source_pending |  |
-| AER | aer-114-10 | 2024 | source_pending |  |
-| AER | aer-114-11 | 2024 | source_pending |  |
-| AER | aer-114-12 | 2024 | source_pending |  |
-| AER | aer-114-2 | 2024 | source_pending |  |
-| AER | aer-114-3 | 2024 | source_pending |  |
+| AER | aer-114-1 | 2024 | ready |  |
+| AER | aer-114-10 | 2024 | ready |  |
+| AER | aer-114-11 | 2024 | ready |  |
+| AER | aer-114-12 | 2024 | ready |  |
+| AER | aer-114-2 | 2024 | ready |  |
+| AER | aer-114-3 | 2024 | ready |  |
 | AER | aer-115-1 | 2025 | ready |  |
 | AER | aer-115-10 | 2025 | ready |  |
 | AER | aer-115-11 | 2025 | ready |  |
