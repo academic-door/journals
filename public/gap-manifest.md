@@ -1,14 +1,14 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-08-14T22:42:30+00:00
+Generated: 2026-08-15T01:52:05+00:00
 
 ## Summary
 
-- browser_required: 72
-- ready: 457
-- recoverable: 555
-- source_pending: 238
-- translation_required: 2
+- browser_required: 74
+- ready: 467
+- recoverable: 535
+- source_pending: 243
+- translation_required: 5
 
 ## Issue queue
 
@@ -532,10 +532,10 @@ Generated: 2026-08-14T22:42:30+00:00
 | JDE | jde-181-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JDE | jde-182-c | 2026 | source_pending | complete | source_pending | official source verification pending |
 | JDE | jde-183-c | 2026 | ready | complete | official_verified | content and official source gates passed |
-| JEBO | jebo-205-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JEBO | jebo-206-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JEBO | jebo-207-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JEBO | jebo-208-c | 2023 | recoverable | blocked | source_pending | archive_missing |
+| JEBO | jebo-205-c | 2023 | translation_required | blocked | source_pending | archive_missing |
+| JEBO | jebo-206-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JEBO | jebo-207-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JEBO | jebo-208-c | 2023 | translation_required | blocked | source_pending | archive_missing |
 | JEBO | jebo-209-c | 2023 | recoverable | blocked | source_pending | archive_missing |
 | JEBO | jebo-210-c | 2023 | recoverable | blocked | source_pending | archive_missing |
 | JEBO | jebo-211-c | 2023 | recoverable | blocked | source_pending | archive_missing |
@@ -577,12 +577,12 @@ Generated: 2026-08-14T22:42:30+00:00
 | JEBO | jebo-247-c | 2026 | source_pending | complete | source_pending | official source verification pending |
 | JEBO | jebo-248-c | 2026 | source_pending | complete | source_pending | official source verification pending |
 | JEBO | jebo-249-c | 2026 | ready | complete | official_verified | content and official source gates passed |
-| JEDC | jedc-146-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JEDC | jedc-147-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JEDC | jedc-148-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JEDC | jedc-149-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JEDC | jedc-150-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JEDC | jedc-151-c | 2023 | recoverable | blocked | source_pending | archive_missing |
+| JEDC | jedc-146-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JEDC | jedc-147-c | 2023 | translation_required | blocked | source_pending | archive_missing |
+| JEDC | jedc-148-c | 2023 | browser_required | blocked | source_pending | archive_missing |
+| JEDC | jedc-149-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JEDC | jedc-150-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JEDC | jedc-151-c | 2023 | browser_required | blocked | source_pending | archive_missing |
 | JEDC | jedc-152-c | 2023 | recoverable | blocked | source_pending | archive_missing |
 | JEDC | jedc-153-c | 2023 | recoverable | blocked | source_pending | archive_missing |
 | JEDC | jedc-154-c | 2023 | recoverable | blocked | source_pending | archive_missing |
@@ -623,12 +623,12 @@ Generated: 2026-08-14T22:42:30+00:00
 | JEDC | jedc-189-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JEDC | jedc-190-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JEDC | jedc-191-c | 2026 | recoverable | blocked | source_pending | archive_missing |
-| JEEA | jeea-21-1 | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JEEA | jeea-21-2 | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JEEA | jeea-21-3 | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JEEA | jeea-21-4 | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JEEA | jeea-21-5 | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JEEA | jeea-21-6 | 2023 | recoverable | blocked | source_pending | archive_missing |
+| JEEA | jeea-21-1 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
+| JEEA | jeea-21-2 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
+| JEEA | jeea-21-3 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
+| JEEA | jeea-21-4 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
+| JEEA | jeea-21-5 | 2023 | translation_required | blocked | source_pending | archive_missing |
+| JEEA | jeea-21-6 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
 | JEEA | jeea-22-1 | 2024 | recoverable | blocked | source_pending | archive_missing |
 | JEEA | jeea-22-2 | 2024 | recoverable | blocked | source_pending | archive_missing |
 | JEEA | jeea-22-3 | 2024 | recoverable | blocked | source_pending | archive_missing |
@@ -645,12 +645,12 @@ Generated: 2026-08-14T22:42:30+00:00
 | JEEA | jeea-24-2 | 2026 | source_pending | complete | source_pending | official source verification pending |
 | JEEA | jeea-24-3 | 2026 | source_pending | complete | source_pending | official source verification pending |
 | JEEA | jeea-24-4 | 2026 | source_pending | complete | source_pending | official source verification pending |
-| JEEM | jeem-117-c | 2023 | recoverable | blocked | source_pending | archive_missing |
+| JEEM | jeem-117-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JEEM | jeem-118-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JEEM | jeem-119-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JEEM | jeem-120-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JEEM | jeem-121-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JEEM | jeem-122-c | 2023 | recoverable | blocked | source_pending | archive_missing |
+| JEEM | jeem-119-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JEEM | jeem-120-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JEEM | jeem-121-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JEEM | jeem-122-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JEEM | jeem-123-c | 2024 | recoverable | blocked | source_pending | archive_missing |
 | JEEM | jeem-124-c | 2024 | recoverable | blocked | source_pending | archive_missing |
 | JEEM | jeem-125-c | 2024 | recoverable | blocked | source_pending | archive_missing |
@@ -1144,12 +1144,12 @@ Generated: 2026-08-14T22:42:30+00:00
 | QE | qe-17-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | QE | qe-17-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | QE | qe-17-4 | 2026 | browser_required | blocked | source_pending | archive_missing |
-| QJE | qje-138-2 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| QJE | qje-138-3 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| QJE | qje-138-4 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| QJE | qje-139-1 | 2024 | translation_required | blocked | source_pending | archive_missing |
-| QJE | qje-139-2 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| QJE | qje-139-3 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
+| QJE | qje-138-2 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| QJE | qje-138-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| QJE | qje-138-4 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| QJE | qje-139-1 | 2024 | recoverable | blocked | source_pending | archive_missing |
+| QJE | qje-139-2 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| QJE | qje-139-3 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | QJE | qje-139-4 | 2024 | recoverable | blocked | source_pending | archive_missing |
 | QJE | qje-140-1 | 2025 | source_pending | complete | source_pending | official source verification pending |
 | QJE | qje-140-2 | 2025 | source_pending | complete | source_pending | official source verification pending |
