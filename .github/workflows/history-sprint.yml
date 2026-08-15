@@ -29,12 +29,20 @@ jobs:
   collect:
     name: Collect ${{ matrix.shard }} history
     runs-on: ubuntu-latest
+    timeout-minutes: 330
     strategy:
       fail-fast: false
       matrix:
         include:
-          - shard: elsevier-sciencedirect
-            journals: EER,FOODPOLICY,GEB,JDE,JEBO,JEEM,JET,JFE,JIE,JME,JOE,JPubE,JUE,LUP,WD,JHE,JCE,CER,ENERGY,ECOLECON,LABECO,RED,JEDC
+          # Elsevier is split into three independent shards.  The previous
+          # 23-journal shard hit the GitHub-hosted job limit before it could
+          # upload staging, so its successful partial work was not publishable.
+          - shard: elsevier-sciencedirect-1
+            journals: EER,FOODPOLICY,GEB,JDE,JEBO,JEEM,JET,JFE
+          - shard: elsevier-sciencedirect-2
+            journals: JIE,JME,JOE,JPubE,JUE,LUP,WD,JHE
+          - shard: elsevier-sciencedirect-3
+            journals: JCE,CER,ENERGY,ECOLECON,LABECO,RED,JEDC
           - shard: aea-oup-chicago
             journals: EJ,JEEA,AEJMICRO,AERI,AER,JPE,QJE,RES,AJAE,JEP,AEJAPP,AEJPOL,AEJMACRO,JLE,JAERE,RFS,RESTAT
           - shard: wiley-repec
