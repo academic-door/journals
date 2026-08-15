@@ -1025,6 +1025,38 @@ class MetadataFallbackTests(unittest.TestCase):
             ),
         )
 
+    def test_international_economic_review_uses_wiley_issue_calendar(self) -> None:
+        from collectors.metadata_fallback import MONTHS_BY_ISSUE
+
+        self.assertEqual(
+            "May 2024",
+            _publication_date(
+                "0020-6598",
+                "65",
+                "2",
+                [{"volume": "65", "issue": "2", "published": {"date-parts": [[2024]]}}],
+            ),
+        )
+        self.assertEqual(
+            "November 2024",
+            _publication_date(
+                "0020-6598",
+                "65",
+                "4",
+                [{"volume": "65", "issue": "4", "published": {"date-parts": [[2024]]}}],
+            ),
+        )
+        self.assertEqual(
+            {"1": "February", "2": "May", "3": "August", "4": "November"},
+            MONTHS_BY_ISSUE["0020-6598"],
+        )
+
+    def test_china_economic_review_uses_official_volume_calendar(self) -> None:
+        self.assertEqual(
+            "October 2023",
+            _publication_date("1043-951X", "81", "C", []),
+        )
+
     def test_publication_date_filters_crossref_items_by_volume(self) -> None:
         items = [
             {

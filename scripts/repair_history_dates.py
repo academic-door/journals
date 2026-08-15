@@ -13,7 +13,12 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from collectors.metadata_fallback import MONTHS_BY_ISSUE, _crossref_items, _publication_date
+from collectors.metadata_fallback import (
+    MONTHS_BY_ISSUE,
+    OFFICIAL_VOLUME_DATES,
+    _crossref_items,
+    _publication_date,
+)
 from scripts.update_journals import (
     JOURNALS_PATH,
     PUBLIC_API,
@@ -58,21 +63,30 @@ def repair_journal(
         issue = read_json(path)
         if issue is None:
             continue
+        issn = str(config["issn"])
+        volume = str(issue.get("volume", ""))
+        issue_number = str(issue.get("issue", ""))
         repaired = _publication_date(
-            str(config["issn"]),
-            str(issue.get("volume", "")),
-            str(issue.get("issue", "")),
+            issn,
+            volume,
+            issue_number,
             items,
         )
         current = str(issue.get("publication_date", "")).strip()
         if not repaired or re.fullmatch(r"\d{4}", repaired):
             year_match = re.search(r"\b(20\d{2})\b", current or repaired)
-            official_month = MONTHS_BY_ISSUE.get(str(config["issn"]), {}).get(
-                str(issue.get("issue", "")),
+            official_month = MONTHS_BY_ISSUE.get(issn, {}).get(
+                issue_number,
                 "",
             )
             if year_match and official_month:
                 repaired = f"{official_month} {year_match.group(1)}"
+        date_source = (
+            "official-publisher-calendar"
+            if OFFICIAL_VOLUME_DATES.get(issn, {}).get(volume)
+            or MONTHS_BY_ISSUE.get(issn, {}).get(issue_number)
+            else "crossref-volume-filtered"
+        )
         if not repaired or repaired == current:
             continue
         changes.append(f"{issue.get('issue_id', path.stem)}: {current} -> {repaired}")
@@ -80,7 +94,7 @@ def repair_journal(
             issue["publication_date"] = repaired
             issue.setdefault("quality", {})[
                 "date_source"
-            ] = "crossref-volume-filtered"
+            ] = date_source
             write_json(path, issue)
 
     if changes and archive_paths and not check:

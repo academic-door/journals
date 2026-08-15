@@ -92,6 +92,37 @@ def _has_abstract_or_allowed_comment(article: dict[str, Any]) -> bool:
     return bool(article["abstract_en"]) or (
         article["article_type"] == "comment" and not article["abstract_en"]
     )
+
+
+# Publisher issue calendars used when Crossref exposes only a year or an
+# incorrect online-first month.  These are issue-level dates, not article
+# publication dates, and therefore must be applied before Crossref fallback.
+# Sources: Wiley's International Economic Review 2024 issue list and
+# ScienceDirect's China Economic Review issue list.
+OFFICIAL_VOLUME_DATES = {
+    "1043-951X": {
+        "77": "February 2023",
+        "78": "April 2023",
+        "79": "June 2023",
+        "80": "August 2023",
+        "81": "October 2023",
+        "82": "December 2023",
+        "83": "February 2024",
+        "84": "April 2024",
+        "85": "June 2024",
+        "86": "August 2024",
+        "87": "October 2024",
+        "88": "December 2024",
+        "89": "February 2025",
+        "90": "April 2025",
+        "91": "June 2025",
+        "92": "August 2025",
+        "93": "October 2025",
+        "94": "December 2025",
+    },
+}
+
+
 MONTHS_BY_ISSUE = {
     "0022-3808": {
         str(index): month
@@ -129,6 +160,14 @@ MONTHS_BY_ISSUE = {
     "1933-6837": {"1": "January", "2": "May", "3": "July", "4": "November"},
     "1759-7331": {"1": "January", "2": "May", "3": "July", "4": "November"},
     "1759-7323": {"1": "January", "2": "May", "3": "July", "4": "November"},
+    # International Economic Review (Wiley), Volume 65 (2024): February,
+    # May, August, and November for Issues 1-4.
+    "0020-6598": {
+        "1": "February",
+        "2": "May",
+        "3": "August",
+        "4": "November",
+    },
     # Environmental and Resource Economics (Springer). Crossref records online
     # publication dates, so use the official monthly issue calendar.
     "0924-6460": {
@@ -758,6 +797,14 @@ def _date_year(item: dict[str, Any]) -> str:
 def _publication_date(issn: str, volume: str, issue: str, items: list[dict]) -> str:
     requested_volume = str(volume or "").strip().casefold()
     requested_issue = str(issue or "").strip().casefold()
+
+    official_volume_date = OFFICIAL_VOLUME_DATES.get(issn, {}).get(
+        requested_volume,
+        "",
+    )
+    if official_volume_date:
+        return official_volume_date
+
     candidates = list(items)
 
     if requested_volume:
