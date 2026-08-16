@@ -1,15 +1,13 @@
 # Field journal history backfill status
 
-Updated: 2026-08-16T22:38:29+00:00
+Updated: 2026-08-16T23:03:52+00:00
 
-Discovery coverage: 1324 discovered · 732 archived · 472 publication ready · 592 missing · 260 source pending
+Discovery coverage: 1324 discovered · 745 archived · 485 publication ready · 579 missing · 260 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 54 | 1 | 52 | 77 |
-| 2024-2024 | 12 | 0 | 0 | 0 |
-| 2025-2026 | 1 | 0 | 0 | 0 |
-| 2026-2026 | 6 | 0 | 0 | 0 |
+| 2023-2024 | 67 | 3 | 61 | 77 |
+| 2025-2026 | 411 | 0 | 19 | 183 |
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -76,12 +74,6 @@ Discovery coverage: 1324 discovered · 732 archived · 472 publication ready · 
 | AER | aer-114-12 | 2024 | ready |  |
 | AER | aer-114-2 | 2024 | ready |  |
 | AER | aer-114-3 | 2024 | ready |  |
-| AER | aer-114-4 | 2024 | ready |  |
-| AER | aer-114-5 | 2024 | ready |  |
-| AER | aer-114-6 | 2024 | ready |  |
-| AER | aer-114-7 | 2024 | ready |  |
-| AER | aer-114-8 | 2024 | ready |  |
-| AER | aer-114-9 | 2024 | ready |  |
 | AER | aer-115-1 | 2025 | ready |  |
 | AER | aer-115-10 | 2025 | ready |  |
 | AER | aer-115-11 | 2025 | ready |  |
@@ -469,23 +461,23 @@ Discovery coverage: 1324 discovered · 732 archived · 472 publication ready · 
 | JEEM | jeem-139-c | 2026 | source_pending |  |
 | JEEM | jeem-140-c | 2026 | ready |  |
 | JEH | jeh-83-1 | 2023 | blocked | archive_content_gate_failed |
-| JEH | jeh-83-2 | 2023 | source_pending | source authority pending official verification |
-| JEH | jeh-83-3 | 2023 | source_pending | source authority pending official verification |
-| JEH | jeh-83-4 | 2023 | source_pending | source authority pending official verification |
-| JEH | jeh-84-1 | 2024 | source_pending | source authority pending official verification |
-| JEH | jeh-84-2 | 2024 | source_pending | source authority pending official verification |
+| JEH | jeh-83-2 | 2023 | source_pending |  |
+| JEH | jeh-83-3 | 2023 | source_pending |  |
+| JEH | jeh-83-4 | 2023 | source_pending |  |
+| JEH | jeh-84-1 | 2024 | source_pending |  |
+| JEH | jeh-84-2 | 2024 | source_pending |  |
 | JEH | jeh-85-1 | 2025 | ready |  |
 | JEH | jeh-85-2 | 2025 | source_pending |  |
 | JEH | jeh-85-3 | 2025 | source_pending |  |
 | JEH | jeh-85-4 | 2025 | source_pending |  |
 | JEH | jeh-86-1 | 2026 | ready |  |
 | JEH | jeh-86-2 | 2026 | source_pending |  |
-| JEP | jep-37-1 | 2023 | source_pending | source authority pending official verification |
-| JEP | jep-37-2 | 2023 | source_pending | source authority pending official verification |
-| JEP | jep-37-3 | 2023 | source_pending | source authority pending official verification |
-| JEP | jep-37-4 | 2023 | source_pending | source authority pending official verification |
-| JEP | jep-38-1 | 2024 | source_pending | source authority pending official verification |
-| JEP | jep-38-2 | 2024 | source_pending | source authority pending official verification |
+| JEP | jep-37-1 | 2023 | source_pending |  |
+| JEP | jep-37-2 | 2023 | source_pending |  |
+| JEP | jep-37-3 | 2023 | source_pending |  |
+| JEP | jep-37-4 | 2023 | source_pending |  |
+| JEP | jep-38-1 | 2024 | source_pending |  |
+| JEP | jep-38-2 | 2024 | source_pending |  |
 | JEP | jep-39-1 | 2025 | source_pending |  |
 | JEP | jep-39-2 | 2025 | source_pending |  |
 | JEP | jep-39-3 | 2025 | source_pending |  |
@@ -498,7 +490,7 @@ Discovery coverage: 1324 discovered · 732 archived · 472 publication ready · 
 | JET | jet-209-c | 2023 | ready |  |
 | JET | jet-210-c | 2023 | ready |  |
 | JET | jet-211-c | 2023 | ready |  |
-| JET | jet-212-c | 2023 | translation_partial |  |
+| JET | jet-212-c | 2023 | blocked | archive_missing |
 | JET | jet-223-c | 2025 | ready |  |
 | JET | jet-224-c | 2025 | ready |  |
 | JET | jet-225-c | 2025 | ready |  |
@@ -514,11 +506,11 @@ Discovery coverage: 1324 discovered · 732 archived · 472 publication ready · 
 | JET | jet-235-c | 2026 | source_pending |  |
 | JET | jet-236-c | 2026 | ready |  |
 | JF | jf-78-1 | 2023 | blocked | archive_content_gate_failed |
-| JF | jf-78-2 | 2023 | source_pending | source authority pending official verification |
-| JF | jf-78-3 | 2023 | source_pending | source authority pending official verification |
-| JF | jf-78-4 | 2023 | source_pending | source authority pending official verification |
-| JF | jf-78-5 | 2023 | source_pending | source authority pending official verification |
-| JF | jf-78-6 | 2023 | source_pending | source authority pending official verification |
+| JF | jf-78-2 | 2023 | source_pending |  |
+| JF | jf-78-3 | 2023 | source_pending |  |
+| JF | jf-78-4 | 2023 | source_pending |  |
+| JF | jf-78-5 | 2023 | source_pending |  |
+| JF | jf-78-6 | 2023 | source_pending |  |
 | JF | jf-80-1 | 2025 | source_pending |  |
 | JF | jf-80-2 | 2025 | source_pending |  |
 | JF | jf-80-3 | 2025 | source_pending |  |
@@ -529,6 +521,12 @@ Discovery coverage: 1324 discovered · 732 archived · 472 publication ready · 
 | JF | jf-81-2 | 2026 | source_pending |  |
 | JF | jf-81-3 | 2026 | source_pending |  |
 | JF | jf-81-4 | 2026 | source_pending |  |
+| JFE | jfe-147-1 | 2023 | ready |  |
+| JFE | jfe-147-2 | 2023 | ready |  |
+| JFE | jfe-147-3 | 2023 | ready |  |
+| JFE | jfe-148-1 | 2023 | blocked | possible_incomplete_volume: 2 articles collected vs current issue 17; needs offi |
+| JFE | jfe-148-2 | 2023 | blocked | possible_incomplete_volume: 3 articles collected vs current issue 17; needs offi |
+| JFE | jfe-148-3 | 2023 | ready |  |
 | JFE | jfe-163-c | 2025 | ready |  |
 | JFE | jfe-164-c | 2025 | ready |  |
 | JFE | jfe-165-c | 2025 | ready |  |
@@ -561,7 +559,19 @@ Discovery coverage: 1324 discovered · 732 archived · 472 publication ready · 
 | JHE | jhe-107-c | 2026 | ready |  |
 | JHE | jhe-108-c | 2026 | ready |  |
 | JHE | jhe-109-c | 2026 | ready |  |
+| JHE | jhe-87-c | 2023 | ready |  |
+| JHE | jhe-88-c | 2023 | ready |  |
+| JHE | jhe-89-c | 2023 | ready |  |
+| JHE | jhe-90-c | 2023 | ready |  |
+| JHE | jhe-91-c | 2023 | ready |  |
+| JHE | jhe-92-c | 2023 | translation_partial |  |
 | JHE | jhe-99-c | 2025 | ready |  |
+| JIE | jie-140-c | 2023 | ready |  |
+| JIE | jie-141-c | 2023 | ready |  |
+| JIE | jie-142-c | 2023 | ready |  |
+| JIE | jie-143-c | 2023 | ready |  |
+| JIE | jie-144-c | 2023 | translation_partial |  |
+| JIE | jie-145-c | 2023 | translation_partial |  |
 | JIE | jie-153-c | 2025 | ready |  |
 | JIE | jie-154-c | 2025 | ready |  |
 | JIE | jie-155-c | 2025 | ready |  |
@@ -574,6 +584,12 @@ Discovery coverage: 1324 discovered · 732 archived · 472 publication ready · 
 | JIE | jie-162-c | 2026 | ready |  |
 | JIE | jie-163-c | 2026 | ready |  |
 | JIE | jie-164-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 164/ |
+| JLE | jle-41-1 | 2023 | blocked | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.ed |
+| JLE | jle-41-2 | 2023 | blocked | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.ed |
+| JLE | jle-41-3 | 2023 | blocked | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.ed |
+| JLE | jle-41-4 | 2023 | blocked | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.ed |
+| JLE | jle-41-S1 | 2023 | blocked | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.ed |
+| JLE | jle-42-1 | 2024 | blocked | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.ed |
 | JLE | jle-43-1 | 2025 | source_pending |  |
 | JLE | jle-43-2 | 2025 | ready |  |
 | JLE | jle-43-3 | 2025 | source_pending |  |
