@@ -1,15 +1,13 @@
 # Field journal history backfill status
 
-Updated: 2026-08-17T22:42:27+00:00
+Updated: 2026-08-17T23:13:26+00:00
 
-Discovery coverage: 1324 discovered · 745 archived · 485 publication ready · 579 missing · 260 source pending
+Discovery coverage: 1324 discovered · 764 archived · 504 publication ready · 560 missing · 260 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 67 | 3 | 61 | 77 |
-| 2024-2024 | 12 | 0 | 0 | 0 |
-| 2025-2026 | 1 | 0 | 0 | 0 |
-| 2026-2026 | 6 | 0 | 0 | 0 |
+| 2023-2024 | 86 | 4 | 65 | 77 |
+| 2025-2026 | 411 | 0 | 19 | 183 |
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -76,12 +74,6 @@ Discovery coverage: 1324 discovered · 745 archived · 485 publication ready · 
 | AER | aer-114-12 | 2024 | ready |  |
 | AER | aer-114-2 | 2024 | ready |  |
 | AER | aer-114-3 | 2024 | ready |  |
-| AER | aer-114-4 | 2024 | ready |  |
-| AER | aer-114-5 | 2024 | ready |  |
-| AER | aer-114-6 | 2024 | ready |  |
-| AER | aer-114-7 | 2024 | ready |  |
-| AER | aer-114-8 | 2024 | ready |  |
-| AER | aer-114-9 | 2024 | ready |  |
 | AER | aer-115-1 | 2025 | ready |  |
 | AER | aer-115-10 | 2025 | ready |  |
 | AER | aer-115-11 | 2025 | ready |  |
@@ -572,14 +564,14 @@ Discovery coverage: 1324 discovered · 745 archived · 485 publication ready · 
 | JHE | jhe-89-c | 2023 | ready |  |
 | JHE | jhe-90-c | 2023 | ready |  |
 | JHE | jhe-91-c | 2023 | ready |  |
-| JHE | jhe-92-c | 2023 | translation_partial |  |
+| JHE | jhe-92-c | 2023 | blocked | archive_missing |
 | JHE | jhe-99-c | 2025 | ready |  |
 | JIE | jie-140-c | 2023 | ready |  |
 | JIE | jie-141-c | 2023 | ready |  |
 | JIE | jie-142-c | 2023 | ready |  |
 | JIE | jie-143-c | 2023 | ready |  |
-| JIE | jie-144-c | 2023 | translation_partial |  |
-| JIE | jie-145-c | 2023 | translation_partial |  |
+| JIE | jie-144-c | 2023 | blocked | archive_missing |
+| JIE | jie-145-c | 2023 | blocked | archive_missing |
 | JIE | jie-153-c | 2025 | ready |  |
 | JIE | jie-154-c | 2025 | ready |  |
 | JIE | jie-155-c | 2025 | ready |  |
@@ -606,6 +598,12 @@ Discovery coverage: 1324 discovered · 745 archived · 485 publication ready · 
 | JLE | jle-44-1 | 2026 | source_pending |  |
 | JLE | jle-44-2 | 2026 | source_pending |  |
 | JLE | jle-44-3 | 2026 | source_pending |  |
+| JME | jme-133-c | 2023 | ready |  |
+| JME | jme-134-c | 2023 | ready |  |
+| JME | jme-135-c | 2023 | ready |  |
+| JME | jme-136-c | 2023 | ready |  |
+| JME | jme-137-c | 2023 | ready |  |
+| JME | jme-138-c | 2023 | ready |  |
 | JME | jme-149-c | 2025 | ready |  |
 | JME | jme-150-c | 2025 | ready |  |
 | JME | jme-151-c | 2025 | ready |  |
@@ -620,6 +618,12 @@ Discovery coverage: 1324 discovered · 745 archived · 485 publication ready · 
 | JME | jme-160-c | 2026 | source_pending |  |
 | JME | jme-161-c | 2026 | ready |  |
 | JME | jme-162-c | 2026 | ready |  |
+| JOE | joe-232-1 | 2023 | ready |  |
+| JOE | joe-232-2 | 2023 | ready |  |
+| JOE | joe-233-1 | 2023 | ready |  |
+| JOE | joe-233-2 | 2023 | ready |  |
+| JOE | joe-234-1 | 2023 | ready |  |
+| JOE | joe-234-2 | 2023 | translation_partial |  |
 | JOE | joe-247-c | 2025 | ready |  |
 | JOE | joe-248-c | 2025 | ready |  |
 | JOE | joe-249-c | 2025 | ready |  |
@@ -662,6 +666,12 @@ Discovery coverage: 1324 discovered · 745 archived · 485 publication ready · 
 | JPE | jpe-134-5 | 2026 | ready |  |
 | JPE | jpe-134-6 | 2026 | ready |  |
 | JPE | jpe-134-7 | 2026 | source_pending |  |
+| JPubE | jpube-217-c | 2023 | ready |  |
+| JPubE | jpube-218-c | 2023 | ready |  |
+| JPubE | jpube-219-c | 2023 | translation_partial |  |
+| JPubE | jpube-220-c | 2023 | ready |  |
+| JPubE | jpube-221-c | 2023 | translation_partial |  |
+| JPubE | jpube-222-c | 2023 | ready |  |
 | JPubE | jpube-241-c | 2025 | ready |  |
 | JPubE | jpube-242-c | 2025 | ready |  |
 | JPubE | jpube-243-c | 2025 | ready |  |
@@ -684,6 +694,12 @@ Discovery coverage: 1324 discovered · 745 archived · 485 publication ready · 
 | JPubE | jpube-260-c | 2026 | source_pending |  |
 | JPubE | jpube-261-c | 2026 | ready |  |
 | JPubE | jpube-262-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 262/ |
+| JUE | jue-133-c | 2023 | blocked | archive_content_gate_failed |
+| JUE | jue-134-c | 2023 | ready |  |
+| JUE | jue-135-c | 2023 | translation_partial |  |
+| JUE | jue-136-c | 2023 | ready |  |
+| JUE | jue-137-c | 2023 | ready |  |
+| JUE | jue-138-c | 2023 | ready |  |
 | JUE | jue-145-c | 2025 | ready |  |
 | JUE | jue-146-c | 2025 | ready |  |
 | JUE | jue-147-c | 2025 | ready |  |

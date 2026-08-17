@@ -1,0 +1,681 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "joe-233-2",
+  "journal_id": "joe",
+  "journal_name": "Journal of Econometrics",
+  "volume": "233",
+  "issue": "2",
+  "publication_date": "February 2023",
+  "source_url": "https://ideas.repec.org/s/eee/econom.html",
+  "retrieved_at": "2026-08-17T23:10:02+00:00",
+  "expected_article_count": 15,
+  "research_article_count": 15,
+  "status": "ready",
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.12.017",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "It ain’t where you’re from, it’s where you’re at: Hiring origins, firm heterogeneity, and wages",
+      "title_cn": "关键不在于你来自哪里，而在于你现在何处：招聘来源、企业异质性与工资",
+      "authors": [
+        "Sabrina Di Addario",
+        "Patrick Kline",
+        "Raffaele Saggio",
+        "Mikkel Sølvsten"
+      ],
+      "abstract_en": "Sequential auction models of labor market competition predict that the wages required to successfully poach a worker from a rival employer will depend on the productivities of both the poached and poaching firms. We develop a theoretically grounded extension of the two-way fixed effects model of Abowd et al. (1999) in which log hiring wages are comprised of a worker fixed effect, a fixed effect for the “destination” firm hiring the worker, and a fixed effect for the “origin” firm, or labor market state, from which the worker was hired. This specification is shown to nest the reduced form for hiring wages delivered by semi-parametric formulations of the canonical sequential auction model of Postel-Vinay and Robin (2002b) and its generalization in Bagger et al. (2014). Fitting the model to Italian social security records, origin effects are found to explain only 0.7% of the variance of hiring wages among job movers, while destination effects explain more than 23% of the variance. Across firms, destination effects are more than 13 times as variable as origin effects. Interpreted through the lens of Bagger et al. (2014)’s model, this finding requires that workers possess implausibly strong bargaining strength. Studying a cohort of workers entering the Italian labor market in 2005, we find that differences in origin effects yield essentially no contribution to the evolution of the gender gap in hiring wages, while differences in destination effects explain the majority of the gap at the time of labor market entry. These results suggest that where a worker is hired from tends to be relatively inconsequential for their wages in comparison to where they are currently employed.",
+      "abstract_cn": "劳动力市场竞争的序贯拍卖模型预测，成功从竞争对手雇主处挖走工人所需的工资将取决于被挖工人和挖人企业的生产率。我们在Abowd等人（1999）的双向固定效应模型基础上，发展了一个有理论基础的扩展，其中对数招聘工资由工人固定效应、雇佣工人的“目的地”企业固定效应以及工人被雇佣的“来源”企业或劳动力市场状态的固定效应组成。该设定被证明包含了Postel-Vinay和Robin（2002b）的经典序贯拍卖模型的半参数形式及其在Bagger等人（2014）中的推广所给出的招聘工资简化形式。将该模型拟合意大利社会保障记录，发现来源效应仅解释工作流动者招聘工资方差的0.7%，而目的地效应解释了超过23%的方差。在企业间，目的地效应的变异性是来源效应的13倍以上。通过Bagger等人（2014）模型的视角解释，这一发现要求工人拥有难以置信的强议价能力。研究2005年进入意大利劳动力市场的一组工人队列，我们发现来源效应的差异对招聘工资性别差距的演变几乎没有贡献，而目的地效应的差异解释了劳动力市场进入时的大部分差距。这些结果表明，与工人当前受雇地点相比，其被招聘的来源地对其工资的影响相对微不足道。",
+      "doi": "10.1016/j.jeconom.2021.12.017",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v233y2023i2p340-374.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v233y2023i2p340-374.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:10:09+00:00",
+        "source_hash": "cd4a20dedaf7f938bc6c25fac74e72bc86c39520422815b8f56c3a5fc62583d2"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.12.014",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Do firm effects drift? Evidence from Washington administrative data",
+      "title_cn": "企业效应会漂移吗？来自华盛顿行政数据的证据",
+      "authors": [
+        "Marta Lachowska",
+        "Alexandre Mas",
+        "Raffaele Saggio",
+        "Stephen A. Woodbury"
+      ],
+      "abstract_en": "We study the time-series properties of firm effects in the two-way fixed effects model popularized by Abowd et al. (1999) (AKM) using two approaches. The first—the rolling AKM approach (R-AKM)—estimates AKM models separately for successive two-year intervals. The second—the time-varying AKM approach (TV-AKM)—is an extension of the original AKM model that allows for unrestricted interactions of year and firm indicators. We apply to both approaches the leave-out methodology of Kline et al. (2020) to correct for biases in the estimated variance components. Using administrative wage records from Washington State, we find, first, that firm effects for hourly wage rates are highly persistent with an autocorrelation coefficient between firm effects in 2002 and 2014 of 0.74. Second, the R-AKM approach reveals cyclicality in firm effects and worker–firm sorting. During the Great Recession the variability in firm effects increased, while the degree of worker–firm sorting decreased. Third, misspecification of standard AKM models resulting from restricting firm effects to be fixed over time appears to be minimal.",
+      "abstract_cn": "我们使用两种方法研究Abowd等人（1999）推广的双向固定效应模型中企业效应的时间序列性质。第一种——滚动AKM方法（R-AKM）——分别对连续的两年区间估计AKM模型。第二种——时变AKM方法（TV-AKM）——是原始AKM模型的扩展，允许年份和企业指标的交互项不受限制。我们将Kline等人（2020）的留出法应用于这两种方法，以纠正估计方差分量中的偏差。使用华盛顿州的行政工资记录，我们首先发现，小时工资率的企业效应高度持久，2002年和2014年企业效应之间的自相关系数为0.74。其次，R-AKM方法揭示了企业效应和工人-企业匹配的周期性。在大衰退期间，企业效应的变异性增加，而工人-企业匹配程度下降。第三，由于将企业效应限制为随时间固定而导致的标准AKM模型的错误设定似乎很小。",
+      "doi": "10.1016/j.jeconom.2021.12.014",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v233y2023i2p375-395.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v233y2023i2p375-395.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:10:11+00:00",
+        "source_hash": "f9f79df7c98031d3e79724196face1ce45beb6899861fbffc3701d78e49fdfb6"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.01.012",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Firm pay dynamics",
+      "title_cn": "企业薪酬动态",
+      "authors": [
+        "Niklas Engbom",
+        "Christian Moser",
+        "Jan Sauermann"
+      ],
+      "abstract_en": "We study the nature of firm pay dynamics. To this end, we propose a statistical model that extends the seminal framework by Abowd et al. (1999) to allow for idiosyncratically time-varying firm pay policies. We estimate the model using linked employer–employee data for Sweden from 1985 to 2016. By drawing on detailed firm financials data, we show that firms that become more productive and accumulate capital raise pay, whereas firms lower pay as they add workers. A secular increase in firm-year pay dispersion in Sweden since 1985 is accounted for by greater persistence of firm pay among incumbent firms as well as greater dispersion in firm pay among entrant firms, as opposed to more volatile firm pay.",
+      "abstract_cn": "我们研究企业薪酬动态的性质。为此，我们提出了一个统计模型，该模型扩展了Abowd等人（1999）的开创性框架，以允许企业薪酬政策具有异质性的时变特征。我们使用瑞典从1985年到2016年的关联雇主-雇员数据来估计该模型。通过利用详细的企业财务数据，我们表明，变得更具生产力并积累资本的企业会提高薪酬，而随着员工增加，企业会降低薪酬。自1985年以来，瑞典企业-年度薪酬离散度的长期增长，可归因于在位企业薪酬持续性的增强以及新进入企业薪酬离散度的增大，而非企业薪酬波动性的增加。",
+      "doi": "10.1016/j.jeconom.2022.01.012",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v233y2023i2p396-423.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v233y2023i2p396-423.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:10:14+00:00",
+        "source_hash": "3473335e6de6ae13e00797d27afd8640a8e1bb57c3202e4659c1c8edcc10317b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.08.014",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Establishment age and wages",
+      "title_cn": "企业年龄与工资",
+      "authors": [
+        "Johannes F. Schmieder"
+      ],
+      "abstract_en": "This paper investigates the relationship between establishment age and wages. A key challenge is that new establishments differ from mature establishments along many dimensions due to non-random survival of establishments. Furthermore, worker composition changes as establishments age. To get around this, the paper uses linked employer–employee data from Germany and estimates the establishment age–wage relationship controlling for establishment and worker fixed effects and focuses on starting wages of workers. I show a striking pattern: starting wages in new establishments are 9 percent higher than in mature establishments (older than 20 years). I also report evidence that this difference is not driven by differences in hours, compensation for unemployment risk or slower future wage growth. Instead, I show that the difference is driven by, on average, high growth rates in new establishments as would be predicted by monopsonistic search models.",
+      "abstract_cn": "本文研究了企业年龄与工资之间的关系。一个关键挑战是，由于企业存活的非随机性，新企业在许多方面与成熟企业存在差异。此外，随着企业年龄的增长，工人构成也会发生变化。为了解决这一问题，本文使用了来自德国的关联雇主-雇员数据，并在控制企业和工人固定效应的基础上估计了企业年龄-工资关系，重点关注工人的起始工资。我展示了一个显著的模式：新企业的起始工资比成熟企业（年龄超过20年）高出9%。我还报告了证据表明，这种差异并非由工时差异、失业风险补偿或未来工资增长放缓所驱动。相反，我表明这种差异是由新企业平均较高的增长率所驱动的，这与垄断性搜寻模型的预测一致。",
+      "doi": "10.1016/j.jeconom.2022.08.014",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v233y2023i2p424-442.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v233y2023i2p424-442.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:10:16+00:00",
+        "source_hash": "06a4ddcc876ef97ce328afed14505bdc3daa540493c30c5018b32ba8d2d44374"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.12.003",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Twisting the demand curve: Digitalization and the older workforce",
+      "title_cn": "扭转需求曲线：数字化与老年劳动力",
+      "authors": [
+        "Erling Barth",
+        "James C. Davis",
+        "Richard B. Freeman",
+        "Kristina McElheran"
+      ],
+      "abstract_en": "Software represents a major and fast-growing share of firms’ capital investment, impacting demand for labor and what workers do on their jobs. Using U.S. Census Bureau panel data that link firms and workers, this paper estimates the effect of firm software capital on the earnings of workers by age group. We extend the AKM framework to include job-spell fixed effects that account for potential correlation between the worker–firm match and employee age, as well as including time-varying firm effects that allow for a correlation between wage-enhancing productivity shocks and software investments. Within job-spell, capitalized software investment raises worker earnings. However, it does so at a rate that declines after the age of 50, to about zero beyond 65. Our data further show that software capital increases the earnings of high-wage workers relative to low-wage workers and earnings in high-wage firms relative to low-wage firms, thereby widening earnings inequality within and across firms.",
+      "abstract_cn": "软件在企业资本投资中占据主要且快速增长份额，影响劳动力需求及员工工作内容。利用美国人口普查局连接企业与工人的面板数据，本文估计了企业软件资本对不同年龄段工人收入的影响。我们将AKM框架扩展至包含工作期固定效应，以考虑工人-企业匹配与员工年龄之间的潜在相关性，同时纳入时变企业效应，允许工资提升的生产率冲击与软件投资之间存在相关性。在工作期内，资本化软件投资提高了工人收入。然而，其提升幅度在50岁后递减，至65岁后趋近于零。我们的数据进一步显示，软件资本提高了高工资工人相对于低工资工人的收入，以及高工资企业相对于低工资企业的收入，从而扩大了企业内及企业间的收入不平等。",
+      "doi": "10.1016/j.jeconom.2021.12.003",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v233y2023i2p443-467.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v233y2023i2p443-467.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:10:19+00:00",
+        "source_hash": "e7c04f180e190fc0d27af6738740d79f112077a6f53366145ee693c59b268670"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.12.018",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Social connections and the sorting of workers to firms",
+      "title_cn": "社会关系与工人向企业的分类",
+      "authors": [
+        "Marcus Eliason",
+        "Lena Hensvik",
+        "Francis Kramarz",
+        "Oskar Nordström Skans"
+      ],
+      "abstract_en": "We assess the presumption that social networks reinforce inequality by providing high-wage workers’ with preferential access to high-wage establishments. Our results based on very detailed Swedish register data contradict this view. We do show that high-wage job seekers tend to be connected to high-wage workers employed in high-wage establishments. Furthermore, social connections appear to directly cause the allocation of workers to jobs. But the sorting resulting from hires within social networks is less unequal than the sorting resulting from market hires, essentially because low-wage firms rely on social connections to hire high-wage workers.",
+      "abstract_cn": "我们评估了社会网络通过为高工资工人提供进入高工资企业的优先途径而加剧不平等的假设。基于非常详细的瑞典登记数据，我们的结果反驳了这一观点。我们确实表明，高工资求职者往往与在高工资企业工作的高工资工人有联系。此外，社会关系似乎直接导致工人向工作的分配。但社会网络内部招聘产生的分类不如市场招聘产生的分类不平等，主要是因为低工资企业依赖社会关系来招聘高工资工人。",
+      "doi": "10.1016/j.jeconom.2021.12.018",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v233y2023i2p468-506.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v233y2023i2p468-506.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:10:21+00:00",
+        "source_hash": "662ed6a54eb619727fa41390cbec5677c0fa0782e588a46f6d3d3fee10f4a5b2"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.06.012",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Gender differences in sorting on wages and risk",
+      "title_cn": "工资与风险分类中的性别差异",
+      "authors": [
+        "Kurt Lavetti",
+        "Ian M. Schmutte"
+      ],
+      "abstract_en": "We use Brazilian matched employer–employee data to provide new evidence on gender disparities in labor market sorting on wages and workplace safety. We show that women and men sort in highly disparate, but systematic, ways on the basis of physical risk, despite sorting almost identically on financial risk. To understand what factors might explain these gender differences in sorting, we begin by ruling out the possibility that men and women receive different compensating wage differentials for risk. We find that women do earn smaller establishment wage premia than men on average, but this difference is also unlikely to explain the sorting patterns. Despite having little direct effect on wages, sorting on safety may have large indirect effects on the wage gap through its outsized influence on the segregation of women and men across establishments. This segregation results in men earning substantially higher establishment wage premia, which explains 28% of the entire gender wage gap in Brazil.",
+      "abstract_cn": "我们使用巴西匹配的雇主-雇员数据，提供关于劳动力市场中工资和工作场所安全分类的性别差异的新证据。我们表明，女性和男性在基于身体风险的分类方式上高度不同但系统化，尽管在金融风险上的分类几乎相同。为了理解可能解释这些分类中性别差异的因素，我们首先排除了男性和女性因风险获得不同补偿性工资差异的可能性。我们发现，女性平均确实比男性获得更小的企业工资溢价，但这种差异也不太可能解释分类模式。尽管对工资几乎没有直接影响，但安全分类可能通过对女性和男性跨企业隔离的巨大影响，对工资差距产生较大的间接效应。这种隔离导致男性获得显著更高的企业工资溢价，这解释了巴西整个性别工资差距的28%。",
+      "doi": "10.1016/j.jeconom.2022.06.012",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v233y2023i2p507-523.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v233y2023i2p507-523.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:10:23+00:00",
+        "source_hash": "a38b088ff77ba4a7377711ef5fede000934a23a1e9c18f83c35eaf2c271cc34b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.12.015",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Cyclical labor market sorting",
+      "title_cn": "周期性劳动力市场分类",
+      "authors": [
+        "Leland D. Crane",
+        "Henry R. Hyatt",
+        "Seth M. Murray"
+      ],
+      "abstract_en": "We consider sorting in the labor market, that is, whether high- or low-productivity workers and firms tend to match with each other, and how this varies over time using U.S. linked employer–employee data. Composition changes of workers and firms move in opposite directions over the business cycle. During and after recessions, low-rank workers are less likely to work, while the employment share of low-rank firms increases. The agreement between worker and firm ranks increases in the early stages of labor market downturns.",
+      "abstract_cn": "我们考虑劳动力市场中的分类，即高生产率或低生产率的工人与企业是否倾向于相互匹配，以及这种匹配如何随时间变化，使用美国关联雇主-雇员数据。工人和企业的构成变化在商业周期中呈相反方向移动。在经济衰退期间及之后，低排名工人就业的可能性较低，而低排名企业的就业份额增加。工人与企业排名之间的一致性在劳动力市场衰退初期有所增加。",
+      "doi": "10.1016/j.jeconom.2021.12.015",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v233y2023i2p524-543.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v233y2023i2p524-543.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:10:25+00:00",
+        "source_hash": "d84e5dcff3485bc6a511573bc943b32520b011bb9fbb9d50c91ef3e4a3634356"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.07.012",
+      "sequence": 9,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "Employer policies and the immigrant–native earnings gap",
+      "title_cn": "雇主政策与移民-本地人收入差距",
+      "authors": [
+        "Benoit Dostie",
+        "Jiang Li",
+        "David Card",
+        "Daniel Parent"
+      ],
+      "abstract_en": "We use longitudinal data from the income tax system to study the impacts of firms’ employment and wage-setting policies on the level and change in immigrant–native wage differences in Canada. We focus on immigrants who arrived in the early 2000s, distinguishing between those with and without a college degree from two broad groups of countries – the U.S., the U.K. and Northern Europe, and the rest of the world. Consistent with a growing literature based on the two-way fixed effects model of Abowd, Kramarz, and Margolis (1999), we find that firm-specific wage premiums explain a significant share of earnings inequality in Canada and contribute to the average earnings gap between immigrants and natives. In the decade after receiving permanent status, earnings of immigrants rise relative to those of natives. Compositional effects due to selective outmigration and changing participation play no role in this gain. About one-sixth is attributable to movements up the job ladder to employers that offer higher pay premiums for all groups, with particularly large gains for immigrants from the “rest of the world” countries.",
+      "abstract_cn": "我们利用所得税系统的纵向数据，研究企业就业和工资设定政策对加拿大移民与本地人工资差异水平及变化的影响。我们重点关注2000世纪初抵达的移民，区分那些拥有或未拥有大学学位的人，他们来自两大国家群体——美国、英国和北欧，以及世界其他地区。与基于Abowd、Kramarz和Margolis（1999）双向固定效应模型的日益增长的文献一致，我们发现企业特定工资溢价解释了加拿大收入不平等的显著部分，并导致移民与本地人之间的平均收入差距。在获得永久身份后的十年里，移民的收入相对于本地人有所上升。由于选择性移出和参与变化引起的构成效应在这一增长中不起作用。大约六分之一的增长归因于沿着工作阶梯向为所有群体提供更高工资溢价的雇主移动，其中来自“世界其他地区”国家的移民获益尤为显著。",
+      "doi": "10.1016/j.jeconom.2021.07.012",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v233y2023i2p544-567.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v233y2023i2p544-567.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:10:28+00:00",
+        "source_hash": "addcb817acb76efa58176ae4878c7a1a2072534147ebb20dd11a00af4a129e93"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.03.013",
+      "sequence": 10,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "The determinants of displaced workers’ wages: Sorting, matching, selection, and the Hartz reforms",
+      "title_cn": "失业工人工资的决定因素：分类、匹配、选择与哈茨改革",
+      "authors": [
+        "Simon D. Woodcock"
+      ],
+      "abstract_en": "We present a simple new method to decompose the wage effects of displacement into components due to differences in the way that displaced and non-displaced workers are sorted across higher- and lower-paying employers (a sorting effect), differences in the quality of worker–employer matches that they enter into (a matching effect), and differences in their unobservable characteristics (a selection effect). In an extended application, we apply our decomposition to understand how the determinants of displaced workers’ wages in Germany changed following the 2003–2005 Hartz reforms. We find that the wages of displaced workers fell substantially after the reforms, and that over 80 percent of the decline was because they found re-employment at lower-paying employers. Sorting into worse matches explains a smaller 5–9 percent of the wage decline experienced by men, and 12–23.5 percent of the female wage decline. Collectively, the sorting and matching channels explain almost all of the post-reform decline in displaced workers’ wages, and selection played little role.",
+      "abstract_cn": "我们提出了一种简单的新方法，将失业的工资效应分解为以下组成部分：失业工人与非失业工人在高薪和低薪雇主之间的分类差异（分类效应）、他们进入的工人-雇主匹配质量的差异（匹配效应）以及他们不可观测特征的差异（选择效应）。在一个扩展应用中，我们应用我们的分解方法来理解德国失业工人工资的决定因素在2003-2005年哈茨改革后如何变化。我们发现，改革后失业工人的工资大幅下降，其中超过80%的下降是因为他们在低薪雇主处重新就业。分类到更差的匹配解释了男性工资下降的较小部分5-9%，以及女性工资下降的12-23.5%。总体而言，分类和匹配渠道几乎解释了改革后失业工人工资下降的全部，而选择所起的作用很小。",
+      "doi": "10.1016/j.jeconom.2022.03.013",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v233y2023i2p568-595.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v233y2023i2p568-595.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:10:31+00:00",
+        "source_hash": "7920fab19a0cda16175dbfc813b61af10be3c012e92060fb3aa0ad38dbce2367"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.11.014",
+      "sequence": 11,
+      "source_sequence": 11,
+      "article_type": "research-article",
+      "title_en": "The persistence of wages",
+      "title_cn": "工资的持续性",
+      "authors": [
+        "Anabela Carneiro",
+        "Pedro Portugal",
+        "Pedro Raposo",
+        "Paulo M.M. Rodrigues"
+      ],
+      "abstract_en": "This paper documents the extent to which wage persistence can be explained by permanent worker, employer, and match heterogeneity. Standard methods used to perform such decompositions for industry or racial wage gaps are inappropriate for decomposing wage persistence in dynamic panel data models because of the incidental parameter problem. When we apply these methods without bias correction, we find that the majority, 59.3 percent, of wage persistence is explained by worker heterogeneity, with employer and match heterogeneity explaining 29.7 and 11.0 percent, respectively. We evaluate three methods for addressing incidental parameter bias using a Monte Carlo study. An empirical application to Portuguese linked employer–employee data shows that the uncorrected estimates tend to understate wage persistence by around 24 to 42 percent, depending on the choice of the bias correction estimator used, and overstate the extent to which wage persistence arises from permanent unobserved heterogeneity. Furthermore, results indicate that the uncorrected estimates overstate the role of permanent worker heterogeneity, and understate the role of firm heterogeneity.",
+      "abstract_cn": "本文记录了工资持续性在多大程度上可由永久性工人、雇主和匹配异质性来解释。用于对行业或种族工资差距进行此类分解的标准方法不适用于分解动态面板数据模型中的工资持续性，因为存在 incidental parameter 问题。当我们在没有偏差校正的情况下应用这些方法时，我们发现工资持续性的主要部分（59.3%）由工人异质性解释，雇主和匹配异质性分别解释 29.7 和 11.0%。我们通过蒙特卡洛研究评估了三种解决 incidental parameter 偏差的方法。对葡萄牙关联雇主-雇员数据的实证应用表明，未校正的估计往往低估工资持续性约 24 至 42%%，具体取决于所使用的偏差校正估计量，并高估工资持续性源于永久性未观测异质性的程度。此外，结果表明未校正的估计高估了永久性工人异质性的作用，而低估了企业异质性的作用。",
+      "doi": "10.1016/j.jeconom.2021.11.014",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v233y2023i2p596-611.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v233y2023i2p596-611.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:10:33+00:00",
+        "source_hash": "95a6fdf1c332888b6d16f4c3e92e65cabbb9c22e86752c969f37a0ae70cafe77"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.12.002",
+      "sequence": 12,
+      "source_sequence": 12,
+      "article_type": "research-article",
+      "title_en": "Union membership density and wages: The role of worker, firm, and job-title heterogeneity",
+      "title_cn": "工会密度与工资：工人、企业和职位异质性的作用",
+      "authors": [
+        "John T. Addison",
+        "Pedro Portugal",
+        "Hugo de Almeida Vilares"
+      ],
+      "abstract_en": "We examine the association between union density and wages in Portugal where just 10 percent of all workers are union members but nine-tenths of them are covered by collective agreements. Using a unique dataset on workers, firms, and collective bargaining agreements, we examine the union density wage gap in total monthly wages and its sources – namely, worker, firm, and job-title or ‘occupational’ heterogeneity – using the Gelbach decomposition. The most important source of the mark-up associated with union density is the firm fixed effect, reflecting the differing wage policies of more and less unionized workplaces, which explains two-thirds of the wage gap. Next in importance is the job-title fixed effect, capturing occupational heterogeneity across industries. It makes up one-third of the gap, the inference being that the unobserved skills of workers contribute at most only trivially to the union density wage gap. In a separate analysis based on disaggregations of the total wage, it is also found that employers can in part offset the impact of the bargaining power of unions on wages through firm-specific wage arrangements in the form of the wage cushion. Finally, union density is shown to be associated with a modest reduction in wage inequality as the union density wage gap is highest among low-wage workers. This result is driven by the job-title fixed effect, low-wage workers benefiting more from being placed in higher paying ‘occupations.’",
+      "abstract_cn": "我们研究了葡萄牙工会密度与工资之间的关联，在葡萄牙，只有10%的工人是工会会员，但其中十分之九的工人受到集体协议的覆盖。利用关于工人、企业和集体谈判协议的独特数据集，我们使用Gelbach分解考察了工会密度在月总工资中的工资差距及其来源——即工人、企业和职位或‘职业’异质性。与工会密度相关的加成最重要的来源是企业固定效应，反映了工会化程度高和低的 workplaces 的不同工资政策，这解释了工资差距的三分之二。其次是职位固定效应，捕捉了跨行业的职业异质性。它构成了差距的三分之一，推断是工人的未观察技能对工会密度工资差距的贡献至多是微不足道的。在基于总工资分解的单独分析中，还发现雇主可以通过企业特定的工资安排（以工资缓冲的形式）部分抵消工会谈判力量对工资的影响。最后，工会密度与工资不平等的适度减少相关，因为工会密度工资差距在低工资工人中最高。这一结果由职位固定效应驱动，低工资工人从被安排在更高薪酬的‘职业’中获益更多。",
+      "doi": "10.1016/j.jeconom.2021.12.002",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v233y2023i2p612-632.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v233y2023i2p612-632.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:10:36+00:00",
+        "source_hash": "b7ac1226619946fc2a0ff2b7700913ec702178ec4921361a8eb544fd76d0c704"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.02.008",
+      "sequence": 13,
+      "source_sequence": 13,
+      "article_type": "research-article",
+      "title_en": "Unequal use of social insurance benefits: The role of employers",
+      "title_cn": "社会保险福利的不平等使用：雇主的作用",
+      "authors": [
+        "Sarah Bana",
+        "Kelly Bedard",
+        "Maya Rossin-Slater",
+        "Jenna Stearns"
+      ],
+      "abstract_en": "Disability Insurance (DI) and Paid Family Leave (PFL) programs are important sources of social insurance, but there is considerable inequality in benefit take-up, and little is known about the role of firms in determining benefit use. Using administrative data from California, we find that firms that pay higher earnings premiums also have substantially higher public DI and PFL take-up rates, and that this relationship is particularly strong among the lowest-earning workers within the firm. Our results suggest that changes in firm behavior may impact social insurance use, thus reducing an important dimension of inequality in America.",
+      "abstract_cn": "残疾保险（DI）和带薪家庭假（PFL）项目是社会保险的重要来源，但在福利领取方面存在相当大的不平等，且关于企业在决定福利使用中的作用知之甚少。利用加利福尼亚州的行政数据，我们发现支付更高收入溢价的企业的公共DI和PFL领取率也显著更高，并且这种关系在企业内收入最低的工人中尤为强烈。我们的结果表明，企业行为的变化可能影响社会保险的使用，从而减少美国不平等的一个重要维度。",
+      "doi": "10.1016/j.jeconom.2022.02.008",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v233y2023i2p633-660.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v233y2023i2p633-660.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:10:38+00:00",
+        "source_hash": "b7d94272d931f1f06f37aeb4b7321dc8a1327f18ee89826c0e92255024bf505a"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.12.016",
+      "sequence": 14,
+      "source_sequence": 14,
+      "article_type": "research-article",
+      "title_en": "Internal labor markets: A worker flow approach",
+      "title_cn": "内部劳动力市场：一种工人流动方法",
+      "authors": [
+        "Ingrid Huitfeldt",
+        "Andreas R. Kostøl",
+        "Jan Nimczik",
+        "Andrea Weber"
+      ],
+      "abstract_en": "This paper develops a new method to study how workers’ career and wage profiles are shaped by internal labor markets (ILM) and job hierarchies in firms. We tackle the conceptual challenge of organizing jobs within firms into hierarchy levels by proposing a data-driven ranking method based on observed worker flows between occupations within firms. We apply our method to linked employer–employee data from Norway that record fine-grained occupational codes and track contract changes within firms. Our findings confirm existing evidence that is primarily based on case studies for single firms. We expand on this by documenting substantial heterogeneity in the structure and hierarchy of ILMs across a broad range of large firms. Our findings on wage and promotion dynamics in ILMs are consistent with models of careers in organizations.",
+      "abstract_cn": "本文开发了一种新方法来研究工人的职业和工资曲线如何受到企业内部劳动力市场（ILM）和工作层级的影响。我们通过提出一种基于数据驱动的排名方法来解决将企业内部工作组织为层级水平的概念挑战，该方法基于观察到的企业内部职业间工人流动。我们将该方法应用于挪威的关联雇主-雇员数据，这些数据记录了细粒度的职业代码并跟踪了企业内的合同变更。我们的发现证实了主要基于单一企业案例研究的现有证据。我们通过记录广泛大型企业中ILM结构和层级的显著异质性来扩展这一点。我们对ILM中工资和晋升动态的发现与组织中职业的模型一致。",
+      "doi": "10.1016/j.jeconom.2021.12.016",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v233y2023i2p661-688.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v233y2023i2p661-688.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:10:40+00:00",
+        "source_hash": "e605e999f38d5ed95eb0007d01518bb8301c2acf7b0a75ae25b4f81a2e2ab652"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.11.013",
+      "sequence": 15,
+      "source_sequence": 15,
+      "article_type": "research-article",
+      "title_en": "Estimation of spillover effects with matched data or longitudinal network data",
+      "title_cn": "利用匹配数据或纵向网络数据估计溢出效应",
+      "authors": [
+        "Martin Braun",
+        "Valentin Verdier"
+      ],
+      "abstract_en": "Social interactions often play a key role in determining the impact of policies, but measuring the magnitude of spillover effects empirically is notoriously challenging because, in most applications, a person’s relationships are likely to reflect her own characteristics (homophily), and people who are connected are likely to be affected by the same shocks (common factors). In addition, a significant share of social interactions is likely to occur through variables that are not observed by the researcher. When matched data are used, observations corresponding to the same cross-sectional units (e.g., workers or students) can be linked over time, and a cross-sectional unit’s relationships (e.g., co-workers or classmates) are indexed in each time period. We show that comparisons over time in the outcomes of individuals whose relationships changed can be used to measure the importance of social interactions in the presence of flexible patterns of selection on unobservables and common factors, even if social interactions only occur through unobservables. We apply our results to estimate the importance of peer effects in student learning in elementary school.",
+      "abstract_cn": "社会互动通常在决定政策影响中发挥关键作用，但实证测量溢出效应的规模是出了名的困难，因为在大多数应用中，一个人的关系可能反映其自身特征（同质性），并且有联系的人可能受到相同冲击的影响（共同因素）。此外，很大一部分社会互动可能通过研究者未观察到的变量发生。当使用匹配数据时，对应于同一横截面单位（如工人或学生）的观测值可以随时间链接，并且横截面单位的关系（如同事或同学）在每个时间段内被索引。我们表明，在存在灵活不可观测选择模式和共同因素的情况下，即使社会互动仅通过不可观测变量发生，比较关系发生变化个体的结果随时间的变化可以用来衡量社会互动的重要性。我们将我们的结果应用于估计小学学生学习的同伴效应的重要性。",
+      "doi": "10.1016/j.jeconom.2021.11.013",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v233y2023i2p689-714.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v233y2023i2p689-714.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:10:42+00:00",
+        "source_hash": "7ecb507a90d17405ab552225c83a26fbc9d2a0bbe9b9f85efe97d6f834ed556f"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "repec-serial-page",
+    "roster_authority": "repec-publisher-supplied",
+    "roster_match_scope": "repec-volume-items",
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 15,
+    "authors_complete": 15,
+    "abstract_en_complete": 15,
+    "translation_complete": 15,
+    "duplicate_count": 0,
+    "repec_item_count": 15,
+    "flags": [],
+    "official_item_count": 15,
+    "publishable_item_count": 15,
+    "content_counts": {
+      "official_items": 15,
+      "observed_items": 15,
+      "publishable_items": 15,
+      "research_articles": 15,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 15
+    }
+  },
+  "content_counts": {
+    "official_items": 15,
+    "observed_items": 15,
+    "publishable_items": 15,
+    "research_articles": 15,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 15
+  },
+  "issue_label": "Vol. 233 · No. 2",
+  "content_status": "complete",
+  "source_status": "publisher_verified",
+  "publication_state": "ready"
+}

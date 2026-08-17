@@ -1,0 +1,669 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "joe-234-2",
+  "journal_id": "joe",
+  "journal_name": "Journal of Econometrics",
+  "volume": "234",
+  "issue": "2",
+  "publication_date": "February 2023",
+  "source_url": "https://ideas.repec.org/s/eee/econom.html",
+  "retrieved_at": "2026-08-17T23:11:24+00:00",
+  "expected_article_count": 15,
+  "research_article_count": 15,
+  "status": "incomplete",
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.01.008",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Isotonic regression discontinuity designs",
+      "title_cn": "等距回归断点设计",
+      "authors": [
+        "Andrii Babii",
+        "Rohit Kumar"
+      ],
+      "abstract_en": "This paper studies the estimation and inference for the isotonic regression at the boundary point, an object that is particularly interesting and required in the analysis of monotone regression discontinuity designs. We show that the isotonic regression is inconsistent in this setting and derive the asymptotic distributions of boundary corrected estimators. Interestingly, the boundary corrected estimators can be bootstrapped without subsampling or additional nonparametric smoothing which is not the case for the interior point. The Monte Carlo experiments indicate that shape restrictions can improve dramatically the finite-sample performance of unrestricted estimators. Lastly, we estimate the causal effect of incumbency in U.S. House elections via the isotonic regression discontinuity design.",
+      "abstract_cn": "本文研究了边界点处等距回归的估计与推断，这一对象在单调回归断点设计的分析中尤为有趣且必要。我们证明等距回归在此设定下不一致，并推导了边界校正估计量的渐近分布。有趣的是，边界校正估计量可以通过自助法进行推断，无需子抽样或额外的非参数平滑，而内点情形则不然。蒙特卡洛实验表明，形状约束能显著改善无约束估计量的有限样本表现。最后，我们通过等距回归断点设计估计了美国众议院选举中在位效应的因果效应。",
+      "doi": "10.1016/j.jeconom.2021.01.008",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v234y2023i2p371-393.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v234y2023i2p371-393.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:11:28+00:00",
+        "source_hash": "10920afe3a336248e4dcddb6ddf28066e88750138b152739f401543de86bb2a5"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.03.015",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Estimation and inference for policy relevant treatment effects",
+      "title_cn": "政策相关处理效应的估计与推断",
+      "authors": [
+        "Yuya Sasaki",
+        "Takuya Ura"
+      ],
+      "abstract_en": "The policy relevant treatment effect (PRTE) measures the average effect of switching from a status-quo policy to a counterfactual policy under consideration. Estimation of the PRTE involves estimation of multiple preliminary parameters, including propensity scores, conditional expectation functions of the outcome and covariates given the propensity score, and marginal treatment effects. These preliminary estimators can affect the asymptotic distribution of the PRTE estimator in complicated and intractable manners. In this light, we propose an orthogonal score for double debiased estimation of the PRTE, whereby the asymptotic distribution of the PRTE estimator is obtained without any influence of preliminary parameter estimators as far as they satisfy mild requirements of convergence rates. To our knowledge, this paper is the first to develop limit distribution theories for inference about the PRTE.",
+      "abstract_cn": "政策相关处理效应（PRTE）衡量从现状政策转向所考虑的反事实政策时的平均效应。PRTE的估计涉及多个初步参数的估计，包括倾向得分、结果和协变量在给定倾向得分下的条件期望函数，以及边际处理效应。这些初步估计量可能以复杂且难以处理的方式影响PRTE估计量的渐近分布。鉴于此，我们提出了一个用于PRTE双重去偏估计的正交得分，从而在初步参数估计量仅满足温和的收敛速度要求时，PRTE估计量的渐近分布不受其任何影响。据我们所知，本文是首个为PRTE推断建立极限分布理论的研究。",
+      "doi": "10.1016/j.jeconom.2021.03.015",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v234y2023i2p394-450.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v234y2023i2p394-450.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:11:30+00:00",
+        "source_hash": "4a43687923d92e44e29e3dd7e1a1416a3e03f48c9663734cb5a19b9101663ff8"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.01.011",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Estimation of treatment effects under endogenous heteroskedasticity",
+      "title_cn": "内生异方差下处理效应的估计",
+      "authors": [
+        "Jason Abrevaya",
+        "Haiqing Xu"
+      ],
+      "abstract_en": "This paper considers a treatment effect model in which individual treatment effect may be heterogeneous, even among observationally identical individuals. Specifically, by extending the classical instrumental-variables (IV) model with an endogenous binary treatment, the heteroskedasticity of the error disturbance is allowed to vary with the treatment variable so that the treatment generates both mean and variance effect on the outcome. In this endogenous heteroskedasticity IV (EHIV) model, the standard IV estimator can be inconsistent for the average treatment effect (ATE) and lead to incorrect inference. After nonparametric identification is established, closed-form estimators are provided under the linear EHIV specification for the mean and variance treatment effect, as well as the average treatment effect on the treated (ATT). Asymptotic properties of the estimators are derived. We use Monte Carlo experiments to investigate the performance of the proposed approach and then consider an empirical application regarding the effect of fertility on female labor supply. Our findings demonstrate the importance of accounting for endogenous heteroskedasticity.",
+      "abstract_cn": "本文考虑一个处理效应模型，其中个体处理效应可能是异质的，即使在观测上相同的个体之间也是如此。具体而言，通过扩展具有内生二元处理变量的经典工具变量（IV）模型，允许误差扰动的异方差随处理变量变化，使得处理对结果产生均值和方差效应。在这种内生异方差IV（EHIV）模型中，标准IV估计量对于平均处理效应（ATE）可能不一致，并导致错误的推断。在建立非参数识别后，在线性EHIV设定下提供了均值和方差处理效应以及处理组平均处理效应（ATT）的闭式估计量。推导了估计量的渐近性质。我们使用蒙特卡洛实验来研究所提出方法的性能，然后考虑一个关于生育对女性劳动力供给影响的实证应用。我们的发现证明了考虑内生异方差的重要性。",
+      "doi": "10.1016/j.jeconom.2021.01.011",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v234y2023i2p451-478.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v234y2023i2p451-478.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:11:32+00:00",
+        "source_hash": "df70877c31c7c92cd036b4f0aafb0b4a38393600e475f7da32ae759846c29fcd"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.01.012",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Identifying treatment effects in the presence of confounded types",
+      "title_cn": "在存在混杂类型的情况下识别处理效应",
+      "authors": [
+        "Désiré Kédagni"
+      ],
+      "abstract_en": "In this paper, I consider identification of treatment effects when the treatment is endogenous. The use of instrumental variables is a popular solution to deal with endogeneity, but this may give misleading answers when the instrument is invalid. I show that when an (unobserved) instrument is invalid due to correlation with the first stage unobserved heterogeneity, a proxy for the instrument helps partially identify not only the local average treatment effect, but also the entire potential outcomes distributions for compliers. I exploit the fact that the distribution of the observed outcome in each group defined by the treatment and the instrument is a mixture of the distributions of interest. I write the identified set in the form of conditional moment inequalities, and provide an easily implementable inference procedure. Under some tail restrictions, the potential outcomes distributions are point-identified for compliers. Finally, I illustrate my methodology on data from the National Longitudinal Survey of Young Men to estimate returns to college using college proximity as a proxy for the instrument low college cost. I find that a college degree increases the average hourly wage of the compliers by 15%–30%.",
+      "abstract_cn": "在本文中，我考虑了当处理变量是内生的时候处理效应的识别问题。使用工具变量是处理内生性的一种流行解决方案，但当工具无效时，这可能会给出误导性的答案。我表明，当一个（未观测的）工具由于与第一阶段未观测异质性相关而无效时，该工具的一个代理变量有助于部分识别不仅局部平均处理效应，而且还有助于识别依从者的整个潜在结果分布。我利用了这样一个事实：由处理变量和工具定义的每个组中观测结果的分布是感兴趣分布的混合。我将识别集写成条件矩不等式的形式，并提供了一种易于实施的推断程序。在一些尾部限制下，依从者的潜在结果分布可以被点识别。最后，我将我的方法应用于全国年轻男性纵向调查的数据，以使用大学 proximity 作为低大学成本工具的代理来估计大学教育的回报。我发现大学学位使依从者的平均小时工资增加了 15%–30%。",
+      "doi": "10.1016/j.jeconom.2021.01.012",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v234y2023i2p479-511.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v234y2023i2p479-511.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:11:35+00:00",
+        "source_hash": "78f9860e6a020c51247bc1a0a0ed87bbb430825db34fd3187473d40c23f52717"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.04.009",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Forward-selected panel data approach for program evaluation",
+      "title_cn": "项目评估的前向选择面板数据方法",
+      "authors": [
+        "Zhentao Shi",
+        "Jingyi Huang"
+      ],
+      "abstract_en": "Policy evaluation is central to economic data analysis, but economists mostly work with observational data in view of limited opportunities to carry out controlled experiments. In the potential outcome framework, the panel data approach (Hsiao et al., 2012) constructs the counterfactual by exploiting the correlation between cross-sectional units in panel data. The choice of cross-sectional control units, a key step in its implementation, is nevertheless unresolved in data-rich environments when many possible controls are at the researcher’s disposal. We propose the forward selection method to choose control units, and establish validity of the post-selection inference. Our asymptotic framework allows the number of possible controls to grow much faster than the time dimension. The easy-to-implement algorithms and their theoretical guarantee extend the panel data approach to big data settings.",
+      "abstract_cn": "政策评估是经济数据分析的核心，但由于进行受控实验的机会有限，经济学家大多使用观测数据。在潜在结果框架下，面板数据方法（Hsiao等，2012）通过利用面板数据中横截面单元之间的相关性来构造反事实。然而，在数据丰富的环境中，当研究者可用的可能控制变量很多时，横截面控制单元的选择——这一实施中的关键步骤——仍未得到解决。我们提出了前向选择方法来选择控制单元，并建立了选择后推断的有效性。我们的渐近框架允许可能控制变量的数量远快于时间维度增长。易于实现的算法及其理论保证将面板数据方法扩展到大数据环境。",
+      "doi": "10.1016/j.jeconom.2021.04.009",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v234y2023i2p512-535.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v234y2023i2p512-535.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:11:37+00:00",
+        "source_hash": "29fa38d162b9dcec9d0266359f91208b94af852d42ffb237d752b516b52d5b8b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.07.007",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Partially identifying competing risks models: An application to the war on cancer",
+      "title_cn": "部分识别竞争风险模型：应用于抗癌战争",
+      "authors": [
+        "Dongwoo Kim"
+      ],
+      "abstract_en": "Competing risks models for discretely measured durations are partially identifying due to the unknown dependence structure between risks and the discrete nature of the outcome. This article develops a highly tractable bounds approach for underlying distributions of latent durations by exploiting the discreteness. Bounds are obtained from a system of nonlinear (in)equalities. I devise a sequential solution method that requires much less computational burden than existing methods. Asymptotic properties of bound estimators and a simple bootstrap procedure are provided. I apply the proposed approach to re-evaluate trends in cancer mortality extending the data studied in Honoré and Lleras-Muney (2006). Estimated patterns differ from the original findings.",
+      "abstract_cn": "对于离散测量的持续时间，竞争风险模型由于风险之间未知的依赖结构和结果的离散性质而只能部分识别。本文利用离散性，为潜在持续时间的分布开发了一种高度易处理的界限方法。界限通过一个非线性（不）等式系统获得。我设计了一种顺序求解方法，其计算负担远小于现有方法。提供了界限估计量的渐近性质和一个简单的自助法程序。我将所提出的方法应用于重新评估癌症死亡率的趋势，扩展了Honoré和Lleras-Muney（2006）研究的数据。估计的模式与原始发现不同。",
+      "doi": "10.1016/j.jeconom.2021.07.007",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v234y2023i2p536-564.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v234y2023i2p536-564.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:11:39+00:00",
+        "source_hash": "8fd9993cd422264520decdd77bb3f68bdadeb351e154bc9021c5637ed441718f"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.11.011",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Identifying marginal treatment effects in the presence of sample selection",
+      "title_cn": "存在样本选择时识别边际处理效应",
+      "authors": [
+        "Otávio Bartalotti",
+        "Désiré Kédagni",
+        "Vitor Possebom"
+      ],
+      "abstract_en": "This article presents identification results for the marginal treatment effect (MTE) when there is sample selection. We show that the MTE is partially identified for individuals who are always observed regardless of treatment, and derive uniformly sharp bounds on this parameter under three increasingly restrictive sets of assumptions. The first result imposes standard MTE assumptions with an unrestricted sample selection mechanism. The second set of conditions imposes monotonicity of the sample selection variable with respect to treatment, considerably shrinking the identified set. Finally, we incorporate a stochastic dominance assumption which tightens the lower bound for the MTE. Our analysis extends to discrete instruments. The results rely on a mixture reformulation of the problem where the mixture weights are identified, extending Lee’s (2009) trimming procedure to the MTE context. We propose estimators for the bounds derived and use data made available by Deb et al. (2006) to empirically illustrate the usefulness of our approach.",
+      "abstract_cn": "本文提出了在存在样本选择时边际处理效应（MTE）的识别结果。我们表明，对于无论处理状态如何总是被观测到的个体，MTE是部分识别的，并在三组逐渐严格的假设下推导出该参数的均匀尖锐界。第一个结果施加了标准的MTE假设，并允许不受限制的样本选择机制。第二组条件对样本选择变量关于处理施加单调性，显著缩小了识别集。最后，我们纳入一个随机占优假设，该假设收紧MTE的下界。我们的分析扩展到离散工具。结果依赖于问题的混合重新表述，其中混合权重是可识别的，将Lee（2009）的修剪程序扩展到MTE背景。我们为推导出的界提出了估计量，并使用Deb等人（2006）提供的数据来实证说明我们方法的实用性。",
+      "doi": "10.1016/j.jeconom.2021.11.011",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v234y2023i2p565-584.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v234y2023i2p565-584.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:11:42+00:00",
+        "source_hash": "a3f50149403abee43128aae8448022786642ced0c0517e8cec6f216b26470099"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.11.019",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Identification and estimation of triangular models with a binary treatment",
+      "title_cn": "二元处理三角模型的识别与估计",
+      "authors": [
+        "Santiago Pereda-Fernández"
+      ],
+      "abstract_en": "I study the identification and estimation of a nonseparable triangular model with an endogenous binary treatment. I impose neither rank invariance nor rank similarity on the unobservable term of the outcome equation. Identification is achieved by using continuous variation of the instrument and a shape restriction on the distribution of the unobservables, which is modeled with a copula. The latter captures the endogeneity of the model and is one of the components of the marginal treatment effect, making it informative about the effects of extending the treatment to untreated individuals. The estimation is a multi-step procedure based on rotated quantile regression. Finally, I use the estimator to revisit the effects of Work First Job Placements on future earnings.",
+      "abstract_cn": "我研究了具有内生二元处理的不可分离三角模型的识别与估计。我既不对结果方程中不可观测项施加秩不变性，也不施加秩相似性。通过使用工具的连续变化以及对不可观测项分布的形状限制来实现识别，该分布用copula建模。后者捕捉了模型的内生性，并且是边际处理效应的组成部分之一，使其能够提供关于将处理扩展到未处理个体效果的信息。估计是一个基于旋转分位数回归的多步骤过程。最后，我使用该估计量重新审视了工作优先工作安置对未来收入的影响。",
+      "doi": "10.1016/j.jeconom.2021.11.019",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v234y2023i2p585-623.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v234y2023i2p585-623.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:11:44+00:00",
+        "source_hash": "99e513f2550aff250b8e179f2cdb37e237f5ee42cfbf46e4251e52302000ae6c"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.08.003",
+      "sequence": 9,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "Treatment recommendation with distributional targets",
+      "title_cn": "",
+      "authors": [
+        "Anders Bredahl Kock",
+        "David Preinerstorfer",
+        "Bezirgen Veliyev"
+      ],
+      "abstract_en": "We study the problem of a decision maker who must provide the best possible treatment recommendation based on an experiment. The desirability of the outcome distribution resulting from the policy recommendation is measured through a functional capturing the distributional characteristic that the decision maker is interested in optimizing. This could be, e.g., its inherent inequality, welfare, level of poverty or its distance to a desired outcome distribution. If the functional of interest is not quasi-convex or if there are constraints, the optimal recommendation may be a mixture of treatments. This vastly expands the set of recommendations that must be considered. We characterize the difficulty of the problem by obtaining maximal expected regret lower bounds. Furthermore, we propose two (near) regret-optimal policies. The first policy is static and thus applicable irrespectively of the subjects arriving sequentially or not in the course of the experimentation phase. The second policy can utilize that subjects arrive sequentially by successively eliminating inferior treatments and thus spends the sampling effort where it is most needed.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.jeconom.2022.08.003",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v234y2023i2p624-646.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v234y2023i2p624-646.html"
+      },
+      "translation": {
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.07.009",
+      "sequence": 10,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "Probabilistic prediction for binary treatment choice: With focus on personalized medicine",
+      "title_cn": "",
+      "authors": [
+        "Charles F. Manski"
+      ],
+      "abstract_en": "This paper extends my research applying statistical decision theory to treatment choice with sample data, using maximum regret to evaluate the performance of statistical treatment rules. The specific new contribution is to study as-if optimization using estimates of illness probabilities in a class of medical decisions. Beyond its specifics, the paper sends a broad message. Statisticians and computer scientists have addressed conditional prediction for decision making in indirect ways, the former applying classical statistical theory and the latter measuring prediction accuracy in test samples. Neither approach is satisfactory. Statistical decision theory provides a coherent, generally applicable methodology.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.jeconom.2022.07.009",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v234y2023i2p647-663.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v234y2023i2p647-663.html"
+      },
+      "translation": {
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.07.003",
+      "sequence": 11,
+      "source_sequence": 11,
+      "article_type": "research-article",
+      "title_en": "Nonparametric difference-in-differences in repeated cross-sections with continuous treatments",
+      "title_cn": "",
+      "authors": [
+        "Xavier D’Haultfœuille",
+        "Stefan Hoderlein",
+        "Yuya Sasaki"
+      ],
+      "abstract_en": "This paper studies the identification of causal effects of a continuous treatment using a new difference-in-difference strategy. Our approach allows for endogeneity of the treatment, and employs repeated cross-sections. It requires an exogenous change over time which affects the treatment in a heterogeneous way, stationarity of the distribution of unobservables and a rank invariance condition on the time trend. On the other hand, we do not impose any functional form restrictions or an additive time trend, and we are invariant to the scaling of the dependent variable. Under our conditions, the time trend can be identified using a control group, as in the binary difference-in-differences literature. In our scenario, however, this control group is defined by the data. We then identify average and quantile treatment effect parameters. We develop corresponding nonparametric estimators and study their asymptotic properties. Finally, we apply our results to the effect of disposable income on consumption.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.jeconom.2022.07.003",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v234y2023i2p664-690.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v234y2023i2p664-690.html"
+      },
+      "translation": {
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.07.006",
+      "sequence": 12,
+      "source_sequence": 12,
+      "article_type": "research-article",
+      "title_en": "Synthetic Learner: Model-free inference on treatments over time",
+      "title_cn": "",
+      "authors": [
+        "Davide Viviano",
+        "Jelena Bradic"
+      ],
+      "abstract_en": "Understanding the effect of a particular treatment or a policy pertains to many areas of interest, ranging from political economics, marketing to healthcare. In this paper, we develop a non-parametric algorithm for detecting the effects of treatment over time in the context of Synthetic Controls. The method builds on counterfactual predictions from many algorithms without necessarily assuming that the algorithms correctly capture the model. We introduce an inferential procedure to detect treatment effects and show that the testing procedure controls size asymptotically for stationary, beta mixing processes without imposing any restriction on the set of base algorithms under consideration. We discuss consistency guarantees for average treatment effect estimates and derive regret bounds for the proposed methodology. The class of algorithms may include Random Forest, Lasso, or any other machine-learning estimator. Numerical studies and an application illustrate the advantages of the method.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.jeconom.2022.07.006",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v234y2023i2p691-713.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v234y2023i2p691-713.html"
+      },
+      "translation": {
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.02.005",
+      "sequence": 13,
+      "source_sequence": 13,
+      "article_type": "research-article",
+      "title_en": "Estimation and inference of treatment effects with L2-boosting in high-dimensional settings",
+      "title_cn": "",
+      "authors": [
+        "Jannis Kueck",
+        "Ye Luo",
+        "Martin Spindler",
+        "Zigan Wang"
+      ],
+      "abstract_en": "Empirical researchers are increasingly faced with rich data sets containing many controls or instrumental variables, making it essential to choose an appropriate approach to variable selection. In this paper, we provide results for valid inference after post- or orthogonal L2-boosting is used for variable selection. We consider treatment effects after selecting among many control variables and instrumental variable models with potentially many instruments. To achieve this, we establish new results for the rate of convergence of iterated post-L2-boosting and orthogonal L2-boosting in a high-dimensional setting similar to Lasso, i.e., under approximate sparsity without assuming the beta-min condition. These results are extended to the 2SLS framework and valid inference is provided for treatment effect analysis. We give extensive simulation results for the proposed methods and compare them with Lasso. In an empirical application, we construct efficient IVs with our proposed methods to estimate the effect of pre-merger overlap of bank branch networks in the US on the post-merger stock returns of the acquirer bank.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.jeconom.2022.02.005",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v234y2023i2p714-731.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v234y2023i2p714-731.html"
+      },
+      "translation": {
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2020.12.015",
+      "sequence": 14,
+      "source_sequence": 14,
+      "article_type": "research-article",
+      "title_en": "Multiple treatments with strategic substitutes",
+      "title_cn": "",
+      "authors": [
+        "Jorge F. Balat",
+        "Sukjin Han"
+      ],
+      "abstract_en": "We develop an empirical framework to identify and estimate the effects of treatments on outcomes of interest when the treatments are the result of strategic interaction (e.g., bargaining, oligopolistic entry, peer effects). We consider a model where agents play a discrete game of complete information and strategic substitutability, whose equilibrium actions (i.e., binary treatments) determine a post-game outcome in a nonseparable model with endogeneity. Due to the simultaneity in the first stage, the model as a whole is incomplete and the selection process fails to exhibit the conventional monotonicity. Without imposing parametric restrictions or large support assumptions, this poses challenges in recovering treatment parameters. To address these challenges, we establish a monotonic pattern of the equilibria in the first-stage game in terms of the number of treatments selected. Based on this finding, we derive bounds on the average treatment effects (ATE’s) under nonparametric shape restrictions and the existence of excluded exogenous variables. We show that the instrument variation that compensates strategic substitution helps solve the multiple equilibria problem. We apply our method to data on airlines and air pollution in cities in the U.S. We find that (i) the causal effect of each airline on pollution is positive, and (ii) the effect is increasing in the number of firms but at a decreasing rate.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.jeconom.2020.12.015",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v234y2023i2p732-757.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v234y2023i2p732-757.html"
+      },
+      "translation": {
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.08.010",
+      "sequence": 15,
+      "source_sequence": 15,
+      "article_type": "research-article",
+      "title_en": "Regression-adjusted estimation of quantile treatment effects under covariate-adaptive randomizations",
+      "title_cn": "",
+      "authors": [
+        "Liang Jiang",
+        "Peter C.B. Phillips",
+        "Yubo Tao",
+        "Yichong Zhang"
+      ],
+      "abstract_en": "Datasets from field experiments with covariate-adaptive randomizations (CARs) usually contain extra covariates in addition to the strata indicators. We propose to incorporate these additional covariates via auxiliary regressions in the estimation and inference of unconditional quantile treatment effects (QTEs) under CARs. We establish the consistency and limit distribution of the regression-adjusted QTE estimator and prove that the use of multiplier bootstrap inference is non-conservative under CARs. The auxiliary regression may be estimated parametrically, nonparametrically, or via regularization when the data are high-dimensional. Even when the auxiliary regression is misspecified, the proposed bootstrap inferential procedure still achieves the nominal rejection probability in the limit under the null. When the auxiliary regression is correctly specified, the regression-adjusted estimator achieves the minimum asymptotic variance. We also discuss forms of adjustments that can improve the efficiency of the QTE estimators. The finite sample performance of the new estimation and inferential methods is studied in simulations, and an empirical application to a well-known dataset concerned with expanding access to basic bank accounts on savings is reported.",
+      "abstract_cn": "",
+      "doi": "10.1016/j.jeconom.2022.08.010",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v234y2023i2p758-776.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v234y2023i2p758-776.html"
+      },
+      "translation": {
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "repec-serial-page",
+    "roster_authority": "repec-publisher-supplied",
+    "roster_match_scope": "repec-volume-items",
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 15,
+    "authors_complete": 15,
+    "abstract_en_complete": 15,
+    "translation_complete": 8,
+    "duplicate_count": 0,
+    "repec_item_count": 15,
+    "flags": [
+      "translation_incomplete"
+    ],
+    "official_item_count": 15,
+    "publishable_item_count": 15,
+    "content_counts": {
+      "official_items": 15,
+      "observed_items": 15,
+      "publishable_items": 15,
+      "research_articles": 15,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 15
+    }
+  },
+  "content_counts": {
+    "official_items": 15,
+    "observed_items": 15,
+    "publishable_items": 15,
+    "research_articles": 15,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 15
+  },
+  "issue_label": "Vol. 234 · No. 2",
+  "content_status": "translation_partial",
+  "source_status": "publisher_verified",
+  "publication_state": "translation_partial"
+}

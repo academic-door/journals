@@ -1,0 +1,674 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "joe-232-2",
+  "journal_id": "joe",
+  "journal_name": "Journal of Econometrics",
+  "volume": "232",
+  "issue": "2",
+  "publication_date": "February 2023",
+  "source_url": "https://ideas.repec.org/s/eee/econom.html",
+  "retrieved_at": "2026-08-17T23:08:42+00:00",
+  "expected_article_count": 15,
+  "research_article_count": 15,
+  "status": "ready",
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.04.001",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Cluster-robust inference: A guide to empirical practice",
+      "title_cn": "聚类稳健推断：实证实践指南",
+      "authors": [
+        "James G. MacKinnon",
+        "Morten Ørregaard Nielsen",
+        "Matthew D. Webb"
+      ],
+      "abstract_en": "Methods for cluster-robust inference are routinely used in economics and many other disciplines. However, it is only recently that theoretical foundations for the use of these methods in many empirically relevant situations have been developed. In this paper, we use these theoretical results to provide a guide to empirical practice. We do not attempt to present a comprehensive survey of the (very large) literature. Instead, we bridge theory and practice by providing a thorough guide on what to do and why, based on recently available econometric theory and simulation evidence. To practice what we preach, we include an empirical analysis of the effects of the minimum wage on labor supply of teenagers using individual data.",
+      "abstract_cn": "聚类稳健推断方法在经济学及许多其他学科中被常规使用。然而，直到最近，这些方法在许多实证相关情境中的理论基础才得以发展。在本文中，我们利用这些理论结果为实证实践提供指南。我们不试图对（非常庞大的）文献进行全面综述。相反，我们通过基于近期可得的计量经济学理论和模拟证据，提供关于做什么以及为什么这样做的详尽指南，从而架起理论与实践的桥梁。为践行我们所倡导的，我们使用个体数据对最低工资对青少年劳动力供给的影响进行了实证分析。",
+      "doi": "10.1016/j.jeconom.2022.04.001",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i2p272-299.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i2p272-299.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:08:46+00:00",
+        "source_hash": "89154c00c4528b50913e900c4302d112006cf5ff642533cb78511036bc0876f4"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.07.002",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Fully modified least squares cointegrating parameter estimation in multicointegrated systems",
+      "title_cn": "多协整系统中完全修正最小二乘协整参数估计",
+      "authors": [
+        "Igor L. Kheifets",
+        "Peter C.B. Phillips"
+      ],
+      "abstract_en": "Multicointegration is traditionally defined as a particular long run relationship among variables in a parametric vector autoregressive model that introduces additional cointegrating links between these variables and partial sums of the equilibrium errors. This paper departs from the parametric model, using a semiparametric formulation that reveals the explicit role that singularity of the long run conditional covariance matrix plays in determining multicointegration. The semiparametric framework has the advantage that short run dynamics do not need to be modeled and estimation by standard techniques such as fully modified least squares (FM-OLS) on the original I1 system is straightforward. The paper derives FM-OLS limit theory in the multicointegrated setting, showing how faster rates of convergence are achieved in the direction of singularity and that the limit distribution depends on the distribution of the conditional one-sided long run covariance estimator used in FM-OLS estimation. Wald tests of restrictions on the regression coefficients have nonstandard limit theory which depends on nuisance parameters in general. The usual tests are shown to be conservative when the restrictions are isolated to the directions of singularity and, under certain conditions, are invariant to singularity otherwise. Simulations show that approximations derived in the paper work well in finite samples. The findings are illustrated empirically in an analysis of fiscal sustainability of the US government over the post-war period.",
+      "abstract_cn": "多协整传统上被定义为参数向量自回归模型中变量之间的一种特定长期关系，该模型在这些变量与均衡误差的部分和之间引入了额外的协整联系。本文偏离参数模型，采用半参数公式，揭示了长期条件协方差矩阵的奇异性在决定多协整中所起的明确作用。半参数框架的优势在于短期动态不需要建模，并且通过标准技术如完全修正最小二乘（FM-OLS）对原始I1系统进行估计是直接的。本文推导了多协整设定下的FM-OLS极限理论，展示了在奇异性方向上如何实现更快的收敛速度，以及极限分布取决于FM-OLS估计中使用的条件单侧长期协方差估计量的分布。对回归系数限制的Wald检验具有非标准极限理论，该理论通常依赖于干扰参数。当限制被隔离在奇异性方向上时，通常的检验被证明是保守的，并且在某些条件下，在其他情况下对奇异性是不变的。模拟表明，本文推导的近似在有限样本中表现良好。这些发现通过对美国政府在战后时期财政可持续性的分析进行了实证说明。",
+      "doi": "10.1016/j.jeconom.2021.07.002",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i2p300-319.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i2p300-319.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:08:48+00:00",
+        "source_hash": "5348d1cd0be025b4baff6d8bc3363db3b582060d7321630281cb95034c86fc74"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.07.004",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "High dimensional semiparametric moment restriction models",
+      "title_cn": "高维半参数矩限制模型",
+      "authors": [
+        "Chaohua Dong",
+        "Jiti Gao",
+        "Oliver Linton"
+      ],
+      "abstract_en": "We consider nonlinear moment restriction semiparametric models where both the dimension of the parameter vector and the number of restrictions are divergent with sample size and an unknown smooth function is involved. We propose an estimation method based on the sieve generalized method of moments (sieve-GMM). We establish consistency and asymptotic normality for the estimated quantities when the number of parameters increases modestly with sample size. We also consider the case where the number of potential parameters/covariates is very large, i.e., increases rapidly with sample size, but the true model exhibits sparsity. We use a penalized sieve GMM approach to select the relevant variables, and establish the oracle property of our method in this case. We also provide new results for inference. We propose several new test statistics for the over-identification and establish their large sample properties. We provide a simulation study and an application to data from the NLSY79 used by Carneiro et al. (2011).",
+      "abstract_cn": "我们考虑非线性矩限制半参数模型，其中参数向量的维度和限制的数量都随样本量发散，并且涉及一个未知的光滑函数。我们提出了一种基于筛广义矩方法（sieve-GMM）的估计方法。当参数数量随样本量适度增加时，我们建立了估计量的一致性和渐近正态性。我们还考虑了潜在参数/协变量数量非常大的情况，即随样本量迅速增加，但真实模型表现出稀疏性。我们使用惩罚筛GMM方法来选择相关变量，并在这种情况下建立了我们方法的预言性质。我们还为推断提供了新的结果。我们提出了几个新的过度识别检验统计量，并建立了它们的大样本性质。我们提供了一个模拟研究，并将其应用于Carneiro等人（2011）使用的NLSY79数据。",
+      "doi": "10.1016/j.jeconom.2021.07.004",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i2p320-345.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i2p320-345.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:08:51+00:00",
+        "source_hash": "22a043188e650b80e512f8d60848fa6b8d62b7c7b1c60f75e44f4bc69ea101f5"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.07.006",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Second-order refinements for t-ratios with many instruments",
+      "title_cn": "多工具变量下t比率的二阶修正",
+      "authors": [
+        "Yukitoshi Matsushita",
+        "Taisuke Otsu"
+      ],
+      "abstract_en": "This paper studies second-order properties of the many instruments robust t-ratios based on the limited information maximum likelihood and Fuller estimators for instrumental variable regression models with homoskedastic errors under the many instruments asymptotics, where the number of instruments may increase proportionally with the sample size n, and proposes second-order refinements to the t-ratios to improve the size and power properties. Based on asymptotic expansions of the null and non-null distributions of the t-ratios derived under the many instruments asymptotics, we show that the second-order terms of those expansions may have non-trivial impacts on the size as well as the power properties. Furthermore, we propose adjusted t-ratios whose approximation errors for the null rejection probabilities are of order O(n−1) in contrast to the ones for the unadjusted t-ratios of order O(n−1/2), and show that these adjustments induce some desirable power properties in terms of the local maximinity. Although these results are derived under homoskedastic errors, we also establish a stochastic expansion for a heteroskedasticity robust t-ratio, and propose an analogous adjustment under slight deviations from homoskedasticity.",
+      "abstract_cn": "本文研究了在工具变量回归模型中，当工具变量数量可能随样本量n成比例增加时，基于有限信息最大似然和Fuller估计量的多工具变量稳健t比率的二阶性质，并提出了t比率的二阶修正以改善其规模和功效性质。基于在多工具变量渐近下推导的t比率零分布和非零分布的渐近展开，我们表明这些展开的二阶项可能对规模和功效性质产生非平凡影响。此外，我们提出了调整后的t比率，其零拒绝概率的近似误差阶为O(n−1)，而未调整的t比率的误差阶为O(n−1/2)，并表明这些调整在局部最大最小性方面带来了一些理想的功效性质。尽管这些结果是在同方差误差下推导的，我们也建立了异方差稳健t比率的随机展开，并提出了在同方差性轻微偏离下的类似调整。",
+      "doi": "10.1016/j.jeconom.2021.07.006",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i2p346-366.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i2p346-366.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:08:53+00:00",
+        "source_hash": "25e6b2b94d25ecda86a4da51618dd8cd414a41dcd29c1e2253d8190722ef1760"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.07.010",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Smoothed quantile regression with large-scale inference",
+      "title_cn": "平滑分位数回归与大尺度推断",
+      "authors": [
+        "Xuming He",
+        "Xiaoou Pan",
+        "Kean Ming Tan",
+        "Wen-Xin Zhou"
+      ],
+      "abstract_en": "Quantile regression is a powerful tool for learning the relationship between a response variable and a multivariate predictor while exploring heterogeneous effects. This paper focuses on statistical inference for quantile regression in the “increasing dimension” regime. We provide a comprehensive analysis of a convolution smoothed approach that achieves adequate approximation to computation and inference for quantile regression. This method, which we refer to as conquer, turns the non-differentiable check function into a twice-differentiable, convex and locally strongly convex surrogate, which admits fast and scalable gradient-based algorithms to perform optimization, and multiplier bootstrap for statistical inference. Theoretically, we establish explicit non-asymptotic bounds on estimation and Bahadur–Kiefer linearization errors, from which we show that the asymptotic normality of the conquer estimator holds under a weaker requirement on dimensionality than needed for conventional quantile regression. The validity of multiplier bootstrap is also provided. Numerical studies confirm conquer as a practical and reliable approach to large-scale inference for quantile regression. Software implementing the methodology is available in the R package conquer.",
+      "abstract_cn": "分位数回归是学习响应变量与多元预测变量之间关系并探索异质性效应的强大工具。本文关注“递增维度”情形下分位数回归的统计推断。我们针对一种卷积平滑方法提供了全面分析，该方法能够充分逼近分位数回归的计算与推断。这一方法，我们称之为conquer，将不可微的检查函数转化为二次可微、凸且局部强凸的替代函数，从而允许使用快速且可扩展的基于梯度的算法进行优化，以及使用乘子自助法进行统计推断。理论上，我们建立了估计误差和Bahadur–Kiefer线性化误差的显式非渐近界，由此表明conquer估计量的渐近正态性在比传统分位数回归所需维度更弱的条件下成立。同时提供了乘子自助法的有效性证明。数值研究证实conquer是分位数回归大尺度推断的一种实用且可靠的方法。实现该方法的软件可在R包conquer中获得。",
+      "doi": "10.1016/j.jeconom.2021.07.010",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i2p367-388.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i2p367-388.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:08:56+00:00",
+        "source_hash": "518e6e2aef47e8b0ae795aef7aa89e8147809bbcb760684108ab05617247f29f"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.08.001",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Modeling and forecasting realized volatility with the fractional Ornstein–Uhlenbeck process",
+      "title_cn": "分数奥恩斯坦-乌伦贝克过程对已实现波动率的建模与预测",
+      "authors": [
+        "Xiaohu Wang",
+        "Weilin Xiao",
+        "Jun Yu"
+      ],
+      "abstract_en": "This paper proposes to model and forecast realized volatility (RV) using the fractional Ornstein–Uhlenbeck (fO–U) process with a general Hurst parameter, H. A two-stage method is introduced for estimating parameters in the fO–U process based on discrete-sampled observations. In the first stage, H is estimated based on the ratio of two second-order differences of observations from different frequencies. In the second stage, with the estimated H, the other parameters of the model are estimated by the method of moments. All estimators have closed-form expressions and are easy to implement. A large sample theory of the proposed estimators is derived. Extensive simulations show that the proposed estimators and the large-sample theory perform well in finite samples. We apply the model and the method to the logarithmic daily RV series of various financial assets. Our empirical findings suggest that H is much smaller than 1/2, indicating that the RV series have rough sample paths, and that the mean reversion parameter takes a small positive number, indicating that the RV series are stationary but have slow mean reversion. The proposed model is compared with many alternative models, including the fractional Brownian motion, ARFIMA, and HAR, in forecasting RV and logarithmic RV.",
+      "abstract_cn": "本文提出使用具有一般赫斯特参数H的分数奥恩斯坦-乌伦贝克（fO–U）过程来建模和预测已实现波动率（RV）。基于离散采样观测，介绍了一种两阶段方法来估计fO–U过程中的参数。在第一阶段，基于不同频率观测的二阶差分之比来估计H。在第二阶段，利用估计的H，通过矩方法估计模型的其他参数。所有估计量都有闭式表达式，易于实现。推导了所提出估计量的大样本理论。大量模拟表明，所提出的估计量和大样本理论在有限样本中表现良好。我们将该模型和方法应用于各种金融资产的对数日已实现波动率序列。我们的实证发现表明，H远小于1/2，表明已实现波动率序列具有粗糙的样本路径，且均值回复参数取小的正数，表明已实现波动率序列是平稳的但均值回复缓慢。所提出的模型与许多替代模型（包括分数布朗运动、ARFIMA和HAR）在预测已实现波动率和对数已实现波动率方面进行了比较。",
+      "doi": "10.1016/j.jeconom.2021.08.001",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i2p389-415.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i2p389-415.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:08:59+00:00",
+        "source_hash": "d62c399d54cab4c08e17fa4dcfc770971059413b894db5b023afaef72d348111"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.08.002",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "A discrete-time hedging framework with multiple factors and fat tails: On what matters",
+      "title_cn": "具有多因子和肥尾的离散时间对冲框架：什么才是重要的",
+      "authors": [
+        "Maciej Augustyniak",
+        "Alexandru Badescu",
+        "Jean-François Bégin"
+      ],
+      "abstract_en": "This article presents a quadratic hedging framework for a general class of discrete-time affine multi-factor models and investigates the extent to which multi-component volatility factors, fat tails, and a non-monotonic pricing kernel can improve the hedging performance. A semi-explicit hedging formula is derived for our general framework which applies to a myriad of the option pricing models proposed in the discrete-time literature. We conduct an extensive empirical study of the impact of modelling features on the hedging effectiveness of S&P 500 options. Overall, we find that fat tails can be credited for half of the hedging improvement observed, while a second volatility factor and a non-monotonic pricing kernel each contribute to a quarter of this improvement. Moreover, our study indicates that the added value of these features for hedging is different than for pricing. A robustness analysis shows that a similar conclusion can be reached when considering the Dow Jones Industrial Average. Finally, the use of a hedging-based loss function in the estimation process is investigated in an additional robustness test, and this choice has a rather marginal impact on hedging performance.",
+      "abstract_cn": "本文针对一般类别的离散时间仿射多因子模型提出了一个二次对冲框架，并研究了多成分波动率因子、肥尾和非单调定价核能在多大程度上改善对冲绩效。我们为一般框架推导了一个半显式对冲公式，该公式适用于离散时间文献中提出的众多期权定价模型。我们对建模特征对S&P 500期权对冲有效性的影响进行了广泛的实证研究。总体而言，我们发现肥尾可以归因于观察到的对冲改善的一半，而第二个波动率因子和非单调定价核各自贡献了四分之一的改善。此外，我们的研究表明，这些特征对对冲的附加价值与对定价的附加价值不同。稳健性分析表明，在考虑道琼斯工业平均指数时，可以得出类似的结论。最后，在额外的稳健性检验中，研究了在估计过程中使用基于对冲的损失函数，这一选择对对冲绩效的影响相当有限。",
+      "doi": "10.1016/j.jeconom.2021.08.002",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i2p416-444.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i2p416-444.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:09:02+00:00",
+        "source_hash": "ea8af82bbbb880d1261b065aa847ab6c03cc4b90f73368d3150f5736ad7b7727"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.09.011",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Estimating the variance of a combined forecast: Bootstrap-based approach",
+      "title_cn": "估计组合预测的方差：基于自助法的方法",
+      "authors": [
+        "Ulrich Hounyo",
+        "Kajal Lahiri"
+      ],
+      "abstract_en": "This paper considers bootstrap inference in model averaging for predictive regressions. We first show that the standard pairwise bootstrap is not valid in the context of model averaging. This common bootstrap approach induces a bias-related term in the bootstrap variance of averaging estimators. We then propose and justify a fixed-design residual-based bootstrap resampling approach for model averaging. In a local asymptotic framework, we show the validity of the bootstrap in estimating the variance of a combined forecast and the asymptotic covariance matrix of a combined parameter vector with fixed weights. Our proposed method preserves non-parametrically the cross-sectional dependence between different models and the time series dependence in the errors simultaneously. The finite sample performance of these methods is assessed via Monte Carlo simulations. We illustrate our approach using an empirical study of the Taylor rule equation with 24 alternative specifications.",
+      "abstract_cn": "本文考虑了预测回归中模型平均的自助法推断。我们首先证明标准配对自助法在模型平均的背景下是无效的。这种常见的自助法方法会在平均估计量的自助法方差中引入一个与偏差相关的项。然后，我们提出并论证了一种用于模型平均的固定设计残差自助重采样方法。在局部渐近框架下，我们证明了该方法在估计组合预测方差和具有固定权重的组合参数向量的渐近协方差矩阵方面的有效性。我们提出的方法非参数地同时保留了不同模型之间的横截面依赖性和误差中的时间序列依赖性。通过蒙特卡洛模拟评估了这些方法的有限样本性能。我们使用泰勒规则方程的经验研究说明了我们的方法，该方程有24种替代规格。",
+      "doi": "10.1016/j.jeconom.2021.09.011",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i2p445-468.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i2p445-468.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:09:04+00:00",
+        "source_hash": "2365a2d197716b2c2bfbfc0b46ed6dbec8b094f2920ac716ee1299c073b5d572"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.09.007",
+      "sequence": 9,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "When bias contributes to variance: True limit theory in functional coefficient cointegrating regression",
+      "title_cn": "当偏差导致方差：函数系数协整回归中的真实极限理论",
+      "authors": [
+        "Peter C.B. Phillips",
+        "Ying Wang"
+      ],
+      "abstract_en": "Limit distribution theory in the econometric literature for functional coefficient cointegrating regression is incorrect in important ways, influencing rates of convergence, distributional properties, and practical work. The correct limit theory reveals that components from both bias and variance terms contribute to variability in the asymptotics. The errors in the literature arise because random variability in the bias term has been neglected in earlier research. In stationary regression this random variability is of smaller order and can be ignored in asymptotic analysis but not without consequences for finite sample performance. Implications of the findings for rate efficient estimation are discussed. Simulations in the Online Supplement provide further evidence supporting the new limit theory in nonstationary functional coefficient regressions.",
+      "abstract_cn": "计量经济学文献中关于函数系数协整回归的极限分布理论在重要方面存在错误，影响了收敛速率、分布性质以及实际工作。正确的极限理论揭示了偏差项和方差项中的成分都对渐近性中的变异性有所贡献。文献中的错误源于早期研究忽略了偏差项中的随机变异性。在平稳回归中，这种随机变异性阶数较小，在渐近分析中可以忽略，但并非对有限样本表现没有影响。本文讨论了这些发现对速率有效估计的启示。在线补充材料中的模拟进一步支持了非平稳函数系数回归中新极限理论的证据。",
+      "doi": "10.1016/j.jeconom.2021.09.007",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i2p469-489.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i2p469-489.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:09:07+00:00",
+        "source_hash": "ab9a7769baa7fcd1acbfccc0b50c4f9eedb69858767a315a6bdfa4eea0aa0063"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.09.015",
+      "sequence": 10,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "Relaxing conditional independence in an endogenous binary response model",
+      "title_cn": "放宽内生二元响应模型中的条件独立性",
+      "authors": [
+        "Alyssa Carlson"
+      ],
+      "abstract_en": "For binary response models, the literature primarily addresses endogeneity by a control function approach assuming conditional independence (CF-CI). However, as the literature also notes, CF-CI implies conditions like homoskedasticity (of the latent error with respect to the instruments) that fail in many empirical settings. I propose an alternative approach that allows for heteroskedasticity, achieving identification with a conditional mean restriction. These identification results apply to a latent Gaussian error term with flexibly parametrized heteroskedasticity. I propose a two step conditional maximum likelihood estimator and derive its asymptotic distribution. In simulations, the new estimator outperforms others when CF-CI fails and is fairly robust to distributional misspecification.",
+      "abstract_cn": "对于二元响应模型，文献主要通过假设条件独立性的控制函数方法（CF-CI）来处理内生性。然而，正如文献也指出的，CF-CI隐含了诸如（潜在误差相对于工具变量的）同方差性等条件，这些条件在许多实证环境中不成立。我提出了一种允许异方差性的替代方法，通过条件均值限制实现识别。这些识别结果适用于具有灵活参数化异方差性的潜在高斯误差项。我提出了一个两步条件最大似然估计器，并推导了其渐近分布。在模拟中，当CF-CI失效时，新估计器优于其他估计器，并且对分布误设相当稳健。",
+      "doi": "10.1016/j.jeconom.2021.09.015",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i2p490-500.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i2p490-500.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:09:09+00:00",
+        "source_hash": "503bec7a28f2e53f299119f827d3e266bb5b1b9e4b6bdfa41fa881e795e7905f"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.09.013",
+      "sequence": 11,
+      "source_sequence": 11,
+      "article_type": "research-article",
+      "title_en": "Scalable inference for a full multivariate stochastic volatility model",
+      "title_cn": "全多元随机波动率模型的可扩展推断",
+      "authors": [
+        "Petros Dellaportas",
+        "Michalis K. Titsias",
+        "Katerina Petrova",
+        "Anastasios Plataniotis"
+      ],
+      "abstract_en": "We introduce a multivariate stochastic volatility model that imposes no restrictions on the structure of the volatility matrix and treats all its elements as functions of latent stochastic processes. Inference is achieved via a carefully designed feasible and scalable MCMC that has quadratic, rather than cubic, computational complexity for evaluating the multivariate normal densities required. We illustrate how our model can be applied on macroeconomic applications through a stochastic volatility VAR model, comparing it to competing approaches in the literature. We also demonstrate how our approach can be applied to a large dataset containing 571 stock daily returns of Euro STOXX index.",
+      "abstract_cn": "我们引入了一个多元随机波动率模型，该模型对波动率矩阵的结构不加任何限制，并将其所有元素视为潜在随机过程的函数。通过精心设计的可行且可扩展的MCMC实现推断，该MCMC在评估所需多元正态密度时具有二次而非三次的计算复杂度。我们通过一个随机波动率VAR模型说明了我们的模型如何应用于宏观经济应用，并与文献中的竞争方法进行比较。我们还展示了我们的方法如何应用于包含Euro STOXX指数571只股票日收益的大型数据集。",
+      "doi": "10.1016/j.jeconom.2021.09.013",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i2p501-520.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i2p501-520.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:09:10+00:00",
+        "source_hash": "e0c977ff062a4b632d1a2c88ac7997ed637f48cd5b329c6bc781902eee4d6763"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.09.012",
+      "sequence": 12,
+      "source_sequence": 12,
+      "article_type": "research-article",
+      "title_en": "A simple joint model for returns, volatility and volatility of volatility",
+      "title_cn": "收益、波动率与波动率的波动率的简单联合模型",
+      "authors": [
+        "Yashuang (Dexter) Ding"
+      ],
+      "abstract_en": "We propose a model that allows for conditional heteroskedasticity in the volatility of asset returns and incorporates current return information into the volatility nowcast and forecast. Our model can capture all stylised facts of asset returns even with Gaussian innovations and is simple to implement. Moreover, we show that our model converges weakly to the GARCH-type diffusion as the length of the discrete time intervals between observations goes to zero. Empirical evidence shows that our model has a better fit, a more efficient parameter estimator as well as more accurate volatility and VaR forecasts than other common GARCH-type models.",
+      "abstract_cn": "我们提出了一个允许资产收益波动率存在条件异方差性，并将当前收益信息纳入波动率即时预测和预测的模型。我们的模型即使在高斯扰动下也能捕捉资产收益的所有典型事实，并且易于实现。此外，我们证明了当观测之间的离散时间间隔长度趋近于零时，我们的模型弱收敛于GARCH型扩散。实证证据表明，与其他常见的GARCH型模型相比，我们的模型具有更好的拟合度、更有效的参数估计量以及更准确的波动率和VaR预测。",
+      "doi": "10.1016/j.jeconom.2021.09.012",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i2p521-543.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i2p521-543.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:09:12+00:00",
+        "source_hash": "656991c9bbbc1ce9e1e55712c01813c5b1f8cd8e772062b683cad4dda9340e89"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.09.014",
+      "sequence": 13,
+      "source_sequence": 13,
+      "article_type": "research-article",
+      "title_en": "Testing and support recovery of correlation structures for matrix-valued observations with an application to stock market data",
+      "title_cn": "矩阵值观测的相关结构检验与支撑恢复及其在股票市场数据中的应用",
+      "authors": [
+        "Xin Chen",
+        "Dan Yang",
+        "Yan Xu",
+        "Yin Xia",
+        "Dong Wang",
+        "Haipeng Shen"
+      ],
+      "abstract_en": "Estimation of the covariance matrix of asset returns is crucial to portfolio construction. As suggested by economic theories, the correlation structure among assets differs between emerging markets and developed countries. It is therefore imperative to make rigorous statistical inference on correlation matrix equality between the two groups of countries. However, if the traditional vector-valued approach is undertaken, such inference is either infeasible due to limited number of countries comparing to the relatively abundant assets, or invalid due to the violations of temporal independence assumption. This highlights the necessity of treating the observations as matrix-valued rather than vector-valued. With matrix-valued observations, our problem of interest can be formulated as statistical inference on covariance structures under sub-Gaussian distributions, i.e., testing non-correlation and correlation equality, as well as the corresponding support estimations. We develop procedures that are asymptotically optimal under some regularity conditions. Simulation results demonstrate the computational and statistical advantages of our procedures over certain existing state-of-the-art methods for both normal and non-normal distributions. Application of our procedures to stock market data reveals interesting patterns and validates several economic propositions via rigorous statistical testing.",
+      "abstract_cn": "资产收益协方差矩阵的估计对投资组合构建至关重要。经济理论表明，新兴市场与发达国家的资产间相关结构存在差异。因此，对这两组国家之间的相关矩阵相等性进行严格的统计推断至关重要。然而，若采用传统的向量值方法，由于国家数量相对于资产数量较少，此类推断可能不可行，或因违反时间独立性假设而无效。这凸显了将观测视为矩阵值而非向量值的必要性。对于矩阵值观测，我们关注的问题可以表述为次高斯分布下协方差结构的统计推断，即非相关性和相关相等性的检验，以及相应的支撑估计。我们开发了在某些正则条件下渐近最优的程序。模拟结果表明，对于正态和非正态分布，我们的程序在计算和统计上均优于某些现有最先进方法。将我们的程序应用于股票市场数据，揭示了有趣的模式，并通过严格的统计检验验证了若干经济命题。",
+      "doi": "10.1016/j.jeconom.2021.09.014",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i2p544-564.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i2p544-564.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:09:15+00:00",
+        "source_hash": "d4874ea1fe176506346814077711dccdf40b6e5698bda775b2efc70b38078705"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.10.009",
+      "sequence": 14,
+      "source_sequence": 14,
+      "article_type": "research-article",
+      "title_en": "Why randomize? Minimax optimality under permutation invariance",
+      "title_cn": "为何随机化？排列不变性下的极小极大最优性",
+      "authors": [
+        "Yuehao Bai"
+      ],
+      "abstract_en": "This paper studies finite sample minimax optimal randomization schemes and estimation schemes in estimating parameters including the average treatment effect, when treatment effects are heterogeneous. A randomization scheme is a distribution over a group of permutations of a given treatment assignment vector. An estimation scheme is a joint distribution over assignment vectors, linear estimators, and permutations of assignment vectors. The key element in the minimax problem is that the worst case is over a class of distributions of the data which is invariant to a group of permutations. First, I show that given any assignment vector and any estimator, the uniform distribution over the same group of permutations, namely the complete randomization scheme, is minimax optimal. Second, under further assumptions on the class of distributions and the objective function, I show the minimax optimal estimation scheme involves completely randomizing an assignment vector, while the optimal estimator is the difference-in-means under complete invariance and a weighted average of within-block differences under a block structure, and the number of treated units is determined by the Neyman allocation.",
+      "abstract_cn": "本文研究了在治疗效果异质时，估计包括平均治疗效果在内的参数中的有限样本极小极大最优随机化方案和估计方案。随机化方案是给定治疗分配向量的一组排列上的分布。估计方案是分配向量、线性估计量和分配向量排列的联合分布。极小极大问题的关键要素是，最坏情况是在对一组排列不变的数据分布类别上考虑的。首先，我证明给定任何分配向量和任何估计量，同一组排列上的均匀分布，即完全随机化方案，是极小极大最优的。其次，在对分布类别和目标函数进一步假设下，我证明极小极大最优估计方案涉及完全随机化分配向量，而最优估计量在完全不变性下是均值差，在块结构下是块内差异的加权平均，处理单元的数量由内曼分配决定。",
+      "doi": "10.1016/j.jeconom.2021.10.009",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i2p565-575.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i2p565-575.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:09:18+00:00",
+        "source_hash": "3e9509148cc483829e318608231c690b20d4e57aaaf266aad5d17822fe6a559d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.11.006",
+      "sequence": 15,
+      "source_sequence": 15,
+      "article_type": "research-article",
+      "title_en": "Identification of time-varying transformation models with fixed effects, with an application to unobserved heterogeneity in resource shares",
+      "title_cn": "带固定效应的时变转换模型的识别及其在资源份额未观测异质性中的应用",
+      "authors": [
+        "Irene Botosaru",
+        "Chris Muris",
+        "Krishna Pendakur"
+      ],
+      "abstract_en": "We provide new results showing identification of a large class of fixed-T panel models, where the response variable is an unknown, weakly monotone, time-varying transformation of a latent linear index of fixed effects, regressors, and an error term drawn from an unknown stationary distribution. Our results identify the transformation, the coefficient on regressors, and features of the distribution of the fixed effects. We then develop a full-commitment intertemporal collective household model, where the implied quantity demand equations are time-varying functions of a linear index. The fixed effects in this index equal logged resource shares, defined as the fractions of household expenditure enjoyed by each household member. Using Bangladeshi data, we show that women’s resource shares decline with household budgets and that half of the variation in women’s resource shares is due to unobserved household-level heterogeneity.",
+      "abstract_cn": "我们提供了新的结果，证明了一大类固定T面板模型的识别，其中响应变量是固定效应、回归变量和来自未知平稳分布的误差项的潜在线性指数的未知、弱单调、时变转换。我们的结果识别了转换、回归变量的系数以及固定效应分布的特征。然后，我们开发了一个完全承诺的代际集体家庭模型，其中隐含的数量需求方程是线性指数的时变函数。该指数中的固定效应等于对数资源份额，定义为每个家庭成员享有的家庭支出比例。使用孟加拉国的数据，我们表明女性的资源份额随家庭预算下降，且女性资源份额变化的一半是由于未观测的家庭层面异质性造成的。",
+      "doi": "10.1016/j.jeconom.2021.11.006",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i2p576-597.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i2p576-597.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:09:20+00:00",
+        "source_hash": "495f407551256fc25dda5f8993b94a3e64dd9d8a738cde368e6e04ca68b0adfe"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "repec-serial-page",
+    "roster_authority": "repec-publisher-supplied",
+    "roster_match_scope": "repec-volume-items",
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 15,
+    "authors_complete": 15,
+    "abstract_en_complete": 15,
+    "translation_complete": 15,
+    "duplicate_count": 0,
+    "repec_item_count": 15,
+    "flags": [],
+    "official_item_count": 15,
+    "publishable_item_count": 15,
+    "content_counts": {
+      "official_items": 15,
+      "observed_items": 15,
+      "publishable_items": 15,
+      "research_articles": 15,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 15
+    }
+  },
+  "content_counts": {
+    "official_items": 15,
+    "observed_items": 15,
+    "publishable_items": 15,
+    "research_articles": 15,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 15
+  },
+  "issue_label": "Vol. 232 · No. 2",
+  "content_status": "complete",
+  "source_status": "publisher_verified",
+  "publication_state": "ready"
+}

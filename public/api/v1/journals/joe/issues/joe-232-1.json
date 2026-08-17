@@ -1,0 +1,590 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "joe-232-1",
+  "journal_id": "joe",
+  "journal_name": "Journal of Econometrics",
+  "volume": "232",
+  "issue": "1",
+  "publication_date": "February 2023",
+  "source_url": "https://ideas.repec.org/s/eee/econom.html",
+  "retrieved_at": "2026-08-17T23:08:11+00:00",
+  "expected_article_count": 13,
+  "research_article_count": 13,
+  "status": "ready",
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2020.07.039",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Time series analysis of COVID-19 infection curve: A change-point perspective",
+      "title_cn": "COVID-19感染曲线的时间序列分析：变点视角",
+      "authors": [
+        "Feiyu Jiang",
+        "Zifeng Zhao",
+        "Xiaofeng Shao"
+      ],
+      "abstract_en": "In this paper, we model the trajectory of the cumulative confirmed cases and deaths of COVID-19 (in log scale) via a piecewise linear trend model. The model naturally captures the phase transitions of the epidemic growth rate via change-points and further enjoys great interpretability due to its semiparametric nature. On the methodological front, we advance the nascent self-normalization (SN) technique (Shao, 2010) to testing and estimation of a single change-point in the linear trend of a nonstationary time series. We further combine the SN-based change-point test with the NOT algorithm (Baranowski et al., 2019) to achieve multiple change-point estimation. Using the proposed method, we analyze the trajectory of the cumulative COVID-19 cases and deaths for 30 major countries and discover interesting patterns with potentially relevant implications for effectiveness of the pandemic responses by different countries. Furthermore, based on the change-point detection algorithm and a flexible extrapolation function, we design a simple two-stage forecasting scheme for COVID-19 and demonstrate its promising performance in predicting cumulative deaths in the U.S.",
+      "abstract_cn": "在本文中，我们通过分段线性趋势模型对COVID-19累计确诊病例和死亡人数（对数尺度）的轨迹进行建模。该模型通过变点自然地捕捉了疫情增长率的阶段转变，并因其半参数性质而具有很好的可解释性。在方法论方面，我们将新兴的自标准化（SN）技术（Shao，2010）推进到非平稳时间序列线性趋势中单一变点的检验和估计。我们进一步将基于SN的变点检验与NOT算法（Baranowski等，2019）相结合，以实现多个变点的估计。使用所提出的方法，我们分析了30个主要国家的COVID-19累计病例和死亡轨迹，并发现了有趣的模式，这些模式可能对不同国家疫情应对措施的有效性具有潜在意义。此外，基于变点检测算法和灵活的 extrapolation 函数，我们设计了一个简单的两阶段COVID-19预测方案，并展示了其在预测美国累计死亡人数方面的良好性能。",
+      "doi": "10.1016/j.jeconom.2020.07.039",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i1p1-17.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i1p1-17.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:08:15+00:00",
+        "source_hash": "6b3cb9119d916ed13a65cad3cee32134be5e7e25c45005b6cceda5229ddb2320"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2020.08.011",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Nowcasting the output gap",
+      "title_cn": "实时预测产出缺口",
+      "authors": [
+        "Tino Berger",
+        "James Morley",
+        "Benjamin Wong"
+      ],
+      "abstract_en": "We propose a way to directly nowcast the output gap using the Beveridge–Nelson decomposition based on a mixed-frequency Bayesian VAR. The mixed-frequency approach produces similar but more timely estimates of the U.S. output gap compared to those based on a quarterly model, the CBO measure of potential, or the HP filter. We find that within-quarter nowcasts for the output gap are more reliable than for output growth, with monthly indicators for a credit risk spread, consumer sentiment, and the unemployment rate providing particularly useful new information about the final estimate of the output gap. An out-of-sample analysis of the COVID-19 crisis anticipates the exceptionally large negative output gap of −8.3% in 2020Q2 before the release of real GDP data for the quarter, with both conditional and scenario nowcasts tracking a dramatic decline in the output gap given the April data.",
+      "abstract_cn": "我们提出了一种直接实时预测产出缺口的方法，该方法基于混合频率贝叶斯向量自回归模型的贝弗里奇-纳尔逊分解。与基于季度模型、国会预算办公室潜在产出衡量指标或HP滤波器的估计相比，混合频率方法产生了相似但更及时的美国产出缺口估计。我们发现，季度内产出缺口的实时预测比产出增长的预测更可靠，其中信用利差、消费者情绪和失业率的月度指标为产出缺口的最终估计提供了特别有用的新信息。对COVID-19危机的样本外分析在2020Q2实际GDP数据发布之前，就预测到了异常大的负产出缺口（-8.3%），条件预测和情景预测均追踪了四月数据所显示的产出缺口的急剧下降。",
+      "doi": "10.1016/j.jeconom.2020.08.011",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i1p18-34.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i1p18-34.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:08:17+00:00",
+        "source_hash": "d880280daf1b639917a28ec0ad5e764fce03f023292ffb1a1215df2217e6b805"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2020.09.007",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Time varying Markov process with partially observed aggregate data: An application to coronavirus",
+      "title_cn": "具有部分观测聚合数据的时变马尔可夫过程：在冠状病毒中的应用",
+      "authors": [
+        "C. Gourieroux",
+        "J. Jasiak"
+      ],
+      "abstract_en": "A major difficulty in the analysis of Covid-19 transmission is that many infected individuals are asymptomatic. For this reason, the total counts of infected individuals and of recovered immunized individuals are unknown, especially during the early phase of the epidemic. In this paper, we consider a parametric time varying Markov process of Coronavirus transmission and show how to estimate the model parameters and approximate the unobserved counts from daily data on infected and detected individuals and the total daily death counts. This model-based approach is illustrated in an application to French data, performed on April 6, 2020.",
+      "abstract_cn": "分析Covid-19传播的一个主要困难在于许多感染者没有症状。因此，感染个体和康复免疫个体的总数是未知的，尤其是在疫情早期阶段。在本文中，我们考虑了一个参数化的时变马尔可夫过程来描述冠状病毒传播，并展示了如何从每日感染和检测个体数据以及每日总死亡人数中估计模型参数并近似未观测的计数。这种基于模型的方法在法国数据的应用中得到了说明，该应用于四月 6, 2020进行。",
+      "doi": "10.1016/j.jeconom.2020.09.007",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i1p35-51.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i1p35-51.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:08:19+00:00",
+        "source_hash": "b2cce6b441780aa96f64fc8d8a460607b680eb47100e00bcbd856deb29b08ea8"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2020.11.006",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Nowcasting in a pandemic using non-parametric mixed frequency VARs",
+      "title_cn": "疫情期间使用非参数混合频率VAR进行即时预测",
+      "authors": [
+        "Florian Huber",
+        "Gary Koop",
+        "Luca Onorante",
+        "Michael Pfarrhofer",
+        "Josef Schreiner"
+      ],
+      "abstract_en": "This paper develops Bayesian econometric methods for posterior inference in non-parametric mixed frequency VARs using additive regression trees. We argue that regression tree models are ideally suited for macroeconomic nowcasting in the face of extreme observations, for instance those produced by the COVID-19 pandemic of 2020. This is due to their flexibility and ability to model outliers. In an application involving four major euro area countries, we find substantial improvements in nowcasting performance relative to a linear mixed frequency VAR.",
+      "abstract_cn": "本文开发了使用加法回归树进行非参数混合频率VAR后验推断的贝叶斯计量经济学方法。我们认为，回归树模型非常适合在极端观测值（例如2020年COVID-19疫情产生的观测值）面前进行宏观经济即时预测，这得益于其灵活性和对异常值的建模能力。在一项涉及四个主要欧元区国家的应用中，我们发现相对于线性混合频率VAR，即时预测性能有了显著提升。",
+      "doi": "10.1016/j.jeconom.2020.11.006",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i1p52-69.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i1p52-69.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:08:21+00:00",
+        "source_hash": "e5c7728602b4012370d15b9bfb80a100c1f888a16ec8433605c8c3b805e3abf1"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.01.001",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "How to go viral: A COVID-19 model with endogenously time-varying parameters",
+      "title_cn": "如何走红：一个具有内生时变参数的COVID-19模型",
+      "authors": [
+        "Paul Ho",
+        "Thomas A. Lubik",
+        "Christian Matthes"
+      ],
+      "abstract_en": "We estimate a panel model with endogenously time-varying parameters for COVID-19 cases and deaths in U.S. states. The functional form for infections incorporates important features of epidemiological models but is flexibly parameterized to capture different trajectories of the pandemic. Daily deaths are modeled as a spike-and-slab regression on lagged cases. Our Bayesian estimation reveals that social distancing and testing have significant effects on the parameters. For example, a 10 percentage point increase in the positive test rate is associated with a 2 percentage point increase in the death rate among reported cases. The model forecasts perform well, even relative to models from epidemiology and statistics.",
+      "abstract_cn": "我们估计了一个针对美国各州COVID-19病例和死亡人数的内生时变参数面板模型。感染数的函数形式包含了流行病学模型的重要特征，但通过灵活参数化以捕捉大流行的不同轨迹。每日死亡数被建模为对滞后病例数的尖峰-平板回归。我们的贝叶斯估计显示，社交距离和检测对参数有显著影响。例如，阳性检测率增加10个百分点与报告病例中死亡率增加2个百分点相关。该模型的预测表现良好，甚至相对于流行病学和统计学的模型也是如此。",
+      "doi": "10.1016/j.jeconom.2021.01.001",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i1p70-86.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i1p70-86.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:08:23+00:00",
+        "source_hash": "c74e3d2265cb75680fac8b26ceaa088510ce54630c9c19ea57b36660b66ade85"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.04.010",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Nonparametric comparison of epidemic time trends: The case of COVID-19",
+      "title_cn": "流行病时间趋势的非参数比较：COVID-19的案例",
+      "authors": [
+        "Marina Khismatullina",
+        "Michael Vogt"
+      ],
+      "abstract_en": "The COVID-19 pandemic is one of the most pressing issues at present. A question which is particularly important for governments and policy makers is the following: Does the virus spread in the same way in different countries? Or are there significant differences in the development of the epidemic? In this paper, we devise new inference methods that allow to detect differences in the development of the COVID-19 epidemic across countries in a statistically rigorous way. In our empirical study, we use the methods to compare the outbreak patterns of the epidemic in a number of European countries.",
+      "abstract_cn": "COVID-19大流行是目前最紧迫的问题之一。对政府和政策制定者来说，一个特别重要的问题是：病毒在不同国家的传播方式是否相同？或者疫情的发展是否存在显著差异？在本文中，我们设计了新的推断方法，能够以统计上严谨的方式检测各国COVID-19疫情发展的差异。在我们的实证研究中，我们使用这些方法比较了多个欧洲国家疫情的爆发模式。",
+      "doi": "10.1016/j.jeconom.2021.04.010",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i1p87-108.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i1p87-108.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:08:25+00:00",
+        "source_hash": "839baaef83b3c57d4df3ace04ffcbcd0598af5da12c6069431cf098dcd87f29a"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.09.009",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Who should get vaccinated? Individualized allocation of vaccines over SIR network",
+      "title_cn": "谁应该接种疫苗？SIR网络上的个体化疫苗分配",
+      "authors": [
+        "Toru Kitagawa",
+        "Guanyi Wang"
+      ],
+      "abstract_en": "How to allocate vaccines over heterogeneous individuals is one of the important policy decisions in pandemic times. This paper develops a procedure to estimate an individualized vaccine allocation policy under limited supply, exploiting social network data containing individual demographic characteristics and health status. We model the spillover effects of vaccination based on a Heterogeneous-Interacted-SIR network model and estimate an individualized vaccine allocation policy by maximizing an estimated social welfare (public health) criterion incorporating these spillovers. While this optimization problem is generally an NP-hard integer optimization problem, we show that the SIR structure leads to a submodular objective function, and provide a computationally attractive greedy algorithm for approximating a solution that has a theoretical performance guarantee. Moreover, we characterize a finite sample welfare regret bound and examine how its uniform convergence rate depends on the complexity and riskiness of the social network. In the simulation, we illustrate the importance of considering spillovers by comparing our method with targeting without network information.",
+      "abstract_cn": "如何在异质性个体之间分配疫苗是疫情期间重要的政策决策之一。本文开发了一种程序，在有限供应下，利用包含个体人口统计特征和健康状况的社交网络数据来估计个体化疫苗分配政策。我们基于异质性交互SIR网络模型对疫苗接种的溢出效应进行建模，并通过最大化纳入这些溢出效应的估计社会福利（公共卫生）标准来估计个体化疫苗分配政策。虽然该优化问题通常是一个NP难的整数优化问题，但我们表明SIR结构导致子模目标函数，并提供了一种计算上吸引人的贪心算法来近似求解，该算法具有理论性能保证。此外，我们刻画了有限样本福利遗憾界，并检验了其一致收敛速率如何依赖于社交网络的复杂性和风险性。在模拟中，我们通过将我们的方法与不考虑网络信息的定向方法进行比较，说明了考虑溢出效应的重要性。",
+      "doi": "10.1016/j.jeconom.2021.09.009",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i1p109-131.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i1p109-131.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:08:27+00:00",
+        "source_hash": "6eb7fbd93bb8c9ea1d15ce82bc4b655ef12ebbe8a4df919c12f52805a460d54e"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2020.10.010",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Sparse spatio-temporal autoregressions by profiling and bagging",
+      "title_cn": "基于剖面和袋装的稀疏时空自回归模型",
+      "authors": [
+        "Yingying Ma",
+        "Shaojun Guo",
+        "Hansheng Wang"
+      ],
+      "abstract_en": "We consider a new class of spatio-temporal models with sparse autoregressive coefficient matrices and exogenous variable. To estimate the model, we first profile the exogenous variable out of the response. This leads to a profiled model structure. Next, to overcome endogeneity issue, we propose a class of generalized methods of moment (GMM) estimators to estimate the autoregressive coefficient matrices. A novel bagging-based estimator is further developed to conquer the over-determined issue which also occurs in Chang et al. (2015) and Dou et al. (2016). An adaptive forward–backward greedy algorithm is proposed to learn the sparse structure of the autoregressive coefficient matrices. A new BIC-type selection criteria is further developed to conduct variable selection for GMM estimators. Asymptotic properties are further studied. The proposed methodology is illustrated with extensive simulation studies. A social network dataset is analyzed for illustration purpose.",
+      "abstract_cn": "我们考虑一类新的时空模型，其具有稀疏自回归系数矩阵和外生变量。为了估计该模型，我们首先从响应中剖面掉外生变量，从而得到剖面模型结构。接下来，为克服内生性问题，我们提出一类广义矩（GMM）估计量来估计自回归系数矩阵。进一步开发了一种新颖的基于袋装的估计量，以解决过度确定问题，该问题也出现在Chang等人（2015）和Dou等人（2016）的研究中。提出了一种自适应前向-后向贪婪算法来学习自回归系数矩阵的稀疏结构。进一步开发了一种新的BIC型选择准则，用于GMM估计量的变量选择。进一步研究了渐近性质。通过广泛的模拟研究说明了所提出的方法。为说明目的，分析了一个社交网络数据集。",
+      "doi": "10.1016/j.jeconom.2020.10.010",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i1p132-147.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i1p132-147.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:08:30+00:00",
+        "source_hash": "cb617f610a27491097fdf3db195e549ac8986ce467918bacc9b2de7904c31a74"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.05.005",
+      "sequence": 9,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "Efficient closed-form estimation of large spatial autoregressions",
+      "title_cn": "大型空间自回归的高效闭式估计",
+      "authors": [
+        "Abhimanyu Gupta"
+      ],
+      "abstract_en": "Newton-step approximations to pseudo maximum likelihood estimates of spatial autoregressive models with a large number of parameters are examined, in the sense that the parameter space grows slowly as a function of sample size. These have the same asymptotic efficiency properties as maximum likelihood under Gaussianity but are of closed form. Hence they are computationally simple and free from compactness assumptions, thereby avoiding two notorious pitfalls of implicitly defined estimates of large spatial autoregressions. When commencing from an initial least squares estimate, the Newton step can also lead to weaker regularity conditions for a central limit theorem than some extant in the literature. A simulation study demonstrates excellent finite sample gains from Newton iterations, especially in large multiparameter models for which grid search is costly. A small empirical illustration shows improvements in estimation precision with real data.",
+      "abstract_cn": "本文考察了具有大量参数的空间自回归模型的伪极大似然估计的牛顿步近似，其中参数空间随样本量缓慢增长。这些近似在高斯性下具有与极大似然相同的渐近效率性质，但形式为闭式。因此，它们在计算上简单且无需紧性假设，从而避免了大型空间自回归隐式估计的两个著名陷阱。当从初始最小二乘估计开始时，牛顿步还可以导致比文献中某些现有中心极限定理更弱的正则条件。模拟研究展示了牛顿迭代在有限样本中的显著增益，尤其是在网格搜索成本高昂的大型多参数模型中。一个小型实证说明显示了使用真实数据时估计精度的改进。",
+      "doi": "10.1016/j.jeconom.2021.05.005",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i1p148-167.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i1p148-167.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:08:32+00:00",
+        "source_hash": "8bad5d96eb575d04674940e4ec089b6b3cea8f77e384088cc5e42b93d13a1973"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.04.011",
+      "sequence": 10,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "Spatial econometrics for misaligned data",
+      "title_cn": "错位数据的空间计量经济学",
+      "authors": [
+        "Guillaume Allaire Pouliot"
+      ],
+      "abstract_en": "We produce methodology for regression analysis when the geographic locations of the independent and dependent variables do not coincide, in which case we speak of misaligned data. We develop and investigate two complementary methods for regression analysis with misaligned data that circumvent the need to estimate or specify the covariance of the regression errors. We carry out a detailed reanalysis of Maccini and Yang (2009) and find economically significant quantitative differences but sustain most qualitative conclusions.",
+      "abstract_cn": "我们提出了当自变量和因变量的地理位置不一致时的回归分析方法论，这种情况下我们称之为错位数据。我们开发并研究了两种互补的错位数据回归分析方法，这些方法避免了估计或指定回归误差协方差的需要。我们对Maccini和Yang（2009）进行了详细的再分析，发现了经济上显著的定量差异，但维持了大多数定性结论。",
+      "doi": "10.1016/j.jeconom.2021.04.011",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i1p168-190.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i1p168-190.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:08:34+00:00",
+        "source_hash": "01330a64373c0534003a06f18df3b405ab01db9ee7429fe3040a146cc995c525"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.08.004",
+      "sequence": 11,
+      "source_sequence": 11,
+      "article_type": "research-article",
+      "title_en": "A spatial panel quantile model with unobserved heterogeneity",
+      "title_cn": "具有不可观测异质性的空间面板分位数模型",
+      "authors": [
+        "Tomohiro Ando",
+        "Kunpeng Li",
+        "Lina Lu"
+      ],
+      "abstract_en": "This paper introduces a spatial panel quantile model with unobserved heterogeneity. The proposed model is capable of capturing high-dimensional cross-sectional dependence and allows heterogeneous regression coefficients. For estimating model parameters, a new estimation procedure is proposed. When both the time and cross-sectional dimensions of the panel go to infinity, the uniform consistency and the asymptotic normality of the estimated parameters are established. In order to determine the dimension of the interactive fixed effects, we propose a new information criterion. It is shown that the criterion asymptotically selects the true dimension. Monte Carlo simulations document the satisfactory performance of the proposed method. Finally, the method is applied to study the quantile co-movement structure of the U.S. stock market by taking into account the input–output linkages as firms are connected through the input–output production network.",
+      "abstract_cn": "本文介绍了一种具有不可观测异质性的空间面板分位数模型。所提出的模型能够捕捉高维截面依赖性，并允许异质性回归系数。为了估计模型参数，提出了一种新的估计程序。当面板的时间维度和截面维度都趋于无穷大时，建立了估计参数的一致性和渐近正态性。为了确定交互固定效应的维度，我们提出了一种新的信息准则。结果表明，该准则渐近地选择了真实维度。蒙特卡洛模拟证明了所提出方法的良好性能。最后，该方法被应用于研究美国股市的分位数共同运动结构，通过考虑投入产出联系，因为企业通过投入产出生产网络相互连接。",
+      "doi": "10.1016/j.jeconom.2021.08.004",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i1p191-213.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i1p191-213.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:08:36+00:00",
+        "source_hash": "da8d63e97b439d1fa1a2682c790f43bc2d0df1bf4ea17499c950a6b4056c0763"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.10.011",
+      "sequence": 12,
+      "source_sequence": 12,
+      "article_type": "research-article",
+      "title_en": "Estimation of spatial sample selection models: A partial maximum likelihood approach",
+      "title_cn": "空间样本选择模型的估计：一种部分极大似然方法",
+      "authors": [
+        "Renata Rabovič",
+        "Pavel Čížek"
+      ],
+      "abstract_en": "We study estimation of sample selection models with the spatially lagged latent dependent variable or spatial errors in both the selection and outcome equations under cross-sectional dependence. Since there is no estimation framework for the spatial-lag model and the existing estimators for the spatial-error model are computationally demanding or have poor small sample properties, we suggest to estimate these models by the partial maximum likelihood estimator. We show that the estimator is consistent and asymptotically normally distributed. To facilitate easy and precise estimation of the variance matrix, we propose the parametric bootstrap method. Simulations demonstrate the advantages of the estimators.",
+      "abstract_cn": "我们研究了在截面依赖下，选择方程和结果方程中均包含空间滞后潜变量或空间误差的样本选择模型的估计问题。由于空间滞后模型缺乏估计框架，且现有空间误差模型的估计器计算量大或小样本性质不佳，我们建议通过部分极大似然估计器来估计这些模型。我们证明了该估计器是一致的且渐近正态分布。为了便于对方差矩阵进行简单而精确的估计，我们提出了参数自助法。模拟实验证明了这些估计器的优势。",
+      "doi": "10.1016/j.jeconom.2021.10.011",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i1p214-243.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i1p214-243.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:08:38+00:00",
+        "source_hash": "b7f170fe674f74b5a281b6faae96adc6bc27c1ed0645ad9e2a3006bd1c4263b1"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.01.010",
+      "sequence": 13,
+      "source_sequence": 13,
+      "article_type": "research-article",
+      "title_en": "Higher-order least squares inference for spatial autoregressions",
+      "title_cn": "空间自回归的高阶最小二乘推断",
+      "authors": [
+        "Francesca Rossi",
+        "Peter M. Robinson"
+      ],
+      "abstract_en": "We develop refined inference for spatial regression models with predetermined regressors. The ordinary least squares estimate of the spatial parameter is neither consistent nor asymptotically normal, unless the elements of the spatial weight matrix uniformly vanish as sample size diverges. We develop refined testing of the hypothesis of no spatial dependence, without requiring such negligibility of spatial weights, by formal Edgeworth expansions. We also develop such higher-order expansions for both an unstudentized and a studentized transformed estimate, where the studentized one can be used to provide refined interval estimates. A Monte Carlo study of finite sample performance is included.",
+      "abstract_cn": "我们为具有预定回归量的空间回归模型开发了精细推断。除非空间权重矩阵的元素随样本量发散而均匀消失，否则空间参数的普通最小二乘估计既不一致也不渐近正态。我们通过正式的Edgeworth展开，在不要求空间权重可忽略的情况下，开发了对无空间依赖性假设的精细检验。我们还为未学生化和学生化的变换估计开发了此类高阶展开，其中学生化的可用于提供精细的区间估计。文中包含有限样本性能的蒙特卡洛研究。",
+      "doi": "10.1016/j.jeconom.2022.01.010",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v232y2023i1p244-269.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v232y2023i1p244-269.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-17T23:08:40+00:00",
+        "source_hash": "c77ddcee3ee01a9a81e7bb1cbf3d19ff7e671f1e99061f94e1e6467fdfb3d207"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "repec-serial-page",
+    "roster_authority": "repec-publisher-supplied",
+    "roster_match_scope": "repec-volume-items",
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 13,
+    "authors_complete": 13,
+    "abstract_en_complete": 13,
+    "translation_complete": 13,
+    "duplicate_count": 0,
+    "repec_item_count": 13,
+    "flags": [],
+    "official_item_count": 13,
+    "publishable_item_count": 13,
+    "content_counts": {
+      "official_items": 13,
+      "observed_items": 13,
+      "publishable_items": 13,
+      "research_articles": 13,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 13
+    }
+  },
+  "content_counts": {
+    "official_items": 13,
+    "observed_items": 13,
+    "publishable_items": 13,
+    "research_articles": 13,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 13
+  },
+  "issue_label": "Vol. 232 · No. 1",
+  "content_status": "complete",
+  "source_status": "publisher_verified",
+  "publication_state": "ready"
+}
