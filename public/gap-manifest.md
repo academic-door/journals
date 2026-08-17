@@ -1,14 +1,14 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-08-16T22:38:38+00:00
+Generated: 2026-08-17T01:57:39+00:00
 
 ## Summary
 
-- browser_required: 64
-- ready: 472
-- recoverable: 527
+- browser_required: 66
+- ready: 485
+- recoverable: 510
 - source_pending: 259
-- translation_required: 2
+- translation_required: 4
 
 ## Issue queue
 
@@ -670,11 +670,11 @@ Generated: 2026-08-16T22:38:38+00:00
 | JEEM | jeem-139-c | 2026 | source_pending | complete | source_pending | official source verification pending |
 | JEEM | jeem-140-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JEH | jeh-83-1 | 2023 | browser_required | blocked | source_pending | archive_missing |
-| JEH | jeh-83-2 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| JEH | jeh-83-3 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| JEH | jeh-83-4 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| JEH | jeh-84-1 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| JEH | jeh-84-2 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
+| JEH | jeh-83-2 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| JEH | jeh-83-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| JEH | jeh-83-4 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| JEH | jeh-84-1 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| JEH | jeh-84-2 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | JEH | jeh-84-3 | 2024 | browser_required | blocked | source_pending | archive_missing |
 | JEH | jeh-84-4 | 2024 | browser_required | blocked | source_pending | archive_missing |
 | JEH | jeh-85-1 | 2025 | ready | complete | official_verified | content and official source gates passed |
@@ -683,12 +683,12 @@ Generated: 2026-08-16T22:38:38+00:00
 | JEH | jeh-85-4 | 2025 | source_pending | complete | source_pending | official source verification pending |
 | JEH | jeh-86-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JEH | jeh-86-2 | 2026 | source_pending | complete | source_pending | official source verification pending |
-| JEP | jep-37-1 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| JEP | jep-37-2 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| JEP | jep-37-3 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| JEP | jep-37-4 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| JEP | jep-38-1 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| JEP | jep-38-2 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
+| JEP | jep-37-1 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| JEP | jep-37-2 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| JEP | jep-37-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| JEP | jep-37-4 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| JEP | jep-38-1 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| JEP | jep-38-2 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | JEP | jep-38-3 | 2024 | recoverable | blocked | source_pending | archive_missing |
 | JEP | jep-38-4 | 2024 | recoverable | blocked | source_pending | archive_missing |
 | JEP | jep-39-1 | 2025 | source_pending | complete | source_pending | official source verification pending |
@@ -703,7 +703,7 @@ Generated: 2026-08-16T22:38:38+00:00
 | JET | jet-209-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JET | jet-210-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JET | jet-211-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
-| JET | jet-212-c | 2023 | translation_required | blocked | source_pending | archive_missing |
+| JET | jet-212-c | 2023 | recoverable | blocked | source_pending | archive_missing |
 | JET | jet-213-c | 2023 | recoverable | blocked | source_pending | archive_missing |
 | JET | jet-214-c | 2023 | recoverable | blocked | source_pending | archive_missing |
 | JET | jet-215-c | 2024 | recoverable | blocked | source_pending | archive_missing |
@@ -729,11 +729,11 @@ Generated: 2026-08-16T22:38:38+00:00
 | JET | jet-235-c | 2026 | source_pending | complete | source_pending | official source verification pending |
 | JET | jet-236-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JF | jf-78-1 | 2023 | browser_required | blocked | source_pending | archive_missing |
-| JF | jf-78-2 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| JF | jf-78-3 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| JF | jf-78-4 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| JF | jf-78-5 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| JF | jf-78-6 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
+| JF | jf-78-2 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| JF | jf-78-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| JF | jf-78-4 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| JF | jf-78-5 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| JF | jf-78-6 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | JF | jf-79-1 | 2024 | browser_required | blocked | source_pending | archive_missing |
 | JF | jf-79-2 | 2024 | browser_required | blocked | source_pending | archive_missing |
 | JF | jf-79-3 | 2024 | browser_required | blocked | source_pending | archive_missing |
@@ -750,12 +750,12 @@ Generated: 2026-08-16T22:38:38+00:00
 | JF | jf-81-2 | 2026 | source_pending | complete | source_pending | official source verification pending |
 | JF | jf-81-3 | 2026 | source_pending | complete | source_pending | official source verification pending |
 | JF | jf-81-4 | 2026 | source_pending | complete | source_pending | official source verification pending |
-| JFE | jfe-147-1 | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JFE | jfe-147-2 | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JFE | jfe-147-3 | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JFE | jfe-148-1 | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JFE | jfe-148-2 | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JFE | jfe-148-3 | 2023 | recoverable | blocked | source_pending | archive_missing |
+| JFE | jfe-147-1 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JFE | jfe-147-2 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JFE | jfe-147-3 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JFE | jfe-148-1 | 2023 | browser_required | blocked | source_pending | archive_missing |
+| JFE | jfe-148-2 | 2023 | browser_required | blocked | source_pending | archive_missing |
+| JFE | jfe-148-3 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JFE | jfe-149-1 | 2023 | recoverable | blocked | source_pending | archive_missing |
 | JFE | jfe-149-2 | 2023 | recoverable | blocked | source_pending | archive_missing |
 | JFE | jfe-149-3 | 2023 | recoverable | blocked | source_pending | archive_missing |
@@ -806,12 +806,12 @@ Generated: 2026-08-16T22:38:38+00:00
 | JHE | jhe-107-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JHE | jhe-108-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JHE | jhe-109-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
-| JHE | jhe-87-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JHE | jhe-88-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JHE | jhe-89-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JHE | jhe-90-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JHE | jhe-91-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JHE | jhe-92-c | 2023 | recoverable | blocked | source_pending | archive_missing |
+| JHE | jhe-87-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JHE | jhe-88-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JHE | jhe-89-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JHE | jhe-90-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JHE | jhe-91-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JHE | jhe-92-c | 2023 | translation_required | blocked | source_pending | archive_missing |
 | JHE | jhe-93-c | 2024 | recoverable | blocked | source_pending | archive_missing |
 | JHE | jhe-94-c | 2024 | recoverable | blocked | source_pending | archive_missing |
 | JHE | jhe-95-c | 2024 | recoverable | blocked | source_pending | archive_missing |
@@ -819,12 +819,12 @@ Generated: 2026-08-16T22:38:38+00:00
 | JHE | jhe-97-c | 2024 | recoverable | blocked | source_pending | archive_missing |
 | JHE | jhe-98-c | 2024 | recoverable | blocked | source_pending | archive_missing |
 | JHE | jhe-99-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
-| JIE | jie-140-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JIE | jie-141-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JIE | jie-142-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JIE | jie-143-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JIE | jie-144-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JIE | jie-145-c | 2023 | recoverable | blocked | source_pending | archive_missing |
+| JIE | jie-140-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JIE | jie-141-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JIE | jie-142-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JIE | jie-143-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JIE | jie-144-c | 2023 | translation_required | blocked | source_pending | archive_missing |
+| JIE | jie-145-c | 2023 | translation_required | blocked | source_pending | archive_missing |
 | JIE | jie-146-c | 2023 | recoverable | blocked | source_pending | archive_missing |
 | JIE | jie-147-c | 2024 | recoverable | blocked | source_pending | archive_missing |
 | JIE | jie-148-c | 2024 | recoverable | blocked | source_pending | archive_missing |
