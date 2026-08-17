@@ -98,7 +98,8 @@ def _has_abstract_or_allowed_comment(article: dict[str, Any]) -> bool:
 # incorrect online-first month.  These are issue-level dates, not article
 # publication dates, and therefore must be applied before Crossref fallback.
 # Sources: Wiley's International Economic Review 2024 issue list and
-# ScienceDirect's China Economic Review issue list.
+# ScienceDirect issue lists for China Economic Review and Journal of Public
+# Economics. JPubE publishes one numbered volume per month.
 OFFICIAL_VOLUME_DATES = {
     "1043-951X": {
         "77": "February 2023",
@@ -119,6 +120,30 @@ OFFICIAL_VOLUME_DATES = {
         "92": "August 2025",
         "93": "October 2025",
         "94": "December 2025",
+    },
+    "0047-2727": {
+        str(volume): f"{month} {year}"
+        for volume, (year, month) in zip(
+            range(217, 265),
+            [
+                (year, month)
+                for year in range(2023, 2027)
+                for month in (
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December",
+                )
+            ],
+        )
     },
 }
 

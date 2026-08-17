@@ -124,12 +124,3 @@ jobs:
           gh api --method POST "repos/${{ github.repository }}/pulls/$PR_NUMBER/reviews" \
             -f event=APPROVE \
             -f body="Auto-approved by journal-auto-approver: required checks passed and author is trusted."
-
-      - name: Merge approved PR
-        if: steps.gate.outputs.continue == 'true'
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-        run: |
-          set -euo pipefail
-          PR_NUMBER="${{ steps.pr-number.outputs.number }}"
-          gh pr merge "$PR_NUMBER" -R "${{ github.repository }}" --squash --delete-branch

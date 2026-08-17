@@ -1057,6 +1057,12 @@ class MetadataFallbackTests(unittest.TestCase):
             _publication_date("1043-951X", "81", "C", []),
         )
 
+    def test_journal_of_public_economics_uses_official_volume_calendar(self) -> None:
+        self.assertEqual(
+            "December 2024",
+            _publication_date("0047-2727", "240", "C", []),
+        )
+
     def test_publication_date_filters_crossref_items_by_volume(self) -> None:
         items = [
             {
