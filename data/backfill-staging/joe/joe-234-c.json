@@ -1,0 +1,544 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "joe-234-c",
+  "journal_id": "joe",
+  "journal_name": "Journal of Econometrics",
+  "volume": "234",
+  "issue": "C",
+  "publication_date": "March 2023",
+  "source_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
+  "retrieved_at": "2026-08-18T18:57:47+00:00",
+  "expected_article_count": 5,
+  "research_article_count": 5,
+  "status": "incomplete",
+  "development_sample": false,
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.01.014",
+      "sequence": 1,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "My experience of working for the JE-1991-2013",
+      "title_cn": "",
+      "authors": [
+        "Hsiao Cheng"
+      ],
+      "abstract_en": "",
+      "abstract_cn": "",
+      "abstract_snippet_en": "",
+      "doi": "10.1016/j.jeconom.2023.01.014",
+      "source_url": "https://doi.org/10.1016/j.jeconom.2023.01.014",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
+        "roster": "crossref:issn:0304-4076",
+        "metadata": "crossref",
+        "abstract_en": "",
+        "abstract_lookup": {
+          "status": "success_no_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17704,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            },
+            {
+              "source": "elsevier-sciencedirect-search",
+              "status_code": 400,
+              "outcome": "request_failed",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 18539,
+                "resets_at": "2026-08-19T03:16:01+00:00",
+                "els_status": "INVALID_INPUT - Unable to translate query provided. Error=[The search contained no translatable search terms. EmptyQueryException - No translatable query terms found in field.]"
+              }
+            },
+            {
+              "source": "elsevier-scopus-doi",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 10000,
+                "remaining": 9649,
+                "resets_at": "2026-08-19T10:40:13+00:00",
+                "els_status": "OK"
+              }
+            },
+            {
+              "source": "elsevier-scopus-pii",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 10000,
+                "remaining": 9648,
+                "resets_at": "2026-08-19T10:40:13+00:00",
+                "els_status": "OK"
+              }
+            },
+            {
+              "source": "elsevier-article-doi",
+              "status_code": 200,
+              "outcome": "success"
+            },
+            {
+              "source": "elsevier-article-pii",
+              "status_code": 200,
+              "outcome": "success"
+            }
+          ],
+          "rate_limit": {
+            "limit": 10000,
+            "remaining": 9648,
+            "resets_at": "2026-08-19T10:40:13+00:00",
+            "els_status": "OK"
+          }
+        },
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2023.01.014"
+      },
+      "translation": {
+        "status": "blocked",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing",
+        "abstract_en_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.01.016",
+      "sequence": 2,
+      "source_sequence": 11,
+      "article_type": "research-article",
+      "title_en": "Experience as Co-Editor, A. Ronald Gallant",
+      "title_cn": "",
+      "authors": [
+        "A. Ronald Gallant"
+      ],
+      "abstract_en": "",
+      "abstract_cn": "",
+      "abstract_snippet_en": "",
+      "doi": "10.1016/j.jeconom.2023.01.016",
+      "source_url": "https://doi.org/10.1016/j.jeconom.2023.01.016",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
+        "roster": "crossref:issn:0304-4076",
+        "metadata": "crossref",
+        "abstract_en": "",
+        "abstract_lookup": {
+          "status": "success_no_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17703,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            },
+            {
+              "source": "elsevier-sciencedirect-search",
+              "status_code": 400,
+              "outcome": "request_failed",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 18539,
+                "resets_at": "2026-08-19T03:16:01+00:00",
+                "els_status": "INVALID_INPUT - Unable to translate query provided. Error=[The search contained no translatable search terms. EmptyQueryException - No translatable query terms found in field.]"
+              }
+            },
+            {
+              "source": "elsevier-scopus-doi",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 10000,
+                "remaining": 9647,
+                "resets_at": "2026-08-19T10:40:13+00:00",
+                "els_status": "OK"
+              }
+            },
+            {
+              "source": "elsevier-scopus-pii",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 10000,
+                "remaining": 9646,
+                "resets_at": "2026-08-19T10:40:13+00:00",
+                "els_status": "OK"
+              }
+            },
+            {
+              "source": "elsevier-article-doi",
+              "status_code": 200,
+              "outcome": "success"
+            },
+            {
+              "source": "elsevier-article-pii",
+              "status_code": 200,
+              "outcome": "success"
+            }
+          ],
+          "rate_limit": {
+            "limit": 10000,
+            "remaining": 9646,
+            "resets_at": "2026-08-19T10:40:13+00:00",
+            "els_status": "OK"
+          }
+        },
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2023.01.016"
+      },
+      "translation": {
+        "status": "blocked",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing",
+        "abstract_en_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.02.001",
+      "sequence": 3,
+      "source_sequence": 25,
+      "article_type": "research-article",
+      "title_en": "Reprint of: Generalized Autoregressive Conditional Heteroskedasticity",
+      "title_cn": "重印：广义自回归条件异方差性",
+      "authors": [
+        "Tim Bollerslev"
+      ],
+      "abstract_en": "A natural generalization of the ARCH (Autoregressive Conditional Heteroskedastic) process introduced in Engle (1982) to allow for past conditional variances in the current conditional variance equation is proposed. Stationarity conditions and autocorrelation structure for this new class of parametric models are derived. Maximum likelihood estimation and testing are also considered. Finally an empirical example relating to the uncertainty of the inflation rate is presented.",
+      "abstract_cn": "本文提出了对Engle（1982）引入的ARCH（自回归条件异方差）过程的一种自然推广，允许过去的条件方差进入当前的条件方差方程。推导了这类新参数模型的平稳性条件和自相关结构。同时考虑了极大似然估计和检验。最后，给出了一个关于通货膨胀率不确定性的实证例子。",
+      "abstract_snippet_en": "A natural generalization of the ARCH (Autoregressive Conditional Heteroskedastic) process introduced in Engle (1982) to allow for past conditional variances in the current conditional variance equation...",
+      "doi": "10.1016/j.jeconom.2023.02.001",
+      "source_url": "https://doi.org/10.1016/j.jeconom.2023.02.001",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
+        "roster": "crossref:issn:0304-4076",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17702,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17702,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:57:55+00:00",
+        "source_hash": "0803771b98a4deaa0b43aa418a5a1f82a3b7bf421e591bc7541bc8656a85a046"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.01.019",
+      "sequence": 4,
+      "source_sequence": 91,
+      "article_type": "research-article",
+      "title_en": "On the origins of Aigner, Lovell and Schmidt, 1977, and the development of stochastic frontier analysis",
+      "title_cn": "",
+      "authors": [
+        "Dennis J. Aigner",
+        "C.A. Knox Lovell",
+        "Peter Schmidt"
+      ],
+      "abstract_en": "",
+      "abstract_cn": "",
+      "abstract_snippet_en": "",
+      "doi": "10.1016/j.jeconom.2023.01.019",
+      "source_url": "https://doi.org/10.1016/j.jeconom.2023.01.019",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
+        "roster": "crossref:issn:0304-4076",
+        "metadata": "crossref",
+        "abstract_en": "",
+        "abstract_lookup": {
+          "status": "success_no_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17701,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            },
+            {
+              "source": "elsevier-sciencedirect-search",
+              "status_code": 400,
+              "outcome": "request_failed",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 18539,
+                "resets_at": "2026-08-19T03:16:01+00:00",
+                "els_status": "INVALID_INPUT - Unable to translate query provided. Error=[The search contained no translatable search terms. EmptyQueryException - No translatable query terms found in field.]"
+              }
+            },
+            {
+              "source": "elsevier-scopus-doi",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 10000,
+                "remaining": 9645,
+                "resets_at": "2026-08-19T10:40:13+00:00",
+                "els_status": "OK"
+              }
+            },
+            {
+              "source": "elsevier-scopus-pii",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 10000,
+                "remaining": 9644,
+                "resets_at": "2026-08-19T10:40:13+00:00",
+                "els_status": "OK"
+              }
+            },
+            {
+              "source": "elsevier-article-doi",
+              "status_code": 200,
+              "outcome": "success"
+            },
+            {
+              "source": "elsevier-article-pii",
+              "status_code": 200,
+              "outcome": "success"
+            }
+          ],
+          "rate_limit": {
+            "limit": 10000,
+            "remaining": 9644,
+            "resets_at": "2026-08-19T10:40:13+00:00",
+            "els_status": "OK"
+          }
+        },
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2023.01.019"
+      },
+      "translation": {
+        "status": "blocked",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing",
+        "abstract_en_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.01.020",
+      "sequence": 5,
+      "source_sequence": 101,
+      "article_type": "research-article",
+      "title_en": "Initial conditions and Blundell–Bond estimators",
+      "title_cn": "初始条件与Blundell–Bond估计量",
+      "authors": [
+        "Richard Blundell",
+        "Steve Bond"
+      ],
+      "abstract_en": "© 2023 Elsevier B.V. We place the Blundell–Bond paper in the context of the early development of panel data estimators that accounted for unobserved heterogeneity, dynamics and persistent economic series. The initial work focused on appropriate econometric methods to estimate dynamic models using unbalanced panel data with many firms and/or individuals but covering a small number of time periods. Eliminating the unobserved firm-specific ‘fixed’ effects by taking first-differences and using as instruments suitably lagged values of the dependent variable, and of endogenous or predetermined explanatory variables, led to the first-differenced GMM estimators popularised by Arellano and Bond (1991). This approach was less well suited to models which relate highly persistent series. Following Arellano and Bover (1995) we examined the use of suitably lagged first-differences as instruments for the equations in levels and derived the conditions, particularly on initial conditions, under which first-differences of the dependent variable would or would not be uncorrelated with individual-specific ‘fixed’ effects. An influential contribution was to illustrate the magnitude of the bias when the first-differenced GMM estimator is used to estimate autoregressive models for highly persistent series, and the potential to reduce that bias by using additional valid moment conditions for the equations in levels — thereby popularising the use of these extended or ‘System’ GMM estimators.",
+      "abstract_cn": "© 2023 Elsevier B.V. 我们将Blundell–Bond论文置于面板数据估计量早期发展的背景下，这些估计量考虑了未观测到的异质性、动态性和持久经济序列。最初的工作侧重于使用非平衡面板数据估计动态模型的适当计量经济学方法，这些数据包含许多企业和/或个人，但覆盖的时间段较少。通过一阶差分消除未观测到的企业特定“固定”效应，并使用因变量以及内生或预定解释变量的适当滞后值作为工具变量，得出了由Arellano和Bond (1991)推广的一阶差分GMM估计量。这种方法不太适用于涉及高度持久序列的模型。继Arellano和Bover (1995)之后，我们考察了使用适当滞后的一阶差分作为水平方程的工具变量，并推导了条件，特别是初始条件，在这些条件下，因变量的一阶差分与个体特定“固定”效应不相关或相关。一个有影响力的贡献是说明了当使用一阶差分GMM估计量估计高度持久序列的自回归模型时偏差的大小，以及通过使用水平方程的额外有效矩条件来减少该偏差的潜力——从而推广了这些扩展或“系统”GMM估计量的使用。",
+      "abstract_snippet_en": "We place the Blundell–Bond paper in the context of the early development of panel data estimators that accounted for unobserved heterogeneity, dynamics and persistent economic series. The initial work...",
+      "doi": "10.1016/j.jeconom.2023.01.020",
+      "source_url": "https://doi.org/10.1016/j.jeconom.2023.01.020",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
+        "roster": "crossref:issn:0304-4076",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-scopus-doi",
+        "elsevier": "https://api.elsevier.com/content/abstract/doi/10.1016/j.jeconom.2023.01.020",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17700,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            },
+            {
+              "source": "elsevier-sciencedirect-search",
+              "status_code": 400,
+              "outcome": "request_failed",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 18539,
+                "resets_at": "2026-08-19T03:16:01+00:00",
+                "els_status": "INVALID_INPUT - Unable to translate query provided. Error=[The search contained no translatable search terms. EmptyQueryException - No translatable query terms found in field.]"
+              }
+            },
+            {
+              "source": "elsevier-scopus-doi",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 10000,
+                "remaining": 9643,
+                "resets_at": "2026-08-19T10:40:13+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 10000,
+            "remaining": 9643,
+            "resets_at": "2026-08-19T10:40:13+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:57:58+00:00",
+        "source_hash": "bb83aecb120310859c5c607bde7b862a9181841fc436bb111f8cd238de8e8827"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "crossref",
+    "roster_authority": "crossref-provisional",
+    "roster_match_scope": "crossref-issue-group",
+    "publisher_page_status": "blocked",
+    "excluded_item_count": 1,
+    "excluded_items": [
+      {
+        "title_en": "Editorial Board",
+        "reason": "editorial_material",
+        "doi": "10.1016/s0304-4076(23)00097-0",
+        "article_type": "editorial"
+      }
+    ],
+    "doi_complete": 5,
+    "authors_complete": 5,
+    "abstract_en_complete": 2,
+    "translation_complete": 2,
+    "duplicate_count": 0,
+    "flags": [
+      "publisher_html_blocked_crossref_fallback",
+      "crossref_provisional_roster",
+      "abstract_en_incomplete",
+      "translation_incomplete"
+    ],
+    "official_item_count": 6,
+    "publishable_item_count": 5,
+    "content_counts": {
+      "official_items": 6,
+      "observed_items": 6,
+      "publishable_items": 5,
+      "research_articles": 5,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 1,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 5
+    }
+  },
+  "source_status": "source_pending",
+  "publication_state": "blocked",
+  "content_counts": {
+    "official_items": 6,
+    "observed_items": 6,
+    "publishable_items": 5,
+    "research_articles": 5,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 1,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 5
+  },
+  "issue_label": "Vol. 234",
+  "content_status": "blocked"
+}

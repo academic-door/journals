@@ -7,9 +7,9 @@
   "issue": "2",
   "publication_date": "April 2026",
   "source_url": "https://onlinelibrary.wiley.com/toc/15406261/2026/81/2",
-  "retrieved_at": "2026-08-06T12:07:24+00:00",
-  "expected_article_count": 14,
-  "research_article_count": 14,
+  "retrieved_at": "2026-08-18T17:17:04+00:00",
+  "expected_article_count": 13,
+  "research_article_count": 13,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
@@ -542,46 +542,6 @@
         "matched_terms": [],
         "source": "academic-door-rules-v1"
       }
-    },
-    {
-      "paper_id": "doi:10.1111/jofi.70031",
-      "sequence": 14,
-      "source_sequence": 1147,
-      "article_type": "research-article",
-      "title_en": "Report of the 2026 Annual Membership Meeting",
-      "title_cn": "",
-      "authors": [],
-      "abstract_en": "",
-      "abstract_cn": "",
-      "abstract_snippet_en": "",
-      "doi": "10.1111/jofi.70031",
-      "source_url": "https://doi.org/10.1111/jofi.70031",
-      "publication_date": "2026",
-      "sources": {
-        "issue": "https://onlinelibrary.wiley.com/toc/15406261/2026/81/2",
-        "roster": "crossref:issn:0022-1082",
-        "metadata": "crossref",
-        "abstract_en": "",
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1111/jofi.70031"
-      },
-      "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
-      },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing",
-        "authors_missing",
-        "abstract_en_missing"
-      ],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
     }
   ],
   "quality": {
@@ -591,7 +551,7 @@
     "roster_authority": "crossref-provisional",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
-    "excluded_item_count": 3,
+    "excluded_item_count": 4,
     "excluded_items": [
       {
         "title_en": "AMERICAN FINANCE ASSOCIATION",
@@ -610,47 +570,54 @@
         "reason": "non_publishable_item",
         "doi": "10.1111/jofi.70016",
         "article_type": "research-article"
+      },
+      {
+        "title_en": "Report of the 2026 Annual Membership Meeting",
+        "reason": "editorial_material",
+        "doi": "10.1111/jofi.70031",
+        "article_type": "editorial"
       }
     ],
-    "doi_complete": 14,
+    "doi_complete": 13,
     "authors_complete": 13,
     "abstract_en_complete": 13,
     "translation_complete": 13,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster",
-      "abstract_en_incomplete",
-      "translation_incomplete"
+      "crossref_provisional_roster"
     ],
     "official_item_count": 17,
-    "publishable_item_count": 14,
+    "publishable_item_count": 13,
     "content_counts": {
       "official_items": 17,
       "observed_items": 17,
-      "publishable_items": 14,
-      "research_articles": 14,
+      "publishable_items": 13,
+      "research_articles": 13,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
-      "editorial_material": 0,
+      "editorial_material": 1,
       "front_matter": 1,
       "other_excluded": 2,
-      "catalog_content_items": 14
+      "catalog_content_items": 13
     }
   },
+  "source_status": "source_pending",
+  "publication_state": "source_pending",
   "content_counts": {
     "official_items": 17,
     "observed_items": 17,
-    "publishable_items": 14,
-    "research_articles": 14,
+    "publishable_items": 13,
+    "research_articles": 13,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
-    "editorial_material": 0,
+    "editorial_material": 1,
     "front_matter": 1,
     "other_excluded": 2,
-    "catalog_content_items": 14
+    "catalog_content_items": 13
   },
-  "issue_label": "Vol. 81 · No. 2"
+  "issue_label": "Vol. 81 · No. 2",
+  "content_status": "complete"
 }

@@ -1,0 +1,884 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "res-93-4",
+  "journal_id": "res",
+  "journal_name": "The Review of Economic Studies",
+  "volume": "93",
+  "issue": "4",
+  "publication_date": "July 2026",
+  "source_url": "https://academic.oup.com/restud/issue/93/4",
+  "retrieved_at": "2026-08-18T18:36:53+00:00",
+  "expected_article_count": 20,
+  "research_article_count": 20,
+  "status": "incomplete",
+  "development_sample": false,
+  "articles": [
+    {
+      "paper_id": "doi:10.1093/restud/rdaf076",
+      "sequence": 1,
+      "source_sequence": 2135,
+      "article_type": "research-article",
+      "title_en": "On the Optimal Design of a Financial Stability Fund",
+      "title_cn": "金融稳定基金的最优设计",
+      "authors": [
+        "Árpád Ábrahám",
+        "Eva Carceles-Poveda",
+        "Yan Liu",
+        "Ramon Marimon"
+      ],
+      "abstract_en": "We develop a model of a Financial Stability Fund (the “Fund” henceforth) for a union of sovereign countries. By design, the contract prevents country defaults, as well as undesired expected losses, which in a union translate into excessive risk mutualizations. A participant country has greater ability to borrow and share risks than using sovereign debt financing. The Fund contract also provides better incentives for the country to reduce endogenous risks. These efficiency gains arise from the ability of the Fund to offer long-term contingent financial contracts, subject to limited enforcement and moral hazard constraints. We develop the theory and quantitatively compare the constrained-efficient Fund economy with an incomplete markets economy with default. We calibrate our economy to the euro area “stressed countries” in the debt crisis (2010–2). Substantial welfare gains are achieved, particularly in times of crisis. The Fund is, in fact, a risk-sharing, crisis prevention and resolution mechanism, which transforms the participant countries’ defaultable sovereign debt into the union’s safe assets. In sum, our theory can help to improve current official lending practices and, for example, to eventually design a European Fiscal Fund.",
+      "abstract_cn": "我们为一个主权国家联盟构建了一个金融稳定基金（以下简称“基金”）模型。通过设计，该合约防止国家违约以及不希望出现的预期损失，而在联盟中，这些损失会转化为过度的风险共担。参与国相比使用主权债务融资，具有更强的借贷和风险分担能力。基金合约还为该国减少内生风险提供了更好的激励。这些效率收益源于基金能够提供长期或有金融合约，但受到有限执行和道德风险约束。我们发展了理论，并将约束有效的基金经济与存在违约的不完全市场经济进行了定量比较。我们将经济校准至债务危机期间欧元区“受压力国家”（2010-2）。福利收益显著，尤其是在危机时期。事实上，基金是一种风险分担、危机预防和解决机制，它将参与国的可违约主权债务转化为联盟的安全资产。总之，我们的理论有助于改进当前官方贷款实践，并例如最终设计一个欧洲财政基金。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdaf076",
+      "source_url": "https://doi.org/10.1093/restud/rdaf076",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/93/4",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:36:56+00:00",
+        "source_hash": "e29f9c3cc715c02eb5ea7159bf7676397a75d14e7f18f49efd66ca32a6fd3ee6"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdaf081",
+      "sequence": 2,
+      "source_sequence": 2181,
+      "article_type": "research-article",
+      "title_en": "Temporal-Difference Estimation of Dynamic Discrete Choice Models",
+      "title_cn": "动态离散选择模型的时间差分估计",
+      "authors": [
+        "Karun Adusumilli",
+        "Dita Eckardt"
+      ],
+      "abstract_en": "We study the use of Temporal-Difference learning for estimating the structural parameters in dynamic discrete choice models. Our algorithms are based on the conditional choice probability approach but use functional approximations to estimate various terms in the pseudo-log-likelihood function. We suggest two approaches: The first—linear semi-gradient—provides approximations to the recursive terms using basis functions. The second—Approximate Value Iteration—builds a sequence of approximations to the recursive terms by solving non-parametric estimation problems. Our approaches are fast and naturally allow for continuous and/or high-dimensional state spaces. Furthermore, they do not require specification of transition densities. In dynamic games, they avoid integrating over other players’ actions, further heightening the computational advantage. Our proposals can be paired with popular existing methods such as pseudo-maximum-likelihood, and we propose locally robust corrections for the latter to achieve parametric rates of convergence. Monte Carlo simulations confirm the properties of our algorithms in practice.",
+      "abstract_cn": "我们研究了使用时间差分学习来估计动态离散选择模型中的结构参数。我们的算法基于条件选择概率方法，但使用函数逼近来估计伪对数似然函数中的各项。我们提出了两种方法：第一种——线性半梯度——使用基函数对递归项进行逼近。第二种——近似值迭代——通过求解非参数估计问题构建递归项的逼近序列。我们的方法速度快，并且自然允许连续和/或高维状态空间。此外，它们不需要指定转移密度。在动态博弈中，它们避免了对其他参与者行动的积分，进一步提高了计算优势。我们的提议可以与流行的现有方法（如伪极大似然）结合使用，并为后者提出了局部稳健修正以达到参数收敛速度。蒙特卡洛模拟证实了我们的算法在实践中的性质。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdaf081",
+      "source_url": "https://doi.org/10.1093/restud/rdaf081",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/93/4",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:36:58+00:00",
+        "source_hash": "4293b4b835cae926afc295c84d3aedd7d9e991547e685f7ea306cc28bb90446b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdaf093",
+      "sequence": 3,
+      "source_sequence": 2215,
+      "article_type": "research-article",
+      "title_en": "Demand Analysis under Latent Choice Constraints",
+      "title_cn": "潜在选择约束下的需求分析",
+      "authors": [
+        "Nikhil Agarwal",
+        "Paulo Somaini"
+      ],
+      "abstract_en": "Consumer choices are constrained in many markets due to either supply-side rationing or information frictions. Examples include matching markets for schools and colleges; entry-level labour markets; limited brand awareness and inattention in consumer markets; and selective admissions to healthcare services. We analyse a general random utility model for consumer preferences that allows for endogenous characteristics and a reduced-form choice-set formation rule that can be derived from models of the examples described above. We show non-parametric identification of this model, propose an estimator, and apply these methods to study admissions in the market for kidney dialysis in California. Our identification results require two sets of instruments, one that only affects consumer preferences and the other that only affects choice sets. We show that both instruments are necessary for identification. These results also suggest tests of choice-set constraints, which we apply to the dialysis market. We find that dialysis facilities are less likely to admit new patients when they have a higher-than-normal caseload and that patients are more likely to travel further when nearby facilities have high caseloads. Finally, we estimate consumers’ preferences and facilities’ rationing rules using a Gibbs sampler.",
+      "abstract_cn": "在许多市场中，消费者选择受到供给方配给或信息摩擦的约束。例子包括学校和大学的匹配市场；入门级劳动力市场；消费者市场中有限的品牌意识和注意力不集中；以及医疗服务的选择性准入。我们分析了一个允许内生特征和简化形式选择集形成规则的通用随机效用模型，该规则可以从上述例子的模型中推导出来。我们证明了该模型的非参数识别，提出了一种估计方法，并将这些方法应用于研究加利福尼亚州肾透析市场的准入问题。我们的识别结果需要两组工具变量，一组仅影响消费者偏好，另一组仅影响选择集。我们表明这两组工具对于识别都是必要的。这些结果也提出了选择集约束的检验方法，我们将其应用于透析市场。我们发现，当透析设施的病例量高于正常水平时，它们接纳新患者的可能性较低，而当附近设施的病例量较高时，患者更有可能前往更远的地方。最后，我们使用吉布斯采样器估计消费者的偏好和设施的配给规则。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdaf093",
+      "source_url": "https://doi.org/10.1093/restud/rdaf093",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/93/4",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:37:01+00:00",
+        "source_hash": "b227510f3f6a60a0435dff5c94c211fa398a8099eaee7612bcc017373653cc28"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdaf084",
+      "sequence": 4,
+      "source_sequence": 2250,
+      "article_type": "research-article",
+      "title_en": "Algorithmic Recommendations and Human Discretion",
+      "title_cn": "算法推荐与人类自由裁量权",
+      "authors": [
+        "Victoria Angelova",
+        "Will Dobbie",
+        "Crystal S Yang"
+      ],
+      "abstract_en": "Human decision-makers frequently override the recommendations generated by predictive algorithms, but it is unclear whether these discretionary overrides add valuable private information or reintroduce human biases and mistakes. We develop new quasi-experimental tools to measure the impact of human discretion over an algorithm on the accuracy of decisions, even when the outcome of interest is only selectively observed, in the context of bail decisions. We find that 90% of the judges in our setting underperform the algorithm when they make a discretionary override, with most making override decisions that are no better than random. Yet the remaining 10% of judges outperform the algorithm in terms of both accuracy and fairness when they make a discretionary override. We provide suggestive evidence on the behaviour underlying these differences in judge performance, showing that the high-performing judges are more likely to use relevant private information and are less likely to overreact to highly salient events compared to the low-performing judges.",
+      "abstract_cn": "人类决策者经常推翻预测算法生成的推荐，但尚不清楚这些自由裁量性的推翻行为是增加了有价值的私人信息，还是重新引入了人类偏见和错误。我们开发了新的准实验工具来衡量人类对算法的自由裁量权对决策准确性的影响，即使感兴趣的结果仅被选择性观察，在保释决定的背景下。我们发现，在我们的环境中，90%的法官在做出自由裁量性推翻时表现不如算法，其中大多数人的推翻决定并不比随机更好。然而，其余10%的法官在做出自由裁量性推翻时，在准确性和公平性方面都优于算法。我们提供了关于这些法官表现差异背后行为的提示性证据，表明高绩效法官更可能使用相关的私人信息，并且与低绩效法官相比，不太可能对高度显著的事件过度反应。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdaf084",
+      "source_url": "https://doi.org/10.1093/restud/rdaf084",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/93/4",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:37:04+00:00",
+        "source_hash": "6d536a17262ab6cf5b3db62a8971721bfde08db3a3bc30376c4ba2fd1509681b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdaf087",
+      "sequence": 5,
+      "source_sequence": 2284,
+      "article_type": "research-article",
+      "title_en": "The Surrogate Index: Combining Short-Term Proxies to Estimate Long-Term Treatment Effects More Rapidly and Precisely",
+      "title_cn": "替代指标：结合短期代理变量以更快速、更精确地估计长期处理效应",
+      "authors": [
+        "Susan Athey",
+        "Raj Chetty",
+        "Guido W Imbens",
+        "Hyunseung Kang"
+      ],
+      "abstract_en": "A common challenge in estimating the impact of interventions (e.g. job training programmes, educational programmes) is that many outcomes of interest (e.g. lifetime earnings or other labour market outcomes) are observed with a long delay. In biomedical settings, this is often addressed by using short-term outcomes as so-called “surrogates” for the outcome of interest, e.g. tumour size as a surrogate for mortality in cancer studies. We build on this literature by combining multiple, possibly qualitatively distinct, short-term outcomes (e.g. short-run earnings and employment indicators) systematically into a “surrogate index”. Under the Prentice surrogacy assumption, which requires that the primary outcome is independent of the treatment conditional on the surrogates, we show that the average treatment effect on the surrogate index equals the treatment effect on the long-term outcome. We also relate the surrogacy assumption to a set of structural, causal assumptions. We then characterize the bias that arises from violations of each of the key assumptions, and we provide simple methods to validate these assumptions using additional observed outcomes. We apply our method to analyse the long-term impacts of a multi-site job training experiment in California. Rather than waiting a full 9 years to directly observe the long-term impact, we show that it is possible to use short-term (the first six quarters) outcomes as surrogates. Given the surrogacy assumption one could have estimated the programme’s long-term impacts on mean employment rates using the employment rates observed in the first six quarters, with a 35% reduction in standard errors relative to a simple difference in means estimator based on all 9 years of data.",
+      "abstract_cn": "估计干预措施（如职业培训项目、教育项目）影响的一个常见挑战是，许多感兴趣的结果（如终身收入或其他劳动力市场结果）需要很长时间才能观察到。在生物医学领域，通常通过使用短期结果作为感兴趣结果的所谓“替代指标”来解决这一问题，例如在癌症研究中以肿瘤大小作为死亡率的替代指标。我们在此基础上，将多个可能性质不同的短期结果（如短期收入和就业指标）系统地结合成一个“替代指标”。在Prentice替代性假设下，该假设要求主要结果在给定替代指标的条件下与处理独立，我们证明替代指标上的平均处理效应等于长期结果上的处理效应。我们还将替代性假设与一组结构性因果假设联系起来。然后，我们刻画了每个关键假设被违反时产生的偏差，并提供了使用额外观察结果来验证这些假设的简单方法。我们将我们的方法应用于分析加利福尼亚州一个多地点职业培训实验的长期影响。我们表明，与其等待整整9年直接观察长期影响，可以使用短期（前六个季度）结果作为替代指标。在替代性假设下，人们本可以使用前六个季度观察到的就业率来估计该项目对平均就业率的长期影响，与基于全部9年数据的简单均值差估计量相比，标准误减少了35%。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdaf087",
+      "source_url": "https://doi.org/10.1093/restud/rdaf087",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/93/4",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:37:07+00:00",
+        "source_hash": "e409359ea8d35868140f72b61c50d433b170a71099164da71d23e1405fbb93a4"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdaf096",
+      "sequence": 6,
+      "source_sequence": 2313,
+      "article_type": "research-article",
+      "title_en": "Demand Stimulus as Social Policy",
+      "title_cn": "作为社会政策的需求刺激",
+      "authors": [
+        "Alan J Auerbach",
+        "Yuriy Gorodnichenko",
+        "Daniel Murphy"
+      ],
+      "abstract_en": "We exploit a panel of city-level data with rich demographic information to estimate the distributional effects of Department of Defense spending and its effects on a range of social outcomes. The income and employment generated by defence spending accrue predominantly to households without a bachelor's degree. These households as well as Black and Hispanic households tend to disproportionately benefit from this spending. Defence spending also promotes a range of beneficial social outcomes that are often targeted by government programs, including reductions in poverty, divorce rates, disability rates, and mortality rates, as well as increases in homeownership rates, health insurance rates, and occupational prestige. We compare the effects of defence spending with the effects of general demand shocks and explore reasons for the differential effects of the shocks.",
+      "abstract_cn": "我们利用包含丰富人口统计信息的城市级面板数据，估计国防支出的分配效应及其对一系列社会结果的影响。国防支出产生的收入和就业主要惠及没有学士学位的家庭。这些家庭以及黑人和西班牙裔家庭往往不成比例地从这项支出中受益。国防支出还促进了一系列通常由政府项目瞄准的有益社会结果，包括贫困率、离婚率、残疾率和死亡率的降低，以及住房拥有率、健康保险率和职业声望的提高。我们将国防支出的效应与一般需求冲击的效应进行比较，并探讨冲击效应差异的原因。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdaf096",
+      "source_url": "https://doi.org/10.1093/restud/rdaf096",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/93/4",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:37:09+00:00",
+        "source_hash": "d3b4ed4507e9076ba50e6a231c348b936b18fc3fa82b8785b26dd1bcef7caa92"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdaf088",
+      "sequence": 7,
+      "source_sequence": 2348,
+      "article_type": "research-article",
+      "title_en": "The Origins and Control of Forest Fires in the Tropics",
+      "title_cn": "热带森林火灾的起源与控制",
+      "authors": [
+        "Clare Balboni",
+        "Robin Burgess",
+        "Benjamin A Olken"
+      ],
+      "abstract_en": "Environmental externalities—uncompensated damages imposed on others—lie at the root of climate change, pollution, deforestation and biodiversity loss. Empirical evidence is limited, however, as to how externalities drive private decision making. We study one such behaviour, illegal tropical forest fires, using 15 years of daily satellite data covering over 107,000 fires across Indonesia. Weather-induced variation in fire spread risk and variation in who owns surrounding land allow us to identify how far externalities influence the decision to use fire. Relative to when all spread risks are internalized, we find that firms overuse fire when surrounded by unleased government lands where property rights are weak. In contrast, and consistent with the Coase Theorem, firms treat risks to nearby private concessions similarly to risks to their own land. Government sanctions, concentrated on fires spreading to populated areas, also deter fires, consistent with Pigouvian deterrence.",
+      "abstract_cn": "环境外部性——对他人造成的未补偿损害——是气候变化、污染、森林砍伐和生物多样性丧失的根源。然而，关于外部性如何驱动私人决策的经验证据有限。我们利用覆盖印度尼西亚超过107,000起火灾的15年每日卫星数据，研究了一种此类行为，即非法热带森林火灾。天气引起的火灾蔓延风险变化以及周围土地所有权的变化使我们能够识别外部性在多大程度上影响使用火灾的决策。相对于所有蔓延风险都被内部化的情况，我们发现，当企业被产权薄弱的未租赁政府土地包围时，它们会过度使用火灾。相反，与科斯定理一致，企业对待附近私人特许经营地的风险与对待自己土地的风险类似。政府制裁，集中于蔓延至人口密集地区的火灾，也起到了威慑作用，这与庇古式威慑一致。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdaf088",
+      "source_url": "https://doi.org/10.1093/restud/rdaf088",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/93/4",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:37:12+00:00",
+        "source_hash": "54f3dfa492237d2145b1a3024dadf4ee16838e45b8605b3679e0afbf33d97347"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdaf082",
+      "sequence": 8,
+      "source_sequence": 2390,
+      "article_type": "research-article",
+      "title_en": "Repurchase Options in the Market for Lemons",
+      "title_cn": "柠檬市场中的回购期权",
+      "authors": [
+        "Saki Bigio",
+        "Liyan Shi"
+      ],
+      "abstract_en": "We study repurchase options (repo contracts) in a competitive asset market with adverse selection. Gains from trade emerge from a liquidity need, but private information about asset quality prevents the full realization of trades. In equilibrium, a single repo contract pools all assets. The embedded repurchase option mitigates adverse selection by improving the volume of trades relative to outright sales. However, liquidity provision can be inefficiently low as lenders compete to attract high-quality assets via high haircuts and low rates. The equilibrium has a closed form and aligns well with empirical patterns across Mortgage-Backed Securities repos.",
+      "abstract_cn": "我们研究了在具有逆向选择的竞争性资产市场中的回购期权（回购协议）。交易收益源于流动性需求，但关于资产质量的私人信息阻碍了交易的完全实现。在均衡中，单一回购协议汇集了所有资产。嵌入的回购期权通过提高相对于直接出售的交易量来缓解逆向选择。然而，由于贷款人通过高折扣率和低利率竞争以吸引高质量资产，流动性提供可能低效地不足。均衡具有闭式解，并与抵押贷款支持证券回购中的经验模式高度吻合。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdaf082",
+      "source_url": "https://doi.org/10.1093/restud/rdaf082",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/93/4",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:37:14+00:00",
+        "source_hash": "44c80de0ad959d4ae659f82f577736e36c67e37b3abb997eb0df2185e2c08d09"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdaf089",
+      "sequence": 9,
+      "source_sequence": 2424,
+      "article_type": "research-article",
+      "title_en": "What Do Policies Value?",
+      "title_cn": "政策重视什么？",
+      "authors": [
+        "Daniel Björkegren",
+        "Joshua E Blumenstock",
+        "Samsun Knight"
+      ],
+      "abstract_en": "When a policy prioritizes one person over another, is it because they benefit more, or because they are preferred? This paper develops a method to uncover the values consistent with observed allocation decisions. We estimate how much each person benefits from an intervention, and then reconcile the allocation with (i) the welfare weights assigned to different people; (ii) heterogeneous treatment effects of the intervention; and (iii) weights on different outcomes. We demonstrate this approach by analyzing Mexico’s PROGRESA anti-poverty programme. The analysis reveals that while the programme prioritized certain subgroups—such as indigenous households—the fact that those groups benefited more implies that the programme did not actually assign them a higher welfare weight. We also find evidence that the policy valued outcomes differently from households. The PROGRESA case illustrates how the method makes it possible to audit existing policies, and to design future policies that better align with values.",
+      "abstract_cn": "当一项政策优先考虑一个人而非另一个人时，是因为他们受益更多，还是因为他们更受偏爱？本文开发了一种方法来揭示与观察到的分配决策一致的价值观。我们估计每个人从干预中受益多少，然后协调分配与（i）赋予不同人的福利权重；（ii）干预的异质性处理效应；以及（iii）不同结果的权重。我们通过分析墨西哥的PROGRESA反贫困计划来展示这种方法。分析表明，虽然该计划优先考虑了某些子群体——如土著家庭——但这些群体受益更多的事实意味着该计划实际上并未赋予他们更高的福利权重。我们还发现证据表明，政策对结果的重视程度与家庭不同。PROGRESA案例说明了该方法如何使审计现有政策以及设计未来更符合价值观的政策成为可能。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdaf089",
+      "source_url": "https://doi.org/10.1093/restud/rdaf089",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/93/4",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:37:16+00:00",
+        "source_hash": "4f6e9bf948bde3a04ffa7002cd6a6b5e013a7f89148bdd123d5b03a5dd0dd295"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdaf079",
+      "sequence": 10,
+      "source_sequence": 2451,
+      "article_type": "research-article",
+      "title_en": "Contract Terms, Employment Shocks, and Default in Credit Cards",
+      "title_cn": "合同条款、就业冲击与信用卡违约",
+      "authors": [
+        "Sara G Castellanos",
+        "Diego Jiménez-Hernández",
+        "Aprajit Mahajan",
+        "Eduardo Alcaraz Prous",
+        "Enrique Seira"
+      ],
+      "abstract_en": "Regulatory concerns over a tension between expanding financial access and limiting default have led to significant restrictions on contract terms in a number of countries, despite limited evidence on their effectiveness. We use a large nation-wide RCT to examine new borrower responses to changes in interest rates and minimum payments for a credit card that accounted for 15% of all first-time formal loans in Mexico. Default rates were 19% over the 26 month experiment and a 30 pp decrease in interest rates decreased default by 2.5 pp with no effects on the newest borrowers. Doubling minimum payments increased default by 0.8 pp during the experiment but reduced it by 1 pp afterwards, possibly by reducing debt. Matching the experimental sample to their formal employment histories we find that the effect of job separation—more common among new borrowers—on default is seven times larger than the effect of the 30 pp interest rate change. We provide a simple framework for interpreting the experimental results, and rationalize the smaller contract term effects by their limited effects on cash flow rather than by differences in per-peso impacts.",
+      "abstract_cn": "监管机构对扩大金融准入与限制违约之间紧张关系的担忧，导致许多国家对合同条款实施了重大限制，尽管关于其有效性的证据有限。我们利用一项全国性的大规模随机对照试验，研究新借款人对墨西哥一种信用卡利率和最低还款额变化的反应，该信用卡占墨西哥所有首次正规贷款的15%。在26个月的实验期间，违约率为19%，利率降低30个百分点使违约率下降2.5个百分点，但对最新借款人没有影响。最低还款额翻倍在实验期间使违约率增加0.8个百分点，但之后降低了1个百分点，可能是通过减少债务实现的。将实验样本与其正规就业历史相匹配，我们发现工作分离（在新借款人中更为常见）对违约的影响是30个百分点利率变化影响的七倍。我们提供了一个简单的框架来解释实验结果，并将较小的合同条款效应归因于其对现金流的影响有限，而非每比索影响的差异。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdaf079",
+      "source_url": "https://doi.org/10.1093/restud/rdaf079",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/93/4",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:37:18+00:00",
+        "source_hash": "b8d3cf0e74671b862bb4e9e23a5da3103c4c77bd6cc518103bba0807d699ea37"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdaf091",
+      "sequence": 11,
+      "source_sequence": 2490,
+      "article_type": "research-article",
+      "title_en": "Structural Change, Land Use and Urban Expansion",
+      "title_cn": "结构变迁、土地利用与城市扩张",
+      "authors": [
+        "Nicolas Coeurdacier",
+        "Florian Oswald",
+        "Marc Teignier"
+      ],
+      "abstract_en": "How do cities grow in the process of structural transformation? To answer this question, we develop a multi-sector spatial equilibrium model with endogenous land use: land is used either for agriculture or housing. Urban land, densely populated due to commuting frictions, expands out of agricultural land. With low productivity and high subsistence needs, farmland is expensive, households cannot afford large homes and cities are very dense. Increasing productivity reallocates factors away from agriculture, freeing up land for urban expansion and limiting the increase in land values despite higher income and urban population. With the area of cities growing faster than urban population, urban density can persistently decline, as in the data over a long period. The quantitative evaluation calibrated to historical data assembled for France over 180 years explains a large fraction of the joint evolution of urban areas, population density and land values across time and space.",
+      "abstract_cn": "城市在结构转型过程中如何增长？为回答这一问题，我们构建了一个具有内生土地利用的多部门空间均衡模型：土地要么用于农业，要么用于住房。由于通勤摩擦而人口密集的城市土地，从农业用地中扩张出来。在低生产率和高的生存需求下，农地昂贵，家庭负担不起大房子，城市非常密集。生产率的提高将要素从农业中重新配置出来，释放土地用于城市扩张，并限制了尽管收入和城市人口增加而土地价值的上升。随着城市面积的增长快于城市人口，城市密度可以持续下降，正如长期数据所显示的那样。以法国180年的历史数据校准的定量评估，解释了城市面积、人口密度和土地价值在时间和空间上联合演变的很大一部分。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdaf091",
+      "source_url": "https://doi.org/10.1093/restud/rdaf091",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/93/4",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:37:21+00:00",
+        "source_hash": "bebda21e81dda327f3ae047023b09becd0dc6403431ab5237de24841003b1b3b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdaf083",
+      "sequence": 12,
+      "source_sequence": 2531,
+      "article_type": "research-article",
+      "title_en": "What’s My Employee Worth? The Effects of Salary Benchmarking",
+      "title_cn": "我的员工价值几何？薪酬基准化的影响",
+      "authors": [
+        "Zoë Cullen",
+        "Shengwu Li",
+        "Ricardo Perez-Truglia"
+      ],
+      "abstract_en": "Firms are allowed to use aggregate data on market salaries to set pay, a practice known as salary benchmarking. Using national payroll data, we study firms that gain access to a tool that reveals market benchmarks for each job title. Using a difference-in-differences design, we find that the benchmark information reduces salary dispersion by 25%. Thus, salary dispersion must stem partly from aggregate uncertainty about the salaries offered by other firms. Our model formalizes how salary dispersion can arise even in competitive labour markets for identical workers when such uncertainty exists, and we discuss implications for an ongoing policy debate.",
+      "abstract_cn": "企业被允许使用市场薪酬的汇总数据来设定薪酬，这种做法被称为薪酬基准化。利用全国工资数据，我们研究了那些获得能够揭示每个职位市场基准的工具的企业。通过双重差分设计，我们发现基准信息将薪酬离散度降低了25%。因此，薪酬离散度在一定程度上必然源于对其他企业所提供薪酬的总体不确定性。我们的模型形式化了即使在竞争性劳动力市场中，当存在这种不确定性时，同质工人的薪酬离散度也可能出现，并讨论了对正在进行的政策辩论的影响。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdaf083",
+      "source_url": "https://doi.org/10.1093/restud/rdaf083",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/93/4",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:37:23+00:00",
+        "source_hash": "557e31e5af5a8617722ce3c9b6ee91a0785ffdd69bfa7e7cf3b940c58507e541"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdaf078",
+      "sequence": 13,
+      "source_sequence": 2574,
+      "article_type": "research-article",
+      "title_en": "Normalizations and Misspecification in Skill Formation Models",
+      "title_cn": "技能形成模型中的标准化与误设",
+      "authors": [
+        "Joachim Freyberger"
+      ],
+      "abstract_en": "An important class of structural models studies the determinants of skill formation and the optimal timing of interventions. In this article, I provide new identification results for these models and investigate the effects of seemingly innocuous scale and location restrictions on parameters of interest. To do so, I first characterize the identified set of all parameters without these additional restrictions and show that important policy-relevant parameters are point identified under weaker assumptions than commonly used in the literature. The implications of imposing standard scale and location restrictions depend on how the model is specified, but they generally impact the interpretation of parameters and may affect counterfactuals. Importantly, with the popular constant elasticity of substitution (CES) production function, commonly used scale restrictions fix identified parameters and lead to misspecification. Consequently, simply changing the units of measurements of observed variables might yield ineffective investment strategies and misleading policy recommendations. I show how existing estimators can easily be adapted to solve these issues. As a byproduct, this article also presents a general and formal definition of when restrictions are truly normalizations.",
+      "abstract_cn": "一类重要的结构模型研究技能形成的决定因素和干预的最佳时机。在本文中，我为这些模型提供了新的识别结果，并研究了看似无害的尺度和位置限制对感兴趣参数的影响。为此，我首先刻画了在没有这些额外限制的情况下所有参数的识别集，并表明在比文献中常用的假设更弱的条件下，重要的政策相关参数是点识别的。施加标准尺度和位置限制的影响取决于模型的具体设定，但它们通常会影响参数的解释，并可能影响反事实分析。重要的是，对于流行的常替代弹性（CES）生产函数，常用的尺度限制固定了识别参数并导致误设。因此，仅仅改变观测变量的测量单位可能会产生无效的投资策略和误导性的政策建议。我展示了如何轻松调整现有估计量以解决这些问题。作为副产品，本文还提出了限制何时真正属于标准化的一般且正式的定义。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdaf078",
+      "source_url": "https://doi.org/10.1093/restud/rdaf078",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/93/4",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:37:25+00:00",
+        "source_hash": "b6144fc85aedf7aa3d2ce40da43a4ef981ad7761a806c842d0143ce2aae30d1d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdaf092",
+      "sequence": 14,
+      "source_sequence": 2605,
+      "article_type": "research-article",
+      "title_en": "To Own or to Rent? The Effects of Transaction Taxes on Housing Markets",
+      "title_cn": "拥有还是租赁？交易税对住房市场的影响",
+      "authors": [
+        "Lu Han",
+        "L Rachel Ngai",
+        "Kevin D Sheedy"
+      ],
+      "abstract_en": "Using sales and leasing data, this paper finds three novel effects of a higher property transaction tax: higher buy-to-rent transactions alongside lower buy-to-own transactions despite both being taxed, a lower sales-to-leases ratio, and a lower price-to-rent ratio. This paper explains these facts by developing a search model with entry of investors and households, households choosing to own or rent in the presence of credit frictions, and homeowners deciding when to move house. A higher transaction tax reduces homeowners’ mobility and increases demand for rental properties, which explains the empirical facts and leads to a lower homeownership rate. The deadweight loss is large at 111% of tax revenue, with more than half of this due to distorting decisions to own or rent.",
+      "abstract_cn": "利用销售和租赁数据，本文发现了更高房产交易税的三个新颖效应：尽管购房出租和购房自住均被征税，但购房出租交易增加而购房自住交易减少，销售与租赁比率降低，以及价格与租金比率降低。本文通过构建一个包含投资者和家庭进入、家庭在信贷摩擦下选择拥有或租赁、以及房主决定何时搬家的搜索模型来解释这些事实。更高的交易税降低了房主的流动性，增加了对租赁住房的需求，这解释了实证事实并导致住房拥有率降低。无谓损失占税收收入的111%，其中超过一半是由于扭曲了拥有或租赁的决策。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdaf092",
+      "source_url": "https://doi.org/10.1093/restud/rdaf092",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/93/4",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:37:27+00:00",
+        "source_hash": "a46aee51c94a80c7d17b2ae5bd956cc7439a75c6988998ade6dd967de0d6c408"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdaf090",
+      "sequence": 15,
+      "source_sequence": 2646,
+      "article_type": "research-article",
+      "title_en": "Slum Upgrading and Long-Run Urban Development: Evidence from Indonesia",
+      "title_cn": "贫民窟改造与长期城市发展：来自印度尼西亚的证据",
+      "authors": [
+        "Mariaflavia Harari",
+        "Maisy Wong"
+      ],
+      "abstract_en": "Developing countries face massive urbanization and slum upgrading is a popular policy to improve shelter for many. Yet, preserving slums at the expense of formal developments can raise concerns of misallocation of land. We estimate causal, long-term impacts of the 1969–84 KIP programme, which provided basic upgrades to 5 million residents covering 25% of land in Jakarta, Indonesia. We assemble high-resolution data on programme boundaries and 2015 outcomes and address programme selection bias through localized comparisons. On average, KIP areas today have lower land values, shorter buildings, and are more informal, per a photographs-based slum index. The negative effects are concentrated within 5 km of the CBD. We develop a spatial equilibrium model to characterize the welfare implications of KIP. Counterfactuals suggest that 79% of the welfare effects stem from removing KIP in the centre and highlight how to mitigate losses to displaced residents.",
+      "abstract_cn": "发展中国家面临大规模城市化，贫民窟改造是改善许多人住房的普遍政策。然而，以牺牲正规开发为代价保留贫民窟可能引发土地错配的担忧。我们估计了1969-84年KIP项目的因果长期影响，该项目为印度尼西亚雅加达5万居民提供了基本改造，覆盖了25%的土地。我们汇编了项目边界和2015年结果的高分辨率数据，并通过局部比较解决项目选择偏差。平均而言，根据基于照片的贫民窟指数，KIP地区如今土地价值较低、建筑较矮、非正规性更高。负面效应集中在距市中心5公里范围内。我们开发了一个空间均衡模型来刻画KIP的福利影响。反事实分析表明，79%的福利效应源于移除市中心的KIP，并强调了如何减轻对搬迁居民的损失。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdaf090",
+      "source_url": "https://doi.org/10.1093/restud/rdaf090",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/93/4",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:37:29+00:00",
+        "source_hash": "1a79386e35556366b62b9feb918c93b201b04a80a0cf5fda15db9e2532ee2e28"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdaf085",
+      "sequence": 16,
+      "source_sequence": 2680,
+      "article_type": "research-article",
+      "title_en": "Sanctions and the Exchange Rate",
+      "title_cn": "制裁与汇率",
+      "authors": [
+        "Oleg Itskhoki",
+        "Dmitry Mukhin"
+      ],
+      "abstract_en": "Trade wars and financial sanctions are again becoming an increasingly common part of the international economic landscape, and the dynamics of the exchange rate are often used in real time to evaluate the effectiveness of sanctions and policy responses. We show that sanctions limiting a country’s exports or freezing its assets depreciate the exchange rate, while sanctions limiting imports appreciate it, even when both types of policies have exactly the same effect on real allocations, including household welfare and government fiscal revenues. Beyond the direct effect from sanctions, increased precautionary savings in foreign currency also depreciate the exchange rate when they are not offset by the sale of official reserves or financial repression of foreign-currency savings. We show that the dynamics of the ruble exchange rate following Russia’s invasion of Ukraine in February 2022 are quantitatively consistent with the combined effects of these forces calibrated to the observed sanctions and government policies. We evaluate the associated welfare, fiscal and inflationary consequences for both Russia and the coalition of Western countries.",
+      "abstract_cn": "贸易战和金融制裁再次成为国际经济格局中日益常见的组成部分，汇率动态常被实时用于评估制裁和政策应对的有效性。我们表明，限制一国出口或冻结其资产的制裁会使汇率贬值，而限制进口的制裁则会使汇率升值，即使这两类政策对实际配置（包括家庭福利和政府财政收入）的影响完全相同。除了制裁的直接效应外，以外币计价的预防性储蓄增加也会在未被官方储备出售或外币储蓄的金融抑制所抵消时导致汇率贬值。我们表明，俄罗斯在2022年二月入侵乌克兰后卢布汇率的动态与这些力量结合观测到的制裁和政府政策校准后的定量结果一致。我们评估了相关福利、财政和通胀后果，对俄罗斯和西方联盟国家均进行了分析。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdaf085",
+      "source_url": "https://doi.org/10.1093/restud/rdaf085",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/93/4",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:37:32+00:00",
+        "source_hash": "48582a5bbdce1c2d44d571b2fdfbd4014114cc7f79bb5352ae8613b772494fce"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdaf094",
+      "sequence": 17,
+      "source_sequence": 2715,
+      "article_type": "research-article",
+      "title_en": "Taxes Depress Corporate Borrowing: Evidence from Private Firms",
+      "title_cn": "税收抑制企业借贷：来自私营企业的证据",
+      "authors": [
+        "Ivan T Ivanov",
+        "Luke Pettit",
+        "Toni M Whited"
+      ],
+      "abstract_en": "We use variation in state corporate income tax rates to re-examine the relation between taxes and corporate leverage. Contrary to prior research, corporate leverage rises after tax cuts for small private firms. An estimated dynamic equilibrium model shows that tax cuts make capital more productive and spur the use of leverage. Tax cuts also produce more distant default thresholds and lower credit spreads. These effects outweigh the lower interest tax deduction and lead to higher optimal leverage choices, especially for firms with flexible investment policies. The presence of the interest tax deduction raises consumer welfare in equilibrium.",
+      "abstract_cn": "我们利用州企业所得税税率的变化重新审视税收与企业杠杆之间的关系。与先前研究相反，对于小型私营企业，减税后企业杠杆率上升。一个估计的动态均衡模型表明，减税使资本更具生产力并刺激杠杆的使用。减税还产生更远的违约阈值和更低的信用利差。这些效应超过了较低的利息税抵扣，导致更高的最优杠杆选择，尤其是对于具有灵活投资政策的企业。利息税抵扣的存在在均衡中提高了消费者福利。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdaf094",
+      "source_url": "https://doi.org/10.1093/restud/rdaf094",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/93/4",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:37:34+00:00",
+        "source_hash": "6eba86a47920121e58f17df44f2da2bb804b71e218e6d2266094f9f4aa409c4c"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdaf080",
+      "sequence": 18,
+      "source_sequence": 2750,
+      "article_type": "research-article",
+      "title_en": "Supply Chain Disruption and Reorganization: Theory and Evidence From Ukraine’s War",
+      "title_cn": "供应链中断与重组：来自乌克兰战争的理论与证据",
+      "authors": [
+        "Vasily Korovkin",
+        "Alexey Makarin",
+        "Yuhei Miyauchi"
+      ],
+      "abstract_en": "How do localized conflicts disrupt supply chains and prompt firms to reorganize them? How do these forces affect firm-level and aggregate economic activity? Using firm-to-firm Ukrainian railway-shipment data before and during the 2014 Russia–Ukraine conflict, we document that firms with prior supplier and buyer exposure to the conflict areas substantially decreased their output. Simultaneously, firms reorganized their production linkages away from partners directly or indirectly exposed to the conflict shock. We build a general-equilibrium production-network model with endogeneous link formation, and we show that our model’s sufficient statistics accurately explains the observed relative decline in firm output once we account for network reorganization. Calibrating our model to the Ukrainian economy, we find that the localized conflict decreased aggregate output in nonconflict areas by 5.5%. This effect increases to 8.4% if we abstract from endogeneous link formation, suggesting that production-network reorganization partially mitigates the detrimental, far-reaching aggregate economic costs of conflicts.",
+      "abstract_cn": "局部冲突如何中断供应链并促使企业进行重组？这些力量如何影响企业层面和总体经济活动？利用2014年俄罗斯-乌克兰冲突前后乌克兰企业间铁路运输数据，我们发现，先前与冲突地区有供应商和买方接触的企业，其产出大幅下降。同时，企业将其生产联系从直接或间接暴露于冲突冲击的合作伙伴中重组出来。我们构建了一个具有内生联系形成的一般均衡生产网络模型，并表明，一旦我们考虑网络重组，我们模型的充分统计量能准确解释观察到的企业产出相对下降。将模型校准到乌克兰经济，我们发现局部冲突使非冲突地区的总产出下降了5.5%。如果我们不考虑内生联系形成，这一影响将增加到8.4%，这表明生产网络重组部分缓解了冲突造成的深远且不利的总体经济成本。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdaf080",
+      "source_url": "https://doi.org/10.1093/restud/rdaf080",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/93/4",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:37:36+00:00",
+        "source_hash": "fa333ab9e23ebbf444e51d4087612c58b7931abe7ea2edefad0c955aeb059fe9"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdaf095",
+      "sequence": 19,
+      "source_sequence": 2784,
+      "article_type": "research-article",
+      "title_en": "All Along the Watchtower: Military Landholders and Serfdom Consolidation in Early Modern Russia",
+      "title_cn": "瞭望塔沿线：近代早期俄罗斯的军事地主与农奴制巩固",
+      "authors": [
+        "Andrea Matranga",
+        "Timur Natkhov"
+      ],
+      "abstract_en": "This article examines the emergence of coercive labour institutions using the case of serfdom in early modern Russia. We argue that serfdom consolidated under the pressure of landholding military elites who gained political influence due to the prolonged struggle with steppe nomads. To contain nomadic raids, the Russian state erected defence lines on the southern frontier, and granted land in the area to soldiers in charge of its defence. The soldiers could not farm while on defence duty, nor could they compete in the market for peasant labour, as the land had been selected for its defensive rather than agricultural value. The system was therefore only sustainable by restricting labour mobility. In response to the volume of landholders’ collective petitions, the Russian state gradually tied peasants to the land and institutionalized serfdom in the written law. Using newly digitized population data from the 17th century, we show a higher prevalence of serfs and military landholders in districts on the defence line. We also find a higher prevalence of small estates—up to 25 serf households—sufficient to support a soldier and his family. Placebo tests show that these patterns do not hold for non-serf peasants, or for merchants and artisans. To ensure causality, we develop a novel algorithm that reconstructs the optimal invasion routes for nomads and pinpoints the optimal location of the defence line using topographic data. Our results highlight the primacy of political economy factors over purely economic ones, such as the land–labour ratio or the grain trade, in the development of serfdom. This sheds new light on the possible mechanisms of institutional divergence between Eastern and Western Europe in the early modern period.",
+      "abstract_cn": "本文以近代早期俄罗斯的农奴制为例，考察了强制性劳动制度的出现。我们认为，农奴制是在拥有土地的军事精英的压力下巩固的，这些精英因与草原游牧民族的长期斗争而获得了政治影响力。为了遏制游牧民族的袭击，俄罗斯国家在南部边境修建了防线，并将该地区的土地授予负责防御的士兵。士兵在履行防御职责时无法耕种，也无法在农民劳动力市场上竞争，因为土地的选择是出于防御而非农业价值。因此，该制度只有通过限制劳动力流动才能维持。针对地主集体请愿的数量，俄罗斯国家逐渐将农民束缚在土地上，并在成文法中将农奴制制度化。利用新数字化的17世纪人口数据，我们显示防线地区的地区中农奴和军事地主的比例更高。我们还发现，小庄园（最多25个农奴家庭）的比例更高，足以养活一名士兵及其家庭。安慰剂检验表明，这些模式不适用于非农奴农民，也不适用于商人和工匠。为确保因果性，我们开发了一种新算法，利用地形数据重建游牧民族的最优入侵路线，并确定防线的最优位置。我们的结果强调了政治经济因素在农奴制发展中的首要地位，而非纯粹的经济因素，如土地-劳动力比率或谷物贸易。这为近代早期东欧与西欧之间制度分化的可能机制提供了新的视角。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdaf095",
+      "source_url": "https://doi.org/10.1093/restud/rdaf095",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/93/4",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:37:40+00:00",
+        "source_hash": "a122a6e57d1069b61c6b587fc462325433c3916a49026200c08c46cc25bd56a1"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdaf086",
+      "sequence": 20,
+      "source_sequence": 2819,
+      "article_type": "research-article",
+      "title_en": "Patents, News, and Business Cycles",
+      "title_cn": "专利、新闻与经济周期",
+      "authors": [
+        "Silvia Miranda-Agrippino",
+        "Sinem Hacıoğlu-Hoke",
+        "Kristina Bluwstein"
+      ],
+      "abstract_en": "We exploit information in patent applications to construct an instrumental variable for the identification of technology news shocks that relaxes all the identifying assumptions traditionally used in the literature. The instrument recovers news shocks that have no effect on aggregate productivity in the short-run, but are a significant driver of its trend component. The shock prompts a broad-based expansion in anticipation of the future increase in total factor productivity (TFP), with output, consumption, and investment all rising well before any material increase in TFP is recorded. Despite the positive conditional comovements, the shock only accounts for a modest share of fluctuations of macroeconomic aggregates at business cycle frequencies. Financial markets price-in news shocks on impact, while most of the macro aggregates respond with some delay.",
+      "abstract_cn": "我们利用专利申请中的信息构建了一个工具变量，用于识别技术新闻冲击，该工具变量放宽了文献中传统使用的所有识别假设。该工具识别出的新闻冲击在短期内对总体生产率没有影响，但对其趋势成分有显著驱动作用。该冲击促使经济在预期未来全要素生产率（TFP）增长时出现广泛扩张，产出、消费和投资均在TFP出现实质性增长之前大幅上升。尽管存在正向的条件协同变动，该冲击仅解释了商业周期频率下宏观经济总量波动的一小部分。金融市场在冲击发生时即将其纳入价格，而大多数宏观总量则有所延迟地作出反应。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdaf086",
+      "source_url": "https://doi.org/10.1093/restud/rdaf086",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/93/4",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:37:42+00:00",
+        "source_hash": "76cc0c2410bfd19eca077cf11a6ab10d46500bef129678a09427198e6a362c4c"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "crossref",
+    "roster_authority": "crossref-provisional",
+    "roster_match_scope": "crossref-issue-group",
+    "publisher_page_status": "blocked",
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 20,
+    "authors_complete": 20,
+    "abstract_en_complete": 20,
+    "translation_complete": 20,
+    "duplicate_count": 0,
+    "flags": [
+      "publisher_html_blocked_crossref_fallback",
+      "crossref_provisional_roster"
+    ],
+    "official_item_count": 20,
+    "publishable_item_count": 20,
+    "content_counts": {
+      "official_items": 20,
+      "observed_items": 20,
+      "publishable_items": 20,
+      "research_articles": 20,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 20
+    }
+  },
+  "source_status": "source_pending",
+  "publication_state": "source_pending",
+  "content_counts": {
+    "official_items": 20,
+    "observed_items": 20,
+    "publishable_items": 20,
+    "research_articles": 20,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 20
+  },
+  "issue_label": "Vol. 93 · No. 4",
+  "content_status": "complete"
+}

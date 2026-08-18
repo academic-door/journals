@@ -1,0 +1,963 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "red-47-c",
+  "journal_id": "red",
+  "journal_name": "Review of Economic Dynamics",
+  "volume": "47",
+  "issue": "C",
+  "publication_date": "January 2023",
+  "source_url": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/47/suppl/C",
+  "retrieved_at": "2026-08-18T16:58:27+00:00",
+  "expected_article_count": 14,
+  "research_article_count": 14,
+  "status": "incomplete",
+  "development_sample": false,
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.red.2021.12.002",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Stock market participation: The role of human capital",
+      "title_cn": "股市参与：人力资本的作用",
+      "authors": [
+        "Kartik Athreya",
+        "Felicia Ionescu",
+        "Urvi Neelakantan"
+      ],
+      "abstract_en": "While human capital accumulation is significant early in life, stock market participation is limited. As individuals age, this pattern is reversed. In this paper, we show that—when disciplined to match the substantial heterogeneity observed in earnings—a life-cycle portfolio choice model augmented to allow human capital investment delivers stock market participation over the life-cycle consistent with the data. Key to our finding is that returns to human capital, unlike those to stocks, depend on both individual characteristics and the amount of time invested. Our results also suggest that when human capital accumulation is endogenous, it is short sales constraints on stocks, and not borrowing constraints, that limit engagement with the stock market.",
+      "abstract_cn": "虽然人力资本积累在生命早期意义重大，但股市参与却有限。随着个体年龄增长，这一模式发生逆转。在本文中，我们表明——当与观察到的收入中显著的异质性相匹配时——一个允许人力资本投资的生命周期投资组合选择模型，能够得出与数据一致的生命周期股市参与情况。我们发现的关键在于，与股票不同，人力资本的回报既取决于个体特征，也取决于投入的时间。我们的结果还表明，当人力资本积累是内生的时，限制股市参与的是股票卖空约束，而非借贷约束。",
+      "abstract_snippet_en": "While human capital accumulation is significant early in life, stock market participation is limited. As individuals age, this pattern is reversed. In this paper, we show that—when disciplined to match...",
+      "doi": "10.1016/j.red.2021.12.002",
+      "source_url": "https://doi.org/10.1016/j.red.2021.12.002",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/47/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17898,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17898,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T16:58:29+00:00",
+        "source_hash": "8ab0f6b18cb359393dc59394161fb78add560d4432d1289487207e748ed1a545"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2022.03.003",
+      "sequence": 2,
+      "source_sequence": 19,
+      "article_type": "research-article",
+      "title_en": "Re-use of collateral: Leverage, volatility, and welfare",
+      "title_cn": "抵押品的再利用：杠杆、波动性与福利",
+      "authors": [
+        "Johannes Brumm",
+        "Michael Grill",
+        "Felix Kubler",
+        "Karl Schmedders"
+      ],
+      "abstract_en": "We assess the implications of collateral re-use on leverage, volatility, and welfare within a calibrated infinite-horizon asset-pricing model with heterogeneous agents and disaster shocks. In our model, the ability of agents to reuse frees up collateral that can be used to back more transactions. Re-use thus contributes to the buildup of leverage and significantly increases volatility in financial markets. When introducing limits on re-use, we find that volatility is strictly decreasing as these limits become tighter, yet the impact on welfare is non-monotone. In the model, allowing for some re-use can improve welfare as it enables agents to share risk more effectively. Allowing re-use beyond intermediate levels, however, can lead to excessive leverage and lower welfare. So the analysis in this paper provides a rationale for limiting, yet not banning, re-use in financial markets.",
+      "abstract_cn": "我们在一个校准的无限期资产定价模型中，引入异质性主体和灾难冲击，评估抵押品再利用对杠杆、波动性和福利的影响。在我们的模型中，主体再利用抵押品的能力释放了可用于支持更多交易的抵押品。因此，再利用促进了杠杆的累积，并显著增加了金融市场的波动性。当引入对再利用的限制时，我们发现随着限制的收紧，波动性严格下降，但对福利的影响是非单调的。在模型中，允许一定程度的再利用可以改善福利，因为它使主体能够更有效地分担风险。然而，允许超过中等水平的再利用可能导致过度杠杆化和福利下降。因此，本文的分析为限制而非禁止金融市场中的再利用提供了理论依据。",
+      "abstract_snippet_en": "We assess the implications of collateral re-use on leverage, volatility, and welfare within a calibrated infinite-horizon asset-pricing model with heterogeneous agents and disaster shocks. In our model,...",
+      "doi": "10.1016/j.red.2022.03.003",
+      "source_url": "https://doi.org/10.1016/j.red.2022.03.003",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/47/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17896,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17896,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T16:58:31+00:00",
+        "source_hash": "bcfa27871f5ab3890853939d015678a9656cbb0c7eee5f8d30f3643090254816"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2021.12.001",
+      "sequence": 3,
+      "source_sequence": 47,
+      "article_type": "research-article",
+      "title_en": "Firm entry and exit during recessions",
+      "title_cn": "经济衰退期间的企业进入与退出",
+      "authors": [
+        "Joao Ayres",
+        "Gajendran Raveendranathan"
+      ],
+      "abstract_en": "We analyze aggregate shocks in a general equilibrium model of firm dynamics with entry and exit and financial frictions. Compared to the productivity shock, a shock to the collateral constraint (credit shock) generates a larger change in firm entry and exit. Calibrating the credit and productivity shocks to the Great Recession, we find that the credit shock accounts for lower entry, higher exit, and the concentration of exit among young firms during the Great Recession. The changes in entry and exit account for 19 and 24 percent of the fall in output and hours, respectively. Furthermore, we discuss how the modeling of potential entrants matters for the quantitative results, and perform a COVID-19 lockdown experiment.",
+      "abstract_cn": "我们在一个包含进入、退出和金融摩擦的企业动态一般均衡模型中分析总体冲击。与生产率冲击相比，抵押品约束冲击（信贷冲击）对企业进入和退出产生更大的变化。将信贷和生产率冲击校准至大衰退时期，我们发现信贷冲击解释了大衰退期间较低的进入率、较高的退出率以及退出集中在年轻企业中的现象。进入和退出的变化分别占产出和工时下降的19和24%%。此外，我们讨论了潜在进入者的建模方式如何影响定量结果，并进行了COVID-19封锁实验。",
+      "abstract_snippet_en": "We analyze aggregate shocks in a general equilibrium model of firm dynamics with entry and exit and financial frictions. Compared to the productivity shock, a shock to the collateral constraint (credit...",
+      "doi": "10.1016/j.red.2021.12.001",
+      "source_url": "https://doi.org/10.1016/j.red.2021.12.001",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/47/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17894,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17894,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T16:58:33+00:00",
+        "source_hash": "d138986a1714684f85e149dff86ec7df430012eafb7ec8a61423a95458e4aae1"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2022.01.001",
+      "sequence": 4,
+      "source_sequence": 67,
+      "article_type": "research-article",
+      "title_en": "Asset market frictions, household heterogeneity, and the liquidity theory of the term structure",
+      "title_cn": "资产市场摩擦、家庭异质性与期限结构的流动性理论",
+      "authors": [
+        "Chien-Chiang Wang"
+      ],
+      "abstract_en": "We study the channels through which monetary policy influences the term premium in a general equilibrium model. The idiosyncratic liquidity demand shock and asset market participation shock generate liquidation and reinvestment risks regarding bond holdings, and the term premium can be positive or negative depending on the relative strength of the two risks. An increase in the supply of any bond increases the interest rate of all maturities; this enhances the reinvestment risk but weakens the liquidation risk. Through this “liquidity channel,” a negative relationship between the interest rates and the term premium is generated, and the term premium becomes negative when the interest rates are sufficiently high. Moreover, households having different characteristics such as time discount rates and asset market participation rates demand different term premia, and this generates an endogenous market segmentation. Through this “heterogeneity channel,” the large-scale asset purchases program can effectively decrease the term premium at the zero lower bound. Further, the channel is more effective when the households have a greater variance in their characteristics.",
+      "abstract_cn": "我们研究货币政策在一般均衡模型中影响期限溢价的渠道。特质性流动性需求冲击和资产市场参与冲击产生了关于债券持有的清算和再投资风险，期限溢价可能为正或负，取决于两种风险的相对强度。任何债券供给的增加都会提高所有期限的利率；这增强了再投资风险，但削弱了清算风险。通过这一“流动性渠道”，利率与期限溢价之间产生了负相关关系，当利率足够高时，期限溢价变为负值。此外，具有不同特征（如时间贴现率和资产市场参与率）的家庭要求不同的期限溢价，这产生了内生市场分割。通过这一“异质性渠道”，大规模资产购买计划在零下界可以有效降低期限溢价。进一步，当家庭特征方差更大时，该渠道更为有效。",
+      "abstract_snippet_en": "•We study liquidation and reinvestment risks and the liquidity theory of term premia.•Term premia can be positive or negative depending on the strength of the two risks.•Decreases in bond yields weaken...",
+      "doi": "10.1016/j.red.2022.01.001",
+      "source_url": "https://doi.org/10.1016/j.red.2022.01.001",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/47/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17891,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17891,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T16:58:36+00:00",
+        "source_hash": "100a25389b83e72a70797b3c074df1f5197e20c52819e1fb207f5f43e0b75a5a"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2022.01.003",
+      "sequence": 5,
+      "source_sequence": 100,
+      "article_type": "research-article",
+      "title_en": "Bank runs and the optimality of limited banking",
+      "title_cn": "银行挤兑与有限银行业的最优性",
+      "authors": [
+        "James Peck",
+        "Abolfazl Setayesh"
+      ],
+      "abstract_en": "We extend the Diamond-Dybvig model of bank runs to include a specification of how much to deposit. When the propensity to run is zero, we prove an equivalence result, that the efficient allocation (satisfying resource, IC, and sequential service constraints) can be achieved in equilibrium as long as the deposit level is above a threshold. Within this range, the lower the deposit level, the more tempted patient depositors are to withdraw early. When the propensity to run is positive and certain conditions are met, the optimal banking system entails less than full deposits and runs on the equilibrium path. We extend the analysis to consider a propensity to run that depends on the risk factor of the run equilibrium.",
+      "abstract_cn": "我们将Diamond-Dybvig银行挤兑模型扩展为包含存款金额的设定。当挤兑倾向为零时，我们证明了一个等价性结果，即只要存款水平高于某个阈值，有效配置（满足资源、激励相容和顺序服务约束）就可以在均衡中实现。在此范围内，存款水平越低，耐心存款人越倾向于提前取款。当挤兑倾向为正且满足某些条件时，最优银行体系涉及低于全额存款和均衡路径上的挤兑。我们将分析扩展到考虑依赖于挤兑均衡风险因素的挤兑倾向。",
+      "abstract_snippet_en": "We extend the Diamond-Dybvig model of bank runs to include a specification of how much to deposit. When the propensity to run is zero, we prove an equivalence result, that the efficient allocation (satisfying...",
+      "doi": "10.1016/j.red.2022.01.003",
+      "source_url": "https://doi.org/10.1016/j.red.2022.01.003",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/47/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17889,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17889,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T16:58:38+00:00",
+        "source_hash": "9e059f8ea70893c9a27f6356203cb7b42a064578f501df86171a89b5c55cd0a1"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2021.11.006",
+      "sequence": 6,
+      "source_sequence": 111,
+      "article_type": "research-article",
+      "title_en": "Labor adjustment and productivity in the OECD",
+      "title_cn": "经合组织国家的劳动力调整与生产率",
+      "authors": [
+        "Maarten Dossche",
+        "Andrea Gazzani",
+        "Vivien Lewis"
+      ],
+      "abstract_en": "Labor productivity is more procyclical in OECD countries with lower employment volatility. To capture this new stylized fact, we propose a business cycle model with employment adjustment costs, variable hours and labor effort. We show that, in our model with variable effort, greater labor market frictions are associated with procyclical labor productivity as well as stable employment. In contrast, the constant-effort model fails to replicate the observed cross-country pattern in the data. By implication, labor market deregulation has a greater effect on the cyclicality of labor productivity and on the relative volatility of employment when effort can vary.",
+      "abstract_cn": "在经合组织国家中，劳动力生产率在就业波动性较低的国家更具顺周期性。为了捕捉这一新的典型事实，我们提出了一个包含就业调整成本、可变工时和劳动努力程度的商业周期模型。我们表明，在我们的可变努力模型中，更大的劳动力市场摩擦与顺周期的劳动生产率以及稳定的就业相关联。相比之下，恒定努力模型无法复制数据中观察到的跨国模式。这意味着，当努力程度可以变化时，劳动力市场放松管制对劳动生产率周期性和就业相对波动性的影响更大。",
+      "abstract_snippet_en": "•Labor productivity is more procyclical in countries with stable employment.•We argue that this reflects cross-country differences in labor adjustment.•Our model has employment adjustment costs, variable...",
+      "doi": "10.1016/j.red.2021.11.006",
+      "source_url": "https://doi.org/10.1016/j.red.2021.11.006",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/47/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17887,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17887,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T16:58:40+00:00",
+        "source_hash": "b16137798c89c0cd3c5e4f903986a00371350a7b43cd6bbc8cfb948213254b09"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2021.11.003",
+      "sequence": 7,
+      "source_sequence": 131,
+      "article_type": "research-article",
+      "title_en": "A rational theory for disposition effects",
+      "title_cn": "处置效应的理性理论",
+      "authors": [
+        "Min Dai",
+        "Yipeng Jiang",
+        "Hong Liu",
+        "Jing Xu"
+      ],
+      "abstract_en": "Extant theories on the disposition effect are largely silent on most of the disposition-effect related trading patterns, including the V-shaped probabilities of buying and selling against unrealized profit. On the other hand, portfolio rebalancing and learning have been shown to be important, even for retail investors. We show that rational rebalancing with transaction costs and unknown expected returns can generate many disposition-effect-related trading patterns, including the V-shape results. Our paper complements the extant theories by suggesting that portfolio rebalancing may also constitute a significant driving force behind the disposition effect and the related patterns.",
+      "abstract_cn": "现有的关于处置效应的理论在很大程度上对大多数与处置效应相关的交易模式保持沉默，包括针对未实现利润的买入和卖出概率的V形。另一方面，投资组合再平衡和学习已被证明是重要的，即使对散户投资者也是如此。我们表明，具有交易成本和未知预期收益的理性再平衡可以产生许多与处置效应相关的交易模式，包括V形结果。我们的论文通过提出投资组合再平衡也可能构成处置效应及相关模式背后的重要驱动力，补充了现有理论。",
+      "abstract_snippet_en": "Extant theories on the disposition effect are largely silent on most of the disposition-effect related trading patterns, including the V-shaped probabilities of buying and selling against unrealized...",
+      "doi": "10.1016/j.red.2021.11.003",
+      "source_url": "https://doi.org/10.1016/j.red.2021.11.003",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/47/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17886,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17886,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T16:58:42+00:00",
+        "source_hash": "2213be6bf5c4281ac78c03907819dd2c8dd3cb754a32c87ffbb1b92c0956c0a9"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2022.01.002",
+      "sequence": 8,
+      "source_sequence": 158,
+      "article_type": "research-article",
+      "title_en": "Informal labor markets in times of pandemic",
+      "title_cn": "疫情时期的非正规劳动力市场",
+      "authors": [
+        "Gustavo Leyva",
+        "Carlos Urrutia"
+      ],
+      "abstract_en": "We document the evolution of labor markets of five Latin American countries during the COVID-19 pandemic, with emphasis on informal employment. We show, for most countries, a slump in aggregate employment, mirrored by a fall in labor participation, and a decline in the informality rate. The latter is unprecedented since informality had cushioned the decline in overall employment in previous recessions. Using a business cycle model with a rich labor market structure, we recover the shocks that rationalize the pandemic recession, showing that labor supply shocks and informal productivity shocks are essential to account for the employment and output loss and the decline in the share of informal workers.",
+      "abstract_cn": "我们记录了五个拉丁美洲国家在COVID-19疫情期间劳动力市场的演变，重点关注非正规就业。我们显示，对于大多数国家，总就业的萎缩伴随着劳动参与率的下降，以及非正规率的下降。后者是前所未有的，因为在以往的衰退中，非正规性缓冲了整体就业的下降。利用一个具有丰富劳动力市场结构的经济周期模型，我们恢复了使疫情衰退合理化的冲击，表明劳动力供给冲击和非正规生产率冲击对于解释就业和产出损失以及非正规工人占比的下降至关重要。",
+      "abstract_snippet_en": "We document the evolution of labor markets of five Latin American countries during the COVID-19 pandemic, with emphasis on informal employment. We show, for most countries, a slump in aggregate employment,...",
+      "doi": "10.1016/j.red.2022.01.002",
+      "source_url": "https://doi.org/10.1016/j.red.2022.01.002",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/47/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17885,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17885,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T16:58:44+00:00",
+        "source_hash": "2069eb0ba0ab4068299d7753fe52121f2a66ee15e03da9e786465b4b4dd91c5d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2021.11.004",
+      "sequence": 9,
+      "source_sequence": 186,
+      "article_type": "research-article",
+      "title_en": "Asset price bubbles and monetary policy: Revisiting the nexus at the zero lower bound",
+      "title_cn": "资产价格泡沫与货币政策：在零利率下限重新审视二者关系",
+      "authors": [
+        "Jacopo Bonchi"
+      ],
+      "abstract_en": "Asset price bubbles are a major source of macroeconomic instability, but can they play a different role in a low interest rates environment? To answer this question, I study an economy in which the natural rate of interest declines permanently, and the zero lower bound makes risk-free interest rates persistently low. Asset price bubbles redistribute wealth across generations because of the life-cycle pattern of net worth. In this way, they increase the natural interest rate by serving as a store of value for older cohorts and as a collateral for the younger ones, and the central bank can escape from the ZLB with potential output and welfare gains. Output gains are further amplified in presence of capital accumulation and the “financial accelerator”. However, not all bubble types increase the natural interest rate to the same degree and, in this respect, leveraged bubbles have a greater impact than unleveraged bubbles.",
+      "abstract_cn": "资产价格泡沫是宏观经济不稳定的主要来源，但在低利率环境下，它们能否扮演不同的角色？为回答这一问题，我研究了一个自然利率永久性下降、且零利率下限使得无风险利率持续偏低的经济体。资产价格泡沫因净财富的生命周期模式而在代际间重新分配财富。通过这种方式，它们为年长群体充当价值储存手段、为年轻群体充当抵押品，从而提高了自然利率，中央银行得以摆脱零利率下限，并带来潜在产出和福利收益。在存在资本积累和“金融加速器”的情况下，产出收益进一步放大。然而，并非所有类型的泡沫都能同等程度地提高自然利率，在这方面，杠杆化泡沫的影响大于非杠杆化泡沫。",
+      "abstract_snippet_en": "Asset price bubbles are a major source of macroeconomic instability, but can they play a different role in a low interest rates environment? To answer this question, I study an economy in which the...",
+      "doi": "10.1016/j.red.2021.11.004",
+      "source_url": "https://doi.org/10.1016/j.red.2021.11.004",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/47/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17884,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17884,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T16:58:46+00:00",
+        "source_hash": "e5035f6b83d292606b589ed28690624015d3b42305b19e3e571063a20c250f9d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2021.11.005",
+      "sequence": 10,
+      "source_sequence": 204,
+      "article_type": "research-article",
+      "title_en": "Growth and welfare implications of sector-specific innovations",
+      "title_cn": "部门特定创新的增长与福利影响",
+      "authors": [
+        "İlhan Güner"
+      ],
+      "abstract_en": "I examine the optimal government subsidy of R&D activities when sectors are heterogeneous. To this end, I build an endogenous growth model where R&D drives macroeconomic growth and firm dynamics in two sectors with different characteristics: a consumption-goods sector and an investment-goods sector. I highlight how various externalities in the innovation process affect the allocation of innovative resources across industries. I calibrate the model to U.S. data and study the quantitative properties of the model. By explicitly examining the transition path after the change in subsidy, I highlight the tradeoff between the short-run level of consumption and long-run growth. I find that the optimal combination of the subsidy rates, as a fraction of firm R&D expenditures, is 84 percent in consumption sector and 88 percent in investment sector. By moving from the baseline subsidy rates (10 percent in both sectors), society can achieve a 20 percent welfare gain in consumption equivalent terms. The annual GDP growth rate increases from 1.5 percent to 3.2 percent by this change in subsidy. Finally, I show that it is always optimal to subsidize R&D spending in investment sector at a higher rate than that in the consumption sector when the government's subsidy budget is limited.",
+      "abstract_cn": "我研究了当部门异质性时，研发活动的最优政府补贴。为此，我构建了一个内生增长模型，其中研发驱动宏观经济增长以及两个具有不同特征的部门的企业动态：消费品部门和投资品部门。我强调了创新过程中的各种外部性如何影响创新资源在行业间的配置。我将模型校准到美国数据，并研究模型的定量性质。通过明确考察补贴变化后的过渡路径，我强调了短期消费水平与长期增长之间的权衡。我发现，作为企业研发支出的一部分，最优补贴率组合在消费品部门为84%，在投资品部门为88%。通过从基准补贴率（两个部门均为10%）转变，社会可以实现相当于消费20%的福利收益。通过这一补贴变化，年度GDP增长率从1.5%提高到3.2%。最后，我表明，当政府补贴预算有限时，对投资品部门的研发支出补贴率总是高于消费品部门是最优的。",
+      "abstract_snippet_en": "•Externalities in the innovation process lead to misallocation of labor.•R&D labor is misallocated across sectors in the market economy.•Large subsidies are required to correct the distortions in the...",
+      "doi": "10.1016/j.red.2021.11.005",
+      "source_url": "https://doi.org/10.1016/j.red.2021.11.005",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/47/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17883,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17883,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T16:58:49+00:00",
+        "source_hash": "956a9f788e813b02edbfd9a8a6cd7c122e838b3e4599aa64a0ce9917f47ef7ec"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2022.02.003",
+      "sequence": 11,
+      "source_sequence": 246,
+      "article_type": "research-article",
+      "title_en": "On the pure theory of wage dispersion",
+      "title_cn": "论工资离散的纯理论",
+      "authors": [
+        "Cheng Wang",
+        "Youzhi Yang"
+      ],
+      "abstract_en": "We study an equilibrium model of the labor market with identical firms and homogeneous workers, and with search and on-the-job search. Jobs are dynamic contracts that allow firms to match the worker's outside offers or let the job be terminated. For a non-degenerate distribution of wage offers to arise in the environment, it is necessary and sufficient that (i) there is a positive cost of job turnover, in terminating an existing job or posting a new one; and (ii) there is asymmetric information regarding the worker's outside offers. The model is calibrated to the U.S. labor market to match observed worker flows and the observed mean-min ratio in wages earned. The calibrated model predicts a unimodal distribution for both wages offered and wages earned.",
+      "abstract_cn": "我们研究了一个劳动力市场的均衡模型，其中企业相同、工人同质，并存在搜索和在职搜索。工作是动态合同，允许企业匹配工人的外部报价或让工作终止。为了使工资报价的非退化分布在该环境中出现，必要且充分条件是：（i）工作流动存在正成本，无论是终止现有工作还是发布新工作；（ii）关于工人的外部报价存在信息不对称。该模型根据美国劳动力市场进行了校准，以匹配观察到的工人流动和观察到的工资收入中的均值-最小值比率。校准后的模型预测了工资报价和工资收入的单峰分布。",
+      "abstract_snippet_en": "We study an equilibrium model of the labor market with identical firms and homogeneous workers, and with search and on-the-job search. Jobs are dynamic contracts that allow firms to match the worker's...",
+      "doi": "10.1016/j.red.2022.02.003",
+      "source_url": "https://doi.org/10.1016/j.red.2022.02.003",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/47/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17882,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17882,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T16:58:50+00:00",
+        "source_hash": "45b51c3d5bc15440022025e10855f80ca71009f48048c798a1b28056d44d1e1d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2022.02.002",
+      "sequence": 12,
+      "source_sequence": 278,
+      "article_type": "research-article",
+      "title_en": "Monetary policy uncertainty and firm dynamics",
+      "title_cn": "货币政策不确定性与企业动态",
+      "authors": [
+        "Stefano Fasani",
+        "Haroon Mumtaz",
+        "Lorenza Rossi"
+      ],
+      "abstract_en": "This paper uses a FAVAR model with external instruments to show that monetary policy uncertainty shocks are recessionary and are associated with an increase in firms' exit and a decrease in firms' entry. At the same time, the stock price declines, while the TFP increases in the medium run. To explain this result, we build up and estimate a medium-scale DSGE model featuring firm heterogeneity and endogenous firm entry and exit. These features are crucial in matching the empirical responses. The baseline model outperforms an alternative model without firm dynamics in reproducing the FAVAR responses and implies a larger effect of monetary policy uncertainty shock on the real economic activity.",
+      "abstract_cn": "本文使用带有外部工具的FAVAR模型表明，货币政策不确定性冲击具有衰退效应，并与企业退出增加和企业进入减少相关。同时，股价下跌，而全要素生产率在中期上升。为解释这一结果，我们构建并估计了一个具有企业异质性和内生企业进入与退出的中等规模DSGE模型。这些特征对于匹配实证反应至关重要。在再现FAVAR反应方面，基线模型优于没有企业动态的替代模型，并意味着货币政策不确定性冲击对实际经济活动的影响更大。",
+      "abstract_snippet_en": "•In the FAVAR, Monetary Policy Uncertainty (MPU) shocks are recessionary.•Firm entry decreases and firm exit increases amplifying the responses to MPU shocks.•The stock price declines, while the TFP...",
+      "doi": "10.1016/j.red.2022.02.002",
+      "source_url": "https://doi.org/10.1016/j.red.2022.02.002",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/47/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17881,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17881,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T16:58:52+00:00",
+        "source_hash": "242b93773dd888e139e410640f0c985bdf9e82331b22309221c3624320cffc3c"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2022.02.001",
+      "sequence": 13,
+      "source_sequence": 297,
+      "article_type": "research-article",
+      "title_en": "Does product revenue matter for price setting and monetary policy transmission?",
+      "title_cn": "产品收入对价格设定和货币政策传导是否重要？",
+      "authors": [
+        "DongIk Kang",
+        "Andrew Usher"
+      ],
+      "abstract_en": "Using retail scanner data, we find that the probability of price adjustment increases with a product's revenue, and the average absolute size of price adjustment decreases with the product's revenue. Furthermore, the responsiveness of prices to monetary shocks increases with product revenue. These facts are consistent with menu cost models in which the menu cost increases less than one-for-one with revenue, and inconsistent with models in which the menu cost increases one-for-one with revenue. In a calibrated menu cost model, the real effect of monetary policy is smaller in economies in which the price response to monetary policy shocks increases with revenue than in economies where no such relationships exist. Together with cyclical shifts in the revenue distribution, the increase in price responsiveness with revenue introduces a counter-cyclical effect that strengthens the real effect of monetary policy during recessions.",
+      "abstract_cn": "利用零售扫描数据，我们发现价格调整的概率随产品收入的增加而增加，而价格调整的平均绝对规模随产品收入的增加而减少。此外，价格对货币冲击的响应性随产品收入的增加而增强。这些事实与菜单成本模型中菜单成本随收入增加但增幅小于一对一的情况一致，而与菜单成本随收入一对一增加的情况不一致。在校准的菜单成本模型中，货币政策对价格响应随收入增加而增强的经济体的实际影响，小于不存在这种关系的经济体。结合收入分布的周期性变化，价格响应性随收入的增加引入了一种逆周期效应，该效应在经济衰退期间增强了货币政策的实际影响。",
+      "abstract_snippet_en": "Using retail scanner data, we find that the probability of price adjustment increases with a product's revenue, and the average absolute size of price adjustment decreases with the product's revenue....",
+      "doi": "10.1016/j.red.2022.02.001",
+      "source_url": "https://doi.org/10.1016/j.red.2022.02.001",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/47/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17880,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17880,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T16:58:55+00:00",
+        "source_hash": "a3fbcef1c9aa9a186b67cd746cce37f195916ad1cb446a89f976e11d072b41dc"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2022.03.001",
+      "sequence": 14,
+      "source_sequence": 346,
+      "article_type": "research-article",
+      "title_en": "Money, growth, and welfare in a Schumpeterian model with the spirit of capitalism",
+      "title_cn": "货币、增长与福利：具有资本主义精神的熊彼特模型",
+      "authors": [
+        "Qichun He",
+        "Yulei Luo",
+        "Jun Nie",
+        "Heng-fu Zou"
+      ],
+      "abstract_en": "According to Schumpeter (1934), entrepreneurs are driven to innovate not just for the fruits of success but also for success itself. This description of entrepreneurship echoes Weber's (1904-05, German; 1958) description of the “spirit of capitalism,” which states that people enjoy the accumulation of wealth regardless of its effect on smoothing consumption. This paper explores the implications of the spirit of capitalism on monetary policy, growth, and welfare in a Schumpeterian growth model. Different from the existing literature, we show that money is not superneutral in the long run and it could promote economic growth when the spirit of capitalism is strong. Furthermore, we show the optimal nominal interest rate decreases with the strength of the spirit of capitalism, potentially supporting a negative interest rate.",
+      "abstract_cn": "根据熊彼特（1934）的观点，企业家进行创新的动力不仅来自成功的果实，也来自成功本身。这种对企业家精神的描述呼应了韦伯（1904-05，德文；1958）对“资本主义精神”的描述，即人们享受财富的积累，而不论其对平滑消费的影响。本文在熊彼特增长模型中探讨了资本主义精神对货币政策、增长和福利的影响。与现有文献不同，我们表明货币在长期内并非超中性的，并且当资本主义精神较强时，货币可以促进经济增长。此外，我们表明最优名义利率随资本主义精神的强度而降低，可能支持负利率。",
+      "abstract_snippet_en": "According to Schumpeter (1934), entrepreneurs are driven to innovate not just for the fruits of success but also for success itself. This description of entrepreneurship echoes Weber's (1904-05, German;...",
+      "doi": "10.1016/j.red.2022.03.001",
+      "source_url": "https://doi.org/10.1016/j.red.2022.03.001",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/47/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17879,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17879,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T16:58:57+00:00",
+        "source_hash": "f9fb475772ee0ca1294d6488294ea3a67303741587f17dfcc5c1cb1d9d80eb05"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "crossref",
+    "roster_authority": "crossref-provisional",
+    "roster_match_scope": "crossref-issue-group",
+    "publisher_page_status": "blocked",
+    "excluded_item_count": 1,
+    "excluded_items": [
+      {
+        "title_en": "Editorial Board",
+        "reason": "editorial_material",
+        "doi": "10.1016/s1094-2025(22)00069-2",
+        "article_type": "editorial"
+      }
+    ],
+    "doi_complete": 14,
+    "authors_complete": 14,
+    "abstract_en_complete": 14,
+    "translation_complete": 14,
+    "duplicate_count": 0,
+    "flags": [
+      "publisher_html_blocked_crossref_fallback",
+      "crossref_provisional_roster"
+    ],
+    "official_item_count": 15,
+    "publishable_item_count": 14,
+    "content_counts": {
+      "official_items": 15,
+      "observed_items": 15,
+      "publishable_items": 14,
+      "research_articles": 14,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 1,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 14
+    }
+  },
+  "source_status": "source_pending",
+  "publication_state": "source_pending",
+  "content_counts": {
+    "official_items": 15,
+    "observed_items": 15,
+    "publishable_items": 14,
+    "research_articles": 14,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 1,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 14
+  },
+  "issue_label": "Vol. 47",
+  "content_status": "complete"
+}

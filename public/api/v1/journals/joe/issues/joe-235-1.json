@@ -1,0 +1,673 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "joe-235-1",
+  "journal_id": "joe",
+  "journal_name": "Journal of Econometrics",
+  "volume": "235",
+  "issue": "1",
+  "publication_date": "February 2023",
+  "source_url": "https://ideas.repec.org/s/eee/econom.html",
+  "retrieved_at": "2026-08-18T18:58:00+00:00",
+  "expected_article_count": 15,
+  "research_article_count": 15,
+  "status": "ready",
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.01.011",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Identification-robust nonparametric inference in a linear IV model",
+      "title_cn": "线性IV模型中的识别稳健非参数推断",
+      "authors": [
+        "Bertille Antoine",
+        "Pascal Lavergne"
+      ],
+      "abstract_en": "For a linear IV regression, we propose two new inference procedures on parameters of endogenous variables that are robust to any identification pattern, do not rely on a linear first-stage equation, and account for heteroskedasticity of unknown form. Building on Bierens (1982), we first propose an Integrated Conditional Moment (ICM) type statistic constructed by setting the parameters to the value under the null hypothesis. The ICM procedure tests at the same time the value of the coefficient and the specification of the model. We then adopt a conditionality principle to condition on a set of ICM statistics that informs on identification strength. Our two procedures uniformly control size irrespective of identification strength. They are powerful irrespective of the nonlinear form of the link between instruments and endogenous variables and are competitive with existing procedures in simulations and application.",
+      "abstract_cn": "对于线性IV回归，我们提出了两种新的推断程序，针对内生变量参数，这些程序对任何识别模式均稳健，不依赖线性第一阶段方程，并考虑未知形式的异方差性。基于Bierens（1982），我们首先提出一种积分条件矩（ICM）型统计量，通过将参数设定为零假设下的值来构建。ICM程序同时检验系数的值和模型的设定。然后，我们采用条件性原则，基于一组告知识别强度的ICM统计量进行条件推断。我们的两种程序在识别强度方面统一控制大小。它们在工具与内生变量之间链接的非线性形式下均具有功效，并且在模拟和应用中与现有程序相比具有竞争力。",
+      "doi": "10.1016/j.jeconom.2022.01.011",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v235y2023i1p1-24.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v235y2023i1p1-24.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:58:03+00:00",
+        "source_hash": "5da2f695880a8f277ea2a2c1126c8385dc8617059c1415e4c19e0a59c5dcd042"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.01.009",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Over-identified Doubly Robust identification and estimation",
+      "title_cn": "过度识别的双重稳健识别与估计",
+      "authors": [
+        "Arthur Lewbel",
+        "Jin Young Choi",
+        "Zhuzhu Zhou"
+      ],
+      "abstract_en": "Consider two parametric models. At least one is correctly specified, but we do not know which. Both models include a common vector of parameters. An estimator for this common parameter vector is called Doubly Robust (DR) if it is consistent no matter which model is correct. We provide a general technique for constructing DR estimators (assuming the models are over identified). Our Over-identified Doubly Robust (ODR) technique is a simple extension of the Generalized Method of Moments. We illustrate our ODR with a variety of models. Our empirical application is instrumental variables estimation, where either one of two instrument vectors might be invalid.",
+      "abstract_cn": "考虑两个参数模型。至少有一个是正确设定的，但我们不知道是哪一个。两个模型都包含一个共同的参数向量。如果无论哪个模型正确，该共同参数向量的估计量都是一致的，则称该估计量为双重稳健（DR）估计量。我们提供了一种构建DR估计量的一般技术（假设模型是过度识别的）。我们的过度识别双重稳健（ODR）技术是广义矩方法的简单扩展。我们用多种模型来说明我们的ODR。我们的实证应用是工具变量估计，其中两个工具向量中的一个可能是无效的。",
+      "doi": "10.1016/j.jeconom.2022.01.009",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v235y2023i1p25-42.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v235y2023i1p25-42.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:58:05+00:00",
+        "source_hash": "d6eb0e91dd2bfedf0fbbff0f99cc2cd00351b7af6915a258f29e5c81474fed65"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.01.007",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Modeling realized covariance measures with heterogeneous liquidity: A generalized matrix-variate Wishart state-space model",
+      "title_cn": "具有异质性流动性的已实现协方差度量建模：广义矩阵变量Wishart状态空间模型",
+      "authors": [
+        "Bastian Gribisch",
+        "Jan Patrick Hartkopf"
+      ],
+      "abstract_en": "We propose to generalize the Wishart state-space model for realized covariance matrices of asset returns in order to capture complex measurement error structures induced by modern robust and data efficient realized covariance estimators and heterogeneous liquidity across assets. Our model assumes that the latent covariance matrix of the assets is observed through their realized covariance matrix with a Riesz measurement density, which generalizes the Wishart to monotone missing data. The Riesz alleviates the Wishart-implied attenuation of measurement errors and translates into a convenient likelihood factorization which facilitates inference using simple Bayesian MCMC procedures. The state-space approach allows for a flexible description of the covariance dynamics implied by the data and an empirical application shows that the model performs very well in- and out-of-sample.",
+      "abstract_cn": "我们提出推广针对资产收益已实现协方差矩阵的Wishart状态空间模型，以捕捉由现代稳健且数据高效的已实现协方差估计量和资产间异质性流动性所引发的复杂测量误差结构。我们的模型假设资产的潜在协方差矩阵通过其已实现协方差矩阵观测，并具有Riesz测量密度，该密度将Wishart推广至单调缺失数据情形。Riesz缓解了Wishart隐含的测量误差衰减，并转化为便利的似然分解，从而便于使用简单的贝叶斯MCMC程序进行推断。状态空间方法允许对数据隐含的协方差动态进行灵活描述，实证应用表明该模型在样本内和样本外均表现良好。",
+      "doi": "10.1016/j.jeconom.2022.01.007",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v235y2023i1p43-64.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v235y2023i1p43-64.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:58:07+00:00",
+        "source_hash": "2c9edafec7da606d9136e2a2992acbb806e9bf0ad50c9ea3ba1af72e41970fd4"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.01.008",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "A higher-order correct fast moving-average bootstrap for dependent data",
+      "title_cn": "相依数据的高阶正确快速移动平均自助法",
+      "authors": [
+        "Davide La Vecchia",
+        "Alban Moor",
+        "Olivier Scaillet"
+      ],
+      "abstract_en": "We develop the theory of a novel fast bootstrap for dependent data. Our scheme deploys i.i.d. resampling of smoothed moment indicators. We characterize the class of parametric and semiparametric estimation problems for which the method is valid. We show the asymptotic refinements of the new procedure, proving that it is higher-order correct under mild assumptions on the time series, the estimating functions, and the smoothing kernel. We illustrate the applicability and the advantages of our procedure for M-estimation, generalized method of moments, and generalized empirical likelihood estimation. In a Monte Carlo study, we consider an autoregressive conditional duration model and we compare our method with other extant, routinely-applied first- and higher-order correct methods. The results provide numerical evidence that the novel bootstrap yields higher-order accurate confidence intervals, while remaining computationally lighter than its higher-order correct competitors. A real-data example on dynamics of trading volume of US stocks illustrates the empirical relevance of our method.",
+      "abstract_cn": "我们发展了针对相依数据的一种新颖快速自助法的理论。我们的方案采用对平滑矩指标的独立同分布重抽样。我们刻画了该方法有效的参数和半参数估计问题类别。我们证明了新过程的渐近改进，表明在时间序列、估计函数和平滑核的温和假设下，它是高阶正确的。我们展示了我们的程序在M估计、广义矩方法和广义经验似然估计中的适用性和优势。在蒙特卡洛研究中，我们考虑了一个自回归条件持续时间模型，并将我们的方法与其他现存的、常规应用的一阶和高阶正确方法进行了比较。结果提供了数值证据，表明新颖的自助法产生高阶精确的置信区间，同时计算上比其高阶正确的竞争者更轻量。一个关于美国股票交易量动态的真实数据示例说明了我们方法的实证相关性。",
+      "doi": "10.1016/j.jeconom.2022.01.008",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v235y2023i1p65-81.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v235y2023i1p65-81.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:58:09+00:00",
+        "source_hash": "e3cad4c2e844be8f213c97d16d0116660f72858bbaff9f6dd9edecf07e92b25b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.02.004",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "On the power of the conditional likelihood ratio and related tests for weak-instrument robust inference",
+      "title_cn": "关于条件似然比及其相关检验在弱工具变量稳健推断中的功效",
+      "authors": [
+        "Nicolas Van de Sijpe",
+        "Frank Windmeijer"
+      ],
+      "abstract_en": "Power curves of the Conditional Likelihood Ratio (CLR) and related tests for testing H0:β=β0 in linear models with a single endogenous variable, y=xβ+u, estimated using potentially weak instrumental variables have been presented for two different designs. One design keeps the variance matrix of the structural and first-stage errors, Σ, constant, the other instead keeps the variance matrix of the reduced-form and first-stage errors, Ω, constant. The values of Σ govern the endogeneity features of the model. The fixed-Ω design changes these endogeneity features with changing values of β in a way that makes it less suitable for an analysis of the behaviour of the tests in low to moderate endogeneity settings, or when β and the correlation of the structural and first-stage errors, ρuv, have the same sign. At larger values of |β|, the fixed-Ω design implicitly selects values for Σ where the power of the CLR test is high. We further show that the Likelihood Ratio statistic is identical to the t0(βˆL)2 statistic as proposed by Mills et al. (2014), where βˆL is the Liml estimator. In fixed-Σ design Monte Carlo simulations, we find that Liml- and Fuller-based conditional Wald tests and the Fuller-based conditional t02 test are more powerful than the CLR test when the degree of endogeneity is low to moderate. The conditional Wald tests are further the most powerful of these tests when β and ρuv have the same sign. We show that in the fixed-Ω design, setting β0=0 and the diagonal elements of Ω equal to 1 is not without loss of generality, unlike in the fixed-Σ design.",
+      "abstract_cn": "条件似然比（CLR）检验及相关检验在检验线性模型中单一内生变量y=xβ+u的假设H0:β=β0时的功效曲线，已在两种不同设计下给出，其中模型使用潜在弱工具变量进行估计。一种设计保持结构方程和第一阶段误差的方差矩阵Σ恒定，另一种设计则保持简化形式和第一阶段误差的方差矩阵Ω恒定。Σ的值决定了模型的内生性特征。固定Ω的设计在β值变化时会改变这些内生性特征，这种方式使其不太适合分析在低至中度内生性设置下检验的行为，或当β与结构方程和第一阶段误差的相关系数ρuv同号时的情况。在|β|值较大时，固定Ω的设计隐式选择了Σ的值，使得CLR检验的功效较高。我们进一步证明，似然比统计量与Mills等人（2014）提出的t0(βˆL)2统计量相同，其中βˆL是Liml估计量。在固定Σ设计的蒙特卡洛模拟中，我们发现当内生性程度低至中度时，基于Liml和Fuller的条件Wald检验以及基于Fuller的条件t02检验比CLR检验更具功效。当β与ρuv同号时，条件Wald检验在这些检验中功效最高。我们证明，在固定Ω设计中，设置β0=0且Ω的对角元素等于1并非不失一般性，这与固定Σ设计不同。",
+      "doi": "10.1016/j.jeconom.2022.02.004",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v235y2023i1p82-104.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v235y2023i1p82-104.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:58:13+00:00",
+        "source_hash": "1dcb61dab0aa3c5b99ae85c9ed04ac9e0c95949e28b32dbb482e50323ac4ed12"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.12.013",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "A corrected Clarke test for model selection and beyond",
+      "title_cn": "修正的Clarke检验及其在模型选择中的应用",
+      "authors": [
+        "Florian Brück",
+        "Jean-David Fermanian",
+        "Aleksey Min"
+      ],
+      "abstract_en": "We introduce a large family of model selection tests based on the expectation of an arbitrary, possibly non-smooth, parametric criterion function of the data. The considered methodology is illustrated for several econometric problems, including linear and quantile regression. It covers the case of strictly locally non-nested models and some overlapping models. The asymptotic theory of the proposed test statistic is stated. A general exchangeable bootstrap scheme allows the evaluation of its limiting law as well as its asymptotic variance. Our framework includes the tests for non-nested model selection of Vuong (1989) and Clarke (2007) as particular cases. We show that the statistic of the latter test is not Binomial distributed as originally stated and we provide its corrected limiting law. In a simulation study, we empirically verify the distributional approximation of our test statistic in a finite sample and examine the empirical level and power of the corresponding model selection tests in various settings. Finally, an analysis of a financial dataset illustrates the proposed model selection procedure at work.",
+      "abstract_cn": "我们引入了一大类基于数据任意参数准则函数（可能非光滑）期望的模型选择检验。所考虑的方法论在若干计量经济学问题中得到了说明，包括线性回归和分位数回归。它涵盖了严格局部非嵌套模型以及一些重叠模型的情形。我们给出了所提出的检验统计量的渐近理论。一个一般的可交换自助法方案允许评估其极限分布及其渐近方差。我们的框架包括Vuong（1989）和Clarke（2007）的非嵌套模型选择检验作为特例。我们表明后一检验的统计量并非如最初所述服从二项分布，并提供了其修正的极限分布。在模拟研究中，我们实证验证了我们的检验统计量在有限样本中的分布近似，并考察了相应模型选择检验在各种设置下的经验水平和功效。最后，对一个金融数据集的分析说明了所提出的模型选择程序的实际应用。",
+      "doi": "10.1016/j.jeconom.2021.12.013",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v235y2023i1p105-132.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v235y2023i1p105-132.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:58:15+00:00",
+        "source_hash": "556033c246a659b86e88e2a688b76934dcc56e403412f726831bce5193a52f29"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.02.006",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Bootstrap inference for Hawkes and general point processes",
+      "title_cn": "Hawkes及一般点过程的Bootstrap推断",
+      "authors": [
+        "Giuseppe Cavaliere",
+        "Ye Lu",
+        "Anders Rahbek",
+        "Jacob Stærk-Østergaard"
+      ],
+      "abstract_en": "Inference and testing in general point process models such as the Hawkes model is predominantly based on asymptotic approximations for likelihood-based estimators and tests. As an alternative, and to improve finite sample performance, this paper considers bootstrap-based inference for interval estimation and testing. Specifically, for a wide class of point process models we consider a novel bootstrap scheme labeled ‘fixed intensity bootstrap’ (FIB), where the conditional intensity is kept fixed across bootstrap repetitions. The FIB, which is very simple to implement and fast in practice, extends previous ideas from the bootstrap literature on time series in discrete time, where the so-called ‘fixed design’ and ‘fixed volatility’ bootstrap schemes have shown to be particularly useful and effective. We compare the FIB with the classic recursive bootstrap, which is here labeled ‘recursive intensity bootstrap’ (RIB). In RIB algorithms, the intensity is stochastic in the bootstrap world and implementation of the bootstrap is more involved, due to its sequential structure. For both bootstrap schemes, we provide new bootstrap (asymptotic) theory which allows to assess bootstrap validity, and propose a ‘non-parametric’ approach based on resampling time-changed transformations of the original waiting times. We also establish the link between the proposed bootstraps for point process models and the related autoregressive conditional duration (ACD) models. Lastly, we show effectiveness of the different bootstrap schemes in finite samples through a set of detailed Monte Carlo experiments, and provide applications to both financial data and social media data to illustrate the proposed methodology.",
+      "abstract_cn": "在一般点过程模型（如Hawkes模型）中，推断和检验主要基于似然估计量和检验的渐近近似。作为替代方案，并为了改善有限样本性能，本文考虑了基于bootstrap的区间估计和检验推断。具体而言，对于一大类点过程模型，我们提出了一种新颖的bootstrap方案，称为“固定强度bootstrap”（FIB），其中条件强度在bootstrap重复中保持固定。FIB实现非常简单且在实践中快速，它扩展了离散时间序列bootstrap文献中的先前思想，其中所谓的“固定设计”和“固定波动率”bootstrap方案已被证明特别有用和有效。我们将FIB与经典的递归bootstrap进行比较，后者在此称为“递归强度bootstrap”（RIB）。在RIB算法中，强度在bootstrap世界中是随机的，并且由于顺序结构，bootstrap的实现更为复杂。对于这两种bootstrap方案，我们提供了新的bootstrap（渐近）理论，允许评估bootstrap的有效性，并提出了一种基于重采样原始等待时间的时间变换的“非参数”方法。我们还建立了点过程模型的提议bootstrap与相关自回归条件持续时间（ACD）模型之间的联系。最后，我们通过一组详细的蒙特卡洛实验展示了不同bootstrap方案在有限样本中的有效性，并提供了对金融数据和社交媒体数据的应用来说明所提出的方法。",
+      "doi": "10.1016/j.jeconom.2022.02.006",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v235y2023i1p133-165.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v235y2023i1p133-165.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:58:18+00:00",
+        "source_hash": "90dc29f7f66068a4ecbbc5a0e3586679e58e2dfc7a9189d6b29f4ce759c4d6bf"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.03.001",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Statistical inference for linear mediation models with high-dimensional mediators and application to studying stock reaction to COVID-19 pandemic",
+      "title_cn": "高维中介变量的线性中介模型统计推断及其在股票对COVID-19疫情反应研究中的应用",
+      "authors": [
+        "Xu Guo",
+        "Runze Li",
+        "Jingyuan Liu",
+        "Mudong Zeng"
+      ],
+      "abstract_en": "Mediation analysis draws increasing attention in many research areas such as economics, finance and social sciences. In this paper, we propose new statistical inference procedures for high dimensional mediation models, in which both the outcome model and the mediator model are linear with high dimensional mediators. Traditional procedures for mediation analysis cannot be used to make statistical inference for high dimensional linear mediation models due to high-dimensionality of the mediators. We propose an estimation procedure for the indirect effects of the models via a partially penalized least squares method, and further establish its theoretical properties. We further develop a partially penalized Wald test on the indirect effects, and prove that the proposed test has a χ2 limiting null distribution. We also propose an F-type test for direct effects and show that the proposed test asymptotically follows a χ2-distribution under null hypothesis and a noncentral χ2-distribution under local alternatives. Monte Carlo simulations are conducted to examine the finite sample performance of the proposed tests and compare their performance with existing ones. We further apply the newly proposed statistical inference procedures to study stock reaction to COVID-19 pandemic via an empirical analysis of studying the mediation effects of financial metrics that bridge company’s sector and stock return.",
+      "abstract_cn": "中介分析在经济学、金融学和社会科学等许多研究领域日益受到关注。本文针对高维中介模型提出了新的统计推断方法，其中结果模型和中介模型均为具有高维中介变量的线性模型。由于中介变量的高维性，传统的中介分析程序无法用于高维线性中介模型的统计推断。我们通过部分惩罚最小二乘法提出了模型间接效应的估计程序，并进一步建立了其理论性质。我们还开发了针对间接效应的部分惩罚Wald检验，并证明所提出的检验具有χ2极限零分布。我们还提出了针对直接效应的F型检验，并表明所提出的检验在原假设下渐近服从χ2分布，在局部备择假设下服从非中心χ2分布。通过蒙特卡洛模拟来检验所提出检验的有限样本性能，并与现有检验进行比较。我们进一步将新提出的统计推断程序应用于研究股票对COVID-19疫情的反应，通过实证分析研究连接公司行业与股票收益的财务指标的中介效应。",
+      "doi": "10.1016/j.jeconom.2022.03.001",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v235y2023i1p166-179.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v235y2023i1p166-179.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:58:21+00:00",
+        "source_hash": "aa913cd6331a039ff545acb9e75ff843dc00cb534fe5fd71b9b1848ed447747a"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.02.009",
+      "sequence": 9,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "Time series estimation of the dynamic effects of disaster-type shocks",
+      "title_cn": "灾害型冲击动态效应的时间序列估计",
+      "authors": [
+        "Richard Davis",
+        "Serena Ng"
+      ],
+      "abstract_en": "This paper provides three results for SVARs under the assumption that the primitive shocks are mutually independent. First, a framework is proposed to accommodate a disaster-type variable with infinite variance into a SVAR. We show that the least squares estimates of the SVAR are consistent but have non-standard asymptotics. Second, the disaster shock is identified as the component with the largest kurtosis. An estimator that is robust to infinite variance is used to recover the mutually independent components. Third, an independence test on the residuals pre-whitened by the Choleski decomposition is proposed to test the restrictions imposed on a SVAR. The test can be applied whether the data have fat or thin tails, and to over as well as exactly identified models. Three applications are considered. In the first, the independence test is used to shed light on the conflicting evidence regarding the role of uncertainty in economic fluctuations. In the second, disaster shocks are shown to have short term economic impact arising mostly from feedback dynamics. The third uses the framework to study the dynamic effects of economic shocks post-covid.",
+      "abstract_cn": "本文在原始冲击相互独立的假设下，为SVAR提供了三个结果。首先，提出了一个框架，将具有无限方差的灾害型变量纳入SVAR。我们表明，SVAR的最小二乘估计是一致的，但具有非标准渐近性。其次，灾害冲击被识别为具有最大峰度的成分。使用对无限方差稳健的估计器来恢复相互独立的成分。第三，提出了对经Choleski分解预白化的残差进行独立性检验，以检验对SVAR施加的限制。该检验可应用于厚尾或薄尾数据，以及过度识别和恰好识别的模型。考虑了三个应用。在第一个应用中，独立性检验被用来阐明关于不确定性在经济波动中作用的相互矛盾的证据。在第二个应用中，灾害冲击被证明具有短期经济影响，主要来自反馈动态。第三个应用使用该框架研究疫情后经济冲击的动态效应。",
+      "doi": "10.1016/j.jeconom.2022.02.009",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v235y2023i1p180-201.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v235y2023i1p180-201.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:58:24+00:00",
+        "source_hash": "f0079ca61b7b4656f38a14197635b2360958bca4f2cfeb9c9bab0320fcec591b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.03.006",
+      "sequence": 10,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "Asymptotic properties of Bayesian inference in linear regression with a structural break",
+      "title_cn": "结构突变线性回归中贝叶斯推断的渐近性质",
+      "authors": [
+        "Kenichi Shimizu"
+      ],
+      "abstract_en": "This paper studies large sample properties of a Bayesian approach to inference about slope parameters γ in linear regression models with a structural break. In contrast to the conventional approach to inference about γ that does not take into account the uncertainty of the unknown break date, the Bayesian approach that we consider incorporates such uncertainty. Our main theoretical contribution is a Bernstein–von Mises type theorem (Bayesian asymptotic normality) for γ under a wide class of priors, which essentially indicates an asymptotic equivalence between the conventional frequentist and Bayesian inference. Consequently, a frequentist researcher could look at credible intervals of γ to check robustness with respect to the uncertainty of the break date. Simulation studies show that the conventional confidence intervals of γ tend to undercover in finite samples whereas the credible intervals offer more reasonable coverages in general. As the sample size increases, the two methods coincide, as predicted from our theoretical conclusion. Using data from Paye and Timmermann (2006) on stock return prediction, we illustrate that the traditional confidence intervals on γ might underrepresent the true sampling uncertainty.",
+      "abstract_cn": "本文研究了在具有结构突变的线性回归模型中，关于斜率参数γ的贝叶斯推断方法的大样本性质。与传统的推断γ的方法不考虑未知突变日期的不确定性不同，我们所考虑的贝叶斯方法纳入了这种不确定性。我们的主要理论贡献是，在广泛的先验类别下，针对γ的Bernstein–von Mises型定理（贝叶斯渐近正态性），这本质上表明了传统频率学派推断与贝叶斯推断之间的渐近等价性。因此，频率学派研究者可以查看γ的置信区间，以检查相对于突变日期不确定性的稳健性。模拟研究表明，传统的γ置信区间在有限样本中往往覆盖不足，而置信区间通常提供更合理的覆盖率。随着样本量的增加，两种方法趋于一致，正如我们的理论结论所预测的那样。利用Paye和Timmermann（2006）关于股票收益预测的数据，我们说明传统的γ置信区间可能低估了真实的抽样不确定性。",
+      "doi": "10.1016/j.jeconom.2022.03.006",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v235y2023i1p202-219.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v235y2023i1p202-219.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:58:26+00:00",
+        "source_hash": "3bf0d2cd935679406e78c42c4af54372284b347eded47403c0d5808c74195366"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.04.003",
+      "sequence": 11,
+      "source_sequence": 11,
+      "article_type": "research-article",
+      "title_en": "A condition for the identification of multivariate models with binary instruments",
+      "title_cn": "二元工具变量下多元模型识别的一个条件",
+      "authors": [
+        "Florian F. Gunsilius"
+      ],
+      "abstract_en": "This article introduces an empirical condition for the nonparametric point-identification of multivariate instrumental variable models with continuous endogenous variables using binary instruments. Verifying this condition can confirm point-identification in settings in which traditional approaches are not applicable. In particular, it shows that nonlinear instrumental variable models with general heterogeneity can be point-identified with only a binary instrument. This generalizes existing identification results which either restrict the unobserved heterogeneity substantially or require the instrument to have a large support. The main assumption on the instrumental variable model is cyclic monotonicity of its first stage, a multivariate generalization of the classical rank-invariance assumption for univariate models. Asymptotic convergence results for the empirical observable distributions are derived that allow to check the condition in practice. The identification rests on a fixed-set convergence result of cyclically monotone maps between quasi-concave functions.",
+      "abstract_cn": "本文介绍了一个经验条件，用于在连续内生变量和二元工具变量的情况下，实现多元工具变量模型的非参数点识别。验证该条件可以确认在传统方法不适用的设定中的点识别。特别地，它表明具有一般异质性的非线性工具变量模型可以仅通过二元工具变量实现点识别。这推广了现有的识别结果，这些结果要么大幅限制未观测异质性，要么要求工具变量具有大支撑集。对工具变量模型的主要假设是其第一阶段的循环单调性，这是单变量模型经典秩不变假设的多元推广。推导了经验可观测分布的渐近收敛结果，使得在实践中可以检验该条件。识别依赖于拟凹函数之间循环单调映射的固定集收敛结果。",
+      "doi": "10.1016/j.jeconom.2022.04.003",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v235y2023i1p220-238.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v235y2023i1p220-238.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:58:29+00:00",
+        "source_hash": "5a8453ca5557d49ff082b8d4699e1ac0d67504c4eb6059e2c9ac09d27841c814"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.03.011",
+      "sequence": 12,
+      "source_sequence": 12,
+      "article_type": "research-article",
+      "title_en": "Bootstrap analysis of mutual fund performance",
+      "title_cn": "共同基金业绩的Bootstrap分析",
+      "authors": [
+        "Haitao Huang",
+        "Lei Jiang",
+        "Xuan Leng",
+        "Liang Peng"
+      ],
+      "abstract_en": "We study bootstrap methods for fund performance evaluation. We first show that two prominent bootstrap tests have biased test sizes in a large cross-section with short time series and lack test power to detect skilled funds when a substantial number of unskilled funds are present. We then develop the theory for a valid bootstrap Hotelling’s T-squared test for zero alpha. We apply the proposed bootstrap test in a practical two-step procedure to identify skilled funds. Our empirical analysis finds that skilled funds are more engaged in active management and hold stocks with higher expected anomalous returns.",
+      "abstract_cn": "我们研究了用于基金业绩评估的bootstrap方法。我们首先表明，在时间序列较短的大截面中，两种著名的bootstrap检验存在有偏的检验规模，并且在存在大量无技能基金时，缺乏检测有技能基金的检验功效。然后，我们为零alpha开发了有效的bootstrap Hotelling T平方检验的理论。我们将所提出的bootstrap检验应用于实际的两步程序中，以识别有技能的基金。我们的实证分析发现，有技能的基金更积极参与主动管理，并持有预期异常收益较高的股票。",
+      "doi": "10.1016/j.jeconom.2022.03.011",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v235y2023i1p239-255.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v235y2023i1p239-255.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:58:31+00:00",
+        "source_hash": "90eb60cac4a6b1935971348b2a90146533e4578c4354f4fa639ab261c20af47a"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.03.004",
+      "sequence": 13,
+      "source_sequence": 13,
+      "article_type": "research-article",
+      "title_en": "The effects of training incidence and planned training duration on labor market transitions",
+      "title_cn": "培训发生率和计划培训时长对劳动力市场转换的影响",
+      "authors": [
+        "Bernd Fitzenberger",
+        "Aderonke Osikominu",
+        "Marie Paul"
+      ],
+      "abstract_en": "This paper uses a dynamic model for employment and training transitions in discrete time to estimate average employment effects of training incidence and planned training duration for the treated. We account for the dynamics of program start and continuation while treatment and outcome transitions are linked through correlated individual-specific effects. Identification relies on a consistency condition, conditional sequential randomization, time-varying covariates, and exclusion restrictions. We implement our framework applying MCMC methods to rich administrative data for a large training program in Germany. In addition to finding a positive training effect on employment between 6 and 12 percentage points 2.5 years after program start, we demonstrate that a longer planned training duration typically results in higher medium- to long-term employment gains.",
+      "abstract_cn": "本文使用一个离散时间下的就业和培训转换动态模型，来估计培训发生率和计划培训时长对受训者的平均就业效应。我们考虑了项目开始和持续的动态过程，而处理和结果转换通过相关的个体特定效应相联系。识别依赖于一致性条件、条件顺序随机化、时变协变量和排除限制。我们通过将MCMC方法应用于德国一个大型培训项目的丰富行政数据来实施我们的框架。除了发现培训在项目开始后2.5年对就业有6到12个百分点的积极影响外，我们还证明了更长的计划培训时长通常会导致更高的中期至长期就业收益。",
+      "doi": "10.1016/j.jeconom.2022.03.004",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v235y2023i1p256-279.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v235y2023i1p256-279.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:58:33+00:00",
+        "source_hash": "042f97e676687e1cda1642e160d627a0777ddc3d34ee6e5fbd5349a6c71cc77b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.04.007",
+      "sequence": 14,
+      "source_sequence": 14,
+      "article_type": "research-article",
+      "title_en": "Model averaging prediction by K-fold cross-validation",
+      "title_cn": "基于K折交叉验证的模型平均预测",
+      "authors": [
+        "Xinyu Zhang",
+        "Chu-An Liu"
+      ],
+      "abstract_en": "This paper considers the model averaging prediction in a quasi-likelihood framework that allows for parameter uncertainty and model misspecification. We propose an averaging prediction that selects the data-driven weights by minimizing a K-fold cross-validation. We provide two theoretical justifications for the proposed method. First, when all candidate models are misspecified, we show that the proposed averaging prediction using K-fold cross-validation weights is asymptotically optimal in the sense of achieving the lowest possible prediction risk. Second, when the model set includes correctly specified models, we demonstrate that the proposed K-fold cross-validation asymptotically assigns all weights to the correctly specified models. Monte Carlo simulations show that the proposed averaging prediction achieves lower empirical risk than other existing model averaging methods. As an empirical illustration, the proposed method is applied to credit card default prediction.",
+      "abstract_cn": "本文在准似然框架下考虑模型平均预测，该框架允许参数不确定性和模型误设。我们提出了一种平均预测方法，通过最小化K折交叉验证来选择数据驱动的权重。我们为所提出的方法提供了两个理论依据。首先，当所有候选模型都被误设时，我们证明了使用K折交叉验证权重的所提出的平均预测在实现最低可能预测风险的意义上是渐近最优的。其次，当模型集包含正确设定的模型时，我们证明了所提出的K折交叉验证渐近地将所有权重分配给正确设定的模型。蒙特卡洛模拟表明，所提出的平均预测实现了比其他现有模型平均方法更低的经验风险。作为实证说明，所提出的方法被应用于信用卡违约预测。",
+      "doi": "10.1016/j.jeconom.2022.04.007",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v235y2023i1p280-301.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v235y2023i1p280-301.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:58:35+00:00",
+        "source_hash": "cfe6b060d738f7993d7d655b105c837429691d54c3dfc03a532edc673f013384"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.03.008",
+      "sequence": 15,
+      "source_sequence": 15,
+      "article_type": "research-article",
+      "title_en": "Logical differencing in dyadic network formation models with nontransferable utilities",
+      "title_cn": "不可转移效用下二元网络形成模型中的逻辑差分法",
+      "authors": [
+        "Wayne Yuan Gao",
+        "Ming Li",
+        "Sheng Xu"
+      ],
+      "abstract_en": "This paper considers a semiparametric model of dyadic network formation under nontransferable utilities (NTU). Such dyadic links arise frequently in real-world social interactions that require bilateral consent but by their nature induce additive non-separability. In our model we show how unobserved individual heterogeneity in the network formation model can be canceled out without requiring additive separability. The approach uses a new method we call logical differencing. The key idea is to construct an observable event involving the intersection of two mutually exclusive restrictions—derived based on weak multivariate monotonicity—on the fixed effects. Based on this identification strategy we provide consistent estimators of the network formation model under NTU. Finite-sample performance of our method is analyzed in a simulation study, and an empirical illustration using the risk-sharing network data from Nyakatoke demonstrates that our proposed method is able to obtain economically intuitive estimates.",
+      "abstract_cn": "本文考虑了一个在不可转移效用（NTU）下的二元网络形成的半参数模型。这种二元联系在现实世界的社会互动中频繁出现，这些互动需要双方同意，但本质上会导致加性不可分离性。在我们的模型中，我们展示了如何在不要求加性可分离性的情况下消除网络形成模型中未观测到的个体异质性。该方法使用了一种我们称之为逻辑差分的新方法。关键思想是构造一个可观测事件，该事件涉及基于弱多元单调性推导出的两个互斥限制的交集，这些限制作用于固定效应。基于这一识别策略，我们提供了在NTU下网络形成模型的一致估计量。我们通过模拟研究分析了我们方法的有限样本性能，并使用Nyakatoke的风险分担网络数据进行的实证说明表明，我们提出的方法能够获得经济上直观的估计结果。",
+      "doi": "10.1016/j.jeconom.2022.03.008",
+      "source_url": "https://ideas.repec.org/a/eee/econom/v235y2023i1p302-324.html",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v235y2023i1p302-324.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:58:43+00:00",
+        "source_hash": "fff175bf1ee1a17e7f7d730b3bdb94b59e92a26294a274d898364a68b46c9737"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "repec-serial-page",
+    "roster_authority": "repec-publisher-supplied",
+    "roster_match_scope": "repec-volume-items",
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 15,
+    "authors_complete": 15,
+    "abstract_en_complete": 15,
+    "translation_complete": 15,
+    "duplicate_count": 0,
+    "repec_item_count": 15,
+    "flags": [],
+    "official_item_count": 15,
+    "publishable_item_count": 15,
+    "content_counts": {
+      "official_items": 15,
+      "observed_items": 15,
+      "publishable_items": 15,
+      "research_articles": 15,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 15
+    }
+  },
+  "content_counts": {
+    "official_items": 15,
+    "observed_items": 15,
+    "publishable_items": 15,
+    "research_articles": 15,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 15
+  },
+  "issue_label": "Vol. 235 · No. 1",
+  "content_status": "complete",
+  "source_status": "publisher_verified",
+  "publication_state": "ready"
+}

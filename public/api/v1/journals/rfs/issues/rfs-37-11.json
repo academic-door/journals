@@ -1,0 +1,370 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "rfs-37-11",
+  "journal_id": "rfs",
+  "journal_name": "The Review of Financial Studies",
+  "volume": "37",
+  "issue": "11",
+  "publication_date": "November 2024",
+  "source_url": "https://academic.oup.com/rfs/issue/37/11",
+  "retrieved_at": "2026-08-18T17:32:29+00:00",
+  "expected_article_count": 7,
+  "research_article_count": 7,
+  "status": "incomplete",
+  "development_sample": false,
+  "articles": [
+    {
+      "paper_id": "doi:10.1093/rfs/hhae043",
+      "sequence": 1,
+      "source_sequence": 3217,
+      "article_type": "research-article",
+      "title_en": "Machine Learning for Continuous-Time Finance",
+      "title_cn": "连续时间金融中的机器学习",
+      "authors": [
+        "Victor Duarte",
+        "Diogo Duarte",
+        "Dejanir H Silva"
+      ],
+      "abstract_en": "We develop an algorithm for solving a large class of nonlinear high-dimensional continuous-time models in finance. We approximate value and policy functions using deep learning and show that a combination of automatic differentiation and Ito’s lemma allows for the computation of exact expectations, resulting in a negligible computational cost that is independent of the number of state variables. We illustrate the applicability of our method to problems in asset pricing, corporate finance, and portfolio choice and show that the ability to solve high-dimensional problems allows us to derive new economic insights.",
+      "abstract_cn": "我们开发了一种算法，用于求解金融中一大类非线性高维连续时间模型。我们使用深度学习近似价值函数和政策函数，并表明自动微分与伊藤引理的结合能够计算精确期望，从而产生与状态变量数量无关的可忽略的计算成本。我们展示了我们的方法在资产定价、公司金融和投资组合选择问题中的适用性，并表明解决高维问题的能力使我们能够得出新的经济见解。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/rfs/hhae043",
+      "source_url": "https://doi.org/10.1093/rfs/hhae043",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://academic.oup.com/rfs/issue/37/11",
+        "roster": "crossref:issn:0893-9454",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:32:31+00:00",
+        "source_hash": "e6f1cc662b79ab971c4e14eac42b90990e817445721e88f1efe45c1204f27587"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/rfs/hhae049",
+      "sequence": 2,
+      "source_sequence": 3272,
+      "article_type": "research-article",
+      "title_en": "Horizon-Dependent Risk Aversion and the Timing and Pricing of Uncertainty",
+      "title_cn": "时域依赖的风险厌恶与不确定性的时机和定价",
+      "authors": [
+        "Marianne Andries",
+        "Thomas M Eisenbach",
+        "Martin C Schmalz"
+      ],
+      "abstract_en": "Inspired by experimental evidence, we amend the recursive utility model to let risk aversion decrease with the temporal horizon. Our pseudo-recursive preferences remain tractable and retain appealing features of the long-run risk framework, notably its success at explaining asset pricing moments. In addition, our model addresses two challenges to the standard model. Calibrating the agents’ preferences to explain the equity premium no longer implies an extreme preference for early resolutions of uncertainty. Horizon-dependent risk aversion helps resolve key puzzles in finance on the valuation of assets across maturities and captures the term structure of equity risk premiums and its dynamics.",
+      "abstract_cn": "受实验证据启发，我们修正了递归效用模型，使风险厌恶随时间范围递减。我们的伪递归偏好保持可处理性，并保留了长期风险框架的吸引人特征，尤其是其在解释资产定价矩方面的成功。此外，我们的模型解决了标准模型面临的两个挑战。校准代理人偏好以解释股权溢价不再意味着对不确定性早期解决的极端偏好。时域依赖的风险厌恶有助于解决金融中关于跨期限资产估值的关键谜题，并捕捉股权风险溢价的期限结构及其动态。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/rfs/hhae049",
+      "source_url": "https://doi.org/10.1093/rfs/hhae049",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://academic.oup.com/rfs/issue/37/11",
+        "roster": "crossref:issn:0893-9454",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:32:33+00:00",
+        "source_hash": "b836dff7f60029b1ee153eeff21ddf3217df8aea105b41423b051947e4b7703b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/rfs/hhae047",
+      "sequence": 3,
+      "source_sequence": 3335,
+      "article_type": "research-article",
+      "title_en": "Credit Cycles, Expectations, and Corporate Investment",
+      "title_cn": "信贷周期、预期与企业投资",
+      "authors": [
+        "Huseyin Gulen",
+        "Mihai Ion",
+        "Candace E Jens",
+        "Stefano Rossi"
+      ],
+      "abstract_en": "We provide a systematic empirical assessment of the Minsky hypothesis that business fluctuations stem from irrational swings in expectations. Using predictable firm-level forecast errors, we build an aggregate index of irrational expectations and use it to provide three sets of results. First, we show that our index predicts aggregate credit cycles. Next, we show that these predictable credit cycles drive cycles in firm-level debt issuance and investment and similar cycles between financially constrained and unconstrained firms, as Minsky predicts. Finally, we show more pronounced cycles in firm-level financing and investment for firms with ex ante more optimistic expectations. (JEL G31, G32, G40, E32, E44)",
+      "abstract_cn": "我们对明斯基假说进行了系统的实证评估，该假说认为经济波动源于非理性的预期波动。利用可预测的企业层面预测误差，我们构建了一个非理性预期的总体指数，并利用该指数提供了三组结果。首先，我们表明该指数能够预测总体信贷周期。其次，我们表明这些可预测的信贷周期驱动了企业层面的债务发行和投资周期，以及金融受限和非受限企业之间的类似周期，正如明斯基所预测的那样。最后，我们表明，对于事前预期更为乐观的企业，其企业层面的融资和投资周期更为显著。(JEL G31, G32, G40, E32, E44)",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/rfs/hhae047",
+      "source_url": "https://doi.org/10.1093/rfs/hhae047",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://academic.oup.com/rfs/issue/37/11",
+        "roster": "crossref:issn:0893-9454",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:32:35+00:00",
+        "source_hash": "143b36835f3c2fbf24692aaf09584159ea997b399ce8803cfff61cdc2e0d8e73"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/rfs/hhae042",
+      "sequence": 4,
+      "source_sequence": 3386,
+      "article_type": "research-article",
+      "title_en": "The Technical Default Spread",
+      "title_cn": "技术性违约利差",
+      "authors": [
+        "Emilio Bisetti",
+        "Kai Li",
+        "Jun Yu"
+      ],
+      "abstract_en": "We study the quantitative impact of lender control rights on corporate investment, asset prices, and the aggregate economy. We build a general equilibrium model in which the breaching of a loan covenant (technical default) entails a switch in investment control rights from borrowers to lenders. Lenders optimally choose low-risk projects, thus mitigating borrowers’ risk-taking incentives and lowering the cost of equity. This mechanism generates strong macroeconomic effects and mitigates the financial accelerator. Consistent with our model, proximity to technical default in the data is associated with 4.12% lower returns and lower exposure to systematic risk.",
+      "abstract_cn": "我们研究了贷款人控制权对企业投资、资产价格和总体经济的影响。我们构建了一个一般均衡模型，在该模型中，违反贷款契约（技术性违约）意味着投资控制权从借款人转移到贷款人。贷款人最优地选择低风险项目，从而减轻借款人的风险承担激励并降低股权成本。这一机制产生了强大的宏观经济效应，并缓解了金融加速器效应。与我们的模型一致，数据中接近技术性违约与4.12%较低的回报和较低的系统性风险暴露相关。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/rfs/hhae042",
+      "source_url": "https://doi.org/10.1093/rfs/hhae042",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://academic.oup.com/rfs/issue/37/11",
+        "roster": "crossref:issn:0893-9454",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:32:37+00:00",
+        "source_hash": "d6899c0a516cffd4d20d101080e405db0048100582f9718586a56bf0901096a7"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/rfs/hhae048",
+      "sequence": 5,
+      "source_sequence": 3431,
+      "article_type": "research-article",
+      "title_en": "Heterogeneous Real Estate Agents and the Housing Cycle",
+      "title_cn": "异质性房地产经纪人住房周期",
+      "authors": [
+        "Sonia Gilbukh",
+        "Paul Goldsmith-Pinkham"
+      ],
+      "abstract_en": "The real estate market is highly intermediated, with 90% of buyers and sellers hiring an agent. However, low barriers to entry and fixed commission rates result in large market share for inexperienced intermediaries. Using micro-level data on 8.5 million listings and a novel research design, we show that house listings by inexperienced agents have a lower probability of selling, and this effect is strongest during the housing bust. We estimate that 3.7% more listings would have been sold in a flexible commission equilibrium. Eighty percent of this improvement comes from competition and the remainder from commission variation across experience.",
+      "abstract_cn": "房地产市场是高度中介化的，90%的买家和卖家都聘请了经纪人。然而，低进入壁垒和固定佣金率导致缺乏经验的中介占据大量市场份额。利用8.5百万条挂牌的微观数据和新颖的研究设计，我们表明缺乏经验的经纪人的房屋挂牌出售概率较低，且这种效应在住房市场低迷时期最为显著。我们估计，在灵活佣金均衡下，3.7%更多的挂牌房屋能够售出。这一改善的百分之八十来自竞争，其余部分来自不同经验水平的佣金差异。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/rfs/hhae048",
+      "source_url": "https://doi.org/10.1093/rfs/hhae048",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://academic.oup.com/rfs/issue/37/11",
+        "roster": "crossref:issn:0893-9454",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:32:39+00:00",
+        "source_hash": "61fc86577073ad0d4c8f75489419d3af2cbe7ff899f347316a019d09839f2c65"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/rfs/hhae044",
+      "sequence": 6,
+      "source_sequence": 3490,
+      "article_type": "research-article",
+      "title_en": "A Comprehensive 2022 Look at the Empirical Performance of Equity Premium Prediction",
+      "title_cn": "对股票溢价预测实证表现的全面审视（2022年）",
+      "authors": [
+        "Amit Goyal",
+        "Ivo Welch",
+        "Athanasse Zafirov"
+      ],
+      "abstract_en": "Our paper reexamines whether 29 variables from 26 papers published after Goyal and Welch 2008, as well as the original 17 variables, were useful in predicting the equity premium in-sample and out-of-sample as of the end of 2021. Our samples include the original periods in which these variables were identified, but end later. More than one-third of these new variables no longer have empirical significance even in-sample. Of those that do, half have poor out-of-sample performance. A small number of variables still perform reasonably well both in-sample and out-of-sample.",
+      "abstract_cn": "我们的论文重新检验了Goyal和Welch（2008）之后发表的26篇论文中的29个变量，以及原始的17个变量，在2021年底之前是否对样本内和样本外的股票溢价预测有用。我们的样本包括这些变量被识别出的原始时期，但结束时间更晚。这些新变量中有超过三分之一即使在样本内也不再具有实证显著性。在具有显著性的变量中，有一半的样本外表现不佳。少数变量在样本内和样本外仍然表现良好。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/rfs/hhae044",
+      "source_url": "https://doi.org/10.1093/rfs/hhae044",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://academic.oup.com/rfs/issue/37/11",
+        "roster": "crossref:issn:0893-9454",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:32:41+00:00",
+        "source_hash": "77b3238725580095fcfa8696ee76c44e70e5a4d3ce47eda8f49c448114cf9d87"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/rfs/hhae029",
+      "sequence": 7,
+      "source_sequence": 3558,
+      "article_type": "research-article",
+      "title_en": "Computational Reproducibility in Finance: Evidence from 1,000 Tests",
+      "title_cn": "金融学中的计算可复现性：来自1,000项检验的证据",
+      "authors": [
+        "Christophe Pérignon",
+        "Olivier Akmansoy",
+        "Christophe Hurlin",
+        "Anna Dreber",
+        "Felix Holzmeister",
+        "Jürgen Huber",
+        "Magnus Johannesson",
+        "Michael Kirchler",
+        "Albert J Menkveld",
+        "Michael Razen",
+        "Utz Weitzel"
+      ],
+      "abstract_en": "We analyze the computational reproducibility of more than 1,000 empirical answers to 6 research questions in finance provided by 168 research teams. Running the researchers’ code on the same raw data regenerates exactly the same results only 52% of the time. Reproducibility is higher for researchers with better coding skills and those exerting more effort. It is lower for more technical research questions, more complex code, and results lying in the tails of the distribution. Researchers exhibit overconfidence when assessing the reproducibility of their own research. We provide guidelines for finance researchers and discuss implementable reproducibility policies for academic journals.",
+      "abstract_cn": "我们分析了168个研究团队对金融学中6个研究问题提供的超过1,000个实证答案的计算可复现性。在相同原始数据上运行研究者的代码，仅52%的时间能完全再生相同结果。编码技能更好和付出更多努力的研究者的可复现性更高。对于更具技术性的研究问题、更复杂的代码以及处于分布尾部的结果，可复现性较低。研究者在评估自身研究的可复现性时表现出过度自信。我们为金融研究者提供指导方针，并讨论学术期刊可实施的可复现性政策。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/rfs/hhae029",
+      "source_url": "https://doi.org/10.1093/rfs/hhae029",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://academic.oup.com/rfs/issue/37/11",
+        "roster": "crossref:issn:0893-9454",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:32:43+00:00",
+        "source_hash": "7c8b2779f0a1fb838b62ce341c9a20811600655000cb9865208b3d04e3beb04b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "crossref",
+    "roster_authority": "crossref-provisional",
+    "roster_match_scope": "crossref-issue-group",
+    "publisher_page_status": "blocked",
+    "excluded_item_count": 1,
+    "excluded_items": [
+      {
+        "title_en": "Expression of Concern: Mortgage Finance and Climate Change: Securitization Dynamics in the Aftermath of Natural Disasters",
+        "reason": "correction_notice",
+        "doi": "10.1093/rfs/hhae050",
+        "article_type": "correction"
+      }
+    ],
+    "doi_complete": 7,
+    "authors_complete": 7,
+    "abstract_en_complete": 7,
+    "translation_complete": 7,
+    "duplicate_count": 0,
+    "flags": [
+      "publisher_html_blocked_crossref_fallback",
+      "crossref_provisional_roster"
+    ],
+    "official_item_count": 8,
+    "publishable_item_count": 7,
+    "content_counts": {
+      "official_items": 8,
+      "observed_items": 8,
+      "publishable_items": 7,
+      "research_articles": 7,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 1,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 8
+    }
+  },
+  "source_status": "source_pending",
+  "publication_state": "source_pending",
+  "content_counts": {
+    "official_items": 8,
+    "observed_items": 8,
+    "publishable_items": 7,
+    "research_articles": 7,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 1,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 8
+  },
+  "issue_label": "Vol. 37 · No. 11",
+  "content_status": "complete"
+}

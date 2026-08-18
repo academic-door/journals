@@ -1,0 +1,468 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "joe-241-1",
+  "journal_id": "joe",
+  "journal_name": "Journal of Econometrics",
+  "volume": "241",
+  "issue": "1",
+  "publication_date": "February 2024",
+  "source_url": "https://ideas.repec.org/s/eee/econom.html",
+  "retrieved_at": "2026-08-18T19:11:30+00:00",
+  "expected_article_count": 10,
+  "research_article_count": 10,
+  "status": "ready",
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105709",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Spectral clustering with variance information for group structure estimation in panel data",
+      "title_cn": "基于方差信息的谱聚类在面板数据组结构估计中的应用",
+      "authors": [
+        "Lu Yu",
+        "Jiaying Gu",
+        "Stanislav Volgushev"
+      ],
+      "abstract_en": "Consider a panel data setting where repeated observations on individuals are available. Often it is reasonable to assume that there exist groups of individuals that share similar effects of observed characteristics, but the grouping is typically unknown in advance. We first conduct a local analysis which reveals that the variances of the individual coefficient estimates contain useful information for the estimation of group structure. We then propose a method to estimate unobserved groupings for general panel data models that explicitly accounts for the variance information. Our proposed method remains computationally feasible with a large number of individuals and/or repeated measurements on each individual. The developed ideas can also be applied even when individual-level data are not available and only parameter estimates together with some quantification of estimation uncertainty are given to the researcher. A thorough simulation study demonstrates superior performance of our method than existing methods and we apply the method to two empirical applications.",
+      "abstract_cn": "考虑一个面板数据设置，其中可获得对个体的重复观测。通常合理假设存在共享相似观测特征效应的个体组，但分组通常是事先未知的。我们首先进行局部分析，揭示个体系数估计的方差包含用于估计组结构的有用信息。然后，我们提出一种方法，用于估计一般面板数据模型中未观测的分组，该方法明确考虑了方差信息。我们提出的方法在个体数量大和/或每个个体重复测量次数多的情况下仍保持计算可行性。所发展的思想也可应用于个体层面数据不可用，仅向研究者提供参数估计及估计不确定性量化的情形。一项全面的模拟研究表明，我们的方法优于现有方法，并将该方法应用于两个实证应用。",
+      "doi": "10.1016/j.jeconom.2024.105709",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624000551",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v241y2024i1s0304407624000551.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:11:34+00:00",
+        "source_hash": "4eefcc3423cd1ff0f54089661c55cbd7c3cd7102bbc0758265f1003cc698d9fc"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105716",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Predictive ability tests with possibly overlapping models",
+      "title_cn": "可能重叠模型的预测能力检验",
+      "authors": [
+        "Valentina Corradi",
+        "Jack Fosten",
+        "Daniel Gutknecht"
+      ],
+      "abstract_en": "This paper provides novel tests for comparing out-of-sample predictive ability of two or more competing models that are possibly overlapping. The tests do not require pre-testing, they allow for dynamic misspecification and are valid under different estimation schemes and loss functions. In pairwise model comparisons, the test is constructed by adding a random perturbation to both the numerator and denominator of a standard Diebold–Mariano test statistic. This prevents degeneracy in the presence of overlapping models but becomes asymptotically negligible otherwise. The test is shown to control the Type I error probability asymptotically at the nominal level, uniformly over all null data generating processes. A similar idea is used to develop a superior predictive ability test for the comparison of multiple models against a benchmark. Monte Carlo simulations demonstrate that our tests exhibit very good size control in finite samples reducing both over- and under-rejection relative to its competitors. Finally, an application to forecasting U.S. excess bond returns provides evidence in favour of models using macroeconomic factors.",
+      "abstract_cn": "本文针对可能重叠的两个或多个竞争模型，提供了比较其样本外预测能力的新检验。这些检验不需要预检验，允许动态误设定，并在不同估计方案和损失函数下有效。在成对模型比较中，该检验通过在标准Diebold–Mariano检验统计量的分子和分母上添加随机扰动来构造。这防止了重叠模型存在时的退化，但在其他情况下渐近可忽略。该检验被证明能在名义水平上渐近控制第一类错误概率，且对所有零假设数据生成过程一致。类似的想法被用于开发针对多个模型与基准比较的优越预测能力检验。蒙特卡洛模拟表明，我们的检验在有限样本中表现出非常好的大小控制，相对于其竞争者减少了过度拒绝和不足拒绝。最后，一个预测美国超额债券收益的应用提供了支持使用宏观经济因素模型的证据。",
+      "doi": "10.1016/j.jeconom.2024.105716",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624000629",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v241y2024i1s0304407624000629.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:11:37+00:00",
+        "source_hash": "f588f0bc464cbf044db66f809210f5ff279915e7700c24a66020f437c09f1af2"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105724",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "No star is good news: A unified look at rerandomization based on p-values from covariate balance tests",
+      "title_cn": "没有星星就是好消息：基于协变量平衡检验p值的再随机化统一审视",
+      "authors": [
+        "Anqi Zhao",
+        "Peng Ding"
+      ],
+      "abstract_en": "Randomized experiments balance all covariates on average and are considered the gold standard for estimating treatment effects. Chance imbalances are nonetheless common in realized treatment allocations. To inform readers of the comparability of treatment groups at baseline, contemporary scientific publications often report covariate balance tables with not only covariate means by treatment group but also the associated p-values from significance tests of their differences. The practical need to avoid small p-values as indicators of poor balance motivates balance check and rerandomization based on these p-values from covariate balance tests (ReP) as an attractive tool for improving covariate balance in designing randomized experiments. Despite the intuitiveness of such strategy and its possibly already widespread use in practice, the literature lacks results about its implications on subsequent inference, subjecting many effectively rerandomized experiments to possibly inefficient analyses. To fill this gap, we examine a variety of potentially useful schemes for ReP and quantify their impact on subsequent inference. Specifically, we focus on three estimators of the average treatment effect from the unadjusted, additive, and interacted linear regressions of the outcome on treatment, respectively, and derive their asymptotic sampling properties under ReP. The main findings are threefold. First, the estimator from the interacted regression is asymptotically the most efficient under all ReP schemes examined, and permits convenient regression-assisted inference identical to that under complete randomization. Second, ReP, in contrast to complete randomization, improves the asymptotic efficiency of the estimators from the unadjusted and additive regressions. Standard regression analyses are accordingly still valid but in general overconservative. Third, ReP reduces the asymptotic conditional biases of the three estimators and improves their coherence in terms of mean squared difference. These results establish ReP as a convenient tool for improving covariate balance in designing randomized experiments, and we recommend using the interacted regression for analyzing data from ReP designs.",
+      "abstract_cn": "随机实验平均平衡所有协变量，被视为估计处理效应的金标准。然而，在实现的处理分配中，偶然的不平衡很常见。为了让读者了解基线时处理组的可比性，当代科学出版物通常报告协变量平衡表，不仅包括各处理组的协变量均值，还包括其差异显著性检验的相应p值。避免小p值作为平衡不佳指标的实际需求，使得基于这些协变量平衡检验p值的平衡检查和再随机化（ReP）成为设计随机实验中改善协变量平衡的有吸引力的工具。尽管这种策略直观且可能在实践中已被广泛使用，但文献缺乏关于其对后续推断影响的结果，使许多实际上的再随机化实验可能面临低效的分析。为填补这一空白，我们考察了多种可能有用的ReP方案，并量化它们对后续推断的影响。具体而言，我们关注来自未调整、加性和交互线性回归的三种平均处理效应估计量，并推导它们在ReP下的渐近抽样性质。主要发现有三点。第一，在所有考察的ReP方案下，交互回归的估计量渐近最有效，并允许与完全随机化下相同的便捷回归辅助推断。第二，与完全随机化相比，ReP提高了未调整和加性回归估计量的渐近效率。标准回归分析因此仍然有效，但通常过于保守。第三，ReP降低了三个估计量的渐近条件偏差，并改善了它们在均方差异方面的一致性。这些结果确立了ReP作为设计随机实验中改善协变量平衡的便捷工具，我们建议使用交互回归分析来自ReP设计的数据。",
+      "doi": "10.1016/j.jeconom.2024.105724",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624000708",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v241y2024i1s0304407624000708.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:11:41+00:00",
+        "source_hash": "240bbf386bc1a1c0e5906992c5500d9b4ca89e8df1a74c8d30f3f82e6fadd1c2"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105727",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Wild bootstrap inference for instrumental variables regressions with weak and few clusters",
+      "title_cn": "弱聚类和少聚类工具变量回归的野自助推断",
+      "authors": [
+        "Wenjie Wang",
+        "Yichong Zhang"
+      ],
+      "abstract_en": "We study the wild bootstrap inference for instrumental variable regressions under an alternative asymptotic framework that the number of independent clusters is fixed, the size of each cluster diverges to infinity, and the within cluster dependence is sufficiently weak. We first show that the wild bootstrap Wald test controls size asymptotically up to a small error as long as the parameters of endogenous variables are strongly identified in at least one of the clusters. Second, we establish the conditions for the bootstrap tests to have power against local alternatives. We further develop a wild bootstrap Anderson–Rubin test for the full-vector inference and show that it controls size asymptotically even under weak identification in all clusters. We illustrate their good performance using simulations and provide an empirical application to a well-known dataset about US local labor markets.",
+      "abstract_cn": "我们研究了在一种替代渐近框架下工具变量回归的野自助推断，该框架中独立聚类的数量固定，每个聚类的大小趋于无穷大，且聚类内的依赖性足够弱。我们首先证明，只要内生变量的参数在至少一个聚类中被强识别，野自助Wald检验在渐近上控制规模，误差较小。其次，我们建立了自助检验对局部备择假设具有功效的条件。我们进一步开发了一种野自助Anderson–Rubin检验，用于全向量推断，并证明即使在所有聚类中弱识别的情况下，它也能在渐近上控制规模。我们通过模拟说明了它们的良好性能，并提供了一个关于美国地方劳动力市场的知名数据集的实证应用。",
+      "doi": "10.1016/j.jeconom.2024.105727",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624000733",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v241y2024i1s0304407624000733.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:11:44+00:00",
+        "source_hash": "33593fd7ee8beebb3d587a093722addfdb16ba64922f7e2fa5de2c457140807d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105734",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Estimation and inference of seller’s expected revenue in first-price auctions",
+      "title_cn": "第一价格拍卖中卖方预期收益的估计与推断",
+      "authors": [
+        "Federico Zincenko"
+      ],
+      "abstract_en": "I propose an estimator for the seller’s expected revenue function in a first-price sealed-bid auction with independent private values and symmetric bidders, who can exhibit constant relative risk aversion and bid according to the Bayesian Nash equilibrium. I build the proposed estimator from pseudo-private values, which can be estimated from observed bids, and show that it is pointwise and uniformly consistent: the corresponding optimal nonparametric rates of convergence can be achieved. Then I construct asymptotically valid confidence intervals and uniform confidence bands. Suggestions for critical values are based on first-order asymptotics, as well as on the bootstrap method.",
+      "abstract_cn": "我提出了一种在第一价格密封投标拍卖中卖方预期收益函数的估计量，该拍卖具有独立私人价值和对称投标人，投标人可以表现出常数相对风险厌恶，并根据贝叶斯纳什均衡进行投标。我从伪私人价值构建所提出的估计量，这些伪私人价值可以从观察到的投标中估计出来，并证明它是一致的点态和一致一致：可以实现相应的最优非参数收敛速率。然后我构造了渐近有效的置信区间和一致置信带。临界值的建议基于一阶渐近性以及自举方法。",
+      "doi": "10.1016/j.jeconom.2024.105734",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624000800",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v241y2024i1s0304407624000800.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:11:46+00:00",
+        "source_hash": "d86653796f45f760eb577a288e7aa3b1bb6d99ca30ace14bf4f36bde93b8c2f8"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105735",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "A vector monotonicity assumption for multiple instruments",
+      "title_cn": "多工具变量的向量单调性假设",
+      "authors": [
+        "Leonard Goff"
+      ],
+      "abstract_en": "When a researcher combines multiple instrumental variables for a single binary treatment, the monotonicity assumption of the local average treatment effects (LATE) framework can become restrictive: it requires that all units share a common direction of response even when separate instruments are shifted in opposing directions. What I call vector monotonicity, by contrast, simply assumes treatment uptake to be monotonic in all instruments. I characterize the class of causal parameters that are point identified under vector monotonicity, when the instruments are binary. This class includes, for example, the average treatment effect among units that are in any way responsive to the collection of instruments, or those that are responsive to a given subset of them. The identification results are constructive and yield a simple estimator for the identified treatment effect parameters. An empirical application revisits the labor market returns to college.",
+      "abstract_cn": "当研究者将多个工具变量合并用于单一二元处理时，局部平均处理效应（LATE）框架的单调性假设可能变得具有限制性：它要求所有单元在即使不同工具变量向相反方向变动时也共享共同的反应方向。相比之下，我所称的向量单调性仅假设处理采纳在所有工具变量上是单调的。我刻画了在向量单调性下，当工具变量为二元时，点识别的因果参数类别。该类别包括，例如，对工具变量集合以任何方式响应的单元的平均处理效应，或对给定子集响应的单元的平均处理效应。识别结果是构造性的，并为识别的处理效应参数提供了一个简单估计量。一个实证应用重新审视了大学教育的劳动力市场回报。",
+      "doi": "10.1016/j.jeconom.2024.105735",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624000812",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v241y2024i1s0304407624000812.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:11:49+00:00",
+        "source_hash": "ea0c6c88c5120f0f0d2fcc5645015c6af3b5a2ffc5e599fcdaa3cb5b75903843"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105738",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Testing identification conditions of LATE in fuzzy regression discontinuity designs",
+      "title_cn": "模糊回归不连续设计中LATE识别条件的检验",
+      "authors": [
+        "Yu-Chin Hsu",
+        "Ji-Liang Shiu",
+        "Yuanyuan Wan"
+      ],
+      "abstract_en": "This paper derives testable implications of the identifying conditions for the local average treatment effect in fuzzy regression discontinuity designs. We show that the testable implications of these identifying conditions are a finite number of inequality restrictions on the observed data distribution. We then propose a specification test for the testable implications and show that the proposed test controls the size and is asymptotically consistent. We apply our test to several fuzzy regression discontinuity designs in the literature.",
+      "abstract_cn": "本文推导了模糊回归不连续设计中局部平均处理效应识别条件的可检验含义。我们表明，这些识别条件的可检验含义是对观测数据分布的有限数量的不等式约束。然后，我们提出了针对这些可检验含义的设定检验，并证明所提出的检验能控制规模且渐近一致。我们将该检验应用于文献中的多个模糊回归不连续设计。",
+      "doi": "10.1016/j.jeconom.2024.105738",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624000848",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v241y2024i1s0304407624000848.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:11:50+00:00",
+        "source_hash": "e33223bfd7fc4121826e322e4237a522ce6a467aab6ae85a5a1c09b3d0f8b870"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105740",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Covariate adjustment in experiments with matched pairs",
+      "title_cn": "匹配对实验中的协变量调整",
+      "authors": [
+        "Yuehao Bai",
+        "Liang Jiang",
+        "Joseph P. Romano",
+        "Azeem M. Shaikh",
+        "Yichong Zhang"
+      ],
+      "abstract_en": "This paper studies inference for the average treatment effect (ATE) in experiments in which treatment status is determined according to “matched pairs” and it is additionally desired to adjust for observed, baseline covariates to gain further precision. By a “matched pairs” design, we mean that units are sampled i.i.d. from the population of interest, paired according to observed, baseline covariates, and finally, within each pair, one unit is selected at random for treatment. Importantly, we presume that not all observed, baseline covariates are used in determining treatment assignment. We study a broad class of estimators based on a “doubly robust” moment condition that permits us to study estimators with both finite-dimensional and high-dimensional forms of covariate adjustment. We find that estimators with finite-dimensional, linear adjustments need not lead to improvements in precision relative to the unadjusted difference-in-means estimator. This phenomenon persists even if the adjustments interact with treatment; in fact, doing so leads to no changes in precision. However, gains in precision can be ensured by including fixed effects for each of the pairs. Indeed, we show that this adjustment leads to the minimum asymptotic variance of the corresponding ATE estimator among all finite-dimensional, linear adjustments. We additionally study an estimator with a regularized adjustment, which can accommodate high-dimensional covariates. We show that this estimator leads to improvements in precision relative to the unadjusted difference-in-means estimator and also provides conditions under which it leads to the “optimal” nonparametric, covariate adjustment. A simulation study confirms the practical relevance of our theoretical analysis, and the methods are employed to reanalyze data from an experiment using a “matched pairs” design to study the effect of macroinsurance on microenterprise.",
+      "abstract_cn": "本文研究了在治疗状态根据“匹配对”确定且额外希望调整观测到的基线协变量以获得更高精度的实验中，平均处理效应（ATE）的推断问题。所谓“匹配对”设计，是指从目标总体中独立同分布地抽取单位，根据观测到的基线协变量进行配对，最后在每对内随机选择一个单位接受治疗。重要的是，我们假设并非所有观测到的基线协变量都用于确定治疗分配。我们研究了一类基于“双重稳健”矩条件的广泛估计量，该条件使我们能够研究具有有限维和高维协变量调整形式的估计量。我们发现，具有有限维线性调整的估计量相对于未调整的均值差估计量不一定能提高精度。即使调整与治疗交互，这种现象仍然存在；事实上，这样做不会导致精度变化。然而，通过包含每对的固定效应可以确保精度的提高。实际上，我们表明这种调整在所有有限维线性调整中导致了相应的ATE估计量的最小渐近方差。我们还研究了一个具有正则化调整的估计量，它可以适应高维协变量。我们表明，该估计量相对于未调整的均值差估计量提高了精度，并提供了其导致“最优”非参数协变量调整的条件。模拟研究证实了我们理论分析的实际相关性，并且这些方法被用于重新分析一项使用“匹配对”设计研究宏观保险对微型企业影响的实验数据。",
+      "doi": "10.1016/j.jeconom.2024.105740",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624000861",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v241y2024i1s0304407624000861.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:11:54+00:00",
+        "source_hash": "30e2e4c6ee598c8727755dc2d0d980f8f7c6bb6d6f76190bf6c6b235d2509e26"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105742",
+      "sequence": 9,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "The law of large numbers for large stable matchings",
+      "title_cn": "大规模稳定匹配的大数定律",
+      "authors": [
+        "Jacob Schwartz",
+        "Kyungchul Song"
+      ],
+      "abstract_en": "In many empirical studies of a large two-sided matching market (such as in a college admissions problem), the researcher performs statistical inference under the assumption that they observe a random sample from a large matching market. In this paper, we consider a setting in which the researcher observes either all or a nontrivial fraction of outcomes from a stable matching. We establish a concentration inequality for empirical matching probabilities assuming strong correlation among the colleges’ preferences while allowing students’ preferences to be fully heterogeneous. Our concentration inequality yields laws of large numbers for the empirical matching probabilities and other statistics commonly used in empirical analyses of a large matching market. To illustrate the usefulness of our concentration inequality, we prove consistency for estimators of conditional matching probabilities and measures of positive assortative matching.",
+      "abstract_cn": "在许多关于大规模双边匹配市场（如大学录取问题）的实证研究中，研究者假设他们从大规模匹配市场中观察到随机样本，并在此假设下进行统计推断。本文考虑研究者观察到稳定匹配的全部或非平凡比例结果的情形。我们建立了经验匹配概率的集中不等式，假设高校偏好之间存在强相关性，同时允许学生偏好完全异质。我们的集中不等式为经验匹配概率以及大规模匹配市场实证分析中常用的其他统计量提供了大数定律。为说明我们集中不等式的实用性，我们证明了条件匹配概率估计量和正分类匹配度量的一致性。",
+      "doi": "10.1016/j.jeconom.2024.105742",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624000885",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v241y2024i1s0304407624000885.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:11:56+00:00",
+        "source_hash": "6bf9d20f7f6dabbc781dd844749de89ec63fea9de1ad135e4fcbaa40c6cda88f"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105725",
+      "sequence": 10,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "Bayesian estimation of cluster covariance matrices of unknown form",
+      "title_cn": "未知形式聚类协方差矩阵的贝叶斯估计",
+      "authors": [
+        "Drew Creal",
+        "Jaeho Kim"
+      ],
+      "abstract_en": "We develop a flexible Bayesian model for cluster covariance matrices in large dimensions where the number of clusters and the assignment of cross-sectional units to a cluster are a-priori unknown and estimated from the data. In a cluster covariance matrix, the variances and covariances are equal within each diagonal block, while the covariances are equal in each off-diagonal block. This reduces the number of parameters by pooling those parameters together that are in the same cluster. In order to treat the number of clusters and the cluster assignments as unknowns, we build a random partition model which assigns a prior distribution over the space of partitions of the data into clusters. Sampling from the posterior over the space of partitions creates a flexible estimator because it averages across a wide set of cluster covariance matrices. We illustrate our methods on linear factor models and large vector autoregressions.",
+      "abstract_cn": "我们开发了一个灵活的贝叶斯模型，用于大维度下的聚类协方差矩阵，其中聚类数量以及横截面单元到聚类的分配是先验未知的，并从数据中估计。在聚类协方差矩阵中，每个对角块内的方差和协方差相等，而每个非对角块内的协方差相等。这通过将同一聚类中的参数合并来减少参数数量。为了将聚类数量和聚类分配视为未知，我们构建了一个随机划分模型，该模型在数据划分成聚类的空间上分配先验分布。从划分空间的后验中抽样创建了一个灵活的估计器，因为它平均了广泛的聚类协方差矩阵集合。我们在线性因子模型和大规模向量自回归上展示了我们的方法。",
+      "doi": "10.1016/j.jeconom.2024.105725",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S030440762400071X",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v241y2024i1s030440762400071x.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:11:58+00:00",
+        "source_hash": "0a4440bb6317624d5578a5a16cef2f7581d5ba4fbe06089e1e986018152eddbf"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "repec-serial-page",
+    "roster_authority": "repec-publisher-supplied",
+    "roster_match_scope": "repec-volume-items",
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 10,
+    "authors_complete": 10,
+    "abstract_en_complete": 10,
+    "translation_complete": 10,
+    "duplicate_count": 0,
+    "repec_item_count": 10,
+    "flags": [],
+    "official_item_count": 10,
+    "publishable_item_count": 10,
+    "content_counts": {
+      "official_items": 10,
+      "observed_items": 10,
+      "publishable_items": 10,
+      "research_articles": 10,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 10
+    }
+  },
+  "content_counts": {
+    "official_items": 10,
+    "observed_items": 10,
+    "publishable_items": 10,
+    "research_articles": 10,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 10
+  },
+  "issue_label": "Vol. 241 · No. 1",
+  "content_status": "complete",
+  "source_status": "publisher_verified",
+  "publication_state": "ready"
+}

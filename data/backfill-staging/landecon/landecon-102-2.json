@@ -7,9 +7,9 @@
   "issue": "2",
   "publication_date": "March 2026",
   "source_url": "https://le.uwpress.org/content/by/year",
-  "retrieved_at": "2026-08-06T12:05:08+00:00",
-  "expected_article_count": 9,
-  "research_article_count": 9,
+  "retrieved_at": "2026-08-18T17:18:16+00:00",
+  "expected_article_count": 8,
+  "research_article_count": 8,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
@@ -354,46 +354,6 @@
         "matched_terms": [],
         "source": "academic-door-rules-v1"
       }
-    },
-    {
-      "paper_id": "doi:10.3368/le.102.2.308",
-      "sequence": 9,
-      "source_sequence": 308,
-      "article_type": "research-article",
-      "title_en": "Editor’s Note",
-      "title_cn": "",
-      "authors": [],
-      "abstract_en": "",
-      "abstract_cn": "",
-      "abstract_snippet_en": "",
-      "doi": "10.3368/le.102.2.308",
-      "source_url": "https://doi.org/10.3368/le.102.2.308",
-      "publication_date": "2026",
-      "sources": {
-        "issue": "https://le.uwpress.org/content/by/year",
-        "roster": "crossref:issn:0023-7639",
-        "metadata": "crossref",
-        "abstract_en": "",
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.3368/le.102.2.308"
-      },
-      "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
-      },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing",
-        "authors_missing",
-        "abstract_en_missing"
-      ],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
     }
   ],
   "quality": {
@@ -403,8 +363,14 @@
     "roster_authority": "crossref-provisional",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
-    "excluded_item_count": 2,
+    "excluded_item_count": 3,
     "excluded_items": [
+      {
+        "title_en": "Editor’s Note",
+        "reason": "editorial_material",
+        "doi": "10.3368/le.102.2.308",
+        "article_type": "editorial"
+      },
       {
         "title_en": "Erratum: It’s the Smell: How Resolving Uncertainty about Local Disamenities Can Affect the Housing Market",
         "reason": "correction_notice",
@@ -418,45 +384,46 @@
         "article_type": "correction"
       }
     ],
-    "doi_complete": 9,
+    "doi_complete": 8,
     "authors_complete": 8,
     "abstract_en_complete": 8,
     "translation_complete": 8,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster",
-      "abstract_en_incomplete",
-      "translation_incomplete"
+      "crossref_provisional_roster"
     ],
     "official_item_count": 11,
-    "publishable_item_count": 9,
+    "publishable_item_count": 8,
     "content_counts": {
       "official_items": 11,
       "observed_items": 11,
-      "publishable_items": 9,
-      "research_articles": 9,
+      "publishable_items": 8,
+      "research_articles": 8,
       "comments": 0,
       "short_communications": 0,
       "corrections": 2,
-      "editorial_material": 0,
+      "editorial_material": 1,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 11
+      "catalog_content_items": 10
     }
   },
+  "source_status": "source_pending",
+  "publication_state": "source_pending",
   "content_counts": {
     "official_items": 11,
     "observed_items": 11,
-    "publishable_items": 9,
-    "research_articles": 9,
+    "publishable_items": 8,
+    "research_articles": 8,
     "comments": 0,
     "short_communications": 0,
     "corrections": 2,
-    "editorial_material": 0,
+    "editorial_material": 1,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 11
+    "catalog_content_items": 10
   },
-  "issue_label": "Vol. 102 · No. 2"
+  "issue_label": "Vol. 102 · No. 2",
+  "content_status": "complete"
 }

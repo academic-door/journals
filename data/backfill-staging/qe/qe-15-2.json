@@ -1,0 +1,392 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "qe-15-2",
+  "journal_id": "qe",
+  "journal_name": "Quantitative Economics",
+  "volume": "15",
+  "issue": "2",
+  "publication_date": "May 2024",
+  "source_url": "https://ideas.repec.org/s/wly/quante.html",
+  "retrieved_at": "2026-08-18T17:00:33+00:00",
+  "expected_article_count": 8,
+  "research_article_count": 8,
+  "status": "ready",
+  "development_sample": false,
+  "articles": [
+    {
+      "paper_id": "doi:10.3982/qe1975",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Confidence set for group membership",
+      "title_cn": "组成员关系的置信集",
+      "authors": [
+        "Andreas Dzemski",
+        "Ryo Okui"
+      ],
+      "abstract_en": "Our confidence set quantifies the statistical uncertainty from data‐driven group assignments in grouped panel models. It covers the true group memberships jointly for all units with pre‐specified probability and is constructed by inverting many simultaneous unit‐specific one‐sided tests for group membership. We justify our approach under N,T → ∞ asymptotics using tools from high‐dimensional statistics, some of which we extend in this paper. We provide Monte Carlo evidence that the confidence set has adequate coverage in finite samples. An empirical application illustrates the use of our confidence set.",
+      "abstract_cn": "我们的置信集量化了分组面板模型中数据驱动组分配带来的统计不确定性。它以预先指定的概率联合覆盖所有单元的真实组成员关系，并通过反转许多同时进行的针对组成员关系的单元特定单侧检验来构建。我们在N,T → ∞渐近性下使用高维统计工具证明了我们方法的合理性，其中一些工具在本文中得到了扩展。我们提供了蒙特卡洛证据，表明该置信集在有限样本中具有足够的覆盖率。一个实证应用说明了我们置信集的用途。",
+      "doi": "10.3982/qe1975",
+      "source_url": "https://doi.org/10.3982/qe1975",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v15y2024i2p245-277.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:00:35+00:00",
+        "source_hash": "8c8f3030f806b5940059bfc24e7913dda185ffb5f99bc9c0687eb3e229beeaed"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe2354",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Inference for matched tuples and fully blocked factorial designs",
+      "title_cn": "匹配元组与完全区组析因设计的推断",
+      "authors": [
+        "Yuehao Bai",
+        "Jizhou Liu",
+        "Max Tabord‐Meehan"
+      ],
+      "abstract_en": "This paper studies inference in randomized controlled trials with multiple treatments, where treatment status is determined according to a “matched tuples” design. If there are |D| possible treatments, then by a matched tuples design, we mean an experimental design where units are sampled i.i.d. from the population of interest, grouped into “homogeneous” blocks of size |D|, and finally, within each block, exactly one individual is randomly assigned to each of the |D| treatments. We first study estimation and inference for matched tuples designs in the general setting where the parameter of interest is a vector of linear contrasts over the collection of average potential outcomes for each treatment. Parameters of this form include standard average treatment effects used to compare one treatment relative to another, but also include parameters that may be of interest in the analysis of factorial designs. We first establish conditions under which a sample analog estimator is asymptotically normal and construct a consistent estimator of its corresponding asymptotic variance. Combining these results establish the asymptotic exactness of tests based on these estimators. In contrast, we show that, for two common testing procedures based on t‐tests constructed from linear regressions, one test is generally conservative while the other is generally invalid. We go on to apply our results to study the asymptotic properties of what we call “fully‐blocked” 2K factorial designs, which are simply matched tuples designs applied to a full factorial experiment. Leveraging our previous results, we establish that our estimator achieves a lower asymptotic variance under the fully‐blocked design than that under any stratified factorial design, which stratifies the experimental sample into a finite number of “large” strata. A simulation study and empirical application illustrate the practical relevance of our results.",
+      "abstract_cn": "本文研究了多处理随机对照试验中的推断问题，其中处理状态根据“匹配元组”设计确定。如果有|D|种可能的处理，那么匹配元组设计是指一种实验设计，其中单位从目标总体中独立同分布抽样，分组为大小为|D|的“同质”区组，最后在每个区组内，恰好一个个体被随机分配到|D|种处理中的每一种。我们首先研究在一般设置下匹配元组设计的估计和推断，其中感兴趣的参数是每种处理的平均潜在结果集合上的线性对比向量。这种形式的参数包括用于比较一种处理相对于另一种处理的标准平均处理效应，但也包括在析因设计分析中可能感兴趣的参数。我们首先建立了样本模拟估计量渐近正态的条件，并构造了其相应渐近方差的一致估计量。结合这些结果，确立了基于这些估计量的检验的渐近精确性。相比之下，我们表明，对于基于线性回归构建的t检验的两种常见检验程序，一种检验通常是保守的，而另一种通常是无效的。我们继续应用我们的结果来研究我们称之为“完全区组”2K析因设计的渐近性质，这仅仅是应用于完全析因实验的匹配元组设计。利用我们之前的结果，我们确定在完全区组设计下，我们的估计量比任何分层析因设计（将实验样本分层为有限数量的“大”层）下的渐近方差更低。模拟研究和实证应用说明了我们结果的实际相关性。",
+      "doi": "10.3982/qe2354",
+      "source_url": "https://doi.org/10.3982/qe2354",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v15y2024i2p279-330.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:00:39+00:00",
+        "source_hash": "6851499106f6e37ff41e9279b088012f3c629e528b22edd34029bcdfc11825fa"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe1960",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Discordant relaxations of misspecified models",
+      "title_cn": "误设模型的非一致松弛",
+      "authors": [
+        "Lixiong Li",
+        "Désiré Kédagni",
+        "Ismaël Mourifié",
+        "Desire Kedagni"
+      ],
+      "abstract_en": "In many set‐identified models, it is difficult to obtain a tractable characterization of the identified set. Therefore, researchers often rely on nonsharp identification conditions, and empirical results are often based on an outer set of the identified set. This practice is often viewed as conservative yet valid because an outer set is always a superset of the identified set. However, this paper shows that when the model is refuted by the data, two sets of nonsharp identification conditions derived from the same model could lead to disjoint outer sets and conflicting empirical results. We provide a sufficient condition for the existence of such discordancy, which covers models characterized by conditional moment inequalities and the Artstein (1983) inequalities. We also derive sufficient conditions for the nonexistence of discordant submodels, therefore providing a class of models for which constructing outer sets cannot lead to misleading interpretations. In the case of discordancy, we follow Masten and Poirier (2021) by developing a method to salvage misspecified models, but unlike them, we focus on discrete relaxations. We consider all minimum relaxations of a refuted model that restores data consistency. We find that the union of the identified sets of these minimum relaxations is robust to detectable misspecifications and has an intuitive empirical interpretation.",
+      "abstract_cn": "在许多集合识别模型中，难以获得识别集的可处理特征。因此，研究者常依赖非尖锐识别条件，实证结果常基于识别集的外集。这种做法通常被视为保守但有效，因为外集总是识别集的超集。然而，本文表明，当模型被数据反驳时，由同一模型推导出的两组非尖锐识别条件可能导致不相交的外集和相互冲突的实证结果。我们为这种不一致性的存在提供了充分条件，该条件涵盖了由条件矩不等式和Artstein（1983）不等式刻画的模型。我们还推导了不存在不一致子模型的充分条件，从而提供了一类模型，对于这些模型，构造外集不会导致误导性解释。在不一致的情况下，我们遵循Masten和Poirier（2021）的方法来挽救误设模型，但与它们不同，我们专注于离散松弛。我们考虑被反驳模型的所有最小松弛，以恢复数据一致性。我们发现这些最小松弛的识别集的并集对可检测的误设具有稳健性，并具有直观的实证解释。",
+      "doi": "10.3982/qe1960",
+      "source_url": "https://doi.org/10.3982/qe1960",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v15y2024i2p331-379.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:00:42+00:00",
+        "source_hash": "671be8d5beacff14826f6cf9d300b6b0a0ee93d6e4cb006708c1ef48aaf5fbd6"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe1984",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Stamping out stamp duty: Housing mismatch and welfare",
+      "title_cn": "废除印花税：住房错配与福利",
+      "authors": [
+        "Yunho Cho",
+        "Shuyun May Li",
+        "Lawrence Uren"
+      ],
+      "abstract_en": "Property transaction taxes—also known as stamp duty—are widely viewed as an inefficient form of taxation. In this paper, we examine the welfare implications of removing stamp duty in a general equilibrium overlapping generation model with heterogeneous agents. Our model features an idiosyncratic shock to housing preferences, which may create mismatch or induce households to move. We calibrate the model to the Australian housing market, and conduct counterfactual policy experiments where stamp duty is replaced with recurrent property or consumption taxes. We find that removing stamp duty raises household mobility and reduces the degree of housing mismatch substantially. When examining steady states, we find that newborn households prefer entering an economy with a recurring property tax rather than one with stamp duty. In contrast, when examining the transition we find that existing households prefer replacing stamp duty with a consumption tax.",
+      "abstract_cn": "房产交易税——也称为印花税——被广泛认为是一种低效的税收形式。在本文中，我们在一个具有异质性代理人的一般均衡世代交叠模型中考察了废除印花税的福利影响。我们的模型具有住房偏好的特质性冲击，这可能导致错配或促使家庭搬迁。我们将模型校准到澳大利亚住房市场，并进行反事实政策实验，其中印花税被经常性财产税或消费税所取代。我们发现，废除印花税提高了家庭流动性，并大幅降低了住房错配程度。在考察稳态时，我们发现新生家庭更倾向于进入一个征收经常性财产税而非印花税的经济体。相比之下，在考察转型过程时，我们发现现有家庭更倾向于用消费税取代印花税。",
+      "doi": "10.3982/qe1984",
+      "source_url": "https://doi.org/10.3982/qe1984",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v15y2024i2p381-426.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:00:45+00:00",
+        "source_hash": "2a3c41f4565f0ea421abd5d26935d3e5aa97aeb3d48f60c8e2261931e011d72e"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe1693",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Inequality and technological change",
+      "title_cn": "不平等与技术变革",
+      "authors": [
+        "Manuel Macera",
+        "Hitoshi Tsujiyama"
+      ],
+      "abstract_en": "We study how technological change affects between‐ and within‐education‐group inequality in the United States. We develop a model with heterogeneous workers and firms in which the demand for skills is characterized by firms' recruiting behavior. We use the model to quantify the relative contribution of two types of technological change that affect the relative demand for skilled labor: technological change in firm‐specific productivity and technological change in labor productivity. We find that technological change in labor productivity, in the form of higher returns to skill in production, is the main driver of the increase in between‐ and within‐group inequality. Technological change in firm productivity, in the form of higher firm productivity dispersion, plays a less important role in explaining rising inequality, except for the increase in within‐group inequality for workers without a college degree.",
+      "abstract_cn": "我们研究技术变革如何影响美国教育群体之间和群体内部的不平等。我们构建了一个包含异质性工人和企业的模型，其中技能需求以企业的招聘行为为特征。我们利用该模型量化了影响熟练劳动力相对需求的两种技术变革的相对贡献：企业特定生产率的技术变革和劳动生产率的技术变革。我们发现，劳动生产率的技术变革，以生产中技能回报率提高的形式，是群体间和群体内不平等加剧的主要驱动因素。企业生产率的技术变革，以企业生产率离散度提高的形式，在解释不平等加剧方面作用较小，除非是对没有大学学位的工人群体内部不平等的加剧。",
+      "doi": "10.3982/qe1693",
+      "source_url": "https://doi.org/10.3982/qe1693",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v15y2024i2p427-451.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:00:47+00:00",
+        "source_hash": "f1c0cd88be9e5e57bee072ef294d473124a81d70a40683a2bad7ed9ec23564c0"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe1994",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Heterogeneous effects of tariff and nontariff trade‐policy barriers in quantitative general equilibrium",
+      "title_cn": "关税与非关税贸易政策壁垒在量化一般均衡中的异质性效应",
+      "authors": [
+        "Peter H. Egger",
+        "Katharina Erhardt"
+      ],
+      "abstract_en": "Structural quantitative work in international economics typically models trade costs as a log‐linear function of exogenous trade‐policy variables. We propose a structural approach that allows for a nonparametric relationship and for treating tariff and nontariff trade‐policy variables as potentially endogenous. The data reject the assumption of log‐linearity of trade costs in both tariff‐ and nontariff‐policy variables. We assess the effects of a unilateral increase of US tariffs on Chinese imports by 10 percentage points and document that the estimated effects on real bilateral trade‐flow changes would be substantially underestimated by standard approaches.",
+      "abstract_cn": "国际经济学中的结构性量化工作通常将贸易成本建模为外生贸易政策变量的对数线性函数。我们提出了一种结构性方法，允许非参数关系，并将关税和非关税贸易政策变量视为潜在内生变量。数据拒绝了贸易成本在关税和非关税政策变量中均呈对数线性的假设。我们评估了美国对中国进口商品单方面提高关税10个百分点的效应，并记录了标准方法会大幅低估对实际双边贸易流量变化的估计效应。",
+      "doi": "10.3982/qe1994",
+      "source_url": "https://doi.org/10.3982/qe1994",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v15y2024i2p453-487.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:00:49+00:00",
+        "source_hash": "bd6c206ef080ec2787b39eaa7369bab6988f63042bb321612dddbd2cf6ed108a"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "abstract",
+        "matched_terms": [
+          "Chinese imports"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe2126",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "A dynamic model of rational “panic buying”",
+      "title_cn": "理性“恐慌性购买”的动态模型",
+      "authors": [
+        "Shunya Noda",
+        "Kazuhiro Teramoto"
+      ],
+      "abstract_en": "This paper analyzes panic buying of storable consumer products accompanied by disasters, using a novel consumer‐search theoretic equilibrium model where consumers follow (S,s) inventory policies. We show that, even if consumers are fully rational, an anticipated temporary increase in consumer shopping costs (as well as conventional demand and supply shocks) can trigger an upward spiral of hoarding demand and result in serious shortages. Due to congestion externalities, panic buying leads to the misallocation of storable products and substantial welfare loss. The model is calibrated using survey data and reveals that the timing of recognizing the shopping‐cost rise is crucial for the severity of panic buying. Some policy options, such as purchase quotas and future sales‐tax reductions, are suggested to mitigate panic buying.",
+      "abstract_cn": "本文通过一个新颖的消费者搜索理论均衡模型分析了伴随灾难的可储存消费品的恐慌性购买，在该模型中消费者遵循(S,s)库存策略。我们表明，即使消费者完全理性，预期的购物成本暂时性上升（以及常规的需求和供给冲击）也能引发囤积需求的上行螺旋，并导致严重的短缺。由于拥堵外部性，恐慌性购买导致可储存产品的错配和大量福利损失。该模型使用调查数据进行校准，并揭示出认识到购物成本上升的时机对于恐慌性购买的严重程度至关重要。提出了一些政策选项，如购买配额和未来销售税减免，以缓解恐慌性购买。",
+      "doi": "10.3982/qe2126",
+      "source_url": "https://doi.org/10.3982/qe2126",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v15y2024i2p489-521.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:00:52+00:00",
+        "source_hash": "235b23b32fe27f24de72c22e8553bdf9f2f2ccf1c6760bb955278fa8531a3d43"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe2274",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Locally robust inference for non‐Gaussian SVAR models",
+      "title_cn": "非高斯SVAR模型的局部稳健推断",
+      "authors": [
+        "Lukas Hoesch",
+        "Adam Lee",
+        "Geert Mesters"
+      ],
+      "abstract_en": "All parameters in structural vector autoregressive (SVAR) models are locally identified when the structural shocks are independent and follow non‐Gaussian distributions. Unfortunately, standard inference methods that exploit such features of the data for identification fail to yield correct coverage for structural functions of the model parameters when deviations from Gaussianity are small. To this extent, we propose a locally robust semiparametric approach to conduct hypothesis tests and construct confidence sets for structural functions in SVAR models. The methodology fully exploits non‐Gaussianity when it is present, but yields correct size/coverage for local‐to‐Gaussian densities. Empirically, we revisit two macroeconomic SVAR studies where we document mixed results. For the oil price model of Kilian and Murphy (2012), we find that non‐Gaussianity can robustly identify reasonable confidence sets, whereas for the labor supply–demand model of Baumeister and Hamilton (2015) this is not the case. Moreover, these exercises highlight the importance of using weak identification robust methods to assess estimation uncertainty when using non‐Gaussianity for identification.",
+      "abstract_cn": "当结构冲击独立且服从非高斯分布时，结构向量自回归（SVAR）模型中的所有参数都是局部可识别的。不幸的是，当偏离高斯性较小时，利用数据这些特征进行识别的标准推断方法无法为模型参数的结构函数提供正确的覆盖率。为此，我们提出了一种局部稳健的半参数方法，用于在SVAR模型中对结构函数进行假设检验和构建置信集。该方法在存在非高斯性时充分利用之，但对局部高斯密度产生正确的尺寸/覆盖率。实证上，我们重新审视了两个宏观经济SVAR研究，并记录了混合结果。对于Kilian和Murphy（2012）的油价模型，我们发现非高斯性可以稳健地识别合理的置信集，而对于Baumeister和Hamilton（2015）的劳动力供需模型，情况并非如此。此外，这些练习强调了在使用非高斯性进行识别时，使用弱识别稳健方法评估估计不确定性的重要性。",
+      "doi": "10.3982/qe2274",
+      "source_url": "https://doi.org/10.3982/qe2274",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v15y2024i2p523-570.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:00:54+00:00",
+        "source_hash": "23eea221feab1e94f80aeb2e1f7c0ae6e4941aaa1ba411d8a588e480336f8039"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "repec-serial-page",
+    "roster_authority": "repec-publisher-supplied",
+    "roster_match_scope": "repec-issue-section",
+    "publisher_page_status": "blocked",
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 8,
+    "authors_complete": 8,
+    "abstract_en_complete": 8,
+    "translation_complete": 8,
+    "duplicate_count": 0,
+    "flags": [],
+    "official_item_count": 8,
+    "publishable_item_count": 8,
+    "content_counts": {
+      "official_items": 8,
+      "observed_items": 8,
+      "publishable_items": 8,
+      "research_articles": 8,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 8
+    }
+  },
+  "content_counts": {
+    "official_items": 8,
+    "observed_items": 8,
+    "publishable_items": 8,
+    "research_articles": 8,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 8
+  },
+  "issue_label": "Vol. 15 · No. 2",
+  "content_status": "complete",
+  "source_status": "publisher_verified",
+  "publication_state": "ready"
+}

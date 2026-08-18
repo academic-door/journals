@@ -1,0 +1,471 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "joe-241-2",
+  "journal_id": "joe",
+  "journal_name": "Journal of Econometrics",
+  "volume": "241",
+  "issue": "2",
+  "publication_date": "February 2024",
+  "source_url": "https://ideas.repec.org/s/eee/econom.html",
+  "retrieved_at": "2026-08-18T19:11:59+00:00",
+  "expected_article_count": 10,
+  "research_article_count": 10,
+  "status": "ready",
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105737",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Correcting attrition bias using changes-in-changes",
+      "title_cn": "使用变化中的变化方法修正流失偏差",
+      "authors": [
+        "Dalia Ghanem",
+        "Sarojini Hirshleifer",
+        "Désiré Kédagni",
+        "Karen Ortiz-Becerra"
+      ],
+      "abstract_en": "Attrition is a common and potentially important threat to internal validity in treatment effect studies. We extend the changes-in-changes approach to identify the average treatment effect for respondents and the entire study population in the presence of attrition. Our method, which exploits baseline outcome data, can be applied to randomized experiments as well as quasi-experimental difference-in-difference designs. A formal comparison highlights that while widely used corrections typically impose restrictions on whether or how response depends on treatment, our proposed attrition correction exploits restrictions on the outcome model. We further show that the conditions required for our correction can accommodate a broad class of response models that depend on treatment in an arbitrary way. We illustrate the implementation of the proposed corrections in an application to a large-scale randomized experiment.",
+      "abstract_cn": "流失是治疗效应研究中常见且可能对内部有效性构成重要威胁的因素。我们将变化中的变化方法扩展到存在流失的情况下，识别受访者和整个研究人群的平均治疗效应。我们的方法利用基线结果数据，可应用于随机实验以及准实验的双重差分设计。正式比较表明，广泛使用的修正方法通常对响应是否或如何依赖于治疗施加限制，而我们提出的流失修正则利用结果模型的限制。我们进一步证明，我们修正所需的条件可以容纳一类广泛的、以任意方式依赖于治疗的响应模型。我们在大规模随机实验的应用中说明了所提修正的实施。",
+      "doi": "10.1016/j.jeconom.2024.105737",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624000836",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v241y2024i2s0304407624000836.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:12:03+00:00",
+        "source_hash": "02bbe35ffce1fd44e771b7a9c12618421bc4aed7fe044a58f2a0ab2c5a5d7b77"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105741",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Hybrid unadjusted Langevin methods for high-dimensional latent variable models",
+      "title_cn": "高维潜变量模型的混合未调整朗之万方法",
+      "authors": [
+        "Rubén Loaiza-Maya",
+        "Didier Nibbering",
+        "Dan Zhu"
+      ],
+      "abstract_en": "The exact estimation of latent variable models with big data is known to be challenging. The latents have to be integrated out numerically, and the dimension of the latent variables increases with the sample size. This paper develops a novel approximate Bayesian method based on the Langevin diffusion process. The method employs the Fisher identity to integrate out the latent variables, which makes it accurate and computationally feasible when applied to big data. In contrast to other approximate estimation methods, it does not require the choice of a parametric distribution for the unknowns, which often leads to inaccuracies. In an empirical discrete choice example with a million observations, the proposed method accurately estimates the posterior choice probabilities using only 2% of the computation time of exact MCMC.",
+      "abstract_cn": "大数据下潜变量模型的精确估计是众所周知的挑战。潜变量必须通过数值方法积分掉，且潜变量的维度随样本量增加而增加。本文基于朗之万扩散过程提出了一种新颖的近似贝叶斯方法。该方法利用Fisher恒等式积分掉潜变量，使其在大数据应用中既准确又计算可行。与其他近似估计方法相比，它不需要为未知量选择参数分布，这通常会导致不准确。在一个具有一百万观测值的实证离散选择例子中，所提出的方法仅使用精确MCMC计算时间的2%就准确估计了后验选择概率。",
+      "doi": "10.1016/j.jeconom.2024.105741",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624000873",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v241y2024i2s0304407624000873.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:12:05+00:00",
+        "source_hash": "70241a43b5415e0789075c5c16d953b3cc069f5b3ea1c35308f2affaf1ae1331"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105747",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Dynamic partial correlation models",
+      "title_cn": "动态偏相关模型",
+      "authors": [
+        "Enzo D’Innocenzo",
+        "Andre Lucas"
+      ],
+      "abstract_en": "We introduce a new scalable model for dynamic conditional correlation matrices based on a recursion of dynamic bivariate partial correlation models. By exploiting the model’s recursive structure and the theory of perturbed stochastic recurrence equations, we establish stationarity, ergodicity, and filter invertibility in the multivariate setting using conditions for bivariate slices of the data only. From this, we establish consistency and asymptotic normality of the maximum likelihood estimator for the model’s static parameters. The new model outperforms benchmarks like the t-cDCC and the multivariate t-GAS, both in simulations and in an in-sample and out-of-sample asset pricing application to US stock returns.",
+      "abstract_cn": "我们引入了一种新的可扩展模型，用于基于动态双变量偏相关模型的递归来建模动态条件相关矩阵。通过利用模型的递归结构和扰动随机递推方程的理论，我们仅使用数据的双变量切片条件，在多变量设置中建立了平稳性、遍历性和滤波器可逆性。由此，我们建立了模型静态参数的最大似然估计量的一致性和渐近正态性。新模型在模拟以及美国股票收益的样本内和样本外资产定价应用中，均优于t-cDCC和多元t-GAS等基准模型。",
+      "doi": "10.1016/j.jeconom.2024.105747",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624000939",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v241y2024i2s0304407624000939.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:12:07+00:00",
+        "source_hash": "6428e9bcf986fdd895caa519f3321a116ca64d6214b5f68a915099643adc8d15"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105748",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Parametric risk-neutral density estimation via finite lognormal-Weibull mixtures",
+      "title_cn": "基于有限对数正态-威布尔混合的参数化风险中性密度估计",
+      "authors": [
+        "Yifan Li",
+        "Ingmar Nolte",
+        "Manh Cuong Pham"
+      ],
+      "abstract_en": "This paper proposes a new parametric risk-neutral density (RND) estimator based on a finite lognormal-Weibull mixture (LWM) density. We establish the consistency and asymptotic normality of the LWM method in a general misspecified parametric framework. Based on the theoretical results, we propose a sequential test procedure to evaluate the goodness-of-fit of the LWM model, which leads to an adaptive choice for the number and type of mixture components. Our simulation results show that, in finite samples with various observation error specifications, the LWM method can approximate complex RNDs generated by state-of-the-art multi-factor stochastic volatility models with a few (typically less than 4) mixtures. Application of the LWM model on index options confirms its reliability in recovering empirical RNDs with a heavy left tail or bimodality, which can be incorrectly identified as bimodality or a heavy left tail by existing (semi)-nonparametric methods if the goodness-of-fit to the observed data is ignored.",
+      "abstract_cn": "本文提出了一种基于有限对数正态-威布尔混合（LWM）密度的新型参数化风险中性密度（RND）估计器。我们在一般误设参数框架下建立了LWM方法的一致性和渐近正态性。基于理论结果，我们提出了一种序贯检验程序来评估LWM模型的拟合优度，从而自适应选择混合成分的数量和类型。我们的模拟结果表明，在具有各种观测误差设定的有限样本中，LWM方法可以用少量（通常少于4个）混合成分逼近由最先进的多因子随机波动率模型生成的复杂RND。将LWM模型应用于指数期权证实了其在恢复具有重左尾或双峰性的经验RND方面的可靠性，而如果忽略对观测数据的拟合优度，现有（半）非参数方法可能会错误地将这些RND识别为双峰性或重左尾。",
+      "doi": "10.1016/j.jeconom.2024.105748",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624000940",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v241y2024i2s0304407624000940.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:12:10+00:00",
+        "source_hash": "7a17aea10b803f8ab563a965fce1727aff9783f088b4e267017a9c599245ead1"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105752",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Estimation and inference for high dimensional factor model with regime switching",
+      "title_cn": "高维因子模型在机制转换下的估计与推断",
+      "authors": [
+        "Giovanni Urga",
+        "Fa Wang"
+      ],
+      "abstract_en": "This paper proposes maximum (quasi)likelihood estimation for high dimensional factor models with regime switching in the loadings. The model parameters are estimated jointly by the EM (expectation maximization) algorithm, which in the current context only requires iteratively calculating regime probabilities and principal components of the weighted sample covariance matrix. When regime dynamics are taken into account, smoothed regime probabilities are calculated using a recursive algorithm. Consistency, convergence rates and limit distributions of the estimated loadings and the estimated factors are established under weak cross-sectional and temporal dependence as well as heteroscedasticity. It is worth noting that due to high dimension, regime switching can be identified consistently after the switching point with only one observation period. Simulation results show good performance of the proposed method. An application to the FRED-MD dataset illustrates the potential of the proposed method for detection of business cycle turning points.",
+      "abstract_cn": "本文提出了载荷具有机制转换的高维因子模型的最大（拟）似然估计。模型参数通过EM（期望最大化）算法联合估计，在当前背景下，该算法仅需迭代计算机制概率和加权样本协方差矩阵的主成分。当考虑机制动态时，使用递归算法计算平滑机制概率。在弱横截面和时间依赖性以及异方差性下，建立了估计载荷和估计因子的一致性、收敛速率和极限分布。值得注意的是，由于高维性，机制转换在转换点后仅需一个观测周期即可一致识别。模拟结果显示所提方法具有良好的性能。对FRED-MD数据集的应用说明了所提方法在检测商业周期转折点方面的潜力。",
+      "doi": "10.1016/j.jeconom.2024.105752",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624000988",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v241y2024i2s0304407624000988.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:12:12+00:00",
+        "source_hash": "7ffd9669f88e707ee034d57768a562dfb979dc0490ed7e9c95565705913c797c"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105761",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Robust inference of panel data models with interactive fixed effects under long memory: A frequency domain approach",
+      "title_cn": "长记忆下具有交互固定效应的面板数据模型的稳健推断：一种频域方法",
+      "authors": [
+        "Shuyao Ke",
+        "Peter C.B. Phillips",
+        "Liangjun Su"
+      ],
+      "abstract_en": "This paper studies a linear panel data model with interactive fixed effects wherein regressors, factors and idiosyncratic error terms are all stationary but with potential long memory. The setup involves a new formulation of panel data models, where weakly dependent regressors, factors and idiosyncratic errors are embedded as a special case. Standard methods based on principal component decomposition and least squares estimation, as in Bai (2009), are found to be biased and distorted in inference. To cope with this failure and to provide a simple implementable estimation procedure, a frequency domain least squares estimation is proposed. The limit distribution of the frequency domain estimator is established and a self-normalized approach to inference without the need for plug-in estimation of memory parameters is developed. Simulations show that the frequency domain estimator performs robustly under short memory and outperforms the time domain estimator when long range dependence is present. An empirical illustration is provided, examining the long-run relationship between stock returns and realized volatility.",
+      "abstract_cn": "本文研究了一个具有交互固定效应的线性面板数据模型，其中回归变量、因子和异质性误差项均为平稳但可能具有长记忆。该设定涉及面板数据模型的一种新形式，其中弱依赖的回归变量、因子和异质性误差作为特例被包含在内。基于主成分分解和最小二乘估计的标准方法（如Bai（2009））在推断中表现出偏差和失真。为应对这一失败并提供一种简单可行的估计程序，本文提出了一种频域最小二乘估计。建立了频域估计量的极限分布，并发展了一种无需插入估计记忆参数的自归一化推断方法。模拟表明，频域估计量在短记忆下表现稳健，并在存在长程依赖时优于时域估计量。本文提供了一个实证示例，检验股票收益与已实现波动率之间的长期关系。",
+      "doi": "10.1016/j.jeconom.2024.105761",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624001076",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v241y2024i2s0304407624001076.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:12:14+00:00",
+        "source_hash": "2eea7f36d013fed36667d4eedfedfe7c527b1765af925608ba8fae587ef1f4f7"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105764",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "The local to unity dynamic Tobit model",
+      "title_cn": "局部单位根动态Tobit模型",
+      "authors": [
+        "Anna Bykhovskaya",
+        "James A. Duffy"
+      ],
+      "abstract_en": "This paper considers highly persistent time series that are subject to nonlinearities in the form of censoring or an occasionally binding constraint, such as are regularly encountered in macroeconomics. A tractable candidate model for such series is the dynamic Tobit with a root local to unity. We show that this model generates a process that converges weakly to a non-standard limiting process, that is constrained (regulated) to be positive. Surprisingly, despite the presence of censoring, the OLS estimators of the model parameters are consistent. We show that this allows OLS-based inferences to be drawn on the overall persistence of the process (as measured by the sum of the autoregressive coefficients), and for the null of a unit root to be tested in the presence of censoring. Our simulations illustrate that the conventional ADF test substantially over-rejects when the data is generated by a dynamic Tobit with a unit root, whereas our proposed test is correctly sized. We provide an application of our methods to testing for a unit root in the Swiss franc/euro exchange rate, during a period when this was subject to an occasionally binding lower bound.",
+      "abstract_cn": "本文考虑了高度持久的时间序列，这些序列受到审查或偶尔约束形式的非线性影响，例如在宏观经济学中经常遇到的情况。对于此类序列，一个易于处理的候选模型是根局部单位根的动态Tobit模型。我们证明该模型生成的过程弱收敛于一个非标准极限过程，该过程被约束（调节）为正值。令人惊讶的是，尽管存在审查，模型参数的OLS估计量是一致的。我们表明，这使得基于OLS的推断可以用于过程的整体持久性（以自回归系数之和衡量），并且可以在存在审查的情况下检验单位根的原假设。我们的模拟表明，当数据由具有单位根的动态Tobit模型生成时，传统的ADF检验显著过度拒绝，而我们提出的检验具有正确的检验水平。我们将我们的方法应用于瑞士法郎/欧元汇率在受到偶尔约束下限期间的单位根检验。",
+      "doi": "10.1016/j.jeconom.2024.105764",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624001106",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v241y2024i2s0304407624001106.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:12:17+00:00",
+        "source_hash": "8fa0fffd2aa446d96ab3a5818efb65a6ffd7bb356811f6c6942bc634793500cc"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105769",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Measuring tail risk",
+      "title_cn": "衡量尾部风险",
+      "authors": [
+        "Maik Dierkes",
+        "Fabian Hollstein",
+        "Marcel Prokopczuk",
+        "Christoph Matthias Würsig"
+      ],
+      "abstract_en": "We comprehensively investigate the usefulness of tail risk measures proposed in the literature. We evaluate their statistical as well as their economic validity. The option-implied measure of Bollerslev and Todorov (2011b) (BT11Q) performs best overall. While some other tail risk measures excel at specialized tasks, BT11Q performs well in all tests: First, BT11Q can predict both future tail events and future tail volatility. Second, it has predictive power for returns in both the time series and the cross-section, as well as for real economic activity. Finally, a simulation analysis shows that the main driver of performance is measurement error.",
+      "abstract_cn": "我们全面调查了文献中提出的尾部风险度量的有用性。我们评估了它们的统计有效性和经济有效性。Bollerslev和Todorov（2011b）（BT11Q）的期权隐含度量总体表现最佳。虽然其他一些尾部风险度量在特定任务上表现出色，但BT11Q在所有测试中均表现良好：首先，BT11Q能够预测未来的尾部事件和未来的尾部波动性。其次，它对时间序列和横截面中的回报以及实际经济活动具有预测能力。最后，模拟分析表明，性能的主要驱动因素是测量误差。",
+      "doi": "10.1016/j.jeconom.2024.105769",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624001155",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v241y2024i2s0304407624001155.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:12:19+00:00",
+        "source_hash": "8090c497a2c2d0af4c238b924f5b2258a58c7b56516d2d9b7235a638a0888833"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105770",
+      "sequence": 9,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "Extreme expectile estimation for short-tailed data",
+      "title_cn": "短尾数据的极端期望分位数估计",
+      "authors": [
+        "Abdelaati Daouia",
+        "Simone A. Padoan",
+        "Gilles Stupfler"
+      ],
+      "abstract_en": "The use of expectiles in risk management has recently gathered remarkable momentum due to their excellent axiomatic and probabilistic properties. In particular, the class of elicitable law-invariant coherent risk measures only consists of expectiles. While the theory of expectile estimation at central levels is substantial, tail estimation at extreme levels has so far only been considered when the tail of the underlying distribution is heavy. This article is the first work to handle the short-tailed setting where the loss (e.g. negative log-returns) distribution of interest is bounded to the right and the corresponding extreme value index is negative. This is motivated by the assessment of long-term market risk carried by low-frequency (e.g. weekly) returns of equities that show evidence of being generated from short-tailed distributions. We derive an asymptotic expansion of tail expectiles in this challenging context under a general second-order extreme value condition, which allows to come up with two semiparametric estimators of extreme expectiles, and with their asymptotic properties in a general model of strictly stationary but weakly dependent observations. We also extend the applicability of the proposed method to the regression setting. A simulation study and a real data analysis from a forecasting perspective are performed to compare the proposed competing estimation procedures.",
+      "abstract_cn": "期望分位数在风险管理中的应用近年来因其优异的公理和概率性质而受到显著关注。特别是，可激励的律不变一致风险度量类仅由期望分位数组成。虽然中心水平期望分位数估计的理论已相当完善，但极端水平的尾部估计迄今为止仅在基础分布尾部为重尾时被考虑。本文是首篇处理短尾设定的工作，其中所关注的损失（例如负对数收益）分布右侧有界，且相应的极端值指数为负。这一研究动机源于对低频（例如周度）股票收益所承担的长期市场风险的评估，这些收益显示出由短尾分布生成的证据。我们在一般的二阶极端值条件下推导了此挑战性背景下尾部期望分位数的渐近展开，从而提出了两种极端期望分位数的半参数估计量，并给出了它们在严格平稳但弱相依观测的一般模型中的渐近性质。我们还将所提方法的适用性扩展到回归设定。进行了模拟研究和从预测角度的真实数据分析，以比较所提出的竞争性估计程序。",
+      "doi": "10.1016/j.jeconom.2024.105770",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624001167",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v241y2024i2s0304407624001167.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:12:22+00:00",
+        "source_hash": "79d1cbe077d0f5cbd639c5703ed59a17e16e381d52259178452cc13974340c22"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105766",
+      "sequence": 10,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "Identifiability and estimation of possibly non-invertible SVARMA Models: The normalised canonical WHF parametrisation",
+      "title_cn": "可能不可逆的SVARMA模型的识别性与估计：归一化典范WHF参数化",
+      "authors": [
+        "Bernd Funovits"
+      ],
+      "abstract_en": "This article focuses on the parametrisation, identifiability, and (quasi-) maximum likelihood (QML) estimation of possibly non-invertible structural vector autoregressive moving average (SVARMA) models. SVAR models are routinely adopted due to their well-known implementation strategy. However, for various economic and statistical reasons, multivariate SVARMA settings are often more suitable. These settings introduce complexity in the analysis, primarily due to the presence of the moving average (MA) polynomial. We propose a novel representation of the MA polynomial matrix using the Wiener–Hopf factorization (WHF). A significant advantage of the WHF is its ability to handle possible non-invertibility and thus models with informational asymmetry between economic agents and outside observers. Since solutions of Dynamic Stochastic General Equilibrium (DSGE) models often involve this informational asymmetry, SVARMA models in WHF parametrisation can be considered data-driven alternatives to DSGE models and used for their evaluation. Furthermore, we provide low-level conditions for the asymptotic normality of the (Q)ML estimator and analytic expressions for the score and information matrix. As application, we estimate the Blanchard and Quah model, and compare our results and implied impulse response function with the ones in the SVAR model by Blanchard and Quah and a non-invertible SVARMA model by Gouriéroux and co-authors. Importantly, we have implemented this novel method in a well-documented R-package, making it readily accessible for researchers and practitioners.",
+      "abstract_cn": "本文关注可能不可逆的结构向量自回归移动平均（SVARMA）模型的参数化、识别性以及（拟）极大似然（QML）估计。SVAR模型因其众所周知的实施策略而被常规采用。然而，出于各种经济和统计原因，多元SVARMA设定往往更为合适。这些设定引入了分析中的复杂性，主要由于移动平均（MA）多项式的存在。我们提出了一种使用Wiener–Hopf分解（WHF）的MA多项式矩阵的新表示。WHF的一个显著优势是它能够处理可能的不可逆性，从而处理经济主体与外部观察者之间存在信息不对称的模型。由于动态随机一般均衡（DSGE）模型的解通常涉及这种信息不对称，WHF参数化下的SVARMA模型可以被视为DSGE模型的数据驱动替代品，并用于其评估。此外，我们提供了（Q）ML估计量渐近正态性的低层条件以及得分和信息矩阵的解析表达式。作为应用，我们估计了Blanchard和Quah模型，并将我们的结果和隐含脉冲响应函数与Blanchard和Quah的SVAR模型以及Gouriéroux及其合著者的不可逆SVARMA模型进行比较。重要的是，我们已在一个文档完善的R包中实现了这一新方法，使其易于研究人员和从业者使用。",
+      "doi": "10.1016/j.jeconom.2024.105766",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S030440762400112X",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v241y2024i2s030440762400112x.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:12:25+00:00",
+        "source_hash": "4a6791c663af69e52a9823a7384221a35acb6bbeec8c49fa57ad6d6764e0800e"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "repec-serial-page",
+    "roster_authority": "repec-publisher-supplied",
+    "roster_match_scope": "repec-volume-items",
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 10,
+    "authors_complete": 10,
+    "abstract_en_complete": 10,
+    "translation_complete": 10,
+    "duplicate_count": 0,
+    "repec_item_count": 10,
+    "flags": [],
+    "official_item_count": 10,
+    "publishable_item_count": 10,
+    "content_counts": {
+      "official_items": 10,
+      "observed_items": 10,
+      "publishable_items": 10,
+      "research_articles": 10,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 10
+    }
+  },
+  "content_counts": {
+    "official_items": 10,
+    "observed_items": 10,
+    "publishable_items": 10,
+    "research_articles": 10,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 10
+  },
+  "issue_label": "Vol. 241 · No. 2",
+  "content_status": "complete",
+  "source_status": "publisher_verified",
+  "publication_state": "ready"
+}

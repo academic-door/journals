@@ -1,0 +1,301 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "joe-242-2",
+  "journal_id": "joe",
+  "journal_name": "Journal of Econometrics",
+  "volume": "242",
+  "issue": "2",
+  "publication_date": "February 2024",
+  "source_url": "https://ideas.repec.org/s/eee/econom.html",
+  "retrieved_at": "2026-08-18T19:12:48+00:00",
+  "expected_article_count": 6,
+  "research_article_count": 6,
+  "status": "ready",
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105804",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "A Correlated Random Coefficient panel model with time-varying endogeneity",
+      "title_cn": "具有时变内生性的相关随机系数面板模型",
+      "authors": [
+        "Louise Laage"
+      ],
+      "abstract_en": "This paper studies a class of linear panel models with random coefficients. We do not restrict the joint distribution of the time-invariant unobserved heterogeneity and the covariates. We investigate identification of the average partial effect (APE) when fixed-effect techniques cannot be used to control for the correlation between the regressors and the time-varying disturbances. Relying on control variables, we develop a constructive two-step identification argument. The first step identifies nonparametrically the conditional expectation of the disturbances given the regressors and the control variables, and the second step uses “between-group” variation, correcting for endogeneity, to identify the APE. We propose a natural semiparametric estimator of the APE, show its n asymptotic normality and compute its asymptotic variance. The estimator is computationally easy to implement, and Monte Carlo simulations show favorable finite sample properties. As an empirical illustration, we estimate the average elasticity of intertemporal substitution in a labor supply model with random coefficients.",
+      "abstract_cn": "本文研究一类具有随机系数的线性面板模型。我们不限制时不变不可观测异质性与协变量的联合分布。我们研究了当固定效应技术无法用于控制回归量与时变扰动之间的相关性时，平均偏效应（APE）的识别问题。依靠控制变量，我们提出了一个构造性的两步识别论证。第一步非参数地识别给定回归量和控制变量时扰动的条件期望，第二步利用“组间”变异，对内生性进行校正，以识别APE。我们提出了APE的自然半参数估计量，证明了其n渐近正态性并计算了其渐近方差。该估计量计算上易于实现，蒙特卡洛模拟显示了良好的有限样本性质。作为实证说明，我们在一个具有随机系数的劳动供给模型中估计了跨期替代的平均弹性。",
+      "doi": "10.1016/j.jeconom.2024.105804",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624001507",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v242y2024i2s0304407624001507.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:12:52+00:00",
+        "source_hash": "1882fd7ce875c30d873752189cb8fe39c678a9bfe101598929b86929cd89c4f1"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105805",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Nonparametric identification and estimation of stochastic block models from many small networks",
+      "title_cn": "许多小网络随机块模型的非参数识别与估计",
+      "authors": [
+        "Koen Jochmans"
+      ],
+      "abstract_en": "This paper concerns the analysis of network data when unobserved node-specific heterogeneity is present. We postulate a weighted version of the classic stochastic block model, where nodes belong to one of a finite number of latent communities and the placement of edges between them and any weight assigned to these depend on the communities to which the nodes belong. A simple rank condition is presented under which we establish that the number of latent communities, their distribution, and the conditional distribution of edges and weights given community membership are all nonparametrically identified from knowledge of the joint (marginal) distribution of edges and weights in graphs of a fixed size. The identification argument is constructive and we present a computationally-attractive nonparametric estimator based on it. Limit theory is derived under asymptotics where we observe a growing number of independent networks of a fixed size. The results of a series of numerical experiments are reported on.",
+      "abstract_cn": "本文关注当存在未观测到的节点特定异质性时网络数据的分析。我们假设了一个经典随机块模型的加权版本，其中节点属于有限数量的潜在社区之一，节点之间的边及其权重取决于节点所属的社区。我们提出了一个简单的秩条件，在该条件下，我们证明了潜在社区的数量、其分布以及给定社区成员身份的边和权重的条件分布都可以从固定大小图中边和权重的联合（边际）分布的非参数识别中确定。识别论证是建设性的，我们基于此提出了一种计算上吸引人的非参数估计器。极限理论是在我们观察到越来越多的固定大小独立网络的渐近性下推导的。我们还报告了一系列数值实验的结果。",
+      "doi": "10.1016/j.jeconom.2024.105805",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624001519",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v242y2024i2s0304407624001519.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:12:54+00:00",
+        "source_hash": "049a076534ef64c711a145cb0456e8aadc46aeabcec42e526842189e5cef8bd0"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105806",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Identification and estimation of dynamic structural models with unobserved choices",
+      "title_cn": "未观测选择的动态结构模型的识别与估计",
+      "authors": [
+        "Yingyao Hu",
+        "Yi Xin"
+      ],
+      "abstract_en": "This paper develops identification and estimation methods for dynamic discrete choice models when agents’ actions are unobserved by econometricians. We provide conditions under which choice probabilities and latent state transition rules are nonparametrically identified with a continuous state variable in a single-agent dynamic discrete choice model. Our identification strategy from the baseline model can extend to models with serially correlated unobserved heterogeneity, cases in which choices are partially unavailable, and dynamic discrete games. We propose a sieve maximum likelihood estimator for primitives in agents’ utility functions and state transition rules. Monte Carlo simulation results support the validity of the proposed approach.",
+      "abstract_cn": "本文发展了当经济计量学家无法观测到代理人行为时的动态离散选择模型的识别与估计方法。我们提供了在单代理人动态离散选择模型中，当存在连续状态变量时，选择概率和潜在状态转移规则可被非参数识别的条件。我们的识别策略从基线模型可以扩展到具有序列相关未观测异质性、选择部分不可用以及动态离散博弈的模型。我们提出了一个筛极大似然估计器，用于估计代理人效用函数和状态转移规则中的原始参数。蒙特卡洛模拟结果支持所提出方法的有效性。",
+      "doi": "10.1016/j.jeconom.2024.105806",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624001520",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v242y2024i2s0304407624001520.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:12:56+00:00",
+        "source_hash": "fe06b2ac7a271151ac40fc3470ab3d5761e9ec30a6d6f3308089c8f9bf6ed534"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105809",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "On LASSO for high dimensional predictive regression",
+      "title_cn": "高维预测回归中的LASSO方法研究",
+      "authors": [
+        "Ziwei Mei",
+        "Zhentao Shi"
+      ],
+      "abstract_en": "This paper examines LASSO, a widely-used L1-penalized regression method, in high dimensional linear predictive regressions, particularly when the number of potential predictors exceeds the sample size and numerous unit root regressors are present. The consistency of LASSO is contingent upon two key components: the deviation bound of the cross product of the regressors and the error term, and the restricted eigenvalue of the Gram matrix. We present new probabilistic bounds for these components, suggesting that LASSO’s rates of convergence are different from those typically observed in cross-sectional cases. When applied to a mixture of stationary, nonstationary, and cointegrated predictors, LASSO maintains its asymptotic guarantee if predictors are scale-standardized. Leveraging machine learning and macroeconomic domain expertise, LASSO demonstrates strong performance in forecasting the unemployment rate, as evidenced by its application to the FRED-MD database.",
+      "abstract_cn": "本文考察了在高维线性预测回归中广泛使用的L1惩罚回归方法LASSO，特别是在潜在预测因子数量超过样本量且存在大量单位根回归因子的情况下。LASSO的一致性取决于两个关键组成部分：回归因子与误差项叉积的偏差界，以及Gram矩阵的限制特征值。我们为这些组成部分提出了新的概率界，表明LASSO的收敛速率与横截面情形下通常观察到的速率不同。当应用于平稳、非平稳和协整预测因子的混合时，如果预测因子经过尺度标准化，LASSO保持其渐近保证。利用机器学习和宏观经济领域专业知识，LASSO在预测失业率方面表现出强劲性能，其对FRED-MD数据库的应用证明了这一点。",
+      "doi": "10.1016/j.jeconom.2024.105809",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624001556",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v242y2024i2s0304407624001556.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:12:58+00:00",
+        "source_hash": "e9e95ede7f45afda93dc4cd77e43a821c2bafd1fc5109bdcf5e3993837711699"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105816",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Semiparametrically optimal cointegration test",
+      "title_cn": "半参数最优协整检验",
+      "authors": [
+        "Bo Zhou"
+      ],
+      "abstract_en": "This paper aims to address the issue of semiparametric efficiency for cointegration rank testing in finite-order vector autoregressive models, where the innovation distribution is considered an infinite-dimensional nuisance parameter. Our asymptotic analysis relies on Le Cam’s theory of limit experiment, which in this context is of the Locally Asymptotically Brownian Functional (LABF) type likelihood ratios. By exploiting the structural representation of LABF, an Ornstein–Uhlenbeck experiment, we develop the asymptotic power envelopes of asymptotically invariant tests for both cases with and without time trends. We propose feasible tests based on a nonparametrically estimated density and demonstrate that their power can achieve the semiparametric power envelopes, making them semiparametrically optimal. We validate the theoretical results through large-sample simulations and illustrate satisfactory size control and excellent power performance of our tests under small samples. In both cases with and without time trends, we show that a remarkable amount of additional power can be obtained from non-Gaussian distributions.",
+      "abstract_cn": "本文旨在解决有限阶向量自回归模型中协整秩检验的半参数效率问题，其中创新分布被视为无限维 nuisance 参数。我们的渐近分析依赖于 Le Cam 的极限实验理论，在此背景下，似然比属于局部渐近布朗函数（LABF）类型。通过利用 LABF 的结构表示，即 Ornstein–Uhlenbeck 实验，我们为有趋势和无趋势两种情况开发了渐近不变检验的渐近功效包络。我们提出了基于非参数估计密度的可行检验，并证明其功效可以达到半参数功效包络，从而使其成为半参数最优的。我们通过大样本模拟验证了理论结果，并展示了我们的检验在小样本下具有令人满意的尺寸控制和优异的功效表现。在有趋势和无趋势两种情况下，我们表明从非高斯分布中可以获得显著的额外功效。",
+      "doi": "10.1016/j.jeconom.2024.105816",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624001611",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v242y2024i2s0304407624001611.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:13:01+00:00",
+        "source_hash": "5e4243b2153399fb247693181f2a1609fada3a46a311ef2571c52e501fe80078"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105811",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Change-point analysis of time series with evolutionary spectra",
+      "title_cn": "具有演化谱的时间序列的变点分析",
+      "authors": [
+        "Alessandro Casini",
+        "Pierre Perron"
+      ],
+      "abstract_en": "This paper develops change-point methods for the spectrum of a locally stationary time series. We focus on series with a bounded spectral density that change smoothly under the null hypothesis but exhibits change-points or becomes less smooth under the alternative. We address two local problems. The first is the detection of discontinuities (or breaks) in the spectrum at unknown dates and frequencies. The second involves abrupt yet continuous changes in the spectrum over a short time period at an unknown frequency without signifying a break. Both problems can be cast into changes in the degree of smoothness of the spectral density over time. We consider estimation and minimax-optimal testing. We determine the optimal rate for the minimax distinguishable boundary, i.e., the minimum break magnitude such that we are able to uniformly control type I and type II errors. We propose a novel procedure for the estimation of the change-points based on a wild sequential top-down algorithm and show its consistency under shrinking shifts and possibly growing number of change-points.",
+      "abstract_cn": "本文发展了局部平稳时间序列谱的变点方法。我们关注具有有界谱密度的序列，在原假设下这些序列平滑变化，但在备择假设下表现出变点或变得不那么平滑。我们处理两个局部问题。第一个是在未知日期和频率下检测谱中的不连续性（或断点）。第二个涉及在未知频率下短时间内谱的突然但连续的变化，而不表示断点。这两个问题都可以归结为谱密度随时间平滑程度的变化。我们考虑估计和极小极大最优检验。我们确定了极小极大可区分边界的最优速率，即能够统一控制第一类和第二类错误的最小断点幅度。我们提出了一种基于野生顺序自顶向下算法的新程序来估计变点，并证明了其在收缩偏移和可能增加的变点数量下的一致性。",
+      "doi": "10.1016/j.jeconom.2024.105811",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S030440762400157X",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v242y2024i2s030440762400157x.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:13:04+00:00",
+        "source_hash": "6887143658377b8b912f5ee71cd746fc4ba21489da981f9ec4e7e698a968cc92"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "repec-serial-page",
+    "roster_authority": "repec-publisher-supplied",
+    "roster_match_scope": "repec-volume-items",
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 6,
+    "authors_complete": 6,
+    "abstract_en_complete": 6,
+    "translation_complete": 6,
+    "duplicate_count": 0,
+    "repec_item_count": 6,
+    "flags": [],
+    "official_item_count": 6,
+    "publishable_item_count": 6,
+    "content_counts": {
+      "official_items": 6,
+      "observed_items": 6,
+      "publishable_items": 6,
+      "research_articles": 6,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 6
+    }
+  },
+  "content_counts": {
+    "official_items": 6,
+    "observed_items": 6,
+    "publishable_items": 6,
+    "research_articles": 6,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 6
+  },
+  "issue_label": "Vol. 242 · No. 2",
+  "content_status": "complete",
+  "source_status": "publisher_verified",
+  "publication_state": "ready"
+}

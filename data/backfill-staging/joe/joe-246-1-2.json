@@ -1,0 +1,328 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "joe-246-1-2",
+  "journal_id": "joe",
+  "journal_name": "Journal of Econometrics",
+  "volume": "246",
+  "issue": "1-2",
+  "publication_date": "November 2024",
+  "source_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/246/suppl/1-2",
+  "retrieved_at": "2026-08-18T19:15:47+00:00",
+  "expected_article_count": 4,
+  "research_article_count": 4,
+  "status": "incomplete",
+  "development_sample": false,
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105895",
+      "sequence": 1,
+      "source_sequence": 105895,
+      "article_type": "research-article",
+      "title_en": "From LATE to ATE: A Bayesian approach",
+      "title_cn": "从LATE到ATE：一种贝叶斯方法",
+      "authors": [
+        "Isaac M. Opper"
+      ],
+      "abstract_en": "We develop a Bayesian model that produces a posterior distribution of the marginal treatment effect (MTE) function. The method provides researchers with a principled way to extrapolate from the observed moments using flexible assumptions, thereby allowing researchers to generate plausible ranges of important and potentially policy-relevant quantities of interest. We then use the model to propose a natural decomposition of the posterior variance into “statistical uncertainty,” i.e., variance that stems from the imprecise estimation of the observed moments, and “extrapolation uncertainty,” i.e., variance that stems from uncertainty in how to extrapolate away from the observed moments. We conclude by showing that under our preferred priors, even in an experiment as large as the Oregon Health Insurance Experiment, the main source of uncertainty in the ATE comes from uncertainty in the true values of the observed moments.",
+      "abstract_cn": "我们开发了一个贝叶斯模型，该模型生成边际处理效应（MTE）函数的后验分布。该方法为研究人员提供了一种使用灵活假设从观测矩进行外推的原则性方式，从而使研究人员能够生成重要且可能具有政策相关性的感兴趣量的合理范围。然后，我们使用该模型提出了后验方差的一种自然分解，分为“统计不确定性”，即源于观测矩估计不精确的方差，以及“外推不确定性”，即源于如何从观测矩外推的不确定性的方差。最后，我们表明，在我们偏好的先验下，即使在像俄勒冈健康保险实验这样大规模的实验中，ATE的主要不确定性来源也来自观测矩真实值的不确定性。",
+      "abstract_snippet_en": "We develop a Bayesian model that produces a posterior distribution of the marginal treatment effect (MTE) function. The method provides researchers with a principled way to extrapolate from the observed...",
+      "doi": "10.1016/j.jeconom.2024.105895",
+      "source_url": "https://doi.org/10.1016/j.jeconom.2024.105895",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/246/suppl/1-2",
+        "roster": "crossref:issn:0304-4076",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17653,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17653,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:15:50+00:00",
+        "source_hash": "8221db9e3e729e45d7b805ee5d8bf4f9ed68fd4dd621150871d60a1a735782ad"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105896",
+      "sequence": 2,
+      "source_sequence": 105896,
+      "article_type": "research-article",
+      "title_en": "Estimating and testing for smooth structural changes in moment condition models",
+      "title_cn": "矩条件模型中平滑结构变化的估计与检验",
+      "authors": [
+        "Haiqi Li",
+        "Jin Zhou",
+        "Yongmiao Hong"
+      ],
+      "abstract_en": "Numerous studies have been devoted to estimating and testing for moment condition models. Most existing studies assume that structural parameters are either fixed or change abruptly over time. This study considers estimating and testing for smooth structural changes in moment condition models where the data-generating process is locally stationary. A novel local generalized method of moments estimator and its boundary-corrected counterpart are proposed to estimate the smoothly changing parameters. Consistency and asymptotic normality are established, and an optimal weighting matrix and its consistent estimator are obtained. Moreover, we propose a consistent test to detect both smooth changes and abrupt breaks, as well as a consistent test for a parametric functional form of time-varying parameters. The tests are asymptotically pivotal and do not require prior information about the alternatives. Monte Carlo simulation studies show that the proposed estimators and tests have superior finite-sample performance. In an empirical application, we document the time-varying features of the risk aversion parameter in an asset pricing model, indicating that investors’ risk aversion is counter-cyclical.",
+      "abstract_cn": "大量研究致力于矩条件模型的估计与检验。大多数现有研究假设结构参数是固定的或随时间突变。本研究考虑在数据生成过程为局部平稳的矩条件模型中估计和检验平滑结构变化。提出了一种新的局部广义矩估计方法及其边界修正对应方法，用于估计平滑变化的参数。建立了一致性和渐近正态性，并获得了最优权重矩阵及其一致估计量。此外，我们提出了一致性检验来检测平滑变化和突变，以及针对时变参数参数函数形式的一致性检验。这些检验是渐近枢轴的，不需要关于备择假设的先验信息。蒙特卡洛模拟研究表明，所提出的估计量和检验具有优越的有限样本性能。在实证应用中，我们记录了资产定价模型中风险厌恶参数的时变特征，表明投资者的风险厌恶是逆周期的。",
+      "abstract_snippet_en": "Numerous studies have been devoted to estimating and testing for moment condition models. Most existing studies assume that structural parameters are either fixed or change abruptly over time. This...",
+      "doi": "10.1016/j.jeconom.2024.105896",
+      "source_url": "https://doi.org/10.1016/j.jeconom.2024.105896",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/246/suppl/1-2",
+        "roster": "crossref:issn:0304-4076",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17651,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17651,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:15:53+00:00",
+        "source_hash": "960d5c3504724e99a78425d56f930547eea2268ece05b036950be72e47df0338"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105899",
+      "sequence": 3,
+      "source_sequence": 105899,
+      "article_type": "research-article",
+      "title_en": "GLS under monotone heteroskedasticity",
+      "title_cn": "单调异方差下的广义最小二乘法",
+      "authors": [
+        "Yoichi Arai",
+        "Taisuke Otsu",
+        "Mengshan Xu"
+      ],
+      "abstract_en": "The generalized least square (GLS) is one of the most basic tools in regression analyses. A major issue in implementing the GLS is estimation of the conditional variance function of the error term, which typically requires a restrictive functional form assumption for parametric estimation or smoothing parameters for nonparametric estimation. In this paper, we propose an alternative approach to estimate the conditional variance function under nonparametric monotonicity constraints by utilizing the isotonic regression method. Our GLS estimator is shown to be asymptotically equivalent to the infeasible GLS estimator with knowledge of the conditional error variance, and involves only some tuning to trim boundary observations, not only for point estimation but also for interval estimation or hypothesis testing. Simulation studies and an empirical example illustrate excellent finite sample performances of the proposed method.",
+      "abstract_cn": "广义最小二乘法（GLS）是回归分析中最基本的工具之一。实施GLS的一个主要问题是误差项条件方差函数的估计，这通常需要参数估计的 restrictive 函数形式假设或非参数估计的平滑参数。在本文中，我们提出了一种替代方法，通过利用保序回归方法在非参数单调性约束下估计条件方差函数。我们的GLS估计量被证明与已知条件误差方差的不可行GLS估计量渐近等价，并且仅涉及一些调整以修剪边界观测值，不仅用于点估计，也用于区间估计或假设检验。模拟研究和实证例子展示了所提出方法优异的有限样本性能。",
+      "abstract_snippet_en": "The generalized least square (GLS) is one of the most basic tools in regression analyses. A major issue in implementing the GLS is estimation of the conditional variance function of the error term,...",
+      "doi": "10.1016/j.jeconom.2024.105899",
+      "source_url": "https://doi.org/10.1016/j.jeconom.2024.105899",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/246/suppl/1-2",
+        "roster": "crossref:issn:0304-4076",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17649,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17649,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:15:55+00:00",
+        "source_hash": "36300de35897bf505d5a32107d91c4f090baa18074297c653ea0853990383937"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105902",
+      "sequence": 4,
+      "source_sequence": 105902,
+      "article_type": "research-article",
+      "title_en": "Consistent causal inference for high-dimensional time series",
+      "title_cn": "高维时间序列的一致因果推理",
+      "authors": [
+        "Francesco Cordoni",
+        "Alessio Sancetta"
+      ],
+      "abstract_en": "A methodology for high-dimensional causal inference in a time series context is introduced. Time series dynamics are captured by a Gaussian copula, and estimation of the marginal distribution of the data is not required. The procedure can consistently identify the parameters that describe the dynamics of the process and the conditional causal relations among the possibly high-dimensional variables, under sparsity conditions. Identification of the causal relations is in the form of a directed acyclic graph, which is equivalent to identifying the structural VAR model for the transformed variables. As illustrative applications, we consider the impact of supply-side oil shocks on the economy and the causal relations between aggregated variables constructed from the limit order book for four stock constituents of the S&P500.",
+      "abstract_cn": "介绍了一种在时间序列背景下进行高维因果推理的方法。时间序列动态由高斯联结函数捕获，不需要估计数据的边缘分布。该过程可以在稀疏条件下一致地识别描述过程动态的参数以及可能的高维变量之间的条件因果关系。因果关系的识别采用有向无环图的形式，相当于识别变换变量的结构VAR模型。作为说明性应用，我们考虑供应方石油冲击对经济的影响以及根据 S&P500 四种股票成分的限价订单簿构建的聚合变量之间的因果关系。",
+      "abstract_snippet_en": "A methodology for high-dimensional causal inference in a time series context is introduced. Time series dynamics are captured by a Gaussian copula, and estimation of the marginal distribution of the...",
+      "doi": "10.1016/j.jeconom.2024.105902",
+      "source_url": "https://doi.org/10.1016/j.jeconom.2024.105902",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/246/suppl/1-2",
+        "roster": "crossref:issn:0304-4076",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17647,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17647,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-18T19:16:25+00:00",
+        "source_hash": "84185fd2dc0863467a50cee0ed331d80fa70284a85ec88754b525536c7e261d8"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "crossref",
+    "roster_authority": "crossref-provisional",
+    "roster_match_scope": "crossref-issue-group",
+    "publisher_page_status": "blocked",
+    "excluded_item_count": 1,
+    "excluded_items": [
+      {
+        "title_en": "Editorial Board",
+        "reason": "editorial_material",
+        "doi": "10.1016/s0304-4076(24)00282-3",
+        "article_type": "editorial"
+      }
+    ],
+    "doi_complete": 4,
+    "authors_complete": 4,
+    "abstract_en_complete": 4,
+    "translation_complete": 4,
+    "duplicate_count": 0,
+    "flags": [
+      "publisher_html_blocked_crossref_fallback",
+      "crossref_provisional_roster"
+    ],
+    "official_item_count": 5,
+    "publishable_item_count": 4,
+    "content_counts": {
+      "official_items": 5,
+      "observed_items": 5,
+      "publishable_items": 4,
+      "research_articles": 4,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 1,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 4
+    }
+  },
+  "source_status": "source_pending",
+  "publication_state": "source_pending",
+  "content_counts": {
+    "official_items": 5,
+    "observed_items": 5,
+    "publishable_items": 4,
+    "research_articles": 4,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 1,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 4
+  },
+  "issue_label": "Vol. 246 · No. 1-2",
+  "content_status": "complete"
+}

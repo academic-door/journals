@@ -7,9 +7,9 @@
   "issue": "2",
   "publication_date": "April 2025",
   "source_url": "https://le.uwpress.org/content/by/year",
-  "retrieved_at": "2026-08-06T12:03:59+00:00",
-  "expected_article_count": 8,
-  "research_article_count": 8,
+  "retrieved_at": "2026-08-18T17:18:05+00:00",
+  "expected_article_count": 7,
+  "research_article_count": 7,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
@@ -304,46 +304,6 @@
         "matched_terms": [],
         "source": "academic-door-rules-v1"
       }
-    },
-    {
-      "paper_id": "doi:10.3368/le.101.2.284",
-      "sequence": 8,
-      "source_sequence": 284,
-      "article_type": "research-article",
-      "title_en": "Editor’s Note",
-      "title_cn": "",
-      "authors": [],
-      "abstract_en": "",
-      "abstract_cn": "",
-      "abstract_snippet_en": "",
-      "doi": "10.3368/le.101.2.284",
-      "source_url": "https://doi.org/10.3368/le.101.2.284",
-      "publication_date": "2025",
-      "sources": {
-        "issue": "https://le.uwpress.org/content/by/year",
-        "roster": "crossref:issn:0023-7639",
-        "metadata": "crossref",
-        "abstract_en": "",
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.3368/le.101.2.284"
-      },
-      "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
-      },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing",
-        "authors_missing",
-        "abstract_en_missing"
-      ],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
     }
   ],
   "quality": {
@@ -353,47 +313,55 @@
     "roster_authority": "crossref-provisional",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
-    "excluded_item_count": 0,
-    "excluded_items": [],
-    "doi_complete": 8,
+    "excluded_item_count": 1,
+    "excluded_items": [
+      {
+        "title_en": "Editor’s Note",
+        "reason": "editorial_material",
+        "doi": "10.3368/le.101.2.284",
+        "article_type": "editorial"
+      }
+    ],
+    "doi_complete": 7,
     "authors_complete": 7,
     "abstract_en_complete": 7,
     "translation_complete": 7,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster",
-      "abstract_en_incomplete",
-      "translation_incomplete"
+      "crossref_provisional_roster"
     ],
     "official_item_count": 8,
-    "publishable_item_count": 8,
+    "publishable_item_count": 7,
     "content_counts": {
       "official_items": 8,
       "observed_items": 8,
-      "publishable_items": 8,
-      "research_articles": 8,
+      "publishable_items": 7,
+      "research_articles": 7,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
-      "editorial_material": 0,
+      "editorial_material": 1,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 8
+      "catalog_content_items": 7
     }
   },
+  "source_status": "source_pending",
+  "publication_state": "source_pending",
   "content_counts": {
     "official_items": 8,
     "observed_items": 8,
-    "publishable_items": 8,
-    "research_articles": 8,
+    "publishable_items": 7,
+    "research_articles": 7,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
-    "editorial_material": 0,
+    "editorial_material": 1,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 8
+    "catalog_content_items": 7
   },
-  "issue_label": "Vol. 101 · No. 2"
+  "issue_label": "Vol. 101 · No. 2",
+  "content_status": "complete"
 }

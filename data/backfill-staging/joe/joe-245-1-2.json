@@ -1,0 +1,397 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "joe-245-1-2",
+  "journal_id": "joe",
+  "journal_name": "Journal of Econometrics",
+  "volume": "245",
+  "issue": "1-2",
+  "publication_date": "October 2024",
+  "source_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/245/suppl/1-2",
+  "retrieved_at": "2026-08-18T19:15:21+00:00",
+  "expected_article_count": 5,
+  "research_article_count": 5,
+  "status": "incomplete",
+  "development_sample": false,
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105868",
+      "sequence": 1,
+      "source_sequence": 105868,
+      "article_type": "research-article",
+      "title_en": "Why are replication rates so low?",
+      "title_cn": "为什么复制率如此之低？",
+      "authors": [
+        "Patrick Vu"
+      ],
+      "abstract_en": "Many explanations have been offered for why replication rates are low in the social sciences, including selective publication, p-hacking, and treatment effect heterogeneity. This article emphasizes that issues with the most commonly used approach for setting sample sizes in replication studies may also play an important role. Theoretically, I show in a simple model of the publication process that we should expect the replication rate to fall below its nominal target, even when original studies are unbiased. The main mechanism is that the most commonly used approach for setting the replication sample size does not properly account for the fact that original effect sizes are estimated. Specifically, it sets the replication sample size to achieve a nominal power target under the assumption that estimated effect sizes correspond to fixed true effects. However, since there are non-linearities in the replication power function linking original effect sizes to power, ignoring the fact that effect sizes are estimated leads to systematically lower replication rates than intended. Empirically, I find that a parsimonious model accounting only for these issues can fully explain observed replication rates in experimental economics and social science, and two-thirds of the replication gap in psychology. I conclude with practical recommendations for replicators.",
+      "abstract_cn": "对于社会科学中复制率低的原因，已有许多解释，包括选择性发表、p值操纵和处理效应异质性。本文强调，复制研究中最常用的样本量设定方法可能也起着重要作用。理论上，我在一个简单的发表过程模型中表明，即使原始研究是无偏的，我们也应预期复制率会低于其名义目标。主要机制在于，最常用的复制样本量设定方法没有恰当考虑原始效应量是估计值这一事实。具体而言，该方法在假设估计效应量对应固定真实效应的前提下，设定复制样本量以达到名义功效目标。然而，由于复制功效函数中连接原始效应量与功效的非线性关系，忽略效应量是估计的这一事实会导致复制率系统性低于预期。实证上，我发现一个仅考虑这些问题的简约模型能够完全解释实验经济学和社会科学中观察到的复制率，并能解释心理学中三分之二的复制差距。最后，我为复制者提出了实用建议。",
+      "abstract_snippet_en": "Many explanations have been offered for why replication rates are low in the social sciences, including selective publication, p-hacking, and treatment effect heterogeneity. This article emphasizes...",
+      "doi": "10.1016/j.jeconom.2024.105868",
+      "source_url": "https://doi.org/10.1016/j.jeconom.2024.105868",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/245/suppl/1-2",
+        "roster": "crossref:issn:0304-4076",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17680,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17680,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:15:24+00:00",
+        "source_hash": "fca98dff3e4bab3c3013f24de04e6264c6654091d40c9dd1b5a4feffca8056ea"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105872",
+      "sequence": 2,
+      "source_sequence": 105872,
+      "article_type": "research-article",
+      "title_en": "On the spectral density of fractional Ornstein–Uhlenbeck processes",
+      "title_cn": "分数阶奥恩斯坦-乌伦贝克过程的谱密度研究",
+      "authors": [
+        "Shuping Shi",
+        "Jun Yu",
+        "Chen Zhang"
+      ],
+      "abstract_en": "This paper introduces a novel and easy-to-implement method for accurately approximating the spectral density of discretely sampled fractional Ornstein–Uhlenbeck (fOU) processes. The method offers a substantial reduction in approximation error, particularly within the rough region of the fractional parameter H∈(0,0.5). This approximate spectral density has the potential to enhance the performance of estimation methods and hypothesis testing that make use of spectral densities. We introduce the approximate Whittle maximum likelihood (AWML) method for discretely sampled fOU processes, utilizing the approximate spectral density, and demonstrate that the AWML estimator exhibits properties of consistency and asymptotic normality when H∈(0,1), akin to the conventional Whittle maximum likelihood method. Through extensive simulation studies, we show that AWML outperforms existing methods in terms of estimation accuracy in finite samples. We then apply the AWML method to the trading volume of 40 financial assets. Our empirical findings reveal that the estimated Hurst parameters for these assets fall within the range of 0.10 to 0.21, indicating a rough dynamic.",
+      "abstract_cn": "本文提出了一种新颖且易于实现的方法，用于精确近似离散采样分数阶奥恩斯坦-乌伦贝克（fOU）过程的谱密度。该方法在分数参数H∈(0,0.5)的粗糙区域内显著降低了近似误差。这种近似谱密度有望提升利用谱密度的估计方法和假设检验的性能。我们引入了针对离散采样fOU过程的近似惠特尔最大似然（AWML）方法，利用近似谱密度，并证明当H∈(0,1)时，AWML估计量具有一致性和渐近正态性，类似于传统惠特尔最大似然方法。通过广泛的模拟研究，我们表明AWML在有限样本中的估计精度优于现有方法。随后，我们将AWML方法应用于40个金融资产的交易量。我们的实证发现表明，这些资产的估计赫斯特参数落在0.10至0.21范围内，表明存在粗糙动态。",
+      "abstract_snippet_en": "This paper introduces a novel and easy-to-implement method for accurately approximating the spectral density of discretely sampled fractional Ornstein–Uhlenbeck (fOU) processes. The method offers a...",
+      "doi": "10.1016/j.jeconom.2024.105872",
+      "source_url": "https://doi.org/10.1016/j.jeconom.2024.105872",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/245/suppl/1-2",
+        "roster": "crossref:issn:0304-4076",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17679,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17679,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:15:27+00:00",
+        "source_hash": "bd9d7254d2ccd18c6ea1f4823673b6f5b03adf642ff8fe3e5d0e8d42b727daeb"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105873",
+      "sequence": 3,
+      "source_sequence": 105873,
+      "article_type": "research-article",
+      "title_en": "Inference in cluster randomized trials with matched pairs",
+      "title_cn": "匹配对整群随机试验中的推断",
+      "authors": [
+        "Yuehao Bai",
+        "Jizhou Liu",
+        "Azeem M. Shaikh",
+        "Max Tabord-Meehan"
+      ],
+      "abstract_en": "This paper studies inference in cluster randomized trials where treatment status is determined according to a “matched pairs” design. Here, by a cluster randomized experiment, we mean one in which treatment is assigned at the level of the cluster; by a “matched pairs” design, we mean that a sample of clusters is paired according to baseline, cluster-level covariates and, within each pair, one cluster is selected at random for treatment. We study the large-sample behavior of a weighted difference-in-means estimator and derive two distinct sets of results depending on if the matching procedure does or does not match on cluster size. We then propose a single variance estimator which is consistent in either regime. Combining these results establishes the asymptotic exactness of tests based on these estimators. Next, we consider the properties of two common testing procedures based on t-tests constructed from linear regressions, and argue that both are generally conservative in our framework. We additionally study the behavior of a randomization test which permutes the treatment status for clusters within pairs, and establish its finite-sample and asymptotic validity for testing specific null hypotheses. Finally, we propose a covariate-adjusted estimator which adjusts for additional baseline covariates not used for treatment assignment, and establish conditions under which such an estimator leads to strict improvements in precision. A simulation study confirms the practical relevance of our theoretical results.",
+      "abstract_cn": "本文研究了治疗状态根据“匹配对”设计确定的整群随机试验中的推断问题。这里，整群随机实验指的是在整群层面分配治疗的实验；“匹配对”设计指的是根据基线、整群层面的协变量将样本整群配对，并在每一对内随机选择一个整群接受治疗。我们研究了加权均值差估计量的大样本行为，并根据匹配过程是否匹配整群规模得出了两组不同的结果。然后，我们提出了一个单一的方差估计量，该估计量在两种情况下都是一致的。结合这些结果，确立了基于这些估计量的检验的渐近精确性。接下来，我们考虑了基于线性回归构建的t检验的两种常见检验程序的性质，并认为在我们的框架下这两种程序通常都是保守的。我们还研究了在整群对内置换治疗状态的随机化检验的行为，并确立了其在检验特定零假设时的有限样本和渐近有效性。最后，我们提出了一个协变量调整估计量，该估计量调整了未用于治疗分配的额外基线协变量，并确立了此类估计量带来精度严格改进的条件。模拟研究证实了我们理论结果的实际相关性。",
+      "abstract_snippet_en": "This paper studies inference in cluster randomized trials where treatment status is determined according to a “matched pairs” design. Here, by a cluster randomized experiment, we mean one in which treatment...",
+      "doi": "10.1016/j.jeconom.2024.105873",
+      "source_url": "https://doi.org/10.1016/j.jeconom.2024.105873",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/245/suppl/1-2",
+        "roster": "crossref:issn:0304-4076",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17678,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17678,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:15:30+00:00",
+        "source_hash": "574fe71957a784f840895cefaf2c06d540bcb6b8df3f0539b0358ee613adcc9e"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105875",
+      "sequence": 4,
+      "source_sequence": 105875,
+      "article_type": "research-article",
+      "title_en": "Inference in predictive quantile regressions",
+      "title_cn": "预测分位数回归中的推断",
+      "authors": [
+        "Alex Maynard",
+        "Katsumi Shimotsu",
+        "Nina Kuriyama"
+      ],
+      "abstract_en": "This paper studies inference in predictive quantile regressions when the predictive regressor has a near-unit root. We derive asymptotic distributions for the quantile regression estimator and its heteroskedasticity and autocorrelation consistent (HAC) t-statistic in terms of functionals of Ornstein–Uhlenbeck processes. We then propose a switching-fully modified (FM) predictive test for quantile predictability. The proposed test employs an FM style correction with a Bonferroni bound for the local-to-unity parameter when the predictor has a near unit root. It switches to a standard predictive quantile regression test with a slightly conservative critical value when the largest root of the predictor lies in the stationary range. Simulations indicate that the test has a reliable size in small samples and good power. We employ this new methodology to test the ability of three commonly employed, highly persistent and endogenous lagged valuation regressors – the dividend price ratio, earnings price ratio, and book-to-market ratio – to predict the median, shoulders, and tails of the stock return distribution.",
+      "abstract_cn": "本文研究了当预测回归量具有近单位根时，预测分位数回归中的推断问题。我们推导了分位数回归估计量及其异方差和自相关一致（HAC）t统计量以Ornstein–Uhlenbeck过程泛函形式表示的渐近分布。然后，我们提出了一种用于分位数可预测性的切换式完全修正（FM）预测检验。所提出的检验在预测变量具有近单位根时，采用FM式修正并结合对局部单位根参数的Bonferroni界。当预测变量的最大根位于平稳范围内时，该检验切换为使用略微保守临界值的标准预测分位数回归检验。模拟表明，该检验在小样本中具有可靠的检验水平且功效良好。我们采用这一新方法检验三个常用、高度持久且内生的滞后估值回归量——股息价格比、盈利价格比和账面市值比——预测股票收益分布中位数、肩部和尾部的能力。",
+      "abstract_snippet_en": "This paper studies inference in predictive quantile regressions when the predictive regressor has a near-unit root. We derive asymptotic distributions for the quantile regression estimator and its heteroskedasticity...",
+      "doi": "10.1016/j.jeconom.2024.105875",
+      "source_url": "https://doi.org/10.1016/j.jeconom.2024.105875",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/245/suppl/1-2",
+        "roster": "crossref:issn:0304-4076",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17677,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17677,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:15:33+00:00",
+        "source_hash": "3dd653d4b0e0256a202d0f5d3c35a2ec81c529431169be4472e85fec997250cf"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105883",
+      "sequence": 5,
+      "source_sequence": 105883,
+      "article_type": "research-article",
+      "title_en": "Varying-coefficient spatial dynamic panel data models with fixed effects: Theory and application",
+      "title_cn": "带固定效应的变系数空间动态面板数据模型：理论与应用",
+      "authors": [
+        "Han Hong",
+        "Gaosheng Ju",
+        "Qi Li",
+        "Karen X. Yan"
+      ],
+      "abstract_en": "This paper considers a varying-coefficient spatial dynamic panel data model with fixed effects. We show that a two-point approximation method poses a potential weak identification problem. We propose a robust modified estimator to address this issue. Our two-step estimation procedure incorporates both linear and quadratic moment conditions. We also extend our analysis to a partially linear varying-coefficient model and develop a consistent test for this specification. We establish the asymptotic properties of the proposed estimators. Simulations indicate that our estimators and the test statistic perform well in finite samples. We apply the partially linear varying-coefficient model to study how the sales of liquor producers respond to those of neighboring competitors in China. We find spatial dependence among liquor producers and show that the spatial effects vary with competition intensity.",
+      "abstract_cn": "本文考虑了一个带固定效应的变系数空间动态面板数据模型。我们证明了两点近似方法存在潜在的弱识别问题。我们提出了一种稳健的修正估计量来解决这一问题。我们的两步估计过程同时包含线性和二次矩条件。我们还将分析扩展到部分线性变系数模型，并为该设定开发了一个一致性检验。我们建立了所提出估计量的渐近性质。模拟表明，我们的估计量和检验统计量在有限样本中表现良好。我们将部分线性变系数模型应用于研究中国白酒生产商的销售如何响应邻近竞争对手的销售。我们发现了白酒生产商之间的空间依赖性，并表明空间效应随竞争强度而变化。",
+      "abstract_snippet_en": "This paper considers a varying-coefficient spatial dynamic panel data model with fixed effects. We show that a two-point approximation method poses a potential weak identification problem. We propose...",
+      "doi": "10.1016/j.jeconom.2024.105883",
+      "source_url": "https://doi.org/10.1016/j.jeconom.2024.105883",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/245/suppl/1-2",
+        "roster": "crossref:issn:0304-4076",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17676,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17676,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:15:36+00:00",
+        "source_hash": "6874762776b4479889b3a5e7b7f920bcdcef8eea3a5072f97c4b91c9bd649910"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "abstract",
+        "matched_terms": [
+          "in China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "crossref",
+    "roster_authority": "crossref-provisional",
+    "roster_match_scope": "crossref-issue-group",
+    "publisher_page_status": "blocked",
+    "excluded_item_count": 1,
+    "excluded_items": [
+      {
+        "title_en": "Editorial Board",
+        "reason": "editorial_material",
+        "doi": "10.1016/s0304-4076(24)00262-8",
+        "article_type": "editorial"
+      }
+    ],
+    "doi_complete": 5,
+    "authors_complete": 5,
+    "abstract_en_complete": 5,
+    "translation_complete": 5,
+    "duplicate_count": 0,
+    "flags": [
+      "publisher_html_blocked_crossref_fallback",
+      "crossref_provisional_roster"
+    ],
+    "official_item_count": 6,
+    "publishable_item_count": 5,
+    "content_counts": {
+      "official_items": 6,
+      "observed_items": 6,
+      "publishable_items": 5,
+      "research_articles": 5,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 1,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 5
+    }
+  },
+  "source_status": "source_pending",
+  "publication_state": "source_pending",
+  "content_counts": {
+    "official_items": 6,
+    "observed_items": 6,
+    "publishable_items": 5,
+    "research_articles": 5,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 1,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 5
+  },
+  "issue_label": "Vol. 245 · No. 1-2",
+  "content_status": "complete"
+}

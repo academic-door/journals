@@ -1,0 +1,477 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "qe-14-1",
+  "journal_id": "qe",
+  "journal_name": "Quantitative Economics",
+  "volume": "14",
+  "issue": "1",
+  "publication_date": "January 2023",
+  "source_url": "https://ideas.repec.org/s/wly/quante.html",
+  "retrieved_at": "2026-08-18T16:58:13+00:00",
+  "expected_article_count": 10,
+  "research_article_count": 10,
+  "status": "ready",
+  "development_sample": false,
+  "articles": [
+    {
+      "paper_id": "doi:10.3982/qe1810",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Full‐information estimation of heterogeneous agent models using macro and micro data",
+      "title_cn": "利用宏观和微观数据对异质性主体模型进行全信息估计",
+      "authors": [
+        "Laura Liu",
+        "Mikkel Plagborg‐Møller"
+      ],
+      "abstract_en": "We develop a generally applicable full‐information inference method for heterogeneous agent models, combining aggregate time series data and repeated cross‐sections of micro data. To handle unobserved aggregate state variables that affect cross‐sectional distributions, we compute a numerically unbiased estimate of the model‐implied likelihood function. Employing the likelihood estimate in a Markov Chain Monte Carlo algorithm, we obtain fully efficient and valid Bayesian inference. Evaluation of the micro part of the likelihood lends itself naturally to parallel computing. Numerical illustrations in models with heterogeneous households or firms demonstrate that the proposed full‐information method substantially sharpens inference relative to using only macro data, and for some parameters micro data is essential for identification.",
+      "abstract_cn": "我们开发了一种普遍适用的异质性主体模型全信息推断方法，该方法结合了总体时间序列数据和重复的微观数据横截面。为了处理影响横截面分布的未观测到的总体状态变量，我们计算了模型隐含似然函数的数值无偏估计。在马尔可夫链蒙特卡洛算法中使用该似然估计，我们获得了完全有效且有效的贝叶斯推断。微观部分似然的评估自然适合并行计算。在具有异质性家庭或企业的模型中的数值示例表明，所提出的全信息方法相对于仅使用宏观数据显著提高了推断的精确度，并且对于某些参数，微观数据对于识别是必不可少的。",
+      "doi": "10.3982/qe1810",
+      "source_url": "https://doi.org/10.3982/qe1810",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v14y2023i1p1-35.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T16:58:18+00:00",
+        "source_hash": "364c851c90240d881fd11955db63153f4e124a6dfc4accd52a73480724b79dda"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe1775",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Permutation‐based tests for discontinuities in event studies",
+      "title_cn": "事件研究中基于排列的断点检验",
+      "authors": [
+        "Federico A. Bugni",
+        "Jia Li",
+        "Qiyuan Li"
+      ],
+      "abstract_en": "We propose using a permutation test to detect discontinuities in an underlying economic model at a known cutoff point. Relative to the existing literature, we show that this test is well suited for event studies based on time‐series data. The test statistic measures the distance between the empirical distribution functions of observed data in two local subsamples on the two sides of the cutoff. Critical values are computed via a standard permutation algorithm. Under a high‐level condition that the observed data can be coupled by a collection of conditionally independent variables, we establish the asymptotic validity of the permutation test, allowing the sizes of the local subsamples to be either be fixed or grow to infinity. In the latter case, we also establish that the permutation test is consistent. We demonstrate that our high‐level condition can be verified in a broad range of problems in the infill asymptotic time‐series setting, which justifies using the permutation test to detect jumps in economic variables such as volatility, trading activity, and liquidity. These potential applications are illustrated in an empirical case study for selected FOMC announcements during the ongoing COVID‐19 pandemic.",
+      "abstract_cn": "我们提出使用排列检验来检测已知断点处经济模型中的不连续性。相对于现有文献，我们表明该检验非常适合基于时间序列数据的事件研究。检验统计量衡量断点两侧两个局部子样本中观测数据的经验分布函数之间的距离。临界值通过标准排列算法计算。在观测数据可以由一组条件独立变量耦合的高层条件下，我们建立了排列检验的渐近有效性，允许局部子样本的大小固定或趋于无穷大。在后一种情况下，我们还建立了排列检验的一致性。我们证明，在填充渐近时间序列设置中，我们的高层条件可以在广泛的问题中得到验证，这证明了使用排列检验来检测经济变量（如波动率、交易活动和流动性）跳跃的合理性。这些潜在应用在正在进行的COVID-19大流行期间选定的FOMC公告的实证案例研究中得到了说明。",
+      "doi": "10.3982/qe1775",
+      "source_url": "https://doi.org/10.3982/qe1775",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v14y2023i1p37-70.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T16:58:20+00:00",
+        "source_hash": "6233edd1593328845b23825be51aebf79e01e21332efd852a13181d4b63d1279"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe1861",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Random utility and limited consideration",
+      "title_cn": "随机效用与有限考虑",
+      "authors": [
+        "Victor H. Aguiar",
+        "Maria Jose Boccardi",
+        "Nail Kashaev",
+        "Jeongbin Kim"
+      ],
+      "abstract_en": "The random utility model (RUM, McFadden and Richter (1990)) has been the standard tool to describe the behavior of a population of decision makers. RUM assumes that decision makers behave as if they maximize a rational preference over a choice set. This assumption may fail when consideration of all alternatives is costly. We provide a theoretical and statistical framework that unifies well‐known models of random (limited) consideration and generalizes them to allow for preference heterogeneity. We apply this methodology in a novel stochastic choice data set that we collected in a large‐scale online experiment. Our data set is unique since it exhibits both choice set and (attention) frame variation. We run a statistical survival race between competing models of random consideration and RUM. We find that RUM cannot explain the population behavior. In contrast, we cannot reject the hypothesis that decision makers behave according to the logit attention model (Brady and Rehbeck (2016)).",
+      "abstract_cn": "随机效用模型（RUM，McFadden和Richter（1990））一直是描述决策者群体行为的标准工具。RUM假设决策者的行为如同他们在选择集上最大化一个理性偏好。当考虑所有备选方案的成本较高时，这一假设可能不成立。我们提供了一个理论和统计框架，该框架统一了著名的随机（有限）考虑模型，并将其推广以允许偏好异质性。我们将此方法应用于我们在大规模在线实验中收集的新颖随机选择数据集。我们的数据集独特之处在于它同时展示了选择集和（注意力）框架的变化。我们在竞争性的随机考虑模型和RUM之间进行了一场统计生存竞赛。我们发现RUM无法解释群体行为。相反，我们不能拒绝决策者按照logit注意力模型（Brady和Rehbeck（2016））行事的假设。",
+      "doi": "10.3982/qe1861",
+      "source_url": "https://doi.org/10.3982/qe1861",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v14y2023i1p71-116.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T16:58:23+00:00",
+        "source_hash": "07d870f6ca75b91968a81a8bc0daeedba045036c868748e952edf914abcddd2e"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe1505",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Forecasting with a panel Tobit model",
+      "title_cn": "使用面板Tobit模型进行预测",
+      "authors": [
+        "Laura Liu",
+        "Hyungsik Roger Moon",
+        "Frank Schorfheide"
+      ],
+      "abstract_en": "We use a dynamic panel Tobit model with heteroskedasticity to generate forecasts for a large cross‐section of short time series of censored observations. Our fully Bayesian approach allows us to flexibly estimate the cross‐sectional distribution of heterogeneous coefficients and then implicitly use this distribution as prior to construct Bayes forecasts for the individual time series. In addition to density forecasts, we construct set forecasts that explicitly target the average coverage probability for the cross‐section. We present a novel application in which we forecast bank‐level loan charge‐off rates for small banks.",
+      "abstract_cn": "我们使用一个具有异方差性的动态面板Tobit模型来为大量横截面上的短时间序列的截断观测生成预测。我们的全贝叶斯方法使我们能够灵活地估计异质性系数的横截面分布，然后隐含地使用该分布作为先验来为个体时间序列构建贝叶斯预测。除了密度预测外，我们还构建了明确针对横截面平均覆盖概率的集合预测。我们提出了一个新的应用，即预测小银行的银行级贷款核销率。",
+      "doi": "10.3982/qe1505",
+      "source_url": "https://doi.org/10.3982/qe1505",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v14y2023i1p117-159.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T16:58:25+00:00",
+        "source_hash": "4ff2b802eb6f7a6cc77f24f629d44ffbd9a4f4a7a2df47f73de72b32c570c9e4"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe1511",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Monetary policy, external instruments, and heteroskedasticity",
+      "title_cn": "货币政策、外部工具与异方差性",
+      "authors": [
+        "Thore Schlaak",
+        "Malte Rieth",
+        "Maximilian Podstawski"
+      ],
+      "abstract_en": "We develop a structural vector autoregressive framework that combines external instruments and heteroskedasticity for identification of monetary policy shocks. We show that exploiting both types of information sharpens structural inference, allows testing the relevance and exogeneity condition for instruments separately using likelihood ratio tests, and facilitates the economic interpretation of the structural shock of interest. We test alternative instruments and find that narrative and model‐based measures are valid, while high‐frequency data instruments show signs of invalidity. Finally, we document that monetary shocks identified with both a valid instrument and heteroskedasticity have larger effects on production and prices than monetary shocks identified via an instrument only.",
+      "abstract_cn": "我们开发了一个结构向量自回归框架，该框架结合了外部工具和异方差性来识别货币政策冲击。我们表明，利用这两类信息可以加强结构推断，允许使用似然比检验分别检验工具的相关性和外生性条件，并有助于对感兴趣的结构冲击进行经济解释。我们检验了替代工具，发现叙事性和基于模型的度量是有效的，而高频数据工具显示出无效的迹象。最后，我们记录了使用有效工具和异方差性识别的货币冲击对生产和价格的影响大于仅通过工具识别的货币冲击。",
+      "doi": "10.3982/qe1511",
+      "source_url": "https://doi.org/10.3982/qe1511",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v14y2023i1p161-200.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T16:58:27+00:00",
+        "source_hash": "6b8444d36e42e54e6fab93dc6d0ec6678de9aaa61391dce3edc15fa836f6b6ed"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe1817",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Pareto extrapolation: An analytical framework for studying tail inequality",
+      "title_cn": "帕累托外推：研究尾部不平等的一个分析框架",
+      "authors": [
+        "Émilien Gouin‐Bonenfant",
+        "Alexis Akira Toda"
+      ],
+      "abstract_en": "We develop an analytical framework designed to solve and analyze heterogeneous‐agent models that endogenously generate fat‐tailed wealth distributions. We exploit the asymptotic linearity of policy functions and the analytical characterization of the Pareto exponent to augment the conventional solution algorithm with a theory of the tail. Our framework allows for a precise understanding of the very top of the wealth distribution (e.g., analytical expressions for top wealth shares, type distribution in the tail, and transition probabilities in and out of the tail) in addition to delivering improved accuracy and speed.",
+      "abstract_cn": "我们开发了一个分析框架，旨在求解和分析内生生成肥尾财富分布的异质性主体模型。我们利用政策函数的渐近线性和帕累托指数的解析刻画，将传统求解算法与尾部理论相结合。我们的框架允许精确理解财富分布的最顶端（例如，顶部财富份额的解析表达式、尾部的类型分布以及进出尾部的转移概率），同时提高精度和速度。",
+      "doi": "10.3982/qe1817",
+      "source_url": "https://doi.org/10.3982/qe1817",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v14y2023i1p201-233.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T16:58:29+00:00",
+        "source_hash": "2c066c865b46dfe3458ec1bfec10ea1b9d9424efa8614887d693238a31b36357"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe1751",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Testing unified growth theory: Technological progress and the child quantity‐quality tradeoff",
+      "title_cn": "检验统一增长理论：技术进步与子女数量-质量权衡",
+      "authors": [
+        "Jakob Madsen",
+        "Holger Strulik",
+        "Jakob B. Madsen"
+      ],
+      "abstract_en": "A core mechanism of unified growth theory is that accelerating technological progress induces mass education and, through interaction with child quantity‐quality substitution, a decline in fertility. Using unique new data for 21 OECD countries over the period 1750–2000, we test, for the first time, the validity of this core mechanism of unified growth theory. We measure a country's technological progress as patents per capita, R&D intensity, and investment in machinery, equipment, and intellectual property products. While controlling for confounders, such as income growth, mortality, and the gender wage gap, we establish (1) a significant impact of technological progress on education (positive) and fertility (negative); (2) that accelerating technological progress stimulated the fertility transition; and (3) that the baseline results are supported in 2SLS regressions using genetic‐distance weighted foreign patent‐intensity, compulsory schooling years, and minimum working age as instruments.",
+      "abstract_cn": "统一增长理论的一个核心机制是，加速的技术进步促使大众教育普及，并通过与子女数量-质量替代的相互作用，导致生育率下降。利用覆盖1750-2000年期间21个OECD国家的独特新数据，我们首次检验了统一增长理论这一核心机制的有效性。我们以人均专利数、研发强度以及机械、设备和知识产权产品投资来衡量一个国家的技术进步。在控制收入增长、死亡率和性别工资差距等混杂因素的同时，我们确立了（1）技术进步对教育（正向）和生育率（负向）的显著影响；（2）加速的技术进步刺激了生育率转变；（3）基线结果在使用遗传距离加权的外国专利强度、义务教育年限和最低工作年龄作为工具变量的2SLS回归中得到支持。",
+      "doi": "10.3982/qe1751",
+      "source_url": "https://doi.org/10.3982/qe1751",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v14y2023i1p235-275.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T16:58:31+00:00",
+        "source_hash": "56634a3cc6e16fec454aefb6c541d91094bd30be6a16f39c61795f1dd75152dc"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe1797",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Borrowing into debt crises",
+      "title_cn": "借入债务危机",
+      "authors": [
+        "Radoslaw Paluszynski",
+        "Georgios Stefanidis",
+        "Radek Paluszynski"
+      ],
+      "abstract_en": "Quantitative models of sovereign default predict that governments reduce borrowing during recessions to avoid debt crises. A prominent implication of this behavior is that the resulting interest rate spread volatility is counterfactually low. We propose that governments borrow into debt crises because of frictions in the adjustment of their expenditures. We develop a model of government good production, which uses public employment and intermediate consumption as inputs. The inputs have varying degrees of downward rigidity, which means that it is costly to reduce them. Facing an adverse income shock, the government borrows to smooth out the reduction in public employment, which results in increasing debt and higher spread. We quantify this rigidity using the OECD Government Accounts data and show that it explains about 70% of the missing bond spread volatility.",
+      "abstract_cn": "主权违约的定量模型预测，政府在经济衰退期间会减少借贷以避免债务危机。这种行为的一个显著含义是，由此产生的利率差波动性反事实地低。我们提出，政府之所以借入债务危机，是因为其支出调整存在摩擦。我们开发了一个政府产品生产模型，该模型使用公共就业和中间消费作为投入。这些投入具有不同程度的向下刚性，这意味着减少它们是有成本的。面对不利的收入冲击，政府借贷以平滑公共就业的减少，这导致债务增加和利差上升。我们使用OECD政府账户数据量化了这种刚性，并表明它解释了缺失债券利差波动性的约70%。",
+      "doi": "10.3982/qe1797",
+      "source_url": "https://doi.org/10.3982/qe1797",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v14y2023i1p277-308.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T16:58:33+00:00",
+        "source_hash": "ec0b8fbb4ba721617c062be959b23f7eca4769873f06a7c87929d042f700e1a5"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe2088",
+      "sequence": 9,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "The demographic consequences of sex‐selection technology",
+      "title_cn": "性别选择技术的人口后果",
+      "authors": [
+        "Qi Li",
+        "Juan Pantano"
+      ],
+      "abstract_en": "Over the last several years, highly accurate methods of sex selection before conception have been developed. Given that strong preferences for sex variety in offspring have been documented for the U.S., we ask what the demographic consequences of sex‐selection technology could be. Lacking variation across space and time in access to this technology, we estimate a dynamic programming model of fertility decisions with microdata on fertility histories. We leverage the quasi‐experimental variation inherent in the random determination of sex to identify the key structural parameter characterizing preferences for sex variety in offspring. We then simulate the introduction of this technology. While this technology can reduce fertility by allowing parents to efficiently reach their preferred sex mix, it could also increase it. This is because without this technology, many parents may opt not to have another baby given the uncertainty about its sex. Results suggest that these two effects operate simultaneously, but on net, sex‐selection technology ends up reducing the average family size among married women by less than 2% in the steady state, a much smaller decline than the one that would be predicted by alternative methods.",
+      "abstract_cn": "在过去几年中，已经开发出在受孕前进行性别选择的高精度方法。鉴于美国已有文献记录了人们对子女性别多样性的强烈偏好，我们询问性别选择技术可能带来的人口后果。由于在时间和空间上缺乏获取该技术的差异，我们利用生育史的微观数据估计了一个生育决策的动态规划模型。我们利用性别随机决定中固有的准实验变异来识别表征子女性别多样性偏好的关键结构参数。然后我们模拟了该技术的引入。虽然这项技术可以通过让父母有效达到他们偏好的性别组合来降低生育率，但它也可能增加生育率。这是因为在没有这项技术的情况下，考虑到婴儿性别的不确定性，许多父母可能选择不再生育。结果表明，这两种效应同时起作用，但净效应是，性别选择技术最终在稳态下使已婚女性的平均家庭规模减少不到2%，这一下降幅度远小于其他方法预测的下降幅度。",
+      "doi": "10.3982/qe2088",
+      "source_url": "https://doi.org/10.3982/qe2088",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v14y2023i1p309-347.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T16:58:36+00:00",
+        "source_hash": "1b943184b2f355c7adc77478c407b9fc34f5593166760c42e2bad117adc3324a"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/qe1404",
+      "sequence": 10,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "Gender, competition, and performance: Evidence from chess players",
+      "title_cn": "性别、竞争与表现：来自棋手的证据",
+      "authors": [
+        "Peter Backus",
+        "Maria Cubel",
+        "Matej Guid",
+        "Santiago Sánchez‐Pagés",
+        "Enrique López Mañas",
+        "Peter Giovanni Backus ?",
+        "Santiago Sanchez-Pages"
+      ],
+      "abstract_en": "This paper studies gender differences in performance in a male‐dominated competitive environment chess tournaments. We find that the gender composition of chess games affects the behaviors of both men and women in ways that worsen the outcomes for women. Using a unique measure of within‐game quality of play, we show that women make more mistakes when playing against men. Men, however, play equally well against male and female opponents. We also find that men persist longer before losing to women. Our results shed some light on the behavioral changes that lead to differential outcomes when the gender composition of competitions varies.",
+      "abstract_cn": "本文研究了在以男性为主导的竞争性环境——国际象棋锦标赛中，性别差异对表现的影响。我们发现，棋局中的性别构成对男性和女性的行为都有影响，且这些影响恶化了女性的结果。利用一个独特的对局内棋艺质量衡量指标，我们表明女性在与男性对弈时会犯更多错误。然而，男性在面对男性和女性对手时表现同样出色。我们还发现，男性在输给女性之前会坚持更长时间。我们的研究结果揭示了当竞争构成中的性别比例变化时，导致不同结果的行为变化。",
+      "doi": "10.3982/qe1404",
+      "source_url": "https://doi.org/10.3982/qe1404",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/wly/quante.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/wly/quante/v14y2023i1p349-380.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T16:58:38+00:00",
+        "source_hash": "132ab6dc0a7fb47adcee7dfc75bb057cf83088dbc7fd9e4c7329a7f005a02de3"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "repec-serial-page",
+    "roster_authority": "repec-publisher-supplied",
+    "roster_match_scope": "repec-issue-section",
+    "publisher_page_status": "blocked",
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 10,
+    "authors_complete": 10,
+    "abstract_en_complete": 10,
+    "translation_complete": 10,
+    "duplicate_count": 0,
+    "flags": [],
+    "official_item_count": 10,
+    "publishable_item_count": 10,
+    "content_counts": {
+      "official_items": 10,
+      "observed_items": 10,
+      "publishable_items": 10,
+      "research_articles": 10,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 10
+    }
+  },
+  "content_counts": {
+    "official_items": 10,
+    "observed_items": 10,
+    "publishable_items": 10,
+    "research_articles": 10,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 10
+  },
+  "issue_label": "Vol. 14 · No. 1",
+  "content_status": "complete",
+  "source_status": "publisher_verified",
+  "publication_state": "ready"
+}

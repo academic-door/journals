@@ -1,0 +1,1407 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "lup-127-c",
+  "journal_id": "lup",
+  "journal_name": "Land Use Policy",
+  "volume": "127",
+  "issue": "C",
+  "publication_date": "February 2023",
+  "source_url": "https://ideas.repec.org/s/eee/lauspo.html",
+  "retrieved_at": "2026-08-18T17:10:09+00:00",
+  "expected_article_count": 32,
+  "research_article_count": 32,
+  "status": "ready",
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2022.106528",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Utilization and implementation of PPGIS in land use planning and decision-making from the perspective of organizations",
+      "title_cn": "组织视角下PPGIS在土地利用规划与决策中的利用与实施",
+      "authors": [
+        "Sini Kantola",
+        "Nora Fagerholm",
+        "Ari Nikula"
+      ],
+      "abstract_en": "Public participation GIS (PPGIS) approaches, often online participatory mapping, are used as participatory tools in land use planning. Applying PPGIS is expected to create data that contribute to decision-making processes in different organizations. The challenge with the use of PPGIS is that information often remains at the level of data collection without deeper and concrete use of the data. However, further research is required to better assess the impact of PPGIS approaches in actual land use-related decision-making. The essential questions are how PPGIS data have been used in decision-making, and how the application of the PPGIS approach is beneficial for land use planning processes. We aim to address these questions through three cases in Finnish Lapland, a sparsely populated region with mainly publicly owned land. The analysis is performed from the perspective of the organizations that applied PPGIS surveys. The results show that PPGIS can improve interaction between organizations and respondents in land use planning. PPGIS is particularly beneficial in the early phases of a land use planning process. In addition, for the most beneficial impact we advise using PPGIS to manage practical land use planning-related issues and to store collected data systematically.",
+      "abstract_cn": "公众参与地理信息系统（PPGIS）方法，通常是在线参与式制图，被用作土地利用规划中的参与工具。应用PPGIS预期能产生有助于不同组织决策过程的数据。PPGIS使用的挑战在于，信息往往停留在数据收集层面，而没有对数据进行更深入和具体的利用。然而，需要进一步研究以更好地评估PPGIS方法在实际土地利用相关决策中的影响。关键问题是PPGIS数据如何在决策中被使用，以及PPGIS方法的应用如何有益于土地利用规划过程。我们旨在通过芬兰拉普兰地区的三个案例来回答这些问题，该地区人口稀少，土地主要为公有。分析从应用PPGIS调查的组织的视角进行。结果表明，PPGIS可以改善土地利用规划中组织与受访者之间的互动。PPGIS在土地利用规划过程的早期阶段尤其有益。此外，为了获得最有益的影响，我们建议使用PPGIS来管理实际的土地利用规划相关问题，并系统性地存储收集到的数据。",
+      "doi": "10.1016/j.landusepol.2022.106528",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837722005555",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics0264837722005555.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:10:13+00:00",
+        "source_hash": "3b9d13c4658b1157476ddcfcb133c22fce11aa3b612658b71d724e43bc167676"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106537",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Modelling the legal spaces of 3D underground objects in 3D land administration systems",
+      "title_cn": "三维土地管理系统中三维地下对象的法律空间建模",
+      "authors": [
+        "Rohit Ramlakhan",
+        "Eftychia Kalogianni",
+        "Peter van Oosterom",
+        "Behnam Atazadeh"
+      ],
+      "abstract_en": "One of the significant challenges in current 2D Land Administration Systems (LAS) is defining and registering the Rights, Restrictions and Responsibilities (RRRs) attached to the underground objects. A 3D LAS can facilitate a better understanding, as well as a more efficient registration and clear visualisation of the RRRs than a 2D LAS, through 3D digital modelling of the legal ownership of underground objects below the surface. To register the objects below the surface in a 3D LAS, 3D physical data as well as 3D legal data shall either be registered and integrated into one model, or the physical and legal models shall be linked effectively. In the context of this paper, the IFC (ISO 16739:2018) is used to register the 3D physical data, while the Land Administration Domain Model (LADM, ISO 19152:2012) is used to structure the legal data. To achieve the link of the respective legal and physical data, the classes of the LADM are mapped to the elements of the IFC. A standardised workflow is presented in this paper where the inclusion of the legal, organisational and technical aspects of modelling the legal ownership results in a comprehensive approach to solve the challenges that currently prevent the registration of the RRRs of 3D objects below the surface in LASs. This paper also provides a general method for mapping the LADM classes to the IFC entities. Two case studies were conducted to assess the technical aspect of the workflow, where the RRRs of objects below the surface and the parcels above the surface were registered and visualised on the 3D geospatial visualisation platform CesiumJS.",
+      "abstract_cn": "当前二维土地管理系统（LAS）面临的重要挑战之一是定义和登记与地下对象相关的权利、限制和责任（RRRs）。三维LAS通过三维数字建模地表以下地下对象的合法所有权，能够比二维LAS更好地理解、更高效地登记以及清晰可视化RRRs。为了在三维LAS中登记地表以下的对象，三维物理数据和三维法律数据要么登记并集成到一个模型中，要么物理模型和法律模型应有效链接。在本文的背景下，使用IFC（ISO 16739:2018）登记三维物理数据，而使用土地管理领域模型（LADM，ISO 19152:2012）构建法律数据。为了实现各自法律和物理数据的链接，将LADM的类映射到IFC的元素。本文提出了一种标准化工作流程，其中纳入法律、组织和技术方面的合法所有权建模，形成一种综合方法来解决当前阻碍LAS中地表以下三维对象RRRs登记的挑战。本文还提供了一种将LADM类映射到IFC实体的通用方法。进行了两个案例研究来评估工作流程的技术方面，其中地表以下对象的RRRs和地表以上地块的RRRs在三维地理空间可视化平台CesiumJS上进行了登记和可视化。",
+      "doi": "10.1016/j.landusepol.2023.106537",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723000030",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics0264837723000030.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:10:16+00:00",
+        "source_hash": "bae8bd0817c20dfb3456a941ba2ebd37a22932b55ad7cfe397cc44cf53ea5fcd"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106539",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "The Forest Management Policy and its Influence in Forest area Utilization and Empowering Forest Communities in Yogyakarta",
+      "title_cn": "林业管理政策及其对日惹森林区域利用和森林社区赋权的影响",
+      "authors": [
+        "Drasospolino",
+        "Soesilo Zauhar",
+        "Bambang Santoso",
+        "Hermawan"
+      ],
+      "abstract_en": "This study wanted to test and determine the impact of implementing forest management policies based on the Forest Management Unit’s role in forest areas and community empowerment in Yogyakarta.",
+      "abstract_cn": "本研究旨在测试和确定基于森林管理单位在日惹森林区域和社区赋权中作用的林业管理政策实施的影响。",
+      "doi": "10.1016/j.landusepol.2023.106539",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723000054",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics0264837723000054.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:10:18+00:00",
+        "source_hash": "1109ef52b8fd8abeaf56bb00ef3ef3d021b6b427ce29c85b3f61b3c8ab31c9ba"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106546",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Effectiveness of policy instrument mixes for forest conservation in the tropics – Stakeholder perceptions from Ecuador, the Philippines and Zambia",
+      "title_cn": "热带森林保护政策工具组合的有效性——来自厄瓜多尔、菲律宾和赞比亚的利益相关者认知",
+      "authors": [
+        "Richard Fischer",
+        "Melvin Lippe",
+        "Priscilla Dolom",
+        "Felix Kanungwe Kalaba",
+        "Fabian Tamayo",
+        "Bolier Torres"
+      ],
+      "abstract_en": "Effective policy instruments are needed to halt or even reverse ongoing tropical deforestation. In this context, the increased focus on incentive-based instruments on the one hand and the unchanged support for classical command and control measures on the other, call for smart policy mixes. We aim to identify the effectiveness of policy instruments and of policy mixes based on stakeholder perceptions. We also aim to analyze stakeholders’ power in order to appraise the relevance of different instruments on national forest policy agendas. Our study implements related research based on more than 100 key informant interviews along the pantropical country-context of Ecuador, Philippines and Zambia. Principal component analysis is applied to identify forest policy mixes, and social network analysis to quantify stakeholder power. Our results show that despite recent discussions and support for incentive-based mechanisms like REDD+ and market-based solutions, regulative instruments are equally advocated. There is an astonishing congruence in the support of national stakeholders for specific policy instruments like reforestation subsidies, protected areas, and measures to combat illegal logging. But despite this high congruence, the policy instruments need to be implemented in country-specific combinations, because we find diverging stakeholder perceptions on national policy mixes. These diverging perceptions require good governance within the related decision and implementation processes. Whereas NGOs in general have a stronger focus on regulatory instruments, enterprises show more support for economic measures. International organizations have the most balanced perception in this respect, followed by national governments. National governments are the most powerful stakeholders. Their power is required to coordinate decision processes and ensure implementation. The almost equally powerful role of international organizations poses questions of ownership. We present a detailed analysis of policy mixes and recommendations for each of the three countries.",
+      "abstract_cn": "有效的政策工具对于遏制甚至逆转持续的热带森林砍伐是必要的。在此背景下，一方面对基于激励的工具关注增加，另一方面对传统命令与控制措施的支持不变，这要求制定明智的政策组合。我们旨在基于利益相关者的认知来识别政策工具和政策组合的有效性。我们还旨在分析利益相关者的权力，以评估不同工具在国家森林政策议程上的相关性。我们的研究基于在泛热带国家背景下（厄瓜多尔、菲律宾和赞比亚）进行的超过100次关键知情人访谈。采用主成分分析来识别森林政策组合，并采用社会网络分析来量化利益相关者的权力。我们的结果表明，尽管最近对REDD+和基于市场的解决方案等基于激励的机制进行了讨论和支持，但规制性工具同样受到倡导。国家利益相关者对特定政策工具（如重新造林补贴、保护区和打击非法采伐的措施）的支持存在惊人的一致性。但尽管存在这种高度一致性，政策工具需要以国家特定的组合实施，因为我们发现国家利益相关者对政策组合的认知存在分歧。这些分歧的认知要求在相关决策和实施过程中具备良好的治理。非政府组织总体上更关注规制性工具，而企业则更支持经济措施。国际组织在这方面的认知最为均衡，其次是各国政府。国家政府是最有影响力的利益相关者。他们的权力对于协调决策过程和确保实施是必要的。国际组织几乎同等强大的作用引发了所有权问题。我们提供了对这三个国家政策组合的详细分析和建议。",
+      "doi": "10.1016/j.landusepol.2023.106546",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723000121",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics0264837723000121.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:10:22+00:00",
+        "source_hash": "9a7ee9728d8c2350701d0cef76a94cadc1448a0855df235480809fa9f96ef71c"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106550",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Cross-boundary cooperation in wildfire management during the custodial management period of the US Forest Service: A case study of the eastern Cascades of Oregon, USA, 1905–1945",
+      "title_cn": "美国林务局托管管理期间野火管理中的跨界合作：以美国俄勒冈州喀斯喀特山脉东部为例，1905-1945年",
+      "authors": [
+        "Michelle M. Steen-Adams",
+        "Susan Charnley",
+        "Mark D.O. Adams"
+      ],
+      "abstract_en": "In the U.S., federal, tribal, state, local, and private land management entities seek to implement a wildfire management strategy that spans large spatial extents and multiple ownerships to achieve wildfire risk reduction and forest restoration. This strategy requires cross-boundary cooperation. Cooperative cross-boundary forest management is not new; yet little case study research has documented historical examples. This study provides insight into how potentially overlooked models of cross-boundary cooperation of the past may be applicable to renewed cross-boundary cooperation today. We examined cooperation during the custodial management period (1905–1945) of Forest Service history. This study identifies the governance institutions, partner roles, and practices that promoted the establishment and durability of cross-boundary cooperation under two governance models adopted by the Forest Service and partners. The models are: cooperative federalism, for partnering with state and private landowner local entities – forest protective associations (FPAs); and federal interagency cooperation, for partnering with the Bureau of Indian Affairs Forestry Division, historically responsible for managing tribal lands. Using case study methods, we examined two examples of each model from the eastern Cascades of Oregon, USA. Two governance characteristics promoted durable cooperation, regardless of model: (1) the development of a bundle of cooperation-focused institutions (cross-organizational policy alignment; headquarters-level cooperative policies, laws, and/ or interagency agreements; unit-level cooperative agreements) that linked multiple Forest Service administrative levels (agency headquarters, local unit) to those of partner entities; and (2) the performance of a diversity of partner roles— operating at both headquarters and local levels — that enabled management entities to offset capacity constraints. Several governance characteristics promoted cooperation in the model that engaged private landowners (cooperative federalism). These were: the state-granted authorities of a special purpose district, whereby self-organized FPAs garnered resources and developed and enforced cooperative practices that coordinated upward with state and federal policies; recognition by the state and Forest Service of authorized, local entities that represented private landowners (FPAs) as essential partners; an administrative structure for state transfer of federal funding to local entities, resulting in cost-sharing; and the state’s performance of the roles of cost-sharing administrator and liaison between Forest Service and local entities. We suggest that the more partners can integrate these features into cross-boundary wildfire management cooperation today, the better its chances of establishment and durability.",
+      "abstract_cn": "在美国，联邦、部落、州、地方和私人土地管理实体力求实施一项跨越广阔空间范围和多种所有权的野火管理战略，以实现野火风险降低和森林恢复。这一战略需要跨界合作。合作性的跨界森林管理并非新事物；然而，很少有案例研究记录了历史实例。本研究提供了关于过去可能被忽视的跨界合作模式如何适用于当今重新兴起的跨界合作的见解。我们考察了林务局历史中托管管理时期（1905-1945年）的合作。本研究识别了在林务局及合作伙伴采用的两种治理模式下，促进跨界合作建立和持久性的治理制度、合作伙伴角色和实践。这两种模式是：合作联邦制，用于与州和私人土地所有者地方实体——森林保护协会（FPAs）合作；以及联邦机构间合作，用于与历史上负责管理部落土地的内政部印第安事务局林业司合作。采用案例研究方法，我们考察了来自美国俄勒冈州喀斯喀特山脉东部的每种模式的两个例子。无论模式如何，有两个治理特征促进了持久合作：（1）发展了一组以合作为中心的机构（跨组织政策对齐；总部层面的合作政策、法律和/或机构间协议；单位层面的合作协议），将林务局的多个行政层级（机构总部、地方单位）与合作伙伴实体的层级联系起来；（2）履行多样化的合作伙伴角色——在总部和地方层面运作——使管理实体能够抵消能力限制。在涉及私人土地所有者的模式（合作联邦制）中，有几个治理特征促进了合作。这些特征是：州授予的特别目的区权力，自组织的FPAs借此获取资源并制定和执行与州和联邦政策向上协调的合作实践；州和林务局承认代表私人土地所有者的授权地方实体（FPAs）为必要合作伙伴；州将联邦资金转移给地方实体的行政结构，导致成本分摊；以及州履行成本分摊管理者和林务局与地方实体之间联络人的角色。我们建议，合作伙伴越能将这些特征整合到当今的跨界野火管理合作中，其建立和持久性的机会就越大。",
+      "doi": "10.1016/j.landusepol.2023.106550",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723000169",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics0264837723000169.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:10:27+00:00",
+        "source_hash": "08e8b2a0692ae989603ca0b8686d2404f19700a5b0faa605f5297b7e0ebc0fca"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106555",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Sea Reclamation in Mainland China: Process, Pattern, and Management",
+      "title_cn": "中国大陆填海造地：过程、格局与管理",
+      "authors": [
+        "Fengqin Yan",
+        "Xuege Wang",
+        "Chong Huang",
+        "Junjue Zhang",
+        "Fenzhen Su",
+        "Yifei Zhao",
+        "Vincent Lyne"
+      ],
+      "abstract_en": "Since the 1980 s, human activities and climate change have changed China’s coastal zone rapidly and extensively. Sustainable management policies and regulations need to be based on an understanding of how all these drivers have shaped China’s maritime estate, and what/where the future management priorities are. Using multisource remote sensing (RS) data, we investigated sea reclamation and coastline changes over the past four decades in development hotspots, provinces, and coastal environment types along China’s coastline. China’s artificial coastlines increased from 24% to 70.9% in four decades. Sea reclamation was mostly dominated by aquaculture ponds, ports, and agricultural land. The total coastal reclamation intensity (CRI) increased, as did coastline pressure, by 39.7% from 1980 to 2018. Since 2000, artificial coastlines have grown longer than, and at the expense of, natural coastlines. Population growth, economic development, and government policies were key drivers of past changes. Our characterization provides baseline information on drivers, structure and trends at hotspots, provinces, and environment types for future coastal management in China. We recommend future changes be monitored with a three-dimensional coastal zone observation network to assist real-time monitoring, enforcement and sustainable management of all coastal zone activities and coastline changes.",
+      "abstract_cn": "自1980年代以来，人类活动和气候变化已迅速且广泛地改变了中国沿海地区。可持续管理政策和法规需要基于对这些驱动因素如何塑造中国海洋国土以及未来管理优先事项是什么和在哪里的理解。利用多源遥感数据，我们调查了过去四十年中国海岸线上的开发热点、省份和沿海环境类型的填海造地和海岸线变化。中国的人工海岸线在四十年间从24%增加到70.9%。填海造地主要由养殖池塘、港口和农业用地主导。从1980年到2018年，总海岸带填海强度（CRI）增加，海岸线压力也随之增加了39.7%。自2000年以来，人工海岸线的长度已超过自然海岸线，并以牺牲自然海岸线为代价。人口增长、经济发展和政府政策是过去变化的关键驱动因素。我们的特征描述为未来中国海岸管理提供了热点、省份和环境类型的驱动因素、结构和趋势的基线信息。我们建议未来变化通过三维海岸带观测网络进行监测，以协助对所有海岸带活动和海岸线变化的实时监测、执法和可持续管理。",
+      "doi": "10.1016/j.landusepol.2023.106555",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723000212",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics0264837723000212.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:10:30+00:00",
+        "source_hash": "b1aaf29934122f8e274c9bb4e8da86c98e1cc07b9ff3d1538ca1bb359d9adef7"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106556",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Rural cadastral implementation and its effect on women’s landholding use rights in Amhara region, Ethiopia",
+      "title_cn": "埃塞俄比亚阿姆哈拉地区农村地籍实施及其对妇女土地使用权的影响",
+      "authors": [
+        "Adane Mehari Getie",
+        "Tadesse Amsalu Birhanu",
+        "Teshome Taffa Dadi"
+      ],
+      "abstract_en": "For the last several years, access to and control over land has been one of the major problems encountered by women in many developing countries. As part of the effort to ensure the land right of the rural community, the Ethiopian government has been carrying out the preparation of rural land cadastre and provision of landholding certificates. This study aimed to investigate the contribution of rural cadastre to ensuring women's land rights and economic empowerment. The research employed mixed research method to generate quantitative and qualitative data and the data was subject to descriptive analysis. The finding of this research revealed that the practice of the rural cadastre has enabled women to get their land registered and certified and issuance of second-level land certificates has helped them develop a great sense of security on their landholding rights. This, in turn, has given them the opportunity to exercise land transactions with confidence to improve their livelihoods. This study also indicated that rural cadastral practice has immensely reduced women's land right disputes which occurred due to deceptive practices of men. Despite the positive outcomes, this study also realized gaps in the cadastral law provisions related to administering rural cadastral practice and enhancing the efficiency of land registration and certification. The participation of women in the process of rural cadastral practice was minimal. The incident was more visible in married women whose husbands claimed that they took responsibility for handling the case. Therefore, to ensure robust landholding use rights for women, this study suggests the need for providing continuous training for women on clarifying interests on land and rural cadastral practice. And, the training should be supported with a simple and easily understandable communication strategies that enable them identify and clear errors in cadastral maps showing parcels registered in their names. Further, rural cadastral law must be formulated to govern interests on land and cadastral practice properly. Public institutions such as courts and justice offices are essential partners that need to exhibit strong coordination to ensure women's land rights, to enforce laws and sustain good land governance in the region. These interventions need commitment of the government and active support from non-government organizations.",
+      "abstract_cn": "在过去几年中，获得和控制土地一直是许多发展中国家妇女面临的主要问题之一。作为确保农村社区土地权利努力的一部分，埃塞俄比亚政府一直在开展农村土地地籍编制和发放土地持有证书的工作。本研究旨在调查农村地籍对确保妇女土地权利和经济赋权的贡献。研究采用混合研究方法生成定量和定性数据，并对数据进行了描述性分析。研究结果显示，农村地籍的实施使妇女能够登记和认证其土地，二级土地证书的发放帮助她们对自己的土地持有权产生了强烈的安全感。这反过来又使她们有机会自信地进行土地交易以改善生计。本研究还表明，农村地籍实践极大地减少了因男性欺骗行为而发生的妇女土地权利纠纷。尽管取得了积极成果，本研究也发现了地籍法律条款中与农村地籍实践管理和提高土地登记认证效率相关的差距。妇女在农村地籍实践过程中的参与度很低。这种情况在已婚妇女中更为明显，她们的丈夫声称自己负责处理此事。因此，为确保妇女拥有强有力的土地使用权，本研究建议需要为妇女提供关于明确土地利益和农村地籍实践的持续培训。此外，培训应辅以简单易懂的沟通策略，使她们能够识别和清除地籍图中以其名义登记的宗地错误。此外，必须制定农村地籍法以妥善管理土地利益和地籍实践。法院和司法办公室等公共机构是重要的合作伙伴，需要表现出强有力的协调，以确保妇女的土地权利、执行法律并维持该地区良好的土地治理。这些干预措施需要政府的承诺和非政府组织的积极支持。",
+      "doi": "10.1016/j.landusepol.2023.106556",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723000224",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics0264837723000224.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:10:34+00:00",
+        "source_hash": "7d274315bc6f9f69298db2b5627136c047c6563eb5eaabac4e157097b052c45c"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106557",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Effects of protected areas on the expansion of impervious surfaces in their vicinity: Evidence from Dutch Natura 2000",
+      "title_cn": "保护区对其周边不透水面扩张的影响：来自荷兰Natura 2000的证据",
+      "authors": [
+        "Francesco Orsi",
+        "Solen Le Clec’h"
+      ],
+      "abstract_en": "Protected areas can fully deliver their nature conservation function if human-induced disturbances are minimized not just inside their boundaries, but also in their immediate surroundings. This is particularly true for urbanization, which is highly disruptive and generally permanent. This paper aims to investigate how urban growth rates vary as a function of distance from Dutch Natura 2000 areas. More specifically, it looks at whether these areas might exert an effect on urbanization rates over a given distance, and which physical and management factors are associated with urbanization rates within this distance. The analysis was conducted by measuring and comparing urbanization rates in the 2006–2015 period in three series of ten 100-m, 250-m and 500-m ring buffers around 144 Natura 2000 areas, and regressing urbanization rates around such areas against several of their characteristics. Results show that urbanization rates are generally constant or slightly increasing as one moves away from these areas, but that on average they are markedly lower in a 200-m strip around the areas than they are elsewhere. Urban growth rates in this strip are particularly associated with the size, imperviousness rate, surrounding population density and administrative fragmentation of the areas. Further research is needed to investigate urbanization patterns around single areas, interactions between adjacent areas and the effect of new protected areas on urbanization in their surroundings.",
+      "abstract_cn": "保护区若要充分发挥其自然保护功能，不仅需要在其边界内，而且在其周边地区尽量减少人为干扰。这一点对于城市化尤其如此，因为城市化具有高度破坏性且通常是永久性的。本文旨在研究城市增长率如何随距荷兰Natura 2000区域的距离而变化。更具体地说，本文考察了这些区域是否可能对一定距离内的城市化率产生影响，以及哪些物理和管理因素与该距离内的城市化率相关。分析通过测量和比较2006-2015年期间围绕144个Natura 2000区域的三组十个100米、250米和500米环形缓冲区内的城市化率，并将这些区域周边的城市化率对其若干特征进行回归。结果表明，城市化率通常随着远离这些区域而保持恒定或略有增加，但平均而言，在区域周围200米条带内的城市化率明显低于其他地区。该条带内的城市增长率尤其与区域的面积、不透水率、周边人口密度和行政碎片化程度相关。需要进一步研究以探究单个区域周边的城市化模式、相邻区域之间的相互作用以及新保护区对其周边城市化的影响。",
+      "doi": "10.1016/j.landusepol.2023.106557",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723000236",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics0264837723000236.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:10:37+00:00",
+        "source_hash": "30812ad0c944ae3cd530e331a3b408d6da81b506f8d4a3681785a80329b74e8f"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106560",
+      "sequence": 9,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "Women and timber management: From assigned cook to strategic decision-maker of community land use",
+      "title_cn": "女性与木材管理：从被指派做饭到社区土地利用的战略决策者",
+      "authors": [
+        "Ana Luiza Violato Espada",
+        "Karen A. Kainer"
+      ],
+      "abstract_en": "Numerous studies on community forest and land use show clear benefits of including women in natural resource management. Women’s empowerment in collaborative timber management, however, is understudied and rarely achieved on the ground. We focused on women’s participation in seven community-based timber projects within three Brazilian Amazonian extractive reserves, asking: 1. What resources (actual allocations, future claims and expectations) have shaped women’s roles in collaborative timber management? 2. How do community women perceive their role in collaborative timber management? 3. Have community members and partner organizations perceived gender equity in collaborative timber management? Over 15 months, we carried out in-depth interviews with 52 respondents, conducted participant observation, and led focus group discussions that included community concept drawing activities. We uncovered that while these collaborative timber management projects still centered on male workers, in two of the three extractive reserves, empowerment processes ultimately opened spaces for greater engagement by women overall in strategic administrative and logging coordinator positions. We added to the scholarly conceptualizations of women’s empowerment, demonstrating that ‘power through’ can lead to more permanent empowerment levels. Although normative values associated with gender (i.e. men stronger than women) were subtly embedded in the actual allocation of both human and social resources (capacity building and networks, respectively) for collaborative timber management, integration of a few women in male-centered training efforts provided venues for transformative agency towards women’s placement in strategic timber management positions. Supporting such transformative processes to empower women in community land use and forestry requires awareness of gender-based discriminatory attitudes and practices on the part of men and women, as well as innovations by policymakers, community members, government, and non-governmental organizations.",
+      "abstract_cn": "许多关于社区森林和土地利用的研究表明，将女性纳入自然资源管理具有明显益处。然而，女性在合作木材管理中的赋权问题研究不足，且在实践中很少实现。我们聚焦于巴西亚马逊三个采掘保护区内七个社区木材项目中女性的参与情况，提出以下问题：1。哪些资源（实际分配、未来诉求和期望）塑造了女性在合作木材管理中的角色？2。社区女性如何看待自己在合作木材管理中的角色？3。社区成员和合作组织是否认为合作木材管理中实现了性别平等？在15个月的时间里，我们对52名受访者进行了深度访谈，开展了参与式观察，并主持了包括社区概念绘图活动在内的焦点小组讨论。我们发现，尽管这些合作木材管理项目仍以男性工人为中心，但在三个采掘保护区中的两个，赋权过程最终为女性在战略管理和伐木协调职位上的更广泛参与打开了空间。我们丰富了关于女性赋权的学术概念，证明“通过权力”可以带来更持久的赋权水平。尽管与性别相关的规范性价值观（即男性比女性强壮）微妙地嵌入在合作木材管理的人力和社会资源（分别为能力建设和网络）的实际分配中，但少数女性融入以男性为中心的培训努力为女性在战略木材管理职位上的变革性能动性提供了场所。支持这种变革过程以赋权女性参与社区土地利用和林业，需要男性和女性对基于性别的歧视性态度和实践的认识，以及政策制定者、社区成员、政府和非政府组织的创新。",
+      "doi": "10.1016/j.landusepol.2023.106560",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723000261",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics0264837723000261.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:10:41+00:00",
+        "source_hash": "b1dc6c8552e6ca1d7ffa80f267a36ac1df6b5c6e62715f8b23202bb7dc14888b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106561",
+      "sequence": 10,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "Museums for ex situ tangible heritage conservation: A neo-institutional analytical and empirical economic analysis",
+      "title_cn": "异地有形遗产保护的博物馆：新制度分析及实证经济分析",
+      "authors": [
+        "K.W. Chau",
+        "Stephen N.G. Davies",
+        "Lawrence W.C. Lai",
+        "H.T. Choy Lennon"
+      ],
+      "abstract_en": "As a first attempt to position the role of museums in land use planning, this paper modifies a neo-institutional economic perspective to canvass the economic advantages of a museum as a form of real property in a community. It explains that a museum, outdoor or indoor, as a derived demand for real property because selected ex situ heritage items need space to concentrate. Such concentration not only reduces the transaction costs of searching for users but also accumulates value by being positioned at a fixed location, as in the case of a heritage building as in situ heritage, so that it may even become a new heritage site (if not also a heritage building) over a period of time. This is demonstrated by the case of London Bus Museum, which stands in sharp contrast to a hidden private collection of retired buses in Hong Kong. An empirical test of the effects on values of neighbouring property of a cattle depot/slaughter house reused as an art museum was conducted to shed light on the economic advantages of a museum. This paper expands the understanding of curating to encompass the formation of a museum and the gaining of heritage value for the museum itself. Some land use implications are discussed, particularly that museums should be purpose-built rather than being accommodated in heritage buildings.",
+      "abstract_cn": "作为首次尝试定位博物馆在土地利用规划中的作用，本文修正了新制度经济学视角，以考察博物馆作为社区中一种不动产形式的经济优势。本文解释了博物馆，无论是室外还是室内，作为对不动产的派生需求，因为选定的异地遗产物品需要空间来集中。这种集中不仅减少了寻找使用者的交易成本，而且通过固定在某一地点而积累价值，如同建筑遗产作为原地遗产的情况，以至于经过一段时间后，它甚至可能成为一个新的遗产地（如果不是遗产建筑的话）。这一点通过伦敦巴士博物馆的案例得以证明，该案例与香港一个隐藏的退役巴士私人收藏形成鲜明对比。本文还对将牲畜仓库/屠宰场改建为艺术博物馆对邻近物业价值的影响进行了实证检验，以阐明博物馆的经济优势。本文扩展了对策展的理解，将其涵盖博物馆的形成以及博物馆自身遗产价值的获取。本文讨论了一些土地利用方面的启示，特别是博物馆应专门建造，而非安置在遗产建筑中。",
+      "doi": "10.1016/j.landusepol.2023.106561",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723000273",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics0264837723000273.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:10:44+00:00",
+        "source_hash": "d1ea52875fb47bb5c0c04ac2a0670ee0437553eceeafe909964f79994cb520a5"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106562",
+      "sequence": 11,
+      "source_sequence": 11,
+      "article_type": "research-article",
+      "title_en": "Urban agriculture business models and value propositions: Mixed methods approach based on evidence from Polish and Italian case studies",
+      "title_cn": "城市农业商业模式与价值主张：基于波兰和意大利案例研究的混合方法",
+      "authors": [
+        "J. Wiśniewska-Paluszak",
+        "G. Paluszak",
+        "M. Fiore",
+        "A. Coticchio",
+        "A. Galati",
+        "J. Lira"
+      ],
+      "abstract_en": "Nowadays, trends related to alternative promotion options for small farmers in changing agri-food supply chains stand out. Urban Agriculture (UA) is a multifaceted system ranging from traditional production, processing, distribution, and consumption to a collection of new and less imagined goods and services. UA generally differs from conventional food chains in the origins, the place of production, and the production conditions. This paper focuses on an aspect less addressed by previous research: the analysis of strategic business models adopted by urban farm (UF) practitioners. The work uses a meta-model called Business Model Canvas (BMC), expanding on it with Value Proposition Canvas (VPC) model to explore how they communicate value to target customers and different market segments. Accordingly, in-depth interviews and participant observation were conducted from February 2020 – to February 2021 to gather extensive qualitative information. We selected two European economies in Eastern and Western Europe, Poland and Italy, with different UA relevance and functionality, to better identify potential UF business models. We identified three UF business strategies: service-oriented, product-oriented and land-use-oriented. UFs are gaining traction by impacting beyond financial and economic significance. The new value proposition is a powerful way to create a broader customer base and develop innovative product and service solutions to deliver unique value. It is a development path for UFs and urban agglomerations’ sustainable development. This study led to the conceptualization of the cross-cultural business meta-model of UF. It recognizes UFs as distinct entities with diverse functions and value propositions and informs the emergent UA theory and practical applications in UFs.",
+      "abstract_cn": "如今，在变化的农产品供应链中，与小农户替代推广选择相关的趋势尤为突出。城市农业（UA）是一个多方面的系统，从传统的生产、加工、分配和消费，到一系列新的和难以想象的商品和服务。城市农业通常在来源、生产地点和生产条件方面与传统食品链不同。本文关注的是以往研究较少涉及的方面：城市农场（UF）从业者采用的战略商业模式分析。本研究使用一个称为商业模式画布（BMC）的元模型，并扩展了价值主张画布（VPC）模型，以探索他们如何向目标客户和不同市场细分传达价值。据此，在2020年二月至2021年二月期间进行了深度访谈和参与观察，以收集广泛的定性信息。我们选择了东欧和西欧的两个欧洲经济体，波兰和意大利，它们具有不同的城市农业相关性和功能，以更好地识别潜在的城市农场商业模式。我们确定了三种城市农场商业策略：服务导向型、产品导向型和土地利用导向型。城市农场通过超越财务和经济意义的影响而获得关注。新的价值主张是创造更广泛客户群和开发创新产品和服务解决方案以提供独特价值的强大方式。这是城市农场和城市群可持续发展的一个发展路径。本研究导致了城市农场跨文化商业元模型的概念化。它承认城市农场是具有不同功能和价值主张的独特实体，并为新兴的城市农业理论和城市农场的实际应用提供了信息。",
+      "doi": "10.1016/j.landusepol.2023.106562",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723000285",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics0264837723000285.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:10:47+00:00",
+        "source_hash": "16331d7d155942f62ff422aab364a0e9e9f4dbd2b48ed48d923111867f2b1f13"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106569",
+      "sequence": 12,
+      "source_sequence": 12,
+      "article_type": "research-article",
+      "title_en": "Is a village level always relevant to describe land cover changes? Analysing the landscape to understand socio-environmental changes in western Burkina Faso",
+      "title_cn": "村庄层面是否总是与描述土地覆盖变化相关？分析景观以理解布基纳法索西部的社会环境变化",
+      "authors": [
+        "Sébastien Caillault",
+        "Maxime Marie"
+      ],
+      "abstract_en": "This paper presents a study about land management in western Burkina Faso. A landscape approach combining surveys and spatial analysis was used to identify key, levels of land management. While the village level provides us with current key data for, a detailed understanding of population dynamics (i), and the household level provides, explanations of economic conditions (ii), these two traditional levels were not able to, fully explain local variability in environmental resources. We therefore question the, relative dominance of traditional levels (village, households) and introduce a spatial, dimension of environmental management to examine the variability of plural legal, rights in several places. We demonstrate the impact of lineage strategies on observed, changes at different levels. Our results provide evidence that, although land cover has, changed, the local land management system seems relatively stable due to historic, lineage alliances. This paper highlights the importance of understanding how the, localized social position of inhabitants, inside and outside the village level, can strongly affect local resource management and thus contribute to a certain inefficiency of public policies.",
+      "abstract_cn": "本文介绍了一项关于布基纳法索西部土地管理的研究。采用结合调查与空间分析的景观方法，以识别土地管理的关键层面。虽然村庄层面为我们提供了当前人口动态的详细关键数据（i），家庭层面则提供了经济状况的解释（ii），但这两个传统层面未能完全解释环境资源的局部变异性。因此，我们质疑传统层面（村庄、家庭）的相对主导地位，并引入环境管理的空间维度，以考察多个地点多元法律权利的变异性。我们证明了世系策略对观察到的不同层面变化的影响。我们的结果提供了证据表明，尽管土地覆盖已经发生变化，但由于历史上的世系联盟，当地土地管理系统似乎相对稳定。本文强调了理解居民在村庄内外的地方化社会地位如何强烈影响当地资源管理，从而可能导致公共政策一定程度的低效的重要性。",
+      "doi": "10.1016/j.landusepol.2023.106569",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723000352",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics0264837723000352.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:10:50+00:00",
+        "source_hash": "8eeb39c263e136f0045a482b8067960f548d58394882034bd647e8bdd8e24cfa"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106570",
+      "sequence": 13,
+      "source_sequence": 13,
+      "article_type": "research-article",
+      "title_en": "Urban green spaces in land-use policy – types of data, sources of data and staff – the case of Poland",
+      "title_cn": "土地利用政策中的城市绿地——数据类型、数据来源与人员——以波兰为例",
+      "authors": [
+        "Marcin Feltynowski"
+      ],
+      "abstract_en": "Urban green spaces are a key element of land-use policy. This paper aims to analyse what kind of green spaces, formal and informal, are covered by documents that specify the spatial development policies used by urban policymakers and what types of data are used to develop land-use policies in towns and cities. The background of this analysis is the fundamental staff analysis in the departments of land-use planning.",
+      "abstract_cn": "城市绿地是土地利用政策的关键要素。本文旨在分析城市政策制定者所使用的空间发展政策文件中涵盖了哪些正式和非正式的绿地类型，以及用于制定城镇土地利用政策的数据类型。此分析的背景是土地利用规划部门的基础人员分析。",
+      "doi": "10.1016/j.landusepol.2023.106570",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723000364",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics0264837723000364.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:10:52+00:00",
+        "source_hash": "3153448bec87a141ecb261101ade868269e4ebcd677dbaacfeb5637aaaf42395"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106574",
+      "sequence": 14,
+      "source_sequence": 14,
+      "article_type": "research-article",
+      "title_en": "Citizen perceptions and values associated with ecosystem services from European grassland landscapes",
+      "title_cn": "公民对欧洲草地景观生态系统服务的认知与价值评估",
+      "authors": [
+        "Sophie Tindale",
+        "Victoria Vicario-Modroño",
+        "Rosa Gallardo-Cobos",
+        "Erik Hunter",
+        "Simona Miškolci",
+        "Paul Newell Price",
+        "Pedro Sánchez-Zamora",
+        "Martijn Sonnevelt",
+        "Mercy Ojo",
+        "Kirsty McInnes",
+        "Lynn J. Frewer"
+      ],
+      "abstract_en": "European permanent grasslands are multifunctional landscapes that deliver an important mix of ecosystem services. The effectiveness of future policies linked to landscape and agricultural practices requires consideration of citizen perceptions of, and priorities for, benefits (e.g. ecosystem services) demanded from permanent grasslands. This exploratory research aimed to expand understanding of citizens’ perceptions and socio-cultural valuation of grassland landscapes, ecosystem service provision and management across Europe in order to inform future research. Fifteen focus groups with residents of rural areas, urban areas, and young adults from rural areas (aged 18–26) (N = 104), were conducted across five European countries (Spain, Sweden, UK, Switzerland and the Czech Republic) between 2020 and 2021. Overall, participants perceived grassland landscapes positively, describing connection to the landscape through experience, emotions, environmental characteristics, activity, access, and cultural identity. Prioritisation of ecosystem services from grassland varied between countries, influenced by grassland system diversity, and complex socio-cultural and socio-economic differences. Rural dwellers, including rural youth, perceived more benefits from grasslands than urban dwellers. Perceptions of problems were related to reduction, degradation and abandonment of grassland, and varied between urban and rural dwellers. Consumer education about the value of grasslands was perceived as vital in ensuring sustainable management and use of these landscapes. Citizens across different countries shared farming ideals relating to farming for biodiversity. These findings can help ensure that policies surrounding landscape and agricultural practices align with societal perspectives and priorities to effectively deliver multifunctional, valued, sustainable grassland systems.",
+      "abstract_cn": "欧洲永久性草地是多功能景观，提供重要的生态系统服务组合。未来与景观和农业实践相关的政策有效性需要考虑公民对永久性草地所需求益处的认知和优先顺序（例如生态系统服务）。这项探索性研究旨在扩展对欧洲公民对草地景观、生态系统服务提供和管理的认知及社会文化评估的理解，以便为未来研究提供信息。在2020年至2021年间，我们在五个欧洲国家（西班牙、瑞典、英国、瑞士和捷克共和国）进行了十五个焦点小组，参与者包括农村地区居民、城市地区居民以及来自农村地区的年轻人（年龄18-26岁）（N = 104）。总体而言，参与者对草地景观持积极态度，通过体验、情感、环境特征、活动、可达性和文化认同来描述与景观的联系。不同国家对草地生态系统服务的优先排序有所不同，受到草地系统多样性以及复杂的社会文化和社会经济差异的影响。农村居民，包括农村青年，比城市居民感知到更多来自草地的益处。对问题的感知与草地的减少、退化和弃置有关，且城市和农村居民之间存在差异。消费者关于草地价值的教育被视为确保这些景观可持续管理和利用的关键。不同国家的公民共享与生物多样性农业相关的农业理想。这些发现有助于确保围绕景观和农业实践的政策与社会观点和优先事项保持一致，以有效提供多功能、有价值、可持续的草地系统。",
+      "doi": "10.1016/j.landusepol.2023.106574",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723000406",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics0264837723000406.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:10:55+00:00",
+        "source_hash": "adfa6d7c47c7c66f19f5bba07c5c0493c6774c96b14d1d93e26924cb8f9fd0ad"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106575",
+      "sequence": 15,
+      "source_sequence": 15,
+      "article_type": "research-article",
+      "title_en": "Governance of interdependent ecosystem services and common-pool resources",
+      "title_cn": "相互依存的生态系统服务与公共池塘资源的治理",
+      "authors": [
+        "Catherine M. Tucker",
+        "Mateja Šmid Hribar",
+        "Mimi Urbanc",
+        "Nevenka Bogataj",
+        "Alexey Gunya",
+        "Romina Rodela",
+        "Maurizia Sigura",
+        "Lucia Piani"
+      ],
+      "abstract_en": "Environmental governance is recognized as a key issue in many natural and social sciences. It is highly relevant for ecosystem services and common-pool resources as well. Both fields overlap yet have typically been studied separately. Therefore, this study aimed a) to examine the emerging body of literature that incorporates concepts from both fields of research and considers governance challenges, and b) to identify policy tools and recommendations presented for addressing those challenges. The analysis of thirty-nine selected peer-review papers revealed the multiplicity of interacting governance challenges with three major categories: environmental, socioeconomic, and problems of governance itself. Governance is impeded by institutional mismatches, exclusion of local actors, corruption, and perverse policies. The proposed policy recommendations most often suggest changes in institutional arrangements and increasing scientific understanding. Meeting human needs, and increasing social equity and justice were recognized broadly as integral for improving governance, yet correlations among governance problems and solutions appear elusive. These findings extend theoretical reasoning, while carrying practical implications for policy, governance and environmental stewardship. The analysis implies that policies to improve human conditions will be key for improved environmental governance, but more research is needed to learn which types of policy recommendations prove successful given diverse local contexts.",
+      "abstract_cn": "环境治理被认为是许多自然科学和社会科学中的一个关键问题。它与生态系统服务和公共池塘资源也高度相关。这两个领域虽有重叠，但通常被分开研究。因此，本研究旨在a)考察融合了这两个研究领域概念并考虑治理挑战的新兴文献，以及b)识别为应对这些挑战而提出的政策工具和建议。对三十九篇精选同行评审论文的分析揭示了多种相互作用的治理挑战，分为三大类：环境、社会经济以及治理本身的问题。治理受到制度错配、排斥地方行动者、腐败和不当政策的阻碍。提出的政策建议最常涉及制度安排的改变和科学理解的增强。满足人类需求以及提高社会公平和正义被广泛认为是改善治理的组成部分，但治理问题与解决方案之间的相关性似乎难以捉摸。这些发现扩展了理论推理，同时对政策、治理和环境管理具有实际意义。分析表明，改善人类状况的政策将是改善环境治理的关键，但需要更多研究来了解在多样化的地方背景下哪些类型的政策建议被证明是成功的。",
+      "doi": "10.1016/j.landusepol.2023.106575",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723000418",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics0264837723000418.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:10:58+00:00",
+        "source_hash": "9cb959e51ab2ecaa516ee37cecc35a71c9b16b07c4e4588ebd26964d550d628d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106577",
+      "sequence": 16,
+      "source_sequence": 16,
+      "article_type": "research-article",
+      "title_en": "Public participation for a greener Europe: The potential of farmers in biodiversity monitoring",
+      "title_cn": "公众参与打造更绿色的欧洲：农民在生物多样性监测中的潜力",
+      "authors": [
+        "Edwin Alblas",
+        "Josephine van Zeben"
+      ],
+      "abstract_en": "This article considers the potential of including farmers in the governance, organization and execution of biodiversity monitoring. More specifically, we consider the opportunities for farmer involvement in biodiversity data collection through an explorative empirical analysis of the governance of biodiversity monitoring activities in agricultural landscapes within the Netherlands. We identify practical obstacles to farmer participation, assess the role of environmental NGOs in this process, and consider the extent to which this data leads to increasingly adaptive land management decisions to promote biodiversity. The governance of agri-environmental subsidy contracts with farmer collectives in the Netherlands, we conclude, could be used as an important vehicle to incentivize both biodiversity data collection and science-based land management decisions.",
+      "abstract_cn": "本文探讨了将农民纳入生物多样性监测的治理、组织和执行中的潜力。更具体地说，我们通过对荷兰农业景观中生物多样性监测活动的治理进行探索性实证分析，考虑了农民参与生物多样性数据收集的机会。我们识别了农民参与的实际障碍，评估了环境非政府组织在这一过程中的作用，并考虑了这些数据在多大程度上导致日益适应性的土地管理决策以促进生物多样性。我们得出结论，荷兰农业环境补贴合同与农民集体的治理，可以作为激励生物多样性数据收集和基于科学的土地管理决策的重要工具。",
+      "doi": "10.1016/j.landusepol.2023.106577",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723000431",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics0264837723000431.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:11:00+00:00",
+        "source_hash": "3536660836497b0b2bb7aedde44a5fcd71d39a219d4990a338028e3824d4207f"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106578",
+      "sequence": 17,
+      "source_sequence": 17,
+      "article_type": "research-article",
+      "title_en": "Determining the optimal land valuation model: A case study of Hanoi, Vietnam",
+      "title_cn": "确定最优土地估价模型：以越南河内为例",
+      "authors": [
+        "Quang Cuong Doan"
+      ],
+      "abstract_en": "In Vietnam, the central Government issues land price brackets, and people's committees promulgate land price tables for five years. The published land prices are always lower than transaction prices in the market, resulting in many problems such as loss of state budget, inequality in charge of compensation, and land clearance for citizens. The study aims to uncover factors that influence land prices to build optimal land valuation models for land valuation. Using the Bayesian Model Average, the findings show that several factors strongly influence urban residential land prices in Hanoi's outskirts (Quoc Oai district), such as road type, hospitals, and industrial areas. Other factors as green space and schools, are insignificant in land purchases. The finding also indicated that the optimal model in this study showed a slight difference in valuation prices from the actual market prices. The study also determined that the mass land valuation model would be promising in Vietnam and dual-price countries.",
+      "abstract_cn": "在越南，中央政府发布土地价格区间，人民委员会公布为期五年的土地价格表。公布的土地价格总是低于市场交易价格，导致许多问题，如国家预算损失、补偿费用不平等以及公民的土地清理问题。本研究旨在揭示影响土地价格的因素，以构建最优土地估价模型。使用贝叶斯模型平均法，研究结果表明，几个因素强烈影响河内郊区（国威县）的城市住宅用地价格，如道路类型、医院和工业区。其他因素如绿地和学校，在土地购买中不显著。研究结果还表明，本研究中最优模型的估价价格与实际市场价格略有差异。研究还确定，大规模土地估价模型在越南和双轨价格国家将具有前景。",
+      "doi": "10.1016/j.landusepol.2023.106578",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723000443",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics0264837723000443.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:11:03+00:00",
+        "source_hash": "53012113dc7d583e10286cd8a8c1462c40fe7394eccf5a6ffb97a1873e0257fd"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106579",
+      "sequence": 18,
+      "source_sequence": 18,
+      "article_type": "research-article",
+      "title_en": "Large-scale agricultural investment and female employment in African communities: Quantitative and qualitative insights from Nigeria",
+      "title_cn": "大规模农业投资与非洲社区女性就业：来自尼日利亚的定量与定性洞察",
+      "authors": [
+        "Oluwatosin D. Edafe",
+        "Evans Osabuohien",
+        "Oluwatoyin Matthew",
+        "Romanus Osabohien",
+        "Rehmat Khatoon"
+      ],
+      "abstract_en": "This study examines how large-scale agricultural investments (LSAIs) affect employment outcomes of female-headed households in Nigeria. It focuses on wage income and labour allocations of households in communities where LSAIs occurred in comparison with households in communities where LSAIs did not occur. It engages a mixed method approach, which involves the quantitative and qualitative. The quantitative data was sourced from the Living Standards Measurement Study-Integrated Surveys on Agriculture (LSMS-ISA), which was analysed using Propensity Score Matching (PSM). The qualitative analysis entails in-depth interviews (IDIs) and focus group discussions (FGDs). The results show a positive relationship with the household income living in communities with LSAIs, but a negative association with labour allocation to agricultural activities. Also, the findings indicate that households in communities where LSAIs took place received higher wages and spent fewer hours in agriculture. Though, female-headed households spent more time on agricultural activities than the male-headed households, they earn less. The analysis from the qualitative study show, among others things, that female-headed households spent more time on off-farm business despite the fact that they earn less. The study concludes by recommending that the possible adverse employment effects of LSAIs could be reduced by optimising its positive impact, especially with respect to female-headed households in rural communities where most of such investments occur.",
+      "abstract_cn": "本研究考察了大规模农业投资（LSAIs）如何影响尼日利亚女性户主家庭的就业结果。研究重点关注发生LSAIs的社区中的家庭与未发生LSAIs的社区中的家庭在工资收入和劳动力配置方面的差异。研究采用混合方法，包括定量和定性分析。定量数据来源于生活水平测量研究-农业综合调查（LSMS-ISA），并使用倾向得分匹配（PSM）进行分析。定性分析包括深度访谈（IDIs）和焦点小组讨论（FGDs）。结果显示，生活在有LSAIs社区的家庭收入呈正相关，但与农业活动劳动力配置呈负相关。此外，研究结果表明，发生LSAIs的社区中的家庭获得更高的工资，并在农业上花费更少的时间。尽管女性户主家庭在农业活动上花费的时间多于男性户主家庭，但她们的收入更低。定性研究的分析显示，除其他事项外，女性户主家庭在非农业务上花费更多时间，尽管她们的收入较低。研究最后建议，通过优化LSAIs的积极影响，可以减少其可能的不利就业效应，特别是在大多数此类投资发生的农村社区中的女性户主家庭方面。",
+      "doi": "10.1016/j.landusepol.2023.106579",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723000455",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics0264837723000455.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:11:05+00:00",
+        "source_hash": "4f1da45c2f749e1334f11a28c8f02053b5f25b8e44e95a863f2bce614d9e62dd"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106580",
+      "sequence": 19,
+      "source_sequence": 19,
+      "article_type": "research-article",
+      "title_en": "Housing accessibility in densifying cities: Entangled housing and land use policy limitations and insights from Oslo",
+      "title_cn": "密集化城市中的住房可及性：纠缠的住房与土地利用政策限制及奥斯陆的启示",
+      "authors": [
+        "Rebecca Cavicchia"
+      ],
+      "abstract_en": "Several cities have introduced densification policies to counteract urban sprawl, protect natural land and resources, and create socially diverse and inclusive urban areas. The common assumption, present especially in policy recommendations for sustainable urban development, that densification is the most favourable way to achieve urban sustainability in a broad sense, including economic and social dimensions, powerfully depoliticizes densification. However, within the housing sector, the implementation of densification policies might be linked to the intensification of existing - and the creation of new - social and spatial challenges. In Oslo, the case study of this investigation, urban densification has been implemented since the 1980 s, and has produced strongly exclusionary housing markets with negative socio-spatial implications. In this article, I explore the mechanisms behind such outcomes. Specifically, employing a qualitative analysis of policy documents and interviews with key-informants, I explore how the systematic prioritization of environmental sustainability and green growth goals in planning for densification, together with the lack of legal tools and economic resources to provide affordable housing, have shaped the production of exclusionary outcomes, limiting the possibilities to combine urban densification and housing accessibility at the local level.",
+      "abstract_cn": "多个城市已引入密集化政策以应对城市蔓延、保护自然土地和资源，并创造社会多元和包容的城市区域。尤其在可持续城市发展的政策建议中，普遍假设密集化是在广泛意义上实现城市可持续性（包括经济和社会维度）的最有利方式，这一假设有力地使密集化去政治化。然而，在住房部门，密集化政策的实施可能与现有社会空间挑战的加剧以及新挑战的产生相关联。在奥斯陆（本研究的案例），自1980年代以来一直实施城市密集化，并产生了具有负面社会空间影响的强烈排斥性住房市场。在本文中，我探讨了这些结果背后的机制。具体而言，通过对政策文件的定性分析和对关键信息提供者的访谈，我探讨了在密集化规划中系统性地优先考虑环境可持续性和绿色增长目标，加上缺乏提供可负担住房的法律工具和经济资源，如何塑造了排斥性结果的产生，限制了在地方层面将城市密集化与住房可及性相结合的可能性。",
+      "doi": "10.1016/j.landusepol.2023.106580",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723000467",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics0264837723000467.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:11:09+00:00",
+        "source_hash": "aa9f2026f9fd2a46dc8f03ff24b788ba0dfdbac8ec09c4b24047091117071f07"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106581",
+      "sequence": 20,
+      "source_sequence": 20,
+      "article_type": "research-article",
+      "title_en": "Are there trade-offs between conservation and development caused by Mexican protected areas?",
+      "title_cn": "墨西哥保护区是否导致了保护与发展之间的权衡？",
+      "authors": [
+        "Daniel Martín Auliz-Ortiz",
+        "Víctor Arroyo-Rodríguez",
+        "Eduardo Mendoza",
+        "Miguel Martínez-Ramos"
+      ],
+      "abstract_en": "Protected areas (PAs) are essential for biodiversity conservation, but their restrictive policies could accentuate poverty. Such a possibility may occur with the more restrictive PAs (e.g., national parks), which prioritize conservation while limiting the use of natural resources. However, less restrictive PAs, such as biosphere reserves, which allow the sustainable use of natural resources, may be better at alleviating poverty. However, such permissibility may reduce the effectiveness of preventing deforestation. Here, we assessed this conservation-development tradeoff by testing changes in marginalization (an indicator of poverty) and forest loss between two contrasting PAs management scheme types (MST, national parks and biosphere reserves) in Mexico. We quantified forest loss inside PAs and unprotected areas during the 2000–2019 period. Also, we contrasted marginalization changes during the 2000–2020 period between municipalities included in PAs (n = 288) and municipalities not directly influenced by PAs (n = 1615). Using a matching analysis approach, we tested for differences in forest loss and marginalization between protected and unprotected areas and between MST, in all cases controlling for the potential effects of confounding factors (e.g., slope, altitude, distance to cities, economic sector). We also evaluated potential conservation-development trade-offs resulting from the interaction of MST with the biophysical-socioeconomic context. PAs did not accentuate marginalization comparing unprotected areas. After matching, both national parks and biosphere reserves showed similar average changes in marginalization and forest loss probability. However, national parks showed higher marginalization than biosphere reserves in areas far from cities and sites with poor agriculture suitability, probably because restrictive policies in such adverse contexts might work against the development of the local communities. Also, national parks showed higher forest loss than biosphere reserves in areas suitable for agriculture. Our results suggest that, in the Mexican protected areas system, the interaction between MST and biophysical-socioeconomic contexts may lead to conservation-development tradeoffs. The more restrictive MST does not provide greater protection to the forest than the less restrictive MST and, under certain biophysical conditions, may reduce the capability of communities to cope with poverty.",
+      "abstract_cn": "保护区（PAs）对生物多样性保护至关重要，但其限制性政策可能加剧贫困。这种情况可能发生在更具限制性的保护区（如国家公园）中，这些保护区优先考虑保护，同时限制自然资源的利用。然而，限制较少的保护区，如生物圈保护区，允许自然资源的可持续利用，可能更有利于缓解贫困。然而，这种许可性可能降低防止森林砍伐的有效性。在此，我们通过测试墨西哥两种对比鲜明的保护区管理方案类型（MST，国家公园和生物圈保护区）之间边缘化（贫困指标）和森林损失的變化，评估了这种保护与发展之间的权衡。我们量化了2000-2019年期间保护区内和未保护区的森林损失。同时，我们对比了2000-2020年期间包含在保护区内的市镇（n = 288）和未受保护区直接影响的市镇（n = 1615）的边缘化变化。使用匹配分析方法，我们检验了保护区和未保护区之间以及不同MST之间在森林损失和边缘化方面的差异，在所有情况下都控制了潜在混杂因素（如坡度、海拔、距城市距离、经济部门）的影响。我们还评估了MST与生物物理-社会经济背景相互作用可能产生的保护与发展权衡。保护区并未加剧边缘化，与未保护区相比。匹配后，国家公园和生物圈保护区在边缘化和森林损失概率的平均变化上相似。然而，在远离城市和农业适宜性差的地区，国家公园的边缘化程度高于生物圈保护区，这可能是因为在这些不利背景下，限制性政策可能不利于当地社区的发展。此外，在适合农业的地区，国家公园的森林损失高于生物圈保护区。我们的结果表明，在墨西哥保护区系统中，MST与生物物理-社会经济背景的相互作用可能导致保护与发展之间的权衡。更具限制性的MST并不比限制较少的MST提供更大的森林保护，并且在某些生物物理条件下，可能降低社区应对贫困的能力。",
+      "doi": "10.1016/j.landusepol.2023.106581",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723000479",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics0264837723000479.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:11:13+00:00",
+        "source_hash": "1f27325f227d60f78cdb09a9e9169ce3b86b78be7de942c4f6fd3f3a159c00a4"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106582",
+      "sequence": 21,
+      "source_sequence": 21,
+      "article_type": "research-article",
+      "title_en": "Jurisdictional approaches to reducing emissions from deforestation and forest degradation in Brazil: Why do states adopt jurisdictional policies?",
+      "title_cn": "巴西减少毁林和森林退化排放的辖区方法：各州为何采纳辖区政策？",
+      "authors": [
+        "Carolina Gueiros",
+        "Sébastien Jodoin",
+        "Constance L McDermott"
+      ],
+      "abstract_en": "Although the role of subnational governments in multi-level climate governance is recognized by scholars and policymakers, we still know little about whether and why some subnational jurisdictions in the Global South decide to engage in decentralized climate action. This article yields new insights on this question by explaining variations in the decision of Brazilian states to establish legal frameworks for jurisdictional REDD+, enabling them to receive transnational climate finance, in the early stages of the emergence of REDD+ in Brazil between 2007 and 2017. We draw on key informant interviews with policy entrepreneurs and actors to understand the roles played by (1) the transnational pathways of influence associated with the regime complex for REDD+ and (2) the strategies adopted by state-level policy entrepreneurs in subnational REDD+ readiness policy processes in Brazil in five case studies (Amazonas, Acre, Mato Grosso, Pará and Amapá). According to respondents, credible market incentives were the key influence for state governors to adopt a jurisdictional framework to channel REDD+ funds, but transnational norms and material assistance played important mediating roles. The perceived credibility of market incentives was influenced by: (1) the presence of policy entrepreneurs at the state level; (2) the timing of strategies employed by policy entrepreneurs; (3) the policy beliefs held by the governor regarding environmental issues; and (4) evidence regarding availability of REDD+ finance for states.",
+      "abstract_cn": "尽管学者和政策制定者认识到次国家级政府在多层次气候治理中的作用，但我们对全球南方一些次国家级辖区是否以及为何决定参与分散化气候行动仍知之甚少。本文通过解释巴西各州在2007年至2017年间REDD+兴起初期建立辖区REDD+法律框架（使其能够接收跨国气候融资）的决策差异，为这一问题提供了新的见解。我们利用对政策企业家和行动者的关键知情人访谈，了解（1）与REDD+机制复合体相关的跨国影响路径，以及（2）州级政策企业家在巴西次国家级REDD+准备政策过程中采取的策略，在五个案例研究（亚马孙州、阿克里州、马托格罗索州、帕拉州和阿马帕州）中的作用。据受访者称，可信的市场激励是州长采纳辖区框架以引导REDD+资金的关键影响因素，但跨国规范和物质援助发挥了重要的中介作用。市场激励的可信度感知受到以下因素影响：（1）州级政策企业家的存在；（2）政策企业家采取策略的时机；（3）州长对环境问题的政策信念；以及（4）关于各州可获得REDD+资金的证据。",
+      "doi": "10.1016/j.landusepol.2023.106582",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723000480",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics0264837723000480.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:11:16+00:00",
+        "source_hash": "ce8338f2063f861762e7668fbc6f188ab3c200e4abf62abfbf001972eb9aea7f"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106583",
+      "sequence": 22,
+      "source_sequence": 22,
+      "article_type": "research-article",
+      "title_en": "The effect of spatial and temporal planning scale on the trade-off between the financial value and carbon storage in production forests",
+      "title_cn": "空间与时间规划尺度对生产林碳储量经济价值权衡的影响",
+      "authors": [
+        "Tristan R.M. Bakx",
+        "Renats Trubins",
+        "Jeannette Eggers",
+        "Cecilia Akselsson"
+      ],
+      "abstract_en": "Increasing carbon stock in standing forests is one of the proposed ways to mitigate climate change. However, in production forests, this typically would lead to reduced harvesting possibilities and thus reduced financial gain for the forest owners. The size of this reduction should depend on the chosen target level of the carbon stock as well as the required speed of accumulation. Furthermore, due to landscape heterogeneity, the size of the loss can be expected to vary the planning scale, often related to forest property size.",
+      "abstract_cn": "增加现存森林的碳储量是减缓气候变化的提议途径之一。然而，在生产林中，这通常会导致采伐可能性降低，从而减少森林所有者的经济收益。这种减少的幅度应取决于所选择的碳储量目标水平以及所需的积累速度。此外，由于景观异质性，损失的规模预计会随规划尺度（通常与森林财产规模相关）而变化。",
+      "doi": "10.1016/j.landusepol.2023.106583",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723000492",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics0264837723000492.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:11:18+00:00",
+        "source_hash": "1f4c55966223b8b6321c25d44eb30acf81fc8becd8b8fc830dac23ec44937f0d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106584",
+      "sequence": 23,
+      "source_sequence": 23,
+      "article_type": "research-article",
+      "title_en": "To own or not to own? Land tenure security and production risk in small-scale farming",
+      "title_cn": "拥有还是不拥有？小规模农业中的土地保有权保障与生产风险",
+      "authors": [
+        "Kehinde Oluseyi Olagunju",
+        "Kehinde Ademola Olagunju",
+        "Adebayo Isaiah Ogunniyi",
+        "Abiodun Olusola Omotayo",
+        "Zainab Oyetunde-Usman"
+      ],
+      "abstract_en": "While the impact of land tenure security on farm yield has been extensively investigated in the literature, little is known about the role tenure security plays in mitigating risk exposure. Using a nationally representative dataset collected through a multistage stratified random sampling of 1820 maize farmers in Nigeria during the 2014/2015 production season, we fill this knowledge gap by analysing the treatment effect of land ownership on production risk, measured by expected yield, yield variability (variance), and downside risk (skewness). To do so, we employ an endogenous switching regression model to sufficiently tackle selectivity bias that may arise from observed and unobserved factors. Our findings reveal that land ownership raises maize yield by 1.6% and reduces variability and downside risk by 95% and 164%, respectively. The robustness of these findings is established by further analyses using propensity score matching and inverse-probability-weighted regression adjustment approaches. Moreover, we find that the impacts of land ownership differ across landowners with different farmer characteristics and farm-level factors. Our results suggest that promoting policies that seek to encourage secure land tenure arrangements can be effective in mitigating production risk and crop failure, particularly in small-scale farming.",
+      "abstract_cn": "尽管土地保有权保障对农场产量的影响已在文献中得到广泛研究，但关于保有权保障在缓解风险暴露中的作用却知之甚少。利用通过多阶段分层随机抽样收集的尼日利亚1820名玉米种植者在2014/2015生产季的全国代表性数据集，我们通过分析土地所有权对生产风险的处理效应来填补这一知识空白，生产风险以预期产量、产量变异性（方差）和下行风险（偏度）衡量。为此，我们采用内生转换回归模型来充分处理可能由可观测和不可观测因素引起的选择性偏差。我们的研究结果表明，土地所有权使玉米产量提高1.6%，并将变异性和下行风险分别降低95%和164%。通过使用倾向得分匹配和逆概率加权回归调整方法的进一步分析，这些发现的稳健性得到了证实。此外，我们发现土地所有权的影响因具有不同农户特征和农场层面因素的土地所有者而异。我们的结果表明，促进鼓励有保障的土地保有权安排的政策可有效缓解生产风险和作物歉收，尤其是在小规模农业中。",
+      "doi": "10.1016/j.landusepol.2023.106584",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723000509",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics0264837723000509.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:11:21+00:00",
+        "source_hash": "fee005b660d8f085a4a60515d51111bf4cec0745a4149afd915bdb3d75bedf45"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106585",
+      "sequence": 24,
+      "source_sequence": 24,
+      "article_type": "research-article",
+      "title_en": "The private in the public: The case of Norwegian private zoning plans",
+      "title_cn": "公共中的私人：挪威私人分区规划案例",
+      "authors": [
+        "Olof Stjernström",
+        "Eivind Junker",
+        "Hans Wilhelm Thorsen"
+      ],
+      "abstract_en": "This paper investigates the Norwegian practice of private regulation planning (or private zoning plans), seeking to discern if and how the processes and resulting plans align with the acknowledged benefits of public private partnership (PPP). To assess the topic, we have employed a mixed-methods case-study approach, combining document studies with stakeholder interviews. Two cases were studied in two different municipalities in mid-Norway. We focused on the role of participation and the adaptation between private zoning plans and the holistic ambitions in the local comprehensive plans. Public participation is mandated by law in all municipal planning but the incentives to develop the role of participation might be neglected in private plans. Another observation is the challenge with aligning private initiatives with the overall ambitions phrased in the local comprehensive plan. As a general conclusion we state that these observations and the fact that the Norwegian planning system allows for private actors to take an active role in the planning process, could trigger more studies on the effects of the public-private partnership in the Norwegian planning system.",
+      "abstract_cn": "本文研究了挪威的私人监管规划（或私人分区规划）实践，旨在探究其过程及由此产生的规划是否以及如何与公私合作伙伴关系（PPP）公认的益处相一致。为评估该主题，我们采用了混合方法的案例研究方法，将文献研究与利益相关者访谈相结合。在挪威中部的两个不同城市中研究了两个案例。我们关注了参与的作用以及私人分区规划与地方综合规划中整体目标之间的适应性。公众参与在所有市政规划中都是法律规定的，但在私人规划中，发展参与角色的激励措施可能被忽视。另一个观察结果是，将私人倡议与地方综合规划中所述的整体目标相协调存在挑战。作为一般结论，我们指出，这些观察结果以及挪威规划体系允许私人行为者在规划过程中发挥积极作用的事实，可能会引发更多关于挪威规划体系中公私合作伙伴关系影响的研究。",
+      "doi": "10.1016/j.landusepol.2023.106585",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723000510",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics0264837723000510.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:11:24+00:00",
+        "source_hash": "62a5795a41a31651f4ae50eb41dfffac1134eb4dd6c98c8d7b67081b99f68611"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106586",
+      "sequence": 25,
+      "source_sequence": 25,
+      "article_type": "research-article",
+      "title_en": "Calibrating Nepal's scientific forest management practices in the measure of forest restoration",
+      "title_cn": "以森林恢复为尺度校准尼泊尔的科学森林管理实践",
+      "authors": [
+        "Kishor Aryal",
+        "Nripesh Awasthi",
+        "Tek Maraseni",
+        "Hari Krishna Laudari",
+        "Pabitra Gotame",
+        "Dhan Bahadur Bist"
+      ],
+      "abstract_en": "Various restoration programs have been implemented worldwide to recover degraded ecosystems. Nepal implemented a signature policy— Scientific Forest Management (SciFM)—with the aim of restoring and enhancing forest conditions, as well as increasing employment, timber production and economic growth in the last decade. While SciFM might achieve these objectives, it may conflict with Nepal’s own biodiversity and emission reduction policies. So far, various aspects of SciFM, such as stakeholders' opinion, policy issues, and financial analysis have been conducted. However, the effect of SciFM in achieving various restoration objectives remains unexplored. Taking a case of Sal (Shorea robusta) dominated forest which resembles productive forests in the lowlands of Nepal, we evaluated land productivity, carbon, and biodiversity outcomes of SciFM. Employing the methods of policy review (n = 6), literature review (n = 35), expert consultations (n = 15), and forest and soil inventory, we found that SciFM has been beneficial for establishing regeneration of Sal. However, in the short-run, SciFM was found to be counterproductive to achieve national objectives of REDD+ (reducing carbon emissions from forestry sector), biodiversity conservation, and land productivity enhancement. Based on our analysis, we have discussed some learning areas from SciFM practices to align with the restoration objectives at a national and global scale. Implications of the findings in the other parts of the world, who are also implementing intensive forest management programs, are highlighted.",
+      "abstract_cn": "全球范围内已实施各种恢复计划以恢复退化的生态系统。尼泊尔在过去十年中实施了一项标志性政策——科学森林管理（SciFM），旨在恢复和改善森林状况，同时增加就业、木材生产和经济增长。虽然SciFM可能实现这些目标，但它可能与尼泊尔自身的生物多样性和减排政策相冲突。迄今为止，已对SciFM的各个方面进行了研究，如利益相关者意见、政策问题和财务分析。然而，SciFM在实现各种恢复目标方面的效果仍未得到探索。以尼泊尔低地类似生产性森林的Sal（Shorea robusta）优势林为例，我们评估了SciFM的土地生产力、碳和生物多样性结果。采用政策审查（n = 6）、文献综述（n = 35）、专家咨询（n = 15）以及森林和土壤清查的方法，我们发现SciFM有利于建立Sal的更新。然而，在短期内，SciFM被发现对实现REDD+（减少林业部门碳排放）、生物多样性保护和土地生产力提升的国家目标适得其反。基于我们的分析，我们讨论了SciFM实践中一些可借鉴的经验，以与国家及全球层面的恢复目标保持一致。研究结果对世界上其他也在实施集约森林管理计划的地区具有启示意义。",
+      "doi": "10.1016/j.landusepol.2023.106586",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723000522",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics0264837723000522.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:11:27+00:00",
+        "source_hash": "3a3f4809b080d64b1efda3350d9ae1ef981ab6063fc3536cbaea00a5fd3018ba"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106589",
+      "sequence": 26,
+      "source_sequence": 26,
+      "article_type": "research-article",
+      "title_en": "Our forest, our livelihood: Natural resources’ use controversies and community livelihood sustainability in the Mole National Park, Ghana",
+      "title_cn": "我们的森林，我们的生计：加纳莫尔国家公园自然资源使用争议与社区生计可持续性",
+      "authors": [
+        "Samuel Ziem Bonye",
+        "Gordon Yenglier Yiridomoh",
+        "Vivian Nsiah"
+      ],
+      "abstract_en": "‘Protecting’ natural resources as a policy intervention for biodiversity conservation is a double-edged sword. Often touted as sources of revenue and a tool for poverty reduction in fringe communities, they are also largely a source of natural resource-use conflict. Over the years the Mole National Park in Northern Ghana has provided both cost and benefits to fringe communities and the local government. While studies have investigated the benefits of the Mole National Park to local resource users, conflicts that have characterized the park in recent years in terms of resource use, ownership and livelihood sustainability have been the least investigated. Using a qualitative approach, the study examines community perception of natural resource use and livelihood sustainability in fringe communities of the Mole National Park, Ghana. Thematic analysis from 13 Focus Group Discussions (FGDs) and 14 in-depth interviews revealed that respondents’ major sources of sustenance hinge on Natural Resources (NRs) through farming and hunting with minimal alternative sources of livelihoods. As a consequence, denial of respondents’ access to the natural resources in the park has been a major source of contention between the local resource dependents and management of the park as residents believed that the resources from the forest are a gift from God, their ancestors and forefathers and no man can prevent access and utilization. This implies that a community-led management team involving other stakeholders is important in the management of the Mole National Park. Moreover, equal distribution of benefits that accrue from the forest with the forest fringe communities at heart will assist in minimizing the yearly conflicts that have been a characteristic of the park and ensure sustainable forest resource management.",
+      "abstract_cn": "“保护”自然资源作为生物多样性保护的政策干预是一把双刃剑。它常被吹捧为收入来源和边缘社区减贫工具，但也在很大程度上是自然资源使用冲突的根源。多年来，加纳北部的莫尔国家公园为边缘社区和地方政府既带来了成本也带来了收益。虽然已有研究调查了莫尔国家公园对当地资源使用者的益处，但近年来该公园在资源使用、所有权和生计可持续性方面的冲突却鲜有研究。本研究采用定性方法，考察了加纳莫尔国家公园边缘社区对自然资源使用和生计可持续性的看法。来自13次焦点小组讨论（FGDs）和14次深度访谈的主题分析显示，受访者的主要生计来源依赖于通过耕作和狩猎获取自然资源（NRs），而替代生计来源极少。因此，拒绝受访者获取公园内的自然资源已成为当地资源依赖者与公园管理层之间的主要争议点，因为居民认为森林资源是上帝、祖先和先辈的馈赠，任何人都不能阻止其获取和使用。这意味着，由社区主导并涉及其他利益相关者的管理团队对莫尔国家公园的管理至关重要。此外，将森林产生的收益公平分配给森林边缘社区，将有助于减少该公园每年特有的冲突，并确保森林资源的可持续管理。",
+      "doi": "10.1016/j.landusepol.2023.106589",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723000558",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics0264837723000558.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:11:31+00:00",
+        "source_hash": "451622f5bd2628b4f7d96dfc39b5cf4478344794066a2acc205e80e2e5421f24"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106591",
+      "sequence": 27,
+      "source_sequence": 27,
+      "article_type": "research-article",
+      "title_en": "An attempt to locate the Russian spatial planning system within the European planning families",
+      "title_cn": "试将俄罗斯空间规划体系定位在欧洲规划家族之中",
+      "authors": [
+        "Zora Živanović",
+        "Branka Tošić",
+        "Erblin Berisha",
+        "Ana Perić"
+      ],
+      "abstract_en": "Since the end of the 1980s, several studies have been conducted aiming at understanding the heterogeneity of spatial planning traditions across Europe. Over the years, such studies became more comprehensive and included many European (and not only the European Union) countries. Nevertheless, some parts of Europe (e.g., the Western Balkans or the post-Soviet countries) usually remained excluded from the mentioned studies. To mitigate this gap, the paper focuses on the case of Russia. Using a twofold methodological approach, the paper firstly examines the attributes of Russian spatial planning (through a multi-layered analysis of the socio-economic and institutional settings, the evolution of spatial planning over a century, and contemporary planning instruments and procedures of plan-making), to then compare the attributes of the Russian spatial planning system to the core features of the European planning styles. As a result, the elements of multiple distinct spatial planning styles can be traced in Russian spatial planning: land use management and regional economic planning seem to prevail, whilst comprehensive integrated and urbanism traditions are less represented but not absent. Bearing in mind the complexity of the exercise, this contribution should be considered a preliminary attempt to enlarge the existing comparative studies beyond European countries.",
+      "abstract_cn": "自1980年代末以来，已有若干研究旨在理解欧洲空间规划传统的异质性。多年来，此类研究变得更加全面，涵盖了众多欧洲国家（并不仅限于欧盟国家）。然而，欧洲的某些地区（如西巴尔干或后苏联国家）通常仍被排除在上述研究之外。为弥补这一空白，本文聚焦于俄罗斯案例。采用双重方法论，本文首先考察俄罗斯空间规划的特征（通过对社会经济和制度环境的多层次分析、一个世纪以来空间规划的演变，以及当代规划工具和规划制定程序），然后将俄罗斯空间规划体系的特征与欧洲规划风格的核心特征进行比较。结果表明，俄罗斯空间规划中可以追溯多种不同空间规划风格的元素：土地利用管理和区域经济规划似乎占主导地位，而综合整体规划和城市主义传统则代表性较弱但并非不存在。鉴于该工作的复杂性，本文应被视为将现有比较研究扩展到欧洲国家之外的初步尝试。",
+      "doi": "10.1016/j.landusepol.2023.106591",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723000571",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics0264837723000571.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:11:34+00:00",
+        "source_hash": "b70114f4c09b78a7e63ab4b154cfa759887642b25096eed83466be06445aae1b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106545",
+      "sequence": 28,
+      "source_sequence": 28,
+      "article_type": "research-article",
+      "title_en": "Preserving peri-urban land through biodiversity offsets: Between market transactions and planning regulations",
+      "title_cn": "通过生物多样性补偿保护城郊土地：市场交易与规划法规之间",
+      "authors": [
+        "Stéphanie Barral",
+        "Fanny Guillet"
+      ],
+      "abstract_en": "Competition for land use is a severe problem in peri-urban areas where available land is scarce and is also targeted for different purposes such as construction, local food systems, recreational areas, and biodiversity offsets. In this context, mitigation policies can be considered like innovative planning regulations, in order to neutralize land development impacts and sustain ecosystem restoration and conservation. The policies may lead to the production of biodiversity offsets, which are secured pieces of land where ecological restoration is carried out as a way to compensate for impacts. In this way, biodiversity offsets appear to be a viable option to maintaining natural areas in peri-urban areas in the long run. This article examines the different ways to deal with land availability and access to offset sites through the analysis of land strategies developed by public and private intermediary actors involved in the implementation of mitigation policies, and the consequences on the ecological quality of offsets. Based on a sociological survey of 20 case studies and 95 interviews conducted in 2019–2021 in six French regions, the article identifies three situations that rely on different balances between market transactions and planning: (i) private intermediaries and municipalities who coordinate to offer land solutions to developers; (ii) access to land for biodiversity offsets stems from private land transactions which can lead to temporary mobilization of land and thus to ecologically precarious solutions; (iii) attempts by municipalities to include offsets in planning policies. Finally, if municipalities do not intervene to identify and set aside dedicated land, biodiversity offsets will remain temporary and limited in their capacity to conserve biodiversity.",
+      "abstract_cn": "土地利用竞争是城郊地区的一个严重问题，这些地区可用土地稀缺，且同时被用于不同目的，如建设、当地食品系统、休闲区和生物多样性补偿。在此背景下，缓解政策可被视为创新性规划法规，以中和土地开发影响并维持生态系统恢复与保护。这些政策可能导致生物多样性补偿的产生，即通过生态恢复来补偿影响的受保护地块。这样，生物多样性补偿似乎是长期维持城郊地区自然区域的可行选择。本文通过分析参与实施缓解政策的公共和私人中介行为者所制定的土地策略，以及这些策略对补偿生态质量的影响，考察了处理土地可用性和补偿场地获取的不同方式。基于2019-2021年在法国六个地区进行的20个案例研究和95次访谈的社会学调查，本文识别了三种依赖于市场交易与规划之间不同平衡的情况：（i）私人中介和市政当局协调为开发商提供土地解决方案；（ii）生物多样性补偿的土地获取源于私人土地交易，这可能导致土地的临时动员，从而产生生态上不稳定的解决方案；（iii）市政当局试图将补偿纳入规划政策。最后，如果市政当局不介入以识别和预留专用土地，生物多样性补偿将保持临时性，并在保护生物多样性能力方面受限。",
+      "doi": "10.1016/j.landusepol.2023.106545",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S026483772300011X",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics026483772300011x.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:11:37+00:00",
+        "source_hash": "ce43d8e7eb48ea79a21f5f6d5ff3ffea15f7c501bb9ac554035aa1a1c5c84c05"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106559",
+      "sequence": 29,
+      "source_sequence": 29,
+      "article_type": "research-article",
+      "title_en": "Tradable planning permits in the field: Executive experimental results from Germany",
+      "title_cn": "可交易规划许可的实地实验：来自德国的行政实验结果",
+      "authors": [
+        "Ralph Henger",
+        "Tim Straub",
+        "Christof Weinhardt"
+      ],
+      "abstract_en": "In countries such as Germany, where municipalities have planning sovereignty, problems of urban sprawl often arise. As the dynamics of land development have not substantially subsided over the last years, the national government decided to test the instrument of ‘Tradable Planning Permits’ (TPP) in a nationwide field experiment with 87 municipalities involved. The field experiment was able to implement the key features of a TPP system in a laboratory setting with approximated real socioeconomic and planning conditions. In a TPP system allocated planning permits must be used by municipalities for developing land. The permits can be traded between local jurisdictions, so that they have flexibility in deciding how to comply with the regulation. In order to evaluate the performance of such a system, specific field data about future building areas and their impact on community budgets for the period 2014–2028 were collected. The field experiment contains several sessions with representatives of the municipalities and with students. The participants were confronted with two (municipalities) and four (students) schemes. The results show that a trading system can curb down land development in an effective and also efficient manner. However, depending on the regulatory framework, the trading schemes show different price developments and distributional effects. The unexperienced representatives of the local authorities can easily handle with the permits in the administration and in the established market. A trading scheme sets very high incentives to save open space and to direct development activities to areas within existing planning boundaries. It is therefore a promising instrument for Germany and also other regions or countries with an established land-use planning system.",
+      "abstract_cn": "在德国等市政当局拥有规划主权的国家，城市蔓延问题经常出现。由于过去几年土地开发的动态并未大幅减弱，国家政府决定在全国范围内的实地实验中测试“可交易规划许可”（TPP）工具，涉及87个市政当局。该实地实验能够在实验室环境中实施TPP系统的关键特征，并模拟了真实的社会经济和规划条件。在TPP系统中，分配的规划许可必须由市政当局用于土地开发。许可可以在地方辖区之间交易，以便它们在决定如何遵守法规时具有灵活性。为了评估此类系统的性能，收集了关于未来建筑区域及其对社区预算影响的特定实地数据，时间跨度为2014-2028年。实地实验包含了几次会议，参与者包括市政当局代表和学生。参与者面临两种（市政当局）和四种（学生）方案。结果表明，交易系统可以有效且高效地抑制土地开发。然而，根据监管框架的不同，交易方案显示出不同的价格发展和分配效应。缺乏经验的当地政府代表可以轻松处理行政和既定市场中的许可。交易方案为节省开放空间和将开发活动引导至现有规划边界内的区域提供了非常高的激励。因此，对于德国以及其他拥有成熟土地利用规划系统的地区或国家来说，这是一个有前景的工具。",
+      "doi": "10.1016/j.landusepol.2023.106559",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S026483772300025X",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics026483772300025x.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:11:41+00:00",
+        "source_hash": "ee2bf1e1b9bb3ae5a5d8ac072e37ce129c64b91bb5fd0afbef594116c9ffcf13"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106573",
+      "sequence": 30,
+      "source_sequence": 30,
+      "article_type": "research-article",
+      "title_en": "The role of jurisprudence in public value capture in urban development: A comparative analysis from Dutch, English, Spanish and Colombian courts",
+      "title_cn": "法理学在城市开发中公共价值捕获中的作用：荷兰、英国、西班牙和哥伦比亚法院的比较分析",
+      "authors": [
+        "Muñoz Gielen Demetrio",
+        "Blanc Clavero Francisco",
+        "James Corbet Burcher",
+        "Pinilla Juan Felipe"
+      ],
+      "abstract_en": "In the past decades, public bodies made growing attempts to ensure urban developers financed public urban infrastructure. These attempts have led to debates in international urban planning literature addressing the legitimacy of public value capture. However, the relevance of jurisprudence remains underreported. This paper aims to partially fill this gap by exploring, in four countries, the relevance of jurisprudence for the legitimacy (which contributions are legal, when and why) of a specific public value capture tool: Developer Obligations (DOs). In the case of Dutch and English courts, their decisions supported the legitimacy of gradual enlargement of the scope of obligations. The Spanish courts focus on the equal share of contributions among all landowners instead. In these three countries, the legality of contributions might be addressed in different ways while it is not fundamentally disputed. In Colombia it was—and jurisprudence ended the discussion.",
+      "abstract_cn": "在过去几十年中，公共机构越来越多地尝试确保城市开发者资助公共城市基础设施。这些尝试引发了国际城市规划文献中关于公共价值捕获合法性的辩论。然而，法理学的相关性仍未得到充分报道。本文旨在通过探索四个国家中法理学对特定公共价值捕获工具——开发者义务（DOs）的合法性（哪些贡献是合法的，何时以及为何）的相关性，来部分填补这一空白。在荷兰和英国法院的案例中，他们的裁决支持了义务范围逐步扩大的合法性。西班牙法院则侧重于所有土地所有者之间的平等分担贡献。在这三个国家，贡献的合法性可能以不同方式处理，但并未从根本上受到质疑。在哥伦比亚，情况则不同——法理学结束了这一讨论。",
+      "doi": "10.1016/j.landusepol.2023.106573",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S026483772300039X",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics026483772300039x.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:11:43+00:00",
+        "source_hash": "26daa4f222f0a8cf418f5096123e92e682ffeff547b5353ff05c938686bc5b45"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106576",
+      "sequence": 31,
+      "source_sequence": 31,
+      "article_type": "research-article",
+      "title_en": "The development of multifunctional agriculture in farming regions of China: Convergence or divergence?",
+      "title_cn": "中国农区多功能农业发展：趋同还是趋异？",
+      "authors": [
+        "Yingnan Zhang",
+        "Hualou Long",
+        "Shuocun Chen",
+        "Li Ma",
+        "Muye Gan"
+      ],
+      "abstract_en": "The multifunctionality paradigm, in particular, represented a facilitator of sustainable agricultural development. There arises a question of whether or not the different areas would evolve in a common direction. This study attempts to examine the dynamics and performances of multifunctional agriculture (MFA) in farming regions of China by using the multi-criteria comprehensive appraisal method and convergence analysis. The integrated function and multifunctionality of agriculture in the Huang-Huai-Hai Plain are assessed, based on which the evolving trend is investigated. The findings reveal that from 1990 to 2015, the multifunctionality of agriculture in the Huang-Huai-Hai Plain was strengthened, displaying clear agglomeration in larger metropolitan regions, which has been a characteristic of MFA in regions with a thriving economy. The supply function for agricultural products arose during 1990–2000, then maintained steady, while suffering a recession in Beijing-Tianjin-Hebei urban agglomeration and Jiaodong Peninsula. The function of social security generally continued to increase, presenting a spatially surging trend from north to south and from east to west. The function of facilitating agricultural economic development was also enhanced, especially in the clusters including the Beijing-Tianjin urban agglomeration, the Jiaodong Peninsula, and the northern Jiangsu Province. The function of ecological conservation displayed obvious spatial heterogeneity, and the functional index manifests no apparent variation. The σ coefficients of each functional index indicate that path dependence, which excludes the function of social security when there are regional disparities, is a crucial characteristic of the evolution process of the MFA subdimensions. Areas with low multifunctionality do not grow faster than areas with high multifunctionality, and they are differentiated in terms of their performance. The “catch-up effect” is clearly apparent when external forces intervene, as evidenced by the absolute and conditional β convergence. These findings have important ramifications for the creation of policies that, in line with the market rationality of territorial division, encouraging MFA in peri-urban and economically developed areas while fostering large-scale and industrialized farming in distant areas.",
+      "abstract_cn": "多功能性范式尤其代表了可持续农业发展的促进因素。这就产生了一个问题：不同地区是否会朝着共同的方向发展。本研究试图通过多准则综合评价方法和收敛性分析，考察中国农区多功能农业（MFA）的动态和绩效。基于黄淮海平原农业的综合功能和多功能性评估，探讨其演变趋势。研究结果显示，从1990年到2015年，黄淮海平原农业的多功能性得到加强，在较大的都市区域表现出明显的集聚特征，这是经济繁荣地区MFA的一个特点。农产品供给功能在1990-2000年间上升，随后保持稳定，但在京津冀城市群和胶东半岛出现衰退。社会保障功能总体上持续增强，呈现从北向南、从东向西的空间扩展趋势。促进农业经济发展的功能也得到增强，尤其是在包括京津冀城市群、胶东半岛和苏北地区的集群中。生态保育功能表现出明显的空间异质性，功能指数无明显变化。各功能指数的σ系数表明，路径依赖是MFA子维度演化过程的一个关键特征，当存在区域差异时，社会保障功能除外。低多功能性地区的增长速度并不快于高多功能性地区，且它们在绩效上存在差异。当外部力量干预时，“追赶效应”明显显现，这由绝对和条件β收敛所证明。这些发现对于制定政策具有重要意义，即根据地域分工的市场理性，鼓励近郊和经济发达地区的MFA，同时在偏远地区促进大规模和工业化农业。",
+      "doi": "10.1016/j.landusepol.2023.106576",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S026483772300042X",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics026483772300042x.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:11:47+00:00",
+        "source_hash": "04c4a9351983f030626cdfa8ae022072fba1b0cefc6188cb81472b0546f90ca2"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106590",
+      "sequence": 32,
+      "source_sequence": 32,
+      "article_type": "research-article",
+      "title_en": "Comparison of different models for land consolidation projects: Aydin Yenipazar Plain",
+      "title_cn": "土地整理项目不同模式的比较：艾登耶尼帕扎尔平原",
+      "authors": [
+        "Safiye Pınar Tunalı",
+        "Necdet Dağdelen"
+      ],
+      "abstract_en": "Reallocation of land is one of the most essential and challenging stages of land consolidation (LC) projects. In this study, the success of two different methods used in the reallocation phase was evaluated. One of these methods is interview-based reallocation, and the other is fuzzy logic-based reallocation method. The projects' success was determined by consolidation rate, number of enterprises, number of parcels per enterprise, average parcel size, and shareholding status of the parcels. As a result of the study, it was revealed that the project carried out by both methods was successful. Consolidation rate, number of enterprises, and average parcel size values give better results with the fuzzy logic method. The number of parcels per enterprise turned out to be equal (1) in both methods. It was found that the number of single shares in the shareholding status of the parcels is higher in the fuzzy logic method. It was also revealed that single share parcel areas are more in the interview-based distribution method. It is possible to say that the fuzzy logic method is more successful than the interview-based method.",
+      "abstract_cn": "土地重划是土地整理项目中最关键且最具挑战性的阶段之一。本研究评估了重划阶段使用的两种不同方法的成功程度。其中一种方法是基于访谈的重划，另一种是基于模糊逻辑的重划方法。项目的成功通过整理率、企业数量、每企业地块数量、平均地块面积以及地块的持股状况来确定。研究结果表明，两种方法实施的项目都是成功的。整理率、企业数量和平均地块面积值在模糊逻辑方法下结果更优。每企业地块数量在两种方法中结果相同（1）。研究发现，模糊逻辑方法中地块持股状况中的单一股份数量更高。同时揭示，基于访谈的分配方法中单一股份地块面积更多。可以说，模糊逻辑方法比基于访谈的方法更为成功。",
+      "doi": "10.1016/j.landusepol.2023.106590",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S026483772300056X",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v127y2023ics026483772300056x.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:11:49+00:00",
+        "source_hash": "eb3c9e4b606ee7dea5239a5ed648b7283003c7c4ef319b3ec3ce311051e14a9d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "repec-serial-page",
+    "roster_authority": "repec-publisher-supplied",
+    "roster_match_scope": "repec-volume-items",
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 32,
+    "authors_complete": 32,
+    "abstract_en_complete": 32,
+    "translation_complete": 32,
+    "duplicate_count": 0,
+    "repec_item_count": 32,
+    "flags": [],
+    "official_item_count": 32,
+    "publishable_item_count": 32,
+    "content_counts": {
+      "official_items": 32,
+      "observed_items": 32,
+      "publishable_items": 32,
+      "research_articles": 32,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 32
+    }
+  },
+  "content_counts": {
+    "official_items": 32,
+    "observed_items": 32,
+    "publishable_items": 32,
+    "research_articles": 32,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 32
+  },
+  "issue_label": "Vol. 127",
+  "content_status": "complete",
+  "source_status": "publisher_verified",
+  "publication_state": "ready"
+}

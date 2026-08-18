@@ -1,0 +1,1084 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "lup-137-c",
+  "journal_id": "lup",
+  "journal_name": "Land Use Policy",
+  "volume": "137",
+  "issue": "C",
+  "publication_date": "February 2024",
+  "source_url": "https://ideas.repec.org/s/eee/lauspo.html",
+  "retrieved_at": "2026-08-18T17:35:26+00:00",
+  "expected_article_count": 24,
+  "research_article_count": 24,
+  "status": "ready",
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106972",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "A conceptual framework for automatic modelling and conflict detection of 3D land-use regulation restrictions to support issuing planning permits",
+      "title_cn": "三维土地利用法规限制的自动建模与冲突检测概念框架以支持规划许可发放",
+      "authors": [
+        "Saeid Emamgholian",
+        "Jacynthe Pouliot",
+        "Davood Shojaei"
+      ],
+      "abstract_en": "There are a wide variety of Land-use Regulation (LuR) restrictions, ranging from those that need simple 2D spatial analyses to be verified (e.g., area calculation), to those that need complex 3D analyses (e.g., overshadowing and overlooking). Assessing LuR restrictions to automatically detect LuRs’ potential conflicts with physical objects, such as building elements, could be a challenging task in 2D land administration systems relying on 2D drawings and 2D representations, especially when 3D/vertical analyses are required. Land administration systems can include 3D representations of LuR restrictions to identify their impacts on land parcels and vice versa since the LuRs contain legally binding restrictions for all parties including governments and citizens. As part of the transition from the 2D representation of LuR restrictions and manual conflict detection between LuR restrictions and physical objects such as building elements towards a 3D digital representation and automatic conflict detection, this paper proposes a three-stage conceptual framework for automatic 3D modelling and conflict detection of 3D LuR restrictions. The three-stage conceptual framework, as a generic approach, proposes required principles and procedures to automatically (1) model 3D LuR restrictions (called 3D CityLuR), (2) combine them with other sources of information (e.g., zoning maps, 3D city models, and BIM), and (3) detect LuRs’ potential conflicts between the modelled LuRs and physical objects (i.e., proposed/existing building elements). For modelling and verifying 3D LuRs automatically, the framework organises all the required information for IFC (Industry Foundation Classes) as the proposed building, CityGML as the existing buildings, and most importantly, the planning and zoning requirements. It proposes two categories of required information as “level of information need” for (1) modelling and combing 3D CityLuR with other sources of information automatically and (2) automatically detecting potential spatio-semantic conflicts between LuR restrictions and physical objects such as proposed/existing building elements. Based on a case study in Victoria, Australia, 3D LuR restrictions subject to planning approvals and building subdivisions are investigated. The paper concludes with a discussion arguing the feasibility of automating the verification of LuR restrictions to support decision-making in planning permit applications and building subdivisions.",
+      "abstract_cn": "土地利用法规（LuR）限制种类繁多，从需要简单二维空间分析进行验证的限制（如面积计算），到需要复杂三维分析的限制（如阴影遮挡和俯视）。在依赖二维图纸和二维表示的二维土地管理系统中，评估LuR限制以自动检测LuR与物理对象（如建筑元素）的潜在冲突可能是一项具有挑战性的任务，尤其是当需要进行三维/垂直分析时。土地管理系统可以包含LuR限制的三维表示，以识别其对土地地块的影响，反之亦然，因为LuR包含对所有各方（包括政府和公民）具有法律约束力的限制。作为从LuR限制的二维表示和LuR限制与物理对象（如建筑元素）之间手动冲突检测向三维数字表示和自动冲突检测过渡的一部分，本文提出了一个三阶段概念框架，用于三维LuR限制的自动建模和冲突检测。该三阶段概念框架作为一种通用方法，提出了自动（1）建模三维LuR限制（称为3D CityLuR）、（2）将其与其他信息源（如分区图、三维城市模型和BIM）结合，以及（3）检测建模的LuR与物理对象（即拟建/现有建筑元素）之间的潜在冲突所需的原则和程序。为了自动建模和验证三维LuR，该框架组织了IFC（工业基础类）作为拟建建筑、CityGML作为现有建筑以及最重要的规划和分区要求所需的所有信息。它提出了两类所需信息作为“信息需求级别”，用于（1）自动建模和将3D CityLuR与其他信息源结合，以及（2）自动检测LuR限制与物理对象（如拟建/现有建筑元素）之间的潜在空间语义冲突。基于澳大利亚维多利亚州的案例研究，调查了受规划批准和建筑细分约束的三维LuR限制。本文最后讨论了自动化验证LuR限制以支持规划许可申请和建筑细分决策的可行性。",
+      "doi": "10.1016/j.landusepol.2023.106972",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723004386",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v137y2024ics0264837723004386.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:35:37+00:00",
+        "source_hash": "50cd2dc221b2bbbaa200b360793bc8baff7245d294457d106eefad672cd7f9c9"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106989",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "A framework for supporting climate-exposed asset decision-making in agriculture",
+      "title_cn": "支持农业气候暴露资产决策的框架",
+      "authors": [
+        "Joanne Tingey-Holyoak",
+        "Bethany Cooper",
+        "Lin Crase",
+        "John Pisaniello"
+      ],
+      "abstract_en": "In agriculture, long-lived assets are highly exposed to the changing climate which can erode their value and result in stranding. Stranded assets constitute a serious problem because they are generally low-liquidity investments, highly vulnerable to material devaluation, such as farmland and physical infrastructure. This can have a significant impact on the balance sheets of farmers and result in entire agricultural industries becoming unviable. Financial reporting standards are still being refined so that they can support improved accounting for climate-exposed assets. Yet, these are not readily being deployed by most agricultural businesses or their accountants. We explore the context of these standards and conduct interviews with accountants working in agriculture to explore improvements in how we cater for climate-exposed assets. Key actors note the need for clear decision criteria and improved data collection and sharing. We develop a decision tool to: firstly, support the accounting for climate-exposed assets; and secondly, improve understanding of measurement of climate-related risks.",
+      "abstract_cn": "在农业中，长期资产高度暴露于气候变化之下，这可能会侵蚀其价值并导致资产搁浅。搁浅资产构成严重问题，因为它们通常是低流动性投资，极易受到实质性贬值的影响，例如农田和物理基础设施。这可能对农民的资产负债表产生重大影响，并导致整个农业产业变得不可行。财务报告准则仍在完善中，以便支持改进对气候暴露资产的会计处理。然而，大多数农业企业或其会计师并未轻易采用这些准则。我们探讨了这些准则的背景，并与从事农业工作的会计师进行了访谈，以探索如何改进我们对气候暴露资产的会计处理。关键参与者指出需要明确的决策标准以及改进的数据收集和共享。我们开发了一个决策工具，旨在：首先，支持气候暴露资产的会计处理；其次，提高对气候相关风险测量的理解。",
+      "doi": "10.1016/j.landusepol.2023.106989",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723004556",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v137y2024ics0264837723004556.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:35:40+00:00",
+        "source_hash": "d3826afd4f65e1b45dcec8722e73dca3dbfa7f526456c9fb1b7c8a40267b3e73"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106990",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Farmers’ intention to adapt to soil salinity expansion in Fimela, Sine-Saloum area in Senegal: A structural equation modelling approach",
+      "title_cn": "塞内加尔西内-萨卢姆地区菲梅拉农民应对土壤盐渍化扩展的意愿：一种结构方程建模方法",
+      "authors": [
+        "Habibatou I. Thiam",
+        "Victor Owusu",
+        "Grace B. Villamor",
+        "Johannes Schuler",
+        "Ibrahima Hathie"
+      ],
+      "abstract_en": "Improving farmers’ adaptation behaviour against specific climate change threats has been a global concern. The extant literature on farmers’ adaptation to soil salinity threat has mainly focused on socioeconomic factors, with less emphasis on socio-psychological factors. This study analyses the socio-psychological factors that explain farmers’ intention to adapt to soil salinity using the Protection Motivation Theory (PMT), structural equation modelling approach and a primary data collected on 288 farm households in Fimela district in Senegal. The results indicated that 74.8% of the farmers used organic and chemical fertilizers, and 19.8% used afforestation as climate change adaptation strategies against soil salinity threats. The results further revealed that threat and coping appraisals and subjective norms were the main socio-psychological factors that influenced farmers’ intention to adapt to soil salinity threats. Contrary to our expectation, maladaptive coping had no relationship with farmers’ intention to adapt against soil salinity threats in Fimela. This study has highlighted the importance of Protection Motivation Theory as a robust conceptual framework for explaining the socio-psychological adaptive behaviour of smallholder farmers against soil salinity expansion due to climate change.",
+      "abstract_cn": "改善农民针对特定气候变化威胁的适应行为已成为全球关注的问题。现有关于农民适应土壤盐渍化威胁的文献主要关注社会经济因素，而对社心心理因素的重视不足。本研究利用保护动机理论（PMT）、结构方程建模方法以及从塞内加尔菲梅拉区收集的288户农户的原始数据，分析了解释农民适应土壤盐渍化意愿的社心心理因素。结果表明，74.8%的农民使用有机和化学肥料，19.8%的农民使用植树造林作为应对土壤盐渍化威胁的气候变化适应策略。结果进一步揭示，威胁评估、应对评估和主观规范是影响农民适应土壤盐渍化威胁意愿的主要社心心理因素。与我们的预期相反，在菲梅拉，适应不良应对与农民适应土壤盐渍化威胁的意愿没有关系。本研究强调了保护动机理论作为解释小农户应对气候变化导致的土壤盐渍化扩展的社心心理适应行为的稳健概念框架的重要性。",
+      "doi": "10.1016/j.landusepol.2023.106990",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723004568",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v137y2024ics0264837723004568.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:35:43+00:00",
+        "source_hash": "4dada4d6bc58a8463cd4b3689a2e879422a90d07539e38efc20bea0ec6fabf1c"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106992",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Causal attribution of agricultural expansion in a small island system using approximate Bayesian computation",
+      "title_cn": "使用近似贝叶斯计算对小岛屿系统中农业扩张的因果归因",
+      "authors": [
+        "Matt Clark",
+        "Jeffrey Andrews",
+        "Nicholas Kolarik",
+        "Mbarouk Mussa Omar",
+        "Vicken Hillis"
+      ],
+      "abstract_en": "The extent and arrangement of land cover types on our planet directly affects biodiversity, carbon storage, water quality, and many other critical social and ecological conditions at virtually all scales. Given the fundamental importance of land cover, a key mandate for land system scientists is to describe the mechanisms by which pertinent cover types spread and shrink. Identifying causal drivers of change is challenging however, because land systems, such as small-scale agricultural communities, do not lend themselves well to controlled experimentation for logistical and ethical reasons. Even natural experiments in these systems can produce only limited causal inference as they often contain unobserved confounding drivers of land cover change and complex feedbacks between drivers and outcomes. Land system scientists commonly grapple with this complexity by using computer simulations to explicitly delineate hypothesized causal pathways that could have resulted in observed land cover change. Yet, land system science lacks a systematic method for comparing multiple hypothesized pathways and quantifying the probability that a given simulated causal process was in fact responsible for the patterns observed. Here we use a case study of agricultural expansion in Pemba, Tanzania to demonstrate how approximate Bayesian computation (ABC) provides a straightforward solution to this methodological gap. Specifically, we pair an individual-based simulation of land cover change in Pemba with ABC to probabilistically estimate the likelihood that observed deforestation from 2018 to 2021 was driven by soil degradation rather than external market forces. Using this approach, we can show not only how well a specific hypothesized mechanism fits with empirical data on land cover change, but we can also quantify the range of other mechanisms that could have reasonably produced the same outcome (i.e. equifinality). While ABC was developed for use in population genetics, we argue that it is particularly promising as a tool for causal inference for land system science given the wealth of data available in the satellite record. Thus, this paper demonstrates a robust process for identifying the emergent landscape-level signatures of complex social-ecological mechanisms.",
+      "abstract_cn": "我们星球上土地覆盖类型的范围和布局直接影响生物多样性、碳储存、水质以及几乎所有尺度上许多其他关键的社会和生态条件。鉴于土地覆盖的根本重要性，土地系统科学家的一个关键任务是描述相关覆盖类型扩展和收缩的机制。然而，识别变化的因果驱动因素具有挑战性，因为土地系统，如小规模农业社区，由于后勤和伦理原因，不适合进行受控实验。即使在这些系统中进行自然实验，也只能产生有限的因果推断，因为它们通常包含未观测到的土地覆盖变化混杂驱动因素以及驱动因素与结果之间的复杂反馈。土地系统科学家通常通过使用计算机模拟来明确描绘可能导致观察到的土地覆盖变化的假设因果路径，以应对这种复杂性。然而，土地系统科学缺乏一种系统方法来比较多个假设路径，并量化给定模拟因果过程实际上导致观察到的模式的概率。在这里，我们使用坦桑尼亚奔巴岛农业扩展的案例研究，展示近似贝叶斯计算（ABC）如何为这一方法论空白提供直接解决方案。具体来说，我们将奔巴岛土地覆盖变化的基于个体的模拟与ABC配对，以概率方式估计从2018年到2021年观察到的森林砍伐是由土壤退化而非外部市场力量驱动的可能性。使用这种方法，我们不仅可以展示特定假设机制与土地覆盖变化经验数据的拟合程度，还可以量化可能合理产生相同结果的其他机制范围（即等终性）。虽然ABC是为种群遗传学开发的，但我们认为，鉴于卫星记录中可用数据的丰富性，它作为土地系统科学因果推断的工具特别有前景。因此，本文展示了一个识别复杂社会-生态机制涌现的景观级特征的稳健过程。",
+      "doi": "10.1016/j.landusepol.2023.106992",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723004581",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v137y2024ics0264837723004581.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:35:47+00:00",
+        "source_hash": "e38f897a787bdd2f5948387036d410688c80f6b13b0c6e285a340081e74b9ce4"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106993",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Integration of indigenous people into sustainable development through the territorial analysis of their potential: The case of the Lenca people in Honduras",
+      "title_cn": "通过领土潜力分析将土著人民纳入可持续发展：以洪都拉斯伦卡人为例",
+      "authors": [
+        "Oscar Meza Palma",
+        "José M. Díaz-Puente"
+      ],
+      "abstract_en": "The adversities of a globalized economy and the prolonged state of precariousness in which the indigenous peoples in Central America remain, are factors that push towards an imminent disappearance of their cultural identity and traditional livelihoods. Important global summits of sustainable development have declared the importance of preserving the ancestral wisdom of these native peoples as a world heritage site. However, Policies and strategies to respond to their current problems have generally not been very explicit and efficient in achieving long-term results. One problem identified is the limited empirical evidence of the indigenous territorial context, especially those socioeconomic and territorial analyzes that seek self-dependent and inclusive development styles. To address this research gap, an empirical work is explored to diagnose the current potential of the Honduran Lenca territory as a case study. This is combined with a statistical analysis on the spatial influence of poverty and income variables. The aim is to broaden the understanding of those factors that could oppose the current mechanisms of impoverishment. The main result is the construction of an index of development potential in municipalities of Lenca descent. Poverty patterns and modest deposits of community economies associated with space and its cultural pattern were identified. This provides inputs of important value for the planning of public policies that are more sensitive to the study context, with connections towards sustainable development initiatives.",
+      "abstract_cn": "全球化经济的逆境以及中美洲土著人民长期处于不稳定状态，是推动其文化认同和传统生计面临迫在眉睫消失的因素。重要的全球可持续发展峰会已宣布保护这些原住民的祖先智慧作为世界遗产的重要性。然而，应对其当前问题的政策和战略通常并不十分明确和高效，难以取得长期成果。已识别的一个问题是土著领土背景的实证证据有限，尤其是那些寻求自主和包容性发展风格的社会经济和领土分析。为弥补这一研究空白，本文以洪都拉斯伦卡领土为案例，探索实证工作以诊断其当前潜力。这结合了关于贫困和收入变量空间影响的统计分析。目的是拓宽对可能对抗当前贫困化机制的因素的理解。主要结果是在伦卡后裔的市镇中构建了一个发展潜力指数。识别了与空间及其文化模式相关的贫困模式和社区经济的适度积累。这为规划对研究背景更为敏感的公共政策提供了重要价值的投入，并与可持续发展倡议相连接。",
+      "doi": "10.1016/j.landusepol.2023.106993",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723004593",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v137y2024ics0264837723004593.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:35:50+00:00",
+        "source_hash": "0a5e8ef3994071f190a42bfdfdb91e1506d77f402b4308da320b040c0d1c91af"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106995",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Factors affecting farmers’ decision to participate in Campaign-Based Watershed Management program in Boset District, Ethiopia",
+      "title_cn": "影响埃塞俄比亚Boset地区农民参与基于运动的流域管理项目的因素",
+      "authors": [
+        "Samuel Assefa",
+        "Aad Kessler",
+        "Luuk Fleskens"
+      ],
+      "abstract_en": "The sustainability of the ongoing national Campaign-Based Watershed Management (CBWM) program of Ethiopia depends on active participation of farmers in the planning and implementation activities. This study analyzes farmers’ participation level in CBWM program and factors that determine their participation, using mixed research methods. Key informant interviews were conducted with 29 purposively selected actors (excluding farmers) to discern their decision-making processes and to gain insight into the factors influencing farmers' participation in the program. Additionally, individual case studies were conducted with 15 farmers to explore their personal experiences. Furthermore, a household survey was administered to 351 households to explain key factors shaping their decisions to participate in the program. Our study shows that the farmers’ level of participation in the CBWM program was quite low (53.0%). Compared to the implementation and post-implementation stages, the level of participation was lowest at the planning stage of the program. Three key factors influenced the farmers’ level of participation in the program: location or proximity of farmers to the micro-watersheds during campaign works, the commitment of local leaders, and awareness and motivation of farmers. This suggests the need to (1) focus on smaller watersheds to minimize the effect of distance between farmers’ homesteads and the micro-watersheds, (2) include local livelihood opportunities to mitigate the impact of location or out-migration and ensure their availability for campaign works, (3) enhance the performance/commitment of local leaders, (4) improve farmers’ awareness and motivation through capacity building. However, given that the effect of these factors varies across the studied villages and stages of the program, a more bottom-up planning approach that considers socio-economic and biophysical contexts should be introduced in the study area and other similar localities where watershed management activities are carried out through community participation.",
+      "abstract_cn": "埃塞俄比亚正在进行的全国性基于运动的流域管理（CBWM）项目的可持续性取决于农民积极参与规划和实施活动。本研究采用混合研究方法，分析了农民在CBWM项目中的参与水平及其决定因素。对29名有目的选择的参与者（不包括农民）进行了关键知情人访谈，以了解他们的决策过程，并深入了解影响农民参与该项目的因素。此外，还对15名农民进行了个案研究，以探讨他们的个人经历。进一步地，对351户家庭进行了家庭调查，以解释影响他们参与项目决策的关键因素。我们的研究表明，农民在CBWM项目中的参与水平相当低（53.0%）。与实施阶段和实施后阶段相比，项目规划阶段的参与水平最低。影响农民参与项目水平的三个关键因素是：农民在运动工作期间与微流域的位置或邻近性、地方领导的承诺以及农民的意识和动机。这表明需要（1）关注较小的流域，以尽量减少农民住所与微流域之间距离的影响，（2）纳入当地生计机会，以减轻位置或外迁的影响，并确保他们可用于运动工作，（3）提高地方领导的表现/承诺，（4）通过能力建设提高农民的意识和动机。然而，鉴于这些因素的影响在研究村庄和项目阶段之间有所不同，应在研究区域和其他通过社区参与开展流域管理活动的类似地区引入一种更自下而上的规划方法，考虑社会经济和生物物理背景。",
+      "doi": "10.1016/j.landusepol.2023.106995",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723004611",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v137y2024ics0264837723004611.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:35:54+00:00",
+        "source_hash": "f18a0021c3effb233ba96247b63d66e1ef906749df1c9e766dcd7be0dd3fe9ec"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106996",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Characterizing the sustainable tourism development of small islands in the Visayas, Philippines",
+      "title_cn": "菲律宾维萨亚斯群岛小岛屿可持续旅游发展的特征分析",
+      "authors": [
+        "Cheryl Joy Fernandez-Abila",
+        "Reynold Tan",
+        "Duvince Zhalimar Dumpit",
+        "Rowena Paz Gelvezon",
+        "Rosalie Arcala Hall",
+        "Joy Lizada",
+        "Harold Monteclaro",
+        "Junavy Ricopuerto",
+        "Analyn Salvador-Amores"
+      ],
+      "abstract_en": "Small islands are important contributors to global and local tourism markets. Compared to the mainlands, resource-poor small islands experience diseconomies of scale because of their limited space and connectivity. Planning for their tourism development remains challenging because of land conflicts, especially from traditional land ownerships and business sectors. This paper draws from the need for understanding differing stakeholders, by examining tourism development of four small islands in the Philippines using the five key sustainability elements: tourism policy and governance; economic performance, investment and competitiveness; decent work; poverty reduction and social inclusion; and natural and cultural environment. All experienced political, environmental, and socio-economic issues, including closure threats due to violations of environmental standards, overcrowding, and transportation-related problems. Data were collected from eight focus groups, 36 experts, 385 tourists, and 672 residents. Our findings show that small islands find themselves at a difficult situation across sustainability goals: 1) ineffective implementation of policies and regulations; 2) residents felt that they are blindsided in the decision-making process, especially those who are poor and vulnerable; 4) tourism workers faced problems relating to workload, just compensation, and work-life balance; 5) tourists felt that there should be improvements in the areas of safety and security, tourism attractions, environmental integrity, accommodation and food, and cultural aspects; and 6) there are evidence of negative impacts to environment and host communities. Taken together, The research findings provide key inputs to planning land uses and related strategies for sustainable tourism development of these small islands.",
+      "abstract_cn": "小岛屿是全球和当地旅游市场的重要贡献者。与大陆相比，资源贫乏的小岛屿因其有限的空间和连通性而经历规模不经济。由于土地冲突，特别是传统土地所有权和商业部门之间的冲突，其旅游发展规划仍然具有挑战性。本文基于理解不同利益相关者的需求，通过使用五个关键可持续性要素考察菲律宾四个小岛屿的旅游发展：旅游政策与治理；经济绩效、投资与竞争力；体面工作；减贫与社会包容；以及自然和文化环境。所有这些岛屿都经历了政治、环境和社会经济问题，包括因违反环境标准、过度拥挤和交通相关问题而面临关闭威胁。数据来自八个焦点小组、36位专家、385名游客和672名居民。我们的研究结果表明，小岛屿在可持续性目标方面处于困境：1）政策和法规实施不力；2）居民感到在决策过程中被蒙蔽，特别是那些贫困和脆弱的居民；4）旅游工作者面临与工作量、合理补偿和工作生活平衡相关的问题；5）游客认为应在安全和安保、旅游景点、环境完整性、住宿和餐饮以及文化方面进行改进；6）有证据表明对环境和东道社区产生了负面影响。总的来说，研究结果为这些小岛屿的可持续旅游发展提供了土地利用和相关策略规划的关键输入。",
+      "doi": "10.1016/j.landusepol.2023.106996",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723004623",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v137y2024ics0264837723004623.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:35:58+00:00",
+        "source_hash": "19db3e9952eaf4a09ed581e0c9bc9970d83ae6830f1c3b1de6f19211d3ef7b96"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106998",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Disentangling the paths of land grabbing in Colombia: The role of the state and legal mechanisms",
+      "title_cn": "解析哥伦比亚土地掠夺的路径：国家与法律机制的作用",
+      "authors": [
+        "Carolina Hurtado-Hurtado",
+        "Dionisio Ortiz-Miranda",
+        "Eladio Arnalte-Alegre"
+      ],
+      "abstract_en": "This article aims to reconstruct the progression of land grabbing in Colombia by identifying the sequence of mechanisms and strategies employed to dispossess and seize land through specific case studies. The analysis centres around 12 estates/farms with a history of violence, dispossession, and the utilisation of legal mechanisms, enabling the identification of certain historical patterns and how changes in the legal framework contribute significantly to these trajectories. The analysis was conducted through a systematic literature review, resulting in the reconstruction of multiple stages and modalities of this phenomenon. It also facilitated the identification of common patterns to gain a deeper understanding of the complexity and historical roots of land grabbing in the country. The findings demonstrate, despite some case-specific variations, consistent historical patterns in the land grabbing processes: i) informal land occupation and eviction of peasants, ii) land transfers by the grabbers to acquire legal title deeds, iii) legal disputes arising when peasants assert their land rights, and iv) a final struggle for land restitution. The analysis also highlights the dual role of the Colombian state in this process, whereby it has created political and legal instruments to facilitate the appropriation of land and other natural resources by capital. Simultaneously, certain official institutions have acted to prevent these actions and defend the rights of rural communities.",
+      "abstract_cn": "本文旨在通过具体案例研究，识别用于剥夺和夺取土地的机制与策略序列，从而重构哥伦比亚土地掠夺的进程。分析围绕12个具有暴力、剥夺及利用法律机制历史的庄园/农场展开，从而识别出某些历史模式，以及法律框架的变化如何显著促成这些轨迹。分析通过系统性文献综述进行，重构了这一现象的多个阶段和形式。它还促进了共同模式的识别，以更深入地理解该国土地掠夺的复杂性和历史根源。研究结果表明，尽管存在一些案例特定的差异，土地掠夺过程中存在一致的历史模式：i) 非正式土地占用和驱逐农民，ii) 掠夺者通过土地转让获取合法地契，iii) 当农民主张其土地权利时引发的法律纠纷，以及iv) 最终的土地归还斗争。分析还强调了哥伦比亚国家在这一过程中的双重角色，即它创造了政治和法律工具以促进资本对土地和其他自然资源的占有。同时，某些官方机构已采取行动阻止这些行为并捍卫农村社区的权利。",
+      "doi": "10.1016/j.landusepol.2023.106998",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723004647",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v137y2024ics0264837723004647.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:36:01+00:00",
+        "source_hash": "60f96ec022642506e21d0de788536ffb68e6a7e2bfae2aabd057928535459fb4"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106999",
+      "sequence": 9,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "Interactions between centrality and commuting costs in a mountainous city: Implications for jobs-housing relationships and land use policies",
+      "title_cn": "山地城市中心性与通勤成本的交互作用：对职住关系和土地利用政策的启示",
+      "authors": [
+        "Jialing Zuo",
+        "Wei Zheng",
+        "Jingke Hong"
+      ],
+      "abstract_en": "While various empirical studies have been conducted to unpack the links which exist between spatial pattern and commuting costs, the interactions remain unclear given the variations in environmental contexts and methods for identifying polycentricity. Furthermore, there has been limited attention given to mountainous metropolitan areas where the urban structure is greatly influenced by natural barriers. This paper proposes two indicators of centrality by exploring spatial distribution of urban functions and functional linkages respectively, and examines how the two centrality indicators are related to commuting costs in Chongqing, China. The findings confirm the urban structure of Chongqing as being polycentric from both morphological and functional dimensions. The modelling results suggest that both morphological centrality and functional centrality are positively related to commuting costs. The cross-level interactions of variables highlight the significant role that morphological centrality has in a mountainous area. Furthermore, the spatial mismatch of employment and residency varied in different areas of Chongqing; suggesting that there is a need for policy interventions to promote land use mix and jobs-housing balance.",
+      "abstract_cn": "尽管已有各种实证研究探讨空间格局与通勤成本之间的联系，但由于环境背景和多中心识别方法的差异，这些交互作用仍不明确。此外，对受自然屏障影响较大的山地大都市区的关注有限。本文通过分别探索城市功能的空间分布和功能联系，提出了两个中心性指标，并考察了这两个中心性指标与中国重庆的通勤成本之间的关系。研究结果从形态和功能两个维度证实了重庆的城市结构是多中心的。模型结果表明，形态中心性和功能中心性均与通勤成本正相关。变量的跨层次交互作用凸显了形态中心性在山地地区的重要作用。此外，重庆不同地区的就业与居住空间错位程度不同，这表明有必要采取政策干预措施，以促进土地利用混合和职住平衡。",
+      "doi": "10.1016/j.landusepol.2023.106999",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723004659",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v137y2024ics0264837723004659.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:36:04+00:00",
+        "source_hash": "a8f6784b51f28e2fb9b7999a4ae1525c746d64ddf40fddc3be7af803b17214a0"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.107000",
+      "sequence": 10,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "A National Park split by an internal border. Analysing the case of Sierra de Guadarrama (Spain)",
+      "title_cn": "被内部边界分割的国家公园：分析西班牙瓜达拉马山脉案例",
+      "authors": [
+        "Roberto Vila-Lage"
+      ],
+      "abstract_en": "In countries characterized by a high degree of decentralization, the limits between their main administrative units – that is, their ‘internal borders’ – with jurisdiction over protected natural areas prove critical for their management. This article analyses a national park split by just such an internal border, its objective being to determine the extent to which this border compromises the classic notion of a national park and how it impacts its management. The case study described is that of the Sierra de Guadarrama National Park, located in the centre of Spain, straddling the autonomous regions or communities of Castile and León and the Community of Madrid. The study exploits qualitative techniques, specifically semi-structured interviews with prominent actors in this territory, which allow us to analyse their perceptions of the national park and the implications of the border between the two autonomous communities in which it lies. Our research shows that the effects of internal borders can be similar to those of a border between two States, and that in decentralized countries the concept of transboundary protected areas is valid at the intra-state level. Additionally, the important political role played by national parks at different scales is verified as is the fact that cooperation between Spain’s autonomous communities remains weak.",
+      "abstract_cn": "在高度分权特征显著的国家，其主要行政单位之间的界限——即“内部边界”——对受保护自然区域的管辖权至关重要，对管理具有决定性影响。本文分析了一个被此类内部边界分割的国家公园，旨在确定该边界在多大程度上损害了国家公园的经典概念，并如何影响其管理。案例研究为位于西班牙中部的瓜达拉马山脉国家公园，横跨卡斯蒂利亚-莱昂和马德里自治区。研究采用定性技术，特别是与该地区重要行动者进行半结构化访谈，从而分析他们对国家公园的看法以及两个自治区之间边界的影响。研究表明，内部边界的影响可能类似于两个国家之间的边界，且在分权国家中，跨界保护区的概念在国家内部层面同样适用。此外，研究证实了国家公园在不同尺度上发挥的重要政治作用，以及西班牙自治区之间的合作仍然薄弱的事实。",
+      "doi": "10.1016/j.landusepol.2023.107000",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723004660",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v137y2024ics0264837723004660.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:36:07+00:00",
+        "source_hash": "5bf3f8276f8049834d422f193680dd7cdf19d87922fd38a530fae0a1e154f875"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.107001",
+      "sequence": 11,
+      "source_sequence": 11,
+      "article_type": "research-article",
+      "title_en": "Grower attitudes and practices toward area-wide management of cropping weeds in Australia",
+      "title_cn": "澳大利亚种植者对作物杂草区域综合管理的态度与实践",
+      "authors": [
+        "Silja Schrader",
+        "Sonia Graham",
+        "Rebecca Campbell",
+        "Kaitlyn Height",
+        "Gina Hawkes"
+      ],
+      "abstract_en": "The mobility of weeds, use of biological controls and spread of herbicide resistance mean that weed management is a landscape-scale problem. Area-wide management (AWM) presents one approach for land managers, industry and government representatives to collaborate to manage weeds across public and private properties. Such an approach has been successfully used for other landscape-scale problems, such as managing animal and insect pests.",
+      "abstract_cn": "杂草的流动性、生物防治的使用以及除草剂抗性的蔓延意味着杂草管理是一个景观尺度上的问题。区域综合管理（AWM）为土地管理者、行业和政府代表提供了一种在公共和私人财产上协作管理杂草的方法。这种方法已成功用于其他景观尺度问题，如动物和昆虫害虫的管理。",
+      "doi": "10.1016/j.landusepol.2023.107001",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723004672",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v137y2024ics0264837723004672.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:36:09+00:00",
+        "source_hash": "014cb5618d9fa25b8a2103884520379ed4b7654c614764e9acee439aae40c0f1"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.107002",
+      "sequence": 12,
+      "source_sequence": 12,
+      "article_type": "research-article",
+      "title_en": "Towards a science of ‘land grabbing’",
+      "title_cn": "迈向‘土地掠夺’的科学",
+      "authors": [
+        "Chuan Liao",
+        "Arun Agrawal"
+      ],
+      "abstract_en": "In the past two decades, large-scale land transactions (LSLTs), commonly known as land grabs or large-scale land acquisitions, have been pursued by agricultural investors and host-country governments in Lower- and Middle-Income Countries (LMIC) to boost crop yield. Existing knowledge on LSLTs is highly diverse, generated by scholars taking a wide range of perspectives and frameworks. However, the global patterns of LSLT-related research and their potential shortcomings remain under-investigated. In this paper, we analyze 370 peer-reviewed papers on LSLTs to advance this field of knowledge towards a science of ‘land grabbing’. Our findings reveal that 1) research on LSLTs displays geographical imbalances; 2) global statistics do not fully capture the complexity of LSLTs on the ground; 3) different disciplinary interests and theoretical traditions result in different use of terms in referring to LSLTs and divergent impressions of their social consequences; and 4) the environmental consequences of LSLTs are under-studied relatively. We suggest that a better understanding of LSLTs could result from greater engagement with each discipline’s strength and epistemic frameworks.",
+      "abstract_cn": "在过去二十年中，大规模土地交易（LSLTs），通常被称为土地掠夺或大规模土地收购，已被中低收入国家（LMIC）的农业投资者和东道国政府用于提高作物产量。关于LSLTs的现有知识高度多样化，由学者们从广泛的角度和框架中产生。然而，LSLT相关研究的全球模式及其潜在缺陷仍未得到充分调查。在本文中，我们分析了370篇关于LSLTs的同行评审论文，以推动这一知识领域迈向‘土地掠夺’的科学。我们的研究结果显示：1）关于LSLTs的研究存在地理不平衡；2）全球统计数据并未完全捕捉到LSLTs在地面上的复杂性；3）不同的学科兴趣和理论传统导致在提及LSLTs时使用不同的术语，以及对其社会后果的不同印象；以及4）LSLTs的环境后果相对研究不足。我们建议，更好地理解LSLTs可能源于更深入地参与每个学科的优势和认知框架。",
+      "doi": "10.1016/j.landusepol.2023.107002",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723004684",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v137y2024ics0264837723004684.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:36:13+00:00",
+        "source_hash": "35f1b410413fed428ec572a52f0d4e8fee1617235a7ec30bb7d2b5bd65a71c1f"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.107003",
+      "sequence": 13,
+      "source_sequence": 13,
+      "article_type": "research-article",
+      "title_en": "Design of the new structure and capabilities of LADM edition II including 3D aspects",
+      "title_cn": "LADM第二版新结构与功能设计，包括三维方面",
+      "authors": [
+        "Abdullah Kara",
+        "Christiaan Lemmen",
+        "Peter van Oosterom",
+        "Eftychia Kalogianni",
+        "Abdullah Alattas",
+        "Agung Indrajit"
+      ],
+      "abstract_en": "The decision to refine the existing content and to extend the scope of Edition I of the ISO 19152:2012 Land Administration Domain Model (LADM) is a response to requests from the international Land Administration (LA) community. This response has to be formally organised in accordance with ISO guidelines. This begins with gathering feedback from ISO/TC 211 Member States on the need for updated and enhanced capabilities of the LADM. In addition, several proposals have been made to extend the scope of the LADM Edition I. After analysing the feedback received, it was proposed to develop the LADM Edition II as a multi-part standard: Part 1 — Generic conceptual model, Part 2 — Land registration, Part 3 — Marine georegulation, Part 4 — Valuation information, Part 5 — Spatial plan information and Part 6 — Implementation aspects. In other words, Edition I focuses on land tenure, while the design and development of Edition II is based on the inclusion of rights, restrictions and responsibilities (RRRs) concerning marine georegulation, valuation information, spatial plan information as well as LADM implementation. 3D representations are relevant for all parts.",
+      "abstract_cn": "决定完善ISO 19152:2012土地管理领域模型（LADM）第一版的现有内容并扩展其范围，是对国际土地管理（LA）社区请求的回应。这一回应必须按照ISO指南正式组织。首先从ISO/TC 211成员国收集关于LADM更新和增强能力需求的反馈。此外，已提出多项扩展LADM第一版范围的建议。在分析收到的反馈后，提议将LADM第二版开发为多部分标准：第1部分——通用概念模型，第2部分——土地登记，第3部分——海洋地理监管，第4部分——估价信息，第5部分——空间规划信息，以及第6部分——实施方面。换言之，第一版侧重于土地权属，而第二版的设计和开发基于纳入关于海洋地理监管、估价信息、空间规划信息以及LADM实施的权利、限制和责任（RRRs）。三维表示与所有部分相关。",
+      "doi": "10.1016/j.landusepol.2023.107003",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723004696",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v137y2024ics0264837723004696.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:36:17+00:00",
+        "source_hash": "aac4b2a43429291d85aebc6f570262e57878c3d6e04adbfc1d8ea1d00206468b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.107010",
+      "sequence": 14,
+      "source_sequence": 14,
+      "article_type": "research-article",
+      "title_en": "Examining spatial coordination of human-land-industry-service system from a regionalization approach: A case study of Beijing",
+      "title_cn": "基于区域化方法的人-地-产业-服务系统空间协调性研究：以北京为例",
+      "authors": [
+        "Yuxia Wang",
+        "Wenpu Cao",
+        "Minyi Gao",
+        "Yukun Gao",
+        "Xingyu Chi",
+        "Xing Meng",
+        "Shuang Li",
+        "Guohua Hu"
+      ],
+      "abstract_en": "Sustainable development requires a better understanding of the coupling relationship among population, urban land use, industry, and city services since they are closely related to the benefits of human beings. However, previous studies tend to focus on population and land use for urbanization-targeted insights without considering city services and industry development from a people-centered on the fine scale. This research aims to fill this gap by examining the spatial coordination of the human-land-industry-service system combining the coupling coordinated degree model and a regionalization approach with Beijing as a case study. Results show that about 3% area of Beijing is enjoying favorable coordination along with over 6% having moderate coordination, and sub-systems like human-land are experiencing better-coordinated development. Though the well-known monocentric structure of Beijing dominated by built-up expansion exists, sub-centers represented by Tongzhou and Changping rise to possibly alleviate the non-capital functions. In addition, Gini coefficients at 200-, 500-, 1000-, and 2000-meter scales decrease, and coarser resolutions present more continuous and smoother patterns. Three points concerning the unbalanced development, the scale effect, and the urbanization pattern of Beijing are further discussed. Our framework could be easily extended to explore interactions in other systems with the ability to consider both the fine details and the general spatial regionalization patterns.",
+      "abstract_cn": "可持续发展需要更好地理解人口、城市土地利用、产业和城市服务之间的耦合关系，因为它们与人类福祉密切相关。然而，以往的研究往往侧重于人口和土地利用以获取城市化导向的见解，而未能在精细尺度上从以人为本的角度考虑城市服务和产业发展。本研究旨在通过结合耦合协调度模型和区域化方法，以北京为案例，考察人-地-产业-服务系统的空间协调性，以填补这一空白。结果表明，北京约3%的区域享有良好协调，超过6%的区域具有中度协调，而人-地等子系统则经历了更好的协调发展。尽管以建成区扩张为主导的北京著名单中心结构依然存在，以通州和昌平为代表的副中心正在崛起，可能有助于疏解非首都功能。此外，200米、500米、1000米和2000米尺度上的基尼系数有所下降，较粗的分辨率呈现出更连续和平滑的模式。本文进一步讨论了关于北京发展不平衡、尺度效应和城市化模式的三个要点。我们的框架可以轻松扩展到探索其他系统中的相互作用，能够同时考虑精细细节和一般空间区域化模式。",
+      "doi": "10.1016/j.landusepol.2023.107010",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723004763",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v137y2024ics0264837723004763.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:36:20+00:00",
+        "source_hash": "3e26ee178887b19509a2f87527c2554e41de95c6ed72346d7f9ac03e7a5a6d45"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "北京"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.107011",
+      "sequence": 15,
+      "source_sequence": 15,
+      "article_type": "research-article",
+      "title_en": "Soil and water conservation measures and rainfed agriculture in Telangana, India: Role of community and neighborhood conservation measures",
+      "title_cn": "印度特伦甘纳邦的水土保持措施与雨养农业：社区和邻里保护措施的作用",
+      "authors": [
+        "Peddi Dayakar",
+        "K.S. Kavi Kumar"
+      ],
+      "abstract_en": "Soil erosion is a significant problem in rain-fed areas in India. This study attempts to evaluate the causal effects of on-farm soil and water conservation (SWC) measures on farm profit and yield. The study uses the inverse-probability-weighted regression adjustment (IPWRA) method to assess the causal impact of SWC measures on agriculture output while controlling socioeconomic, institutional, and village-level characteristics. The results suggest a significant difference in overall agricultural profit, crop-wise profit, and crop-wise yields among the adopters and non-adopters of the SWC measures. The study highlights that there is a complementarity between the causal impact of community-level SWC measures and individual SWC measures on agricultural outcomes. Further, the neighbor’s adoption of SWC measures plays a pivotal role on farmer’s agricultural profits. The study highlights that farmer’s profit for rainfed crops such as maize further increases if their adjacent neighbors also undertake SWC measures. Such complementary effects, however, are not observed in case of irrigated crops such as paddy.",
+      "abstract_cn": "水土流失是印度雨养地区的一个重大问题。本研究试图评估农场内水土保持（SWC）措施对农场利润和产量的因果效应。研究采用逆概率加权回归调整（IPWRA）方法来评估SWC措施对农业产出的因果影响，同时控制社会经济、制度和村庄层面的特征。结果表明，在采用和未采用SWC措施的农户之间，总体农业利润、作物利润和作物产量存在显著差异。研究强调，社区层面SWC措施与个体SWC措施对农业产出的因果影响之间存在互补性。此外，邻居采用SWC措施对农户的农业利润起着关键作用。研究指出，如果相邻邻居也采取SWC措施，农户种植玉米等雨养作物的利润会进一步增加。然而，在水稻等灌溉作物的情况下，并未观察到这种互补效应。",
+      "doi": "10.1016/j.landusepol.2023.107011",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723004775",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v137y2024ics0264837723004775.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:36:22+00:00",
+        "source_hash": "e28615f659a5b8bbd967e1f687b9ca8e51def2fbe5b73548bacb1f3d3fe874c6"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.107013",
+      "sequence": 16,
+      "source_sequence": 16,
+      "article_type": "research-article",
+      "title_en": "From grapes to getaways: Unraveling the residential tourism impact on land use change and soil erosion processes in Menfi district",
+      "title_cn": "从葡萄园到度假胜地：揭示住宅旅游对门菲区土地利用变化和土壤侵蚀过程的影响",
+      "authors": [
+        "Alejandro Tonolli",
+        "Antonino Pisciotta",
+        "Riccardo Scalenghe",
+        "Luciano Gristina"
+      ],
+      "abstract_en": "The Mediterranean basin has experienced widespread changes in land use and, along with this, changes in geomorphological and hydrological processes and erosion risks. The Menfi area (Italy) has been no exception, and residential tourism has played an unexplored role. Using satellite images in 2007 and 2022, the main changes in land use were determined comparatively, and the variation in soil erosion levels was calculated using the RUSLE equation. The contribution of residential tourism to these processes was also analyzed. The results show a substantial decrease in the area occupied by vineyards and a increase in the site devoted to residential tourism (second homes) with olive orchards. Erosion values have also decreased. The results allow us to conclude that the decrease in the area with vineyards results in a reduction in soil erosion. The main drivers of the change in land use are socioeconomic factors, including the aging of farmers, the shift of subsequent generations to alternative activities, and the overall decrease in agricultural income. In addition, the expansion of tourist infrastructure was accentuated in the new land with olive orchard groves in south-faced, medium-altitude, and lower slope areas, which together provide landscape value and contribute to the reduction of soil erosion.",
+      "abstract_cn": "地中海盆地经历了广泛土地利用变化，随之而来的是地貌、水文过程和侵蚀风险的变化。门菲地区（意大利）也不例外，而住宅旅游在其中扮演了一个尚未被探索的角色。利用2007年和2022年的卫星图像，比较确定了土地利用的主要变化，并使用RUSLE方程计算了土壤侵蚀水平的变化。还分析了住宅旅游对这些过程的贡献。结果显示，葡萄园所占面积大幅减少，而用于住宅旅游（第二居所）并伴有橄榄园的场地增加。侵蚀值也有所下降。结果使我们得出结论，葡萄园面积的减少导致土壤侵蚀的减少。土地利用变化的主要驱动因素是社会经济因素，包括农民老龄化、后代转向其他活动以及农业收入的总体下降。此外，旅游基础设施的扩展在新土地上尤为突出，这些新土地位于朝南、中等海拔和较低坡度的橄榄园中，共同提供了景观价值并有助于减少土壤侵蚀。",
+      "doi": "10.1016/j.landusepol.2023.107013",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723004799",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v137y2024ics0264837723004799.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:36:25+00:00",
+        "source_hash": "cd0e31b77110f5c2ac986390d80fa2c889db9fe48deb451bd141b208d4758a33"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.107014",
+      "sequence": 17,
+      "source_sequence": 17,
+      "article_type": "research-article",
+      "title_en": "The farm succession effect on farmers’ management choices",
+      "title_cn": "农场继承对农户管理选择的影响",
+      "authors": [
+        "Bertolozzi-Caredio Daniele"
+      ],
+      "abstract_en": "It is acknowledged that the identification of a successor within the family farm can affect the farm development, which is conventionally referred to as the succession effect. This dynamic is of particular relevance in Europe, where fostering generational renewal towards increased farm modernization and innovation is on top of policy agenda. Yet, the succession effect on the farmers’ decision-making has been poorly substantiated with empirical and quantitative evidence, whereas the current policy framework mostly disregards this phenomenon. This paper aims to verify whether and to what extent the identification of a successor within the family farm affects the farmer’s strategic choices, and to identify which management strategies are privileged by farmers having identified a successor. Based on a cross-sectional dataset of 768 farms from across nine European countries, a control function model is employed to test the succession effect on the farmer’s decision-making, while parametric tests, odds analysis and multivariate probit regressions are applied to identify main strategies. The results confirm that the identification of a successor has a significant impact on farmers’ choices, leading to an average increase of about two additional strategies adopted, and that strategies like agricultural and non-agricultural diversification, cooperation and technology adoption are privileged by farmers having a successor. The paper discusses how the current policies could be improved to better leverage the succession effect, and identifies possible strategies.",
+      "abstract_cn": "众所周知，在家庭农场中确定继承人会影响农场发展，这通常被称为继承效应。这一动态在欧洲尤为重要，因为促进代际更新以实现农场现代化和创新是政策议程的首要任务。然而，继承效应对农户决策的影响缺乏实证和定量证据的支持，而当前的政策框架大多忽视了这一现象。本文旨在验证在家庭农场中确定继承人是否以及在多大程度上影响农户的战略选择，并识别哪些管理策略被已确定继承人的农户所优先采用。基于来自九个欧洲国家的768个农场的横截面数据集，采用控制函数模型检验继承效应对农户决策的影响，同时应用参数检验、优势比分析和多元概率比回归来识别主要策略。结果证实，确定继承人对农户的选择有显著影响，导致平均增加约两个额外采用的策略，并且拥有继承人的农户优先采用农业和非农业多样化、合作和技术采用等策略。本文讨论了如何改进当前政策以更好地利用继承效应，并指出了可能的策略。",
+      "doi": "10.1016/j.landusepol.2023.107014",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723004805",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v137y2024ics0264837723004805.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:36:28+00:00",
+        "source_hash": "89d2e087a7df5eec4ef252c29710bfb41547322fad2048f399a8622fbb128300"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.107017",
+      "sequence": 18,
+      "source_sequence": 18,
+      "article_type": "research-article",
+      "title_en": "The political economy of land acquisition for development in the public interest: The case of Indonesia",
+      "title_cn": "公共利益开发征地中的政治经济学：印度尼西亚案例",
+      "authors": [
+        "Rebecca Meckelburg",
+        "Agung Wardana"
+      ],
+      "abstract_en": "The public interest doctrine has been deployed by successive state regimes in Indonesia to legitimise the forcible acquisition of land for the state and private interests since the colonial period. This article examines how the government of Indonesia during the Jokowi presidency, has redefined the meaning and scope of ‘public interest’ in the context of land governance in Indonesia, resulting in an escalation in social conflict and contestation over rights to use and access land. We employ a critical political economy approach to demonstrate how this redefinition of the ‘public interest’ has provided legitimacy for the national government’s actions in forcibly acquiring land using a comparative case study of tourism development in East Nusa Tenggara and a dam construction project in Central Java in Indonesia. While the national government has argued that these ‘development’ projects benefit local communities, the empirical evidence challenges these claims. This article contributes to the land governance literature by examining the specific role of state institutions. In contrast to the liberal conception of the state as a neutral agent whose function is to balance diverse and conflicting interests over land in society to achieve common goals, the experience in Indonesia shows that the state is in fact the largest and most powerful procurer of land for capital investment in the country. Instead of benefiting the local communities, these state-sponsored development projects are more likely to serve the interests of politico-business elites.",
+      "abstract_cn": "自殖民时期以来，印度尼西亚历届国家政权一直运用公共利益原则，为国家和私人利益强制征地提供合法性。本文考察了佐科总统任期内印度尼西亚政府如何重新定义土地治理背景下‘公共利益’的含义和范围，导致社会冲突以及土地使用权和获取权争夺的升级。我们采用批判性政治经济学方法，通过对印度尼西亚东努沙登加拉旅游开发和中爪哇大坝建设项目的比较案例研究，展示这种对‘公共利益’的重新定义如何为国家政府强制征地的行为提供了合法性。尽管国家政府声称这些‘发展’项目惠及当地社区，但实证证据对这些说法提出了质疑。本文通过考察国家机构的具体作用，为土地治理文献做出贡献。与将国家视为中立代理人、其职能是平衡社会中多样且冲突的土地利益以实现共同目标的自由主义观念相反，印度尼西亚的经验表明，国家实际上是该国资本投资最大的土地采购者。这些国家主导的发展项目非但没有惠及当地社区，反而更可能服务于政治商业精英的利益。",
+      "doi": "10.1016/j.landusepol.2023.107017",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723004830",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v137y2024ics0264837723004830.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:36:32+00:00",
+        "source_hash": "425083568afd3bc6454e4659088036de9b35527d4670da0a6c88d429523d2c44"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.107019",
+      "sequence": 19,
+      "source_sequence": 19,
+      "article_type": "research-article",
+      "title_en": "Land-use carbon emissions and built environment characteristics: A city-level quantitative analysis in emerging economies",
+      "title_cn": "土地利用碳排放与建成环境特征：新兴经济体的城市层面定量分析",
+      "authors": [
+        "Yifu Ou",
+        "Zhikang Bao",
+        "S. Thomas Ng",
+        "Weize Song",
+        "Ke Chen"
+      ],
+      "abstract_en": "Rapid urbanization and subsequent urban land expansions have led to land use changes, emerging as a prominent source of anthropogenic carbon emissions in the developing world. While numerous studies have quantified land-use carbon emissions (LUCE), there is still a lack of rigorous statistical analyses examining the driving factors of LUCE, particularly in the post-2015 era, when stringent environmental pollution regulations and carbon emission reduction policies have been implemented worldwide. This study aims to assess city-level LUCE in emerging economies and to further investigate the drivers of inter-city variations in LUCE through an extended STIRPAT model, taking Guangdong Province in China as an example. The results indicate a substantial increase in LUCE from 2000 to 2020, reflecting a surge in energy consumption associated with land-use transitions from natural land to construction land. The growing disparity between direct and indirect carbon emissions underscores the increasing significance of construction land planning and management in achieving emission reduction goals. Furthermore, our findings from the extended STIRPAT model shed light on carbon neutrality pathways by revealing the potential for LUCE reduction through adopting sustainable built environment planning.",
+      "abstract_cn": "快速城市化和随后的城市土地扩张导致了土地利用变化，成为发展中世界人为碳排放的突出来源。尽管许多研究已经量化了土地利用碳排放（LUCE），但在全球范围内实施严格的环境污染法规和碳减排政策的2015年之后，对LUCE驱动因素进行严格统计分析的研究仍然缺乏。本研究旨在评估新兴经济体的城市层面LUCE，并通过扩展的STIRPAT模型进一步调查城市间LUCE差异的驱动因素，以中国广东省为例。结果表明，从2000年到2020年，LUCE显著增加，反映了与土地利用从自然土地向建设用地转变相关的能源消耗激增。直接和间接碳排放之间日益扩大的差距强调了建设用地规划和管理在实现减排目标中的日益重要性。此外，我们扩展STIRPAT模型的发现揭示了通过采用可持续建成环境规划减少LUCE的潜力，为碳中和路径提供了启示。",
+      "doi": "10.1016/j.landusepol.2023.107019",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723004854",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v137y2024ics0264837723004854.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:36:35+00:00",
+        "source_hash": "472aa780026d0bb960bb9b869a5f9de88b783fc91d8ff3199bd7f63105fe78ff"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "abstract",
+        "matched_terms": [
+          "in China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.107021",
+      "sequence": 20,
+      "source_sequence": 20,
+      "article_type": "research-article",
+      "title_en": "Exploring the optimization and management methods of ecological networks based on the cluster mode: A case study of Wuhan Metropolis, China",
+      "title_cn": "基于簇模式的生态网络优化与管理方法探索——以中国武汉都市圈为例",
+      "authors": [
+        "Yanchi Lu",
+        "Dan Huang",
+        "Yaolin Liu",
+        "Yan Zhang",
+        "Ying Jing",
+        "Huiting Chen",
+        "Ziyi Zhang",
+        "Yanfang Liu"
+      ],
+      "abstract_en": "Ecologists and policymakers strive to develop and optimize ecological networks (ENs) to prevent landscape fragmentation. However, the role of the cluster structure for ENs is often overlooked. In this study, we established a cluster management mode of ENs in Wuhan Metropolis (WHM), with a focus on dividing ENs based on identified clusters and implementing differentiated optimization, protection, and strengthening measures. First, we developed an optimization method to solve the defects of layout (connectivity blind areas) and quality (barriers and pinch points) for the initially constructed ENs. The results showed that the connectivity blind areas of ENs were significantly shrunk after layout optimization. Meanwhile, ENs after quality optimization avoided rugged, redundant or obstructive corridors, while narrow corridors were also given priority protection. Second, the Infomap algorithm was applied to identify 33 clusters of optimized ENs in WHM. Finally, we evaluated EN clusters to provide guidance and bases for the cluster management mode of ENs. The results indicated that centrality indicators can be applied to evaluate the protection importance for ecological edges within clusters, and connectivity indicators can be used to evaluate the protection importance and strengthening potential for ecological edges between clusters. We assert that incorporating the cluster management mode of ENs into future ecological protection plans is essential for maintaining ecological integrity and connectivity.",
+      "abstract_cn": "生态学家和政策制定者致力于开发和优化生态网络（ENs）以防止景观破碎化。然而，簇结构对生态网络的作用常常被忽视。在本研究中，我们建立了武汉都市圈（WHM）生态网络的簇管理模式，重点在于根据识别出的簇对生态网络进行划分，并实施差异化的优化、保护和强化措施。首先，我们开发了一种优化方法来解决初始构建的生态网络在布局（连通性盲区）和质量（障碍物和瓶颈点）方面的缺陷。结果表明，布局优化后生态网络的连通性盲区显著缩小。同时，质量优化后的生态网络避免了崎岖、冗余或阻塞的廊道，而狭窄的廊道也得到了优先保护。其次，应用Infomap算法识别出武汉都市圈优化后生态网络的33个簇。最后，我们对生态网络簇进行了评估，为生态网络的簇管理模式提供指导和依据。结果表明，中心性指标可用于评估簇内生态边缘的保护重要性，而连通性指标可用于评估簇间生态边缘的保护重要性和强化潜力。我们认为，将生态网络的簇管理模式纳入未来的生态保护规划对于维护生态完整性和连通性至关重要。",
+      "doi": "10.1016/j.landusepol.2023.107021",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723004878",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v137y2024ics0264837723004878.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:36:39+00:00",
+        "source_hash": "edfbc73978c40dee86a925821416ba5d6b1516bb9642119465817b41377dde30"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.107028",
+      "sequence": 21,
+      "source_sequence": 21,
+      "article_type": "research-article",
+      "title_en": "A novel index for assessing the rural population hollowing at fine spatial resolutions based on Tencent social media big data: A case study in Guangdong Province, China",
+      "title_cn": "基于腾讯社交媒体大数据的高空间分辨率农村人口空心化评估新指数：以中国广东省为例",
+      "authors": [
+        "Fang Wang",
+        "Shaoying Li",
+        "Lin Liu",
+        "Feng Gao",
+        "Yanfen Feng",
+        "Zilong Chen"
+      ],
+      "abstract_en": "Evaluating the rural population hollowing (RPH) caused by the massive out-migration of rural laborers is essential for China’s rural land use policy formulation and rural revitalization. Existing studies mainly assessed the RPH based on survey data or statistical data. The former is mainly based on selected local villages and towns, and cannot be replicated on a large scale, while the latter is usually at the county or city scale and cannot reveal the cyclical migration of rural labors at fine spatial resolutions such as townships. To fill this gap, this paper proposed a social media data based-rural population hollowing (SM-RPH) index, which was calculated by Tencent User Density big data on holidays and non-holidays and was used to characterize the \"migratory bird\" process of rural laborers. Taking Guangdong Province, China as the case, this study employed the proposed novel index to evaluate the RPH at the county and township scales. This was integrated with a GWR model to explore how the important contributing factors of RPH vary across the province. The results showed a trend of transition from the cold spot areas in the core regions of PRD to the hot spot areas around the PRD. Additionally, this study revealed that distance to the nearest prefecture-level city, total nighttime lighting per capita, fiscal expenditure per unit of GDP and road network density were dominant factors in affecting rural population hollowing, and the influence of these four variables vary considerably throughout the province. Further, k-means cluster was used to group the hollowing towns according to the local coefficients of the influencing factors, and policy zoning was suggested to provide differentiated countermeasures and suggestions for rural revitalization. This methodological framework can be easily applied to other regions, and is expected to be used to evaluate the return characteristics of migrant workers in real time to help monitor the progress of rural revitalization in China and provide decision support for policy makers.",
+      "abstract_cn": "评估由农村劳动力大规模外流引起的农村人口空心化（RPH）对于中国的农村土地利用政策制定和乡村振兴至关重要。现有研究主要基于调查数据或统计数据评估RPH。前者主要基于选定的地方村庄和乡镇，无法大规模复制，而后者通常为县级或市级尺度，无法揭示乡镇等精细空间分辨率下农村劳动力的周期性迁移。为填补这一空白，本文提出了一种基于社交媒体数据的农村人口空心化（SM-RPH）指数，该指数通过节假日和非节假日的腾讯用户密度大数据计算，用于表征农村劳动力的“候鸟式”迁移过程。以中国广东省为例，本研究采用所提出的新指数在县级和乡镇尺度上评估RPH，并结合GWR模型探讨RPH的重要影响因素在全省范围内的变化。结果表明，空心化热点区域呈现出从珠三角核心区域的冷点区域向珠三角周边热点区域转变的趋势。此外，本研究揭示，到最近地级市的距离、人均夜间灯光总量、单位GDP财政支出和路网密度是影响农村人口空心化的主导因素，且这四个变量的影响在全省范围内差异显著。进一步，采用k-means聚类根据影响因素的局部系数对空心化乡镇进行分组，并提出政策分区，为乡村振兴提供差异化的对策和建议。该方法论框架可轻松应用于其他地区，并有望用于实时评估农民工返乡特征，以帮助监测中国乡村振兴进展，为政策制定者提供决策支持。",
+      "doi": "10.1016/j.landusepol.2023.107028",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837723004945",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v137y2024ics0264837723004945.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:36:43+00:00",
+        "source_hash": "aec3dd65df0736225ee91ba82bb4999e63d29b3b0eee152c182c6c4f597f4475"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.106994",
+      "sequence": 22,
+      "source_sequence": 22,
+      "article_type": "research-article",
+      "title_en": "Thailand’s policy vacuum: Land use planning as sites of negotiation and contestation",
+      "title_cn": "泰国的政策真空：作为协商与争夺场域的土地利用规划",
+      "authors": [
+        "Pakamas Thinphanga",
+        "Richard Friend"
+      ],
+      "abstract_en": "Drawing on the case of Thailand, this paper provides a fresh critical perspective on the purpose and practice of land use planning in the Global South. Thailand is going through a period of rapid urbanisation. Significantly such urban change is occurring most intensely in locations in which land use plans are several years out of date. From urban planning theory, the strategic zoning of land for different uses is widely acknowledged as the cornerstone of urban governance. Yet how such planning takes place, and the economic and political role and value that land itself plays is often overlooked. Through analyses of institutional structures and functions and key land use policy documents, supported with case studies of land contestation, the paper argues that the practice of land use planning opens grey space for negotiation and speculation and thereby accumulation of political power. In practice, the complicated process of planning and approval creates a vacuum period through which implementation is shaped by discretionary powers. The use of discretionary power is increasingly routinised, creating new arenas of negotiation and power. However, such formalised discretionary systems in planning and decision-making reaffirm the symbolic authority of planning agencies who produce plans that are not implemented, or necessarily intended to be implemented.",
+      "abstract_cn": "本文以泰国为例，对全球南方土地利用规划的目的与实践提供了新的批判性视角。泰国正处于快速城市化时期。值得注意的是，这种城市变化在土地利用规划已过时数年的地区最为剧烈。从城市规划理论来看，土地的不同用途的战略分区被广泛认为是城市治理的基石。然而，这种规划如何进行，以及土地本身所扮演的经济和政治角色及其价值，往往被忽视。通过对制度结构和功能以及关键土地利用政策文件的分析，并辅以土地争夺的案例研究，本文认为土地利用规划的实践为协商和投机开辟了灰色空间，从而积累政治权力。在实践中，复杂的规划和审批过程创造了一个真空期，在此期间的执行受到自由裁量权的塑造。自由裁量权的使用日益常规化，创造了新的协商和权力舞台。然而，这种在规划和决策中正式化的自由裁量系统重申了规划机构的象征性权威，这些机构制定的计划并未实施，或未必打算实施。",
+      "doi": "10.1016/j.landusepol.2023.106994",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S026483772300460X",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v137y2024ics026483772300460x.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:36:46+00:00",
+        "source_hash": "10c59b31a2d67df94a41b0410cb925f21161dff67eab378bd6ecb167aa3eb775"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.107022",
+      "sequence": 23,
+      "source_sequence": 23,
+      "article_type": "research-article",
+      "title_en": "Brazilian forest restoration: Success or better than nothing?",
+      "title_cn": "巴西森林恢复：成功还是聊胜于无？",
+      "authors": [
+        "Fernando Ravanini Gardon",
+        "Rozely Ferreira dos Santos"
+      ],
+      "abstract_en": "The Brazilian scientific community and non-governmental groups have been working to establish forest restoration programs, compensating for deforestation and mitigating losses from biodiversity and ecosystem services. In contrast, the previous Brazilian government moved in an opposite direction, revoking legal acts and providing scope for the rural producers to sustain non-compliance activities according to the legal regulations. Among rural producers, there is a recognized conflict between agricultural production and forest restoration programs, which results in a chaotic condition where the implementation of the environmental laws is impaired. In this context, restoration projects are often practiced without effective integrated territorial planning. This scenario challenges the success of large-scale restoration programs. The Brazilian government needs to effectively adopt sound guidelines already suggested to promote a genuine state of governance, fostering restoration programs, and moving the country's development towards an ecologically planned environment.",
+      "abstract_cn": "巴西科学界和非政府组织一直在努力建立森林恢复项目，以补偿森林砍伐并减轻生物多样性和生态系统服务的损失。相比之下，巴西前政府却朝着相反的方向发展，撤销法律行为，并为农村生产者提供空间，使其能够根据法律规定维持不合规活动。在农村生产者中，农业生产与森林恢复项目之间存在公认的冲突，这导致了一种混乱状况，环境法律的实施受到损害。在这种背景下，恢复项目往往在没有有效的综合领土规划的情况下实施。这种情况对大规模恢复项目的成功构成了挑战。巴西政府需要有效采纳已经提出的健全指导方针，以促进真正的治理状态，推动恢复项目，并使国家发展朝着生态规划的环境迈进。",
+      "doi": "10.1016/j.landusepol.2023.107022",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S026483772300488X",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v137y2024ics026483772300488x.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:36:49+00:00",
+        "source_hash": "0c97bae41917e9a31e159995726ebb58ea8a9e2a5f52de008702760ac009f5dd"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.landusepol.2023.107025",
+      "sequence": 24,
+      "source_sequence": 24,
+      "article_type": "research-article",
+      "title_en": "A methodological framework for prioritizing wetland restoration from cropland: A case study Jianghan Plain, China",
+      "title_cn": "从农田恢复湿地的 methodological 框架：以中国江汉平原为例",
+      "authors": [
+        "Ran Yang",
+        "Xiaoyan Li",
+        "Dehua Mao",
+        "Zongming Wang",
+        "Lisha Cheng",
+        "Yulin Dong",
+        "Hongchao Sun"
+      ],
+      "abstract_en": "Restoring wetlands from croplands is a promising approach to respond to the frequent floods, natural habitat loss, and biodiversity decline associated with wetland loss. However, wetland restoration policy and planning remains scare, especially in the Jianghan Pain (JHP), a relatively economically developed floodplain region of China. In this study, by establishing a comprehensive remote sensing indicator system including cropland productivity, water occurrence frequency, soil wetness, topographic features, anthropogenic disturbance, and hydrological connectivity, we developed a novel methodological framework to identify potential wetland restoration areas from cropland with varied priorities for the JHP. Our results revealed that 0.77% of croplands (234.58 km2) in JHP were suitable for wetland restoration, and were mainly identified in the eastern JHP. Among these, 56.66 km2 was found to have a high restoration priority, and Hanchuan, Shayang and Tianmen were the top three counties with areas of high-priority for wetland restoration. In terms of the challenges from extreme rain events in the future, wetland restoration in JHP should be highlighted for improving regional ecosystem services. This study is expected to support the policy improvement and decision making and to guide the implementation of wetland restoration in JHP.",
+      "abstract_cn": "从农田恢复湿地是应对与湿地丧失相关的频繁洪水、自然栖息地丧失和生物多样性下降的一种有前景的方法。然而，湿地恢复政策和规划仍然稀缺，尤其是在江汉平原（JHP），一个中国相对经济发达的洪泛区。在本研究中，通过建立包括农田生产力、水体出现频率、土壤湿度、地形特征、人为干扰和水文连通性在内的综合遥感指标体系，我们开发了一种新的方法论框架，以识别江汉平原具有不同优先级的潜在湿地恢复区域。我们的结果显示，江汉平原0.77%的农田（234.58 km2）适合湿地恢复，主要分布在江汉平原东部。其中，56.66 km2被发现具有高恢复优先级，汉川、沙洋和天门是湿地恢复高优先级面积排名前三的县。考虑到未来极端降雨事件的挑战，应强调江汉平原的湿地恢复以改善区域生态系统服务。本研究有望支持政策改进和决策，并指导江汉平原湿地恢复的实施。",
+      "doi": "10.1016/j.landusepol.2023.107025",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S026483772300491X",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/lauspo/v137y2024ics026483772300491x.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:36:52+00:00",
+        "source_hash": "147f5d9cc33bb20d668751bf5c7c75368cba60422dfb9a2cd5b5a0d43254170b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "repec-serial-page",
+    "roster_authority": "repec-publisher-supplied",
+    "roster_match_scope": "repec-volume-items",
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 24,
+    "authors_complete": 24,
+    "abstract_en_complete": 24,
+    "translation_complete": 24,
+    "duplicate_count": 0,
+    "repec_item_count": 24,
+    "flags": [],
+    "official_item_count": 24,
+    "publishable_item_count": 24,
+    "content_counts": {
+      "official_items": 24,
+      "observed_items": 24,
+      "publishable_items": 24,
+      "research_articles": 24,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 24
+    }
+  },
+  "content_counts": {
+    "official_items": 24,
+    "observed_items": 24,
+    "publishable_items": 24,
+    "research_articles": 24,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 24
+  },
+  "issue_label": "Vol. 137",
+  "content_status": "complete",
+  "source_status": "publisher_verified",
+  "publication_state": "ready"
+}

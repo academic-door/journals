@@ -1,0 +1,578 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "red-53-c",
+  "journal_id": "red",
+  "journal_name": "Review of Economic Dynamics",
+  "volume": "53",
+  "issue": "C",
+  "publication_date": "July 2024",
+  "source_url": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/53/suppl/C",
+  "retrieved_at": "2026-08-18T17:04:02+00:00",
+  "expected_article_count": 8,
+  "research_article_count": 8,
+  "status": "incomplete",
+  "development_sample": false,
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.red.2024.01.001",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Information acquisition and price discrimination in dynamic, decentralized markets",
+      "title_cn": "动态分散市场中的信息获取与价格歧视",
+      "authors": [
+        "Michael Choi",
+        "Guillaume Rocheteau"
+      ],
+      "abstract_en": "We formalize a decentralized market where consumers with privately-known preferences meet bilaterally with firms. The latter acquire information to raise their degree of price discrimination from second to first. In a dynamic setting where outside options are endogenous, information choices are strategic complements, possibly generating multiple equilibria across which consumers' surpluses and firms' investment in information are negatively correlated. While there exists a sequence of equilibria converging to perfect competition when trading frictions vanish, there exist other equilibria that fail to approach perfect competition. Our findings are robust to firm heterogeneity, entry, noisy signals, and consumers' price-setting power.",
+      "abstract_cn": "我们形式化了一个分散市场，其中具有私人已知偏好的消费者与公司进行双边会面。后者获取信息以提高其价格歧视程度，从二级提升到一级。在外部选择是内生性的动态环境中，信息选择是战略互补的，可能产生多个均衡，在这些均衡中，消费者剩余与公司的信息投资呈负相关。虽然当交易摩擦消失时，存在一系列收敛于完全竞争的均衡，但也存在其他无法接近完全竞争的均衡。我们的发现对于公司异质性、进入、噪声信号和消费者的定价权具有稳健性。",
+      "abstract_snippet_en": "We formalize a decentralized market where consumers with privately-known preferences meet bilaterally with firms. The latter acquire information to raise their degree of price discrimination from second...",
+      "doi": "10.1016/j.red.2024.01.001",
+      "source_url": "https://doi.org/10.1016/j.red.2024.01.001",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/53/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17784,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17784,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:04:04+00:00",
+        "source_hash": "50af2a33b4b5318909d38e00d74e34465cb881b2ff8cc421df1f25575fd031a9"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2024.01.002",
+      "sequence": 2,
+      "source_sequence": 47,
+      "article_type": "research-article",
+      "title_en": "Are zero-Covid policies optimal?",
+      "title_cn": "零新冠政策是最优的吗？",
+      "authors": [
+        "Andrew B. Abel",
+        "Stavros Panageas"
+      ],
+      "abstract_en": "We analyze the impact of public health policy on the spread of a disease using a version of the SIR model that includes vital statistics, waning immunity, and vaccination. This model is rich enough to accommodate endemic steady states and disease-free steady states. We derive social distancing and vaccination policies that maximize an objective function that penalizes lost output resulting from social distancing, deaths resulting from the disease, and the cost of vaccination. Even though a disease-free steady state is attainable, optimal policy leads to an endemic steady state, albeit with a small number of deaths and negligible loss of output.",
+      "abstract_cn": "我们使用包含生命统计、免疫力减弱和疫苗接种的SIR模型版本，分析公共卫生政策对疾病传播的影响。该模型足够丰富，能够容纳地方性稳态和无病稳态。我们推导出社会距离和疫苗接种政策，这些政策最大化一个目标函数，该函数惩罚因社会距离导致的产出损失、因疾病导致的死亡以及疫苗接种成本。尽管无病稳态是可以实现的，但最优政策会导致地方性稳态，尽管死亡人数很少且产出损失可忽略不计。",
+      "abstract_snippet_en": "We analyze the impact of public health policy on the spread of a disease using a version of the SIR model that includes vital statistics, waning immunity, and vaccination. This model is rich enough...",
+      "doi": "10.1016/j.red.2024.01.002",
+      "source_url": "https://doi.org/10.1016/j.red.2024.01.002",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/53/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17783,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17783,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:04:06+00:00",
+        "source_hash": "607939afd46b4a7f82d0d9c0832fdec84c24dd5490f193d45a9ffdbe78871dee"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2024.02.001",
+      "sequence": 3,
+      "source_sequence": 71,
+      "article_type": "research-article",
+      "title_en": "Bubbly booms and welfare",
+      "title_cn": "泡沫繁荣与福利",
+      "authors": [
+        "Feng Dong",
+        "Yang Jiao",
+        "Haoning Sun"
+      ],
+      "abstract_en": "We show the competing effects of a housing bubble on the real economy by developing a multi-sector dynamic model with housing production. On the one hand, firms can sell or collateralize their housing, so a housing bubble helps firms obtain credit to finance their investment and expand production. On the other hand, a boom in the housing sector crowds out labor in the non-housing sector. We show that housing booms can reduce social welfare both in the steady state and in the transitional dynamics only when the production externalities in the non-housing sector are sufficiently large. We quantitatively evaluate our model and demonstrate its robustness with model extensions. Policies that target labor, housing transactions and output generate different welfare implications.",
+      "abstract_cn": "我们通过构建一个包含住房生产的多部门动态模型，展示了住房泡沫对实体经济的影响。一方面，企业可以出售或抵押其住房，因此住房泡沫帮助企业获得信贷以资助投资并扩大生产。另一方面，住房部门的繁荣挤出了非住房部门的劳动力。我们表明，只有当非住房部门的生产外部性足够大时，住房泡沫才能在稳态和转型动态中降低社会福利。我们定量评估了我们的模型，并通过模型扩展证明了其稳健性。针对劳动力、住房交易和产出的政策产生了不同的福利影响。",
+      "abstract_snippet_en": "We show the competing effects of a housing bubble on the real economy by developing a multi-sector dynamic model with housing production. On the one hand, firms can sell or collateralize their housing,...",
+      "doi": "10.1016/j.red.2024.02.001",
+      "source_url": "https://doi.org/10.1016/j.red.2024.02.001",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/53/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17782,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17782,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:04:08+00:00",
+        "source_hash": "752d8f4411ac73eac39fa3a5ae3c30208dd6e0b588f70c4add16409f4f60802e"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2024.02.002",
+      "sequence": 4,
+      "source_sequence": 123,
+      "article_type": "research-article",
+      "title_en": "Training and search on the job",
+      "title_cn": "在职培训与求职",
+      "authors": [
+        "Rasmus Lentz",
+        "Nicolas Roys"
+      ],
+      "abstract_en": "The paper studies human capital accumulation over workers' careers in an on-the-job search setting with heterogeneous firms. In renegotiation-proof employment contracts, more productive firms provide more training. General and specific training both induce higher wages within jobs and with future employers, even conditional on the future employer type.Because matches do not internalize the specific capital loss from employer changes, specific human capital can be over-accumulated, more so in low type firms. The analysis also establishes that general training can be efficient regardless of the level of labor market frictions.We calibrate the model to the US economy using Compustat and NLSY79. While validating the Acemoglu and Pischke (1999) mechanisms, the analysis nevertheless arrives at the opposite conclusion: increased labor market friction reduces training in equilibrium.",
+      "abstract_cn": "本文研究了在具有异质性企业的在职搜寻环境中，工人职业生涯中的人力资本积累。在可重新谈判的雇佣合同中，生产率更高的企业提供更多的培训。一般培训和特殊培训都会提高在职期间及未来雇主处的工资，即使在未来雇主类型给定的情况下也是如此。由于匹配关系没有内化雇主变更带来的特殊资本损失，特殊人力资本可能过度积累，在低类型企业中更为严重。分析还表明，无论劳动力市场摩擦程度如何，一般培训都可能是有效率的。我们使用Compustat和NLSY79数据将模型校准到美国经济。虽然验证了Acemoglu和Pischke（1999）的机制，但分析得出了相反的结论：劳动力市场摩擦的增加会减少均衡中的培训。",
+      "abstract_snippet_en": "The paper studies human capital accumulation over workers' careers in an on-the-job search setting with heterogeneous firms. In renegotiation-proof employment contracts, more productive firms provide...",
+      "doi": "10.1016/j.red.2024.02.002",
+      "source_url": "https://doi.org/10.1016/j.red.2024.02.002",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/53/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17781,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17781,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:04:10+00:00",
+        "source_hash": "34409cd4bca942b0010a18181a0e5d55be193980bc3117a780e033ea00e6b9f5"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2024.04.001",
+      "sequence": 5,
+      "source_sequence": 147,
+      "article_type": "research-article",
+      "title_en": "Input delays, firm dynamics, and misallocation in Sub-Saharan Africa",
+      "title_cn": "撒哈拉以南非洲的投入延迟、企业动态与资源错配",
+      "authors": [
+        "Idossou Marius Adom",
+        "Immo Schott"
+      ],
+      "abstract_en": "We quantitatively analyze the macroeconomic consequences of border delays in Sub-Saharan Africa. Delays of imported intermediate inputs lower aggregate output because of factor misallocation and due to an inefficiently low number of firms that uses foreign inputs in production. Our model economy features heterogeneous firms that endogenously differ in the degree to which foreign inputs are used. The model is calibrated to micro-level data from Sub-Saharan Africa. Reducing border delays can increase aggregate output by up to 9.4%. The gains are mainly due to a reallocation of economic activity towards more productive firms.",
+      "abstract_cn": "我们定量分析了撒哈拉以南非洲边境延迟的宏观经济后果。进口中间投入的延迟会因要素错配以及使用外国投入进行生产的企业数量低效减少而降低总产出。我们的模型经济具有异质性企业，这些企业在使用外国投入的程度方面内生地存在差异。该模型根据撒哈拉以南非洲的微观层面数据进行了校准。减少边境延迟可以使总产出增加高达9.4%。收益主要来自于经济活动向更具生产力的企业重新配置。",
+      "abstract_snippet_en": "We quantitatively analyze the macroeconomic consequences of border delays in Sub-Saharan Africa. Delays of imported intermediate inputs lower aggregate output because of factor misallocation and due...",
+      "doi": "10.1016/j.red.2024.04.001",
+      "source_url": "https://doi.org/10.1016/j.red.2024.04.001",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/53/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17780,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17780,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:04:12+00:00",
+        "source_hash": "4812dace16aad40bb1674d5e4fed8813d17f23f61e860493c08dc7c0f6d60d57"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2024.04.003",
+      "sequence": 6,
+      "source_sequence": 173,
+      "article_type": "research-article",
+      "title_en": "Optimal unemployment insurance in a THANK model",
+      "title_cn": "在THANK模型中的最优失业保险",
+      "authors": [
+        "Stéphane Auray",
+        "Aurélien Eyquem"
+      ],
+      "abstract_en": "We characterize optimal unemployment insurance (UI) in a heterogeneous-agent model with unemployment risk and sticky prices. In the long run, the optimal reform calls for a lower replacement rate that raises vacancies and lowers unemployment. In the short run, the optimal reform raises the replacement rate initially to smooth real wage adjustments along the transition and attenuate short-run welfare losses. Once at its optimal level, the replacement rate should vary counter-cyclically in response to demand shocks. Productivity shocks generate quasi-efficient fluctuations and call for a quasi-constant replacement rate. The aggregate welfare gains from an optimal reform are large, around 1% of equivalent consumption. The aggregate welfare gains from an optimal UI policy over the business cycle are smaller, around 0.2%, and essentially vanish with flexible prices because the aggregate demand stabilization motive is muted.",
+      "abstract_cn": "我们在一个具有失业风险和价格粘性的异质性主体模型中刻画了最优失业保险（UI）。长期来看，最优改革要求降低替代率，从而提高职位空缺率并降低失业率。短期来看，最优改革最初会提高替代率，以平滑转型过程中的实际工资调整，并减轻短期福利损失。一旦达到最优水平，替代率应针对需求冲击进行逆周期调整。生产率冲击会产生准有效的波动，并要求替代率保持准恒定。最优改革带来的总体福利收益很大，约为等效消费的1%。最优失业保险政策在经济周期中的总体福利收益较小，约为0.2%，并且在价格灵活的情况下基本消失，因为总需求稳定动机被削弱。",
+      "abstract_snippet_en": "We characterize optimal unemployment insurance (UI) in a heterogeneous-agent model with unemployment risk and sticky prices. In the long run, the optimal reform calls for a lower replacement rate that...",
+      "doi": "10.1016/j.red.2024.04.003",
+      "source_url": "https://doi.org/10.1016/j.red.2024.04.003",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/53/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17779,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17779,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:04:14+00:00",
+        "source_hash": "5bbe7ba109d1d752a90b4a0c6d32933c0420e7eedf55cf5ce481e62afc7dd505"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2024.04.004",
+      "sequence": 7,
+      "source_sequence": 194,
+      "article_type": "research-article",
+      "title_en": "Expectations and the neutrality of interest rates",
+      "title_cn": "预期与利率中性",
+      "authors": [
+        "John H. Cochrane"
+      ],
+      "abstract_en": "Our central banks set interest rates, and do not even pretend to control money supplies. How do interest rates affect inflation? We finally have a complete economic theory of inflation under interest rate targets and unconstrained liquidity. Its long-run properties mirror those of monetary theory: Inflation can be stable and determinate under interest rate targets, including a peg, analogous to a k-percent rule.Uncomfortably, stability means that higher interest rates eventually raise inflation, just as higher money growth eventually raises inflation. Sticky prices generate some short-run non-neutrality: Higher nominal interest rates can raise real rates and lower output. A model in which higher nominal interest rates temporarily lower inflation, without a change in fiscal policy, is a harder task. I exhibit one such model, but it paints a more limited picture than standard beliefs. Generically, without a change in fiscal policy, monetary policy can only move inflation from one time to another.The last decade has provided a near-ideal set of natural experiments to distinguish the principal theories of inflation. Inflation did not show spirals or indeterminacies at the long zero bound. The large monetary-fiscal expansion of the covid era produced a temporary spurt of inflation. The same money unleashed in quantitative easing had no such effect.",
+      "abstract_cn": "我们的中央银行设定利率，甚至不假装控制货币供应量。利率如何影响通货膨胀？我们终于有了一个在利率目标和不受限制的流动性下完整的通货膨胀经济理论。其长期特性反映了货币理论的特性：在利率目标下，包括钉住汇率，通货膨胀可以是稳定和确定的，类似于k百分比规则。令人不安的是，稳定性意味着更高的利率最终会提高通货膨胀，就像更高的货币增长最终会提高通货膨胀一样。粘性价格产生一些短期非中性：更高的名义利率可以提高实际利率并降低产出。一个模型，其中更高的名义利率暂时降低通货膨胀，而不改变财政政策，是一个更困难的任务。我展示了一个这样的模型，但它描绘的画面比标准信念更有限。一般来说，如果不改变财政政策，货币政策只能将通货膨胀从一个时期转移到另一个时期。过去十年提供了一个近乎理想的自然实验集，以区分主要的通货膨胀理论。通货膨胀在长期零下限时没有显示出螺旋或不确定性。新冠疫情时期的大规模货币财政扩张产生了暂时的通货膨胀爆发。量化宽松释放的相同货币没有这种效果。",
+      "abstract_snippet_en": "Our central banks set interest rates, and do not even pretend to control money supplies. How do interest rates affect inflation? We finally have a complete economic theory of inflation under interest...",
+      "doi": "10.1016/j.red.2024.04.004",
+      "source_url": "https://doi.org/10.1016/j.red.2024.04.004",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/53/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17778,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17778,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:04:18+00:00",
+        "source_hash": "1933b0738b5ec2150dcb434ad61096d60f8e8d54aa33c8610cdaf412b084e365"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.red.2024.04.002",
+      "sequence": 8,
+      "source_sequence": 224,
+      "article_type": "research-article",
+      "title_en": "Socially optimal search intensity in over-the-counter markets",
+      "title_cn": "场外交易市场中的社会最优搜索强度",
+      "authors": [
+        "Shuo Liu"
+      ],
+      "abstract_en": "This paper investigates the endogenous search intensity of traders in the OTC market, examining both competitive equilibrium and socially optimal scenario. Our study introduces a random search-and-matching model, where traders have the flexibility to ex post choose and adjust their search intensities based on two trader-level states: asset position and preference type. Our findings uncover the following key insights: (1) Changes in the level of search friction and/or the frequency of shocks on traders' preference type may lead to traders switching between high and low search intensities, shifting between the core and periphery of the trading network; and (2) Social optimality is achieved in the absence of intermediation, where no trader simultaneously invests in positive buying intensity and positive selling intensity. In contrast, competitive equilibrium reveals that some traders tend to over-search while others under-search, compared to the socially optimal outcome.",
+      "abstract_cn": "本文研究了场外交易市场中交易者的内生搜索强度，考察了竞争均衡和社会最优情景。我们的研究引入了一个随机搜索与匹配模型，其中交易者可以根据两个交易者层面的状态（资产头寸和偏好类型）灵活地事后选择并调整其搜索强度。我们的发现揭示了以下关键见解：（1）搜索摩擦水平的变化和/或交易者偏好类型冲击频率的变化可能导致交易者在高和低搜索强度之间切换，从而在交易网络的核心和外围之间移动；（2）在没有中介的情况下实现了社会最优性，此时没有交易者同时进行正买入强度和正卖出强度的投资。相比之下，竞争均衡显示，与社会最优结果相比，一些交易者倾向于过度搜索，而另一些则搜索不足。",
+      "abstract_snippet_en": "This paper investigates the endogenous search intensity of traders in the OTC market, examining both competitive equilibrium and socially optimal scenario. Our study introduces a random search-and-matching...",
+      "doi": "10.1016/j.red.2024.04.002",
+      "source_url": "https://doi.org/10.1016/j.red.2024.04.002",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/53/suppl/C",
+        "roster": "crossref:issn:1094-2025",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17777,
+                "resets_at": "2026-08-19T03:15:49+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17777,
+            "resets_at": "2026-08-19T03:15:49+00:00",
+            "els_status": "OK"
+          }
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T17:04:20+00:00",
+        "source_hash": "cd6855089cfbbff4b60b4d0950c4da6a837237d894d2aacd8bae9bf2adae8b6c"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "crossref",
+    "roster_authority": "crossref-provisional",
+    "roster_match_scope": "crossref-issue-group",
+    "publisher_page_status": "blocked",
+    "excluded_item_count": 1,
+    "excluded_items": [
+      {
+        "title_en": "Editorial Board",
+        "reason": "editorial_material",
+        "doi": "10.1016/s1094-2025(24)00019-x",
+        "article_type": "editorial"
+      }
+    ],
+    "doi_complete": 8,
+    "authors_complete": 8,
+    "abstract_en_complete": 8,
+    "translation_complete": 8,
+    "duplicate_count": 0,
+    "flags": [
+      "publisher_html_blocked_crossref_fallback",
+      "crossref_provisional_roster"
+    ],
+    "official_item_count": 9,
+    "publishable_item_count": 8,
+    "content_counts": {
+      "official_items": 9,
+      "observed_items": 9,
+      "publishable_items": 8,
+      "research_articles": 8,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 1,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 8
+    }
+  },
+  "source_status": "source_pending",
+  "publication_state": "source_pending",
+  "content_counts": {
+    "official_items": 9,
+    "observed_items": 9,
+    "publishable_items": 8,
+    "research_articles": 8,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 1,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 8
+  },
+  "issue_label": "Vol. 53",
+  "content_status": "complete"
+}

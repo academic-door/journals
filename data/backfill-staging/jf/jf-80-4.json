@@ -7,7 +7,7 @@
   "issue": "4",
   "publication_date": "August 2025",
   "source_url": "https://onlinelibrary.wiley.com/toc/15406261/2025/80/4",
-  "retrieved_at": "2026-08-06T12:04:35+00:00",
+  "retrieved_at": "2026-08-18T17:17:00+00:00",
   "expected_article_count": 12,
   "research_article_count": 12,
   "status": "incomplete",
@@ -465,14 +465,14 @@
       "source_sequence": 2389,
       "article_type": "research-article",
       "title_en": "The Term Structure of Interest Rates in a Heterogeneous Monetary Union",
-      "title_cn": "",
+      "title_cn": "异质性货币联盟中的利率期限结构",
       "authors": [
         "JAMES COSTAIN",
         "GALO NUÑO",
         "CARLOS THOMAS"
       ],
       "abstract_en": "We build an arbitrage‐based model of the yield curves in a heterogeneous monetary union with sovereign default risk, which accounts for the asymmetric shifts in euro‐area yields during the Covid‐19 pandemic. We derive an affine term structure solution, and decompose yields into expectations, term premium, expected default loss, and credit risk premium components. In an extension, we endogenize the peripheral default probability, showing that it decreases with central bank bond holdings. Calibrating the model to Germany and Italy, we show that both the level and the shifts in the sovereign spread are mainly attributable to the credit risk premium.",
-      "abstract_cn": "",
+      "abstract_cn": "我们构建了一个基于套利的异质性货币联盟中收益率曲线模型，该模型考虑了主权违约风险，并解释了Covid-19疫情期间欧元区收益率的不对称变动。我们推导出仿射期限结构解，并将收益率分解为预期、期限溢价、预期违约损失和信用风险溢价成分。在扩展中，我们将外围国家的违约概率内生化，表明其随央行债券持有量而下降。将模型校准到德国和意大利，我们发现主权利差的水平和变动主要归因于信用风险溢价。",
       "abstract_snippet_en": "",
       "doi": "10.1111/jofi.13463",
       "source_url": "https://doi.org/10.1111/jofi.13463",
@@ -484,15 +484,15 @@
         "abstract_en": "crossref"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-reasoner",
+        "translated_at": "2026-08-07T03:02:51+00:00",
+        "source_hash": "b8f3926d0828b992142a76dd6c870c81852ea4f48c8c411d4ea8edb3f78ba830"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -532,12 +532,11 @@
     "doi_complete": 12,
     "authors_complete": 12,
     "abstract_en_complete": 12,
-    "translation_complete": 11,
+    "translation_complete": 12,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster",
-      "translation_incomplete"
+      "crossref_provisional_roster"
     ],
     "official_item_count": 15,
     "publishable_item_count": 12,
@@ -555,6 +554,8 @@
       "catalog_content_items": 12
     }
   },
+  "source_status": "source_pending",
+  "publication_state": "source_pending",
   "content_counts": {
     "official_items": 15,
     "observed_items": 15,
@@ -568,5 +569,6 @@
     "other_excluded": 2,
     "catalog_content_items": 12
   },
-  "issue_label": "Vol. 80 · No. 4"
+  "issue_label": "Vol. 80 · No. 4",
+  "content_status": "complete"
 }

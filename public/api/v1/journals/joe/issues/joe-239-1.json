@@ -1,0 +1,515 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "joe-239-1",
+  "journal_id": "joe",
+  "journal_name": "Journal of Econometrics",
+  "volume": "239",
+  "issue": "1",
+  "publication_date": "February 2024",
+  "source_url": "https://ideas.repec.org/s/eee/econom.html",
+  "retrieved_at": "2026-08-18T19:06:37+00:00",
+  "expected_article_count": 11,
+  "research_article_count": 11,
+  "status": "ready",
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.06.007",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Beyond RCP8.5: Marginal mitigation using quasi-representative concentration pathways",
+      "title_cn": "超越RCP8.5：使用准代表性浓度路径进行边际减缓",
+      "authors": [
+        "J. Isaac Miller",
+        "William A. Brock"
+      ],
+      "abstract_en": "Assessments of decreases in economic damages from climate change mitigation typically rely on climate output from computationally expensive pre-computed runs of general circulation models under a handful of scenarios with discretely varying targets, such as the four representative concentration pathways for CO2 and other anthropogenically emitted gases. Although such analyses are valuable in informing scientists and policymakers about massive multilateral mitigation goals, we add to the literature by considering potential outcomes from more modest policy changes that may not be represented by any well-known concentration pathway. Specifically, we construct computationally efficient Quasi-representative Concentration Pathways (QCPs) to leverage concentration pathways of existing peer-reviewed scenarios. Computational efficiency allows for bootstrapping to assess uncertainty. We illustrate our methodology by considering the impact on the relative risk of mortality from heat stress in London from the United Kingdom’s net zero emissions goal. More than half of our interval estimate for the business-as-usual scenario covers an annual risk at least that of a COVID-19-like mortality event by 2100. Success of the UK’s policy alone would do little to mitigate the risk.",
+      "abstract_cn": "对气候变化减缓带来的经济损失减少的评估通常依赖于在少数具有离散变化目标的场景下，对通用环流模型进行计算成本高昂的预计算运行所得的气候输出，例如四种代表性的二氧化碳和其他人为排放气体浓度路径。尽管此类分析在向科学家和政策制定者通报大规模多边减缓目标方面具有价值，我们通过考虑可能未被任何知名浓度路径代表的更温和政策变化的潜在结果，为文献做出贡献。具体来说，我们构建了计算效率高的准代表性浓度路径（QCPs），以利用现有同行评审场景的浓度路径。计算效率允许通过自举法评估不确定性。我们通过考虑英国净零排放目标对伦敦热应激死亡率相对风险的影响来说明我们的方法。在一切照旧情景下，我们的区间估计中超过一半覆盖了至少相当于COVID-19样死亡率事件的年度风险，到2100年。仅英国政策的成功对缓解这一风险作用甚微。",
+      "doi": "10.1016/j.jeconom.2021.06.007",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407621001792",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v239y2024i1s0304407621001792.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:06:41+00:00",
+        "source_hash": "f56f35d8b526dae96a873fc69fa218dd67e4abad5a96a93488eff27bfd899659"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.04.008",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Modelling cycles in climate series: The fractional sinusoidal waveform process",
+      "title_cn": "气候序列中的周期建模：分数正弦波形过程",
+      "authors": [
+        "Tommaso Proietti",
+        "Federico Maddanu"
+      ],
+      "abstract_en": "The paper proposes a novel model for time series displaying persistent stationary cycles, the fractional sinusoidal waveform process. The underlying idea is to allow the parameters that regulate the amplitude and phase to evolve according to fractional noise processes. Its advantages with respect to popular alternative specifications, such as the Gegenbauer process, are twofold: the autocovariance function is available in closed form, which opens the way to exact maximum likelihood estimation; secondly, the model encompasses deterministic cycles, so that discrete spectra arise as a limiting case. A generalization of the process, featuring multiple components, an additive ‘red noise’ component and exogenous variables, provides the basic model for climate time series with mixed spectra. Our illustrations deal with the change in amplitude and phase of the intra-annual component of carbon dioxide concentrations in Mauna Loa, and with the estimation and the quantification of the contribution of orbital cycles to the variability of paleoclimate time series.",
+      "abstract_cn": "本文提出了一种用于展示持久平稳周期的时间序列的新模型，即分数正弦波形过程。其基本思想是允许调节振幅和相位的参数根据分数噪声过程演化。与流行的替代规格（如Gegenbauer过程）相比，其优势有两方面：自协方差函数具有闭式形式，这为精确最大似然估计开辟了道路；其次，该模型包含确定性周期，因此离散谱作为极限情况出现。该过程的推广，包含多个分量、一个加性“红噪声”分量和外生变量，为具有混合谱的气候时间序列提供了基本模型。我们的示例涉及莫纳罗亚二氧化碳浓度年内分量的振幅和相位变化，以及轨道周期对古气候时间序列变率贡献的估计和量化。",
+      "doi": "10.1016/j.jeconom.2022.04.008",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407622000987",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v239y2024i1s0304407622000987.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:06:43+00:00",
+        "source_hash": "67f77968b20139346b973d16a1321a38f9078669a64911626a216b782f4ac578"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.09.004",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Sieve bootstrap inference for linear time-varying coefficient models",
+      "title_cn": "线性时变系数模型的筛子自助法推断",
+      "authors": [
+        "Marina Friedrich",
+        "Yicong Lin"
+      ],
+      "abstract_en": "We propose a sieve bootstrap framework to conduct pointwise and simultaneous inference for time-varying coefficient regression models based on a local linear estimator. The asymptotic validity of the sieve bootstrap in the presence of autocorrelation is established. The bootstrap automatically produces a consistent estimate of nuisance parameters, both at the interior and boundary points. In addition, we develop a bootstrap-based test for parameter constancy and examine its asymptotic properties. An extensive simulation study demonstrates a good finite sample performance of our methods. The proposed methods are applied to assess the price development of CO2 certificates in the European Emissions Trading System. We find evidence of time variation in the relationship between allowance prices and their fundamental price drivers. The time variation might offer an explanation for previous contradicting findings using linear regression models with constant coefficients.",
+      "abstract_cn": "我们提出了一种筛子自助法框架，基于局部线性估计量对时变系数回归模型进行逐点和同时推断。在存在自相关的情况下，建立了筛子自助法的渐近有效性。自助法自动产生干扰参数的一致估计，无论是在内部点还是边界点。此外，我们开发了一种基于自助法的参数恒定性检验，并考察了其渐近性质。一项广泛的模拟研究证明了我们方法良好的有限样本性能。所提出的方法被应用于评估欧洲排放交易体系中二氧化碳证书的价格发展。我们发现配额价格与其基本价格驱动因素之间的关系存在时变性。这种时变性可能为先前使用常数系数线性回归模型得出的矛盾结果提供解释。",
+      "doi": "10.1016/j.jeconom.2022.09.004",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407622001701",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v239y2024i1s0304407622001701.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:06:46+00:00",
+        "source_hash": "2d5a7d72a9c93b3bd9692a09edb453cba8fef7b52074eb5e17f4f37938b889d6"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.01.004",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "The validity of bootstrap testing for threshold autoregression",
+      "title_cn": "阈值自回归的Bootstrap检验有效性",
+      "authors": [
+        "Simone Giannerini",
+        "Greta Goracci",
+        "Anders Rahbek"
+      ],
+      "abstract_en": "We consider bootstrap-based testing for threshold effects in non-linear threshold autoregressive (TAR) models. It is well-known that classic tests based on asymptotic theory tend to be biased in case of small, or even moderate sample sizes, especially when the estimated parameters indicate non-stationarity, or in presence of heteroskedasticity, as often witnessed in the analysis of financial or climate data. To address the issue we propose a supremum Lagrange Multiplier test statistic (sLM), where the null hypothesis specifies a linear autoregressive (AR) model against the alternative of a TAR model. We consider both the classical recursive residual i.i.d. bootstrap (sLMi) and a wild bootstrap (sLMw), applied to the sLM statistic, and establish their validity under the null hypothesis. The framework is new, and requires the proof of non-standard results for bootstrap analysis in time series models; this includes a uniform bootstrap law of large numbers and a bootstrap functional central limit theorem. The Monte Carlo evidence shows that the bootstrap tests have correct empirical size even for small samples; the wild bootstrap version (sLMw) is also robust against the presence of heteroskedasticity. Moreover, there is no loss of empirical power when compared to the asymptotic test and the size of the tests is not affected if the order of the tested model is selected through AIC. Finally, we use our results to analyse the time series of the Greenland ice sheet mass balance. We find a significant threshold effect and an appropriate specification that manages to reproduce the main non-linear features of the series, such as the asymmetric seasonal cycle, the main periodicities, and the multimodality of the probability density function.",
+      "abstract_cn": "我们考虑非线性阈值自回归（TAR）模型中阈值效应的基于Bootstrap的检验。众所周知，基于渐近理论的经典检验在小样本甚至中等样本情况下往往有偏，特别是当估计参数表明非平稳性，或存在异方差性时，这在金融或气候数据分析中经常出现。为了解决这个问题，我们提出了一个上确界拉格朗日乘数检验统计量（sLM），其中原假设指定线性自回归（AR）模型，备择假设为TAR模型。我们考虑将经典递归残差i.i.d. bootstrap（sLMi）和wild bootstrap（sLMw）应用于sLM统计量，并建立它们在原假设下的有效性。该框架是新的，需要证明时间序列模型中bootstrap分析的非标准结果；这包括一致bootstrap大数定律和bootstrap泛函中心极限定理。蒙特卡洛证据表明，即使在小样本下，bootstrap检验也具有正确的经验大小；wild bootstrap版本（sLMw）对异方差性的存在也具有稳健性。此外，与渐近检验相比，经验功效没有损失，并且如果通过AIC选择被检验模型的阶数，检验的大小不受影响。最后，我们使用我们的结果分析格陵兰冰盖质量平衡的时间序列。我们发现显著的阈值效应和适当的设定，能够再现序列的主要非线性特征，如不对称季节循环、主要周期性和概率密度函数的多模态性。",
+      "doi": "10.1016/j.jeconom.2023.01.004",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623000040",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v239y2024i1s0304407623000040.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:06:50+00:00",
+        "source_hash": "45d6f1a49cda52d3bf3277d80f59cdd6a3ee8fb87184c0ea7668a97f6d2b656c"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.02.016",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Modelling circular time series",
+      "title_cn": "循环时间序列建模",
+      "authors": [
+        "Andrew Harvey",
+        "Stan Hurn",
+        "Dario Palumbo",
+        "Stephen Thiele"
+      ],
+      "abstract_en": "Circular variables often play an important role in the construction of models for analysing and forecasting the consequences of climate change and its impact on the environment. Such variables pose special problems for time series modelling. This article shows how the score-driven approach, developed primarily in econometrics, provides a natural solution to the difficulties and leads to a coherent and unified methodology for estimation, model selection and testing. The new methods are illustrated with data on wind direction.",
+      "abstract_cn": "循环变量在构建用于分析和预测气候变化后果及其对环境影响的模型中往往扮演重要角色。这类变量给时间序列建模带来了特殊问题。本文展示了主要发展于计量经济学中的得分驱动方法如何为这些困难提供自然解决方案，并引向一种连贯统一的方法论，用于估计、模型选择和检验。新方法以风向数据为例进行说明。",
+      "doi": "10.1016/j.jeconom.2023.02.016",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623001446",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v239y2024i1s0304407623001446.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:06:52+00:00",
+        "source_hash": "f19c11d56cd4f36f68764d7933d83b3bf196a8b582d326622acc9c3a8b29a125"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.05.008",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Common volatility shocks driven by the global carbon transition",
+      "title_cn": "全球碳转型驱动的共同波动冲击",
+      "authors": [
+        "Susana Campos-Martins",
+        "David F. Hendry"
+      ],
+      "abstract_en": "We propose a novel approach to measure the global effects of climate change news on financial markets. For that purpose, we first calculate the global common volatility of the oil and gas industry. Then we project it on climate-related shocks constructed using text-based proxies of climate change news. We show that rising concerns about the energy transition make oil and gas share prices move at the global scale, controlling for shocks to the oil price, US and world stock markets. Despite the clear exposure of oil and gas companies to carbon transition risk, not all geoclimatic shocks are alike. The signs and magnitudes of the impacts differ across climate risk drivers. Regarding sentiment, climate change news tends to create turmoil only when the news is negative. Moreover, the adverse effect is amplified by oil price movements but weakened by stock market shocks. Finally, our findings point out climate news materialises when it reaches the global scale, supporting the relevance of modelling geoclimatic volatility.",
+      "abstract_cn": "我们提出了一种新颖的方法来衡量气候变化新闻对金融市场的全球影响。为此，我们首先计算石油和天然气行业的全球共同波动性。然后，我们将其投影到基于气候变化新闻的文本代理构建的气候相关冲击上。我们表明，在控制油价、美国和全球股市冲击的情况下，对能源转型日益增长的担忧使得石油和天然气股价在全球范围内波动。尽管石油和天然气公司明显面临碳转型风险，但并非所有地理气候冲击都是相同的。影响的符号和幅度因气候风险驱动因素而异。关于情绪，气候变化新闻往往只在负面新闻时引发动荡。此外，不利影响被油价变动放大，但被股市冲击削弱。最后，我们的研究结果表明，气候新闻在全球范围内实现时才会具体化，支持了建模地理气候波动性的相关性。",
+      "doi": "10.1016/j.jeconom.2023.05.008",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623001665",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v239y2024i1s0304407623001665.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:06:54+00:00",
+        "source_hash": "4f252001dc155d6aea2a5f0b81d4f6589be2ac2b1d27e9bdd22277d8b1d4c7e9"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.105494",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Long monthly temperature series and the Vector Seasonal Shifting Mean and Covariance Autoregressive model",
+      "title_cn": "长期月度温度序列与向量季节性移动均值和协方差自回归模型",
+      "authors": [
+        "Changli He",
+        "Jian Kang",
+        "Annastiina Silvennoinen",
+        "Timo Teräsvirta"
+      ],
+      "abstract_en": "We consider a vector version of the Shifting Seasonal Mean Autoregressive model. The model is used for describing dynamic behaviour of and contemporaneous dependence between a number of long monthly temperature series for 20 cities in Europe, extending from the second half of the 18th century until mid-2010s. The results indicate strong warming in the winter months, February excluded, and cooling followed by warming during the summer months. Error variances are mostly constant over time, but for many series there is systematic decrease between 1820 and 1850 in April. Error correlations are considered by selecting two small sets of series and modelling correlations within these sets. Some correlations do change over time, but a large majority remains constant. Not surprisingly, the correlations generally decrease with the distance between cities, but the precise geographical location also plays a role.",
+      "abstract_cn": "我们考虑了一个向量版本的移动季节性均值自回归模型。该模型用于描述欧洲20个城市的长期月度温度序列的动态行为及同期依赖性，这些序列从18世纪下半叶延伸至2010年中期。结果表明冬季月份（二月除外）显著变暖，而夏季月份则先降温后升温。误差方差大多随时间保持不变，但对于许多序列，四月在1820年至1850年间存在系统性下降。通过选择两组较小的序列并建模组内相关性来考虑误差相关性。一些相关性随时间变化，但绝大多数保持不变。不出所料，相关性通常随城市间距离增加而减小，但精确的地理位置也起作用。",
+      "doi": "10.1016/j.jeconom.2023.105494",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623002105",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v239y2024i1s0304407623002105.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:06:57+00:00",
+        "source_hash": "3673daf8f2aba55ceac30475ea12a932f9359ba10bca91e7e69947b7502f0df0"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.105511",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "On model selection criteria for climate change impact studies",
+      "title_cn": "气候变化影响研究中的模型选择标准",
+      "authors": [
+        "Xiaomeng Cui",
+        "Bulat Gafarov",
+        "Dalia Ghanem",
+        "Todd Kuffner"
+      ],
+      "abstract_en": "Climate change impact studies inform policymakers on the estimated damages of future climate change on economic, health and other outcomes. In most studies, an annual outcome variable is observed, e.g. agricultural yield, along with a higher-frequency regressor, e.g. daily temperature. Applied researchers then face a problem of selecting a model to characterize the nonlinear relationship between the outcome and the high-frequency regressor to make a policy recommendation based on the model-implied damage function. We show that existing model selection criteria are only suitable for the policy objective if one of the models under consideration nests the true model. If all models are seen as imperfect approximations of the true nonlinear relationship, the model that performs well in the historical climate conditions is not guaranteed to perform well at the projected climate. We therefore propose a new criterion, the proximity-weighted mean squared error (PWMSE) that directly targets precision of the damage function at the projected future climate. To make this criterion feasible, we assign higher weights to historical years that can serve as “weather analogs” to the projected future climate when evaluating competing models using the PWMSE. We show that our approach selects the best approximate regression model that has the smallest weighted squared error of predicted impacts for a projected future climate. A simulation study and an application revisiting the impact of climate change on agricultural production illustrate the empirical relevance of our theoretical analysis.",
+      "abstract_cn": "气候变化影响研究为政策制定者提供关于未来气候变化对经济、健康及其他结果估计损害的信息。在大多数研究中，观测到年度结果变量，如农业产量，以及高频回归变量，如日温度。应用研究者随后面临选择模型以刻画结果与高频回归变量之间非线性关系的问题，以便基于模型隐含的损害函数提出政策建议。我们表明，现有的模型选择标准仅当所考虑的模型之一嵌套真实模型时才适用于政策目标。如果所有模型都被视为真实非线性关系的不完美近似，那么在历史气候条件下表现良好的模型并不能保证在预测气候下表现良好。因此，我们提出一个新的标准，即邻近加权均方误差（PWMSE），直接针对预测未来气候下损害函数的精度。为了使该标准可行，我们在使用PWMSE评估竞争模型时，对能够作为预测未来气候“天气类比”的历史年份赋予更高权重。我们表明，我们的方法选择了对于预测未来气候具有最小预测影响加权平方误差的最佳近似回归模型。模拟研究和重新审视气候变化对农业生产影响的应用程序说明了我们理论分析的经验相关性。",
+      "doi": "10.1016/j.jeconom.2023.105511",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623002270",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v239y2024i1s0304407623002270.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:06:59+00:00",
+        "source_hash": "e852a9f6bc62ed6d233ed0f7762e1f80695bfe2be86c731083133eedf05d8e2a"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.105520",
+      "sequence": 9,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "Sparse generalized Yule–Walker estimation for large spatio-temporal autoregressions with an application to NO2 satellite data",
+      "title_cn": "大规模时空自回归的稀疏广义Yule–Walker估计及其在NO2卫星数据中的应用",
+      "authors": [
+        "Hanno Reuvers",
+        "Etienne Wijler"
+      ],
+      "abstract_en": "We consider a high-dimensional model in which variables are observed over time and space. The model consists of a spatio-temporal regression containing a time lag and a spatial lag of the dependent variable. Unlike classical spatial autoregressive models, we do not rely on a predetermined spatial interaction matrix, but infer all spatial interactions from the data. Assuming sparsity, we estimate the spatial and temporal dependence fully data-driven by penalizing a set of Yule–Walker equations. This regularization can be left unstructured, but we also propose customized shrinkage procedures when observations originate from spatial grids (e.g. satellite images). Finite sample error bounds are derived and estimation consistency is established in an asymptotic framework wherein the sample size and the number of spatial units diverge jointly. Exogenous variables can be included as well. A simulation exercise shows strong finite sample performance compared to competing procedures. As an empirical application, we model satellite measured nitrogen dioxide (NO2) concentrations in London. Our approach delivers forecast improvements over a competitive benchmark and we discover evidence for strong spatial interactions.",
+      "abstract_cn": "我们考虑一个高维模型，其中变量在时间和空间上被观测。该模型包含一个时空回归，包括因变量的时间滞后和空间滞后。与经典的空间自回归模型不同，我们不依赖于预定的空间交互矩阵，而是从数据中推断所有空间交互。假设稀疏性，我们通过惩罚一组Yule–Walker方程来完全数据驱动地估计空间和时间依赖性。这种正则化可以保持非结构化，但我们也提出了当观测来自空间网格（例如卫星图像）时的定制收缩程序。推导了有限样本误差界，并在样本量和空间单元数量共同发散的渐近框架中建立了估计一致性。外生变量也可以包含在内。模拟实验显示，与竞争方法相比，具有强大的有限样本性能。作为实证应用，我们对伦敦的卫星测量二氧化氮（NO2）浓度进行建模。我们的方法在竞争基准上提供了预测改进，并发现了强空间交互的证据。",
+      "doi": "10.1016/j.jeconom.2023.105520",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623002361",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v239y2024i1s0304407623002361.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:07:02+00:00",
+        "source_hash": "11dc6e22434b90c24efda55c46f41d6a45075dd399cf42f00fe9c04a013b64b0"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.105547",
+      "sequence": 10,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "Testing for coefficient distortion due to outliers with an application to the economic impacts of climate change",
+      "title_cn": "检验异常值导致的系数失真及其在气候变化经济影响中的应用",
+      "authors": [
+        "Xiyu Jiao",
+        "Felix Pretis",
+        "Moritz Schwarz"
+      ],
+      "abstract_en": "Outlying observations can bias regression estimates, requiring the use of outlier-robust estimators. Comparing robust estimates to those obtained using ordinary least squares (OLS) is a common robustness check, however, such comparisons have been mostly informal due to the lack of available tests. Here we introduce a formal test for coefficient distortion due to outliers in regression models. Our proposed test is based on the difference between OLS and robust estimates obtained using a class of Huber-skip M-type estimators (such as Impulse Indicator Saturation or Robustified Least Squares). We show that our distortion test has an asymptotic chi-squared distribution by establishing the asymptotics of the corresponding Huber-skip M-estimators using an empirical process Central Limit Theorem recently developed in the literature. The test is valid for cross-sectional, as well as panel, and stationary or deterministically-trending time series models. To improve finite sample performance and to alleviate concerns on distributional assumptions, we explore several bootstrap testing schemes. We apply our outlier distortion test to estimates of the macro-economic impacts of climate change allowing for adaptation.",
+      "abstract_cn": "异常观测值可能使回归估计产生偏差，因此需要使用对异常值稳健的估计量。将稳健估计与普通最小二乘法（OLS）得到的估计进行比较是一种常见的稳健性检验，然而，由于缺乏可用的检验方法，此类比较大多是非正式的。在此，我们提出一种正式的检验方法，用于检验回归模型中因异常值导致的系数失真。我们提出的检验基于OLS估计与使用一类Huber-skip M型估计量（如脉冲指示饱和或稳健最小二乘）得到的稳健估计之间的差异。我们通过利用文献中最近发展的经验过程中心极限定理，建立了相应的Huber-skip M估计量的渐近性质，证明我们的失真检验具有渐近卡方分布。该检验适用于横截面数据、面板数据以及平稳或确定性趋势时间序列模型。为了改善有限样本性能并缓解对分布假设的担忧，我们探讨了几种自助抽样检验方案。我们将异常值失真检验应用于考虑适应性的气候变化宏观经济影响估计。",
+      "doi": "10.1016/j.jeconom.2023.105547",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623002634",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v239y2024i1s0304407623002634.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:07:05+00:00",
+        "source_hash": "8766a9cf719045e12bff888863674f90c5d216bbb508ce480453f517e70aa798"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.105645",
+      "sequence": 11,
+      "source_sequence": 11,
+      "article_type": "research-article",
+      "title_en": "Reprint of: When will Arctic sea ice disappear? Projections of area, extent, thickness, and volume",
+      "title_cn": "重印：北极海冰何时消失？面积、范围、厚度和体积的预测",
+      "authors": [
+        "Francis X. Diebold",
+        "Glenn D. Rudebusch",
+        "Maximilian Göbel",
+        "Philippe Goulet Coulombe",
+        "Boyuan Zhang"
+      ],
+      "abstract_en": "Rapidly diminishing Arctic summer sea ice is a strong signal of the pace of global climate change. We provide point, interval, and density forecasts for four measures of Arctic sea ice: area, extent, thickness, and volume. Importantly, we enforce the joint constraint that these measures must simultaneously arrive at an ice-free Arctic. We apply this constrained joint forecast procedure to models relating sea ice to atmospheric carbon dioxide concentration and models relating sea ice directly to time. The resulting “carbon-trend” and “time-trend” projections are mutually consistent and predict a nearly ice-free summer Arctic Ocean by the mid-2030s with an 80% probability. Moreover, the carbon-trend projections show that global adoption of a lower carbon path would likely delay the arrival of a seasonally ice-free Arctic by only a few years.",
+      "abstract_cn": "北极夏季海冰的迅速减少是全球气候变化速度的一个强烈信号。我们提供了北极海冰四个指标的点预测、区间预测和密度预测：面积、范围、厚度和体积。重要的是，我们强制执行这些指标必须同时达到无冰北极的联合约束。我们将这种受约束的联合预测程序应用于将海冰与大气二氧化碳浓度相关联的模型以及将海冰直接与时间相关联的模型。由此产生的“碳趋势”和“时间趋势”预测相互一致，并预测到2030年代中期，北极夏季海洋几乎无冰的概率为80%。此外，碳趋势预测表明，全球采用较低碳路径可能只会将季节性无冰北极的到来推迟几年。",
+      "doi": "10.1016/j.jeconom.2023.105645",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623003615",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v239y2024i1s0304407623003615.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:07:08+00:00",
+        "source_hash": "2355631caa9756eba257e20e72c2e6ae108bd3036f1e6b6c62b1da080458c1e2"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "repec-serial-page",
+    "roster_authority": "repec-publisher-supplied",
+    "roster_match_scope": "repec-volume-items",
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 11,
+    "authors_complete": 11,
+    "abstract_en_complete": 11,
+    "translation_complete": 11,
+    "duplicate_count": 0,
+    "repec_item_count": 11,
+    "flags": [],
+    "official_item_count": 11,
+    "publishable_item_count": 11,
+    "content_counts": {
+      "official_items": 11,
+      "observed_items": 11,
+      "publishable_items": 11,
+      "research_articles": 11,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 11
+    }
+  },
+  "content_counts": {
+    "official_items": 11,
+    "observed_items": 11,
+    "publishable_items": 11,
+    "research_articles": 11,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 11
+  },
+  "issue_label": "Vol. 239 · No. 1",
+  "content_status": "complete",
+  "source_status": "publisher_verified",
+  "publication_state": "ready"
+}

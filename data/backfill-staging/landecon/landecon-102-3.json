@@ -1,0 +1,462 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "landecon-102-3",
+  "journal_id": "landecon",
+  "journal_name": "Land Economics",
+  "volume": "102",
+  "issue": "3",
+  "publication_date": "July 2026",
+  "source_url": "https://le.uwpress.org/content/by/year",
+  "retrieved_at": "2026-08-18T17:18:17+00:00",
+  "expected_article_count": 9,
+  "research_article_count": 9,
+  "status": "incomplete",
+  "development_sample": false,
+  "articles": [
+    {
+      "paper_id": "doi:10.3368/le.102.3.013026-0018",
+      "sequence": 1,
+      "source_sequence": 313,
+      "article_type": "research-article",
+      "title_en": "Quantifying Recreational Benefits from Fish Consumption Advisories",
+      "title_cn": "从渔业消费建议中量化休闲益处",
+      "authors": [
+        "Xibo Wan",
+        "Yongwang Ren",
+        "Ruohao Zhang",
+        "Jiameng Zheng",
+        "Wendong Zhang"
+      ],
+      "abstract_en": "<h3>Abstract</h3> This paper examines the impact of fish consumption advisories on recreational behavior and visitor welfare using large-scale mobility data from Michigan. By integrating cellphone-based location data with a discrete choice modeling framework, we estimate the causal effects of advisories on recreation site selection and quantify the associated welfare benefits of disclosing risks. Our findings show that advisories significantly deter recreational visits, with an average visitor willing to pay approximately $72 per visit to avoid sites under advisories. We also find that disclosure on advisories led to aggregated welfare benefits of $3.45 million annually, highlighting its broader recreational benefits.",
+      "abstract_cn": "<h3>摘要</h3> 本文利用密歇根州的大规模出行数据，研究渔业消费建议对休闲行为和游客福利的影响。通过将手机定位数据与离散选择模型相结合，估算建议对休闲地点选择的因果效应，并量化披露风险的相关福利收益。研究结果显示，建议显著抑制休闲访问，平均每位游客愿意支付约$72美元以避免在建议区域内的地点。我们还发现，建议披露带来了每年$3.45至$百万美元的整体福利收益，凸显其更广泛的休闲益处。",
+      "abstract_snippet_en": "",
+      "doi": "10.3368/le.102.3.013026-0018",
+      "source_url": "https://doi.org/10.3368/le.102.3.013026-0018",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://le.uwpress.org/content/by/year",
+        "roster": "crossref:issn:0023-7639",
+        "metadata": "crossref",
+        "abstract_en": "openalex",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.3368/le.102.3.013026-0018"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4.1-nano",
+        "translated_at": "2026-07-26T19:52:02+00:00",
+        "source_hash": "b09e45fc31f14434c13510dae98a1106b368900a2c76b564b528eabc46bb57b7"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3368/le.102.3.013026-0020",
+      "sequence": 2,
+      "source_sequence": 339,
+      "article_type": "research-article",
+      "title_en": "Causal Recreation Demand Estimation with Cell Phone Mobility Data",
+      "title_cn": "基于手机出行数据的休闲需求因果估计",
+      "authors": [
+        "Nieyan Cheng",
+        "Xibo Wan"
+      ],
+      "abstract_en": "<h3>Abstract</h3> Accurately estimating the welfare impacts of environmental changes in recreation demand modeling requires robust causal inference methods. However, a persistent challenge remains as the zero market share issue restricts the causal inference application to broader regions and longer periods. To address this, we integrate empirical Bayes posterior mean estimation into a two-step random coefficient logit model, ensuring that sites with low or zero visitation are properly incorporated without distorting demand estimates. We apply this framework to the 2021 Huntington Beach oil spill, using high-frequency cellphone data to track changes in beach visits. By combining the Synthetic Difference-in-Differences (SDID) approach with empirical Bayes-adjusted market shares, we examine the causal effects of temporary beach closures on visitor welfare. Our findings reveal that Huntington Beach experienced the largest and most prolonged welfare loss, with an estimated aggregate loss of $1.0 million and weekly losses of $83 thousand persisting beyond the initial closure. In contrast, Newport Beach and Laguna Beach exhibited faster recoveries. This study advances recreation demand modeling by refining demand estimation for low-visit sites and strengthening causal inference techniques for environmental disruptions, ultimately providing a more reliable framework for assessing the economic costs of beach closures and other environmental policy interventions.",
+      "abstract_cn": "<h3>摘要</h3> 在休闲需求模型中准确估算环境变化的福利影响需要稳健的因果推断方法。然而，零市场份额问题限制了因果推断的应用范围至更广泛的区域和更长的时期。为此，本文将经验贝叶斯后验均值估计融入二步骤的随机系数逻辑模型，确保低访次或零访问量较少的地点得以合理纳入，而不扭曲需求估计。我们将该框架应用于2021亨廷顿海滩石油泄漏事件，利用高频手机数据追踪海滩访问变化。通过结合合成差分法（SDID）与经验贝叶斯调整的市场份额，我们分析了临时海滩关闭对游客福利的因果影响。研究结果显示，亨廷顿海滩经历了最大且持续时间最长的福利损失，估算总损失为1.0 百万美元，且每周损失为83 千美元，且这种损失持续超出初次关闭期。相比之下，纽波特海滩和拉古纳海滩的恢复速度较快。本研究通过改进低访次地点的需求估算和增强环境扰动的因果推断技术，推动了休闲需求模型的发展，最终为评估海滩关闭及其他环境政策干预的经济成本提供了更为可靠的分析框架。",
+      "abstract_snippet_en": "",
+      "doi": "10.3368/le.102.3.013026-0020",
+      "source_url": "https://doi.org/10.3368/le.102.3.013026-0020",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://le.uwpress.org/content/by/year",
+        "roster": "crossref:issn:0023-7639",
+        "metadata": "crossref",
+        "abstract_en": "openalex",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.3368/le.102.3.013026-0020"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4.1-nano",
+        "translated_at": "2026-07-26T19:52:08+00:00",
+        "source_hash": "742c6ec197893d5e6e1b04e53191f233011c61a3b2e3642dbb362610f3660a0b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3368/le.102.3.123025-0107",
+      "sequence": 3,
+      "source_sequence": 361,
+      "article_type": "research-article",
+      "title_en": "Valuing Offshore Habitat to Recreational Anglers Using Cell Phone Location Data",
+      "title_cn": "利用手机位置数据评估近海栖息地对休闲钓鱼者的价值",
+      "authors": [
+        "Mona Ahmadiani",
+        "Richard T. Woodward"
+      ],
+      "abstract_en": "<h3>Abstract</h3> Offshore structures, including operational and reefed energy platforms, strengthen marine habitats and generate economic value, motivating interest in quantifying their net benefits. We combine a Random Utility Model with Murdock9s (2006) site-choice approach to estimate the nonmarket value of offshore structures to recreational anglers in the Western Gulf of Mexicoi (2019-2022). Recreational fishing trips are identified in cellphone location data using a machine learning classifier trained on Automatic Identification System data. Location choices indicate that anglers value destinations farther offshore, particularly those with operating and reefed energy platforms, while other artificial reefs generate smaller and spatially variable benefits.",
+      "abstract_cn": "<h3>摘要</h3> 近海结构，包括运营中的和改造成礁石的能源平台，能够增强海洋栖息地并产生经济价值，这激发了人们对量化其净收益的兴趣。我们将随机效用模型与Murdock（2006）的场所选择方法相结合，估计了2019-2022年墨西哥湾西部休闲钓鱼者对近海结构的非市场价值。通过使用基于自动识别系统数据训练的机器学习分类器，在手机位置数据中识别出休闲钓鱼旅行。位置选择表明，钓鱼者更看重更远的近海目的地，特别是那些有运营和改造成礁石的能源平台的目的地，而其他人工礁石则产生较小且空间可变的收益。",
+      "abstract_snippet_en": "",
+      "doi": "10.3368/le.102.3.123025-0107",
+      "source_url": "https://doi.org/10.3368/le.102.3.123025-0107",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://le.uwpress.org/content/by/year",
+        "roster": "crossref:issn:0023-7639",
+        "metadata": "crossref",
+        "abstract_en": "openalex",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.3368/le.102.3.123025-0107"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "mistral-ai/mistral-medium-2505",
+        "translated_at": "2026-07-26T20:25:44+00:00",
+        "source_hash": "6d18bdaec742c4128871fc79cbf6c577785962f8b6276331ab9f18502a091eec"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3368/le.102.3.012726-0016",
+      "sequence": 4,
+      "source_sequence": 380,
+      "article_type": "research-article",
+      "title_en": "Estimating the Economic Value of Grassland Tourism Services Based on Mobile Phone Data",
+      "title_cn": "基于手机信令数据的草原旅游服务经济价值估算",
+      "authors": [
+        "Na Liu",
+        "Xinxin Lv",
+        "Pengfei Liu",
+        "Lingling Hou"
+      ],
+      "abstract_en": "<h3>Abstract</h3> This study evaluates the economic value of grassland tourism in Inner Mongolia, China, using mobile phone signaling data to track tourist flows from 333 cities to 103 counties in 2020. A zonal travel cost model, both parametric and non-parametric, was employed. Results indicate the tourism value ranged from 585.9 to 598.4 billion CNY (US $84.9–86.7 billion), about 2.5 times the tourism revenue, constituting 29% of regional GDP. In the absence of COVID-19, the value would have reached 936.5 billion CNY. The study reveals spatial disparities, with grassland quality, infrastructure, and regional development driving tourism value.",
+      "abstract_cn": "<h3>摘要</h3> 本研究利用手机信令数据追踪333年103个城市到2020个县的旅游流量，评估了中国内蒙古草原旅游的经济价值。采用参数化和非参数化的分区旅行成本模型。结果表明，旅游价值在585.9至598.4亿元人民币（84.9至86.7亿美元）之间，约为旅游收入的2.5倍，占区域GDP的29%。在没有COVID-19的情况下，该价值将达到936.5亿元人民币。研究揭示了空间差异，草原质量、基础设施和区域发展是驱动旅游价值的因素。",
+      "abstract_snippet_en": "",
+      "doi": "10.3368/le.102.3.012726-0016",
+      "source_url": "https://doi.org/10.3368/le.102.3.012726-0016",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://le.uwpress.org/content/by/year",
+        "roster": "crossref:issn:0023-7639",
+        "metadata": "crossref",
+        "abstract_en": "openalex",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.3368/le.102.3.012726-0016"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "mistral-ai/mistral-medium-2505",
+        "translated_at": "2026-07-26T20:26:08+00:00",
+        "source_hash": "ac8bca58e71a98d2c2ac39e0001220804870df7e3ea61bc442ba622e95a80e7c"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3368/le.102.3.012626-0015",
+      "sequence": 5,
+      "source_sequence": 400,
+      "article_type": "research-article",
+      "title_en": "Are Mobile Device Location Data a Substitute for Travel Cost Surveys?",
+      "title_cn": "移动设备位置数据能否替代旅游成本调查？",
+      "authors": [
+        "Jude Bayham",
+        "Aaron J. Enriquez",
+        "Leslie Richardson"
+      ],
+      "abstract_en": "<h3>Abstract</h3> Mobile device location data offer a low-cost alternative for measuring visitation to outdoor recreation sites and are known to correlate with official visitation counts. Less is known about whether these data can recover recreation demand and consumer surplus comparable to surveybased methods. We compare travel cost models estimated using mobile device and survey data for 17 U.S. National Park Service sites. Results are mixed. We examine the roles of aggregation and sampling bias and use LASSO regression to assess whether sample and site characteristics explain discrepancies.",
+      "abstract_cn": "<h3>摘要</h3> 移动设备位置数据为衡量户外休闲场所访客量提供了一种低成本的替代方法，并且已知与官方访客统计数据存在相关性。关于这些数据是否能够恢复与调查方法相当的休闲需求和消费者剩余，尚不清楚。我们比较了使用移动设备数据和调查数据估算的美国国家公园管理局（17）场所的旅游成本模型。结果存在差异。我们考察了聚合和抽样偏差的作用，并采用LASSO回归评估样本和场所特征是否能解释差异。",
+      "abstract_snippet_en": "",
+      "doi": "10.3368/le.102.3.012626-0015",
+      "source_url": "https://doi.org/10.3368/le.102.3.012626-0015",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://le.uwpress.org/content/by/year",
+        "roster": "crossref:issn:0023-7639",
+        "metadata": "crossref",
+        "abstract_en": "openalex",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.3368/le.102.3.012626-0015"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4.1-nano",
+        "translated_at": "2026-07-26T19:53:11+00:00",
+        "source_hash": "5b226905b1c3752a4dff1bc6bc502fe082ef0cf6c026ca22649d42cfdb4216d8"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3368/le.102.3.013026-0019",
+      "sequence": 6,
+      "source_sequence": 418,
+      "article_type": "research-article",
+      "title_en": "Impact of Water Quality at the Beach on Disadvantaged Communities in Rhode Island",
+      "title_cn": "海滩水质对罗德岛弱势群体的影响",
+      "authors": [
+        "Sonia Refulio-Coronado",
+        "Pengfei Liu",
+        "Nathaniel Merrill",
+        "Emi Uchida"
+      ],
+      "abstract_en": "<h3>Abstract</h3> Urbanization and agriculture have degraded US coastal waters, causing beach closures and disparities in access to clean beaches. This study examines racial and income disparities in how water quality affects recreational beach use in the southern Northeastern United States, using cell phone mobility data and satellite-derived water clarity measures. Results from a multiple-site zonal travel cost model show that <b><i>improved</i></b> water clarity increases beach visitation, with larger benefits accruing to more affluent, less diverse communities. These findings suggest that the recreational benefits of water quality improvements are inequitably distributed and have implications for policies prioritizing disadvantaged coastal communities.",
+      "abstract_cn": "<h3>摘要</h3> 城市化和农业活动已导致美国沿海水域退化，造成海滩关闭和清洁海滩访问的不平等。本研究采用手机出行数据和卫星水体透明度测量，分析了美国东北部南部地区水质对休闲海滩使用的种族和收入差异。多站点区域旅行成本模型的结果显示，<b><i>改善</i></b>水体透明度能增加海滩访问次数，且更富裕、少数族裔比例较低的社区受益更大。这些发现表明，水质改善带来的休闲益处分配不平等，并对优先考虑弱势沿海社区的政策具有启示意义。",
+      "abstract_snippet_en": "",
+      "doi": "10.3368/le.102.3.013026-0019",
+      "source_url": "https://doi.org/10.3368/le.102.3.013026-0019",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://le.uwpress.org/content/by/year",
+        "roster": "crossref:issn:0023-7639",
+        "metadata": "crossref",
+        "abstract_en": "openalex",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.3368/le.102.3.013026-0019"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4.1-nano",
+        "translated_at": "2026-07-26T19:53:19+00:00",
+        "source_hash": "3462651f589804caa6288f5e5b4dcf22464b79521729d3a5016620abb8b3abdc"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3368/le.102.3.011626-0006",
+      "sequence": 7,
+      "source_sequence": 437,
+      "article_type": "research-article",
+      "title_en": "Evaluating Mobility Data for Recreation Monitoring",
+      "title_cn": "评估出行数据在休闲监测中的应用",
+      "authors": [
+        "Cameron Duff",
+        "Alice Antia",
+        "James Hilger",
+        "Eric Horsch",
+        "Nathaniel Merrill",
+        "Jason Murray",
+        "Samantha Winder",
+        "Spencer Wood",
+        "Matthew Zafonte"
+      ],
+      "abstract_en": "<h3>Abstract</h3> Mobile device location data (or mobility data, MD) are a novel and exciting source of information for recreational monitoring. In this paper we analyze datasets from four commercial vendors across three case studies to illustrate some important challenges. Our results show inconsistent spatial-temporal patterns and correlations with on-site counts. Given this evidence, we describe a conceptual model of the potential sources of error and structural variability in visitation estimates derived from MD. We discuss approaches for evaluation of data quality and suggest a range of supplemental data products that vendors could provide to support recreation analysis.",
+      "abstract_cn": "<h3>摘要</h3> 移动设备位置数据（或出行数据，MD）是一种新颖且令人振奋的休闲监测信息来源。本文分析了来自四商业供应商在三案例研究中的数据集，以说明一些重要的挑战。我们的结果显示空间-时间模式和与现场计数的相关性不一致。鉴于这些证据，我们描述了一个关于由MD得出的访客估算中的潜在误差源和结构性变异的概念模型。我们讨论了数据质量评估的方法，并建议供应商可以提供一系列补充数据产品，以支持休闲分析。",
+      "abstract_snippet_en": "",
+      "doi": "10.3368/le.102.3.011626-0006",
+      "source_url": "https://doi.org/10.3368/le.102.3.011626-0006",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://le.uwpress.org/content/by/year",
+        "roster": "crossref:issn:0023-7639",
+        "metadata": "crossref",
+        "abstract_en": "openalex",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.3368/le.102.3.011626-0006"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4.1-nano",
+        "translated_at": "2026-07-26T19:53:26+00:00",
+        "source_hash": "8aa72352dc43e376ce1bc20243d5cd4b021336d20cd6b70375ceece5144d92e2"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3368/le.102.3.011626-0005",
+      "sequence": 8,
+      "source_sequence": 455,
+      "article_type": "research-article",
+      "title_en": "Smart Device Recreation Data",
+      "title_cn": "智能设备休闲数据",
+      "authors": [
+        "Cameron Duff",
+        "Christopher Giguere",
+        "Jason Murray"
+      ],
+      "abstract_en": "<h3>Abstract</h3> Human mobility data (MD) from smartphones may offer a scalable alternative to fieldwork for Natural Resource Damage Assessments (NRDAs) and non-market valuation. We test MD9s utility for estimating recreational demand changes after a 2019 Houston tank fire. We apply count regressions and zonal travel cost models to calculate welfare losses. While this MD dataset reflects expected temporal patterns, comparisons with reference data reveal that \"coverage rates\" vary significantly across sites. This measurement error complicates counterfactual predictions. Economists should use caution when deriving absolute recreational value from MD.",
+      "abstract_cn": "<h3>摘要</h3> 来自智能手机的人类流动数据（MD）可能为自然资源损害评估（NRDAs）和非市场估值提供一种可扩展的替代实地调查的方法。我们检验了MD在估算2019休斯顿油罐火灾后休闲需求变化中的实用性。我们采用计数回归和区域旅行成本模型来计算福利损失。虽然该MD数据集反映了预期的时间模式，但与参考数据的比较显示，“覆盖率”在不同地点存在显著差异。这一测量误差增加了反事实预测的复杂性。经济学家在从MD中推导绝对休闲价值时应保持谨慎。",
+      "abstract_snippet_en": "",
+      "doi": "10.3368/le.102.3.011626-0005",
+      "source_url": "https://doi.org/10.3368/le.102.3.011626-0005",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://le.uwpress.org/content/by/year",
+        "roster": "crossref:issn:0023-7639",
+        "metadata": "crossref",
+        "abstract_en": "openalex",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.3368/le.102.3.011626-0005"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4.1-nano",
+        "translated_at": "2026-07-26T19:53:33+00:00",
+        "source_hash": "0c640db49d0e641b04b95f1e8787905f07f7936fca2216097394a5e4b06a493e"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3368/le.102.3.012126-0010",
+      "sequence": 9,
+      "source_sequence": 471,
+      "article_type": "research-article",
+      "title_en": "Evaluating Precision, Privacy, and Representation with Cell Phone Data",
+      "title_cn": "利用手机数据评估精准性、隐私保护与代表性",
+      "authors": [
+        "Cristina Connolly",
+        "Sandro Steinbach",
+        "Mike Vo",
+        "Xibo Wan"
+      ],
+      "abstract_en": "<h3>Abstract</h3> While mobility data has emerged as a promising alternative for assessing the economic value of recreation, their reliability depends critically on how data are processed and protected. This paper systematically evaluates how key data-handling practices affect the accuracy of recreation demand estimation. Using a random utility model to analyze recreation visits at Cape Cod beaches from 2019-2022, we evaluate how methodological choices influence the marginal willingness to pay (MWTP) for avoiding fecal bacteria contamination. We find an average MWTP of $8.92 per visit when using the proposed practices, such as refined visit definitions, sampling weights, and long-term choice sets. Deviations from these practices can introduce significant biases: relaxing the minimum dwell time and applying differential privacy reduce MWTP by 57% and 65%, respectively, while short-term choice set definition inflates it by 10%. By demonstrating the sensitivity of welfare estimates to data-processing decisions, this study highlights the importance of transparent and judicious mobility data practices for credible environmental valuation and evidence-based policymaking.",
+      "abstract_cn": "<h3>摘要</h3> 虽然流动性数据已成为评估休闲经济价值的有前景的替代方案，但其可靠性在很大程度上依赖于数据的处理和保护方式。本文系统评估了关键数据处理方法如何影响休闲需求估算的准确性。利用随机效用模型分析来自2019-2022的凯普科德海滩休闲访问数据，我们评估了方法选择对避免粪便细菌污染的边际支付意愿（MWTP）的影响。结果显示，采用所提出的实践方法（如细化访问定义、采样权重和长期选择集）时，平均MWTP为8.92美元每次访问。偏离这些做法可能引入显著偏差：放宽最短停留时间和应用差分隐私分别使MWTP降低57%和65%，而短期选择集定义则使其上升10%。通过展示福利估算对数据处理决策的敏感性，本研究强调了透明且审慎的流动性数据处理实践在可信环境价值评估和循证政策制定中的重要性。",
+      "abstract_snippet_en": "",
+      "doi": "10.3368/le.102.3.012126-0010",
+      "source_url": "https://doi.org/10.3368/le.102.3.012126-0010",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://le.uwpress.org/content/by/year",
+        "roster": "crossref:issn:0023-7639",
+        "metadata": "crossref",
+        "abstract_en": "openalex",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.3368/le.102.3.012126-0010"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4.1-nano",
+        "translated_at": "2026-07-26T19:53:41+00:00",
+        "source_hash": "37e91c691db6173851be8887a6c766efd1ad0745f789b70590ed2cdaa184a7d4"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "crossref",
+    "roster_authority": "crossref-provisional",
+    "roster_match_scope": "crossref-issue-group",
+    "publisher_page_status": "blocked",
+    "excluded_item_count": 1,
+    "excluded_items": [
+      {
+        "title_en": "Introduction to the Special Issue",
+        "reason": "editorial_material",
+        "doi": "10.3368/le.102.3.intro",
+        "article_type": "editorial"
+      }
+    ],
+    "doi_complete": 9,
+    "authors_complete": 9,
+    "abstract_en_complete": 9,
+    "translation_complete": 9,
+    "duplicate_count": 0,
+    "flags": [
+      "publisher_html_blocked_crossref_fallback",
+      "crossref_provisional_roster"
+    ],
+    "official_item_count": 10,
+    "publishable_item_count": 9,
+    "content_counts": {
+      "official_items": 10,
+      "observed_items": 10,
+      "publishable_items": 9,
+      "research_articles": 9,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 1,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 9
+    }
+  },
+  "source_status": "source_pending",
+  "publication_state": "source_pending",
+  "content_counts": {
+    "official_items": 10,
+    "observed_items": 10,
+    "publishable_items": 9,
+    "research_articles": 9,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 1,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 9
+  },
+  "issue_label": "Vol. 102 · No. 3",
+  "content_status": "complete"
+}

@@ -1,0 +1,679 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "joe-240-2",
+  "journal_id": "joe",
+  "journal_name": "Journal of Econometrics",
+  "volume": "240",
+  "issue": "2",
+  "publication_date": "February 2024",
+  "source_url": "https://ideas.repec.org/s/eee/econom.html",
+  "retrieved_at": "2026-08-18T19:10:14+00:00",
+  "expected_article_count": 15,
+  "research_article_count": 15,
+  "status": "ready",
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2020.08.006",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Standard errors for panel data models with unknown clusters",
+      "title_cn": "未知聚类的面板数据模型的标准误",
+      "authors": [
+        "Jushan Bai",
+        "Sung Hoon Choi",
+        "Yuan Liao"
+      ],
+      "abstract_en": "This paper develops a new standard-error estimator for linear panel data models. The proposed estimator is robust to heteroskedasticity, serial correlation, and cross-sectional correlation of unknown forms. The serial correlation is controlled by the Newey–West method. To control for cross-sectional correlations, we propose to use the thresholding method, without assuming the clusters to be known. We establish the consistency of the proposed estimator. Monte Carlo simulations show the method works well. An empirical application is considered.",
+      "abstract_cn": "本文为线性面板数据模型开发了一种新的标准误估计量。所提出的估计量对异方差性、序列相关性和未知形式的横截面相关性具有稳健性。序列相关性通过Newey–West方法进行控制。为了控制横截面相关性，我们提出使用阈值方法，而不假设聚类是已知的。我们建立了所提出估计量的一致性。蒙特卡洛模拟表明该方法效果良好。考虑了一个实证应用。",
+      "doi": "10.1016/j.jeconom.2020.08.006",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407620303341",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v240y2024i2s0304407620303341.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:10:17+00:00",
+        "source_hash": "f7651bbd52a0f513bb2c615d6b9976fa39d6a90f305ca61fcf30f079a7333045"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2020.09.001",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Maximum likelihood estimation of latent Markov models using closed-form approximations",
+      "title_cn": "使用闭式近似的潜在马尔可夫模型的最大似然估计",
+      "authors": [
+        "Yacine Aït-Sahalia",
+        "Chenxu Li",
+        "Chen Xu Li"
+      ],
+      "abstract_en": "This paper proposes and implements an efficient and flexible method to compute maximum likelihood estimators of continuous-time models when part of the state vector is latent. Stochastic volatility and term structure models are typical examples. Existing methods integrate out the latent variables using either simulations as in MCMC, or replace the latent variables by observable proxies. By contrast, our approach relies on closed-form approximations to estimate parameters and simultaneously infer the distribution of filters, i.e., that of the latent states conditioning on observations. Without any particular assumption on the filtered distribution, we approximate in closed form a coupled iteration system for updating the likelihood function and filters based on the transition density of the state vector. Our procedure has a linear computational cost with respect to the number of observations, as opposed to the exponential cost implied by the high dimensional integral nature of the likelihood function. We establish the theoretical convergence of our method as the frequency of observation increases and conduct Monte Carlo simulations to demonstrate its performance.",
+      "abstract_cn": "本文提出并实现了一种高效且灵活的方法，用于在状态向量部分潜在时计算连续时间模型的最大似然估计量。随机波动率和期限结构模型是典型例子。现有方法要么像MCMC那样通过模拟来积分掉潜在变量，要么用可观测的代理变量替换潜在变量。相比之下，我们的方法依赖于闭式近似来估计参数，并同时推断滤波器的分布，即给定观测条件下潜在状态的分布。在不假设滤波分布具有任何特定形式的情况下，我们基于状态向量的转移密度，以闭式形式近似一个用于更新似然函数和滤波器的耦合迭代系统。我们的程序在计算成本上相对于观测数量是线性的，而似然函数的高维积分性质则意味着指数成本。我们建立了随着观测频率增加我们的方法在理论上的收敛性，并进行了蒙特卡洛模拟以展示其性能。",
+      "doi": "10.1016/j.jeconom.2020.09.001",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407620303389",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v240y2024i2s0304407620303389.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:10:20+00:00",
+        "source_hash": "e3f19d82c24932552793062359d9ef346a5464ea1860132f4f1248e33543b58d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2020.08.009",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Network and panel quantile effects via distribution regression",
+      "title_cn": "基于分布回归的网络与面板分位数效应",
+      "authors": [
+        "Victor Chernozhukov",
+        "Iván Fernández-Val",
+        "Martin Weidner"
+      ],
+      "abstract_en": "This paper provides a method to construct simultaneous confidence bands for quantile functions and quantile effects in nonlinear network and panel models with unobserved two-way effects, strictly exogenous covariates, and possibly discrete outcome variables. The method is based upon projection of simultaneous confidence bands for distribution functions constructed from fixed effects distribution regression estimators. These fixed effects estimators are debiased to deal with the incidental parameter problem. Under asymptotic sequences where both dimensions of the data set grow at the same rate, the confidence bands for the quantile functions and effects have correct joint coverage in large samples. An empirical application to gravity models of trade illustrates the applicability of the methods to network data.",
+      "abstract_cn": "本文提供了一种方法，用于在具有不可观测的双向效应、严格外生协变量以及可能离散的结果变量的非线性网络和面板模型中，构建分位数函数和分位数效应的同时置信带。该方法基于对由固定效应分布回归估计量构建的分布函数的置信带进行投影。这些固定效应估计量经过去偏处理以应对伴随参数问题。在数据集的两个维度以相同速率增长的新近序列下，分位数函数和效应的置信带在大样本中具有正确的联合覆盖率。一个对贸易引力模型的经验应用说明了这些方法在网络数据上的适用性。",
+      "doi": "10.1016/j.jeconom.2020.08.009",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407620303390",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v240y2024i2s0304407620303390.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:10:22+00:00",
+        "source_hash": "160592ec95875f0d6e39290bae1eeac54dce4f2d6065b528d14a52ba50edd39f"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.01.003",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "A comparison of the GB2 and skewed generalized log-t distributions with an application in finance",
+      "title_cn": "第二类广义贝塔分布与偏态广义对数t分布的比较及其在金融中的应用",
+      "authors": [
+        "Joshua D. Higbee",
+        "James B. McDonald"
+      ],
+      "abstract_en": "Several families of statistical distributions have been used to model financial data. The four-parameter generalized beta of the second kind (GB2) and five-parameter skewed generalized t (SGT) have been fit to return and log-return data, respectively. We introduce the skewed generalized log-t (SGLT) distribution and note that the GB2 and SGLT share such distributions as the asymmetric log-Laplace (ALL), log-Laplace (LL), and log-normal (LN). We then compare the relative performance of the GB2 and SGLT in modeling the distribution of daily, weekly, and monthly stock return data. We find that the GB2 and SGLT perform similarly and that the three-parameter log-t (LT) distribution is quite robust.",
+      "abstract_cn": "已有多个统计分布族被用于对金融数据进行建模。四参数的第二类广义贝塔分布（GB2）和五参数的偏态广义t分布（SGT）分别被拟合到收益和对数收益数据上。我们引入了偏态广义对数t（SGLT）分布，并注意到GB2和SGLT共享诸如非对称对数拉普拉斯（ALL）、对数拉普拉斯（LL）和对数正态（LN）等分布。然后，我们比较了GB2和SGLT在建模日、周和月股票收益数据分布方面的相对表现。我们发现GB2和SGLT的表现相似，且三参数的对数t（LT）分布相当稳健。",
+      "doi": "10.1016/j.jeconom.2021.01.003",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407621000154",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v240y2024i2s0304407621000154.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:10:24+00:00",
+        "source_hash": "3a0d6cac1c69712b8ef1da816d9d963e29ea1fe2bcbae9007554bb704dadfc7c"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.01.006",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Local regression distribution estimators",
+      "title_cn": "局部回归分布估计量",
+      "authors": [
+        "Matias D. Cattaneo",
+        "Michael Jansson",
+        "Xinwei Ma"
+      ],
+      "abstract_en": "This paper investigates the large sample properties of local regression distribution estimators, which include a class of boundary adaptive density estimators as a prime example. First, we establish a pointwise Gaussian large sample distributional approximation in a unified way, allowing for both boundary and interior evaluation points simultaneously. Using this result, we study the asymptotic efficiency of the estimators, and show that a carefully crafted minimum distance implementation based on “redundant” regressors can lead to efficiency gains. Second, we establish uniform linearizations and strong approximations for the estimators, and employ these results to construct valid confidence bands. Third, we develop extensions to weighted distributions with estimated weights and to local L2 estimation. Finally, we illustrate our methods with two applications in program evaluation: counterfactual density testing, and IV specification and heterogeneity density analysis. Companion software packages in Stata and R are available.",
+      "abstract_cn": "本文研究了局部回归分布估计量的大样本性质，其中包括一类边界自适应密度估计量作为主要例子。首先，我们以统一的方式建立了逐点高斯大样本分布近似，同时允许边界点和内部评估点。利用这一结果，我们研究了估计量的渐近效率，并表明基于“冗余”回归量的精心设计的最小距离实现可以带来效率提升。其次，我们建立了估计量的均匀线性化和强近似，并利用这些结果构建有效的置信带。第三，我们将扩展应用于具有估计权重的加权分布和局部L2估计。最后，我们通过项目评估中的两个应用来说明我们的方法：反事实密度检验，以及工具变量设定和异质性密度分析。可提供Stata和R语言的配套软件包。",
+      "doi": "10.1016/j.jeconom.2021.01.006",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407621000427",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v240y2024i2s0304407621000427.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:10:26+00:00",
+        "source_hash": "1161ce488f41b598e4fe75b771b9ffcfab6a3532d3242c2100883ec6ce877fe9"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2020.09.012",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Testing and relaxing the exclusion restriction in the control function approach",
+      "title_cn": "控制函数方法中排除性约束的检验与放松",
+      "authors": [
+        "Xavier D’Haultfœuille",
+        "Stefan Hoderlein",
+        "Yuya Sasaki"
+      ],
+      "abstract_en": "The control function approach which employs an instrumental variable excluded from the outcome equation is a very common solution to deal with the problem of endogeneity in nonseparable models. Exclusion restrictions, however, are frequently controversial. We first argue that, in a nonparametric triangular structure typical of the control function literature, one can actually test this exclusion restriction provided the instrument satisfies a local irrelevance condition. Second, we investigate identification without such exclusion restrictions, i.e., if the “instrument” that is independent of the unobservables in the outcome equation also directly affects the outcome variable. In particular, we show that identification of average causal effects can be achieved in the two most common special cases of the general nonseparable model: linear random coefficients models and single index models.",
+      "abstract_cn": "控制函数方法采用一个从结果方程中排除的工具变量，是处理不可分离模型中内生性问题的非常常见的解决方案。然而，排除性约束经常存在争议。我们首先论证，在控制函数文献中典型的非参数三角结构中，如果工具变量满足局部无关条件，实际上可以检验这一排除性约束。其次，我们研究在没有此类排除性约束的情况下的识别问题，即如果与结果方程中不可观测因素独立的“工具变量”也直接影响结果变量。特别地，我们表明，在一般不可分离模型的两个最常见的特例中，即线性随机系数模型和单指数模型中，可以实现平均因果效应的识别。",
+      "doi": "10.1016/j.jeconom.2020.09.012",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407621000439",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v240y2024i2s0304407621000439.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:10:28+00:00",
+        "source_hash": "bd32f32e274b335a2ffe2bffddcd466a4a99d5322ceb79d1d10e286be0ff3995"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2020.09.013",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Using Wasserstein Generative Adversarial Networks for the design of Monte Carlo simulations",
+      "title_cn": "使用Wasserstein生成对抗网络设计蒙特卡洛模拟",
+      "authors": [
+        "Susan Athey",
+        "Guido W. Imbens",
+        "Jonas Metzger",
+        "Evan Munro"
+      ],
+      "abstract_en": "When researchers develop new econometric methods it is common practice to compare the performance of the new methods to those of existing methods in Monte Carlo studies. The credibility of such Monte Carlo studies is often limited because of the discretion the researcher has in choosing the Monte Carlo designs reported. To improve the credibility we propose using a class of generative models that has recently been developed in the machine learning literature, termed Generative Adversarial Networks (GANs) which can be used to systematically generate artificial data that closely mimics existing datasets. Thus, in combination with existing real data sets, GANs can be used to limit the degrees of freedom in Monte Carlo study designs for the researcher, making any comparisons more convincing. In addition, if an applied researcher is concerned with the performance of a particular statistical method on a specific data set (beyond its theoretical properties in large samples), she can use such GANs to assess the performance of the proposed method, e.g. the coverage rate of confidence intervals or the bias of the estimator, using simulated data which closely resembles the exact setting of interest. To illustrate these methods we apply Wasserstein GANs (WGANs) to the estimation of average treatment effects. In this example, we find that (i) there is not a single estimator that outperforms the others in all three settings, so researchers should tailor their analytic approach to a given setting, (ii) systematic simulation studies can be helpful for selecting among competing methods in this situation, and (iii) the generated data closely resemble the actual data.",
+      "abstract_cn": "当研究人员开发新的计量经济学方法时，通常的做法是在蒙特卡洛研究中将新方法的性能与现有方法进行比较。由于研究人员在选择所报告的蒙特卡洛设计时具有自由裁量权，此类蒙特卡洛研究的可信度往往受到限制。为了提高可信度，我们提出使用一类最近在机器学习文献中开发的生成模型，称为生成对抗网络（GANs），它可以系统地生成与现有数据集非常相似的人工数据。因此，结合现有的真实数据集，GANs可用于限制研究人员在蒙特卡洛研究设计中的自由度，使任何比较更具说服力。此外，如果应用研究人员关注特定统计方法在特定数据集上的表现（超越其在大样本中的理论性质），她可以使用此类GANs来评估所提出方法的性能，例如置信区间的覆盖率或估计量的偏差，使用与感兴趣的确切设置非常相似的模拟数据。为了说明这些方法，我们将Wasserstein GANs（WGANs）应用于平均处理效应的估计。在这个例子中，我们发现（i）在所有三种设置中，没有一种估计器能优于其他估计器，因此研究人员应根据给定设置调整其分析方法，（ii）在这种情况下，系统模拟研究有助于在竞争方法中进行选择，（iii）生成的数据与实际数据非常相似。",
+      "doi": "10.1016/j.jeconom.2020.09.013",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407621000440",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v240y2024i2s0304407621000440.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:10:31+00:00",
+        "source_hash": "2f3fa71896748bd6159274ea9f33e73718c28db2e86a4cab17aa86256c93229c"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.01.009",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Nonseparable sample selection models with censored selection rules",
+      "title_cn": "带有删失选择规则的非可分样本选择模型",
+      "authors": [
+        "Ivan Fernández-Val",
+        "Aico van Vuuren",
+        "Francis Vella"
+      ],
+      "abstract_en": "We consider identification and estimation of nonseparable sample selection models with censored selection rules. We employ a control function approach and discuss different objects of interest based on (1) local effects conditional on the control function, and (2) global effects obtained from integration over ranges of values of the control function. We derive conditions for identification of these different objects and suggest strategies for estimation. Moreover, we provide the associated asymptotic theory. These strategies are illustrated in an empirical investigation of the determinants of female wages in the United Kingdom.",
+      "abstract_cn": "我们考虑带有删失选择规则的非可分样本选择模型的识别与估计。我们采用控制函数方法，并基于（1）条件于控制函数的局部效应，以及（2）通过对控制函数值范围进行积分得到的全局效应，讨论不同的感兴趣对象。我们推导了这些不同对象识别的条件，并提出了估计策略。此外，我们提供了相关的渐近理论。这些策略在英国女性工资决定因素的经验研究中得到了说明。",
+      "doi": "10.1016/j.jeconom.2021.01.009",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407621000567",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v240y2024i2s0304407621000567.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:10:34+00:00",
+        "source_hash": "540e5dace6dce205453f37f1aaa485969d926c924db6d6ab57513786fef81004"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.07.016",
+      "sequence": 9,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "On uniform inference in nonlinear models with endogeneity",
+      "title_cn": "内生性非线性模型中的均匀推断",
+      "authors": [
+        "Shakeeb Khan",
+        "Denis Nekipelov"
+      ],
+      "abstract_en": "This paper explores the uniformity of inference for parameters of interest in nonlinear econometric models with endogeneity. Here the notion of uniformity arises because the behavior of estimators of parameters of interest is shown to vary with where either they or nuisance parameters lie in the parameter space. As a result, inference becomes nonstandard in a fashion that is loosely analogous to inference complications found in the unit root and weak instruments literature, as well as the models recently studied in Andrews and Cheng (2012), Chen et al. (2014), Han and McCloskey (2019). Our main illustrative example is the standard sample selection model, where the parameter of interest is the intercept term as in Heckman (1990), Andrews and Schafgans (1998) and Lewbel (2007). We show here there is a discontinuity in the limiting distribution for an estimator of this parameter despite it being uniformly consistent. This discontinuity prevents standard inference procedures from being valid, and motivates the development of new methods, for which we establish asymptotic properties. Finite sample properties of the procedure are explored through a simulation study and an empirical illustration using the Mroz (1987) data set as in Newey, Powell, and Walker (1990).",
+      "abstract_cn": "本文探讨了具有内生性的非线性计量经济模型中感兴趣参数的推断均匀性。这里的均匀性概念源于所关注参数估计量的行为会随着其自身或 nuisance 参数在参数空间中的位置而变化。因此，推断变得非标准，其方式大致类似于单位根和弱工具变量文献以及 Andrews 和 Cheng (2012)、Chen 等人 (2014)、Han 和 McCloskey (2019) 最近研究的模型中所发现的推断复杂性。我们的主要示例是标准样本选择模型，其中感兴趣参数是截距项，如 Heckman (1990)、Andrews 和 Schafgans (1998) 以及 Lewbel (2007) 所述。我们在此表明，尽管该参数的估计量是一致一致的，但其极限分布存在不连续性。这种不连续性使得标准推断程序无效，并促使我们开发新方法，我们为其建立了渐近性质。通过模拟研究和基于 Mroz (1987) 数据集的实证说明（如 Newey、Powell 和 Walker (1990) 所述），探讨了该过程的有限样本性质。",
+      "doi": "10.1016/j.jeconom.2021.07.016",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407622000409",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v240y2024i2s0304407622000409.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:10:38+00:00",
+        "source_hash": "cb3d098b4664111ce828bfa0a7029a8beef43180459102b2d53ca51864dd869d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.07.011",
+      "sequence": 10,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "Testing unconditional and conditional independence via mutual information",
+      "title_cn": "通过互信息检验无条件独立性和条件独立性",
+      "authors": [
+        "Chunrong Ai",
+        "Li-Hsien Sun",
+        "Zheng Zhang",
+        "Liping Zhu"
+      ],
+      "abstract_en": "Testing independence has garnered increasing attention in the econometric and statistical literature. Many tests have been proposed, most of which are inconsistent against all departures from independence. Few of those tests, though consistent, suffer a significant loss of local power. This study proposes a mutual information test for testing independence. The proposed test is simple to implement and, with a slight loss of local power, is consistent against all departures from independence. The key driving factor is that we estimate the density ratio directly. This value is constant in a state of independence. This is in contrast with related studies that estimate the joint and marginal density functions to form the density ratio. A small-scale simulation study indicates that the proposed test outperforms the existing alternatives in various dependence structures.",
+      "abstract_cn": "检验独立性在计量经济学和统计学文献中受到越来越多的关注。许多检验已被提出，其中大多数对独立性的所有偏离都不具有一致性。少数检验虽然具有一致性，但在局部功效上损失显著。本研究提出了一种用于检验独立性的互信息检验。所提出的检验易于实施，并且在局部功效略有损失的情况下，对独立性的所有偏离都具有一致性。关键驱动因素是我们直接估计密度比。该值在独立状态下是常数。这与相关研究中估计联合密度函数和边际密度函数以形成密度比的方法形成对比。一个小规模模拟研究表明，所提出的检验在各种依赖结构下优于现有的替代方法。",
+      "doi": "10.1016/j.jeconom.2022.07.011",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407622001609",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v240y2024i2s0304407622001609.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:10:41+00:00",
+        "source_hash": "90c374827fc79a7c4ff05ea8aa0fd8ab067ba618a0db40aa77fd6b19c5370c54"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.06.011",
+      "sequence": 11,
+      "source_sequence": 11,
+      "article_type": "research-article",
+      "title_en": "Kernel density estimation for undirected dyadic data",
+      "title_cn": "无向二元数据的核密度估计",
+      "authors": [
+        "Bryan S. Graham",
+        "Fengshi Niu",
+        "James L. Powell"
+      ],
+      "abstract_en": "We study nonparametric estimation of density functions for undirected dyadic random variables (i.e., random variables defined for all n≡defN2 unordered pairs of agents/nodes in a weighted network of order N). These random variables satisfy a local dependence property: any random variables in the network that share one or two indices may be dependent, while those sharing no indices in common are independent. In this setting, we show that density functions may be estimated by an application of the kernel estimation method of Rosenblatt (1956) and Parzen (1962). We suggest an estimate of their asymptotic variances inspired by a combination of (i) Newey’s (1994) method of variance estimation for kernel estimators in the “monadic” setting and (ii) a variance estimator for the (estimated) density of a simple network first suggested by Holland and Leinhardt (1976). More unusual are the rates of convergence and asymptotic (normal) distributions of our dyadic density estimates. Specifically, we show that they converge at the same rate as the (unconditional) dyadic sample mean: the square root of the number, N, of nodes. This differs from the results for nonparametric estimation of densities and regression functions for monadic data, which generally have a slower rate of convergence than their corresponding sample mean.",
+      "abstract_cn": "我们研究了无向二元随机变量（即，在N阶加权网络中，为所有n≡defN2个无序代理/节点对定义的随机变量）密度函数的非参数估计。这些随机变量满足局部依赖性质：网络中共享一个或两个索引的任何随机变量可能是依赖的，而共享无共同索引的随机变量是独立的。在此设定下，我们表明密度函数可以通过应用Rosenblatt（1956）和Parzen（1962）的核估计方法进行估计。我们建议一种由其渐近方差的估计，灵感来源于（i）Newey（1994）在“一元”设定中核估计量方差估计方法，和（ii）Holland和Leinhardt（1976）首次提出的简单网络（估计）密度方差估计量的组合。更不寻常的是我们二元密度估计的收敛速率和渐近（正态）分布。具体来说，我们表明它们以与（无条件）二元样本均值相同的速率收敛：节点数N的平方根。这与一元数据的密度和回归函数的非参数估计结果不同，后者通常比其对应的样本均值具有更慢的收敛速率。",
+      "doi": "10.1016/j.jeconom.2022.06.011",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407622001610",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v240y2024i2s0304407622001610.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:10:44+00:00",
+        "source_hash": "03a287453d4b2f53979a75fffa38e3dc33a50fbaebef523533d06970f6ea6493"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.12.012",
+      "sequence": 12,
+      "source_sequence": 12,
+      "article_type": "research-article",
+      "title_en": "One instrument to rule them all: The bias and coverage of just-ID IV",
+      "title_cn": "一器统御：恰好识别工具变量的偏误与覆盖率",
+      "authors": [
+        "Joshua Angrist",
+        "Michal Kolesár"
+      ],
+      "abstract_en": "We revisit the finite-sample behavior of single-variable just-identified instrumental variables (just-ID IV) estimators, arguing that in most microeconometric applications, the usual inference strategies are likely reliable. Three widely-cited applications are used to explain why this is so. We then consider pretesting strategies of the form t1>c, where t1 is the first-stage t-statistic, and the first-stage sign is given. Although pervasive in empirical practice, pretesting on the first-stage F-statistic exacerbates bias and distorts inference. We show, however, that median bias is both minimized and roughly halved by setting c=0, that is by screening on the sign of the estimated first stage. This bias reduction is a free lunch: conventional confidence interval coverage is unchanged by screening on the estimated first-stage sign. To the extent that IV analysts sign-screen already, these results strengthen the case for a sanguine view of the finite-sample behavior of just-ID IV.",
+      "abstract_cn": "我们重新审视单变量恰好识别工具变量（just-ID IV）估计量的有限样本行为，认为在大多数微观计量应用中，通常的推断策略可能是可靠的。我们使用三个被广泛引用的应用来解释为何如此。然后我们考虑形式为t1>c的预检验策略，其中t1是一阶段t统计量，且一阶段符号已知。尽管在实证实践中普遍存在，对一阶段F统计量进行预检验会加剧偏误并扭曲推断。然而，我们表明，通过设定c=0，即根据估计的一阶段符号进行筛选，中位数偏误既被最小化又被大致减半。这种偏误减少是免费的午餐：传统置信区间覆盖率不因根据估计的一阶段符号进行筛选而改变。就IV分析者已经进行符号筛选而言，这些结果强化了对恰好识别IV有限样本行为持乐观态度的理由。",
+      "doi": "10.1016/j.jeconom.2022.12.012",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623000295",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v240y2024i2s0304407623000295.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:10:47+00:00",
+        "source_hash": "9d14504857de99abf70b5dc649ea305fb38fe83eb87c617c34b414d22d3a0f11"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.12.013",
+      "sequence": 13,
+      "source_sequence": 13,
+      "article_type": "research-article",
+      "title_en": "Is Newey–West optimal among first-order kernels?",
+      "title_cn": "Newey-West 是一阶核中最优的吗？",
+      "authors": [
+        "Thomas Kolokotrones",
+        "James H. Stock",
+        "Christopher D. Walker"
+      ],
+      "abstract_en": "Newey–West (1987) standard errors are the dominant standard errors used for heteroskedasticity and autocorrelation robust (HAR) inference in time series regression. The Newey–West estimator uses the Bartlett kernel, which is a first-order kernel, meaning that its characteristic exponent, q, is equal to 1, where q is defined as the largest value of r for which the quantity k[r](0)=limt→0|t|−r(k(0)−k(t)) is defined and finite. This raises the apparently uninvestigated question of whether the Bartlett kernel is optimal among first-order kernels. We demonstrate that, for q<2, there is no optimal qth-order kernel for HAR testing in the Gaussian location model or for minimizing the MSE in spectral density estimation. In fact, for any q<2, the space of qth-order positive-semidefinite kernels is not closed and, moreover, all continuous qth-order kernels can be decomposed into a weighted sum of qth and second-order kernels, which suggests that there is no meaningful notion of ‘pure’ qth-order kernels for q<2. Nevertheless, it is possible to rank any given collection of qth-order kernels using the functional Iq[k]=k[q](0)1/q∫k2(t)dt with smaller values corresponding to better asymptotic performance. We examine the value of Iq[k] for a wide variety of first-order estimators and find that none improve upon the Bartlett kernel. These comparisons provide additional justification for the continued use of the Newey–West estimator with testing-optimal smoothing parameters and fixed-b critical values despite the lack of optimality of Bartlett among first-order kernels.",
+      "abstract_cn": "Newey–West (1987) 标准误差是时间序列回归中用于异方差性和自相关稳健 (HAR) 推理的主要标准误差。 Newey-West 估计器使用 Bartlett 核，它是一阶核，这意味着它的特征指数 q 等于 1，其中 q 被定义为 r 的最大值，其中量 k[r](0)=limt→0|t|−r(k(0)−k(t)) 被定义并且是有限的。这提出了一个显然未经研究的问题：Bartlett 核是否在一阶核中是最优的。我们证明，对于 q<2，不存在用于高斯位置模型中的 HAR 测试或最小化谱密度估计中的 MSE 的最佳 q 阶核。事实上，对于任何 q<2，q 阶正半定核的空间不是封闭的，此外，所有连续 q 阶核都可以分解为 q 阶核和二阶核的加权和，这表明对于 q<2，不存在“纯”q 阶核的有意义的概念。尽管如此，可以使用函数 Iq[k]=k[q](0)1/q∫k2(t)dt 对任何给定的 q 阶核集合进行排序，较小的值对应于更好的渐近性能。我们检查了各种一阶估计器的 Iq[k] 值，发现没有一个比 Bartlett 核有所改进。这些比较为继续使用具有测试最佳平滑参数和固定 b 临界值的 Newey-West 估计器提供了额外的理由，尽管一阶核中缺乏 Bartlett 的最优性。",
+      "doi": "10.1016/j.jeconom.2022.12.013",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623000301",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v240y2024i2s0304407623000301.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-18T19:11:23+00:00",
+        "source_hash": "81dd5c36a5376b2473562d4b3d3fd35c3373ad73d793d545df7441e5a3d64502"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.02.005",
+      "sequence": 14,
+      "source_sequence": 14,
+      "article_type": "research-article",
+      "title_en": "Instrumental variable estimation with first-stage heterogeneity",
+      "title_cn": "具有第一阶段异质性的工具变量估计",
+      "authors": [
+        "Alberto Abadie",
+        "Jiaying Gu",
+        "Shu Shen"
+      ],
+      "abstract_en": "We propose a simple data-driven procedure that exploits heterogeneity in the first-stage correlation between an instrument and an endogenous variable to improve the asymptotic mean squared error (MSE) of instrumental variable estimators. We show that the resulting gains in asymptotic MSE can be quite large in settings where there is substantial heterogeneity in the first-stage parameters. We also show that a naive procedure used in some applied work, which consists of selecting the composition of the sample based on the value of the first-stage t-statistic, may cause substantial over-rejection of a null hypothesis on a second-stage parameter. We apply the methods to study (1) the return to schooling using the minimum school leaving age as the exogenous instrument and (2) the effect of local economic conditions on voter turnout using energy supply shocks as the source of identification.",
+      "abstract_cn": "我们提出了一种简单的数据驱动程序，利用工具变量与内生变量之间第一阶段相关性的异质性来改进工具变量估计量的渐近均方误差（MSE）。我们表明，在第一阶段参数存在显著异质性的情况下，渐近MSE的改进可能相当大。我们还表明，一些应用工作中使用的朴素程序，即根据第一阶段t统计量的值选择样本构成，可能导致对第二阶段参数的零假设的过度拒绝。我们将这些方法应用于研究（1）使用最低离校年龄作为外生工具变量时的教育回报率，以及（2）使用能源供应冲击作为识别来源时当地经济状况对选民投票率的影响。",
+      "doi": "10.1016/j.jeconom.2023.02.005",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623000702",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v240y2024i2s0304407623000702.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:11:25+00:00",
+        "source_hash": "d4a2a415bcf381479f8e9d2f7ff14e04eea5bbd884aefcf14de42fe373549f39"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.04.001",
+      "sequence": 15,
+      "source_sequence": 15,
+      "article_type": "research-article",
+      "title_en": "Heterogeneity of consumption responses to income shocks in the presence of nonlinear persistence",
+      "title_cn": "非线性持续性存在下消费对收入冲击响应的异质性",
+      "authors": [
+        "Manuel Arellano",
+        "Richard Blundell",
+        "Stéphane Bonhomme",
+        "Jack Light"
+      ],
+      "abstract_en": "In this paper we use the enhanced consumption data in the Panel Survey of Income Dynamics (PSID) from 2005–2017 to explore the transmission of income shocks to consumption. We build on the nonlinear quantile framework introduced in Arellano et al. (2017). Our focus is on the estimation of consumption responses to persistent nonlinear income shocks in the presence of unobserved heterogeneity. To reliably estimate heterogeneous responses in our unbalanced panel, we develop Sequential Monte Carlo computational methods. We find substantial heterogeneity in consumption responses, and uncover latent types of households with different life-cycle consumption behavior. Ordering types according to their average log-consumption, we find that low-consumption types respond more strongly to income shocks at the beginning of the life cycle and when their assets are low, as standard life-cycle theory would predict. In contrast, high-consumption types respond less on average, and in a way that changes little with age or assets. We examine various mechanisms that might explain this heterogeneity.",
+      "abstract_cn": "在本文中，我们使用面板收入动态调查（PSID）中2005-2017年的增强消费数据来探讨收入冲击向消费的传导。我们基于Arellano等人（2017）引入的非线性分位数框架。我们的重点是估计在存在未观测异质性的情况下，消费对持续性非线性收入冲击的响应。为了在我们的非平衡面板中可靠地估计异质性响应，我们开发了序贯蒙特卡洛计算方法。我们发现消费响应存在显著的异质性，并揭示了具有不同生命周期消费行为的潜在家庭类型。根据平均对数消费对类型进行排序，我们发现低消费类型在生命周期初期和资产较低时对收入冲击的响应更强，这与标准生命周期理论的预测一致。相比之下，高消费类型的平均响应较弱，且其响应随年龄或资产的变化很小。我们考察了可能解释这种异质性的各种机制。",
+      "doi": "10.1016/j.jeconom.2023.04.001",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623001434",
+      "publication_date": "February 2024",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v240y2024i2s0304407623001434.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:11:28+00:00",
+        "source_hash": "a3d8f1a333030103accba36f46e7ddacf7c3e8eb40688a46a3e3c2274fd76c0a"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "repec-serial-page",
+    "roster_authority": "repec-publisher-supplied",
+    "roster_match_scope": "repec-volume-items",
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 15,
+    "authors_complete": 15,
+    "abstract_en_complete": 15,
+    "translation_complete": 15,
+    "duplicate_count": 0,
+    "repec_item_count": 15,
+    "flags": [],
+    "official_item_count": 15,
+    "publishable_item_count": 15,
+    "content_counts": {
+      "official_items": 15,
+      "observed_items": 15,
+      "publishable_items": 15,
+      "research_articles": 15,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 15
+    }
+  },
+  "content_counts": {
+    "official_items": 15,
+    "observed_items": 15,
+    "publishable_items": 15,
+    "research_articles": 15,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 15
+  },
+  "issue_label": "Vol. 240 · No. 2",
+  "content_status": "complete",
+  "source_status": "publisher_verified",
+  "publication_state": "ready"
+}

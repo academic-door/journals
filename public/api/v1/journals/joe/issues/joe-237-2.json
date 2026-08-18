@@ -1,0 +1,1366 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "joe-237-2",
+  "journal_id": "joe",
+  "journal_name": "Journal of Econometrics",
+  "volume": "237",
+  "issue": "2",
+  "publication_date": "February 2023",
+  "source_url": "https://ideas.repec.org/s/eee/econom.html",
+  "retrieved_at": "2026-08-18T19:02:14+00:00",
+  "expected_article_count": 32,
+  "research_article_count": 32,
+  "status": "ready",
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2020.11.005",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Volatility measurement with pockets of extreme return persistence",
+      "title_cn": "具有极端收益持续性的波动率测量",
+      "authors": [
+        "Torben G. Andersen",
+        "Yingying Li",
+        "Viktor Todorov",
+        "Bo Zhou"
+      ],
+      "abstract_en": "Increasing evidence points towards the episodic emergence of pockets with extreme return persistence. This notion refers to intraday periods of non-trivial duration, for which stock returns are highly positively autocorrelated. Such episodes include, but are not limited to, gradual jumps and prolonged bursts in the drift component. In this paper, we develop a family of integrated volatility estimators, labeled differenced-return volatility (DV) estimators, which provide robustness to these types of Itô semimartingale violations. Specifically, we show that, by using differences in consecutive high-frequency returns, our DV estimators can reduce the non-trivial bias that all commonly-used estimators exhibit during such periods of apparent short-term intraday return predictability. A Monte Carlo study demonstrates the reliability of the newly developed volatility estimators in finite samples. In our empirical volatility forecasting application to S&P 500 index futures and individual equities, our DV-based Heterogeneous Autoregressive (HAR) model performs well relative to existing procedures according to standard out-of-sample MSE and QLIKE criteria.",
+      "abstract_cn": "越来越多的证据指向极端收益持续性口袋的偶发出现。这一概念指的是日内持续一段非平凡时间的时期，在此期间股票收益高度正自相关。此类事件包括但不限于漂移分量中的渐进跳跃和持续爆发。在本文中，我们开发了一系列积分波动率估计量，称为差分收益波动率（DV）估计量，它们对这些类型的Itô半鞅违规具有稳健性。具体来说，我们表明，通过使用连续高频收益的差异，我们的DV估计量可以减少所有常用估计量在此类明显的短期日内收益可预测性期间表现出的非平凡偏差。蒙特卡洛研究证明了新开发的波动率估计量在有限样本中的可靠性。在我们对S&P 500指数期货和个股的实证波动率预测应用中，基于DV的异质自回归（HAR）模型在标准样本外MSE和QLIKE准则下相对于现有程序表现良好。",
+      "doi": "10.1016/j.jeconom.2020.11.005",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407620303924",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407620303924.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:02:19+00:00",
+        "source_hash": "47d69ae75b0ee1be1d217be6ef10e1a97f21c6f913c820a22ac8c3ed002fbc29"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.09.003",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Dynamic conditional eigenvalue GARCH",
+      "title_cn": "动态条件特征值GARCH",
+      "authors": [
+        "Simon Hetland",
+        "Rasmus Søndergaard Pedersen",
+        "Anders Rahbek"
+      ],
+      "abstract_en": "In this paper we introduce a multivariate generalized autoregressive conditional heteroskedastic (GARCH) class of models with time-varying conditional eigenvalues. The dynamics of the eigenvalues is derived for the cases with underlying Gaussian and Student’s t-distributed innovations based on the general theory of dynamic conditional score models by Creal, Koopman and Lucas (2013) and Harvey (2013). The resulting time-varying eigenvalue GARCH models – labeled ‘λ-GARCH’ models – differ for the two cases of innovations, similar to, and generalizing, univariate linear Gaussian GARCH and Student’s t-based Beta-t-GARCH models. Asymptotic theory is provided for the Gaussian-based quasi-maximum likelihood estimator (QMLE). In addition, and in order to test for the number of (linear combinations of) the time-varying eigenvalues, we consider testing and inference under the hypothesis of reduced rank of the GARCH loading matrices. The conditional Gaussian and Student’s t distributed λ-GARCH models are applied to US return data, and it is found that the eigenvalue structure for the sample considered indeed satisfies the hypothesis of reduced rank. Specifically, it is possible to disentangle time-varying linear combinations of the eigenvalues, or factors, from time-invariant factors which drive the dynamics of the conditional covariance.",
+      "abstract_cn": "在本文中，我们引入了一类具有时变条件特征值的多元广义自回归条件异方差（GARCH）模型。基于Creal、Koopman和Lucas（2013）以及Harvey（2013）的动态条件得分模型的一般理论，推导了在潜在高斯和Student t分布创新情况下的特征值动态。由此产生的时变特征值GARCH模型——标记为“λ-GARCH”模型——在两种创新情况下有所不同，类似于并推广了单变量线性高斯GARCH和基于Student t的Beta-t-GARCH模型。为基于高斯拟极大似然估计量（QMLE）提供了渐近理论。此外，为了检验时变特征值（的线性组合）的数量，我们考虑了在GARCH载荷矩阵降秩假设下的检验和推断。条件高斯和Student t分布的λ-GARCH模型应用于美国收益数据，发现所考虑样本的特征值结构确实满足降秩假设。具体而言，可以将时变的特征值线性组合（或因子）与驱动条件协方差动态的时不变因子分离开来。",
+      "doi": "10.1016/j.jeconom.2021.09.003",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407621002141",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407621002141.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:02:22+00:00",
+        "source_hash": "cd25ff2e9abe65e89a1904af5a1cb418d76ec1a3383db2bdccd9f3d1eedc1860"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.09.004",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "A dynamic conditional score model for the log correlation matrix",
+      "title_cn": "对数相关矩阵的动态条件得分模型",
+      "authors": [
+        "Christian M. Hafner",
+        "Linqi Wang"
+      ],
+      "abstract_en": "This paper proposes a new model for the dynamics of correlation matrices, where the dynamics are driven by the likelihood score with respect to the matrix logarithm of the correlation matrix. In analogy to the exponential GARCH model for volatility, this transformation ensures that the correlation matrices remain positive definite, even in high dimensions. For the conditional distribution of returns, we assume a student-t copula to explain the dependence structure and univariate student-t for the marginals with potentially different degrees of freedom. The separation into volatility and correlation parts allows for a two-step estimation, which facilitates estimation in high dimensions. We derive estimation theory for one-step and two-step estimation. In an application to a set of six asset indices including financial and alternative assets we show that the model performs well in terms of diagnostics, specification tests, and out-of-sample forecasting.",
+      "abstract_cn": "本文提出了一种新的相关矩阵动态模型，其中动态由相关矩阵的对数矩阵的似然得分驱动。与波动率的指数GARCH模型类似，这种变换确保了相关矩阵即使在维数较高的情况下也保持正定。对于收益的条件分布，我们假设使用学生t copula来解释依赖结构，并使用具有可能不同自由度的单变量学生t分布作为边际分布。将波动率和相关部分分离允许两步估计，这有助于在高维情况下进行估计。我们推导了一步和两步估计的估计理论。在对包括金融和另类资产在内的六个资产指数的应用中，我们表明该模型在诊断、规范检验和样本外预测方面表现良好。",
+      "doi": "10.1016/j.jeconom.2021.09.004",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407621002153",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407621002153.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:02:25+00:00",
+        "source_hash": "f02ddac3ca8049cd5d97d8f03bd728f9259f527811e75f61fb670f81f8bf2163"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.06.010",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Beta observation-driven models with exogenous regressors: A joint analysis of realized correlation and leverage effects",
+      "title_cn": "带有外生回归变量的Beta观测驱动模型：实现相关性与杠杆效应的联合分析",
+      "authors": [
+        "P. Gorgi",
+        "S.J. Koopman"
+      ],
+      "abstract_en": "We consider a general class of observation-driven models with exogenous regressors for double bounded data that are based on the beta distribution. We obtain a stationary and ergodic beta observation-driven process subject to a contraction condition on the stochastic dynamic model equation. We derive conditions for strong consistency and asymptotic normality of the maximum likelihood estimator. The general results are used to study the properties of a beta autoregressive process with threshold effects and to establish the asymptotic properties of the maximum likelihood estimator. We employ beta autoregressive models to describe leverage effects in realized correlations for several pairs of stocks. We find that the impact of past values of realized correlation on future values is significantly higher when stock or market returns are negative rather than positive. The results also indicate that the size of the leverage depends on the magnitude of the market news as measured by daily market returns. These findings support the conjecture that correlation between stock returns tends to be higher when stock prices are falling, and lower when there is a surge in stock prices. Finally, we conduct an out-of-sample study that shows that the models with leverage effects can enhance the accuracy of point and density forecasts of realized correlations.",
+      "abstract_cn": "我们考虑一类基于Beta分布的、适用于双有界数据的、带有外生回归变量的观测驱动模型的一般类别。在随机动态模型方程的收缩条件下，我们获得了一个平稳且遍历的Beta观测驱动过程。我们推导了极大似然估计强一致性和渐近正态性的条件。一般结果被用于研究具有阈值效应的Beta自回归过程的性质，并建立极大似然估计的渐近性质。我们采用Beta自回归模型来描述几对股票实现相关性中的杠杆效应。我们发现，当股票或市场收益为负而非正时，实现相关性的过去值对未来值的影响显著更高。结果还表明，杠杆的大小取决于以每日市场收益衡量的市场新闻的幅度。这些发现支持了股票收益之间的相关性在股价下跌时往往更高，而在股价飙升时更低的猜想。最后，我们进行了一项样本外研究，表明带有杠杆效应的模型可以提高实现相关性的点预测和密度预测的准确性。",
+      "doi": "10.1016/j.jeconom.2021.06.010",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407621002165",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407621002165.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:02:28+00:00",
+        "source_hash": "8c20e4bb1d1f7dab0086d6f557e907993461ccd8da26969e1280f595fcc8a819"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.02.011",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Comparing forecasting performance in cross-sections",
+      "title_cn": "横截面数据中预测绩效的比较",
+      "authors": [
+        "Ritong Qu",
+        "Allan Timmermann",
+        "Yinchu Zhu"
+      ],
+      "abstract_en": "This paper develops new methods for pairwise comparisons of predictive accuracy with cross-sectional data. Using a common factor setup, we establish conditions on cross-sectional dependencies in forecast errors which allow us to test the null of equal predictive accuracy on a single cross-section of forecasts. We consider both unconditional tests of equal predictive accuracy as well as tests that condition on the realization of common factors and show how to decompose forecast errors into exposures to common factors and idiosyncratic components. An empirical application compares the predictive accuracy of financial analysts’ short-term earnings forecasts across six brokerage firms.",
+      "abstract_cn": "本文开发了用于横截面数据预测准确性成对比较的新方法。利用共同因子设定，我们建立了预测误差中横截面依赖的条件，这些条件允许我们在单一预测横截面上检验等预测准确性的原假设。我们既考虑了等预测准确性的无条件检验，也考虑了以共同因子实现为条件的检验，并展示了如何将预测误差分解为对共同因子的暴露和特质成分。一项实证应用比较了六家经纪公司金融分析师短期盈利预测的预测准确性。",
+      "doi": "10.1016/j.jeconom.2021.02.011",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407621002256",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407621002256.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:02:31+00:00",
+        "source_hash": "1effc94e030637790a63d7482fa6c49359a0fea7f1932b4239782a62f68ed158"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.07.015",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Evaluating forecast performance with state dependence",
+      "title_cn": "评估具有状态依赖性的预测绩效",
+      "authors": [
+        "Florens Odendahl",
+        "Barbara Rossi",
+        "Tatevik Sekhposyan"
+      ],
+      "abstract_en": "We propose a novel forecast evaluation methodology to assess models’ absolute and relative forecasting performance when it is a state-dependent function of economic variables. In our framework, the forecasting performance, measured by a forecast error loss function, is modeled via a hard or smooth threshold model with unknown threshold values. Existing tests either assume a constant out-of-sample forecast performance or use non-parametric techniques robust to time-variation; consequently, they may lack power against a state-dependent performance. Our tests can be applied to relative forecast comparisons, forecast encompassing, forecast efficiency, and, more generally, moment-based tests of forecast evaluation. Monte Carlo results suggest that our proposed tests perform well in finite samples and have better power than existing tests in selecting the best forecast or assessing its efficiency in the presence of state dependence. Our tests uncover “pockets of predictability” in U.S. equity premia; although the term spread is not a useful predictor on average over the sample, it forecasts significantly better than the benchmark forecast when real GDP growth is low. In addition, we find that leading indicators, such as measures of vacancy postings and new orders for durable goods, improve the forecasts of U.S. industrial production when financial conditions are tight.",
+      "abstract_cn": "我们提出了一种新颖的预测评估方法，用以评估模型在预测绩效作为经济变量的状态依赖函数时的绝对和相对预测绩效。在我们的框架中，预测绩效通过预测误差损失函数来衡量，并采用具有未知阈值的硬或平滑阈值模型进行建模。现有检验要么假设样本外预测绩效恒定，要么使用对时间变化稳健的非参数技术；因此，它们可能对状态依赖的绩效缺乏检验功效。我们的检验可应用于相对预测比较、预测包含、预测效率，以及更一般地，基于矩的预测评估检验。蒙特卡洛结果表明，我们提出的检验在有限样本中表现良好，并且在存在状态依赖时，在选择最佳预测或评估其效率方面比现有检验具有更好的功效。我们的检验揭示了美国股票溢价的“可预测性口袋”；尽管期限利差在样本期间平均而言不是有用的预测因子，但当实际GDP增长较低时，它的预测显著优于基准预测。此外，我们发现领先指标，如职位发布和耐用品新订单的衡量指标，在金融条件紧张时能改善美国工业生产的预测。",
+      "doi": "10.1016/j.jeconom.2021.07.015",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407621002657",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407621002657.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:02:34+00:00",
+        "source_hash": "f3f83608d61cbc3d9d66b46953cb6f1d8d8334d37edde57e2add77a072f2c0d0"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.11.008",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "CRPS learning",
+      "title_cn": "CRPS学习",
+      "authors": [
+        "Jonathan Berrisch",
+        "Florian Ziel"
+      ],
+      "abstract_en": "Combination and aggregation techniques can significantly improve forecast accuracy. This also holds for probabilistic forecasting methods where predictive distributions are combined. There are several time-varying and adaptive weighting schemes such as Bayesian model averaging (BMA). However, the quality of different forecasts may vary not only over time but also within the distribution. For example, some distribution forecasts may be more accurate in the center of the distributions, while others are better at predicting the tails. Therefore, we introduce a new weighting method that considers the differences in performance over time and within the distribution. We discuss pointwise combination algorithms based on aggregation across quantiles that optimize with respect to the continuous ranked probability score (CRPS). After analyzing the theoretical properties of pointwise CRPS learning, we discuss B- and P-Spline-based estimation techniques for batch and online learning, based on quantile regression and prediction with expert advice. We prove that the proposed fully adaptive Bernstein online aggregation (BOA) method for pointwise CRPS online learning has optimal convergence properties. They are confirmed in simulations and a probabilistic forecasting study for European emission allowance (EUA) prices.",
+      "abstract_cn": "组合和聚合技术可以显著提高预测准确性。这也适用于概率预测方法，其中预测分布被组合。存在多种时变和自适应加权方案，如贝叶斯模型平均（BMA）。然而，不同预测的质量不仅可能随时间变化，也可能在分布内部变化。例如，一些分布预测在分布中心可能更准确，而另一些则更擅长预测尾部。因此，我们引入了一种新的加权方法，该方法考虑了随时间变化和分布内部的性能差异。我们讨论了基于分位数聚合的逐点组合算法，这些算法针对连续排序概率得分（CRPS）进行优化。在分析了逐点CRPS学习的理论性质后，我们讨论了基于B样条和P样条的估计技术，用于批量学习和在线学习，这些技术基于分位数回归和专家建议预测。我们证明了所提出的用于逐点CRPS在线学习的完全自适应伯恩斯坦在线聚合（BOA）方法具有最优收敛性质。这些性质在模拟和欧洲排放配额（EUA）价格的概率预测研究中得到了证实。",
+      "doi": "10.1016/j.jeconom.2021.11.008",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407621002724",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407621002724.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:02:37+00:00",
+        "source_hash": "b47b8e8afb745cd93609c1f97a834a6474fe4588c1fab53533deb1fb64e6c178"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.02.007",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Extensions to IVX methods of inference for return predictability",
+      "title_cn": "IVX推断方法在收益可预测性中的扩展",
+      "authors": [
+        "Matei Demetrescu",
+        "Iliyan Georgiev",
+        "Paulo M.M. Rodrigues",
+        "A.M. Robert Taylor"
+      ],
+      "abstract_en": "The contribution of this paper is threefold. First, we demonstrate that, provided either a suitable bootstrap implementation is employed or heteroskedasticity-consistent standard errors are used, the IVX-based predictability tests of Kostakis et al. (2015) retain asymptotically valid inference under the null hypothesis under considerably weaker assumptions on the innovations than are required by Kostakis et al. (2015). Second, under the same assumptions, we develop asymptotically valid bootstrap implementations of the IVX tests. Monte Carlo simulations show that the bootstrap tests deliver considerably more accurate finite sample inference than the asymptotic implementations of the tests under certain problematic parameter constellations, most notably for one-sided testing, and where multiple predictors are included. Third, we show how sub-sample implementations of the IVX approach can be used to develop asymptotically valid one-sided and two-sided tests for the presence of temporary windows of predictability.",
+      "abstract_cn": "本文的贡献有三方面。首先，我们证明，在采用适当的自举实现或使用异方差一致性标准误的情况下，基于IVX的可预测性检验（Kostakis等，2015）在原假设下，在比Kostakis等（2015）所要求的更弱的创新假设下，仍保持渐近有效的推断。其次，在相同假设下，我们开发了IVX检验的渐近有效自举实现。蒙特卡洛模拟表明，在某些有问题的参数组合下，特别是对于单侧检验以及包含多个预测因子的情况，自举检验比检验的渐近实现提供了更准确的有限样本推断。第三，我们展示了如何使用IVX方法的子样本实现来开发渐近有效的单侧和双侧检验，以检测暂时性可预测性窗口的存在。",
+      "doi": "10.1016/j.jeconom.2022.02.007",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407622000586",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407622000586.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:02:40+00:00",
+        "source_hash": "76f4b57674a08a5526ce8f670a86a6c31ad2f695bfc0868303b01ce3a24711a4"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.03.003",
+      "sequence": 9,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "Dynamic clustering of multivariate panel data",
+      "title_cn": "多元面板数据的动态聚类",
+      "authors": [
+        "Igor Custodio João",
+        "André Lucas",
+        "Julia Schaumburg",
+        "Bernd Schwaab"
+      ],
+      "abstract_en": "We propose a dynamic clustering model for uncovering latent time-varying group structures in multivariate panel data. The model is dynamic in three ways. First, the cluster location and scale matrices are time-varying to track gradual changes in cluster characteristics over time. Second, all units can transition between clusters based on a Hidden Markov model (HMM). Finally, the HMM’s transition matrix can depend on lagged time-varying cluster distances as well as economic covariates. Monte Carlo experiments suggest that the units can be classified reliably in a variety of challenging settings. Incorporating dynamics in the cluster composition proves empirically important in a study of 299 European banks between 2008Q1 and 2018Q2. We find that approximately 3% of banks transition per quarter on average. Transition probabilities are in part explained by differences in bank profitability, suggesting that factors contributing to low profitability for some banks can lead to long-lasting changes in financial industry structure.",
+      "abstract_cn": "我们提出了一种动态聚类模型，用于揭示多元面板数据中潜在时变群体结构。该模型在三个方面具有动态性。首先，聚类位置和尺度矩阵随时间变化，以跟踪聚类特征随时间的逐渐变化。其次，所有单位可以基于隐马尔可夫模型（HMM）在聚类之间转换。最后，HMM的转移矩阵可以依赖于滞后的时变聚类距离以及经济协变量。蒙特卡洛实验表明，在各种具有挑战性的情境下，单位可以被可靠地分类。在2008Q1至2018Q2期间对299家欧洲银行的研究中，将动态性纳入聚类组成在实证上具有重要意义。我们发现平均每季度约有3%的银行发生转换。转移概率部分由银行盈利能力的差异解释，这表明导致某些银行低盈利的因素可能导致金融行业结构的长期变化。",
+      "doi": "10.1016/j.jeconom.2022.03.003",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407622000689",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407622000689.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:03:10+00:00",
+        "source_hash": "d7e08669c0634541747af588bd0fcd3740b9848bc19ae3b11d1bd267b026cedf"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.07.001",
+      "sequence": 10,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "Machine learning panel data regressions with heavy-tailed dependent data: Theory and application",
+      "title_cn": "机器学习面板数据回归与重尾相依数据：理论与应用",
+      "authors": [
+        "Andrii Babii",
+        "Ryan T. Ball",
+        "Eric Ghysels",
+        "Jonas Striaukas"
+      ],
+      "abstract_en": "The paper introduces structured machine learning regressions for heavy-tailed dependent panel data potentially sampled at different frequencies. We focus on the sparse-group LASSO regularization. This type of regularization can take advantage of the mixed frequency time series panel data structures and improve the quality of the estimates. We obtain oracle inequalities for the pooled and fixed effects sparse-group LASSO panel data estimators recognizing that financial and economic data can have fat tails. To that end, we leverage on a new Fuk–Nagaev concentration inequality for panel data consisting of heavy-tailed τ-mixing processes.",
+      "abstract_cn": "本文介绍了针对可能以不同频率采样的重尾相依面板数据的结构化机器学习回归。我们关注稀疏组LASSO正则化。这种类型的正则化可以利用混合频率时间序列面板数据结构，并提高估计质量。我们获得了池化和固定效应稀疏组LASSO面板数据估计量的oracle不等式，认识到金融和经济数据可能具有肥尾。为此，我们利用了一个新的针对由重尾τ混合过程组成的面板数据的Fuk–Nagaev浓度不等式。",
+      "doi": "10.1016/j.jeconom.2022.07.001",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407622001282",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407622001282.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:03:13+00:00",
+        "source_hash": "b3245bcc858eefa48c3bd425e633bd5b4e8033d31cdc851a36404ae99862b60f"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.06.006",
+      "sequence": 11,
+      "source_sequence": 11,
+      "article_type": "research-article",
+      "title_en": "Transformed regression-based long-horizon predictability tests",
+      "title_cn": "基于变换回归的长期可预测性检验",
+      "authors": [
+        "Matei Demetrescu",
+        "Paulo M.M. Rodrigues",
+        "A.M. Robert Taylor"
+      ],
+      "abstract_en": "We propose new tests for long-horizon predictability based on IVX estimation of a transformed regression which explicitly accounts for the over-lapping nature of the dependent variable in the long-horizon regression arising from temporal aggregation. To improve efficiency, we moreover incorporate the residual augmentation approach recently used in the context of short-horizon predictability testing by Demetrescu and Rodrigues (2022). Our proposed tests improve on extant tests in the literature in a number of ways. First, they allow practitioners to remain ambivalent over the strength of the persistence of the predictors. Second, they are valid under much weaker conditions on the innovations than extant long-horizon predictability tests; in particular, we allow for general forms of conditional and unconditional heteroskedasticity in the innovations, neither of which are tied to a parametric model. Third, unlike the popular Bonferroni-based methods in the literature, our proposed tests can handle multiple predictors, and can be easily implemented as either one or two-sided hypotheses tests. Monte Carlo analysis suggests that our preferred tests offer improved finite sample properties compared to the leading tests in the literature. We report results from an empirical application investigating the use of real exchange rates for predicting nominal exchange rates and inflation.",
+      "abstract_cn": "我们提出了新的长期可预测性检验，基于对变换回归的IVX估计，该估计明确考虑了长期回归中因变量因时间聚合而产生的重叠性质。为了提高效率，我们还纳入了Demetrescu和Rodrigues（2022）在短期可预测性检验中最近使用的残差增强方法。我们提出的检验在多个方面优于文献中现有的检验。首先，它们允许实践者对预测变量的持续性强度保持模糊态度。其次，它们在比现有长期可预测性检验弱得多的创新条件下有效；特别是，我们允许创新中存在一般形式的条件和非条件异方差性，这两者都不依赖于参数模型。第三，与文献中流行的基于Bonferroni的方法不同，我们提出的检验可以处理多个预测变量，并且可以轻松实现为单侧或双侧假设检验。蒙特卡洛分析表明，与文献中的主要检验相比，我们首选的检验提供了改进的有限样本性质。我们报告了一个实证应用的结果，该应用调查了使用实际汇率预测名义汇率和通货膨胀的情况。",
+      "doi": "10.1016/j.jeconom.2022.06.006",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407622001294",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407622001294.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:03:16+00:00",
+        "source_hash": "f813bd58b784044895855192bcc9f0e670bb6ee89a244159826b6b1128509d24"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.06.008",
+      "sequence": 12,
+      "source_sequence": 12,
+      "article_type": "research-article",
+      "title_en": "On the aggregation of probability assessments: Regularized mixtures of predictive densities for Eurozone inflation and real interest rates",
+      "title_cn": "概率评估的聚合：欧元区通胀与实际利率的预测密度正则化混合",
+      "authors": [
+        "Francis X. Diebold",
+        "Minchul Shin",
+        "Boyuan Zhang"
+      ],
+      "abstract_en": "We propose methods for constructing regularized mixtures of density forecasts. We explore a variety of objectives and regularization penalties, and we use them in a substantive exploration of Eurozone inflation and real interest rate density forecasts. All individual inflation forecasters (even the ex post best forecaster) are outperformed by our regularized mixtures. From the Great Recession onward, the optimal regularization tends to move density forecasts’ probability mass from the centers to the tails, correcting for overconfidence.",
+      "abstract_cn": "我们提出了构建密度预测正则化混合的方法。我们探索了多种目标和正则化惩罚，并将其用于对欧元区通胀和实际利率密度预测的实质性研究。所有个体通胀预测者（即使是事后最优预测者）都被我们的正则化混合方法超越。自大衰退以来，最优正则化倾向于将密度预测的概率质量从中心移至尾部，以修正过度自信。",
+      "doi": "10.1016/j.jeconom.2022.06.008",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407622001464",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407622001464.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:03:18+00:00",
+        "source_hash": "8a340ffa0ae7623c90854d53ffa03276e8340f9fbea3dd5c2326a56809f6116f"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.11.002",
+      "sequence": 13,
+      "source_sequence": 13,
+      "article_type": "research-article",
+      "title_en": "Semiparametric modeling of multiple quantiles",
+      "title_cn": "多个分位数的半参数建模",
+      "authors": [
+        "Leopoldo Catania",
+        "Alessandra Luati"
+      ],
+      "abstract_en": "We develop a semiparametric model to track a large number of quantiles of a time series. The model satisfies the condition of non-crossing quantiles and the defining property of fixed quantiles. A key feature of the specification is that the updating scheme for time-varying quantiles at each probability level is based on the gradient of the check loss function. Theoretical properties of the proposed model are derived such as weak stationarity of the quantile process and consistency of the estimators of the fixed parameters. The model can be applied for filtering and prediction. We also illustrate a number of possible applications such as: (i) semiparametric estimation of dynamic moments of the observables, (ii) density prediction, and (iii) quantile predictions.",
+      "abstract_cn": "我们开发了一个半参数模型来追踪时间序列的大量分位数。该模型满足分位数不交叉的条件以及固定分位数的定义性质。该规范的一个关键特征是，在每个概率水平上，时变分位数的更新方案基于检查损失函数的梯度。推导了所提出模型的理论性质，如分位数过程的弱平稳性和固定参数估计量的一致性。该模型可应用于滤波和预测。我们还说明了若干可能的应用，例如：（i）可观测变量动态矩的半参数估计，（ii）密度预测，以及（iii）分位数预测。",
+      "doi": "10.1016/j.jeconom.2022.11.002",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407622002044",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407622002044.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:03:20+00:00",
+        "source_hash": "28f0c3192c40f11cb5e256fbc1c1875bbfaff01a18c4944c5b1837a83704a90f"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.11.004",
+      "sequence": 14,
+      "source_sequence": 14,
+      "article_type": "research-article",
+      "title_en": "A flexible predictive density combination for large financial data sets in regular and crisis periods",
+      "title_cn": "常规与危机时期大型金融数据集的灵活预测密度组合",
+      "authors": [
+        "Roberto Casarin",
+        "Stefano Grassi",
+        "Francesco Ravazzolo",
+        "Herman K. van Dijk"
+      ],
+      "abstract_en": "A flexible predictive density combination is introduced for large financial data sets which allows for model set incompleteness. Dimension reduction procedures that include learning allocate the large sets of predictive densities and combination weights to relatively small subsets. Given the representation of the probability model in extended nonlinear state-space form, efficient simulation-based Bayesian inference is proposed using parallel dynamic clustering as well as nonlinear filtering, implemented on graphics processing units. The approach is applied to combine predictive densities based on a large number of individual US stock returns of daily observations over a period that includes the Covid-19 crisis period. Evidence on dynamic cluster composition, weight patterns and model set incompleteness gives valuable signals for improved modelling. This enables higher predictive accuracy and better assessment of uncertainty and risk for investment fund management.",
+      "abstract_cn": "针对大型金融数据集引入了一种灵活的预测密度组合方法，该方法允许模型集不完整。包含学习的降维程序将大型预测密度集和组合权重分配给相对较小的子集。鉴于概率模型在扩展非线性状态空间形式中的表示，提出了基于并行动态聚类和非线性滤波的高效模拟贝叶斯推断，并在图形处理单元上实现。该方法应用于组合基于大量美国个股日度观测值的预测密度，时间跨度包括Covid-19危机时期。关于动态聚类组成、权重模式和模型集不完整性的证据为改进建模提供了有价值的信号。这有助于提高预测准确性，并更好地评估投资基金管理的不确定性和风险。",
+      "doi": "10.1016/j.jeconom.2022.11.004",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407622002093",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407622002093.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:03:22+00:00",
+        "source_hash": "c3f2c1ac8f995ba85d503b9aa7b45607f5a81ac2cd8655aa831b08054e39981c"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.11.006",
+      "sequence": 15,
+      "source_sequence": 15,
+      "article_type": "research-article",
+      "title_en": "Predictive quantile regression with mixed roots and increasing dimensions: The ALQR approach",
+      "title_cn": "混合根与递增维数下的预测分位数回归：ALQR方法",
+      "authors": [
+        "Rui Fan",
+        "Ji Hyung Lee",
+        "Youngki Shin"
+      ],
+      "abstract_en": "In this paper we propose the adaptive lasso for predictive quantile regression (ALQR). Reflecting empirical findings, we allow predictors to have various degrees of persistence and exhibit different signal strengths. The number of predictors is allowed to grow with the sample size. We study regularity conditions under which stationary, local unit root, and cointegrated predictors are present simultaneously. We next show the convergence rates, model selection consistency, and asymptotic distributions of ALQR. We apply the proposed method to the out-of-sample quantile prediction problem of stock returns and find that it outperforms the existing alternatives. We also provide numerical evidence from additional Monte Carlo experiments, supporting the theoretical results.",
+      "abstract_cn": "在本文中，我们提出了自适应lasso预测分位数回归（ALQR）。反映实证发现，我们允许预测变量具有不同程度的持久性并表现出不同的信号强度。预测变量的数量允许随样本量增长。我们研究了平稳、局部单位根和协整预测变量同时存在时的正则性条件。接下来，我们展示了ALQR的收敛速度、模型选择一致性和渐近分布。我们将所提出的方法应用于股票收益的样本外分位数预测问题，并发现其优于现有替代方法。我们还提供了额外的蒙特卡洛实验数值证据，支持理论结果。",
+      "doi": "10.1016/j.jeconom.2022.11.006",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407622002111",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407622002111.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:03:25+00:00",
+        "source_hash": "97dfb40e03c508cd6eebf7291655226b8ba2718c37fc350f33ff9604c8e4f1f0"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.11.007",
+      "sequence": 16,
+      "source_sequence": 16,
+      "article_type": "research-article",
+      "title_en": "Uniform predictive inference for factor models with instrumental and idiosyncratic betas",
+      "title_cn": "具有工具性和特质性贝塔的因子模型的统一预测推断",
+      "authors": [
+        "Mingmian Cheng",
+        "Yuan Liao",
+        "Xiye Yang"
+      ],
+      "abstract_en": "This paper investigates the impact of allowing for characteristic-based time-varying factor betas on the diffusion-index type forecasts. The factor beta consists of two distinct components: the “instrumental beta” is a function of some observable characteristics, while the “idiosyncratic beta” captures more volatile residual movements. To estimate these characteristic-based time-varying betas and the corresponding factors, we apply the projected principal component analysis (P-PCA) method on high-frequency returns data. The primary advantage of this method is that it refines the estimators of latent factors, which shall be used in the forecasting models. We show that various leading components of the conditional mean forecast error are all asymptotically normal and pairwise independent. Extensive simulation studies show the good finite-sample properties of the P-PCA estimators and demonstrate the advantage of the P-PCA method relative to the classic PCA method in forecasting. In our empirical experiments of volatility prediction, we find that the factor-augmented model associated with the P-PCA method is more parsimonious and achieves better performance for a wide variety of target assets. We also find evidence on different levels of variation over time in the idiosyncratic beta, which necessitates our uniform predictive inference procedure.",
+      "abstract_cn": "本文研究了允许基于特征时变因子贝塔对扩散指数型预测的影响。因子贝塔由两个不同的部分组成：“工具性贝塔”是一些可观测特征的函数，而“特质性贝塔”捕捉更波动的残差变动。为了估计这些基于特征的时变贝塔和相应的因子，我们将投影主成分分析（P-PCA）方法应用于高频收益数据。该方法的主要优势在于它改进了潜在因子的估计量，这些估计量将用于预测模型。我们证明了条件均值预测误差的各种主要组成部分都是渐近正态且两两独立的。广泛的模拟研究显示了P-PCA估计量良好的有限样本性质，并证明了P-PCA方法相对于经典PCA方法在预测中的优势。在我们的波动率预测实证实验中，我们发现与P-PCA方法相关的因子增强模型更加简洁，并且在各种目标资产上取得了更好的表现。我们还发现了特质性贝塔随时间变化的不同水平的证据，这需要我们的统一预测推断程序。",
+      "doi": "10.1016/j.jeconom.2022.11.007",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407622002123",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407622002123.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:03:28+00:00",
+        "source_hash": "672799aef0398d805edc7f968e3ca3ed154135510b0bcb9ddba495cfa45233ac"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.07.012",
+      "sequence": 17,
+      "source_sequence": 17,
+      "article_type": "research-article",
+      "title_en": "Dynamic factor copula models with estimated cluster assignments",
+      "title_cn": "动态因子copula模型与估计的聚类分配",
+      "authors": [
+        "Dong Hwan Oh",
+        "Andrew J. Patton"
+      ],
+      "abstract_en": "This paper proposes a dynamic multi-factor copula for use in high-dimensional time series applications. A novel feature of our model is that the assignment of individual variables to groups is estimated from the data, rather than being pre-assigned using SIC industry codes, market capitalization ranks, or other ad hoc methods. We adapt the k-means clustering algorithm for use in our application and show that it has excellent finite-sample properties. Applying the new model to returns on 110 US equities, we find around 20 clusters to be optimal. In out-of-sample forecasts, we find that a model with as few as five estimated clusters significantly outperforms an otherwise identical model with 21 clusters formed using two-digit SIC codes.",
+      "abstract_cn": "本文提出了一种动态多因子copula，用于高维时间序列应用。我们模型的一个新颖特征是，个体变量到组的分配是从数据中估计的，而不是使用SIC行业代码、市值排名或其他临时方法预先分配。我们将k-means聚类算法应用于我们的应用中，并证明其具有优异的有限样本性质。将该新模型应用于110只美国股票的收益，我们发现约20个聚类是最优的。在样本外预测中，我们发现，具有仅五个估计聚类的模型显著优于使用两位SIC代码形成的具有21个聚类的其他相同模型。",
+      "doi": "10.1016/j.jeconom.2022.07.012",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407622002135",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407622002135.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:03:30+00:00",
+        "source_hash": "b01773bd6f1e8ee8eb3c031e13c47464c4f6da077d6433bacb49984196417b09"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.12.004",
+      "sequence": 18,
+      "source_sequence": 18,
+      "article_type": "research-article",
+      "title_en": "A penalized two-pass regression to predict stock returns with time-varying risk premia",
+      "title_cn": "一种带惩罚的两步回归法以时变风险溢价预测股票收益",
+      "authors": [
+        "Gaetan Bakalli",
+        "Stéphane Guerrier",
+        "Olivier Scaillet"
+      ],
+      "abstract_en": "We develop a penalized two-pass regression with time-varying factor loadings. The penalization in the first pass enforces sparsity for the time-variation drivers while also maintaining compatibility with the no-arbitrage restrictions by regularizing appropriate groups of coefficients. The second pass delivers risk premia estimates to predict equity excess returns. Our Monte Carlo results and our empirical results on a large cross-sectional data set of US individual stocks show that penalization without grouping can yield to nearly all estimated time-varying models violating the no-arbitrage restrictions. Moreover, our results demonstrate that the proposed method reduces the prediction errors compared to a penalized approach without appropriate grouping or a time-invariant factor model.",
+      "abstract_cn": "我们开发了一种具有时变因子载荷的惩罚两步回归法。第一步中的惩罚强制时变驱动因素的稀疏性，同时通过对适当的系数组进行正则化来保持与无套利限制的兼容性。第二步提供风险溢价估计以预测股票超额收益。我们的蒙特卡洛结果以及在美国个股大型横截面数据集上的实证结果表明，没有分组的惩罚可能导致几乎所有估计的时变模型违反无套利限制。此外，我们的结果表明，与没有适当分组的惩罚方法或时不变因子模型相比，所提出的方法减少了预测误差。",
+      "doi": "10.1016/j.jeconom.2022.12.004",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407622002147",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407622002147.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:03:32+00:00",
+        "source_hash": "d77a70c8e98ed2a52f8aecbb1dbaf768b090188278d59b53e16aebc42a3bdf19"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.10.009",
+      "sequence": 19,
+      "source_sequence": 19,
+      "article_type": "research-article",
+      "title_en": "Taking stock of long-horizon predictability tests: Are factor returns predictable?",
+      "title_cn": "长期预测检验的评估：因子收益是否可预测？",
+      "authors": [
+        "Alexandros Kostakis",
+        "Tassos Magdalinos",
+        "Michalis P. Stamatogiannis"
+      ],
+      "abstract_en": "This study provides a critical assessment of long-horizon return predictability tests using highly persistent regressors. We show that the commonly used statistics are typically oversized, leading to spurious inference. Instead, we propose a Wald statistic, which accommodates multiple predictors of (unknown) arbitrary persistence degree within the I(0)-I(1) range. The test statistic, based on an adaptation of the IVX procedure to a long-horizon regression framework, is shown to have a standard chi-squared asymptotic distribution (regardless of the stochastic properties of the regressors used as predictors) and to exhibit excellent finite-sample size and power properties. Employing this test statistic, we find evidence of predictability for “old” and “new” pricing factors with monthly returns, but this becomes weaker as the predictive horizon increases. The predictability evidence substantially weakens with annual data. Overall, we question the incremental value of using long-horizon predictive regressions.",
+      "abstract_cn": "本研究对使用高度持久回归变量的长期收益可预测性检验进行了批判性评估。我们表明，常用的统计量通常存在过度拒绝问题，导致虚假推断。相反，我们提出了一种Wald统计量，它能够适应I(0)-I(1)范围内（未知）任意持久性程度的多个预测变量。该检验统计量基于IVX程序对长期回归框架的改编，被证明具有标准的卡方渐近分布（无论用作预测变量的回归变量的随机性质如何），并展现出优异的有限样本功效和规模性质。采用此检验统计量，我们发现“旧”和“新”定价因子在月度收益上存在可预测性证据，但随着预测期限的增加，这种证据变弱。使用年度数据时，可预测性证据显著减弱。总体而言，我们对使用长期预测回归的增量价值提出质疑。",
+      "doi": "10.1016/j.jeconom.2022.10.009",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623000052",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407623000052.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:03:35+00:00",
+        "source_hash": "1ffc5f40b658b7f5410cf59438c8187cb5c49e84baebb09bbd4e7aa9d2d27942"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.01.024",
+      "sequence": 20,
+      "source_sequence": 20,
+      "article_type": "research-article",
+      "title_en": "Time-varying forecast combination for high-dimensional data",
+      "title_cn": "高维数据的时变预测组合",
+      "authors": [
+        "Bin Chen",
+        "Kenwin Maung"
+      ],
+      "abstract_en": "In this paper, we propose a new nonparametric estimator of time-varying forecast combination weights. When the number of individual forecasts is small, we study the asymptotic properties of the local linear estimator. When the number of candidate forecasts exceeds or diverges with the sample size, we consider penalized local linear estimation with the group SCAD penalty. We show that the estimator exhibits the oracle property and correctly selects relevant forecasts with probability approaching one. Simulations indicate that the proposed estimators outperform existing combination schemes when structural changes exist. An empirical application on inflation and unemployment forecasting highlights the merits of our approach relative to other popular methods in the literature.",
+      "abstract_cn": "在本文中，我们提出了一种新的非参数估计器，用于时变预测组合权重。当单个预测的数量较少时，我们研究了局部线性估计器的渐近性质。当候选预测的数量超过或与样本量一起发散时，我们考虑了带有组SCAD惩罚的惩罚局部线性估计。我们表明，该估计器具有预言性质，并以趋近于一的概率正确选择相关预测。模拟表明，当存在结构性变化时，所提出的估计器优于现有的组合方案。关于通货膨胀和失业预测的实证应用突出了我们的方法相对于文献中其他流行方法的优点。",
+      "doi": "10.1016/j.jeconom.2023.01.024",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623000556",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407623000556.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:03:38+00:00",
+        "source_hash": "b2344e6aac0644ee621ba8eb5d00d9b4859cfe3190a19803896fc9c0a89961fc"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.09.008",
+      "sequence": 21,
+      "source_sequence": 21,
+      "article_type": "research-article",
+      "title_en": "Are bond returns predictable with real-time macro data?",
+      "title_cn": "债券收益能否用实时宏观数据预测？",
+      "authors": [
+        "Dashan Huang",
+        "Fuwei Jiang",
+        "Kunpeng Li",
+        "Guoshi Tong",
+        "Guofu Zhou"
+      ],
+      "abstract_en": "We investigate the predictability of bond returns using real-time macro variables and consider the possibility of a nonlinear predictive relationship and the presence of weak factors. To address these issues, we propose a scaled sufficient forecasting (sSUFF) method and analyze its asymptotic properties. Using both the existing and the new method, we find empirically that real-time macro variables have significant forecasting power both in-sample and out-of-sample. Moreover, they generate sizable economic values, and their predictability is not spanned by the yield curve. We also observe that the forecasted bond returns are countercyclical, and the magnitude of predictability is stronger during economic recessions, which lends empirical support to well-known macro finance theories.",
+      "abstract_cn": "我们使用实时宏观变量研究债券收益的可预测性，并考虑非线性预测关系的可能性以及弱因子的存在。为解决这些问题，我们提出了一种缩放充分预测（sSUFF）方法，并分析了其渐近性质。使用现有方法和新方法，我们实证发现实时宏观变量在样本内和样本外均具有显著的预测能力。此外，它们产生了可观的经济价值，且其可预测性未被收益率曲线所涵盖。我们还观察到预测的债券收益是逆周期的，且在经济衰退期间预测能力的强度更大，这为著名的宏观金融理论提供了实证支持。",
+      "doi": "10.1016/j.jeconom.2022.09.008",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623001161",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407623001161.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:03:40+00:00",
+        "source_hash": "9445c345387a4c56b205f0354261f3e343ec5126d62d44cb15745ab18b79fef4"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.03.007",
+      "sequence": 22,
+      "source_sequence": 22,
+      "article_type": "research-article",
+      "title_en": "Time-Varying Parameters in Econometrics: The editor’s foreword",
+      "title_cn": "计量经济学中的时变参数：主编前言",
+      "authors": [
+        "F. Blasques",
+        "A.C. Harvey",
+        "S.J. Koopman",
+        "A. Lucas"
+      ],
+      "abstract_en": "The Themed Issue Time-Varying Parameters in Econometrics consists of eight papers where theoretical, methodological and empirical developments are reported. Particular attention is given to observation-driven time-varying parameter models of which score-driven models is a sub-class. We will introduce the Themed Issue and review its contributions.",
+      "abstract_cn": "专题《计量经济学中的时变参数》包含八篇论文，报告了理论、方法和实证方面的发展。特别关注观测驱动的时变参数模型，其中得分驱动模型是其一个子类。我们将介绍该专题并回顾其贡献。",
+      "doi": "10.1016/j.jeconom.2023.03.007",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623001173",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407623001173.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:03:42+00:00",
+        "source_hash": "f7e7a3adfa687cf7c1cd453254edd4181a920e51f8aef459918f0c28f791f393"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.11.012",
+      "sequence": 23,
+      "source_sequence": 23,
+      "article_type": "research-article",
+      "title_en": "Business-cycle consumption risk and asset prices",
+      "title_cn": "商业周期消费风险与资产定价",
+      "authors": [
+        "Federico M. Bandi",
+        "Andrea Tamoni"
+      ],
+      "abstract_en": "Aggregation is routinely employed in asset pricing to capture frequency-specific effects. We formalize the theoretical mapping between aggregates of time series and their frequency-specific components as well as the mapping between factor loadings obtained upon aggregation of returns and factors and frequency-specific factor loadings. We show that business-cycle consumption, a component of the consumption growth process with cycles between 4 and 8 years, provides valuable pricing signal. In agreement with the implications of theory, we document that consumption growth aggregated over a 4-year horizon (4-year consumption) has analogous pricing ability, cross-sectionally and in the time series, to business-cycle consumption.",
+      "abstract_cn": "聚合在资产定价中常被用来捕捉频率特定的效应。我们形式化了时间序列聚合与其频率特定成分之间的理论映射，以及通过聚合收益和因子获得的因子载荷与频率特定因子载荷之间的映射。我们表明，商业周期消费，即消费增长过程中周期在4至8年之间的组成部分，提供了有价值的定价信号。与理论的含义一致，我们记录了在4年时间跨度上聚合的消费增长（4年消费）在横截面和时间序列上具有与商业周期消费类似的定价能力。",
+      "doi": "10.1016/j.jeconom.2022.11.012",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623001410",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407623001410.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:03:44+00:00",
+        "source_hash": "61dec6384fc8f2a2172b349766b257d621081334fa7a18443ed712709dbfb546"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.01.029",
+      "sequence": 24,
+      "source_sequence": 24,
+      "article_type": "research-article",
+      "title_en": "Score-driven models for realized volatility",
+      "title_cn": "已实现波动率的得分驱动模型",
+      "authors": [
+        "Andrew Harvey",
+        "Dario Palumbo"
+      ],
+      "abstract_en": "This paper sets up a statistical framework for modeling realized volatility (RV) using a Dynamic Conditional Score (DCS) model. It first shows how, for a dataset on stock indices, a preliminary analysis of RV, based on fitting a linear Gaussian model to its logarithm, suggests the use of a two component dynamic specification. It also indicates a departure from normality, a weekly pattern in the data and the presence of heteroscedasticity. Fitting the two component DCS specification with leverage and a day of the week effect is then carried out directly on RV with a Generalized Beta of the Second Kind (GB2) conditional distribution or, equivalently, on the logarithm of RV with an Exponential Generalized Beta of the Second Kind (EGB2) distribution. The forecasting performance of this model, with and without heteroscedasticity, is compared with that of the Heterogeneous Autoregression (HAR), some extensions of it and some other models. Overall there is a clear gain from using the GB2-DCS model, even when the HAR model uses additional information, such as realized semi-variance. When the aim is to forecast tail behavior, the fat-tailed GB2 model performs much better than models with thin-tailed distributions. A further exercise uses a dataset on exchange rates to compare GB2-DCS models with models that use realized quarticity. Again the additional information offers no forecasting advantage. Overall the GB2-DCS models are transparent, provide a comprehensive description of the properties of RV, and are difficult to beat for forecasting.",
+      "abstract_cn": "本文建立了一个使用动态条件得分（DCS）模型对已实现波动率（RV）进行建模的统计框架。首先，对于股票指数数据集，通过对数线性高斯模型的拟合对RV进行初步分析，结果表明应采用双分量动态设定。该分析还指出了偏离正态性、数据中的周内模式以及异方差性的存在。随后，直接对RV拟合具有杠杆效应和星期效应的双分量DCS设定，使用第二类广义贝塔（GB2）条件分布，或等价地，对RV的对数使用指数第二类广义贝塔（EGB2）分布。该模型（含和不含异方差性）的预测性能与异质自回归（HAR）模型及其一些扩展模型和其他模型进行了比较。总体而言，使用GB2-DCS模型有明显的收益，即使HAR模型使用了额外信息，如已实现半方差。当目标是预测尾部行为时，厚尾的GB2模型比薄尾分布的模型表现好得多。进一步的练习使用汇率数据集来比较GB2-DCS模型与使用已实现四次方的模型。同样，额外信息并未带来预测优势。总体而言，GB2-DCS模型透明，提供了对RV性质的全面描述，并且难以被超越。",
+      "doi": "10.1016/j.jeconom.2023.01.029",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623001422",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407623001422.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:03:57+00:00",
+        "source_hash": "a10359348eef86e23d33dc836428b3e8a607f790f58cdee9f9fbdd54caeaa20b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.05.007",
+      "sequence": 25,
+      "source_sequence": 25,
+      "article_type": "research-article",
+      "title_en": "Score-driven asset pricing: Predicting time-varying risk premia based on cross-sectional model performance",
+      "title_cn": "得分驱动的资产定价：基于横截面模型表现预测时变风险溢价",
+      "authors": [
+        "Dennis Umlandt"
+      ],
+      "abstract_en": "This paper proposes a new parametric approach for estimating linear factor pricing models with dynamic risk premia. Time-varying risk prices and exposures follow an observation-driven updating scheme that reduces the one-step-ahead prediction error from a cross-sectional factor model at the current observation. This agnostic approach is particularly useful in situations where predictors are unknown or of uncertain quality. Updating schemes for elliptically distributed returns are derived and propose cross-sectional regression errors as driving sequence for the parameter dynamics. Estimation and inference are performed by likelihood maximization. A simulation study confirms that the novel method is capable of filtering and predicting substantial risk price movements. The empirical performance of the method is illustrated by an application to a panel of equity portfolios.",
+      "abstract_cn": "本文提出了一种新的参数方法，用于估计具有动态风险溢价的线性因子定价模型。时变风险价格和暴露遵循观测驱动更新方案，该方案在当前观测值处减少横截面因子模型的一步前向预测误差。这种不可知方法在预测因子未知或质量不确定的情况下尤为有用。推导了椭圆分布收益的更新方案，并提出将横截面回归误差作为参数动态的驱动序列。估计和推断通过似然最大化进行。模拟研究证实，该新方法能够过滤和预测显著的风险价格变动。通过应用于股票投资组合面板，说明了该方法的实证表现。",
+      "doi": "10.1016/j.jeconom.2023.05.007",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623001641",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407623001641.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:03:59+00:00",
+        "source_hash": "d2bd502a26400a0cab89b812618dd2b72850901c9ae82badce03ae2efa522c32"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.105512",
+      "sequence": 26,
+      "source_sequence": 26,
+      "article_type": "research-article",
+      "title_en": "Better bunching, nicer notching",
+      "title_cn": "更好的聚束，更优的断点",
+      "authors": [
+        "Marinho Bertanha",
+        "Andrew H. McCallum",
+        "Nathan Seegert"
+      ],
+      "abstract_en": "This paper studies the bunching identification strategy for an elasticity parameter that summarizes agents’ responses to changes in slope (kink) or intercept (notch) of a schedule of incentives. We show that current bunching methods may be very sensitive to implicit assumptions in the literature about unobserved individual heterogeneity. We overcome this sensitivity concern with new non- and semi-parametric estimators. Our estimators allow researchers to show how bunching elasticities depend on different identifying assumptions and when elasticities are robust to them. We follow the literature and derive our methods in the context of the iso-elastic utility model and an income tax schedule that creates a piece-wise linear budget constraint. We demonstrate bunching behavior provides robust estimates for self-employed and not-married taxpayers in the context of the U.S. Earned Income Tax Credit. In contrast, estimates for self-employed and married taxpayers depend on specific identifying assumptions, which highlight the value of our approach. We provide the Stata package bunching to implement our procedures.",
+      "abstract_cn": "本文研究了聚束识别策略，该策略针对一个弹性参数，该参数概括了代理人对激励计划斜率（拐点）或截距（断点）变化的反应。我们表明，当前的聚束方法可能对文献中关于未观测到的个体异质性的隐含假设非常敏感。我们通过新的非参数和半参数估计量克服了这一敏感性担忧。我们的估计量允许研究人员展示聚束弹性如何依赖于不同的识别假设，以及弹性何时对这些假设具有稳健性。我们遵循文献，在等弹性效用模型和产生分段线性预算约束的所得税表的背景下推导出我们的方法。我们证明，在美国劳动所得税抵免的背景下，聚束行为为自雇和未婚纳税人提供了稳健的估计。相比之下，自雇和已婚纳税人的估计依赖于特定的识别假设，这突显了我们方法的价值。我们提供了Stata包bunching来实现我们的程序。",
+      "doi": "10.1016/j.jeconom.2023.105512",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623002282",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407623002282.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:04:02+00:00",
+        "source_hash": "c64a7de9dc70db20a0b709f19a9080d25e49bf823d1865f44df4ac1a1a5818fb"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.105517",
+      "sequence": 27,
+      "source_sequence": 27,
+      "article_type": "research-article",
+      "title_en": "What is a standard error? (And how should we compute it?)",
+      "title_cn": "什么是标准误？（以及我们应如何计算它？）",
+      "authors": [
+        "Jeffrey M. Wooldridge"
+      ],
+      "abstract_en": "I review the definition of a standard error from a frequentist perspective, including both exact analysis and asymptotic analysis. Using the linear model for illustration, I discuss the model-based, design-based, and sampling-based approaches to uncertainty in obtaining standard errors. The model-based approach is widely applicable and produces reasonable measures of estimator precision in many settings. In some situations, particularly in the context of clustering, the model-based approach can suffer from ambiguity, and can lead to standard errors that are systematically biased. A combination of the design-based and sampling-based approaches requires the researcher to think about the variation in key explanatory variables when computing standard errors, and it can even apply to cases where the entire population is observed.",
+      "abstract_cn": "我从频率学派的视角回顾了标准误的定义，包括精确分析和渐近分析。以线性模型为例，我讨论了在获得标准误时基于模型、基于设计和基于抽样的不确定性方法。基于模型的方法应用广泛，在许多情况下能产生合理的估计量精度度量。在某些情况下，特别是在聚类背景下，基于模型的方法可能面临模糊性，并可能导致标准误出现系统性偏差。基于设计和基于抽样的方法相结合，要求研究者在计算标准误时考虑关键解释变量的变异，甚至适用于观察到整个总体的情况。",
+      "doi": "10.1016/j.jeconom.2023.105517",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623002336",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407623002336.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:04:05+00:00",
+        "source_hash": "683ca50f145624cc9964f2ee02fa30d119a31b0e9d0cb5a0b596d0c1b51a3656"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.105523",
+      "sequence": 28,
+      "source_sequence": 28,
+      "article_type": "research-article",
+      "title_en": "Instrument validity for heterogeneous causal effects",
+      "title_cn": "异质性因果效应中的工具有效性检验",
+      "authors": [
+        "Zhenting Sun"
+      ],
+      "abstract_en": "This paper provides a general framework for testing instrument validity in heterogeneous causal effect models. The generalization includes the cases where the treatment can be multivalued ordered or unordered. Based on a series of testable implications, we propose a nonparametric test which is proved to be asymptotically size controlled and consistent. Compared to the tests in the literature, our test can be applied in more general settings and may achieve power improvement. Refutation of instrument validity by the test helps detect invalid instruments that may yield implausible results on causal effects. Evidence that the test performs well on finite samples is provided via simulations. We revisit the empirical study on return to schooling to demonstrate application of the proposed test in practice. An extended continuous mapping theorem and an extended delta method, which may be of independent interest, are provided to establish the asymptotic distribution of the test statistic under null.",
+      "abstract_cn": "本文为异质性因果效应模型中的工具有效性检验提供了一个一般性框架。该推广涵盖了处理变量可以是多值有序或无序的情形。基于一系列可检验的蕴含关系，我们提出了一种非参数检验，并证明其渐近控制大小且具有一致性。与文献中的检验相比，我们的检验适用于更一般的设定，并可能实现功效改进。该检验对工具有效性的否定有助于检测可能产生不合理因果效应结果的无效工具。通过模拟提供了检验在有限样本中表现良好的证据。我们重新审视了关于教育回报的实证研究，以展示所提检验在实际中的应用。我们还提供了扩展的连续映射定理和扩展的德尔塔方法，这些可能具有独立的研究价值，用于建立检验统计量在原假设下的渐近分布。",
+      "doi": "10.1016/j.jeconom.2023.105523",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623002397",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407623002397.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:04:08+00:00",
+        "source_hash": "37b4f81932431c36e2a8f18b036059de20af9b6cb5d3fed9e6334e127e3623ef"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.105524",
+      "sequence": 29,
+      "source_sequence": 29,
+      "article_type": "research-article",
+      "title_en": "Some impossibility results for inference with cluster dependence with large clusters",
+      "title_cn": "大聚类下聚类依赖推断的若干不可能性结果",
+      "authors": [
+        "Denis Kojevnikov",
+        "Kyungchul Song"
+      ],
+      "abstract_en": "This paper focuses on a setting with observations having a cluster dependence structure and presents two main impossibility results. First, we show that when there is only one large cluster, i.e., the researcher does not have any knowledge on the dependence structure of the observations, it is not possible to consistently discriminate the mean. When within-cluster observations satisfy the uniform central limit theorem, we also show that a sufficient condition for consistent n-discrimination of the mean is that we have at least two large clusters. This result shows some limitations for inference when we lack information on the dependence structure of observations. Our second result provides a necessary and sufficient condition for the cluster structure that the long run variance is consistently estimable. Our result implies that when there is at least one large cluster, the long run variance is not consistently estimable.",
+      "abstract_cn": "本文关注观测值具有聚类依赖结构的情形，并提出了两个主要的不可能性结果。首先，我们表明当只有一个大聚类时，即研究者对观测值的依赖结构没有任何了解，无法一致地判别均值。当聚类内观测值满足一致中心极限定理时，我们还表明，一致判别均值的充分条件是至少有两个大聚类。这一结果揭示了当缺乏观测值依赖结构信息时推断的局限性。我们的第二个结果提供了聚类结构下长期方差可一致估计的充要条件。我们的结果意味着，当至少存在一个大聚类时，长期方差无法一致估计。",
+      "doi": "10.1016/j.jeconom.2023.105524",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623002403",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407623002403.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:04:11+00:00",
+        "source_hash": "9b18d9fe25ba68e2bb1f6b54b68ac2a45d8acdec812d1d2b11a9211dda9e717a"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.105545",
+      "sequence": 30,
+      "source_sequence": 30,
+      "article_type": "research-article",
+      "title_en": "Semiparametric estimation of long-term treatment effects",
+      "title_cn": "长期处理效应的半参数估计",
+      "authors": [
+        "Jiafeng Chen",
+        "David M. Ritzwoller"
+      ],
+      "abstract_en": "Long-term outcomes of experimental evaluations are necessarily observed after long delays. We develop semiparametric methods for combining the short-term outcomes of experiments with observational measurements of short-term and long-term outcomes, in order to estimate long-term treatment effects. We characterize semiparametric efficiency bounds for various instances of this problem. These calculations facilitate the construction of several estimators. We analyze the finite-sample performance of these estimators with a simulation calibrated to data from an evaluation of the long-term effects of a poverty alleviation program.",
+      "abstract_cn": "实验评估的长期结果必然在长时间延迟后才能观察到。我们开发了半参数方法，将实验的短期结果与短期和长期结果的观测测量相结合，以估计长期处理效应。我们刻画了该问题各种实例的半参数效率界。这些计算促进了若干估计量的构建。我们通过一个校准到扶贫项目长期效应评估数据的模拟，分析了这些估计量的有限样本性能。",
+      "doi": "10.1016/j.jeconom.2023.105545",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623002610",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s0304407623002610.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:04:13+00:00",
+        "source_hash": "ef7362aad9eedf373010cc9391cfe8de0899b15a105377ef3aea33da0c203e95"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.09.002",
+      "sequence": 31,
+      "source_sequence": 31,
+      "article_type": "research-article",
+      "title_en": "Two-stage weighted least squares estimator of the conditional mean of observation-driven time series models",
+      "title_cn": "观测驱动时间序列模型条件均值的两阶段加权最小二乘估计",
+      "authors": [
+        "Abdelhakim Aknouche",
+        "Christian Francq"
+      ],
+      "abstract_en": "General parametric forms are assumed for the conditional mean λt(θ0) and variance υt of a time series. These conditional moments can for instance be derived from count time series, Autoregressive Conditional Duration or Generalized Autoregressive Score models. In this paper, our aim is to estimate the conditional mean parameter θ0, trying to be as agnostic as possible about the conditional distribution of the observations. Quasi-Maximum Likelihood Estimators (QMLEs) based on the linear exponential family fulfill this goal, but they may be inefficient and have complicated asymptotic distributions when θ0 contains boundary coefficients. We thus study alternative Weighted Least Square Estimators (WLSEs), which enjoy the same consistency property as the QMLEs when the conditional distribution is misspecified, but have simpler asymptotic distributions when components of θ0 are null and gain in efficiency when υt is well specified. We compare the asymptotic properties of the QMLEs and WLSEs, and determine a data driven strategy for finding an asymptotically optimal WLSE. Simulation experiments and illustrations on realized volatility forecasting are presented.",
+      "abstract_cn": "对时间序列的条件均值λt(θ0)和方差υt假设了一般参数形式。这些条件矩例如可以从计数时间序列、自回归条件持续时间或广义自回归得分模型中推导出来。在本文中，我们的目标是在尽可能不依赖于观测条件分布的情况下估计条件均值参数θ0。基于线性指数族的拟极大似然估计量(QMLEs)实现了这一目标，但当θ0包含边界系数时，它们可能效率低下且具有复杂的渐近分布。因此，我们研究了替代的加权最小二乘估计量(WLSEs)，当条件分布被错误指定时，它们具有与QMLEs相同的相合性，但当θ0的分量为零时具有更简单的渐近分布，并且当υt被正确指定时效率更高。我们比较了QMLEs和WLSEs的渐近性质，并确定了一种数据驱动策略来寻找渐近最优的WLSE。进行了模拟实验和实际波动率预测的说明。",
+      "doi": "10.1016/j.jeconom.2021.09.002",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S030440762100213X",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s030440762100213x.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:04:17+00:00",
+        "source_hash": "297201c8785f0f0634787679b503dabff4e536ac6d22a820ad77bedb9825a57e"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.03.010",
+      "sequence": 32,
+      "source_sequence": 32,
+      "article_type": "research-article",
+      "title_en": "Optimal model averaging based on forward-validation",
+      "title_cn": "基于前向验证的最优模型平均",
+      "authors": [
+        "Xiaomeng Zhang",
+        "Xinyu Zhang"
+      ],
+      "abstract_en": "In this paper, noting that the prediction of time series follows the temporal order of data, we propose a frequentist model averaging method based on forward-validation. Our method also considers the uncertainty of the window size in estimation, i.e., we allow the sample size to vary among candidate models. We establish the asymptotic optimality of our method in the sense of achieving the lowest possible squared prediction risk. We also prove that if there exists one or more correctly specified models, our method will automatically assign all the weights to them. The promising performance of our method for finite samples is demonstrated by simulations and an empirical example of predicting the equity premium.",
+      "abstract_cn": "本文注意到时间序列的预测遵循数据的时间顺序，提出了一种基于前向验证的频率学派模型平均方法。我们的方法还考虑了估计中窗口大小的不确定性，即允许候选模型之间的样本量不同。我们建立了该方法在实现最低可能平方预测风险意义上的渐近最优性。我们还证明，如果存在一个或多个正确设定的模型，我们的方法将自动将所有权重分配给它们。通过模拟和预测股权溢价的实证例子，证明了我们方法在有限样本下的良好性能。",
+      "doi": "10.1016/j.jeconom.2022.03.010",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S030440762200094X",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/eee/econom.html",
+        "roster": "repec-serial-page",
+        "metadata": "repec-publisher-supplied",
+        "abstract_en": "repec-publisher-supplied",
+        "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i2s030440762200094x.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T19:04:19+00:00",
+        "source_hash": "c9abea70e16fff648dfa216f2c83adfd14a6c0b69c4c2103bcc22b27c4eff8da"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "repec-serial-page",
+    "roster_authority": "repec-publisher-supplied",
+    "roster_match_scope": "repec-volume-items",
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 32,
+    "authors_complete": 32,
+    "abstract_en_complete": 32,
+    "translation_complete": 32,
+    "duplicate_count": 0,
+    "repec_item_count": 32,
+    "flags": [],
+    "official_item_count": 32,
+    "publishable_item_count": 32,
+    "content_counts": {
+      "official_items": 32,
+      "observed_items": 32,
+      "publishable_items": 32,
+      "research_articles": 32,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 32
+    }
+  },
+  "content_counts": {
+    "official_items": 32,
+    "observed_items": 32,
+    "publishable_items": 32,
+    "research_articles": 32,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 32
+  },
+  "issue_label": "Vol. 237 · No. 2",
+  "content_status": "complete",
+  "source_status": "publisher_verified",
+  "publication_state": "ready"
+}
