@@ -124,3 +124,18 @@ jobs:
           gh api --method POST "repos/${{ github.repository }}/pulls/$PR_NUMBER/reviews" \
             -f event=APPROVE \
             -f body="Auto-approved by journal-auto-approver: required checks passed and author is trusted."
+
+      - name: Merge approved PR
+        if: steps.gate.outputs.continue == 'true'
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          set -euo pipefail
+          PR_NUMBER="${{ steps.pr-number.outputs.number }}"
+          APPROVED="$(gh api "repos/${{ github.repository }}/pulls/$PR_NUMBER/reviews" \
+            --jq '[.[] | select(.state == "APPROVED" and (.user.login | startswith("journal-auto-approver")))] | length')"
+          if [ "$APPROVED" -lt 1 ]; then
+            echo "The auto-reviewer approval is missing; refusing to merge."
+            exit 1
+          fi
+          gh pr merge "$PR_NUMBER" -R "${{ github.repository }}" --squash
