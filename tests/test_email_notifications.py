@@ -216,6 +216,11 @@ class EmailNotificationTests(unittest.TestCase):
             )
             self.assertNotIn("email-state-tree", source)
             self.assertIn('data_tree="$RUNNER_TEMP/data-tree"', source)
+            persist = source.split(
+                "      - name: Persist private email notification state", 1
+            )[1].split("      - name: Open or close private email failure alert", 1)[0]
+            self.assertNotIn('git worktree add "$data_tree" origin/data', persist)
+            self.assertNotIn('git -C "$data_tree" switch -C data', persist)
 
     def test_monitor_does_not_run_a_redundant_all_journal_retry(self):
         root = Path(__file__).resolve().parents[1]

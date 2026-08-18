@@ -332,7 +332,9 @@ jobs:
           fi
           baseline="$RUNNER_TEMP/data-baseline"
           generated="$RUNNER_TEMP/email-state-generated"
-          data_tree="$RUNNER_TEMP/email-state-data-tree"
+          # Reuse the data worktree opened by the publish step. Creating a
+          # second worktree and switching it to `data` loses dedup state.
+          data_tree="$RUNNER_TEMP/data-tree"
           python scripts/publish_data_delta.py snapshot \
             --root . \
             --output "$generated" \
@@ -342,10 +344,6 @@ jobs:
               sleep $((attempt * 10))
               continue
             fi
-            git worktree remove --force "$data_tree" 2>/dev/null || true
-            rm -rf "$data_tree"
-            git worktree add "$data_tree" origin/data
-            git -C "$data_tree" switch -C data
             if ! python scripts/publish_data_delta.py apply \
               --baseline "$baseline" \
               --generated "$generated" \
