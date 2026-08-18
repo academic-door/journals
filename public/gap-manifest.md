@@ -1,14 +1,14 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-08-17T22:42:34+00:00
+Generated: 2026-08-18T01:52:51+00:00
 
 ## Summary
 
 - browser_required: 66
-- ready: 485
-- recoverable: 510
+- ready: 504
+- recoverable: 490
 - source_pending: 259
-- translation_required: 4
+- translation_required: 5
 
 ## Issue queue
 
@@ -811,7 +811,7 @@ Generated: 2026-08-17T22:42:34+00:00
 | JHE | jhe-89-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JHE | jhe-90-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JHE | jhe-91-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
-| JHE | jhe-92-c | 2023 | translation_required | blocked | source_pending | archive_missing |
+| JHE | jhe-92-c | 2023 | recoverable | blocked | source_pending | archive_missing |
 | JHE | jhe-93-c | 2024 | recoverable | blocked | source_pending | archive_missing |
 | JHE | jhe-94-c | 2024 | recoverable | blocked | source_pending | archive_missing |
 | JHE | jhe-95-c | 2024 | recoverable | blocked | source_pending | archive_missing |
@@ -823,8 +823,8 @@ Generated: 2026-08-17T22:42:34+00:00
 | JIE | jie-141-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JIE | jie-142-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JIE | jie-143-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
-| JIE | jie-144-c | 2023 | translation_required | blocked | source_pending | archive_missing |
-| JIE | jie-145-c | 2023 | translation_required | blocked | source_pending | archive_missing |
+| JIE | jie-144-c | 2023 | recoverable | blocked | source_pending | archive_missing |
+| JIE | jie-145-c | 2023 | recoverable | blocked | source_pending | archive_missing |
 | JIE | jie-146-c | 2023 | recoverable | blocked | source_pending | archive_missing |
 | JIE | jie-147-c | 2024 | recoverable | blocked | source_pending | archive_missing |
 | JIE | jie-148-c | 2024 | recoverable | blocked | source_pending | archive_missing |
@@ -862,12 +862,12 @@ Generated: 2026-08-17T22:42:34+00:00
 | JLE | jle-44-1 | 2026 | source_pending | complete | source_pending | official source verification pending |
 | JLE | jle-44-2 | 2026 | source_pending | complete | source_pending | official source verification pending |
 | JLE | jle-44-3 | 2026 | source_pending | complete | source_pending | official source verification pending |
-| JME | jme-133-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JME | jme-134-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JME | jme-135-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JME | jme-136-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JME | jme-137-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JME | jme-138-c | 2023 | recoverable | blocked | source_pending | archive_missing |
+| JME | jme-133-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JME | jme-134-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JME | jme-135-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JME | jme-136-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JME | jme-137-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JME | jme-138-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JME | jme-139-c | 2023 | recoverable | blocked | source_pending | archive_missing |
 | JME | jme-140-c | 2023 | recoverable | blocked | source_pending | archive_missing |
 | JME | jme-141-c | 2024 | recoverable | blocked | source_pending | archive_missing |
@@ -892,12 +892,12 @@ Generated: 2026-08-17T22:42:34+00:00
 | JME | jme-160-c | 2026 | source_pending | complete | source_pending | official source verification pending |
 | JME | jme-161-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JME | jme-162-c | 2026 | ready | complete | official_verified | content and official source gates passed |
-| JOE | joe-232-1 | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JOE | joe-232-2 | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JOE | joe-233-1 | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JOE | joe-233-2 | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JOE | joe-234-1 | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JOE | joe-234-2 | 2023 | recoverable | blocked | source_pending | archive_missing |
+| JOE | joe-232-1 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JOE | joe-232-2 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JOE | joe-233-1 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JOE | joe-233-2 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JOE | joe-234-1 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JOE | joe-234-2 | 2023 | translation_required | blocked | source_pending | archive_missing |
 | JOE | joe-234-c | 2023 | recoverable | blocked | source_pending | archive_missing |
 | JOE | joe-235-1 | 2023 | recoverable | blocked | source_pending | archive_missing |
 | JOE | joe-235-2 | 2023 | recoverable | blocked | source_pending | archive_missing |
@@ -974,12 +974,12 @@ Generated: 2026-08-17T22:42:34+00:00
 | JPE | jpe-134-5 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JPE | jpe-134-6 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JPE | jpe-134-7 | 2026 | source_pending | complete | source_pending | official source verification pending |
-| JPubE | jpube-217-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JPubE | jpube-218-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JPubE | jpube-219-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JPubE | jpube-220-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JPubE | jpube-221-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JPubE | jpube-222-c | 2023 | recoverable | blocked | source_pending | archive_missing |
+| JPubE | jpube-217-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JPubE | jpube-218-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JPubE | jpube-219-c | 2023 | translation_required | blocked | source_pending | archive_missing |
+| JPubE | jpube-220-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JPubE | jpube-221-c | 2023 | translation_required | blocked | source_pending | archive_missing |
+| JPubE | jpube-222-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JPubE | jpube-223-c | 2023 | recoverable | blocked | source_pending | archive_missing |
 | JPubE | jpube-224-c | 2023 | recoverable | blocked | source_pending | archive_missing |
 | JPubE | jpube-225-c | 2023 | recoverable | blocked | source_pending | archive_missing |
@@ -1021,11 +1021,11 @@ Generated: 2026-08-17T22:42:34+00:00
 | JPubE | jpube-261-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JPubE | jpube-262-c | 2026 | recoverable | blocked | source_pending | archive_missing |
 | JUE | jue-133-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JUE | jue-134-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JUE | jue-135-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JUE | jue-136-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JUE | jue-137-c | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JUE | jue-138-c | 2023 | recoverable | blocked | source_pending | archive_missing |
+| JUE | jue-134-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JUE | jue-135-c | 2023 | translation_required | blocked | source_pending | archive_missing |
+| JUE | jue-136-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JUE | jue-137-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| JUE | jue-138-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JUE | jue-139-c | 2024 | recoverable | blocked | source_pending | archive_missing |
 | JUE | jue-140-c | 2024 | recoverable | blocked | source_pending | archive_missing |
 | JUE | jue-141-c | 2024 | recoverable | blocked | source_pending | archive_missing |
