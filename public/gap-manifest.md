@@ -1,25 +1,25 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-08-19T22:43:29+00:00
+Generated: 2026-08-20T01:54:46+00:00
 
 ## Summary
 
 - browser_required: 36
 - ready: 788
-- recoverable: 143
+- recoverable: 140
 - source_pending: 357
-- translation_required: 2
+- translation_required: 5
 
 ## Issue queue
 
 | Journal | Issue | Year | Category | Content | Source | Reason |
 |---|---|---:|---|---|---|---|
-| AEJAPP | aejapp-15-1 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| AEJAPP | aejapp-15-2 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| AEJAPP | aejapp-15-3 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| AEJAPP | aejapp-15-4 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| AEJAPP | aejapp-16-1 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| AEJAPP | aejapp-16-2 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
+| AEJAPP | aejapp-15-1 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| AEJAPP | aejapp-15-2 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| AEJAPP | aejapp-15-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| AEJAPP | aejapp-15-4 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| AEJAPP | aejapp-16-1 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| AEJAPP | aejapp-16-2 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | AEJAPP | aejapp-16-3 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | AEJAPP | aejapp-16-4 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | AEJAPP | aejapp-17-1 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
@@ -29,12 +29,12 @@ Generated: 2026-08-19T22:43:29+00:00
 | AEJAPP | aejapp-18-1 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
 | AEJAPP | aejapp-18-2 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
 | AEJAPP | aejapp-18-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
-| AEJMACRO | aejmacro-15-1 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| AEJMACRO | aejmacro-15-2 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| AEJMACRO | aejmacro-15-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| AEJMACRO | aejmacro-15-4 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| AEJMACRO | aejmacro-16-1 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| AEJMACRO | aejmacro-16-2 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| AEJMACRO | aejmacro-15-1 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
+| AEJMACRO | aejmacro-15-2 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
+| AEJMACRO | aejmacro-15-3 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
+| AEJMACRO | aejmacro-15-4 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
+| AEJMACRO | aejmacro-16-1 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
+| AEJMACRO | aejmacro-16-2 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
 | AEJMACRO | aejmacro-16-3 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | AEJMACRO | aejmacro-16-4 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | AEJMACRO | aejmacro-17-1 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
@@ -118,12 +118,12 @@ Generated: 2026-08-19T22:43:29+00:00
 | AER | aer-116-6 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AER | aer-116-7 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AER | aer-116-8 | 2026 | ready | complete | official_verified | content and official source gates passed |
-| AERI | aeri-5-1 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| AERI | aeri-5-2 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| AERI | aeri-5-3 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| AERI | aeri-5-4 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| AERI | aeri-6-1 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| AERI | aeri-6-2 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
+| AERI | aeri-5-1 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| AERI | aeri-5-2 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| AERI | aeri-5-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| AERI | aeri-5-4 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| AERI | aeri-6-1 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| AERI | aeri-6-2 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | AERI | aeri-6-3 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | AERI | aeri-6-4 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | AERI | aeri-7-1 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
@@ -405,10 +405,10 @@ Generated: 2026-08-19T22:43:29+00:00
 | FOODPOLICY | foodpolicy-115-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-116-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-117-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
-| FOODPOLICY | foodpolicy-118-c | 2023 | recoverable | blocked | source_pending | archive_missing |
+| FOODPOLICY | foodpolicy-118-c | 2023 | translation_required | blocked | source_pending | archive_missing |
 | FOODPOLICY | foodpolicy-119-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-120-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
-| FOODPOLICY | foodpolicy-121-c | 2023 | recoverable | blocked | source_pending | archive_missing |
+| FOODPOLICY | foodpolicy-121-c | 2023 | translation_required | blocked | source_pending | archive_missing |
 | FOODPOLICY | foodpolicy-122-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-123-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-124-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
@@ -497,7 +497,7 @@ Generated: 2026-08-19T22:43:29+00:00
 | JAERE | jaere-13-6 | 2026 | recoverable | blocked | source_pending | archive_missing |
 | JCE | jce-51-1 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JCE | jce-51-2 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
-| JCE | jce-51-3 | 2023 | recoverable | blocked | source_pending | archive_missing |
+| JCE | jce-51-3 | 2023 | translation_required | blocked | source_pending | archive_missing |
 | JCE | jce-51-4 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JCE | jce-52-1 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | JCE | jce-52-2 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
@@ -671,12 +671,12 @@ Generated: 2026-08-19T22:43:29+00:00
 | JEEM | jeem-139-c | 2026 | source_pending | complete | source_pending | official source verification pending |
 | JEEM | jeem-140-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JEH | jeh-83-1 | 2023 | browser_required | blocked | source_pending | archive_missing |
-| JEH | jeh-83-2 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| JEH | jeh-83-3 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| JEH | jeh-83-4 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| JEH | jeh-84-1 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| JEH | jeh-84-2 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| JEH | jeh-84-3 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
+| JEH | jeh-83-2 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| JEH | jeh-83-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| JEH | jeh-83-4 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| JEH | jeh-84-1 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| JEH | jeh-84-2 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| JEH | jeh-84-3 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | JEH | jeh-84-4 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | JEH | jeh-85-1 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JEH | jeh-85-2 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
@@ -730,13 +730,13 @@ Generated: 2026-08-19T22:43:29+00:00
 | JET | jet-235-c | 2026 | source_pending | complete | source_pending | official source verification pending |
 | JET | jet-236-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JF | jf-78-1 | 2023 | browser_required | blocked | source_pending | archive_missing |
-| JF | jf-78-2 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| JF | jf-78-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| JF | jf-78-4 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| JF | jf-78-5 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| JF | jf-78-6 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| JF | jf-78-2 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
+| JF | jf-78-3 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
+| JF | jf-78-4 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
+| JF | jf-78-5 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
+| JF | jf-78-6 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
 | JF | jf-79-1 | 2024 | browser_required | blocked | source_pending | archive_missing |
-| JF | jf-79-2 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| JF | jf-79-2 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
 | JF | jf-79-3 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | JF | jf-79-4 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | JF | jf-79-5 | 2024 | source_pending | complete | source_pending | official source verification pending |
@@ -1174,12 +1174,12 @@ Generated: 2026-08-19T22:43:29+00:00
 | RAND | rand-57-1 | 2026 | source_pending | complete | source_pending | ValueError: RePEc history requires a configured series code |
 | RAND | rand-57-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RAND | rand-57-3 | 2026 | recoverable | blocked | source_pending | archive_missing |
-| RED | red-47-c | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| RED | red-48-c | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| RED | red-49-c | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| RED | red-50-c | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| RED | red-51-c | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| RED | red-52-c | 2024 | source_pending | complete | source_pending | source authority pending official verification |
+| RED | red-47-c | 2023 | source_pending | complete | source_pending | official source verification pending |
+| RED | red-48-c | 2023 | source_pending | complete | source_pending | official source verification pending |
+| RED | red-49-c | 2023 | source_pending | complete | source_pending | official source verification pending |
+| RED | red-50-c | 2023 | source_pending | complete | source_pending | official source verification pending |
+| RED | red-51-c | 2023 | source_pending | complete | source_pending | official source verification pending |
+| RED | red-52-c | 2024 | source_pending | complete | source_pending | official source verification pending |
 | RED | red-53-c | 2024 | source_pending | complete | source_pending | official source verification pending |
 | RED | red-54-c | 2024 | source_pending | complete | source_pending | official source verification pending |
 | RED | red-55-c | 2025 | source_pending | complete | source_pending | source authority pending official verification |

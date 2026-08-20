@@ -1,13 +1,15 @@
 # Field journal history backfill status
 
-Updated: 2026-08-19T23:01:00+00:00
+Updated: 2026-08-20T01:54:31+00:00
 
 Discovery coverage: 1326 discovered · 1147 archived · 788 publication ready · 179 missing · 359 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
 | 2023-2024 | 376 | 3 | 153 | 176 |
-| 2025-2026 | 413 | 0 | 23 | 183 |
+| 2024-2024 | 12 | 0 | 0 | 0 |
+| 2025-2026 | 1 | 0 | 0 | 0 |
+| 2026-2026 | 6 | 0 | 0 | 0 |
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
