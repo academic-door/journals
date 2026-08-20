@@ -1,15 +1,13 @@
 # Field journal history backfill status
 
-Updated: 2026-08-20T22:47:32+00:00
+Updated: 2026-08-20T23:04:17+00:00
 
 Discovery coverage: 1326 discovered · 1147 archived · 788 publication ready · 179 missing · 359 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 376 | 3 | 153 | 176 |
-| 2024-2024 | 12 | 0 | 0 | 0 |
-| 2025-2026 | 1 | 0 | 0 | 0 |
-| 2026-2026 | 6 | 0 | 0 | 0 |
+| 2023-2024 | 376 | 0 | 156 | 176 |
+| 2025-2026 | 413 | 0 | 23 | 183 |
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -28,12 +26,12 @@ Discovery coverage: 1326 discovered · 1147 archived · 788 publication ready ·
 | AEJAPP | aejapp-18-1 | 2026 | source_pending | source authority pending official verification |
 | AEJAPP | aejapp-18-2 | 2026 | source_pending | source authority pending official verification |
 | AEJAPP | aejapp-18-3 | 2026 | ready |  |
-| AEJMACRO | aejmacro-15-1 | 2023 | source_pending | source authority pending official verification |
-| AEJMACRO | aejmacro-15-2 | 2023 | source_pending | source authority pending official verification |
-| AEJMACRO | aejmacro-15-3 | 2023 | source_pending | source authority pending official verification |
-| AEJMACRO | aejmacro-15-4 | 2023 | source_pending | source authority pending official verification |
-| AEJMACRO | aejmacro-16-1 | 2024 | source_pending | source authority pending official verification |
-| AEJMACRO | aejmacro-16-2 | 2024 | source_pending | source authority pending official verification |
+| AEJMACRO | aejmacro-15-1 | 2023 | source_pending |  |
+| AEJMACRO | aejmacro-15-2 | 2023 | source_pending |  |
+| AEJMACRO | aejmacro-15-3 | 2023 | source_pending |  |
+| AEJMACRO | aejmacro-15-4 | 2023 | source_pending |  |
+| AEJMACRO | aejmacro-16-1 | 2024 | source_pending |  |
+| AEJMACRO | aejmacro-16-2 | 2024 | source_pending |  |
 | AEJMACRO | aejmacro-16-3 | 2024 | source_pending |  |
 | AEJMACRO | aejmacro-16-4 | 2024 | source_pending |  |
 | AEJMACRO | aejmacro-17-1 | 2025 | source_pending | source authority pending official verification |
@@ -43,12 +41,12 @@ Discovery coverage: 1326 discovered · 1147 archived · 788 publication ready ·
 | AEJMACRO | aejmacro-18-1 | 2026 | source_pending | source authority pending official verification |
 | AEJMACRO | aejmacro-18-2 | 2026 | source_pending | source authority pending official verification |
 | AEJMACRO | aejmacro-18-3 | 2026 | ready |  |
-| AEJMICRO | aejmicro-15-1 | 2023 | source_pending |  |
-| AEJMICRO | aejmicro-15-2 | 2023 | source_pending |  |
-| AEJMICRO | aejmicro-15-3 | 2023 | source_pending |  |
-| AEJMICRO | aejmicro-15-4 | 2023 | source_pending |  |
-| AEJMICRO | aejmicro-16-1 | 2024 | source_pending |  |
-| AEJMICRO | aejmicro-16-2 | 2024 | source_pending |  |
+| AEJMICRO | aejmicro-15-1 | 2023 | source_pending | source authority pending official verification |
+| AEJMICRO | aejmicro-15-2 | 2023 | source_pending | source authority pending official verification |
+| AEJMICRO | aejmicro-15-3 | 2023 | source_pending | source authority pending official verification |
+| AEJMICRO | aejmicro-15-4 | 2023 | source_pending | source authority pending official verification |
+| AEJMICRO | aejmicro-16-1 | 2024 | source_pending | source authority pending official verification |
+| AEJMICRO | aejmicro-16-2 | 2024 | source_pending | source authority pending official verification |
 | AEJMICRO | aejmicro-16-3 | 2024 | source_pending |  |
 | AEJMICRO | aejmicro-16-4 | 2024 | source_pending |  |
 | AEJMICRO | aejmicro-17-1 | 2025 | source_pending | source authority pending official verification |
@@ -58,12 +56,12 @@ Discovery coverage: 1326 discovered · 1147 archived · 788 publication ready ·
 | AEJMICRO | aejmicro-18-1 | 2026 | source_pending | source authority pending official verification |
 | AEJMICRO | aejmicro-18-2 | 2026 | ready |  |
 | AEJMICRO | aejmicro-18-3 | 2026 | ready |  |
-| AEJPOL | aejpol-15-1 | 2023 | source_pending |  |
-| AEJPOL | aejpol-15-2 | 2023 | source_pending |  |
-| AEJPOL | aejpol-15-3 | 2023 | source_pending |  |
-| AEJPOL | aejpol-15-4 | 2023 | source_pending |  |
-| AEJPOL | aejpol-16-1 | 2024 | source_pending |  |
-| AEJPOL | aejpol-16-2 | 2024 | source_pending |  |
+| AEJPOL | aejpol-15-1 | 2023 | source_pending | source authority pending official verification |
+| AEJPOL | aejpol-15-2 | 2023 | source_pending | source authority pending official verification |
+| AEJPOL | aejpol-15-3 | 2023 | source_pending | source authority pending official verification |
+| AEJPOL | aejpol-15-4 | 2023 | source_pending | source authority pending official verification |
+| AEJPOL | aejpol-16-1 | 2024 | source_pending | source authority pending official verification |
+| AEJPOL | aejpol-16-2 | 2024 | source_pending | source authority pending official verification |
 | AEJPOL | aejpol-16-3 | 2024 | source_pending |  |
 | AEJPOL | aejpol-16-4 | 2024 | source_pending |  |
 | AEJPOL | aejpol-17-1 | 2025 | source_pending | source authority pending official verification |
@@ -222,11 +220,11 @@ Discovery coverage: 1326 discovered · 1147 archived · 788 publication ready ·
 | ECOLECON | ecolecon-248-c | 2026 | ready |  |
 | ECOLECON | ecolecon-249-c | 2026 | ready |  |
 | ECOLECON | ecolecon-250-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 250/ |
-| ECTA | ecta-91-1 | 2023 | source_pending |  |
+| ECTA | ecta-91-1 | 2023 | source_pending | source authority pending official verification |
 | ECTA | ecta-91-2 | 2023 | blocked | archive_content_gate_failed |
 | ECTA | ecta-91-3 | 2023 | blocked | archive_content_gate_failed |
-| ECTA | ecta-91-4 | 2023 | source_pending |  |
-| ECTA | ecta-91-5 | 2023 | source_pending |  |
+| ECTA | ecta-91-4 | 2023 | source_pending | source authority pending official verification |
+| ECTA | ecta-91-5 | 2023 | source_pending | source authority pending official verification |
 | ECTA | ecta-91-6 | 2023 | ready |  |
 | ECTA | ecta-92-1 | 2024 | ready |  |
 | ECTA | ecta-92-2 | 2024 | ready |  |
@@ -404,10 +402,10 @@ Discovery coverage: 1326 discovered · 1147 archived · 788 publication ready ·
 | FOODPOLICY | foodpolicy-115-c | 2023 | ready |  |
 | FOODPOLICY | foodpolicy-116-c | 2023 | ready |  |
 | FOODPOLICY | foodpolicy-117-c | 2023 | ready |  |
-| FOODPOLICY | foodpolicy-118-c | 2023 | translation_partial |  |
+| FOODPOLICY | foodpolicy-118-c | 2023 | blocked | archive_missing |
 | FOODPOLICY | foodpolicy-119-c | 2023 | ready |  |
 | FOODPOLICY | foodpolicy-120-c | 2023 | ready |  |
-| FOODPOLICY | foodpolicy-121-c | 2023 | translation_partial |  |
+| FOODPOLICY | foodpolicy-121-c | 2023 | blocked | archive_missing |
 | FOODPOLICY | foodpolicy-122-c | 2024 | ready |  |
 | FOODPOLICY | foodpolicy-123-c | 2024 | ready |  |
 | FOODPOLICY | foodpolicy-124-c | 2024 | ready |  |
@@ -496,7 +494,7 @@ Discovery coverage: 1326 discovered · 1147 archived · 788 publication ready ·
 | JAERE | jaere-13-6 | 2026 | blocked | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.ed |
 | JCE | jce-51-1 | 2023 | ready |  |
 | JCE | jce-51-2 | 2023 | ready |  |
-| JCE | jce-51-3 | 2023 | translation_partial |  |
+| JCE | jce-51-3 | 2023 | blocked | archive_missing |
 | JCE | jce-51-4 | 2023 | ready |  |
 | JCE | jce-52-1 | 2024 | ready |  |
 | JCE | jce-52-2 | 2024 | ready |  |
@@ -729,13 +727,13 @@ Discovery coverage: 1326 discovered · 1147 archived · 788 publication ready ·
 | JET | jet-235-c | 2026 | source_pending |  |
 | JET | jet-236-c | 2026 | ready |  |
 | JF | jf-78-1 | 2023 | blocked | archive_content_gate_failed |
-| JF | jf-78-2 | 2023 | source_pending | source authority pending official verification |
-| JF | jf-78-3 | 2023 | source_pending | source authority pending official verification |
-| JF | jf-78-4 | 2023 | source_pending | source authority pending official verification |
-| JF | jf-78-5 | 2023 | source_pending | source authority pending official verification |
-| JF | jf-78-6 | 2023 | source_pending | source authority pending official verification |
+| JF | jf-78-2 | 2023 | source_pending |  |
+| JF | jf-78-3 | 2023 | source_pending |  |
+| JF | jf-78-4 | 2023 | source_pending |  |
+| JF | jf-78-5 | 2023 | source_pending |  |
+| JF | jf-78-6 | 2023 | source_pending |  |
 | JF | jf-79-1 | 2024 | blocked | archive_content_gate_failed |
-| JF | jf-79-2 | 2024 | source_pending | source authority pending official verification |
+| JF | jf-79-2 | 2024 | source_pending |  |
 | JF | jf-79-3 | 2024 | source_pending |  |
 | JF | jf-79-4 | 2024 | source_pending |  |
 | JF | jf-79-5 | 2024 | source_pending |  |
@@ -1065,8 +1063,8 @@ Discovery coverage: 1326 discovered · 1147 archived · 788 publication ready ·
 | LABECO | labeco-97-c | 2025 | ready |  |
 | LABECO | labeco-98-c | 2026 | ready |  |
 | LABECO | labeco-99-c | 2026 | ready |  |
-| LANDECON | landecon-100-1 | 2024 | source_pending |  |
-| LANDECON | landecon-100-2 | 2024 | source_pending |  |
+| LANDECON | landecon-100-1 | 2024 | source_pending | source authority pending official verification |
+| LANDECON | landecon-100-2 | 2024 | source_pending | source authority pending official verification |
 | LANDECON | landecon-100-3 | 2024 | source_pending |  |
 | LANDECON | landecon-100-4 | 2024 | source_pending |  |
 | LANDECON | landecon-101-1 | 2025 | source_pending | source authority pending official verification |
@@ -1076,10 +1074,10 @@ Discovery coverage: 1326 discovered · 1147 archived · 788 publication ready ·
 | LANDECON | landecon-102-1 | 2026 | source_pending | source authority pending official verification |
 | LANDECON | landecon-102-2 | 2026 | source_pending | source authority pending official verification |
 | LANDECON | landecon-102-3 | 2026 | source_pending | source authority pending official verification |
-| LANDECON | landecon-99-1 | 2023 | source_pending |  |
-| LANDECON | landecon-99-2 | 2023 | source_pending |  |
-| LANDECON | landecon-99-3 | 2023 | source_pending |  |
-| LANDECON | landecon-99-4 | 2023 | source_pending |  |
+| LANDECON | landecon-99-1 | 2023 | source_pending | source authority pending official verification |
+| LANDECON | landecon-99-2 | 2023 | source_pending | source authority pending official verification |
+| LANDECON | landecon-99-3 | 2023 | source_pending | source authority pending official verification |
+| LANDECON | landecon-99-4 | 2023 | source_pending | source authority pending official verification |
 | LUP | lup-124-c | 2023 | ready |  |
 | LUP | lup-125-c | 2023 | blocked | archive_missing |
 | LUP | lup-126-c | 2023 | blocked | archive_missing |
