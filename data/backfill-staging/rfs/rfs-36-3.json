@@ -7,9 +7,9 @@
   "issue": "3",
   "publication_date": "February 2023",
   "source_url": "https://academic.oup.com/rfs/issue/36/3",
-  "retrieved_at": "2026-08-18T17:22:56+00:00",
-  "expected_article_count": 8,
-  "research_article_count": 8,
+  "retrieved_at": "2026-08-21T23:00:14+00:00",
+  "expected_article_count": 9,
+  "research_article_count": 9,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
@@ -342,6 +342,47 @@
         "matched_terms": [],
         "source": "academic-door-rules-v1"
       }
+    },
+    {
+      "paper_id": "doi:10.1093/rfs/hhac035",
+      "sequence": 9,
+      "source_sequence": 1289,
+      "article_type": "research-article",
+      "title_en": "A Model-Free Term Structure of U.S. Dividend Premiums",
+      "title_cn": "美国股息溢价的无模型期限结构",
+      "authors": [
+        "Maxim Ulrich",
+        "Stephan Florig",
+        "Ralph Seehuber"
+      ],
+      "abstract_en": "We estimate a model-free term structure of the ex ante dividend risk premium by combining two data sets with different information about future dividends. We aggregate survey forecasts about future dividends for single companies over multiple horizons to construct a term structure of expected S&P 500 dividend growth rates. We use European call and put option prices on the S&P 500 to estimate the term structures of options-implied dividend growth rates and risk-free rates. Applying the method to 2004–2021 data offers a new, ex ante perspective on the conditional time variation of the term structure of the dividend risk premium.",
+      "abstract_cn": "我们通过结合两个包含未来股息不同信息的数据集，估计了事前股息风险溢价的无模型期限结构。我们汇总了对单一公司未来股息的调查预测，覆盖多个期限，以构建预期标普500股息增长率的期限结构。我们使用标普500的欧式看涨和看跌期权价格来估计期权隐含股息增长率和无风险利率的期限结构。将该方法应用于2004-2021年的数据，为股息风险溢价期限结构的条件时变性提供了新的事前视角。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/rfs/hhac035",
+      "source_url": "https://doi.org/10.1093/rfs/hhac035",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://academic.oup.com/rfs/issue/36/3",
+        "roster": "crossref:issn:0893-9454",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-21T23:00:17+00:00",
+        "source_hash": "fc7664268c1d5cb270ee8cbc28adfbd99ac85d6278503d0ea50c44cf90a49b43"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     }
   ],
   "quality": {
@@ -353,45 +394,45 @@
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 8,
-    "authors_complete": 8,
-    "abstract_en_complete": 8,
-    "translation_complete": 8,
+    "doi_complete": 9,
+    "authors_complete": 9,
+    "abstract_en_complete": 9,
+    "translation_complete": 9,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
       "crossref_provisional_roster"
     ],
-    "official_item_count": 8,
-    "publishable_item_count": 8,
+    "official_item_count": 9,
+    "publishable_item_count": 9,
     "content_counts": {
-      "official_items": 8,
-      "observed_items": 8,
-      "publishable_items": 8,
-      "research_articles": 8,
+      "official_items": 9,
+      "observed_items": 9,
+      "publishable_items": 9,
+      "research_articles": 9,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 8
+      "catalog_content_items": 9
     }
   },
   "source_status": "source_pending",
   "publication_state": "source_pending",
   "content_counts": {
-    "official_items": 8,
-    "observed_items": 8,
-    "publishable_items": 8,
-    "research_articles": 8,
+    "official_items": 9,
+    "observed_items": 9,
+    "publishable_items": 9,
+    "research_articles": 9,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 8
+    "catalog_content_items": 9
   },
   "issue_label": "Vol. 36 · No. 3",
   "content_status": "complete"
