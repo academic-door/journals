@@ -1,12 +1,12 @@
 # Field journal history backfill status
 
-Updated: 2026-08-24T14:40:00+00:00
+Updated: 2026-08-24T14:48:19+00:00
 
-Discovery coverage: 1331 discovered · 1157 archived · 940 publication ready · 174 missing · 217 source pending
+Discovery coverage: 1331 discovered · 1157 archived · 941 publication ready · 174 missing · 216 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 460 | 38 | 108 | 102 |
+| 2023-2024 | 461 | 38 | 108 | 101 |
 | 2023-2026 | 160 | 0 | 1 | 1 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
@@ -1081,7 +1081,7 @@ Discovery coverage: 1331 discovered · 1157 archived · 940 publication ready ·
 | LANDECON | landecon-102-1 | 2026 | ready |  |
 | LANDECON | landecon-102-2 | 2026 | ready |  |
 | LANDECON | landecon-102-3 | 2026 | ready |  |
-| LANDECON | landecon-99-1 | 2023 | source_pending | archive_content_gate_failed |
+| LANDECON | landecon-99-1 | 2023 | ready |  |
 | LANDECON | landecon-99-2 | 2023 | ready |  |
 | LANDECON | landecon-99-3 | 2023 | ready |  |
 | LANDECON | landecon-99-4 | 2023 | ready |  |

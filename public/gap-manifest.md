@@ -1,13 +1,13 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-08-24T14:40:17+00:00
+Generated: 2026-08-24T14:48:35+00:00
 
 ## Summary
 
 - browser_required: 36
-- ready: 940
+- ready: 941
 - recoverable: 100
-- source_pending: 214
+- source_pending: 213
 - translation_required: 41
 
 ## Issue queue
@@ -1081,7 +1081,7 @@ Generated: 2026-08-24T14:40:17+00:00
 | LANDECON | landecon-102-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | LANDECON | landecon-102-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | LANDECON | landecon-102-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
-| LANDECON | landecon-99-1 | 2023 | source_pending | complete | source_pending | archive_content_gate_failed |
+| LANDECON | landecon-99-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | LANDECON | landecon-99-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | LANDECON | landecon-99-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | LANDECON | landecon-99-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
