@@ -38,6 +38,7 @@ PUBLISHABLE_RE = re.compile(
     r"Full length article|Data article|Discussion",
     re.IGNORECASE,
 )
+VOLUME_RE = re.compile(r"/vol/([^/]+)", re.IGNORECASE)
 
 
 def read_json(path: Path) -> dict[str, Any]:
@@ -64,6 +65,20 @@ def raw_type(box_text: str) -> str:
     return "Research article" if PUBLISHABLE_RE.search(box_text) else "Editorial"
 
 
+def volume_from_roster(roster: dict[str, Any]) -> str:
+    explicit = str(roster.get("volume", "")).strip()
+    if explicit:
+        return explicit
+    match = VOLUME_RE.search(str(roster.get("official_url", "")))
+    if match:
+        return match.group(1)
+    issue_id = str(roster.get("issue_id", ""))
+    parts = issue_id.split("-")
+    if len(parts) >= 3 and parts[-2]:
+        return parts[-2]
+    raise ValueError(f"cannot determine volume for {issue_id}")
+
+
 def build_rich_snapshot(
     roster: dict[str, Any],
     *,
@@ -74,7 +89,7 @@ def build_rich_snapshot(
         journal_id=str(journal["id"]),
         journal_name=str(journal["name"]),
         issn=str(journal["issn"]),
-        volume=str(roster["volume"]),
+        volume=volume_from_roster(roster),
         issue=str(roster.get("issue", "c")),
         official_issue_url=str(roster["official_url"]),
         session=session,
@@ -118,7 +133,7 @@ def build_rich_snapshot(
         "schema_version": "1.0",
         "journal_id": str(roster["journal_id"]),
         "journal_name": str(journal["name"]),
-        "volume": str(roster["volume"]),
+        "volume": volume_from_roster(roster),
         "issue": str(roster.get("issue", "c")),
         "publication_date": str(roster["publication_date"]),
         "source_url": str(roster["official_url"]),
