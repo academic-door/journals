@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -93,6 +94,67 @@ class PublishDataDeltaTests(unittest.TestCase):
                 )
 
             self.assertEqual("other-writer", (target / relative).read_text())
+
+    def test_merges_same_translation_cache_file_by_latest_article_translation(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            baseline = root / "baseline"
+            generated = root / "generated"
+            target = root / "target"
+            relative = "data/translation-cache/jf.json"
+            self.write(
+                baseline,
+                relative,
+                json.dumps(
+                    {
+                        "doi-a": {
+                            "abstract_cn": "old",
+                            "translation": {"translated_at": "2026-08-24T01:00:00+00:00"},
+                        },
+                        "doi-b": {"abstract_cn": "old-b"},
+                    }
+                ),
+            )
+            self.write(
+                generated,
+                relative,
+                json.dumps(
+                    {
+                        "doi-a": {
+                            "abstract_cn": "backfill",
+                            "translation": {"translated_at": "2026-08-24T02:00:00+00:00"},
+                        },
+                        "doi-b": {"abstract_cn": "old-b"},
+                        "doi-c": {"abstract_cn": "new-from-backfill"},
+                    }
+                ),
+            )
+            self.write(
+                target,
+                relative,
+                json.dumps(
+                    {
+                        "doi-a": {
+                            "abstract_cn": "monitor",
+                            "translation": {"translated_at": "2026-08-24T03:00:00+00:00"},
+                        },
+                        "doi-b": {"abstract_cn": "old-b"},
+                        "doi-d": {"abstract_cn": "new-from-monitor"},
+                    }
+                ),
+            )
+
+            apply_delta(
+                baseline=baseline,
+                generated=generated,
+                target=target,
+                paths=[Path("data/translation-cache")],
+            )
+
+            merged = json.loads((target / relative).read_text(encoding="utf-8"))
+            self.assertEqual("monitor", merged["doi-a"]["abstract_cn"])
+            self.assertEqual("new-from-backfill", merged["doi-c"]["abstract_cn"])
+            self.assertEqual("new-from-monitor", merged["doi-d"]["abstract_cn"])
 
     def test_deletion_does_not_remove_new_sibling(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
