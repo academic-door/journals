@@ -821,9 +821,10 @@ def run_issue(
                 integrity=archive_integrity,
             )
             return {"issue_id": issue_ref.issue_id, "result": "already_ready"}
-        if current_status in LEGACY_READY_STATUSES:
-            # A legacy complete marker may hide provisional or incomplete
-            # content.  Recollect it now instead of trusting the filename.
+        if current_status in LEGACY_READY_STATUSES | READY_STATUSES:
+            # A stale ready/complete marker may hide a provisional or
+            # incomplete archive. Recollect it now instead of trusting state
+            # over the archive read-back gate.
             entry = {
                 **(entry or {}),
                 "status": archive_integrity["publication_state"],
