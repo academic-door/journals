@@ -55,6 +55,18 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         self.assertIn("ELSEVIER_API_KEY", workflow)
         self.assertIn("--enrich-missing-elsevier", workflow)
 
+    def test_builds_missing_historical_archives_before_roster_evidence(self) -> None:
+        workflow = self.workflow()
+        build = workflow.index("python scripts/build_sciencedirect_browser_archives.py")
+        evidence = workflow.index(
+            "python scripts/capture_sciencedirect_browser_roster_evidence.py"
+        )
+        self.assertLess(build, evidence)
+        self.assertIn("--state-root data/backfill-state", workflow[build:evidence])
+        self.assertIn("--translation-cache-root data/translation-cache", workflow[build:evidence])
+        self.assertIn("--translate", workflow[build:evidence])
+        self.assertIn("ELSEVIER_API_KEY", workflow)
+
 
 if __name__ == "__main__":
     unittest.main()
