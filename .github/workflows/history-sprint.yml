@@ -205,6 +205,27 @@ jobs:
       - name: Merge shard changes into the latest data baseline
         run: python scripts/merge_history_shards.py --root . --shards-root shards
 
+      - name: Convert ScienceDirect browser snapshots to official evidence
+        if: inputs.evidence_issue_ids != ''
+        shell: bash
+        run: |
+          set -euo pipefail
+          snapshot_args=()
+          IFS=',' read -ra issue_ids <<< "${{ inputs.evidence_issue_ids }}"
+          for issue_id in "${issue_ids[@]}"; do
+            issue_id="${issue_id//[[:space:]]/}"
+            snapshot="$(find data/provenance/browser-snapshots -type f -name "$issue_id.json" -print -quit)"
+            if [[ -z "$snapshot" ]]; then
+              echo "Browser-authorized snapshot not found for: $issue_id" >&2
+              exit 1
+            fi
+            snapshot_args+=("$snapshot")
+          done
+          python scripts/capture_sciencedirect_browser_roster_evidence.py \
+            "${snapshot_args[@]}" \
+            --api-root public/api/v1 \
+            --output-root data/provenance/official-rosters/sciencedirect
+
       - name: Capture official Wiley roster evidence
         if: inputs.capture_wiley_evidence
         shell: bash
