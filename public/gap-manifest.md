@@ -1,14 +1,14 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-08-24T11:41:33+00:00
+Generated: 2026-08-24T12:08:42+00:00
 
 ## Summary
 
 - browser_required: 36
 - ready: 931
 - recoverable: 100
-- source_pending: 217
-- translation_required: 47
+- source_pending: 216
+- translation_required: 48
 
 ## Issue queue
 
@@ -274,7 +274,7 @@ Generated: 2026-08-24T11:41:33+00:00
 | EER | eer-177-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | EER | eer-178-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | EER | eer-179-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
-| EER | eer-180-c | 2025 | source_pending | complete | source_pending | official source verification pending |
+| EER | eer-180-c | 2025 | translation_required | translation_partial | official_verified | translation_incomplete |
 | EER | eer-181-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | EER | eer-182-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | EER | eer-183-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |

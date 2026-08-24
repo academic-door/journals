@@ -1,21 +1,21 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-08-24T11:41:25+00:00",
+  "updated_at": "2026-08-24T12:08:34+00:00",
   "summary": {
     "complete": 931,
-    "translation_partial": 44,
+    "translation_partial": 45,
     "blocked": 136,
     "collected": 0,
-    "pending": 220
+    "pending": 219
   },
   "coverage": {
     "discovered": 1331,
     "archived": 1151,
-    "content_ready": 1151,
-    "source_verified": 931,
+    "content_ready": 1150,
+    "source_verified": 932,
     "publication_ready": 931,
     "missing": 180,
-    "source_pending": 220,
+    "source_pending": 219,
     "missing_issue_ids": [
       "ecolecon-204-c",
       "ecolecon-205-c",
@@ -224,7 +224,6 @@
       "ecta-91-1",
       "ecta-91-4",
       "ecta-91-5",
-      "eer-180-c",
       "ej-133-650",
       "ej-133-651",
       "ej-133-652",
@@ -1526,17 +1525,15 @@
     "EER": {
       "discovered": 39,
       "archived": 38,
-      "content_ready": 38,
-      "source_verified": 37,
+      "content_ready": 37,
+      "source_verified": 38,
       "publication_ready": 37,
       "missing": 1,
-      "source_pending": 1,
+      "source_pending": 0,
       "missing_issue_ids": [
         "eer-162-c"
       ],
-      "source_pending_issue_ids": [
-        "eer-180-c"
-      ],
+      "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
       "years": {
         "2023": {
@@ -1568,15 +1565,13 @@
         "2025": {
           "discovered": 10,
           "archived": 10,
-          "content_ready": 10,
-          "source_verified": 9,
+          "content_ready": 9,
+          "source_verified": 10,
           "publication_ready": 9,
           "missing": 0,
-          "source_pending": 1,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "eer-180-c"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "2026": {
@@ -7620,12 +7615,12 @@
         "year": 2025,
         "volume": "180",
         "issue": "c",
-        "status": "source_pending",
-        "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "",
-        "retry_class": "manual"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "official_verified",
+        "publication_state": "translation_partial",
+        "last_error": "translation_incomplete",
+        "retry_class": "translation"
       },
       {
         "issue_id": "eer-181-c",
@@ -20555,7 +20550,7 @@
         "pending": 99
       },
       "issue_count": 708,
-      "updated_at": "2026-08-24T11:40:48+00:00",
+      "updated_at": "2026-08-24T12:07:56+00:00",
       "coverage": {
         "discovered": 708,
         "archived": 556,
@@ -20831,7 +20826,7 @@
         "pending": 0
       },
       "issue_count": 162,
-      "updated_at": "2026-08-24T11:40:52+00:00",
+      "updated_at": "2026-08-24T12:08:00+00:00",
       "coverage": {
         "discovered": 162,
         "archived": 160,
@@ -22832,10 +22827,10 @@
     "2025": {
       "summary": {
         "complete": 276,
-        "translation_partial": 0,
+        "translation_partial": 1,
         "blocked": 5,
         "collected": 0,
-        "pending": 64
+        "pending": 63
       },
       "issue_count": 345,
       "journals": [
@@ -22892,11 +22887,11 @@
       "coverage": {
         "discovered": 345,
         "archived": 340,
-        "content_ready": 340,
-        "source_verified": 276,
+        "content_ready": 339,
+        "source_verified": 277,
         "publication_ready": 276,
         "missing": 5,
-        "source_pending": 64,
+        "source_pending": 63,
         "missing_issue_ids": [
           "foodpolicy-134-c",
           "foodpolicy-137-c",
@@ -22911,7 +22906,6 @@
           "ajae-107-4",
           "ajae-107-5",
           "cer-94-c",
-          "eer-180-c",
           "ej-135-668",
           "ej-135-669",
           "ej-135-670",
@@ -23104,15 +23098,13 @@
         "EER": {
           "discovered": 10,
           "archived": 10,
-          "content_ready": 10,
-          "source_verified": 9,
+          "content_ready": 9,
+          "source_verified": 10,
           "publication_ready": 9,
           "missing": 0,
-          "source_pending": 1,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "eer-180-c"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "EJ": {

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-24T11:41:33+00:00",
+  "generated_at": "2026-08-24T12:08:42+00:00",
   "target_years": [
     2023,
     2024,
@@ -64,8 +64,8 @@
     "browser_required": 36,
     "ready": 931,
     "recoverable": 100,
-    "source_pending": 217,
-    "translation_required": 47
+    "source_pending": 216,
+    "translation_required": 48
   },
   "records": [
     {
@@ -6578,20 +6578,20 @@
       "authority": "crossref_candidate",
       "refreshed_at": "2026-08-24T08:01:52+00:00",
       "collector_revision": "history-integrity-2026-08-11",
-      "category": "source_pending",
-      "reason": "official source verification pending",
-      "status": "ready",
-      "retry_class": "manual",
+      "category": "translation_required",
+      "reason": "translation_incomplete",
+      "status": "translation_partial",
+      "retry_class": "translation",
       "archive_exists": true,
-      "content_status": "complete",
-      "source_status": "source_pending",
-      "publication_state": "source_pending",
+      "content_status": "translation_partial",
+      "source_status": "official_verified",
+      "publication_state": "translation_partial",
       "counts": {
-        "articles": 13,
-        "abstract_en": 13,
-        "translation_cn": 13
+        "articles": 23,
+        "abstract_en": 23,
+        "translation_cn": 22
       },
-      "next_action": "attach official roster/source evidence; do not publish"
+      "next_action": "translate missing articles using cache-aware queue"
     },
     {
       "issue_id": "eer-181-c",
