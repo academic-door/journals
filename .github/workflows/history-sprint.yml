@@ -205,6 +205,33 @@ jobs:
       - name: Merge shard changes into the latest data baseline
         run: python scripts/merge_history_shards.py --root . --shards-root shards
 
+      - name: Build historical archives from ScienceDirect browser snapshots
+        if: inputs.evidence_issue_ids != ''
+        env:
+          ELSEVIER_API_KEY: ${{ secrets.ELSEVIER_API_KEY }}
+          ELSEVIER_INST_TOKEN: ${{ secrets.ELSEVIER_INST_TOKEN }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DEEPSEEK_MODEL: deepseek-chat
+        shell: bash
+        run: |
+          set -euo pipefail
+          snapshot_args=()
+          IFS=',' read -ra issue_ids <<< "${{ inputs.evidence_issue_ids }}"
+          for issue_id in "${issue_ids[@]}"; do
+            issue_id="${issue_id//[[:space:]]/}"
+            snapshot="$(find data/provenance/browser-snapshots -type f -name "$issue_id.json" -print -quit)"
+            if [[ -z "$snapshot" ]]; then
+              echo "Browser-authorized snapshot not found for: $issue_id" >&2
+              exit 1
+            fi
+            snapshot_args+=("$snapshot")
+          done
+          python scripts/build_sciencedirect_browser_archives.py \
+            "${snapshot_args[@]}" \
+            --state-root data/backfill-state \
+            --translation-cache-root data/translation-cache \
+            --translate
+
       - name: Convert ScienceDirect browser snapshots to official evidence
         if: inputs.evidence_issue_ids != ''
         shell: bash
