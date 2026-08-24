@@ -231,7 +231,7 @@ def build_rich_snapshot(
         )
     if missing:
         raise ValueError(f"Elsevier metadata missing roster PIIs: {missing}")
-    if len(items) != len(roster.get("items", [])):
+    if len(items) != len(roster_items):
         raise ValueError("browser roster and official metadata counts differ")
     return {
         "schema_version": "1.0",
