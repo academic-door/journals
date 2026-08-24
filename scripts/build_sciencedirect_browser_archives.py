@@ -105,19 +105,19 @@ def fetch_issue_metadata(
         "sci": "http://www.elsevier.com/xml/schemas/sciencedirect",
     }
     output: dict[str, dict[str, Any]] = {}
-    # Keep each request comfortably below URL/query limits and serialize them
-    # so a large historical issue cannot exhaust the shared Elsevier quota.
-    for start in range(0, len(piis), 30):
-        batch = piis[start : start + 30]
-        query = " OR ".join(f'PII("{pii}")' for pii in batch)
+    # Search API does not accept an OR list of PII clauses. Query one official
+    # PII at a time, serially, with a small pacing interval so a historical
+    # issue cannot exhaust the shared Elsevier quota through concurrency.
+    for pii in piis:
+        time.sleep(0.35)
         response = None
         for attempt in range(3):
             response = session.get(
                 ELSEVIER_SEARCH_API,
                 params={
-                    "query": query,
+                    "query": f'PII("{pii}")',
                     "field": "url,identifier,doi,pii,title,creator,description,coverDate",
-                    "count": "100",
+                    "count": "5",
                     "httpAccept": "application/xml",
                 },
                 headers=headers,
@@ -134,6 +134,7 @@ def fetch_issue_metadata(
         assert response is not None
         response.raise_for_status()
         root = ElementTree.fromstring(response.content)
+        found = False
         for entry in root.findall("atom:entry", ns):
             entry_pii = re.sub(
                 r"[^A-Za-z0-9]",
@@ -141,8 +142,9 @@ def fetch_issue_metadata(
                 entry.findtext("pii", "", ns).strip()
                 or entry.findtext("sci:pii", "", ns).strip(),
             ).upper()
-            if entry_pii not in {item.upper() for item in batch}:
+            if entry_pii != pii.upper():
                 continue
+            found = True
             doi = entry.findtext("prism:doi", "", ns).strip().lower()
             abstract = entry.findtext("dc:description", "", ns).strip()
             output[entry_pii] = {
@@ -155,11 +157,12 @@ def fetch_issue_metadata(
                 ],
                 "abstract_en": abstract,
             }
-    for pii in piis:
-        metadata = output.get(pii.upper())
-        if metadata is None:
+        if not found:
             raise ValueError(f"Elsevier metadata returned no article for PII {pii}")
+    for pii in piis:
+        metadata = output[pii.upper()]
         if not metadata["abstract_en"]:
+            time.sleep(0.35)
             lookup = _elsevier_lookup(
                 session,
                 pii,
