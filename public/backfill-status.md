@@ -1,13 +1,13 @@
 # Field journal history backfill status
 
-Updated: 2026-08-24T09:12:16+00:00
+Updated: 2026-08-24T09:21:05+00:00
 
-Discovery coverage: 1331 discovered · 1151 archived · 792 publication ready · 180 missing · 359 source pending
+Discovery coverage: 1331 discovered · 1151 archived · 823 publication ready · 180 missing · 328 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 380 | 44 | 108 | 176 |
-| 2023-2026 | 51 | 1 | 1 | 109 |
+| 2023-2024 | 392 | 44 | 108 | 164 |
+| 2023-2026 | 82 | 1 | 1 | 78 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
 | 2026-2026 | 6 | 0 | 0 | 0 |
@@ -1241,7 +1241,7 @@ Discovery coverage: 1331 discovered · 1151 archived · 792 publication ready ·
 | RFS | rfs-36-10 | 2023 | source_pending | source authority pending official verification |
 | RFS | rfs-36-11 | 2023 | source_pending | source authority pending official verification |
 | RFS | rfs-36-12 | 2023 | source_pending | source authority pending official verification |
-| RFS | rfs-36-2 | 2023 | source_pending | source authority pending official verification |
+| RFS | rfs-36-2 | 2023 | ready | source authority pending official verification |
 | RFS | rfs-36-3 | 2023 | source_pending | source authority pending official verification |
 | RFS | rfs-36-4 | 2023 | source_pending | source authority pending official verification |
 | RFS | rfs-36-5 | 2023 | source_pending | source authority pending official verification |
@@ -1250,37 +1250,37 @@ Discovery coverage: 1331 discovered · 1151 archived · 792 publication ready ·
 | RFS | rfs-36-8 | 2023 | source_pending | source authority pending official verification |
 | RFS | rfs-36-9 | 2023 | translation_partial |  |
 | RFS | rfs-37-1 | 2023 | source_pending | source authority pending official verification |
-| RFS | rfs-37-10 | 2024 | source_pending | source authority pending official verification |
-| RFS | rfs-37-11 | 2024 | source_pending | source authority pending official verification |
-| RFS | rfs-37-12 | 2024 | source_pending | source authority pending official verification |
-| RFS | rfs-37-2 | 2024 | source_pending | source authority pending official verification |
-| RFS | rfs-37-3 | 2024 | source_pending | source authority pending official verification |
-| RFS | rfs-37-4 | 2024 | source_pending | source authority pending official verification |
-| RFS | rfs-37-5 | 2024 | source_pending | source authority pending official verification |
-| RFS | rfs-37-6 | 2024 | source_pending | source authority pending official verification |
-| RFS | rfs-37-7 | 2024 | source_pending | source authority pending official verification |
-| RFS | rfs-37-8 | 2024 | source_pending | source authority pending official verification |
-| RFS | rfs-37-9 | 2024 | source_pending | source authority pending official verification |
-| RFS | rfs-38-1 | 2025 | source_pending | source authority pending official verification |
-| RFS | rfs-38-10 | 2025 | source_pending | source authority pending official verification |
-| RFS | rfs-38-11 | 2025 | source_pending | source authority pending official verification |
-| RFS | rfs-38-12 | 2025 | source_pending | source authority pending official verification |
-| RFS | rfs-38-2 | 2025 | source_pending | source authority pending official verification |
-| RFS | rfs-38-3 | 2025 | source_pending | source authority pending official verification |
-| RFS | rfs-38-4 | 2025 | source_pending | source authority pending official verification |
-| RFS | rfs-38-5 | 2025 | source_pending | source authority pending official verification |
-| RFS | rfs-38-6 | 2025 | source_pending | source authority pending official verification |
-| RFS | rfs-38-7 | 2025 | source_pending | source authority pending official verification |
-| RFS | rfs-38-8 | 2025 | source_pending | source authority pending official verification |
-| RFS | rfs-38-9 | 2025 | source_pending | source authority pending official verification |
-| RFS | rfs-39-1 | 2026 | source_pending | source authority pending official verification |
-| RFS | rfs-39-2 | 2026 | source_pending | source authority pending official verification |
-| RFS | rfs-39-3 | 2026 | source_pending | source authority pending official verification |
-| RFS | rfs-39-4 | 2026 | source_pending | source authority pending official verification |
-| RFS | rfs-39-5 | 2026 | source_pending | source authority pending official verification |
+| RFS | rfs-37-10 | 2024 | ready | source authority pending official verification |
+| RFS | rfs-37-11 | 2024 | ready | source authority pending official verification |
+| RFS | rfs-37-12 | 2024 | ready | source authority pending official verification |
+| RFS | rfs-37-2 | 2024 | ready | source authority pending official verification |
+| RFS | rfs-37-3 | 2024 | ready | source authority pending official verification |
+| RFS | rfs-37-4 | 2024 | ready | source authority pending official verification |
+| RFS | rfs-37-5 | 2024 | ready | source authority pending official verification |
+| RFS | rfs-37-6 | 2024 | ready | source authority pending official verification |
+| RFS | rfs-37-7 | 2024 | ready | source authority pending official verification |
+| RFS | rfs-37-8 | 2024 | ready | source authority pending official verification |
+| RFS | rfs-37-9 | 2024 | ready | source authority pending official verification |
+| RFS | rfs-38-1 | 2025 | ready | source authority pending official verification |
+| RFS | rfs-38-10 | 2025 | ready | source authority pending official verification |
+| RFS | rfs-38-11 | 2025 | ready | source authority pending official verification |
+| RFS | rfs-38-12 | 2025 | ready | source authority pending official verification |
+| RFS | rfs-38-2 | 2025 | ready | source authority pending official verification |
+| RFS | rfs-38-3 | 2025 | ready | source authority pending official verification |
+| RFS | rfs-38-4 | 2025 | ready | source authority pending official verification |
+| RFS | rfs-38-5 | 2025 | ready | source authority pending official verification |
+| RFS | rfs-38-6 | 2025 | ready | source authority pending official verification |
+| RFS | rfs-38-7 | 2025 | ready | source authority pending official verification |
+| RFS | rfs-38-8 | 2025 | ready | source authority pending official verification |
+| RFS | rfs-38-9 | 2025 | ready | source authority pending official verification |
+| RFS | rfs-39-1 | 2026 | ready | source authority pending official verification |
+| RFS | rfs-39-2 | 2026 | ready | source authority pending official verification |
+| RFS | rfs-39-3 | 2026 | ready | source authority pending official verification |
+| RFS | rfs-39-4 | 2026 | ready | source authority pending official verification |
+| RFS | rfs-39-5 | 2026 | ready | source authority pending official verification |
 | RFS | rfs-39-6 | 2026 | source_pending | source authority pending official verification |
-| RFS | rfs-39-7 | 2026 | source_pending | source authority pending official verification |
-| RFS | rfs-39-8 | 2026 | source_pending | source authority pending official verification |
+| RFS | rfs-39-7 | 2026 | ready | source authority pending official verification |
+| RFS | rfs-39-8 | 2026 | ready | source authority pending official verification |
 | RFS | rfs-39-9 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 39/9 |
 | TE | te-18-1 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
 | TE | te-18-2 | 2023 | blocked | ValueError: RePEc history requires a configured series code |

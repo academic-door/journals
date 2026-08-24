@@ -1,13 +1,13 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-08-24T09:12:29+00:00
+Generated: 2026-08-24T09:21:18+00:00
 
 ## Summary
 
 - browser_required: 36
-- ready: 792
+- ready: 823
 - recoverable: 100
-- source_pending: 356
+- source_pending: 325
 - translation_required: 47
 
 ## Issue queue
@@ -1241,7 +1241,7 @@ Generated: 2026-08-24T09:12:29+00:00
 | RFS | rfs-36-10 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
 | RFS | rfs-36-11 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
 | RFS | rfs-36-12 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-36-2 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
+| RFS | rfs-36-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-36-3 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
 | RFS | rfs-36-4 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
 | RFS | rfs-36-5 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
@@ -1250,37 +1250,37 @@ Generated: 2026-08-24T09:12:29+00:00
 | RFS | rfs-36-8 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
 | RFS | rfs-36-9 | 2023 | translation_required | blocked | source_pending | archive_missing |
 | RFS | rfs-37-1 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-37-10 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-37-11 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-37-12 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-37-2 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-37-3 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-37-4 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-37-5 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-37-6 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-37-7 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-37-8 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-37-9 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-38-1 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-38-10 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-38-11 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-38-12 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-38-2 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-38-3 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-38-4 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-38-5 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-38-6 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-38-7 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-38-8 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-38-9 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-39-1 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-39-2 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-39-3 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-39-4 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-39-5 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
+| RFS | rfs-37-10 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-37-11 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-37-12 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-37-2 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-37-3 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-37-4 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-37-5 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-37-6 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-37-7 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-37-8 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-37-9 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-38-1 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-38-10 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-38-11 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-38-12 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-38-2 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-38-3 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-38-4 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-38-5 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-38-6 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-38-7 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-38-8 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-38-9 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-39-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-39-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-39-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-39-4 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-39-5 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-39-6 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-39-7 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-39-8 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
+| RFS | rfs-39-7 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-39-8 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-39-9 | 2026 | recoverable | blocked | source_pending | archive_missing |
 | TE | te-18-1 | 2023 | recoverable | blocked | source_pending | archive_missing |
 | TE | te-18-2 | 2023 | recoverable | blocked | source_pending | archive_missing |

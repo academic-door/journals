@@ -31,7 +31,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/9",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/9",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -71,7 +71,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/9",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/9",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -112,7 +112,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/9",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/9",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -152,7 +152,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/9",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/9",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -194,7 +194,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/9",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/9",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -234,7 +234,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/9",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/9",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -274,7 +274,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/9",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/9",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -299,8 +299,8 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "crossref",
-    "roster_authority": "crossref-provisional",
+    "roster_transport": "official-page-read",
+    "roster_authority": "official-issue-page",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
@@ -310,10 +310,7 @@
     "abstract_en_complete": 7,
     "translation_complete": 7,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
-    ],
+    "flags": [],
     "official_item_count": 7,
     "publishable_item_count": 7,
     "content_counts": {
@@ -328,6 +325,15 @@
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 7
+    },
+    "official_roster_evidence": {
+      "captured_at": "2026-08-24T09:13:44+00:00",
+      "official_url": "https://academic.oup.com/rfs/issue/38/9",
+      "method": "official-page-read",
+      "item_count": 7,
+      "excluded_item_count": 0,
+      "sequence_sha256": "a390938562780e0ce006c5c95b966be6a91eab96460b1622aeb24ceae9e1fa82",
+      "privacy_fields_stored": false
     }
   },
   "content_counts": {
@@ -345,6 +351,6 @@
   },
   "issue_label": "Vol. 38 · No. 9",
   "content_status": "complete",
-  "source_status": "source_pending",
-  "publication_state": "source_pending"
+  "source_status": "official_verified",
+  "publication_state": "ready"
 }
