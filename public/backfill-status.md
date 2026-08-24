@@ -1,16 +1,13 @@
 # Field journal history backfill status
 
-Updated: 2026-08-24T16:57:31+00:00
+Updated: 2026-08-24T17:05:23+00:00
 
-Discovery coverage: 1331 discovered · 1167 archived · 951 publication ready · 164 missing · 216 source pending
+Discovery coverage: 1331 discovered · 1167 archived · 952 publication ready · 164 missing · 215 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
 | 2023-2024 | 469 | 38 | 100 | 101 |
-| 2023-2026 | 191 | 0 | 33 | 11 |
-| 2024-2024 | 12 | 0 | 0 | 0 |
-| 2025-2026 | 1 | 0 | 0 | 0 |
-| 2026-2026 | 6 | 0 | 0 | 0 |
+| 2025-2026 | 484 | 0 | 26 | 114 |
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -359,28 +356,28 @@ Discovery coverage: 1331 discovered · 1167 archived · 951 publication ready ·
 | ENERGY | energy-160-c | 2026 | ready |  |
 | ENERGY | energy-161-c | 2026 | ready |  |
 | ENERGY | energy-162-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 162/ |
-| ERE | ere-84-1 | 2023 | blocked | archive_content_gate_failed |
-| ERE | ere-84-2 | 2023 | blocked | archive_content_gate_failed |
-| ERE | ere-84-3 | 2023 | blocked | archive_content_gate_failed |
-| ERE | ere-84-4 | 2023 | blocked | archive_content_gate_failed |
-| ERE | ere-85-1 | 2023 | blocked | archive_content_gate_failed |
-| ERE | ere-85-2 | 2023 | blocked | archive_content_gate_failed |
-| ERE | ere-85-3-4 | 2023 | blocked | archive_content_gate_failed |
-| ERE | ere-86-1-2 | 2023 | blocked | archive_content_gate_failed |
-| ERE | ere-86-3 | 2023 | blocked | archive_content_gate_failed |
-| ERE | ere-86-4 | 2023 | blocked | archive_content_gate_failed |
-| ERE | ere-87-1 | 2024 | blocked | archive_content_gate_failed |
-| ERE | ere-87-10 | 2024 | blocked | archive_content_gate_failed |
-| ERE | ere-87-11 | 2024 | ready |  |
-| ERE | ere-87-12 | 2024 | ready |  |
-| ERE | ere-87-2 | 2024 | blocked | archive_content_gate_failed |
-| ERE | ere-87-3 | 2024 | blocked | archive_content_gate_failed |
-| ERE | ere-87-4 | 2024 | blocked | archive_content_gate_failed |
-| ERE | ere-87-5 | 2024 | blocked | archive_content_gate_failed |
-| ERE | ere-87-6 | 2024 | blocked | archive_content_gate_failed |
-| ERE | ere-87-7 | 2024 | blocked | archive_content_gate_failed |
-| ERE | ere-87-8 | 2024 | blocked | archive_content_gate_failed |
-| ERE | ere-87-9 | 2024 | blocked | archive_content_gate_failed |
+| ERE | ere-84-1 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-84-2 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-84-3 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-84-4 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-85-1 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-85-2 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-85-3-4 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-86-1-2 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-86-3 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-86-4 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-87-1 | 2024 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-87-10 | 2024 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-87-11 | 2024 | ready | ValueError: RePEc history requires a configured series code |
+| ERE | ere-87-12 | 2024 | ready | ValueError: RePEc history requires a configured series code |
+| ERE | ere-87-2 | 2024 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-87-3 | 2024 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-87-4 | 2024 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-87-5 | 2024 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-87-6 | 2024 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-87-7 | 2024 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-87-8 | 2024 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-87-9 | 2024 | blocked | ValueError: RePEc history requires a configured series code |
 | ERE | ere-88-1 | 2025 | ready |  |
 | ERE | ere-88-10 | 2025 | ready |  |
 | ERE | ere-88-11 | 2025 | ready |  |
@@ -400,7 +397,7 @@ Discovery coverage: 1331 discovered · 1167 archived · 951 publication ready ·
 | ERE | ere-89-5 | 2026 | ready |  |
 | ERE | ere-89-6 | 2026 | ready |  |
 | ERE | ere-89-7 | 2026 | ready |  |
-| ERE | ere-89-8 | 2026 | source_pending | ValueError: RePEc history requires a configured series code |
+| ERE | ere-89-8 | 2026 | ready | ValueError: RePEc history requires a configured series code |
 | ERE | ere-89-9 | 2026 | ready | ValueError: RePEc history requires a configured series code |
 | FOODPOLICY | foodpolicy-114-c | 2023 | ready |  |
 | FOODPOLICY | foodpolicy-115-c | 2023 | ready |  |
@@ -1163,14 +1160,14 @@ Discovery coverage: 1331 discovered · 1167 archived · 951 publication ready ·
 | QJE | qje-141-1 | 2026 | source_pending | source authority pending official verification |
 | QJE | qje-141-2 | 2026 | source_pending | source authority pending official verification |
 | QJE | qje-141-3 | 2026 | ready |  |
-| RAND | rand-54-1 | 2023 | ready |  |
-| RAND | rand-54-2 | 2023 | ready |  |
-| RAND | rand-54-3 | 2023 | blocked | possible_incomplete_volume: 5 articles collected vs current issue 11; needs offi |
-| RAND | rand-54-4 | 2023 | ready |  |
-| RAND | rand-55-1 | 2024 | ready |  |
-| RAND | rand-55-2 | 2024 | ready |  |
-| RAND | rand-55-3 | 2024 | blocked | possible_incomplete_volume: 5 articles collected vs current issue 11; needs offi |
-| RAND | rand-55-4 | 2024 | ready |  |
+| RAND | rand-54-1 | 2023 | ready | ValueError: RePEc history requires a configured series code |
+| RAND | rand-54-2 | 2023 | ready | ValueError: RePEc history requires a configured series code |
+| RAND | rand-54-3 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
+| RAND | rand-54-4 | 2023 | ready | ValueError: RePEc history requires a configured series code |
+| RAND | rand-55-1 | 2024 | ready | ValueError: RePEc history requires a configured series code |
+| RAND | rand-55-2 | 2024 | ready | ValueError: RePEc history requires a configured series code |
+| RAND | rand-55-3 | 2024 | blocked | ValueError: RePEc history requires a configured series code |
+| RAND | rand-55-4 | 2024 | ready | ValueError: RePEc history requires a configured series code |
 | RAND | rand-56-1 | 2025 | source_pending | ValueError: RePEc history requires a configured series code |
 | RAND | rand-56-2 | 2025 | source_pending | ValueError: RePEc history requires a configured series code |
 | RAND | rand-56-3 | 2025 | source_pending | ValueError: RePEc history requires a configured series code |
@@ -1248,7 +1245,7 @@ Discovery coverage: 1331 discovered · 1167 archived · 951 publication ready ·
 | RFS | rfs-36-6 | 2023 | ready |  |
 | RFS | rfs-36-7 | 2023 | ready |  |
 | RFS | rfs-36-8 | 2023 | ready |  |
-| RFS | rfs-36-9 | 2023 | source_pending |  |
+| RFS | rfs-36-9 | 2023 | source_pending | source authority pending official verification |
 | RFS | rfs-37-1 | 2023 | ready |  |
 | RFS | rfs-37-10 | 2024 | ready |  |
 | RFS | rfs-37-11 | 2024 | ready |  |
@@ -1282,14 +1279,14 @@ Discovery coverage: 1331 discovered · 1167 archived · 951 publication ready ·
 | RFS | rfs-39-7 | 2026 | ready |  |
 | RFS | rfs-39-8 | 2026 | ready |  |
 | RFS | rfs-39-9 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 39/9 |
-| TE | te-18-1 | 2023 | blocked | archive_content_gate_failed |
-| TE | te-18-2 | 2023 | blocked | archive_content_gate_failed |
-| TE | te-18-3 | 2023 | blocked | archive_content_gate_failed |
-| TE | te-18-4 | 2023 | blocked | archive_content_gate_failed |
-| TE | te-19-1 | 2024 | blocked | archive_content_gate_failed |
-| TE | te-19-2 | 2024 | blocked | archive_content_gate_failed |
-| TE | te-19-3 | 2024 | blocked | archive_content_gate_failed |
-| TE | te-19-4 | 2024 | blocked | archive_content_gate_failed |
+| TE | te-18-1 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
+| TE | te-18-2 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
+| TE | te-18-3 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
+| TE | te-18-4 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
+| TE | te-19-1 | 2024 | blocked | ValueError: RePEc history requires a configured series code |
+| TE | te-19-2 | 2024 | blocked | ValueError: RePEc history requires a configured series code |
+| TE | te-19-3 | 2024 | blocked | ValueError: RePEc history requires a configured series code |
+| TE | te-19-4 | 2024 | blocked | ValueError: RePEc history requires a configured series code |
 | TE | te-20-1 | 2025 | source_pending | ValueError: RePEc history requires a configured series code |
 | TE | te-20-2 | 2025 | source_pending | ValueError: RePEc history requires a configured series code |
 | TE | te-20-3 | 2025 | source_pending | ValueError: RePEc history requires a configured series code |
