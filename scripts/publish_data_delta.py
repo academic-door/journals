@@ -5,6 +5,7 @@ import hashlib
 import json
 import shutil
 import sys
+from datetime import datetime
 from pathlib import Path, PurePosixPath
 
 
@@ -89,6 +90,86 @@ def _merge_nonconflicting_json(
             merged.pop(key, None)
         else:
             merged[key] = generated_item
+
+    if merged != target_value:
+        target_path.parent.mkdir(parents=True, exist_ok=True)
+        target_path.write_text(
+            json.dumps(merged, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+    return True
+
+
+def _merge_translation_cache_json(
+    baseline_path: Path,
+    generated_path: Path,
+    target_path: Path,
+) -> bool | None:
+    """Merge per-article translation records from concurrent data writers.
+
+    Translation-cache files are keyed by DOI. A monitor and a backfill can
+    legitimately update the same journal cache file while working on
+    different articles, and occasionally retranslate the same DOI. The data
+    branch is the freshest writer at publication time, so retain its record
+    unless the generated record has a later translation timestamp.
+    """
+
+    try:
+        baseline_value = json.loads(baseline_path.read_text(encoding="utf-8"))
+        generated_value = json.loads(generated_path.read_text(encoding="utf-8"))
+        target_value = json.loads(target_path.read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError, UnicodeDecodeError):
+        return None
+    if not all(
+        isinstance(value, dict)
+        for value in (baseline_value, generated_value, target_value)
+    ):
+        return None
+
+    def translated_at(value: object) -> datetime | None:
+        if not isinstance(value, dict):
+            return None
+        metadata = value.get("translation")
+        raw = metadata.get("translated_at") if isinstance(metadata, dict) else None
+        if not isinstance(raw, str) or not raw:
+            return None
+        try:
+            return datetime.fromisoformat(raw.replace("Z", "+00:00"))
+        except ValueError:
+            return None
+
+    missing = object()
+    merged = dict(target_value)
+    for key in set(baseline_value) | set(generated_value) | set(target_value):
+        baseline_item = baseline_value.get(key, missing)
+        generated_item = generated_value.get(key, missing)
+        target_item = target_value.get(key, missing)
+        if generated_item == baseline_item:
+            continue
+        if target_item == baseline_item:
+            selected = generated_item
+        elif target_item == generated_item:
+            selected = target_item
+        elif generated_item is missing:
+            selected = target_item
+        elif target_item is missing:
+            selected = generated_item
+        else:
+            generated_stamp = translated_at(generated_item)
+            target_stamp = translated_at(target_item)
+            # The target is normally newer because it was fetched after the
+            # baseline. Only replace it when the generated translation is
+            # demonstrably newer.
+            selected = (
+                generated_item
+                if generated_stamp is not None
+                and (target_stamp is None or generated_stamp > target_stamp)
+                else target_item
+            )
+        if selected is missing:
+            merged.pop(key, None)
+        else:
+            merged[key] = selected
 
     if merged != target_value:
         target_path.parent.mkdir(parents=True, exist_ok=True)
@@ -229,12 +310,22 @@ def apply_delta(
         target_path = target / relative
         target_hash = _digest(target_path)
         if target_hash not in {baseline_hash, generated_hash}:
-            merge_result = _merge_nonconflicting_json(
-                relative,
-                baseline / relative,
-                generated / relative,
-                target_path,
-            )
+            if (
+                relative.as_posix().startswith("data/translation-cache/")
+                and relative.suffix.lower() == ".json"
+            ):
+                merge_result = _merge_translation_cache_json(
+                    baseline / relative,
+                    generated / relative,
+                    target_path,
+                )
+            else:
+                merge_result = _merge_nonconflicting_json(
+                    relative,
+                    baseline / relative,
+                    generated / relative,
+                    target_path,
+                )
             if merge_result is False:
                 conflicts.append(relative.as_posix())
             elif merge_result is None:
