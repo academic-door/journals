@@ -36,7 +36,10 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         self.assertIn("--state-root data/backfill-state", workflow)
         history = workflow.index("python scripts/audit_history_coverage.py")
         privacy = workflow.index("python scripts/audit_privacy.py")
-        self.assertIn("--strict", workflow[history:privacy])
+        self.assertIn('if [ "${{ inputs.strict_final }}" = "true" ]', workflow)
+        self.assertIn("history_args+=(--strict)", workflow)
+        self.assertIn("--translate", workflow[evidence:audit])
+        self.assertIn("DEEPSEEK_API_KEY", workflow)
 
 
 if __name__ == "__main__":
