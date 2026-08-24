@@ -15,6 +15,7 @@ import os
 import re
 import sys
 import unicodedata
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
@@ -201,12 +202,48 @@ def _write_json(path: Path, payload: dict[str, Any]) -> None:
     os.replace(temporary, path)
 
 
+def reconcile_state_files(candidate: dict[str, Any], state_root: Path) -> list[Path]:
+    """Keep every checkpoint containing this issue aligned with archive truth."""
+
+    updated: list[Path] = []
+    issue_id = str(candidate["issue_id"])
+    publication_state = str(candidate["publication_state"])
+    retry_class = {
+        "ready": "manual",
+        "translation_partial": "translation",
+        "source_pending": "source",
+    }.get(publication_state, "manual")
+    for path in sorted(state_root.glob("*.json")):
+        payload = _read_json(path)
+        issues = payload.get("issues")
+        if not isinstance(issues, dict) or not isinstance(issues.get(issue_id), dict):
+            continue
+        entry = issues[issue_id]
+        entry.update(
+            status=publication_state,
+            last_error="" if publication_state == "ready" else entry.get("last_error", ""),
+            retry_class=retry_class,
+            content_status=str(candidate["content_status"]),
+            source_status=str(candidate["source_status"]),
+            publication_state=publication_state,
+            official_url=str(candidate["source_url"]),
+        )
+        entry.pop("next_retry_at", None)
+        payload["updated_at"] = (
+            datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+        )
+        _write_json(path, payload)
+        updated.append(path)
+    return updated
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("evidence", type=Path)
     parser.add_argument("--api-root", type=Path, default=PUBLIC_API)
     parser.add_argument("--output", type=Path)
     parser.add_argument("--promote", action="store_true")
+    parser.add_argument("--state-root", type=Path)
     args = parser.parse_args()
 
     evidence = _read_json(args.evidence)
@@ -224,6 +261,11 @@ def main() -> int:
     _write_json(output, candidate)
     if args.promote:
         _write_json(archive, candidate)
+        state_files = (
+            reconcile_state_files(candidate, args.state_root)
+            if args.state_root is not None
+            else []
+        )
         readback = _read_json(archive)
         if readback.get("publication_state") != candidate.get("publication_state"):
             raise RuntimeError("archive evidence promotion read-back failed")
@@ -235,6 +277,7 @@ def main() -> int:
                 "publication_state": candidate["publication_state"],
                 "output": str(output),
                 "promoted": bool(args.promote),
+                "state_files_updated": len(state_files) if args.promote else 0,
             },
             ensure_ascii=False,
         )

@@ -33,6 +33,10 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         audit = workflow.index("python scripts/audit_public_data.py --strict-provenance")
         self.assertLess(evidence, audit)
         self.assertIn("if: always() && needs.publish.result == 'success'", workflow)
+        self.assertIn("--state-root data/backfill-state", workflow)
+        history = workflow.index("python scripts/audit_history_coverage.py")
+        privacy = workflow.index("python scripts/audit_privacy.py")
+        self.assertIn("--strict", workflow[history:privacy])
 
 
 if __name__ == "__main__":

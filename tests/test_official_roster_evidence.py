@@ -2,10 +2,15 @@ from __future__ import annotations
 
 import copy
 import json
+import tempfile
 import unittest
 from pathlib import Path
 
-from scripts.import_official_roster_evidence import apply_evidence, validate_evidence
+from scripts.import_official_roster_evidence import (
+    apply_evidence,
+    reconcile_state_files,
+    validate_evidence,
+)
 
 
 def provisional_issue() -> dict:
@@ -119,6 +124,36 @@ class OfficialRosterEvidenceTests(unittest.TestCase):
         candidate = apply_evidence(issue, official)
         self.assertEqual("official_verified", candidate["source_status"])
         self.assertEqual("ready", candidate["publication_state"])
+
+    def test_reconciles_all_matching_state_checkpoints(self) -> None:
+        candidate = apply_evidence(provisional_issue(), evidence())
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            checkpoint = root / "field-2023-2024.json"
+            checkpoint.write_text(
+                json.dumps(
+                    {
+                        "schema_version": "1.1",
+                        "issues": {
+                            "rfs-36-2": {
+                                "status": "source_pending",
+                                "last_error": "source authority pending",
+                                "retry_class": "source",
+                                "next_retry_at": "2026-08-25T00:00:00+00:00",
+                            }
+                        },
+                    }
+                ),
+                encoding="utf-8",
+            )
+            updated = reconcile_state_files(candidate, root)
+            self.assertEqual([checkpoint], updated)
+            entry = json.loads(checkpoint.read_text(encoding="utf-8"))["issues"][
+                "rfs-36-2"
+            ]
+            self.assertEqual("ready", entry["status"])
+            self.assertEqual("official_verified", entry["source_status"])
+            self.assertNotIn("next_retry_at", entry)
 
     def test_rejects_private_fields_and_in_progress_issue(self) -> None:
         bad = copy.deepcopy(evidence())

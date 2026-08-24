@@ -201,6 +201,7 @@ jobs:
               "$evidence" \
               --api-root public/api/v1 \
               --output "$output/$(basename "$evidence")" \
+              --state-root data/backfill-state \
               --promote
           done < <(find data/provenance/official-rosters -type f -name '*.json' -print0 | sort -z)
 
@@ -232,7 +233,8 @@ jobs:
           python scripts/audit_history_coverage.py \
             "${state_args[@]}" \
             --api-root public/api/v1 \
-            --report-json "$RUNNER_TEMP/history-coverage.json"
+            --report-json "$RUNNER_TEMP/history-coverage.json" \
+            --strict
           python scripts/audit_privacy.py
           python -m unittest discover -s tests -v
           python scripts/rebuild_public_snapshot.py --check
