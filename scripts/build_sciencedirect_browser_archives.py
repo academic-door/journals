@@ -9,6 +9,7 @@ import re
 import sys
 import time
 import xml.etree.ElementTree as ElementTree
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any
 
@@ -106,19 +107,21 @@ def fetch_issue_metadata(
         "prism": "http://prismstandard.org/namespaces/basic/2.0/",
         "sci": "http://www.elsevier.com/xml/schemas/sciencedirect",
     }
-    output: dict[str, dict[str, Any]] = {}
-    # Search API does not accept an OR list of PII clauses. Query one official
-    # PII at a time, serially, with a small pacing interval so a historical
-    # issue cannot exhaust the shared Elsevier quota through concurrency.
-    for pii in piis:
-        time.sleep(0.35)
+    def fetch_one(pii: str) -> tuple[str, dict[str, Any]]:
+        """Fetch one official PII with a bounded retry budget.
+
+        The old serial loop could spend hours behind one stalled API request.
+        Keep the official PII lookup authoritative, but bound each request and
+        use a small worker pool so a single bad article cannot block an issue.
+        """
+        worker_session = requests.Session()
         response = None
         for attempt in range(3):
-            response = session.get(
+            response = worker_session.get(
                 f"{ELSEVIER_ARTICLE_API}/pii/{pii}",
                 params={"view": "META_ABS", "httpAccept": "application/xml"},
                 headers=headers,
-                timeout=timeout,
+                timeout=min(timeout, 30),
             )
             if response.status_code != 429:
                 break
@@ -127,7 +130,7 @@ def fetch_issue_metadata(
                 delay = min(30, max(2, int(retry_after)))
             except ValueError:
                 delay = 5
-            time.sleep(delay * (attempt + 1))
+            time.sleep(min(20, delay * (attempt + 1)))
         assert response is not None
         response.raise_for_status()
         root = ElementTree.fromstring(response.content)
@@ -164,7 +167,7 @@ def fetch_issue_metadata(
                     for node in root.findall(".//{*}indexed-name")
                     if node.text and node.text.strip()
                 ]
-            output[entry_pii] = {
+            metadata = {
                 "doi": doi,
                 "title_en": entry.findtext(".//dc:title", "", ns).strip(),
                 "authors": creators,
@@ -173,6 +176,25 @@ def fetch_issue_metadata(
             break
         if not found:
             raise ValueError(f"Elsevier metadata returned no article for PII {pii}")
+        return pii.upper(), metadata
+
+    output: dict[str, dict[str, Any]] = {}
+    failures: dict[str, str] = {}
+    # The pool is deliberately small to stay below shared Elsevier rate limits
+    # while avoiding a many-hour serial queue for a large historical issue.
+    with ThreadPoolExecutor(max_workers=6, thread_name_prefix="elsevier") as pool:
+        futures = {pool.submit(fetch_one, pii): pii for pii in piis}
+        for future in as_completed(futures):
+            pii = futures[future]
+            try:
+                key, metadata = future.result()
+            except Exception as exc:  # retain the exact article-level blocker
+                failures[pii.upper()] = f"{type(exc).__name__}: {exc}"
+            else:
+                output[key] = metadata
+    if failures:
+        details = "; ".join(f"{pii} ({reason})" for pii, reason in sorted(failures.items()))
+        raise ValueError(f"Elsevier metadata fetch failures: {details}")
     for pii in piis:
         metadata = output[pii.upper()]
         if not metadata["abstract_en"]:
