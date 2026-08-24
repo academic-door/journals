@@ -598,7 +598,7 @@ class BackfillHistoryTests(unittest.TestCase):
         self.assertEqual("blocked", state["issues"]["aer-114-3"]["status"])
         self.assertEqual("ready", ready_archive["publication_state"])
 
-    def test_source_pending_archive_upgrades_to_official_ready(self) -> None:
+    def test_stale_ready_state_with_source_pending_archive_recollects(self) -> None:
         import scripts.update_journals as update_journals_mod
 
         provisional = self._complete_elsevier_issue()
@@ -625,8 +625,8 @@ class BackfillHistoryTests(unittest.TestCase):
                     "year": 2024,
                     "volume": "114",
                     "issue": "1",
-                    "status": "source_pending",
-                    "retry_class": "source",
+                    "status": "ready",
+                    "retry_class": "",
                 }
             },
         }
