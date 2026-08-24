@@ -5,91 +5,48 @@
   "journal_name": "Theoretical Economics",
   "volume": "20",
   "issue": "1",
-  "publication_date": "January 2025",
-  "source_url": "https://ideas.repec.org/s/the/publsh.html",
-  "retrieved_at": "2026-08-24T15:32:08+00:00",
+  "publication_date": "2025",
+  "source_url": "https://onlinelibrary.wiley.com/toc/15567568/20/1",
+  "retrieved_at": "2026-08-07T03:31:07+00:00",
   "expected_article_count": 10,
   "research_article_count": 10,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "te:Reputation building under uncertain monitoring",
+      "paper_id": "doi:10.3982/te5404",
       "sequence": 1,
       "source_sequence": 1,
       "article_type": "research-article",
-      "title_en": "Reputation building under uncertain monitoring",
-      "title_cn": "",
-      "authors": [
-        "Deb, Joyee (Department of Economics, New York University)",
-        "Ishii, Yuhta (Department of Economics, Pennsylvania State University)"
-      ],
-      "abstract_en": "We study the standard reputation model with a long-run (LR) player facing a sequence of short-run (SR) opponents, with one difference: the SR players are uncertain about the monitoring structure, while the LR player knows it. We construct examples where the standard reputation result breaks down: Even if there is a possibility that the LR player is a commitment type that always plays the action to which he wants to commit, there exist ``bad'' equilibria in which the LR player gets payoffs substantially lower than his commitment payoffs. In contrast, if there is the possibility of dynamic commitment types that switch between ``signaling'' actions that help the SR players learn the monitoring structure and ``collection'' actions that are desirable for payoffs, our main theorem shows that a sufficiently patient LR player obtains payoffs at least the commitment payoffs in each state in every equilibrium.",
-      "abstract_cn": "",
-      "doi": "",
-      "source_url": "https://ideas.repec.org/a/the/publsh/4758.html",
-      "publication_date": "2025",
-      "sources": {
-        "issue": "https://ideas.repec.org/s/the/publsh.html",
-        "roster": "repec-serial-page",
-        "metadata": "crossref",
-        "abstract_en": "repec-publisher-supplied",
-        "repec": "https://ideas.repec.org/a/the/publsh/4758.html"
-      },
-      "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
-      },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing",
-        "doi_missing"
-      ],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "te:Expected balanced uncertain utility",
-      "sequence": 2,
-      "source_sequence": 2,
-      "article_type": "research-article",
       "title_en": "Expected balanced uncertain utility",
-      "title_cn": "",
+      "title_cn": "期望平衡不确定效用",
       "authors": [
-        "Grant, Simon (Research School of Economics, Australian National University)",
-        "Roorda, Berend (Department of Economics, University Twente)",
-        "Yang, Jingni (School of Economics, University of Sydney)",
-        "Simon Grant"
+        "Simon Grant",
+        "Berend Roorda",
+        "Jingni Yang"
       ],
-      "abstract_en": "We introduce and analyze expected balanced uncertain utility (EBUU) theory. A prior and a balanced outcome-set utility characterize an EBUU decision maker. Conditional on a reference or ``balancing value'', the latter assigns a utility to each outcome-set. The decision maker associates with each act, its envelope, the minimal measurable mapping from states to outcome-sets that contains the act. She then (implicitly) ranks an act according to the balancing value at which the expected balanced utility of its associated envelope is zero. As a consequence her risk preferences need only exhibit betweenness allowing or behavior that can accommodate Allais-type paradoxes.",
-      "abstract_cn": "",
-      "doi": "",
-      "source_url": "https://ideas.repec.org/a/the/publsh/5404.html",
+      "abstract_en": "We introduce and analyze expected balanced uncertain utility (EBUU) theory . A prior and a balanced outcome‐set utility characterize an EBUU decision maker. Conditional on a reference or “balancing value,” the latter assigns a utility to each outcome‐set. The decision maker associates with each act, its envelope , the minimal measurable mapping from states to outcome‐sets that contains the act. She then (implicitly) ranks an act according to the balancing value at which the expected balanced utility of its associated envelope is zero. As a consequence, her risk preferences need only exhibit betweenness allowing for behavior that can accommodate Allais‐type paradoxes.",
+      "abstract_cn": "我们引入并分析期望平衡不确定效用（EBUU）理论。一个先验和一个平衡结果集效用刻画了EBUU决策者。以参考值或“平衡值”为条件，后者为每个结果集赋予一个效用。决策者将每个行动与其包络，即包含该行动的从状态到结果集的最小可测映射，联系起来。然后，她（隐含地）根据使其相关包络的期望平衡效用为零的平衡值来对行动排序。因此，她的风险偏好只需表现出中间性，从而允许能够容纳阿莱型悖论的行为。",
+      "abstract_snippet_en": "",
+      "doi": "10.3982/te5404",
+      "source_url": "https://doi.org/10.3982/te5404",
       "publication_date": "2025",
       "sources": {
-        "issue": "https://ideas.repec.org/s/the/publsh.html",
-        "roster": "repec-serial-page",
+        "issue": "https://onlinelibrary.wiley.com/toc/15567568/20/1",
+        "roster": "crossref:issn:1933-6837",
         "metadata": "crossref",
-        "abstract_en": "repec-publisher-supplied",
-        "repec": "https://ideas.repec.org/a/the/publsh/5404.html"
+        "abstract_en": "crossref"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-reasoner",
+        "translated_at": "2026-08-07T03:44:26+00:00",
+        "source_hash": "135117669ab150bc27a0569e7feb113b596a3db10c34b196833a0a7c492a3701"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing",
-        "doi_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -98,292 +55,41 @@
       }
     },
     {
-      "paper_id": "te:Dynamic assignment without money: optimality of spot mechanisms",
-      "sequence": 3,
-      "source_sequence": 3,
-      "article_type": "research-article",
-      "title_en": "Dynamic assignment without money: optimality of spot mechanisms",
-      "title_cn": "",
-      "authors": [
-        "Combe, Julien (CREST - Ecole polytechnique)",
-        "Nora, Vladyslav (Department of Economics, Nazarbayev University)",
-        "Tercieux, Olivier (Department of Economics, Paris School of Economics)"
-      ],
-      "abstract_en": "We study a large market model of dynamic matching with no monetary transfers and a continuum of agents who have to be assigned items at each date. When the social planner can only elicit ordinal agents' preferences, we prove that under a mild regularity assumption, incentive compatible and ordinally efficient allocation rules coincide with spot mechanisms. The latter specify \"virtual prices\" for items at each date and, for each agent, randomly selects a budget of virtual money at the beginning of time. When the social planner can elicit cardinal preferences, we prove that under a similar regularity assumption, incentive compatible and Pareto efficient mechanisms coincide with Spot Menu of Random Budgets mechanisms. These are similar to spot mechanisms except that, at the beginning of time, each agent chooses within a menu, a distribution over budget of virtual money.",
-      "abstract_cn": "",
-      "doi": "",
-      "source_url": "https://ideas.repec.org/a/the/publsh/5419.html",
-      "publication_date": "2025",
-      "sources": {
-        "issue": "https://ideas.repec.org/s/the/publsh.html",
-        "roster": "repec-serial-page",
-        "metadata": "crossref",
-        "abstract_en": "repec-publisher-supplied",
-        "repec": "https://ideas.repec.org/a/the/publsh/5419.html"
-      },
-      "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
-      },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing",
-        "doi_missing"
-      ],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "te:Gradual learning from incremental actions",
-      "sequence": 4,
-      "source_sequence": 4,
-      "article_type": "research-article",
-      "title_en": "Gradual learning from incremental actions",
-      "title_cn": "",
-      "authors": [
-        "Laiho, Tuomas (Department of Economics, Aalto University School of Business and Ministry of Finance, Finland)",
-        "Murto, Pauli (Department of Economics, Aalto University School of Business and Helsinki Graduate School of Economics)",
-        "Salmi, Julia (Department of Finance and Economics, Hanken School of Economics and Helsinki Graduate School of Economics)"
-      ],
-      "abstract_en": "We introduce a collective experimentation problem where a continuum of agents choose the timing of irreversible actions under uncertainty and where public feedback from the actions arrives gradually over time. The leading application is the adoption of new technologies. The socially optimal expansion path entails an informational trade-off where acting today speeds up learning but postponing capitalizes on the option value of waiting. We contrast the social optimum to the decentralized equilibrium where agents ignore the social value of information they generate. We show that the equilibrium can be obtained by assuming that agents ignore the future actions of other agents, which lets us recast the complicated two-dimensional problem as a series of one-dimensional problems.",
-      "abstract_cn": "",
-      "doi": "",
-      "source_url": "https://ideas.repec.org/a/the/publsh/5452.html",
-      "publication_date": "2025",
-      "sources": {
-        "issue": "https://ideas.repec.org/s/the/publsh.html",
-        "roster": "repec-serial-page",
-        "metadata": "crossref",
-        "abstract_en": "repec-publisher-supplied",
-        "repec": "https://ideas.repec.org/a/the/publsh/5452.html"
-      },
-      "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
-      },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing",
-        "doi_missing"
-      ],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "te:Dynamic economics with quantile preferences",
-      "sequence": 5,
-      "source_sequence": 5,
-      "article_type": "research-article",
-      "title_en": "Dynamic economics with quantile preferences",
-      "title_cn": "",
-      "authors": [
-        "de Castro, Luciano I. (Department of Economics, University of Iowa)",
-        "Galvao, Antonio F. (Department of Economics, Michigan State University)",
-        "Nunes, Daniel da Siva (Instituto Nacional de Matematica Pura e Aplicada (IMPA))",
-        "Antonio F Galvao"
-      ],
-      "abstract_en": "This paper studies a dynamic quantile model for intertemporal decisions under uncertainty, in which the decision maker maximizes the $\\tau$-quantile of the stream of future utilities, for $\\tau\\in (0,1)$. We present two sets of contributions. First, we generalize existing results in directions that are important for applications. In particular, the sets of choices and random shocks are general metric spaces, either connected or finite. Moreover, the future state is not exclusively determined by agent's choice, but can also be influenced by shocks. Under these generalizations, we establish the Principle of Optimality, show that the corresponding dynamic problem yields a value function and, under suitable assumptions, this value function is concave and differentiable. Additionally, we derive the corresponding Euler equation. Second, we illustrate the usefulness of this approach by studying two prominent dynamic economics models. The first deals with intertemporal consumption with one asset. We obtain closed form expressions for the value function, the optimal asset allocation and consumption, as well as for the consumption path. These closed form solutions allow us to obtain useful comparative statics that shed light on how consumption and savings respond to increase in risk aversion, impatience and interest rates. For the second model, we discuss a quantile-based version of the job-search model with uncertainty.",
-      "abstract_cn": "",
-      "doi": "",
-      "source_url": "https://ideas.repec.org/a/the/publsh/5454.html",
-      "publication_date": "2025",
-      "sources": {
-        "issue": "https://ideas.repec.org/s/the/publsh.html",
-        "roster": "repec-serial-page",
-        "metadata": "crossref",
-        "abstract_en": "repec-publisher-supplied",
-        "repec": "https://ideas.repec.org/a/the/publsh/5454.html"
-      },
-      "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
-      },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing",
-        "doi_missing"
-      ],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "te:Randomized collective choices based on a fractional tournament",
-      "sequence": 6,
-      "source_sequence": 6,
-      "article_type": "research-article",
-      "title_en": "Randomized collective choices based on a fractional tournament",
-      "title_cn": "",
-      "authors": [
-        "Sprumont, Yves (Department of Economics, Deakin University)",
-        "Yves Sprumont"
-      ],
-      "abstract_en": "An extension rule assigns to each fractional tournament x (specifying, for every pair of social alternatives a and b, the proportion x_{ab} of voters who prefer a to b) a random choice function y (specifying a collective choice probability distribution for each subset of alternatives) which chooses a from {a,b} with probability x_{ab}. There exist multiple neutral and stochastically rationalizable extension rules. Both Linearity (requiring that y be an affine function of x) and Independence of Irrelevant Comparisons (asking that the probability distribution on a subset of alternatives depend only on the restriction of the fractional tournament to that subset) are incompatible with very weak properties implied by Stochastic Rationalizability. We identify a class of maximal domains, which we call sequentially binary, guaranteeing that every fractional tournament arising from a population of voters with preferences in such a domain has a unique admissible stochastically rationalizable extension.",
-      "abstract_cn": "",
-      "doi": "",
-      "source_url": "https://ideas.repec.org/a/the/publsh/5589.html",
-      "publication_date": "2025",
-      "sources": {
-        "issue": "https://ideas.repec.org/s/the/publsh.html",
-        "roster": "repec-serial-page",
-        "metadata": "crossref",
-        "abstract_en": "repec-publisher-supplied",
-        "repec": "https://ideas.repec.org/a/the/publsh/5589.html"
-      },
-      "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
-      },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing",
-        "doi_missing"
-      ],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "te:Repeated trade with imperfect information about previous transactions",
-      "sequence": 7,
-      "source_sequence": 7,
-      "article_type": "research-article",
-      "title_en": "Repeated trade with imperfect information about previous transactions",
-      "title_cn": "",
-      "authors": [
-        "Dilme, Francesc (Department of Economics, University of Bonn)"
-      ],
-      "abstract_en": "This paper studies repeated bargaining with noisy information about previous transactions. A buyer has private information about his willingness to pay, which is either low or high, and buys goods from different sellers over time. Each seller observes a noisy history of signals about the buyer's previous purchases and sets a price. We compare the cases where previous prices are observable to sellers with the case where they are not. We show that more signal precision is counterbalanced by two equilibrium mechanisms that slow learning and keep incentives in balance: (1) sellers offer discounted prices more often, and (2) the buyer rejects high prices with a higher probability. The effect of making prices observable depends on the signal precision: When the signal is imprecise, making prices public strengthens the discounting mechanism, improving efficiency and buyer welfare; when the signal is precise, making prices public activates the rejection mechanism, and efficiency and buyer welfare may decrease. Independently of the price observability, the buyer tends to benefit from a more precise signal about previous purchases.",
-      "abstract_cn": "",
-      "doi": "",
-      "source_url": "https://ideas.repec.org/a/the/publsh/5694.html",
-      "publication_date": "2025",
-      "sources": {
-        "issue": "https://ideas.repec.org/s/the/publsh.html",
-        "roster": "repec-serial-page",
-        "metadata": "crossref",
-        "abstract_en": "repec-publisher-supplied",
-        "repec": "https://ideas.repec.org/a/the/publsh/5694.html"
-      },
-      "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
-      },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing",
-        "doi_missing"
-      ],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "te:In the shadow of shadow banking: a liquidity perspective",
-      "sequence": 8,
-      "source_sequence": 8,
-      "article_type": "research-article",
-      "title_en": "In the shadow of shadow banking: a liquidity perspective",
-      "title_cn": "",
-      "authors": [
-        "Liu, Zehao (School of Finance, Renmin University of China)",
-        "He, Ping (School of Economics and Management, Tsinghua University)",
-        "Xie, Chengbo (School of Finance, Southwestern University of Finance and Economics)"
-      ],
-      "abstract_en": "Liquidity requirements for commercial banks improve risk-sharing for depositors. Nevertheless, shadow banks, issuing securities with lower liquidity, operate outside such regulatory constraints. In an economy featuring shadow banks with a constant level of liquidity for shadow bank securities, higher liquidity requirements lead to a reduction in aggregate liquidity provision, owing to regulatory arbitrage incentives. Conversely, when the liquidity of shadow bank securities decreases with the market share of shadow banks, the incentive for regulatory arbitrage is reduced, and thus higher liquidity requirements could enhance aggregate liquidity provision.",
-      "abstract_cn": "",
-      "doi": "",
-      "source_url": "https://ideas.repec.org/a/the/publsh/5712.html",
-      "publication_date": "2025",
-      "sources": {
-        "issue": "https://ideas.repec.org/s/the/publsh.html",
-        "roster": "repec-serial-page",
-        "metadata": "crossref",
-        "abstract_en": "repec-publisher-supplied",
-        "repec": "https://ideas.repec.org/a/the/publsh/5712.html"
-      },
-      "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
-      },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing",
-        "doi_missing"
-      ],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "te:The hazards and benefits of condescension in social learning",
-      "sequence": 9,
-      "source_sequence": 9,
+      "paper_id": "doi:10.3982/te5743",
+      "sequence": 2,
+      "source_sequence": 27,
       "article_type": "research-article",
       "title_en": "The hazards and benefits of condescension in social learning",
-      "title_cn": "",
+      "title_cn": "社会学习中屈尊的危害与益处",
       "authors": [
-        "Arieli, Itai (Data and Decision Sciences, Technion–Israel Institute of Technology)",
-        "Babichenko, Yakov (Data and Decision Sciences, Technion–Israel Institute of Technology)",
-        "Müller, Stephan (Department of Economics, University of Goettingen)",
-        "Pourbabaee, Farzad (Department of Economics, Caltech)",
-        "Tamuz, Omer (Department of Economics, Caltech)"
+        "Itai Arieli",
+        "Yakov Babichenko",
+        "Stephan Müller",
+        "Farzad Pourbabaee",
+        "Omer Tamuz"
       ],
-      "abstract_en": "In a misspecified social learning setting, agents are condescending if they perceive their peers as having private information that is of lower quality than it is in reality. Applying this to a standard sequential model, we show that outcomes improve when agents are mildly condescending. In contrast, too much condescension leads to worse outcomes, as does anti-condescension.",
-      "abstract_cn": "",
-      "doi": "",
-      "source_url": "https://ideas.repec.org/a/the/publsh/5743.html",
+      "abstract_en": "In a misspecified social learning setting, agents are condescending if they perceive their peers as having private information that is of lower quality than it is in reality. Applying this to a standard sequential model, we show that outcomes improve when agents are mildly condescending. In contrast, too much condescension leads to worse outcomes, as does anti‐condescension.",
+      "abstract_cn": "在误设的社会学习环境中，若主体认为同伴拥有质量低于实际情况的私人信息，则他们是屈尊的。将此应用于标准序贯模型，我们表明，当主体轻度屈尊时，结果会得到改善。相反，过度屈尊会导致更差的结果，反屈尊亦然。",
+      "abstract_snippet_en": "",
+      "doi": "10.3982/te5743",
+      "source_url": "https://doi.org/10.3982/te5743",
       "publication_date": "2025",
       "sources": {
-        "issue": "https://ideas.repec.org/s/the/publsh.html",
-        "roster": "repec-serial-page",
+        "issue": "https://onlinelibrary.wiley.com/toc/15567568/20/1",
+        "roster": "crossref:issn:1933-6837",
         "metadata": "crossref",
-        "abstract_en": "repec-publisher-supplied",
-        "repec": "https://ideas.repec.org/a/the/publsh/5743.html"
+        "abstract_en": "crossref"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-reasoner",
+        "translated_at": "2026-08-07T03:44:41+00:00",
+        "source_hash": "177f071f78b7b84b1491e8317bc65458b4a8baef480329c8b9ac6c7ce7cf435a"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing",
-        "doi_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -392,40 +98,321 @@
       }
     },
     {
-      "paper_id": "te:On the limitations of data-based price discrimination",
-      "sequence": 10,
-      "source_sequence": 10,
+      "paper_id": "doi:10.3982/te5589",
+      "sequence": 3,
+      "source_sequence": 57,
       "article_type": "research-article",
-      "title_en": "On the limitations of data-based price discrimination",
-      "title_cn": "",
+      "title_en": "Randomized collective choices based on a fractional tournament",
+      "title_cn": "基于分数锦标赛的随机化集体选择",
       "authors": [
-        "Xie, Haitian (Guanghua School of Management, Peking University)",
-        "Zhu, Ying (Department of Economics, University of California San Diego)",
-        "Shishkin, Denis (Department of Economics, University of California San Diego)"
+        "Yves Sprumont"
       ],
-      "abstract_en": "The classic third degree price discrimination (3PD) model requires the knowledge of the distribution of buyer valuations and the covariate to set the price conditioned on the covariate. In terms of generating revenue, the classic result shows that 3PD is at least as good as uniform pricing. What if the seller has to set a price based only on a sample of observations from the underlying distribution? Is it still obvious that the seller should engage in 3PD? This paper sheds light on these fundamental questions. In particular, the comparison of the revenue performance between 3PD and uniform pricing is ambiguous overall when prices are set based on samples. This finding is in the nature of statistical learning under uncertainty: a curse of dimensionality, but also other small sample complications.",
-      "abstract_cn": "",
-      "doi": "",
-      "source_url": "https://ideas.repec.org/a/the/publsh/5916.html",
+      "abstract_en": "An extension rule assigns to each fractional tournament x (specifying, for every pair of social alternatives a and b , the proportion x ab of voters who prefer a to b ) a random choice function y (specifying a collective choice probability distribution for each subset of alternatives), which chooses a from { a , b } with probability x ab . There exist multiple neutral and stochastically rationalizable extension rules. Both linearity (requiring that y be an affine function of x ) and independence of irrelevant comparisons (asking that the probability distribution on a subset of alternatives depend only on the restriction of the fractional tournament to that subset) are incompatible with very weak properties implied by stochastic rationalizability. We identify a class of maximal domains, which we call sequentially binary , guaranteeing that every fractional tournament arising from a population of voters with preferences in such a domain has a unique admissible stochastically rationalizable extension.",
+      "abstract_cn": "一个扩展规则将每个分数锦标赛x（指定对于每对社会备选方案a和b，偏好a胜过b的投票者比例x_ab）映射到一个随机选择函数y（指定每个备选方案子集上的集体选择概率分布），该函数以概率x_ab从{a,b}中选择a。存在多个中性且随机理性化的扩展规则。线性性（要求y是x的仿射函数）和无关比较独立性（要求备选方案子集上的概率分布仅取决于分数锦标赛在该子集上的限制）都与随机理性化所隐含的非常弱的性质不相容。我们识别了一类极大域，我们称之为序贯二元，它保证了在这样一个域中具有偏好的投票者群体所产生的每一个分数锦标赛都有唯一一个可行的随机理性化扩展。",
+      "abstract_snippet_en": "",
+      "doi": "10.3982/te5589",
+      "source_url": "https://doi.org/10.3982/te5589",
       "publication_date": "2025",
       "sources": {
-        "issue": "https://ideas.repec.org/s/the/publsh.html",
-        "roster": "repec-serial-page",
+        "issue": "https://onlinelibrary.wiley.com/toc/15567568/20/1",
+        "roster": "crossref:issn:1933-6837",
         "metadata": "crossref",
-        "abstract_en": "repec-publisher-supplied",
-        "repec": "https://ideas.repec.org/a/the/publsh/5916.html"
+        "abstract_en": "crossref"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-reasoner",
+        "translated_at": "2026-08-07T03:45:06+00:00",
+        "source_hash": "572022f55db0ef86964973780ec3949d20b1658cb039bc84e69d21847c15dd82"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing",
-        "doi_missing"
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/te5452",
+      "sequence": 4,
+      "source_sequence": 93,
+      "article_type": "research-article",
+      "title_en": "Gradual learning from incremental actions",
+      "title_cn": "从增量行动中逐步学习",
+      "authors": [
+        "Tuomas Laiho",
+        "Pauli Murto",
+        "Julia Salmi"
       ],
+      "abstract_en": "We introduce a collective experimentation problem where a continuum of agents choose the timing of irreversible actions under uncertainty and where public feedback from the actions arrives gradually over time. The leading application is the adoption of new technologies. The socially optimal expansion path entails an informational trade‐off where acting today speeds up learning but postponing capitalizes on the option value of waiting. We contrast the social optimum to the decentralized equilibrium where agents ignore the social value of information they generate. We show that the equilibrium can be obtained by assuming that agents ignore the future actions of other agents, which lets us recast the complicated two‐dimensional problem as a series of one‐dimensional problems.",
+      "abstract_cn": "我们引入了一个集体实验问题，其中连续统的代理人在不确定性下选择不可逆行动的时间，并且来自行动的公共反馈随时间逐渐到达。主要应用是新技术的采用。社会最优扩张路径涉及一种信息权衡：今天行动加速学习，但延迟则利用等待的期权价值。我们将社会最优与分散均衡进行对比，在分散均衡中，代理人忽略他们产生的信息的社会价值。我们表明，该均衡可以通过假设代理人忽略其他代理人的未来行动来获得，这使我们能够将复杂的二维问题重新表述为一系列一维问题。",
+      "abstract_snippet_en": "",
+      "doi": "10.3982/te5452",
+      "source_url": "https://doi.org/10.3982/te5452",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15567568/20/1",
+        "roster": "crossref:issn:1933-6837",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-reasoner",
+        "translated_at": "2026-08-07T03:45:08+00:00",
+        "source_hash": "16c1a8175a61d19179a74ec5bff8741f7d0e4df93c6de80500ad4bbb45ec8346"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/te5712",
+      "sequence": 5,
+      "source_sequence": 131,
+      "article_type": "research-article",
+      "title_en": "In the shadow of shadow banking: A liquidity perspective",
+      "title_cn": "在影子银行的阴影下：流动性视角",
+      "authors": [
+        "Zehao Liu",
+        "Ping He",
+        "Chengbo Xie"
+      ],
+      "abstract_en": "Liquidity requirements for commercial banks improve risk‐sharing for depositors. Nevertheless, shadow banks, issuing securities with lower liquidity, operate outside such regulatory constraints. In an economy featuring shadow banks with a constant level of liquidity for shadow bank securities, higher liquidity requirements lead to a reduction in aggregate liquidity provision, owing to regulatory arbitrage incentives. Conversely, when the liquidity of shadow bank securities decreases with the market share of shadow banks, the incentive for regulatory arbitrage is reduced and, thus, higher liquidity requirements could enhance aggregate liquidity provision.",
+      "abstract_cn": "对商业银行的流动性要求改善了储户的风险分担。然而，影子银行发行的证券流动性较低，且不受此类监管约束。在影子银行证券流动性水平恒定的经济体中，由于监管套利激励，更高的流动性要求会导致总体流动性供给减少。相反，当影子银行证券的流动性随影子银行市场份额的增加而下降时，监管套利的激励减弱，因此更高的流动性要求可能增强总体流动性供给。",
+      "abstract_snippet_en": "",
+      "doi": "10.3982/te5712",
+      "source_url": "https://doi.org/10.3982/te5712",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15567568/20/1",
+        "roster": "crossref:issn:1933-6837",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-reasoner",
+        "translated_at": "2026-08-07T03:45:11+00:00",
+        "source_hash": "50b4d1963ed7f87c17543d20a5abd2e51f372a72c842e7c040bfe61b2b8c8665"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/te4758",
+      "sequence": 6,
+      "source_sequence": 169,
+      "article_type": "research-article",
+      "title_en": "Reputation building under uncertain monitoring",
+      "title_cn": "不确定监控下的声誉建立",
+      "authors": [
+        "Joyee Deb",
+        "Yuhta Ishii"
+      ],
+      "abstract_en": "We study the standard reputation model with a long‐run (LR) player facing a sequence of short‐run (SR) opponents, with one difference: the SR players are uncertain about the monitoring structure, while the LR player knows it. We construct examples where the standard reputation result breaks down: Even if there is a possibility that the LR player is a commitment type who always plays the action to which he wants to commit, there exist “bad” equilibria in which the LR player gets payoffs substantially lower than his commitment payoffs. In contrast, if there is the possibility of dynamic commitment types who switch between “signaling” actions that help the SR players learn the monitoring structure and “collection” actions that are desirable for payoffs, our main theorem shows that a sufficiently patient LR player obtains payoffs of at least the commitment payoffs in each state in every equilibrium.",
+      "abstract_cn": "我们研究标准的声誉模型，其中有一个长期（LR）参与人面对一系列短期（SR）对手，但有一个区别：SR参与人不确定监控结构，而LR参与人知道监控结构。我们构造了标准声誉结果失效的例子：即使存在一种可能性，即LR参与人是一个总是采取他想要承诺的行动的承诺类型，也存在“坏”均衡，其中LR参与人获得的收益远低于其承诺收益。相反，如果存在动态承诺类型的可能性，这些类型在帮助SR参与人学习监控结构的“信号”行动和有利于收益的“收集”行动之间切换，我们的主要定理表明，在每一个均衡中，一个足够有耐心的LR参与人在每个状态下获得的收益至少为承诺收益。",
+      "abstract_snippet_en": "",
+      "doi": "10.3982/te4758",
+      "source_url": "https://doi.org/10.3982/te4758",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15567568/20/1",
+        "roster": "crossref:issn:1933-6837",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-reasoner",
+        "translated_at": "2026-08-07T03:45:15+00:00",
+        "source_hash": "10a856d6bea1a06f7ffa8da4f4de4c366d11b605ac2bdc5292411df7d9f673ac"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/te5694",
+      "sequence": 7,
+      "source_sequence": 209,
+      "article_type": "research-article",
+      "title_en": "Repeated trade with imperfect information about previous transactions",
+      "title_cn": "关于先前交易的不完美信息下的重复交易",
+      "authors": [
+        "Francesc Dilmé"
+      ],
+      "abstract_en": "This paper studies repeated trade with noisy information about previous transactions. A buyer has private information about his willingness to pay, which is either low or high, and buys goods from different sellers over time. Each seller observes a noisy history of signals about the buyer's previous purchases and sets a price. We compare the cases where previous prices are observable to sellers with the case where they are not. We show that, in both cases, more signal precision is counterbalanced in equilibrium by less separation between types, either because (1) sellers offer discounted prices more often, which are accepted by both types, or (2) the buyer with a high valuation rejects high prices with a higher probability. The effect on welfare and efficiency of making prices observable depends on the signal precision: When the signal is imprecise, making prices public strengthens the discounting mechanism, improving efficiency and buyer welfare; when the signal is precise, making prices public activates the rejection mechanism, and efficiency and buyer welfare may decrease. Independently of price observability, the buyer tends to benefit from a more precise signal about previous purchases.",
+      "abstract_cn": "本文研究在关于先前交易的噪声信息下的重复交易。一个买方拥有关于其支付意愿的私人信息，该意愿要么低要么高，并随时间从不同的卖方购买商品。每个卖方观察到关于买方先前购买行为的带噪声的信号历史，并设定价格。我们比较了先前价格对卖方可观察的情况与不可观察的情况。我们证明，在两种情况下，更多的信号精度在均衡中被类型之间更小的分离所抵消，要么因为（1）卖方更经常提供折扣价格，这些价格被两种类型都接受，要么因为（2）具有高估值的买方以更高概率拒绝高价格。使价格可观察对福利和效率的影响取决于信号精度：当信号不精确时，公开价格加强了折扣机制，提高了效率和买方福利；当信号精确时，公开价格激活了拒绝机制，效率和买方福利可能会下降。与价格可观察性无关，买方往往从关于先前购买的更精确的信号中受益。",
+      "abstract_snippet_en": "",
+      "doi": "10.3982/te5694",
+      "source_url": "https://doi.org/10.3982/te5694",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15567568/20/1",
+        "roster": "crossref:issn:1933-6837",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-reasoner",
+        "translated_at": "2026-08-07T03:45:27+00:00",
+        "source_hash": "12669c95fe6b0561a3b5e78483a8315ad3b692b7b607b39d956e1b2d66bfd703"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/te5419",
+      "sequence": 8,
+      "source_sequence": 255,
+      "article_type": "research-article",
+      "title_en": "Dynamic assignment without money: Optimality of spot mechanisms",
+      "title_cn": "无货币的动态配置：现货机制的最优性",
+      "authors": [
+        "Julien Combe",
+        "Vladyslav Nora",
+        "Olivier Tercieux"
+      ],
+      "abstract_en": "We study a large market model of dynamic matching with no monetary transfers and a continuum of agents who have to be assigned items at each date. When the social planner can only elicit ordinal agents' preferences, we prove that under a mild regularity assumption, incentive compatible and ordinally efficient allocation rules coincide with spot mechanisms. The latter specify “virtual prices” for items at each date and, for each agent, randomly select a budget of virtual money at the beginning of time. When the social planner can elicit cardinal preferences, we prove that under a similar regularity assumption, incentive compatible and Pareto efficient mechanisms coincide with spot menu of random budgets mechanisms. These are similar to spot mechanisms except that, at the beginning of time, each agent chooses within a menu, a distribution over budget of virtual money.",
+      "abstract_cn": "我们研究了一个无货币转移的动态匹配大市场模型，其中有一个连续统的代理人，他们必须在每个日期被分配物品。当社会计划者只能引导代理人的序数偏好时，我们证明在温和的正则性假设下，激励相容且序数有效的配置规则与现货机制重合。后者为每个日期的物品指定“虚拟价格”，并且在初始时间，为每个代理人随机选择一个虚拟货币预算。当社会计划者能够引导基数偏好时，我们证明在类似的正则性假设下，激励相容且帕累托有效的机制与随机预算的现货菜单机制重合。这些机制与现货机制类似，除了在初始时间，每个代理人在一个菜单内选择虚拟货币预算上的一个分布。",
+      "abstract_snippet_en": "",
+      "doi": "10.3982/te5419",
+      "source_url": "https://doi.org/10.3982/te5419",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15567568/20/1",
+        "roster": "crossref:issn:1933-6837",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-reasoner",
+        "translated_at": "2026-08-07T03:45:34+00:00",
+        "source_hash": "92fca7d131f98d450197fe6460d0761b23f13f9fd4f6f9a4c943327f04999278"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/te5916",
+      "sequence": 9,
+      "source_sequence": 303,
+      "article_type": "research-article",
+      "title_en": "On the limitations of data‐based price discrimination",
+      "title_cn": "论基于数据的价格歧视的局限性",
+      "authors": [
+        "Haitian Xie",
+        "Ying Zhu",
+        "Denis Shishkin"
+      ],
+      "abstract_en": "The classic third degree price discrimination (3PD) model requires the knowledge of the distribution of buyer valuations and the covariate to set the price conditioned on the covariate. In terms of generating revenue, the classic result shows that 3PD is at least as good as uniform pricing. What if the seller has to set a price based only on a sample of observations from the underlying distribution? Is it still obvious that the seller should engage in 3PD? This paper sheds light on these fundamental questions. In particular, the comparison of the revenue performance between 3PD and uniform pricing is ambiguous overall when prices are set based on samples. This finding is in the nature of statistical learning under uncertainty: a curse of dimensionality, but also other small sample complications.",
+      "abstract_cn": "经典的三级价格歧视（3PD）模型要求了解买方估值的分布和协变量，以便在给定协变量的条件下设定价格。就产生收入而言，经典结果表明3PD至少与统一定价一样好。如果卖方只能基于来自潜在分布的一个观测样本来设定价格呢？卖方是否仍然显然应该实施3PD？本文阐明了这些基本问题。特别是，当价格基于样本设定时，3PD与统一定价之间的收入表现比较总体上是模糊不清的。这一发现本质上属于不确定性下的统计学习：维度灾难，而且还有其他小样本复杂性问题。",
+      "abstract_snippet_en": "",
+      "doi": "10.3982/te5916",
+      "source_url": "https://doi.org/10.3982/te5916",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15567568/20/1",
+        "roster": "crossref:issn:1933-6837",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-reasoner",
+        "translated_at": "2026-08-07T03:45:43+00:00",
+        "source_hash": "67ad25a28d435f0dec5fc0b35a37125f5fe45a4981fc449b0095eb91e762c541"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/te5454",
+      "sequence": 10,
+      "source_sequence": 353,
+      "article_type": "research-article",
+      "title_en": "Dynamic economics with quantile preferences",
+      "title_cn": "分位数偏好下的动态经济学",
+      "authors": [
+        "Luciano Castro",
+        "Antonio F. Galvao",
+        "Daniel Nunes"
+      ],
+      "abstract_en": "This paper studies a dynamic quantile model for intertemporal decisions under uncertainty, in which the decision maker maximizes the τ ‐quantile of the stream of future utilities, for τ ∈ (0,1). We present two sets of contributions. First, we generalize existing results in directions that are important for applications. In particular, the sets of choices and random shocks are general metric spaces, either connected or finite. Moreover, the future state is not exclusively determined by the agent's choice, but can also be influenced by shocks. Under these generalizations, we establish the principle of optimality, show that the corresponding dynamic problem yields a value function, and under suitable assumptions, this value function is concave and differentiable. Additionally, we derive the corresponding Euler equation. Second, we illustrate the usefulness of this approach by studying two prominent dynamic economics models. The first deals with intertemporal consumption with one asset. We obtain closed‐form expressions for the value function, the optimal asset allocation and consumption, as well as for the consumption path. These closed‐form solutions allow us to obtain useful comparative statics that shed light on how consumption and savings respond to increase in risk aversion, impatience, and interest rates. For the second model, we discuss a quantile‐based version of the job‐search model with uncertainty.",
+      "abstract_cn": "本文研究了一个不确定性下跨期决策的动态分位数模型，其中决策者最大化未来效用流的τ分位数，τ ∈ (0,1)。我们提出两组贡献。首先，我们以对应用重要的方向推广了现有结果。特别地，选择集合和随机冲击是一般度量空间，要么是连通的，要么是有限的。此外，未来状态并非仅由代理人的选择决定，还可能受到冲击的影响。在这些推广下，我们建立了最优性原理，表明相应的动态问题产生一个值函数，并且在适当假设下，该值函数是凹的和可微的。此外，我们推导了相应的欧拉方程。其次，我们通过研究两个著名的动态经济学模型来说明这种方法的实用性。第一个处理具有一种资产的跨期消费。我们获得了值函数、最优资产配置和消费以及消费路径的闭式表达式。这些闭式解使我们能够获得有用的比较静态分析，从而揭示消费和储蓄如何响应风险厌恶、不耐烦和利率的上升。对于第二个模型，我们讨论了基于分位数的带有不确定性的工作搜寻模型版本。",
+      "abstract_snippet_en": "",
+      "doi": "10.3982/te5454",
+      "source_url": "https://doi.org/10.3982/te5454",
+      "publication_date": "2025",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15567568/20/1",
+        "roster": "crossref:issn:1933-6837",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-reasoner",
+        "translated_at": "2026-08-07T03:45:47+00:00",
+        "source_hash": "b5dbcc7c5bedb28c46bf52e8cfad9ffd2a25f307dc71cc13586823f3c6f9295f"
+      },
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -437,51 +424,62 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "repec-serial-page",
-    "roster_authority": "repec-publisher-supplied",
-    "roster_match_scope": "repec-issue-section",
+    "roster_transport": "crossref",
+    "roster_authority": "crossref-provisional",
+    "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
-    "excluded_item_count": 0,
-    "excluded_items": [],
-    "doi_complete": 0,
+    "excluded_item_count": 2,
+    "excluded_items": [
+      {
+        "title_en": "Frontmatter of Theoretical Economics Vol. 20 Iss. 1",
+        "reason": "front_matter",
+        "doi": "10.3982/te201fm",
+        "article_type": "front-matter"
+      },
+      {
+        "title_en": "Backmatter of Theoretical Economics Vol. 20 Iss. 1",
+        "reason": "front_matter",
+        "doi": "10.3982/te201bm",
+        "article_type": "front-matter"
+      }
+    ],
+    "doi_complete": 10,
     "authors_complete": 10,
     "abstract_en_complete": 10,
-    "translation_complete": 0,
+    "translation_complete": 10,
     "duplicate_count": 0,
     "flags": [
-      "translation_incomplete"
+      "publisher_html_blocked_crossref_fallback",
+      "crossref_provisional_roster"
     ],
-    "official_item_count": 10,
+    "official_item_count": 12,
     "publishable_item_count": 10,
     "content_counts": {
-      "official_items": 10,
-      "observed_items": 10,
+      "official_items": 12,
+      "observed_items": 12,
       "publishable_items": 10,
       "research_articles": 10,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
-      "front_matter": 0,
+      "front_matter": 2,
       "other_excluded": 0,
       "catalog_content_items": 10
     }
   },
   "content_counts": {
-    "official_items": 10,
-    "observed_items": 10,
+    "official_items": 12,
+    "observed_items": 12,
     "publishable_items": 10,
     "research_articles": 10,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
-    "front_matter": 0,
+    "front_matter": 2,
     "other_excluded": 0,
     "catalog_content_items": 10
   },
-  "issue_label": "Vol. 20 · No. 1",
-  "content_status": "blocked",
-  "source_status": "publisher_verified",
-  "publication_state": "blocked"
+  "issue_label": "Vol. 20 · No. 1"
 }

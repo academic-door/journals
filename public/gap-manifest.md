@@ -1,12 +1,12 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-08-24T15:02:47+00:00
+Generated: 2026-08-24T16:45:37+00:00
 
 ## Summary
 
-- browser_required: 36
-- ready: 941
-- recoverable: 100
+- browser_required: 38
+- ready: 951
+- recoverable: 88
 - source_pending: 213
 - translation_required: 41
 
@@ -371,8 +371,8 @@ Generated: 2026-08-24T15:02:47+00:00
 | ERE | ere-86-4 | 2023 | recoverable | blocked | source_pending | archive_missing |
 | ERE | ere-87-1 | 2024 | recoverable | blocked | source_pending | archive_missing |
 | ERE | ere-87-10 | 2024 | recoverable | blocked | source_pending | archive_missing |
-| ERE | ere-87-11 | 2024 | recoverable | blocked | source_pending | archive_missing |
-| ERE | ere-87-12 | 2024 | recoverable | blocked | source_pending | archive_missing |
+| ERE | ere-87-11 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
+| ERE | ere-87-12 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | ERE | ere-87-2 | 2024 | recoverable | blocked | source_pending | archive_missing |
 | ERE | ere-87-3 | 2024 | recoverable | blocked | source_pending | archive_missing |
 | ERE | ere-87-4 | 2024 | recoverable | blocked | source_pending | archive_missing |
@@ -401,7 +401,7 @@ Generated: 2026-08-24T15:02:47+00:00
 | ERE | ere-89-6 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | ERE | ere-89-7 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | ERE | ere-89-8 | 2026 | source_pending | complete | source_pending | ValueError: RePEc history requires a configured series code |
-| ERE | ere-89-9 | 2026 | recoverable | blocked | source_pending | archive_missing |
+| ERE | ere-89-9 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-114-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-115-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-116-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
@@ -1163,21 +1163,21 @@ Generated: 2026-08-24T15:02:47+00:00
 | QJE | qje-141-1 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
 | QJE | qje-141-2 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
 | QJE | qje-141-3 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
-| RAND | rand-54-1 | 2023 | recoverable | blocked | source_pending | archive_missing |
-| RAND | rand-54-2 | 2023 | recoverable | blocked | source_pending | archive_missing |
-| RAND | rand-54-3 | 2023 | recoverable | blocked | source_pending | archive_missing |
-| RAND | rand-54-4 | 2023 | recoverable | blocked | source_pending | archive_missing |
-| RAND | rand-55-1 | 2024 | recoverable | blocked | source_pending | archive_missing |
-| RAND | rand-55-2 | 2024 | recoverable | blocked | source_pending | archive_missing |
-| RAND | rand-55-3 | 2024 | recoverable | blocked | source_pending | archive_missing |
-| RAND | rand-55-4 | 2024 | recoverable | blocked | source_pending | archive_missing |
+| RAND | rand-54-1 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| RAND | rand-54-2 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| RAND | rand-54-3 | 2023 | browser_required | blocked | source_pending | archive_missing |
+| RAND | rand-54-4 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| RAND | rand-55-1 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
+| RAND | rand-55-2 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
+| RAND | rand-55-3 | 2024 | browser_required | blocked | source_pending | archive_missing |
+| RAND | rand-55-4 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | RAND | rand-56-1 | 2025 | source_pending | complete | source_pending | ValueError: RePEc history requires a configured series code |
 | RAND | rand-56-2 | 2025 | source_pending | complete | source_pending | ValueError: RePEc history requires a configured series code |
 | RAND | rand-56-3 | 2025 | source_pending | complete | source_pending | ValueError: RePEc history requires a configured series code |
 | RAND | rand-56-4 | 2025 | source_pending | complete | source_pending | ValueError: RePEc history requires a configured series code |
 | RAND | rand-57-1 | 2026 | source_pending | complete | source_pending | ValueError: RePEc history requires a configured series code |
 | RAND | rand-57-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
-| RAND | rand-57-3 | 2026 | recoverable | blocked | source_pending | archive_missing |
+| RAND | rand-57-3 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | RED | red-47-c | 2023 | source_pending | complete | source_pending | source authority pending official verification |
 | RED | red-48-c | 2023 | source_pending | complete | source_pending | source authority pending official verification |
 | RED | red-49-c | 2023 | source_pending | complete | source_pending | source authority pending official verification |

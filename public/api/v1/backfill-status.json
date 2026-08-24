@@ -1,21 +1,21 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-08-24T16:28:43+00:00",
+  "updated_at": "2026-08-24T16:45:21+00:00",
   "summary": {
-    "complete": 957,
-    "translation_partial": 1,
-    "blocked": 163,
+    "complete": 951,
+    "translation_partial": 38,
+    "blocked": 126,
     "collected": 0,
-    "pending": 210
+    "pending": 216
   },
   "coverage": {
     "discovered": 1331,
     "archived": 1167,
     "content_ready": 1167,
-    "source_verified": 957,
-    "publication_ready": 957,
+    "source_verified": 951,
+    "publication_ready": 951,
     "missing": 164,
-    "source_pending": 210,
+    "source_pending": 216,
     "missing_issue_ids": [
       "ecolecon-204-c",
       "ecolecon-220-c",
@@ -236,6 +236,7 @@
       "ej-136-676",
       "ej-136-677",
       "ej-136-678",
+      "ere-89-8",
       "foodpolicy-141-c",
       "ier-64-2",
       "ier-64-3",
@@ -337,6 +338,11 @@
       "qje-140-4",
       "qje-141-1",
       "qje-141-2",
+      "rand-56-1",
+      "rand-56-2",
+      "rand-56-3",
+      "rand-56-4",
+      "rand-57-1",
       "red-47-c",
       "red-48-c",
       "red-49-c",
@@ -1989,15 +1995,21 @@
       "discovered": 15,
       "archived": 13,
       "content_ready": 13,
-      "source_verified": 13,
-      "publication_ready": 13,
+      "source_verified": 8,
+      "publication_ready": 8,
       "missing": 2,
-      "source_pending": 0,
+      "source_pending": 5,
       "missing_issue_ids": [
         "rand-54-3",
         "rand-55-3"
       ],
-      "source_pending_issue_ids": [],
+      "source_pending_issue_ids": [
+        "rand-56-1",
+        "rand-56-2",
+        "rand-56-3",
+        "rand-56-4",
+        "rand-57-1"
+      ],
       "blocked_issue_ids": [],
       "years": {
         "2023": {
@@ -2032,24 +2044,31 @@
           "discovered": 4,
           "archived": 4,
           "content_ready": 4,
-          "source_verified": 4,
-          "publication_ready": 4,
+          "source_verified": 0,
+          "publication_ready": 0,
           "missing": 0,
-          "source_pending": 0,
+          "source_pending": 4,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [],
+          "source_pending_issue_ids": [
+            "rand-56-1",
+            "rand-56-2",
+            "rand-56-3",
+            "rand-56-4"
+          ],
           "blocked_issue_ids": []
         },
         "2026": {
           "discovered": 3,
           "archived": 3,
           "content_ready": 3,
-          "source_verified": 3,
-          "publication_ready": 3,
+          "source_verified": 2,
+          "publication_ready": 2,
           "missing": 0,
-          "source_pending": 0,
+          "source_pending": 1,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [],
+          "source_pending_issue_ids": [
+            "rand-57-1"
+          ],
           "blocked_issue_ids": []
         }
       }
@@ -3656,10 +3675,10 @@
       "discovered": 43,
       "archived": 23,
       "content_ready": 23,
-      "source_verified": 23,
-      "publication_ready": 23,
+      "source_verified": 22,
+      "publication_ready": 22,
       "missing": 20,
-      "source_pending": 0,
+      "source_pending": 1,
       "missing_issue_ids": [
         "ere-84-1",
         "ere-84-2",
@@ -3682,7 +3701,9 @@
         "ere-87-8",
         "ere-87-9"
       ],
-      "source_pending_issue_ids": [],
+      "source_pending_issue_ids": [
+        "ere-89-8"
+      ],
       "blocked_issue_ids": [],
       "years": {
         "2023": {
@@ -3747,12 +3768,14 @@
           "discovered": 9,
           "archived": 9,
           "content_ready": 9,
-          "source_verified": 9,
-          "publication_ready": 9,
+          "source_verified": 8,
+          "publication_ready": 8,
           "missing": 0,
-          "source_pending": 0,
+          "source_pending": 1,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [],
+          "source_pending_issue_ids": [
+            "ere-89-8"
+          ],
           "blocked_issue_ids": []
         }
       }
@@ -5813,7 +5836,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -5825,7 +5848,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -5837,7 +5860,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -5849,7 +5872,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -5861,7 +5884,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -5873,7 +5896,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -5886,7 +5909,7 @@
         "source_status": "source_pending",
         "publication_state": "source_pending",
         "last_error": "",
-        "retry_class": "source"
+        "retry_class": "translation"
       },
       {
         "issue_id": "ajae-106-3",
@@ -5897,7 +5920,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -5909,7 +5932,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -5921,7 +5944,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -6091,7 +6114,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -6533,12 +6556,12 @@
         "year": 2024,
         "volume": "220",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "ecolecon-221-c",
@@ -6911,7 +6934,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -6947,7 +6970,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -6959,7 +6982,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -7305,12 +7328,12 @@
         "year": 2024,
         "volume": "162",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "eer-163-c",
@@ -7647,7 +7670,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -7659,7 +7682,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -7671,7 +7694,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -7683,7 +7706,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -7695,7 +7718,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -7707,7 +7730,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -7719,7 +7742,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -7731,7 +7754,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -7743,7 +7766,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -7755,7 +7778,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -7767,7 +7790,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -7779,7 +7802,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -7791,7 +7814,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -7803,7 +7826,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -7815,7 +7838,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -7827,7 +7850,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -7839,7 +7862,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -8029,12 +8052,12 @@
         "year": 2023,
         "volume": "120",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "energy-121-c",
@@ -8077,36 +8100,36 @@
         "year": 2023,
         "volume": "124",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "energy-125-c",
         "year": 2023,
         "volume": "125",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "energy-126-c",
         "year": 2023,
         "volume": "126",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "energy-127-c",
@@ -8137,12 +8160,12 @@
         "year": 2024,
         "volume": "129",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "energy-130-c",
@@ -8197,12 +8220,12 @@
         "year": 2024,
         "volume": "134",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "energy-135-c",
@@ -8245,12 +8268,12 @@
         "year": 2024,
         "volume": "138",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "energy-139-c",
@@ -8269,12 +8292,12 @@
         "year": 2024,
         "volume": "140",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "energy-141-c",
@@ -8551,7 +8574,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -8563,7 +8586,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -8575,7 +8598,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -8587,7 +8610,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -8599,7 +8622,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -8611,7 +8634,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -8623,7 +8646,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -8635,7 +8658,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -8647,7 +8670,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -8659,7 +8682,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -8671,7 +8694,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -8683,7 +8706,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -8695,7 +8718,7 @@
         "content_status": "complete",
         "source_status": "publisher_verified",
         "publication_state": "ready",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -8707,7 +8730,7 @@
         "content_status": "complete",
         "source_status": "publisher_verified",
         "publication_state": "ready",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -8719,7 +8742,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -8731,7 +8754,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -8743,7 +8766,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -8755,7 +8778,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -8767,7 +8790,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -8779,7 +8802,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -8791,7 +8814,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -8803,7 +8826,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -9039,10 +9062,10 @@
         "year": 2026,
         "volume": "89",
         "issue": "8",
-        "status": "ready",
+        "status": "source_pending",
         "content_status": "complete",
-        "source_status": "publisher_verified",
-        "publication_state": "ready",
+        "source_status": "source_pending",
+        "publication_state": "source_pending",
         "last_error": "ValueError: RePEc history requires a configured series code",
         "retry_class": "manual"
       },
@@ -9113,12 +9136,12 @@
         "year": 2023,
         "volume": "118",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
+        "status": "translation_partial",
+        "content_status": "translation_partial",
         "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "foodpolicy-119-c",
@@ -9149,12 +9172,12 @@
         "year": 2023,
         "volume": "121",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "foodpolicy-122-c",
@@ -10225,12 +10248,12 @@
         "year": 2023,
         "volume": "51",
         "issue": "3",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "jce-51-4",
@@ -10371,24 +10394,24 @@
         "year": 2023,
         "volume": "160",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "jde-161-c",
         "year": 2023,
         "volume": "161",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "jde-162-c",
@@ -10431,24 +10454,24 @@
         "year": 2023,
         "volume": "165",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "jde-166-c",
         "year": 2024,
         "volume": "166",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "jde-167-c",
@@ -10661,12 +10684,12 @@
         "year": 2023,
         "volume": "205",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "jebo-206-c",
@@ -10697,12 +10720,12 @@
         "year": 2023,
         "volume": "208",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "jebo-209-c",
@@ -10841,12 +10864,12 @@
         "year": 2024,
         "volume": "220",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "jebo-221-c",
@@ -11773,7 +11796,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -11785,7 +11808,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -11797,7 +11820,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -11809,7 +11832,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -11817,12 +11840,12 @@
         "year": 2023,
         "volume": "21",
         "issue": "5",
-        "status": "blocked",
-        "content_status": "blocked",
+        "status": "translation_partial",
+        "content_status": "translation_partial",
         "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "jeea-21-6",
@@ -11833,7 +11856,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -11845,7 +11868,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -11857,7 +11880,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -11869,7 +11892,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -11881,7 +11904,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -11893,7 +11916,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -11905,7 +11928,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -12341,7 +12364,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -12353,7 +12376,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -12365,7 +12388,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -12377,7 +12400,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -12389,7 +12412,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -12401,7 +12424,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -12413,7 +12436,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -13067,7 +13090,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -13079,7 +13102,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -13091,7 +13114,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -13103,7 +13126,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -13115,7 +13138,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -13139,7 +13162,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -13151,7 +13174,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -13163,7 +13186,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -13175,7 +13198,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -13187,7 +13210,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -13593,12 +13616,12 @@
         "year": 2024,
         "volume": "162",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "jfe-163-c",
@@ -14197,12 +14220,12 @@
         "year": 2023,
         "volume": "144",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "jie-145-c",
@@ -14813,12 +14836,12 @@
         "year": 2024,
         "volume": "145",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "jme-146-c",
@@ -15127,12 +15150,12 @@
         "year": 2023,
         "volume": "235",
         "issue": "2",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "joe-236-1",
@@ -15223,12 +15246,12 @@
         "year": 2024,
         "volume": "239",
         "issue": "2",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "joe-240-1",
@@ -15505,7 +15528,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -15529,7 +15552,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -15553,7 +15576,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -15565,7 +15588,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -15577,7 +15600,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -15601,7 +15624,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -15613,7 +15636,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -15625,7 +15648,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -15637,7 +15660,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -15721,7 +15744,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -16067,12 +16090,12 @@
         "year": 2023,
         "volume": "221",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "jpube-222-c",
@@ -16597,12 +16620,12 @@
         "year": 2023,
         "volume": "135",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "jue-136-c",
@@ -16899,12 +16922,12 @@
         "year": 2023,
         "volume": "81",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "labeco-82-c",
@@ -16935,12 +16958,12 @@
         "year": 2023,
         "volume": "84",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "labeco-85-c",
@@ -16959,12 +16982,12 @@
         "year": 2024,
         "volume": "86",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "labeco-87-c",
@@ -17335,12 +17358,12 @@
         "year": 2023,
         "volume": "126",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "lup-127-c",
@@ -17551,12 +17574,12 @@
         "year": 2024,
         "volume": "144",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "lup-145-c",
@@ -18087,7 +18110,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -18099,7 +18122,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -18111,7 +18134,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -18119,12 +18142,12 @@
         "year": 2024,
         "volume": "139",
         "issue": "1",
-        "status": "blocked",
-        "content_status": "blocked",
+        "status": "translation_partial",
+        "content_status": "translation_partial",
         "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "qje-139-2",
@@ -18135,7 +18158,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -18147,7 +18170,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -18159,7 +18182,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -18257,7 +18280,7 @@
         "content_status": "complete",
         "source_status": "publisher_verified",
         "publication_state": "ready",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -18269,7 +18292,7 @@
         "content_status": "complete",
         "source_status": "publisher_verified",
         "publication_state": "ready",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -18281,7 +18304,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "possible_incomplete_volume: 5 articles collected vs current issue 11; needs official page or browser-authorized capture",
         "retry_class": "manual"
       },
       {
@@ -18293,7 +18316,7 @@
         "content_status": "complete",
         "source_status": "publisher_verified",
         "publication_state": "ready",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -18305,7 +18328,7 @@
         "content_status": "complete",
         "source_status": "publisher_verified",
         "publication_state": "ready",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -18317,7 +18340,7 @@
         "content_status": "complete",
         "source_status": "publisher_verified",
         "publication_state": "ready",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -18329,7 +18352,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "possible_incomplete_volume: 5 articles collected vs current issue 11; needs official page or browser-authorized capture",
         "retry_class": "manual"
       },
       {
@@ -18341,7 +18364,7 @@
         "content_status": "complete",
         "source_status": "publisher_verified",
         "publication_state": "ready",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -18349,10 +18372,10 @@
         "year": 2025,
         "volume": "56",
         "issue": "1",
-        "status": "ready",
+        "status": "source_pending",
         "content_status": "complete",
-        "source_status": "publisher_verified",
-        "publication_state": "ready",
+        "source_status": "source_pending",
+        "publication_state": "source_pending",
         "last_error": "ValueError: RePEc history requires a configured series code",
         "retry_class": "manual"
       },
@@ -18361,10 +18384,10 @@
         "year": 2025,
         "volume": "56",
         "issue": "2",
-        "status": "ready",
+        "status": "source_pending",
         "content_status": "complete",
-        "source_status": "publisher_verified",
-        "publication_state": "ready",
+        "source_status": "source_pending",
+        "publication_state": "source_pending",
         "last_error": "ValueError: RePEc history requires a configured series code",
         "retry_class": "manual"
       },
@@ -18373,10 +18396,10 @@
         "year": 2025,
         "volume": "56",
         "issue": "3",
-        "status": "ready",
+        "status": "source_pending",
         "content_status": "complete",
-        "source_status": "publisher_verified",
-        "publication_state": "ready",
+        "source_status": "source_pending",
+        "publication_state": "source_pending",
         "last_error": "ValueError: RePEc history requires a configured series code",
         "retry_class": "manual"
       },
@@ -18385,10 +18408,10 @@
         "year": 2025,
         "volume": "56",
         "issue": "4",
-        "status": "ready",
+        "status": "source_pending",
         "content_status": "complete",
-        "source_status": "publisher_verified",
-        "publication_state": "ready",
+        "source_status": "source_pending",
+        "publication_state": "source_pending",
         "last_error": "ValueError: RePEc history requires a configured series code",
         "retry_class": "manual"
       },
@@ -18397,10 +18420,10 @@
         "year": 2026,
         "volume": "57",
         "issue": "1",
-        "status": "ready",
+        "status": "source_pending",
         "content_status": "complete",
-        "source_status": "publisher_verified",
-        "publication_state": "ready",
+        "source_status": "source_pending",
+        "publication_state": "source_pending",
         "last_error": "ValueError: RePEc history requires a configured series code",
         "retry_class": "manual"
       },
@@ -18439,7 +18462,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -18451,7 +18474,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -18463,7 +18486,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -18475,7 +18498,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -18487,7 +18510,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -18499,7 +18522,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -18511,7 +18534,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -18523,7 +18546,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -18645,7 +18668,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -18657,7 +18680,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -18677,12 +18700,12 @@
         "year": 2023,
         "volume": "90",
         "issue": "5",
-        "status": "blocked",
-        "content_status": "blocked",
+        "status": "translation_partial",
+        "content_status": "translation_partial",
         "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "res-90-6",
@@ -18693,7 +18716,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -18705,7 +18728,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -18717,7 +18740,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -18729,7 +18752,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -18741,7 +18764,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -18753,7 +18776,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -18765,7 +18788,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -18971,7 +18994,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -18983,7 +19006,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -19007,7 +19030,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -19031,7 +19054,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -19286,7 +19309,7 @@
         "source_status": "source_pending",
         "publication_state": "source_pending",
         "last_error": "",
-        "retry_class": "source"
+        "retry_class": "translation"
       },
       {
         "issue_id": "rfs-37-1",
@@ -19693,9 +19716,9 @@
         "issue": "1",
         "status": "blocked",
         "content_status": "blocked",
-        "source_status": "source_pending",
+        "source_status": "publisher_verified",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -19705,9 +19728,9 @@
         "issue": "2",
         "status": "blocked",
         "content_status": "blocked",
-        "source_status": "source_pending",
+        "source_status": "publisher_verified",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -19717,9 +19740,9 @@
         "issue": "3",
         "status": "blocked",
         "content_status": "blocked",
-        "source_status": "source_pending",
+        "source_status": "publisher_verified",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -19729,9 +19752,9 @@
         "issue": "4",
         "status": "blocked",
         "content_status": "blocked",
-        "source_status": "source_pending",
+        "source_status": "publisher_verified",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -19741,9 +19764,9 @@
         "issue": "1",
         "status": "blocked",
         "content_status": "blocked",
-        "source_status": "source_pending",
+        "source_status": "publisher_verified",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -19753,9 +19776,9 @@
         "issue": "2",
         "status": "blocked",
         "content_status": "blocked",
-        "source_status": "source_pending",
+        "source_status": "publisher_verified",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -19765,9 +19788,9 @@
         "issue": "3",
         "status": "blocked",
         "content_status": "blocked",
-        "source_status": "source_pending",
+        "source_status": "publisher_verified",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -19777,9 +19800,9 @@
         "issue": "4",
         "status": "blocked",
         "content_status": "blocked",
-        "source_status": "source_pending",
+        "source_status": "publisher_verified",
         "publication_state": "blocked",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -20041,24 +20064,24 @@
         "year": 2024,
         "volume": "175",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "wd-176-c",
         "year": 2024,
         "volume": "176",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "wd-177-c",
@@ -20450,13 +20473,13 @@
     "2023-2024": {
       "summary": {
         "complete": 469,
-        "translation_partial": 1,
-        "blocked": 137,
+        "translation_partial": 38,
+        "blocked": 100,
         "collected": 0,
         "pending": 101
       },
       "issue_count": 708,
-      "updated_at": "2026-08-24T16:26:19+00:00",
+      "updated_at": "2026-08-24T16:44:17+00:00",
       "coverage": {
         "discovered": 708,
         "archived": 570,
@@ -20711,163 +20734,141 @@
         "blocked_issue_ids": []
       }
     },
-    "2025-2026": {
+    "2023-2026": {
       "summary": {
-        "complete": 489,
+        "complete": 191,
         "translation_partial": 0,
-        "blocked": 26,
+        "blocked": 33,
         "collected": 0,
-        "pending": 109
+        "pending": 11
       },
-      "issue_count": 624,
-      "updated_at": "2026-08-24T14:00:59+00:00",
+      "issue_count": 235,
+      "updated_at": "2026-08-24T16:44:24+00:00",
       "coverage": {
-        "discovered": 624,
-        "archived": 598,
-        "content_ready": 598,
-        "source_verified": 489,
-        "publication_ready": 489,
-        "missing": 26,
-        "source_pending": 109,
+        "discovered": 235,
+        "archived": 202,
+        "content_ready": 202,
+        "source_verified": 191,
+        "publication_ready": 191,
+        "missing": 33,
+        "source_pending": 11,
         "missing_issue_ids": [
-          "ecolecon-250-c",
-          "energy-162-c",
-          "foodpolicy-134-c",
-          "foodpolicy-137-c",
-          "jaere-13-5",
-          "jaere-13-6",
-          "jebo-250-c",
-          "jedc-191-c",
-          "jet-237-c",
-          "jfe-184-c",
-          "jie-164-c",
-          "jle-43-S1",
-          "jpube-262-c",
-          "jue-156-c",
-          "labeco-102-c",
-          "lup-153-c",
-          "lup-170-c",
-          "lup-171-c",
-          "qe-17-4",
-          "red-62-c",
+          "ere-84-1",
+          "ere-84-2",
+          "ere-84-3",
+          "ere-84-4",
+          "ere-85-1",
+          "ere-85-2",
+          "ere-85-3-4",
+          "ere-86-1-2",
+          "ere-86-3",
+          "ere-86-4",
+          "ere-87-1",
+          "ere-87-10",
+          "ere-87-2",
+          "ere-87-3",
+          "ere-87-4",
+          "ere-87-5",
+          "ere-87-6",
+          "ere-87-7",
+          "ere-87-8",
+          "ere-87-9",
+          "rand-54-3",
+          "rand-55-3",
           "rfs-39-9",
+          "te-18-1",
+          "te-18-2",
+          "te-18-3",
+          "te-18-4",
+          "te-19-1",
+          "te-19-2",
+          "te-19-3",
+          "te-19-4",
           "te-21-2",
-          "te-21-3",
-          "wd-192-c",
-          "wd-207-c",
-          "wd-208-c"
+          "te-21-3"
         ],
         "source_pending_issue_ids": [
-          "ajae-107-1",
-          "ajae-107-2",
-          "ajae-107-3",
-          "ajae-107-4",
-          "ajae-107-5",
-          "ajae-108-1",
-          "ajae-108-2",
-          "ajae-108-3",
-          "ajae-108-4",
-          "cer-100-c",
-          "cer-94-c",
-          "ej-135-668",
-          "ej-135-669",
-          "ej-135-670",
-          "ej-135-671",
-          "ej-135-672",
-          "ej-136-673",
-          "ej-136-674",
-          "ej-136-675",
-          "ej-136-676",
-          "ej-136-677",
-          "ej-136-678",
-          "foodpolicy-141-c",
-          "jaere-12-1",
-          "jaere-12-2",
-          "jaere-12-3",
-          "jaere-12-4",
-          "jaere-12-5",
-          "jaere-12-6",
-          "jaere-13-1",
-          "jaere-13-2",
-          "jaere-13-3",
-          "jaere-13-4",
-          "jde-182-c",
-          "jeea-23-1",
-          "jeea-23-2",
-          "jeea-23-3",
-          "jeea-23-4",
-          "jeea-23-5",
-          "jeea-23-6",
-          "jeea-24-1",
-          "jeea-24-2",
-          "jeea-24-3",
-          "jeea-24-4",
-          "jeem-138-c",
-          "jeem-139-c",
-          "jeh-85-2",
-          "jeh-85-3",
-          "jeh-85-4",
-          "jeh-86-2",
-          "jf-80-1",
-          "jf-80-2",
-          "jf-80-3",
-          "jf-80-4",
-          "jf-80-5",
-          "jf-80-6",
-          "jf-81-1",
-          "jf-81-2",
-          "jf-81-3",
-          "jf-81-4",
-          "jle-43-1",
-          "jle-43-3",
-          "jle-43-4",
-          "jle-44-1",
-          "jle-44-2",
-          "jle-44-3",
-          "jpe-134-7",
-          "jpube-259-c",
-          "jpube-260-c",
-          "jue-153-c",
-          "lup-169-c",
-          "qje-140-1",
-          "qje-140-2",
-          "qje-140-3",
-          "qje-140-4",
-          "qje-141-1",
-          "qje-141-2",
-          "red-55-c",
-          "red-56-c",
-          "red-57-c",
-          "red-58-c",
-          "red-59-c",
-          "red-60-c",
-          "red-61-c",
-          "res-92-1",
-          "res-92-2",
-          "res-92-3",
-          "res-92-4",
-          "res-92-5",
-          "res-92-6",
-          "res-93-1",
-          "res-93-2",
-          "res-93-3",
-          "res-93-4",
-          "restat-107-1",
-          "restat-107-2",
-          "restat-107-3",
-          "restat-107-4",
-          "restat-107-5",
-          "restat-107-6",
-          "restat-108-1",
-          "restat-108-2",
-          "restat-108-3",
-          "restat-108-4",
+          "ere-89-8",
+          "rand-56-1",
+          "rand-56-2",
+          "rand-56-3",
+          "rand-56-4",
+          "rand-57-1",
+          "rfs-36-9",
           "te-20-1",
           "te-20-2",
           "te-20-3",
-          "te-20-4",
-          "wd-206-c"
+          "te-20-4"
         ],
+        "blocked_issue_ids": []
+      }
+    },
+    "2024-2024": {
+      "summary": {
+        "complete": 12,
+        "translation_partial": 0,
+        "blocked": 0,
+        "collected": 0,
+        "pending": 0
+      },
+      "issue_count": 12,
+      "updated_at": "2026-08-14T05:08:38+00:00",
+      "coverage": {
+        "discovered": 12,
+        "archived": 12,
+        "content_ready": 12,
+        "source_verified": 12,
+        "publication_ready": 12,
+        "missing": 0,
+        "source_pending": 0,
+        "missing_issue_ids": [],
+        "source_pending_issue_ids": [],
+        "blocked_issue_ids": []
+      }
+    },
+    "2025-2026": {
+      "summary": {
+        "complete": 1,
+        "translation_partial": 0,
+        "blocked": 0,
+        "collected": 0,
+        "pending": 0
+      },
+      "issue_count": 1,
+      "updated_at": "2026-08-12T23:33:10+00:00",
+      "coverage": {
+        "discovered": 0,
+        "archived": 0,
+        "content_ready": 0,
+        "source_verified": 0,
+        "publication_ready": 0,
+        "missing": 0,
+        "source_pending": 0,
+        "missing_issue_ids": [],
+        "source_pending_issue_ids": [],
+        "blocked_issue_ids": []
+      }
+    },
+    "2026-2026": {
+      "summary": {
+        "complete": 6,
+        "translation_partial": 0,
+        "blocked": 0,
+        "collected": 0,
+        "pending": 0
+      },
+      "issue_count": 6,
+      "updated_at": "2026-08-14T08:16:38+00:00",
+      "coverage": {
+        "discovered": 9,
+        "archived": 9,
+        "content_ready": 9,
+        "source_verified": 9,
+        "publication_ready": 9,
+        "missing": 0,
+        "source_pending": 0,
+        "missing_issue_ids": [],
+        "source_pending_issue_ids": [],
         "blocked_issue_ids": []
       }
     }
@@ -20876,8 +20877,8 @@
     "2023": {
       "summary": {
         "complete": 221,
-        "translation_partial": 1,
-        "blocked": 76,
+        "translation_partial": 22,
+        "blocked": 55,
         "collected": 0,
         "pending": 54
       },
@@ -21846,8 +21847,8 @@
     "2024": {
       "summary": {
         "complete": 247,
-        "translation_partial": 0,
-        "blocked": 61,
+        "translation_partial": 16,
+        "blocked": 45,
         "collected": 0,
         "pending": 47
       },
@@ -22759,11 +22760,11 @@
     },
     "2025": {
       "summary": {
-        "complete": 281,
+        "complete": 277,
         "translation_partial": 0,
         "blocked": 5,
         "collected": 0,
-        "pending": 59
+        "pending": 63
       },
       "issue_count": 345,
       "journals": [
@@ -22821,10 +22822,10 @@
         "discovered": 345,
         "archived": 340,
         "content_ready": 340,
-        "source_verified": 281,
-        "publication_ready": 281,
+        "source_verified": 277,
+        "publication_ready": 277,
         "missing": 5,
-        "source_pending": 59,
+        "source_pending": 63,
         "missing_issue_ids": [
           "foodpolicy-134-c",
           "foodpolicy-137-c",
@@ -22872,6 +22873,10 @@
           "qje-140-2",
           "qje-140-3",
           "qje-140-4",
+          "rand-56-1",
+          "rand-56-2",
+          "rand-56-3",
+          "rand-56-4",
           "red-55-c",
           "red-56-c",
           "red-57-c",
@@ -23459,12 +23464,17 @@
           "discovered": 4,
           "archived": 4,
           "content_ready": 4,
-          "source_verified": 4,
-          "publication_ready": 4,
+          "source_verified": 0,
+          "publication_ready": 0,
           "missing": 0,
-          "source_pending": 0,
+          "source_pending": 4,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [],
+          "source_pending_issue_ids": [
+            "rand-56-1",
+            "rand-56-2",
+            "rand-56-3",
+            "rand-56-4"
+          ],
           "blocked_issue_ids": []
         },
         "RED": {
@@ -23569,11 +23579,11 @@
     },
     "2026": {
       "summary": {
-        "complete": 208,
+        "complete": 206,
         "translation_partial": 0,
         "blocked": 21,
         "collected": 0,
-        "pending": 50
+        "pending": 52
       },
       "issue_count": 279,
       "journals": [
@@ -23631,10 +23641,10 @@
         "discovered": 279,
         "archived": 258,
         "content_ready": 258,
-        "source_verified": 208,
-        "publication_ready": 208,
+        "source_verified": 206,
+        "publication_ready": 206,
         "missing": 21,
-        "source_pending": 50,
+        "source_pending": 52,
         "missing_issue_ids": [
           "ecolecon-250-c",
           "energy-162-c",
@@ -23670,6 +23680,7 @@
           "ej-136-676",
           "ej-136-677",
           "ej-136-678",
+          "ere-89-8",
           "foodpolicy-141-c",
           "jaere-13-1",
           "jaere-13-2",
@@ -23697,6 +23708,7 @@
           "lup-169-c",
           "qje-141-1",
           "qje-141-2",
+          "rand-57-1",
           "red-59-c",
           "red-60-c",
           "red-61-c",
@@ -23891,12 +23903,14 @@
           "discovered": 9,
           "archived": 9,
           "content_ready": 9,
-          "source_verified": 9,
-          "publication_ready": 9,
+          "source_verified": 8,
+          "publication_ready": 8,
           "missing": 0,
-          "source_pending": 0,
+          "source_pending": 1,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [],
+          "source_pending_issue_ids": [
+            "ere-89-8"
+          ],
           "blocked_issue_ids": []
         },
         "FOODPOLICY": {
@@ -24303,12 +24317,14 @@
           "discovered": 3,
           "archived": 3,
           "content_ready": 3,
-          "source_verified": 3,
-          "publication_ready": 3,
+          "source_verified": 2,
+          "publication_ready": 2,
           "missing": 0,
-          "source_pending": 0,
+          "source_pending": 1,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [],
+          "source_pending_issue_ids": [
+            "rand-57-1"
+          ],
           "blocked_issue_ids": []
         },
         "RED": {
