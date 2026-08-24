@@ -95,15 +95,20 @@ jobs:
           set -euo pipefail
           SHA="${{ steps.gate.outputs.sha }}"
           for i in $(seq 1 180); do
-            CONCLUSIONS="$(gh api "repos/${{ github.repository }}/commits/$SHA/check-runs" --jq '[.check_runs[] | select(.name == "test") | .conclusion] | join(",")')"
-            echo "attempt $i: test=$CONCLUSIONS"
-            case "$CONCLUSIONS" in
+            CHECK_STATE="$(gh api "repos/${{ github.repository }}/commits/$SHA/check-runs" --jq '
+              [.check_runs[] | select(.name == "test")] as $checks |
+              if ($checks | length) == 0 then "pending"
+              elif any($checks[]; .conclusion == "failure" or .conclusion == "cancelled" or .conclusion == "skipped" or .conclusion == "timed_out" or .conclusion == "action_required") then "failure"
+              elif all($checks[]; .conclusion == "success") then "success"
+              else "pending" end')"
+            echo "attempt $i: test=$CHECK_STATE"
+            case "$CHECK_STATE" in
               success)
                 echo "Required check passed."
                 exit 0
                 ;;
-              *failure*|*cancelled*|*skipped*|*timed_out*|*action_required*)
-                echo "Required check failed ($CONCLUSIONS); not approving."
+              failure)
+                echo "Required check failed ($CHECK_STATE); not approving."
                 exit 1
                 ;;
             esac
