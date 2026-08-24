@@ -20,6 +20,24 @@ def write_json(path: Path, payload: Any) -> None:
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
+def _publication_rank(payload: dict[str, Any]) -> tuple[int, int, int]:
+    """Rank an issue payload so an old shard cannot regress published truth."""
+
+    state_rank = {
+        "ready": 4,
+        "translation_partial": 3,
+        "source_pending": 2,
+        "enriching": 1,
+        "blocked": 0,
+    }
+    publication_state = payload.get("publication_state") or payload.get("status") or "blocked"
+    return (
+        state_rank.get(str(publication_state), 0),
+        int(payload.get("content_status") == "complete"),
+        int(payload.get("source_status") in {"official_verified", "publisher_verified"}),
+    )
+
+
 def merge_state(
     base: dict[str, Any], shard: dict[str, Any], shard_journals: set[str]
 ) -> dict[str, Any]:
@@ -30,6 +48,13 @@ def merge_state(
     merged.setdefault("issues", {})
     for issue_id, entry in shard_issues.items():
         if str(entry.get("journal", "")) in shard_journals:
+            existing = merged["issues"].get(issue_id)
+            if (
+                isinstance(existing, dict)
+                and isinstance(entry, dict)
+                and _publication_rank(existing) > _publication_rank(entry)
+            ):
+                continue
             merged["issues"][issue_id] = entry
 
     base_discovery = base.get("discovery") if isinstance(base.get("discovery"), dict) else {}
@@ -64,6 +89,29 @@ def copy_tree_overlay(source: Path, target: Path) -> None:
             destination.mkdir(parents=True, exist_ok=True)
         else:
             destination.parent.mkdir(parents=True, exist_ok=True)
+            # Shards are intentionally resumable and can be older than the
+            # latest data baseline.  Preserve a stronger issue archive when
+            # an old shard only contains a provisional/blocked copy; indexes
+            # and non-issue files are rebuilt later in the workflow.
+            is_issue_archive = (
+                "public" in destination.parts
+                and "api" in destination.parts
+                and "v1" in destination.parts
+                and "journals" in destination.parts
+                and destination.parent.name == "issues"
+            )
+            if is_issue_archive and destination.name != "index.json" and destination.suffix == ".json" and destination.exists():
+                try:
+                    existing = load_json(destination, {})
+                    incoming = load_json(item, {})
+                    if (
+                        isinstance(existing, dict)
+                        and isinstance(incoming, dict)
+                        and _publication_rank(existing) > _publication_rank(incoming)
+                    ):
+                        continue
+                except (OSError, json.JSONDecodeError, TypeError, ValueError):
+                    pass
             shutil.copy2(item, destination)
 
 
