@@ -7,7 +7,7 @@
   "issue": "1",
   "publication_date": "February 2023",
   "source_url": "https://le.uwpress.org/content/by/year",
-  "retrieved_at": "2026-08-20T23:01:37+00:00",
+  "retrieved_at": "2026-08-24T07:46:30+00:00",
   "expected_article_count": 8,
   "research_article_count": 8,
   "status": "incomplete",
@@ -19,14 +19,14 @@
       "source_sequence": 1,
       "article_type": "research-article",
       "title_en": "The Disamenity Impact of Solar Farms: A Hedonic Analysis",
-      "title_cn": "太阳能发电场的不利影响：享乐分析",
+      "title_cn": "",
       "authors": [
         "David Maddison",
         "Reece Ogier",
         "Allan Beltrán"
       ],
-      "abstract_en": "Photovoltaic solar farms are utility-level ground-mounted arrays of interconnected panels converting sunlight into electricity. Little is known about the extent of any disamenity impact from photovoltaic solar farms, despite numerous examples of communities objecting to their construction. This paper analyses the disamenity impact of photovoltaic solar farms on households in England and Wales revealed by changes in property prices. Using a property fixed-effects model we find that properties ≤750m south of a &gt;5MW operational solar farm suffer a 5.4 percent reduction in relative prices. The impact of solar farms ≤5MW or &gt;750m, or situated south of properties is statistically insignificant.",
-      "abstract_cn": "光伏太阳能发电厂是公用事业级地面安装的互连电池板阵列，可将阳光转化为电能。尽管有许多社区反对光伏太阳能发电场建设的例子，但人们对光伏太阳能发电场造成的任何疾病影响的程度知之甚少。本文分析了房地产价格变化所揭示的光伏太阳能发电场对英格兰和威尔士家庭的不利影响。使用房产固定效应模型，我们发现>5MW 运营太阳能发电场以南 ≤750m 的房产的相对价格下降了 5.4%。 ≤5MW或>750m或位于房产南部的太阳能发电场的影响在统计上微不足道。",
+      "abstract_en": "Photovoltaic solar farms are utility-level ground-mounted arrays of interconnected panels converting sunlight into electricity. Little is known about the extent of any disamenity impact from photovoltaic solar farms, despite numerous examples of communities objecting to their construction. This paper analyses the disamenity impact of photovoltaic solar farms on households in England and Wales revealed by changes in property prices. Using a property fixed-effects model we find that properties ≤750m south of a >5MW operational solar farm suffer a 5.4 percent reduction in relative prices. The impact of solar farms ≤5MW or >750m, or situated south of properties is statistically insignificant.",
+      "abstract_cn": "",
       "abstract_snippet_en": "",
       "doi": "10.3368/le.071220-0105r",
       "source_url": "https://doi.org/10.3368/le.071220-0105r",
@@ -39,15 +39,15 @@
         "openalex": "https://api.openalex.org/works/https://doi.org/10.3368/le.071220-0105r"
       },
       "translation": {
-        "status": "complete",
-        "provider": "google-translate",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-18T17:12:42+00:00",
-        "source_hash": "bec03b1d9dbbbec1873263bddb37689146dc1775457311c0a57d75c78d0b8088"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -197,8 +197,8 @@
         "W. George Hutchinson",
         "Rodolfo M. Nayga"
       ],
-      "abstract_en": "This paper is the first empirical application of the choice matching (CM) method in discrete choice experiments (DCE). An artefactual field experiment was conducted to test whether the CM applied to a DCE survey improves the validity and reliability of estimated preferences with respect to standard hypothetical DCE. Two experimental treatments were developed. In the first, subjects were exposed to the CM-based DCE; in the second, to a standard hypothetical DCE survey. Results suggest that while the CM-based DCE does not improve validity, it can increase the reliability of estimated preferences.",
-      "abstract_cn": "本文是选择匹配（CM）方法在离散选择实验（DCE）中的首次实证应用。进行了一项人工实地实验，以检验将CM应用于DCE调查是否能相对于标准假设性DCE提高估计偏好的有效性和可靠性。设计了两个实验处理。在第一个处理中，受试者接触基于CM的DCE；在第二个处理中，受试者接触标准假设性DCE调查。结果表明，虽然基于CM的DCE并未提高有效性，但可以增加估计偏好的可靠性。",
+      "abstract_en": "This article is the first empirical application of the choice matching (CMa) method in discrete choice experiments (DCEs). An artifactual field experiment was conducted to test whether CMa applied to a DCE survey improves the validity and reliability of estimated preferences regarding standard hypothetical DCEs. Two experimental treatments were developed. In the first, subjects were exposed to a CMa-based DCE; in the second, subjects were exposed to a standard hypothetical DCE survey. Results suggest that although a CMa-based DCE does not improve validity, it can increase the reliability of estimated preferences.",
+      "abstract_cn": "本文是选择匹配（CMa）方法在离散选择实验（DCEs）中的首次实证应用。进行了一项人工实地实验，以检验将CMa应用于DCE调查是否能提高相对于标准假设性DCE的估计偏好的有效性和可靠性。开发了两种实验处理。在第一种处理中，受试者接触基于CMa的DCE；在第二种处理中，受试者接触标准假设性DCE调查。结果表明，尽管基于CMa的DCE不能提高有效性，但可以增加估计偏好的可靠性。",
       "abstract_snippet_en": "",
       "doi": "10.3368/le.012621-0009r1",
       "source_url": "https://doi.org/10.3368/le.012621-0009r1",
@@ -216,8 +216,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "deepseek-chat",
-        "translated_at": "2026-08-18T17:12:51+00:00",
-        "source_hash": "2478e557e90c5bc46c0fcd9386900a18f558744a71d314d037bf55f7bba0d4f2"
+        "translated_at": "2026-08-24T07:47:45+00:00",
+        "source_hash": "ae2b5a71001af40db1c6722d05e02ae2f61c806ee9fa2b1b1abe80a1f9c43c95"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -364,11 +364,12 @@
     "doi_complete": 8,
     "authors_complete": 8,
     "abstract_en_complete": 8,
-    "translation_complete": 8,
+    "translation_complete": 7,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
+      "crossref_provisional_roster",
+      "translation_incomplete"
     ],
     "official_item_count": 8,
     "publishable_item_count": 8,
@@ -387,7 +388,7 @@
     }
   },
   "source_status": "source_pending",
-  "publication_state": "source_pending",
+  "publication_state": "translation_partial",
   "content_counts": {
     "official_items": 8,
     "observed_items": 8,
@@ -402,5 +403,5 @@
     "catalog_content_items": 8
   },
   "issue_label": "Vol. 99 · No. 1",
-  "content_status": "complete"
+  "content_status": "translation_partial"
 }
