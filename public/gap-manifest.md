@@ -1,14 +1,14 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-08-24T17:15:45+00:00
+Generated: 2026-08-24T19:02:19+00:00
 
 ## Summary
 
 - browser_required: 38
 - ready: 973
-- recoverable: 88
-- source_pending: 191
-- translation_required: 41
+- recoverable: 93
+- source_pending: 192
+- translation_required: 35
 
 ## Issue queue
 
@@ -534,10 +534,10 @@ Generated: 2026-08-24T17:15:45+00:00
 | JDE | jde-181-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JDE | jde-182-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JDE | jde-183-c | 2026 | ready | complete | official_verified | content and official source gates passed |
-| JEBO | jebo-205-c | 2023 | translation_required | blocked | source_pending | archive_missing |
+| JEBO | jebo-205-c | 2023 | recoverable | blocked | source_pending | archive_missing |
 | JEBO | jebo-206-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JEBO | jebo-207-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
-| JEBO | jebo-208-c | 2023 | translation_required | blocked | source_pending | archive_missing |
+| JEBO | jebo-208-c | 2023 | recoverable | blocked | source_pending | archive_missing |
 | JEBO | jebo-209-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JEBO | jebo-210-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JEBO | jebo-211-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
@@ -549,7 +549,7 @@ Generated: 2026-08-24T17:15:45+00:00
 | JEBO | jebo-217-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | JEBO | jebo-218-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | JEBO | jebo-219-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
-| JEBO | jebo-220-c | 2024 | translation_required | blocked | source_pending | archive_missing |
+| JEBO | jebo-220-c | 2024 | recoverable | blocked | source_pending | archive_missing |
 | JEBO | jebo-221-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | JEBO | jebo-222-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | JEBO | jebo-223-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
@@ -673,13 +673,13 @@ Generated: 2026-08-24T17:15:45+00:00
 | JEEM | jeem-139-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JEEM | jeem-140-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JEH | jeh-83-1 | 2023 | browser_required | blocked | source_pending | archive_missing |
-| JEH | jeh-83-2 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| JEH | jeh-83-3 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| JEH | jeh-83-4 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| JEH | jeh-84-1 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| JEH | jeh-84-2 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| JEH | jeh-84-3 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| JEH | jeh-84-4 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
+| JEH | jeh-83-2 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| JEH | jeh-83-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| JEH | jeh-83-4 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| JEH | jeh-84-1 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| JEH | jeh-84-2 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| JEH | jeh-84-3 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| JEH | jeh-84-4 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | JEH | jeh-85-1 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JEH | jeh-85-2 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
 | JEH | jeh-85-3 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
@@ -904,7 +904,7 @@ Generated: 2026-08-24T17:15:45+00:00
 | JOE | joe-234-2 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JOE | joe-234-c | 2023 | recoverable | blocked | source_pending | archive_missing |
 | JOE | joe-235-1 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
-| JOE | joe-235-2 | 2023 | translation_required | blocked | source_pending | archive_missing |
+| JOE | joe-235-2 | 2023 | recoverable | blocked | source_pending | archive_missing |
 | JOE | joe-236-1 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JOE | joe-236-2 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JOE | joe-237-1 | 2023 | recoverable | blocked | source_pending | archive_missing |
@@ -912,7 +912,7 @@ Generated: 2026-08-24T17:15:45+00:00
 | JOE | joe-238-1 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | JOE | joe-238-2 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | JOE | joe-239-1 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
-| JOE | joe-239-2 | 2024 | translation_required | blocked | source_pending | archive_missing |
+| JOE | joe-239-2 | 2024 | recoverable | blocked | source_pending | archive_missing |
 | JOE | joe-240-1 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | JOE | joe-240-2 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | JOE | joe-241-1 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
@@ -1248,7 +1248,7 @@ Generated: 2026-08-24T17:15:45+00:00
 | RFS | rfs-36-6 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-36-7 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-36-8 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| RFS | rfs-36-9 | 2023 | translation_required | complete | source_pending | translation incomplete |
+| RFS | rfs-36-9 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | RFS | rfs-37-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-37-10 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-37-11 | 2024 | ready | complete | official_verified | content and official source gates passed |
