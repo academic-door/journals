@@ -160,6 +160,47 @@ class ScienceDirectBrowserRosterCaptureTests(unittest.TestCase):
             evidence["excluded_items"][0]["source_id"],
         )
 
+    def test_special_issue_introduction_is_officially_excluded(self) -> None:
+        snapshot = {
+            "issue_id": "demo-1-c",
+            "journal_id": "demo",
+            "official_url": "https://www.sciencedirect.com/journal/demo/vol/1/suppl/C",
+            "captured_at": "2026-08-24T00:00:00+00:00",
+            "items": [
+                {
+                    "href": "/science/article/pii/S0000000000000001",
+                    "doi": "10.1016/j.demo.2026.1",
+                    "title": "Paper 1",
+                    "authors": ["Author"],
+                    "box_text": "Research articleOpen access Paper 1",
+                },
+                {
+                    "href": "/science/article/pii/S0000000000000098",
+                    "doi": "10.1016/j.demo.2026.intro",
+                    "title": "Introduction to the special issue on policy",
+                    "authors": ["Editor"],
+                    "box_text": (
+                        "Research articleAbstract only Introduction to the special "
+                        "issue on policy"
+                    ),
+                },
+                {
+                    "href": "/science/article/pii/S0000000000000002",
+                    "doi": "10.1016/j.demo.2026.2",
+                    "title": "Paper 2",
+                    "authors": ["Author"],
+                    "box_text": "Research articleOpen access Paper 2",
+                },
+            ],
+        }
+        evidence = build_evidence(snapshot, self.issue(), excluded_dois={})
+        self.assertEqual(2, len(evidence["items"]))
+        self.assertEqual(1, evidence["excluded_item_count"])
+        self.assertEqual(
+            "Introduction to the special issue on policy",
+            evidence["excluded_items"][0]["title_en"],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

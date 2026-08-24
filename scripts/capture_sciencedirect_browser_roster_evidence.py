@@ -25,7 +25,8 @@ PII_RE = re.compile(r"/pii/([A-Z0-9]+)", re.IGNORECASE)
 ALLOWED_EXCLUDED_TYPES = {"editorial", "erratum"}
 NON_RESEARCH_RE = re.compile(
     r"\bEditorial(?:\s+Board)?\b|\bErratum\b|\bCorrigendum\b|"
-    r"\bCorrection\b|\bRetraction\b|\bFront\s+matter\b",
+    r"\bCorrection\b|\bRetraction\b|\bFront\s+matter\b|"
+    r"\bIntroduction\s+to\s+(?:the\s+)?special\s+issue\b",
     re.IGNORECASE,
 )
 PUBLISHABLE_RE = re.compile(
