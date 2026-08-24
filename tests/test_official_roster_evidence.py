@@ -124,6 +124,27 @@ class OfficialRosterEvidenceTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "roster/order"):
             apply_evidence(provisional_issue(), bad)
 
+    def test_explicit_official_reorder_reorders_an_exact_archive_set(self) -> None:
+        official = evidence()
+        official["items"] = list(reversed(official["items"]))
+        for sequence, item in enumerate(official["items"], start=1):
+            item["sequence"] = sequence
+        official["allow_archive_reorder"] = True
+        candidate = apply_evidence(provisional_issue(), official)
+        self.assertEqual(
+            ["10.1093/rfs/demo2", "10.1093/rfs/demo1"],
+            [article["doi"] for article in candidate["articles"]],
+        )
+        self.assertTrue(
+            candidate["quality"]["official_roster_evidence"]["archive_reordered"]
+        )
+
+    def test_reorder_flag_must_be_boolean(self) -> None:
+        official = evidence()
+        official["allow_archive_reorder"] = "yes"
+        with self.assertRaisesRegex(ValueError, "must be boolean"):
+            validate_evidence(official)
+
     def test_official_superset_restores_missing_article_truthfully(self) -> None:
         official = evidence()
         official["items"].insert(
@@ -187,6 +208,8 @@ class OfficialRosterEvidenceTests(unittest.TestCase):
             "10.1093/rfs/comment",
             [article["doi"] for article in candidate["articles"]],
         )
+        self.assertEqual(2, candidate["quality"]["translation_complete"])
+        self.assertEqual("ready", candidate["publication_state"])
 
     def test_official_display_markup_matches_plain_title_after_doi_match(self) -> None:
         issue = provisional_issue()
@@ -206,6 +229,14 @@ class OfficialRosterEvidenceTests(unittest.TestCase):
         official["items"][0]["title_en"] = (
             "Rising Concentration, Superstar Firms, and the Implications for Workers"
         )
+        candidate = apply_evidence(issue, official)
+        self.assertEqual("official_verified", candidate["source_status"])
+
+    def test_official_display_mathml_matches_compact_metadata_token(self) -> None:
+        issue = provisional_issue()
+        issue["articles"][0]["title_en"] = "The effect of PM2.5 exposure"
+        official = evidence()
+        official["items"][0]["title_en"] = "The effect of 𝑃 𝑀 2.5 exposure"
         candidate = apply_evidence(issue, official)
         self.assertEqual("official_verified", candidate["source_status"])
 
