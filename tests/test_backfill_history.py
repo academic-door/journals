@@ -243,6 +243,21 @@ class BackfillHistoryTests(unittest.TestCase):
         official.assert_called_once()
         fallback.assert_not_called()
 
+    def test_repec_journals_have_series_codes_for_historical_fallback(self) -> None:
+        import yaml
+
+        journals = yaml.safe_load(
+            (Path(__file__).resolve().parents[1] / "config/journals.yml").read_text(
+                encoding="utf-8"
+            )
+        )["journals"]
+        for journal in ("TE", "RAND", "ERE"):
+            config = journals[journal]
+            self.assertEqual(
+                config["repec_series_code"],
+                config["repec_series_url"].rsplit("/s/", 1)[-1].removesuffix(".html"),
+            )
+
     def test_jpe_fallback_order_is_official_then_repec_then_crossref(self) -> None:
         import yaml
 
