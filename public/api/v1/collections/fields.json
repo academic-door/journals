@@ -3,14 +3,14 @@
   "collection_id": "fields",
   "title": "Econ Field Journals",
   "title_cn": "领域顶刊",
-  "updated_at": "2026-08-24T16:44:25+00:00",
+  "updated_at": "2026-08-24T16:56:55+00:00",
   "data_status": "degraded",
   "content_status": "complete",
   "summary": {
     "configured_journals": 44,
     "available_journals": 44,
-    "articles": 663,
-    "translated_articles": 663
+    "articles": 657,
+    "translated_articles": 657
   },
   "journals": [
     {
@@ -2368,7 +2368,7 @@
       "collections": [
         "fields"
       ],
-      "status": "incomplete",
+      "status": "ready",
       "latest_detected_issue_id": "ere-89-8",
       "latest_detected_issue_url": "/journals/api/v1/journals/ere/issues/detected.json",
       "latest_detected_issue_label": "Vol. 89 · No. 8",
@@ -2396,34 +2396,34 @@
       "latest_detected_source_status": "source_pending",
       "latest_detected_publication_state": "source_pending",
       "update_state": "source_pending",
-      "data_status": "needs_attention",
+      "data_status": "healthy",
       "content_status": "complete",
-      "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "latest_issue_id": "ere-89-8",
-      "latest_ready_issue_id": "ere-89-8",
+      "source_status": "publisher_verified",
+      "publication_state": "ready",
+      "latest_issue_id": "ere-89-9",
+      "latest_ready_issue_id": "ere-89-9",
       "latest_issue_url": "/journals/api/v1/journals/ere/issues/current.json",
       "latest_ready_issue_url": "/journals/api/v1/journals/ere/issues/current.json",
-      "latest_issue_label": "Vol. 89 · No. 8",
-      "publication_date": "August 2026",
-      "article_count": 8,
-      "translation_complete": 8,
+      "latest_issue_label": "Vol. 89 · No. 9",
+      "publication_date": "September 2026",
+      "article_count": 2,
+      "translation_complete": 2,
       "content_counts": {
-        "official_items": 9,
-        "observed_items": 9,
-        "publishable_items": 8,
-        "research_articles": 8,
+        "official_items": 2,
+        "observed_items": 2,
+        "publishable_items": 2,
+        "research_articles": 2,
         "comments": 0,
         "short_communications": 0,
-        "corrections": 1,
+        "corrections": 0,
         "editorial_material": 0,
         "front_matter": 0,
         "other_excluded": 0,
-        "catalog_content_items": 9
+        "catalog_content_items": 2
       },
-      "roster_authority": "official-issue-page",
-      "roster_transport": "official-issue-page",
-      "order_verification": "pending_official"
+      "roster_authority": "repec-publisher-supplied",
+      "roster_transport": "repec-serial-page",
+      "order_verification": "official_verified"
     },
     {
       "journal_id": "jhe",
