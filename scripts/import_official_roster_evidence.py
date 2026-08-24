@@ -55,6 +55,11 @@ DOI_RE = re.compile(r"^10\.\d{4,9}/\S+$", re.IGNORECASE)
 
 def _normalized_title(value: object) -> str:
     text = unicodedata.normalize("NFKC", str(value or ""))
+    # Oxford issue pages expose some display markup literally while deposited
+    # metadata keeps the same title as plain text.  Normalize only these narrow
+    # presentation artifacts after the DOI sequence has already matched.
+    text = re.sub(r"_\{([^{}]+)\}", r"\1", text)
+    text = re.sub(r"(?<=[A-Za-z])&(?=[A-Za-z])", "", text)
     return " ".join(text.split()).strip().casefold()
 
 

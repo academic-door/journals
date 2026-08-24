@@ -99,6 +99,15 @@ class OfficialRosterEvidenceTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "roster/order"):
             apply_evidence(provisional_issue(), bad)
 
+    def test_official_display_markup_matches_plain_title_after_doi_match(self) -> None:
+        issue = provisional_issue()
+        issue["articles"][0]["title_en"] = "The Case of RD and CO2"
+        official = evidence()
+        official["items"][0]["title_en"] = "The Case of R&D and CO_{2}"
+        candidate = apply_evidence(issue, official)
+        self.assertEqual("official_verified", candidate["source_status"])
+        self.assertEqual("ready", candidate["publication_state"])
+
     def test_rejects_private_fields_and_in_progress_issue(self) -> None:
         bad = copy.deepcopy(evidence())
         bad["finalized"] = False
