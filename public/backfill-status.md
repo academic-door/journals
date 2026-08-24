@@ -1,13 +1,13 @@
 # Field journal history backfill status
 
-Updated: 2026-08-24T17:05:23+00:00
+Updated: 2026-08-24T17:09:49+00:00
 
-Discovery coverage: 1331 discovered · 1167 archived · 952 publication ready · 164 missing · 215 source pending
+Discovery coverage: 1331 discovered · 1167 archived · 957 publication ready · 164 missing · 210 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
 | 2023-2024 | 469 | 38 | 100 | 101 |
-| 2025-2026 | 484 | 0 | 26 | 114 |
+| 2025-2026 | 489 | 0 | 26 | 109 |
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -1168,11 +1168,11 @@ Discovery coverage: 1331 discovered · 1167 archived · 952 publication ready ·
 | RAND | rand-55-2 | 2024 | ready | ValueError: RePEc history requires a configured series code |
 | RAND | rand-55-3 | 2024 | blocked | ValueError: RePEc history requires a configured series code |
 | RAND | rand-55-4 | 2024 | ready | ValueError: RePEc history requires a configured series code |
-| RAND | rand-56-1 | 2025 | source_pending | ValueError: RePEc history requires a configured series code |
-| RAND | rand-56-2 | 2025 | source_pending | ValueError: RePEc history requires a configured series code |
-| RAND | rand-56-3 | 2025 | source_pending | ValueError: RePEc history requires a configured series code |
-| RAND | rand-56-4 | 2025 | source_pending | ValueError: RePEc history requires a configured series code |
-| RAND | rand-57-1 | 2026 | source_pending | ValueError: RePEc history requires a configured series code |
+| RAND | rand-56-1 | 2025 | ready | ValueError: RePEc history requires a configured series code |
+| RAND | rand-56-2 | 2025 | ready | ValueError: RePEc history requires a configured series code |
+| RAND | rand-56-3 | 2025 | ready | ValueError: RePEc history requires a configured series code |
+| RAND | rand-56-4 | 2025 | ready | ValueError: RePEc history requires a configured series code |
+| RAND | rand-57-1 | 2026 | ready | ValueError: RePEc history requires a configured series code |
 | RAND | rand-57-2 | 2026 | ready |  |
 | RAND | rand-57-3 | 2026 | ready | ValueError: RePEc history requires a configured series code |
 | RED | red-47-c | 2023 | source_pending | source authority pending official verification |

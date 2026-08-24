@@ -1,21 +1,21 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-08-24T17:05:23+00:00",
+  "updated_at": "2026-08-24T17:09:49+00:00",
   "summary": {
-    "complete": 952,
+    "complete": 957,
     "translation_partial": 38,
     "blocked": 126,
     "collected": 0,
-    "pending": 215
+    "pending": 210
   },
   "coverage": {
     "discovered": 1331,
     "archived": 1167,
     "content_ready": 1167,
-    "source_verified": 952,
-    "publication_ready": 952,
+    "source_verified": 957,
+    "publication_ready": 957,
     "missing": 164,
-    "source_pending": 215,
+    "source_pending": 210,
     "missing_issue_ids": [
       "ecolecon-204-c",
       "ecolecon-220-c",
@@ -337,11 +337,6 @@
       "qje-140-4",
       "qje-141-1",
       "qje-141-2",
-      "rand-56-1",
-      "rand-56-2",
-      "rand-56-3",
-      "rand-56-4",
-      "rand-57-1",
       "red-47-c",
       "red-48-c",
       "red-49-c",
@@ -1994,21 +1989,15 @@
       "discovered": 15,
       "archived": 13,
       "content_ready": 13,
-      "source_verified": 8,
-      "publication_ready": 8,
+      "source_verified": 13,
+      "publication_ready": 13,
       "missing": 2,
-      "source_pending": 5,
+      "source_pending": 0,
       "missing_issue_ids": [
         "rand-54-3",
         "rand-55-3"
       ],
-      "source_pending_issue_ids": [
-        "rand-56-1",
-        "rand-56-2",
-        "rand-56-3",
-        "rand-56-4",
-        "rand-57-1"
-      ],
+      "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
       "years": {
         "2023": {
@@ -2043,31 +2032,24 @@
           "discovered": 4,
           "archived": 4,
           "content_ready": 4,
-          "source_verified": 0,
-          "publication_ready": 0,
+          "source_verified": 4,
+          "publication_ready": 4,
           "missing": 0,
-          "source_pending": 4,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "rand-56-1",
-            "rand-56-2",
-            "rand-56-3",
-            "rand-56-4"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "2026": {
           "discovered": 3,
           "archived": 3,
           "content_ready": 3,
-          "source_verified": 2,
-          "publication_ready": 2,
+          "source_verified": 3,
+          "publication_ready": 3,
           "missing": 0,
-          "source_pending": 1,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "rand-57-1"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         }
       }
@@ -18367,10 +18349,10 @@
         "year": 2025,
         "volume": "56",
         "issue": "1",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
+        "source_status": "publisher_verified",
+        "publication_state": "ready",
         "last_error": "ValueError: RePEc history requires a configured series code",
         "retry_class": "manual"
       },
@@ -18379,10 +18361,10 @@
         "year": 2025,
         "volume": "56",
         "issue": "2",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
+        "source_status": "publisher_verified",
+        "publication_state": "ready",
         "last_error": "ValueError: RePEc history requires a configured series code",
         "retry_class": "manual"
       },
@@ -18391,10 +18373,10 @@
         "year": 2025,
         "volume": "56",
         "issue": "3",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
+        "source_status": "publisher_verified",
+        "publication_state": "ready",
         "last_error": "ValueError: RePEc history requires a configured series code",
         "retry_class": "manual"
       },
@@ -18403,10 +18385,10 @@
         "year": 2025,
         "volume": "56",
         "issue": "4",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
+        "source_status": "publisher_verified",
+        "publication_state": "ready",
         "last_error": "ValueError: RePEc history requires a configured series code",
         "retry_class": "manual"
       },
@@ -18415,10 +18397,10 @@
         "year": 2026,
         "volume": "57",
         "issue": "1",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
+        "source_status": "publisher_verified",
+        "publication_state": "ready",
         "last_error": "ValueError: RePEc history requires a configured series code",
         "retry_class": "manual"
       },
@@ -20731,11 +20713,11 @@
     },
     "2025-2026": {
       "summary": {
-        "complete": 484,
+        "complete": 489,
         "translation_partial": 0,
         "blocked": 26,
         "collected": 0,
-        "pending": 114
+        "pending": 109
       },
       "issue_count": 624,
       "updated_at": "2026-08-24T16:44:24+00:00",
@@ -20743,10 +20725,10 @@
         "discovered": 624,
         "archived": 598,
         "content_ready": 598,
-        "source_verified": 484,
-        "publication_ready": 484,
+        "source_verified": 489,
+        "publication_ready": 489,
         "missing": 26,
-        "source_pending": 114,
+        "source_pending": 109,
         "missing_issue_ids": [
           "ecolecon-250-c",
           "energy-162-c",
@@ -20853,11 +20835,6 @@
           "qje-140-4",
           "qje-141-1",
           "qje-141-2",
-          "rand-56-1",
-          "rand-56-2",
-          "rand-56-3",
-          "rand-56-4",
-          "rand-57-1",
           "red-55-c",
           "red-56-c",
           "red-57-c",
@@ -22782,11 +22759,11 @@
     },
     "2025": {
       "summary": {
-        "complete": 277,
+        "complete": 281,
         "translation_partial": 0,
         "blocked": 5,
         "collected": 0,
-        "pending": 63
+        "pending": 59
       },
       "issue_count": 345,
       "journals": [
@@ -22844,10 +22821,10 @@
         "discovered": 345,
         "archived": 340,
         "content_ready": 340,
-        "source_verified": 277,
-        "publication_ready": 277,
+        "source_verified": 281,
+        "publication_ready": 281,
         "missing": 5,
-        "source_pending": 63,
+        "source_pending": 59,
         "missing_issue_ids": [
           "foodpolicy-134-c",
           "foodpolicy-137-c",
@@ -22895,10 +22872,6 @@
           "qje-140-2",
           "qje-140-3",
           "qje-140-4",
-          "rand-56-1",
-          "rand-56-2",
-          "rand-56-3",
-          "rand-56-4",
           "red-55-c",
           "red-56-c",
           "red-57-c",
@@ -23486,17 +23459,12 @@
           "discovered": 4,
           "archived": 4,
           "content_ready": 4,
-          "source_verified": 0,
-          "publication_ready": 0,
+          "source_verified": 4,
+          "publication_ready": 4,
           "missing": 0,
-          "source_pending": 4,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "rand-56-1",
-            "rand-56-2",
-            "rand-56-3",
-            "rand-56-4"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "RED": {
@@ -23601,11 +23569,11 @@
     },
     "2026": {
       "summary": {
-        "complete": 207,
+        "complete": 208,
         "translation_partial": 0,
         "blocked": 21,
         "collected": 0,
-        "pending": 51
+        "pending": 50
       },
       "issue_count": 279,
       "journals": [
@@ -23663,10 +23631,10 @@
         "discovered": 279,
         "archived": 258,
         "content_ready": 258,
-        "source_verified": 207,
-        "publication_ready": 207,
+        "source_verified": 208,
+        "publication_ready": 208,
         "missing": 21,
-        "source_pending": 51,
+        "source_pending": 50,
         "missing_issue_ids": [
           "ecolecon-250-c",
           "energy-162-c",
@@ -23729,7 +23697,6 @@
           "lup-169-c",
           "qje-141-1",
           "qje-141-2",
-          "rand-57-1",
           "red-59-c",
           "red-60-c",
           "red-61-c",
@@ -24336,14 +24303,12 @@
           "discovered": 3,
           "archived": 3,
           "content_ready": 3,
-          "source_verified": 2,
-          "publication_ready": 2,
+          "source_verified": 3,
+          "publication_ready": 3,
           "missing": 0,
-          "source_pending": 1,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "rand-57-1"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "RED": {
