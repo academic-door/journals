@@ -1051,6 +1051,23 @@ class MetadataFallbackTests(unittest.TestCase):
             MONTHS_BY_ISSUE["0020-6598"],
         )
 
+    def test_rand_uses_official_seasonal_issue_calendar(self) -> None:
+        from collectors.metadata_fallback import MONTHS_BY_ISSUE
+
+        self.assertEqual(
+            {"1": "Spring", "2": "Summer", "3": "Fall", "4": "Winter"},
+            MONTHS_BY_ISSUE["0741-6261"],
+        )
+        self.assertEqual(
+            "Spring 2023",
+            _publication_date(
+                "0741-6261",
+                "54",
+                "1",
+                [{"volume": "54", "issue": "1", "published": {"date-parts": [[2023]]}}],
+            ),
+        )
+
     def test_china_economic_review_uses_official_volume_calendar(self) -> None:
         self.assertEqual(
             "October 2023",
