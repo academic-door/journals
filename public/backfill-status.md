@@ -1,16 +1,13 @@
 # Field journal history backfill status
 
-Updated: 2026-08-24T15:02:34+00:00
+Updated: 2026-08-24T15:27:18+00:00
 
-Discovery coverage: 1331 discovered · 1157 archived · 941 publication ready · 174 missing · 216 source pending
+Discovery coverage: 1331 discovered · 1160 archived · 945 publication ready · 171 missing · 215 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 461 | 38 | 108 | 101 |
-| 2023-2026 | 160 | 0 | 1 | 1 |
-| 2024-2024 | 12 | 0 | 0 | 0 |
-| 2025-2026 | 1 | 0 | 0 | 0 |
-| 2026-2026 | 6 | 0 | 0 | 0 |
+| 2023-2024 | 463 | 38 | 106 | 101 |
+| 2025-2026 | 483 | 0 | 27 | 114 |
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -371,8 +368,8 @@ Discovery coverage: 1331 discovered · 1157 archived · 941 publication ready ·
 | ERE | ere-86-4 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
 | ERE | ere-87-1 | 2024 | blocked | ValueError: RePEc history requires a configured series code |
 | ERE | ere-87-10 | 2024 | blocked | ValueError: RePEc history requires a configured series code |
-| ERE | ere-87-11 | 2024 | blocked | ValueError: RePEc history requires a configured series code |
-| ERE | ere-87-12 | 2024 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-87-11 | 2024 | ready | ValueError: RePEc history requires a configured series code |
+| ERE | ere-87-12 | 2024 | ready | ValueError: RePEc history requires a configured series code |
 | ERE | ere-87-2 | 2024 | blocked | ValueError: RePEc history requires a configured series code |
 | ERE | ere-87-3 | 2024 | blocked | ValueError: RePEc history requires a configured series code |
 | ERE | ere-87-4 | 2024 | blocked | ValueError: RePEc history requires a configured series code |
@@ -400,8 +397,8 @@ Discovery coverage: 1331 discovered · 1157 archived · 941 publication ready ·
 | ERE | ere-89-5 | 2026 | ready |  |
 | ERE | ere-89-6 | 2026 | ready |  |
 | ERE | ere-89-7 | 2026 | ready |  |
-| ERE | ere-89-8 | 2026 | source_pending | ValueError: RePEc history requires a configured series code |
-| ERE | ere-89-9 | 2026 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-89-8 | 2026 | ready | ValueError: RePEc history requires a configured series code |
+| ERE | ere-89-9 | 2026 | ready | ValueError: RePEc history requires a configured series code |
 | FOODPOLICY | foodpolicy-114-c | 2023 | ready |  |
 | FOODPOLICY | foodpolicy-115-c | 2023 | ready |  |
 | FOODPOLICY | foodpolicy-116-c | 2023 | ready |  |
@@ -1248,7 +1245,7 @@ Discovery coverage: 1331 discovered · 1157 archived · 941 publication ready ·
 | RFS | rfs-36-6 | 2023 | ready |  |
 | RFS | rfs-36-7 | 2023 | ready |  |
 | RFS | rfs-36-8 | 2023 | ready |  |
-| RFS | rfs-36-9 | 2023 | source_pending |  |
+| RFS | rfs-36-9 | 2023 | source_pending | source authority pending official verification |
 | RFS | rfs-37-1 | 2023 | ready |  |
 | RFS | rfs-37-10 | 2024 | ready |  |
 | RFS | rfs-37-11 | 2024 | ready |  |
