@@ -13,8 +13,14 @@ on:
         required: true
         default: "999"
         type: string
+      source_run_id:
+        description: Reuse successful shard artifacts from this prior sprint run
+        required: false
+        default: ""
+        type: string
 
 permissions:
+  actions: read
   contents: write
   models: read
 
@@ -28,6 +34,7 @@ concurrency:
 jobs:
   collect:
     name: Collect ${{ matrix.shard }} history
+    if: inputs.source_run_id == ''
     runs-on: ubuntu-latest
     timeout-minutes: 330
     strategy:
@@ -139,6 +146,7 @@ jobs:
   publish:
     name: Merge, audit and publish one data delta
     needs: collect
+    if: always() && (needs.collect.result == 'success' || inputs.source_run_id != '')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -173,6 +181,11 @@ jobs:
           pattern: history-sprint-*
           path: shards
           merge-multiple: false
+          run-id: ${{ inputs.source_run_id || github.run_id }}
+          github-token: ${{ github.token }}
+
+      - name: Exclude prior final reports from shard merge
+        run: rm -rf shards/history-sprint-final-reports
 
       - name: Merge shard changes into the latest data baseline
         run: python scripts/merge_history_shards.py --root . --shards-root shards
