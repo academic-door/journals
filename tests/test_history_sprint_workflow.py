@@ -41,6 +41,16 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         self.assertIn("--translate", workflow[evidence:audit])
         self.assertIn("DEEPSEEK_API_KEY", workflow)
 
+    def test_can_retry_only_named_official_evidence_without_reprocessing_all(self) -> None:
+        workflow = self.workflow()
+        self.assertIn("evidence_issue_ids:", workflow)
+        self.assertIn("EVIDENCE_ISSUE_IDS: ${{ inputs.evidence_issue_ids }}", workflow)
+        self.assertIn('[[ ! "$issue_id" =~ ^[a-z0-9-]+$ ]]', workflow)
+        self.assertIn('-name "$issue_id.json"', workflow)
+        self.assertIn("Official evidence not found for", workflow)
+        self.assertIn("ELSEVIER_API_KEY", workflow)
+        self.assertIn("--enrich-missing-elsevier", workflow)
+
 
 if __name__ == "__main__":
     unittest.main()
