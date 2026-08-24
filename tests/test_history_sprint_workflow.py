@@ -27,6 +27,13 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         self.assertIn("github-token: ${{ github.token }}", workflow)
         self.assertIn("rm -rf shards/history-sprint-final-reports", workflow)
 
+    def test_applies_official_evidence_before_audit_and_runs_composer_after_reuse(self) -> None:
+        workflow = self.workflow()
+        evidence = workflow.index("python scripts/import_official_roster_evidence.py")
+        audit = workflow.index("python scripts/audit_public_data.py --strict-provenance")
+        self.assertLess(evidence, audit)
+        self.assertIn("if: always() && needs.publish.result == 'success'", workflow)
+
 
 if __name__ == "__main__":
     unittest.main()
