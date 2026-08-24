@@ -298,6 +298,19 @@ class TranslationPipelineTests(unittest.TestCase):
         )
         self.assertEqual(_numbers(source), _numbers(normalized))
 
+    def test_written_century_ordinal_does_not_look_like_an_added_number(self) -> None:
+        source = (
+            "Spain was rich around 1500, but prices rose by 200% by the "
+            "mid-seventeenth century and GDP was 40% lower by 1750."
+        )
+        translated = (
+            "西班牙在1500年前后十分富裕，但到17世纪中叶价格上涨了200%，"
+            "到1750年国内生产总值下降了40%。"
+        )
+        normalized = _normalize_written_number_translations(source, translated)
+        self.assertIn("十七世纪中叶", normalized)
+        self.assertCountEqual(_numbers(source), _numbers(normalized))
+
     def test_repairs_google_age_ranges_and_percent_phrases(self) -> None:
         source = (
             "Using birth certificates linked to administrative records, we find "
