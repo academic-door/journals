@@ -1,77 +1,77 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-08-24T09:56:02+00:00
+Generated: 2026-08-24T10:26:38+00:00
 
 ## Summary
 
 - browser_required: 36
-- ready: 834
+- ready: 915
 - recoverable: 100
-- source_pending: 314
+- source_pending: 233
 - translation_required: 47
 
 ## Issue queue
 
 | Journal | Issue | Year | Category | Content | Source | Reason |
 |---|---|---:|---|---|---|---|
-| AEJAPP | aejapp-15-1 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| AEJAPP | aejapp-15-2 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| AEJAPP | aejapp-15-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| AEJAPP | aejapp-15-4 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| AEJAPP | aejapp-16-1 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| AEJAPP | aejapp-16-2 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| AEJAPP | aejapp-16-3 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| AEJAPP | aejapp-16-4 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| AEJAPP | aejapp-17-1 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AEJAPP | aejapp-17-2 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AEJAPP | aejapp-17-3 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AEJAPP | aejapp-17-4 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AEJAPP | aejapp-18-1 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| AEJAPP | aejapp-18-2 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
+| AEJAPP | aejapp-15-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| AEJAPP | aejapp-15-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| AEJAPP | aejapp-15-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| AEJAPP | aejapp-15-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| AEJAPP | aejapp-16-1 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| AEJAPP | aejapp-16-2 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| AEJAPP | aejapp-16-3 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| AEJAPP | aejapp-16-4 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| AEJAPP | aejapp-17-1 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| AEJAPP | aejapp-17-2 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| AEJAPP | aejapp-17-3 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| AEJAPP | aejapp-17-4 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| AEJAPP | aejapp-18-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| AEJAPP | aejapp-18-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AEJAPP | aejapp-18-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
-| AEJMACRO | aejmacro-15-1 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| AEJMACRO | aejmacro-15-2 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| AEJMACRO | aejmacro-15-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| AEJMACRO | aejmacro-15-4 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| AEJMACRO | aejmacro-16-1 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| AEJMACRO | aejmacro-16-2 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| AEJMACRO | aejmacro-16-3 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| AEJMACRO | aejmacro-16-4 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| AEJMACRO | aejmacro-17-1 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AEJMACRO | aejmacro-17-2 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AEJMACRO | aejmacro-17-3 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AEJMACRO | aejmacro-17-4 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AEJMACRO | aejmacro-18-1 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| AEJMACRO | aejmacro-18-2 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
+| AEJMACRO | aejmacro-15-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| AEJMACRO | aejmacro-15-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| AEJMACRO | aejmacro-15-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| AEJMACRO | aejmacro-15-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| AEJMACRO | aejmacro-16-1 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| AEJMACRO | aejmacro-16-2 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| AEJMACRO | aejmacro-16-3 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| AEJMACRO | aejmacro-16-4 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| AEJMACRO | aejmacro-17-1 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| AEJMACRO | aejmacro-17-2 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| AEJMACRO | aejmacro-17-3 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| AEJMACRO | aejmacro-17-4 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| AEJMACRO | aejmacro-18-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| AEJMACRO | aejmacro-18-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AEJMACRO | aejmacro-18-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
-| AEJMICRO | aejmicro-15-1 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| AEJMICRO | aejmicro-15-2 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| AEJMICRO | aejmicro-15-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| AEJMICRO | aejmicro-15-4 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| AEJMICRO | aejmicro-16-1 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| AEJMICRO | aejmicro-16-2 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| AEJMICRO | aejmicro-16-3 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| AEJMICRO | aejmicro-16-4 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| AEJMICRO | aejmicro-17-1 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AEJMICRO | aejmicro-17-2 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AEJMICRO | aejmicro-17-3 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AEJMICRO | aejmicro-17-4 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AEJMICRO | aejmicro-18-1 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
+| AEJMICRO | aejmicro-15-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| AEJMICRO | aejmicro-15-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| AEJMICRO | aejmicro-15-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| AEJMICRO | aejmicro-15-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| AEJMICRO | aejmicro-16-1 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| AEJMICRO | aejmicro-16-2 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| AEJMICRO | aejmicro-16-3 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| AEJMICRO | aejmicro-16-4 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| AEJMICRO | aejmicro-17-1 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| AEJMICRO | aejmicro-17-2 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| AEJMICRO | aejmicro-17-3 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| AEJMICRO | aejmicro-17-4 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| AEJMICRO | aejmicro-18-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AEJMICRO | aejmicro-18-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AEJMICRO | aejmicro-18-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
-| AEJPOL | aejpol-15-1 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| AEJPOL | aejpol-15-2 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| AEJPOL | aejpol-15-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| AEJPOL | aejpol-15-4 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| AEJPOL | aejpol-16-1 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| AEJPOL | aejpol-16-2 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| AEJPOL | aejpol-16-3 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| AEJPOL | aejpol-16-4 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| AEJPOL | aejpol-17-1 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AEJPOL | aejpol-17-2 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AEJPOL | aejpol-17-3 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AEJPOL | aejpol-17-4 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AEJPOL | aejpol-18-1 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
+| AEJPOL | aejpol-15-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| AEJPOL | aejpol-15-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| AEJPOL | aejpol-15-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| AEJPOL | aejpol-15-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| AEJPOL | aejpol-16-1 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| AEJPOL | aejpol-16-2 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| AEJPOL | aejpol-16-3 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| AEJPOL | aejpol-16-4 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| AEJPOL | aejpol-17-1 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| AEJPOL | aejpol-17-2 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| AEJPOL | aejpol-17-3 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| AEJPOL | aejpol-17-4 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| AEJPOL | aejpol-18-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AEJPOL | aejpol-18-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AEJPOL | aejpol-18-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AER | aer-113-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
@@ -118,19 +118,19 @@ Generated: 2026-08-24T09:56:02+00:00
 | AER | aer-116-6 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AER | aer-116-7 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AER | aer-116-8 | 2026 | ready | complete | official_verified | content and official source gates passed |
-| AERI | aeri-5-1 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| AERI | aeri-5-2 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| AERI | aeri-5-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| AERI | aeri-5-4 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| AERI | aeri-6-1 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| AERI | aeri-6-2 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| AERI | aeri-6-3 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| AERI | aeri-6-4 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| AERI | aeri-7-1 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AERI | aeri-7-2 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AERI | aeri-7-3 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AERI | aeri-7-4 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AERI | aeri-8-1 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
+| AERI | aeri-5-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| AERI | aeri-5-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| AERI | aeri-5-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| AERI | aeri-5-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| AERI | aeri-6-1 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| AERI | aeri-6-2 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| AERI | aeri-6-3 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| AERI | aeri-6-4 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| AERI | aeri-7-1 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| AERI | aeri-7-2 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| AERI | aeri-7-3 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| AERI | aeri-7-4 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| AERI | aeri-8-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AERI | aeri-8-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AJAE | ajae-105-1 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
 | AJAE | ajae-105-2 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
@@ -686,20 +686,20 @@ Generated: 2026-08-24T09:56:02+00:00
 | JEH | jeh-85-4 | 2025 | translation_required | complete | source_pending | translation incomplete |
 | JEH | jeh-86-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JEH | jeh-86-2 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| JEP | jep-37-1 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| JEP | jep-37-2 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| JEP | jep-37-3 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| JEP | jep-37-4 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| JEP | jep-38-1 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| JEP | jep-38-2 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| JEP | jep-38-3 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| JEP | jep-38-4 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| JEP | jep-39-1 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| JEP | jep-39-2 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| JEP | jep-39-3 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| JEP | jep-39-4 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| JEP | jep-40-1 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| JEP | jep-40-2 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
+| JEP | jep-37-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| JEP | jep-37-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| JEP | jep-37-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| JEP | jep-37-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| JEP | jep-38-1 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| JEP | jep-38-2 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| JEP | jep-38-3 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| JEP | jep-38-4 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| JEP | jep-39-1 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| JEP | jep-39-2 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| JEP | jep-39-3 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| JEP | jep-39-4 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| JEP | jep-40-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| JEP | jep-40-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JEP | jep-40-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JET | jet-207-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JET | jet-208-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
