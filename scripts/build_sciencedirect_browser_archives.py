@@ -62,6 +62,20 @@ def comparable_title(value: object) -> str:
     return text
 
 
+def metadata_title_for_compare(value: object) -> str:
+    """Remove known Elsevier metadata notes appended to article titles."""
+
+    text = str(value or "")
+    text = re.split(
+        r"\b(?:funding information|acknowledg(?:e)?ments?|declaration of interest|"
+        r"credit authorship contribution statement)\s*:",
+        text,
+        maxsplit=1,
+        flags=re.IGNORECASE,
+    )[0]
+    return text
+
+
 def read_json(path: Path) -> dict[str, Any]:
     payload = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(payload, dict):
@@ -250,7 +264,7 @@ def build_rich_snapshot(
         title = str(item.get("title", "")).strip()
         api_title = str(metadata.get("title_en", "")).strip()
         normalized_title = comparable_title(title)
-        normalized_api_title = comparable_title(api_title)
+        normalized_api_title = comparable_title(metadata_title_for_compare(api_title))
         if normalized_title != normalized_api_title:
             raise ValueError(f"official title mismatch for {pii}: {title!r} != {api_title!r}")
         items.append(
