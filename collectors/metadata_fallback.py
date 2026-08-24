@@ -193,6 +193,16 @@ MONTHS_BY_ISSUE = {
         "3": "August",
         "4": "November",
     },
+    # The RAND Journal of Economics publishes four official seasonal issues.
+    # RePEc supplies the roster but often only the year, so retain the
+    # publisher's season rather than allowing a year-only date through the
+    # historical publication-date gate.
+    "0741-6261": {
+        "1": "Spring",
+        "2": "Summer",
+        "3": "Fall",
+        "4": "Winter",
+    },
     # Environmental and Resource Economics (Springer). Crossref records online
     # publication dates, so use the official monthly issue calendar.
     "0924-6460": {
