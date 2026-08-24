@@ -8,15 +8,54 @@
   "publication_date": "March 2023",
   "source_url": "https://academic.oup.com/rfs/issue/36/4",
   "retrieved_at": "2026-08-18T17:23:24+00:00",
-  "expected_article_count": 8,
-  "research_article_count": 8,
-  "status": "incomplete",
+  "expected_article_count": 10,
+  "research_article_count": 10,
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1093/rfs/hhac051",
+      "paper_id": "doi:10.1093/rfs/hhac061",
       "sequence": 1,
-      "source_sequence": 1364,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Advising the Management: A Theory of Shareholder Engagement",
+      "title_cn": "建议管理层：股东参与理论",
+      "authors": [
+        "Ali Kakhbod",
+        "Uliana Loginova",
+        "Andrey Malenko",
+        "Nadya Malenko"
+      ],
+      "abstract_en": "We study the effectiveness of shareholder engagement, that is, shareholders communicating their views to management. When shareholders and management have different beliefs, each shareholder engages more effectively when other shareholders engage as well. A limited shareholder base can thus prevent effective engagement. However, a limited shareholder base naturally arises under heterogeneous beliefs because investors who most disagree with management do not become shareholders. Passive funds, which own the firm regardless of their beliefs, can counteract these effects and improve engagement. When shareholders’ and management’s preferences are strongly misaligned, shareholders’ engagement decisions become substitutes and the role of ownership structure declines.",
+      "abstract_cn": "我们研究股东参与的有效性，即股东与管理层沟通其观点。当股东和管理层持有不同信念时，每位股东在其他股东也参与时能更有效地参与。因此，有限的股东基础可能阻碍有效参与。然而，在异质信念下，有限股东基础自然产生，因为与管理层分歧最大的投资者不会成为股东。被动基金，无论其信念如何都持有公司股份，可以抵消这些效应并改善参与。当股东与管理层的偏好严重不一致时，股东的参与决策变为替代关系，所有权结构的作用减弱。",
+      "doi": "10.1093/rfs/hhac061",
+      "source_url": "https://academic.oup.com/rfs/article/36/4/1319/6677238",
+      "sources": {
+        "roster": "https://academic.oup.com/rfs/issue/36/4",
+        "metadata": "https://academic.oup.com/rfs/article/36/4/1319/6677238",
+        "abstract_en": "https://academic.oup.com/rfs/article/36/4/1319/6677238"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-24T09:54:06+00:00",
+        "source_hash": "74b7e0b1247b053645869fcfea04ad4e6e90d7ca919d4fc8cc836c02e3d47285"
+      },
+      "quality_flags": [],
+      "publication_date": "March 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/rfs/hhac051",
+      "sequence": 2,
+      "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Corporate Capture of Blockchain Governance",
       "title_cn": "区块链治理的企业俘获",
@@ -33,7 +72,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/36/4",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/36/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -56,8 +95,8 @@
     },
     {
       "paper_id": "doi:10.1093/rfs/hhac059",
-      "sequence": 2,
-      "source_sequence": 1408,
+      "sequence": 3,
+      "source_sequence": 3,
       "article_type": "research-article",
       "title_en": "A Quantitative Model of Dynamic Moral Hazard",
       "title_cn": "动态道德风险的定量模型",
@@ -74,7 +113,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/36/4",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/36/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -97,8 +136,8 @@
     },
     {
       "paper_id": "doi:10.1093/rfs/hhac050",
-      "sequence": 3,
-      "source_sequence": 1464,
+      "sequence": 4,
+      "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Are Intermediary Constraints Priced?",
       "title_cn": "中介约束是否被定价？",
@@ -115,7 +154,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/36/4",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/36/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -138,8 +177,8 @@
     },
     {
       "paper_id": "doi:10.1093/rfs/hhac053",
-      "sequence": 4,
-      "source_sequence": 1508,
+      "sequence": 5,
+      "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "Roads and Loans",
       "title_cn": "道路与贷款",
@@ -156,7 +195,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/36/4",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/36/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -178,9 +217,45 @@
       }
     },
     {
+      "paper_id": "doi:10.1093/rfs/hhac057",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Estimating General Equilibrium Spillovers of Large-Scale Shocks",
+      "title_cn": "估计大规模冲击的一般均衡溢出效应",
+      "authors": [
+        "Kilian Huber"
+      ],
+      "abstract_en": "Large-scale shocks directly affect some firms and households and indirectly affect others through general equilibrium spillovers. In this paper, I describe how researchers can directly estimate spillovers using quasi-experimental or experimental variation. I then argue that spillover estimates suffer from distinct sources of mechanical bias that standard empirical tools cannot resolve. These biases are particularly relevant in finance and macroeconomics, where multiple spillover channels and nonlinear effects are common. I offer guidance on how to detect and overcome mechanical biases. An application and several examples highlight that the suggested methods are broadly relevant and can inform policy and multiplier calculations.",
+      "abstract_cn": "大规模冲击直接影响一些企业和家庭，并通过一般均衡溢出效应间接影响其他企业和家庭。在本文中，我描述了研究人员如何利用准实验或实验变异直接估计溢出效应。然后，我论证了溢出估计受到标准实证工具无法解决的独特机械偏差来源的影响。这些偏差在金融和宏观经济学中尤为相关，因为多重溢出渠道和非线性效应很常见。我提供了关于如何检测和克服机械偏差的指导。一个应用和几个例子强调，所提出的方法具有广泛的相关性，可以为政策和乘数计算提供信息。",
+      "doi": "10.1093/rfs/hhac057",
+      "source_url": "https://academic.oup.com/rfs/article/36/4/1548/6671238",
+      "sources": {
+        "roster": "https://academic.oup.com/rfs/issue/36/4",
+        "metadata": "https://academic.oup.com/rfs/article/36/4/1548/6671238",
+        "abstract_en": "https://academic.oup.com/rfs/article/36/4/1548/6671238"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-24T09:54:08+00:00",
+        "source_hash": "54b57c9d460499f257d09fc94c7480b90d7273539ded89977001fdf431642c4f"
+      },
+      "quality_flags": [],
+      "publication_date": "March 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1093/rfs/hhac060",
-      "sequence": 5,
-      "source_sequence": 1585,
+      "sequence": 7,
+      "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "Credit Building or Credit Crumbling? A Credit Builder Loan’s Effects on Consumer Behavior and Market Efficiency in the United States",
       "title_cn": "信用建设还是信用崩塌？信用建设贷款对美国消费者行为和市场效率的影响",
@@ -199,7 +274,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/36/4",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/36/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -222,8 +297,8 @@
     },
     {
       "paper_id": "doi:10.1093/rfs/hhac031",
-      "sequence": 6,
-      "source_sequence": 1621,
+      "sequence": 8,
+      "source_sequence": 8,
       "article_type": "research-article",
       "title_en": "The Incidence of Student Loan Subsidies: Evidence from the PLUS Program",
       "title_cn": "学生贷款补贴的归宿：来自PLUS项目的证据",
@@ -239,7 +314,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/36/4",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/36/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -262,8 +337,8 @@
     },
     {
       "paper_id": "doi:10.1093/rfs/hhac065",
-      "sequence": 7,
-      "source_sequence": 1667,
+      "sequence": 9,
+      "source_sequence": 9,
       "article_type": "research-article",
       "title_en": "Tuition, Debt, and Human Capital",
       "title_cn": "学费、债务与人力资本",
@@ -281,7 +356,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/36/4",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/36/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -304,8 +379,8 @@
     },
     {
       "paper_id": "doi:10.1093/rfs/hhac049",
-      "sequence": 8,
-      "source_sequence": 1703,
+      "sequence": 10,
+      "source_sequence": 10,
       "article_type": "research-article",
       "title_en": "The Disutility of Stock Market Losses: Evidence From Domestic Violence",
       "title_cn": "股票市场损失的负效用：来自家庭暴力的证据",
@@ -321,7 +396,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/36/4",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/36/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -346,51 +421,57 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "crossref",
-    "roster_authority": "crossref-provisional",
+    "roster_transport": "official-page-read",
+    "roster_authority": "official-issue-page",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 8,
-    "authors_complete": 8,
-    "abstract_en_complete": 8,
-    "translation_complete": 8,
+    "doi_complete": 10,
+    "authors_complete": 10,
+    "abstract_en_complete": 10,
+    "translation_complete": 10,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
-    ],
-    "official_item_count": 8,
-    "publishable_item_count": 8,
+    "flags": [],
+    "official_item_count": 10,
+    "publishable_item_count": 10,
     "content_counts": {
-      "official_items": 8,
-      "observed_items": 8,
-      "publishable_items": 8,
-      "research_articles": 8,
+      "official_items": 10,
+      "observed_items": 10,
+      "publishable_items": 10,
+      "research_articles": 10,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 8
+      "catalog_content_items": 10
+    },
+    "official_roster_evidence": {
+      "captured_at": "2026-08-24T09:30:00+00:00",
+      "official_url": "https://academic.oup.com/rfs/issue/36/4",
+      "method": "official-page-read",
+      "item_count": 10,
+      "excluded_item_count": 0,
+      "sequence_sha256": "c2a7917a1928143d4e9aad96912ae0bf4eff9e557d1e3e5db6d57f5e014d747a",
+      "privacy_fields_stored": false
     }
   },
-  "source_status": "source_pending",
-  "publication_state": "source_pending",
+  "source_status": "official_verified",
+  "publication_state": "ready",
   "content_counts": {
-    "official_items": 8,
-    "observed_items": 8,
-    "publishable_items": 8,
-    "research_articles": 8,
+    "official_items": 10,
+    "observed_items": 10,
+    "publishable_items": 10,
+    "research_articles": 10,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 8
+    "catalog_content_items": 10
   },
   "issue_label": "Vol. 36 · No. 4",
   "content_status": "complete"

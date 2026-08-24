@@ -8,15 +8,52 @@
   "publication_date": "November 2023",
   "source_url": "https://academic.oup.com/rfs/issue/36/12",
   "retrieved_at": "2026-08-18T17:27:43+00:00",
-  "expected_article_count": 6,
-  "research_article_count": 6,
-  "status": "incomplete",
+  "expected_article_count": 8,
+  "research_article_count": 8,
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1093/rfs/hhad042",
+      "paper_id": "doi:10.1093/rfs/hhad046",
       "sequence": 1,
-      "source_sequence": 4759,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "More Risk, More Information: How Passive Ownership Can Improve Informational Efficiency",
+      "title_cn": "更多风险，更多信息：被动所有权如何提高信息效率",
+      "authors": [
+        "Adrian Buss",
+        "Savitar Sundaresan"
+      ],
+      "abstract_en": "We identify a novel economic mechanism through which passive ownership positively affects informational efficiency in the cross-section of firms. Passive investors’ inelastic demand lowers a firm’s cost-of-capital, inducing it to take more risk. The higher cash flow variance, in turn, incentivizes active investors to acquire more precise private information, pushing up price informativeness for firms with high passive ownership. High passive ownership also implies higher stock prices and higher stock-return variances. An increase in the aggregate size of passive investors amplifies these cross-sectional differences. We also document complementarities in firms’ real investment and investors’ information choices that can cause information crashes. Received May 31, 2020; editorial decision January 4, 2023 by Editor Holger Mueller.",
+      "abstract_cn": "我们识别了一种新的经济机制，通过该机制，被动所有权对公司横截面上的信息效率产生积极影响。被动投资者的无弹性需求降低了公司的资本成本，促使其承担更多风险。更高的现金流波动性反过来激励主动投资者获取更精确的私人信息，从而提高了被动所有权高的公司的价格信息含量。高被动所有权还意味着更高的股价和更高的股票收益波动性。被动投资者总体规模的增加放大了这些横截面差异。我们还记录了公司实际投资与投资者信息选择之间的互补性，这可能导致信息崩溃。收到日期：2020年五月31日；编辑决定日期：2023年一月4日，由编辑Holger Mueller处理。",
+      "doi": "10.1093/rfs/hhad046",
+      "source_url": "https://academic.oup.com/rfs/article/36/12/4713/7176397",
+      "sources": {
+        "roster": "https://academic.oup.com/rfs/issue/36/12",
+        "metadata": "https://academic.oup.com/rfs/article/36/12/4713/7176397",
+        "abstract_en": "https://academic.oup.com/rfs/article/36/12/4713/7176397"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-24T09:54:00+00:00",
+        "source_hash": "fdf3d5324b2b4e5e502e456212728c44f59317fce5bf8ef5d07dd3b59e7b9c13"
+      },
+      "quality_flags": [],
+      "publication_date": "November 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/rfs/hhad042",
+      "sequence": 2,
+      "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Narrative Asset Pricing: Interpretable Systematic Risk Factors from News Text",
       "title_cn": "叙事资产定价：来自新闻文本的可解释系统性风险因子",
@@ -33,7 +70,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/36/12",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/36/12",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -56,8 +93,8 @@
     },
     {
       "paper_id": "doi:10.1093/rfs/hhad052",
-      "sequence": 2,
-      "source_sequence": 4788,
+      "sequence": 3,
+      "source_sequence": 3,
       "article_type": "research-article",
       "title_en": "Mandatory Financial Disclosure and M&A Activity",
       "title_cn": "强制性财务披露与并购活动",
@@ -75,7 +112,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/36/12",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/36/12",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -98,8 +135,8 @@
     },
     {
       "paper_id": "doi:10.1093/rfs/hhad033",
-      "sequence": 3,
-      "source_sequence": 4824,
+      "sequence": 4,
+      "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "ES Risks and Shareholder Voice",
       "title_cn": "ES风险与股东投票",
@@ -116,7 +153,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/36/12",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/36/12",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -138,9 +175,47 @@
       }
     },
     {
+      "paper_id": "doi:10.1093/rfs/hhad048",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Welfare Consequences of Sustainable Finance",
+      "title_cn": "可持续金融的福利后果",
+      "authors": [
+        "Harrison Hong",
+        "Neng Wang",
+        "Jinqiang Yang"
+      ],
+      "abstract_en": "We model the welfare consequences of mandates that restrict investors to hold firms with net-zero carbon emissions. To qualify for these mandates, value-maximizing firms have to accumulate decarbonization capital. Qualification lowers a firm’s required return by its decarbonization investments divided by Tobin’s q, that is, the greenium or the dividend yield shareholders forgo to address the global-warming externality. The welfare-maximizing mandate approximates the first-best solution, yielding welfare gains compared to laissez-faire by mitigating the weather disaster risks resulting from carbon emissions. Our model generates optimal transition paths for decarbonization that we use to evaluate proposed net-zero targets.",
+      "abstract_cn": "我们模拟了限制投资者持有净零碳排放企业的指令所产生的福利后果。为了符合这些指令，价值最大化的企业必须积累脱碳资本。符合资格会通过企业的脱碳投资除以托宾q值来降低其必要回报率，即绿色溢价或股东为应对全球变暖外部性而放弃的股息收益率。福利最大化的指令近似于最优解，通过减轻碳排放导致的天气灾害风险，与自由放任相比产生福利收益。我们的模型生成了最优脱碳转型路径，我们利用这些路径来评估拟议的净零目标。",
+      "doi": "10.1093/rfs/hhad048",
+      "source_url": "https://academic.oup.com/rfs/article/36/12/4864/7188116",
+      "sources": {
+        "roster": "https://academic.oup.com/rfs/issue/36/12",
+        "metadata": "https://academic.oup.com/rfs/article/36/12/4864/7188116",
+        "abstract_en": "https://academic.oup.com/rfs/article/36/12/4864/7188116"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-24T09:54:02+00:00",
+        "source_hash": "efaad8331143713abd2e4a11f140470b07e9d4787adc0dc5514d39872a92fcf0"
+      },
+      "quality_flags": [],
+      "publication_date": "November 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1093/rfs/hhad044",
-      "sequence": 4,
-      "source_sequence": 4919,
+      "sequence": 6,
+      "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "Firm-Level Exposure to Epidemic Diseases: COVID-19, SARS, and H1N1",
       "title_cn": "企业层面的传染病暴露：COVID-19、SARS和H1N1",
@@ -159,7 +234,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/36/12",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/36/12",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -182,8 +257,8 @@
     },
     {
       "paper_id": "doi:10.1093/rfs/hhad038",
-      "sequence": 5,
-      "source_sequence": 4965,
+      "sequence": 7,
+      "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "Measuring the Expected Effects of the Global Tax Reform",
       "title_cn": "衡量全球税制改革的预期效应",
@@ -199,7 +274,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/36/12",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/36/12",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -222,8 +297,8 @@
     },
     {
       "paper_id": "doi:10.1093/rfs/hhad047",
-      "sequence": 6,
-      "source_sequence": 5012,
+      "sequence": 8,
+      "source_sequence": 8,
       "article_type": "research-article",
       "title_en": "Inflation and Individual Investors’ Behavior: Evidence from the German Hyperinflation",
       "title_cn": "通货膨胀与个人投资者行为：来自德国恶性通货膨胀的证据",
@@ -240,7 +315,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/36/12",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/36/12",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -265,51 +340,57 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "crossref",
-    "roster_authority": "crossref-provisional",
+    "roster_transport": "official-page-read",
+    "roster_authority": "official-issue-page",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 6,
-    "authors_complete": 6,
-    "abstract_en_complete": 6,
-    "translation_complete": 6,
+    "doi_complete": 8,
+    "authors_complete": 8,
+    "abstract_en_complete": 8,
+    "translation_complete": 8,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
-    ],
-    "official_item_count": 6,
-    "publishable_item_count": 6,
+    "flags": [],
+    "official_item_count": 8,
+    "publishable_item_count": 8,
     "content_counts": {
-      "official_items": 6,
-      "observed_items": 6,
-      "publishable_items": 6,
-      "research_articles": 6,
+      "official_items": 8,
+      "observed_items": 8,
+      "publishable_items": 8,
+      "research_articles": 8,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 6
+      "catalog_content_items": 8
+    },
+    "official_roster_evidence": {
+      "captured_at": "2026-08-24T09:30:00+00:00",
+      "official_url": "https://academic.oup.com/rfs/issue/36/12",
+      "method": "official-page-read",
+      "item_count": 8,
+      "excluded_item_count": 0,
+      "sequence_sha256": "351c284f45bbbda32d4d8b1e7b6615008603938fc8b0f20760e2ddcb7f228ee2",
+      "privacy_fields_stored": false
     }
   },
-  "source_status": "source_pending",
-  "publication_state": "source_pending",
+  "source_status": "official_verified",
+  "publication_state": "ready",
   "content_counts": {
-    "official_items": 6,
-    "observed_items": 6,
-    "publishable_items": 6,
-    "research_articles": 6,
+    "official_items": 8,
+    "observed_items": 8,
+    "publishable_items": 8,
+    "research_articles": 8,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 6
+    "catalog_content_items": 8
   },
   "issue_label": "Vol. 36 · No. 12",
   "content_status": "complete"

@@ -1,21 +1,21 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-08-24T09:21:05+00:00",
+  "updated_at": "2026-08-24T09:55:47+00:00",
   "summary": {
-    "complete": 823,
+    "complete": 834,
     "translation_partial": 44,
     "blocked": 136,
     "collected": 0,
-    "pending": 328
+    "pending": 317
   },
   "coverage": {
     "discovered": 1331,
     "archived": 1151,
     "content_ready": 1151,
-    "source_verified": 823,
-    "publication_ready": 823,
+    "source_verified": 834,
+    "publication_ready": 834,
     "missing": 180,
-    "source_pending": 328,
+    "source_pending": 317,
     "missing_issue_ids": [
       "ecolecon-204-c",
       "ecolecon-205-c",
@@ -511,17 +511,6 @@
       "restat-108-2",
       "restat-108-3",
       "restat-108-4",
-      "rfs-36-10",
-      "rfs-36-11",
-      "rfs-36-12",
-      "rfs-36-3",
-      "rfs-36-4",
-      "rfs-36-5",
-      "rfs-36-6",
-      "rfs-36-7",
-      "rfs-36-8",
-      "rfs-37-1",
-      "rfs-39-6",
       "te-20-1",
       "te-20-2",
       "te-20-3",
@@ -2830,52 +2819,29 @@
       "discovered": 44,
       "archived": 42,
       "content_ready": 42,
-      "source_verified": 31,
-      "publication_ready": 31,
+      "source_verified": 42,
+      "publication_ready": 42,
       "missing": 2,
-      "source_pending": 11,
+      "source_pending": 0,
       "missing_issue_ids": [
         "rfs-36-9",
         "rfs-39-9"
       ],
-      "source_pending_issue_ids": [
-        "rfs-36-10",
-        "rfs-36-11",
-        "rfs-36-12",
-        "rfs-36-3",
-        "rfs-36-4",
-        "rfs-36-5",
-        "rfs-36-6",
-        "rfs-36-7",
-        "rfs-36-8",
-        "rfs-37-1",
-        "rfs-39-6"
-      ],
+      "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
       "years": {
         "2023": {
           "discovered": 12,
           "archived": 11,
           "content_ready": 11,
-          "source_verified": 1,
-          "publication_ready": 1,
+          "source_verified": 11,
+          "publication_ready": 11,
           "missing": 1,
-          "source_pending": 10,
+          "source_pending": 0,
           "missing_issue_ids": [
             "rfs-36-9"
           ],
-          "source_pending_issue_ids": [
-            "rfs-36-10",
-            "rfs-36-11",
-            "rfs-36-12",
-            "rfs-36-3",
-            "rfs-36-4",
-            "rfs-36-5",
-            "rfs-36-6",
-            "rfs-36-7",
-            "rfs-36-8",
-            "rfs-37-1"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "2024": {
@@ -2906,16 +2872,14 @@
           "discovered": 9,
           "archived": 8,
           "content_ready": 8,
-          "source_verified": 7,
-          "publication_ready": 7,
+          "source_verified": 8,
+          "publication_ready": 8,
           "missing": 1,
-          "source_pending": 1,
+          "source_pending": 0,
           "missing_issue_ids": [
             "rfs-39-9"
           ],
-          "source_pending_issue_ids": [
-            "rfs-39-6"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         }
       }
@@ -19622,36 +19586,36 @@
         "year": 2023,
         "volume": "36",
         "issue": "10",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-36-11",
         "year": 2023,
         "volume": "36",
         "issue": "11",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-36-12",
         "year": 2023,
         "volume": "36",
         "issue": "12",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-36-2",
@@ -19662,80 +19626,80 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-36-3",
         "year": 2023,
         "volume": "36",
         "issue": "3",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-36-4",
         "year": 2023,
         "volume": "36",
         "issue": "4",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-36-5",
         "year": 2023,
         "volume": "36",
         "issue": "5",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-36-6",
         "year": 2023,
         "volume": "36",
         "issue": "6",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-36-7",
         "year": 2023,
         "volume": "36",
         "issue": "7",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-36-8",
         "year": 2023,
         "volume": "36",
         "issue": "8",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-36-9",
@@ -19754,12 +19718,12 @@
         "year": 2023,
         "volume": "37",
         "issue": "1",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-37-10",
@@ -19770,8 +19734,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-37-11",
@@ -19782,8 +19746,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-37-12",
@@ -19794,8 +19758,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-37-2",
@@ -19806,8 +19770,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-37-3",
@@ -19818,8 +19782,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-37-4",
@@ -19830,8 +19794,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-37-5",
@@ -19842,8 +19806,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-37-6",
@@ -19854,8 +19818,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-37-7",
@@ -19866,8 +19830,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-37-8",
@@ -19878,8 +19842,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-37-9",
@@ -19890,8 +19854,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-38-1",
@@ -19902,8 +19866,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-38-10",
@@ -19914,8 +19878,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-38-11",
@@ -19926,8 +19890,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-38-12",
@@ -19938,8 +19902,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-38-2",
@@ -19950,8 +19914,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-38-3",
@@ -19962,8 +19926,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-38-4",
@@ -19974,8 +19938,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-38-5",
@@ -19986,8 +19950,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-38-6",
@@ -19998,8 +19962,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-38-7",
@@ -20010,8 +19974,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-38-8",
@@ -20022,8 +19986,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-38-9",
@@ -20034,8 +19998,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-39-1",
@@ -20046,8 +20010,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-39-2",
@@ -20058,8 +20022,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-39-3",
@@ -20070,8 +20034,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-39-4",
@@ -20082,8 +20046,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-39-5",
@@ -20094,20 +20058,20 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-39-6",
         "year": 2026,
         "volume": "39",
         "issue": "6",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-39-7",
@@ -20118,8 +20082,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-39-8",
@@ -20130,8 +20094,8 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "rfs-39-9",
@@ -20910,22 +20874,22 @@
   "periods": {
     "2023-2024": {
       "summary": {
-        "complete": 392,
+        "complete": 402,
         "translation_partial": 44,
         "blocked": 108,
         "collected": 0,
-        "pending": 164
+        "pending": 154
       },
       "issue_count": 708,
-      "updated_at": "2026-08-24T07:49:29+00:00",
+      "updated_at": "2026-08-24T09:54:40+00:00",
       "coverage": {
         "discovered": 708,
         "archived": 556,
         "content_ready": 556,
-        "source_verified": 392,
-        "publication_ready": 392,
+        "source_verified": 402,
+        "publication_ready": 402,
         "missing": 152,
-        "source_pending": 164,
+        "source_pending": 154,
         "missing_issue_ids": [
           "ecolecon-204-c",
           "ecolecon-205-c",
@@ -21234,39 +21198,29 @@
           "restat-106-2",
           "restat-106-4",
           "restat-106-5",
-          "restat-106-6",
-          "rfs-36-10",
-          "rfs-36-11",
-          "rfs-36-12",
-          "rfs-36-3",
-          "rfs-36-4",
-          "rfs-36-5",
-          "rfs-36-6",
-          "rfs-36-7",
-          "rfs-36-8",
-          "rfs-37-1"
+          "restat-106-6"
         ],
         "blocked_issue_ids": []
       }
     },
     "2023-2026": {
       "summary": {
-        "complete": 82,
+        "complete": 93,
         "translation_partial": 1,
         "blocked": 1,
         "collected": 0,
-        "pending": 78
+        "pending": 67
       },
       "issue_count": 162,
-      "updated_at": "2026-08-24T07:41:28+00:00",
+      "updated_at": "2026-08-24T09:54:48+00:00",
       "coverage": {
         "discovered": 162,
         "archived": 160,
         "content_ready": 160,
-        "source_verified": 82,
-        "publication_ready": 82,
+        "source_verified": 93,
+        "publication_ready": 93,
         "missing": 2,
-        "source_pending": 78,
+        "source_pending": 67,
         "missing_issue_ids": [
           "rfs-36-9",
           "rfs-39-9"
@@ -21338,18 +21292,7 @@
           "aeri-7-2",
           "aeri-7-3",
           "aeri-7-4",
-          "aeri-8-1",
-          "rfs-36-10",
-          "rfs-36-11",
-          "rfs-36-12",
-          "rfs-36-3",
-          "rfs-36-4",
-          "rfs-36-5",
-          "rfs-36-6",
-          "rfs-36-7",
-          "rfs-36-8",
-          "rfs-37-1",
-          "rfs-39-6"
+          "aeri-8-1"
         ],
         "blocked_issue_ids": []
       }
@@ -21427,11 +21370,11 @@
   "years": {
     "2023": {
       "summary": {
-        "complete": 178,
+        "complete": 188,
         "translation_partial": 26,
         "blocked": 58,
         "collected": 0,
-        "pending": 90
+        "pending": 80
       },
       "issue_count": 352,
       "journals": [
@@ -21489,10 +21432,10 @@
         "discovered": 352,
         "archived": 268,
         "content_ready": 268,
-        "source_verified": 178,
-        "publication_ready": 178,
+        "source_verified": 188,
+        "publication_ready": 188,
         "missing": 84,
-        "source_pending": 90,
+        "source_pending": 80,
         "missing_issue_ids": [
           "ecolecon-204-c",
           "ecolecon-205-c",
@@ -21659,17 +21602,7 @@
           "red-51-c",
           "res-90-2",
           "res-90-3",
-          "restat-105-4",
-          "rfs-36-10",
-          "rfs-36-11",
-          "rfs-36-12",
-          "rfs-36-3",
-          "rfs-36-4",
-          "rfs-36-5",
-          "rfs-36-6",
-          "rfs-36-7",
-          "rfs-36-8",
-          "rfs-37-1"
+          "restat-105-4"
         ],
         "blocked_issue_ids": []
       },
@@ -22435,25 +22368,14 @@
           "discovered": 12,
           "archived": 11,
           "content_ready": 11,
-          "source_verified": 1,
-          "publication_ready": 1,
+          "source_verified": 11,
+          "publication_ready": 11,
           "missing": 1,
-          "source_pending": 10,
+          "source_pending": 0,
           "missing_issue_ids": [
             "rfs-36-9"
           ],
-          "source_pending_issue_ids": [
-            "rfs-36-10",
-            "rfs-36-11",
-            "rfs-36-12",
-            "rfs-36-3",
-            "rfs-36-4",
-            "rfs-36-5",
-            "rfs-36-6",
-            "rfs-36-7",
-            "rfs-36-8",
-            "rfs-37-1"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "TE": {
@@ -24366,11 +24288,11 @@
     },
     "2026": {
       "summary": {
-        "complete": 184,
+        "complete": 185,
         "translation_partial": 0,
         "blocked": 23,
         "collected": 0,
-        "pending": 72
+        "pending": 71
       },
       "issue_count": 279,
       "journals": [
@@ -24428,10 +24350,10 @@
         "discovered": 279,
         "archived": 256,
         "content_ready": 256,
-        "source_verified": 184,
-        "publication_ready": 184,
+        "source_verified": 185,
+        "publication_ready": 185,
         "missing": 23,
-        "source_pending": 72,
+        "source_pending": 71,
         "missing_issue_ids": [
           "ecolecon-250-c",
           "energy-162-c",
@@ -24528,7 +24450,6 @@
           "restat-108-2",
           "restat-108-3",
           "restat-108-4",
-          "rfs-39-6",
           "wd-206-c"
         ],
         "blocked_issue_ids": []
@@ -25228,16 +25149,14 @@
           "discovered": 9,
           "archived": 8,
           "content_ready": 8,
-          "source_verified": 7,
-          "publication_ready": 7,
+          "source_verified": 8,
+          "publication_ready": 8,
           "missing": 1,
-          "source_pending": 1,
+          "source_pending": 0,
           "missing_issue_ids": [
             "rfs-39-9"
           ],
-          "source_pending_issue_ids": [
-            "rfs-39-6"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "TE": {

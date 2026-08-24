@@ -8,15 +8,15 @@
   "publication_date": "July 2023",
   "source_url": "https://academic.oup.com/rfs/issue/36/8",
   "retrieved_at": "2026-08-18T17:25:15+00:00",
-  "expected_article_count": 7,
-  "research_article_count": 7,
-  "status": "incomplete",
+  "expected_article_count": 11,
+  "research_article_count": 11,
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
       "paper_id": "doi:10.1093/rfs/hhad005",
       "sequence": 1,
-      "source_sequence": 2963,
+      "source_sequence": 1,
       "article_type": "research-article",
       "title_en": "Dollar and Exports",
       "title_cn": "美元与出口",
@@ -32,7 +32,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/36/8",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/36/8",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -54,9 +54,46 @@
       }
     },
     {
-      "paper_id": "doi:10.1093/rfs/hhad006",
+      "paper_id": "doi:10.1093/rfs/hhad009",
       "sequence": 2,
-      "source_sequence": 3034,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "The Leading Premium",
+      "title_cn": "领先溢价",
+      "authors": [
+        "Mariano M Croce",
+        "Christian Schlag"
+      ],
+      "abstract_en": "In this paper, we consider conditional measures of lead-lag relations between aggregate growth and industry-level cash flow growth in the United States. Our results show that firms in leading industries pay an average annualized return 3.6|$\\%$| higher than that of firms in lagging industries. Using both time-series and cross-sectional tests, we estimate an annual pure timing premium ranging from 1.2|$\\%$| to 1.7|$\\%$|⁠. This finding can be rationalized in a model in which (a) agents price growth news shocks, and (b) leading industries provide valuable resolution of uncertainty about the growth prospects of lagging industries.",
+      "abstract_cn": "在本文中，我们考虑了美国总体增长与行业层面现金流增长之间领先-滞后关系的条件度量。我们的结果表明，领先行业中的公司平均年化回报率比落后行业中的公司高出3.6。通过时间序列和横截面检验，我们估计年度纯时机溢价在1.2至1.7之间。这一发现可以在一个模型中合理化，其中（a）代理人对增长新闻冲击进行定价，并且（b）领先行业为落后行业的增长前景提供了有价值的不确定性解决。",
+      "doi": "10.1093/rfs/hhad009",
+      "source_url": "https://academic.oup.com/rfs/article/36/8/2997/7000342",
+      "sources": {
+        "roster": "https://academic.oup.com/rfs/issue/36/8",
+        "metadata": "https://academic.oup.com/rfs/article/36/8/2997/7000342",
+        "abstract_en": "https://academic.oup.com/rfs/article/36/8/2997/7000342"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-24T09:54:24+00:00",
+        "source_hash": "9d7d30fd329058da30da7094be3fee7ba6baccfda9b9f47c597ca755c91428a8"
+      },
+      "quality_flags": [],
+      "publication_date": "July 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/rfs/hhad006",
+      "sequence": 3,
+      "source_sequence": 3,
       "article_type": "research-article",
       "title_en": "Factor Momentum",
       "title_cn": "因子动量",
@@ -73,7 +110,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/36/8",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/36/8",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -95,9 +132,87 @@
       }
     },
     {
+      "paper_id": "doi:10.1093/rfs/hhac090",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Finding Fortune: How Do Institutional Investors Pick Asset Managers?",
+      "title_cn": "寻找财富：机构投资者如何挑选资产管理人？",
+      "authors": [
+        "Gregory W Brown",
+        "Oleg R Gredil",
+        "Preetesh Kantak"
+      ],
+      "abstract_en": "We propose and test a framework of private information acquisition and decision timing for asset allocators hiring outside investment managers. Using unique data on due diligence interactions between an institutional allocator and 860 hedge fund managers, we find that the production of private information complements public information. The allocator strategically chooses how much proprietary information to collect, reducing due diligence time by 18 months and improving outcomes. Funds selected by the manager outperform those not selected by 9|$\\%$| over 20 months. The outperformance relates to the allocator learning about fund return-to-scale constraints and manager skill before other investors.",
+      "abstract_cn": "我们提出并检验了一个关于外部投资经理聘用的资产配置者私人信息获取与决策时机的框架。利用机构配置者与860家对冲基金经理之间尽职调查互动的独特数据，我们发现私人信息的产生补充了公共信息。配置者策略性地选择收集多少专有信息，将尽职调查时间缩短了18个月并改善了结果。经理选中的基金在20个月内的表现优于未选中的基金9|$\\%$|。这种超额表现与配置者在其他投资者之前了解基金的规模收益约束和经理技能有关。",
+      "doi": "10.1093/rfs/hhac090",
+      "source_url": "https://academic.oup.com/rfs/article/36/8/3071/6900951",
+      "sources": {
+        "roster": "https://academic.oup.com/rfs/issue/36/8",
+        "metadata": "https://academic.oup.com/rfs/article/36/8/3071/6900951",
+        "abstract_en": "https://academic.oup.com/rfs/article/36/8/3071/6900951"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-24T09:54:26+00:00",
+        "source_hash": "43bac4238418c6d2c3adec4f92aaeb935ef82baa245fb0bd7b9084e46e747278"
+      },
+      "quality_flags": [],
+      "publication_date": "July 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/rfs/hhad010",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Is There Investment Value in the Soft-Dollar Arrangement? Evidence from Mutual Funds",
+      "title_cn": "软美元安排是否存在投资价值？来自共同基金的证据",
+      "authors": [
+        "Sinan Gokkaya",
+        "Xi Liu",
+        "Veronika Krepely Pool",
+        "Fei Xie",
+        "Jinfan Zhang"
+      ],
+      "abstract_en": "Combining novel data on analyst employment history and mutual fund commission payments, we show that client funds generate higher returns on stocks for which they have access to research by industry expert analysts. The outperformance is greater when funds are more important clients and cannot be attributed to tipping. Client funds place modestly higher weights on stocks covered by industry expert analysts and allocate more commissions to brokers providing such coverage. For identification, we exploit exogenous analyst coverage disruptions. Our findings contribute to the debate on whether mutual funds obtain any investment value from access to analysts through the soft-dollar arrangement.",
+      "abstract_cn": "结合分析师就业历史和共同基金佣金支付的新数据，我们表明，客户基金在其能够获得行业专家分析师研究的股票上产生了更高的回报。当基金是更重要的客户时，这种超额表现更大，且不能归因于消息泄露。客户基金对行业专家分析师覆盖的股票配置了略高的权重，并将更多佣金分配给提供此类覆盖的经纪商。为了识别，我们利用了外生的分析师覆盖中断。我们的发现为关于共同基金是否通过软美元安排从分析师获取任何投资价值的辩论做出了贡献。",
+      "doi": "10.1093/rfs/hhad010",
+      "source_url": "https://academic.oup.com/rfs/article/36/8/3122/7000343",
+      "sources": {
+        "roster": "https://academic.oup.com/rfs/issue/36/8",
+        "metadata": "https://academic.oup.com/rfs/article/36/8/3122/7000343",
+        "abstract_en": "https://academic.oup.com/rfs/article/36/8/3122/7000343"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-24T09:54:28+00:00",
+        "source_hash": "067e2de7d591a639efa6481b6b0e820a45fa2b33fc8290caeeb3f085cccf54de"
+      },
+      "quality_flags": [],
+      "publication_date": "July 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1093/rfs/hhad008",
-      "sequence": 3,
-      "source_sequence": 3163,
+      "sequence": 6,
+      "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "Do Corporate Disclosures Constrain Strategic Analyst Behavior?",
       "title_cn": "公司披露是否约束了分析师的策略性行为？",
@@ -114,7 +229,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/36/8",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/36/8",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -136,9 +251,46 @@
       }
     },
     {
+      "paper_id": "doi:10.1093/rfs/hhad011",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Trust, Transparency, and Complexity",
+      "title_cn": "信任、透明度与复杂性",
+      "authors": [
+        "Richard T Thakor",
+        "Robert C Merton"
+      ],
+      "abstract_en": "This paper develops a theory that generates an equilibrium relationship between product complexity, transparency, and trust in firms. Complexity, transparency, and the evolution of trust are all endogenous, and equilibrium transparency is nonmonotonic. The least-trusted firms choose the lowest product complexity, remain opaque, and substitute ex ante third-party verification for information disclosure and trust. Firms with an intermediate level of trust choose an intermediate level of complexity and transparency through disclosure, with more trusted firms choosing greater complexity and lower transparency. The most-trusted firms choose maximum complexity while remaining opaque, eschewing both verification and disclosure.",
+      "abstract_cn": "本文发展了一个理论，该理论在企业产品复杂性、透明度与信任之间生成一种均衡关系。复杂性、透明度以及信任的演变都是内生的，且均衡透明度是非单调的。最不受信任的企业选择最低的产品复杂性，保持不透明，并以事前第三方验证替代信息披露和信任。具有中等信任水平的企业通过披露选择中等水平的复杂性和透明度，其中更受信任的企业选择更高的复杂性和更低的透明度。最受信任的企业选择最大复杂性同时保持不透明，既回避验证也回避披露。",
+      "doi": "10.1093/rfs/hhad011",
+      "source_url": "https://academic.oup.com/rfs/article/36/8/3213/7009239",
+      "sources": {
+        "roster": "https://academic.oup.com/rfs/issue/36/8",
+        "metadata": "https://academic.oup.com/rfs/article/36/8/3213/7009239",
+        "abstract_en": "https://academic.oup.com/rfs/article/36/8/3213/7009239"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-24T09:54:29+00:00",
+        "source_hash": "007582ebbcbd47bd61815115e84fbe622baa2b75ec44ef544101a21f866ae9fc"
+      },
+      "quality_flags": [],
+      "publication_date": "July 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1093/rfs/hhad004",
-      "sequence": 4,
-      "source_sequence": 3257,
+      "sequence": 8,
+      "source_sequence": 8,
       "article_type": "research-article",
       "title_en": "Neglected Peers in Merger Valuations",
       "title_cn": "并购估值中被忽视的同业公司",
@@ -155,7 +307,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/36/8",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/36/8",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -178,8 +330,8 @@
     },
     {
       "paper_id": "doi:10.1093/rfs/hhad001",
-      "sequence": 5,
-      "source_sequence": 3311,
+      "sequence": 9,
+      "source_sequence": 9,
       "article_type": "research-article",
       "title_en": "Regulatory Intensity and Firm-Specific Exposure",
       "title_cn": "监管强度与企业特定暴露",
@@ -194,7 +346,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/36/8",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/36/8",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -217,8 +369,8 @@
     },
     {
       "paper_id": "doi:10.1093/rfs/hhac087",
-      "sequence": 6,
-      "source_sequence": 3348,
+      "sequence": 10,
+      "source_sequence": 10,
       "article_type": "research-article",
       "title_en": "How Has COVID-19 Impacted Research Production in Economics and Finance?",
       "title_cn": "COVID-19如何影响经济学和金融学的研究产出？",
@@ -235,7 +387,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/36/8",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/36/8",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -258,8 +410,8 @@
     },
     {
       "paper_id": "doi:10.1093/rfs/hhac093",
-      "sequence": 7,
-      "source_sequence": 3382,
+      "sequence": 11,
+      "source_sequence": 11,
       "article_type": "research-article",
       "title_en": "How Large Are Bequest Motives? Estimates Based on Health Shocks",
       "title_cn": "遗赠动机有多大？基于健康冲击的估计",
@@ -274,7 +426,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/36/8",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/36/8",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -299,51 +451,57 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "crossref",
-    "roster_authority": "crossref-provisional",
+    "roster_transport": "official-page-read",
+    "roster_authority": "official-issue-page",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 7,
-    "authors_complete": 7,
-    "abstract_en_complete": 7,
-    "translation_complete": 7,
+    "doi_complete": 11,
+    "authors_complete": 11,
+    "abstract_en_complete": 11,
+    "translation_complete": 11,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
-    ],
-    "official_item_count": 7,
-    "publishable_item_count": 7,
+    "flags": [],
+    "official_item_count": 11,
+    "publishable_item_count": 11,
     "content_counts": {
-      "official_items": 7,
-      "observed_items": 7,
-      "publishable_items": 7,
-      "research_articles": 7,
+      "official_items": 11,
+      "observed_items": 11,
+      "publishable_items": 11,
+      "research_articles": 11,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 7
+      "catalog_content_items": 11
+    },
+    "official_roster_evidence": {
+      "captured_at": "2026-08-24T09:30:00+00:00",
+      "official_url": "https://academic.oup.com/rfs/issue/36/8",
+      "method": "official-page-read",
+      "item_count": 11,
+      "excluded_item_count": 0,
+      "sequence_sha256": "46ffbb81ce07a71fa34db1b55c6a2212a69a73ab436b5a2738a7ae7cae3eb699",
+      "privacy_fields_stored": false
     }
   },
-  "source_status": "source_pending",
-  "publication_state": "source_pending",
+  "source_status": "official_verified",
+  "publication_state": "ready",
   "content_counts": {
-    "official_items": 7,
-    "observed_items": 7,
-    "publishable_items": 7,
-    "research_articles": 7,
+    "official_items": 11,
+    "observed_items": 11,
+    "publishable_items": 11,
+    "research_articles": 11,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 7
+    "catalog_content_items": 11
   },
   "issue_label": "Vol. 36 · No. 8",
   "content_status": "complete"

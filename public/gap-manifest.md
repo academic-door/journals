@@ -1,13 +1,13 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-08-24T09:21:18+00:00
+Generated: 2026-08-24T09:56:02+00:00
 
 ## Summary
 
 - browser_required: 36
-- ready: 823
+- ready: 834
 - recoverable: 100
-- source_pending: 325
+- source_pending: 314
 - translation_required: 47
 
 ## Issue queue
@@ -1238,18 +1238,18 @@ Generated: 2026-08-24T09:21:18+00:00
 | RESTAT | restat-108-2 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
 | RESTAT | restat-108-3 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
 | RESTAT | restat-108-4 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-36-10 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-36-11 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-36-12 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
+| RFS | rfs-36-10 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-36-11 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-36-12 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-36-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| RFS | rfs-36-3 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-36-4 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-36-5 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-36-6 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-36-7 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| RFS | rfs-36-8 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
+| RFS | rfs-36-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-36-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-36-5 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-36-6 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-36-7 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| RFS | rfs-36-8 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-36-9 | 2023 | translation_required | blocked | source_pending | archive_missing |
-| RFS | rfs-37-1 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
+| RFS | rfs-37-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-37-10 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-37-11 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-37-12 | 2024 | ready | complete | official_verified | content and official source gates passed |
@@ -1278,7 +1278,7 @@ Generated: 2026-08-24T09:21:18+00:00
 | RFS | rfs-39-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-39-4 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-39-5 | 2026 | ready | complete | official_verified | content and official source gates passed |
-| RFS | rfs-39-6 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
+| RFS | rfs-39-6 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-39-7 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-39-8 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-39-9 | 2026 | recoverable | blocked | source_pending | archive_missing |
