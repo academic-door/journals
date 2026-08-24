@@ -23,6 +23,11 @@ on:
         required: false
         default: false
         type: boolean
+      evidence_issue_ids:
+        description: Optional comma-separated issue IDs; apply only their official evidence
+        required: false
+        default: ""
+        type: string
 
 permissions:
   actions: read
@@ -202,11 +207,33 @@ jobs:
           DEEPSEEK_MODEL: deepseek-chat
           ELSEVIER_API_KEY: ${{ secrets.ELSEVIER_API_KEY }}
           ELSEVIER_INST_TOKEN: ${{ secrets.ELSEVIER_INST_TOKEN }}
+          EVIDENCE_ISSUE_IDS: ${{ inputs.evidence_issue_ids }}
         shell: bash
         run: |
           set -euo pipefail
           output="$RUNNER_TEMP/official-roster-evidence"
           mkdir -p "$output"
+          evidence_list="$RUNNER_TEMP/official-roster-evidence.list"
+          if [[ -n "$EVIDENCE_ISSUE_IDS" ]]; then
+            : > "$evidence_list"
+            IFS=',' read -ra issue_ids <<< "$EVIDENCE_ISSUE_IDS"
+            for issue_id in "${issue_ids[@]}"; do
+              issue_id="${issue_id//[[:space:]]/}"
+              if [[ ! "$issue_id" =~ ^[a-z0-9-]+$ ]]; then
+                echo "Invalid evidence issue ID: $issue_id" >&2
+                exit 1
+              fi
+              evidence="$(find data/provenance/official-rosters -type f -name "$issue_id.json" -print -quit)"
+              if [[ -z "$evidence" ]]; then
+                echo "Official evidence not found for: $issue_id" >&2
+                exit 1
+              fi
+              printf '%s\0' "$evidence" >> "$evidence_list"
+            done
+          else
+            find data/provenance/official-rosters -type f -name '*.json' -print0 \
+              | sort -z > "$evidence_list"
+          fi
           while IFS= read -r -d '' evidence; do
             python scripts/import_official_roster_evidence.py \
               "$evidence" \
@@ -217,7 +244,7 @@ jobs:
               --enrich-missing-elsevier \
               --translate \
               --promote
-          done < <(find data/provenance/official-rosters -type f -name '*.json' -print0 | sort -z)
+          done < "$evidence_list"
 
       - name: Rebuild indexes and run strict acceptance gates
         env:
