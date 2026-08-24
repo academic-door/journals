@@ -73,6 +73,12 @@ def metadata_title_for_compare(value: object) -> str:
         maxsplit=1,
         flags=re.IGNORECASE,
     )[0]
+    # Some Article API responses place a standalone affiliation/reference
+    # marker between the title and the metadata note (for example ``1``
+    # before ``Funding information``).  It is presentation metadata, not
+    # part of the article title.  Restrict this to trailing digit-only
+    # lines so legitimate numeric titles remain unchanged.
+    text = re.sub(r"(?:\s+\d+)+\s*$", "", text)
     return text
 
 
