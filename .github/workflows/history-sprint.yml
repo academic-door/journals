@@ -99,6 +99,7 @@ jobs:
           ELSEVIER_INST_TOKEN: ${{ secrets.ELSEVIER_INST_TOKEN }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           DEEPSEEK_MODEL: deepseek-chat
+          TRANSLATION_RETRIES: "2"
           JINA_API_KEY: ${{ secrets.JINA_API_KEY }}
           SHARD_JOURNALS: ${{ matrix.journals }}
           MAX_ISSUES: ${{ inputs.max_issues || '999' }}
@@ -212,6 +213,7 @@ jobs:
           ELSEVIER_INST_TOKEN: ${{ secrets.ELSEVIER_INST_TOKEN }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           DEEPSEEK_MODEL: deepseek-chat
+          TRANSLATION_RETRIES: "2"
         shell: bash
         run: |
           set -euo pipefail
