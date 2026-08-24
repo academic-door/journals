@@ -67,6 +67,10 @@ def _normalized_title(value: object) -> str:
     # presentation artifacts after the DOI sequence has already matched.
     text = re.sub(r"_\{([^{}]+)\}", r"\1", text)
     text = re.sub(r"(?<=[A-Za-z])&(?=[A-Za-z])", "", text)
+    # ScienceDirect renders inline MathML as separated visible glyphs in an
+    # authorized browser snapshot (for example ``P M 2.5``), while its article
+    # metadata uses the equivalent compact token ``PM2.5``.
+    text = re.sub(r"\bP\s*M\s*2\s*\.\s*5\b", "PM2.5", text, flags=re.IGNORECASE)
     # Publisher cards and deposited metadata routinely differ only in smart
     # quotes, daggers, hyphenation, spacing, capitalization, or an optional
     # article ("the"). DOI identity and order remain the hard keys; collapse
@@ -113,6 +117,10 @@ def validate_evidence(evidence: dict[str, Any]) -> None:
         errors.append("method must be browser-authorized or official-page-read")
     if evidence.get("finalized") is not True:
         errors.append("finalized must be true")
+    if "allow_archive_reorder" in evidence and not isinstance(
+        evidence.get("allow_archive_reorder"), bool
+    ):
+        errors.append("allow_archive_reorder must be boolean")
     for field in ("captured_at", "journal_id", "issue_id", "official_url"):
         if not str(evidence.get(field, "")).strip():
             errors.append(f"{field} missing")
@@ -248,7 +256,8 @@ def apply_evidence(issue: dict[str, Any], evidence: dict[str, Any]) -> dict[str,
     archive_positions = [
         evidence_positions[doi] for doi in archive_dois if doi in evidence_positions
     ]
-    if archive_positions != sorted(archive_positions):
+    archive_reordered = archive_positions != sorted(archive_positions)
+    if archive_reordered and evidence.get("allow_archive_reorder") is not True:
         raise ValueError("official DOI roster/order does not match archive")
     for article in archive_articles:
         doi = str(article.get("doi", "")).strip().lower()
@@ -285,7 +294,7 @@ def apply_evidence(issue: dict[str, Any], evidence: dict[str, Any]) -> dict[str,
     candidate["articles"] = merged_articles
     candidate["expected_article_count"] = len(merged_articles)
     candidate["research_article_count"] = len(merged_articles)
-    if restored_count:
+    if restored_count or len(merged_articles) != len(archive_articles):
         candidate = normalize_issue_content(candidate)
     quality = candidate.setdefault("quality", {})
     quality["flags"] = [
@@ -295,6 +304,9 @@ def apply_evidence(issue: dict[str, Any], evidence: dict[str, Any]) -> dict[str,
         not in {
             "crossref_provisional_roster",
             "publisher_html_blocked_crossref_fallback",
+            "publisher_html_blocked_repec_fallback",
+            "repec_publisher_supplied_roster",
+            "official_order_unverified",
         }
     ]
     quality.update(
@@ -310,6 +322,7 @@ def apply_evidence(issue: dict[str, Any], evidence: dict[str, Any]) -> dict[str,
             "method": str(evidence["method"]),
             "item_count": len(evidence_items),
             "excluded_item_count": int(evidence.get("excluded_item_count", 0)),
+            "archive_reordered": archive_reordered,
             "sequence_sha256": sequence_digest(evidence_dois),
             "privacy_fields_stored": False,
         },
