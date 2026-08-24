@@ -1,13 +1,13 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-08-24T11:03:45+00:00
+Generated: 2026-08-24T11:41:33+00:00
 
 ## Summary
 
 - browser_required: 36
-- ready: 929
+- ready: 931
 - recoverable: 100
-- source_pending: 219
+- source_pending: 217
 - translation_required: 47
 
 ## Issue queue
@@ -576,8 +576,8 @@ Generated: 2026-08-24T11:03:45+00:00
 | JEBO | jebo-244-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JEBO | jebo-245-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JEBO | jebo-246-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
-| JEBO | jebo-247-c | 2026 | source_pending | complete | source_pending | official source verification pending |
-| JEBO | jebo-248-c | 2026 | source_pending | complete | source_pending | official source verification pending |
+| JEBO | jebo-247-c | 2026 | ready | complete | official_verified | content and official source gates passed |
+| JEBO | jebo-248-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JEBO | jebo-249-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JEBO | jebo-250-c | 2026 | recoverable | blocked | source_pending | archive_missing |
 | JEDC | jedc-146-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |

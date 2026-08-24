@@ -1,8 +1,8 @@
 # Field journal history backfill status
 
-Updated: 2026-08-24T11:03:33+00:00
+Updated: 2026-08-24T11:41:25+00:00
 
-Discovery coverage: 1331 discovered · 1151 archived · 929 publication ready · 180 missing · 222 source pending
+Discovery coverage: 1331 discovered · 1151 archived · 931 publication ready · 180 missing · 220 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
@@ -576,8 +576,8 @@ Discovery coverage: 1331 discovered · 1151 archived · 929 publication ready ·
 | JEBO | jebo-244-c | 2026 | ready |  |
 | JEBO | jebo-245-c | 2026 | ready |  |
 | JEBO | jebo-246-c | 2026 | ready |  |
-| JEBO | jebo-247-c | 2026 | source_pending |  |
-| JEBO | jebo-248-c | 2026 | source_pending |  |
+| JEBO | jebo-247-c | 2026 | ready |  |
+| JEBO | jebo-248-c | 2026 | ready |  |
 | JEBO | jebo-249-c | 2026 | ready |  |
 | JEBO | jebo-250-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 250/ |
 | JEDC | jedc-146-c | 2023 | ready |  |

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-24T11:03:45+00:00",
+  "generated_at": "2026-08-24T11:41:33+00:00",
   "target_years": [
     2023,
     2024,
@@ -62,9 +62,9 @@
   "discovery_snapshot_missing_journals": [],
   "summary": {
     "browser_required": 36,
-    "ready": 929,
+    "ready": 931,
     "recoverable": 100,
-    "source_pending": 219,
+    "source_pending": 217,
     "translation_required": 47
   },
   "records": [
@@ -14128,20 +14128,20 @@
       "authority": "crossref_candidate",
       "refreshed_at": "2026-08-24T08:01:56+00:00",
       "collector_revision": "history-integrity-2026-08-11",
-      "category": "source_pending",
-      "reason": "official source verification pending",
+      "category": "ready",
+      "reason": "content and official source gates passed",
       "status": "ready",
       "retry_class": "manual",
       "archive_exists": true,
       "content_status": "complete",
-      "source_status": "source_pending",
-      "publication_state": "source_pending",
+      "source_status": "official_verified",
+      "publication_state": "ready",
       "counts": {
-        "articles": 13,
-        "abstract_en": 13,
-        "translation_cn": 13
+        "articles": 12,
+        "abstract_en": 12,
+        "translation_cn": 12
       },
-      "next_action": "attach official roster/source evidence; do not publish"
+      "next_action": "no action"
     },
     {
       "issue_id": "jebo-248-c",
@@ -14153,20 +14153,20 @@
       "authority": "crossref_candidate",
       "refreshed_at": "2026-08-24T08:01:56+00:00",
       "collector_revision": "history-integrity-2026-08-11",
-      "category": "source_pending",
-      "reason": "official source verification pending",
+      "category": "ready",
+      "reason": "content and official source gates passed",
       "status": "ready",
       "retry_class": "manual",
       "archive_exists": true,
       "content_status": "complete",
-      "source_status": "source_pending",
-      "publication_state": "source_pending",
+      "source_status": "official_verified",
+      "publication_state": "ready",
       "counts": {
         "articles": 60,
         "abstract_en": 60,
         "translation_cn": 60
       },
-      "next_action": "attach official roster/source evidence; do not publish"
+      "next_action": "no action"
     },
     {
       "issue_id": "jebo-249-c",
