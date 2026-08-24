@@ -17,11 +17,22 @@ if str(ROOT) not in sys.path:
 from scripts.import_official_roster_evidence import (  # noqa: E402
     _normalized_title,
     apply_evidence,
+    validate_evidence,
 )
 
 
 PII_RE = re.compile(r"/pii/([A-Z0-9]+)", re.IGNORECASE)
 ALLOWED_EXCLUDED_TYPES = {"editorial", "erratum"}
+NON_RESEARCH_RE = re.compile(
+    r"\bEditorial(?:\s+Board)?\b|\bErratum\b|\bCorrigendum\b|"
+    r"\bCorrection\b|\bRetraction\b|\bFront\s+matter\b",
+    re.IGNORECASE,
+)
+PUBLISHABLE_RE = re.compile(
+    r"Research article|Review article|Short communication|"
+    r"Full length article|Data article",
+    re.IGNORECASE,
+)
 
 
 def _read_json(path: Path) -> dict[str, Any]:
@@ -36,18 +47,38 @@ def _pii(value: object) -> str:
     return match.group(1).upper() if match else ""
 
 
-def _archive_by_pii(issue: dict[str, Any]) -> dict[str, dict[str, Any]]:
-    mapped: dict[str, dict[str, Any]] = {}
+def _archive_maps(
+    issue: dict[str, Any],
+) -> tuple[dict[str, dict[str, Any]], dict[str, dict[str, Any]]]:
+    by_pii: dict[str, dict[str, Any]] = {}
+    by_doi: dict[str, dict[str, Any]] = {}
     for article in issue.get("articles", []):
         pii = _pii(article.get("source_url"))
-        if not pii:
-            raise ValueError(
-                f"archive article lacks an official ScienceDirect PII: {article.get('doi')}"
-            )
-        if pii in mapped:
+        doi = str(article.get("doi", "")).strip().casefold()
+        if not doi:
+            raise ValueError("archive article lacks DOI")
+        if doi in by_doi:
+            raise ValueError(f"duplicate archive DOI: {doi}")
+        by_doi[doi] = article
+        if pii in by_pii:
             raise ValueError(f"duplicate archive PII: {pii}")
-        mapped[pii] = article
-    return mapped
+        if pii:
+            by_pii[pii] = article
+    return by_pii, by_doi
+
+
+def _article_type(browser_item: dict[str, Any]) -> str:
+    explicit = str(browser_item.get("type", "")).strip().casefold()
+    if explicit in ALLOWED_EXCLUDED_TYPES or explicit == "research-article":
+        return explicit
+    box_text = str(browser_item.get("box_text", ""))
+    if NON_RESEARCH_RE.search(box_text):
+        return "erratum" if re.search(
+            r"Erratum|Corrigendum|Correction|Retraction", box_text, re.IGNORECASE
+        ) else "editorial"
+    if PUBLISHABLE_RE.search(box_text):
+        return "research-article"
+    return ""
 
 
 def build_evidence(
@@ -65,63 +96,76 @@ def build_evidence(
     if str(snapshot.get("issue_id", "")) != str(issue.get("issue_id", "")):
         raise ValueError("snapshot issue_id does not match archive")
 
-    archive_by_pii = _archive_by_pii(issue)
+    archive_by_pii, archive_by_doi = _archive_maps(issue)
     items: list[dict[str, Any]] = []
     excluded: list[dict[str, Any]] = []
     seen: set[str] = set()
+    matched_archive_dois: set[str] = set()
+    missing_official_count = 0
     for browser_item in snapshot.get("items", []):
         pii = _pii(browser_item.get("href"))
         title = str(browser_item.get("title", "")).strip()
-        article_type = str(browser_item.get("type", "")).strip().casefold()
+        browser_doi = str(browser_item.get("doi", "")).strip().casefold()
+        article_type = _article_type(browser_item)
         if not pii or not title:
             raise ValueError("browser roster item is missing PII or title")
         if pii in seen:
             raise ValueError(f"duplicate official browser PII: {pii}")
         seen.add(pii)
+        article = archive_by_pii.get(pii) or archive_by_doi.get(browser_doi)
+        if article is not None:
+            matched_archive_dois.add(str(article["doi"]).strip().casefold())
         if article_type == "research-article":
-            article = archive_by_pii.get(pii)
-            if article is None:
-                raise ValueError(f"official research PII is absent from archive: {pii}")
-            if _normalized_title(title) != _normalized_title(article.get("title_en")):
+            if article is not None:
+                doi = str(article["doi"]).strip().casefold()
+            else:
+                missing_official_count += 1
+                doi = browser_doi
+                authors = browser_item.get("authors")
+                if not doi or not isinstance(authors, list) or not authors:
+                    raise ValueError(
+                        f"missing official research item lacks DOI/authors: {pii}"
+                    )
+            if article is not None and _normalized_title(title) != _normalized_title(
+                article.get("title_en")
+            ):
                 raise ValueError(f"official title mismatch for {pii}")
-            items.append(
-                {
-                    "sequence": len(items) + 1,
-                    "doi": str(article["doi"]).strip().casefold(),
-                    "title_en": title,
-                }
-            )
-            continue
-        if article_type not in ALLOWED_EXCLUDED_TYPES:
-            raise ValueError(f"unclassified official browser item {pii}: {article_type}")
-        doi = str(excluded_dois.get(pii, "")).strip().casefold()
-        if not doi:
-            raise ValueError(f"excluded official item lacks DOI evidence: {pii}")
-        excluded.append(
-            {
+            evidence_item: dict[str, Any] = {
+                "sequence": len(items) + 1,
                 "doi": doi,
                 "title_en": title,
-                "reason": f"official-{article_type}",
             }
+            if article is None:
+                evidence_item.update(
+                    source_id=f"pii:{pii}",
+                    official_authors=[str(author).strip() for author in authors],
+                    official_article_url=(
+                        f"https://www.sciencedirect.com/science/article/pii/{pii}"
+                    ),
+                )
+            items.append(evidence_item)
+            continue
+        if article_type not in ALLOWED_EXCLUDED_TYPES:
+            raise ValueError(f"unclassified official browser item {pii}")
+        doi = (
+            str(article["doi"]).strip().casefold()
+            if article is not None
+            else str(excluded_dois.get(pii, "")).strip().casefold()
         )
+        excluded_item = {
+            "title_en": title,
+            "reason": f"official-{article_type}",
+        }
+        if doi:
+            excluded_item["doi"] = doi
+        else:
+            excluded_item["source_id"] = f"pii:{pii}"
+        excluded.append(excluded_item)
 
-    official_research_piis = {
-        _pii(item.get("href"))
-        for item in snapshot.get("items", [])
-        if str(item.get("type", "")).casefold() == "research-article"
-    }
-    official_excluded_piis = {
-        _pii(item.get("href"))
-        for item in snapshot.get("items", [])
-        if str(item.get("type", "")).casefold() in ALLOWED_EXCLUDED_TYPES
-    }
-    covered_archive_piis = official_research_piis | official_excluded_piis
-    if not official_research_piis.issubset(archive_by_pii) or not set(
-        archive_by_pii
-    ).issubset(covered_archive_piis):
-        missing = sorted(set(archive_by_pii) - covered_archive_piis)
-        extra = sorted(official_research_piis - set(archive_by_pii))
-        raise ValueError(f"official/archive PII set differs: missing={missing}, extra={extra}")
+    archive_dois = set(archive_by_doi)
+    if matched_archive_dois != archive_dois:
+        missing = sorted(archive_dois - matched_archive_dois)
+        raise ValueError(f"archive items absent from official browser roster: {missing}")
 
     evidence = {
         "schema_version": "1.0",
@@ -137,7 +181,9 @@ def build_evidence(
         "excluded_items": excluded,
         "items": items,
     }
-    apply_evidence(issue, evidence)
+    validate_evidence(evidence)
+    if missing_official_count == 0:
+        apply_evidence(issue, evidence)
     return evidence
 
 
