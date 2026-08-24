@@ -42,6 +42,46 @@ class MergeHistoryShardsTests(unittest.TestCase):
             self.assertEqual("ready", merged["issues"]["aer-1-1"]["status"])
             self.assertEqual("ready", merged["issues"]["eer-1-1"]["status"])
 
+    def test_old_shard_cannot_regress_a_ready_issue_archive(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary) / "root"
+            shards = Path(temporary) / "shards"
+            archive = root / "public/api/v1/journals/ere/issues/ere-89-8.json"
+            archive.parent.mkdir(parents=True)
+            archive.write_text(
+                json.dumps(
+                    {
+                        "issue_id": "ere-89-8",
+                        "content_status": "complete",
+                        "source_status": "publisher_verified",
+                        "publication_state": "ready",
+                    }
+                ),
+                encoding="utf-8",
+            )
+            shard_public = shards / "history-sprint-ere" / "public/api/v1/journals/ere/issues"
+            shard_output = shards / "history-sprint-ere" / "output"
+            shard_public.mkdir(parents=True)
+            shard_output.mkdir(parents=True)
+            (shard_public / archive.name).write_text(
+                json.dumps(
+                    {
+                        "issue_id": "ere-89-8",
+                        "content_status": "complete",
+                        "source_status": "source_pending",
+                        "publication_state": "source_pending",
+                    }
+                ),
+                encoding="utf-8",
+            )
+            (shard_output / "shard-metadata.json").write_text(
+                json.dumps({"journals": ["ERE"]}), encoding="utf-8"
+            )
+            merge_shards(root, shards)
+            merged = json.loads(archive.read_text(encoding="utf-8"))
+            self.assertEqual("ready", merged["publication_state"])
+            self.assertEqual("publisher_verified", merged["source_status"])
+
 
 if __name__ == "__main__":
     unittest.main()
