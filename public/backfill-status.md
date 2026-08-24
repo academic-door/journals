@@ -1,12 +1,12 @@
 # Field journal history backfill status
 
-Updated: 2026-08-24T16:22:52+00:00
+Updated: 2026-08-24T16:28:43+00:00
 
 Discovery coverage: 1331 discovered · 1167 archived · 957 publication ready · 164 missing · 210 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 469 | 8 | 130 | 101 |
+| 2023-2024 | 469 | 1 | 137 | 101 |
 | 2025-2026 | 489 | 0 | 26 | 109 |
 
 | Journal | Issue | Year | Status | Note |
@@ -313,27 +313,27 @@ Discovery coverage: 1331 discovered · 1167 archived · 957 publication ready ·
 | ENERGY | energy-117-c | 2023 | ready |  |
 | ENERGY | energy-118-c | 2023 | ready |  |
 | ENERGY | energy-119-c | 2023 | ready |  |
-| ENERGY | energy-120-c | 2023 | translation_partial |  |
+| ENERGY | energy-120-c | 2023 | blocked | archive_missing |
 | ENERGY | energy-121-c | 2023 | ready |  |
 | ENERGY | energy-122-c | 2023 | ready |  |
 | ENERGY | energy-123-c | 2023 | blocked | possible_incomplete_volume: 3 articles collected vs current issue 57; needs offi |
-| ENERGY | energy-124-c | 2023 | translation_partial |  |
-| ENERGY | energy-125-c | 2023 | translation_partial |  |
-| ENERGY | energy-126-c | 2023 | translation_partial |  |
+| ENERGY | energy-124-c | 2023 | blocked | archive_missing |
+| ENERGY | energy-125-c | 2023 | blocked | archive_missing |
+| ENERGY | energy-126-c | 2023 | blocked | archive_missing |
 | ENERGY | energy-127-c | 2023 | blocked | possible_incomplete_volume: 7 articles collected vs current issue 57; needs offi |
 | ENERGY | energy-128-c | 2023 | ready |  |
-| ENERGY | energy-129-c | 2024 | translation_partial |  |
+| ENERGY | energy-129-c | 2024 | blocked | archive_missing |
 | ENERGY | energy-130-c | 2024 | ready |  |
 | ENERGY | energy-131-c | 2024 | ready |  |
 | ENERGY | energy-132-c | 2024 | ready |  |
 | ENERGY | energy-133-c | 2024 | ready |  |
-| ENERGY | energy-134-c | 2024 | translation_partial |  |
+| ENERGY | energy-134-c | 2024 | blocked | archive_missing |
 | ENERGY | energy-135-c | 2024 | blocked | possible_incomplete_volume: 4 articles collected vs current issue 57; needs offi |
 | ENERGY | energy-136-c | 2024 | ready |  |
 | ENERGY | energy-137-c | 2024 | ready |  |
-| ENERGY | energy-138-c | 2024 | translation_partial |  |
+| ENERGY | energy-138-c | 2024 | blocked | archive_missing |
 | ENERGY | energy-139-c | 2024 | ready |  |
-| ENERGY | energy-140-c | 2024 | translation_partial |  |
+| ENERGY | energy-140-c | 2024 | blocked | archive_missing |
 | ENERGY | energy-141-c | 2025 | ready |  |
 | ENERGY | energy-142-c | 2025 | ready |  |
 | ENERGY | energy-143-c | 2025 | ready |  |
@@ -578,7 +578,7 @@ Discovery coverage: 1331 discovered · 1167 archived · 957 publication ready ·
 | JEBO | jebo-249-c | 2026 | ready |  |
 | JEBO | jebo-250-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 250/ |
 | JEDC | jedc-146-c | 2023 | ready |  |
-| JEDC | jedc-147-c | 2023 | blocked | archive_missing |
+| JEDC | jedc-147-c | 2023 | translation_partial |  |
 | JEDC | jedc-148-c | 2023 | blocked | possible_incomplete_volume: 4 articles collected vs current issue 16; needs offi |
 | JEDC | jedc-149-c | 2023 | ready |  |
 | JEDC | jedc-150-c | 2023 | ready |  |
