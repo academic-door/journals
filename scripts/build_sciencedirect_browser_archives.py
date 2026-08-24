@@ -4,8 +4,10 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
+import xml.etree.ElementTree as ElementTree
 from pathlib import Path
 from typing import Any
 
@@ -16,7 +18,10 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from collectors.metadata_fallback import fetch_elsevier_issue_via_search
+from collectors.metadata_fallback import (
+    ELSEVIER_SEARCH_API,
+    _elsevier_lookup,
+)
 from scripts.import_browser_authorized_snapshot import (
     build_candidate,
     now_iso,
@@ -79,31 +84,95 @@ def volume_from_roster(roster: dict[str, Any]) -> str:
     raise ValueError(f"cannot determine volume for {issue_id}")
 
 
+def fetch_article_metadata(
+    session: requests.Session,
+    pii: str,
+    *,
+    timeout: int,
+) -> dict[str, Any]:
+    headers = {
+        "Accept": "application/xml",
+        "X-ELS-APIKey": os.getenv("ELSEVIER_API_KEY", "").strip(),
+    }
+    inst_token = os.getenv("ELSEVIER_INST_TOKEN", "").strip()
+    if inst_token:
+        headers["X-ELS-Insttoken"] = inst_token
+    response = session.get(
+        ELSEVIER_SEARCH_API,
+        params={
+            "query": f'PII("{pii}")',
+            "field": "url,identifier,doi,pii,title,creator,description,coverDate",
+            "count": "5",
+            "httpAccept": "application/xml",
+        },
+        headers=headers,
+        timeout=timeout,
+    )
+    response.raise_for_status()
+    root = ElementTree.fromstring(response.content)
+    ns = {
+        "atom": "http://www.w3.org/2005/Atom",
+        "dc": "http://purl.org/dc/elements/1.1/",
+        "prism": "http://prismstandard.org/namespaces/basic/2.0/",
+        "sci": "http://www.elsevier.com/xml/schemas/sciencedirect",
+    }
+    for entry in root.findall("atom:entry", ns):
+        entry_pii = re.sub(
+            r"[^A-Za-z0-9]",
+            "",
+            entry.findtext("pii", "", ns).strip()
+            or entry.findtext("sci:pii", "", ns).strip(),
+        ).upper()
+        if entry_pii != pii.upper():
+            continue
+        doi = entry.findtext("prism:doi", "", ns).strip().lower()
+        title = entry.findtext("dc:title", "", ns).strip()
+        authors = [
+            node.text.strip()
+            for node in entry.findall("dc:creator", ns)
+            if node.text and node.text.strip()
+        ]
+        abstract = entry.findtext("dc:description", "", ns).strip()
+        if not abstract:
+            lookup = _elsevier_lookup(session, pii, doi=doi, timeout=timeout)
+            abstract = str(lookup.get("abstract", "")).strip()
+        return {
+            "doi": doi,
+            "title_en": title,
+            "authors": authors,
+            "abstract_en": abstract,
+        }
+    raise ValueError(f"Elsevier metadata returned no article for PII {pii}")
+
+
 def build_rich_snapshot(
     roster: dict[str, Any],
     *,
     session: requests.Session,
     journal: dict[str, Any],
 ) -> dict[str, Any]:
-    issue = fetch_elsevier_issue_via_search(
-        journal_id=str(journal["id"]),
-        journal_name=str(journal["name"]),
-        issn=str(journal["issn"]),
-        volume=volume_from_roster(roster),
-        issue=str(roster.get("issue", "c")),
-        official_issue_url=str(roster["official_url"]),
-        session=session,
-        timeout=90,
-    )
-    by_pii: dict[str, dict[str, Any]] = {}
-    for article in issue.get("articles", []):
-        pii = pii_from_href(article.get("source_url"))
-        if pii:
-            by_pii[pii] = article
+    from concurrent.futures import ThreadPoolExecutor
+
+    roster_items = list(roster.get("items", []))
+    with ThreadPoolExecutor(max_workers=6) as pool:
+        metadata_items = list(
+            pool.map(
+                lambda item: fetch_article_metadata(
+                    session,
+                    pii_from_href(item.get("href")),
+                    timeout=90,
+                ),
+                roster_items,
+            )
+        )
+    by_pii = {
+        pii_from_href(item.get("href")): metadata
+        for item, metadata in zip(roster_items, metadata_items, strict=True)
+    }
 
     items: list[dict[str, Any]] = []
     missing: list[str] = []
-    for order, item in enumerate(roster.get("items", []), start=1):
+    for order, item in enumerate(roster_items, start=1):
         pii = pii_from_href(item.get("href"))
         metadata = by_pii.get(pii)
         if metadata is None:
