@@ -20,8 +20,9 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from collectors.metadata_fallback import (
-    ELSEVIER_ARTICLE_METADATA_API,
+    ELSEVIER_ARTICLE_API,
     ELSEVIER_SEARCH_API,
+    _elsevier_text,
     _elsevier_lookup,
 )
 from scripts.import_browser_authorized_snapshot import (
@@ -114,12 +115,8 @@ def fetch_issue_metadata(
         response = None
         for attempt in range(3):
             response = session.get(
-                ELSEVIER_ARTICLE_METADATA_API,
-                params={
-                    "query": f'PII("{pii}")',
-                    "view": "COMPLETE",
-                    "httpAccept": "application/xml",
-                },
+                f"{ELSEVIER_ARTICLE_API}/pii/{pii}",
+                params={"view": "META_ABS", "httpAccept": "application/xml"},
                 headers=headers,
                 timeout=timeout,
             )
@@ -135,28 +132,45 @@ def fetch_issue_metadata(
         response.raise_for_status()
         root = ElementTree.fromstring(response.content)
         found = False
-        for entry in root.findall("atom:entry", ns):
+        entries = root.findall("atom:entry", ns)
+        # The direct Article API may return the article coredata element as
+        # the XML root instead of wrapping it in an Atom entry.
+        if not entries:
+            entries = [root]
+        for entry in entries:
             entry_pii = re.sub(
                 r"[^A-Za-z0-9]",
                 "",
                 entry.findtext("pii", "", ns).strip()
                 or entry.findtext("sci:pii", "", ns).strip(),
             ).upper()
+            if entry is not root and entry_pii != pii.upper():
+                continue
+            if entry is root and not entry_pii:
+                entry_pii = pii.upper()
             if entry_pii != pii.upper():
                 continue
             found = True
-            doi = entry.findtext("prism:doi", "", ns).strip().lower()
-            abstract = entry.findtext("dc:description", "", ns).strip()
+            doi = entry.findtext(".//prism:doi", "", ns).strip().lower()
+            abstract = _elsevier_text(root, {"description", "abstract"})
+            creators = [
+                node.text.strip()
+                for node in root.findall(".//dc:creator", ns)
+                if node.text and node.text.strip()
+            ]
+            if not creators:
+                creators = [
+                    node.text.strip()
+                    for node in root.findall(".//{*}indexed-name")
+                    if node.text and node.text.strip()
+                ]
             output[entry_pii] = {
                 "doi": doi,
-                "title_en": entry.findtext("dc:title", "", ns).strip(),
-                "authors": [
-                    node.text.strip()
-                    for node in entry.findall("dc:creator", ns)
-                    if node.text and node.text.strip()
-                ],
+                "title_en": entry.findtext(".//dc:title", "", ns).strip(),
+                "authors": creators,
                 "abstract_en": abstract,
             }
+            break
         if not found:
             raise ValueError(f"Elsevier metadata returned no article for PII {pii}")
     for pii in piis:
