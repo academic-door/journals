@@ -1,12 +1,12 @@
 # Field journal history backfill status
 
-Updated: 2026-08-24T10:56:05+00:00
+Updated: 2026-08-24T11:03:33+00:00
 
-Discovery coverage: 1331 discovered · 1151 archived · 915 publication ready · 180 missing · 236 source pending
+Discovery coverage: 1331 discovered · 1151 archived · 929 publication ready · 180 missing · 222 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 450 | 44 | 108 | 106 |
+| 2023-2024 | 457 | 44 | 108 | 99 |
 | 2023-2026 | 160 | 1 | 1 | 0 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
@@ -1070,21 +1070,21 @@ Discovery coverage: 1331 discovered · 1151 archived · 915 publication ready ·
 | LABECO | labeco-97-c | 2025 | ready |  |
 | LABECO | labeco-98-c | 2026 | ready |  |
 | LABECO | labeco-99-c | 2026 | ready |  |
-| LANDECON | landecon-100-1 | 2024 | source_pending | source authority pending official verification |
-| LANDECON | landecon-100-2 | 2024 | source_pending | source authority pending official verification |
-| LANDECON | landecon-100-3 | 2024 | source_pending | source authority pending official verification |
-| LANDECON | landecon-100-4 | 2024 | source_pending | source authority pending official verification |
-| LANDECON | landecon-101-1 | 2025 | source_pending | source authority pending official verification |
-| LANDECON | landecon-101-2 | 2025 | source_pending | source authority pending official verification |
-| LANDECON | landecon-101-3 | 2025 | source_pending | archive_content_gate_failed |
-| LANDECON | landecon-101-4 | 2025 | source_pending | source authority pending official verification |
-| LANDECON | landecon-102-1 | 2026 | source_pending | source authority pending official verification |
-| LANDECON | landecon-102-2 | 2026 | source_pending | source authority pending official verification |
-| LANDECON | landecon-102-3 | 2026 | source_pending | source authority pending official verification |
+| LANDECON | landecon-100-1 | 2024 | ready |  |
+| LANDECON | landecon-100-2 | 2024 | ready |  |
+| LANDECON | landecon-100-3 | 2024 | ready |  |
+| LANDECON | landecon-100-4 | 2024 | ready |  |
+| LANDECON | landecon-101-1 | 2025 | ready |  |
+| LANDECON | landecon-101-2 | 2025 | ready |  |
+| LANDECON | landecon-101-3 | 2025 | ready |  |
+| LANDECON | landecon-101-4 | 2025 | ready |  |
+| LANDECON | landecon-102-1 | 2026 | ready |  |
+| LANDECON | landecon-102-2 | 2026 | ready |  |
+| LANDECON | landecon-102-3 | 2026 | ready |  |
 | LANDECON | landecon-99-1 | 2023 | source_pending |  |
-| LANDECON | landecon-99-2 | 2023 | source_pending | source authority pending official verification |
-| LANDECON | landecon-99-3 | 2023 | source_pending | source authority pending official verification |
-| LANDECON | landecon-99-4 | 2023 | source_pending | source authority pending official verification |
+| LANDECON | landecon-99-2 | 2023 | ready |  |
+| LANDECON | landecon-99-3 | 2023 | ready |  |
+| LANDECON | landecon-99-4 | 2023 | ready |  |
 | LUP | lup-124-c | 2023 | ready |  |
 | LUP | lup-125-c | 2023 | ready |  |
 | LUP | lup-126-c | 2023 | translation_partial |  |

@@ -1,13 +1,13 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-08-24T10:56:20+00:00
+Generated: 2026-08-24T11:03:45+00:00
 
 ## Summary
 
 - browser_required: 36
-- ready: 915
+- ready: 929
 - recoverable: 100
-- source_pending: 233
+- source_pending: 219
 - translation_required: 47
 
 ## Issue queue
@@ -1070,21 +1070,21 @@ Generated: 2026-08-24T10:56:20+00:00
 | LABECO | labeco-97-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | LABECO | labeco-98-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | LABECO | labeco-99-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
-| LANDECON | landecon-100-1 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| LANDECON | landecon-100-2 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| LANDECON | landecon-100-3 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| LANDECON | landecon-100-4 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| LANDECON | landecon-101-1 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| LANDECON | landecon-101-2 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| LANDECON | landecon-101-3 | 2025 | source_pending | complete | source_pending | archive_content_gate_failed |
-| LANDECON | landecon-101-4 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| LANDECON | landecon-102-1 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| LANDECON | landecon-102-2 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| LANDECON | landecon-102-3 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
+| LANDECON | landecon-100-1 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| LANDECON | landecon-100-2 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| LANDECON | landecon-100-3 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| LANDECON | landecon-100-4 | 2024 | ready | complete | official_verified | content and official source gates passed |
+| LANDECON | landecon-101-1 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| LANDECON | landecon-101-2 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| LANDECON | landecon-101-3 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| LANDECON | landecon-101-4 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| LANDECON | landecon-102-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| LANDECON | landecon-102-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| LANDECON | landecon-102-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | LANDECON | landecon-99-1 | 2023 | translation_required | complete | source_pending | translation incomplete |
-| LANDECON | landecon-99-2 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| LANDECON | landecon-99-3 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| LANDECON | landecon-99-4 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
+| LANDECON | landecon-99-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| LANDECON | landecon-99-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| LANDECON | landecon-99-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | LUP | lup-124-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | LUP | lup-125-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | LUP | lup-126-c | 2023 | translation_required | blocked | source_pending | archive_missing |

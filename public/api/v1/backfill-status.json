@@ -1,21 +1,21 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-08-24T10:56:05+00:00",
+  "updated_at": "2026-08-24T11:03:33+00:00",
   "summary": {
-    "complete": 915,
+    "complete": 929,
     "translation_partial": 44,
     "blocked": 136,
     "collected": 0,
-    "pending": 236
+    "pending": 222
   },
   "coverage": {
     "discovered": 1331,
     "archived": 1151,
     "content_ready": 1151,
-    "source_verified": 915,
-    "publication_ready": 915,
+    "source_verified": 929,
+    "publication_ready": 929,
     "missing": 180,
-    "source_pending": 236,
+    "source_pending": 222,
     "missing_issue_ids": [
       "ecolecon-204-c",
       "ecolecon-205-c",
@@ -349,21 +349,7 @@
       "jpube-259-c",
       "jpube-260-c",
       "jue-153-c",
-      "landecon-100-1",
-      "landecon-100-2",
-      "landecon-100-3",
-      "landecon-100-4",
-      "landecon-101-1",
-      "landecon-101-2",
-      "landecon-101-3",
-      "landecon-101-4",
-      "landecon-102-1",
-      "landecon-102-2",
-      "landecon-102-3",
       "landecon-99-1",
-      "landecon-99-2",
-      "landecon-99-3",
-      "landecon-99-4",
       "lup-169-c",
       "qje-138-2",
       "qje-138-3",
@@ -3611,27 +3597,13 @@
       "discovered": 15,
       "archived": 15,
       "content_ready": 15,
-      "source_verified": 0,
-      "publication_ready": 0,
+      "source_verified": 14,
+      "publication_ready": 14,
       "missing": 0,
-      "source_pending": 15,
+      "source_pending": 1,
       "missing_issue_ids": [],
       "source_pending_issue_ids": [
-        "landecon-100-1",
-        "landecon-100-2",
-        "landecon-100-3",
-        "landecon-100-4",
-        "landecon-101-1",
-        "landecon-101-2",
-        "landecon-101-3",
-        "landecon-101-4",
-        "landecon-102-1",
-        "landecon-102-2",
-        "landecon-102-3",
-        "landecon-99-1",
-        "landecon-99-2",
-        "landecon-99-3",
-        "landecon-99-4"
+        "landecon-99-1"
       ],
       "blocked_issue_ids": [],
       "years": {
@@ -3639,66 +3611,49 @@
           "discovered": 4,
           "archived": 4,
           "content_ready": 4,
-          "source_verified": 0,
-          "publication_ready": 0,
+          "source_verified": 4,
+          "publication_ready": 4,
           "missing": 0,
-          "source_pending": 4,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "landecon-100-1",
-            "landecon-100-2",
-            "landecon-100-3",
-            "landecon-100-4"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "2025": {
           "discovered": 4,
           "archived": 4,
           "content_ready": 4,
-          "source_verified": 0,
-          "publication_ready": 0,
+          "source_verified": 4,
+          "publication_ready": 4,
           "missing": 0,
-          "source_pending": 4,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "landecon-101-1",
-            "landecon-101-2",
-            "landecon-101-3",
-            "landecon-101-4"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "2026": {
           "discovered": 3,
           "archived": 3,
           "content_ready": 3,
-          "source_verified": 0,
-          "publication_ready": 0,
+          "source_verified": 3,
+          "publication_ready": 3,
           "missing": 0,
-          "source_pending": 3,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "landecon-102-1",
-            "landecon-102-2",
-            "landecon-102-3"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "2023": {
           "discovered": 4,
           "archived": 4,
           "content_ready": 4,
-          "source_verified": 0,
-          "publication_ready": 0,
+          "source_verified": 3,
+          "publication_ready": 3,
           "missing": 0,
-          "source_pending": 4,
+          "source_pending": 1,
           "missing_issue_ids": [],
           "source_pending_issue_ids": [
-            "landecon-99-1",
-            "landecon-99-2",
-            "landecon-99-3",
-            "landecon-99-4"
+            "landecon-99-1"
           ],
           "blocked_issue_ids": []
         }
@@ -17281,83 +17236,83 @@
         "year": 2024,
         "volume": "100",
         "issue": "1",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "landecon-100-2",
         "year": 2024,
         "volume": "100",
         "issue": "2",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "landecon-100-3",
         "year": 2024,
         "volume": "100",
         "issue": "3",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "landecon-100-4",
         "year": 2024,
         "volume": "100",
         "issue": "4",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "landecon-101-1",
         "year": 2025,
         "volume": "101",
         "issue": "1",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "landecon-101-2",
         "year": 2025,
         "volume": "101",
         "issue": "2",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "landecon-101-3",
         "year": 2025,
         "volume": "101",
         "issue": "3",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "archive_content_gate_failed",
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -17365,48 +17320,48 @@
         "year": 2025,
         "volume": "101",
         "issue": "4",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "landecon-102-1",
         "year": 2026,
         "volume": "102",
         "issue": "1",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "landecon-102-2",
         "year": 2026,
         "volume": "102",
         "issue": "2",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "landecon-102-3",
         "year": 2026,
         "volume": "102",
         "issue": "3",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "landecon-99-1",
@@ -17425,36 +17380,36 @@
         "year": 2023,
         "volume": "99",
         "issue": "2",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "landecon-99-3",
         "year": 2023,
         "volume": "99",
         "issue": "3",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "landecon-99-4",
         "year": 2023,
         "volume": "99",
         "issue": "4",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       }
     ],
     "LUP": [
@@ -20601,22 +20556,22 @@
   "periods": {
     "2023-2024": {
       "summary": {
-        "complete": 450,
+        "complete": 457,
         "translation_partial": 44,
         "blocked": 108,
         "collected": 0,
-        "pending": 106
+        "pending": 99
       },
       "issue_count": 708,
-      "updated_at": "2026-08-24T10:25:16+00:00",
+      "updated_at": "2026-08-24T11:02:40+00:00",
       "coverage": {
         "discovered": 708,
         "archived": 556,
         "content_ready": 556,
-        "source_verified": 450,
-        "publication_ready": 450,
+        "source_verified": 457,
+        "publication_ready": 457,
         "missing": 152,
-        "source_pending": 106,
+        "source_pending": 99,
         "missing_issue_ids": [
           "ecolecon-204-c",
           "ecolecon-205-c",
@@ -20843,14 +20798,7 @@
           "jpe-131-8",
           "jpe-131-9",
           "jpe-132-4",
-          "landecon-100-1",
-          "landecon-100-2",
-          "landecon-100-3",
-          "landecon-100-4",
           "landecon-99-1",
-          "landecon-99-2",
-          "landecon-99-3",
-          "landecon-99-4",
           "qje-138-2",
           "qje-138-3",
           "qje-138-4",
@@ -20891,7 +20839,7 @@
         "pending": 0
       },
       "issue_count": 162,
-      "updated_at": "2026-08-24T10:25:22+00:00",
+      "updated_at": "2026-08-24T11:02:45+00:00",
       "coverage": {
         "discovered": 162,
         "archived": 160,
@@ -20981,11 +20929,11 @@
   "years": {
     "2023": {
       "summary": {
-        "complete": 212,
+        "complete": 215,
         "translation_partial": 26,
         "blocked": 58,
         "collected": 0,
-        "pending": 56
+        "pending": 53
       },
       "issue_count": 352,
       "journals": [
@@ -21043,10 +20991,10 @@
         "discovered": 352,
         "archived": 268,
         "content_ready": 268,
-        "source_verified": 212,
-        "publication_ready": 212,
+        "source_verified": 215,
+        "publication_ready": 215,
         "missing": 84,
-        "source_pending": 56,
+        "source_pending": 53,
         "missing_issue_ids": [
           "ecolecon-204-c",
           "ecolecon-205-c",
@@ -21176,9 +21124,6 @@
           "jpe-131-8",
           "jpe-131-9",
           "landecon-99-1",
-          "landecon-99-2",
-          "landecon-99-3",
-          "landecon-99-4",
           "qje-138-2",
           "qje-138-3",
           "qje-138-4",
@@ -21790,16 +21735,13 @@
           "discovered": 4,
           "archived": 4,
           "content_ready": 4,
-          "source_verified": 0,
-          "publication_ready": 0,
+          "source_verified": 3,
+          "publication_ready": 3,
           "missing": 0,
-          "source_pending": 4,
+          "source_pending": 1,
           "missing_issue_ids": [],
           "source_pending_issue_ids": [
-            "landecon-99-1",
-            "landecon-99-2",
-            "landecon-99-3",
-            "landecon-99-4"
+            "landecon-99-1"
           ],
           "blocked_issue_ids": []
         },
@@ -21970,11 +21912,11 @@
     },
     "2024": {
       "summary": {
-        "complete": 237,
+        "complete": 241,
         "translation_partial": 18,
         "blocked": 50,
         "collected": 0,
-        "pending": 50
+        "pending": 46
       },
       "issue_count": 355,
       "journals": [
@@ -22032,10 +21974,10 @@
         "discovered": 355,
         "archived": 287,
         "content_ready": 287,
-        "source_verified": 237,
-        "publication_ready": 237,
+        "source_verified": 241,
+        "publication_ready": 241,
         "missing": 68,
-        "source_pending": 50,
+        "source_pending": 46,
         "missing_issue_ids": [
           "ecolecon-220-c",
           "ecolecon-224-c",
@@ -22137,10 +22079,6 @@
           "jf-79-5",
           "jf-79-6",
           "jpe-132-4",
-          "landecon-100-1",
-          "landecon-100-2",
-          "landecon-100-3",
-          "landecon-100-4",
           "qje-139-2",
           "qje-139-3",
           "qje-139-4",
@@ -22727,17 +22665,12 @@
           "discovered": 4,
           "archived": 4,
           "content_ready": 4,
-          "source_verified": 0,
-          "publication_ready": 0,
+          "source_verified": 4,
+          "publication_ready": 4,
           "missing": 0,
-          "source_pending": 4,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "landecon-100-1",
-            "landecon-100-2",
-            "landecon-100-3",
-            "landecon-100-4"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "LUP": {
@@ -22906,11 +22839,11 @@
     },
     "2025": {
       "summary": {
-        "complete": 272,
+        "complete": 276,
         "translation_partial": 0,
         "blocked": 5,
         "collected": 0,
-        "pending": 68
+        "pending": 64
       },
       "issue_count": 345,
       "journals": [
@@ -22968,10 +22901,10 @@
         "discovered": 345,
         "archived": 340,
         "content_ready": 340,
-        "source_verified": 272,
-        "publication_ready": 272,
+        "source_verified": 276,
+        "publication_ready": 276,
         "missing": 5,
-        "source_pending": 68,
+        "source_pending": 64,
         "missing_issue_ids": [
           "foodpolicy-134-c",
           "foodpolicy-137-c",
@@ -23016,10 +22949,6 @@
           "jle-43-1",
           "jle-43-3",
           "jle-43-4",
-          "landecon-101-1",
-          "landecon-101-2",
-          "landecon-101-3",
-          "landecon-101-4",
           "qje-140-1",
           "qje-140-2",
           "qje-140-3",
@@ -23562,17 +23491,12 @@
           "discovered": 4,
           "archived": 4,
           "content_ready": 4,
-          "source_verified": 0,
-          "publication_ready": 0,
+          "source_verified": 4,
+          "publication_ready": 4,
           "missing": 0,
-          "source_pending": 4,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "landecon-101-1",
-            "landecon-101-2",
-            "landecon-101-3",
-            "landecon-101-4"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "LUP": {
@@ -23737,11 +23661,11 @@
     },
     "2026": {
       "summary": {
-        "complete": 194,
+        "complete": 197,
         "translation_partial": 0,
         "blocked": 23,
         "collected": 0,
-        "pending": 62
+        "pending": 59
       },
       "issue_count": 279,
       "journals": [
@@ -23799,10 +23723,10 @@
         "discovered": 279,
         "archived": 256,
         "content_ready": 256,
-        "source_verified": 194,
-        "publication_ready": 194,
+        "source_verified": 197,
+        "publication_ready": 197,
         "missing": 23,
-        "source_pending": 62,
+        "source_pending": 59,
         "missing_issue_ids": [
           "ecolecon-250-c",
           "energy-162-c",
@@ -23872,9 +23796,6 @@
           "jpube-259-c",
           "jpube-260-c",
           "jue-153-c",
-          "landecon-102-1",
-          "landecon-102-2",
-          "landecon-102-3",
           "lup-169-c",
           "qje-141-1",
           "qje-141-2",
@@ -24444,16 +24365,12 @@
           "discovered": 3,
           "archived": 3,
           "content_ready": 3,
-          "source_verified": 0,
-          "publication_ready": 0,
+          "source_verified": 3,
+          "publication_ready": 3,
           "missing": 0,
-          "source_pending": 3,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "landecon-102-1",
-            "landecon-102-2",
-            "landecon-102-3"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "LUP": {
