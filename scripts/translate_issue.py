@@ -153,6 +153,29 @@ NUMBER_VALUES_ZH = {
     value: NUMBER_WORDS_ZH[word]
     for word, value in NUMBER_WORD_VALUES.items()
 }
+CENTURY_ORDINAL_VALUES = {
+    "first": 1,
+    "second": 2,
+    "third": 3,
+    "fourth": 4,
+    "fifth": 5,
+    "sixth": 6,
+    "seventh": 7,
+    "eighth": 8,
+    "ninth": 9,
+    "tenth": 10,
+    "eleventh": 11,
+    "twelfth": 12,
+    "thirteenth": 13,
+    "fourteenth": 14,
+    "fifteenth": 15,
+    "sixteenth": 16,
+    "seventeenth": 17,
+    "eighteenth": 18,
+    "nineteenth": 19,
+    "twentieth": 20,
+    "twenty-first": 21,
+}
 
 
 class TranslationError(RuntimeError):
@@ -711,6 +734,20 @@ def _normalize_written_number_translations(source: str, translated: str) -> str:
     """
 
     normalized = _canonicalize_chinese_numerals(source, translated)
+    century_pattern = re.compile(
+        r"\b(" + "|".join(
+            sorted(CENTURY_ORDINAL_VALUES, key=len, reverse=True)
+        ) + r")\s+century\b",
+        re.IGNORECASE,
+    )
+    for match in century_pattern.finditer(source):
+        value = CENTURY_ORDINAL_VALUES[match.group(1).lower()]
+        normalized, _changed = re.subn(
+            rf"(?<!\d){value}\s*世纪",
+            _zh_integer(value) + "世纪",
+            normalized,
+            count=1,
+        )
     month_abbreviations = {
         "jan": "January", "feb": "February", "mar": "March", "apr": "April",
         "may": "May", "jun": "June", "jul": "July", "aug": "August",
