@@ -1,13 +1,13 @@
 # Field journal history backfill status
 
-Updated: 2026-08-24T13:15:49+00:00
+Updated: 2026-08-24T14:40:00+00:00
 
-Discovery coverage: 1331 discovered · 1151 archived · 937 publication ready · 180 missing · 214 source pending
+Discovery coverage: 1331 discovered · 1157 archived · 940 publication ready · 174 missing · 217 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 457 | 44 | 108 | 99 |
-| 2023-2026 | 160 | 1 | 1 | 0 |
+| 2023-2024 | 460 | 38 | 108 | 102 |
+| 2023-2026 | 160 | 0 | 1 | 1 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
 | 2026-2026 | 6 | 0 | 0 | 0 |
@@ -177,7 +177,7 @@ Discovery coverage: 1331 discovered · 1151 archived · 937 publication ready ·
 | CER | cer-99-c | 2026 | ready |  |
 | ECOLECON | ecolecon-203-c | 2023 | ready |  |
 | ECOLECON | ecolecon-204-c | 2023 | blocked | possible_incomplete_volume: 14 articles collected vs current issue 30; needs off |
-| ECOLECON | ecolecon-205-c | 2023 | translation_partial |  |
+| ECOLECON | ecolecon-205-c | 2023 | ready |  |
 | ECOLECON | ecolecon-206-c | 2023 | ready |  |
 | ECOLECON | ecolecon-207-c | 2023 | ready |  |
 | ECOLECON | ecolecon-208-c | 2023 | ready |  |
@@ -326,7 +326,7 @@ Discovery coverage: 1331 discovered · 1151 archived · 937 publication ready ·
 | ENERGY | energy-127-c | 2023 | blocked | possible_incomplete_volume: 7 articles collected vs current issue 57; needs offi |
 | ENERGY | energy-128-c | 2023 | ready |  |
 | ENERGY | energy-129-c | 2024 | translation_partial |  |
-| ENERGY | energy-130-c | 2024 | translation_partial |  |
+| ENERGY | energy-130-c | 2024 | ready |  |
 | ENERGY | energy-131-c | 2024 | ready |  |
 | ENERGY | energy-132-c | 2024 | ready |  |
 | ENERGY | energy-133-c | 2024 | ready |  |
@@ -1081,7 +1081,7 @@ Discovery coverage: 1331 discovered · 1151 archived · 937 publication ready ·
 | LANDECON | landecon-102-1 | 2026 | ready |  |
 | LANDECON | landecon-102-2 | 2026 | ready |  |
 | LANDECON | landecon-102-3 | 2026 | ready |  |
-| LANDECON | landecon-99-1 | 2023 | source_pending |  |
+| LANDECON | landecon-99-1 | 2023 | source_pending | archive_content_gate_failed |
 | LANDECON | landecon-99-2 | 2023 | ready |  |
 | LANDECON | landecon-99-3 | 2023 | ready |  |
 | LANDECON | landecon-99-4 | 2023 | ready |  |
@@ -1089,7 +1089,7 @@ Discovery coverage: 1331 discovered · 1151 archived · 937 publication ready ·
 | LUP | lup-125-c | 2023 | ready |  |
 | LUP | lup-126-c | 2023 | translation_partial |  |
 | LUP | lup-127-c | 2023 | ready |  |
-| LUP | lup-128-c | 2023 | translation_partial |  |
+| LUP | lup-128-c | 2023 | ready |  |
 | LUP | lup-129-c | 2023 | ready |  |
 | LUP | lup-130-c | 2023 | ready |  |
 | LUP | lup-131-c | 2023 | ready |  |
@@ -1199,10 +1199,10 @@ Discovery coverage: 1331 discovered · 1151 archived · 937 publication ready ·
 | RES | res-90-3 | 2023 | source_pending | source authority pending official verification |
 | RES | res-90-4 | 2023 | blocked | possible_incomplete_volume: 8 articles collected vs current issue 20; needs offi |
 | RES | res-90-5 | 2023 | translation_partial |  |
-| RES | res-90-6 | 2023 | translation_partial |  |
+| RES | res-90-6 | 2023 | source_pending | source authority pending official verification |
 | RES | res-91-1 | 2024 | source_pending | source authority pending official verification |
 | RES | res-91-2 | 2024 | source_pending | source authority pending official verification |
-| RES | res-91-3 | 2024 | translation_partial |  |
+| RES | res-91-3 | 2024 | source_pending | source authority pending official verification |
 | RES | res-91-4 | 2024 | source_pending | source authority pending official verification |
 | RES | res-91-5 | 2024 | source_pending | source authority pending official verification |
 | RES | res-91-6 | 2024 | source_pending | source authority pending official verification |
@@ -1219,16 +1219,16 @@ Discovery coverage: 1331 discovered · 1151 archived · 937 publication ready ·
 | RESTAT | restat-105-1 | 2023 | blocked | possible_incomplete_volume: 10 articles collected vs current issue 21; needs off |
 | RESTAT | restat-105-2 | 2023 | blocked | possible_incomplete_volume: 9 articles collected vs current issue 21; needs offi |
 | RESTAT | restat-105-3 | 2023 | blocked | possible_incomplete_volume: 5 articles collected vs current issue 21; needs offi |
-| RESTAT | restat-105-4 | 2023 | source_pending | source authority pending official verification |
+| RESTAT | restat-105-4 | 2023 | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs off |
 | RESTAT | restat-105-5 | 2023 | blocked | possible_incomplete_volume: 9 articles collected vs current issue 21; needs offi |
 | RESTAT | restat-105-6 | 2023 | blocked | possible_incomplete_volume: 9 articles collected vs current issue 21; needs offi |
 | RESTAT | restat-106-1 | 2024 | source_pending | source authority pending official verification |
 | RESTAT | restat-106-2 | 2024 | source_pending | source authority pending official verification |
 | RESTAT | restat-106-3 | 2024 | blocked | possible_incomplete_volume: 10 articles collected vs current issue 21; needs off |
 | RESTAT | restat-106-4 | 2024 | source_pending | source authority pending official verification |
-| RESTAT | restat-106-5 | 2024 | source_pending | source authority pending official verification |
+| RESTAT | restat-106-5 | 2024 | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs off |
 | RESTAT | restat-106-6 | 2024 | source_pending | source authority pending official verification |
-| RESTAT | restat-107-1 | 2025 | source_pending | source authority pending official verification |
+| RESTAT | restat-107-1 | 2025 | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs off |
 | RESTAT | restat-107-2 | 2025 | source_pending | source authority pending official verification |
 | RESTAT | restat-107-3 | 2025 | source_pending | source authority pending official verification |
 | RESTAT | restat-107-4 | 2025 | source_pending | source authority pending official verification |
@@ -1248,7 +1248,7 @@ Discovery coverage: 1331 discovered · 1151 archived · 937 publication ready ·
 | RFS | rfs-36-6 | 2023 | ready |  |
 | RFS | rfs-36-7 | 2023 | ready |  |
 | RFS | rfs-36-8 | 2023 | ready |  |
-| RFS | rfs-36-9 | 2023 | translation_partial |  |
+| RFS | rfs-36-9 | 2023 | source_pending |  |
 | RFS | rfs-37-1 | 2023 | ready |  |
 | RFS | rfs-37-10 | 2024 | ready |  |
 | RFS | rfs-37-11 | 2024 | ready |  |

@@ -1,24 +1,23 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-08-24T13:15:49+00:00",
+  "updated_at": "2026-08-24T14:40:00+00:00",
   "summary": {
-    "complete": 937,
-    "translation_partial": 44,
+    "complete": 940,
+    "translation_partial": 38,
     "blocked": 136,
     "collected": 0,
-    "pending": 214
+    "pending": 217
   },
   "coverage": {
     "discovered": 1331,
-    "archived": 1151,
-    "content_ready": 1151,
-    "source_verified": 937,
-    "publication_ready": 937,
-    "missing": 180,
-    "source_pending": 214,
+    "archived": 1157,
+    "content_ready": 1157,
+    "source_verified": 940,
+    "publication_ready": 940,
+    "missing": 174,
+    "source_pending": 217,
     "missing_issue_ids": [
       "ecolecon-204-c",
-      "ecolecon-205-c",
       "ecolecon-220-c",
       "ecolecon-224-c",
       "ecolecon-225-c",
@@ -33,7 +32,6 @@
       "energy-126-c",
       "energy-127-c",
       "energy-129-c",
-      "energy-130-c",
       "energy-134-c",
       "energy-135-c",
       "energy-138-c",
@@ -150,7 +148,6 @@
       "labeco-84-c",
       "labeco-86-c",
       "lup-126-c",
-      "lup-128-c",
       "lup-144-c",
       "lup-146-c",
       "lup-153-c",
@@ -171,15 +168,12 @@
       "res-90-1",
       "res-90-4",
       "res-90-5",
-      "res-90-6",
-      "res-91-3",
       "restat-105-1",
       "restat-105-2",
       "restat-105-3",
       "restat-105-5",
       "restat-105-6",
       "restat-106-3",
-      "rfs-36-9",
       "rfs-39-9",
       "te-18-1",
       "te-18-2",
@@ -377,8 +371,10 @@
       "red-61-c",
       "res-90-2",
       "res-90-3",
+      "res-90-6",
       "res-91-1",
       "res-91-2",
+      "res-91-3",
       "res-91-4",
       "res-91-5",
       "res-91-6",
@@ -408,6 +404,7 @@
       "restat-108-2",
       "restat-108-3",
       "restat-108-4",
+      "rfs-36-9",
       "te-20-1",
       "te-20-2",
       "te-20-3",
@@ -679,24 +676,24 @@
     },
     "RES": {
       "discovered": 22,
-      "archived": 17,
-      "content_ready": 17,
+      "archived": 19,
+      "content_ready": 19,
       "source_verified": 0,
       "publication_ready": 0,
-      "missing": 5,
-      "source_pending": 17,
+      "missing": 3,
+      "source_pending": 19,
       "missing_issue_ids": [
         "res-90-1",
         "res-90-4",
-        "res-90-5",
-        "res-90-6",
-        "res-91-3"
+        "res-90-5"
       ],
       "source_pending_issue_ids": [
         "res-90-2",
         "res-90-3",
+        "res-90-6",
         "res-91-1",
         "res-91-2",
+        "res-91-3",
         "res-91-4",
         "res-91-5",
         "res-91-6",
@@ -715,38 +712,37 @@
       "years": {
         "2023": {
           "discovered": 6,
-          "archived": 2,
-          "content_ready": 2,
+          "archived": 3,
+          "content_ready": 3,
           "source_verified": 0,
           "publication_ready": 0,
-          "missing": 4,
-          "source_pending": 2,
+          "missing": 3,
+          "source_pending": 3,
           "missing_issue_ids": [
             "res-90-1",
             "res-90-4",
-            "res-90-5",
-            "res-90-6"
+            "res-90-5"
           ],
           "source_pending_issue_ids": [
             "res-90-2",
-            "res-90-3"
+            "res-90-3",
+            "res-90-6"
           ],
           "blocked_issue_ids": []
         },
         "2024": {
           "discovered": 6,
-          "archived": 5,
-          "content_ready": 5,
+          "archived": 6,
+          "content_ready": 6,
           "source_verified": 0,
           "publication_ready": 0,
-          "missing": 1,
-          "source_pending": 5,
-          "missing_issue_ids": [
-            "res-91-3"
-          ],
+          "missing": 0,
+          "source_pending": 6,
+          "missing_issue_ids": [],
           "source_pending_issue_ids": [
             "res-91-1",
             "res-91-2",
+            "res-91-3",
             "res-91-4",
             "res-91-5",
             "res-91-6"
@@ -2593,31 +2589,32 @@
     },
     "RFS": {
       "discovered": 44,
-      "archived": 42,
-      "content_ready": 42,
+      "archived": 43,
+      "content_ready": 43,
       "source_verified": 42,
       "publication_ready": 42,
-      "missing": 2,
-      "source_pending": 0,
+      "missing": 1,
+      "source_pending": 1,
       "missing_issue_ids": [
-        "rfs-36-9",
         "rfs-39-9"
       ],
-      "source_pending_issue_ids": [],
+      "source_pending_issue_ids": [
+        "rfs-36-9"
+      ],
       "blocked_issue_ids": [],
       "years": {
         "2023": {
           "discovered": 12,
-          "archived": 11,
-          "content_ready": 11,
+          "archived": 12,
+          "content_ready": 12,
           "source_verified": 11,
           "publication_ready": 11,
-          "missing": 1,
-          "source_pending": 0,
-          "missing_issue_ids": [
+          "missing": 0,
+          "source_pending": 1,
+          "missing_issue_ids": [],
+          "source_pending_issue_ids": [
             "rfs-36-9"
           ],
-          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "2024": {
@@ -3623,15 +3620,14 @@
     },
     "LUP": {
       "discovered": 48,
-      "archived": 41,
-      "content_ready": 41,
-      "source_verified": 40,
-      "publication_ready": 40,
-      "missing": 7,
+      "archived": 42,
+      "content_ready": 42,
+      "source_verified": 41,
+      "publication_ready": 41,
+      "missing": 6,
       "source_pending": 1,
       "missing_issue_ids": [
         "lup-126-c",
-        "lup-128-c",
         "lup-144-c",
         "lup-146-c",
         "lup-153-c",
@@ -3645,15 +3641,14 @@
       "years": {
         "2023": {
           "discovered": 12,
-          "archived": 10,
-          "content_ready": 10,
-          "source_verified": 10,
-          "publication_ready": 10,
-          "missing": 2,
+          "archived": 11,
+          "content_ready": 11,
+          "source_verified": 11,
+          "publication_ready": 11,
+          "missing": 1,
           "source_pending": 0,
           "missing_issue_ids": [
-            "lup-126-c",
-            "lup-128-c"
+            "lup-126-c"
           ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
@@ -4024,11 +4019,11 @@
     },
     "ENERGY": {
       "discovered": 46,
-      "archived": 33,
-      "content_ready": 33,
-      "source_verified": 33,
-      "publication_ready": 33,
-      "missing": 13,
+      "archived": 34,
+      "content_ready": 34,
+      "source_verified": 34,
+      "publication_ready": 34,
+      "missing": 12,
       "source_pending": 0,
       "missing_issue_ids": [
         "energy-120-c",
@@ -4038,7 +4033,6 @@
         "energy-126-c",
         "energy-127-c",
         "energy-129-c",
-        "energy-130-c",
         "energy-134-c",
         "energy-135-c",
         "energy-138-c",
@@ -4069,15 +4063,14 @@
         },
         "2024": {
           "discovered": 12,
-          "archived": 6,
-          "content_ready": 6,
-          "source_verified": 6,
-          "publication_ready": 6,
-          "missing": 6,
+          "archived": 7,
+          "content_ready": 7,
+          "source_verified": 7,
+          "publication_ready": 7,
+          "missing": 5,
           "source_pending": 0,
           "missing_issue_ids": [
             "energy-129-c",
-            "energy-130-c",
             "energy-134-c",
             "energy-135-c",
             "energy-138-c",
@@ -4116,15 +4109,14 @@
     },
     "ECOLECON": {
       "discovered": 48,
-      "archived": 42,
-      "content_ready": 42,
-      "source_verified": 42,
-      "publication_ready": 42,
-      "missing": 6,
+      "archived": 43,
+      "content_ready": 43,
+      "source_verified": 43,
+      "publication_ready": 43,
+      "missing": 5,
       "source_pending": 0,
       "missing_issue_ids": [
         "ecolecon-204-c",
-        "ecolecon-205-c",
         "ecolecon-220-c",
         "ecolecon-224-c",
         "ecolecon-225-c",
@@ -4135,15 +4127,14 @@
       "years": {
         "2023": {
           "discovered": 12,
-          "archived": 10,
-          "content_ready": 10,
-          "source_verified": 10,
-          "publication_ready": 10,
-          "missing": 2,
+          "archived": 11,
+          "content_ready": 11,
+          "source_verified": 11,
+          "publication_ready": 11,
+          "missing": 1,
           "source_pending": 0,
           "missing_issue_ids": [
-            "ecolecon-204-c",
-            "ecolecon-205-c"
+            "ecolecon-204-c"
           ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
@@ -6422,12 +6413,12 @@
         "year": 2023,
         "volume": "205",
         "issue": "c",
-        "status": "translation_partial",
-        "content_status": "translation_partial",
+        "status": "ready",
+        "content_status": "complete",
         "source_status": "publisher_verified",
-        "publication_state": "translation_partial",
+        "publication_state": "ready",
         "last_error": "",
-        "retry_class": "translation"
+        "retry_class": "manual"
       },
       {
         "issue_id": "ecolecon-206-c",
@@ -8218,12 +8209,12 @@
         "year": 2024,
         "volume": "130",
         "issue": "c",
-        "status": "translation_partial",
-        "content_status": "translation_partial",
+        "status": "ready",
+        "content_status": "complete",
         "source_status": "publisher_verified",
-        "publication_state": "translation_partial",
+        "publication_state": "ready",
         "last_error": "",
-        "retry_class": "translation"
+        "retry_class": "manual"
       },
       {
         "issue_id": "energy-131-c",
@@ -17334,8 +17325,8 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
-        "retry_class": "translation"
+        "last_error": "archive_content_gate_failed",
+        "retry_class": "manual"
       },
       {
         "issue_id": "landecon-99-2",
@@ -17428,12 +17419,12 @@
         "year": 2023,
         "volume": "128",
         "issue": "c",
-        "status": "translation_partial",
-        "content_status": "translation_partial",
+        "status": "ready",
+        "content_status": "complete",
         "source_status": "publisher_verified",
-        "publication_state": "translation_partial",
+        "publication_state": "ready",
         "last_error": "",
-        "retry_class": "translation"
+        "retry_class": "manual"
       },
       {
         "issue_id": "lup-129-c",
@@ -18758,12 +18749,12 @@
         "year": 2023,
         "volume": "90",
         "issue": "6",
-        "status": "translation_partial",
-        "content_status": "translation_partial",
+        "status": "source_pending",
+        "content_status": "complete",
         "source_status": "source_pending",
-        "publication_state": "translation_partial",
-        "last_error": "",
-        "retry_class": "translation"
+        "publication_state": "source_pending",
+        "last_error": "source authority pending official verification",
+        "retry_class": "source"
       },
       {
         "issue_id": "res-91-1",
@@ -18794,12 +18785,12 @@
         "year": 2024,
         "volume": "91",
         "issue": "3",
-        "status": "translation_partial",
-        "content_status": "translation_partial",
+        "status": "source_pending",
+        "content_status": "complete",
         "source_status": "source_pending",
-        "publication_state": "translation_partial",
-        "last_error": "",
-        "retry_class": "translation"
+        "publication_state": "source_pending",
+        "last_error": "source authority pending official verification",
+        "retry_class": "source"
       },
       {
         "issue_id": "res-91-4",
@@ -19004,8 +18995,8 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "possible_incomplete_volume: 10 articles collected vs current issue 21; needs official page or browser-authorized capture",
+        "retry_class": "manual"
       },
       {
         "issue_id": "restat-105-5",
@@ -19088,8 +19079,8 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "possible_incomplete_volume: 10 articles collected vs current issue 21; needs official page or browser-authorized capture",
+        "retry_class": "manual"
       },
       {
         "issue_id": "restat-106-6",
@@ -19112,8 +19103,8 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "possible_incomplete_volume: 10 articles collected vs current issue 21; needs official page or browser-authorized capture",
+        "retry_class": "manual"
       },
       {
         "issue_id": "restat-107-2",
@@ -19350,10 +19341,10 @@
         "year": 2023,
         "volume": "36",
         "issue": "9",
-        "status": "translation_partial",
-        "content_status": "translation_partial",
+        "status": "source_pending",
+        "content_status": "complete",
         "source_status": "source_pending",
-        "publication_state": "translation_partial",
+        "publication_state": "source_pending",
         "last_error": "",
         "retry_class": "translation"
       },
@@ -20518,25 +20509,24 @@
   "periods": {
     "2023-2024": {
       "summary": {
-        "complete": 457,
-        "translation_partial": 44,
+        "complete": 460,
+        "translation_partial": 38,
         "blocked": 108,
         "collected": 0,
-        "pending": 99
+        "pending": 102
       },
       "issue_count": 708,
-      "updated_at": "2026-08-24T13:07:37+00:00",
+      "updated_at": "2026-08-24T14:38:54+00:00",
       "coverage": {
         "discovered": 708,
-        "archived": 556,
-        "content_ready": 556,
-        "source_verified": 457,
-        "publication_ready": 457,
-        "missing": 152,
-        "source_pending": 99,
+        "archived": 562,
+        "content_ready": 562,
+        "source_verified": 460,
+        "publication_ready": 460,
+        "missing": 146,
+        "source_pending": 102,
         "missing_issue_ids": [
           "ecolecon-204-c",
-          "ecolecon-205-c",
           "ecolecon-220-c",
           "ecolecon-224-c",
           "ecolecon-225-c",
@@ -20550,7 +20540,6 @@
           "energy-126-c",
           "energy-127-c",
           "energy-129-c",
-          "energy-130-c",
           "energy-134-c",
           "energy-135-c",
           "energy-138-c",
@@ -20652,7 +20641,6 @@
           "labeco-84-c",
           "labeco-86-c",
           "lup-126-c",
-          "lup-128-c",
           "lup-144-c",
           "lup-146-c",
           "qje-139-1",
@@ -20667,15 +20655,12 @@
           "res-90-1",
           "res-90-4",
           "res-90-5",
-          "res-90-6",
-          "res-91-3",
           "restat-105-1",
           "restat-105-2",
           "restat-105-3",
           "restat-105-5",
           "restat-105-6",
           "restat-106-3",
-          "rfs-36-9",
           "te-18-1",
           "te-18-2",
           "te-18-3",
@@ -20777,8 +20762,10 @@
           "red-54-c",
           "res-90-2",
           "res-90-3",
+          "res-90-6",
           "res-91-1",
           "res-91-2",
+          "res-91-3",
           "res-91-4",
           "res-91-5",
           "res-91-6",
@@ -20787,7 +20774,8 @@
           "restat-106-2",
           "restat-106-4",
           "restat-106-5",
-          "restat-106-6"
+          "restat-106-6",
+          "rfs-36-9"
         ],
         "blocked_issue_ids": []
       }
@@ -20795,26 +20783,27 @@
     "2023-2026": {
       "summary": {
         "complete": 160,
-        "translation_partial": 1,
+        "translation_partial": 0,
         "blocked": 1,
         "collected": 0,
-        "pending": 0
+        "pending": 1
       },
       "issue_count": 162,
-      "updated_at": "2026-08-24T13:07:44+00:00",
+      "updated_at": "2026-08-24T14:39:01+00:00",
       "coverage": {
         "discovered": 162,
-        "archived": 160,
-        "content_ready": 160,
+        "archived": 161,
+        "content_ready": 161,
         "source_verified": 160,
         "publication_ready": 160,
-        "missing": 2,
-        "source_pending": 0,
+        "missing": 1,
+        "source_pending": 1,
         "missing_issue_ids": [
-          "rfs-36-9",
           "rfs-39-9"
         ],
-        "source_pending_issue_ids": [],
+        "source_pending_issue_ids": [
+          "rfs-36-9"
+        ],
         "blocked_issue_ids": []
       }
     },
@@ -20891,11 +20880,11 @@
   "years": {
     "2023": {
       "summary": {
-        "complete": 215,
-        "translation_partial": 26,
+        "complete": 217,
+        "translation_partial": 22,
         "blocked": 58,
         "collected": 0,
-        "pending": 53
+        "pending": 55
       },
       "issue_count": 352,
       "journals": [
@@ -20951,15 +20940,14 @@
       ],
       "coverage": {
         "discovered": 352,
-        "archived": 268,
-        "content_ready": 268,
-        "source_verified": 215,
-        "publication_ready": 215,
-        "missing": 84,
-        "source_pending": 53,
+        "archived": 272,
+        "content_ready": 272,
+        "source_verified": 217,
+        "publication_ready": 217,
+        "missing": 80,
+        "source_pending": 55,
         "missing_issue_ids": [
           "ecolecon-204-c",
-          "ecolecon-205-c",
           "ecta-91-2",
           "ecta-91-3",
           "energy-120-c",
@@ -21022,7 +21010,6 @@
           "labeco-81-c",
           "labeco-84-c",
           "lup-126-c",
-          "lup-128-c",
           "rand-54-1",
           "rand-54-2",
           "rand-54-3",
@@ -21030,13 +21017,11 @@
           "res-90-1",
           "res-90-4",
           "res-90-5",
-          "res-90-6",
           "restat-105-1",
           "restat-105-2",
           "restat-105-3",
           "restat-105-5",
           "restat-105-6",
-          "rfs-36-9",
           "te-18-1",
           "te-18-2",
           "te-18-3",
@@ -21096,7 +21081,9 @@
           "red-51-c",
           "res-90-2",
           "res-90-3",
-          "restat-105-4"
+          "res-90-6",
+          "restat-105-4",
+          "rfs-36-9"
         ],
         "blocked_issue_ids": []
       },
@@ -21207,15 +21194,14 @@
         },
         "ECOLECON": {
           "discovered": 12,
-          "archived": 10,
-          "content_ready": 10,
-          "source_verified": 10,
-          "publication_ready": 10,
-          "missing": 2,
+          "archived": 11,
+          "content_ready": 11,
+          "source_verified": 11,
+          "publication_ready": 11,
+          "missing": 1,
           "source_pending": 0,
           "missing_issue_ids": [
-            "ecolecon-204-c",
-            "ecolecon-205-c"
+            "ecolecon-204-c"
           ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
@@ -21709,15 +21695,14 @@
         },
         "LUP": {
           "discovered": 12,
-          "archived": 10,
-          "content_ready": 10,
-          "source_verified": 10,
-          "publication_ready": 10,
-          "missing": 2,
+          "archived": 11,
+          "content_ready": 11,
+          "source_verified": 11,
+          "publication_ready": 11,
+          "missing": 1,
           "source_pending": 0,
           "missing_issue_ids": [
-            "lup-126-c",
-            "lup-128-c"
+            "lup-126-c"
           ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
@@ -21787,21 +21772,21 @@
         },
         "RES": {
           "discovered": 6,
-          "archived": 2,
-          "content_ready": 2,
+          "archived": 3,
+          "content_ready": 3,
           "source_verified": 0,
           "publication_ready": 0,
-          "missing": 4,
-          "source_pending": 2,
+          "missing": 3,
+          "source_pending": 3,
           "missing_issue_ids": [
             "res-90-1",
             "res-90-4",
-            "res-90-5",
-            "res-90-6"
+            "res-90-5"
           ],
           "source_pending_issue_ids": [
             "res-90-2",
-            "res-90-3"
+            "res-90-3",
+            "res-90-6"
           ],
           "blocked_issue_ids": []
         },
@@ -21827,16 +21812,16 @@
         },
         "RFS": {
           "discovered": 12,
-          "archived": 11,
-          "content_ready": 11,
+          "archived": 12,
+          "content_ready": 12,
           "source_verified": 11,
           "publication_ready": 11,
-          "missing": 1,
-          "source_pending": 0,
-          "missing_issue_ids": [
+          "missing": 0,
+          "source_pending": 1,
+          "missing_issue_ids": [],
+          "source_pending_issue_ids": [
             "rfs-36-9"
           ],
-          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "TE": {
@@ -21874,11 +21859,11 @@
     },
     "2024": {
       "summary": {
-        "complete": 241,
-        "translation_partial": 18,
+        "complete": 242,
+        "translation_partial": 16,
         "blocked": 50,
         "collected": 0,
-        "pending": 46
+        "pending": 47
       },
       "issue_count": 355,
       "journals": [
@@ -21934,19 +21919,18 @@
       ],
       "coverage": {
         "discovered": 355,
-        "archived": 287,
-        "content_ready": 287,
-        "source_verified": 241,
-        "publication_ready": 241,
-        "missing": 68,
-        "source_pending": 46,
+        "archived": 289,
+        "content_ready": 289,
+        "source_verified": 242,
+        "publication_ready": 242,
+        "missing": 66,
+        "source_pending": 47,
         "missing_issue_ids": [
           "ecolecon-220-c",
           "ecolecon-224-c",
           "ecolecon-225-c",
           "eer-162-c",
           "energy-129-c",
-          "energy-130-c",
           "energy-134-c",
           "energy-135-c",
           "energy-138-c",
@@ -22001,7 +21985,6 @@
           "rand-55-2",
           "rand-55-3",
           "rand-55-4",
-          "res-91-3",
           "restat-106-3",
           "te-19-1",
           "te-19-2",
@@ -22049,6 +22032,7 @@
           "red-54-c",
           "res-91-1",
           "res-91-2",
+          "res-91-3",
           "res-91-4",
           "res-91-5",
           "res-91-6",
@@ -22229,15 +22213,14 @@
         },
         "ENERGY": {
           "discovered": 12,
-          "archived": 6,
-          "content_ready": 6,
-          "source_verified": 6,
-          "publication_ready": 6,
-          "missing": 6,
+          "archived": 7,
+          "content_ready": 7,
+          "source_verified": 7,
+          "publication_ready": 7,
+          "missing": 5,
           "source_pending": 0,
           "missing_issue_ids": [
             "energy-129-c",
-            "energy-130-c",
             "energy-134-c",
             "energy-135-c",
             "energy-138-c",
@@ -22715,18 +22698,17 @@
         },
         "RES": {
           "discovered": 6,
-          "archived": 5,
-          "content_ready": 5,
+          "archived": 6,
+          "content_ready": 6,
           "source_verified": 0,
           "publication_ready": 0,
-          "missing": 1,
-          "source_pending": 5,
-          "missing_issue_ids": [
-            "res-91-3"
-          ],
+          "missing": 0,
+          "source_pending": 6,
+          "missing_issue_ids": [],
           "source_pending_issue_ids": [
             "res-91-1",
             "res-91-2",
+            "res-91-3",
             "res-91-4",
             "res-91-5",
             "res-91-6"

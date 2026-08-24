@@ -7,7 +7,7 @@
   "issue": "5",
   "publication_date": "September 2023",
   "source_url": "https://onlinelibrary.wiley.com/toc/14680262/2023/91/5",
-  "retrieved_at": "2026-08-24T07:46:28+00:00",
+  "retrieved_at": "2026-08-24T13:59:58+00:00",
   "expected_article_count": 9,
   "research_article_count": 9,
   "status": "incomplete",
@@ -297,22 +297,23 @@
       }
     },
     {
-      "paper_id": "doi:10.3982/ecta19978",
+      "paper_id": "doi:10.3982/ecta18771",
       "sequence": 8,
-      "source_sequence": 1841,
+      "source_sequence": 1803,
       "article_type": "research-article",
-      "title_en": "Platform Design When Sellers Use Pricing Algorithms",
-      "title_cn": "当卖家使用定价算法时的平台设计",
+      "title_en": "A Quantitative Theory of the Credit Score",
+      "title_cn": "信用评分的定量理论",
       "authors": [
-        "Justin P. Johnson",
-        "Andrew Rhodes",
-        "Matthijs Wildenbeest"
+        "Satyajit Chatterjee",
+        "Dean Corbae",
+        "Kyle Dempsey",
+        "José-Víctor Ríos-Rull"
       ],
-      "abstract_en": "We investigate the ability of a platform to design its marketplace to promote competition, improve consumer surplus, and increase its own payoff. We consider demand‐steering rules that reward firms that cut prices with additional exposure to consumers. We examine the impact of these rules both in theory and by using simulations with artificial intelligence pricing algorithms (specifically Q‐learning algorithms, which are commonly used in computer science). Our theoretical results indicate that these policies (which require little information to implement) can have strongly beneficial effects, even when sellers are infinitely patient and seek to collude. Similarly, our simulations suggest that platform design can benefit consumers and the platform, but that achieving these gains may require policies that condition on past behavior and treat sellers in a nonneutral fashion. These more sophisticated policies disrupt the ability of algorithms to rotate demand and split industry profits, leading to low prices.",
-      "abstract_cn": "我们研究了平台设计其市场以促进竞争、改善消费者剩余并增加自身收益的能力。我们考虑了需求引导规则，这些规则奖励降价企业以额外的消费者曝光。我们在理论上和使用人工智能定价算法（特别是计算机科学中常用的Q学习算法）的模拟中检验了这些规则的影响。我们的理论结果表明，这些政策（实施所需信息很少）可以产生强烈的有益效果，即使卖家无限耐心并试图合谋。同样，我们的模拟表明，平台设计可以使消费者和平台受益，但实现这些收益可能需要基于过去行为并以非中立方式对待卖家的政策。这些更复杂的政策破坏了算法轮换需求和分配行业利润的能力，导致低价格。",
+      "abstract_en": "What is the role of credit scores in credit markets? We argue that it is, in part, the market's assessment of a person's unobservable type, which here we take to be patience. We postulate a model of persistent hidden types where observable actions shape the public assessment of a person's type via Bayesian updating. We show how dynamic reputation can incentivize repayment. Importantly, we show how an economy with credit scores implements the same equilibrium allocation. We estimate the model using both credit market data and the evolution of individuals' credit scores. We conduct counterfactuals to assess how more or less information used in scoring individuals affects outcomes and welfare. If tracking of individual credit actions is outlawed, poor young adults of low type benefit from subsidization by high types despite facing higher interest rates arising from lower dynamic incentives to repay.",
+      "abstract_cn": "信用评分在信贷市场中的作用是什么？我们认为，它部分地是市场对个人不可观测类型的评估，这里我们将其视为耐心程度。我们假设了一个具有持久隐藏类型的模型，其中可观测行为通过贝叶斯更新塑造公众对个人类型的评估。我们展示了动态声誉如何激励还款。重要的是，我们展示了拥有信用评分的经济如何实现相同的均衡配置。我们使用信贷市场数据和个人信用评分的演变来估计模型。我们进行反事实分析，以评估在评分个人时使用更多或更少信息如何影响结果和福利。如果追踪个人信贷行为被禁止，低类型的贫困年轻成年人将受益于高类型的补贴，尽管由于动态还款激励降低而面临更高的利率。",
       "abstract_snippet_en": "",
-      "doi": "10.3982/ecta19978",
-      "source_url": "https://doi.org/10.3982/ecta19978",
+      "doi": "10.3982/ecta18771",
+      "source_url": "https://doi.org/10.3982/ecta18771",
       "publication_date": "2023",
       "sources": {
         "issue": "https://onlinelibrary.wiley.com/toc/14680262/2023/91/5",
@@ -326,8 +327,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "deepseek-chat",
-        "translated_at": "2026-08-10T23:11:53+00:00",
-        "source_hash": "5785af4730564740dcd8b6324356beec9759fe0e0e209279728f78ca73e74a89"
+        "translated_at": "2026-08-24T14:00:00+00:00",
+        "source_hash": "70ab6eb0c38f4eb4a7265c3ea31afe983eaf2cd04cb1fc529e34dcd8e5579134"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -384,7 +385,7 @@
     "roster_authority": "crossref-provisional",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
-    "excluded_item_count": 2,
+    "excluded_item_count": 3,
     "excluded_items": [
       {
         "title_en": "Frontmatter of Econometrica Vol. 91 Iss. 5",
@@ -397,6 +398,12 @@
         "reason": "front_matter",
         "doi": "10.3982/ecta915bm",
         "article_type": "front-matter"
+      },
+      {
+        "title_en": "Forthcoming Papers",
+        "doi": "10.3982/ecta915forth",
+        "article_type": "front-matter",
+        "reason": "front_matter"
       }
     ],
     "doi_complete": 9,
@@ -408,18 +415,18 @@
       "publisher_html_blocked_crossref_fallback",
       "crossref_provisional_roster"
     ],
-    "official_item_count": 11,
+    "official_item_count": 12,
     "publishable_item_count": 9,
     "content_counts": {
-      "official_items": 11,
-      "observed_items": 11,
+      "official_items": 12,
+      "observed_items": 12,
       "publishable_items": 9,
       "research_articles": 9,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
-      "front_matter": 2,
+      "front_matter": 3,
       "other_excluded": 0,
       "catalog_content_items": 9
     }
@@ -427,15 +434,15 @@
   "source_status": "source_pending",
   "publication_state": "source_pending",
   "content_counts": {
-    "official_items": 11,
-    "observed_items": 11,
+    "official_items": 12,
+    "observed_items": 12,
     "publishable_items": 9,
     "research_articles": 9,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
-    "front_matter": 2,
+    "front_matter": 3,
     "other_excluded": 0,
     "catalog_content_items": 9
   },

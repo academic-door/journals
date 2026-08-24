@@ -7,29 +7,27 @@
   "issue": "2",
   "publication_date": "April 2023",
   "source_url": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/2",
-  "retrieved_at": "2026-08-24T07:45:06+00:00",
+  "retrieved_at": "2026-08-24T13:58:10+00:00",
   "expected_article_count": 10,
   "research_article_count": 10,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1111/jofi.13190",
+      "paper_id": "doi:10.1111/jofi.13213",
       "sequence": 1,
-      "source_sequence": 693,
+      "source_sequence": 731,
       "article_type": "research-article",
-      "title_en": "Pricing Currency Risks",
-      "title_cn": "货币风险定价",
+      "title_en": "A Model of Systemic Bank Runs",
+      "title_cn": "系统性银行挤兑模型",
       "authors": [
-        "MIKHAIL CHERNOV",
-        "MAGNUS DAHLQUIST",
-        "LARS LOCHSTOER"
+        "XUEWEN LIU"
       ],
-      "abstract_en": "The currency market features a small cross‐section, and conditional expected returns can be characterized by few signals: interest differential, trend, and mean reversion. We exploit these properties to construct the ex ante mean‐variance efficient portfolio of individual currencies. The portfolio is updated in real time and prices all prominent currency trading strategies, conditionally and unconditionally. The fraction of risk in these assets that does not affect their risk premiums is at least 85%. Extant explanations of carry strategies based on intermediary capital or global volatility are related to these unpriced components, while consumption growth is related to the priced component of returns.",
-      "abstract_cn": "货币市场具有较小的横截面，条件预期收益可以通过少数信号来刻画：利率差异、趋势和均值回归。我们利用这些特性构建了事前均值-方差有效的单一货币投资组合。该组合实时更新，并在条件和非条件下对所有显著的货币交易策略进行定价。这些资产中不影响其风险溢价的风险比例至少为85%。基于中介资本或全球波动性的利差交易策略的现有解释与这些未定价成分相关，而消费增长则与收益的定价成分相关。",
+      "abstract_en": "We develop a tractable model of systemic bank runs. The market‐based banking system features a two‐layer structure: banks with heterogeneous fundamentals face potential runs by their creditors while they trade short‐term funding in the asset (interbank) market in response to creditor withdrawals. The possibility of a run on a particular bank depends on its assets' interim liquidation value, and this value depends endogenously in turn on the status of other banks in the asset market. The within‐bank coordination problem among creditors and the cross‐bank price externality feed into each other. A small shock can be amplified into a systemic crisis.",
+      "abstract_cn": "我们构建了一个易于处理的系统性银行挤兑模型。基于市场的银行体系具有两层结构：具有异质性基本面的银行面临其债权人的潜在挤兑，同时它们在资产（银行间）市场上交易短期资金以应对债权人提款。对特定银行发生挤兑的可能性取决于其资产的临时清算价值，而该价值又内生地取决于其他银行在资产市场中的状况。银行内部的债权人协调问题与银行间的价格外部性相互影响。一个小的冲击可能被放大为系统性危机。",
       "abstract_snippet_en": "",
-      "doi": "10.1111/jofi.13190",
-      "source_url": "https://doi.org/10.1111/jofi.13190",
+      "doi": "10.1111/jofi.13213",
+      "source_url": "https://doi.org/10.1111/jofi.13213",
       "publication_date": "2023",
       "sources": {
         "issue": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/2",
@@ -43,8 +41,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "deepseek-chat",
-        "translated_at": "2026-08-15T22:56:42+00:00",
-        "source_hash": "ad3ff8445a5309caf855413d4f1d788915a4e24eb5e79a60d3a25c074a3cd9a8"
+        "translated_at": "2026-08-24T13:58:12+00:00",
+        "source_hash": "d789804e90e7a62b56ac4bb7bd32b992ce7c78519b544d71156a1e785f6c2678"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -435,7 +433,7 @@
     "roster_authority": "crossref-provisional",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
-    "excluded_item_count": 6,
+    "excluded_item_count": 4,
     "excluded_items": [
       {
         "title_en": "ANNOUNCEMENTS",
@@ -444,22 +442,10 @@
         "article_type": "research-article"
       },
       {
-        "title_en": "Report of the Editor of <i>T</i><i>he</i><i>Journal of Finance</i> for the Year 2022",
-        "reason": "editorial_material",
-        "doi": "10.1111/jofi.13215",
-        "article_type": "editorial"
-      },
-      {
         "title_en": "Report of the 2023 Annual Membership Meeting",
         "reason": "editorial_material",
         "doi": "10.1111/jofi.13210",
         "article_type": "editorial"
-      },
-      {
-        "title_en": "AMERICAN FINANCE ASSOCIATION",
-        "reason": "non_publishable_item",
-        "doi": "10.1111/jofi.13042",
-        "article_type": "research-article"
       },
       {
         "title_en": "ISSUE INFORMATION FM",
@@ -468,10 +454,10 @@
         "article_type": "front-matter"
       },
       {
-        "title_en": "Report of the Executive Secretary and Treasurer for the Fiscal Year Ending June 30, 2022",
-        "doi": "10.1111/jofi.13211",
-        "article_type": "editorial",
-        "reason": "editorial_material"
+        "title_en": "Report of the Editor of <i>T</i><i>he</i><i>Journal of Finance</i> for the Year 2022",
+        "reason": "editorial_material",
+        "doi": "10.1111/jofi.13215",
+        "article_type": "editorial"
       }
     ],
     "doi_complete": 10,
@@ -483,35 +469,35 @@
       "publisher_html_blocked_crossref_fallback",
       "crossref_provisional_roster"
     ],
-    "official_item_count": 16,
+    "official_item_count": 14,
     "publishable_item_count": 10,
     "content_counts": {
-      "official_items": 16,
-      "observed_items": 16,
+      "official_items": 14,
+      "observed_items": 14,
       "publishable_items": 10,
       "research_articles": 10,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
-      "editorial_material": 3,
+      "editorial_material": 2,
       "front_matter": 1,
-      "other_excluded": 2,
+      "other_excluded": 1,
       "catalog_content_items": 10
     }
   },
   "source_status": "source_pending",
   "publication_state": "source_pending",
   "content_counts": {
-    "official_items": 16,
-    "observed_items": 16,
+    "official_items": 14,
+    "observed_items": 14,
     "publishable_items": 10,
     "research_articles": 10,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
-    "editorial_material": 3,
+    "editorial_material": 2,
     "front_matter": 1,
-    "other_excluded": 2,
+    "other_excluded": 1,
     "catalog_content_items": 10
   },
   "issue_label": "Vol. 78 · No. 2",

@@ -7,15 +7,58 @@
   "issue": "4",
   "publication_date": "August 2024",
   "source_url": "https://onlinelibrary.wiley.com/toc/15406261/2024/79/4",
-  "retrieved_at": "2026-08-24T07:45:20+00:00",
-  "expected_article_count": 11,
-  "research_article_count": 11,
+  "retrieved_at": "2026-08-24T13:58:46+00:00",
+  "expected_article_count": 12,
+  "research_article_count": 12,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1111/jofi.13325",
+      "paper_id": "doi:10.1111/jofi.13334",
       "sequence": 1,
+      "source_sequence": 2403,
+      "article_type": "research-article",
+      "title_en": "A (Sub)penny for Your Thoughts: Tracking Retail Investor Activity in TAQ",
+      "title_cn": "一分钱（或更少）的想法：在TAQ中追踪散户投资者活动",
+      "authors": [
+        "BRAD M. BARBER",
+        "XING HUANG",
+        "PHILIPPE JORION",
+        "TERRANCE ODEAN",
+        "CHRISTOPHER SCHWARZ"
+      ],
+      "abstract_en": "We placed 85,000 retail trades in six retail brokerage accounts from December 2021 to June 2022 to validate the Boehmer et al. algorithm, which uses subpenny trade prices to identify and sign retail trades. The algorithm identifies 35% of our trades as retail, incorrectly signs 28% of identified trades, and yields uninformative order imbalance measures for 30% of stocks. We modify the algorithm by signing trades using the quoted spread midpoints. The quote midpoint method does not affect identification rates but reduces the signing error rates to 5% and provides informative order imbalance measures for all stocks.",
+      "abstract_cn": "我们在六个散户经纪账户中放置了85,000笔散户交易，时间从2021年十二月到2022年六月，以验证Boehmer等人的算法，该算法使用亚美分交易价格来识别和标记散户交易。该算法将我们交易的35%识别为散户，错误标记了已识别交易的28%，并对30%的股票产生了无信息量的订单失衡指标。我们通过使用报价价差中点来标记交易，对算法进行了修改。报价中点方法不影响识别率，但将标记错误率降低到5%，并为所有股票提供了有信息量的订单失衡指标。",
+      "abstract_snippet_en": "",
+      "doi": "10.1111/jofi.13334",
+      "source_url": "https://doi.org/10.1111/jofi.13334",
+      "publication_date": "2024",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15406261/2024/79/4",
+        "roster": "crossref:issn:0022-1082",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T13:58:48+00:00",
+        "source_hash": "0863fa05480d9cf2e04cd136da634af3e93ae6b065fd7da8210960efc320b688"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1111/jofi.13325",
+      "sequence": 2,
       "source_sequence": 2429,
       "article_type": "research-article",
       "title_en": "Spending Less after (Seemingly) Bad News",
@@ -56,7 +99,7 @@
     },
     {
       "paper_id": "doi:10.1111/jofi.13362",
-      "sequence": 2,
+      "sequence": 3,
       "source_sequence": 2473,
       "article_type": "research-article",
       "title_en": "Insensitive Investors",
@@ -97,7 +140,7 @@
     },
     {
       "paper_id": "doi:10.1111/jofi.13357",
-      "sequence": 3,
+      "sequence": 4,
       "source_sequence": 2505,
       "article_type": "research-article",
       "title_en": "Money and Banking with Reserves and CBDC",
@@ -136,7 +179,7 @@
     },
     {
       "paper_id": "doi:10.1111/jofi.13358",
-      "sequence": 4,
+      "sequence": 5,
       "source_sequence": 2553,
       "article_type": "research-article",
       "title_en": "The Time‐Varying Price of Financial Intermediation in the Mortgage Market",
@@ -177,7 +220,7 @@
     },
     {
       "paper_id": "doi:10.1111/jofi.13363",
-      "sequence": 5,
+      "sequence": 6,
       "source_sequence": 2603,
       "article_type": "research-article",
       "title_en": "What Drives Variation in the U.S. Debt‐to‐Output Ratio? The Dogs that Did not Bark",
@@ -219,7 +262,7 @@
     },
     {
       "paper_id": "doi:10.1111/jofi.13360",
-      "sequence": 6,
+      "sequence": 7,
       "source_sequence": 2667,
       "article_type": "research-article",
       "title_en": "Inside and Outside Information",
@@ -259,7 +302,7 @@
     },
     {
       "paper_id": "doi:10.1111/jofi.13361",
-      "sequence": 7,
+      "sequence": 8,
       "source_sequence": 2715,
       "article_type": "research-article",
       "title_en": "Information Aggregation with Asymmetric Asset Payoffs",
@@ -300,7 +343,7 @@
     },
     {
       "paper_id": "doi:10.1111/jofi.13364",
-      "sequence": 8,
+      "sequence": 9,
       "source_sequence": 2759,
       "article_type": "research-article",
       "title_en": "Half Banked: The Economic Impact of Cash Management in the Marijuana Industry",
@@ -340,7 +383,7 @@
     },
     {
       "paper_id": "doi:10.1111/jofi.13371",
-      "sequence": 9,
+      "sequence": 10,
       "source_sequence": 2797,
       "article_type": "research-article",
       "title_en": "Treasury Richness",
@@ -380,7 +423,7 @@
     },
     {
       "paper_id": "doi:10.1111/jofi.13369",
-      "sequence": 10,
+      "sequence": 11,
       "source_sequence": 2845,
       "article_type": "research-article",
       "title_en": "Meeting Targets in Competitive Product Markets",
@@ -420,7 +463,7 @@
     },
     {
       "paper_id": "doi:10.1111/jofi.13340",
-      "sequence": 11,
+      "sequence": 12,
       "source_sequence": 2885,
       "article_type": "research-article",
       "title_en": "Is Long‐Run Risk Really Priced? Revisiting Liu and Matthies (2022)",
@@ -468,12 +511,6 @@
     "excluded_item_count": 4,
     "excluded_items": [
       {
-        "title_en": "ISSUE INFORMATION",
-        "reason": "front_matter",
-        "doi": "10.1111/jofi.13150",
-        "article_type": "front-matter"
-      },
-      {
         "title_en": "ANNOUNCEMENTS",
         "reason": "non_publishable_item",
         "doi": "10.1111/jofi.13149",
@@ -486,51 +523,57 @@
         "article_type": "research-article"
       },
       {
+        "title_en": "ISSUE INFORMATION",
+        "reason": "front_matter",
+        "doi": "10.1111/jofi.13150",
+        "article_type": "front-matter"
+      },
+      {
         "title_en": "Ravi Jagannathan",
         "doi": "10.1111/jofi.13359",
         "article_type": "front-matter",
         "reason": "front_matter"
       }
     ],
-    "doi_complete": 11,
-    "authors_complete": 11,
-    "abstract_en_complete": 11,
-    "translation_complete": 11,
+    "doi_complete": 12,
+    "authors_complete": 12,
+    "abstract_en_complete": 12,
+    "translation_complete": 12,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
       "crossref_provisional_roster"
     ],
-    "official_item_count": 15,
-    "publishable_item_count": 11,
+    "official_item_count": 16,
+    "publishable_item_count": 12,
     "content_counts": {
-      "official_items": 15,
-      "observed_items": 15,
-      "publishable_items": 11,
-      "research_articles": 11,
+      "official_items": 16,
+      "observed_items": 16,
+      "publishable_items": 12,
+      "research_articles": 12,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 2,
       "other_excluded": 2,
-      "catalog_content_items": 11
+      "catalog_content_items": 12
     }
   },
   "source_status": "source_pending",
   "publication_state": "source_pending",
   "content_counts": {
-    "official_items": 15,
-    "observed_items": 15,
-    "publishable_items": 11,
-    "research_articles": 11,
+    "official_items": 16,
+    "observed_items": 16,
+    "publishable_items": 12,
+    "research_articles": 12,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 2,
     "other_excluded": 2,
-    "catalog_content_items": 11
+    "catalog_content_items": 12
   },
   "issue_label": "Vol. 79 · No. 4",
   "content_status": "complete"

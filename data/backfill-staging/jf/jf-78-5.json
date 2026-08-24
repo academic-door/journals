@@ -7,9 +7,9 @@
   "issue": "5",
   "publication_date": "October 2023",
   "source_url": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/5",
-  "retrieved_at": "2026-08-24T07:45:13+00:00",
-  "expected_article_count": 9,
-  "research_article_count": 9,
+  "retrieved_at": "2026-08-24T13:58:28+00:00",
+  "expected_article_count": 11,
+  "research_article_count": 11,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
@@ -94,8 +94,94 @@
       }
     },
     {
-      "paper_id": "doi:10.1111/jofi.13267",
+      "paper_id": "doi:10.1111/jofi.13264",
       "sequence": 3,
+      "source_sequence": 2519,
+      "article_type": "research-article",
+      "title_en": "Complex Asset Markets",
+      "title_cn": "复杂资产市场",
+      "authors": [
+        "ANDREA L. EISFELDT",
+        "HANNO LUSTIG",
+        "LEI ZHANG"
+      ],
+      "abstract_en": "Investors' individual arbitrage models introduce idiosyncratic risk into complex asset strategies, driving up average returns and Sharpe ratios. However, despite the attractive risk‐return trade‐off, participation is limited. This is because effective Sharpe ratios in complex asset markets vary with investors' expertise. Investors with higher expertise, better models, and lower resulting idiosyncratic risk exposures realize higher Sharpe ratios. Their demand deters entry by less sophisticated investors. As predicted by our model, market dislocations are characterized by an increase in idiosyncratic risk, investor exit, and persistently elevated alphas and Sharpe ratios. The selection effect from higher expertise agents' more favorable Sharpe ratios is unique to our model and key to our main results.",
+      "abstract_cn": "投资者的个体套利模型将特质风险引入复杂资产策略，推高了平均回报率和夏普比率。然而，尽管风险-收益权衡具有吸引力，参与仍然有限。这是因为复杂资产市场中的有效夏普比率随投资者的专业知识而变化。专业知识更高、模型更好、由此产生的特质风险敞口更低的投资者实现了更高的夏普比率。他们的需求阻止了不太成熟的投资者进入。正如我们的模型所预测的，市场混乱的特点是特质风险增加、投资者退出以及持续升高的阿尔法和夏普比率。来自更高专业知识代理人的更有利夏普比率的选择效应是我们模型独有的，也是我们主要结果的关键。",
+      "abstract_snippet_en": "",
+      "doi": "10.1111/jofi.13264",
+      "source_url": "https://doi.org/10.1111/jofi.13264",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/5",
+        "roster": "crossref:issn:0022-1082",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T13:58:30+00:00",
+        "source_hash": "37aaf1c93aed79ffd3d8b9680d5a60ba9a36ad377cdacf4ce75e6785738a3535"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1111/jofi.13266",
+      "sequence": 4,
+      "source_sequence": 2563,
+      "article_type": "research-article",
+      "title_en": "Pledgeability and Asset Prices: Evidence from the Chinese Corporate Bond Markets",
+      "title_cn": "可质押性与资产价格：来自中国公司债券市场的证据",
+      "authors": [
+        "HUI CHEN",
+        "ZHUO CHEN",
+        "ZHIGUO HE",
+        "JINYU LIU",
+        "RENGMING XIE"
+      ],
+      "abstract_en": "We provide causal evidence on the value of asset pledgeability by exploiting a unique feature of Chinese corporate bond markets: bonds with identical fundamentals are traded on two segmented markets with different rules for repo transactions. Using a policy shock that rendered AA+ and AA bonds ineligible for repo on one market only, we compare how bond prices changed across markets and rating classes around this event. When the haircut increases from 0% to 100%, bond yields increase by 39 bps to 85 bps. These estimates help us infer the magnitude of the shadow cost of capital in China.",
+      "abstract_cn": "我们利用中国公司债券市场的一个独特特征，提供了关于资产可质押性价值的因果证据：具有相同基本面的债券在两个分割的市场上交易，而这两个市场的回购交易规则不同。利用一项政策冲击，该冲击仅使AA+和AA债券在一个市场上不再符合回购资格，我们比较了这一事件前后不同市场和评级类别中债券价格的变化。当折扣率从0%增加到100%时，债券收益率增加了39个基点到85个基点。这些估计有助于我们推断中国资本影子成本的大小。",
+      "abstract_snippet_en": "",
+      "doi": "10.1111/jofi.13266",
+      "source_url": "https://doi.org/10.1111/jofi.13266",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/5",
+        "roster": "crossref:issn:0022-1082",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T13:58:32+00:00",
+        "source_hash": "4eac5d4b7c757c1669ad3fb3917211e1d7e43a565051e2de82b6fe1de84965d1"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "Chinese"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1111/jofi.13267",
+      "sequence": 5,
       "source_sequence": 2621,
       "article_type": "research-article",
       "title_en": "Investor Tax Credits and Entrepreneurship: Evidence from U.S. States",
@@ -138,7 +224,7 @@
     },
     {
       "paper_id": "doi:10.1111/jofi.13258",
-      "sequence": 4,
+      "sequence": 6,
       "source_sequence": 2673,
       "article_type": "research-article",
       "title_en": "Retail Financial Innovation and Stock Market Dynamics: The Case of Target Date Funds",
@@ -179,7 +265,7 @@
     },
     {
       "paper_id": "doi:10.1111/jofi.13260",
-      "sequence": 5,
+      "sequence": 7,
       "source_sequence": 2725,
       "article_type": "research-article",
       "title_en": "Contracting in Peer Networks",
@@ -218,8 +304,48 @@
       }
     },
     {
+      "paper_id": "doi:10.1111/jofi.13265",
+      "sequence": 8,
+      "source_sequence": 2779,
+      "article_type": "research-article",
+      "title_en": "Dynamic Contracting with Intermediation: Operational, Governance, and Financial Engineering",
+      "title_cn": "动态契约与中介：运营、治理与金融工程",
+      "authors": [
+        "SEBASTIAN GRYGLEWICZ",
+        "SIMON MAYER"
+      ],
+      "abstract_en": "Private equity funds intermediate investment and affect portfolio firm performance by actively engaging in operational, governance, and financial engineering. We study this type of intermediation in a dynamic agency model in which an active intermediary raises funds from outside investors and invests in a firm run by an agent. Optimal contracting addresses moral hazard at the intermediary and firm levels. The intermediary's incentives to affect firm performance are strongest after poor performance, while the agent's incentives are strongest after good performance. We also show how financial engineering, that is, financial contracting with outside investors, interacts with operational and governance engineering.",
+      "abstract_cn": "私募股权基金通过积极参与运营、治理和金融工程来中介投资并影响投资组合公司的业绩。我们在一个动态代理模型中研究这种类型的中介，其中活跃的中介从外部投资者筹集资金，并投资于由代理人经营的公司。最优契约解决了中介和公司层面的道德风险问题。中介影响公司业绩的激励在业绩不佳后最强，而代理人的激励在业绩良好后最强。我们还展示了金融工程，即与外部投资者的金融契约，如何与运营和治理工程相互作用。",
+      "abstract_snippet_en": "",
+      "doi": "10.1111/jofi.13265",
+      "source_url": "https://doi.org/10.1111/jofi.13265",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/5",
+        "roster": "crossref:issn:0022-1082",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T13:58:33+00:00",
+        "source_hash": "befb9e5aaef88b0f54355ead37d2f9f75b575c57004d17518b18edcaef915551"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1111/jofi.13256",
-      "sequence": 6,
+      "sequence": 9,
       "source_sequence": 2837,
       "article_type": "research-article",
       "title_en": "Stealth Acquisitions and Product Market Competition",
@@ -260,7 +386,7 @@
     },
     {
       "paper_id": "doi:10.1111/jofi.13261",
-      "sequence": 7,
+      "sequence": 10,
       "source_sequence": 2901,
       "article_type": "research-article",
       "title_en": "Do Credit Markets Respond to Macroeconomic Shocks? The Case for Reverse Causality",
@@ -300,50 +426,8 @@
       }
     },
     {
-      "paper_id": "doi:10.1111/jofi.13262",
-      "sequence": 8,
-      "source_sequence": 2945,
-      "article_type": "research-article",
-      "title_en": "Monetary Policy and Inequality",
-      "title_cn": "货币政策与不平等",
-      "authors": [
-        "ASGER LAU ANDERSEN",
-        "NIELS JOHANNESEN",
-        "MIA JØRGENSEN",
-        "JOSÉ‐LUIS PEYDRÓ"
-      ],
-      "abstract_en": "We analyze the distributional effects of monetary policy on income, wealth, and consumption. We use administrative household‐level data covering the entire population in Denmark over the period 1987 to 2014 and exploit a long‐standing currency peg as a source of exogenous variation in monetary policy. We find that gains from softer monetary policy in terms of income, wealth, and consumption are monotonically increasing in ex ante income. The distributional effects reflect systematic differences in exposure to the various channels of monetary policy, especially nonlabor channels (e.g., leverage and risky assets). Our estimates imply that softer monetary policy increases income inequality.",
-      "abstract_cn": "我们分析了货币政策对收入、财富和消费的分配效应。我们使用了覆盖丹麦1987年至2014年全部人口的行政家庭层面数据，并利用长期存在的货币挂钩作为货币政策外生变异的来源。我们发现，较宽松的货币政策在收入、财富和消费方面的收益随事前收入的增加而单调递增。分配效应反映了对货币政策各渠道暴露的系统性差异，尤其是非劳动渠道（如杠杆和风险资产）。我们的估计表明，较宽松的货币政策加剧了收入不平等。",
-      "abstract_snippet_en": "",
-      "doi": "10.1111/jofi.13262",
-      "source_url": "https://doi.org/10.1111/jofi.13262",
-      "publication_date": "2023",
-      "sources": {
-        "issue": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/5",
-        "roster": "crossref:issn:0022-1082",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-15T22:58:17+00:00",
-        "source_hash": "b0d17106cd3dc3879dc527b9e0a0548e91e73a6a0e3a785e6abe13eb14eedd36"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
       "paper_id": "doi:10.1111/jofi.13257",
-      "sequence": 9,
+      "sequence": 11,
       "source_sequence": 2991,
       "article_type": "research-article",
       "title_en": "(Why) Do Central Banks Care about Their Profits?",
@@ -390,7 +474,7 @@
     "roster_authority": "crossref-provisional",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
-    "excluded_item_count": 3,
+    "excluded_item_count": 4,
     "excluded_items": [
       {
         "title_en": "AMERICAN FINANCE ASSOCIATION",
@@ -399,57 +483,63 @@
         "article_type": "research-article"
       },
       {
-        "title_en": "ISSUE INFORMATION",
-        "reason": "front_matter",
-        "doi": "10.1111/jofi.13050",
-        "article_type": "front-matter"
+        "title_en": "Johannes Stroebel: Winner of the 2023 Fischer Black Prize",
+        "reason": "editorial_material",
+        "doi": "10.1111/jofi.13269",
+        "article_type": "editorial"
       },
       {
         "title_en": "ANNOUNCEMENTS",
         "reason": "non_publishable_item",
         "doi": "10.1111/jofi.13274",
         "article_type": "research-article"
+      },
+      {
+        "title_en": "ISSUE INFORMATION",
+        "reason": "front_matter",
+        "doi": "10.1111/jofi.13050",
+        "article_type": "front-matter"
       }
     ],
-    "doi_complete": 9,
-    "authors_complete": 9,
-    "abstract_en_complete": 9,
-    "translation_complete": 9,
+    "doi_complete": 11,
+    "authors_complete": 11,
+    "abstract_en_complete": 11,
+    "translation_complete": 11,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
       "crossref_provisional_roster"
     ],
-    "official_item_count": 12,
-    "publishable_item_count": 9,
+    "official_item_count": 15,
+    "publishable_item_count": 11,
     "content_counts": {
-      "official_items": 12,
-      "observed_items": 12,
-      "publishable_items": 9,
-      "research_articles": 9,
+      "official_items": 15,
+      "observed_items": 15,
+      "publishable_items": 11,
+      "research_articles": 11,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
-      "editorial_material": 0,
+      "editorial_material": 1,
       "front_matter": 1,
       "other_excluded": 2,
-      "catalog_content_items": 9
+      "catalog_content_items": 11
     }
   },
   "source_status": "source_pending",
   "publication_state": "source_pending",
   "content_counts": {
-    "official_items": 12,
-    "observed_items": 12,
-    "publishable_items": 9,
-    "research_articles": 9,
+    "official_items": 15,
+    "observed_items": 15,
+    "publishable_items": 11,
+    "research_articles": 11,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
-    "editorial_material": 0,
+    "editorial_material": 1,
     "front_matter": 1,
     "other_excluded": 2,
-    "catalog_content_items": 9
+    "catalog_content_items": 11
   },
   "issue_label": "Vol. 78 · No. 5",
   "content_status": "complete"

@@ -1,14 +1,14 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-08-24T13:16:05+00:00
+Generated: 2026-08-24T14:40:17+00:00
 
 ## Summary
 
 - browser_required: 36
-- ready: 937
+- ready: 940
 - recoverable: 100
-- source_pending: 211
-- translation_required: 47
+- source_pending: 214
+- translation_required: 41
 
 ## Issue queue
 
@@ -177,7 +177,7 @@ Generated: 2026-08-24T13:16:05+00:00
 | CER | cer-99-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | ECOLECON | ecolecon-203-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | ECOLECON | ecolecon-204-c | 2023 | browser_required | blocked | source_pending | archive_missing |
-| ECOLECON | ecolecon-205-c | 2023 | translation_required | blocked | source_pending | archive_missing |
+| ECOLECON | ecolecon-205-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | ECOLECON | ecolecon-206-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | ECOLECON | ecolecon-207-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | ECOLECON | ecolecon-208-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
@@ -326,7 +326,7 @@ Generated: 2026-08-24T13:16:05+00:00
 | ENERGY | energy-127-c | 2023 | browser_required | blocked | source_pending | archive_missing |
 | ENERGY | energy-128-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | ENERGY | energy-129-c | 2024 | translation_required | blocked | source_pending | archive_missing |
-| ENERGY | energy-130-c | 2024 | translation_required | blocked | source_pending | archive_missing |
+| ENERGY | energy-130-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | ENERGY | energy-131-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | ENERGY | energy-132-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | ENERGY | energy-133-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
@@ -1081,7 +1081,7 @@ Generated: 2026-08-24T13:16:05+00:00
 | LANDECON | landecon-102-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | LANDECON | landecon-102-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | LANDECON | landecon-102-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
-| LANDECON | landecon-99-1 | 2023 | translation_required | complete | source_pending | translation incomplete |
+| LANDECON | landecon-99-1 | 2023 | source_pending | complete | source_pending | archive_content_gate_failed |
 | LANDECON | landecon-99-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | LANDECON | landecon-99-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | LANDECON | landecon-99-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
@@ -1089,7 +1089,7 @@ Generated: 2026-08-24T13:16:05+00:00
 | LUP | lup-125-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | LUP | lup-126-c | 2023 | translation_required | blocked | source_pending | archive_missing |
 | LUP | lup-127-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
-| LUP | lup-128-c | 2023 | translation_required | blocked | source_pending | archive_missing |
+| LUP | lup-128-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | LUP | lup-129-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | LUP | lup-130-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | LUP | lup-131-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
@@ -1199,10 +1199,10 @@ Generated: 2026-08-24T13:16:05+00:00
 | RES | res-90-3 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
 | RES | res-90-4 | 2023 | browser_required | blocked | source_pending | archive_missing |
 | RES | res-90-5 | 2023 | translation_required | blocked | source_pending | archive_missing |
-| RES | res-90-6 | 2023 | translation_required | blocked | source_pending | archive_missing |
+| RES | res-90-6 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
 | RES | res-91-1 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
 | RES | res-91-2 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| RES | res-91-3 | 2024 | translation_required | blocked | source_pending | archive_missing |
+| RES | res-91-3 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
 | RES | res-91-4 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
 | RES | res-91-5 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
 | RES | res-91-6 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
@@ -1219,16 +1219,16 @@ Generated: 2026-08-24T13:16:05+00:00
 | RESTAT | restat-105-1 | 2023 | browser_required | blocked | source_pending | archive_missing |
 | RESTAT | restat-105-2 | 2023 | browser_required | blocked | source_pending | archive_missing |
 | RESTAT | restat-105-3 | 2023 | browser_required | blocked | source_pending | archive_missing |
-| RESTAT | restat-105-4 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-105-4 | 2023 | source_pending | complete | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs official page or browser-authorized capture |
 | RESTAT | restat-105-5 | 2023 | browser_required | blocked | source_pending | archive_missing |
 | RESTAT | restat-105-6 | 2023 | browser_required | blocked | source_pending | archive_missing |
 | RESTAT | restat-106-1 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
 | RESTAT | restat-106-2 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
 | RESTAT | restat-106-3 | 2024 | browser_required | blocked | source_pending | archive_missing |
 | RESTAT | restat-106-4 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| RESTAT | restat-106-5 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-106-5 | 2024 | source_pending | complete | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs official page or browser-authorized capture |
 | RESTAT | restat-106-6 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| RESTAT | restat-107-1 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-107-1 | 2025 | source_pending | complete | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs official page or browser-authorized capture |
 | RESTAT | restat-107-2 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
 | RESTAT | restat-107-3 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
 | RESTAT | restat-107-4 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
@@ -1248,7 +1248,7 @@ Generated: 2026-08-24T13:16:05+00:00
 | RFS | rfs-36-6 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-36-7 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-36-8 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| RFS | rfs-36-9 | 2023 | translation_required | blocked | source_pending | archive_missing |
+| RFS | rfs-36-9 | 2023 | translation_required | complete | source_pending | translation incomplete |
 | RFS | rfs-37-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-37-10 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-37-11 | 2024 | ready | complete | official_verified | content and official source gates passed |
