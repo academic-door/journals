@@ -67,7 +67,16 @@ def _normalized_title(value: object) -> str:
     # presentation artifacts after the DOI sequence has already matched.
     text = re.sub(r"_\{([^{}]+)\}", r"\1", text)
     text = re.sub(r"(?<=[A-Za-z])&(?=[A-Za-z])", "", text)
-    return " ".join(text.split()).strip().casefold()
+    # Publisher cards and deposited metadata routinely differ only in smart
+    # quotes, daggers, hyphenation, spacing, capitalization, or an optional
+    # article ("the"). DOI identity and order remain the hard keys; collapse
+    # these display-only variants without accepting a materially different
+    # sequence.
+    text = re.sub(r"(?<=\w)['’](?=\w)", "", text)
+    text = re.sub(r"[\"“”‘’†‡]", "", text)
+    text = re.sub(r"[^\w]+", " ", text, flags=re.UNICODE)
+    tokens = [token for token in text.casefold().split() if token != "the"]
+    return " ".join(tokens).strip()
 
 
 def _walk_keys(value: object, prefix: str = "") -> list[str]:
@@ -142,6 +151,26 @@ def validate_evidence(evidence: dict[str, Any]) -> None:
                     errors.append(
                         f"item {expected}: source_url must use an allowlisted publisher host"
                     )
+    excluded_items = evidence.get("excluded_items", [])
+    if not isinstance(excluded_items, list):
+        errors.append("excluded_items must be an array")
+    else:
+        for expected, item in enumerate(excluded_items, start=1):
+            if not isinstance(item, dict):
+                errors.append(f"excluded item {expected}: expected object")
+                continue
+            doi = str(item.get("doi", "")).strip().lower()
+            if not DOI_RE.fullmatch(doi):
+                errors.append(f"excluded item {expected}: invalid DOI")
+            if not _normalized_title(item.get("title_en")):
+                errors.append(f"excluded item {expected}: title_en missing")
+            if not str(item.get("reason", "")).strip():
+                errors.append(f"excluded item {expected}: reason missing")
+    if (
+        "excluded_items" in evidence
+        and int(evidence.get("excluded_item_count", 0)) != len(excluded_items)
+    ):
+        errors.append("excluded_item_count does not match excluded_items")
     if errors:
         raise ValueError("official roster evidence gate failed:\n" + "\n".join(errors))
 
@@ -207,13 +236,24 @@ def apply_evidence(issue: dict[str, Any], evidence: dict[str, Any]) -> dict[str,
     evidence_dois = [str(item["doi"]).strip().lower() for item in evidence_items]
     archive_by_doi = dict(zip(archive_dois, archive_articles, strict=True))
     evidence_positions = {doi: index for index, doi in enumerate(evidence_dois)}
-    if any(doi not in evidence_positions for doi in archive_dois):
+    excluded_dois = {
+        str(item.get("doi", "")).strip().lower()
+        for item in evidence.get("excluded_items", [])
+    }
+    if any(
+        doi not in evidence_positions and doi not in excluded_dois
+        for doi in archive_dois
+    ):
         raise ValueError("archive contains a DOI absent from the official roster")
-    archive_positions = [evidence_positions[doi] for doi in archive_dois]
+    archive_positions = [
+        evidence_positions[doi] for doi in archive_dois if doi in evidence_positions
+    ]
     if archive_positions != sorted(archive_positions):
         raise ValueError("official DOI roster/order does not match archive")
     for article in archive_articles:
         doi = str(article.get("doi", "")).strip().lower()
+        if doi in excluded_dois:
+            continue
         item = evidence_items[evidence_positions[doi]]
         if _normalized_title(article.get("title_en")) != _normalized_title(
             item.get("title_en")

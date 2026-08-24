@@ -76,6 +76,14 @@ def evidence() -> dict:
         "issue_id": "rfs-36-2",
         "official_url": "https://academic.oup.com/rfs/issue/36/2",
         "excluded_item_count": 3,
+        "excluded_items": [
+            {
+                "doi": f"10.1093/rfs/excluded{index}",
+                "title_en": f"Excluded {index}",
+                "reason": "non-research-title",
+            }
+            for index in range(1, 4)
+        ],
         "items": [
             {"sequence": 1, "doi": "10.1093/rfs/demo1", "title_en": "Paper 1"},
             {"sequence": 2, "doi": "10.1093/rfs/demo2", "title_en": "Paper 2"},
@@ -151,6 +159,35 @@ class OfficialRosterEvidenceTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "missing restoration detail"):
             apply_evidence(provisional_issue(), official)
 
+    def test_official_exclusion_removes_archived_comment(self) -> None:
+        issue = provisional_issue()
+        issue["articles"].append(
+            {
+                **copy.deepcopy(issue["articles"][1]),
+                "paper_id": "doi:10.1093/rfs/comment",
+                "sequence": 3,
+                "doi": "10.1093/rfs/comment",
+                "title_en": "A Study: Comment",
+            }
+        )
+        issue["expected_article_count"] = 3
+        issue["research_article_count"] = 3
+        official = evidence()
+        official["excluded_item_count"] = 1
+        official["excluded_items"] = [
+            {
+                "doi": "10.1093/rfs/comment",
+                "title_en": "A Study: Comment",
+                "reason": "non-research-title",
+            }
+        ]
+        candidate = apply_evidence(issue, official)
+        self.assertEqual(2, candidate["research_article_count"])
+        self.assertNotIn(
+            "10.1093/rfs/comment",
+            [article["doi"] for article in candidate["articles"]],
+        )
+
     def test_official_display_markup_matches_plain_title_after_doi_match(self) -> None:
         issue = provisional_issue()
         issue["articles"][0]["title_en"] = "The Case of RD and CO2"
@@ -159,6 +196,18 @@ class OfficialRosterEvidenceTests(unittest.TestCase):
         candidate = apply_evidence(issue, official)
         self.assertEqual("official_verified", candidate["source_status"])
         self.assertEqual("ready", candidate["publication_state"])
+
+    def test_official_display_punctuation_and_optional_article_match(self) -> None:
+        issue = provisional_issue()
+        issue["articles"][0]["title_en"] = (
+            "Rising Concentration, Superstar Firms, and Implications for Workers †"
+        )
+        official = evidence()
+        official["items"][0]["title_en"] = (
+            "Rising Concentration, Superstar Firms, and the Implications for Workers"
+        )
+        candidate = apply_evidence(issue, official)
+        self.assertEqual("official_verified", candidate["source_status"])
 
     def test_reconciles_all_matching_state_checkpoints(self) -> None:
         candidate = apply_evidence(provisional_issue(), evidence())
