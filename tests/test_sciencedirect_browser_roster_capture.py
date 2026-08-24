@@ -111,6 +111,55 @@ class ScienceDirectBrowserRosterCaptureTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "unclassified"):
             build_evidence(snapshot, self.issue(), excluded_dois={})
 
+    def test_structured_browser_snapshot_keeps_missing_article_for_api_enrichment(
+        self,
+    ) -> None:
+        snapshot = {
+            "issue_id": "demo-1-c",
+            "journal_id": "demo",
+            "official_url": "https://www.sciencedirect.com/journal/demo/vol/1/suppl/C",
+            "captured_at": "2026-08-24T00:00:00+00:00",
+            "items": [
+                {
+                    "href": "/science/article/pii/S0000000000000002",
+                    "doi": "10.1016/j.demo.2026.2",
+                    "title": "Paper 2",
+                    "authors": ["Author"],
+                    "box_text": "Research articleOpen access Paper 2",
+                },
+                {
+                    "href": "/science/article/pii/S0000000000000003",
+                    "doi": "10.1016/j.demo.2026.3",
+                    "title": "New Official Paper",
+                    "authors": ["New Author"],
+                    "box_text": "Research articleAbstract only New Official Paper",
+                },
+                {
+                    "href": "/science/article/pii/S0000000000000001",
+                    "doi": "10.1016/j.demo.2026.1",
+                    "title": "Paper 1",
+                    "authors": ["Author"],
+                    "box_text": "Research articleOpen access Paper 1",
+                },
+                {
+                    "href": "/science/article/pii/S0000000000000099",
+                    "doi": "10.1016/s0000-demo",
+                    "title": "Editorial Board",
+                    "authors": [],
+                    "box_text": "Editorial boardFree access Editorial Board",
+                },
+            ],
+        }
+        evidence = build_evidence(snapshot, self.issue(), excluded_dois={})
+        missing = evidence["items"][1]
+        self.assertEqual("pii:S0000000000000003", missing["source_id"])
+        self.assertEqual(["New Author"], missing["official_authors"])
+        self.assertEqual(1, evidence["excluded_item_count"])
+        self.assertEqual(
+            "pii:S0000000000000099",
+            evidence["excluded_items"][0]["source_id"],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

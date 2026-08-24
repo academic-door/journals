@@ -5,9 +5,11 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from scripts.import_official_roster_evidence import (
     apply_evidence,
+    enrich_missing_elsevier,
     reconcile_state_files,
     validate_evidence,
 )
@@ -144,6 +146,47 @@ class OfficialRosterEvidenceTests(unittest.TestCase):
         official["allow_archive_reorder"] = "yes"
         with self.assertRaisesRegex(ValueError, "must be boolean"):
             validate_evidence(official)
+
+    def test_excluded_item_can_use_official_pii_without_a_doi(self) -> None:
+        official = evidence()
+        official["excluded_items"] = [
+            {
+                "source_id": "pii:S0000000000000001",
+                "title_en": "Editorial Board",
+                "reason": "official-editorial",
+            }
+        ]
+        official["excluded_item_count"] = 1
+        validate_evidence(official)
+
+    @patch("collectors.metadata_fallback._elsevier_lookup")
+    def test_missing_elsevier_metadata_is_enriched_without_changing_roster(
+        self, lookup
+    ) -> None:
+        lookup.return_value = {
+            "abstract": "Official Elsevier abstract with 2026 evidence.",
+            "status": "success_full_abstract",
+        }
+        official = evidence()
+        official["items"].append(
+            {
+                "sequence": 3,
+                "doi": "10.1016/j.demo.2026.1",
+                "title_en": "New Official Paper",
+                "source_id": "pii:S0000000000000001",
+                "official_authors": ["Official Author"],
+                "official_article_url": (
+                    "https://www.sciencedirect.com/science/article/pii/"
+                    "S0000000000000001"
+                ),
+            }
+        )
+        enriched = enrich_missing_elsevier(official, provisional_issue())
+        restored = enriched["items"][2]
+        self.assertEqual(["Official Author"], restored["authors"])
+        self.assertIn("2026", restored["abstract_en"])
+        candidate = apply_evidence(provisional_issue(), enriched)
+        self.assertEqual(3, candidate["research_article_count"])
 
     def test_official_superset_restores_missing_article_truthfully(self) -> None:
         official = evidence()

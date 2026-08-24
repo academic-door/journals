@@ -58,6 +58,7 @@ FORBIDDEN_KEY_PARTS = {
     "token",
 }
 DOI_RE = re.compile(r"^10\.\d{4,9}/\S+$", re.IGNORECASE)
+PII_SOURCE_ID_RE = re.compile(r"^pii:S[0-9A-Z]+$", re.IGNORECASE)
 
 
 def _normalized_title(value: object) -> str:
@@ -168,8 +169,13 @@ def validate_evidence(evidence: dict[str, Any]) -> None:
                 errors.append(f"excluded item {expected}: expected object")
                 continue
             doi = str(item.get("doi", "")).strip().lower()
-            if not DOI_RE.fullmatch(doi):
+            source_id = str(item.get("source_id", "")).strip()
+            if doi and not DOI_RE.fullmatch(doi):
                 errors.append(f"excluded item {expected}: invalid DOI")
+            if not doi and not PII_SOURCE_ID_RE.fullmatch(source_id):
+                errors.append(
+                    f"excluded item {expected}: DOI or official PII source_id required"
+                )
             if not _normalized_title(item.get("title_en")):
                 errors.append(f"excluded item {expected}: title_en missing")
             if not str(item.get("reason", "")).strip():
@@ -228,6 +234,56 @@ def _restored_article(
     if publication_date:
         article["publication_date"] = publication_date
     return article
+
+
+def enrich_missing_elsevier(
+    evidence: dict[str, Any],
+    issue: dict[str, Any],
+    *,
+    timeout: int = 60,
+) -> dict[str, Any]:
+    """Fill metadata only for missing articles found on an official issue page."""
+
+    import requests
+
+    from collectors.metadata_fallback import _elsevier_lookup
+
+    enriched = copy.deepcopy(evidence)
+    archive_dois = {
+        str(article.get("doi", "")).strip().casefold()
+        for article in issue.get("articles", [])
+    }
+    session = requests.Session()
+    for item in enriched.get("items", []):
+        doi = str(item.get("doi", "")).strip().casefold()
+        if doi in archive_dois or all(
+            item.get(field) for field in ("authors", "abstract_en", "source_url")
+        ):
+            continue
+        source_id = str(item.get("source_id", "")).strip()
+        pii = source_id.split(":", 1)[1] if PII_SOURCE_ID_RE.fullmatch(source_id) else ""
+        authors = item.get("official_authors")
+        source_url = str(item.get("official_article_url", "")).strip()
+        if not pii:
+            raise ValueError(f"missing Elsevier item {doi} lacks official PII")
+        if not isinstance(authors, list) or not authors or not all(
+            str(author).strip() for author in authors
+        ):
+            raise ValueError(f"missing Elsevier item {doi} lacks official authors")
+        if not _official_url(source_url):
+            raise ValueError(f"missing Elsevier item {doi} lacks official article URL")
+        lookup = _elsevier_lookup(session, pii, doi=doi, timeout=timeout)
+        abstract = str(lookup.get("abstract", "")).strip()
+        if not abstract:
+            raise ValueError(
+                f"Elsevier metadata incomplete for {doi}: {lookup.get('status', 'unknown')}"
+            )
+        item.update(
+            authors=[str(author).strip() for author in authors],
+            abstract_en=abstract,
+            source_url=source_url,
+        )
+    return enriched
 
 
 def apply_evidence(issue: dict[str, Any], evidence: dict[str, Any]) -> dict[str, Any]:
@@ -392,6 +448,7 @@ def main() -> int:
     parser.add_argument("--promote", action="store_true")
     parser.add_argument("--state-root", type=Path)
     parser.add_argument("--translate", action="store_true")
+    parser.add_argument("--enrich-missing-elsevier", action="store_true")
     parser.add_argument("--translation-cache-root", type=Path, default=TRANSLATION_CACHE)
     args = parser.parse_args()
 
@@ -405,7 +462,10 @@ def main() -> int:
     )
     if not archive.exists():
         raise FileNotFoundError(f"archive missing: {archive}")
-    candidate = apply_evidence(_read_json(archive), evidence)
+    archive_payload = _read_json(archive)
+    if args.enrich_missing_elsevier:
+        evidence = enrich_missing_elsevier(evidence, archive_payload)
+    candidate = apply_evidence(archive_payload, evidence)
     translation_report: dict[str, Any] | None = None
     if args.translate:
         cache_path = args.translation_cache_root / f"{candidate['journal_id']}.json"

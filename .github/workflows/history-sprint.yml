@@ -200,6 +200,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || github.token }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           DEEPSEEK_MODEL: deepseek-chat
+          ELSEVIER_API_KEY: ${{ secrets.ELSEVIER_API_KEY }}
+          ELSEVIER_INST_TOKEN: ${{ secrets.ELSEVIER_INST_TOKEN }}
         shell: bash
         run: |
           set -euo pipefail
@@ -212,6 +214,7 @@ jobs:
               --output "$output/$(basename "$evidence")" \
               --state-root data/backfill-state \
               --translation-cache-root data/translation-cache \
+              --enrich-missing-elsevier \
               --translate \
               --promote
           done < <(find data/provenance/official-rosters -type f -name '*.json' -print0 | sort -z)
