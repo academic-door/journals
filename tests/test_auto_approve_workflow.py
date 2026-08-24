@@ -29,6 +29,11 @@ class AutoApproveWorkflowTests(unittest.TestCase):
         self.assertIn("The auto-reviewer approval is missing", self.merge_job)
         self.assertNotIn("actions/create-github-app-token", self.merge_job)
 
+    def test_accepts_duplicate_successful_test_runs(self) -> None:
+        self.assertIn('all($checks[]; .conclusion == "success")', self.approval_job)
+        self.assertIn('CHECK_STATE="$(gh api', self.approval_job)
+        self.assertIn('case "$CHECK_STATE" in', self.approval_job)
+
 
 if __name__ == "__main__":
     unittest.main()
