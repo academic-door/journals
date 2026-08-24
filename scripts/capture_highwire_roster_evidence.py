@@ -192,6 +192,31 @@ def _write_json(path: Path, payload: dict[str, Any]) -> None:
     )
 
 
+def select_source_pending_records(
+    manifest: dict[str, Any],
+    *,
+    output_root: Path,
+    skip_existing: bool,
+) -> list[dict[str, Any]]:
+    """Select every Land Economics archive still awaiting source evidence.
+
+    Gap manifests assign one primary queue category.  An issue can therefore
+    be ``translation_required`` while its independent source status is still
+    pending; source capture must use the source dimension, not only category.
+    """
+
+    return [
+        record
+        for record in manifest.get("records", [])
+        if record.get("source_status") == "source_pending"
+        and record.get("journal") == "LANDECON"
+        and not (
+            skip_existing
+            and (output_root / f"{record.get('issue_id', '')}.json").exists()
+        )
+    ]
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--gap-manifest", type=Path, required=True)
@@ -207,16 +232,11 @@ def main() -> int:
     args = parser.parse_args()
 
     manifest = json.loads(args.gap_manifest.read_text(encoding="utf-8"))
-    records = [
-        record
-        for record in manifest.get("records", [])
-        if record.get("category") == "source_pending"
-        and record.get("journal") == "LANDECON"
-        and not (
-            args.skip_existing
-            and (args.output_root / f"{record.get('issue_id', '')}.json").exists()
-        )
-    ]
+    records = select_source_pending_records(
+        manifest,
+        output_root=args.output_root,
+        skip_existing=args.skip_existing,
+    )
     jobs = [
         (
             record,

@@ -1,12 +1,14 @@
 from __future__ import annotations
 
 import unittest
+from pathlib import Path
 
 from scripts.capture_highwire_roster_evidence import (
     build_evidence,
     parse_highwire_detail,
     parse_highwire_detail_urls,
     parse_highwire_roster,
+    select_source_pending_records,
 )
 
 
@@ -97,6 +99,23 @@ class HighWireRosterCaptureTests(unittest.TestCase):
         )
         self.assertEqual(["Author One", "Author Two"], detail["authors"])
         self.assertEqual("Official abstract text.", detail["abstract_en"])
+
+    def test_source_pending_record_is_selected_even_in_translation_queue(self) -> None:
+        records = select_source_pending_records(
+            {
+                "records": [
+                    {
+                        "journal": "LANDECON",
+                        "issue_id": "landecon-99-1",
+                        "category": "translation_required",
+                        "source_status": "source_pending",
+                    }
+                ]
+            },
+            output_root=Path("unused"),
+            skip_existing=False,
+        )
+        self.assertEqual(["landecon-99-1"], [item["issue_id"] for item in records])
 
 
 if __name__ == "__main__":
