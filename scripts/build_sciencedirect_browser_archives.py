@@ -23,6 +23,7 @@ if str(ROOT) not in sys.path:
 from collectors.metadata_fallback import (
     ELSEVIER_ARTICLE_API,
     ELSEVIER_SEARCH_API,
+    _clean_markup,
     _elsevier_text,
     _elsevier_lookup,
 )
@@ -237,7 +238,9 @@ def build_rich_snapshot(
             continue
         title = str(item.get("title", "")).strip()
         api_title = str(metadata.get("title_en", "")).strip()
-        if title.casefold() != api_title.casefold():
+        normalized_title = " ".join(_clean_markup(title).split()).casefold()
+        normalized_api_title = " ".join(_clean_markup(api_title).split()).casefold()
+        if normalized_title != normalized_api_title:
             raise ValueError(f"official title mismatch for {pii}: {title!r} != {api_title!r}")
         items.append(
             {
