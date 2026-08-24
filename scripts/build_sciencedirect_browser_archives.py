@@ -20,6 +20,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from collectors.metadata_fallback import (
+    ELSEVIER_ARTICLE_METADATA_API,
     ELSEVIER_SEARCH_API,
     _elsevier_lookup,
 )
@@ -113,11 +114,10 @@ def fetch_issue_metadata(
         response = None
         for attempt in range(3):
             response = session.get(
-                ELSEVIER_SEARCH_API,
+                ELSEVIER_ARTICLE_METADATA_API,
                 params={
                     "query": f'PII("{pii}")',
-                    "field": "url,identifier,doi,pii,title,creator,description,coverDate",
-                    "count": "5",
+                    "view": "COMPLETE",
                     "httpAccept": "application/xml",
                 },
                 headers=headers,
