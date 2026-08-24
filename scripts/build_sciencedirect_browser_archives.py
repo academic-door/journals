@@ -179,7 +179,15 @@ def build_rich_snapshot(
     session: requests.Session,
     journal: dict[str, Any],
 ) -> dict[str, Any]:
-    roster_items = list(roster.get("items", []))
+    all_roster_items = list(roster.get("items", []))
+    # Publisher front matter and corrections are retained in the original
+    # browser roster for later exclusion evidence, but their PIIs are not
+    # searchable as research metadata in the Elsevier API.
+    roster_items = [
+        item
+        for item in all_roster_items
+        if PUBLISHABLE_RE.search(str(item.get("box_text", "")))
+    ]
     piis = [pii_from_href(item.get("href")) for item in roster_items]
     by_pii = fetch_issue_metadata(session, piis, timeout=90)
 
