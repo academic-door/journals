@@ -190,6 +190,20 @@ jobs:
       - name: Merge shard changes into the latest data baseline
         run: python scripts/merge_history_shards.py --root . --shards-root shards
 
+      - name: Apply exact official roster evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          output="$RUNNER_TEMP/official-roster-evidence"
+          mkdir -p "$output"
+          while IFS= read -r -d '' evidence; do
+            python scripts/import_official_roster_evidence.py \
+              "$evidence" \
+              --api-root public/api/v1 \
+              --output "$output/$(basename "$evidence")" \
+              --promote
+          done < <(find data/provenance/official-rosters -type f -name '*.json' -print0 | sort -z)
+
       - name: Rebuild indexes and run strict acceptance gates
         env:
           PYTHONPATH: ${{ github.workspace }}
@@ -284,7 +298,7 @@ jobs:
   composer:
     name: Sync only audited ready issues to Composer
     needs: publish
-    if: needs.publish.result == 'success'
+    if: always() && needs.publish.result == 'success'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7

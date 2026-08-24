@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import copy
+import json
 import unittest
+from pathlib import Path
 
 from scripts.import_official_roster_evidence import apply_evidence, validate_evidence
 
@@ -77,6 +79,16 @@ def evidence() -> dict:
 
 
 class OfficialRosterEvidenceTests(unittest.TestCase):
+    def test_checked_in_official_evidence_is_privacy_safe_and_valid(self) -> None:
+        root = Path(__file__).resolve().parents[1]
+        evidence_paths = sorted(
+            (root / "data" / "provenance" / "official-rosters").glob("**/*.json")
+        )
+        self.assertGreaterEqual(len(evidence_paths), 31)
+        for path in evidence_paths:
+            with self.subTest(path=path.name):
+                validate_evidence(json.loads(path.read_text(encoding="utf-8")))
+
     def test_exact_official_roster_promotes_without_retranslation(self) -> None:
         issue = provisional_issue()
         candidate = apply_evidence(issue, evidence())
