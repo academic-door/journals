@@ -10,13 +10,13 @@
   "retrieved_at": "2026-08-06T12:06:29+00:00",
   "expected_article_count": 7,
   "research_article_count": 7,
-  "status": "incomplete",
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
       "paper_id": "doi:10.1093/rfs/hhaf015",
       "sequence": 1,
-      "source_sequence": 1921,
+      "source_sequence": 1,
       "article_type": "research-article",
       "title_en": "Digital Tokens and Platform Building",
       "title_cn": "数字代币与平台构建",
@@ -32,7 +32,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/7",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/7",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -56,7 +56,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf013",
       "sequence": 2,
-      "source_sequence": 1955,
+      "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Proof-of-Work versus Proof-of-Stake: A Comparative Economic Analysis",
       "title_cn": "工作量证明与权益证明：比较经济分析",
@@ -73,7 +73,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/7",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/7",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -97,7 +97,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae079",
       "sequence": 3,
-      "source_sequence": 2005,
+      "source_sequence": 3,
       "article_type": "research-article",
       "title_en": "Pretending Ignorance Is Bliss: Competing Insurers with Heterogeneous Informational Advantages",
       "title_cn": "假装无知是福：具有异质性信息优势的竞争性保险公司",
@@ -114,7 +114,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/7",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/7",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -138,7 +138,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf025",
       "sequence": 4,
-      "source_sequence": 2034,
+      "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Hedging, Contract Enforceability, and Competition",
       "title_cn": "对冲、合同可执行性与竞争",
@@ -155,7 +155,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/7",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/7",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -179,7 +179,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf023",
       "sequence": 5,
-      "source_sequence": 2088,
+      "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "An Equilibrium Model of Imperfect Hedging: Transaction Costs, Heterogeneity in Risk Aversion, and Return Volatility",
       "title_cn": "不完全对冲的均衡模型：交易成本、风险厌恶异质性与收益波动率",
@@ -195,7 +195,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/7",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/7",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -219,7 +219,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf011",
       "sequence": 6,
-      "source_sequence": 2140,
+      "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "Real Effects of Centralized Markets: Evidence from Steel Futures",
       "title_cn": "集中化市场的实际效应：来自钢铁期货的证据",
@@ -234,7 +234,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/7",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/7",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -258,7 +258,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf005",
       "sequence": 7,
-      "source_sequence": 2182,
+      "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "Uncertainty, Contracting, and Beliefs in Organizations",
       "title_cn": "组织中的不确定性、契约与信念",
@@ -274,7 +274,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/7",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/7",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -299,8 +299,8 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "crossref",
-    "roster_authority": "crossref-provisional",
+    "roster_transport": "official-page-read",
+    "roster_authority": "official-issue-page",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
@@ -310,10 +310,7 @@
     "abstract_en_complete": 7,
     "translation_complete": 7,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
-    ],
+    "flags": [],
     "official_item_count": 7,
     "publishable_item_count": 7,
     "content_counts": {
@@ -328,6 +325,16 @@
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 7
+    },
+    "official_roster_evidence": {
+      "captured_at": "2026-08-24T09:13:44+00:00",
+      "official_url": "https://academic.oup.com/rfs/issue/38/7",
+      "method": "official-page-read",
+      "item_count": 7,
+      "excluded_item_count": 0,
+      "archive_reordered": false,
+      "sequence_sha256": "ae271b55070b99baacae22b80b243ed547cc6f358ed97680248cca3f99e79709",
+      "privacy_fields_stored": false
     }
   },
   "content_counts": {
@@ -345,6 +352,6 @@
   },
   "issue_label": "Vol. 38 · No. 7",
   "content_status": "complete",
-  "source_status": "source_pending",
-  "publication_state": "source_pending"
+  "source_status": "official_verified",
+  "publication_state": "ready"
 }

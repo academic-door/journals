@@ -10,13 +10,13 @@
   "retrieved_at": "2026-08-18T17:32:29+00:00",
   "expected_article_count": 7,
   "research_article_count": 7,
-  "status": "incomplete",
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
       "paper_id": "doi:10.1093/rfs/hhae043",
       "sequence": 1,
-      "source_sequence": 3217,
+      "source_sequence": 1,
       "article_type": "research-article",
       "title_en": "Machine Learning for Continuous-Time Finance",
       "title_cn": "连续时间金融中的机器学习",
@@ -33,7 +33,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/37/11",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/37/11",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -57,7 +57,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae049",
       "sequence": 2,
-      "source_sequence": 3272,
+      "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Horizon-Dependent Risk Aversion and the Timing and Pricing of Uncertainty",
       "title_cn": "时域依赖的风险厌恶与不确定性的时机和定价",
@@ -74,7 +74,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/37/11",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/37/11",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -98,7 +98,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae047",
       "sequence": 3,
-      "source_sequence": 3335,
+      "source_sequence": 3,
       "article_type": "research-article",
       "title_en": "Credit Cycles, Expectations, and Corporate Investment",
       "title_cn": "信贷周期、预期与企业投资",
@@ -116,7 +116,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/37/11",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/37/11",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -140,7 +140,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae042",
       "sequence": 4,
-      "source_sequence": 3386,
+      "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "The Technical Default Spread",
       "title_cn": "技术性违约利差",
@@ -157,7 +157,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/37/11",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/37/11",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -181,7 +181,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae048",
       "sequence": 5,
-      "source_sequence": 3431,
+      "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "Heterogeneous Real Estate Agents and the Housing Cycle",
       "title_cn": "异质性房地产经纪人住房周期",
@@ -197,7 +197,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/37/11",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/37/11",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -221,7 +221,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae044",
       "sequence": 6,
-      "source_sequence": 3490,
+      "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "A Comprehensive 2022 Look at the Empirical Performance of Equity Premium Prediction",
       "title_cn": "对股票溢价预测实证表现的全面审视（2022年）",
@@ -238,7 +238,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/37/11",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/37/11",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -262,7 +262,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae029",
       "sequence": 7,
-      "source_sequence": 3558,
+      "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "Computational Reproducibility in Finance: Evidence from 1,000 Tests",
       "title_cn": "金融学中的计算可复现性：来自1,000项检验的证据",
@@ -287,7 +287,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/37/11",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/37/11",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -312,8 +312,8 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "crossref",
-    "roster_authority": "crossref-provisional",
+    "roster_transport": "official-page-read",
+    "roster_authority": "official-issue-page",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
     "excluded_item_count": 1,
@@ -330,10 +330,7 @@
     "abstract_en_complete": 7,
     "translation_complete": 7,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
-    ],
+    "flags": [],
     "official_item_count": 8,
     "publishable_item_count": 7,
     "content_counts": {
@@ -348,10 +345,20 @@
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 8
+    },
+    "official_roster_evidence": {
+      "captured_at": "2026-08-24T09:13:44+00:00",
+      "official_url": "https://academic.oup.com/rfs/issue/37/11",
+      "method": "official-page-read",
+      "item_count": 7,
+      "excluded_item_count": 1,
+      "archive_reordered": false,
+      "sequence_sha256": "bd76f4e7b17a5e72e09683f7252a2cb0768f8775c276727523e6f1b1b606f449",
+      "privacy_fields_stored": false
     }
   },
-  "source_status": "source_pending",
-  "publication_state": "source_pending",
+  "source_status": "official_verified",
+  "publication_state": "ready",
   "content_counts": {
     "official_items": 8,
     "observed_items": 8,

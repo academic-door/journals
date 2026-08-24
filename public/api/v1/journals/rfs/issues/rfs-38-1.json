@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-06T12:02:51+00:00",
   "expected_article_count": 7,
   "research_article_count": 7,
-  "status": "incomplete",
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
@@ -32,7 +32,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/1",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -56,7 +56,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae066",
       "sequence": 2,
-      "source_sequence": 39,
+      "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Real Consequences of Shocks to Intermediaries Supplying Corporate Hedging Instruments",
       "title_cn": "企业套期保值工具供应中介冲击的实际后果",
@@ -71,7 +71,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/1",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -95,7 +95,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae071",
       "sequence": 3,
-      "source_sequence": 114,
+      "source_sequence": 3,
       "article_type": "research-article",
       "title_en": "Long-Term Investors, Demand Shifts, and Yields",
       "title_cn": "长期投资者、需求变动与收益率",
@@ -110,7 +110,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/1",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -134,7 +134,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae054",
       "sequence": 4,
-      "source_sequence": 158,
+      "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Duration-Based Valuation of Corporate Bonds",
       "title_cn": "基于久期的公司债券估值",
@@ -151,7 +151,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/1",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -175,7 +175,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae053",
       "sequence": 5,
-      "source_sequence": 192,
+      "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "Capital Investment, Equity Returns, and Aggregate Dynamics in Oligopolistic Production Economies",
       "title_cn": "寡头垄断生产经济体中的资本投资、股票收益与总体动态",
@@ -191,7 +191,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/1",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -215,7 +215,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae062",
       "sequence": 6,
-      "source_sequence": 235,
+      "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "Dynamic Market Making with Asymmetric Information and Market Power",
       "title_cn": "不对称信息与市场力量下的动态做市",
@@ -231,7 +231,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/1",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -255,7 +255,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae056",
       "sequence": 7,
-      "source_sequence": 294,
+      "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "The Brand Premium",
       "title_cn": "品牌溢价",
@@ -271,7 +271,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/1",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -296,8 +296,8 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "crossref",
-    "roster_authority": "crossref-provisional",
+    "roster_transport": "official-page-read",
+    "roster_authority": "official-issue-page",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
@@ -307,10 +307,7 @@
     "abstract_en_complete": 7,
     "translation_complete": 7,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
-    ],
+    "flags": [],
     "official_item_count": 7,
     "publishable_item_count": 7,
     "content_counts": {
@@ -325,6 +322,16 @@
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 7
+    },
+    "official_roster_evidence": {
+      "captured_at": "2026-08-24T09:13:44+00:00",
+      "official_url": "https://academic.oup.com/rfs/issue/38/1",
+      "method": "official-page-read",
+      "item_count": 7,
+      "excluded_item_count": 0,
+      "archive_reordered": false,
+      "sequence_sha256": "63ba2c105cefea20fd3aae437cb69c364acba7644da9d90929d39741f5119b8b",
+      "privacy_fields_stored": false
     }
   },
   "content_counts": {
@@ -342,6 +349,6 @@
   },
   "issue_label": "Vol. 38 · No. 1",
   "content_status": "complete",
-  "source_status": "source_pending",
-  "publication_state": "source_pending"
+  "source_status": "official_verified",
+  "publication_state": "ready"
 }

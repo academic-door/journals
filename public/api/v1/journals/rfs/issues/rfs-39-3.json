@@ -10,13 +10,13 @@
   "retrieved_at": "2026-08-06T12:08:18+00:00",
   "expected_article_count": 7,
   "research_article_count": 7,
-  "status": "incomplete",
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
       "paper_id": "doi:10.1093/rfs/hhaf067",
       "sequence": 1,
-      "source_sequence": 605,
+      "source_sequence": 1,
       "article_type": "research-article",
       "title_en": "Institutional Corporate Bond Pricing",
       "title_cn": "机构公司债券定价",
@@ -34,7 +34,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/39/3",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/39/3",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -58,7 +58,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf055",
       "sequence": 2,
-      "source_sequence": 661,
+      "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Failure to Share Natural Disaster Risk",
       "title_cn": "未能分担自然灾害风险",
@@ -73,7 +73,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/39/3",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/39/3",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -97,7 +97,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf050",
       "sequence": 3,
-      "source_sequence": 702,
+      "source_sequence": 3,
       "article_type": "research-article",
       "title_en": "Getting to the Core: Inflation Risks Within and Across Asset Classes",
       "title_cn": "触及核心：资产类别内部与跨资产类别的通胀风险",
@@ -114,7 +114,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/39/3",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/39/3",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -138,7 +138,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf058",
       "sequence": 4,
-      "source_sequence": 744,
+      "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "How Likely Is an Inflation Disaster?",
       "title_cn": "通胀灾难的可能性有多大？",
@@ -155,7 +155,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/39/3",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/39/3",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -179,7 +179,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf043",
       "sequence": 5,
-      "source_sequence": 783,
+      "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "Option Auctions",
       "title_cn": "期权拍卖",
@@ -196,7 +196,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/39/3",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/39/3",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -220,7 +220,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf060",
       "sequence": 6,
-      "source_sequence": 835,
+      "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "Common Factors in Equity Option Returns",
       "title_cn": "股票期权收益中的共同因子",
@@ -237,7 +237,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/39/3",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/39/3",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -261,7 +261,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf063",
       "sequence": 7,
-      "source_sequence": 875,
+      "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "Option Pricing with Time-Varying Volatility Risk Aversion",
       "title_cn": "时变波动率风险厌恶下的期权定价",
@@ -277,7 +277,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/39/3",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/39/3",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -302,8 +302,8 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "crossref",
-    "roster_authority": "crossref-provisional",
+    "roster_transport": "official-page-read",
+    "roster_authority": "official-issue-page",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
@@ -313,10 +313,7 @@
     "abstract_en_complete": 7,
     "translation_complete": 7,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
-    ],
+    "flags": [],
     "official_item_count": 7,
     "publishable_item_count": 7,
     "content_counts": {
@@ -331,6 +328,16 @@
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 7
+    },
+    "official_roster_evidence": {
+      "captured_at": "2026-08-24T09:13:44+00:00",
+      "official_url": "https://academic.oup.com/rfs/issue/39/3",
+      "method": "official-page-read",
+      "item_count": 7,
+      "excluded_item_count": 0,
+      "archive_reordered": false,
+      "sequence_sha256": "cbf70c75075cc8992e5104302368b9c43828a919e2658f3c7b9a3f878bca82c2",
+      "privacy_fields_stored": false
     }
   },
   "content_counts": {
@@ -348,6 +355,6 @@
   },
   "issue_label": "Vol. 39 · No. 3",
   "content_status": "complete",
-  "source_status": "source_pending",
-  "publication_state": "source_pending"
+  "source_status": "official_verified",
+  "publication_state": "ready"
 }

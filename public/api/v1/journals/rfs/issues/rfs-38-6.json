@@ -10,13 +10,13 @@
   "retrieved_at": "2026-08-06T12:06:08+00:00",
   "expected_article_count": 7,
   "research_article_count": 7,
-  "status": "incomplete",
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
       "paper_id": "doi:10.1093/rfs/hhaf006",
       "sequence": 1,
-      "source_sequence": 1595,
+      "source_sequence": 1,
       "article_type": "research-article",
       "title_en": "Investor Memory",
       "title_cn": "投资者记忆",
@@ -33,7 +33,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/6",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/6",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -57,7 +57,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae086",
       "sequence": 2,
-      "source_sequence": 1641,
+      "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Memory Moves Markets",
       "title_cn": "记忆驱动市场",
@@ -72,7 +72,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/6",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/6",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -96,7 +96,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae088",
       "sequence": 3,
-      "source_sequence": 1687,
+      "source_sequence": 3,
       "article_type": "research-article",
       "title_en": "Return Predictability, Expectations, and Investment: Experimental Evidence",
       "title_cn": "收益可预测性、预期与投资：实验证据",
@@ -114,7 +114,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/6",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/6",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -138,7 +138,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf020",
       "sequence": 4,
-      "source_sequence": 1730,
+      "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Earnings Extrapolation and Predictable Stock Market Returns",
       "title_cn": "盈利外推与可预测的股票市场回报",
@@ -153,7 +153,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/6",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/6",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -177,7 +177,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae087",
       "sequence": 5,
-      "source_sequence": 1783,
+      "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "Can Equity Option Returns Be Explained by a Factor Model? IPCA Says Yes",
       "title_cn": "期权收益能否用因子模型解释？IPCA表示可以",
@@ -193,7 +193,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/6",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/6",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -217,7 +217,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf016",
       "sequence": 6,
-      "source_sequence": 1822,
+      "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "Common Pricing of Decentralized Risk: A Linear Option Pricing Model",
       "title_cn": "分散化风险的统一定价：一个线性期权定价模型",
@@ -233,7 +233,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/6",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/6",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -257,7 +257,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf018",
       "sequence": 7,
-      "source_sequence": 1868,
+      "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "Short-Term Debt and Corporate Governance",
       "title_cn": "短期债务与公司治理",
@@ -272,7 +272,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/38/6",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/38/6",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -297,8 +297,8 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "crossref",
-    "roster_authority": "crossref-provisional",
+    "roster_transport": "official-page-read",
+    "roster_authority": "official-issue-page",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
@@ -308,10 +308,7 @@
     "abstract_en_complete": 7,
     "translation_complete": 7,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
-    ],
+    "flags": [],
     "official_item_count": 7,
     "publishable_item_count": 7,
     "content_counts": {
@@ -326,6 +323,16 @@
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 7
+    },
+    "official_roster_evidence": {
+      "captured_at": "2026-08-24T09:13:44+00:00",
+      "official_url": "https://academic.oup.com/rfs/issue/38/6",
+      "method": "official-page-read",
+      "item_count": 7,
+      "excluded_item_count": 0,
+      "archive_reordered": false,
+      "sequence_sha256": "c4f0ab2631b5a22484028ffa29d2b0d981b9e030ea7dc39484b19f63cf727f9b",
+      "privacy_fields_stored": false
     }
   },
   "content_counts": {
@@ -343,6 +350,6 @@
   },
   "issue_label": "Vol. 38 · No. 6",
   "content_status": "complete",
-  "source_status": "source_pending",
-  "publication_state": "source_pending"
+  "source_status": "official_verified",
+  "publication_state": "ready"
 }
