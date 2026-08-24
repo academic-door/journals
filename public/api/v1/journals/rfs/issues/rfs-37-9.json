@@ -10,13 +10,13 @@
   "retrieved_at": "2026-08-18T17:31:37+00:00",
   "expected_article_count": 7,
   "research_article_count": 7,
-  "status": "ready",
+  "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
       "paper_id": "doi:10.1093/rfs/hhae028",
       "sequence": 1,
-      "source_sequence": 1,
+      "source_sequence": 2627,
       "article_type": "research-article",
       "title_en": "Why Did Bank Stocks Crash during COVID-19?",
       "title_cn": "为什么COVID-19期间银行股暴跌？",
@@ -34,7 +34,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/37/9",
-        "roster": "https://academic.oup.com/rfs/issue/37/9",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -58,7 +58,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae020",
       "sequence": 2,
-      "source_sequence": 2,
+      "source_sequence": 2685,
       "article_type": "research-article",
       "title_en": "Who Can Tell Which Banks Will Fail?",
       "title_cn": "谁能预知哪些银行会倒闭？",
@@ -75,7 +75,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/37/9",
-        "roster": "https://academic.oup.com/rfs/issue/37/9",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -99,7 +99,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae033",
       "sequence": 3,
-      "source_sequence": 3,
+      "source_sequence": 2732,
       "article_type": "research-article",
       "title_en": "Human Capital Portability and Careers in Finance",
       "title_cn": "人力资本可携带性与金融职业",
@@ -116,7 +116,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/37/9",
-        "roster": "https://academic.oup.com/rfs/issue/37/9",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -140,7 +140,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae018",
       "sequence": 4,
-      "source_sequence": 4,
+      "source_sequence": 2779,
       "article_type": "research-article",
       "title_en": "Blood Money: Selling Plasma to Avoid High-Interest Loans",
       "title_cn": "血钱：卖血浆以避免高息贷款",
@@ -156,7 +156,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/37/9",
-        "roster": "https://academic.oup.com/rfs/issue/37/9",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -180,7 +180,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae024",
       "sequence": 5,
-      "source_sequence": 5,
+      "source_sequence": 2817,
       "article_type": "research-article",
       "title_en": "Financial Effects of Remote Product Delivery: Evidence from Hospitals",
       "title_cn": "远程产品交付的财务效应：来自医院的证据",
@@ -197,7 +197,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/37/9",
-        "roster": "https://academic.oup.com/rfs/issue/37/9",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -221,7 +221,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae017",
       "sequence": 6,
-      "source_sequence": 6,
+      "source_sequence": 2855,
       "article_type": "research-article",
       "title_en": "Teams and Bankruptcy",
       "title_cn": "团队与破产",
@@ -238,7 +238,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/37/9",
-        "roster": "https://academic.oup.com/rfs/issue/37/9",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -262,7 +262,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae026",
       "sequence": 7,
-      "source_sequence": 7,
+      "source_sequence": 2903,
       "article_type": "research-article",
       "title_en": "Institutional Brokerage Networks: Facilitating Liquidity Provision",
       "title_cn": "机构经纪网络：促进流动性提供",
@@ -279,7 +279,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/37/9",
-        "roster": "https://academic.oup.com/rfs/issue/37/9",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -304,8 +304,8 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "official-page-read",
-    "roster_authority": "official-issue-page",
+    "roster_transport": "crossref",
+    "roster_authority": "crossref-provisional",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
@@ -315,7 +315,10 @@
     "abstract_en_complete": 7,
     "translation_complete": 7,
     "duplicate_count": 0,
-    "flags": [],
+    "flags": [
+      "publisher_html_blocked_crossref_fallback",
+      "crossref_provisional_roster"
+    ],
     "official_item_count": 7,
     "publishable_item_count": 7,
     "content_counts": {
@@ -330,20 +333,10 @@
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 7
-    },
-    "official_roster_evidence": {
-      "captured_at": "2026-08-24T09:13:44+00:00",
-      "official_url": "https://academic.oup.com/rfs/issue/37/9",
-      "method": "official-page-read",
-      "item_count": 7,
-      "excluded_item_count": 0,
-      "archive_reordered": false,
-      "sequence_sha256": "8f3de5fcff4072a49e9e5a79064730ece80df9c2c4c2070822725628fde56293",
-      "privacy_fields_stored": false
     }
   },
-  "source_status": "official_verified",
-  "publication_state": "ready",
+  "source_status": "source_pending",
+  "publication_state": "source_pending",
   "content_counts": {
     "official_items": 7,
     "observed_items": 7,

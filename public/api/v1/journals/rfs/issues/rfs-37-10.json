@@ -10,13 +10,13 @@
   "retrieved_at": "2026-08-18T17:32:03+00:00",
   "expected_article_count": 7,
   "research_article_count": 7,
-  "status": "ready",
+  "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
       "paper_id": "doi:10.1093/rfs/hhae023",
       "sequence": 1,
-      "source_sequence": 1,
+      "source_sequence": 2937,
       "article_type": "research-article",
       "title_en": "The Bright Side of Political Uncertainty: The Case of RD",
       "title_cn": "政治不确定性的光明面：以研发为例",
@@ -33,7 +33,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/37/10",
-        "roster": "https://academic.oup.com/rfs/issue/37/10",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -57,7 +57,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae040",
       "sequence": 2,
-      "source_sequence": 2,
+      "source_sequence": 2971,
       "article_type": "research-article",
       "title_en": "Tax Policy and Abnormal Investment Behavior",
       "title_cn": "税收政策与异常投资行为",
@@ -73,7 +73,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/37/10",
-        "roster": "https://academic.oup.com/rfs/issue/37/10",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -97,7 +97,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae030",
       "sequence": 3,
-      "source_sequence": 3,
+      "source_sequence": 3024,
       "article_type": "research-article",
       "title_en": "The Savings of Corporate Giants",
       "title_cn": "企业巨头的储蓄",
@@ -113,7 +113,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/37/10",
-        "roster": "https://academic.oup.com/rfs/issue/37/10",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -137,7 +137,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae032",
       "sequence": 4,
-      "source_sequence": 4,
+      "source_sequence": 3050,
       "article_type": "research-article",
       "title_en": "Firm Networks and Asset Returns",
       "title_cn": "企业网络与资产回报",
@@ -152,7 +152,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/37/10",
-        "roster": "https://academic.oup.com/rfs/issue/37/10",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -176,7 +176,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae041",
       "sequence": 5,
-      "source_sequence": 5,
+      "source_sequence": 3092,
       "article_type": "research-article",
       "title_en": "The Value of ETF Liquidity",
       "title_cn": "ETF流动性的价值",
@@ -193,7 +193,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/37/10",
-        "roster": "https://academic.oup.com/rfs/issue/37/10",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -217,7 +217,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae027",
       "sequence": 6,
-      "source_sequence": 6,
+      "source_sequence": 3149,
       "article_type": "research-article",
       "title_en": "Price elasticity of demand and risk-bearing capacity in sovereign bond auctions",
       "title_cn": "主权债券拍卖中的需求价格弹性与风险承受能力",
@@ -234,7 +234,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/37/10",
-        "roster": "https://academic.oup.com/rfs/issue/37/10",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -258,7 +258,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae002",
       "sequence": 7,
-      "source_sequence": 7,
+      "source_sequence": 3188,
       "article_type": "research-article",
       "title_en": "Holding Period Effects in Dividend Strip Returns",
       "title_cn": "股息剥离收益中的持有期效应",
@@ -274,7 +274,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/37/10",
-        "roster": "https://academic.oup.com/rfs/issue/37/10",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -299,8 +299,8 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "official-page-read",
-    "roster_authority": "official-issue-page",
+    "roster_transport": "crossref",
+    "roster_authority": "crossref-provisional",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
@@ -310,7 +310,10 @@
     "abstract_en_complete": 7,
     "translation_complete": 7,
     "duplicate_count": 0,
-    "flags": [],
+    "flags": [
+      "publisher_html_blocked_crossref_fallback",
+      "crossref_provisional_roster"
+    ],
     "official_item_count": 7,
     "publishable_item_count": 7,
     "content_counts": {
@@ -325,20 +328,10 @@
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 7
-    },
-    "official_roster_evidence": {
-      "captured_at": "2026-08-24T09:13:44+00:00",
-      "official_url": "https://academic.oup.com/rfs/issue/37/10",
-      "method": "official-page-read",
-      "item_count": 7,
-      "excluded_item_count": 0,
-      "archive_reordered": false,
-      "sequence_sha256": "059665fc916f1d1cdd5b8d222d51f7450a36d38ac3cb07ffde3f1490e49c244a",
-      "privacy_fields_stored": false
     }
   },
-  "source_status": "official_verified",
-  "publication_state": "ready",
+  "source_status": "source_pending",
+  "publication_state": "source_pending",
   "content_counts": {
     "official_items": 7,
     "observed_items": 7,

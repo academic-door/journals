@@ -6,17 +6,17 @@
   "volume": "39",
   "issue": "7",
   "publication_date": "July 2026",
-  "source_url": "https://academic.oup.com/rfs/issue/39/7",
+  "source_url": "https://academic.oup.com/rfs/issue",
   "retrieved_at": "2026-07-28T05:37:57+00:00",
   "expected_article_count": 8,
   "research_article_count": 8,
-  "status": "ready",
+  "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
       "paper_id": "doi:10.1093/rfs/hhaf078",
       "sequence": 1,
-      "source_sequence": 1,
+      "source_sequence": 1909,
       "article_type": "research-article",
       "title_en": "Data-Driven Investors",
       "title_cn": "数据驱动的投资者",
@@ -24,24 +24,23 @@
         "Maxime Bonelli"
       ],
       "abstract_en": "How does the increased use of data technologies, like machine learning, by financial intermediaries affect the allocation of capital towards innovation? I study this question in the context of startup financing by venture capitalists (VCs). While VCs adopting data technologies become better at screening startups similar to those in historical data, they tilt their investments towards this pool and become concurrently less likely to finance innovative startups that achieve rare major success. Plausibly exogenous variations in VCs’ screening automation suggest that these effects are causal. These findings highlight how investors’ adoption of data technologies can have real effects through innovation financing.",
-      "abstract_cn": "金融中介机构越来越多地使用数据技术（如机器学习）如何影响资本向创新的配置？我在风险投资家（VC）对初创企业融资的背景下研究这一问题。采用数据技术的风险投资家在筛选与历史数据相似的初创企业方面变得更好，但他们将投资倾向于这一群体，同时变得不太可能资助那些实现罕见重大成功的创新初创企业。风险投资家筛选自动化的合理外生变化表明这些效应是因果性的。这些发现强调了投资者采用数据技术如何通过创新融资产生实际影响。",
+      "abstract_cn": "金融中介机构使用机器学习等数据技术的增加如何影响资本向创新的配置？我在风险投资（VC）对初创企业融资的背景下研究了这一问题。虽然采用数据技术的VC在筛选与历史数据中相似的初创企业方面表现更佳，但他们倾向于将投资集中于这部分企业，同时变得不太可能为实现罕见重大成功的创新型初创企业提供融资。VC筛选自动化的合理外生变异表明这些效应具有因果性。这些发现强调了投资者采用数据技术如何通过创新融资产生实际影响。",
       "doi": "10.1093/rfs/hhaf078",
       "source_url": "https://doi.org/10.1093/rfs/hhaf078",
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue",
-        "roster": "https://academic.oup.com/rfs/issue/39/7",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
-        "provider": "deepseek",
+        "provider": "github-models",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-24T07:40:52+00:00",
-        "source_hash": "4f29f062a2c1ecb6b74af4393cc625d74a2248bf7782a4347bcbbfe3bd2bbc3d"
+        "model": "openai/gpt-4.1-mini",
+        "translated_at": "2026-07-26T20:05:53+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -54,7 +53,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf049",
       "sequence": 2,
-      "source_sequence": 2,
+      "source_sequence": 1970,
       "article_type": "research-article",
       "title_en": "Gender Stereotypes and Entrepreneur Financing",
       "title_cn": "性别刻板印象与创业融资",
@@ -62,24 +61,23 @@
         "Camille Hebert"
       ],
       "abstract_en": "I document a significant gender gap in entrepreneurs’ access to early-stage equity financing. Using unique administrative data on French startups, I show that this gap is particularly pronounced in male-dominated sectors. Controlling for a comprehensive set of entrepreneur and startup characteristics—including demographics, backgrounds, and motivations—accounts for 42% of the average gender gap. However, in male-dominated sectors, 80% of the gap remains unexplained. Growth-oriented female entrepreneurs rely more heavily on bank loans, substituting equity with debt. Finally, VC-backed female-founded startups outperform their male counterparts in male-dominated sectors. These findings suggest that context-dependent stereotypes influence equity financing decisions.",
-      "abstract_cn": "我记录了企业家在获得早期股权融资方面存在显著的性别差距。利用法国初创企业的独特行政数据，我表明这种差距在男性主导的行业中尤为明显。控制企业家和初创企业的全面特征——包括人口统计、背景和动机——解释了平均性别差距的42%。然而，在男性主导的行业中，80%的差距仍然无法解释。以增长为导向的女性创业者更依赖银行贷款，用债务替代股权。最后，在男性主导的行业中，风险投资支持的女性创办的初创企业表现优于男性同行。这些发现表明，情境依赖的刻板印象影响股权融资决策。",
+      "abstract_cn": "我记录了创业者在早期股权融资中存在显著的性别差距。利用法国初创企业的独特行政数据，我发现这一差距在男性主导的行业中尤为明显。控制了包括人口统计、背景和动机在内的创业者和初创企业的全面特征后，平均性别差距的42%得以解释。然而，在男性主导的行业中，80%的差距仍未得到解释。以增长为导向的女性创业者更依赖银行贷款，用债务替代股权。最后，获得风险投资支持的女性创办的初创企业在男性主导行业中的表现优于男性同行。这些发现表明，情境依赖的刻板印象影响股权融资决策。",
       "doi": "10.1093/rfs/hhaf049",
       "source_url": "https://doi.org/10.1093/rfs/hhaf049",
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue",
-        "roster": "https://academic.oup.com/rfs/issue/39/7",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
-        "provider": "deepseek",
+        "provider": "github-models",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-24T07:40:54+00:00",
-        "source_hash": "41b4a625625fa5af667d4455a5002005276b7019fb8b4666bc4750dd4080f859"
+        "model": "openai/gpt-4.1-mini",
+        "translated_at": "2026-07-26T20:06:02+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -92,7 +90,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhag014",
       "sequence": 3,
-      "source_sequence": 3,
+      "source_sequence": 2018,
       "article_type": "research-article",
       "title_en": "The Broader Role of Venture Capital Due Diligence",
       "title_cn": "风险投资尽职调查的更广泛作用",
@@ -103,24 +101,23 @@
         "Xiang Yin"
       ],
       "abstract_en": "Analyzing approximately 2,000 applicants to a U.K. seed fund, this study examines how venture capital (VC) due diligence affects startup outcomes independent of funding decisions. Leveraging random reviewer assignment, we find that due diligence increases 2-year growth but lowers continuation rates among nonfunded applicants, reflecting a dynamic of accelerated scaling or exit. Evidence points to a learning mechanism: due diligence exposes founders to advanced website technologies, prompting capability building in digital skills. Firms selected for due diligence adopt these technologies, even before raising external capital. The findings highlight VC due diligence as a formative process influencing startups beyond the funded few.",
-      "abstract_cn": "本研究分析了英国一家种子基金的约2,000名申请者，考察风险投资（VC）尽职调查如何在独立于融资决策的情况下影响初创企业成果。利用随机审阅者分配，我们发现尽职调查提高了2年增长率，但降低了未获资助申请者的持续经营率，反映了加速扩张或退出的动态。证据指向一种学习机制：尽职调查使创始人接触先进网站技术，促进数字技能的能力建设。被选中进行尽职调查的企业即使在筹集外部资本之前也会采用这些技术。研究结果凸显了风险投资尽职调查作为一个形成性过程，对初创企业的影响超越了少数获资助者。",
+      "abstract_cn": "本文分析了约2,000名申请英国种子基金的创业公司，研究风险投资（VC）尽职调查如何在不依赖融资决策的情况下影响创业公司结果。利用随机评审员分配，我们发现尽职调查提高了2年的增长率，但降低了未获资助申请者的持续率，反映出加速扩张或退出的动态。证据表明存在学习机制：尽职调查使创始人接触到先进的网站技术，促进数字技能能力的提升。被选中进行尽职调查的公司即使在筹集外部资本之前也采用了这些技术。研究结果强调风险投资尽职调查作为一种塑造过程，对创业公司产生影响，超越了少数获资助者。",
       "doi": "10.1093/rfs/hhag014",
       "source_url": "https://doi.org/10.1093/rfs/hhag014",
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue",
-        "roster": "https://academic.oup.com/rfs/issue/39/7",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
-        "provider": "deepseek",
+        "provider": "github-models",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-24T07:40:57+00:00",
-        "source_hash": "61af74f6a5b46b8e565c78656866263911590229989b29a544213e867bbd3b6c"
+        "model": "openai/gpt-4.1-mini",
+        "translated_at": "2026-07-26T20:06:11+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -133,34 +130,33 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf080",
       "sequence": 4,
-      "source_sequence": 4,
+      "source_sequence": 2064,
       "article_type": "research-article",
       "title_en": "Collateral Effects: The Role of FinTech in Small Business Lending",
-      "title_cn": "抵押品效应：金融科技在小企业贷款中的作用",
+      "title_cn": "抵押效应：金融科技在小企业贷款中的作用",
       "authors": [
         "Paul Beaumont",
         "Huan Tang",
         "Eric Vansteenberghe"
       ],
       "abstract_en": "This paper investigates the impact of introducing junior unsecured loans (i.e., FinTech loans) into the small business lending market. Using French administrative data, we find that firms experience a 13% increase in bank credit after receiving a FinTech loan. We use propensity score matching procedures and a shift-share instrument to account for credit demand. The credit increase only occurs when FinTech borrowers invest in new assets, and Fintech borrowers are subsequently more likely to pledge collateral to banks. This suggests that firms use FinTech loans to acquire assets that they then pledge to banks, thereby increasing total borrowing capacity.",
-      "abstract_cn": "本文研究了将初级无担保贷款（即金融科技贷款）引入小企业贷款市场的影响。利用法国行政数据，我们发现企业在获得金融科技贷款后，银行信贷增加了13%。我们使用倾向得分匹配程序和转移份额工具来考虑信贷需求。信贷增加仅在金融科技借款人投资于新资产时发生，且金融科技借款人随后更有可能向银行提供抵押品。这表明企业利用金融科技贷款购置资产，然后将这些资产抵押给银行，从而增加总借款能力。",
+      "abstract_cn": "本文研究了引入次级无担保贷款（即金融科技贷款）对小企业贷款市场的影响。利用法国行政数据，我们发现企业在获得金融科技贷款后，银行信贷出现了13%的增长。我们采用倾向得分匹配方法和分行业份额工具变量来控制信贷需求。信贷增长仅在金融科技借款人投资新资产时发生，且金融科技借款人随后更可能向银行提供抵押品。这表明企业利用金融科技贷款获取资产，进而将其抵押给银行，从而提高了总借贷能力。",
       "doi": "10.1093/rfs/hhaf080",
       "source_url": "https://doi.org/10.1093/rfs/hhaf080",
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue",
-        "roster": "https://academic.oup.com/rfs/issue/39/7",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
-        "provider": "deepseek",
+        "provider": "github-models",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-24T07:40:59+00:00",
-        "source_hash": "f656343a63f63f423aad0b920623eeb20e9f30d527fdf31f518c996a266f6d20"
+        "model": "openai/gpt-4.1-mini",
+        "translated_at": "2026-07-26T20:06:18+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -173,34 +169,33 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf103",
       "sequence": 5,
-      "source_sequence": 5,
+      "source_sequence": 2115,
       "article_type": "research-article",
       "title_en": "Asset Overhang and Technological Change",
-      "title_cn": "资产悬置与技术变革",
+      "title_cn": "资产负担过重与技术变革",
       "authors": [
         "Hans Degryse",
         "Tarik Roukny",
         "Joris Tielens"
       ],
       "abstract_en": "Investors face reduced incentives to finance technological change that devalues their legacy investments. We formalize this “asset overhang” and apply our framework to the climate-banking nexus. Leveraging (1) firm-level data on green innovation and diffusion and (2) the sets of product and technology market peers, we implement a shift-share design that identifies banks’ credit facilities impacted by green firm activities. We find that green firms imposing an asset overhang across all lenders are 3 to 7 percentage points more likely to report tight credit supply conditions. The presence of legacy-free investors mitigates the asset overhang problem, thereby facilitating technological change.",
-      "abstract_cn": "投资者面临减少的激励来资助那些使其传统投资贬值的科技变革。我们将这种“资产悬置”形式化，并将我们的框架应用于气候-银行关联。利用（1）关于绿色创新和扩散的企业层面数据，以及（2）产品和科技市场同行的集合，我们实施了一个转移份额设计，以识别受绿色企业活动影响的银行信贷设施。我们发现，对所有贷款人施加资产悬置的绿色企业，报告信贷供应条件紧张的可能性高出3至7个百分点。无传统资产投资者的存在缓解了资产悬置问题，从而促进了技术变革。",
+      "abstract_cn": "投资者面临激励减弱的问题，即为贬值其既有投资的技术变革提供融资。我们形式化了这一“资产负担过重”问题，并将我们的框架应用于气候与银行业的关联。利用(1)关于绿色创新与扩散的企业层面数据以及(2)产品和技术市场同行集，我们实施了一种移位-份额设计，识别受绿色企业活动影响的银行信贷设施。我们发现，绿色企业对所有贷款方施加资产负担过重，使其报告信贷供应紧张状况的可能性提高了3至7个百分点。无遗留资产投资者的存在缓解了资产负担过重问题，从而促进了技术变革。",
       "doi": "10.1093/rfs/hhaf103",
       "source_url": "https://doi.org/10.1093/rfs/hhaf103",
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue",
-        "roster": "https://academic.oup.com/rfs/issue/39/7",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
-        "provider": "deepseek",
+        "provider": "github-models",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-24T07:41:01+00:00",
-        "source_hash": "e0c3993c3057f9cc350934b45e6dbfcee52ce674eda52c6775f23c86fb204aa9"
+        "model": "openai/gpt-4.1-mini",
+        "translated_at": "2026-07-26T20:06:28+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -213,7 +208,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhag026",
       "sequence": 6,
-      "source_sequence": 6,
+      "source_sequence": 2179,
       "article_type": "research-article",
       "title_en": "Excess Commitment in RD",
       "title_cn": "研发中的过度承诺",
@@ -222,24 +217,23 @@
         "Tong Liu"
       ],
       "abstract_en": "We document that firms exhibit “excess” commitment to R&D projects and examine its consequences for innovation outcomes. Using detailed data on pharmaceutical firms’ clinical trial projects, we find that trial delays, empirically uncorrelated with multiple project-quality measures, substantially reduce firms’ subsequent project-termination propensity. This result remains robust when we use variation in clinical trial site congestion to instrument for unexpected delays. Excess commitment intensifies when CEO compensation has greater stock-price sensitivity and the CEO is responsible for the project’s initiation. Our findings have broader implications: delay-driven commitment reduces new drug project initiations, with further evidence suggesting efficiency losses for firms.",
-      "abstract_cn": "我们记录了企业对研发项目表现出“过度”承诺，并考察了其对创新成果的影响。利用制药企业临床试验项目的详细数据，我们发现试验延迟（与多个项目质量指标在经验上不相关）显著降低了企业后续终止项目的倾向。当我们使用临床试验场地拥堵的变化作为意外延迟的工具变量时，这一结果依然稳健。当CEO薪酬对股价敏感性更高且CEO负责项目启动时，过度承诺会加剧。我们的发现具有更广泛的意义：延迟驱动的承诺减少了新药项目的启动，进一步证据表明企业存在效率损失。",
+      "abstract_cn": "我们记录了企业对研发项目表现出“过度”承诺的现象，并考察其对创新成果的影响。利用制药企业临床试验项目的详细数据，我们发现试验延迟与多项项目质量指标在实证上无相关性，但显著降低了企业后续项目终止的倾向。使用临床试验地点拥堵程度的变异作为意外延迟的工具变量后，该结果依然稳健。当CEO薪酬对股价的敏感度更高且CEO负责项目启动时，过度承诺现象更为显著。我们的研究结果具有更广泛的意义：延迟驱动的承诺减少了新药项目的启动，进一步证据表明企业因此遭受效率损失。",
       "doi": "10.1093/rfs/hhag026",
       "source_url": "https://doi.org/10.1093/rfs/hhag026",
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue",
-        "roster": "https://academic.oup.com/rfs/issue/39/7",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
-        "provider": "deepseek",
+        "provider": "github-models",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-24T07:41:03+00:00",
-        "source_hash": "ce8b6f61322da38bd5716608153b22e10d64836eae6c588ceb734f2397f78457"
+        "model": "openai/gpt-4.1-mini",
+        "translated_at": "2026-07-26T20:06:34+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -252,7 +246,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf111",
       "sequence": 7,
-      "source_sequence": 7,
+      "source_sequence": 2222,
       "article_type": "research-article",
       "title_en": "The Structure of Leveraged Buyouts and the Free-Rider Problem",
       "title_cn": "杠杆收购的结构与搭便车问题",
@@ -262,24 +256,23 @@
         "Henrik Petri"
       ],
       "abstract_en": "We study the structure of public firm buyouts in a model that features the Berle-Means problem (lack of incentives) and the Grossman-Hart problem (holdout). We find that bootstrapping, debt in excess of funding needs, and upfront fees to bidders are socially optimal and increase buyout premiums. These elements make LBO financing tantamount to a “management contract” arranged by an outside manager to receive cash and incentives to manage a firm—except the cash is funded by excess debt imposed on the firm. Our model also rationalizes why PE firms collect fees from their equity partnerships and directly from target firms.",
-      "abstract_cn": "我们在一个同时包含伯利-米恩斯问题（激励不足）和格罗斯曼-哈特问题（抵制）的模型中研究上市公司收购的结构。我们发现，引导融资、超出资金需求的债务以及向竞标者收取的前期费用是社会最优的，并能提高收购溢价。这些要素使得杠杆收购融资等同于由外部管理者安排的一份“管理合同”，以获取现金和激励来管理公司——只不过现金是通过强加于公司的超额债务来融资的。我们的模型还解释了为什么私募股权公司向其股权合伙企业和目标公司直接收取费用。",
+      "abstract_cn": "我们在一个包含Berle-Means问题（激励缺失）和Grossman-Hart问题（阻挠）的模型中研究了上市公司收购的结构。我们发现，套现、超出融资需求的债务以及对竞标者的预付费用是社会最优的，并且提高了收购溢价。这些因素使得杠杆收购融资等同于由外部管理者安排的“管理合同”，该管理者获得现金和激励以管理公司——但现金是由施加在公司上的超额债务提供的。我们的模型还解释了为何私募股权公司从其股权合伙企业及目标公司直接收取费用。",
       "doi": "10.1093/rfs/hhaf111",
       "source_url": "https://doi.org/10.1093/rfs/hhaf111",
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue",
-        "roster": "https://academic.oup.com/rfs/issue/39/7",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
-        "provider": "deepseek",
+        "provider": "github-models",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-24T07:41:05+00:00",
-        "source_hash": "ecfeeb9a8a2534990b00332a948b2b731c4c4f95f026cea0973c9eb945a9b089"
+        "model": "openai/gpt-4.1-mini",
+        "translated_at": "2026-07-26T20:06:41+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -292,33 +285,32 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf116",
       "sequence": 8,
-      "source_sequence": 8,
+      "source_sequence": 2261,
       "article_type": "research-article",
       "title_en": "The Intangibles Song in Takeover Announcements: Good Tempo, Hollow Tune",
-      "title_cn": "收购公告中的无形资产之歌：好节奏，空洞曲调",
+      "title_cn": "收购公告中的无形资产之歌：节奏良好，旋律空洞",
       "authors": [
         "Zoran M Filipović",
         "Alexander F Wagner"
       ],
       "abstract_en": "Mergers and acquisitions are often motivated by an intention to create value from intangible assets. We develop a word list of intangibles and apply it to takeover announcements. One standard deviation more in intangible-related language (“intangibles talk”) lowers announcement returns for the acquirer by 0.53 percentage points and predicts worse operating performance. Bidder managers appear to believe in the deals nonetheless, as evidenced by insider trades, payment choices, and completion probabilities and speed. Overall, takeover announcement texts reveal important information about hard-to-measure aspects of deal quality.",
-      "abstract_cn": "并购往往出于从无形资产中创造价值的意图。我们开发了一个无形资产词汇表，并将其应用于收购公告。无形资产相关语言（“无形资产谈论”）每增加一个标准差，收购方的公告回报率就会降低0.53个百分点，并预示着更差的经营业绩。尽管如此，竞标方管理者似乎仍然相信这些交易，这从内部人交易、支付选择以及完成概率和速度中可以看出。总体而言，收购公告文本揭示了关于交易质量难以衡量方面的重要信息。",
+      "abstract_cn": "兼并与收购通常旨在通过无形资产创造价值。我们开发了一套无形资产词汇表，并将其应用于收购公告中。无形资产相关语言（“无形资产话语”）的标准差增加会使收购方公告收益降低0.53个百分点，并预测更差的经营绩效。尽管如此，竞购方管理者似乎仍然相信这些交易，这从内部人交易、支付方式选择以及交易完成的概率和速度中可见一斑。总体而言，收购公告文本揭示了关于难以衡量的交易质量方面的重要信息。",
       "doi": "10.1093/rfs/hhaf116",
       "source_url": "https://doi.org/10.1093/rfs/hhaf116",
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue",
-        "roster": "https://academic.oup.com/rfs/issue/39/7",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
-        "provider": "deepseek",
+        "provider": "github-models",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-24T07:41:07+00:00",
-        "source_hash": "b581d6315b7833875598c97fd66c7d6c0d9be2c73d03b1569862e415d13fda2e"
+        "model": "openai/gpt-4.1-mini",
+        "translated_at": "2026-07-26T20:06:48+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -332,8 +324,8 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "official-page-read",
-    "roster_authority": "official-issue-page",
+    "roster_transport": "crossref",
+    "roster_authority": "crossref-provisional",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
@@ -343,7 +335,10 @@
     "abstract_en_complete": 8,
     "translation_complete": 8,
     "duplicate_count": 0,
-    "flags": [],
+    "flags": [
+      "publisher_html_blocked_crossref_fallback",
+      "crossref_provisional_roster"
+    ],
     "official_item_count": 8,
     "publishable_item_count": 8,
     "content_counts": {
@@ -358,16 +353,6 @@
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 8
-    },
-    "official_roster_evidence": {
-      "captured_at": "2026-08-24T09:13:44+00:00",
-      "official_url": "https://academic.oup.com/rfs/issue/39/7",
-      "method": "official-page-read",
-      "item_count": 8,
-      "excluded_item_count": 0,
-      "archive_reordered": false,
-      "sequence_sha256": "9cc6e901369e708cabe878a08985be45055c2a7b7bb05818039c10fa2d167775",
-      "privacy_fields_stored": false
     }
   },
   "content_counts": {
@@ -385,6 +370,6 @@
   },
   "issue_label": "Vol. 39 · No. 7",
   "content_status": "complete",
-  "source_status": "official_verified",
-  "publication_state": "ready"
+  "source_status": "source_pending",
+  "publication_state": "source_pending"
 }

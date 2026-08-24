@@ -10,13 +10,13 @@
   "retrieved_at": "2026-08-06T12:08:36+00:00",
   "expected_article_count": 7,
   "research_article_count": 7,
-  "status": "ready",
+  "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
       "paper_id": "doi:10.1093/rfs/hhaf024",
       "sequence": 1,
-      "source_sequence": 1,
+      "source_sequence": 925,
       "article_type": "research-article",
       "title_en": "Nonbank Lending and Credit Cyclicality",
       "title_cn": "非银行贷款与信贷周期性",
@@ -34,7 +34,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/39/4",
-        "roster": "https://academic.oup.com/rfs/issue/39/4",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -58,7 +58,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf096",
       "sequence": 2,
-      "source_sequence": 2,
+      "source_sequence": 966,
       "article_type": "research-article",
       "title_en": "Nonbank Lending and the Transmission of Monetary Policy",
       "title_cn": "非银行贷款与货币政策的传导",
@@ -74,7 +74,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/39/4",
-        "roster": "https://academic.oup.com/rfs/issue/39/4",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -98,7 +98,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf086",
       "sequence": 3,
-      "source_sequence": 3,
+      "source_sequence": 1015,
       "article_type": "research-article",
       "title_en": "Why Do Traditional and Shadow Banks Coexist?",
       "title_cn": "为什么传统银行和影子银行共存？",
@@ -114,7 +114,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/39/4",
-        "roster": "https://academic.oup.com/rfs/issue/39/4",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -138,7 +138,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf071",
       "sequence": 4,
-      "source_sequence": 4,
+      "source_sequence": 1054,
       "article_type": "research-article",
       "title_en": "Banking-Crisis Interventions across Time and Space",
       "title_cn": "银行危机干预的时空维度",
@@ -154,7 +154,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/39/4",
-        "roster": "https://academic.oup.com/rfs/issue/39/4",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -178,7 +178,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf107",
       "sequence": 5,
-      "source_sequence": 5,
+      "source_sequence": 1077,
       "article_type": "research-article",
       "title_en": "The Impact of Bank Consolidation on Credit Supply and Performance",
       "title_cn": "银行合并对信贷供给与绩效的影响",
@@ -195,7 +195,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/39/4",
-        "roster": "https://academic.oup.com/rfs/issue/39/4",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -219,7 +219,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf039",
       "sequence": 6,
-      "source_sequence": 6,
+      "source_sequence": 1116,
       "article_type": "research-article",
       "title_en": "Dynamic Coordination and Bankruptcy Regulations",
       "title_cn": "动态协调与破产法规",
@@ -235,7 +235,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/39/4",
-        "roster": "https://academic.oup.com/rfs/issue/39/4",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -259,7 +259,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf095",
       "sequence": 7,
-      "source_sequence": 7,
+      "source_sequence": 1177,
       "article_type": "research-article",
       "title_en": "Portfolio Regulation of Financial Institutions with Market Power",
       "title_cn": "具有市场势力的金融机构的投资组合监管",
@@ -276,7 +276,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/39/4",
-        "roster": "https://academic.oup.com/rfs/issue/39/4",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -301,8 +301,8 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "official-page-read",
-    "roster_authority": "official-issue-page",
+    "roster_transport": "crossref",
+    "roster_authority": "crossref-provisional",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
@@ -312,7 +312,10 @@
     "abstract_en_complete": 7,
     "translation_complete": 7,
     "duplicate_count": 0,
-    "flags": [],
+    "flags": [
+      "publisher_html_blocked_crossref_fallback",
+      "crossref_provisional_roster"
+    ],
     "official_item_count": 7,
     "publishable_item_count": 7,
     "content_counts": {
@@ -327,16 +330,6 @@
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 7
-    },
-    "official_roster_evidence": {
-      "captured_at": "2026-08-24T09:13:44+00:00",
-      "official_url": "https://academic.oup.com/rfs/issue/39/4",
-      "method": "official-page-read",
-      "item_count": 7,
-      "excluded_item_count": 0,
-      "archive_reordered": false,
-      "sequence_sha256": "87cc478d51bc5f869497176709f31dd6046e0c8d9bdf4a9307055ec45dd04b0c",
-      "privacy_fields_stored": false
     }
   },
   "content_counts": {
@@ -354,6 +347,6 @@
   },
   "issue_label": "Vol. 39 · No. 4",
   "content_status": "complete",
-  "source_status": "official_verified",
-  "publication_state": "ready"
+  "source_status": "source_pending",
+  "publication_state": "source_pending"
 }

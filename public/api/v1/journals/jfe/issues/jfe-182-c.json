@@ -11,52 +11,13 @@
   "retrieved_at": "2026-07-28T05:37:47+00:00",
   "expected_article_count": 6,
   "research_article_count": 6,
-  "status": "incomplete",
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1016/j.jfineco.2026.104293",
+      "paper_id": "doi:10.1016/j.jfineco.2026.104295",
       "sequence": 1,
       "source_sequence": 1,
-      "article_type": "research-article",
-      "title_en": "Government debt management and inflation with real and nominal bonds",
-      "title_cn": "政府债务管理与实际债券和名义债券下的通胀问题",
-      "authors": [
-        "Lukas Schmid",
-        "Vytautas Valaitis",
-        "Alessandro T. Villa"
-      ],
-      "abstract_en": "Can governments use real bonds such as Treasury Inflation-Protected Securities (TIPS) to tame inflation? We propose a novel framework of optimal debt management with sticky prices and a government issuing nominal and real state-uncontingent bonds. A government debt portfolio with both nominal and real bonds helps completing markets unless the monetary policy stance renders them perfect substitutes. Under Full Commitment, the government borrows with nominal debt and accumulates real assets, to be able to use inflation to smooth taxes. With No Commitment, the government portfolio favors real bonds to strategically prevent future governments from monetizing debt ex-post. Quantitatively, our model with No Commitment is consistent with the small and persistent TIPS share in U.S. data. A higher TIPS share mitigates the commitment friction, and effectively curbs inflation.",
-      "abstract_cn": "政府能否利用实际债券如国债通胀保护证券（TIPS）来抑制通胀？我们提出了一个包含价格粘性且政府发行名义债券和实际无状态依赖债券的最优债务管理新框架。除非货币政策立场使两者成为完全替代品，否则包含名义债券和实际债券的政府债务组合有助于市场的完善。在完全承诺条件下，政府通过名义债务借款并积累实际资产，以便利用通胀平滑税收。在无承诺条件下，政府债务组合偏好实际债券，以战略性地防止未来政府事后通过货币化债务。定量分析表明，我们的无承诺模型与美国数据中TIPS份额小且持续存在的现象相符。更高的TIPS份额减轻了承诺摩擦，有效抑制了通胀。",
-      "doi": "10.1016/j.jfineco.2026.104293",
-      "source_url": "https://ideas.repec.org/a/eee/jfinec/v182y2026ics0304405x26000644.html",
-      "publication_date": "2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/182/suppl/C",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/eee/jfinec/v182y2026ics0304405x26000644.html",
-        "abstract_en": "official-sciencedirect-issue"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "github-models",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T20:05:02+00:00"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jfineco.2026.104295",
-      "sequence": 2,
-      "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "The co-pricing factor zoo",
       "title_cn": "共定价因子大全",
@@ -72,7 +33,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/182/suppl/C",
-        "roster": "repec-publisher-supplied",
+        "roster": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/182/suppl/C",
         "metadata": "https://ideas.repec.org/a/eee/jfinec/v182y2026ics0304405x26000668.html",
         "abstract_en": "official-sciencedirect-issue"
       },
@@ -82,7 +43,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T20:05:12+00:00"
+        "translated_at": "2026-07-26T20:05:12+00:00",
+        "source_hash": "2959e8b039532ce2e3d1164ac7bbc6ebcc611cfa61d4f9dbd5d739f34d0aca49"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -94,8 +56,8 @@
     },
     {
       "paper_id": "doi:10.1016/j.jfineco.2026.104305",
-      "sequence": 3,
-      "source_sequence": 3,
+      "sequence": 2,
+      "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Monetary policy transmission through the exchange rate factor structure",
       "title_cn": "通过汇率因子结构的货币政策传导",
@@ -112,7 +74,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/182/suppl/C",
-        "roster": "repec-publisher-supplied",
+        "roster": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/182/suppl/C",
         "metadata": "https://ideas.repec.org/a/eee/jfinec/v182y2026ics0304405x26000760.html",
         "abstract_en": "official-sciencedirect-issue"
       },
@@ -122,47 +84,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T20:05:17+00:00"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jfineco.2026.104306",
-      "sequence": 4,
-      "source_sequence": 4,
-      "article_type": "research-article",
-      "title_en": "Intellectual property protection lost and competition: An examination using large language models",
-      "title_cn": "知识产权保护丧失与竞争：基于大型语言模型的实证分析",
-      "authors": [
-        "Utku U. Acikalin",
-        "Tolga Caskurlu",
-        "Gerard Hoberg",
-        "Gordon M. Phillips"
-      ],
-      "abstract_en": "We examine the impact of lost intellectual property protection on innovation, competition, firm performance, and valuation. We consider firms whose ability to protect intellectual property (IP) using patents is weakened following a major Supreme Court decision. We use large language models (LLM) to identify firms’ patent portfolios’ exposure to this decision and find an unequal impact. Large firms gain and small firms lose. Large impacted firms benefit as their sales growth increases and their exposure to lawsuits decreases. Small impacted firms lose as they face increased competition, product-market encroachment, and lower profits and valuations. They increase R&D and nondisclosure agreements.",
-      "abstract_cn": "我们考察了知识产权保护丧失对创新、竞争、企业绩效及估值的影响。研究对象为因最高法院一项重大判决导致专利保护能力减弱的企业。我们利用大型语言模型（LLM）识别企业专利组合受该判决影响的程度，发现影响存在不均等性。大型企业受益，小型企业受损。受影响的大型企业销售增长加快，诉讼风险降低。受影响的小型企业则面临竞争加剧、产品市场侵蚀、利润和估值下降。小型企业增加研发投入和保密协议的使用。",
-      "doi": "10.1016/j.jfineco.2026.104306",
-      "source_url": "https://ideas.repec.org/a/eee/jfinec/v182y2026ics0304405x26000772.html",
-      "publication_date": "2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/182/suppl/C",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/eee/jfinec/v182y2026ics0304405x26000772.html",
-        "abstract_en": "official-sciencedirect-issue"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "github-models",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T20:05:28+00:00"
+        "translated_at": "2026-07-26T20:05:17+00:00",
+        "source_hash": "ef4d24f714c5314252ceff376574850ff478543ac9a5940421a629af39c78541"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -174,8 +97,8 @@
     },
     {
       "paper_id": "doi:10.1016/j.jfineco.2026.104308",
-      "sequence": 5,
-      "source_sequence": 5,
+      "sequence": 3,
+      "source_sequence": 3,
       "article_type": "research-article",
       "title_en": "Out of sight, out of mind: Divestments and the global reallocation of pollutive assets",
       "title_cn": "视而不见，心而不念：撤资与污染资产的全球再配置",
@@ -191,7 +114,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/182/suppl/C",
-        "roster": "repec-publisher-supplied",
+        "roster": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/182/suppl/C",
         "metadata": "https://ideas.repec.org/a/eee/jfinec/v182y2026ics0304405x26000796.html",
         "abstract_en": "official-sciencedirect-issue"
       },
@@ -201,7 +124,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T20:05:35+00:00"
+        "translated_at": "2026-07-26T20:05:35+00:00",
+        "source_hash": "96cf66d20aeafbaf7948b20e05ebe451e1ff0ab381eb93ce6580447927ae575c"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -213,8 +137,8 @@
     },
     {
       "paper_id": "doi:10.1016/j.jfineco.2026.104309",
-      "sequence": 6,
-      "source_sequence": 6,
+      "sequence": 4,
+      "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Dirty air and green investments: The impact of pollution information on portfolio allocations",
       "title_cn": "空气污染与绿色投资：污染信息对投资组合配置的影响",
@@ -231,7 +155,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/182/suppl/C",
-        "roster": "repec-publisher-supplied",
+        "roster": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/182/suppl/C",
         "metadata": "https://ideas.repec.org/a/eee/jfinec/v182y2026ics0304405x26000802.html",
         "abstract_en": "official-sciencedirect-issue"
       },
@@ -241,7 +165,89 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T20:05:42+00:00"
+        "translated_at": "2026-07-26T20:05:42+00:00",
+        "source_hash": "c910f3f050c56a582df6b1b7368113831d9f0c42aa6d5469ad27190c7e6ad2e7"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jfineco.2026.104293",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Government debt management and inflation with real and nominal bonds",
+      "title_cn": "政府债务管理与实际债券和名义债券下的通胀问题",
+      "authors": [
+        "Lukas Schmid",
+        "Vytautas Valaitis",
+        "Alessandro T. Villa"
+      ],
+      "abstract_en": "Can governments use real bonds such as Treasury Inflation-Protected Securities (TIPS) to tame inflation? We propose a novel framework of optimal debt management with sticky prices and a government issuing nominal and real state-uncontingent bonds. A government debt portfolio with both nominal and real bonds helps completing markets unless the monetary policy stance renders them perfect substitutes. Under Full Commitment, the government borrows with nominal debt and accumulates real assets, to be able to use inflation to smooth taxes. With No Commitment, the government portfolio favors real bonds to strategically prevent future governments from monetizing debt ex-post. Quantitatively, our model with No Commitment is consistent with the small and persistent TIPS share in U.S. data. A higher TIPS share mitigates the commitment friction, and effectively curbs inflation.",
+      "abstract_cn": "政府能否利用实际债券如国债通胀保护证券（TIPS）来抑制通胀？我们提出了一个包含价格粘性且政府发行名义债券和实际无状态依赖债券的最优债务管理新框架。除非货币政策立场使两者成为完全替代品，否则包含名义债券和实际债券的政府债务组合有助于市场的完善。在完全承诺条件下，政府通过名义债务借款并积累实际资产，以便利用通胀平滑税收。在无承诺条件下，政府债务组合偏好实际债券，以战略性地防止未来政府事后通过货币化债务。定量分析表明，我们的无承诺模型与美国数据中TIPS份额小且持续存在的现象相符。更高的TIPS份额减轻了承诺摩擦，有效抑制了通胀。",
+      "doi": "10.1016/j.jfineco.2026.104293",
+      "source_url": "https://ideas.repec.org/a/eee/jfinec/v182y2026ics0304405x26000644.html",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/182/suppl/C",
+        "roster": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/182/suppl/C",
+        "metadata": "https://ideas.repec.org/a/eee/jfinec/v182y2026ics0304405x26000644.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4.1-mini",
+        "translated_at": "2026-07-26T20:05:02+00:00",
+        "source_hash": "09f8376fc15a0c91f7d1e826359c6592cde80b16f55d7f17a9a919d0a516f2f4"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jfineco.2026.104306",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Intellectual property protection lost and competition: An examination using large language models",
+      "title_cn": "知识产权保护丧失与竞争：基于大型语言模型的实证分析",
+      "authors": [
+        "Utku U. Acikalin",
+        "Tolga Caskurlu",
+        "Gerard Hoberg",
+        "Gordon M. Phillips"
+      ],
+      "abstract_en": "We examine the impact of lost intellectual property protection on innovation, competition, firm performance, and valuation. We consider firms whose ability to protect intellectual property (IP) using patents is weakened following a major Supreme Court decision. We use large language models (LLM) to identify firms’ patent portfolios’ exposure to this decision and find an unequal impact. Large firms gain and small firms lose. Large impacted firms benefit as their sales growth increases and their exposure to lawsuits decreases. Small impacted firms lose as they face increased competition, product-market encroachment, and lower profits and valuations. They increase R&D and nondisclosure agreements.",
+      "abstract_cn": "我们考察了知识产权保护丧失对创新、竞争、企业绩效及估值的影响。研究对象为因最高法院一项重大判决导致专利保护能力减弱的企业。我们利用大型语言模型（LLM）识别企业专利组合受该判决影响的程度，发现影响存在不均等性。大型企业受益，小型企业受损。受影响的大型企业销售增长加快，诉讼风险降低。受影响的小型企业则面临竞争加剧、产品市场侵蚀、利润和估值下降。小型企业增加研发投入和保密协议的使用。",
+      "doi": "10.1016/j.jfineco.2026.104306",
+      "source_url": "https://ideas.repec.org/a/eee/jfinec/v182y2026ics0304405x26000772.html",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/182/suppl/C",
+        "roster": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/182/suppl/C",
+        "metadata": "https://ideas.repec.org/a/eee/jfinec/v182y2026ics0304405x26000772.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4.1-mini",
+        "translated_at": "2026-07-26T20:05:28+00:00",
+        "source_hash": "64216cc73a7954b97fa2e9c6816723d1c660ce416a4e892c15afb89fef4e4582"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -255,7 +261,7 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "official_item_count": 6,
+    "official_item_count": 7,
     "excluded_item_count": 0,
     "excluded_items": [],
     "doi_complete": 6,
@@ -263,15 +269,11 @@
     "abstract_en_complete": 6,
     "translation_complete": 6,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_repec_fallback",
-      "repec_publisher_supplied_roster",
-      "official_order_unverified"
-    ],
+    "flags": [],
     "official_issue_fetch_error": "request failed for https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/182/suppl/C: 403 Client Error: Forbidden for url: https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/182/suppl/C",
     "publishable_item_count": 6,
     "content_counts": {
-      "official_items": 6,
+      "official_items": 7,
       "observed_items": 6,
       "publishable_items": 6,
       "research_articles": 6,
@@ -282,10 +284,22 @@
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 6
+    },
+    "roster_authority": "official-issue-page",
+    "roster_transport": "browser-authorized",
+    "official_roster_evidence": {
+      "captured_at": "2026-08-24T12:06:15.335Z",
+      "official_url": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/182/suppl/C",
+      "method": "browser-authorized",
+      "item_count": 6,
+      "excluded_item_count": 1,
+      "archive_reordered": true,
+      "sequence_sha256": "881007a0a028df2a6805090514fefc316407a5c389b6229ecbae2f6e9a00539c",
+      "privacy_fields_stored": false
     }
   },
   "content_counts": {
-    "official_items": 6,
+    "official_items": 7,
     "observed_items": 6,
     "publishable_items": 6,
     "research_articles": 6,
@@ -298,6 +312,6 @@
     "catalog_content_items": 6
   },
   "content_status": "complete",
-  "source_status": "source_pending",
-  "publication_state": "source_pending"
+  "source_status": "official_verified",
+  "publication_state": "ready"
 }

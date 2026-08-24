@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-06T12:07:32+00:00",
   "expected_article_count": 7,
   "research_article_count": 7,
-  "status": "ready",
+  "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
@@ -31,7 +31,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/39/1",
-        "roster": "https://academic.oup.com/rfs/issue/39/1",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -55,7 +55,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf083",
       "sequence": 2,
-      "source_sequence": 2,
+      "source_sequence": 30,
       "article_type": "research-article",
       "title_en": "The Pace of Change: Socially Responsible Investing in Private Markets",
       "title_cn": "变革的步伐：私人市场中的社会责任投资",
@@ -72,7 +72,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/39/1",
-        "roster": "https://academic.oup.com/rfs/issue/39/1",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -96,7 +96,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf084",
       "sequence": 3,
-      "source_sequence": 3,
+      "source_sequence": 79,
       "article_type": "research-article",
       "title_en": "Are All ESG Funds Created Equal? Only Some Funds Are Committed",
       "title_cn": "所有ESG基金都一样吗？只有部分基金是承诺型的",
@@ -113,7 +113,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/39/1",
-        "roster": "https://academic.oup.com/rfs/issue/39/1",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -137,7 +137,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhae064",
       "sequence": 4,
-      "source_sequence": 4,
+      "source_sequence": 114,
       "article_type": "research-article",
       "title_en": "How Do Short-Term Incentives Affect Long-Term Productivity?",
       "title_cn": "短期激励如何影响长期生产率？",
@@ -156,7 +156,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/39/1",
-        "roster": "https://academic.oup.com/rfs/issue/39/1",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -180,7 +180,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf048",
       "sequence": 5,
-      "source_sequence": 5,
+      "source_sequence": 158,
       "article_type": "research-article",
       "title_en": "Leaky Director Networks and Innovation Herding",
       "title_cn": "泄漏型董事网络与创新羊群效应",
@@ -196,7 +196,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/39/1",
-        "roster": "https://academic.oup.com/rfs/issue/39/1",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -220,7 +220,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf077",
       "sequence": 6,
-      "source_sequence": 6,
+      "source_sequence": 198,
       "article_type": "research-article",
       "title_en": "Regulating CEO Pay: Evidence from the Nonprofit Revitalization Act",
       "title_cn": "监管CEO薪酬：来自非营利振兴法案的证据",
@@ -237,7 +237,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/39/1",
-        "roster": "https://academic.oup.com/rfs/issue/39/1",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -261,7 +261,7 @@
     {
       "paper_id": "doi:10.1093/rfs/hhaf081",
       "sequence": 7,
-      "source_sequence": 7,
+      "source_sequence": 253,
       "article_type": "research-article",
       "title_en": "Dissecting Corporate Culture Using Generative AI",
       "title_cn": "利用生成式AI解析企业文化",
@@ -280,7 +280,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/39/1",
-        "roster": "https://academic.oup.com/rfs/issue/39/1",
+        "roster": "crossref:issn:0893-9454",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -305,8 +305,8 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "official-page-read",
-    "roster_authority": "official-issue-page",
+    "roster_transport": "crossref",
+    "roster_authority": "crossref-provisional",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
@@ -316,7 +316,10 @@
     "abstract_en_complete": 7,
     "translation_complete": 7,
     "duplicate_count": 0,
-    "flags": [],
+    "flags": [
+      "publisher_html_blocked_crossref_fallback",
+      "crossref_provisional_roster"
+    ],
     "official_item_count": 7,
     "publishable_item_count": 7,
     "content_counts": {
@@ -331,16 +334,6 @@
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 7
-    },
-    "official_roster_evidence": {
-      "captured_at": "2026-08-24T09:13:44+00:00",
-      "official_url": "https://academic.oup.com/rfs/issue/39/1",
-      "method": "official-page-read",
-      "item_count": 7,
-      "excluded_item_count": 0,
-      "archive_reordered": false,
-      "sequence_sha256": "3dd7090ff3c5de9c866bd36b8c316589d8380c7ec1f5c08a4239dfd05218c38c",
-      "privacy_fields_stored": false
     }
   },
   "content_counts": {
@@ -358,6 +351,6 @@
   },
   "issue_label": "Vol. 39 · No. 1",
   "content_status": "complete",
-  "source_status": "official_verified",
-  "publication_state": "ready"
+  "source_status": "source_pending",
+  "publication_state": "source_pending"
 }

@@ -9,15 +9,91 @@
   "publication_date": "July 2026",
   "source_url": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
   "retrieved_at": "2026-07-28T05:37:41+00:00",
-  "expected_article_count": 12,
-  "research_article_count": 12,
-  "status": "ready",
+  "expected_article_count": 13,
+  "research_article_count": 13,
+  "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1016/j.jebo.2026.107579",
+      "paper_id": "doi:10.1016/j.jebo.2025.107348",
       "sequence": 1,
       "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Inflation targeting and income inequality",
+      "title_cn": "通胀目标制与收入不平等",
+      "authors": [
+        "Hippolyte Balima",
+        "Alexandru Minea",
+        "Cezara Vinturis"
+      ],
+      "abstract_en": "We investigate the effect of inflation targeting on income inequality across a comprehensive panel of 152 countries spanning over four decades. Using the entropy balancing methodology to address endogeneity issues, we find that inflation targeting significantly increases income inequality. This effect, which is robust across various alternative methods and specifications, is driven by an increase (decrease) in the income share of relatively rich (poor) households. In addition, the impact of inflation targeting is not uniform but varies conditional on redistribution policies, inflation targeting features, the level of economic development, and country-specific characteristics. Our findings contribute to the ongoing discussion on the broad socioeconomic implications of the monetary policy, including measures to mitigate the potential side effects on income distribution.",
+      "abstract_cn": "我们研究了通胀目标制对涵盖152国、跨越四十年的综合面板数据中收入不平等的影响。采用熵平衡方法解决内生性问题，发现通胀目标制显著增加了收入不平等。该效应在多种替代方法和规格下均具有稳健性，主要由相对富裕家庭收入份额的增加和相对贫困家庭收入份额的减少所驱动。此外，通胀目标制的影响并非均一，而是依赖于再分配政策、通胀目标制特征、经济发展水平及国家特定特征的条件而异。我们的研究结果为货币政策的广泛社会经济影响的持续讨论做出贡献，包括缓解其对收入分配潜在副作用的措施。",
+      "doi": "10.1016/j.jebo.2025.107348",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0167268125004652",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/jeborg/v247y2026ics0167268125004652.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4.1-mini",
+        "translated_at": "2026-07-26T19:56:11+00:00"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jebo.2026.107558",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Experimental methods: Revisiting the commandments of experimental economics",
+      "title_cn": "实验方法：重新审视实验经济学的准则",
+      "authors": [
+        "Uri Gneezy"
+      ],
+      "abstract_en": "More than half a century ago, experimental economists came up with a set of rigorous methodological principles that revolutionized the way economists think—and that have defined the field ever since. Pivotal among them are the no-deception norm, the use of abstract instructions, induced-value theory, and the use of incentives in experiments. In this paper I revisit these principles, critically examining their origins and justifications, and explore their stand in current research, given the new challenges posed by online experiments, cross-disciplinary spillovers, and the evolving landscape of behavioral research. I conclude that we have become too rigidly attached to our methodologies and should adopt a more flexible, context-sensitive, and less-dogmatic approach.",
+      "abstract_cn": "半个多世纪前，实验经济学家提出了一套严谨的方法论原则，这些原则彻底改变了经济学家的思维方式，并自此定义了该领域。其中关键的原则包括禁止欺骗规范、使用抽象指令、诱导价值理论以及实验中的激励使用。本文重新审视了这些原则，批判性地考察了它们的起源和理由，并探讨了在当前研究中它们的地位，考虑到在线实验、跨学科溢出效应以及行为研究不断演变的格局所带来的新挑战。作者得出结论，我们对方法论的依赖过于僵化，应采取更加灵活、情境敏感且不那么教条化的方法。",
+      "doi": "10.1016/j.jebo.2026.107558",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0167268126001447",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/jeborg/v247y2026ics0167268126001447.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4.1-mini",
+        "translated_at": "2026-07-26T19:56:15+00:00"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jebo.2026.107579",
+      "sequence": 3,
+      "source_sequence": 3,
       "article_type": "research-article",
       "title_en": "Fair inequality? Lab evidence from Kenya",
       "title_cn": "公平的不平等？来自肯尼亚的实验室证据",
@@ -33,7 +109,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
+        "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/jeborg/v247y2026ics0167268126001654.html",
         "abstract_en": "official-sciencedirect-issue"
       },
@@ -43,8 +119,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:56:24+00:00",
-        "source_hash": "732c41d601f5a03b8a43b3d33dd45b4f526214a6a579d0b0331949354e7787ec"
+        "translated_at": "2026-07-26T19:56:24+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -55,107 +130,28 @@
       }
     },
     {
-      "paper_id": "doi:10.1016/j.jebo.2026.107602",
-      "sequence": 2,
-      "source_sequence": 2,
-      "article_type": "research-article",
-      "title_en": "Maternity leave and labour market outcomes",
-      "title_cn": "产假与劳动力市场结果",
-      "authors": [
-        "Purna Banerjee",
-        "Shreya Biswas",
-        "Debojyoti Mazumder"
-      ],
-      "abstract_en": "Using a triple difference estimation strategy, we compare the labour market outcomes of men and women before and just after the implementation of extended maternity leave policy across age profiles of individuals, in India. We find a negative impact of the maternity leave extension policy on the employment of women in high-fertility age cohorts. To explain this intuitively, we adapt a stylized micro-founded model of life-cycle search and matching friction in a gendered environment where the additional cost burden of maternity leave is borne by the firms, as is the case in India. We argue that if the firm’s cost from longer maternity leave duration outweighs the gain from retaining a worker, then the probability of being employed for fertile-age female workers decreases; via increased reservation productivity and decreased market tightness. Our empirical results and theoretical framework underscore the fact that even a well-intended policy design must be cognizant of underlying labour market dynamics to avoid exacerbating gender differences in labour markets.",
-      "abstract_cn": "本文采用三重差分估计策略，比较印度不同年龄群体中男女在延长产假政策实施前后劳动力市场结果的变化。研究发现，产假延长政策对高生育年龄组女性的就业产生了负面影响。为直观解释这一现象，本文构建了一个基于生命周期搜索与匹配摩擦的简化微观模型，考虑性别差异环境下产假额外成本由企业承担的情形（如印度所示）。我们认为，当企业因延长产假而产生的成本超过留住员工的收益时，生育年龄女性的就业概率将下降，表现为预期生产率提高和市场紧张度降低。实证结果与理论框架共同强调，即使是出于良好初衷的政策设计，也必须充分考虑潜在的劳动力市场动态，以避免加剧劳动力市场中的性别差异。",
-      "doi": "10.1016/j.jebo.2026.107602",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0167268126001885",
-      "publication_date": "2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
-        "metadata": "https://ideas.repec.org/a/eee/jeborg/v247y2026ics0167268126001885.html",
-        "abstract_en": "official-sciencedirect-issue"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "github-models",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:57:25+00:00",
-        "source_hash": "34476391151290e37ce4f52f1319c62ce9e26c85f8655ce2c5c6b83e642d70d2"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jebo.2026.107600",
-      "sequence": 3,
-      "source_sequence": 3,
-      "article_type": "research-article",
-      "title_en": "Labor market penalty for single mothers",
-      "title_cn": "单亲母亲的劳动力市场惩罚",
-      "authors": [
-        "Somdeep Chatterjee",
-        "Ralitza Dimova",
-        "Shubham Ojha"
-      ],
-      "abstract_en": "Single mothers, a growing global demographic, face unique labor market challenges, yet their outcomes remain understudied. On the one hand, breaking free from the marriage penalty in traditional patriarchal societies can facilitate the labor force participation of single mothers. On the other hand, they face the same constraints with respect to childcare as married mothers. While aggregate data suggest that single mothers’ labor market participation rates are higher than those of unmarried women, we argue that this realized labor market equilibrium masks potential demand-side discrimination. To study this, we conduct a correspondence study experiment that involves applying for real jobs using fictitious resumes and allows us to separately identify marriage penalties, motherhood penalties, and an additional penalty associated with single motherhood. We show that equally qualified single mothers are much less likely to receive interview callbacks than unmarried women without children, married women, and married mothers. For every interview callback, a single mother has to apply to about 30 jobs, whereas an unmarried woman receives more than two callbacks for as many job applications. This callback probability is higher in low-DEI (diversity, equity, and inclusion) than in high-DEI firms, suggesting diversity washing. A key mechanism, the relocation cost channel, where callback differentials are more pronounced for jobs farther from applicants’ home locations, implies statistical discrimination, which is further corroborated by a vignette study.",
-      "abstract_cn": "单亲母亲作为一个不断增长的全球人口群体，面临独特的劳动力市场挑战，但其结果仍未得到充分研究。一方面，在传统父权制社会中摆脱婚姻惩罚可以促进单亲母亲的劳动力参与。另一方面，她们在育儿方面面临与已婚母亲相同的限制。尽管总体数据表明单亲母亲的劳动力市场参与率高于未婚女性，但我们认为这一实现的劳动力市场均衡掩盖了潜在的需求方歧视。为此，我们开展了一项对应研究实验，通过使用虚构简历申请真实职位，能够分别识别婚姻惩罚、母亲惩罚以及与单亲母亲身份相关的额外惩罚。结果显示，资质相同的单亲母亲获得面试回访的可能性远低于无子女未婚女性、已婚女性和已婚母亲。单亲母亲每获得一次面试回访需申请约30个职位，而未婚女性申请相同数量职位时可获得超过二次回访。该回访概率在低DEI（多样性、公平与包容）企业中高于高DEI企业，暗示存在多样性洗牌。一个关键机制是搬迁成本渠道，即距离申请者居住地较远的职位回访差异更为显著，表明存在统计歧视，这一结论也得到了情景研究的进一步支持。",
-      "doi": "10.1016/j.jebo.2026.107600",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0167268126001861",
-      "publication_date": "2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
-        "metadata": "https://ideas.repec.org/a/eee/jeborg/v247y2026ics0167268126001861.html",
-        "abstract_en": "official-sciencedirect-issue"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "github-models",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:56:57+00:00",
-        "source_hash": "267161df816ada5041f66899e058add89a4f36c4b1fc9ac7cf2a9d8fed6664cc"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jebo.2026.107603",
+      "paper_id": "doi:10.1016/j.jebo.2026.107595",
       "sequence": 4,
       "source_sequence": 4,
       "article_type": "research-article",
-      "title_en": "The impact of growth on the transmission of patience",
-      "title_cn": "增长对耐心传递的影响",
+      "title_en": "The virtues of lab experiments",
+      "title_cn": "实验室实验的优点",
       "authors": [
-        "Domenico Delli Gatti",
-        "Jakob Grazzini",
-        "Domenico Massaro",
-        "Fabrizio Panebianco"
+        "Gary Charness",
+        "James C. Cox",
+        "Catherine C. Eckel",
+        "Charles A. Holt",
+        "Brian Jabarian"
       ],
-      "abstract_en": "The idea that patience is an important determinant of economic growth is well rooted in the economic literature. This paper investigates the causal relationship going in the opposite direction, i.e., from growth to patience. We propose a simple theoretical framework where patience evolves endogenously over time as a result of parental effort to transmit it to their offspring. Our model links such effort, and thus the overall level of patience in an economy, to economic growth. We corroborate our theoretical mechanism by estimating the impact of growth shocks on proxies of both patience and parental engagement to educate children to patience.",
-      "abstract_cn": "耐心是经济增长的重要决定因素的观点在经济学文献中根深蒂固。本文探讨了相反方向的因果关系，即从增长到耐心。我们提出了一个简单的理论框架，其中耐心随着时间内生演化，作为父母努力将其传递给子女的结果。我们的模型将这种努力以及经济中耐心的整体水平与经济增长联系起来。我们通过估计增长冲击对耐心及父母教育子女耐心的参与度代理变量的影响，验证了我们的理论机制。",
-      "doi": "10.1016/j.jebo.2026.107603",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0167268126001897",
+      "abstract_en": "Physical laboratory experiments occupy a key position within experimental economics for a wide range of research questions, offering crucial methodological rigor by ensuring human authenticity, controlling informational conditions, directing interpersonal interactions, ensuring protocol credibility, and reliably administering monetary incentives. These factors contribute to the empirical robustness of experimental findings. The continued advancement of online experimental platforms offers complementary scientific benefits to laboratory experiments, such as lowering costs and increasing sample diversity. We identify and elaborate on specific research questions for which laboratory-based methods offer clear scientific advantages, emphasizing their ability to yield precise, insightful, and replicable data.",
+      "abstract_cn": "物理实验室实验在实验经济学中占据关键地位，适用于广泛的研究问题，通过确保人类真实性、控制信息条件、引导人际互动、保证实验方案的可信度以及可靠地实施货币激励，提供了关键的方法论严谨性。这些因素共同促进了实验结果的实证稳健性。在线实验平台的持续发展为实验室实验提供了互补的科学优势，如降低成本和增加样本多样性。我们识别并详细阐述了实验室方法在特定研究问题上的明确科学优势，强调其能够产生精确、深刻且可重复的数据。",
+      "doi": "10.1016/j.jebo.2026.107595",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0167268126001812",
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
-        "metadata": "https://ideas.repec.org/a/eee/jeborg/v247y2026ics0167268126001897.html",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/jeborg/v247y2026ics0167268126001812.html",
         "abstract_en": "official-sciencedirect-issue"
       },
       "translation": {
@@ -164,8 +160,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:57:34+00:00",
-        "source_hash": "99622df48f7208ba0602f2ab1919d40aa8312f68b39c00b159b1ab92de4b766f"
+        "translated_at": "2026-07-26T19:56:30+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -176,26 +171,28 @@
       }
     },
     {
-      "paper_id": "doi:10.1016/j.jebo.2026.107606",
+      "paper_id": "doi:10.1016/j.jebo.2026.107596",
       "sequence": 5,
       "source_sequence": 5,
       "article_type": "research-article",
-      "title_en": "Competition versus coordination: The impact of flattening government on firm creation and aggregate productivity",
-      "title_cn": "竞争与协调：扁平化政府对企业创立与整体生产率的影响",
+      "title_en": "Targeting attitudes to combat sexual harassment: A randomized intervention in the Norwegian military",
+      "title_cn": "针对态度以应对性骚扰：挪威军队的一项随机干预研究",
       "authors": [
-        "Lingran Yuan",
-        "Qizheng Zhang",
-        "Binlei Gong"
+        "Olle Folke",
+        "Torbjørn Hanson",
+        "Åshild A. Johnsen",
+        "Andreas Kotsadam",
+        "Johanna Rickne"
       ],
-      "abstract_en": "This paper studies how flattening government hierarchy shapes firm creation and aggregate productivity. Exploiting the staggered implementation of China’s government reorganization with comprehensive firm registration data, we find that this delayering of government substantially hindered firm creation and reduced aggregate productivity, with effects especially pronounced among larger enterprises. We discuss two primary channels driving this result: weakened coordination arising from expanded provincial control and intensified vertical political competition between prefecture and county governments. Our findings highlight that flattening government hierarchy can generate unintended economic frictions, potentially offsetting its intended benefits.",
-      "abstract_cn": "本文研究了扁平化政府层级如何影响企业创立和整体生产率。利用中国政府重组的分阶段实施及全面的企业注册数据，我们发现政府扁平化显著阻碍了企业创立并降低了整体生产率，且这一影响在大型企业中尤为显著。我们讨论了导致该结果的主要渠道：省级控制扩展带来的协调减弱以及地级市与县级政府之间加剧的垂直政治竞争。我们的研究结果表明，扁平化政府层级可能产生意外的经济摩擦，可能抵消其预期的效益。",
-      "doi": "10.1016/j.jebo.2026.107606",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0167268126001927",
+      "abstract_en": "We develop an information-based intervention against sexual harassment and test it in a randomized control trial across small groups of military recruits in the boot camp of the Norwegian military. The intervention seeks to bridge two knowledge gaps with implications for sexual harassment prevalence. We tell some recruits about their peers’ beliefs that “telling sexualized jokes can be labeled sexual harassment” and about women soldiers’ equal performance on military skill tests. This treatment gives lasting improvements in knowledge about what sexual harassment is and about women’s job performance. The impact on sexual harassment prevalence is directionally negative but statistically insignificant. We discuss measurement error and use survey responses about a harassment scenario to argue that the intervention likely affected behavior. Our study provides the first field experiment to evaluate whether a prevention method against sexual harassment reduces prevalence in a work setting. We use insights from our research process to identify methodological pitfalls and provide guidance for future field experiments in this area.",
+      "abstract_cn": "我们开发了一种基于信息的性骚扰干预措施，并在挪威军队新兵训练营的小组中进行了随机对照试验。该干预旨在弥补二知识差距，这对性骚扰的发生率具有影响。我们向部分新兵介绍了他们同伴的观点，即“讲带有性暗示的笑话可以被视为性骚扰”，以及女性士兵在军事技能测试中的同等表现。该干预显著且持久地提升了对性骚扰定义及女性工作表现的认知。对性骚扰发生率的影响呈负向趋势，但统计上不显著。我们讨论了测量误差，并利用关于骚扰情景的调查回应论证该干预可能影响了行为。我们的研究提供了第一领域实验，以评估一种预防性骚扰的方法是否能降低工作场所的性骚扰发生率。我们还结合研究过程中的经验，识别了方法论陷阱，并为该领域未来的实地实验提供指导。",
+      "doi": "10.1016/j.jebo.2026.107596",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0167268126001824",
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
-        "metadata": "https://ideas.repec.org/a/eee/jeborg/v247y2026ics0167268126001927.html",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/jeborg/v247y2026ics0167268126001824.html",
         "abstract_en": "official-sciencedirect-issue"
       },
       "translation": {
@@ -204,16 +201,13 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:57:40+00:00",
-        "source_hash": "f927838fb125b4cf661ca38a137763a95c7fbe76025b2a0799922755c544531d"
+        "translated_at": "2026-07-26T19:56:40+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
-        "status": "yes",
-        "evidence": "abstract",
-        "matched_terms": [
-          "China’s"
-        ],
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
         "source": "academic-door-rules-v1"
       }
     },
@@ -238,7 +232,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
+        "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/jeborg/v247y2026ics0167268126001848.html",
         "abstract_en": "official-sciencedirect-issue"
       },
@@ -248,8 +242,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:56:49+00:00",
-        "source_hash": "c21cd87f7909a560623756b5ebe0d05946bbb6c3c8a3da42cb16da2e47ae0f65"
+        "translated_at": "2026-07-26T19:56:49+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -260,9 +253,207 @@
       }
     },
     {
-      "paper_id": "doi:10.1016/j.jebo.2026.107608",
+      "paper_id": "doi:10.1016/j.jebo.2026.107600",
       "sequence": 7,
       "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Labor market penalty for single mothers",
+      "title_cn": "单亲母亲的劳动力市场惩罚",
+      "authors": [
+        "Somdeep Chatterjee",
+        "Ralitza Dimova",
+        "Shubham Ojha"
+      ],
+      "abstract_en": "Single mothers, a growing global demographic, face unique labor market challenges, yet their outcomes remain understudied. On the one hand, breaking free from the marriage penalty in traditional patriarchal societies can facilitate the labor force participation of single mothers. On the other hand, they face the same constraints with respect to childcare as married mothers. While aggregate data suggest that single mothers’ labor market participation rates are higher than those of unmarried women, we argue that this realized labor market equilibrium masks potential demand-side discrimination. To study this, we conduct a correspondence study experiment that involves applying for real jobs using fictitious resumes and allows us to separately identify marriage penalties, motherhood penalties, and an additional penalty associated with single motherhood. We show that equally qualified single mothers are much less likely to receive interview callbacks than unmarried women without children, married women, and married mothers. For every interview callback, a single mother has to apply to about 30 jobs, whereas an unmarried woman receives more than two callbacks for as many job applications. This callback probability is higher in low-DEI (diversity, equity, and inclusion) than in high-DEI firms, suggesting diversity washing. A key mechanism, the relocation cost channel, where callback differentials are more pronounced for jobs farther from applicants’ home locations, implies statistical discrimination, which is further corroborated by a vignette study.",
+      "abstract_cn": "单亲母亲作为一个不断增长的全球人口群体，面临独特的劳动力市场挑战，但其结果仍未得到充分研究。一方面，在传统父权制社会中摆脱婚姻惩罚可以促进单亲母亲的劳动力参与。另一方面，她们在育儿方面面临与已婚母亲相同的限制。尽管总体数据表明单亲母亲的劳动力市场参与率高于未婚女性，但我们认为这一实现的劳动力市场均衡掩盖了潜在的需求方歧视。为此，我们开展了一项对应研究实验，通过使用虚构简历申请真实职位，能够分别识别婚姻惩罚、母亲惩罚以及与单亲母亲身份相关的额外惩罚。结果显示，资质相同的单亲母亲获得面试回访的可能性远低于无子女未婚女性、已婚女性和已婚母亲。单亲母亲每获得一次面试回访需申请约30个职位，而未婚女性申请相同数量职位时可获得超过二次回访。该回访概率在低DEI（多样性、公平与包容）企业中高于高DEI企业，暗示存在多样性洗牌。一个关键机制是搬迁成本渠道，即距离申请者居住地较远的职位回访差异更为显著，表明存在统计歧视，这一结论也得到了情景研究的进一步支持。",
+      "doi": "10.1016/j.jebo.2026.107600",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0167268126001861",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/jeborg/v247y2026ics0167268126001861.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4.1-mini",
+        "translated_at": "2026-07-26T19:56:57+00:00"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jebo.2026.107601",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Pluralistic ignorance and climate policies: Information provision experiment",
+      "title_cn": "多元无知与气候政策：信息提供实验",
+      "authors": [
+        "Laura Galdikiene",
+        "Jurate Jaraite",
+        "Agne Kajackaite"
+      ],
+      "abstract_en": "This study examines how informational interventions that aim to correct systematic misperceptions of others’ beliefs (i.e., pluralistic ignorance) affect individuals’ willingness to engage in both private and publicly observable behaviors. We investigate this question in the context of carbon taxation using an online experiment with participants in the United States. Specifically, we test whether providing accurate information about public support for carbon taxation influences climate-related actions. While this informational intervention reduced misperceptions, it marginally lowered private climate action, measured by donations to an organization advocating for climate policies, although this effect was not statistically significant. The intervention did not affect the behavior of individuals who underestimated support for carbon taxation but negatively impacted the donation decisions of those who overestimated support, suggesting a boomerang effect. In contrast, the intervention increased public climate action, measured by the minimum reward participants required to attend climate policy discussions with peers. These findings suggest that correcting misperceived norms can generate heterogeneous behavioral responses, depending on individuals’ prior beliefs and the type of action considered.",
+      "abstract_cn": "本研究考察旨在纠正对他人信念系统性误解（即多元无知）的信息干预如何影响个体参与私人和公开可观察行为的意愿。我们在碳税背景下，通过对美国参与者的在线实验探讨这一问题。具体而言，我们测试提供关于公众对碳税支持的准确信息是否影响与气候相关的行动。尽管该信息干预减少了误解，但对私人气候行动（以向倡导气候政策的组织捐款衡量）产生了边际降低作用，且该效应未达到统计显著性。该干预未影响低估碳税支持者的行为，但对高估支持者的捐款决策产生负面影响，表明存在反弹效应。相反，该干预提升了公共气候行动（以参与者要求的最低报酬参加与同伴的气候政策讨论衡量）。这些发现表明，纠正误解的规范可能根据个体的先验信念和所考虑的行动类型产生异质的行为反应。",
+      "doi": "10.1016/j.jebo.2026.107601",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0167268126001873",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/jeborg/v247y2026ics0167268126001873.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4.1-mini",
+        "translated_at": "2026-07-26T19:57:17+00:00"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jebo.2026.107602",
+      "sequence": 9,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "Maternity leave and labour market outcomes",
+      "title_cn": "产假与劳动力市场结果",
+      "authors": [
+        "Purna Banerjee",
+        "Shreya Biswas",
+        "Debojyoti Mazumder"
+      ],
+      "abstract_en": "Using a triple difference estimation strategy, we compare the labour market outcomes of men and women before and just after the implementation of extended maternity leave policy across age profiles of individuals, in India. We find a negative impact of the maternity leave extension policy on the employment of women in high-fertility age cohorts. To explain this intuitively, we adapt a stylized micro-founded model of life-cycle search and matching friction in a gendered environment where the additional cost burden of maternity leave is borne by the firms, as is the case in India. We argue that if the firm’s cost from longer maternity leave duration outweighs the gain from retaining a worker, then the probability of being employed for fertile-age female workers decreases; via increased reservation productivity and decreased market tightness. Our empirical results and theoretical framework underscore the fact that even a well-intended policy design must be cognizant of underlying labour market dynamics to avoid exacerbating gender differences in labour markets.",
+      "abstract_cn": "本文采用三重差分估计策略，比较印度不同年龄群体中男女在延长产假政策实施前后劳动力市场结果的变化。研究发现，产假延长政策对高生育年龄组女性的就业产生了负面影响。为直观解释这一现象，本文构建了一个基于生命周期搜索与匹配摩擦的简化微观模型，考虑性别差异环境下产假额外成本由企业承担的情形（如印度所示）。我们认为，当企业因延长产假而产生的成本超过留住员工的收益时，生育年龄女性的就业概率将下降，表现为预期生产率提高和市场紧张度降低。实证结果与理论框架共同强调，即使是出于良好初衷的政策设计，也必须充分考虑潜在的劳动力市场动态，以避免加剧劳动力市场中的性别差异。",
+      "doi": "10.1016/j.jebo.2026.107602",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0167268126001885",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/jeborg/v247y2026ics0167268126001885.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4.1-mini",
+        "translated_at": "2026-07-26T19:57:25+00:00"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jebo.2026.107603",
+      "sequence": 10,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "The impact of growth on the transmission of patience",
+      "title_cn": "增长对耐心传递的影响",
+      "authors": [
+        "Domenico Delli Gatti",
+        "Jakob Grazzini",
+        "Domenico Massaro",
+        "Fabrizio Panebianco"
+      ],
+      "abstract_en": "The idea that patience is an important determinant of economic growth is well rooted in the economic literature. This paper investigates the causal relationship going in the opposite direction, i.e., from growth to patience. We propose a simple theoretical framework where patience evolves endogenously over time as a result of parental effort to transmit it to their offspring. Our model links such effort, and thus the overall level of patience in an economy, to economic growth. We corroborate our theoretical mechanism by estimating the impact of growth shocks on proxies of both patience and parental engagement to educate children to patience.",
+      "abstract_cn": "耐心是经济增长的重要决定因素的观点在经济学文献中根深蒂固。本文探讨了相反方向的因果关系，即从增长到耐心。我们提出了一个简单的理论框架，其中耐心随着时间内生演化，作为父母努力将其传递给子女的结果。我们的模型将这种努力以及经济中耐心的整体水平与经济增长联系起来。我们通过估计增长冲击对耐心及父母教育子女耐心的参与度代理变量的影响，验证了我们的理论机制。",
+      "doi": "10.1016/j.jebo.2026.107603",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0167268126001897",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/jeborg/v247y2026ics0167268126001897.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4.1-mini",
+        "translated_at": "2026-07-26T19:57:34+00:00"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jebo.2026.107606",
+      "sequence": 11,
+      "source_sequence": 11,
+      "article_type": "research-article",
+      "title_en": "Competition versus coordination: The impact of flattening government on firm creation and aggregate productivity",
+      "title_cn": "竞争与协调：扁平化政府对企业创立与整体生产率的影响",
+      "authors": [
+        "Lingran Yuan",
+        "Qizheng Zhang",
+        "Binlei Gong"
+      ],
+      "abstract_en": "This paper studies how flattening government hierarchy shapes firm creation and aggregate productivity. Exploiting the staggered implementation of China’s government reorganization with comprehensive firm registration data, we find that this delayering of government substantially hindered firm creation and reduced aggregate productivity, with effects especially pronounced among larger enterprises. We discuss two primary channels driving this result: weakened coordination arising from expanded provincial control and intensified vertical political competition between prefecture and county governments. Our findings highlight that flattening government hierarchy can generate unintended economic frictions, potentially offsetting its intended benefits.",
+      "abstract_cn": "本文研究了扁平化政府层级如何影响企业创立和整体生产率。利用中国政府重组的分阶段实施及全面的企业注册数据，我们发现政府扁平化显著阻碍了企业创立并降低了整体生产率，且这一影响在大型企业中尤为显著。我们讨论了导致该结果的主要渠道：省级控制扩展带来的协调减弱以及地级市与县级政府之间加剧的垂直政治竞争。我们的研究结果表明，扁平化政府层级可能产生意外的经济摩擦，可能抵消其预期的效益。",
+      "doi": "10.1016/j.jebo.2026.107606",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0167268126001927",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/jeborg/v247y2026ics0167268126001927.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4.1-mini",
+        "translated_at": "2026-07-26T19:57:40+00:00"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "abstract",
+        "matched_terms": [
+          "China’s"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jebo.2026.107608",
+      "sequence": 12,
+      "source_sequence": 12,
       "article_type": "research-article",
       "title_en": "Diagnostic uncertainty and insurance coverage in credence goods markets: An experiment",
       "title_cn": "诊断不确定性与信任商品市场中的保险覆盖：一项实验研究",
@@ -280,7 +471,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
+        "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/jeborg/v247y2026ics0167268126001940.html",
         "abstract_en": "official-sciencedirect-issue"
       },
@@ -290,8 +481,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:57:49+00:00",
-        "source_hash": "1a8a7ef38abfb59d1df08d86bb444d8e851c93016bffaf729e2af82cbc813a4f"
+        "translated_at": "2026-07-26T19:57:49+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -302,28 +492,26 @@
       }
     },
     {
-      "paper_id": "doi:10.1016/j.jebo.2026.107596",
-      "sequence": 8,
-      "source_sequence": 8,
+      "paper_id": "doi:10.1016/j.jebo.2026.107620",
+      "sequence": 13,
+      "source_sequence": 13,
       "article_type": "research-article",
-      "title_en": "Targeting attitudes to combat sexual harassment: A randomized intervention in the Norwegian military",
-      "title_cn": "针对态度以应对性骚扰：挪威军队的一项随机干预研究",
+      "title_en": "Macroeconomic expectations: Formation, measurement, and consequences",
+      "title_cn": "宏观经济预期：形成、测量与影响",
       "authors": [
-        "Olle Folke",
-        "Torbjørn Hanson",
-        "Åshild A. Johnsen",
-        "Andreas Kotsadam",
-        "Johanna Rickne"
+        "Zeno Enders",
+        "Stefan T. Trautmann",
+        "Dmitri V. Vinogradov"
       ],
-      "abstract_en": "We develop an information-based intervention against sexual harassment and test it in a randomized control trial across small groups of military recruits in the boot camp of the Norwegian military. The intervention seeks to bridge two knowledge gaps with implications for sexual harassment prevalence. We tell some recruits about their peers’ beliefs that “telling sexualized jokes can be labeled sexual harassment” and about women soldiers’ equal performance on military skill tests. This treatment gives lasting improvements in knowledge about what sexual harassment is and about women’s job performance. The impact on sexual harassment prevalence is directionally negative but statistically insignificant. We discuss measurement error and use survey responses about a harassment scenario to argue that the intervention likely affected behavior. Our study provides the first field experiment to evaluate whether a prevention method against sexual harassment reduces prevalence in a work setting. We use insights from our research process to identify methodological pitfalls and provide guidance for future field experiments in this area.",
-      "abstract_cn": "我们开发了一种基于信息的性骚扰干预措施，并在挪威军队新兵训练营的小组中进行了随机对照试验。该干预旨在弥补二知识差距，这对性骚扰的发生率具有影响。我们向部分新兵介绍了他们同伴的观点，即“讲带有性暗示的笑话可以被视为性骚扰”，以及女性士兵在军事技能测试中的同等表现。该干预显著且持久地提升了对性骚扰定义及女性工作表现的认知。对性骚扰发生率的影响呈负向趋势，但统计上不显著。我们讨论了测量误差，并利用关于骚扰情景的调查回应论证该干预可能影响了行为。我们的研究提供了第一领域实验，以评估一种预防性骚扰的方法是否能降低工作场所的性骚扰发生率。我们还结合研究过程中的经验，识别了方法论陷阱，并为该领域未来的实地实验提供指导。",
-      "doi": "10.1016/j.jebo.2026.107596",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0167268126001824",
+      "abstract_en": "Subjective expectations about future macroeconomic developments are a core input to people’s consumption and investment decisions. No commonly accepted model of the expectation-formation mechanism for macroeconomic variables has yet emerged. This special issue collects research that advances our understanding of how macroeconomic expectations are formed, how they can be measured, and how they shape economic behavior.",
+      "abstract_cn": "关于未来宏观经济发展的主观预期是人们消费和投资决策的核心输入。目前尚未出现一个被广泛接受的宏观经济变量预期形成机制模型。本期特刊汇集了推进我们对宏观经济预期如何形成、如何测量及其如何影响经济行为理解的研究成果。",
+      "doi": "10.1016/j.jebo.2026.107620",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0167268126002064",
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
-        "metadata": "https://ideas.repec.org/a/eee/jeborg/v247y2026ics0167268126001824.html",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/jeborg/v247y2026ics0167268126002064.html",
         "abstract_en": "official-sciencedirect-issue"
       },
       "translation": {
@@ -332,168 +520,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:56:40+00:00",
-        "source_hash": "0aab86d7b785f27c8cb14856b5429ea20deacd83b458dd2b49fde1b17fd941e5"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jebo.2026.107601",
-      "sequence": 9,
-      "source_sequence": 9,
-      "article_type": "research-article",
-      "title_en": "Pluralistic ignorance and climate policies: Information provision experiment",
-      "title_cn": "多元无知与气候政策：信息提供实验",
-      "authors": [
-        "Laura Galdikiene",
-        "Jurate Jaraite",
-        "Agne Kajackaite"
-      ],
-      "abstract_en": "This study examines how informational interventions that aim to correct systematic misperceptions of others’ beliefs (i.e., pluralistic ignorance) affect individuals’ willingness to engage in both private and publicly observable behaviors. We investigate this question in the context of carbon taxation using an online experiment with participants in the United States. Specifically, we test whether providing accurate information about public support for carbon taxation influences climate-related actions. While this informational intervention reduced misperceptions, it marginally lowered private climate action, measured by donations to an organization advocating for climate policies, although this effect was not statistically significant. The intervention did not affect the behavior of individuals who underestimated support for carbon taxation but negatively impacted the donation decisions of those who overestimated support, suggesting a boomerang effect. In contrast, the intervention increased public climate action, measured by the minimum reward participants required to attend climate policy discussions with peers. These findings suggest that correcting misperceived norms can generate heterogeneous behavioral responses, depending on individuals’ prior beliefs and the type of action considered.",
-      "abstract_cn": "本研究考察旨在纠正对他人信念系统性误解（即多元无知）的信息干预如何影响个体参与私人和公开可观察行为的意愿。我们在碳税背景下，通过对美国参与者的在线实验探讨这一问题。具体而言，我们测试提供关于公众对碳税支持的准确信息是否影响与气候相关的行动。尽管该信息干预减少了误解，但对私人气候行动（以向倡导气候政策的组织捐款衡量）产生了边际降低作用，且该效应未达到统计显著性。该干预未影响低估碳税支持者的行为，但对高估支持者的捐款决策产生负面影响，表明存在反弹效应。相反，该干预提升了公共气候行动（以参与者要求的最低报酬参加与同伴的气候政策讨论衡量）。这些发现表明，纠正误解的规范可能根据个体的先验信念和所考虑的行动类型产生异质的行为反应。",
-      "doi": "10.1016/j.jebo.2026.107601",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0167268126001873",
-      "publication_date": "2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
-        "metadata": "https://ideas.repec.org/a/eee/jeborg/v247y2026ics0167268126001873.html",
-        "abstract_en": "official-sciencedirect-issue"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "github-models",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:57:17+00:00",
-        "source_hash": "0afdc8db3ae8c7179a282006dff177e2d6f97cc845b6df5d37362b450f335a35"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jebo.2026.107595",
-      "sequence": 10,
-      "source_sequence": 10,
-      "article_type": "research-article",
-      "title_en": "The virtues of lab experiments",
-      "title_cn": "实验室实验的优点",
-      "authors": [
-        "Gary Charness",
-        "James C. Cox",
-        "Catherine C. Eckel",
-        "Charles A. Holt",
-        "Brian Jabarian"
-      ],
-      "abstract_en": "Physical laboratory experiments occupy a key position within experimental economics for a wide range of research questions, offering crucial methodological rigor by ensuring human authenticity, controlling informational conditions, directing interpersonal interactions, ensuring protocol credibility, and reliably administering monetary incentives. These factors contribute to the empirical robustness of experimental findings. The continued advancement of online experimental platforms offers complementary scientific benefits to laboratory experiments, such as lowering costs and increasing sample diversity. We identify and elaborate on specific research questions for which laboratory-based methods offer clear scientific advantages, emphasizing their ability to yield precise, insightful, and replicable data.",
-      "abstract_cn": "物理实验室实验在实验经济学中占据关键地位，适用于广泛的研究问题，通过确保人类真实性、控制信息条件、引导人际互动、保证实验方案的可信度以及可靠地实施货币激励，提供了关键的方法论严谨性。这些因素共同促进了实验结果的实证稳健性。在线实验平台的持续发展为实验室实验提供了互补的科学优势，如降低成本和增加样本多样性。我们识别并详细阐述了实验室方法在特定研究问题上的明确科学优势，强调其能够产生精确、深刻且可重复的数据。",
-      "doi": "10.1016/j.jebo.2026.107595",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0167268126001812",
-      "publication_date": "2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
-        "metadata": "https://ideas.repec.org/a/eee/jeborg/v247y2026ics0167268126001812.html",
-        "abstract_en": "official-sciencedirect-issue"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "github-models",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:56:30+00:00",
-        "source_hash": "44d23a05e7aff547c6e506d389fef8a2fdf67a5da77ef959eced63f108904830"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jebo.2026.107558",
-      "sequence": 11,
-      "source_sequence": 11,
-      "article_type": "research-article",
-      "title_en": "Experimental methods: Revisiting the commandments of experimental economics",
-      "title_cn": "实验方法：重新审视实验经济学的准则",
-      "authors": [
-        "Uri Gneezy"
-      ],
-      "abstract_en": "More than half a century ago, experimental economists came up with a set of rigorous methodological principles that revolutionized the way economists think—and that have defined the field ever since. Pivotal among them are the no-deception norm, the use of abstract instructions, induced-value theory, and the use of incentives in experiments. In this paper I revisit these principles, critically examining their origins and justifications, and explore their stand in current research, given the new challenges posed by online experiments, cross-disciplinary spillovers, and the evolving landscape of behavioral research. I conclude that we have become too rigidly attached to our methodologies and should adopt a more flexible, context-sensitive, and less-dogmatic approach.",
-      "abstract_cn": "半个多世纪前，实验经济学家提出了一套严谨的方法论原则，这些原则彻底改变了经济学家的思维方式，并自此定义了该领域。其中关键的原则包括禁止欺骗规范、使用抽象指令、诱导价值理论以及实验中的激励使用。本文重新审视了这些原则，批判性地考察了它们的起源和理由，并探讨了在当前研究中它们的地位，考虑到在线实验、跨学科溢出效应以及行为研究不断演变的格局所带来的新挑战。作者得出结论，我们对方法论的依赖过于僵化，应采取更加灵活、情境敏感且不那么教条化的方法。",
-      "doi": "10.1016/j.jebo.2026.107558",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0167268126001447",
-      "publication_date": "2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
-        "metadata": "https://ideas.repec.org/a/eee/jeborg/v247y2026ics0167268126001447.html",
-        "abstract_en": "official-sciencedirect-issue"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "github-models",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:56:15+00:00",
-        "source_hash": "64827d67526993259484f0a1a569e148b99a44c3315c056f5e895a03b858a7a9"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jebo.2025.107348",
-      "sequence": 12,
-      "source_sequence": 12,
-      "article_type": "research-article",
-      "title_en": "Inflation targeting and income inequality",
-      "title_cn": "通胀目标制与收入不平等",
-      "authors": [
-        "Hippolyte Balima",
-        "Alexandru Minea",
-        "Cezara Vinturis"
-      ],
-      "abstract_en": "We investigate the effect of inflation targeting on income inequality across a comprehensive panel of 152 countries spanning over four decades. Using the entropy balancing methodology to address endogeneity issues, we find that inflation targeting significantly increases income inequality. This effect, which is robust across various alternative methods and specifications, is driven by an increase (decrease) in the income share of relatively rich (poor) households. In addition, the impact of inflation targeting is not uniform but varies conditional on redistribution policies, inflation targeting features, the level of economic development, and country-specific characteristics. Our findings contribute to the ongoing discussion on the broad socioeconomic implications of the monetary policy, including measures to mitigate the potential side effects on income distribution.",
-      "abstract_cn": "我们研究了通胀目标制对涵盖152国、跨越四十年的综合面板数据中收入不平等的影响。采用熵平衡方法解决内生性问题，发现通胀目标制显著增加了收入不平等。该效应在多种替代方法和规格下均具有稳健性，主要由相对富裕家庭收入份额的增加和相对贫困家庭收入份额的减少所驱动。此外，通胀目标制的影响并非均一，而是依赖于再分配政策、通胀目标制特征、经济发展水平及国家特定特征的条件而异。我们的研究结果为货币政策的广泛社会经济影响的持续讨论做出贡献，包括缓解其对收入分配潜在副作用的措施。",
-      "doi": "10.1016/j.jebo.2025.107348",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0167268125004652",
-      "publication_date": "2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
-        "metadata": "https://ideas.repec.org/a/eee/jeborg/v247y2026ics0167268125004652.html",
-        "abstract_en": "official-sciencedirect-issue"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "github-models",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:56:11+00:00",
-        "source_hash": "b75d38adf77709a0a0097a1902c92339d8ed113bd9f79be2054e5ab4aa96638c"
+        "translated_at": "2026-07-26T19:57:57+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -507,57 +534,49 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "official_item_count": 14,
+    "official_item_count": 13,
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 12,
-    "authors_complete": 12,
-    "abstract_en_complete": 12,
-    "translation_complete": 12,
+    "doi_complete": 13,
+    "authors_complete": 13,
+    "abstract_en_complete": 13,
+    "translation_complete": 13,
     "duplicate_count": 0,
-    "flags": [],
+    "flags": [
+      "publisher_html_blocked_repec_fallback",
+      "repec_publisher_supplied_roster",
+      "official_order_unverified"
+    ],
     "official_issue_fetch_error": "request failed for https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C: 403 Client Error: Forbidden for url: https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
-    "publishable_item_count": 12,
+    "publishable_item_count": 13,
     "content_counts": {
-      "official_items": 14,
-      "observed_items": 12,
-      "publishable_items": 12,
-      "research_articles": 12,
+      "official_items": 13,
+      "observed_items": 13,
+      "publishable_items": 13,
+      "research_articles": 13,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 12
-    },
-    "roster_authority": "official-issue-page",
-    "roster_transport": "browser-authorized",
-    "official_roster_evidence": {
-      "captured_at": "2026-08-24T11:14:14.508Z",
-      "official_url": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/247/suppl/C",
-      "method": "browser-authorized",
-      "item_count": 12,
-      "excluded_item_count": 2,
-      "archive_reordered": true,
-      "sequence_sha256": "443cbddba2d61e19982c4bcdafdebf9fed965d9529286d5b3c35eed02c8a9202",
-      "privacy_fields_stored": false
+      "catalog_content_items": 13
     }
   },
   "content_counts": {
-    "official_items": 14,
-    "observed_items": 12,
-    "publishable_items": 12,
-    "research_articles": 12,
+    "official_items": 13,
+    "observed_items": 13,
+    "publishable_items": 13,
+    "research_articles": 13,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 12
+    "catalog_content_items": 13
   },
   "content_status": "complete",
-  "source_status": "official_verified",
-  "publication_state": "ready"
+  "source_status": "source_pending",
+  "publication_state": "source_pending"
 }
