@@ -51,6 +51,17 @@ PUBLISHABLE_RE = re.compile(
 VOLUME_RE = re.compile(r"/vol/([^/]+)", re.IGNORECASE)
 
 
+def comparable_title(value: object) -> str:
+    """Normalize publisher-only MathML presentation differences."""
+
+    text = " ".join(_clean_markup(str(value or "")).split()).casefold()
+    # ScienceDirect can expose CO2 both as literal text plus a MathML subscript,
+    # while Elsevier metadata exposes the same token as ``CO 2``.
+    text = re.sub(r"\bco\s*2(?:\s+2)?\b", "co2", text, flags=re.IGNORECASE)
+    text = re.sub(r"\bpm\s*2\s*[.]\s*5(?:\s+2\s*[.]\s*5)?\b", "pm2.5", text, flags=re.IGNORECASE)
+    return text
+
+
 def read_json(path: Path) -> dict[str, Any]:
     payload = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(payload, dict):
@@ -238,8 +249,8 @@ def build_rich_snapshot(
             continue
         title = str(item.get("title", "")).strip()
         api_title = str(metadata.get("title_en", "")).strip()
-        normalized_title = " ".join(_clean_markup(title).split()).casefold()
-        normalized_api_title = " ".join(_clean_markup(api_title).split()).casefold()
+        normalized_title = comparable_title(title)
+        normalized_api_title = comparable_title(api_title)
         if normalized_title != normalized_api_title:
             raise ValueError(f"official title mismatch for {pii}: {title!r} != {api_title!r}")
         items.append(
