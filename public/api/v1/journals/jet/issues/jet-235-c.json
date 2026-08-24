@@ -11,29 +11,28 @@
   "retrieved_at": "2026-07-28T05:37:29+00:00",
   "expected_article_count": 15,
   "research_article_count": 15,
-  "status": "ready",
+  "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1016/j.jet.2026.106186",
+      "paper_id": "doi:10.1016/j.jet.2026.106179",
       "sequence": 1,
       "source_sequence": 1,
       "article_type": "research-article",
-      "title_en": "Asymmetric optimal auction design with loss-averse bidders",
-      "title_cn": "具有损失厌恶竞标者的非对称最优拍卖设计",
+      "title_en": "Covert learning and disclosure",
+      "title_cn": "隐秘学习与信息披露",
       "authors": [
-        "Akitoshi Muramoto",
-        "Takeharu Sogo"
+        "Matteo Escudé"
       ],
-      "abstract_en": "We study optimal auctions with expectation-based loss-averse bidders. For ex-ante identical bidders, we establish sufficient conditions under which optimal mechanisms must be asymmetric. While symmetric designs are optimal for bidders with expected-utility preferences, we show that if the degree of loss aversion is sufficiently large relative to valuation variation, a one-bidder optimal design (an extreme form of asymmetry) yields higher expected revenue than any symmetric design with multiple bidders. To address the challenges posed by non-standard preferences, we develop a novel method for deriving the optimal auction. First, we employ the reduced-form auction framework to reformulate the revenue maximization problem as a tractable optimal control problem. We then use the ironing technique of Toikka (2011) to address the monotonicity constraint on the allocation rule, as Myerson’s ironing method is not applicable in our setting. Applying our method to a two-bidder setting with uniformly distributed valuations, we derive the optimal auction in closed form. The resulting mechanism modifies (Myerson, 1981) to reduce auction outcome uncertainty.",
-      "abstract_cn": "我们研究了具有基于期望的损失厌恶竞标者的最优拍卖。对于事前同质的竞标者，我们建立了最优机制必须非对称的充分条件。虽然对于具有期望效用偏好的竞标者，对称设计是最优的，但我们表明，如果损失厌恶程度相对于估值变异足够大，一竞标者的最优设计（一种极端形式的非对称）比任何多竞标者的对称设计都能带来更高的期望收入。为应对非标准偏好带来的挑战，我们开发了一种推导最优拍卖的新方法。第一，我们采用简化形式拍卖框架，将收益最大化问题重新表述为一个可解的最优控制问题。然后，我们使用Toikka（2011）的熨平技术来处理分配规则上的单调性约束，因为Myerson的熨平方法在我们的设定中不适用。将我们的方法应用于具有均匀分布估值的二竞标者设定，我们得出了闭式形式的最优拍卖。所得机制修改了（Myerson，1981），以减少拍卖结果的不确定性。",
-      "doi": "10.1016/j.jet.2026.106186",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000499",
+      "abstract_en": "I study a model of information acquisition and transmission in which the sender’s ability to misreport her findings is limited. The sender learns covertly, so a key observation is that in equilibrium she must be deterred from undetectably worsening the meaningof the messages she sends. This force substantially disciplines equilibrium beliefs and behavior: the receiver is maximally skeptical of what the sender claims and learns all discovered information. I exploit these equilibrium properties to characterize the sense in which the sender benefits from her claims being more verifiable, showing that this is akin to increasing her commitment power. Finally, I identify sender- and receiver-optimal falsification environments.",
+      "abstract_cn": "我研究了一个信息获取与传递的模型，其中发送者误报其发现的能力受到限制。发送者以隐秘方式学习，因此一个关键观察是，在均衡中必须阻止发送者无检测地恶化其所发送信息的含义。这一机制显著约束了均衡信念和行为：接收者对发送者的主张持最大程度的怀疑态度，并且学习所有被发现的信息。我利用这些均衡性质来刻画发送者从其主张更具可验证性中获益的意义，表明这类似于增强其承诺能力。最后，我识别了发送者和接收者最优的伪造环境。",
+      "doi": "10.1016/j.jet.2026.106179",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000438",
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000499.html",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000438.html",
         "abstract_en": "official-sciencedirect-issue"
       },
       "translation": {
@@ -42,8 +41,44 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:50:15+00:00",
-        "source_hash": "9c54070f665dba2b3992033dc89e58a87347d2264eb61d7657326463d73b4035"
+        "translated_at": "2026-07-26T19:49:40+00:00"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jet.2026.106182",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Information design with endogenous state verification",
+      "title_cn": "具有内生状态验证的信息设计",
+      "authors": [
+        "Lily Ling Yang"
+      ],
+      "abstract_en": "We study a persuasion problem in which the receiver has the ability to probabilistically verify the state at a cost. The sender wants to convince the receiver to accept a project, but the receiver is only willing to accept the project when its quality is above a threshold. The optimal disclosure policy strikes a balance between influencing the receiver’s decisions to accept and to verify the quality. It is deterministic and involves at most three messages, each consisting of an acceptance recommendation and a verification recommendation. Under the optimal disclosure policy, the acceptance recommendation exhibits a cutoff structure, while the verification recommendation exhibits a negative assortative structure. Specifically, the optimal disclosure policy recommends acceptance when the quality exceeds a certain threshold. When the quality falls below this threshold, rejection without verification is recommended. For qualities above the threshold, verification is not recommended if the quality lies within the middle range of the interval. Using the characterization of the optimal disclosure policy, we conduct comparative statics and show that verification is recommended when the probability of successful verification is moderate.",
+      "abstract_cn": "我们研究了一个说服问题，其中接收者能够以一定成本对状态进行概率性验证。发送者希望说服接收者接受一个项目，但接收者仅在项目质量高于某一阈值时才愿意接受该项目。最优披露策略在影响接收者接受决策与验证质量决策之间取得平衡。该策略是确定性的，最多包含三条信息，每条信息包括一个接受建议和一个验证建议。在最优披露策略下，接受建议呈现截断结构，而验证建议呈现负配对结构。具体而言，当质量超过某一阈值时，最优披露策略建议接受；当质量低于该阈值时，建议拒绝且不进行验证。对于高于阈值的质量，如果质量位于区间的中间范围内，则不建议进行验证。利用最优披露策略的特征，我们进行了比较静态分析，结果表明当成功验证的概率处于中等水平时，建议进行验证。",
+      "doi": "10.1016/j.jet.2026.106182",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000463",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000463.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4.1-mini",
+        "translated_at": "2026-07-26T19:49:48+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -55,8 +90,8 @@
     },
     {
       "paper_id": "doi:10.1016/j.jet.2026.106183",
-      "sequence": 2,
-      "source_sequence": 2,
+      "sequence": 3,
+      "source_sequence": 3,
       "article_type": "research-article",
       "title_en": "Localized perfection",
       "title_cn": "局部完美均衡",
@@ -73,7 +108,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
+        "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000475.html",
         "abstract_en": "official-sciencedirect-issue"
       },
@@ -83,8 +118,45 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:50:04+00:00",
-        "source_hash": "723c58ee74703d096657765485de715b7338661a7df4296485b6eb43fbc21c0b"
+        "translated_at": "2026-07-26T19:50:04+00:00"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jet.2026.106186",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Asymmetric optimal auction design with loss-averse bidders",
+      "title_cn": "具有损失厌恶竞标者的非对称最优拍卖设计",
+      "authors": [
+        "Akitoshi Muramoto",
+        "Takeharu Sogo"
+      ],
+      "abstract_en": "We study optimal auctions with expectation-based loss-averse bidders. For ex-ante identical bidders, we establish sufficient conditions under which optimal mechanisms must be asymmetric. While symmetric designs are optimal for bidders with expected-utility preferences, we show that if the degree of loss aversion is sufficiently large relative to valuation variation, a one-bidder optimal design (an extreme form of asymmetry) yields higher expected revenue than any symmetric design with multiple bidders. To address the challenges posed by non-standard preferences, we develop a novel method for deriving the optimal auction. First, we employ the reduced-form auction framework to reformulate the revenue maximization problem as a tractable optimal control problem. We then use the ironing technique of Toikka (2011) to address the monotonicity constraint on the allocation rule, as Myerson’s ironing method is not applicable in our setting. Applying our method to a two-bidder setting with uniformly distributed valuations, we derive the optimal auction in closed form. The resulting mechanism modifies (Myerson, 1981) to reduce auction outcome uncertainty.",
+      "abstract_cn": "我们研究了具有基于期望的损失厌恶竞标者的最优拍卖。对于事前同质的竞标者，我们建立了最优机制必须非对称的充分条件。虽然对于具有期望效用偏好的竞标者，对称设计是最优的，但我们表明，如果损失厌恶程度相对于估值变异足够大，一竞标者的最优设计（一种极端形式的非对称）比任何多竞标者的对称设计都能带来更高的期望收入。为应对非标准偏好带来的挑战，我们开发了一种推导最优拍卖的新方法。第一，我们采用简化形式拍卖框架，将收益最大化问题重新表述为一个可解的最优控制问题。然后，我们使用Toikka（2011）的熨平技术来处理分配规则上的单调性约束，因为Myerson的熨平方法在我们的设定中不适用。将我们的方法应用于具有均匀分布估值的二竞标者设定，我们得出了闭式形式的最优拍卖。所得机制修改了（Myerson，1981），以减少拍卖结果的不确定性。",
+      "doi": "10.1016/j.jet.2026.106186",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000499",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000499.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4.1-mini",
+        "translated_at": "2026-07-26T19:50:15+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -96,8 +168,8 @@
     },
     {
       "paper_id": "doi:10.1016/j.jet.2026.106187",
-      "sequence": 3,
-      "source_sequence": 3,
+      "sequence": 5,
+      "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "Nonbossy mechanisms: Mechanism design robust to secondary goals",
       "title_cn": "非支配机制：对次要目标具有鲁棒性的机制设计",
@@ -113,7 +185,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
+        "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000505.html",
         "abstract_en": "official-sciencedirect-issue"
       },
@@ -123,48 +195,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:50:25+00:00",
-        "source_hash": "c22a831e3642e88fcc2bfa2018e7e3c2cde64e3331081e30e488a895bd7a30b2"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jet.2026.106190",
-      "sequence": 4,
-      "source_sequence": 4,
-      "article_type": "research-article",
-      "title_en": "Positive and negative selection in bargaining",
-      "title_cn": "讨价还价中的正向选择与负向选择",
-      "authors": [
-        "Dongkyu Chang",
-        "Duk Gyoo Kim",
-        "Wooyoung Lim"
-      ],
-      "abstract_en": "In the standard dynamic screening problem between an uninformed seller and a privately informed buyer, theory suggests that the presence (absence) of the buyer’s outside option leads to a substantial surplus for the seller (buyer). This outcome arises from contrasting unraveling processes that theory predicts: negative selection occurs in the absence of an outside option, while positive selection occurs in the presence of it. We examine the validity of these contrasting unraveling processes and report laboratory data that qualitatively deviate from theoretical predictions. We found that the seller’s profit ranking was reversed between the two environments. In particular, in the presence of an outside option, the buyer frequently rejected current-round offers, leading to pervasive delays; and the seller’s reported beliefs about the buyer’s type were qualitatively more consistent with the negative selection than with the theoretically predicted positive selection.",
-      "abstract_cn": "在无信息卖方与私有信息买方之间的标准动态筛选问题中，理论表明买方外部选择权的存在（缺失）会导致卖方（买方）获得显著的剩余。该结果源于理论预测的两种截然不同的剥离过程：在无外部选择权时发生负向选择，而在有外部选择权时发生正向选择。我们检验了这两种截然不同剥离过程的有效性，并报告了实验室数据，这些数据在定性上偏离理论预测。我们发现卖方利润排序在不同环境（二）间发生了逆转。特别是在存在外部选择权的情况下，买方频繁拒绝当前轮次的报价，导致普遍的延迟；且卖方关于买方类型的报告信念在定性上更符合负向选择，而非理论上预测的正向选择。",
-      "doi": "10.1016/j.jet.2026.106190",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000530",
-      "publication_date": "2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000530.html",
-        "abstract_en": "official-sciencedirect-issue"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "github-models",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:51:17+00:00",
-        "source_hash": "dbbe71bc1de9552afa08fc64ea11fc689a4010eb83397e7d36e35f497f65a431"
+        "translated_at": "2026-07-26T19:50:25+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -176,8 +207,8 @@
     },
     {
       "paper_id": "doi:10.1016/j.jet.2026.106188",
-      "sequence": 5,
-      "source_sequence": 5,
+      "sequence": 6,
+      "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "Credit rationing in unsecured debt markets",
       "title_cn": "无担保债务市场中的信用配给",
@@ -193,7 +224,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
+        "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000517.html",
         "abstract_en": "official-sciencedirect-issue"
       },
@@ -203,8 +234,122 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:50:36+00:00",
-        "source_hash": "d362528098647bd639543958cbe9a11b88c278dd88533e326c665f121ca92b38"
+        "translated_at": "2026-07-26T19:50:36+00:00"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jet.2026.106189",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Expectation and confusion: Evidence and theory",
+      "title_cn": "预期与混淆：证据与理论",
+      "authors": [
+        "Heng Chen",
+        "Yicheng Liu"
+      ],
+      "abstract_en": "In this paper, we characterize a forecasting model where forecasters cannot perfectly distinguish between the two persistent components (trends and cycles) in a dynamic setting. In this model, forecasters jointly update their beliefs about the two components: noisy information about one component is used to update beliefs about the other component. We present diagnostic empirical facts on forecasting behaviors and show that these facts are consistent with our model’s predictions while contradicting those of existing models in the expectation formation literature. To validate our model, we exploit the Federal Reserve’s 2012 adoption of explicit inflation targeting as a policy shock. Structural estimation reveals that this policy change altered the underlying data-generation process, and the corresponding changes in forecasting behavior indeed align with our model’s predictions. Finally, we revisit the standard Forecast Error-Forecast Revision regression approach in this literature. We examine its robustness within our enriched framework and reveal that trend-cycle confusion can interact with behavioral bias and generate horizon-dependent overreaction patterns documented in empirical studies.",
+      "abstract_cn": "本文刻画了一个预测模型，其中预测者在动态环境中无法完全区分两个持久性成分（趋势和周期）。在这个模型中，预测者共同更新他们对这两个成分的信念：关于一个成分的噪声信息被用来更新对另一个成分的信念。我们提出了关于预测行为的诊断性实证事实，并表明这些事实与我们模型的预测一致，而与预期形成文献中现有模型的预测相矛盾。为了验证我们的模型，我们利用美联储2012年采用明确的通胀目标作为政策冲击。结构估计显示，这一政策变化改变了潜在的数据生成过程，而相应的预测行为变化确实与我们模型的预测一致。最后，我们重新审视了这一文献中的标准预测误差-预测修正回归方法。我们在我们的扩展框架内检验了它的稳健性，并揭示了趋势-周期混淆可以与行为偏差相互作用，并产生实证研究中记录的与预测期限相关的过度反应模式。",
+      "doi": "10.1016/j.jet.2026.106189",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000529",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000529.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "mistral-ai/mistral-medium-2505",
+        "translated_at": "2026-07-26T20:13:22+00:00"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jet.2026.106190",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Positive and negative selection in bargaining",
+      "title_cn": "讨价还价中的正向选择与负向选择",
+      "authors": [
+        "Dongkyu Chang",
+        "Duk Gyoo Kim",
+        "Wooyoung Lim"
+      ],
+      "abstract_en": "In the standard dynamic screening problem between an uninformed seller and a privately informed buyer, theory suggests that the presence (absence) of the buyer’s outside option leads to a substantial surplus for the seller (buyer). This outcome arises from contrasting unraveling processes that theory predicts: negative selection occurs in the absence of an outside option, while positive selection occurs in the presence of it. We examine the validity of these contrasting unraveling processes and report laboratory data that qualitatively deviate from theoretical predictions. We found that the seller’s profit ranking was reversed between the two environments. In particular, in the presence of an outside option, the buyer frequently rejected current-round offers, leading to pervasive delays; and the seller’s reported beliefs about the buyer’s type were qualitatively more consistent with the negative selection than with the theoretically predicted positive selection.",
+      "abstract_cn": "在无信息卖方与私有信息买方之间的标准动态筛选问题中，理论表明买方外部选择权的存在（缺失）会导致卖方（买方）获得显著的剩余。该结果源于理论预测的两种截然不同的剥离过程：在无外部选择权时发生负向选择，而在有外部选择权时发生正向选择。我们检验了这两种截然不同剥离过程的有效性，并报告了实验室数据，这些数据在定性上偏离理论预测。我们发现卖方利润排序在不同环境（二）间发生了逆转。特别是在存在外部选择权的情况下，买方频繁拒绝当前轮次的报价，导致普遍的延迟；且卖方关于买方类型的报告信念在定性上更符合负向选择，而非理论上预测的正向选择。",
+      "doi": "10.1016/j.jet.2026.106190",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000530",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000530.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4.1-mini",
+        "translated_at": "2026-07-26T19:51:17+00:00"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jet.2026.106191",
+      "sequence": 9,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "Which experiments test a model?",
+      "title_cn": "哪些实验检验一个模型？",
+      "authors": [
+        "Paul J. Healy",
+        "Greg Leo"
+      ],
+      "abstract_en": "Given a model of preferences, what choice data or experiment is sufficient to definitively test whether a subject is consistent with the model or to classify them into some “type” within the model? We characterize all experiments that test or classify a given model using a novel graph-theoretic construction: the labeled permutohedron. We show how these results can be used to identify the smallest experiments that achieve a particular goal.",
+      "abstract_cn": "给定一个偏好模型，哪些选择数据或实验足以明确检验一个主体是否与该模型一致，或将其归类为模型中的某种“类型”？我们利用一种新颖的图论构造——带标签的置换多面体，刻画了所有能够检验或分类给定模型的实验。我们展示了如何利用这些结果识别实现特定目标的最小实验。",
+      "doi": "10.1016/j.jet.2026.106191",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000542",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000542.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4.1-mini",
+        "translated_at": "2026-07-26T19:51:25+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -216,8 +361,8 @@
     },
     {
       "paper_id": "doi:10.1016/j.jet.2026.106192",
-      "sequence": 6,
-      "source_sequence": 6,
+      "sequence": 10,
+      "source_sequence": 10,
       "article_type": "research-article",
       "title_en": "The VCG mechanism, the core, and assignment stages in auctions",
       "title_cn": "VCG机制、核心与拍卖中的分配阶段",
@@ -232,7 +377,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
+        "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000554.html",
         "abstract_en": "official-sciencedirect-issue"
       },
@@ -242,46 +387,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "mistral-ai/mistral-medium-2505",
-        "translated_at": "2026-07-26T20:13:38+00:00",
-        "source_hash": "4be261d592f2209a268fc66192a168ebf8bd13a9e44a65dd7eb16a392c712eed"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jet.2026.106182",
-      "sequence": 7,
-      "source_sequence": 7,
-      "article_type": "research-article",
-      "title_en": "Information design with endogenous state verification",
-      "title_cn": "具有内生状态验证的信息设计",
-      "authors": [
-        "Lily Ling Yang"
-      ],
-      "abstract_en": "We study a persuasion problem in which the receiver has the ability to probabilistically verify the state at a cost. The sender wants to convince the receiver to accept a project, but the receiver is only willing to accept the project when its quality is above a threshold. The optimal disclosure policy strikes a balance between influencing the receiver’s decisions to accept and to verify the quality. It is deterministic and involves at most three messages, each consisting of an acceptance recommendation and a verification recommendation. Under the optimal disclosure policy, the acceptance recommendation exhibits a cutoff structure, while the verification recommendation exhibits a negative assortative structure. Specifically, the optimal disclosure policy recommends acceptance when the quality exceeds a certain threshold. When the quality falls below this threshold, rejection without verification is recommended. For qualities above the threshold, verification is not recommended if the quality lies within the middle range of the interval. Using the characterization of the optimal disclosure policy, we conduct comparative statics and show that verification is recommended when the probability of successful verification is moderate.",
-      "abstract_cn": "我们研究了一个说服问题，其中接收者能够以一定成本对状态进行概率性验证。发送者希望说服接收者接受一个项目，但接收者仅在项目质量高于某一阈值时才愿意接受该项目。最优披露策略在影响接收者接受决策与验证质量决策之间取得平衡。该策略是确定性的，最多包含三条信息，每条信息包括一个接受建议和一个验证建议。在最优披露策略下，接受建议呈现截断结构，而验证建议呈现负配对结构。具体而言，当质量超过某一阈值时，最优披露策略建议接受；当质量低于该阈值时，建议拒绝且不进行验证。对于高于阈值的质量，如果质量位于区间的中间范围内，则不建议进行验证。利用最优披露策略的特征，我们进行了比较静态分析，结果表明当成功验证的概率处于中等水平时，建议进行验证。",
-      "doi": "10.1016/j.jet.2026.106182",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000463",
-      "publication_date": "2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000463.html",
-        "abstract_en": "official-sciencedirect-issue"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "github-models",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:49:48+00:00",
-        "source_hash": "fa99fd544616d5cd4b3583f14c24450afa6b10269e97c23128e967e6d7bc3894"
+        "translated_at": "2026-07-26T20:13:38+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -293,8 +399,8 @@
     },
     {
       "paper_id": "doi:10.1016/j.jet.2026.106202",
-      "sequence": 8,
-      "source_sequence": 8,
+      "sequence": 11,
+      "source_sequence": 11,
       "article_type": "research-article",
       "title_en": "Credit, money and (pseudo-)anonymity",
       "title_cn": "信用、货币与（伪）匿名性",
@@ -309,7 +415,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
+        "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000657.html",
         "abstract_en": "official-sciencedirect-issue"
       },
@@ -319,8 +425,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:52:08+00:00",
-        "source_hash": "27cd954986242da5deae44c50e5fd6366327b312845c27cfd2804d3ea379927d"
+        "translated_at": "2026-07-26T19:52:08+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -332,8 +437,8 @@
     },
     {
       "paper_id": "doi:10.1016/j.jet.2026.106203",
-      "sequence": 9,
-      "source_sequence": 9,
+      "sequence": 12,
+      "source_sequence": 12,
       "article_type": "research-article",
       "title_en": "Learning through imitation: An experiment",
       "title_cn": "通过模仿学习：一项实验",
@@ -350,7 +455,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
+        "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000669.html",
         "abstract_en": "official-sciencedirect-issue"
       },
@@ -360,8 +465,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:52:17+00:00",
-        "source_hash": "0a202795a7f60a217ecb9598d49b7b3be68d52189843f81c9a6a1b73400677d2"
+        "translated_at": "2026-07-26T19:52:17+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -373,8 +477,8 @@
     },
     {
       "paper_id": "doi:10.1016/j.jet.2026.106204",
-      "sequence": 10,
-      "source_sequence": 10,
+      "sequence": 13,
+      "source_sequence": 13,
       "article_type": "research-article",
       "title_en": "The Hard Problem and the Tyranny of the Losers",
       "title_cn": "难题与输家暴政",
@@ -390,7 +494,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
+        "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000670.html",
         "abstract_en": "official-sciencedirect-issue"
       },
@@ -400,8 +504,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:52:24+00:00",
-        "source_hash": "512489fe90d2315e9ec7bb81d54abf74825c9d9a904b55bca5c45df2ce6972d8"
+        "translated_at": "2026-07-26T19:52:24+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -413,8 +516,8 @@
     },
     {
       "paper_id": "doi:10.1016/j.jet.2026.106205",
-      "sequence": 11,
-      "source_sequence": 11,
+      "sequence": 14,
+      "source_sequence": 14,
       "article_type": "research-article",
       "title_en": "The hold-up problem with flexible unobservable investments",
       "title_cn": "具有灵活不可观测投资的挟持问题",
@@ -428,7 +531,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
+        "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000682.html",
         "abstract_en": "official-sciencedirect-issue"
       },
@@ -438,46 +541,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:52:33+00:00",
-        "source_hash": "2ec73a6119637d92f4f6ff9cbc67f87e919829eabf7a906be3dd06c77ee5aff8"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jet.2026.106179",
-      "sequence": 12,
-      "source_sequence": 12,
-      "article_type": "research-article",
-      "title_en": "Covert learning and disclosure",
-      "title_cn": "隐秘学习与信息披露",
-      "authors": [
-        "Matteo Escudé"
-      ],
-      "abstract_en": "I study a model of information acquisition and transmission in which the sender’s ability to misreport her findings is limited. The sender learns covertly, so a key observation is that in equilibrium she must be deterred from undetectably worsening the meaningof the messages she sends. This force substantially disciplines equilibrium beliefs and behavior: the receiver is maximally skeptical of what the sender claims and learns all discovered information. I exploit these equilibrium properties to characterize the sense in which the sender benefits from her claims being more verifiable, showing that this is akin to increasing her commitment power. Finally, I identify sender- and receiver-optimal falsification environments.",
-      "abstract_cn": "我研究了一个信息获取与传递的模型，其中发送者误报其发现的能力受到限制。发送者以隐秘方式学习，因此一个关键观察是，在均衡中必须阻止发送者无检测地恶化其所发送信息的含义。这一机制显著约束了均衡信念和行为：接收者对发送者的主张持最大程度的怀疑态度，并且学习所有被发现的信息。我利用这些均衡性质来刻画发送者从其主张更具可验证性中获益的意义，表明这类似于增强其承诺能力。最后，我识别了发送者和接收者最优的伪造环境。",
-      "doi": "10.1016/j.jet.2026.106179",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000438",
-      "publication_date": "2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000438.html",
-        "abstract_en": "official-sciencedirect-issue"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "github-models",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:49:40+00:00",
-        "source_hash": "992b8435d544167cacbf55ec4a8b402373686889f06034efab43f9699faf65b4"
+        "translated_at": "2026-07-26T19:52:33+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -489,8 +553,8 @@
     },
     {
       "paper_id": "doi:10.1016/j.jet.2026.106207",
-      "sequence": 13,
-      "source_sequence": 13,
+      "sequence": 15,
+      "source_sequence": 15,
       "article_type": "research-article",
       "title_en": "Reference-dependent choice bracketing",
       "title_cn": "参照依赖的选择分组",
@@ -504,7 +568,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
+        "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000700.html",
         "abstract_en": "official-sciencedirect-issue"
       },
@@ -514,86 +578,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:52:42+00:00",
-        "source_hash": "7cd0777aee8cba4ab7c5f787bcc78d83513f869eed86fbbb2d7c4a079bc3d7a5"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jet.2026.106189",
-      "sequence": 14,
-      "source_sequence": 14,
-      "article_type": "research-article",
-      "title_en": "Expectation and confusion: Evidence and theory",
-      "title_cn": "预期与混淆：证据与理论",
-      "authors": [
-        "Heng Chen",
-        "Yicheng Liu"
-      ],
-      "abstract_en": "In this paper, we characterize a forecasting model where forecasters cannot perfectly distinguish between the two persistent components (trends and cycles) in a dynamic setting. In this model, forecasters jointly update their beliefs about the two components: noisy information about one component is used to update beliefs about the other component. We present diagnostic empirical facts on forecasting behaviors and show that these facts are consistent with our model’s predictions while contradicting those of existing models in the expectation formation literature. To validate our model, we exploit the Federal Reserve’s 2012 adoption of explicit inflation targeting as a policy shock. Structural estimation reveals that this policy change altered the underlying data-generation process, and the corresponding changes in forecasting behavior indeed align with our model’s predictions. Finally, we revisit the standard Forecast Error-Forecast Revision regression approach in this literature. We examine its robustness within our enriched framework and reveal that trend-cycle confusion can interact with behavioral bias and generate horizon-dependent overreaction patterns documented in empirical studies.",
-      "abstract_cn": "本文刻画了一个预测模型，其中预测者在动态环境中无法完全区分两个持久性成分（趋势和周期）。在这个模型中，预测者共同更新他们对这两个成分的信念：关于一个成分的噪声信息被用来更新对另一个成分的信念。我们提出了关于预测行为的诊断性实证事实，并表明这些事实与我们模型的预测一致，而与预期形成文献中现有模型的预测相矛盾。为了验证我们的模型，我们利用美联储2012年采用明确的通胀目标作为政策冲击。结构估计显示，这一政策变化改变了潜在的数据生成过程，而相应的预测行为变化确实与我们模型的预测一致。最后，我们重新审视了这一文献中的标准预测误差-预测修正回归方法。我们在我们的扩展框架内检验了它的稳健性，并揭示了趋势-周期混淆可以与行为偏差相互作用，并产生实证研究中记录的与预测期限相关的过度反应模式。",
-      "doi": "10.1016/j.jet.2026.106189",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000529",
-      "publication_date": "2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000529.html",
-        "abstract_en": "official-sciencedirect-issue"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "github-models",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "mistral-ai/mistral-medium-2505",
-        "translated_at": "2026-07-26T20:13:22+00:00",
-        "source_hash": "93f5947981e09985bae8dc6af5ac6e0d692868e7eda7510b00be38d27a1f38c5"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jet.2026.106191",
-      "sequence": 15,
-      "source_sequence": 15,
-      "article_type": "research-article",
-      "title_en": "Which experiments test a model?",
-      "title_cn": "哪些实验检验一个模型？",
-      "authors": [
-        "Paul J. Healy",
-        "Greg Leo"
-      ],
-      "abstract_en": "Given a model of preferences, what choice data or experiment is sufficient to definitively test whether a subject is consistent with the model or to classify them into some “type” within the model? We characterize all experiments that test or classify a given model using a novel graph-theoretic construction: the labeled permutohedron. We show how these results can be used to identify the smallest experiments that achieve a particular goal.",
-      "abstract_cn": "给定一个偏好模型，哪些选择数据或实验足以明确检验一个主体是否与该模型一致，或将其归类为模型中的某种“类型”？我们利用一种新颖的图论构造——带标签的置换多面体，刻画了所有能够检验或分类给定模型的实验。我们展示了如何利用这些结果识别实现特定目标的最小实验。",
-      "doi": "10.1016/j.jet.2026.106191",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022053126000542",
-      "publication_date": "2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-        "metadata": "https://ideas.repec.org/a/eee/jetheo/v235y2026ics0022053126000542.html",
-        "abstract_en": "official-sciencedirect-issue"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "github-models",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:51:25+00:00",
-        "source_hash": "9d0c5e46bbfbb6582eaf50c5a70ef3ae2edc1077330fa77ee2317a5c18992ae6"
+        "translated_at": "2026-07-26T19:52:42+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -607,7 +592,7 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "official_item_count": 16,
+    "official_item_count": 15,
     "excluded_item_count": 0,
     "excluded_items": [],
     "doi_complete": 15,
@@ -615,11 +600,15 @@
     "abstract_en_complete": 15,
     "translation_complete": 15,
     "duplicate_count": 0,
-    "flags": [],
+    "flags": [
+      "publisher_html_blocked_repec_fallback",
+      "repec_publisher_supplied_roster",
+      "official_order_unverified"
+    ],
     "official_issue_fetch_error": "request failed for https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C: 403 Client Error: Forbidden for url: https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
     "publishable_item_count": 15,
     "content_counts": {
-      "official_items": 16,
+      "official_items": 15,
       "observed_items": 15,
       "publishable_items": 15,
       "research_articles": 15,
@@ -630,22 +619,10 @@
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 15
-    },
-    "roster_authority": "official-issue-page",
-    "roster_transport": "browser-authorized",
-    "official_roster_evidence": {
-      "captured_at": "2026-08-24T12:04:37.452Z",
-      "official_url": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/235/suppl/C",
-      "method": "browser-authorized",
-      "item_count": 15,
-      "excluded_item_count": 1,
-      "archive_reordered": true,
-      "sequence_sha256": "408cdc3831821a45725f82ab93b35b1ce30efaac3fedceb7597430cf6e70ef09",
-      "privacy_fields_stored": false
     }
   },
   "content_counts": {
-    "official_items": 16,
+    "official_items": 15,
     "observed_items": 15,
     "publishable_items": 15,
     "research_articles": 15,
@@ -658,6 +635,6 @@
     "catalog_content_items": 15
   },
   "content_status": "complete",
-  "source_status": "official_verified",
-  "publication_state": "ready"
+  "source_status": "source_pending",
+  "publication_state": "source_pending"
 }

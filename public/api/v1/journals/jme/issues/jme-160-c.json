@@ -11,28 +11,28 @@
   "retrieved_at": "2026-07-28T05:38:12+00:00",
   "expected_article_count": 9,
   "research_article_count": 9,
-  "status": "ready",
+  "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1016/j.jmoneco.2026.103935",
+      "paper_id": "doi:10.1016/j.jmoneco.2026.103926",
       "sequence": 1,
       "source_sequence": 1,
-      "article_type": "research-article",
-      "title_en": "Customer accumulation, returns to scale, and secular trends",
-      "title_cn": "客户积累、规模报酬和长期趋势",
+      "article_type": "comment",
+      "title_en": "Comment on: Is it AI or data that drives market power?",
+      "title_cn": "评论：是人工智能还是数据驱动市场力量？",
       "authors": [
-        "Andrea Chiavari"
+        "Miao Ben Zhang"
       ],
-      "abstract_en": "This paper studies how rising returns to scale contributed to declining business dynamism and increasing markups and expenditures devoted to customer acquisition in the U.S. economy. It introduces a firm dynamics model with heterogeneous markups and customer accumulation based on directed search, in which larger firms gain a competitive edge from higher returns to scale. This makes markets less contestable for new firms and leads to the rise of superstar firms. The model quantitatively accounts for a substantial share of these trends, and the underlying micro-level mechanisms align with empirical evidence.",
-      "abstract_cn": "本文研究了规模报酬上升如何导致美国经济中商业活力下降以及客户获取支出和加价增加。它引入了一个基于定向搜索的异质加价和客户积累的企业动态模型，其中较大的企业因更高的规模报酬而获得竞争优势。这使得市场对新企业的竞争性降低，并导致超级企业的崛起。该模型定量地解释了这些趋势的相当大一部分，基础的微观机制与实证证据相一致。",
-      "doi": "10.1016/j.jmoneco.2026.103935",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304393226000504",
+      "abstract_en": "•Distinguishes raw data, AI capability, and processed data in firm production.•Connects AI data processing to the information entropy literature.•Discusses secondary markets for processed data among firms.•Clarifies implications of data and AI capability for industry concentration.•Benchmarks AI–market power models against the broader data economics literature.",
+      "abstract_cn": "•区分企业生产中的原始数据、人工智能能力和处理数据。•将人工智能数据处理与信息熵文献联系起来。•讨论企业之间处理数据的二级市场。•阐明数据和人工智能能力对行业集中度的影响。•将人工智能-市场力量模型与更广泛的数据经济学文献进行基准比较。",
+      "doi": "10.1016/j.jmoneco.2026.103926",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304393226000413",
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/160/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/160/suppl/C",
-        "metadata": "https://ideas.repec.org/a/eee/moneco/v160y2026ics0304393226000504.html",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/moneco/v160y2026ics0304393226000413.html",
         "abstract_en": "official-sciencedirect-issue"
       },
       "translation": {
@@ -41,8 +41,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T20:00:23+00:00",
-        "source_hash": "12ab0245023335f4c593eed0ae8210d2fa3231b04fde56fac1828a425f376559"
+        "translated_at": "2026-07-26T20:00:07+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -69,7 +68,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/160/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/160/suppl/C",
+        "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/moneco/v160y2026ics0304393226000498.html",
         "abstract_en": "official-sciencedirect-issue"
       },
@@ -79,8 +78,44 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T20:00:17+00:00",
-        "source_hash": "26b5d7e937e0b20c7734e0b6595682ff55140a0acc0a64da1e71f08227191b2a"
+        "translated_at": "2026-07-26T20:00:17+00:00"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jmoneco.2026.103935",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Customer accumulation, returns to scale, and secular trends",
+      "title_cn": "客户积累、规模报酬和长期趋势",
+      "authors": [
+        "Andrea Chiavari"
+      ],
+      "abstract_en": "This paper studies how rising returns to scale contributed to declining business dynamism and increasing markups and expenditures devoted to customer acquisition in the U.S. economy. It introduces a firm dynamics model with heterogeneous markups and customer accumulation based on directed search, in which larger firms gain a competitive edge from higher returns to scale. This makes markets less contestable for new firms and leads to the rise of superstar firms. The model quantitatively accounts for a substantial share of these trends, and the underlying micro-level mechanisms align with empirical evidence.",
+      "abstract_cn": "本文研究了规模报酬上升如何导致美国经济中商业活力下降以及客户获取支出和加价增加。它引入了一个基于定向搜索的异质加价和客户积累的企业动态模型，其中较大的企业因更高的规模报酬而获得竞争优势。这使得市场对新企业的竞争性降低，并导致超级企业的崛起。该模型定量地解释了这些趋势的相当大一部分，基础的微观机制与实证证据相一致。",
+      "doi": "10.1016/j.jmoneco.2026.103935",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304393226000504",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/160/suppl/C",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/moneco/v160y2026ics0304393226000504.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "github-models",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "openai/gpt-4o-mini",
+        "translated_at": "2026-07-26T20:00:23+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -92,8 +127,8 @@
     },
     {
       "paper_id": "doi:10.1016/j.jmoneco.2026.103942",
-      "sequence": 3,
-      "source_sequence": 3,
+      "sequence": 4,
+      "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Racial disparities in crime and wealth",
       "title_cn": "种族在犯罪和财富方面的差异",
@@ -109,7 +144,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/160/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/160/suppl/C",
+        "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/moneco/v160y2026ics0304393226000577.html",
         "abstract_en": "official-sciencedirect-issue"
       },
@@ -119,8 +154,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T20:00:32+00:00",
-        "source_hash": "4f02b86efb4528ac05d4f9520ff1f3b1910fe6cfa3e8b92c74fb81aa54731148"
+        "translated_at": "2026-07-26T20:00:32+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -131,36 +165,38 @@
       }
     },
     {
-      "paper_id": "doi:10.1016/j.jmoneco.2026.103946",
-      "sequence": 4,
-      "source_sequence": 4,
-      "article_type": "research-article",
-      "title_en": "Bank concentration, product market competition and productivity growth",
-      "title_cn": "银行集中度、产品市场竞争与生产率增长",
+      "paper_id": "doi:10.1016/j.jmoneco.2026.103943",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "comment",
+      "title_en": "Discussion of: “Automated credit limit increases and consumer welfare”",
+      "title_cn": "讨论：“自动化信用额度提升与消费者福利”",
       "authors": [
-        "Lei Ye"
+        "Joel P. Flynn"
       ],
-      "abstract_en": "U.S. product markets have become more concentrated since the late 1990s, with higher markups, weaker entry, and slower productivity growth. This paper studies whether consolidation in the U.S. banking sector has contributed to these trends. Empirically, I show that higher bank concentration is associated with rising product market markups, lower entry, and a reallocation of market power toward large incumbents. I interpret these patterns in a quantitative endogenous growth model with imperfect bank competition and heterogeneous firms. The key mechanism is a widening loan-deposit spread: even as interest rate levels decline, greater bank market power increases the wedge between the borrowing costs faced by small bank-dependent firms and the opportunity cost of funds faced by large internally financed firms, shifting competition toward large incumbents and weakening innovation incentives. In calibrated counterfactuals, the rise in bank concentration explains about 14% of the increase in product market concentration and 5% of the slowdown in productivity growth over the post-2000 period.",
-      "abstract_cn": "自 1990 以来，美国产品市场变得更加集中，标价更高，进入壁垒更弱，生产率增长放缓。本文研究了美国银行业的整合是否对这些趋势产生了影响。从实证上看，我表明更高的银行集中度与产品市场标价上升、进入减少以及市场权力向大型 incumbents 的重新分配相关。我在一个具有不完全银行竞争和异质性企业的定量内生增长模型中解释这些模式。关键机制是贷款-存款利差的扩大：即使利率水平下降，银行市场权力的增强也增加了小型依赖银行的企业面临的借款成本与大型内部融资企业面临的资金机会成本之间的差距，导致竞争向大型 incumbents 转移，并削弱了创新激励。在校准的反事实中，银行集中度的上升解释了约 14% 的产品市场集中度增加和 5% 的生产率增长放缓，时间段为后 2000 期。",
-      "doi": "10.1016/j.jmoneco.2026.103946",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304393226000619",
+      "abstract_en": "",
+      "abstract_cn": "",
+      "doi": "10.1016/j.jmoneco.2026.103943",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304393226000589",
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/160/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/160/suppl/C",
-        "metadata": "https://ideas.repec.org/a/eee/moneco/v160y2026ics0304393226000619.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/moneco/v160y2026ics0304393226000589.html",
+        "abstract_en": "repec-publisher-supplied"
       },
       "translation": {
-        "status": "complete",
+        "status": "partial",
         "provider": "github-models",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T20:01:23+00:00",
-        "source_hash": "41f7bb19f9790c5b3ad408c6c9aed08e2a080cd4b1fb440fec81b63aa3e62d2d"
+        "model": "openai/gpt-4.1",
+        "translated_at": "2026-07-26T20:42:54+00:00"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "abstract_en_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -170,8 +206,8 @@
     },
     {
       "paper_id": "doi:10.1016/j.jmoneco.2026.103944",
-      "sequence": 5,
-      "source_sequence": 5,
+      "sequence": 6,
+      "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "Staffing agencies and in-house bargaining",
       "title_cn": "人力资源中介与内部谈判",
@@ -187,7 +223,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/160/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/160/suppl/C",
+        "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/moneco/v160y2026ics0304393226000590.html",
         "abstract_en": "official-sciencedirect-issue"
       },
@@ -197,8 +233,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T20:01:08+00:00",
-        "source_hash": "288ef84d593422945da332b7b021db5027d70f1126d7a2d24819a8827f50ba2f"
+        "translated_at": "2026-07-26T20:01:08+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -210,8 +245,8 @@
     },
     {
       "paper_id": "doi:10.1016/j.jmoneco.2026.103945",
-      "sequence": 6,
-      "source_sequence": 6,
+      "sequence": 7,
+      "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "Unstable prosperity: How globalization made the world economy more volatile",
       "title_cn": "不稳定的繁荣：全球化如何使世界经济更加波动",
@@ -226,7 +261,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/160/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/160/suppl/C",
+        "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/moneco/v160y2026ics0304393226000607.html",
         "abstract_en": "official-sciencedirect-issue"
       },
@@ -236,8 +271,7 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T20:01:13+00:00",
-        "source_hash": "35fd48c8b3f2143d4cf83ef206b3d37e77c883db62b4eed2727aebf2c3ec1d79"
+        "translated_at": "2026-07-26T20:01:13+00:00"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -248,24 +282,24 @@
       }
     },
     {
-      "paper_id": "doi:10.1016/j.jmoneco.2026.103926",
-      "sequence": 7,
-      "source_sequence": 7,
-      "article_type": "comment",
-      "title_en": "Comment on: Is it AI or data that drives market power?",
-      "title_cn": "评论：是人工智能还是数据驱动市场力量？",
+      "paper_id": "doi:10.1016/j.jmoneco.2026.103946",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Bank concentration, product market competition and productivity growth",
+      "title_cn": "银行集中度、产品市场竞争与生产率增长",
       "authors": [
-        "Miao Ben Zhang"
+        "Lei Ye"
       ],
-      "abstract_en": "•Distinguishes raw data, AI capability, and processed data in firm production.•Connects AI data processing to the information entropy literature.•Discusses secondary markets for processed data among firms.•Clarifies implications of data and AI capability for industry concentration.•Benchmarks AI–market power models against the broader data economics literature.",
-      "abstract_cn": "•区分企业生产中的原始数据、人工智能能力和处理数据。•将人工智能数据处理与信息熵文献联系起来。•讨论企业之间处理数据的二级市场。•阐明数据和人工智能能力对行业集中度的影响。•将人工智能-市场力量模型与更广泛的数据经济学文献进行基准比较。",
-      "doi": "10.1016/j.jmoneco.2026.103926",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304393226000413",
+      "abstract_en": "U.S. product markets have become more concentrated since the late 1990s, with higher markups, weaker entry, and slower productivity growth. This paper studies whether consolidation in the U.S. banking sector has contributed to these trends. Empirically, I show that higher bank concentration is associated with rising product market markups, lower entry, and a reallocation of market power toward large incumbents. I interpret these patterns in a quantitative endogenous growth model with imperfect bank competition and heterogeneous firms. The key mechanism is a widening loan-deposit spread: even as interest rate levels decline, greater bank market power increases the wedge between the borrowing costs faced by small bank-dependent firms and the opportunity cost of funds faced by large internally financed firms, shifting competition toward large incumbents and weakening innovation incentives. In calibrated counterfactuals, the rise in bank concentration explains about 14% of the increase in product market concentration and 5% of the slowdown in productivity growth over the post-2000 period.",
+      "abstract_cn": "自 1990 以来，美国产品市场变得更加集中，标价更高，进入壁垒更弱，生产率增长放缓。本文研究了美国银行业的整合是否对这些趋势产生了影响。从实证上看，我表明更高的银行集中度与产品市场标价上升、进入减少以及市场权力向大型 incumbents 的重新分配相关。我在一个具有不完全银行竞争和异质性企业的定量内生增长模型中解释这些模式。关键机制是贷款-存款利差的扩大：即使利率水平下降，银行市场权力的增强也增加了小型依赖银行的企业面临的借款成本与大型内部融资企业面临的资金机会成本之间的差距，导致竞争向大型 incumbents 转移，并削弱了创新激励。在校准的反事实中，银行集中度的上升解释了约 14% 的产品市场集中度增加和 5% 的生产率增长放缓，时间段为后 2000 期。",
+      "doi": "10.1016/j.jmoneco.2026.103946",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304393226000619",
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/160/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/160/suppl/C",
-        "metadata": "https://ideas.repec.org/a/eee/moneco/v160y2026ics0304393226000413.html",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/eee/moneco/v160y2026ics0304393226000619.html",
         "abstract_en": "official-sciencedirect-issue"
       },
       "translation": {
@@ -274,50 +308,9 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T20:00:07+00:00",
-        "source_hash": "6025a0fec3c5ad8f4ed2cb5e0f3e6eb894dc0e99b247f22243fbecfabec0cf67"
+        "translated_at": "2026-07-26T20:01:23+00:00"
       },
       "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jmoneco.2026.103943",
-      "sequence": 8,
-      "source_sequence": 8,
-      "article_type": "comment",
-      "title_en": "Discussion of: “Automated credit limit increases and consumer welfare”",
-      "title_cn": "讨论：“自动化信用额度提升与消费者福利”",
-      "authors": [
-        "Joel P. Flynn"
-      ],
-      "abstract_en": "",
-      "abstract_cn": "",
-      "doi": "10.1016/j.jmoneco.2026.103943",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304393226000589",
-      "publication_date": "2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/160/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/160/suppl/C",
-        "metadata": "https://ideas.repec.org/a/eee/moneco/v160y2026ics0304393226000589.html",
-        "abstract_en": "repec-publisher-supplied"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "github-models",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1",
-        "translated_at": "2026-07-26T20:42:54+00:00",
-        "source_hash": "ec5264ae0c1628d69eb339f9ec2bdc1f94057b5d972a145873b204e468a11489"
-      },
-      "quality_flags": [
-        "abstract_en_missing"
-      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -342,21 +335,21 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/160/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/160/suppl/C",
+        "roster": "repec-publisher-supplied",
         "metadata": "https://ideas.repec.org/a/eee/moneco/v160y2026ics0304393226000620.html",
         "abstract_en": "repec-publisher-supplied"
       },
       "translation": {
-        "status": "complete",
+        "status": "partial",
         "provider": "github-models",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "openai/gpt-4.1",
-        "translated_at": "2026-07-26T20:43:01+00:00",
-        "source_hash": "db13e7f313abff51cb2ea8236de0d9b45c45c89dd003b1e980747ec7d2cef231"
+        "translated_at": "2026-07-26T20:43:01+00:00"
       },
       "quality_flags": [
-        "abstract_en_missing"
+        "abstract_en_missing",
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -369,7 +362,7 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "official_item_count": 10,
+    "official_item_count": 9,
     "excluded_item_count": 0,
     "excluded_items": [],
     "doi_complete": 9,
@@ -377,11 +370,15 @@
     "abstract_en_complete": 9,
     "translation_complete": 9,
     "duplicate_count": 0,
-    "flags": [],
+    "flags": [
+      "publisher_html_blocked_repec_fallback",
+      "repec_publisher_supplied_roster",
+      "official_order_unverified"
+    ],
     "official_issue_fetch_error": "request failed for https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/160/suppl/C: 403 Client Error: Forbidden for url: https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/160/suppl/C",
     "publishable_item_count": 9,
     "content_counts": {
-      "official_items": 10,
+      "official_items": 9,
       "observed_items": 9,
       "publishable_items": 9,
       "research_articles": 6,
@@ -392,22 +389,10 @@
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 9
-    },
-    "roster_authority": "official-issue-page",
-    "roster_transport": "browser-authorized",
-    "official_roster_evidence": {
-      "captured_at": "2026-08-24T12:10:39.584Z",
-      "official_url": "https://www.sciencedirect.com/journal/journal-of-monetary-economics/vol/160/suppl/C",
-      "method": "browser-authorized",
-      "item_count": 9,
-      "excluded_item_count": 1,
-      "archive_reordered": true,
-      "sequence_sha256": "f127f5daec5db1e0b106641e6b0349bbbd4fb36d69dba55380dba48e077cba9f",
-      "privacy_fields_stored": false
     }
   },
   "content_counts": {
-    "official_items": 10,
+    "official_items": 9,
     "observed_items": 9,
     "publishable_items": 9,
     "research_articles": 6,
@@ -420,6 +405,6 @@
     "catalog_content_items": 9
   },
   "content_status": "complete",
-  "source_status": "official_verified",
-  "publication_state": "ready"
+  "source_status": "source_pending",
+  "publication_state": "source_pending"
 }

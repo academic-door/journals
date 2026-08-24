@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-04T13:27:59+00:00",
   "expected_article_count": 23,
   "research_article_count": 23,
-  "status": "incomplete",
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
@@ -825,14 +825,14 @@
       "source_sequence": 16,
       "article_type": "research-article",
       "title_en": "American treasure and the decline of Spain",
-      "title_cn": "",
+      "title_cn": "美洲财富与西班牙的衰落",
       "authors": [
         "Carlos J. Charotti",
         "Nuno Palma",
         "João Pereira dos Santos"
       ],
       "abstract_en": "Spain was one of the world’s richest countries around 1500. Two centuries later it was a backwater. We rely on a synthetic control methodology to study the long-run impact of the influx of silver from the New World since 1500 for the economic development of Spain. Compared with a synthetic counterfactual, the price level increased by up to 200% by the mid-seventeenth century. Spain’s GDP per capita outperformed other European nations for around a century, but by 1750, GDP per capita was around 40% lower than it would have been if Spain had not been the first-stage receiver of the American treasure.",
-      "abstract_cn": "",
+      "abstract_cn": "西班牙在1500年前后曾是世界上最富有的国家之一。两个世纪后，它却成了一个落后地区。我们采用合成控制法研究自1500年以来来自新大陆的白银涌入对西班牙经济发展的长期影响。与合成的反事实相比，到十七世纪中叶，价格水平上升了高达200%。西班牙的人均GDP在约一个世纪内表现优于其他欧洲国家，但到1750年，人均GDP比如果西班牙没有成为美洲财富的第一阶段接收者时低约40%。",
       "doi": "10.1016/j.euroecorev.2025.105187",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292125002375",
       "sources": {
@@ -841,12 +841,14 @@
         "abstract_en": "https://www.sciencedirect.com/science/article/pii/S0014292125002375"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-24T12:53:08+00:00",
+        "source_hash": "9bbce426620c64e91b410d4cd09cf1e67e63e4543600dba3f553181426f3f3de"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "publication_date": "November 2025",
       "china_relevance": {
         "status": "no",
@@ -1244,11 +1246,9 @@
     "doi_complete": 23,
     "authors_complete": 23,
     "abstract_en_complete": 23,
-    "translation_complete": 22,
+    "translation_complete": 23,
     "duplicate_count": 0,
-    "flags": [
-      "translation_incomplete"
-    ],
+    "flags": [],
     "official_item_count": 25,
     "publishable_item_count": 23,
     "content_counts": {
@@ -1289,7 +1289,7 @@
     "catalog_content_items": 23
   },
   "issue_label": "Vol. 180",
-  "content_status": "translation_partial",
+  "content_status": "complete",
   "source_status": "official_verified",
-  "publication_state": "translation_partial"
+  "publication_state": "ready"
 }
