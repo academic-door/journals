@@ -1,13 +1,13 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-08-24T16:57:43+00:00
+Generated: 2026-08-24T17:15:45+00:00
 
 ## Summary
 
 - browser_required: 38
-- ready: 951
+- ready: 973
 - recoverable: 88
-- source_pending: 213
+- source_pending: 191
 - translation_required: 41
 
 ## Issue queue
@@ -400,7 +400,7 @@ Generated: 2026-08-24T16:57:43+00:00
 | ERE | ere-89-5 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | ERE | ere-89-6 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | ERE | ere-89-7 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
-| ERE | ere-89-8 | 2026 | source_pending | complete | source_pending | ValueError: RePEc history requires a configured series code |
+| ERE | ere-89-8 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | ERE | ere-89-9 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-114-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-115-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
@@ -429,7 +429,7 @@ Generated: 2026-08-24T16:57:43+00:00
 | FOODPOLICY | foodpolicy-138-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-139-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-140-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
-| FOODPOLICY | foodpolicy-141-c | 2026 | source_pending | complete | source_pending | official source verification pending |
+| FOODPOLICY | foodpolicy-141-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-142-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-143-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | GEB | geb-137-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
@@ -490,9 +490,9 @@ Generated: 2026-08-24T16:57:43+00:00
 | JAERE | jaere-12-4 | 2025 | source_pending | complete | source_pending | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2025/12/4 |
 | JAERE | jaere-12-5 | 2025 | source_pending | complete | source_pending | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2025/12/5 |
 | JAERE | jaere-12-6 | 2025 | source_pending | complete | source_pending | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2025/12/6 |
-| JAERE | jaere-13-1 | 2026 | source_pending | complete | source_pending | official source verification pending |
-| JAERE | jaere-13-2 | 2026 | source_pending | complete | source_pending | official source verification pending |
-| JAERE | jaere-13-3 | 2026 | source_pending | complete | source_pending | official source verification pending |
+| JAERE | jaere-13-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| JAERE | jaere-13-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| JAERE | jaere-13-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JAERE | jaere-13-4 | 2026 | source_pending | complete | source_pending | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2026/13/4 |
 | JAERE | jaere-13-5 | 2026 | recoverable | blocked | source_pending | archive_missing |
 | JAERE | jaere-13-6 | 2026 | recoverable | blocked | source_pending | archive_missing |
@@ -532,7 +532,7 @@ Generated: 2026-08-24T16:57:43+00:00
 | JDE | jde-179-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JDE | jde-180-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JDE | jde-181-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
-| JDE | jde-182-c | 2026 | source_pending | complete | source_pending | official source verification pending |
+| JDE | jde-182-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JDE | jde-183-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JEBO | jebo-205-c | 2023 | translation_required | blocked | source_pending | archive_missing |
 | JEBO | jebo-206-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
@@ -669,8 +669,8 @@ Generated: 2026-08-24T16:57:43+00:00
 | JEEM | jeem-135-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JEEM | jeem-136-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JEEM | jeem-137-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
-| JEEM | jeem-138-c | 2026 | source_pending | complete | source_pending | official source verification pending |
-| JEEM | jeem-139-c | 2026 | source_pending | complete | source_pending | official source verification pending |
+| JEEM | jeem-138-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
+| JEEM | jeem-139-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JEEM | jeem-140-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JEH | jeh-83-1 | 2023 | browser_required | blocked | source_pending | archive_missing |
 | JEH | jeh-83-2 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
@@ -860,11 +860,11 @@ Generated: 2026-08-24T16:57:43+00:00
 | JLE | jle-42-S1 | 2024 | recoverable | blocked | source_pending | archive_missing |
 | JLE | jle-43-1 | 2025 | source_pending | complete | source_pending | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jole/2025/43/1 |
 | JLE | jle-43-2 | 2025 | ready | complete | official_verified | content and official source gates passed |
-| JLE | jle-43-3 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| JLE | jle-43-3 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-43-4 | 2025 | source_pending | complete | source_pending | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jole/2025/43/4 |
 | JLE | jle-43-S1 | 2025 | recoverable | blocked | source_pending | archive_missing |
-| JLE | jle-44-1 | 2026 | source_pending | complete | source_pending | official source verification pending |
-| JLE | jle-44-2 | 2026 | source_pending | complete | source_pending | official source verification pending |
+| JLE | jle-44-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| JLE | jle-44-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-44-3 | 2026 | source_pending | complete | source_pending | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jole/2026/44/3 |
 | JME | jme-133-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JME | jme-134-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
@@ -977,7 +977,7 @@ Generated: 2026-08-24T16:57:43+00:00
 | JPE | jpe-134-4 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JPE | jpe-134-5 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JPE | jpe-134-6 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
-| JPE | jpe-134-7 | 2026 | source_pending | complete | source_pending | official source verification pending |
+| JPE | jpe-134-7 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JPubE | jpube-217-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JPubE | jpube-218-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JPubE | jpube-219-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
@@ -1020,8 +1020,8 @@ Generated: 2026-08-24T16:57:43+00:00
 | JPubE | jpube-256-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JPubE | jpube-257-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JPubE | jpube-258-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
-| JPubE | jpube-259-c | 2026 | source_pending | complete | source_pending | official source verification pending |
-| JPubE | jpube-260-c | 2026 | source_pending | complete | source_pending | official source verification pending |
+| JPubE | jpube-259-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
+| JPubE | jpube-260-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JPubE | jpube-261-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JPubE | jpube-262-c | 2026 | recoverable | blocked | source_pending | archive_missing |
 | JUE | jue-133-c | 2023 | recoverable | blocked | source_pending | archive_missing |
@@ -1044,7 +1044,7 @@ Generated: 2026-08-24T16:57:43+00:00
 | JUE | jue-150-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | JUE | jue-151-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JUE | jue-152-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
-| JUE | jue-153-c | 2026 | source_pending | complete | source_pending | official source verification pending |
+| JUE | jue-153-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JUE | jue-154-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JUE | jue-156-c | 2026 | recoverable | blocked | source_pending | archive_missing |
 | LABECO | labeco-100-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
@@ -1130,7 +1130,7 @@ Generated: 2026-08-24T16:57:43+00:00
 | LUP | lup-166-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | LUP | lup-167-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | LUP | lup-168-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
-| LUP | lup-169-c | 2026 | source_pending | complete | source_pending | official source verification pending |
+| LUP | lup-169-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | LUP | lup-170-c | 2026 | recoverable | blocked | source_pending | archive_missing |
 | LUP | lup-171-c | 2026 | recoverable | blocked | source_pending | archive_missing |
 | QE | qe-14-1 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
@@ -1171,11 +1171,11 @@ Generated: 2026-08-24T16:57:43+00:00
 | RAND | rand-55-2 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | RAND | rand-55-3 | 2024 | browser_required | blocked | source_pending | archive_missing |
 | RAND | rand-55-4 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
-| RAND | rand-56-1 | 2025 | source_pending | complete | source_pending | ValueError: RePEc history requires a configured series code |
-| RAND | rand-56-2 | 2025 | source_pending | complete | source_pending | ValueError: RePEc history requires a configured series code |
-| RAND | rand-56-3 | 2025 | source_pending | complete | source_pending | ValueError: RePEc history requires a configured series code |
-| RAND | rand-56-4 | 2025 | source_pending | complete | source_pending | ValueError: RePEc history requires a configured series code |
-| RAND | rand-57-1 | 2026 | source_pending | complete | source_pending | ValueError: RePEc history requires a configured series code |
+| RAND | rand-56-1 | 2025 | ready | complete | publisher_verified | content and official source gates passed |
+| RAND | rand-56-2 | 2025 | ready | complete | publisher_verified | content and official source gates passed |
+| RAND | rand-56-3 | 2025 | ready | complete | publisher_verified | content and official source gates passed |
+| RAND | rand-56-4 | 2025 | ready | complete | publisher_verified | content and official source gates passed |
+| RAND | rand-57-1 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | RAND | rand-57-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RAND | rand-57-3 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | RED | red-47-c | 2023 | source_pending | complete | source_pending | source authority pending official verification |
@@ -1342,6 +1342,6 @@ Generated: 2026-08-24T16:57:43+00:00
 | WD | wd-203-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | WD | wd-204-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | WD | wd-205-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
-| WD | wd-206-c | 2026 | source_pending | complete | source_pending | official source verification pending |
+| WD | wd-206-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | WD | wd-207-c | 2026 | recoverable | blocked | source_pending | archive_missing |
 | WD | wd-208-c | 2026 | recoverable | blocked | source_pending | archive_missing |
