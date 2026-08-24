@@ -138,4 +138,4 @@ jobs:
             echo "The auto-reviewer approval is missing; refusing to merge."
             exit 1
           fi
-          gh pr merge "$PR_NUMBER" -R "${{ github.repository }}" --squash
+          gh pr merge "$PR_NUMBER" -R "${{ github.repository }}" --squash --auto
