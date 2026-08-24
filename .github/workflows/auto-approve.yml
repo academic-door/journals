@@ -133,27 +133,13 @@ jobs:
     if: needs.auto-approve.outputs.continue == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
-      - name: Check reviewer app secrets are configured
-        env:
-          APP_ID: ${{ secrets.AUTO_REVIEWER_APP_ID }}
-          PRIVATE_KEY: ${{ secrets.AUTO_REVIEWER_PRIVATE_KEY }}
-        run: |
-          if [ -z "$APP_ID" ] || [ -z "$PRIVATE_KEY" ]; then
-            echo "::error::Auto-reviewer GitHub App is not configured."
-            exit 1
-          fi
-
-      - name: Generate GitHub App token
-        id: app-token
-        uses: actions/create-github-app-token@v2
-        with:
-          app-id: ${{ secrets.AUTO_REVIEWER_APP_ID }}
-          private-key: ${{ secrets.AUTO_REVIEWER_PRIVATE_KEY }}
-
       - name: Merge approved PR
         env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           PR_NUMBER="${{ needs.auto-approve.outputs.pr_number }}"
