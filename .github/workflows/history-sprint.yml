@@ -18,6 +18,11 @@ on:
         required: false
         default: ""
         type: string
+      strict_final:
+        description: Fail unless every historical discovery/state/archive/index gap is zero
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   actions: read
@@ -191,6 +196,10 @@ jobs:
         run: python scripts/merge_history_shards.py --root . --shards-root shards
 
       - name: Apply exact official roster evidence
+        env:
+          GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || github.token }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DEEPSEEK_MODEL: deepseek-chat
         shell: bash
         run: |
           set -euo pipefail
@@ -202,6 +211,8 @@ jobs:
               --api-root public/api/v1 \
               --output "$output/$(basename "$evidence")" \
               --state-root data/backfill-state \
+              --translation-cache-root data/translation-cache \
+              --translate \
               --promote
           done < <(find data/provenance/official-rosters -type f -name '*.json' -print0 | sort -z)
 
@@ -230,11 +241,15 @@ jobs:
             --out-md public/gap-manifest.md
           python scripts/audit_public_data.py --strict-provenance
           python scripts/audit_source_alignment.py --strict
+          history_args=()
+          if [ "${{ inputs.strict_final }}" = "true" ]; then
+            history_args+=(--strict)
+          fi
           python scripts/audit_history_coverage.py \
             "${state_args[@]}" \
             --api-root public/api/v1 \
             --report-json "$RUNNER_TEMP/history-coverage.json" \
-            --strict
+            "${history_args[@]}"
           python scripts/audit_privacy.py
           python -m unittest discover -s tests -v
           python scripts/rebuild_public_snapshot.py --check

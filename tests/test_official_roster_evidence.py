@@ -116,6 +116,41 @@ class OfficialRosterEvidenceTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "roster/order"):
             apply_evidence(provisional_issue(), bad)
 
+    def test_official_superset_restores_missing_article_truthfully(self) -> None:
+        official = evidence()
+        official["items"].insert(
+            1,
+            {
+                "sequence": 2,
+                "doi": "10.1093/rfs/missing",
+                "title_en": "Officially Missing Paper",
+                "authors": ["Official Author"],
+                "abstract_en": "Official abstract with 2026 evidence.",
+                "source_url": "https://academic.oup.com/rfs/article/36/2/1/1",
+            },
+        )
+        official["items"][2]["sequence"] = 3
+        candidate = apply_evidence(provisional_issue(), official)
+        self.assertEqual(3, candidate["research_article_count"])
+        self.assertEqual(
+            ["10.1093/rfs/demo1", "10.1093/rfs/missing", "10.1093/rfs/demo2"],
+            [article["doi"] for article in candidate["articles"]],
+        )
+        self.assertEqual("translation_partial", candidate["publication_state"])
+        self.assertEqual("official_verified", candidate["source_status"])
+
+    def test_official_superset_requires_detail_for_missing_article(self) -> None:
+        official = evidence()
+        official["items"].append(
+            {
+                "sequence": 3,
+                "doi": "10.1093/rfs/missing",
+                "title_en": "Officially Missing Paper",
+            }
+        )
+        with self.assertRaisesRegex(ValueError, "missing restoration detail"):
+            apply_evidence(provisional_issue(), official)
+
     def test_official_display_markup_matches_plain_title_after_doi_match(self) -> None:
         issue = provisional_issue()
         issue["articles"][0]["title_en"] = "The Case of RD and CO2"

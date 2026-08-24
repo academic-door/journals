@@ -1,8 +1,10 @@
-"""Promote provisional history archives after exact official-roster matching.
+"""Promote provisional history archives after official-roster matching.
 
-This importer is intentionally roster-only: it preserves the already audited
-metadata and translations, and changes source authority only when an official
-issue-page evidence file has the exact same DOI order and titles.
+Existing archive articles must be an ordered subset of the official roster.
+Official evidence may also carry the authors and abstract needed to restore
+missing research articles. Existing audited metadata and translations are
+preserved; newly restored articles remain translation-incomplete until the
+normal translation gate succeeds.
 """
 
 from __future__ import annotations
@@ -26,9 +28,13 @@ if str(ROOT) not in sys.path:
 
 from scripts.update_journals import (
     PUBLIC_API,
+    TRANSLATION_CACHE,
+    apply_translation_cache,
+    normalize_issue_content,
     stamp_issue_readiness,
     validate_issue,
 )
+from scripts.translate_issue import translate_missing
 
 
 ALLOWED_HOSTS = {
@@ -122,8 +128,69 @@ def validate_evidence(evidence: dict[str, Any]) -> None:
             seen.add(doi)
             if not _normalized_title(item.get("title_en")):
                 errors.append(f"item {expected}: title_en missing")
+            detail_fields = ("authors", "abstract_en", "source_url")
+            has_detail = any(item.get(field) for field in detail_fields)
+            if has_detail:
+                authors = item.get("authors")
+                if not isinstance(authors, list) or not authors or not all(
+                    str(author).strip() for author in authors
+                ):
+                    errors.append(f"item {expected}: authors must be a non-empty array")
+                if not str(item.get("abstract_en", "")).strip():
+                    errors.append(f"item {expected}: abstract_en missing")
+                if not _official_url(item.get("source_url")):
+                    errors.append(
+                        f"item {expected}: source_url must use an allowlisted publisher host"
+                    )
     if errors:
         raise ValueError("official roster evidence gate failed:\n" + "\n".join(errors))
+
+
+def _restored_article(
+    item: dict[str, Any],
+    *,
+    sequence: int,
+    official_url: str,
+    publication_date: str,
+) -> dict[str, Any]:
+    missing = [
+        field
+        for field in ("authors", "abstract_en", "source_url")
+        if not item.get(field)
+    ]
+    if missing:
+        raise ValueError(
+            f"official item {sequence} missing restoration detail: {', '.join(missing)}"
+        )
+    source_url = str(item["source_url"])
+    if not _official_url(source_url):
+        raise ValueError(
+            f"official item {sequence} source_url must use an allowlisted publisher host"
+        )
+    doi = str(item["doi"]).strip().lower()
+    article: dict[str, Any] = {
+        "paper_id": f"doi:{doi}",
+        "sequence": sequence,
+        "source_sequence": sequence,
+        "article_type": "research-article",
+        "title_en": str(item["title_en"]).strip(),
+        "title_cn": "",
+        "authors": [str(author).strip() for author in item["authors"]],
+        "abstract_en": str(item["abstract_en"]).strip(),
+        "abstract_cn": "",
+        "doi": doi,
+        "source_url": source_url,
+        "sources": {
+            "roster": official_url,
+            "metadata": source_url,
+            "abstract_en": source_url,
+        },
+        "translation": {"status": "missing"},
+        "quality_flags": ["title_cn_missing", "abstract_cn_missing"],
+    }
+    if publication_date:
+        article["publication_date"] = publication_date
+    return article
 
 
 def apply_evidence(issue: dict[str, Any], evidence: dict[str, Any]) -> dict[str, Any]:
@@ -136,21 +203,50 @@ def apply_evidence(issue: dict[str, Any], evidence: dict[str, Any]) -> dict[str,
 
     archive_articles = list(candidate.get("articles", []))
     evidence_items = list(evidence["items"])
-    archive_dois = [
-        str(article.get("doi", "")).strip().lower() for article in archive_articles
-    ]
+    archive_dois = [str(article.get("doi", "")).strip().lower() for article in archive_articles]
     evidence_dois = [str(item["doi"]).strip().lower() for item in evidence_items]
-    if archive_dois != evidence_dois:
+    archive_by_doi = dict(zip(archive_dois, archive_articles, strict=True))
+    evidence_positions = {doi: index for index, doi in enumerate(evidence_dois)}
+    if any(doi not in evidence_positions for doi in archive_dois):
+        raise ValueError("archive contains a DOI absent from the official roster")
+    archive_positions = [evidence_positions[doi] for doi in archive_dois]
+    if archive_positions != sorted(archive_positions):
         raise ValueError("official DOI roster/order does not match archive")
-    for index, (article, item) in enumerate(
-        zip(archive_articles, evidence_items, strict=True), start=1
-    ):
+    for article in archive_articles:
+        doi = str(article.get("doi", "")).strip().lower()
+        item = evidence_items[evidence_positions[doi]]
         if _normalized_title(article.get("title_en")) != _normalized_title(
             item.get("title_en")
         ):
-            raise ValueError(f"official title does not match archive at item {index}")
+            raise ValueError(
+                f"official title does not match archive at item {evidence_positions[doi] + 1}"
+            )
 
     official_url = str(evidence["official_url"])
+    publication_date = str(candidate.get("publication_date", ""))
+    merged_articles: list[dict[str, Any]] = []
+    restored_count = 0
+    for sequence, item in enumerate(evidence_items, start=1):
+        doi = str(item["doi"]).strip().lower()
+        if doi in archive_by_doi:
+            article = copy.deepcopy(archive_by_doi[doi])
+            article["sequence"] = sequence
+            article["source_sequence"] = sequence
+        else:
+            restored_count += 1
+            article = _restored_article(
+                item,
+                sequence=sequence,
+                official_url=official_url,
+                publication_date=publication_date,
+            )
+        article.setdefault("sources", {})["roster"] = official_url
+        merged_articles.append(article)
+    candidate["articles"] = merged_articles
+    candidate["expected_article_count"] = len(merged_articles)
+    candidate["research_article_count"] = len(merged_articles)
+    if restored_count:
+        candidate = normalize_issue_content(candidate)
     quality = candidate.setdefault("quality", {})
     quality["flags"] = [
         flag
@@ -179,8 +275,6 @@ def apply_evidence(issue: dict[str, Any], evidence: dict[str, Any]) -> dict[str,
         },
     )
     candidate["source_url"] = official_url
-    for article in archive_articles:
-        article.setdefault("sources", {})["roster"] = official_url
     stamp_issue_readiness(candidate)
     validate_issue(candidate)
     return candidate
@@ -244,6 +338,8 @@ def main() -> int:
     parser.add_argument("--output", type=Path)
     parser.add_argument("--promote", action="store_true")
     parser.add_argument("--state-root", type=Path)
+    parser.add_argument("--translate", action="store_true")
+    parser.add_argument("--translation-cache-root", type=Path, default=TRANSLATION_CACHE)
     args = parser.parse_args()
 
     evidence = _read_json(args.evidence)
@@ -257,6 +353,13 @@ def main() -> int:
     if not archive.exists():
         raise FileNotFoundError(f"archive missing: {archive}")
     candidate = apply_evidence(_read_json(archive), evidence)
+    translation_report: dict[str, Any] | None = None
+    if args.translate:
+        cache_path = args.translation_cache_root / f"{candidate['journal_id']}.json"
+        translation_report = translate_missing(candidate, cache_path)
+        candidate = apply_translation_cache(candidate, cache_path=cache_path)
+        candidate = normalize_issue_content(candidate)
+        validate_issue(candidate)
     output = args.output or args.evidence.with_suffix(".candidate.json")
     _write_json(output, candidate)
     if args.promote:
@@ -278,6 +381,7 @@ def main() -> int:
                 "output": str(output),
                 "promoted": bool(args.promote),
                 "state_files_updated": len(state_files) if args.promote else 0,
+                "translation": translation_report,
             },
             ensure_ascii=False,
         )
