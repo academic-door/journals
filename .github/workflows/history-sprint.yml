@@ -28,6 +28,11 @@ on:
         required: false
         default: ""
         type: string
+      capture_wiley_evidence:
+        description: Refresh official Wiley rosters for source-pending archives before promotion
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   actions: read
@@ -199,6 +204,31 @@ jobs:
 
       - name: Merge shard changes into the latest data baseline
         run: python scripts/merge_history_shards.py --root . --shards-root shards
+
+      - name: Capture official Wiley roster evidence
+        if: inputs.capture_wiley_evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          state_args=()
+          for state in data/backfill-state/*.json; do
+            [ -f "$state" ] && state_args+=(--state "$state")
+          done
+          python scripts/backfill_status.py \
+            "${state_args[@]}" \
+            --api-root public/api/v1 \
+            --out-json public/api/v1/backfill-status.json \
+            --out-md public/backfill-status.md
+          python scripts/build_gap_manifest.py \
+            "${state_args[@]}" \
+            --api-root public/api/v1 \
+            --out-json public/api/v1/gap-manifest.json \
+            --out-md public/gap-manifest.md
+          python scripts/capture_wiley_roster_evidence.py \
+            --gap-manifest public/api/v1/gap-manifest.json \
+            --api-root public/api/v1 \
+            --output-root data/provenance/official-rosters/wiley \
+            --diagnostics-root "$RUNNER_TEMP/wiley-evidence-failures"
 
       - name: Apply exact official roster evidence
         env:
