@@ -1228,6 +1228,12 @@ def translate_missing(
     )
     auth_token = token or os.environ.get("GITHUB_TOKEN", "")
     selected_model = model or os.environ.get("TRANSLATION_MODEL", DEFAULT_MODEL)
+    try:
+        translation_retries = max(
+            1, min(5, int(os.environ.get("TRANSLATION_RETRIES", "5")))
+        )
+    except ValueError:
+        translation_retries = 5
     translated_count = 0
     invalid_cache_count = 0
     upgraded_cache_count = 0
@@ -1278,7 +1284,7 @@ def translate_missing(
                         provider_name="deepseek",
                         protect_numbers=True,
                         max_tokens=8192,
-                        retries=5,
+                        retries=translation_retries,
                         json_output=True,
                         disable_thinking=True,
                     )
