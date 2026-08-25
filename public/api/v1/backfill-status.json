@@ -1,21 +1,21 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-08-25T15:59:03+00:00",
+  "updated_at": "2026-08-25T16:56:42+00:00",
   "summary": {
     "complete": 975,
-    "translation_partial": 32,
+    "translation_partial": 31,
     "blocked": 130,
     "collected": 0,
-    "pending": 194
+    "pending": 195
   },
   "coverage": {
     "discovered": 1331,
-    "archived": 1169,
-    "content_ready": 1169,
+    "archived": 1170,
+    "content_ready": 1170,
     "source_verified": 975,
     "publication_ready": 975,
-    "missing": 162,
-    "source_pending": 194,
+    "missing": 161,
+    "source_pending": 195,
     "missing_issue_ids": [
       "ecolecon-204-c",
       "ecolecon-220-c",
@@ -155,7 +155,6 @@
       "red-62-c",
       "res-90-1",
       "res-90-4",
-      "res-90-5",
       "restat-105-1",
       "restat-105-2",
       "restat-105-3",
@@ -337,6 +336,7 @@
       "red-61-c",
       "res-90-2",
       "res-90-3",
+      "res-90-5",
       "res-90-6",
       "res-91-1",
       "res-91-2",
@@ -638,20 +638,20 @@
     },
     "RES": {
       "discovered": 22,
-      "archived": 19,
-      "content_ready": 19,
+      "archived": 20,
+      "content_ready": 20,
       "source_verified": 0,
       "publication_ready": 0,
-      "missing": 3,
-      "source_pending": 19,
+      "missing": 2,
+      "source_pending": 20,
       "missing_issue_ids": [
         "res-90-1",
-        "res-90-4",
-        "res-90-5"
+        "res-90-4"
       ],
       "source_pending_issue_ids": [
         "res-90-2",
         "res-90-3",
+        "res-90-5",
         "res-90-6",
         "res-91-1",
         "res-91-2",
@@ -674,20 +674,20 @@
       "years": {
         "2023": {
           "discovered": 6,
-          "archived": 3,
-          "content_ready": 3,
+          "archived": 4,
+          "content_ready": 4,
           "source_verified": 0,
           "publication_ready": 0,
-          "missing": 3,
-          "source_pending": 3,
+          "missing": 2,
+          "source_pending": 4,
           "missing_issue_ids": [
             "res-90-1",
-            "res-90-4",
-            "res-90-5"
+            "res-90-4"
           ],
           "source_pending_issue_ids": [
             "res-90-2",
             "res-90-3",
+            "res-90-5",
             "res-90-6"
           ],
           "blocked_issue_ids": []
@@ -8974,7 +8974,7 @@
         "content_status": "complete",
         "source_status": "publisher_verified",
         "publication_state": "ready",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -8986,7 +8986,7 @@
         "content_status": "complete",
         "source_status": "publisher_verified",
         "publication_state": "ready",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "",
         "retry_class": "manual"
       }
     ],
@@ -18284,7 +18284,7 @@
         "content_status": "complete",
         "source_status": "publisher_verified",
         "publication_state": "ready",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -18296,7 +18296,7 @@
         "content_status": "complete",
         "source_status": "publisher_verified",
         "publication_state": "ready",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -18308,7 +18308,7 @@
         "content_status": "complete",
         "source_status": "publisher_verified",
         "publication_state": "ready",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -18320,7 +18320,7 @@
         "content_status": "complete",
         "source_status": "publisher_verified",
         "publication_state": "ready",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -18332,7 +18332,7 @@
         "content_status": "complete",
         "source_status": "publisher_verified",
         "publication_state": "ready",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -18356,7 +18356,7 @@
         "content_status": "complete",
         "source_status": "publisher_verified",
         "publication_state": "ready",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "",
         "retry_class": "manual"
       }
     ],
@@ -18608,10 +18608,10 @@
         "year": 2023,
         "volume": "90",
         "issue": "5",
-        "status": "translation_partial",
-        "content_status": "translation_partial",
+        "status": "source_pending",
+        "content_status": "complete",
         "source_status": "source_pending",
-        "publication_state": "translation_partial",
+        "publication_state": "source_pending",
         "last_error": "",
         "retry_class": "translation"
       },
@@ -20381,21 +20381,21 @@
     "2023-2024": {
       "summary": {
         "complete": 471,
-        "translation_partial": 32,
+        "translation_partial": 31,
         "blocked": 104,
         "collected": 0,
-        "pending": 101
+        "pending": 102
       },
       "issue_count": 708,
-      "updated_at": "2026-08-24T14:00:30+00:00",
+      "updated_at": "2026-08-25T16:55:30+00:00",
       "coverage": {
         "discovered": 708,
-        "archived": 572,
-        "content_ready": 572,
+        "archived": 573,
+        "content_ready": 573,
         "source_verified": 471,
         "publication_ready": 471,
-        "missing": 136,
-        "source_pending": 101,
+        "missing": 135,
+        "source_pending": 102,
         "missing_issue_ids": [
           "ecolecon-204-c",
           "ecolecon-220-c",
@@ -20515,7 +20515,6 @@
           "rand-55-3",
           "res-90-1",
           "res-90-4",
-          "res-90-5",
           "restat-105-1",
           "restat-105-2",
           "restat-105-3",
@@ -20622,6 +20621,7 @@
           "red-54-c",
           "res-90-2",
           "res-90-3",
+          "res-90-5",
           "res-90-6",
           "res-91-1",
           "res-91-2",
@@ -20649,7 +20649,7 @@
         "pending": 16
       },
       "issue_count": 300,
-      "updated_at": "2026-08-24T13:07:44+00:00",
+      "updated_at": "2026-08-25T16:55:37+00:00",
       "coverage": {
         "discovered": 428,
         "archived": 367,
@@ -20816,10 +20816,10 @@
     "2023": {
       "summary": {
         "complete": 221,
-        "translation_partial": 19,
+        "translation_partial": 18,
         "blocked": 58,
         "collected": 0,
-        "pending": 54
+        "pending": 55
       },
       "issue_count": 352,
       "journals": [
@@ -20875,12 +20875,12 @@
       ],
       "coverage": {
         "discovered": 352,
-        "archived": 275,
-        "content_ready": 275,
+        "archived": 276,
+        "content_ready": 276,
         "source_verified": 221,
         "publication_ready": 221,
-        "missing": 77,
-        "source_pending": 54,
+        "missing": 76,
+        "source_pending": 55,
         "missing_issue_ids": [
           "ecolecon-204-c",
           "ecta-91-2",
@@ -20948,7 +20948,6 @@
           "rand-54-3",
           "res-90-1",
           "res-90-4",
-          "res-90-5",
           "restat-105-1",
           "restat-105-2",
           "restat-105-3",
@@ -21012,6 +21011,7 @@
           "red-51-c",
           "res-90-2",
           "res-90-3",
+          "res-90-5",
           "res-90-6",
           "restat-105-4",
           "rfs-36-9"
@@ -21698,20 +21698,20 @@
         },
         "RES": {
           "discovered": 6,
-          "archived": 3,
-          "content_ready": 3,
+          "archived": 4,
+          "content_ready": 4,
           "source_verified": 0,
           "publication_ready": 0,
-          "missing": 3,
-          "source_pending": 3,
+          "missing": 2,
+          "source_pending": 4,
           "missing_issue_ids": [
             "res-90-1",
-            "res-90-4",
-            "res-90-5"
+            "res-90-4"
           ],
           "source_pending_issue_ids": [
             "res-90-2",
             "res-90-3",
+            "res-90-5",
             "res-90-6"
           ],
           "blocked_issue_ids": []

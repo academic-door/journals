@@ -1,6 +1,6 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-08-25T15:59:19+00:00
+Generated: 2026-08-25T16:56:58+00:00
 
 ## Summary
 
@@ -1198,7 +1198,7 @@ Generated: 2026-08-25T15:59:19+00:00
 | RES | res-90-2 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
 | RES | res-90-3 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
 | RES | res-90-4 | 2023 | browser_required | blocked | source_pending | archive_missing |
-| RES | res-90-5 | 2023 | translation_required | blocked | source_pending | archive_missing |
+| RES | res-90-5 | 2023 | translation_required | complete | source_pending | translation incomplete |
 | RES | res-90-6 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
 | RES | res-91-1 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
 | RES | res-91-2 | 2024 | source_pending | complete | source_pending | source authority pending official verification |

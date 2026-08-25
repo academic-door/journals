@@ -1,12 +1,12 @@
 # Field journal history backfill status
 
-Updated: 2026-08-25T15:59:03+00:00
+Updated: 2026-08-25T16:56:42+00:00
 
-Discovery coverage: 1331 discovered · 1169 archived · 975 publication ready · 162 missing · 194 source pending
+Discovery coverage: 1331 discovered · 1170 archived · 975 publication ready · 161 missing · 195 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 471 | 32 | 104 | 101 |
+| 2023-2024 | 471 | 31 | 104 | 102 |
 | 2023-2026 | 241 | 0 | 43 | 16 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
@@ -400,8 +400,8 @@ Discovery coverage: 1331 discovered · 1169 archived · 975 publication ready ·
 | ERE | ere-89-5 | 2026 | ready |  |
 | ERE | ere-89-6 | 2026 | ready |  |
 | ERE | ere-89-7 | 2026 | ready |  |
-| ERE | ere-89-8 | 2026 | ready | ValueError: RePEc history requires a configured series code |
-| ERE | ere-89-9 | 2026 | ready | ValueError: RePEc history requires a configured series code |
+| ERE | ere-89-8 | 2026 | ready |  |
+| ERE | ere-89-9 | 2026 | ready |  |
 | FOODPOLICY | foodpolicy-114-c | 2023 | ready |  |
 | FOODPOLICY | foodpolicy-115-c | 2023 | ready |  |
 | FOODPOLICY | foodpolicy-116-c | 2023 | ready |  |
@@ -1171,13 +1171,13 @@ Discovery coverage: 1331 discovered · 1169 archived · 975 publication ready ·
 | RAND | rand-55-2 | 2024 | ready |  |
 | RAND | rand-55-3 | 2024 | blocked | possible_incomplete_volume: 5 articles collected vs current issue 11; needs offi |
 | RAND | rand-55-4 | 2024 | ready |  |
-| RAND | rand-56-1 | 2025 | ready | ValueError: RePEc history requires a configured series code |
-| RAND | rand-56-2 | 2025 | ready | ValueError: RePEc history requires a configured series code |
-| RAND | rand-56-3 | 2025 | ready | ValueError: RePEc history requires a configured series code |
-| RAND | rand-56-4 | 2025 | ready | ValueError: RePEc history requires a configured series code |
-| RAND | rand-57-1 | 2026 | ready | ValueError: RePEc history requires a configured series code |
+| RAND | rand-56-1 | 2025 | ready |  |
+| RAND | rand-56-2 | 2025 | ready |  |
+| RAND | rand-56-3 | 2025 | ready |  |
+| RAND | rand-56-4 | 2025 | ready |  |
+| RAND | rand-57-1 | 2026 | ready |  |
 | RAND | rand-57-2 | 2026 | ready |  |
-| RAND | rand-57-3 | 2026 | ready | ValueError: RePEc history requires a configured series code |
+| RAND | rand-57-3 | 2026 | ready |  |
 | RED | red-47-c | 2023 | source_pending | source authority pending official verification |
 | RED | red-48-c | 2023 | source_pending | source authority pending official verification |
 | RED | red-49-c | 2023 | source_pending | source authority pending official verification |
@@ -1198,7 +1198,7 @@ Discovery coverage: 1331 discovered · 1169 archived · 975 publication ready ·
 | RES | res-90-2 | 2023 | source_pending | source authority pending official verification |
 | RES | res-90-3 | 2023 | source_pending | source authority pending official verification |
 | RES | res-90-4 | 2023 | blocked | possible_incomplete_volume: 8 articles collected vs current issue 20; needs offi |
-| RES | res-90-5 | 2023 | translation_partial |  |
+| RES | res-90-5 | 2023 | source_pending |  |
 | RES | res-90-6 | 2023 | source_pending | source authority pending official verification |
 | RES | res-91-1 | 2024 | source_pending | source authority pending official verification |
 | RES | res-91-2 | 2024 | source_pending | source authority pending official verification |
