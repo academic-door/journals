@@ -68,8 +68,11 @@ def comparable_title(value: object) -> str:
     return text
 
 
+CONFUSABLE_TITLE_CHARS = str.maketrans({'а': 'a', 'е': 'e', 'о': 'o', 'р': 'p', 'с': 'c', 'х': 'x', 'у': 'y', 'ѕ': 's', 'і': 'i', 'ј': 'j', 'Α': 'A', 'Β': 'B', 'Ε': 'E', 'Ζ': 'Z', 'Η': 'H', 'Ι': 'I', 'Κ': 'K', 'Μ': 'M', 'Ν': 'N', 'Ο': 'O', 'Ρ': 'P', 'Τ': 'T', 'Υ': 'Y', 'Χ': 'X', 'α': 'a', 'β': 'b', 'γ': 'g', 'δ': 'd', 'ε': 'e', 'ι': 'i', 'κ': 'k', 'μ': 'm', 'ν': 'n', 'ο': 'o', 'ρ': 'p', 'τ': 't', 'υ': 'y', 'χ': 'x', 'σ': 's', 'ς': 's'})
+
 def loose_comparable_title(value: object) -> str:
-    return ''.join(char for char in comparable_title(value) if char.isalnum())
+    text = unicodedata.normalize('NFKD', comparable_title(value)).translate(CONFUSABLE_TITLE_CHARS)
+    return ''.join(char for char in text if char.isalnum())
 
 
 def metadata_title_for_compare(value: object) -> str:

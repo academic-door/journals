@@ -34,5 +34,11 @@ class ScienceDirectArchiveTitleTests(unittest.TestCase):
         self.assertEqual(comparable_title(roster_title), comparable_title(api_title))
 
 
+
+
+    def test_loose_key_normalizes_common_confusables(self):
+        roster_title = "Insurer hedging amidst the interplay of black and green swans toward SDGs 3 and 7"
+        api_title = "Insurer hedging amidst the interplay of black and green swans toward SDGѕ 3 and 7"
+        self.assertEqual(loose_comparable_title(roster_title), loose_comparable_title(api_title))
 if __name__ == "__main__":
     unittest.main()
