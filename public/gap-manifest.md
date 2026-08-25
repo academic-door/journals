@@ -1,14 +1,14 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-08-25T17:03:57+00:00
+Generated: 2026-08-25T17:39:46+00:00
 
 ## Summary
 
 - browser_required: 37
 - ready: 975
 - recoverable: 93
-- source_pending: 191
-- translation_required: 35
+- source_pending: 190
+- translation_required: 36
 
 ## Issue queue
 
@@ -311,7 +311,7 @@ Generated: 2026-08-25T17:03:57+00:00
 | EJ | ej-136-674 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
 | EJ | ej-136-675 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
 | EJ | ej-136-676 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| EJ | ej-136-677 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
+| EJ | ej-136-677 | 2026 | translation_required | complete | source_pending | translation incomplete |
 | EJ | ej-136-678 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
 | ENERGY | energy-117-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | ENERGY | energy-118-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
