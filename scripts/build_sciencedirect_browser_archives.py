@@ -68,6 +68,10 @@ def comparable_title(value: object) -> str:
     return text
 
 
+def loose_comparable_title(value: object) -> str:
+    return ''.join(char for char in comparable_title(value) if char.isalnum())
+
+
 def metadata_title_for_compare(value: object) -> str:
     """Remove known Elsevier metadata notes appended to article titles."""
 
@@ -277,7 +281,12 @@ def build_rich_snapshot(
         api_title = str(metadata.get("title_en", "")).strip()
         normalized_title = comparable_title(title)
         normalized_api_title = comparable_title(metadata_title_for_compare(api_title))
-        if normalized_title != normalized_api_title:
+        if (
+            normalized_title != normalized_api_title
+            and loose_comparable_title(title) != loose_comparable_title(
+                metadata_title_for_compare(api_title)
+            )
+        ):
             raise ValueError(f"official title mismatch for {pii}: {title!r} != {api_title!r}")
         items.append(
             {

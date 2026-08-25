@@ -2,6 +2,7 @@ import unittest
 
 from scripts.build_sciencedirect_browser_archives import (
     comparable_title,
+    loose_comparable_title,
     metadata_title_for_compare,
 )
 
