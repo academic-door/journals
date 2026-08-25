@@ -210,7 +210,6 @@ jobs:
       - name: Build historical archives from ScienceDirect browser snapshots
         if: inputs.evidence_issue_ids != ''
         env:
-        env:
           GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || github.token }}
 
           ELSEVIER_API_KEY: ${{ secrets.ELSEVIER_API_KEY }}
