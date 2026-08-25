@@ -1,13 +1,13 @@
 # Field journal history backfill status
 
-Updated: 2026-08-25T19:40:35+00:00
+Updated: 2026-08-25T20:17:23+00:00
 
-Discovery coverage: 1331 discovered · 1179 archived · 984 publication ready · 152 missing · 195 source pending
+Discovery coverage: 1331 discovered · 1184 archived · 988 publication ready · 147 missing · 196 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 480 | 22 | 104 | 102 |
-| 2023-2026 | 241 | 0 | 43 | 16 |
+| 2023-2024 | 484 | 18 | 103 | 103 |
+| 2023-2026 | 242 | 0 | 42 | 16 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
 | 2026-2026 | 6 | 0 | 0 | 0 |
@@ -827,7 +827,7 @@ Discovery coverage: 1331 discovered · 1179 archived · 984 publication ready ·
 | JIE | jie-141-c | 2023 | ready |  |
 | JIE | jie-142-c | 2023 | ready |  |
 | JIE | jie-143-c | 2023 | ready |  |
-| JIE | jie-144-c | 2023 | translation_partial |  |
+| JIE | jie-144-c | 2023 | ready |  |
 | JIE | jie-145-c | 2023 | ready |  |
 | JIE | jie-146-c | 2023 | ready |  |
 | JIE | jie-147-c | 2024 | ready |  |
@@ -878,7 +878,7 @@ Discovery coverage: 1331 discovered · 1179 archived · 984 publication ready ·
 | JME | jme-142-c | 2024 | ready |  |
 | JME | jme-143-c | 2024 | ready |  |
 | JME | jme-144-c | 2024 | ready |  |
-| JME | jme-145-c | 2024 | translation_partial |  |
+| JME | jme-145-c | 2024 | ready |  |
 | JME | jme-146-c | 2024 | ready |  |
 | JME | jme-147-c | 2024 | ready |  |
 | JME | jme-148-c | 2024 | ready |  |
@@ -912,7 +912,7 @@ Discovery coverage: 1331 discovered · 1179 archived · 984 publication ready ·
 | JOE | joe-238-1 | 2024 | ready |  |
 | JOE | joe-238-2 | 2024 | ready |  |
 | JOE | joe-239-1 | 2024 | ready |  |
-| JOE | joe-239-2 | 2024 | blocked | archive_missing |
+| JOE | joe-239-2 | 2024 | ready | archive_missing |
 | JOE | joe-240-1 | 2024 | ready |  |
 | JOE | joe-240-2 | 2024 | ready |  |
 | JOE | joe-241-1 | 2024 | ready |  |
@@ -1152,7 +1152,7 @@ Discovery coverage: 1331 discovered · 1179 archived · 984 publication ready ·
 | QJE | qje-138-2 | 2023 | source_pending | source authority pending official verification |
 | QJE | qje-138-3 | 2023 | source_pending | source authority pending official verification |
 | QJE | qje-138-4 | 2023 | source_pending | source authority pending official verification |
-| QJE | qje-139-1 | 2024 | translation_partial |  |
+| QJE | qje-139-1 | 2024 | source_pending |  |
 | QJE | qje-139-2 | 2024 | source_pending | source authority pending official verification |
 | QJE | qje-139-3 | 2024 | source_pending | source authority pending official verification |
 | QJE | qje-139-4 | 2024 | source_pending | source authority pending official verification |
@@ -1312,7 +1312,7 @@ Discovery coverage: 1331 discovered · 1179 archived · 984 publication ready ·
 | WD | wd-173-c | 2024 | ready |  |
 | WD | wd-174-c | 2024 | ready |  |
 | WD | wd-175-c | 2024 | translation_partial |  |
-| WD | wd-176-c | 2024 | translation_partial |  |
+| WD | wd-176-c | 2024 | ready |  |
 | WD | wd-177-c | 2024 | ready |  |
 | WD | wd-178-c | 2024 | ready |  |
 | WD | wd-179-c | 2024 | ready |  |

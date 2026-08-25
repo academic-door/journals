@@ -1,14 +1,14 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-08-25T19:40:52+00:00
+Generated: 2026-08-25T20:17:40+00:00
 
 ## Summary
 
 - browser_required: 37
-- ready: 984
-- recoverable: 93
+- ready: 988
+- recoverable: 92
 - source_pending: 190
-- translation_required: 27
+- translation_required: 24
 
 ## Issue queue
 
@@ -827,7 +827,7 @@ Generated: 2026-08-25T19:40:52+00:00
 | JIE | jie-141-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JIE | jie-142-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JIE | jie-143-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
-| JIE | jie-144-c | 2023 | translation_required | blocked | source_pending | archive_missing |
+| JIE | jie-144-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JIE | jie-145-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JIE | jie-146-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JIE | jie-147-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
@@ -878,7 +878,7 @@ Generated: 2026-08-25T19:40:52+00:00
 | JME | jme-142-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | JME | jme-143-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | JME | jme-144-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
-| JME | jme-145-c | 2024 | translation_required | blocked | source_pending | archive_missing |
+| JME | jme-145-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | JME | jme-146-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | JME | jme-147-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | JME | jme-148-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
@@ -912,7 +912,7 @@ Generated: 2026-08-25T19:40:52+00:00
 | JOE | joe-238-1 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | JOE | joe-238-2 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | JOE | joe-239-1 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
-| JOE | joe-239-2 | 2024 | recoverable | blocked | source_pending | archive_missing |
+| JOE | joe-239-2 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | JOE | joe-240-1 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | JOE | joe-240-2 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | JOE | joe-241-1 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
@@ -1152,7 +1152,7 @@ Generated: 2026-08-25T19:40:52+00:00
 | QJE | qje-138-2 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
 | QJE | qje-138-3 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
 | QJE | qje-138-4 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| QJE | qje-139-1 | 2024 | translation_required | blocked | source_pending | archive_missing |
+| QJE | qje-139-1 | 2024 | translation_required | complete | source_pending | translation incomplete |
 | QJE | qje-139-2 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
 | QJE | qje-139-3 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
 | QJE | qje-139-4 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
@@ -1312,7 +1312,7 @@ Generated: 2026-08-25T19:40:52+00:00
 | WD | wd-173-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | WD | wd-174-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | WD | wd-175-c | 2024 | translation_required | blocked | source_pending | archive_missing |
-| WD | wd-176-c | 2024 | translation_required | blocked | source_pending | archive_missing |
+| WD | wd-176-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | WD | wd-177-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | WD | wd-178-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | WD | wd-179-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
