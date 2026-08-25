@@ -22,6 +22,11 @@ class ScienceDirectArchiveTitleTests(unittest.TestCase):
             comparable_title(roster_title),
         )
 
+    def test_normalizes_hidden_unicode_presentation_characters(self):
+        roster_title = "Insurer hedging amidst the interplay of black and green swans toward SDGs 3 and 7"
+        api_title = "Insurer hedging amidst the interplay of black and green swans toward S\u200bDGs 3 and 7"
+        self.assertEqual(comparable_title(roster_title), comparable_title(api_title))
+
 
 if __name__ == "__main__":
     unittest.main()
