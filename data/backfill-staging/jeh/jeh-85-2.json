@@ -7,7 +7,7 @@
   "issue": "2",
   "publication_date": "June 2025",
   "source_url": "https://www.cambridge.org/core/journals/journal-of-economic-history",
-  "retrieved_at": "2026-08-24T17:37:55+00:00",
+  "retrieved_at": "2026-08-06T12:03:14+00:00",
   "expected_article_count": 7,
   "research_article_count": 7,
   "status": "incomplete",
@@ -100,12 +100,12 @@
       "source_sequence": 370,
       "article_type": "research-article",
       "title_en": "Social Mobility in the Long Run: An Analysis of Tongcheng, China, 1300 to 1900",
-      "title_cn": "长期社会流动性：中国桐城分析，1300至1900",
+      "title_cn": "",
       "authors": [
         "Carol H. Shiue"
       ],
       "abstract_en": "This study examines intergenerational mobility in China over 6 centuries using unique genealogical data on father-son pairs from 7 clans in Tongcheng County. Covering 18 generations and approximately 40,000 individuals, the analysis spans a broad set of social classes, from ordinary people to jinshi degree holders. The findings indicate that although social mobility was slow to change, mobility nonetheless underwent a sizable increase during the seventeenth century. The timing of the trends corroborates a number of key changes that affected mobility for commoners and for the highly educated elites. The results also show that intergenerational mobility and inequality are negatively correlated in the time series, a pattern previously observed in cross-sectional studies and commonly known as the Great Gatsby curve.",
-      "abstract_cn": "本研究利用来自桐城县7个氏族的父子配对独特家谱数据，考察了中国横跨6个世纪间的代际流动。该分析涵盖18代人、约40,000人，跨越从普通百姓到进士出身者的广泛社会阶层。研究结果表明，尽管社会流动性变化缓慢，但在十七世纪期间流动性仍然出现了相当大的增长。这些趋势的时间点印证了影响平民和受过高等教育精英流动性的若干关键变化。结果还显示，代际流动与不平等在时间序列上呈负相关，这一模式先前在横截面研究中观察到，通常被称为“了不起的盖茨比曲线”。",
+      "abstract_cn": "",
       "abstract_snippet_en": "",
       "doi": "10.1017/s0022050725000142",
       "source_url": "https://doi.org/10.1017/s0022050725000142",
@@ -117,15 +117,15 @@
         "abstract_en": "crossref"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-reasoner",
-        "translated_at": "2026-08-07T03:00:59+00:00",
-        "source_hash": "784da2e85043556b44582c2f9f14fe8001d4a80a9334a3201f0fa2331d36f57f"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "yes",
         "evidence": "title",
@@ -306,46 +306,22 @@
     "excluded_item_count": 10,
     "excluded_items": [
       {
-        "title_en": "Native Nations: A Millennium in North America. By Kathleen DuVal. New York: Random House, 2024. Pp. 752. $23.86, hardcover.",
+        "title_en": "Abstracts of Papers Presented at the 2024 Annual Meeting",
         "reason": "non_publishable_item",
-        "doi": "10.1017/s002205072500018x",
+        "doi": "10.1017/s0022050725100740",
         "article_type": "research-article"
-      },
-      {
-        "title_en": "Tropical Despotisms: Enlightened Reform in the French Caribbean. By David Allen Harvey . Ithaca, NY: Cornell University Press, 2024. Pp. 306. $64.95, hardcover.",
-        "reason": "non_publishable_item",
-        "doi": "10.1017/s0022050725000208",
-        "article_type": "research-article"
-      },
-      {
-        "title_en": "One from the Many: The Global Economy Since 1850. By Christopher M. Meissner. New York: Oxford University Press, 2024. Pp. xv, 330. £64.00, cloth; £22.99, paper.",
-        "reason": "non_publishable_item",
-        "doi": "10.1017/s002205072500021x",
-        "article_type": "research-article"
-      },
-      {
-        "title_en": "Shock Values: Prices and Inflation in American Democracy. By Carola Binder. Chicago, IL: University of Chicago Press, 2024. Pp. 352. $35.00, cloth.",
-        "reason": "non_publishable_item",
-        "doi": "10.1017/s0022050725000178",
-        "article_type": "research-article"
-      },
-      {
-        "title_en": "Savings and Trust: The Rise and Betrayal of the Freedman’s Savings Bank. By Justene Hill Edwards. New York: W.W. Norton &amp; Company, Inc., 2024. Pp. i.x, 320. $29.99, hardcover.",
-        "reason": "non_publishable_item",
-        "doi": "10.1017/s0022050725000191",
-        "article_type": "research-article"
-      },
-      {
-        "title_en": "Editors’ Notes",
-        "reason": "editorial_material",
-        "doi": "10.1017/s0022050725100752",
-        "article_type": "editorial"
       },
       {
         "title_en": "JEH volume 85 issue 2 Cover and Front matter",
         "reason": "front_matter",
         "doi": "10.1017/s0022050725100788",
         "article_type": "front-matter"
+      },
+      {
+        "title_en": "Tropical Despotisms: Enlightened Reform in the French Caribbean. By David Allen Harvey . Ithaca, NY: Cornell University Press, 2024. Pp. 306. $64.95, hardcover.",
+        "reason": "non_publishable_item",
+        "doi": "10.1017/s0022050725000208",
+        "article_type": "research-article"
       },
       {
         "title_en": "Summaries of Doctoral Dissertations",
@@ -360,20 +336,45 @@
         "article_type": "front-matter"
       },
       {
-        "title_en": "Abstracts of Papers Presented at the 2024 Annual Meeting",
+        "title_en": "Savings and Trust: The Rise and Betrayal of the Freedman’s Savings Bank. By Justene Hill Edwards. New York: W.W. Norton &amp; Company, Inc., 2024. Pp. i.x, 320. $29.99, hardcover.",
         "reason": "non_publishable_item",
-        "doi": "10.1017/s0022050725100740",
+        "doi": "10.1017/s0022050725000191",
+        "article_type": "research-article"
+      },
+      {
+        "title_en": "One from the Many: The Global Economy Since 1850. By Christopher M. Meissner. New York: Oxford University Press, 2024. Pp. xv, 330. £64.00, cloth; £22.99, paper.",
+        "reason": "non_publishable_item",
+        "doi": "10.1017/s002205072500021x",
+        "article_type": "research-article"
+      },
+      {
+        "title_en": "Editors’ Notes",
+        "reason": "editorial_material",
+        "doi": "10.1017/s0022050725100752",
+        "article_type": "editorial"
+      },
+      {
+        "title_en": "Shock Values: Prices and Inflation in American Democracy. By Carola Binder. Chicago, IL: University of Chicago Press, 2024. Pp. 352. $35.00, cloth.",
+        "reason": "non_publishable_item",
+        "doi": "10.1017/s0022050725000178",
+        "article_type": "research-article"
+      },
+      {
+        "title_en": "Native Nations: A Millennium in North America. By Kathleen DuVal. New York: Random House, 2024. Pp. 752. $23.86, hardcover.",
+        "reason": "non_publishable_item",
+        "doi": "10.1017/s002205072500018x",
         "article_type": "research-article"
       }
     ],
     "doi_complete": 7,
     "authors_complete": 7,
     "abstract_en_complete": 7,
-    "translation_complete": 7,
+    "translation_complete": 6,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
+      "crossref_provisional_roster",
+      "translation_incomplete"
     ],
     "official_item_count": 17,
     "publishable_item_count": 7,
@@ -391,8 +392,6 @@
       "catalog_content_items": 7
     }
   },
-  "source_status": "source_pending",
-  "publication_state": "source_pending",
   "content_counts": {
     "official_items": 17,
     "observed_items": 17,
@@ -406,6 +405,5 @@
     "other_excluded": 7,
     "catalog_content_items": 7
   },
-  "issue_label": "Vol. 85 · No. 2",
-  "content_status": "complete"
+  "issue_label": "Vol. 85 · No. 2"
 }

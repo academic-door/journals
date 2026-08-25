@@ -7,7 +7,7 @@
   "issue": "1",
   "publication_date": "February 2023",
   "source_url": "https://ideas.repec.org/s/eee/econom.html",
-  "retrieved_at": "2026-08-24T17:47:46+00:00",
+  "retrieved_at": "2026-08-18T19:01:31+00:00",
   "expected_article_count": 14,
   "research_article_count": 14,
   "status": "incomplete",
@@ -461,12 +461,12 @@
       "source_sequence": 12,
       "article_type": "research-article",
       "title_en": "What is a standard error?",
-      "title_cn": "什么是标准误？",
+      "title_cn": "",
       "authors": [
         "Andrew Gelman"
       ],
-      "abstract_en": "In statistics, the standard error has a clear technical definition: it is the estimated standard deviation of a parameter estimate. In practice, though, challenges arise when we go beyond the simple balls-in-urn model to consider generalizations beyond the population from which the data were sampled. This is important because generalization is nearly always the goal of quantitative studies. In this brief paper we consider three examples.",
-      "abstract_cn": "在统计学中，标准误有一个明确的技术定义：它是参数估计的估计标准差。然而，在实践中，当我们超越简单的瓮中取球模型，考虑对数据抽样总体之外的推广时，挑战就会出现。这一点很重要，因为推广几乎总是定量研究的目标。在这篇简短的论文中，我们考虑三个例子。",
+      "abstract_en": "",
+      "abstract_cn": "",
       "doi": "10.1016/j.jeconom.2023.105516",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623002324",
       "publication_date": "February 2023",
@@ -474,19 +474,18 @@
         "issue": "https://ideas.repec.org/s/eee/econom.html",
         "roster": "repec-serial-page",
         "metadata": "repec-publisher-supplied",
-        "abstract_en": "semantic-scholar",
+        "abstract_en": "",
         "repec": "https://ideas.repec.org/a/eee/econom/v237y2023i1s0304407623002324.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-24T17:47:51+00:00",
-        "source_hash": "c74f24fe8e37fa63b2a7d7b43777ab9970301c8c38349cec4c2cd5443cb593e7"
+        "status": "blocked",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
       "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing",
         "abstract_en_missing"
       ],
       "china_relevance": {
@@ -587,8 +586,8 @@
     "excluded_items": [],
     "doi_complete": 14,
     "authors_complete": 14,
-    "abstract_en_complete": 13,
-    "translation_complete": 13,
+    "abstract_en_complete": 12,
+    "translation_complete": 12,
     "duplicate_count": 0,
     "repec_item_count": 14,
     "flags": [

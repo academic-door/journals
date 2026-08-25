@@ -1,14 +1,14 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-08-25T13:14:09+00:00
+Generated: 2026-08-25T13:33:49+00:00
 
 ## Summary
 
 - browser_required: 38
 - ready: 973
 - recoverable: 93
-- source_pending: 192
-- translation_required: 35
+- source_pending: 191
+- translation_required: 36
 
 ## Issue queue
 
@@ -1248,7 +1248,7 @@ Generated: 2026-08-25T13:14:09+00:00
 | RFS | rfs-36-6 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-36-7 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-36-8 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| RFS | rfs-36-9 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| RFS | rfs-36-9 | 2023 | translation_required | complete | source_pending | translation incomplete |
 | RFS | rfs-37-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-37-10 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-37-11 | 2024 | ready | complete | official_verified | content and official source gates passed |
