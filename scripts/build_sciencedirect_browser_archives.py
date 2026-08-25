@@ -287,9 +287,9 @@ def build_rich_snapshot(
         loose_title = loose_comparable_title(title)
         loose_api_title = loose_comparable_title(metadata_title_for_compare(api_title))
         hamming_match = (
-            len(loose_title) == len(loose_api_title)
-            and len(loose_title) >= 40
-            and sum(left != right for left, right in zip(loose_title, loose_api_title)) <= 1
+            len(loose_title) >= 40
+            and len(loose_api_title) >= 40
+            and __import__('difflib').SequenceMatcher(None, loose_title, loose_api_title).ratio() >= 0.985
         )
         if (
             normalized_title != normalized_api_title
