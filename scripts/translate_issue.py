@@ -394,7 +394,7 @@ def _alpha_index(index: int) -> str:
 
 
 def _protect_numbers(
-    value: str, *, placeholder_prefix: str = ""
+    value: str, *, placeholder_prefix: str = "", opaque: bool = False
 ) -> tuple[str, dict[str, str]]:
     replacements: dict[str, str] = {}
     protected_ranges: dict[str, str] = {}
@@ -409,9 +409,12 @@ def _protect_numbers(
         # DeepSeek may paraphrase visible placeholders such as ``[[4]]``.
         # Use opaque tokens during the model call and restore the exact source
         # value after translation. Prefixes prevent title/abstract collisions.
-        token = (
-            f"⟦ADNUM_{placeholder_prefix}_{_alpha_index(len(replacements))}⟧"
-        )
+        if opaque:
+            token = (
+                f"⟦ADNUM_{placeholder_prefix}_{_alpha_index(len(replacements))}⟧"
+            )
+        else:
+            token = f"[[{number}]]"
         replacements[token] = number
         return token
 
@@ -999,10 +1002,10 @@ def request_translation(
     if protect_numbers:
         prompt_article = dict(article)
         protected_title, title_replacements = _protect_numbers(
-            str(article.get("title_en", "")), placeholder_prefix="T"
+            str(article.get("title_en", "")), placeholder_prefix="T", opaque=protect_numbers
         )
         protected_abstract, abstract_replacements = _protect_numbers(
-            str(article.get("abstract_en", "")), placeholder_prefix="A"
+            str(article.get("abstract_en", "")), placeholder_prefix="A", opaque=protect_numbers
         )
         prompt_article["title_en"] = protected_title
         prompt_article["abstract_en"] = protected_abstract
@@ -1044,7 +1047,7 @@ def request_translation(
             if protect_numbers:
                 title_cn = _restore_numbers(title_cn, number_replacements)
                 abstract_cn = _restore_numbers(abstract_cn, number_replacements)
-                if re.search(r"⟦ADNUM_[^⟧]+⟧", title_cn + abstract_cn):
+                if re.search(r"(?:\[\[[^\]]+\]\]|⟦ADNUM_[^⟧]+⟧)", title_cn + abstract_cn):
                     raise TranslationError(
                         f"{provider_name} did not preserve numeric placeholders"
                     )
@@ -1130,7 +1133,7 @@ def _google_translate_text(
     if not translated:
         raise TranslationError("Google Translate returned an empty response")
     restored = _restore_numbers(translated, number_replacements)
-    if re.search(r"⟦ADNUM_[^⟧]+⟧", restored):
+    if re.search(r"(?:\[\[[^\]]+\]\]|⟦ADNUM_[^⟧]+⟧)", restored):
         raise TranslationError("Google Translate did not preserve numeric placeholders")
     return restored
 
@@ -1251,6 +1254,7 @@ def _translate_one_parallel(
                 session=session,
                 provider_name="deepseek",
                 protect_numbers=True,
+                opaque=True,
                 max_tokens=8192,
                 retries=translation_retries,
                 json_output=True,
@@ -1500,6 +1504,7 @@ def translate_missing(
                         session=session,
                         provider_name="deepseek",
                         protect_numbers=True,
+                opaque=True,
                         max_tokens=8192,
                         retries=translation_retries,
                         json_output=True,
@@ -1610,3 +1615,4 @@ def translate_missing(
         "model": selected_model,
         "prompt_version": PROMPT_VERSION,
     }
+
