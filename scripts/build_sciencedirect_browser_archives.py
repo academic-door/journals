@@ -56,7 +56,9 @@ def comparable_title(value: object) -> str:
     """Normalize publisher-only MathML presentation differences."""
 
     text = unicodedata.normalize("NFKC", _clean_markup(str(value or "")))
-    text = re.sub(r"[\u200b-\u200d\ufeff]", "", text)
+    # ScienceDirect/Elsevier occasionally inserts directional marks or soft
+    # hyphens that are invisible in the rendered title but survive API JSON.
+    text = "".join(char for char in text if unicodedata.category(char) != "Cf")
     text = text.translate(str.maketrans({"‐": "-", "‑": "-", "‒": "-", "–": "-", "—": "-"}))
     text = " ".join(text.split()).casefold()
     # ScienceDirect can expose CO2 both as literal text plus a MathML subscript,
