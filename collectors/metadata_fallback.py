@@ -148,6 +148,11 @@ OFFICIAL_VOLUME_DATES = {
 }
 
 
+
+# Official ScienceDirect issue calendar for Energy Economics.
+# Vol. 136 is the August 2024 issue.
+OFFICIAL_VOLUME_DATES.setdefault('0140-9883', {}).update({'136': 'August 2024'})
+
 MONTHS_BY_ISSUE = {
     "0022-3808": {
         str(index): month
