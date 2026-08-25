@@ -284,11 +284,17 @@ def build_rich_snapshot(
         api_title = str(metadata.get("title_en", "")).strip()
         normalized_title = comparable_title(title)
         normalized_api_title = comparable_title(metadata_title_for_compare(api_title))
+        loose_title = loose_comparable_title(title)
+        loose_api_title = loose_comparable_title(metadata_title_for_compare(api_title))
+        hamming_match = (
+            len(loose_title) == len(loose_api_title)
+            and len(loose_title) >= 40
+            and sum(left != right for left, right in zip(loose_title, loose_api_title)) <= 1
+        )
         if (
             normalized_title != normalized_api_title
-            and loose_comparable_title(title) != loose_comparable_title(
-                metadata_title_for_compare(api_title)
-            )
+            and loose_title != loose_api_title
+            and not hamming_match
         ):
             raise ValueError(f"official title mismatch for {pii}: {title!r} != {api_title!r}")
         items.append(
