@@ -87,9 +87,9 @@ jobs:
         run: |
           set -euo pipefail
           git fetch origin data
-          rm -rf public/api data/backfill-state data/backfill-staging
+          rm -rf public/api data/backfill-state data/backfill-staging data/provenance/official-rosters
           mkdir -p public data
-          git archive origin/data public/api data/backfill-state data/backfill-staging data/translation-cache | tar -x
+          git archive origin/data public/api data/backfill-state data/backfill-staging data/provenance/official-rosters data/translation-cache | tar -x
 
       - name: Run both historical year windows in this shard
         env:
@@ -181,16 +181,17 @@ jobs:
         run: |
           set -euo pipefail
           git fetch origin data
-          rm -rf public/api data/backfill-state data/backfill-staging
+          rm -rf public/api data/backfill-state data/backfill-staging data/provenance/official-rosters
           mkdir -p public data
-          git archive origin/data public/api data/backfill-state data/backfill-staging data/translation-cache | tar -x
+          git archive origin/data public/api data/backfill-state data/backfill-staging data/provenance/official-rosters data/translation-cache | tar -x
           python scripts/publish_data_delta.py snapshot \
             --root . \
             --output "$RUNNER_TEMP/data-baseline" \
             --path public/api/v1/journals \
             --path data/translation-cache \
             --path data/backfill-state \
-            --path data/backfill-staging \
+            --path data/backfill-staging
+            --path data/provenance/official-rosters \
             --exclude 'public/api/v1/journals/*/issues/index.json'
 
       - name: Download all isolated shards
@@ -223,21 +224,29 @@ jobs:
         run: |
           set -euo pipefail
           snapshot_args=()
+          deferred="$RUNNER_TEMP/sciencedirect-evidence-deferred.txt"
+          : > "$deferred"
           IFS=',' read -ra issue_ids <<< "${{ inputs.evidence_issue_ids }}"
           for issue_id in "${issue_ids[@]}"; do
             issue_id="${issue_id//[[:space:]]/}"
             snapshot="$(find data/provenance/browser-snapshots -type f -name "$issue_id.json" -print -quit)"
             if [[ -z "$snapshot" ]]; then
-              echo "Browser-authorized snapshot not found for: $issue_id" >&2
-              exit 1
+              echo "Browser-authorized snapshot not found for: $issue_id; deferred" >&2
+              printf '%s\n' "$issue_id" >> "$deferred"
+              continue
             fi
             snapshot_args+=("$snapshot")
           done
-          python scripts/build_sciencedirect_browser_archives.py \
-            "${snapshot_args[@]}" \
-            --state-root data/backfill-state \
-            --translation-cache-root data/translation-cache \
-            --translate
+          if ((${#snapshot_args[@]})); then
+            python scripts/build_sciencedirect_browser_archives.py \
+              "${snapshot_args[@]}" \
+              --state-root data/backfill-state \
+              --translation-cache-root data/translation-cache \
+              --translate
+          else
+            echo "No browser-authorized ScienceDirect snapshots available; all requested issues deferred."
+          fi
+          cp "$deferred" "$GITHUB_WORKSPACE/sciencedirect-evidence-deferred.txt"
 
       - name: Convert ScienceDirect browser snapshots to official evidence
         if: inputs.evidence_issue_ids != ''
@@ -245,20 +254,27 @@ jobs:
         run: |
           set -euo pipefail
           snapshot_args=()
+          deferred="$RUNNER_TEMP/sciencedirect-evidence-deferred.txt"
+          : > "$deferred"
           IFS=',' read -ra issue_ids <<< "${{ inputs.evidence_issue_ids }}"
           for issue_id in "${issue_ids[@]}"; do
             issue_id="${issue_id//[[:space:]]/}"
             snapshot="$(find data/provenance/browser-snapshots -type f -name "$issue_id.json" -print -quit)"
             if [[ -z "$snapshot" ]]; then
-              echo "Browser-authorized snapshot not found for: $issue_id" >&2
-              exit 1
+              echo "Browser-authorized snapshot not found for: $issue_id; deferred" >&2
+              printf '%s\n' "$issue_id" >> "$deferred"
+              continue
             fi
             snapshot_args+=("$snapshot")
           done
-          python scripts/capture_sciencedirect_browser_roster_evidence.py \
-            "${snapshot_args[@]}" \
-            --api-root public/api/v1 \
-            --output-root data/provenance/official-rosters/sciencedirect
+          if ((${#snapshot_args[@]})); then
+            python scripts/capture_sciencedirect_browser_roster_evidence.py \
+              "${snapshot_args[@]}" \
+              --api-root public/api/v1 \
+              --output-root data/provenance/official-rosters/sciencedirect
+          else
+            echo "No browser-authorized ScienceDirect snapshots available; no evidence imported."
+          fi
 
       - name: Capture official Wiley roster evidence
         if: inputs.capture_wiley_evidence
@@ -383,7 +399,8 @@ jobs:
             --path public/api/v1/journals \
             --path data/translation-cache \
             --path data/backfill-state \
-            --path data/backfill-staging \
+            --path data/backfill-staging
+            --path data/provenance/official-rosters \
             --exclude 'public/api/v1/journals/*/issues/index.json'
           git fetch origin data
           git worktree add "$data_tree" origin/data
@@ -395,7 +412,8 @@ jobs:
             --path public/api/v1/journals \
             --path data/translation-cache \
             --path data/backfill-state \
-            --path data/backfill-staging \
+            --path data/backfill-staging
+            --path data/provenance/official-rosters \
             --exclude 'public/api/v1/journals/*/issues/index.json'
           rm -rf "$data_tree/public/api"
           cp -R public/api "$data_tree/public/api"
@@ -426,6 +444,7 @@ jobs:
             public/backfill-status.md
             public/gap-manifest.md
             ${{ runner.temp }}/history-coverage.json
+            sciencedirect-evidence-deferred.txt
 
   composer:
     name: Sync only audited ready issues to Composer
