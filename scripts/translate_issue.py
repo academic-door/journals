@@ -1,4 +1,5 @@
-from __future__ import annotations
+                if re.search(r"⟦ADNUM_[^⟧]+⟧", title_cn + abstract_cn):
+        r"(?=\s+⟦ADNUM_[^⟧]+⟧)"
 
 import json
 import os
@@ -393,7 +394,9 @@ def _alpha_index(index: int) -> str:
         current -= 1
 
 
-def _protect_numbers(value: str) -> tuple[str, dict[str, str]]:
+def _protect_numbers(
+    value: str, *, placeholder_prefix: str = ""
+) -> tuple[str, dict[str, str]]:
     replacements: dict[str, str] = {}
     protected_ranges: dict[str, str] = {}
     protected_alphanumeric: dict[str, str] = {}
@@ -404,7 +407,12 @@ def _protect_numbers(value: str) -> tuple[str, dict[str, str]]:
         # actual quantity visible to the translator and only wrap it in a
         # stable delimiter. This preserves both sentence meaning and the exact
         # source value for the numeric quality gate.
-        token = f"[[{number}]]"
+        # DeepSeek may paraphrase visible placeholders such as ``[[4]]``.
+        # Use opaque tokens during the model call and restore the exact source
+        # value after translation. Prefixes prevent title/abstract collisions.
+        token = (
+            f"⟦ADNUM_{placeholder_prefix}_{_alpha_index(len(replacements))}⟧"
+        )
         replacements[token] = number
         return token
 
@@ -950,6 +958,7 @@ def _prompt(article: dict[str, Any]) -> list[dict[str, str]]:
                 "你是经济学期刊的专业中英翻译。忠实翻译，不概括、不扩写、不评价。"
                 "保留全部数字、比例、样本、方法、变量、结论方向和缩写；术语采用中文经济学文献常用表达。"
                 "源摘要中的每一个阿拉伯数字必须原样保留，包括千位逗号、小数点、百分号和年份；"
+                "如果源文本包含 ⟦ADNUM_...⟧ 占位符，必须逐字保留每个占位符，不得翻译、删除或改写；"
                 "不得把数字改写成中文数字、万、亿或年代简称。"
                 "英文拼写的数字应翻译为中文文字，不得因此新增阿拉伯数字；"
                 "译文不得添加源标题和摘要中不存在的阿拉伯数字。"
@@ -991,10 +1000,10 @@ def request_translation(
     if protect_numbers:
         prompt_article = dict(article)
         protected_title, title_replacements = _protect_numbers(
-            str(article.get("title_en", ""))
+            str(article.get("title_en", "")), placeholder_prefix="T")
         )
         protected_abstract, abstract_replacements = _protect_numbers(
-            str(article.get("abstract_en", ""))
+            str(article.get("abstract_en", "")), placeholder_prefix="A")
         )
         prompt_article["title_en"] = protected_title
         prompt_article["abstract_en"] = protected_abstract
