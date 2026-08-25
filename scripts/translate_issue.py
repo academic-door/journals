@@ -1072,6 +1072,21 @@ def request_translation(
             }
         except (requests.RequestException, KeyError, IndexError, TranslationError) as error:
             last_error = error
+            if protect_numbers and isinstance(error, TranslationError) and attempt + 1 < retries:
+                # A deterministic retry repeats the same numeric drift. Give
+                # the model an explicit audit correction while keeping the
+                # final validation unchanged.
+                payload["messages"] = _prompt(prompt_article) + [
+                    {
+                        "role": "user",
+                        "content": (
+                            "上一次输出未通过数字审计。请重新输出严格 JSON；"
+                            "逐字保留所有 ⟦ADNUM_...⟧ 占位符，不得删除、翻译或改写；"
+                            "除占位符恢复出的原始数字外，不得新增任何阿拉伯数字。"
+                            f"审计错误：{error}"
+                        ),
+                    }
+                ]
             status_code = (
                 error.response.status_code
                 if isinstance(error, requests.HTTPError) and error.response is not None
