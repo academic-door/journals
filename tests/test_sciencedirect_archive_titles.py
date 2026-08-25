@@ -27,6 +27,11 @@ class ScienceDirectArchiveTitleTests(unittest.TestCase):
         api_title = "Insurer hedging amidst the interplay of black and green swans toward S\u200bDGs 3 and 7"
         self.assertEqual(comparable_title(roster_title), comparable_title(api_title))
 
+    def test_strips_directional_format_marks(self):
+        roster_title = "Insurer hedging amidst the interplay of black and green swans toward SDGs 3 and 7"
+        api_title = "Insurer hedging amidst the interplay of black and green swans toward S\u200eDGs 3 and 7"
+        self.assertEqual(comparable_title(roster_title), comparable_title(api_title))
+
 
 if __name__ == "__main__":
     unittest.main()
