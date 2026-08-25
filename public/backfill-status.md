@@ -1,12 +1,12 @@
 # Field journal history backfill status
 
-Updated: 2026-08-25T18:59:28+00:00
+Updated: 2026-08-25T19:40:35+00:00
 
-Discovery coverage: 1331 discovered · 1170 archived · 975 publication ready · 161 missing · 195 source pending
+Discovery coverage: 1331 discovered · 1179 archived · 984 publication ready · 152 missing · 195 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 471 | 31 | 104 | 102 |
+| 2023-2024 | 480 | 22 | 104 | 102 |
 | 2023-2026 | 241 | 0 | 43 | 16 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
@@ -192,7 +192,7 @@ Discovery coverage: 1331 discovered · 1170 archived · 975 publication ready ·
 | ECOLECON | ecolecon-217-c | 2024 | ready |  |
 | ECOLECON | ecolecon-218-c | 2024 | ready |  |
 | ECOLECON | ecolecon-219-c | 2024 | ready |  |
-| ECOLECON | ecolecon-220-c | 2024 | translation_partial |  |
+| ECOLECON | ecolecon-220-c | 2024 | ready |  |
 | ECOLECON | ecolecon-221-c | 2024 | ready |  |
 | ECOLECON | ecolecon-222-c | 2024 | ready |  |
 | ECOLECON | ecolecon-223-c | 2024 | ready |  |
@@ -256,7 +256,7 @@ Discovery coverage: 1331 discovered · 1170 archived · 975 publication ready ·
 | EER | eer-159-c | 2023 | ready |  |
 | EER | eer-160-c | 2023 | ready |  |
 | EER | eer-161-c | 2024 | ready |  |
-| EER | eer-162-c | 2024 | translation_partial |  |
+| EER | eer-162-c | 2024 | ready |  |
 | EER | eer-163-c | 2024 | ready |  |
 | EER | eer-164-c | 2024 | ready |  |
 | EER | eer-165-c | 2024 | ready |  |
@@ -320,8 +320,8 @@ Discovery coverage: 1331 discovered · 1170 archived · 975 publication ready ·
 | ENERGY | energy-121-c | 2023 | ready |  |
 | ENERGY | energy-122-c | 2023 | ready |  |
 | ENERGY | energy-123-c | 2023 | blocked | possible_incomplete_volume: 3 articles collected vs current issue 57; needs offi |
-| ENERGY | energy-124-c | 2023 | translation_partial |  |
-| ENERGY | energy-125-c | 2023 | translation_partial |  |
+| ENERGY | energy-124-c | 2023 | ready |  |
+| ENERGY | energy-125-c | 2023 | ready |  |
 | ENERGY | energy-126-c | 2023 | translation_partial |  |
 | ENERGY | energy-127-c | 2023 | blocked | possible_incomplete_volume: 7 articles collected vs current issue 57; needs offi |
 | ENERGY | energy-128-c | 2023 | ready |  |
@@ -409,7 +409,7 @@ Discovery coverage: 1331 discovered · 1170 archived · 975 publication ready ·
 | FOODPOLICY | foodpolicy-118-c | 2023 | translation_partial |  |
 | FOODPOLICY | foodpolicy-119-c | 2023 | ready |  |
 | FOODPOLICY | foodpolicy-120-c | 2023 | ready |  |
-| FOODPOLICY | foodpolicy-121-c | 2023 | translation_partial |  |
+| FOODPOLICY | foodpolicy-121-c | 2023 | ready |  |
 | FOODPOLICY | foodpolicy-122-c | 2024 | ready |  |
 | FOODPOLICY | foodpolicy-123-c | 2024 | ready |  |
 | FOODPOLICY | foodpolicy-124-c | 2024 | ready |  |
@@ -515,7 +515,7 @@ Discovery coverage: 1331 discovered · 1170 archived · 975 publication ready ·
 | JDE | jde-162-c | 2023 | ready |  |
 | JDE | jde-163-c | 2023 | ready |  |
 | JDE | jde-164-c | 2023 | ready |  |
-| JDE | jde-165-c | 2023 | translation_partial |  |
+| JDE | jde-165-c | 2023 | ready |  |
 | JDE | jde-166-c | 2024 | translation_partial |  |
 | JDE | jde-167-c | 2024 | ready |  |
 | JDE | jde-168-c | 2024 | ready |  |
@@ -982,7 +982,7 @@ Discovery coverage: 1331 discovered · 1170 archived · 975 publication ready ·
 | JPubE | jpube-218-c | 2023 | ready |  |
 | JPubE | jpube-219-c | 2023 | ready |  |
 | JPubE | jpube-220-c | 2023 | ready |  |
-| JPubE | jpube-221-c | 2023 | translation_partial |  |
+| JPubE | jpube-221-c | 2023 | ready |  |
 | JPubE | jpube-222-c | 2023 | ready |  |
 | JPubE | jpube-223-c | 2023 | ready |  |
 | JPubE | jpube-224-c | 2023 | ready |  |
@@ -1051,7 +1051,7 @@ Discovery coverage: 1331 discovered · 1170 archived · 975 publication ready ·
 | LABECO | labeco-101-c | 2026 | ready |  |
 | LABECO | labeco-102-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 102/ |
 | LABECO | labeco-80-c | 2023 | ready |  |
-| LABECO | labeco-81-c | 2023 | translation_partial |  |
+| LABECO | labeco-81-c | 2023 | ready |  |
 | LABECO | labeco-82-c | 2023 | ready |  |
 | LABECO | labeco-83-c | 2023 | ready |  |
 | LABECO | labeco-84-c | 2023 | translation_partial |  |
@@ -1105,7 +1105,7 @@ Discovery coverage: 1331 discovered · 1170 archived · 975 publication ready ·
 | LUP | lup-141-c | 2024 | ready |  |
 | LUP | lup-142-c | 2024 | ready |  |
 | LUP | lup-143-c | 2024 | ready |  |
-| LUP | lup-144-c | 2024 | translation_partial |  |
+| LUP | lup-144-c | 2024 | ready |  |
 | LUP | lup-145-c | 2024 | ready |  |
 | LUP | lup-146-c | 2024 | blocked | archive_content_gate_failed |
 | LUP | lup-147-c | 2024 | ready |  |
