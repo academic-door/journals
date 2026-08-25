@@ -4,6 +4,7 @@ import json
 import os
 import re
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from collections import Counter
 from datetime import datetime, timezone
 from hashlib import sha256
@@ -1209,6 +1210,197 @@ def _write_cache(cache_path: Path, cache: dict[str, Any]) -> None:
     os.replace(temporary, cache_path)
 
 
+def _translate_one_parallel(
+    article: dict[str, Any],
+    *,
+    token: str,
+    model: str,
+    endpoint: str,
+    google_timeout: int,
+) -> dict[str, Any]:
+    """Translate one article with an isolated HTTP session.
+
+    The caller merges results into the journal cache on the main thread. This
+    keeps cache writes deterministic while allowing the network-bound model
+    calls to overlap in a small, explicitly configured pool.
+    """
+
+    session = requests.Session()
+    translation_retries = max(
+        1, min(5, int(os.environ.get("TRANSLATION_RETRIES", "5")))
+    )
+    deepseek_key = os.environ.get("DEEPSEEK_API_KEY", "").strip()
+    translated: dict[str, str] | None = None
+    provider = "deepseek"
+    primary_error: TranslationError | None = None
+    if deepseek_key:
+        try:
+            translated = request_translation(
+                article,
+                token=deepseek_key,
+                model=_deepseek_model(),
+                endpoint=DEEPSEEK_ENDPOINT,
+                session=session,
+                provider_name="deepseek",
+                protect_numbers=True,
+                max_tokens=8192,
+                retries=translation_retries,
+                json_output=True,
+                disable_thinking=True,
+            )
+        except (ProviderUnavailableError, TranslationError) as error:
+            primary_error = error
+            print(
+                f"[translate] deepseek translation failed for {article.get('doi', '')}: {error}",
+                flush=True,
+            )
+    else:
+        primary_error = TranslationError("deepseek key not configured")
+
+    if primary_error is not None:
+        provider = "github-models"
+        try:
+            translated = request_translation(
+                article,
+                token=token,
+                model=model,
+                endpoint=endpoint,
+                session=session,
+            )
+        except (ProviderUnavailableError, TranslationError) as error:
+            primary_error = error
+        else:
+            primary_error = None
+
+    if primary_error is not None:
+        provider = "google-translate"
+        try:
+            translated = request_google_translation(
+                article, session=session, timeout=google_timeout
+            )
+        except (ProviderUnavailableError, TranslationError) as error:
+            raise TranslationError(
+                f"Primary provider failed: {primary_error}; {error}"
+            ) from error
+
+    if not translated:
+        raise TranslationError("translation provider returned no content")
+    return {
+        "translated": translated,
+        "provider": provider,
+        "model": (
+            model
+            if provider == "github-models"
+            else _deepseek_model()
+            if provider == "deepseek"
+            else "gtx-en-zh-CN"
+        ),
+        "fallback": int(provider != "deepseek"),
+    }
+
+
+def _translate_missing_parallel(
+    issue: dict[str, Any],
+    cache_path: Path,
+    *,
+    token: str,
+    model: str,
+    endpoint: str,
+    max_translations: int | None,
+    google_timeout: int,
+    workers: int,
+) -> dict[str, Any]:
+    cache = (
+        json.loads(cache_path.read_text(encoding="utf-8"))
+        if cache_path.exists()
+        else {}
+    )
+    pending: list[tuple[dict[str, Any], dict[str, Any], str, bool]] = []
+    invalid_cache_count = 0
+    upgraded_cache_count = 0
+    for article in issue["articles"]:
+        if max_translations is not None and len(pending) >= max_translations:
+            break
+        doi = article.get("doi", "")
+        comment_without_abstract = (
+            article.get("article_type") == "comment"
+            and not article.get("abstract_en")
+        )
+        if not doi or (not article.get("abstract_en") and not comment_without_abstract):
+            continue
+        existing = cache.get(doi, {})
+        source_hash = _source_hash(article)
+        if existing.get("title_cn") and (
+            existing.get("abstract_cn") or comment_without_abstract
+        ):
+            try:
+                validate_translation(article, existing)
+                if existing.get("source_hash") and existing.get("source_hash") != source_hash:
+                    raise TranslationError("Source title or abstract changed")
+                if not existing.get("source_hash"):
+                    existing["source_hash"] = source_hash
+                    upgraded_cache_count += 1
+                continue
+            except TranslationError:
+                invalid_cache_count += 1
+        pending.append((article, existing, source_hash, comment_without_abstract))
+
+    failures: list[dict[str, str]] = []
+    translated_count = 0
+    fallback_count = 0
+    with ThreadPoolExecutor(max_workers=workers, thread_name_prefix="translate") as pool:
+        futures = {
+            pool.submit(
+                _translate_one_parallel,
+                article,
+                token=token,
+                model=model,
+                endpoint=endpoint,
+                google_timeout=google_timeout,
+            ): (article, existing, source_hash)
+            for article, existing, source_hash, _comment_without_abstract in pending
+        }
+        for future in as_completed(futures):
+            article, existing, source_hash = futures[future]
+            doi = article.get("doi", "")
+            try:
+                result = future.result()
+            except TranslationError as error:
+                failures.append(
+                    {"doi": doi, "title_en": article.get("title_en", ""), "error": str(error)}
+                )
+                continue
+            cache[doi] = {
+                **existing,
+                **result["translated"],
+                "source_hash": source_hash,
+                "translation": {
+                    "provider": result["provider"],
+                    "model": result["model"],
+                    "prompt_version": PROMPT_VERSION,
+                    "translated_at": datetime.now(timezone.utc)
+                    .replace(microsecond=0)
+                    .isoformat(),
+                },
+            }
+            translated_count += 1
+            fallback_count += int(result["fallback"])
+            _write_cache(cache_path, cache)
+    _write_cache(cache_path, cache)
+    return {
+        "journal_id": issue["journal_id"],
+        "translated": translated_count,
+        "invalid_cache_entries": invalid_cache_count,
+        "upgraded_cache_entries": upgraded_cache_count,
+        "failed": failures,
+        "provider_state": {},
+        "fallback_translated": fallback_count,
+        "model": model,
+        "prompt_version": PROMPT_VERSION,
+        "workers": workers,
+    }
+
+
 def translate_missing(
     issue: dict[str, Any],
     cache_path: Path,
@@ -1221,6 +1413,23 @@ def translate_missing(
     provider_state: dict[str, str] | None = None,
     google_timeout: int = 90,
 ) -> dict[str, Any]:
+    try:
+        translation_workers = max(
+            1, min(8, int(os.environ.get("TRANSLATION_WORKERS", "1")))
+        )
+    except ValueError:
+        translation_workers = 1
+    if translation_workers > 1:
+        return _translate_missing_parallel(
+            issue,
+            cache_path,
+            token=token or os.environ.get("GITHUB_TOKEN", ""),
+            model=model or os.environ.get("TRANSLATION_MODEL", DEFAULT_MODEL),
+            endpoint=endpoint,
+            max_translations=max_translations,
+            google_timeout=google_timeout,
+            workers=translation_workers,
+        )
     cache = (
         json.loads(cache_path.read_text(encoding="utf-8"))
         if cache_path.exists()
