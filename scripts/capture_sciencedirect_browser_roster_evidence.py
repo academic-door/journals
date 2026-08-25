@@ -214,6 +214,12 @@ def main() -> int:
         archive_path = (
             args.api_root / "journals" / journal_id / "issues" / f"{issue_id}.json"
         )
+        if not archive_path.exists():
+            print(
+                f"[evidence] archive not ready for {issue_id}; defer official evidence",
+                file=sys.stderr,
+            )
+            continue
         evidence = build_evidence(
             snapshot,
             _read_json(archive_path),
