@@ -1,14 +1,14 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-08-25T15:08:01+00:00
+Generated: 2026-08-25T15:41:48+00:00
 
 ## Summary
 
-- browser_required: 38
-- ready: 973
+- browser_required: 37
+- ready: 975
 - recoverable: 93
 - source_pending: 191
-- translation_required: 36
+- translation_required: 35
 
 ## Issue queue
 
@@ -325,13 +325,13 @@ Generated: 2026-08-25T15:08:01+00:00
 | ENERGY | energy-126-c | 2023 | translation_required | blocked | source_pending | archive_missing |
 | ENERGY | energy-127-c | 2023 | browser_required | blocked | source_pending | archive_missing |
 | ENERGY | energy-128-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
-| ENERGY | energy-129-c | 2024 | translation_required | blocked | source_pending | archive_missing |
+| ENERGY | energy-129-c | 2024 | ready | complete | official_verified | content and official source gates passed |
 | ENERGY | energy-130-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | ENERGY | energy-131-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | ENERGY | energy-132-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | ENERGY | energy-133-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | ENERGY | energy-134-c | 2024 | translation_required | blocked | source_pending | archive_missing |
-| ENERGY | energy-135-c | 2024 | browser_required | blocked | source_pending | archive_missing |
+| ENERGY | energy-135-c | 2024 | ready | complete | official_verified | content and official source gates passed |
 | ENERGY | energy-136-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | ENERGY | energy-137-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | ENERGY | energy-138-c | 2024 | translation_required | blocked | source_pending | archive_missing |

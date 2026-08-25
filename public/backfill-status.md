@@ -1,12 +1,12 @@
 # Field journal history backfill status
 
-Updated: 2026-08-25T15:07:48+00:00
+Updated: 2026-08-25T15:41:31+00:00
 
-Discovery coverage: 1331 discovered · 1167 archived · 973 publication ready · 164 missing · 194 source pending
+Discovery coverage: 1331 discovered · 1169 archived · 975 publication ready · 162 missing · 194 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 469 | 33 | 105 | 101 |
+| 2023-2024 | 471 | 32 | 104 | 101 |
 | 2023-2026 | 241 | 0 | 43 | 16 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
@@ -325,13 +325,13 @@ Discovery coverage: 1331 discovered · 1167 archived · 973 publication ready ·
 | ENERGY | energy-126-c | 2023 | translation_partial |  |
 | ENERGY | energy-127-c | 2023 | blocked | possible_incomplete_volume: 7 articles collected vs current issue 57; needs offi |
 | ENERGY | energy-128-c | 2023 | ready |  |
-| ENERGY | energy-129-c | 2024 | translation_partial |  |
+| ENERGY | energy-129-c | 2024 | ready |  |
 | ENERGY | energy-130-c | 2024 | ready |  |
 | ENERGY | energy-131-c | 2024 | ready |  |
 | ENERGY | energy-132-c | 2024 | ready |  |
 | ENERGY | energy-133-c | 2024 | ready |  |
 | ENERGY | energy-134-c | 2024 | translation_partial |  |
-| ENERGY | energy-135-c | 2024 | blocked | possible_incomplete_volume: 4 articles collected vs current issue 57; needs offi |
+| ENERGY | energy-135-c | 2024 | ready |  |
 | ENERGY | energy-136-c | 2024 | ready |  |
 | ENERGY | energy-137-c | 2024 | ready |  |
 | ENERGY | energy-138-c | 2024 | translation_partial |  |
