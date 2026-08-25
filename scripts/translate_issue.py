@@ -1,5 +1,4 @@
-                if re.search(r"⟦ADNUM_[^⟧]+⟧", title_cn + abstract_cn):
-        r"(?=\s+⟦ADNUM_[^⟧]+⟧)"
+from __future__ import annotations
 
 import json
 import os
@@ -1000,10 +999,10 @@ def request_translation(
     if protect_numbers:
         prompt_article = dict(article)
         protected_title, title_replacements = _protect_numbers(
-            str(article.get("title_en", "")), placeholder_prefix="T")
+            str(article.get("title_en", "")), placeholder_prefix="T"
         )
         protected_abstract, abstract_replacements = _protect_numbers(
-            str(article.get("abstract_en", "")), placeholder_prefix="A")
+            str(article.get("abstract_en", "")), placeholder_prefix="A"
         )
         prompt_article["title_en"] = protected_title
         prompt_article["abstract_en"] = protected_abstract
@@ -1045,7 +1044,7 @@ def request_translation(
             if protect_numbers:
                 title_cn = _restore_numbers(title_cn, number_replacements)
                 abstract_cn = _restore_numbers(abstract_cn, number_replacements)
-                if re.search(r"\[\[[^\]]+\]\]", title_cn + abstract_cn):
+                if re.search(r"⟦ADNUM_[^⟧]+⟧", title_cn + abstract_cn):
                     raise TranslationError(
                         f"{provider_name} did not preserve numeric placeholders"
                     )
@@ -1131,7 +1130,7 @@ def _google_translate_text(
     if not translated:
         raise TranslationError("Google Translate returned an empty response")
     restored = _restore_numbers(translated, number_replacements)
-    if re.search(r"\[\[[^\]]+\]\]", restored):
+    if re.search(r"⟦ADNUM_[^⟧]+⟧", restored):
         raise TranslationError("Google Translate did not preserve numeric placeholders")
     return restored
 
