@@ -309,7 +309,7 @@ jobs:
               fi
               evidence="$(find data/provenance/official-rosters -type f -name "$issue_id.json" -print -quit)"
               if [[ -z "$evidence" ]]; then
-                echo "Official evidence deferred until archive is ready for: $issue_id" >&2
+                echo "Official evidence not found for: $issue_id; deferred until archive is ready" >&2
                 continue
               fi
               printf '%s\0' "$evidence" >> "$evidence_list"
