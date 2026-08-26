@@ -457,6 +457,20 @@ class TranslationPipelineTests(unittest.TestCase):
         )
         self.assertEqual(_numbers("Temperature fell to −5 degrees."), ["-5"])
 
+    def test_attached_quantity_units_keep_the_source_number(self) -> None:
+        self.assertEqual(
+            _numbers("Aid raised furloughs by 24pp at a 1km2 scale."),
+            ["24", "1"],
+        )
+        self.assertEqual(_numbers("The subsidy was about 606US$."), ["606"])
+
+    def test_arabic_percentage_point_translation_matches_source_percent(self) -> None:
+        source = "Welfare rises by 10 percent."
+        translated = "福利提高10个百分点。"
+        normalized = _normalize_written_number_translations(source, translated)
+        self.assertIn("10%", normalized)
+        self.assertEqual(_numbers(normalized), ["10%"])
+
     def test_writes_translation_cache_with_provenance(self) -> None:
         issue = {"journal_id": "test", "articles": [ARTICLE]}
         with patch.dict("os.environ", {"DEEPSEEK_API_KEY": ""}, clear=False):
