@@ -89,11 +89,10 @@ jobs:
           git fetch origin data
           rm -rf public/api data/backfill-state data/backfill-staging data/provenance/official-rosters
           mkdir -p public data data/provenance/official-rosters
-          archive_paths=(public/api data/backfill-state data/backfill-staging data/translation-cache)
-          if git cat-file -e origin/data:data/provenance/official-rosters 2>/dev/null; then
-            archive_paths+=(data/provenance/official-rosters)
+          git archive origin/data public/api data/backfill-state data/backfill-staging data/translation-cache | tar -x
+          if git ls-tree -r --name-only origin/data -- data/provenance/official-rosters | grep -q .; then
+            git archive origin/data data/provenance/official-rosters | tar -x
           fi
-          git archive origin/data "${archive_paths[@]}" | tar -x
 
       - name: Run both historical year windows in this shard
         env:
@@ -187,11 +186,10 @@ jobs:
           git fetch origin data
           rm -rf public/api data/backfill-state data/backfill-staging data/provenance/official-rosters
           mkdir -p public data data/provenance/official-rosters
-          archive_paths=(public/api data/backfill-state data/backfill-staging data/translation-cache)
-          if git cat-file -e origin/data:data/provenance/official-rosters 2>/dev/null; then
-            archive_paths+=(data/provenance/official-rosters)
+          git archive origin/data public/api data/backfill-state data/backfill-staging data/translation-cache | tar -x
+          if git ls-tree -r --name-only origin/data -- data/provenance/official-rosters | grep -q .; then
+            git archive origin/data data/provenance/official-rosters | tar -x
           fi
-          git archive origin/data "${archive_paths[@]}" | tar -x
           python scripts/publish_data_delta.py snapshot \
             --root . \
             --output "$RUNNER_TEMP/data-baseline" \
