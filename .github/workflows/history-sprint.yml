@@ -124,6 +124,7 @@ jobs:
               --from-year "${window%-*}" \
               --to-year "${window#*-}" \
               --translate \
+              --force-retry \
               --max-issues "$MAX_ISSUES" \
               --max-translations "$MAX_TRANSLATIONS" \
               --max-journals 49 \

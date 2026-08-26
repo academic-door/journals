@@ -793,6 +793,7 @@ def run_issue(
     *,
     translate: bool,
     max_translations: int,
+    force_retry: bool = False,
 ) -> dict[str, Any]:
     current_status = state.get("issues", {}).get(issue_ref.issue_id, {}).get("status")
     current_error = (
@@ -833,7 +834,7 @@ def run_issue(
             }
             current_status = str(archive_integrity["publication_state"])
             current_error = str(archive_integrity.get("reason", ""))
-    if not is_actionable(entry):
+    if not force_retry and not is_actionable(entry):
         retry_class = (entry or {}).get("retry_class") or retry_class_for(
             str(current_status or ""), current_error
         )
@@ -1078,6 +1079,12 @@ def main() -> int:
     parser.add_argument("--from-year", type=int, default=2025)
     parser.add_argument("--to-year", type=int, default=2026)
     parser.add_argument("--translate", action="store_true")
+    parser.add_argument(
+        "--force-retry",
+        action="store_true",
+        help="retry every non-ready issue in this explicit recovery batch, "
+        "ignoring scheduled backoff/manual classification",
+    )
     parser.add_argument("--plan-only", action="store_true")
     parser.add_argument(
         "--refresh-discovery-only",
@@ -1255,7 +1262,7 @@ def main() -> int:
             return True
         if str(entry.get("status", "")) in READY_STATUSES | LEGACY_READY_STATUSES:
             return True
-        return is_actionable(entry)
+        return args.force_retry or is_actionable(entry)
 
     pending_by_journal: dict[str, list[HistoricalIssue]] = {}
     for issue in plan:
@@ -1293,6 +1300,7 @@ def main() -> int:
                 state,
                 translate=args.translate,
                 max_translations=remaining_translations,
+                force_retry=args.force_retry,
             )
             reports.append(report)
             translation = report.get("translation") or {}
