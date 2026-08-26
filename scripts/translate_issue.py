@@ -1236,6 +1236,59 @@ def _write_cache(cache_path: Path, cache: dict[str, Any]) -> None:
     os.replace(temporary, cache_path)
 
 
+def request_deepseek_translation(
+    article: dict[str, Any],
+    *,
+    token: str,
+    session: requests.Session | None = None,
+    retries: int = 3,
+) -> dict[str, str]:
+    """Translate with DeepSeek while adapting to numeric-placeholder loss.
+
+    Opaque placeholders are the safest first attempt, but some otherwise valid
+    responses omit a repeated placeholder.  Retrying the same deterministic
+    prompt cannot repair that.  Fall back to visible source numbers and keep
+    the unchanged strict numeric validator as the final acceptance gate.
+    """
+
+    try:
+        return request_translation(
+            article,
+            token=token,
+            model=_deepseek_model(),
+            endpoint=DEEPSEEK_ENDPOINT,
+            session=session,
+            provider_name="deepseek",
+            protect_numbers=True,
+            max_tokens=8192,
+            retries=1,
+            json_output=True,
+            disable_thinking=True,
+        )
+    except ProviderUnavailableError:
+        raise
+    except TranslationError as protected_error:
+        try:
+            return request_translation(
+                article,
+                token=token,
+                model=_deepseek_model(),
+                endpoint=DEEPSEEK_ENDPOINT,
+                session=session,
+                provider_name="deepseek",
+                protect_numbers=False,
+                max_tokens=8192,
+                retries=max(1, retries),
+                json_output=True,
+                disable_thinking=True,
+            )
+        except (ProviderUnavailableError, TranslationError) as visible_error:
+            raise TranslationError(
+                "DeepSeek protected-number attempt failed: "
+                f"{protected_error}; visible-number retry failed: {visible_error}"
+            ) from visible_error
+
+
 def _translate_one_parallel(
     article: dict[str, Any],
     *,
@@ -1261,18 +1314,11 @@ def _translate_one_parallel(
     primary_error: TranslationError | None = None
     if deepseek_key:
         try:
-            translated = request_translation(
+            translated = request_deepseek_translation(
                 article,
                 token=deepseek_key,
-                model=_deepseek_model(),
-                endpoint=DEEPSEEK_ENDPOINT,
                 session=session,
-                provider_name="deepseek",
-                protect_numbers=True,
-                max_tokens=8192,
                 retries=translation_retries,
-                json_output=True,
-                disable_thinking=True,
             )
         except (ProviderUnavailableError, TranslationError) as error:
             primary_error = error
@@ -1510,18 +1556,11 @@ def translate_missing(
             primary_error: TranslationError | None = None
             if deepseek_key and not provider_availability.get("deepseek"):
                 try:
-                    translated = request_translation(
+                    translated = request_deepseek_translation(
                         article,
                         token=deepseek_key,
-                        model=_deepseek_model(),
-                        endpoint=DEEPSEEK_ENDPOINT,
                         session=session,
-                        provider_name="deepseek",
-                        protect_numbers=True,
-                        max_tokens=8192,
                         retries=translation_retries,
-                        json_output=True,
-                        disable_thinking=True,
                     )
                 except ProviderUnavailableError as error:
                     provider_availability["deepseek"] = str(error)
