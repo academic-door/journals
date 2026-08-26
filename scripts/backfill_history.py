@@ -1097,6 +1097,12 @@ def main() -> int:
     parser.add_argument("--from-year", type=int, default=2025)
     parser.add_argument("--to-year", type=int, default=2026)
     parser.add_argument("--translate", action="store_true")
+    parser.add_argument(
+        "--force-retry",
+        action="store_true",
+        help="retry every non-ready issue in this explicit recovery batch, "
+        "ignoring scheduled backoff/manual classification",
+    )
     parser.add_argument("--plan-only", action="store_true")
     parser.add_argument(
         "--refresh-discovery-only",
@@ -1307,7 +1313,7 @@ def main() -> int:
             return True
         if str(entry.get("status", "")) in READY_STATUSES | LEGACY_READY_STATUSES:
             return True
-        return is_actionable(entry)
+        return args.force_retry or is_actionable(entry)
 
     pending_by_journal: dict[str, list[HistoricalIssue]] = {}
     for issue in plan[: args.max_issues] if exact_issue_ids else plan:
@@ -1345,7 +1351,7 @@ def main() -> int:
                 state,
                 translate=args.translate,
                 max_translations=remaining_translations,
-                force_retry=bool(exact_issue_ids),
+                force_retry=bool(exact_issue_ids) or args.force_retry,
             )
             reports.append(report)
             translation = report.get("translation") or {}
