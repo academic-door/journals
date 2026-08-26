@@ -17,6 +17,7 @@ from scripts.translate_issue import (
     _protect_numbers,
     _repair_google_artifacts,
     _restore_numbers,
+    request_deepseek_translation,
     request_translation,
     translate_missing,
     validate_translation,
@@ -543,6 +544,39 @@ class TranslationPipelineTests(unittest.TestCase):
             cache[ARTICLE["doi"]]["translation"]["model"],
             "deepseek-v4-flash",
         )
+
+    def test_deepseek_retries_with_visible_numbers_after_placeholder_loss(self) -> None:
+        class AdaptiveSession:
+            def __init__(self) -> None:
+                self.calls = 0
+
+            def post(self, *args, **kwargs) -> FakeResponse:
+                self.calls += 1
+                payload = kwargs["json"]
+                source = payload["messages"][1]["content"]
+                if "ADNUM" in source:
+                    class MissingNumberResponse(FakeResponse):
+                        def json(self) -> dict:
+                            return {
+                                "choices": [{"message": {"content": json.dumps({
+                                    "title_cn": "政策检验",
+                                    "abstract_cn": "本文研究相关政策，发现排放下降，同时福利提高。",
+                                }, ensure_ascii=False)}}]
+                            }
+
+                    return MissingNumberResponse()
+                return FakeResponse()
+
+        session = AdaptiveSession()
+        translated = request_deepseek_translation(
+            ARTICLE,
+            token="deepseek-token",
+            session=session,
+            retries=1,
+        )
+        self.assertEqual(session.calls, 2)
+        self.assertIn("96", translated["abstract_cn"])
+        self.assertIn("12.5%", translated["abstract_cn"])
 
     def test_retranslates_invalid_cached_entry(self) -> None:
         issue = {"journal_id": "test", "articles": [ARTICLE]}
