@@ -74,6 +74,143 @@ class PublishDataDeltaTests(unittest.TestCase):
                 (target / relative).read_text(),
             )
 
+    def test_merges_concurrent_backfill_state_per_issue(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            baseline = root / "baseline"
+            generated = root / "generated"
+            target = root / "target"
+            relative = "data/backfill-state/field-2023-2024.json"
+
+            def state(issue_a: dict, extra: dict | None = None) -> str:
+                payload = {
+                    "schema_version": "1.1",
+                    "updated_at": "2026-08-26T00:00:00+00:00",
+                    "issues": {"aejapp-15-1": issue_a},
+                    "discovery": {"AEJAPP": {"refreshed_at": "2026-08-24T00:00:00+00:00"}},
+                    "rotation": {},
+                }
+                if extra:
+                    payload.update(extra)
+                return json.dumps(payload)
+
+            blocked = {
+                "status": "blocked",
+                "publication_state": "blocked",
+                "content_status": "blocked",
+                "source_status": "source_pending",
+                "last_attempt_at": "2026-08-25T00:00:00+00:00",
+            }
+            translated_ready = {
+                "status": "ready",
+                "publication_state": "ready",
+                "content_status": "complete",
+                "source_status": "official_verified",
+                "last_attempt_at": "2026-08-26T02:00:00+00:00",
+            }
+            concurrent_blocked = {
+                "status": "blocked",
+                "publication_state": "blocked",
+                "content_status": "blocked",
+                "source_status": "source_pending",
+                "last_attempt_at": "2026-08-26T01:00:00+00:00",
+            }
+            self.write(baseline, relative, state(blocked))
+            self.write(
+                generated,
+                relative,
+                state(
+                    translated_ready,
+                    {"discovery": {"AEJAPP": {"refreshed_at": "2026-08-26T03:00:00+00:00"}}},
+                ),
+            )
+            self.write(
+                target,
+                relative,
+                state(
+                    concurrent_blocked,
+                    {
+                        "issues": {
+                            "aejapp-15-1": concurrent_blocked,
+                            "other-issue": {"status": "source_pending"},
+                        }
+                    },
+                ),
+            )
+
+            apply_delta(
+                baseline=baseline,
+                generated=generated,
+                target=target,
+                paths=[Path("data/backfill-state")],
+            )
+
+            merged = json.loads(
+                (target / relative).read_text(encoding="utf-8")
+            )
+            self.assertEqual(
+                "ready",
+                merged["issues"]["aejapp-15-1"]["publication_state"],
+            )
+            self.assertEqual(
+                "source_pending",
+                merged["issues"]["other-issue"]["status"],
+            )
+            self.assertEqual(
+                "2026-08-26T03:00:00+00:00",
+                merged["discovery"]["AEJAPP"]["refreshed_at"],
+            )
+
+    def test_backfill_state_keeps_fresher_concurrent_discovery(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            baseline = root / "baseline"
+            generated = root / "generated"
+            target = root / "target"
+            relative = "data/backfill-state/field-2025-2026.json"
+
+            def state(discovery: dict) -> str:
+                return json.dumps(
+                    {
+                        "schema_version": "1.1",
+                        "updated_at": "2026-08-26T00:00:00+00:00",
+                        "issues": {},
+                        "discovery": discovery,
+                        "rotation": {},
+                    }
+                )
+
+            self.write(
+                baseline,
+                relative,
+                state({"JPE": {"refreshed_at": "2026-08-24T00:00:00+00:00"}}),
+            )
+            self.write(
+                generated,
+                relative,
+                state({"JPE": {"refreshed_at": "2026-08-26T04:00:00+00:00"}}),
+            )
+            self.write(
+                target,
+                relative,
+                state({"JPE": {"refreshed_at": "2026-08-26T05:00:00+00:00"}}),
+            )
+
+            apply_delta(
+                baseline=baseline,
+                generated=generated,
+                target=target,
+                paths=[Path("data/backfill-state")],
+            )
+
+            merged = json.loads(
+                (target / relative).read_text(encoding="utf-8")
+            )
+            self.assertEqual(
+                "2026-08-26T05:00:00+00:00",
+                merged["discovery"]["JPE"]["refreshed_at"],
+            )
+
     def test_rejects_same_path_concurrent_change(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
