@@ -65,8 +65,12 @@ jobs:
             journals: JIE,JME,JOE,JPubE,JUE,LUP,WD,JHE
           - shard: elsevier-sciencedirect-3
             journals: JCE,CER,ENERGY,ECOLECON,LABECO,RED,JEDC
-          - shard: aea-oup-chicago-1
-            journals: EJ,JEEA,AEJMICRO,AERI,AER,JPE,QJE,RES,AJAE,JEP
+          - shard: aea-oup-chicago-1a
+            journals: EJ,JEEA,AEJMICRO,AERI
+          - shard: aea-oup-chicago-1b
+            journals: AER,JPE,QJE,RES
+          - shard: aea-oup-chicago-1c
+            journals: AJAE,JEP
           - shard: aea-oup-chicago-2
             journals: AEJAPP,AEJPOL,AEJMACRO,JLE,JAERE,RFS,RESTAT
           - shard: wiley-repec
