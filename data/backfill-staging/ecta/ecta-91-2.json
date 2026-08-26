@@ -7,7 +7,7 @@
   "issue": "2",
   "publication_date": "March 2023",
   "source_url": "https://onlinelibrary.wiley.com/toc/14680262/2023/91/2",
-  "retrieved_at": "2026-08-18T17:07:07+00:00",
+  "retrieved_at": "2026-08-26T07:36:40+00:00",
   "expected_article_count": 9,
   "research_article_count": 9,
   "status": "incomplete",
@@ -55,8 +55,47 @@
       }
     },
     {
-      "paper_id": "doi:10.3982/ecta20720",
+      "paper_id": "doi:10.3982/ecta18128",
       "sequence": 2,
+      "source_sequence": 425,
+      "article_type": "research-article",
+      "title_en": "Optimal Regulation of Noncompete Contracts",
+      "title_cn": "非竞争合同的最优规制",
+      "authors": [
+        "Liyan Shi"
+      ],
+      "abstract_en": "I study regulation of noncompete employment contracts, assessing the trade‐off between restricting worker mobility and encouraging firm investment. I develop an on‐the‐job search model in which firms and workers sign dynamic wage contracts with noncompete clauses and firms invest in their workers' general human capital. Employers use noncompete clauses to enforce buyout payments when their workers depart, ultimately extracting rent from future employers. This rent extraction is socially excessive, and restrictions on these clauses can improve efficiency. The optimal regulation policy is characterized. In an application to the managerial labor market using a novel contract data set, I find the optimal policy to be quantitatively close to a ban.",
+      "abstract_cn": "我研究了非竞争雇佣合同的规制，评估了限制工人流动性与鼓励企业投资之间的权衡。我构建了一个在职搜索模型，其中企业和工人签订带有非竞争条款的动态工资合同，并且企业投资于工人的通用人力资本。雇主利用非竞争条款在工人离职时强制执行买断付款，最终从未来的雇主那里提取租金。这种租金提取在社会上是过度的，对这些条款的限制可以提高效率。最优规制政策被刻画出来。在应用到一个使用新颖合同数据集的管理层劳动力市场时，我发现最优政策在数量上接近于禁令。",
+      "abstract_snippet_en": "",
+      "doi": "10.3982/ecta18128",
+      "source_url": "https://doi.org/10.3982/ecta18128",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/14680262/2023/91/2",
+        "roster": "crossref:issn:0012-9682",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-26T07:36:43+00:00",
+        "source_hash": "aec57c04df3ef1db0951ebfa8bdc439522c1e5beacd76881371723cf57174b37"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/ecta20720",
+      "sequence": 3,
       "source_sequence": 465,
       "article_type": "research-article",
       "title_en": "Synthetic Control as Online Linear Regression",
@@ -95,7 +134,7 @@
     },
     {
       "paper_id": "doi:10.3982/ecta17793",
-      "sequence": 3,
+      "sequence": 4,
       "source_sequence": 493,
       "article_type": "research-article",
       "title_en": "Bidding in Common‐Value Auctions With an Unknown Number of Competitors",
@@ -135,7 +174,7 @@
     },
     {
       "paper_id": "doi:10.3982/ecta18338",
-      "sequence": 4,
+      "sequence": 5,
       "source_sequence": 529,
       "article_type": "research-article",
       "title_en": "Connecting to Power: Political Connections, Innovation, and Firm Dynamics",
@@ -176,7 +215,7 @@
     },
     {
       "paper_id": "doi:10.3982/ecta19274",
-      "sequence": 5,
+      "sequence": 6,
       "source_sequence": 565,
       "article_type": "research-article",
       "title_en": "Factions in Nondemocracies: Theory and Evidence From the Chinese Communist Party",
@@ -218,24 +257,20 @@
       }
     },
     {
-      "paper_id": "doi:10.3982/ecta20400",
-      "sequence": 6,
-      "source_sequence": 669,
+      "paper_id": "doi:10.3982/ecta19816",
+      "sequence": 7,
+      "source_sequence": 641,
       "article_type": "research-article",
-      "title_en": "Is Attention Produced Optimally? Theory and Evidence From Experiments With Bandwidth Enhancements",
-      "title_cn": "注意力是否被最优地生产？来自带宽增强实验的理论与证据",
+      "title_en": "Network Cluster‐Robust Inference",
+      "title_cn": "网络聚类稳健推断",
       "authors": [
-        "Erin T. Bronchetti",
-        "Judd B. Kessler",
-        "Ellen B. Magenheim",
-        "Dmitry Taubinsky",
-        "Eric Zwick"
+        "Michael P. Leung"
       ],
-      "abstract_en": "This paper develops and deploys a methodology for testing whether people correctly value tools that reduce attention costs. We call these tools bandwidth enhancements (BEs) and characterize how demand for BEs varies with the pecuniary incentives to be attentive, under the null hypothesis of correct perceptions and optimal choice. We examine if the theoretical optimality conditions are satisfied in three experiments. The first is a field experiment ( n = 1373) with an online education platform, in which we randomize incentives to complete course modules and incentives to utilize a plan‐making tool to complete the modules. In the second experiment ( n = 2306), participants must complete a survey in the future. We randomize survey‐completion incentives and how long participants must wait to complete the survey, and we elicit willingness to pay for reminders. The third experiment ( n = 1465) involves a psychometric task in which participants must identify whether there are more correct or incorrect mathematical equations in an image. We vary incentives for accuracy, elicit willingness to pay to reduce task difficulty, and examine the impact of learning and feedback. In all experiments, demand for reducing attention costs increases as incentives for accurate task completion increase. However, in all experiments—and across all conditions—our tests imply that this increase in demand is too small relative to the null of correct perceptions. These results suggest that people may be uncertain or systematically biased about their attention cost functions, and that experience and feedback do not necessarily eliminate bias.",
-      "abstract_cn": "本文开发并应用了一种方法来检验人们是否正确评价降低注意力成本的工具。我们将这些工具称为带宽增强（BEs），并在正确感知和最优选择的零假设下，刻画了对带宽增强的需求如何随金钱激励的变化而变化。我们在三个实验中检验了理论最优条件是否得到满足。第一个是带有在线教育平台的现场实验（n = 1373），在该实验中，我们随机分配完成课程模块的激励和使用计划制定工具完成模块的激励。在第二个实验（n = 2306）中，参与者必须在未来完成一项调查。我们随机分配调查完成激励和参与者必须等待完成调查的时间，并引出他们对提醒的支付意愿。第三个实验（n = 1465）涉及一项心理测量任务，参与者必须识别图像中正确或错误的数学方程哪个更多。我们改变准确性的激励，引出降低任务难度的支付意愿，并考察学习和反馈的影响。在所有实验中，随着准确完成任务激励的增加，对降低注意力成本的需求也随之增加。然而，在所有实验和所有条件下，我们的检验表明，相对于正确感知的零假设，这种需求的增加太小了。这些结果表明，人们可能对其注意力成本函数不确定或存在系统性偏差，并且经验和反馈不一定能消除偏差。",
+      "abstract_en": "Since network data commonly consists of observations from a single large network, researchers often partition the network into clusters in order to apply cluster‐robust inference methods. Existing such methods require clusters to be asymptotically independent. Under mild conditions, we prove that, for this requirement to hold for network‐dependent data, it is necessary and sufficient that clusters have low conductance, the ratio of edge boundary size to volume. This yields a simple measure of cluster quality. We find in simulations that when clusters have low conductance, cluster‐robust methods control size better than HAC estimators. However, for important classes of networks lacking low‐conductance clusters, the former can exhibit substantial size distortion. To determine the number of low‐conductance clusters and construct them, we draw on results in spectral graph theory that connect conductance to the spectrum of the graph Laplacian. Based on these results, we propose to use the spectrum to determine the number of low‐conductance clusters and spectral clustering to construct them.",
+      "abstract_cn": "由于网络数据通常由单个大型网络的观测值组成，研究者常常将网络划分为聚类，以便应用聚类稳健推断方法。现有的此类方法要求聚类渐近独立。在温和条件下，我们证明，对于网络依赖数据，要使这一要求成立，聚类具有低电导率（即边界大小与体积之比）是必要且充分的。这为聚类质量提供了一个简单的度量。我们在模拟中发现，当聚类具有低电导率时，聚类稳健方法比HAC估计量能更好地控制检验水平。然而，对于缺乏低电导率聚类的重要网络类别，前者可能表现出显著的检验水平扭曲。为了确定低电导率聚类的数量并构造它们，我们借鉴了谱图理论中将电导率与图拉普拉斯算子谱联系起来的结果。基于这些结果，我们建议使用谱来确定低电导率聚类的数量，并使用谱聚类来构造它们。",
       "abstract_snippet_en": "",
-      "doi": "10.3982/ecta20400",
-      "source_url": "https://doi.org/10.3982/ecta20400",
+      "doi": "10.3982/ecta19816",
+      "source_url": "https://doi.org/10.3982/ecta19816",
       "publication_date": "2023",
       "sources": {
         "issue": "https://onlinelibrary.wiley.com/toc/14680262/2023/91/2",
@@ -249,8 +284,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "deepseek-chat",
-        "translated_at": "2026-08-10T23:10:34+00:00",
-        "source_hash": "a7db20c595ab1f073f205444186a64347c05e6a4c0afed0b5056e034936021b2"
+        "translated_at": "2026-08-26T07:36:43+00:00",
+        "source_hash": "a041222424624e8bec718ae2fbb00e0d11ddafc6627d4118e2b4f355d0c147bc"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -262,7 +297,7 @@
     },
     {
       "paper_id": "doi:10.3982/ecta13830",
-      "sequence": 7,
+      "sequence": 8,
       "source_sequence": 709,
       "article_type": "research-article",
       "title_en": "Constrained Conditional Moment Restriction Models",
@@ -292,46 +327,6 @@
         "model": "deepseek-chat",
         "translated_at": "2026-08-10T23:10:37+00:00",
         "source_hash": "948db8835763334de6a13b51901b8bfc03bc012b6dfdc51f51d38cd30ee095c4"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.3982/ecta19402",
-      "sequence": 8,
-      "source_sequence": 737,
-      "article_type": "research-article",
-      "title_en": "When Is Parallel Trends Sensitive to Functional Form?",
-      "title_cn": "平行趋势何时对函数形式敏感？",
-      "authors": [
-        "Jonathan Roth",
-        "Pedro H. C. Sant'Anna"
-      ],
-      "abstract_en": "This paper assesses when the validity of difference‐in‐differences depends on functional form. We provide a novel characterization: the parallel trends assumption holds under all strictly monotonic transformations of the outcome if and only if a stronger “parallel trends”‐type condition holds for the cumulative distribution function of untreated potential outcomes. This condition for parallel trends to be insensitive to functional form is satisfied if and essentially only if the population can be partitioned into a subgroup for which treatment is effectively randomly assigned and a remaining subgroup for which the distribution of untreated potential outcomes is stable over time. These conditions have testable implications, and we introduce falsification tests for the null that parallel trends is insensitive to functional form.",
-      "abstract_cn": "本文评估了双重差分法的有效性何时取决于函数形式。我们提供了一个新颖的特征描述：平行趋势假设在所有严格单调变换的结果下成立，当且仅当未处理潜在结果的累积分布函数满足一个更强的“平行趋势”型条件。这一使平行趋势对函数形式不敏感的条件，在且仅在总体可以被划分为一个处理被有效随机分配的子组和一个未处理潜在结果分布随时间稳定的剩余子组时满足。这些条件具有可检验的含义，我们引入了对平行趋势对函数形式不敏感这一原假设的证伪检验。",
-      "abstract_snippet_en": "",
-      "doi": "10.3982/ecta19402",
-      "source_url": "https://doi.org/10.3982/ecta19402",
-      "publication_date": "2023",
-      "sources": {
-        "issue": "https://onlinelibrary.wiley.com/toc/14680262/2023/91/2",
-        "roster": "crossref:issn:0012-9682",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-10T23:10:39+00:00",
-        "source_hash": "c9191d63612b5bce524b55361080d7d147a058a438bba57925bd6880cf2f6c5b"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -389,14 +384,8 @@
     "roster_authority": "crossref-provisional",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
-    "excluded_item_count": 3,
+    "excluded_item_count": 2,
     "excluded_items": [
-      {
-        "title_en": "Backmatter of Econometrica Vol. 91 Iss. 2",
-        "reason": "front_matter",
-        "doi": "10.3982/ecta912bm",
-        "article_type": "front-matter"
-      },
       {
         "title_en": "Frontmatter of Econometrica Vol. 91 Iss. 2",
         "reason": "front_matter",
@@ -421,18 +410,18 @@
       "abstract_en_incomplete",
       "translation_incomplete"
     ],
-    "official_item_count": 12,
+    "official_item_count": 11,
     "publishable_item_count": 9,
     "content_counts": {
-      "official_items": 12,
-      "observed_items": 12,
+      "official_items": 11,
+      "observed_items": 11,
       "publishable_items": 9,
       "research_articles": 9,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
-      "front_matter": 3,
+      "front_matter": 2,
       "other_excluded": 0,
       "catalog_content_items": 9
     }
@@ -440,15 +429,15 @@
   "source_status": "source_pending",
   "publication_state": "blocked",
   "content_counts": {
-    "official_items": 12,
-    "observed_items": 12,
+    "official_items": 11,
+    "observed_items": 11,
     "publishable_items": 9,
     "research_articles": 9,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
-    "front_matter": 3,
+    "front_matter": 2,
     "other_excluded": 0,
     "catalog_content_items": 9
   },

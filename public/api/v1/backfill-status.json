@@ -1,26 +1,25 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-08-26T07:33:12+00:00",
+  "updated_at": "2026-08-26T08:08:07+00:00",
   "summary": {
-    "complete": 988,
-    "translation_partial": 17,
-    "blocked": 130,
+    "complete": 991,
+    "translation_partial": 16,
+    "blocked": 118,
     "collected": 0,
-    "pending": 196
+    "pending": 206
   },
   "coverage": {
     "discovered": 1331,
-    "archived": 1184,
-    "content_ready": 1184,
-    "source_verified": 988,
-    "publication_ready": 988,
-    "missing": 147,
-    "source_pending": 196,
+    "archived": 1197,
+    "content_ready": 1197,
+    "source_verified": 991,
+    "publication_ready": 991,
+    "missing": 134,
+    "source_pending": 206,
     "missing_issue_ids": [
       "ecolecon-204-c",
       "ecolecon-224-c",
       "ecolecon-225-c",
-      "ecolecon-250-c",
       "ecta-91-2",
       "ecta-91-3",
       "energy-120-c",
@@ -76,7 +75,6 @@
       "jde-166-c",
       "jebo-205-c",
       "jebo-208-c",
-      "jebo-213-c",
       "jebo-220-c",
       "jebo-250-c",
       "jedc-147-c",
@@ -84,7 +82,6 @@
       "jedc-151-c",
       "jedc-152-c",
       "jedc-191-c",
-      "jeea-21-5",
       "jeem-118-c",
       "jeh-83-1",
       "jet-220-c",
@@ -117,9 +114,6 @@
       "jpe-131-10",
       "jpe-131-12",
       "jpe-131-5",
-      "jpe-132-1",
-      "jpe-132-2",
-      "jpe-132-3",
       "jpube-229-c",
       "jpube-233-c",
       "jpube-262-c",
@@ -140,13 +134,7 @@
       "rand-54-3",
       "rand-55-3",
       "red-62-c",
-      "res-90-1",
-      "res-90-4",
-      "restat-105-1",
       "restat-105-2",
-      "restat-105-3",
-      "restat-105-5",
-      "restat-105-6",
       "restat-106-3",
       "rfs-39-9",
       "te-18-1",
@@ -159,7 +147,6 @@
       "te-19-4",
       "te-21-2",
       "te-21-3",
-      "wd-162-c",
       "wd-175-c",
       "wd-192-c",
       "wd-207-c",
@@ -232,6 +219,7 @@
       "jeea-21-2",
       "jeea-21-3",
       "jeea-21-4",
+      "jeea-21-5",
       "jeea-21-6",
       "jeea-22-1",
       "jeea-22-2",
@@ -292,6 +280,9 @@
       "jpe-131-7",
       "jpe-131-8",
       "jpe-131-9",
+      "jpe-132-1",
+      "jpe-132-2",
+      "jpe-132-3",
       "jpe-132-4",
       "qje-138-2",
       "qje-138-3",
@@ -321,8 +312,10 @@
       "red-59-c",
       "red-60-c",
       "red-61-c",
+      "res-90-1",
       "res-90-2",
       "res-90-3",
+      "res-90-4",
       "res-90-5",
       "res-90-6",
       "res-91-1",
@@ -341,7 +334,11 @@
       "res-93-2",
       "res-93-3",
       "res-93-4",
+      "restat-105-1",
+      "restat-105-3",
       "restat-105-4",
+      "restat-105-5",
+      "restat-105-6",
       "restat-106-1",
       "restat-106-2",
       "restat-106-4",
@@ -430,19 +427,16 @@
     },
     "JPE": {
       "discovered": 43,
-      "archived": 37,
-      "content_ready": 37,
+      "archived": 40,
+      "content_ready": 40,
       "source_verified": 27,
       "publication_ready": 27,
-      "missing": 6,
-      "source_pending": 10,
+      "missing": 3,
+      "source_pending": 13,
       "missing_issue_ids": [
         "jpe-131-10",
         "jpe-131-12",
-        "jpe-131-5",
-        "jpe-132-1",
-        "jpe-132-2",
-        "jpe-132-3"
+        "jpe-131-5"
       ],
       "source_pending_issue_ids": [
         "jpe-131-1",
@@ -454,6 +448,9 @@
         "jpe-131-7",
         "jpe-131-8",
         "jpe-131-9",
+        "jpe-132-1",
+        "jpe-132-2",
+        "jpe-132-3",
         "jpe-132-4"
       ],
       "blocked_issue_ids": [],
@@ -486,18 +483,17 @@
         },
         "2024": {
           "discovered": 12,
-          "archived": 9,
-          "content_ready": 9,
+          "archived": 12,
+          "content_ready": 12,
           "source_verified": 8,
           "publication_ready": 8,
-          "missing": 3,
-          "source_pending": 1,
-          "missing_issue_ids": [
+          "missing": 0,
+          "source_pending": 4,
+          "missing_issue_ids": [],
+          "source_pending_issue_ids": [
             "jpe-132-1",
             "jpe-132-2",
-            "jpe-132-3"
-          ],
-          "source_pending_issue_ids": [
+            "jpe-132-3",
             "jpe-132-4"
           ],
           "blocked_issue_ids": []
@@ -623,19 +619,18 @@
     },
     "RES": {
       "discovered": 22,
-      "archived": 20,
-      "content_ready": 20,
+      "archived": 22,
+      "content_ready": 22,
       "source_verified": 0,
       "publication_ready": 0,
-      "missing": 2,
-      "source_pending": 20,
-      "missing_issue_ids": [
-        "res-90-1",
-        "res-90-4"
-      ],
+      "missing": 0,
+      "source_pending": 22,
+      "missing_issue_ids": [],
       "source_pending_issue_ids": [
+        "res-90-1",
         "res-90-2",
         "res-90-3",
+        "res-90-4",
         "res-90-5",
         "res-90-6",
         "res-91-1",
@@ -659,19 +654,18 @@
       "years": {
         "2023": {
           "discovered": 6,
-          "archived": 4,
-          "content_ready": 4,
+          "archived": 6,
+          "content_ready": 6,
           "source_verified": 0,
           "publication_ready": 0,
-          "missing": 2,
-          "source_pending": 4,
-          "missing_issue_ids": [
-            "res-90-1",
-            "res-90-4"
-          ],
+          "missing": 0,
+          "source_pending": 6,
+          "missing_issue_ids": [],
           "source_pending_issue_ids": [
+            "res-90-1",
             "res-90-2",
             "res-90-3",
+            "res-90-4",
             "res-90-5",
             "res-90-6"
           ],
@@ -1324,20 +1318,19 @@
     },
     "JEEA": {
       "discovered": 22,
-      "archived": 21,
-      "content_ready": 21,
+      "archived": 22,
+      "content_ready": 22,
       "source_verified": 0,
       "publication_ready": 0,
-      "missing": 1,
-      "source_pending": 21,
-      "missing_issue_ids": [
-        "jeea-21-5"
-      ],
+      "missing": 0,
+      "source_pending": 22,
+      "missing_issue_ids": [],
       "source_pending_issue_ids": [
         "jeea-21-1",
         "jeea-21-2",
         "jeea-21-3",
         "jeea-21-4",
+        "jeea-21-5",
         "jeea-21-6",
         "jeea-22-1",
         "jeea-22-2",
@@ -1360,20 +1353,19 @@
       "years": {
         "2023": {
           "discovered": 6,
-          "archived": 5,
-          "content_ready": 5,
+          "archived": 6,
+          "content_ready": 6,
           "source_verified": 0,
           "publication_ready": 0,
-          "missing": 1,
-          "source_pending": 5,
-          "missing_issue_ids": [
-            "jeea-21-5"
-          ],
+          "missing": 0,
+          "source_pending": 6,
+          "missing_issue_ids": [],
           "source_pending_issue_ids": [
             "jeea-21-1",
             "jeea-21-2",
             "jeea-21-3",
             "jeea-21-4",
+            "jeea-21-5",
             "jeea-21-6"
           ],
           "blocked_issue_ids": []
@@ -2053,16 +2045,15 @@
     },
     "JEBO": {
       "discovered": 46,
-      "archived": 41,
-      "content_ready": 41,
-      "source_verified": 41,
-      "publication_ready": 41,
-      "missing": 5,
+      "archived": 42,
+      "content_ready": 42,
+      "source_verified": 42,
+      "publication_ready": 42,
+      "missing": 4,
       "source_pending": 0,
       "missing_issue_ids": [
         "jebo-205-c",
         "jebo-208-c",
-        "jebo-213-c",
         "jebo-220-c",
         "jebo-250-c"
       ],
@@ -2071,16 +2062,15 @@
       "years": {
         "2023": {
           "discovered": 12,
-          "archived": 9,
-          "content_ready": 9,
-          "source_verified": 9,
-          "publication_ready": 9,
-          "missing": 3,
+          "archived": 10,
+          "content_ready": 10,
+          "source_verified": 10,
+          "publication_ready": 10,
+          "missing": 2,
           "source_pending": 0,
           "missing_issue_ids": [
             "jebo-205-c",
-            "jebo-208-c",
-            "jebo-213-c"
+            "jebo-208-c"
           ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
@@ -2546,14 +2536,13 @@
     },
     "WD": {
       "discovered": 48,
-      "archived": 43,
-      "content_ready": 43,
-      "source_verified": 43,
-      "publication_ready": 43,
-      "missing": 5,
+      "archived": 44,
+      "content_ready": 44,
+      "source_verified": 44,
+      "publication_ready": 44,
+      "missing": 4,
       "source_pending": 0,
       "missing_issue_ids": [
-        "wd-162-c",
         "wd-175-c",
         "wd-192-c",
         "wd-207-c",
@@ -2564,15 +2553,13 @@
       "years": {
         "2023": {
           "discovered": 12,
-          "archived": 11,
-          "content_ready": 11,
-          "source_verified": 11,
-          "publication_ready": 11,
-          "missing": 1,
+          "archived": 12,
+          "content_ready": 12,
+          "source_verified": 12,
+          "publication_ready": 12,
+          "missing": 0,
           "source_pending": 0,
-          "missing_issue_ids": [
-            "wd-162-c"
-          ],
+          "missing_issue_ids": [],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
@@ -2623,22 +2610,22 @@
     },
     "RESTAT": {
       "discovered": 22,
-      "archived": 16,
-      "content_ready": 16,
+      "archived": 20,
+      "content_ready": 20,
       "source_verified": 0,
       "publication_ready": 0,
-      "missing": 6,
-      "source_pending": 16,
+      "missing": 2,
+      "source_pending": 20,
       "missing_issue_ids": [
-        "restat-105-1",
         "restat-105-2",
-        "restat-105-3",
-        "restat-105-5",
-        "restat-105-6",
         "restat-106-3"
       ],
       "source_pending_issue_ids": [
+        "restat-105-1",
+        "restat-105-3",
         "restat-105-4",
+        "restat-105-5",
+        "restat-105-6",
         "restat-106-1",
         "restat-106-2",
         "restat-106-4",
@@ -2659,21 +2646,21 @@
       "years": {
         "2023": {
           "discovered": 6,
-          "archived": 1,
-          "content_ready": 1,
+          "archived": 5,
+          "content_ready": 5,
           "source_verified": 0,
           "publication_ready": 0,
-          "missing": 5,
-          "source_pending": 1,
+          "missing": 1,
+          "source_pending": 5,
           "missing_issue_ids": [
-            "restat-105-1",
-            "restat-105-2",
-            "restat-105-3",
-            "restat-105-5",
-            "restat-105-6"
+            "restat-105-2"
           ],
           "source_pending_issue_ids": [
-            "restat-105-4"
+            "restat-105-1",
+            "restat-105-3",
+            "restat-105-4",
+            "restat-105-5",
+            "restat-105-6"
           ],
           "blocked_issue_ids": []
         },
@@ -3939,17 +3926,16 @@
     },
     "ECOLECON": {
       "discovered": 48,
-      "archived": 44,
-      "content_ready": 44,
-      "source_verified": 44,
-      "publication_ready": 44,
-      "missing": 4,
+      "archived": 45,
+      "content_ready": 45,
+      "source_verified": 45,
+      "publication_ready": 45,
+      "missing": 3,
       "source_pending": 0,
       "missing_issue_ids": [
         "ecolecon-204-c",
         "ecolecon-224-c",
-        "ecolecon-225-c",
-        "ecolecon-250-c"
+        "ecolecon-225-c"
       ],
       "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
@@ -3997,15 +3983,13 @@
         },
         "2026": {
           "discovered": 12,
-          "archived": 11,
-          "content_ready": 11,
-          "source_verified": 11,
-          "publication_ready": 11,
-          "missing": 1,
+          "archived": 12,
+          "content_ready": 12,
+          "source_verified": 12,
+          "publication_ready": 12,
+          "missing": 0,
           "source_pending": 0,
-          "missing_issue_ids": [
-            "ecolecon-250-c"
-          ],
+          "missing_issue_ids": [],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         }
@@ -6779,12 +6763,12 @@
         "year": 2026,
         "volume": "250",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "MetadataFallbackError: Crossref returned no usable issue 250/",
-        "retry_class": ""
+        "status": "ready",
+        "content_status": "complete",
+        "source_status": "publisher_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       }
     ],
     "ECTA": [
@@ -8003,7 +7987,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "possible_incomplete_volume: 7 articles collected vs current issue 57; needs official page or browser-authorized capture",
+        "last_error": "possible_incomplete_volume: 12 articles collected vs current issue 57; needs official page or browser-authorized capture",
         "retry_class": "manual"
       },
       {
@@ -10065,8 +10049,8 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "MetadataFallbackError: Crossref returned no usable issue 13/5",
-        "retry_class": ""
+        "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2026/13/5",
+        "retry_class": "manual"
       },
       {
         "issue_id": "jaere-13-6",
@@ -10643,10 +10627,10 @@
         "year": 2023,
         "volume": "213",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
+        "status": "ready",
+        "content_status": "complete",
+        "source_status": "publisher_verified",
+        "publication_state": "ready",
         "last_error": "possible_incomplete_volume: 2 articles collected vs current issue 26; needs official page or browser-authorized capture",
         "retry_class": "manual"
       },
@@ -11646,7 +11630,7 @@
         "source_status": "source_pending",
         "publication_state": "blocked",
         "last_error": "MetadataFallbackError: Crossref returned no usable issue 191/",
-        "retry_class": ""
+        "retry_class": "manual"
       }
     ],
     "JEEA": [
@@ -11703,10 +11687,10 @@
         "year": 2023,
         "volume": "21",
         "issue": "5",
-        "status": "translation_partial",
-        "content_status": "translation_partial",
+        "status": "source_pending",
+        "content_status": "complete",
         "source_status": "source_pending",
-        "publication_state": "translation_partial",
+        "publication_state": "source_pending",
         "last_error": "",
         "retry_class": "translation"
       },
@@ -13748,7 +13732,7 @@
         "source_status": "source_pending",
         "publication_state": "blocked",
         "last_error": "MetadataFallbackError: Crossref returned no usable issue 184/",
-        "retry_class": ""
+        "retry_class": "manual"
       }
     ],
     "JHE": [
@@ -15197,7 +15181,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "possible_incomplete_volume: 7 articles collected vs current issue 18; needs official page or browser-authorized capture",
+        "last_error": "possible_incomplete_volume: 8 articles collected vs current issue 18; needs official page or browser-authorized capture",
         "retry_class": "manual"
       },
       {
@@ -15233,7 +15217,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "possible_incomplete_volume: 5 articles collected vs current issue 18; needs official page or browser-authorized capture",
+        "last_error": "possible_incomplete_volume: 4 articles collected vs current issue 18; needs official page or browser-authorized capture",
         "retry_class": "manual"
       },
       {
@@ -15531,12 +15515,12 @@
         "year": 2024,
         "volume": "132",
         "issue": "1",
-        "status": "blocked",
-        "content_status": "blocked",
+        "status": "source_pending",
+        "content_status": "complete",
         "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "MetadataFallbackError: RePEc serial page has no issue 132/1",
-        "retry_class": "manual"
+        "publication_state": "source_pending",
+        "last_error": "source authority pending official verification",
+        "retry_class": "source"
       },
       {
         "issue_id": "jpe-132-10",
@@ -15579,24 +15563,24 @@
         "year": 2024,
         "volume": "132",
         "issue": "2",
-        "status": "blocked",
-        "content_status": "blocked",
+        "status": "source_pending",
+        "content_status": "complete",
         "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "MetadataFallbackError: RePEc serial page has no issue 132/2",
-        "retry_class": "manual"
+        "publication_state": "source_pending",
+        "last_error": "source authority pending official verification",
+        "retry_class": "source"
       },
       {
         "issue_id": "jpe-132-3",
         "year": 2024,
         "volume": "132",
         "issue": "3",
-        "status": "blocked",
-        "content_status": "blocked",
+        "status": "source_pending",
+        "content_status": "complete",
         "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "MetadataFallbackError: RePEc serial page has no issue 132/3",
-        "retry_class": "manual"
+        "publication_state": "source_pending",
+        "last_error": "source authority pending official verification",
+        "retry_class": "source"
       },
       {
         "issue_id": "jpe-132-4",
@@ -16766,7 +16750,7 @@
         "source_status": "source_pending",
         "publication_state": "blocked",
         "last_error": "MetadataFallbackError: Crossref returned no usable issue 102/",
-        "retry_class": ""
+        "retry_class": "manual"
       },
       {
         "issue_id": "labeco-80-c",
@@ -17959,8 +17943,8 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "MetadataFallbackError: Crossref returned no usable recent issue",
-        "retry_class": ""
+        "last_error": "MetadataFallbackError: RePEc serial page has no issue 17/4",
+        "retry_class": "manual"
       }
     ],
     "QJE": [
@@ -18515,12 +18499,12 @@
         "year": 2023,
         "volume": "90",
         "issue": "1",
-        "status": "blocked",
-        "content_status": "blocked",
+        "status": "source_pending",
+        "content_status": "complete",
         "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "possible_incomplete_volume: 9 articles collected vs current issue 20; needs official page or browser-authorized capture",
-        "retry_class": "manual"
+        "publication_state": "source_pending",
+        "last_error": "source authority pending official verification",
+        "retry_class": "source"
       },
       {
         "issue_id": "res-90-2",
@@ -18551,12 +18535,12 @@
         "year": 2023,
         "volume": "90",
         "issue": "4",
-        "status": "blocked",
-        "content_status": "blocked",
+        "status": "source_pending",
+        "content_status": "complete",
         "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "possible_incomplete_volume: 8 articles collected vs current issue 20; needs official page or browser-authorized capture",
-        "retry_class": "manual"
+        "publication_state": "source_pending",
+        "last_error": "source authority pending official verification",
+        "retry_class": "source"
       },
       {
         "issue_id": "res-90-5",
@@ -18781,12 +18765,12 @@
         "year": 2023,
         "volume": "105",
         "issue": "1",
-        "status": "blocked",
-        "content_status": "blocked",
+        "status": "source_pending",
+        "content_status": "complete",
         "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "possible_incomplete_volume: 10 articles collected vs current issue 21; needs official page or browser-authorized capture",
-        "retry_class": "manual"
+        "publication_state": "source_pending",
+        "last_error": "source authority pending official verification",
+        "retry_class": "source"
       },
       {
         "issue_id": "restat-105-2",
@@ -18805,12 +18789,12 @@
         "year": 2023,
         "volume": "105",
         "issue": "3",
-        "status": "blocked",
-        "content_status": "blocked",
+        "status": "source_pending",
+        "content_status": "complete",
         "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "possible_incomplete_volume: 5 articles collected vs current issue 21; needs official page or browser-authorized capture",
-        "retry_class": "manual"
+        "publication_state": "source_pending",
+        "last_error": "source authority pending official verification",
+        "retry_class": "source"
       },
       {
         "issue_id": "restat-105-4",
@@ -18829,24 +18813,24 @@
         "year": 2023,
         "volume": "105",
         "issue": "5",
-        "status": "blocked",
-        "content_status": "blocked",
+        "status": "source_pending",
+        "content_status": "complete",
         "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "possible_incomplete_volume: 9 articles collected vs current issue 21; needs official page or browser-authorized capture",
-        "retry_class": "manual"
+        "publication_state": "source_pending",
+        "last_error": "source authority pending official verification",
+        "retry_class": "source"
       },
       {
         "issue_id": "restat-105-6",
         "year": 2023,
         "volume": "105",
         "issue": "6",
-        "status": "blocked",
-        "content_status": "blocked",
+        "status": "source_pending",
+        "content_status": "complete",
         "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "possible_incomplete_volume: 9 articles collected vs current issue 21; needs official page or browser-authorized capture",
-        "retry_class": "manual"
+        "publication_state": "source_pending",
+        "last_error": "source authority pending official verification",
+        "retry_class": "source"
       },
       {
         "issue_id": "restat-106-1",
@@ -19677,7 +19661,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -19689,7 +19673,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -19701,7 +19685,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -19713,7 +19697,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "ValueError: RePEc history requires a configured series code",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -19738,7 +19722,7 @@
         "source_status": "source_pending",
         "publication_state": "blocked",
         "last_error": "MetadataFallbackError: Crossref returned no usable recent issue",
-        "retry_class": ""
+        "retry_class": "manual"
       },
       {
         "issue_id": "te-21-3",
@@ -19750,7 +19734,7 @@
         "source_status": "source_pending",
         "publication_state": "blocked",
         "last_error": "MetadataFallbackError: Crossref returned no usable recent issue",
-        "retry_class": ""
+        "retry_class": "manual"
       }
     ],
     "WD": [
@@ -19771,11 +19755,11 @@
         "year": 2023,
         "volume": "162",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "possible_incomplete_volume: 2 articles collected vs current issue 19; needs official page or browser-authorized capture",
+        "status": "ready",
+        "content_status": "complete",
+        "source_status": "publisher_verified",
+        "publication_state": "ready",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -20335,22 +20319,22 @@
   "periods": {
     "2023-2024": {
       "summary": {
-        "complete": 484,
-        "translation_partial": 17,
-        "blocked": 104,
+        "complete": 486,
+        "translation_partial": 16,
+        "blocked": 93,
         "collected": 0,
-        "pending": 103
+        "pending": 113
       },
       "issue_count": 708,
-      "updated_at": "2026-08-26T06:27:44+00:00",
+      "updated_at": "2026-08-26T08:06:56+00:00",
       "coverage": {
         "discovered": 708,
-        "archived": 587,
-        "content_ready": 587,
-        "source_verified": 484,
-        "publication_ready": 484,
-        "missing": 121,
-        "source_pending": 103,
+        "archived": 599,
+        "content_ready": 599,
+        "source_verified": 486,
+        "publication_ready": 486,
+        "missing": 109,
+        "source_pending": 113,
         "missing_issue_ids": [
           "ecolecon-204-c",
           "ecolecon-224-c",
@@ -20405,13 +20389,11 @@
           "jde-166-c",
           "jebo-205-c",
           "jebo-208-c",
-          "jebo-213-c",
           "jebo-220-c",
           "jedc-147-c",
           "jedc-148-c",
           "jedc-151-c",
           "jedc-152-c",
-          "jeea-21-5",
           "jeem-118-c",
           "jeh-83-1",
           "jet-220-c",
@@ -20440,9 +20422,6 @@
           "jpe-131-10",
           "jpe-131-12",
           "jpe-131-5",
-          "jpe-132-1",
-          "jpe-132-2",
-          "jpe-132-3",
           "jpube-229-c",
           "jpube-233-c",
           "jue-133-c",
@@ -20455,13 +20434,7 @@
           "lup-146-c",
           "rand-54-3",
           "rand-55-3",
-          "res-90-1",
-          "res-90-4",
-          "restat-105-1",
           "restat-105-2",
-          "restat-105-3",
-          "restat-105-5",
-          "restat-105-6",
           "restat-106-3",
           "te-18-1",
           "te-18-2",
@@ -20471,7 +20444,6 @@
           "te-19-2",
           "te-19-3",
           "te-19-4",
-          "wd-162-c",
           "wd-175-c"
         ],
         "source_pending_issue_ids": [
@@ -20512,6 +20484,7 @@
           "jeea-21-2",
           "jeea-21-3",
           "jeea-21-4",
+          "jeea-21-5",
           "jeea-21-6",
           "jeea-22-1",
           "jeea-22-2",
@@ -20545,6 +20518,9 @@
           "jpe-131-7",
           "jpe-131-8",
           "jpe-131-9",
+          "jpe-132-1",
+          "jpe-132-2",
+          "jpe-132-3",
           "jpe-132-4",
           "qje-138-2",
           "qje-138-3",
@@ -20561,8 +20537,10 @@
           "red-52-c",
           "red-53-c",
           "red-54-c",
+          "res-90-1",
           "res-90-2",
           "res-90-3",
+          "res-90-4",
           "res-90-5",
           "res-90-6",
           "res-91-1",
@@ -20571,7 +20549,11 @@
           "res-91-4",
           "res-91-5",
           "res-91-6",
+          "restat-105-1",
+          "restat-105-3",
           "restat-105-4",
+          "restat-105-5",
+          "restat-105-6",
           "restat-106-1",
           "restat-106-2",
           "restat-106-4",
@@ -20584,27 +20566,26 @@
     },
     "2023-2026": {
       "summary": {
-        "complete": 242,
+        "complete": 243,
         "translation_partial": 0,
-        "blocked": 42,
+        "blocked": 41,
         "collected": 0,
         "pending": 16
       },
       "issue_count": 300,
-      "updated_at": "2026-08-26T06:27:51+00:00",
+      "updated_at": "2026-08-26T08:07:03+00:00",
       "coverage": {
         "discovered": 428,
-        "archived": 371,
-        "content_ready": 371,
-        "source_verified": 355,
-        "publication_ready": 355,
-        "missing": 57,
+        "archived": 373,
+        "content_ready": 373,
+        "source_verified": 357,
+        "publication_ready": 357,
+        "missing": 55,
         "source_pending": 16,
         "missing_issue_ids": [
           "ecolecon-204-c",
           "ecolecon-224-c",
           "ecolecon-225-c",
-          "ecolecon-250-c",
           "energy-120-c",
           "energy-123-c",
           "energy-126-c",
@@ -20635,7 +20616,6 @@
           "ere-87-9",
           "jebo-205-c",
           "jebo-208-c",
-          "jebo-213-c",
           "jebo-220-c",
           "jebo-250-c",
           "jeh-83-1",
@@ -20753,11 +20733,11 @@
   "years": {
     "2023": {
       "summary": {
-        "complete": 228,
-        "translation_partial": 11,
-        "blocked": 58,
+        "complete": 230,
+        "translation_partial": 10,
+        "blocked": 50,
         "collected": 0,
-        "pending": 55
+        "pending": 62
       },
       "issue_count": 352,
       "journals": [
@@ -20813,12 +20793,12 @@
       ],
       "coverage": {
         "discovered": 352,
-        "archived": 283,
-        "content_ready": 283,
-        "source_verified": 228,
-        "publication_ready": 228,
-        "missing": 69,
-        "source_pending": 55,
+        "archived": 292,
+        "content_ready": 292,
+        "source_verified": 230,
+        "publication_ready": 230,
+        "missing": 60,
+        "source_pending": 62,
         "missing_issue_ids": [
           "ecolecon-204-c",
           "ecta-91-2",
@@ -20850,12 +20830,10 @@
           "jde-161-c",
           "jebo-205-c",
           "jebo-208-c",
-          "jebo-213-c",
           "jedc-147-c",
           "jedc-148-c",
           "jedc-151-c",
           "jedc-152-c",
-          "jeea-21-5",
           "jeem-118-c",
           "jeh-83-1",
           "jf-78-1",
@@ -20877,18 +20855,11 @@
           "labeco-84-c",
           "lup-126-c",
           "rand-54-3",
-          "res-90-1",
-          "res-90-4",
-          "restat-105-1",
           "restat-105-2",
-          "restat-105-3",
-          "restat-105-5",
-          "restat-105-6",
           "te-18-1",
           "te-18-2",
           "te-18-3",
-          "te-18-4",
-          "wd-162-c"
+          "te-18-4"
         ],
         "source_pending_issue_ids": [
           "ajae-105-1",
@@ -20914,6 +20885,7 @@
           "jeea-21-2",
           "jeea-21-3",
           "jeea-21-4",
+          "jeea-21-5",
           "jeea-21-6",
           "jeh-83-2",
           "jeh-83-3",
@@ -20940,11 +20912,17 @@
           "red-49-c",
           "red-50-c",
           "red-51-c",
+          "res-90-1",
           "res-90-2",
           "res-90-3",
+          "res-90-4",
           "res-90-5",
           "res-90-6",
+          "restat-105-1",
+          "restat-105-3",
           "restat-105-4",
+          "restat-105-5",
+          "restat-105-6",
           "rfs-36-9"
         ],
         "blocked_issue_ids": []
@@ -21253,16 +21231,15 @@
         },
         "JEBO": {
           "discovered": 12,
-          "archived": 9,
-          "content_ready": 9,
-          "source_verified": 9,
-          "publication_ready": 9,
-          "missing": 3,
+          "archived": 10,
+          "content_ready": 10,
+          "source_verified": 10,
+          "publication_ready": 10,
+          "missing": 2,
           "source_pending": 0,
           "missing_issue_ids": [
             "jebo-205-c",
-            "jebo-208-c",
-            "jebo-213-c"
+            "jebo-208-c"
           ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
@@ -21286,20 +21263,19 @@
         },
         "JEEA": {
           "discovered": 6,
-          "archived": 5,
-          "content_ready": 5,
+          "archived": 6,
+          "content_ready": 6,
           "source_verified": 0,
           "publication_ready": 0,
-          "missing": 1,
-          "source_pending": 5,
-          "missing_issue_ids": [
-            "jeea-21-5"
-          ],
+          "missing": 0,
+          "source_pending": 6,
+          "missing_issue_ids": [],
           "source_pending_issue_ids": [
             "jeea-21-1",
             "jeea-21-2",
             "jeea-21-3",
             "jeea-21-4",
+            "jeea-21-5",
             "jeea-21-6"
           ],
           "blocked_issue_ids": []
@@ -21620,19 +21596,18 @@
         },
         "RES": {
           "discovered": 6,
-          "archived": 4,
-          "content_ready": 4,
+          "archived": 6,
+          "content_ready": 6,
           "source_verified": 0,
           "publication_ready": 0,
-          "missing": 2,
-          "source_pending": 4,
-          "missing_issue_ids": [
-            "res-90-1",
-            "res-90-4"
-          ],
+          "missing": 0,
+          "source_pending": 6,
+          "missing_issue_ids": [],
           "source_pending_issue_ids": [
+            "res-90-1",
             "res-90-2",
             "res-90-3",
+            "res-90-4",
             "res-90-5",
             "res-90-6"
           ],
@@ -21640,21 +21615,21 @@
         },
         "RESTAT": {
           "discovered": 6,
-          "archived": 1,
-          "content_ready": 1,
+          "archived": 5,
+          "content_ready": 5,
           "source_verified": 0,
           "publication_ready": 0,
-          "missing": 5,
-          "source_pending": 1,
+          "missing": 1,
+          "source_pending": 5,
           "missing_issue_ids": [
-            "restat-105-1",
-            "restat-105-2",
-            "restat-105-3",
-            "restat-105-5",
-            "restat-105-6"
+            "restat-105-2"
           ],
           "source_pending_issue_ids": [
-            "restat-105-4"
+            "restat-105-1",
+            "restat-105-3",
+            "restat-105-4",
+            "restat-105-5",
+            "restat-105-6"
           ],
           "blocked_issue_ids": []
         },
@@ -21691,15 +21666,13 @@
         },
         "WD": {
           "discovered": 12,
-          "archived": 11,
-          "content_ready": 11,
-          "source_verified": 11,
-          "publication_ready": 11,
-          "missing": 1,
+          "archived": 12,
+          "content_ready": 12,
+          "source_verified": 12,
+          "publication_ready": 12,
+          "missing": 0,
           "source_pending": 0,
-          "missing_issue_ids": [
-            "wd-162-c"
-          ],
+          "missing_issue_ids": [],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         }
@@ -21709,9 +21682,9 @@
       "summary": {
         "complete": 255,
         "translation_partial": 6,
-        "blocked": 46,
+        "blocked": 43,
         "collected": 0,
-        "pending": 48
+        "pending": 51
       },
       "issue_count": 355,
       "journals": [
@@ -21767,12 +21740,12 @@
       ],
       "coverage": {
         "discovered": 355,
-        "archived": 303,
-        "content_ready": 303,
+        "archived": 306,
+        "content_ready": 306,
         "source_verified": 255,
         "publication_ready": 255,
-        "missing": 52,
-        "source_pending": 48,
+        "missing": 49,
+        "source_pending": 51,
         "missing_issue_ids": [
           "ecolecon-224-c",
           "ecolecon-225-c",
@@ -21810,9 +21783,6 @@
           "joe-243-1-2",
           "joe-245-1-2",
           "joe-246-1-2",
-          "jpe-132-1",
-          "jpe-132-2",
-          "jpe-132-3",
           "jpube-229-c",
           "jpube-233-c",
           "jue-140-c",
@@ -21857,6 +21827,9 @@
           "jf-79-4",
           "jf-79-5",
           "jf-79-6",
+          "jpe-132-1",
+          "jpe-132-2",
+          "jpe-132-3",
           "jpe-132-4",
           "qje-139-1",
           "qje-139-2",
@@ -22372,18 +22345,17 @@
         },
         "JPE": {
           "discovered": 12,
-          "archived": 9,
-          "content_ready": 9,
+          "archived": 12,
+          "content_ready": 12,
           "source_verified": 8,
           "publication_ready": 8,
-          "missing": 3,
-          "source_pending": 1,
-          "missing_issue_ids": [
+          "missing": 0,
+          "source_pending": 4,
+          "missing_issue_ids": [],
+          "source_pending_issue_ids": [
             "jpe-132-1",
             "jpe-132-2",
-            "jpe-132-3"
-          ],
-          "source_pending_issue_ids": [
+            "jpe-132-3",
             "jpe-132-4"
           ],
           "blocked_issue_ids": []
@@ -23411,9 +23383,9 @@
     },
     "2026": {
       "summary": {
-        "complete": 223,
+        "complete": 224,
         "translation_partial": 0,
-        "blocked": 21,
+        "blocked": 20,
         "collected": 0,
         "pending": 35
       },
@@ -23471,14 +23443,13 @@
       ],
       "coverage": {
         "discovered": 279,
-        "archived": 258,
-        "content_ready": 258,
-        "source_verified": 223,
-        "publication_ready": 223,
-        "missing": 21,
+        "archived": 259,
+        "content_ready": 259,
+        "source_verified": 224,
+        "publication_ready": 224,
+        "missing": 20,
         "source_pending": 35,
         "missing_issue_ids": [
-          "ecolecon-250-c",
           "energy-162-c",
           "jaere-13-5",
           "jaere-13-6",
@@ -23645,15 +23616,13 @@
         },
         "ECOLECON": {
           "discovered": 12,
-          "archived": 11,
-          "content_ready": 11,
-          "source_verified": 11,
-          "publication_ready": 11,
-          "missing": 1,
+          "archived": 12,
+          "content_ready": 12,
+          "source_verified": 12,
+          "publication_ready": 12,
+          "missing": 0,
           "source_pending": 0,
-          "missing_issue_ids": [
-            "ecolecon-250-c"
-          ],
+          "missing_issue_ids": [],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
