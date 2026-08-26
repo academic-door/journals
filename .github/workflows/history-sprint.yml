@@ -160,6 +160,9 @@ jobs:
           if git ls-tree -r --name-only origin/data -- data/provenance/official-rosters | grep -q .; then
             git archive origin/data data/provenance/official-rosters | tar -x
           fi
+          if git ls-tree -r --name-only origin/data -- data/provenance/browser-snapshots | grep -q .; then
+            git archive origin/data data/provenance/browser-snapshots | tar -x
+          fi
 
       - name: Overlay the restored discovery state
         shell: bash
@@ -305,6 +308,9 @@ jobs:
           git archive origin/data public/api data/backfill-state data/backfill-staging data/translation-cache | tar -x
           if git ls-tree -r --name-only origin/data -- data/provenance/official-rosters | grep -q .; then
             git archive origin/data data/provenance/official-rosters | tar -x
+          fi
+          if git ls-tree -r --name-only origin/data -- data/provenance/browser-snapshots | grep -q .; then
+            git archive origin/data data/provenance/browser-snapshots | tar -x
           fi
           cp -R recovery-baseline/data/backfill-state/. data/backfill-state/
           state_args=()
