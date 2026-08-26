@@ -24,10 +24,34 @@ from scripts.backfill_history import (
     retry_class_for,
     rotate_journals,
     run_issue,
+    update_state,
 )
 
 
 class BackfillHistoryTests(unittest.TestCase):
+    def test_state_records_issue_level_attempt_diagnostics(self) -> None:
+        import scripts.backfill_history as backfill_module
+
+        ref = HistoricalIssue("AER", 2024, "114", "1", "https://example.org/issue")
+        old_state_path = backfill_module.STATE_PATH
+        with tempfile.TemporaryDirectory() as directory:
+            backfill_module.STATE_PATH = Path(directory) / "state.json"
+            state = {"issues": {}}
+            try:
+                update_state(state, ref, status="collected")
+                update_state(
+                    state,
+                    ref,
+                    status="blocked",
+                    error="MetadataFallbackError: publisher timeout",
+                )
+            finally:
+                backfill_module.STATE_PATH = old_state_path
+        entry = state["issues"][ref.issue_id]
+        self.assertEqual(1, entry["attempt_count"])
+        self.assertTrue(entry["last_attempt_at"])
+        self.assertEqual("MetadataFallbackError", entry["last_error_code"])
+
     def test_atomic_checkpoint_write_is_valid_json(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "state.json"
@@ -777,6 +801,71 @@ class BackfillHistoryTests(unittest.TestCase):
             state["discovery"]["AER"]["issue_ids"],
         )
         self.assertEqual({}, state["issues"])
+
+    def test_exact_issue_ids_use_persisted_discovery_without_network_refresh(self) -> None:
+        import scripts.backfill_history as backfill_module
+
+        old_state_path = backfill_module.STATE_PATH
+        with tempfile.TemporaryDirectory() as directory:
+            state_path = Path(directory) / "field-2023-2024.json"
+            state_path.write_text(
+                json.dumps(
+                    {
+                        "schema_version": "1.1",
+                        "issues": {},
+                        "discovery": {
+                            "AER": {
+                                "issue_ids": ["aer-114-1", "aer-114-2"],
+                                "issue_refs": {
+                                    issue_id: {
+                                        "journal": "AER",
+                                        "year": 2024,
+                                        "volume": "114",
+                                        "issue": issue_id.rsplit("-", 1)[-1],
+                                        "official_url": f"https://www.aeaweb.org/issues/{issue_id}",
+                                    }
+                                    for issue_id in ("aer-114-1", "aer-114-2")
+                                },
+                            }
+                        },
+                    }
+                ),
+                encoding="utf-8",
+            )
+            argv = [
+                "backfill_history.py",
+                "--config",
+                str(Path(__file__).resolve().parents[1] / "config/field-history.yml"),
+                "--state",
+                str(state_path),
+                "--journals",
+                "AER",
+                "--from-year",
+                "2023",
+                "--to-year",
+                "2024",
+                "--issue-ids",
+                "aer-114-2",
+                "--skip-global-indexes",
+            ]
+            try:
+                with (
+                    patch("sys.argv", argv),
+                    patch("scripts.backfill_history.discover_official_issues") as discover,
+                    patch(
+                        "scripts.backfill_history.run_issue",
+                        return_value={"issue_id": "aer-114-2", "result": "ready"},
+                    ) as collect,
+                    patch("scripts.backfill_history.write_archive_index"),
+                    redirect_stdout(io.StringIO()),
+                ):
+                    result = backfill_main()
+            finally:
+                backfill_module.STATE_PATH = old_state_path
+        self.assertEqual(0, result)
+        discover.assert_not_called()
+        self.assertEqual("aer-114-2", collect.call_args.args[0].issue_id)
+        self.assertTrue(collect.call_args.kwargs["force_retry"])
 
     def test_run_issue_skips_blocked_thin_volume_without_recollect(self) -> None:
         ref = HistoricalIssue(

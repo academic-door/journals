@@ -40,7 +40,7 @@ RATE_LIMIT_HEADERS = (
     "x-ratelimit-remaining",
     "x-ratelimit-reset",
 )
-QUOTA_WARNING_FRACTION = 0.10
+QUOTA_WARNING_FRACTION = 0.15
 NON_RESEARCH_PATTERN = re.compile(
     r"front\s*matter|back\s*matter|editorial\s*board|table\s*of\s*contents|"
     r"recent\s*referees|turnaround\s*times|issue\s+information|"
@@ -414,12 +414,16 @@ def _semantic_scholar_metadata_batch(
     if not normalized or not callable(getattr(session, "post", None)):
         return {}
     url = f"{SEMANTIC_SCHOLAR_API}/paper/batch"
+    headers = {"Accept": "application/json"}
+    api_key = os.getenv("SEMANTIC_SCHOLAR_API_KEY", "").strip()
+    if api_key:
+        headers["x-api-key"] = api_key
     try:
         response = session.post(
             url,
             params={"fields": "title,authors,abstract,url,externalIds"},
             json={"ids": [f"DOI:{doi}" for doi in normalized]},
-            headers={"Accept": "application/json"},
+            headers=headers,
             timeout=timeout,
         )
         response.raise_for_status()
