@@ -74,6 +74,15 @@ class HistorySprintWorkflowTests(unittest.TestCase):
             workflow,
         )
 
+    def test_builds_archives_from_generic_roster_evidence_before_import(self) -> None:
+        workflow = self.workflow()
+        build = workflow.index(
+            "python scripts/build_archives_from_roster_evidence.py"
+        )
+        apply = workflow.index("Apply exact official roster evidence")
+        self.assertLess(build, apply)
+        self.assertIn("SEMANTIC_SCHOLAR_API_KEY", workflow)
+
     def test_passes_shared_semantic_scholar_key_without_exposing_it(self) -> None:
         workflow = self.workflow()
         self.assertIn(
