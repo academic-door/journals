@@ -317,6 +317,18 @@ CURRENCY_PREFIX_PATTERN = re.compile(
     r"\s*(?P<amount>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
 )
 
+# Quantities written without a space between the number and a compact unit are
+# common in economics abstracts.  The generic matcher intentionally excludes
+# attached alphanumeric identifiers, so capture the small, explicit unit set
+# here.  Only the quantity is audited: the exponent in ``1km2`` is part of the
+# unit and may naturally become ``平方公里`` in Chinese.
+ATTACHED_QUANTITY_PATTERN = re.compile(
+    r"(?i)(?<![A-Za-z0-9_])"
+    r"(?P<number>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
+    r"(?:pp|bps?|km(?:2|3|²|³)?|m(?:2|3|²|³)|cm(?:2|3|²|³)|"
+    r"mm(?:2|3|²|³)|kg|mg|ha|mph|kph|US\$)(?![A-Za-z0-9_])"
+)
+
 
 def _canonical_number(number: str) -> str:
     """Normalize a matched number for multiset comparison.
@@ -331,14 +343,17 @@ def _canonical_number(number: str) -> str:
 
 def _numbers(value: str) -> list[str]:
     values: list[str] = []
-    currency_spans: list[tuple[int, int]] = []
+    protected_spans: list[tuple[int, int]] = []
     for match in CURRENCY_PREFIX_PATTERN.finditer(value):
-        currency_spans.append(match.span())
+        protected_spans.append(match.span())
         values.append(_canonical_number(match.group("amount")))
+    for match in ATTACHED_QUANTITY_PATTERN.finditer(value):
+        protected_spans.append(match.span())
+        values.append(_canonical_number(match.group("number")))
     for match in NUMBER_PATTERN.finditer(value):
-        # Currency-prefixed amounts (USD 17.88) were already captured above;
-        # do not count their digits a second time via the generic pattern.
-        if any(start <= match.start() < end for start, end in currency_spans):
+        # Currency-prefixed amounts and attached quantities were already
+        # captured above; do not count their digits a second time.
+        if any(start <= match.start() < end for start, end in protected_spans):
             continue
         # Unit exponents such as ``year−1`` are commonly rendered as “每年” in
         # Chinese. They describe a denominator, not a reported numeric result.
@@ -745,6 +760,21 @@ def _normalize_written_number_translations(source: str, translated: str) -> str:
     """
 
     normalized = _canonicalize_chinese_numerals(source, translated)
+    source_numbers = Counter(_numbers(source))
+
+    # Models commonly render ``10 percent`` as ``10个百分点`` or ``10百分比``.
+    # Preserve the natural Chinese wording unless the source actually carries
+    # that same percentage; then normalize only for the strict multiset audit.
+    def normalize_arabic_percent_term(match: re.Match[str]) -> str:
+        number = _canonical_number(match.group("number")) + "%"
+        return number if source_numbers.get(number, 0) else match.group(0)
+
+    normalized = re.sub(
+        r"(?<!\d)(?P<number>\d{1,3}(?:,\d{3})*(?:\.\d+)?)\s*"
+        r"(?:个百分点|百分比)",
+        normalize_arabic_percent_term,
+        normalized,
+    )
     century_pattern = re.compile(
         r"\b(" + "|".join(
             sorted(CENTURY_ORDINAL_VALUES, key=len, reverse=True)
@@ -875,7 +905,7 @@ def _normalize_written_number_translations(source: str, translated: str) -> str:
             normalized,
             count=1,
         )
-    source_digit_counts = Counter(_numbers(source))
+    source_digit_counts = source_numbers
     for match in word_pattern.finditer(source):
         word = match.group(0).lower()
         value = NUMBER_WORD_VALUES[word]
