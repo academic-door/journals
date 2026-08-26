@@ -16,6 +16,7 @@ ALLOWED_PATHS = (
     "data/translation-cache",
     "data/backfill-state",
     "data/backfill-staging",
+    "data/provenance/official-rosters",
     "data/monitoring/state.json",
     "data/monitoring/email-notifications.json",
 )
