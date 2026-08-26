@@ -181,6 +181,145 @@ def _merge_translation_cache_json(
     return True
 
 
+def _merge_backfill_state_json(
+    baseline_path: Path,
+    generated_path: Path,
+    target_path: Path,
+) -> bool | None:
+    """Merge concurrent backfill-state writers per issue and per journal.
+
+    A sprint and another writer can both update the same state file while
+    touching different issues or discovery journals.  Treat the file as a
+    per-issue / per-journal map instead of a single top-level unit: prefer a
+    higher publication rank, then a newer attempt stamp, and otherwise keep
+    the freshly fetched branch so concurrent progress survives.
+    """
+    try:
+        baseline_value = json.loads(baseline_path.read_text(encoding="utf-8"))
+        generated_value = json.loads(generated_path.read_text(encoding="utf-8"))
+        target_value = json.loads(target_path.read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError, UnicodeDecodeError):
+        return None
+    if not all(
+        isinstance(value, dict)
+        for value in (baseline_value, generated_value, target_value)
+    ):
+        return None
+
+    try:
+        from scripts.merge_history_shards import _attempt_stamp, _publication_rank
+    except Exception:
+        return None
+
+    missing = object()
+    merged = dict(target_value)
+
+    def choose_issue(existing: object, incoming: object) -> object:
+        if existing is missing:
+            return incoming
+        if incoming is missing:
+            return existing
+        if not isinstance(existing, dict) or not isinstance(incoming, dict):
+            return incoming
+        existing_rank = _publication_rank(existing)
+        incoming_rank = _publication_rank(incoming)
+        if existing_rank > incoming_rank:
+            return existing
+        if incoming_rank > existing_rank:
+            return incoming
+        existing_stamp = _attempt_stamp(existing)
+        incoming_stamp = _attempt_stamp(incoming)
+        if existing_stamp and existing_stamp >= incoming_stamp:
+            return existing
+        return incoming
+
+    def choose_timestamped(existing: object, incoming: object) -> object:
+        if existing is missing:
+            return incoming
+        if incoming is missing:
+            return existing
+        if not isinstance(existing, dict) or not isinstance(incoming, dict):
+            return incoming
+        existing_stamp = str(
+            existing.get("refreshed_at") or existing.get("updated_at") or ""
+        )
+        incoming_stamp = str(
+            incoming.get("refreshed_at") or incoming.get("updated_at") or ""
+        )
+        if incoming_stamp and incoming_stamp > existing_stamp:
+            return incoming
+        return existing
+
+    baseline_issues = baseline_value.get("issues")
+    generated_issues = generated_value.get("issues")
+    target_issues = target_value.get("issues")
+    if all(
+        isinstance(value, dict)
+        for value in (baseline_issues, generated_issues, target_issues)
+    ):
+        issue_keys = set(baseline_issues) | set(generated_issues) | set(target_issues)
+        merged_issues = dict(target_issues)
+        for key in issue_keys:
+            baseline_item = baseline_issues.get(key, missing)
+            generated_item = generated_issues.get(key, missing)
+            target_item = target_issues.get(key, missing)
+            if generated_item == baseline_item:
+                continue
+            if target_item == baseline_item:
+                selected = generated_item
+            elif target_item == generated_item:
+                selected = target_item
+            else:
+                selected = choose_issue(target_item, generated_item)
+            if selected is missing:
+                merged_issues.pop(key, None)
+            else:
+                merged_issues[key] = selected
+        merged["issues"] = merged_issues
+
+    for key in ("discovery", "rotation"):
+        baseline_value_map = baseline_value.get(key)
+        generated_value_map = generated_value.get(key)
+        target_value_map = target_value.get(key)
+        if not all(
+            isinstance(value, dict)
+            for value in (baseline_value_map, generated_value_map, target_value_map)
+        ):
+            continue
+        merged_map = dict(target_value_map)
+        for journal in (
+            set(baseline_value_map)
+            | set(generated_value_map)
+            | set(target_value_map)
+        ):
+            baseline_item = baseline_value_map.get(journal, missing)
+            generated_item = generated_value_map.get(journal, missing)
+            target_item = target_value_map.get(journal, missing)
+            if generated_item == baseline_item:
+                continue
+            if target_item == baseline_item:
+                selected = generated_item
+            elif target_item == generated_item:
+                selected = target_item
+            elif key == "discovery":
+                selected = choose_timestamped(target_item, generated_item)
+            else:
+                selected = target_item
+            if selected is missing:
+                merged_map.pop(journal, None)
+            else:
+                merged_map[journal] = selected
+        merged[key] = merged_map
+
+    if merged != target_value:
+        target_path.parent.mkdir(parents=True, exist_ok=True)
+        target_path.write_text(
+            json.dumps(merged, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+    return True
+
+
 def _copy_file(source: Path, target: Path) -> None:
     if source.is_symlink():
         raise ValueError(f"publication snapshots may not contain symlinks: {source}")
@@ -312,6 +451,15 @@ def apply_delta(
         target_hash = _digest(target_path)
         if target_hash not in {baseline_hash, generated_hash}:
             if (
+                relative.as_posix().startswith("data/backfill-state/")
+                and relative.suffix.lower() == ".json"
+            ):
+                merge_result = _merge_backfill_state_json(
+                    baseline / relative,
+                    generated / relative,
+                    target_path,
+                )
+            elif (
                 relative.as_posix().startswith("data/translation-cache/")
                 and relative.suffix.lower() == ".json"
             ):
