@@ -48,6 +48,25 @@ def _pii(value: object) -> str:
     return match.group(1).upper() if match else ""
 
 
+def _spaced_box_text(value: str) -> str:
+    """Separate fused type/access labels in browser-captured box text.
+
+    DOM text extraction can merge a type badge with the next label without a
+    space (``RetractionFree access``, ``Editorial boardFree access``,
+    ``Research articleOpen access``).  Insert a space before a capital letter
+    that directly follows a known label so the word-boundary classifiers can
+    match the real type.
+    """
+    text = str(value or "")
+    return re.sub(
+        r"(?i)(?:editorial|board|erratum|corrigendum|correction|retraction|"
+        r"research|review|short|full|data|discussion|article|communication)"
+        r"(?=[A-Z])",
+        lambda match: match.group(0) + " ",
+        text,
+    )
+
+
 def _archive_maps(
     issue: dict[str, Any],
 ) -> tuple[dict[str, dict[str, Any]], dict[str, dict[str, Any]]]:
@@ -72,7 +91,7 @@ def _article_type(browser_item: dict[str, Any]) -> str:
     explicit = str(browser_item.get("type", "")).strip().casefold()
     if explicit in ALLOWED_EXCLUDED_TYPES or explicit == "research-article":
         return explicit
-    box_text = str(browser_item.get("box_text", ""))
+    box_text = _spaced_box_text(str(browser_item.get("box_text", "")))
     if NON_RESEARCH_RE.search(box_text):
         return "erratum" if re.search(
             r"Erratum|Corrigendum|Correction|Retraction", box_text, re.IGNORECASE

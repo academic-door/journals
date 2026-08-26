@@ -3,9 +3,26 @@ from __future__ import annotations
 import unittest
 
 from scripts.capture_sciencedirect_browser_roster_evidence import build_evidence
+from scripts.capture_sciencedirect_browser_roster_evidence import _article_type
 
 
 class ScienceDirectBrowserRosterCaptureTests(unittest.TestCase):
+    def test_fused_type_labels_are_classified(self) -> None:
+        self.assertEqual(
+            _article_type({"box_text": "RetractionFree access\nRETRACTED: Oil prices"}),
+            "erratum",
+        )
+        self.assertEqual(
+            _article_type({"box_text": "Editorial boardFree access Editorial Board"}),
+            "editorial",
+        )
+        self.assertEqual(
+            _article_type(
+                {"box_text": "Research articleOpen access\nAssets power solar"}
+            ),
+            "research-article",
+        )
+
     def issue(self) -> dict:
         articles = []
         for sequence, pii in enumerate(("S0000000000000001", "S0000000000000002"), 1):
