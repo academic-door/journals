@@ -440,6 +440,24 @@ jobs:
             --output-root data/provenance/official-rosters/wiley \
             --diagnostics-root "$RUNNER_TEMP/wiley-evidence-failures"
 
+      - name: Build archives from generic official roster evidence
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DEEPSEEK_MODEL: deepseek-chat
+          SEMANTIC_SCHOLAR_API_KEY: ${{ secrets.SEMANTIC_SCHOLAR_API_KEY }}
+          TRANSLATION_RETRIES: "5"
+          TRANSLATION_WORKERS: "4"
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/build_archives_from_roster_evidence.py \
+            --evidence-root data/provenance/official-rosters \
+            --api-root public/api/v1 \
+            --state-root data/backfill-state \
+            --staging-root data/backfill-staging \
+            --translation-cache-root data/translation-cache \
+            --report-json "$RUNNER_TEMP/roster-archive-report.json"
+
       - name: Apply exact official roster evidence
         env:
           GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || github.token }}
