@@ -4,19 +4,29 @@ on:
   workflow_dispatch:
     inputs:
       max_issues:
-        description: Maximum issues per journal in each source shard
+        description: Maximum exact issues per short shard (hard capped at 12)
         required: true
-        default: "999"
+        default: "10"
         type: string
       max_translations:
         description: Maximum new translations per journal in each source shard
         required: true
-        default: "999"
+        default: "120"
+        type: string
+      categories:
+        description: Comma-separated gap categories to process in this wave
+        required: true
+        default: recoverable,translation_required
         type: string
       source_run_id:
         description: Reuse successful shard artifacts from this prior sprint run
         required: false
         default: ""
+        type: string
+      state_source_run_id:
+        description: One-time successful full-shard run used to restore missing discovery state
+        required: false
+        default: "32734420419"
         type: string
       strict_final:
         description: Fail unless every historical discovery/state/archive/index gap is zero
@@ -47,36 +57,82 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  collect:
-    name: Collect ${{ matrix.shard }} history
-    if: inputs.source_run_id == ''
+  prepare:
+    name: Build exact recovery queue
     runs-on: ubuntu-latest
-    timeout-minutes: 330
+    outputs:
+      matrix: ${{ steps.queue.outputs.matrix }}
+      has_work: ${{ steps.queue.outputs.has_work }}
+      issue_count: ${{ steps.queue.outputs.issue_count }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Rebuild the exact queue from published state and archives
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          git archive origin/data public/api/v1/journals data/backfill-state | tar -x
+      - name: Download the last complete discovery-state shards
+        if: inputs.state_source_run_id != ''
+        uses: actions/download-artifact@v4
+        with:
+          pattern: history-sprint-*
+          path: state-shards
+          merge-multiple: false
+          run-id: ${{ inputs.state_source_run_id }}
+          github-token: ${{ github.token }}
+      - name: Restore missing discovery state without regressing current archives
+        if: inputs.state_source_run_id != ''
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf state-shards/history-sprint-final-reports
+          python scripts/merge_history_shards.py --root . --shards-root state-shards
+      - name: Build the exact gap manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          state_args=()
+          for state in data/backfill-state/*.json; do
+            [ -f "$state" ] && state_args+=(--state "$state")
+          done
+          python scripts/build_gap_manifest.py \
+            "${state_args[@]}" \
+            --api-root public/api/v1 \
+            --out-json public/api/v1/gap-manifest.json
+      - name: Split only unresolved issue IDs into short shards
+        id: queue
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/build_recovery_queue.py \
+            --gap-manifest public/api/v1/gap-manifest.json \
+            --categories "${{ inputs.categories }}" \
+            --chunk-size "${{ inputs.max_issues }}" \
+            --output-dir output/recovery-shards \
+            --github-output "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: history-recovery-queue
+          path: |
+            output/recovery-shards
+            data/backfill-state
+          if-no-files-found: warn
+
+  collect:
+    name: Recover ${{ matrix.shard }}
+    needs: prepare
+    if: inputs.source_run_id == '' && needs.prepare.outputs.has_work == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
     strategy:
       fail-fast: false
-      matrix:
-        include:
-          # Elsevier is split into three independent shards.  The previous
-          # 23-journal shard hit the GitHub-hosted job limit before it could
-          # upload staging, so its successful partial work was not publishable.
-          - shard: elsevier-sciencedirect-1
-            journals: EER,FOODPOLICY,GEB,JDE,JEBO,JEEM,JET,JFE
-          - shard: elsevier-sciencedirect-2
-            journals: JIE,JME,JOE,JPubE,JUE,LUP,WD,JHE
-          - shard: elsevier-sciencedirect-3
-            journals: JCE,CER,ENERGY,ECOLECON,LABECO,RED,JEDC
-          - shard: aea-oup-chicago-1a
-            journals: EJ,JEEA,AEJMICRO,AERI
-          - shard: aea-oup-chicago-1b
-            journals: AER,JPE,QJE,RES
-          - shard: aea-oup-chicago-1c
-            journals: AJAE,JEP
-          - shard: aea-oup-chicago-2
-            journals: AEJAPP,AEJPOL,AEJMACRO,JLE,JAERE,RFS,RESTAT
-          - shard: wiley-repec
-            journals: IER,QE,ECTA,TE,RAND,JF,LANDECON
-          - shard: cambridge-other
-            journals: JEH,ERE
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
 
     steps:
       - uses: actions/checkout@v7
@@ -87,6 +143,11 @@ jobs:
           cache: pip
 
       - run: python -m pip install -r requirements.txt
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: history-recovery-queue
+          path: recovery-baseline
 
       - name: Restore last-known-good data branch
         shell: bash
@@ -100,6 +161,19 @@ jobs:
             git archive origin/data data/provenance/official-rosters | tar -x
           fi
 
+      - name: Overlay the restored discovery state
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp -R recovery-baseline/data/backfill-state/. data/backfill-state/
+
+      - name: Stop Elsevier recovery before the shared quota is exhausted
+        if: contains(matrix.action, 'elsevier')
+        env:
+          ELSEVIER_API_KEY: ${{ secrets.ELSEVIER_API_KEY }}
+          ELSEVIER_INST_TOKEN: ${{ secrets.ELSEVIER_INST_TOKEN }}
+        run: python scripts/elsevier_quota_check.py --write-json output/elsevier-quota.json
+
       - name: Run both historical year windows in this shard
         env:
           PYTHONPATH: ${{ github.workspace }}
@@ -107,50 +181,79 @@ jobs:
           ELSEVIER_API_KEY: ${{ secrets.ELSEVIER_API_KEY }}
           ELSEVIER_INST_TOKEN: ${{ secrets.ELSEVIER_INST_TOKEN }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          SEMANTIC_SCHOLAR_API_KEY: ${{ secrets.SEMANTIC_SCHOLAR_API_KEY }}
           DEEPSEEK_MODEL: deepseek-chat
           TRANSLATION_RETRIES: "5"
           TRANSLATION_WORKERS: "4"
           JINA_API_KEY: ${{ secrets.JINA_API_KEY }}
           SHARD_JOURNALS: ${{ matrix.journals }}
-          MAX_ISSUES: ${{ inputs.max_issues || '999' }}
-          MAX_TRANSLATIONS: ${{ inputs.max_translations || '999' }}
+          SHARD_ISSUE_IDS: ${{ matrix.issue_ids }}
+          SHARD_ACTION: ${{ matrix.action }}
+          MAX_TRANSLATIONS: ${{ inputs.max_translations || '120' }}
         shell: bash
         run: |
           set -euo pipefail
           if [[ -n "${DEEPSEEK_API_KEY:-}" ]]; then echo "[translate] DeepSeek secret available"; else echo "[translate] DeepSeek secret unavailable to this job"; fi
-          mkdir -p output
-          for window in 2023-2024 2025-2026; do
-            state="data/backfill-state/field-${window}.json"
-            report="output/backfill-${window}.json"
-            set +e
-            python scripts/backfill_history.py \
-              --config config/field-history.yml \
-              --state "$state" \
-              --journals "$SHARD_JOURNALS" \
-              --from-year "${window%-*}" \
-              --to-year "${window#*-}" \
-              --translate \
-              --force-retry \
-              --max-issues "$MAX_ISSUES" \
-              --max-translations "$MAX_TRANSLATIONS" \
-              --max-journals 49 \
-              --max-minutes 35 \
-              --skip-global-indexes \
-              --report-json "$report"
-            status=$?
-            set -e
-            if [ "$status" -gt 1 ]; then
-              exit "$status"
-            fi
-          done
-          SHARD_JOURNALS="$SHARD_JOURNALS" python - <<'PY'
+          mkdir -p output data/provenance/official-rosters
+          shard_manifest="recovery-baseline/output/recovery-shards/${{ matrix.shard }}.json"
+          case "$SHARD_ACTION" in
+            collect-*|translation)
+              for window in 2023-2024 2025-2026; do
+                state="data/backfill-state/field-${window}.json"
+                report="output/backfill-${window}.json"
+                python scripts/backfill_history.py \
+                  --config config/field-history.yml \
+                  --state "$state" \
+                  --journals "$SHARD_JOURNALS" \
+                  --issue-ids "$SHARD_ISSUE_IDS" \
+                  --from-year "${window%-*}" \
+                  --to-year "${window#*-}" \
+                  --translate \
+                  --max-issues 12 \
+                  --max-translations "$MAX_TRANSLATIONS" \
+                  --max-minutes 10 \
+                  --skip-global-indexes \
+                  --report-json "$report"
+              done
+              ;;
+            aea-evidence)
+              python scripts/capture_aea_roster_evidence.py \
+                --gap-manifest "$shard_manifest" --api-root public/api/v1 \
+                --output-root data/provenance/official-rosters/aea \
+                --diagnostics-root output/evidence-failures
+              ;;
+            wiley-evidence)
+              python scripts/capture_wiley_roster_evidence.py \
+                --gap-manifest "$shard_manifest" --api-root public/api/v1 \
+                --output-root data/provenance/official-rosters/wiley \
+                --diagnostics-root output/evidence-failures
+              ;;
+            highwire-evidence)
+              python scripts/capture_highwire_roster_evidence.py \
+                --gap-manifest "$shard_manifest" --api-root public/api/v1 \
+                --output-root data/provenance/official-rosters/highwire \
+                --diagnostics-root output/evidence-failures
+              ;;
+            browser|official-evidence)
+              cp "$shard_manifest" "output/${SHARD_ACTION}-required.json"
+              ;;
+            *)
+              echo "Unsupported recovery action: $SHARD_ACTION" >&2
+              exit 2
+              ;;
+          esac
+          SHARD_JOURNALS="$SHARD_JOURNALS" SHARD_ISSUE_IDS="$SHARD_ISSUE_IDS" SHARD_ACTION="$SHARD_ACTION" python - <<'PY'
           import json
           import os
           from pathlib import Path
 
           Path("output/shard-metadata.json").write_text(
               json.dumps(
-                  {"journals": [value for value in os.environ["SHARD_JOURNALS"].split(",") if value]},
+                  {
+                    "journals": [value for value in os.environ["SHARD_JOURNALS"].split(",") if value],
+                    "issue_ids": [value for value in os.environ["SHARD_ISSUE_IDS"].split(",") if value],
+                    "action": os.environ["SHARD_ACTION"],
+                  },
                   ensure_ascii=False,
                   indent=2,
               )
@@ -169,12 +272,13 @@ jobs:
             data/backfill-state
             data/backfill-staging
             data/translation-cache
+            data/provenance/official-rosters
             output
 
   publish:
     name: Merge, audit and publish one data delta
-    needs: collect
-    if: always() && (needs.collect.result == 'success' || inputs.source_run_id != '')
+    needs: [prepare, collect]
+    if: always() && (inputs.source_run_id != '' || needs.collect.result != 'skipped')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -185,6 +289,11 @@ jobs:
           cache: pip
 
       - run: python -m pip install -r requirements.txt
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: history-recovery-queue
+          path: recovery-baseline
 
       - name: Restore data baseline and snapshot it
         shell: bash
@@ -197,6 +306,16 @@ jobs:
           if git ls-tree -r --name-only origin/data -- data/provenance/official-rosters | grep -q .; then
             git archive origin/data data/provenance/official-rosters | tar -x
           fi
+          cp -R recovery-baseline/data/backfill-state/. data/backfill-state/
+          state_args=()
+          for state in data/backfill-state/*.json; do
+            [ -f "$state" ] && state_args+=(--state "$state")
+          done
+          python scripts/build_gap_manifest.py \
+            "${state_args[@]}" \
+            --api-root public/api/v1 \
+            --out-json public/api/v1/gap-manifest.json
+          cp public/api/v1/gap-manifest.json "$RUNNER_TEMP/gap-before.json"
           python scripts/publish_data_delta.py snapshot \
             --root . \
             --output "$RUNNER_TEMP/data-baseline" \
@@ -231,6 +350,7 @@ jobs:
           ELSEVIER_INST_TOKEN: ${{ secrets.ELSEVIER_INST_TOKEN }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           DEEPSEEK_MODEL: deepseek-chat
+          SEMANTIC_SCHOLAR_API_KEY: ${{ secrets.SEMANTIC_SCHOLAR_API_KEY }}
           TRANSLATION_RETRIES: "5"
           TRANSLATION_WORKERS: "4"
         shell: bash
@@ -333,7 +453,7 @@ jobs:
             IFS=',' read -ra issue_ids <<< "$EVIDENCE_ISSUE_IDS"
             for issue_id in "${issue_ids[@]}"; do
               issue_id="${issue_id//[[:space:]]/}"
-              if [[ ! "$issue_id" =~ ^[a-z0-9-]+$ ]]; then
+              if [[ ! "$issue_id" =~ ^[A-Za-z0-9-]+$ ]]; then
                 echo "Invalid evidence issue ID: $issue_id" >&2
                 exit 1
               fi
@@ -383,6 +503,10 @@ jobs:
             --api-root public/api/v1 \
             --out-json public/api/v1/gap-manifest.json \
             --out-md public/gap-manifest.md
+          python scripts/check_recovery_progress.py \
+            --before "$RUNNER_TEMP/gap-before.json" \
+            --after public/api/v1/gap-manifest.json \
+            --report "$RUNNER_TEMP/recovery-progress.json"
           python scripts/audit_public_data.py --strict-provenance
           python scripts/audit_source_alignment.py --strict
           history_args=()
@@ -457,6 +581,7 @@ jobs:
             public/backfill-status.md
             public/gap-manifest.md
             ${{ runner.temp }}/history-coverage.json
+            ${{ runner.temp }}/recovery-progress.json
             sciencedirect-evidence-deferred.txt
 
   composer:

@@ -21,8 +21,8 @@ class HistorySprintWorkflowTests(unittest.TestCase):
     def test_can_reuse_successful_shards_without_recollecting(self) -> None:
         workflow = self.workflow()
         self.assertIn("source_run_id:", workflow)
-        self.assertIn("if: inputs.source_run_id == ''", workflow)
-        self.assertIn("needs.collect.result == 'success' || inputs.source_run_id != ''", workflow)
+        self.assertIn("inputs.source_run_id == '' && needs.prepare.outputs.has_work == 'true'", workflow)
+        self.assertIn("inputs.source_run_id != '' || needs.collect.result != 'skipped'", workflow)
         self.assertIn("run-id: ${{ inputs.source_run_id || github.run_id }}", workflow)
         self.assertIn("github-token: ${{ github.token }}", workflow)
         self.assertIn("rm -rf shards/history-sprint-final-reports", workflow)
@@ -49,10 +49,28 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         self.assertIn("capture_sciencedirect_browser_roster_evidence.py", workflow)
         self.assertIn("--output-root data/provenance/official-rosters/sciencedirect", workflow)
         self.assertIn("Browser-authorized snapshot not found for", workflow)
-        self.assertIn('[[ ! "$issue_id" =~ ^[a-z0-9-]+$ ]]', workflow)
+        self.assertIn('[[ ! "$issue_id" =~ ^[A-Za-z0-9-]+$ ]]', workflow)
         self.assertIn('-name "$issue_id.json"', workflow)
         self.assertIn("Official evidence not found for", workflow)
         self.assertIn("ELSEVIER_API_KEY", workflow)
+
+    def test_uses_exact_short_shards_and_publishes_successful_partial_results(self) -> None:
+        workflow = self.workflow()
+        self.assertIn("python scripts/build_recovery_queue.py", workflow)
+        self.assertIn("matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}", workflow)
+        self.assertIn("timeout-minutes: 20", workflow)
+        self.assertIn('--issue-ids "$SHARD_ISSUE_IDS"', workflow)
+        self.assertIn("--max-minutes 10", workflow)
+        self.assertIn("needs: [prepare, collect]", workflow)
+        self.assertIn("python scripts/check_recovery_progress.py", workflow)
+        self.assertIn("data/provenance/official-rosters", workflow)
+
+    def test_passes_shared_semantic_scholar_key_without_exposing_it(self) -> None:
+        workflow = self.workflow()
+        self.assertIn(
+            "SEMANTIC_SCHOLAR_API_KEY: ${{ secrets.SEMANTIC_SCHOLAR_API_KEY }}",
+            workflow,
+        )
         self.assertIn("--enrich-missing-elsevier", workflow)
 
     def test_builds_missing_historical_archives_before_roster_evidence(self) -> None:

@@ -38,6 +38,10 @@ def _publication_rank(payload: dict[str, Any]) -> tuple[int, int, int]:
     )
 
 
+def _attempt_stamp(payload: dict[str, Any]) -> str:
+    return str(payload.get("last_attempt_at") or payload.get("updated_at") or "")
+
+
 def merge_state(
     base: dict[str, Any], shard: dict[str, Any], shard_journals: set[str]
 ) -> dict[str, Any]:
@@ -49,12 +53,15 @@ def merge_state(
     for issue_id, entry in shard_issues.items():
         if str(entry.get("journal", "")) in shard_journals:
             existing = merged["issues"].get(issue_id)
-            if (
-                isinstance(existing, dict)
-                and isinstance(entry, dict)
-                and _publication_rank(existing) > _publication_rank(entry)
-            ):
-                continue
+            if isinstance(existing, dict) and isinstance(entry, dict):
+                existing_rank = _publication_rank(existing)
+                incoming_rank = _publication_rank(entry)
+                if existing_rank > incoming_rank or (
+                    existing_rank == incoming_rank
+                    and _attempt_stamp(existing)
+                    and _attempt_stamp(existing) >= _attempt_stamp(entry)
+                ):
+                    continue
             merged["issues"][issue_id] = entry
 
     base_discovery = base.get("discovery") if isinstance(base.get("discovery"), dict) else {}
@@ -132,6 +139,10 @@ def merge_shards(root: Path, shards_root: Path) -> list[str]:
             raise ValueError(f"missing shard metadata: {shard}")
         copy_tree_overlay(shard / "public" / "api" / "v1" / "journals", root / "public" / "api" / "v1" / "journals")
         copy_tree_overlay(shard / "data" / "backfill-staging", root / "data" / "backfill-staging")
+        copy_tree_overlay(
+            shard / "data" / "provenance" / "official-rosters",
+            root / "data" / "provenance" / "official-rosters",
+        )
         cache_source = shard / "data" / "translation-cache"
         cache_target = root / "data" / "translation-cache"
         if cache_source.exists():

@@ -936,6 +936,20 @@ class MetadataFallbackTests(unittest.TestCase):
             "A public fallback abstract.", result["10.1/demo"]["abstract"]
         )
 
+    def test_semantic_scholar_uses_configured_organization_key(self) -> None:
+        class SemanticSession:
+            def __init__(self) -> None:
+                self.request: dict | None = None
+
+            def post(self, url: str, **kwargs) -> Response:
+                self.request = kwargs
+                return Response([])
+
+        session = SemanticSession()
+        with patch.dict("os.environ", {"SEMANTIC_SCHOLAR_API_KEY": "org-key"}):
+            _semantic_scholar_metadata_batch(session, ["10.1/demo"], timeout=12)
+        self.assertEqual("org-key", session.request["headers"]["x-api-key"])
+
 
     def test_sciencedirect_rss_audits_corrections_and_editorial_material(self) -> None:
         feed = b"""

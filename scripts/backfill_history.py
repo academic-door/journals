@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -516,6 +517,12 @@ def update_state(
     error: str = "",
     integrity: dict[str, Any] | None = None,
 ) -> None:
+    previous = state.setdefault("issues", {}).get(issue.issue_id, {})
+    attempted = status == "collected" or (
+        status == "blocked" and str(previous.get("status", "")) != "collected"
+    )
+    attempt_count = int(previous.get("attempt_count") or 0) + int(attempted)
+    attempt_stamp = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     retry_class = retry_class_for(status, error)
     entry = {
         "journal": issue.journal,
@@ -526,6 +533,11 @@ def update_state(
         "status": status,
         "last_error": error,
         "retry_class": retry_class,
+        "attempt_count": attempt_count,
+        "last_attempt_at": attempt_stamp if attempted else previous.get("last_attempt_at", ""),
+        "last_error_code": (
+            str(error).split(":", 1)[0].strip() if error else ""
+        ),
         **_status_fields(status, integrity),
     }
     next_at = next_retry_after(retry_class, datetime.now(timezone.utc))
@@ -533,7 +545,7 @@ def update_state(
         entry["next_retry_at"] = next_at
     state["schema_version"] = STATE_SCHEMA_VERSION
     state["updated_at"] = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
-    state.setdefault("issues", {})[issue.issue_id] = entry
+    state["issues"][issue.issue_id] = entry
     atomic_write_json(STATE_PATH, state)
 
 
@@ -847,11 +859,17 @@ def run_issue(
             ),
         }
     try:
-        issue = collect_or_resume(
-            issue_ref,
-            journal_config,
-            refresh=current_status not in ("ready", "translation_partial"),
-        )
+        if current_status == "translation_partial" and archive_path.exists():
+            # Historical translation repair must reuse the archived official
+            # roster instead of spending publisher/API quota on a recrawl.
+            issue = load_json(archive_path, {})
+            atomic_write_json(staging_path(issue_ref), issue)
+        else:
+            issue = collect_or_resume(
+                issue_ref,
+                journal_config,
+                refresh=current_status not in ("ready", "translation_partial"),
+            )
         update_state(state, issue_ref, status="collected")
         # Fill missing English abstracts/authors before translating so
         # articles that only had a Crossref roster can still be translated.
@@ -1096,6 +1114,16 @@ def main() -> int:
     parser.add_argument("--max-translations", type=int, default=80)
     parser.add_argument("--max-journals", type=int, default=4)
     parser.add_argument(
+        "--issue-ids",
+        default="",
+        help="comma-separated exact issue IDs; uses persisted discovery and skips rediscovery",
+    )
+    parser.add_argument(
+        "--issue-ids-file",
+        type=Path,
+        help="newline-separated exact issue IDs; may be combined with --issue-ids",
+    )
+    parser.add_argument(
         "--print-pending-journals",
         action="store_true",
         help="print a JSON list of up to --max-journals journals with "
@@ -1128,6 +1156,22 @@ def main() -> int:
         "at most the in-flight issue",
     )
     args = parser.parse_args()
+    exact_issue_ids = {
+        value.strip()
+        for value in str(args.issue_ids).split(",")
+        if value.strip()
+    }
+    if args.issue_ids_file:
+        exact_issue_ids.update(
+            line.strip()
+            for line in args.issue_ids_file.read_text(encoding="utf-8").splitlines()
+            if line.strip()
+        )
+    invalid_issue_ids = sorted(
+        value for value in exact_issue_ids if not re.fullmatch(r"[A-Za-z0-9-]+", value)
+    )
+    if invalid_issue_ids:
+        parser.error("invalid issue ID(s): " + ", ".join(invalid_issue_ids))
     STATE_PATH = Path(args.state)
     history_path = Path(args.config)
     history = yaml.safe_load(history_path.read_text(encoding="utf-8"))
@@ -1234,12 +1278,19 @@ def main() -> int:
             return 0
 
     plan: list[HistoricalIssue] = []
-    for key in collection_selected:
-        discovered = discover_official_issues(
-            key, history["journals"][key], years=years
-        )
-        plan.extend(discovered)
-        record_discovery(state, key, discovered, history["journals"][key])
+    if exact_issue_ids:
+        plan = [
+            item
+            for item in plan_from_discovery(state, collection_selected, years)
+            if item.issue_id in exact_issue_ids
+        ]
+    else:
+        for key in collection_selected:
+            discovered = discover_official_issues(
+                key, history["journals"][key], years=years
+            )
+            plan.extend(discovered)
+            record_discovery(state, key, discovered, history["journals"][key])
     plan.sort(key=historical_issue_sort_key)
 
     def _needs_processing(issue: HistoricalIssue) -> bool:
@@ -1265,8 +1316,8 @@ def main() -> int:
         return args.force_retry or is_actionable(entry)
 
     pending_by_journal: dict[str, list[HistoricalIssue]] = {}
-    for issue in plan:
-        if _needs_processing(issue):
+    for issue in plan[: args.max_issues] if exact_issue_ids else plan:
+        if exact_issue_ids or _needs_processing(issue):
             pending_by_journal.setdefault(issue.journal, []).append(issue)
 
     if not pending_by_journal:
@@ -1280,10 +1331,10 @@ def main() -> int:
         "| Journal | Issue | Result | Detail |",
         "|---|---|---|---|",
     ]
+    started_at = _time.monotonic()
+    budget_seconds = args.max_minutes * 60 if args.max_minutes > 0 else 0
     for journal_key in pending_by_journal:
         remaining_translations = args.max_translations
-        started_at = _time.monotonic()
-        budget_seconds = args.max_minutes * 60 if args.max_minutes > 0 else 0
         for issue in pending_by_journal[journal_key][: args.max_issues]:
             if args.translate and remaining_translations <= 0:
                 break
@@ -1300,7 +1351,7 @@ def main() -> int:
                 state,
                 translate=args.translate,
                 max_translations=remaining_translations,
-                force_retry=args.force_retry,
+                force_retry=bool(exact_issue_ids) or args.force_retry,
             )
             reports.append(report)
             translation = report.get("translation") or {}
@@ -1347,7 +1398,7 @@ def main() -> int:
     # discard the rest of the batch's progress. Exit 0 whenever anything was
     # processed; the notification email and status dashboard surface the
     # blocked issues. Exit 1 only when nothing could be processed at all.
-    return 0 if reports else 1
+    return 0 if reports or exact_issue_ids else 1
 
 
 if __name__ == "__main__":

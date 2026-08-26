@@ -7,6 +7,31 @@ from scripts.merge_history_shards import merge_shards
 
 
 class MergeHistoryShardsTests(unittest.TestCase):
+    def test_old_equal_rank_state_cannot_overwrite_new_attempt_diagnostics(self) -> None:
+        from scripts.merge_history_shards import merge_state
+
+        base = {
+            "issues": {
+                "aer-1-1": {
+                    "journal": "AER",
+                    "status": "source_pending",
+                    "last_attempt_at": "2026-08-26T10:00:00+00:00",
+                    "attempt_count": 3,
+                }
+            }
+        }
+        shard = {
+            "issues": {
+                "aer-1-1": {
+                    "journal": "AER",
+                    "status": "source_pending",
+                    "attempt_count": 1,
+                }
+            }
+        }
+        merged = merge_state(base, shard, {"AER"})
+        self.assertEqual(3, merged["issues"]["aer-1-1"]["attempt_count"])
+
     def test_disjoint_shards_do_not_overwrite_each_other(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary) / "root"
