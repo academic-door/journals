@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-08-26T08:08:07+00:00
+Updated: 2026-08-26T08:47:39+00:00
 
 Discovery coverage: 1331 discovered · 1197 archived · 991 publication ready · 134 missing · 206 source pending
 
@@ -1131,7 +1131,7 @@ Discovery coverage: 1331 discovered · 1197 archived · 991 publication ready ·
 | LUP | lup-167-c | 2026 | ready |  |
 | LUP | lup-168-c | 2026 | ready |  |
 | LUP | lup-169-c | 2026 | ready |  |
-| LUP | lup-170-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 170/ |
+| LUP | lup-170-c | 2026 | blocked | archive_content_gate_failed |
 | LUP | lup-171-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 171/ |
 | QE | qe-14-1 | 2023 | ready |  |
 | QE | qe-14-2 | 2023 | ready |  |
@@ -1343,5 +1343,5 @@ Discovery coverage: 1331 discovered · 1197 archived · 991 publication ready ·
 | WD | wd-204-c | 2026 | ready |  |
 | WD | wd-205-c | 2026 | ready |  |
 | WD | wd-206-c | 2026 | ready |  |
-| WD | wd-207-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 207/ |
+| WD | wd-207-c | 2026 | blocked | archive_content_gate_failed |
 | WD | wd-208-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 208/ |

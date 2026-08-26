@@ -1,6 +1,6 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-08-26T08:08:07+00:00",
+  "updated_at": "2026-08-26T08:47:39+00:00",
   "summary": {
     "complete": 991,
     "translation_partial": 16,
@@ -14312,7 +14312,7 @@
         "source_status": "source_pending",
         "publication_state": "blocked",
         "last_error": "MetadataFallbackError: Crossref returned no usable issue 164/",
-        "retry_class": ""
+        "retry_class": "manual"
       }
     ],
     "JLE": [
@@ -16434,7 +16434,7 @@
         "source_status": "source_pending",
         "publication_state": "blocked",
         "last_error": "MetadataFallbackError: Crossref returned no usable issue 262/",
-        "retry_class": ""
+        "retry_class": "manual"
       }
     ],
     "JUE": [
@@ -17735,10 +17735,10 @@
         "issue": "c",
         "status": "blocked",
         "content_status": "blocked",
-        "source_status": "source_pending",
+        "source_status": "publisher_verified",
         "publication_state": "blocked",
-        "last_error": "MetadataFallbackError: Crossref returned no usable issue 170/",
-        "retry_class": ""
+        "last_error": "archive_content_gate_failed",
+        "retry_class": "manual"
       },
       {
         "issue_id": "lup-171-c",
@@ -17750,7 +17750,7 @@
         "source_status": "source_pending",
         "publication_state": "blocked",
         "last_error": "MetadataFallbackError: Crossref returned no usable issue 171/",
-        "retry_class": ""
+        "retry_class": "manual"
       }
     ],
     "QE": [
@@ -20297,10 +20297,10 @@
         "issue": "c",
         "status": "blocked",
         "content_status": "blocked",
-        "source_status": "source_pending",
+        "source_status": "publisher_verified",
         "publication_state": "blocked",
-        "last_error": "MetadataFallbackError: Crossref returned no usable issue 207/",
-        "retry_class": ""
+        "last_error": "archive_content_gate_failed",
+        "retry_class": "manual"
       },
       {
         "issue_id": "wd-208-c",
@@ -20312,7 +20312,7 @@
         "source_status": "source_pending",
         "publication_state": "blocked",
         "last_error": "MetadataFallbackError: Crossref returned no usable issue 208/",
-        "retry_class": ""
+        "retry_class": "manual"
       }
     ]
   },
@@ -20326,7 +20326,7 @@
         "pending": 113
       },
       "issue_count": 708,
-      "updated_at": "2026-08-26T08:06:56+00:00",
+      "updated_at": "2026-08-26T08:46:25+00:00",
       "coverage": {
         "discovered": 708,
         "archived": 599,
@@ -20573,7 +20573,7 @@
         "pending": 16
       },
       "issue_count": 300,
-      "updated_at": "2026-08-26T08:07:03+00:00",
+      "updated_at": "2026-08-26T08:46:31+00:00",
       "coverage": {
         "discovered": 428,
         "archived": 373,
