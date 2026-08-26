@@ -87,7 +87,7 @@ jobs:
         run: |
           set -euo pipefail
           git fetch origin data
-          rm -rf public/api data/backfill-state data/backfill-staging data/provenance/official-rosters
+          rm -rf public/api data/backfill-state data/backfill-staging
           mkdir -p public data data/provenance/official-rosters
           git archive origin/data public/api data/backfill-state data/backfill-staging data/translation-cache | tar -x
           if git ls-tree -r --name-only origin/data -- data/provenance/official-rosters | grep -q .; then
@@ -184,7 +184,7 @@ jobs:
         run: |
           set -euo pipefail
           git fetch origin data
-          rm -rf public/api data/backfill-state data/backfill-staging data/provenance/official-rosters
+          rm -rf public/api data/backfill-state data/backfill-staging
           mkdir -p public data data/provenance/official-rosters
           git archive origin/data public/api data/backfill-state data/backfill-staging data/translation-cache | tar -x
           if git ls-tree -r --name-only origin/data -- data/provenance/official-rosters | grep -q .; then
