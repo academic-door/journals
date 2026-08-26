@@ -493,7 +493,11 @@ jobs:
         run: |
           set -euo pipefail
           python scripts/rebuild_public_snapshot.py
-          python scripts/repair_history_dates.py --journal IER --journal CER --journal JPubE --journal ENERGY --start-year 2023
+          python scripts/repair_history_dates.py \
+            --journal IER --journal CER --journal JPubE --journal ENERGY \
+            --journal ECOLECON --journal JUE --journal JET --journal JEDC \
+            --journal JPUBE --journal JOE --journal JFE \
+            --start-year 2023
           python scripts/publish_data_delta.py rebuild-archive-indexes --root .
           state_args=()
           for state in data/backfill-state/*.json; do
