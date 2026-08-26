@@ -1,0 +1,224 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "jedc-148-c",
+  "journal_id": "jedc",
+  "journal_name": "Journal of Economic Dynamics and Control",
+  "volume": "148",
+  "issue": "c",
+  "issue_label": "Vol. 148",
+  "publication_date": "March 2023",
+  "source_url": "https://www.sciencedirect.com/journal/journal-of-economic-dynamics-and-control/vol/148/suppl/C",
+  "retrieved_at": "2026-08-26T19:41:52.229Z",
+  "expected_article_count": 4,
+  "research_article_count": 4,
+  "status": "ready",
+  "publication_state": "ready",
+  "development_sample": false,
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.jedc.2023.104607",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Reconstructing production networks using machine learning",
+      "title_cn": "使用机器学习重构生产网络",
+      "authors": [
+        "Mungo, Luca",
+        "Lafond, François",
+        "Astudillo-Estévez, Pablo",
+        "Farmer, J. Doyne"
+      ],
+      "abstract_en": "The vulnerability of supply chains and their role in the propagation of shocks has been highlighted multiple times in recent years, including by the recent pandemic. However, while the importance of micro data is increasingly recognised, data at the firm-to-firm level remains scarcely available. In this study, we formulate supply chain networks’ reconstruction as a link prediction problem and tackle it using machine learning, specifically Gradient Boosting. We test our approach on three different supply chain datasets and show that it works very well and outperforms three benchmarks. An analysis of features’ importance suggests that the key data underlying our predictions are firms’ industry, location, and size. To evaluate the feasibility of reconstructing a network when no production network data is available, we attempt to predict a dataset using a model trained on another dataset, showing that the model’s performance, while still better than a random predictor, deteriorates substantially.",
+      "abstract_cn": "供应链的脆弱性及其在冲击传播中的作用近年来多次被强调，包括最近的疫情。然而，尽管微观数据的重要性日益得到认可，企业间层面的数据仍然稀缺。在本研究中，我们将供应链网络的重构表述为一个链接预测问题，并使用机器学习（特别是梯度提升）来解决它。我们在三个不同的供应链数据集上测试了我们的方法，并表明它效果很好，优于三个基准。对特征重要性的分析表明，我们预测所依据的关键数据是企业的行业、位置和规模。为了评估在没有生产网络数据可用时重构网络的可行性，我们尝试使用在一个数据集上训练的模型来预测另一个数据集，结果表明模型的性能虽然仍优于随机预测器，但会大幅下降。",
+      "doi": "10.1016/j.jedc.2023.104607",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188923000131",
+      "publication_date": "March 2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-dynamics-and-control/vol/148/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0165188923000131",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-14T23:08:25+00:00",
+        "source_hash": "a4bf5305340f09d5484753a4b69fdcab88a4ebe828ab6848aa9dd01d7d6f4141"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jedc.2023.104617",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Numerical Solution of Dynamic Quantile Models",
+      "title_cn": "动态分位数模型的数值求解",
+      "authors": [
+        "de Castro, Luciano",
+        "Galvao, Antonio F.",
+        "Muchon, Andre"
+      ],
+      "abstract_en": "This paper studies dynamic programming for quantile preference models, in which the agent maximizes the stream of the future τ -quantile utilities, for τ ∈ ( 0 , 1 ) . We suggest numerical methods, based on value function iterations, for solving the quantile recursive dynamic programming, and computing value and policy functions. In addition, we extend theoretical results to allow the dynamic quantile model to have a finite-horizon, instead of infinite-horizon. To illustrate the methods, we use an intertemporal consumption quantile model that has an explicit closed form solution for both the value and policy functions. Based on this example, we assess the accuracy of the numerical methods by computing and comparing theoretical and numerical value and policy functions, for several combinations of the parameters – discount factor, elasticity of intertemporal substitution, and risk attitude, which is measured by the quantile. Results document evidence that the suggested algorithm provides numerical solutions that are very close to theoretical counterparts, and also illustrate the usefulness and practicality of the proposed methods.",
+      "abstract_cn": "本文研究了分位数偏好模型的动态规划问题，在该模型中，代理人最大化未来τ-分位数效用的流，其中τ ∈ ( 0 , 1 )。我们提出了基于值函数迭代的数值方法，用于求解分位数递归动态规划，并计算值函数和政策函数。此外，我们将理论结果扩展到允许动态分位数模型具有有限期限，而非无限期限。为了说明这些方法，我们使用了一个跨期消费分位数模型，该模型对值函数和政策函数都有显式的闭式解。基于此示例，我们通过计算和比较理论和数值的值函数与政策函数，针对参数的几种组合——贴现因子、跨期替代弹性和由分位数衡量的风险态度——来评估数值方法的准确性。结果证明了所提出的算法提供的数值解与理论解非常接近，同时也说明了所提出方法的有用性和实用性。",
+      "doi": "10.1016/j.jedc.2023.104617",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188923000234",
+      "publication_date": "March 2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-dynamics-and-control/vol/148/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0165188923000234",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-26T21:12:06+00:00",
+        "source_hash": "97cc777dd976f5ecbe19fe730fb849282d4b4af5ed1720080c4800fc210a5739"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jedc.2023.104618",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Trade competitiveness and the aggregate returns in global stock markets",
+      "title_cn": "贸易竞争力与全球股票市场的总体回报",
+      "authors": [
+        "Chiah, Mardy",
+        "Long, Huaigang",
+        "Zaremba, Adam",
+        "Umar, Zaghum"
+      ],
+      "abstract_en": "Using the change in the real effective exchange rate (REER) to reflect trade competitiveness, we examine its role in the cross-section of global equity returns. The changes in REER negatively affect stock market returns. The REER effect is robust after controlling for known risk factors and market characteristics. Furthermore, it remains pervasive across different periods and subsamples. Our findings support the conventional wisdom that appreciating currency harms trade values, consequently dampening a firm's stock market performance.",
+      "abstract_cn": "利用实际有效汇率（REER）的变化来反映贸易竞争力，我们考察了其在全球股票收益横截面中的作用。实际有效汇率的变化对股票市场回报产生负面影响。在控制已知风险因素和市场特征后，实际有效汇率效应依然稳健。此外，它在不同时期和子样本中仍然普遍存在。我们的研究结果支持传统观点，即货币升值损害贸易价值，从而抑制企业的股票市场表现。",
+      "doi": "10.1016/j.jedc.2023.104618",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188923000246",
+      "publication_date": "March 2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-dynamics-and-control/vol/148/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0165188923000246",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-14T23:08:30+00:00",
+        "source_hash": "e4054b7298d95ede7265f50c336204ed5b00b3ed43ca9974071632a4b40663a9"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jedc.2023.104604",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Dampening effect and market efficiency",
+      "title_cn": "抑制效应与市场效率",
+      "authors": [
+        "Guo, Mng"
+      ],
+      "abstract_en": "The way informed traders use their privileged information affects the properties of asset prices. This paper analyzes the differences in market efficiency between the two most widely adopted informed trading paradigms (Grossman-Stiglitz-style and Kyle-style) in a unified three-period framework. The aggregate risk—the product of fundamental risk, liquidity trading risk, and traders’ risk aversion coefficient—uniquely determines three measures of market efficiencies, including price informativeness, return autocorrelations, and the unconditional expected utilities of uninformed market makers. In the Kyle-style model, a self-reinforcing dampening effect arises from informed traders’ trading on fundamental information and non-fundamental information about their prior positions, leading to less efficient markets, contrarian trading by informed traders, and a return reversal between the two trading periods. Our study proposes to estimate price informativeness using information from short-term return reversals.",
+      "abstract_cn": "知情交易者利用其特权信息的方式影响资产价格的性质。本文在一个统一的三期框架内分析了两种最广泛采用的知情交易范式（格罗斯曼-斯蒂格利茨型和凯尔型）之间市场效率的差异。总风险——基本面风险、流动性交易风险与交易者风险厌恶系数的乘积——唯一地决定了市场效率的三个衡量指标，包括价格信息含量、收益自相关性和不知情做市商的无条件期望效用。在凯尔型模型中，知情交易者基于基本面信息和关于其先前头寸的非基本面信息进行交易，产生了一种自我强化的抑制效应，导致市场效率降低、知情交易者的逆向交易以及两个交易期之间的收益反转。我们的研究提出利用短期收益反转的信息来估计价格信息含量。",
+      "doi": "10.1016/j.jedc.2023.104604",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188923000106",
+      "publication_date": "March 2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-dynamics-and-control/vol/148/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0165188923000106",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-14T23:08:23+00:00",
+        "source_hash": "450f6b5040c16fc6cc1e1cbc713d7d3a2d1c9129f88df11a898f6f63c6f4ca1e"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_authority": "official-issue-page",
+    "roster_transport": "browser-authorized-local",
+    "official_item_count": 4,
+    "excluded_items": [],
+    "doi_complete": 4,
+    "authors_complete": 4,
+    "abstract_en_complete": 4,
+    "translation_complete": 4,
+    "duplicate_count": 0,
+    "flags": [],
+    "browser_capture": {
+      "captured_at": "2026-08-26T19:41:52.229Z",
+      "institutional_access_confirmed": true,
+      "privacy_fields_stored": false
+    },
+    "publishable_item_count": 4,
+    "excluded_item_count": 0,
+    "content_counts": {
+      "official_items": 4,
+      "observed_items": 4,
+      "publishable_items": 4,
+      "research_articles": 4,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 4
+    }
+  },
+  "content_counts": {
+    "official_items": 4,
+    "observed_items": 4,
+    "publishable_items": 4,
+    "research_articles": 4,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 4
+  },
+  "content_status": "complete",
+  "source_status": "official_verified"
+}

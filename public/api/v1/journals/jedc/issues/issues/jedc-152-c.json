@@ -1,0 +1,220 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "jedc-152-c",
+  "journal_id": "jedc",
+  "journal_name": "Journal of Economic Dynamics and Control",
+  "volume": "152",
+  "issue": "c",
+  "issue_label": "Vol. 152",
+  "publication_date": "July 2023",
+  "source_url": "https://www.sciencedirect.com/journal/journal-of-economic-dynamics-and-control/vol/152/suppl/C",
+  "retrieved_at": "2026-08-26T19:44:30.335Z",
+  "expected_article_count": 4,
+  "research_article_count": 4,
+  "status": "ready",
+  "publication_state": "ready",
+  "development_sample": false,
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.jedc.2023.104670",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "A Gradient-based reinforcement learning model of market equilibration",
+      "title_cn": "基于梯度的强化学习模型与市场均衡",
+      "authors": [
+        "He, Zhongzhi (Lawrence)"
+      ],
+      "abstract_en": "This paper formulates a game-theoretic reinforcement learning model based on the stochastic gradient method whereby players start from their initial circumstances with dispersed information, using the expected gradient to update choice propensities, and converge to the predicted equilibrium of belief-based models. Gradient-based reinforcement learning (G-RL) entails a model-free simulation method to estimate the gradient of expected payoff with respect to choice propensities in repeated games. As the gradient points to the steepest direction towards discovering steady-state equilibrium, G-RL provides a theoretical justification for a probability-weighed time-varying updating rule that optimally balances the trade-off between reinforcing past successful strategies (‘exploitation’) and exploring other strategies (‘exploration’) in choosing actions. The effectiveness and stability of G-RL are demonstrated in a simulated call market, where both the actual effect and the foregone effect are simultaneously updated during market equilibration. In contrast, the failure of payoff-based reinforcement learning (P-RL) is due to its constant-sensitivity updating rule, which causes an imbalance between exploitation and exploration in complex environments.",
+      "abstract_cn": "本文构建了一个基于随机梯度方法的博弈论强化学习模型，其中参与者从各自初始环境出发，拥有分散信息，利用期望梯度更新选择倾向，并收敛到基于信念模型的预测均衡。基于梯度的强化学习（G-RL）采用一种无模型模拟方法，用于估计重复博弈中期望收益相对于选择倾向的梯度。由于梯度指向发现稳态均衡的最陡方向，G-RL为一种概率加权的时间变化更新规则提供了理论依据，该规则在行动选择中最优地平衡了强化过去成功策略（“利用”）与探索其他策略（“探索”）之间的权衡。在模拟的呼叫市场中，G-RL的有效性和稳定性得到了验证，其中实际效应和遗漏效应在市场均衡过程中同时更新。相比之下，基于收益的强化学习（P-RL）的失败归因于其恒定敏感性更新规则，这导致在复杂环境中利用与探索之间的失衡。",
+      "doi": "10.1016/j.jedc.2023.104670",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188923000763",
+      "publication_date": "July 2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-dynamics-and-control/vol/152/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0165188923000763",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-18T18:41:42+00:00",
+        "source_hash": "f4dc0c3839cd1fb3516fc4aa79a7faa999bee6211e39bfea2cdbda007ee9458d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jedc.2023.104671",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Testing for Weak Separability and Utility Maximization with Incomplete Adjustment",
+      "title_cn": "不完全调整下弱可分性与效用最大化的检验",
+      "authors": [
+        "Hjertstrand, Per",
+        "Swofford, James L.",
+        "Whitney, Gerald A."
+      ],
+      "abstract_en": "We develop models for weakly separable utility maximization with incomplete adjustment. By allowing for incomplete adjustment, these models account for the decision maker's inability to instantaneously adjust to optimal allocations of demanded goods and assets. This is especially important when modelling preferences for durable goods and financial/monetary assets. We propose computationally attractive nonparametric revealed preference procedures to test the models using observed data on prices and quantities. An empirical application shows that it is important to account for incomplete adjustment in consumer demand models of durable consumption goods.",
+      "abstract_cn": "我们开发了具有不完全调整的弱可分效用最大化模型。通过允许不完全调整，这些模型考虑了决策者无法瞬时调整到所需求商品和资产的最优配置的情况。这在建模耐用品和金融/货币资产的偏好时尤为重要。我们提出了计算上具有吸引力的非参数显示性偏好程序，利用观察到的价格和数量数据来检验这些模型。一项实证应用表明，在耐用品消费需求的消费者模型中考虑不完全调整是很重要的。",
+      "doi": "10.1016/j.jedc.2023.104671",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188923000775",
+      "publication_date": "July 2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-dynamics-and-control/vol/152/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0165188923000775",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-18T18:41:43+00:00",
+        "source_hash": "735040933196e6134597e579897b9c7b9e328efcc21155b9b348e69702a06b62"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jedc.2023.104669",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "A general method for analysis and valuation of drawdown risk",
+      "title_cn": "回撤风险分析与估值的一般方法",
+      "authors": [
+        "Zhang, Gongqiu",
+        "Li, Lingfei"
+      ],
+      "abstract_en": "Drawdown risk is a major concern in financial markets. We develop a novel method to solve the first passage problem of the drawdown process for general one-dimensional Markov processes (including time-inhomogeneous ones) as well as regime-switching and stochastic volatility models. We compute its Laplace transform based on continuous-time Markov chain (CTMC) approximation and invert the Laplace transform numerically to obtain the first passage probabilities and the distribution of the maximum drawdown. We prove convergence of our method for general Markov models and provide sharp estimate of the convergence rate for a general class of jump-diffusion models. We apply our method to price and hedge maximum drawdown options and demonstrate its accuracy and efficiency through various numerical experiments. In addition, we can apply our method to calculate the Calmar ratio for investment analysis, and quantify the contributions of assets to the drawdown risk of a portfolio when the assets follow multivariate exponential Lévy models.",
+      "abstract_cn": "回撤风险是金融市场中的一个主要关注点。我们开发了一种新方法，用于解决一般一维马尔可夫过程（包括时间非齐次过程）以及机制转换和随机波动率模型下回撤过程的首达时问题。我们基于连续时间马尔可夫链（CTMC）近似计算其拉普拉斯变换，并通过数值反演拉普拉斯变换获得首达概率和最大回撤的分布。我们证明了该方法对一般马尔可夫模型的收敛性，并为一般跳跃扩散模型类别提供了收敛速度的精确估计。我们将该方法应用于最大回撤期权的定价和对冲，并通过各种数值实验展示了其准确性和效率。此外，我们还可以将我们的方法应用于计算卡尔马比率以进行投资分析，并在资产遵循多元指数Lévy模型时，量化资产对投资组合回撤风险的贡献。",
+      "doi": "10.1016/j.jedc.2023.104669",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188923000751",
+      "publication_date": "July 2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-dynamics-and-control/vol/152/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0165188923000751",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-18T18:41:39+00:00",
+        "source_hash": "9e7e2e908289622e21fb0dd9840d2a5a38fb288899cfaf85652b5196786ed187"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jedc.2023.104673",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Acquiring for innovation: Evidence from the U.S. technology industry",
+      "title_cn": "为创新而收购：来自美国技术产业的证据",
+      "authors": [
+        "Kaufmann, Mattheo",
+        "Schiereck, Dirk"
+      ],
+      "abstract_en": "We investigate the effect of corporate innovation on mergers and acquisitions (M&A). Using a sample of 786 public-to-public transactions in the U.S. technology sector, we show that acquirers are willing to pay higher premiums for more innovative target firms. This effect is amplified by the acquirer's own level of innovativeness as more innovative acquirers are willing to pay higher premiums for innovative targets than non-innovative acquirers. We further document significant strategic reactions of rival firms. In the aftermath of the M&A, all acquirer rivals increase their R&D spending but the effect is more pronounced for innovative rivals than for non-innovative ones. Innovative acquirer rivals are also more likely to acquire a technology firm in the aftermath of their competitor's M&A announcement than their non-innovative peers. The similarity between acquirers and their rivals shrinks in the post-acquisition period, which may be caused by rival firms extending the breadth of their technological search in response to the acquisition.",
+      "abstract_cn": "我们研究了企业创新对并购（M&A）的影响。利用美国技术部门786起上市公司间交易的样本，我们表明收购方愿意为更具创新性的目标公司支付更高的溢价。这一效应因收购方自身的创新水平而增强，因为更具创新性的收购方比非创新性收购方更愿意为创新目标支付更高的溢价。我们进一步记录了竞争对手企业的显著战略反应。在并购之后，所有收购方的竞争对手都增加了研发支出，但这一效应对创新性竞争对手比非创新性竞争对手更为显著。创新性收购方竞争对手在其竞争对手的并购公告之后也更有可能收购一家科技公司，而非创新性同行则不然。收购方与其竞争对手之间的相似性在收购后时期缩小，这可能是由于竞争对手企业为应对收购而扩展了其技术搜索的广度。",
+      "doi": "10.1016/j.jedc.2023.104673",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0165188923000799",
+      "publication_date": "July 2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-economic-dynamics-and-control/vol/152/suppl/C",
+        "roster": "official-sciencedirect-browser",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0165188923000799",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-18T18:41:46+00:00",
+        "source_hash": "4ab461e52271e34bd902a5f8ad9feb98dffe93f071a9d8da19fbf6f130d7c8ec"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_authority": "official-issue-page",
+    "roster_transport": "browser-authorized-local",
+    "official_item_count": 4,
+    "excluded_items": [],
+    "doi_complete": 4,
+    "authors_complete": 4,
+    "abstract_en_complete": 4,
+    "translation_complete": 4,
+    "duplicate_count": 0,
+    "flags": [],
+    "browser_capture": {
+      "captured_at": "2026-08-26T19:44:30.335Z",
+      "institutional_access_confirmed": true,
+      "privacy_fields_stored": false
+    },
+    "publishable_item_count": 4,
+    "excluded_item_count": 0,
+    "content_counts": {
+      "official_items": 4,
+      "observed_items": 4,
+      "publishable_items": 4,
+      "research_articles": 4,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 4
+    }
+  },
+  "content_counts": {
+    "official_items": 4,
+    "observed_items": 4,
+    "publishable_items": 4,
+    "research_articles": 4,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 4
+  },
+  "content_status": "complete",
+  "source_status": "official_verified"
+}
