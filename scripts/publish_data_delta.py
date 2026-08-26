@@ -206,13 +206,34 @@ def _merge_backfill_state_json(
     ):
         return None
 
-    try:
-        from scripts.merge_history_shards import _attempt_stamp, _publication_rank
-    except Exception:
-        return None
-
     missing = object()
     merged = dict(target_value)
+
+    state_rank = {
+        "ready": 4,
+        "translation_partial": 3,
+        "source_pending": 2,
+        "enriching": 1,
+        "blocked": 0,
+    }
+
+    def issue_rank(payload: dict) -> tuple[int, int, int]:
+        publication_state = (
+            payload.get("publication_state") or payload.get("status") or "blocked"
+        )
+        return (
+            state_rank.get(str(publication_state), 0),
+            int(payload.get("content_status") == "complete"),
+            int(
+                payload.get("source_status")
+                in {"official_verified", "publisher_verified"}
+            ),
+        )
+
+    def issue_stamp(payload: dict) -> str:
+        return str(
+            payload.get("last_attempt_at") or payload.get("updated_at") or ""
+        )
 
     def choose_issue(existing: object, incoming: object) -> object:
         if existing is missing:
@@ -221,14 +242,14 @@ def _merge_backfill_state_json(
             return existing
         if not isinstance(existing, dict) or not isinstance(incoming, dict):
             return incoming
-        existing_rank = _publication_rank(existing)
-        incoming_rank = _publication_rank(incoming)
+        existing_rank = issue_rank(existing)
+        incoming_rank = issue_rank(incoming)
         if existing_rank > incoming_rank:
             return existing
         if incoming_rank > existing_rank:
             return incoming
-        existing_stamp = _attempt_stamp(existing)
-        incoming_stamp = _attempt_stamp(incoming)
+        existing_stamp = issue_stamp(existing)
+        incoming_stamp = issue_stamp(incoming)
         if existing_stamp and existing_stamp >= incoming_stamp:
             return existing
         return incoming
