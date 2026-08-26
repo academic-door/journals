@@ -15,7 +15,8 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         workflow = self.workflow()
         repair = workflow.index("python scripts/repair_history_dates.py")
         audit = workflow.index("python scripts/audit_public_data.py --strict-provenance")
-        self.assertIn("--journal JPubE", workflow[repair:audit])
+        for journal in ("JPubE", "ENERGY", "ECOLECON", "JUE", "JET", "JEDC", "JOE", "JFE"):
+            self.assertIn(f"--journal {journal}", workflow[repair:audit])
         self.assertLess(repair, audit)
 
     def test_can_reuse_successful_shards_without_recollecting(self) -> None:
