@@ -196,7 +196,7 @@ jobs:
             --path public/api/v1/journals \
             --path data/translation-cache \
             --path data/backfill-state \
-            --path data/backfill-staging
+            --path data/backfill-staging \\
             --path data/provenance/official-rosters \
             --exclude 'public/api/v1/journals/*/issues/index.json'
 
@@ -405,7 +405,7 @@ jobs:
             --path public/api/v1/journals \
             --path data/translation-cache \
             --path data/backfill-state \
-            --path data/backfill-staging
+            --path data/backfill-staging \\
             --path data/provenance/official-rosters \
             --exclude 'public/api/v1/journals/*/issues/index.json'
           git fetch origin data
@@ -418,7 +418,7 @@ jobs:
             --path public/api/v1/journals \
             --path data/translation-cache \
             --path data/backfill-state \
-            --path data/backfill-staging
+            --path data/backfill-staging \\
             --path data/provenance/official-rosters \
             --exclude 'public/api/v1/journals/*/issues/index.json'
           rm -rf "$data_tree/public/api"
