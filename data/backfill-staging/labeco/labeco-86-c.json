@@ -7,10 +7,10 @@
   "issue": "C",
   "publication_date": "February 2024",
   "source_url": "https://ideas.repec.org/s/eee/labeco.html",
-  "retrieved_at": "2026-08-22T22:56:22+00:00",
+  "retrieved_at": "2026-08-26T11:20:57+00:00",
   "expected_article_count": 4,
   "research_article_count": 4,
-  "status": "incomplete",
+  "status": "ready",
   "articles": [
     {
       "paper_id": "doi:10.1016/j.labeco.2023.102466",
@@ -58,14 +58,14 @@
       "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Becoming neighbors with refugees and voting for the far-right? The impact of refugee inflows at the small-scale level",
-      "title_cn": "",
+      "title_cn": "与难民为邻并投票给极右翼？小尺度上难民流入的影响",
       "authors": [
         "Melinda Fremerey",
         "Lukas Hörnig",
         "Sandra Schaffner"
       ],
       "abstract_en": "We investigate the effect of the refugee inflow between 2014 and 2017 on the electoral support for far-right parties in the 2017 German federal election. Leveraging unique, fine-grained data, we differentiate between the impact of refugee inflow at two distinct geographic scales: the immediate neighborhood (1km x 1km) and the county level. To address potential endogeneity concerns, we employ past settlement patterns as instrumental variables. Our results reveal noteworthy variations across geographic scales and regions. We find that refugee inflows lead to an increase in far-right vote shares at the county level, while we observe a negative but statistically insignificant effect at the grid cell level. This negative neighborhood effect attains statistical significance in West Germany, particularly in urban counties, aligning with the contact hypothesis. We find no significant effect in rural areas, and a positive impact of the inflow rate at the county level in West Germany, suggesting a contrasting effect beyond the immediate local vicinity. Despite the fact that support for far-right parties is most pronounced in East Germany, our analysis does not yield robust evidence of a statistically significant relationship in this region.",
-      "abstract_cn": "",
+      "abstract_cn": "我们研究了2014至2017期间难民流入对2017德国联邦选举中极右翼政党选举支持的影响。利用独特的细粒度数据，我们区分了难民流入在两个不同地理尺度上的影响：直接邻里（1km x 1km）和县级。为解决潜在的内生性问题，我们采用过去的定居模式作为工具变量。我们的结果揭示了地理尺度和区域间的显著差异。我们发现难民流入导致县级极右翼选票份额增加，而在网格单元层面我们观察到负向但统计上不显著的影响。这种负向邻里效应在西德，特别是在城市县，达到统计显著性，与接触假说一致。我们在农村地区未发现显著效应，而在西德县级流入率有正向影响，表明在直接邻近区域之外存在对比效应。尽管极右翼政党的支持在东德最为明显，但我们的分析并未在该地区产生统计上显著关系的稳健证据。",
       "doi": "10.1016/j.labeco.2023.102467",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0927537123001422",
       "publication_date": "February 2024",
@@ -77,15 +77,15 @@
         "repec": "https://ideas.repec.org/a/eee/labeco/v86y2024ics0927537123001422.html"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-25T19:12:26+00:00",
+        "source_hash": "3a53636093ac2b61d4dfdceeb543d6b78889617c3e0512365ea08ae2332ff0f7"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -188,12 +188,10 @@
     "doi_complete": 4,
     "authors_complete": 4,
     "abstract_en_complete": 4,
-    "translation_complete": 3,
+    "translation_complete": 4,
     "duplicate_count": 0,
     "repec_item_count": 4,
-    "flags": [
-      "translation_incomplete"
-    ],
+    "flags": [],
     "official_item_count": 4,
     "publishable_item_count": 4,
     "content_counts": {
@@ -224,7 +222,7 @@
     "catalog_content_items": 4
   },
   "issue_label": "Vol. 86",
-  "content_status": "translation_partial",
+  "content_status": "complete",
   "source_status": "publisher_verified",
-  "publication_state": "translation_partial"
+  "publication_state": "ready"
 }

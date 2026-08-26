@@ -7,10 +7,10 @@
   "issue": "C",
   "publication_date": "February 2023",
   "source_url": "https://ideas.repec.org/s/eee/juecon.html",
-  "retrieved_at": "2026-08-17T22:59:44+00:00",
+  "retrieved_at": "2026-08-26T11:21:25+00:00",
   "expected_article_count": 5,
   "research_article_count": 5,
-  "status": "incomplete",
+  "status": "ready",
   "articles": [
     {
       "paper_id": "doi:10.1016/j.jue.2023.103543",
@@ -184,12 +184,12 @@
       "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "Locating Public Facilities: Theory and Micro Evidence from Paris",
-      "title_cn": "",
+      "title_cn": "公共设施的选址：理论与来自巴黎的微观证据",
       "authors": [
         "Gabriel Loumeau"
       ],
       "abstract_en": "This paper proposes a novel approach to evaluate location decisions for public facilities. The approach addresses, not only the standard distance-minimizing problem, but also the endogenous location decisions of individuals. The paper develops a quantifiable general equilibrium model with endogenous (residential and commercial) densities, housing prices, commutes to work, as well as to public/private facilities. The framework is applied to the case of secondary schools in Paris’ greater region at a 1km2 geographical scale. The analysis reveals that the observed location decisions made between 2001 and 2015 underestimate the endogenous reaction of individuals. A more decentralized strategy is predicted to increase welfare growth by 10 percent, reduce density in Paris’ center, and shorten commuting times to school globally.",
-      "abstract_cn": "",
+      "abstract_cn": "本文提出了一种评估公共设施选址决策的新方法。该方法不仅解决了标准的距离最小化问题，还考虑了个体选址决策的内生性。本文构建了一个可量化的一般均衡模型，其中包含内生的（住宅和商业）密度、房价、通勤（包括上班和前往公共/私人设施）等因素。该框架应用于巴黎大区中学的案例，地理尺度为1平方公里。分析表明，在2001至2015期间观察到的选址决策低估了个体的内生反应。预测显示，一种更加分散化的策略将使福利增长提高10%，降低巴黎市中心的密度，并缩短全球范围内的上学通勤时间。",
       "doi": "10.1016/j.jue.2023.103544",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S009411902300013X",
       "publication_date": "February 2023",
@@ -201,15 +201,15 @@
         "repec": "https://ideas.repec.org/a/eee/juecon/v135y2023ics009411902300013x.html"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-26T11:21:29+00:00",
+        "source_hash": "24afcb554e0a15f4e518c4aacc7af25c083c740eb92d963eceb12828f2d41982"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -229,12 +229,10 @@
     "doi_complete": 5,
     "authors_complete": 5,
     "abstract_en_complete": 5,
-    "translation_complete": 4,
+    "translation_complete": 5,
     "duplicate_count": 0,
     "repec_item_count": 5,
-    "flags": [
-      "translation_incomplete"
-    ],
+    "flags": [],
     "official_item_count": 5,
     "publishable_item_count": 5,
     "content_counts": {
@@ -265,7 +263,7 @@
     "catalog_content_items": 5
   },
   "issue_label": "Vol. 135",
-  "content_status": "translation_partial",
+  "content_status": "complete",
   "source_status": "publisher_verified",
-  "publication_state": "translation_partial"
+  "publication_state": "ready"
 }

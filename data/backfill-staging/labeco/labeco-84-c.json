@@ -7,10 +7,10 @@
   "issue": "C",
   "publication_date": "February 2023",
   "source_url": "https://ideas.repec.org/s/eee/labeco.html",
-  "retrieved_at": "2026-08-22T22:55:06+00:00",
+  "retrieved_at": "2026-08-26T11:20:51+00:00",
   "expected_article_count": 25,
   "research_article_count": 25,
-  "status": "incomplete",
+  "status": "ready",
   "articles": [
     {
       "paper_id": "doi:10.1016/j.labeco.2023.102363",
@@ -502,7 +502,7 @@
       "source_sequence": 13,
       "article_type": "research-article",
       "title_en": "The effect of preserving job matches during a crisis",
-      "title_cn": "",
+      "title_cn": "危机期间保留工作匹配的效果",
       "authors": [
         "Morten Bennedsen",
         "Birthe Larsen",
@@ -510,7 +510,7 @@
         "Daniela Scur"
       ],
       "abstract_en": "It is generally difficult to measure the importance of preserving worker-firm relationships, particularly for low-wage jobs that involve general skills. The COVID-19 pandemic led to the sudden and seemingly temporary disruption of millions of otherwise productive employment relationships around the world. Using novel administrative and survey data from Denmark, we study a policy where firms paid up to 25% of wages to furlough instead of firing workers. We find that aid-taking firms furloughed about 24pp more workers, a large share of whom would have otherwise been laid off, and this had a positive impact on subsequent firm survival, employment growth and sales. Further, we find firms derive value from maintaining ties to low-wage and blue collar workers and that preserving those matches is beneficial to firms, suggesting policies that preserve job matches may help speed-up recovery.",
-      "abstract_cn": "",
+      "abstract_cn": "通常难以衡量保留工人与企业关系的重要性，尤其是涉及通用技能的低工资工作。COVID-19大流行导致全球数百万原本富有生产力的雇佣关系突然且看似暂时地中断。利用来自丹麦的新颖行政和调查数据，我们研究了一项政策，即企业支付高达25%的工资以让工人暂时休假而非解雇。我们发现，接受援助的企业让约24个百分点的更多工人休假，其中很大一部分原本会被解雇，这对随后的企业生存、就业增长和销售产生了积极影响。此外，我们发现企业从维持与低工资和蓝领工人的联系中获得价值，并且保留这些匹配对企业有益，这表明保留工作匹配的政策可能有助于加速复苏。",
       "doi": "10.1016/j.labeco.2023.102406",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0927537123000817",
       "publication_date": "February 2023",
@@ -522,15 +522,15 @@
         "repec": "https://ideas.repec.org/a/eee/labeco/v84y2023ics0927537123000817.html"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-26T11:20:55+00:00",
+        "source_hash": "b895036e5b1f18d623756f4cf1a0b1b33482c6fe43876308df54d56540cbfd79"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -1038,12 +1038,10 @@
     "doi_complete": 25,
     "authors_complete": 25,
     "abstract_en_complete": 25,
-    "translation_complete": 24,
+    "translation_complete": 25,
     "duplicate_count": 0,
     "repec_item_count": 25,
-    "flags": [
-      "translation_incomplete"
-    ],
+    "flags": [],
     "official_item_count": 25,
     "publishable_item_count": 25,
     "content_counts": {
@@ -1074,7 +1072,7 @@
     "catalog_content_items": 25
   },
   "issue_label": "Vol. 84",
-  "content_status": "translation_partial",
+  "content_status": "complete",
   "source_status": "publisher_verified",
-  "publication_state": "translation_partial"
+  "publication_state": "ready"
 }

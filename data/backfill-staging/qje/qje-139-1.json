@@ -7,7 +7,7 @@
   "issue": "1",
   "publication_date": "February 2024",
   "source_url": "https://academic.oup.com/qje/issue/139/1",
-  "retrieved_at": "2026-08-14T04:43:24+00:00",
+  "retrieved_at": "2026-08-26T11:21:40+00:00",
   "expected_article_count": 12,
   "research_article_count": 12,
   "status": "incomplete",
@@ -19,7 +19,7 @@
       "source_sequence": 1,
       "article_type": "research-article",
       "title_en": "Predicting and Preventing Gun Violence: An Experimental Evaluation of READI Chicago",
-      "title_cn": "",
+      "title_cn": "预测与预防枪支暴力：READI芝加哥项目的实验评估",
       "authors": [
         "Monica P Bhatt",
         "Sara B Heller",
@@ -28,7 +28,7 @@
         "Christopher Blattman"
       ],
       "abstract_en": "Gun violence is the most pressing public safety problem in U.S. cities. We report results from a randomized controlled trial (N = 2,456) of a community-researcher partnership called the Rapid Employment and Development Initiative (READI) Chicago. The program offered an 18-month job alongside cognitive behavioral therapy and other social support. Both algorithmic and human referral methods identified men with strikingly high scope for gun violence reduction: for every 100 people in the control group, there were 11 shooting and homicide victimizations during the 20-month outcome period. Fifty-five percent of the treatment group started programming, comparable to take-up rates in programs for people facing far lower mortality risk. After 20 months, there is no statistically significant change in an index combining three measures of serious violence, the study’s primary outcome. Yet there are signs that this program model has promise. One of the three measures, shooting and homicide arrests, declined 65% (p = .13 after multiple-testing adjustment). Because shootings are so costly, READI generated estimated social savings between ${\\$}$182,000 and ${\\$}$916,000 per participant (p = .03), implying a benefit-cost ratio between 4:1 and 18:1. Moreover, participants referred by outreach workers—a prespecified subgroup—saw enormous declines in arrests and victimizations for shootings and homicides (79% and 43%, respectively) which remain statistically significant even after multiple-testing adjustments. These declines are concentrated among outreach referrals with higher predicted risk, suggesting that human and algorithmic targeting may work better together.",
-      "abstract_cn": "",
+      "abstract_cn": "枪支暴力是美国城市中最紧迫的公共安全问题。我们报告了一项名为“快速就业与发展倡议”（READI）芝加哥的社区-研究者合作项目的随机对照试验（N = 2,456）结果。该项目提供了为期18个月的工作，同时辅以认知行为疗法和其他社会支持。算法和人工推荐方法均识别出枪支暴力减少潜力极高的男性：对照组中每100人，在20个月的结果期内就有11起枪击和凶杀受害事件。治疗组中有百分之五十五的人开始参与项目，与面向死亡风险远低于此人群的项目的参与率相当。在20个月后，结合三项严重暴力指标的综合指数（研究的主要结果）没有统计学显著变化。然而，有迹象表明这种项目模式具有前景。三项指标之一，即枪击和凶杀逮捕，下降了65%（多重检验调整后p = .13）。由于枪击事件代价高昂，READI项目估计每位参与者产生了{\\$}$182,000至{\\$}$916,000的社会节省（p = .03），意味着效益成本比在4:1和18:1之间。此外，由外展工作人员推荐的参与者（一个预先指定的亚组）在枪击和凶杀的逮捕及受害方面出现了大幅下降（分别为79%和43%），即使在多重检验调整后仍具有统计学显著性。这些下降集中在预测风险较高的外展推荐人群中，表明人工和算法目标定位可能更好地协同工作。",
       "abstract_snippet_en": "",
       "doi": "10.1093/qje/qjad031",
       "source_url": "https://doi.org/10.1093/qje/qjad031",
@@ -40,15 +40,15 @@
         "abstract_en": "crossref"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-25T20:03:38+00:00",
+        "source_hash": "2edf09dca416799f454b543dff51947617e0110503fad3e0f9ff4fb5e5bc60d9"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -525,12 +525,11 @@
     "doi_complete": 12,
     "authors_complete": 12,
     "abstract_en_complete": 12,
-    "translation_complete": 11,
+    "translation_complete": 12,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster",
-      "translation_incomplete"
+      "crossref_provisional_roster"
     ],
     "official_item_count": 12,
     "publishable_item_count": 12,
@@ -549,7 +548,7 @@
     }
   },
   "source_status": "source_pending",
-  "publication_state": "translation_partial",
+  "publication_state": "source_pending",
   "content_counts": {
     "official_items": 12,
     "observed_items": 12,
@@ -564,5 +563,5 @@
     "catalog_content_items": 12
   },
   "issue_label": "Vol. 139 · No. 1",
-  "content_status": "translation_partial"
+  "content_status": "complete"
 }
