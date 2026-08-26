@@ -7,7 +7,7 @@
   "issue": "3",
   "publication_date": "May 2023",
   "source_url": "https://onlinelibrary.wiley.com/toc/14680262/2023/91/3",
-  "retrieved_at": "2026-08-26T08:18:28+00:00",
+  "retrieved_at": "2026-08-18T17:07:20+00:00",
   "expected_article_count": 10,
   "research_article_count": 10,
   "status": "incomplete",
@@ -179,8 +179,49 @@
       }
     },
     {
-      "paper_id": "doi:10.3982/ecta14008",
+      "paper_id": "doi:10.3982/ecta18180",
       "sequence": 5,
+      "source_sequence": 869,
+      "article_type": "research-article",
+      "title_en": "Financial Frictions and the Wealth Distribution",
+      "title_cn": "金融摩擦与财富分配",
+      "authors": [
+        "Jesús Fernández-Villaverde",
+        "Samuel Hurtado",
+        "Galo Nuño"
+      ],
+      "abstract_en": "We postulate a continuous‐time heterogeneous agent model with a financial sector and households to study the nonlinear linkages between aggregate and financial variables. In our model, the interaction between the supply of bonds by the financial sector and the precautionary demand for bonds by households produces significant endogenous aggregate risk . This risk makes the economy transition between a high‐leverage region and a low‐leverage region, which, in turn, creates state dependence in impulse responses: the same shock starting from the high‐leverage region gets propagated and amplified more than when the shock arrives when leverage is low. State dependence in impulse responses generates a time‐varying aggregate precautionary savings motive that, by moving the risk‐free rate, justifies the leverage level of the financial sector in each region. Finally, we illustrate the usefulness of neutral networks to solve for the nonlinear perceived law of motion of the model, and the importance of household heterogeneity in driving its quantitative properties.",
+      "abstract_cn": "我们构建了一个包含金融部门和家庭的连续时间异质性主体模型，以研究总量变量与金融变量之间的非线性联系。在我们的模型中，金融部门债券供给与家庭预防性债券需求之间的相互作用产生了显著的内生总体风险。这种风险使经济在高杠杆区域和低杠杆区域之间转换，进而造成脉冲响应的状态依赖性：相同的冲击，若从高杠杆区域出发，其传导和放大效应强于杠杆较低时到达的冲击。脉冲响应的状态依赖性产生了随时间变化的总体预防性储蓄动机，该动机通过影响无风险利率，证明了金融部门在各区域杠杆水平的合理性。最后，我们展示了神经网络在求解模型非线性感知运动规律方面的实用性，以及家庭异质性在驱动其定量性质中的重要性。",
+      "abstract_snippet_en": "",
+      "doi": "10.3982/ecta18180",
+      "source_url": "https://doi.org/10.3982/ecta18180",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/14680262/2023/91/3",
+        "roster": "crossref:issn:0012-9682",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-10T23:10:52+00:00",
+        "source_hash": "0c6638a7eb06f9cddbcc556ad0542c20db9e503ecba33c8463df52dda0206cfa"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/ecta14008",
+      "sequence": 6,
       "source_sequence": 903,
       "article_type": "research-article",
       "title_en": "Searching for Job Security and the Consequences of Job Loss",
@@ -218,20 +259,20 @@
       }
     },
     {
-      "paper_id": "doi:10.3982/ecta17068",
-      "sequence": 6,
-      "source_sequence": 943,
+      "paper_id": "doi:10.3982/ecta16755",
+      "sequence": 7,
+      "source_sequence": 979,
       "article_type": "research-article",
-      "title_en": "A Sieve‐SMM Estimator for Dynamic Models",
-      "title_cn": "动态模型的筛子模拟矩估计法",
+      "title_en": "Decomposing the Growth of Top Wealth Shares",
+      "title_cn": "分解顶层财富份额的增长",
       "authors": [
-        "Jean-Jacques Forneron"
+        "Matthieu Gomez"
       ],
-      "abstract_en": "This paper proposes a Sieve Simulated Method of Moments (Sieve‐SMM) estimator for the parameters and the distribution of the shocks in nonlinear dynamic models where the likelihood and the moments are not tractable. An important concern with SMM, which matches sample with simulated moments, is that a parametric distribution is required. However, economic quantities that depend on this distribution, such as welfare and asset prices, can be sensitive to misspecification. The Sieve‐SMM estimator addresses this issue by flexibly approximating the distribution of the shocks with a Gaussian and tails mixture sieve. The asymptotic framework provides consistency, rate of convergence, and asymptotic normality results, extending existing results to a new framework with more general dynamics and latent variables. An application to asset pricing in a production economy shows a large decline in the estimates of relative risk aversion, highlighting the empirical relevance of misspecification bias.",
-      "abstract_cn": "本文针对似然函数和矩条件难以处理的非线性动态模型，提出了一种用于估计参数和冲击分布的筛子模拟矩（Sieve‐SMM）估计法。SMM方法通过匹配样本矩与模拟矩，其一个重要问题是需要参数化分布。然而，依赖于该分布的经济量，如福利和资产价格，可能对设定错误敏感。筛子‐SMM估计法通过使用高斯和尾部混合筛子灵活逼近冲击分布来解决这一问题。渐近框架提供了一致性、收敛速度和渐近正态性结果，将现有结果扩展到具有更一般动态和潜在变量的新框架。在生产经济中的资产定价应用显示，相对风险厌恶的估计值大幅下降，凸显了设定错误偏差的经验相关性。",
+      "abstract_en": "What drives the dynamics of top wealth inequality? To answer this question, I propose an accounting framework that decomposes the growth of the share of aggregate wealth owned by a top percentile into three terms: a within term, which is the average wealth growth of individuals initially in the top percentile relative to the economy; a between term, which accounts for individuals entering and exiting the top percentile due to changes in their relative wealth rankings; and a demography term, which accounts for individuals entering or exiting the top percentile due to death and population growth. I obtain closed‐form expressions for each term in a wide range of random growth models. Evidence from the Forbes 400 list suggests that the between term accounts for half of the recent rise in top wealth inequality.",
+      "abstract_cn": "是什么驱动了顶层财富不平等的动态？为了回答这个问题，我提出了一个会计框架，将顶层百分位所拥有的总财富份额的增长分解为三个项：内部项，即初始处于顶层百分位的个体相对于经济的平均财富增长；流动项，即由于相对财富排名变化而进入和退出顶层百分位的个体；以及人口项，即由于死亡和人口增长而进入或退出顶层百分位的个体。我在广泛的随机增长模型中获得了每一项的闭式表达式。来自福布斯400榜单的证据表明，流动项解释了近期顶层财富不平等上升的一半。",
       "abstract_snippet_en": "",
-      "doi": "10.3982/ecta17068",
-      "source_url": "https://doi.org/10.3982/ecta17068",
+      "doi": "10.3982/ecta16755",
+      "source_url": "https://doi.org/10.3982/ecta16755",
       "publication_date": "2023",
       "sources": {
         "issue": "https://onlinelibrary.wiley.com/toc/14680262/2023/91/3",
@@ -245,8 +286,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "deepseek-chat",
-        "translated_at": "2026-08-26T07:36:59+00:00",
-        "source_hash": "be0eef8efd35f43064a10c6be0350c34527e26bc4e8bd51d657f59c3fc17c023"
+        "translated_at": "2026-08-10T23:10:57+00:00",
+        "source_hash": "3203d8a4d6254b3568ac72b890127fc64887c739b5522df94e69f3e1227b52b7"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -258,7 +299,7 @@
     },
     {
       "paper_id": "doi:10.3982/ecta18742",
-      "sequence": 7,
+      "sequence": 8,
       "source_sequence": 1025,
       "article_type": "research-article",
       "title_en": "Relational Contracts: Public versus Private Savings",
@@ -287,47 +328,6 @@
         "model": "deepseek-chat",
         "translated_at": "2026-08-10T23:10:59+00:00",
         "source_hash": "068876dff2ad45b1fe84ba4d2e2070df36764e0021f2a60a80a32ac52d482a4a"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.3982/ecta18600",
-      "sequence": 8,
-      "source_sequence": 1077,
-      "article_type": "research-article",
-      "title_en": "Pareto‐Improving Tax Reforms and the Earned Income Tax Credit",
-      "title_cn": "帕累托改进的税收改革与劳动所得税抵免",
-      "authors": [
-        "Felix J. Bierbrauer",
-        "Pierre C. Boyer",
-        "Emanuel Hansen"
-      ],
-      "abstract_en": "We develop a new approach for the identification of Pareto‐improving tax reforms. This approach yields necessary and sufficient conditions for the existence of Pareto‐improving reform directions. A main insight is that “Two brackets are enough”: When the system cannot be improved by altering tax rates in one or two income brackets, then there is no continuous reform direction that is Pareto‐improving. We also show how to check whether a given tax reform is Pareto‐improving. We use these tools to study the introduction of the Earned Income Tax Credit (EITC) in the United States in 1975. A robust finding is that, prior to the EITC, the U.S. tax‐transfer system was not Pareto‐efficient. Under plausible assumptions about behavioral responses, the 1975 reform was not Pareto‐improving. Qualitatively, though, it had the right properties: A similar reform with earnings subsidies made available to a broader range of incomes would have been Pareto‐improving.",
-      "abstract_cn": "我们开发了一种识别帕累托改进税收改革的新方法。该方法为帕累托改进改革方向的存在性提供了必要且充分的条件。一个主要见解是：“两个税档就足够了”：当系统无法通过改变一个或两个收入税档的税率来改进时，则不存在连续的帕累托改进改革方向。我们还展示了如何检验给定的税收改革是否为帕累托改进。我们利用这些工具来研究美国在1975年引入劳动所得税抵免（EITC）的情况。一个稳健的发现是，在EITC实施之前，美国的税收转移系统并非帕累托有效。在关于行为反应的合理假设下，1975年的改革并非帕累托改进。然而，从性质上讲，它具有正确的属性：一项类似的改革，若将收入补贴扩展到更广泛的收入范围，本可以是帕累托改进的。",
-      "abstract_snippet_en": "",
-      "doi": "10.3982/ecta18600",
-      "source_url": "https://doi.org/10.3982/ecta18600",
-      "publication_date": "2023",
-      "sources": {
-        "issue": "https://onlinelibrary.wiley.com/toc/14680262/2023/91/3",
-        "roster": "crossref:issn:0012-9682",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-26T07:36:59+00:00",
-        "source_hash": "7e81cd212ab181f22e8fcda1d2ea0d2e61b462f9c7e7542fd8425431915542a3"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -424,18 +424,18 @@
     "roster_authority": "crossref-provisional",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
-    "excluded_item_count": 7,
+    "excluded_item_count": 6,
     "excluded_items": [
+      {
+        "title_en": "Erratum to “Savage's P3 is Redundant”",
+        "reason": "correction_notice",
+        "doi": "10.3982/ecta21641",
+        "article_type": "correction"
+      },
       {
         "title_en": "Frontmatter of Econometrica Vol. 91 Iss. 3",
         "reason": "front_matter",
         "doi": "10.3982/ecta913fm",
-        "article_type": "front-matter"
-      },
-      {
-        "title_en": "Backmatter of Econometrica Vol. 91 Iss. 3",
-        "reason": "front_matter",
-        "doi": "10.3982/ecta913bm",
         "article_type": "front-matter"
       },
       {
@@ -445,16 +445,10 @@
         "article_type": "correction"
       },
       {
-        "title_en": "Corrigendum: Long‐Term Contracting With Time‐Inconsistent Agents",
-        "reason": "correction_notice",
-        "doi": "10.3982/ecta21301",
-        "article_type": "correction"
-      },
-      {
-        "title_en": "Erratum to “Savage's P3 is Redundant”",
-        "reason": "correction_notice",
-        "doi": "10.3982/ecta21641",
-        "article_type": "correction"
+        "title_en": "Backmatter of Econometrica Vol. 91 Iss. 3",
+        "reason": "front_matter",
+        "doi": "10.3982/ecta913bm",
+        "article_type": "front-matter"
       },
       {
         "title_en": "The Econometric Society 2022 Annual Report of the President",
@@ -463,10 +457,10 @@
         "article_type": "editorial"
       },
       {
-        "title_en": "Forthcoming Papers",
-        "doi": "10.3982/ecta913forth",
-        "article_type": "front-matter",
-        "reason": "front_matter"
+        "title_en": "Corrigendum: Long‐Term Contracting With Time‐Inconsistent Agents",
+        "reason": "correction_notice",
+        "doi": "10.3982/ecta21301",
+        "article_type": "correction"
       }
     ],
     "doi_complete": 10,
@@ -480,18 +474,18 @@
       "abstract_en_incomplete",
       "translation_incomplete"
     ],
-    "official_item_count": 17,
+    "official_item_count": 16,
     "publishable_item_count": 10,
     "content_counts": {
-      "official_items": 17,
-      "observed_items": 17,
+      "official_items": 16,
+      "observed_items": 16,
       "publishable_items": 10,
       "research_articles": 10,
       "comments": 0,
       "short_communications": 0,
       "corrections": 3,
       "editorial_material": 1,
-      "front_matter": 3,
+      "front_matter": 2,
       "other_excluded": 0,
       "catalog_content_items": 13
     }
@@ -499,15 +493,15 @@
   "source_status": "source_pending",
   "publication_state": "blocked",
   "content_counts": {
-    "official_items": 17,
-    "observed_items": 17,
+    "official_items": 16,
+    "observed_items": 16,
     "publishable_items": 10,
     "research_articles": 10,
     "comments": 0,
     "short_communications": 0,
     "corrections": 3,
     "editorial_material": 1,
-    "front_matter": 3,
+    "front_matter": 2,
     "other_excluded": 0,
     "catalog_content_items": 13
   },

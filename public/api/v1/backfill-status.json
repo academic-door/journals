@@ -1,10 +1,10 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-08-26T09:10:39+00:00",
+  "updated_at": "2026-08-26T09:14:30+00:00",
   "summary": {
     "complete": 991,
-    "translation_partial": 16,
-    "blocked": 118,
+    "translation_partial": 17,
+    "blocked": 117,
     "collected": 0,
     "pending": 206
   },
@@ -7987,7 +7987,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "possible_incomplete_volume: 12 articles collected vs current issue 57; needs official page or browser-authorized capture",
+        "last_error": "possible_incomplete_volume: 7 articles collected vs current issue 57; needs official page or browser-authorized capture",
         "retry_class": "manual"
       },
       {
@@ -10049,8 +10049,8 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2026/13/5",
-        "retry_class": "manual"
+        "last_error": "MetadataFallbackError: Crossref returned no usable issue 13/5",
+        "retry_class": ""
       },
       {
         "issue_id": "jaere-13-6",
@@ -11630,7 +11630,7 @@
         "source_status": "source_pending",
         "publication_state": "blocked",
         "last_error": "MetadataFallbackError: Crossref returned no usable issue 191/",
-        "retry_class": "manual"
+        "retry_class": ""
       }
     ],
     "JEEA": [
@@ -13732,7 +13732,7 @@
         "source_status": "source_pending",
         "publication_state": "blocked",
         "last_error": "MetadataFallbackError: Crossref returned no usable issue 184/",
-        "retry_class": "manual"
+        "retry_class": ""
       }
     ],
     "JHE": [
@@ -14312,7 +14312,7 @@
         "source_status": "source_pending",
         "publication_state": "blocked",
         "last_error": "MetadataFallbackError: Crossref returned no usable issue 164/",
-        "retry_class": "manual"
+        "retry_class": ""
       }
     ],
     "JLE": [
@@ -15181,7 +15181,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "possible_incomplete_volume: 8 articles collected vs current issue 18; needs official page or browser-authorized capture",
+        "last_error": "possible_incomplete_volume: 7 articles collected vs current issue 18; needs official page or browser-authorized capture",
         "retry_class": "manual"
       },
       {
@@ -15217,7 +15217,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "possible_incomplete_volume: 4 articles collected vs current issue 18; needs official page or browser-authorized capture",
+        "last_error": "possible_incomplete_volume: 5 articles collected vs current issue 18; needs official page or browser-authorized capture",
         "retry_class": "manual"
       },
       {
@@ -16434,7 +16434,7 @@
         "source_status": "source_pending",
         "publication_state": "blocked",
         "last_error": "MetadataFallbackError: Crossref returned no usable issue 262/",
-        "retry_class": "manual"
+        "retry_class": ""
       }
     ],
     "JUE": [
@@ -16750,7 +16750,7 @@
         "source_status": "source_pending",
         "publication_state": "blocked",
         "last_error": "MetadataFallbackError: Crossref returned no usable issue 102/",
-        "retry_class": "manual"
+        "retry_class": ""
       },
       {
         "issue_id": "labeco-80-c",
@@ -16829,12 +16829,12 @@
         "year": 2024,
         "volume": "86",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "possible_incomplete_volume: 4 articles collected vs current issue 12; needs official page or browser-authorized capture",
-        "retry_class": "manual"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "publisher_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "labeco-87-c",
@@ -17750,7 +17750,7 @@
         "source_status": "source_pending",
         "publication_state": "blocked",
         "last_error": "MetadataFallbackError: Crossref returned no usable issue 171/",
-        "retry_class": "manual"
+        "retry_class": ""
       }
     ],
     "QE": [
@@ -17943,8 +17943,8 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "MetadataFallbackError: RePEc serial page has no issue 17/4",
-        "retry_class": "manual"
+        "last_error": "MetadataFallbackError: Crossref returned no usable recent issue",
+        "retry_class": ""
       }
     ],
     "QJE": [
@@ -17993,8 +17993,8 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "qje-139-2",
@@ -18551,8 +18551,8 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "res-90-6",
@@ -19722,7 +19722,7 @@
         "source_status": "source_pending",
         "publication_state": "blocked",
         "last_error": "MetadataFallbackError: Crossref returned no usable recent issue",
-        "retry_class": "manual"
+        "retry_class": ""
       },
       {
         "issue_id": "te-21-3",
@@ -19734,7 +19734,7 @@
         "source_status": "source_pending",
         "publication_state": "blocked",
         "last_error": "MetadataFallbackError: Crossref returned no usable recent issue",
-        "retry_class": "manual"
+        "retry_class": ""
       }
     ],
     "WD": [
@@ -20312,7 +20312,7 @@
         "source_status": "source_pending",
         "publication_state": "blocked",
         "last_error": "MetadataFallbackError: Crossref returned no usable issue 208/",
-        "retry_class": "manual"
+        "retry_class": ""
       }
     ]
   },
@@ -20320,13 +20320,13 @@
     "2023-2024": {
       "summary": {
         "complete": 486,
-        "translation_partial": 16,
-        "blocked": 93,
+        "translation_partial": 17,
+        "blocked": 92,
         "collected": 0,
         "pending": 113
       },
       "issue_count": 708,
-      "updated_at": "2026-08-26T08:46:25+00:00",
+      "updated_at": "2026-08-26T09:13:20+00:00",
       "coverage": {
         "discovered": 708,
         "archived": 599,
@@ -20573,7 +20573,7 @@
         "pending": 16
       },
       "issue_count": 300,
-      "updated_at": "2026-08-26T08:46:31+00:00",
+      "updated_at": "2026-08-24T13:07:44+00:00",
       "coverage": {
         "discovered": 428,
         "archived": 373,
@@ -21681,8 +21681,8 @@
     "2024": {
       "summary": {
         "complete": 255,
-        "translation_partial": 6,
-        "blocked": 43,
+        "translation_partial": 7,
+        "blocked": 42,
         "collected": 0,
         "pending": 51
       },

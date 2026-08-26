@@ -1,14 +1,14 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-08-26T09:10:56+00:00
+Generated: 2026-08-26T09:14:47+00:00
 
 ## Summary
 
-- browser_required: 27
+- browser_required: 26
 - ready: 991
 - recoverable: 91
-- source_pending: 201
-- translation_required: 21
+- source_pending: 199
+- translation_required: 24
 
 ## Issue queue
 
@@ -1056,7 +1056,7 @@ Generated: 2026-08-26T09:10:56+00:00
 | LABECO | labeco-83-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | LABECO | labeco-84-c | 2023 | translation_required | blocked | source_pending | archive_missing |
 | LABECO | labeco-85-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
-| LABECO | labeco-86-c | 2024 | browser_required | blocked | source_pending | archive_missing |
+| LABECO | labeco-86-c | 2024 | translation_required | blocked | source_pending | archive_missing |
 | LABECO | labeco-87-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | LABECO | labeco-88-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | LABECO | labeco-89-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
@@ -1152,7 +1152,7 @@ Generated: 2026-08-26T09:10:56+00:00
 | QJE | qje-138-2 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
 | QJE | qje-138-3 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
 | QJE | qje-138-4 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| QJE | qje-139-1 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
+| QJE | qje-139-1 | 2024 | translation_required | complete | source_pending | translation incomplete |
 | QJE | qje-139-2 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
 | QJE | qje-139-3 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
 | QJE | qje-139-4 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
@@ -1198,7 +1198,7 @@ Generated: 2026-08-26T09:10:56+00:00
 | RES | res-90-2 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
 | RES | res-90-3 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
 | RES | res-90-4 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| RES | res-90-5 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
+| RES | res-90-5 | 2023 | translation_required | complete | source_pending | translation incomplete |
 | RES | res-90-6 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
 | RES | res-91-1 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
 | RES | res-91-2 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
