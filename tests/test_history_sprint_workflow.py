@@ -65,6 +65,14 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         self.assertIn("python scripts/check_recovery_progress.py", workflow)
         self.assertIn("data/provenance/official-rosters", workflow)
 
+    def test_restores_browser_snapshots_from_the_data_branch(self) -> None:
+        workflow = self.workflow()
+        self.assertIn("data/provenance/browser-snapshots", workflow)
+        self.assertIn(
+            "git archive origin/data data/provenance/browser-snapshots | tar -x",
+            workflow,
+        )
+
     def test_passes_shared_semantic_scholar_key_without_exposing_it(self) -> None:
         workflow = self.workflow()
         self.assertIn(

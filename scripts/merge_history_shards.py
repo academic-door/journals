@@ -143,6 +143,10 @@ def merge_shards(root: Path, shards_root: Path) -> list[str]:
             shard / "data" / "provenance" / "official-rosters",
             root / "data" / "provenance" / "official-rosters",
         )
+        copy_tree_overlay(
+            shard / "data" / "provenance" / "browser-snapshots",
+            root / "data" / "provenance" / "browser-snapshots",
+        )
         cache_source = shard / "data" / "translation-cache"
         cache_target = root / "data" / "translation-cache"
         if cache_source.exists():
