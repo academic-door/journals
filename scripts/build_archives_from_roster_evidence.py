@@ -28,16 +28,21 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from collectors.article_types import (  # noqa: E402
+    PUBLISHABLE_TYPES,
     canonical_article_type,
     exclusion_reason,
     is_publishable_type,
     normalize_issue_taxonomy,
+    requires_abstract,
 )
 from collectors.metadata_fallback import (  # noqa: E402
+    CROSSREF_API,
     _authors,
     _clean_markup,
     _crossref_items,
     _date_year,
+    _get_json,
+    _openalex_metadata,
     _publication_date,
     _semantic_scholar_metadata_batch,
 )
@@ -62,6 +67,47 @@ DEFAULT_API_ROOT = ROOT / "public" / "api" / "v1"
 DEFAULT_STATE_ROOT = ROOT / "data" / "backfill-state"
 DEFAULT_STAGING_ROOT = ROOT / "data" / "backfill-staging"
 
+# Publisher TOC pages expose front-matter rows (Wiley "First Page",
+# "ANNOUNCEMENTS", conference programs, Chicago "Index to Volume", MIT Press
+# cover rows, ...) that carry a DOI but no authors or abstracts.  They must
+# never count as research articles, or they block the whole issue.  These
+# heuristics are scoped to official roster evidence so existing published
+# archives keep their historical classification.
+EVIDENCE_FRONT_MATTER_PATTERN = re.compile(
+    r"^\s*first\s+page\s*$|"
+    r"^\s*(?:front|back)\s+cover\b|^\s*cover\s+(?:image|art|picture)\b|"
+    r"^\s*announcements?\s*$|"
+    r"^\s*masthead\s*$|"
+    r"^\s*preliminary\s+program(?:me)?\b|"
+    r"^\s*participant\s+schedule\b|"
+    r"^\s*index\s+to\s+volume\b|^\s*(?:author|subject)\s+index\s*$|"
+    r"^\s*american\s+finance\s+association\s*$|"
+    r"^\s*volume\s+information\s*$|"
+    r"^\s*about\s+(?:this\s+)?journal\s*$",
+    re.IGNORECASE,
+)
+EVIDENCE_REPLY_PATTERN = re.compile(
+    r"^\s*(?:a\s+)?repl(?:y|ies)(?:\s+to)?\b|:\s*(?:a\s+)?repl(?:y|ies)\s*$",
+    re.IGNORECASE,
+)
+
+
+def evidence_article_type(title: str) -> str:
+    """Classify one official-roster row for archive building.
+
+    Front-matter rows are excluded up front; reply/comment rows are kept as
+    publishable comments that do not require an English abstract.  Everything
+    else falls through to the shared taxonomy so existing behavior is
+    preserved for already-archived issues.
+    """
+
+    title = str(title or "")
+    if EVIDENCE_FRONT_MATTER_PATTERN.search(title):
+        return "front-matter"
+    if EVIDENCE_REPLY_PATTERN.search(title):
+        return "comment"
+    return canonical_article_type(title, "", raw_type="")
+
 
 def _split_volume_issue(issue_id: str, journal_id: str) -> tuple[str, str]:
     prefix = f"{journal_id}-"
@@ -77,6 +123,38 @@ def _abstract_from_crossref(item: dict[str, Any]) -> str:
     if not abstract:
         return ""
     return _clean_markup(re.sub(r"<[^>]+>", " ", abstract)).strip()
+
+
+def _crossref_direct(
+    session: requests.Session,
+    doi: str,
+    *,
+    timeout: int,
+) -> dict[str, Any]:
+    """Resolve one DOI against Crossref's works endpoint.
+
+    The journal-wide dump used by `_crossref_map` is capped at one page
+    (rows=500), which silently drops DOIs for high-volume journals.  A direct
+    lookup by DOI is always complete regardless of pagination.
+    """
+
+    doi = str(doi or "").strip()
+    if not doi:
+        return {}
+    url = f"{CROSSREF_API}/works/{doi}"
+    try:
+        payload = _get_json(session, url, timeout=timeout, attempts=2)
+    except Exception:
+        return {}
+    message = payload.get("message", {}) if isinstance(payload, dict) else {}
+    if not isinstance(message, dict):
+        return {}
+    return {
+        "authors": _authors(message),
+        "abstract": _abstract_from_crossref(message),
+        "title": str(message.get("title", [""])[0] if message.get("title") else ""),
+        "year": _date_year(message),
+    }
 
 
 def _crossref_map(
@@ -116,7 +194,11 @@ def _metadata_for_dois(
     *,
     timeout: int,
 ) -> dict[str, dict[str, Any]]:
-    """Return authors/abstract/title per DOI, backfilling with Semantic Scholar."""
+    """Return authors/abstract/title per DOI.
+
+    Backfill order: direct Crossref lookup (complete even when the journal
+    dump is truncated), Semantic Scholar batch, then OpenAlex per-DOI.
+    """
     metadata: dict[str, dict[str, Any]] = {}
     missing: list[str] = []
     for doi in dois:
@@ -124,6 +206,25 @@ def _metadata_for_dois(
         metadata[doi] = entry
         if not entry.get("abstract") or not entry.get("authors"):
             missing.append(doi)
+
+    if missing:
+        still_missing: list[str] = []
+        for doi in missing:
+            direct = _crossref_direct(session, doi, timeout=timeout)
+            if direct:
+                current = metadata[doi]
+                if not current.get("authors") and direct.get("authors"):
+                    current["authors"] = list(direct["authors"])
+                if not current.get("abstract") and direct.get("abstract"):
+                    current["abstract"] = str(direct["abstract"])
+                if not current.get("title") and direct.get("title"):
+                    current["title"] = str(direct["title"])
+                if not current.get("year") and direct.get("year"):
+                    current["year"] = str(direct["year"])
+            if not metadata[doi].get("abstract") or not metadata[doi].get("authors"):
+                still_missing.append(doi)
+        missing = still_missing
+
     if missing:
         try:
             semantic = _semantic_scholar_metadata_batch(
@@ -139,6 +240,25 @@ def _metadata_for_dois(
                 current["abstract"] = str(entry["abstract"])
             if not current.get("title") and entry.get("title"):
                 current["title"] = str(entry["title"])
+        missing = [
+            doi
+            for doi in missing
+            if not metadata[doi].get("abstract") or not metadata[doi].get("authors")
+        ]
+
+    if missing:
+        for doi in missing:
+            try:
+                authors, abstract, _url = _openalex_metadata(
+                    session, doi, timeout=timeout
+                )
+            except Exception:
+                continue
+            current = metadata.setdefault(doi, {})
+            if not current.get("authors") and authors:
+                current["authors"] = list(authors)
+            if not current.get("abstract") and abstract:
+                current["abstract"] = str(abstract)
     return metadata
 
 
@@ -167,15 +287,16 @@ def build_candidate_from_evidence(
         ).strip()
         authors = list(meta.get("authors", []))
         abstract = str(meta.get("abstract", "")).strip()
-        if not authors:
+        article_type = evidence_article_type(title)
+        if article_type in PUBLISHABLE_TYPES and not authors:
             missing_authors.append(doi)
-        if not abstract:
+        if requires_abstract(article_type) and not abstract:
             missing_abstracts.append(doi)
         return {
             "paper_id": f"doi:{doi}",
             "sequence": sequence,
             "source_sequence": sequence,
-            "article_type": canonical_article_type(title, "", raw_type=""),
+            "article_type": article_type,
             "title_en": title,
             "title_cn": "",
             "authors": authors,

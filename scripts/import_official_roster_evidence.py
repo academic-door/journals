@@ -461,7 +461,16 @@ def main() -> int:
         / f"{evidence.get('issue_id', '')}.json"
     )
     if not archive.exists():
-        raise FileNotFoundError(f"archive missing: {archive}")
+        print(
+            json.dumps(
+                {
+                    "issue_id": str(evidence.get("issue_id", "")),
+                    "result": "deferred-archive-missing",
+                    "archive": str(archive),
+                }
+            )
+        )
+        return 0
     archive_payload = _read_json(archive)
     if args.enrich_missing_elsevier:
         evidence = enrich_missing_elsevier(evidence, archive_payload)

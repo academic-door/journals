@@ -6,7 +6,11 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from scripts.build_archives_from_roster_evidence import process_evidence
+from scripts.build_archives_from_roster_evidence import (
+    _metadata_for_dois,
+    evidence_article_type,
+    process_evidence,
+)
 from scripts.translate_issue import _source_hash
 
 
@@ -15,6 +19,262 @@ class BuildArchivesFromRosterEvidenceTests(unittest.TestCase):
         path = root / relative
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(value, encoding="utf-8")
+
+    def test_evidence_classifies_front_matter_and_replies(self) -> None:
+        self.assertEqual("front-matter", evidence_article_type("First Page"))
+        self.assertEqual("front-matter", evidence_article_type("ANNOUNCEMENTS"))
+        self.assertEqual(
+            "front-matter",
+            evidence_article_type(
+                "Participant Schedule for the AFA 2023 Preliminary Program January 6-8, 2023"
+            ),
+        )
+        self.assertEqual("front-matter", evidence_article_type("Index to Volume 131"))
+        self.assertEqual(
+            "comment",
+            evidence_article_type(
+                "Tax Smoothing in Frictional Labor Markets: A Reply"
+            ),
+        )
+        self.assertEqual(
+            "research-article",
+            evidence_article_type(
+                "Front-Page News: The Effect of News Positioning on Financial Markets"
+            ),
+        )
+
+    def test_front_matter_and_comments_do_not_block_archiving(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            evidence_root = root / "evidence"
+            api_root = root / "api"
+            state_root = root / "state"
+            staging_root = root / "staging"
+            cache_root = root / "cache"
+            for folder in (
+                evidence_root,
+                api_root,
+                state_root,
+                staging_root,
+                cache_root,
+            ):
+                folder.mkdir(parents=True, exist_ok=True)
+
+            evidence = {
+                "schema_version": "1.0",
+                "capture_mode": "official-roster-evidence",
+                "method": "official-page-read",
+                "captured_at": "2026-08-26T00:00:00+00:00",
+                "finalized": True,
+                "journal_id": "demo",
+                "issue_id": "demo-1-1",
+                "official_url": "https://onlinelibrary.wiley.com/toc/12345678/2024/1/1",
+                "excluded_item_count": 0,
+                "items": [
+                    {
+                        "sequence": 1,
+                        "doi": "10.1111/demo.10001",
+                        "title_en": "First Page",
+                    },
+                    {
+                        "sequence": 2,
+                        "doi": "10.1111/demo.10002",
+                        "title_en": "A Test of Policy",
+                    },
+                    {
+                        "sequence": 3,
+                        "doi": "10.1111/demo.10003",
+                        "title_en": "Another Empirical Study",
+                    },
+                    {
+                        "sequence": 4,
+                        "doi": "10.1111/demo.10004",
+                        "title_en": "Tax Smoothing in Frictional Labor Markets: A Reply",
+                    },
+                ],
+            }
+            self.write(
+                evidence_root,
+                "demo/demo-1-1.json",
+                json.dumps(evidence),
+            )
+            journals_path = root / "journals.yml"
+            journals_path.write_text(
+                "journals:\n"
+                "  DEMO:\n"
+                "    id: demo\n"
+                "    name: Demo Journal\n"
+                "    issn: 1234-5678\n"
+                "    collector: wiley\n"
+                "    enabled: true\n",
+                encoding="utf-8",
+            )
+            crossref_items = [
+                {
+                    "DOI": "10.1111/demo.10002",
+                    "title": ["A Test of Policy"],
+                    "author": [{"given": "Alice", "family": "Smith"}],
+                    "abstract": "<jats:p>We study the policy effect.</jats:p>",
+                    "issued": {"date-parts": [[2024, 1]]},
+                },
+                {
+                    "DOI": "10.1111/demo.10003",
+                    "title": ["Another Empirical Study"],
+                    "author": [{"given": "Carol", "family": "Lee"}],
+                    "abstract": "<jats:p>We estimate the empirical effect.</jats:p>",
+                    "issued": {"date-parts": [[2024, 1]]},
+                },
+                {
+                    "DOI": "10.1111/demo.10004",
+                    "title": ["Comment on a Paper"],
+                    "author": [{"given": "Dan", "family": "Kim"}],
+                    "issued": {"date-parts": [[2024, 1]]},
+                },
+            ]
+            article2 = {
+                "doi": "10.1111/demo.10002",
+                "title_en": "A Test of Policy",
+                "abstract_en": "We study the policy effect.",
+            }
+            article3 = {
+                "doi": "10.1111/demo.10003",
+                "title_en": "Another Empirical Study",
+                "abstract_en": "We estimate the empirical effect.",
+            }
+            article4 = {
+                "doi": "10.1111/demo.10004",
+                "title_en": "Tax Smoothing in Frictional Labor Markets: A Reply",
+                "abstract_en": "",
+            }
+            cache = {}
+            for article, title_cn, abstract_cn in (
+                (
+                    article2,
+                    "政策检验",
+                    "我们研究了政策对经济行为的影响，并利用详细的微观数据估计了政策效应的大小与方向。",
+                ),
+                (
+                    article3,
+                    "另一项实证研究",
+                    "本文基于新的数据集，采用严格的实证方法估计了关键参数，并讨论了稳健性与政策含义。",
+                ),
+                (article4, "评论", ""),
+            ):
+                cache[article["doi"]] = {
+                    "title_cn": title_cn,
+                    "abstract_cn": abstract_cn,
+                    "source_hash": _source_hash(article),
+                    "translation": {
+                        "provider": "deepseek",
+                        "model": "deepseek-v4-flash",
+                        "prompt_version": "academic-door-abstract-zh-v2",
+                        "translated_at": "2026-08-26T00:00:00+00:00",
+                    },
+                }
+            self.write(cache_root, "demo.json", json.dumps(cache))
+
+            def fake_semantic(session, dois, *, timeout):
+                return {}
+
+            with (
+                patch(
+                    "scripts.build_archives_from_roster_evidence._crossref_items",
+                    return_value=crossref_items,
+                ),
+                patch(
+                    "scripts.build_archives_from_roster_evidence._semantic_scholar_metadata_batch",
+                    side_effect=fake_semantic,
+                ),
+                patch(
+                    "scripts.build_archives_from_roster_evidence.JOURNALS_PATH",
+                    journals_path,
+                ),
+            ):
+                import requests
+
+                session = requests.Session()
+                result = process_evidence(
+                    evidence_root / "demo" / "demo-1-1.json",
+                    {"id": "demo", "name": "Demo Journal", "issn": "1234-5678"},
+                    session=session,
+                    api_root=api_root,
+                    state_root=state_root,
+                    staging_root=staging_root,
+                    translation_cache_root=cache_root,
+                    max_translations=120,
+                    start_year=2022,
+                    timeout=10,
+                )
+
+            self.assertEqual("ready", result["result"], result)
+            archive = json.loads(
+                (
+                    api_root / "journals" / "demo" / "issues" / "demo-1-1.json"
+                ).read_text(encoding="utf-8")
+            )
+            self.assertEqual("ready", archive["publication_state"])
+            self.assertEqual(3, archive["research_article_count"])
+            self.assertEqual(3, archive["quality"]["translation_complete"])
+            self.assertEqual(
+                ["First Page"],
+                [item["title_en"] for item in archive["quality"]["excluded_items"]],
+            )
+            reply = next(
+                article
+                for article in archive["articles"]
+                if article["doi"] == "10.1111/demo.10004"
+            )
+            self.assertEqual("comment", reply["article_type"])
+
+    def test_metadata_backfills_truncated_crossref_with_direct_and_openalex(self) -> None:
+        import requests
+
+        session = requests.Session()
+        truncated = {
+            "10.1111/demo.10001": {
+                "authors": ["Alice Smith"],
+                "abstract": "We study the first paper.",
+                "title": "Paper One",
+                "year": "2024",
+            }
+        }
+        direct = {
+            "authors": ["Bob Jones"],
+            "abstract": "We study the second paper.",
+            "title": "Paper Two",
+            "year": "2024",
+        }
+
+        with (
+            patch(
+                "scripts.build_archives_from_roster_evidence._crossref_direct",
+                return_value=direct,
+            ) as crossref_direct,
+            patch(
+                "scripts.build_archives_from_roster_evidence._semantic_scholar_metadata_batch",
+                return_value={},
+            ),
+            patch(
+                "scripts.build_archives_from_roster_evidence._openalex_metadata",
+                return_value=(["Bob Jones"], "We study the second paper.", ""),
+            ),
+        ):
+            metadata = _metadata_for_dois(
+                session,
+                ["10.1111/demo.10001", "10.1111/demo.10002"],
+                truncated,
+                timeout=10,
+            )
+
+        self.assertEqual(["Alice Smith"], metadata["10.1111/demo.10001"]["authors"])
+        self.assertEqual(
+            ["Bob Jones"], metadata["10.1111/demo.10002"]["authors"]
+        )
+        self.assertEqual(
+            "We study the second paper.",
+            metadata["10.1111/demo.10002"]["abstract"],
+        )
+        crossref_direct.assert_called_once()
 
     def test_builds_and_archives_issue_from_official_roster(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
