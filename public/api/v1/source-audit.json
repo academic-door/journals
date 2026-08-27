@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-08-27T07:55:02+00:00",
+  "updated_at": "2026-08-27T09:55:16+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 49,
     "official_page_verified": 15,
-    "publisher_feed_verified": 14,
-    "fallback_verified": 20,
+    "publisher_feed_verified": 15,
+    "fallback_verified": 19,
     "needs_attention": 0,
     "missing": 0,
     "invariant_errors": 0
@@ -84,7 +84,7 @@
       "name": "Journal of Political Economy",
       "publisher": "University of Chicago Press",
       "configured_source": "https://www.journals.uchicago.edu/toc/jpe/current",
-      "status": "fallback_verified",
+      "status": "publisher_feed_verified",
       "current": {
         "available": true,
         "status": "fallback_verified",
@@ -116,12 +116,34 @@
         ]
       },
       "detected": {
-        "available": false,
-        "status": "missing",
-        "errors": [
-          "snapshot_missing"
-        ],
-        "warnings": []
+        "available": true,
+        "status": "publisher_feed_verified",
+        "issue_id": "jpe-134-8",
+        "publication_date": "2026-04-02T04:52:53Z",
+        "publication_state": "translation_partial",
+        "source_url": "https://www.journals.uchicago.edu/toc/jpe/current",
+        "roster_authority": "publisher-rss",
+        "roster_transport": "publisher-rss",
+        "order_verified": true,
+        "content_counts": {
+          "official_items": 11,
+          "observed_items": 11,
+          "publishable_items": 8,
+          "research_articles": 8,
+          "comments": 0,
+          "short_communications": 0,
+          "corrections": 0,
+          "editorial_material": 1,
+          "front_matter": 1,
+          "other_excluded": 1,
+          "catalog_content_items": 8
+        },
+        "abstracts_complete": 8,
+        "translations_complete": 0,
+        "errors": [],
+        "warnings": [
+          "translation_incomplete"
+        ]
       }
     },
     {
