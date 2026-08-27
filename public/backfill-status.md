@@ -1,12 +1,12 @@
 # Field journal history backfill status
 
-Updated: 2026-08-27T17:08:56+00:00
+Updated: 2026-08-27T19:52:25+00:00
 
-Discovery coverage: 1331 discovered · 1233 archived · 1035 publication ready · 98 missing · 198 source pending
+Discovery coverage: 1331 discovered · 1236 archived · 1038 publication ready · 95 missing · 198 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 528 | 13 | 60 | 107 |
+| 2023-2024 | 531 | 13 | 57 | 107 |
 | 2023-2026 | 269 | 0 | 23 | 8 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
@@ -323,7 +323,7 @@ Discovery coverage: 1331 discovered · 1233 archived · 1035 publication ready �
 | ENERGY | energy-124-c | 2023 | ready |  |
 | ENERGY | energy-125-c | 2023 | ready |  |
 | ENERGY | energy-126-c | 2023 | translation_partial |  |
-| ENERGY | energy-127-c | 2023 | blocked | possible_incomplete_volume: 7 articles collected vs current issue 57; needs offi |
+| ENERGY | energy-127-c | 2023 | ready |  |
 | ENERGY | energy-128-c | 2023 | ready |  |
 | ENERGY | energy-129-c | 2024 | ready |  |
 | ENERGY | energy-130-c | 2024 | ready |  |
@@ -757,7 +757,7 @@ Discovery coverage: 1331 discovered · 1233 archived · 1035 publication ready �
 | JFE | jfe-147-1 | 2023 | ready |  |
 | JFE | jfe-147-2 | 2023 | ready |  |
 | JFE | jfe-147-3 | 2023 | ready |  |
-| JFE | jfe-148-1 | 2023 | blocked | possible_incomplete_volume: 2 articles collected vs current issue 17; needs offi |
+| JFE | jfe-148-1 | 2023 | ready |  |
 | JFE | jfe-148-2 | 2023 | ready |  |
 | JFE | jfe-148-3 | 2023 | ready |  |
 | JFE | jfe-149-1 | 2023 | ready |  |
@@ -923,7 +923,7 @@ Discovery coverage: 1331 discovered · 1233 archived · 1035 publication ready �
 | JOE | joe-244-1 | 2024 | ready |  |
 | JOE | joe-244-2 | 2024 | ready |  |
 | JOE | joe-245-1-2 | 2024 | ready |  |
-| JOE | joe-246-1-2 | 2024 | blocked | possible_incomplete_volume: 4 articles collected vs current issue 18; needs offi |
+| JOE | joe-246-1-2 | 2024 | ready |  |
 | JOE | joe-247-c | 2025 | ready |  |
 | JOE | joe-248-c | 2025 | ready |  |
 | JOE | joe-249-c | 2025 | ready |  |
