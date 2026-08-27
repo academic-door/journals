@@ -51,6 +51,7 @@ ALLOWED_HOSTS = {
     "www.aeaweb.org",
     "www.cambridge.org",
     "www.sciencedirect.com",
+    "link.springer.com",
 }
 ALLOWED_METHODS = {"browser-authorized", "official-page-read"}
 FORBIDDEN_KEY_PARTS = {

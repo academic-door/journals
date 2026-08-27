@@ -8,6 +8,7 @@ from unittest.mock import patch
 
 from scripts.build_archives_from_roster_evidence import (
     _metadata_for_dois,
+    build_candidate_from_evidence,
     process_evidence,
 )
 from scripts.translate_issue import _source_hash
@@ -535,6 +536,42 @@ class BuildArchivesFromRosterEvidenceTests(unittest.TestCase):
             )
             self.assertEqual("ready", archive["publication_state"])
             self.assertEqual(2, archive["quality"]["translation_complete"])
+
+    def test_official_evidence_details_are_used_before_fallback_metadata(self) -> None:
+        evidence = {
+            "schema_version": "1.0",
+            "capture_mode": "official-roster-evidence",
+            "method": "official-page-read",
+            "captured_at": "2026-08-27T00:00:00+00:00",
+            "finalized": True,
+            "journal_id": "ere",
+            "issue_id": "ere-84-1",
+            "official_url": "https://link.springer.com/journal/10640/volumes-and-issues/84-1",
+            "excluded_item_count": 0,
+            "items": [
+                {
+                    "sequence": 1,
+                    "doi": "10.1007/s10640-022-00706-w",
+                    "title_en": "First Research Paper",
+                    "authors": ["Author One"],
+                    "abstract_en": "Official Springer abstract.",
+                    "source_url": "https://link.springer.com/article/10.1007/s10640-022-00706-w",
+                }
+            ],
+        }
+        issue = build_candidate_from_evidence(
+            evidence,
+            {"name": "Environmental and Resource Economics"},
+            {"10.1007/s10640-022-00706-w": {}},
+            publication_date="January 2023",
+        )
+        article = issue["articles"][0]
+        self.assertEqual(["Author One"], article["authors"])
+        self.assertEqual("Official Springer abstract.", article["abstract_en"])
+        self.assertEqual(
+            "https://link.springer.com/article/10.1007/s10640-022-00706-w",
+            article["source_url"],
+        )
 
 
 if __name__ == "__main__":
