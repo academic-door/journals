@@ -243,6 +243,12 @@ jobs:
                 --output-root data/provenance/official-rosters/springer \
                 --diagnostics-root output/evidence-failures
               ;;
+            cambridge-evidence)
+              python scripts/capture_cambridge_roster_evidence.py \
+                --gap-manifest "$shard_manifest" \
+                --output-root data/provenance/official-rosters/cambridge \
+                --diagnostics-root output/evidence-failures
+              ;;
             browser|official-evidence)
               cp "$shard_manifest" "output/${SHARD_ACTION}-required.json"
               ;;
