@@ -1,11 +1,11 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-08-27T13:01:44+00:00
+Generated: 2026-08-27T17:09:13+00:00
 
 ## Summary
 
-- browser_required: 14
-- ready: 1032
+- browser_required: 11
+- ready: 1035
 - recoverable: 74
 - source_pending: 191
 - translation_required: 20
@@ -758,7 +758,7 @@ Generated: 2026-08-27T13:01:44+00:00
 | JFE | jfe-147-2 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JFE | jfe-147-3 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JFE | jfe-148-1 | 2023 | browser_required | blocked | source_pending | archive_missing |
-| JFE | jfe-148-2 | 2023 | browser_required | blocked | source_pending | archive_missing |
+| JFE | jfe-148-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | JFE | jfe-148-3 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JFE | jfe-149-1 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JFE | jfe-149-2 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
@@ -919,10 +919,10 @@ Generated: 2026-08-27T13:01:44+00:00
 | JOE | joe-241-2 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | JOE | joe-242-1 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | JOE | joe-242-2 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
-| JOE | joe-243-1-2 | 2024 | browser_required | blocked | source_pending | archive_missing |
+| JOE | joe-243-1-2 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | JOE | joe-244-1 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | JOE | joe-244-2 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
-| JOE | joe-245-1-2 | 2024 | browser_required | blocked | source_pending | archive_missing |
+| JOE | joe-245-1-2 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | JOE | joe-246-1-2 | 2024 | browser_required | blocked | source_pending | archive_missing |
 | JOE | joe-247-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | JOE | joe-248-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |

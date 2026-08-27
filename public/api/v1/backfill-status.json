@@ -1,20 +1,20 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-08-27T13:01:27+00:00",
+  "updated_at": "2026-08-27T17:08:56+00:00",
   "summary": {
-    "complete": 1032,
+    "complete": 1035,
     "translation_partial": 13,
-    "blocked": 88,
+    "blocked": 85,
     "collected": 0,
     "pending": 198
   },
   "coverage": {
     "discovered": 1331,
-    "archived": 1230,
-    "content_ready": 1230,
-    "source_verified": 1032,
-    "publication_ready": 1032,
-    "missing": 101,
+    "archived": 1233,
+    "content_ready": 1233,
+    "source_verified": 1035,
+    "publication_ready": 1035,
+    "missing": 98,
     "source_pending": 198,
     "missing_issue_ids": [
       "ecolecon-224-c",
@@ -65,7 +65,6 @@
       "jf-78-1",
       "jf-79-1",
       "jfe-148-1",
-      "jfe-148-2",
       "jfe-184-c",
       "jie-164-c",
       "jle-41-1",
@@ -83,8 +82,6 @@
       "joe-234-c",
       "joe-235-2",
       "joe-237-1",
-      "joe-243-1-2",
-      "joe-245-1-2",
       "joe-246-1-2",
       "jpe-131-10",
       "jpube-262-c",
@@ -2311,15 +2308,14 @@
     },
     "JFE": {
       "discovered": 46,
-      "archived": 43,
-      "content_ready": 43,
-      "source_verified": 43,
-      "publication_ready": 43,
-      "missing": 3,
+      "archived": 44,
+      "content_ready": 44,
+      "source_verified": 44,
+      "publication_ready": 44,
+      "missing": 2,
       "source_pending": 0,
       "missing_issue_ids": [
         "jfe-148-1",
-        "jfe-148-2",
         "jfe-184-c"
       ],
       "source_pending_issue_ids": [],
@@ -2327,15 +2323,14 @@
       "years": {
         "2023": {
           "discovered": 12,
-          "archived": 10,
-          "content_ready": 10,
-          "source_verified": 10,
-          "publication_ready": 10,
-          "missing": 2,
+          "archived": 11,
+          "content_ready": 11,
+          "source_verified": 11,
+          "publication_ready": 11,
+          "missing": 1,
           "source_pending": 0,
           "missing_issue_ids": [
-            "jfe-148-1",
-            "jfe-148-2"
+            "jfe-148-1"
           ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
@@ -3055,18 +3050,16 @@
     },
     "JOE": {
       "discovered": 39,
-      "archived": 33,
-      "content_ready": 33,
-      "source_verified": 33,
-      "publication_ready": 33,
-      "missing": 6,
+      "archived": 35,
+      "content_ready": 35,
+      "source_verified": 35,
+      "publication_ready": 35,
+      "missing": 4,
       "source_pending": 0,
       "missing_issue_ids": [
         "joe-234-c",
         "joe-235-2",
         "joe-237-1",
-        "joe-243-1-2",
-        "joe-245-1-2",
         "joe-246-1-2"
       ],
       "source_pending_issue_ids": [],
@@ -3090,15 +3083,13 @@
         },
         "2024": {
           "discovered": 15,
-          "archived": 12,
-          "content_ready": 12,
-          "source_verified": 12,
-          "publication_ready": 12,
-          "missing": 3,
+          "archived": 14,
+          "content_ready": 14,
+          "source_verified": 14,
+          "publication_ready": 14,
+          "missing": 1,
           "source_pending": 0,
           "missing_issue_ids": [
-            "joe-243-1-2",
-            "joe-245-1-2",
             "joe-246-1-2"
           ],
           "source_pending_issue_ids": [],
@@ -13102,11 +13093,11 @@
         "year": 2023,
         "volume": "148",
         "issue": "2",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "possible_incomplete_volume: 3 articles collected vs current issue 17; needs official page or browser-authorized capture",
+        "status": "ready",
+        "content_status": "complete",
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -15044,11 +15035,11 @@
         "year": 2024,
         "volume": "243",
         "issue": "1-2",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "possible_incomplete_volume: 7 articles collected vs current issue 18; needs official page or browser-authorized capture",
+        "status": "ready",
+        "content_status": "complete",
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -15080,11 +15071,11 @@
         "year": 2024,
         "volume": "245",
         "issue": "1-2",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "possible_incomplete_volume: 5 articles collected vs current issue 18; needs official page or browser-authorized capture",
+        "status": "ready",
+        "content_status": "complete",
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -20186,21 +20177,21 @@
   "periods": {
     "2023-2024": {
       "summary": {
-        "complete": 525,
+        "complete": 528,
         "translation_partial": 13,
-        "blocked": 63,
+        "blocked": 60,
         "collected": 0,
         "pending": 107
       },
       "issue_count": 708,
-      "updated_at": "2026-08-27T13:00:00+00:00",
+      "updated_at": "2026-08-27T17:07:30+00:00",
       "coverage": {
         "discovered": 708,
-        "archived": 632,
-        "content_ready": 632,
-        "source_verified": 525,
-        "publication_ready": 525,
-        "missing": 76,
+        "archived": 635,
+        "content_ready": 635,
+        "source_verified": 528,
+        "publication_ready": 528,
+        "missing": 73,
         "source_pending": 107,
         "missing_issue_ids": [
           "ecolecon-224-c",
@@ -20243,7 +20234,6 @@
           "jf-78-1",
           "jf-79-1",
           "jfe-148-1",
-          "jfe-148-2",
           "jle-41-1",
           "jle-41-2",
           "jle-41-3",
@@ -20258,8 +20248,6 @@
           "joe-234-c",
           "joe-235-2",
           "joe-237-1",
-          "joe-243-1-2",
-          "joe-245-1-2",
           "joe-246-1-2",
           "jpe-131-10",
           "jue-133-c",
@@ -20401,14 +20389,14 @@
         "pending": 8
       },
       "issue_count": 300,
-      "updated_at": "2026-08-27T13:00:07+00:00",
+      "updated_at": "2026-08-24T13:07:44+00:00",
       "coverage": {
         "discovered": 428,
-        "archived": 392,
-        "content_ready": 392,
-        "source_verified": 384,
-        "publication_ready": 384,
-        "missing": 36,
+        "archived": 394,
+        "content_ready": 394,
+        "source_verified": 386,
+        "publication_ready": 386,
+        "missing": 34,
         "source_pending": 8,
         "missing_issue_ids": [
           "ecolecon-224-c",
@@ -20431,8 +20419,6 @@
           "joe-234-c",
           "joe-235-2",
           "joe-237-1",
-          "joe-243-1-2",
-          "joe-245-1-2",
           "joe-246-1-2",
           "rand-54-3",
           "rand-55-3",
@@ -20534,9 +20520,9 @@
   "years": {
     "2023": {
       "summary": {
-        "complete": 250,
+        "complete": 251,
         "translation_partial": 7,
-        "blocked": 35,
+        "blocked": 34,
         "collected": 0,
         "pending": 60
       },
@@ -20594,11 +20580,11 @@
       ],
       "coverage": {
         "discovered": 352,
-        "archived": 310,
-        "content_ready": 310,
-        "source_verified": 250,
-        "publication_ready": 250,
-        "missing": 42,
+        "archived": 311,
+        "content_ready": 311,
+        "source_verified": 251,
+        "publication_ready": 251,
+        "missing": 41,
         "source_pending": 60,
         "missing_issue_ids": [
           "ecta-91-2",
@@ -20626,7 +20612,6 @@
           "jeem-118-c",
           "jf-78-1",
           "jfe-148-1",
-          "jfe-148-2",
           "jle-41-1",
           "jle-41-2",
           "jle-41-3",
@@ -21122,15 +21107,14 @@
         },
         "JFE": {
           "discovered": 12,
-          "archived": 10,
-          "content_ready": 10,
-          "source_verified": 10,
-          "publication_ready": 10,
-          "missing": 2,
+          "archived": 11,
+          "content_ready": 11,
+          "source_verified": 11,
+          "publication_ready": 11,
+          "missing": 1,
           "source_pending": 0,
           "missing_issue_ids": [
-            "jfe-148-1",
-            "jfe-148-2"
+            "jfe-148-1"
           ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
@@ -21437,9 +21421,9 @@
     },
     "2024": {
       "summary": {
-        "complete": 274,
+        "complete": 276,
         "translation_partial": 6,
-        "blocked": 28,
+        "blocked": 26,
         "collected": 0,
         "pending": 47
       },
@@ -21497,11 +21481,11 @@
       ],
       "coverage": {
         "discovered": 355,
-        "archived": 321,
-        "content_ready": 321,
-        "source_verified": 274,
-        "publication_ready": 274,
-        "missing": 34,
+        "archived": 323,
+        "content_ready": 323,
+        "source_verified": 276,
+        "publication_ready": 276,
+        "missing": 32,
         "source_pending": 47,
         "missing_issue_ids": [
           "ecolecon-224-c",
@@ -21525,8 +21509,6 @@
           "jle-42-4",
           "jle-42-S1",
           "jme-141-c",
-          "joe-243-1-2",
-          "joe-245-1-2",
           "joe-246-1-2",
           "jue-144-c",
           "labeco-86-c",
@@ -22047,15 +22029,13 @@
         },
         "JOE": {
           "discovered": 15,
-          "archived": 12,
-          "content_ready": 12,
-          "source_verified": 12,
-          "publication_ready": 12,
-          "missing": 3,
+          "archived": 14,
+          "content_ready": 14,
+          "source_verified": 14,
+          "publication_ready": 14,
+          "missing": 1,
           "source_pending": 0,
           "missing_issue_ids": [
-            "joe-243-1-2",
-            "joe-245-1-2",
             "joe-246-1-2"
           ],
           "source_pending_issue_ids": [],

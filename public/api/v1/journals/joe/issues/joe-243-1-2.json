@@ -1,0 +1,550 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "joe-243-1-2",
+  "journal_id": "joe",
+  "journal_name": "Journal of Econometrics",
+  "volume": "243",
+  "issue": "1-2",
+  "issue_label": "Vol. 243 · No. 1-2",
+  "publication_date": "July 2024",
+  "source_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/243/issue/1-2",
+  "retrieved_at": "2026-08-27T16:30:47.973Z",
+  "expected_article_count": 12,
+  "research_article_count": 12,
+  "status": "ready",
+  "publication_state": "ready",
+  "development_sample": false,
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105719",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Econometric causality: The central role of thought experiments",
+      "title_cn": "计量经济学因果性：思想实验的核心作用",
+      "authors": [
+        "Heckman, James",
+        "Pinto, Rodrigo"
+      ],
+      "abstract_en": "This paper examines the econometric causal model and the interpretation of empirical evidence based on thought experiments that was developed by Ragnar Frisch and Trygve Haavelmo. We compare the econometric causal model with two currently popular causal frameworks: the Neyman–Rubin causal model and the Do-Calculus. The Neyman–Rubin causal model is based on the language of potential outcomes and was largely developed by statisticians. Instead of being based on thought experiments, it takes statistical experiments as its foundation. The Do-Calculus, developed by Judea Pearl and co-authors, relies on Directed Acyclic Graphs (DAGs) and is a popular causal framework in computer science and applied mathematics. We make the case that economists who uncritically use these frameworks often discard the substantial benefits of the econometric causal model to the detriment of more informative analyses. We illustrate the versatility and capabilities of the econometric framework using causal models developed in economics.",
+      "abstract_cn": "本文考察了由拉格纳·弗里施和特吕格弗·哈维尔莫提出的基于思想实验的计量经济学因果模型及经验证据的解释。我们将计量经济学因果模型与当前两种流行的因果框架进行比较：内曼–鲁宾因果模型和Do-演算。内曼–鲁宾因果模型基于潜在结果的语言，主要由统计学家发展而来。它不是基于思想实验，而是以统计实验为基础。Do-演算由朱迪亚·珀尔及其合著者提出，依赖于有向无环图（DAGs），是计算机科学和应用数学中流行的因果框架。我们认为，不加批判地使用这些框架的经济学家往往丢弃了计量经济学因果模型的实质性优势，从而损害了更具信息量的分析。我们利用经济学中发展的因果模型来说明计量经济学框架的多样性和能力。",
+      "doi": "10.1016/j.jeconom.2024.105719",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624000654",
+      "publication_date": "July 2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/243/issue/1-2",
+        "roster": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/243/issue/1-2",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304407624000654",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-27T17:06:59+00:00",
+        "source_hash": "d284189f1b4cf081abbc0a6d8f4fe630fa43b7bbc9bd07ce822d8e18de4e67c3"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105683",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Dealing with imperfect randomization: Inference for the highscope perry preschool program",
+      "title_cn": "处理不完美随机化：高scope佩里学前项目的推断",
+      "authors": [
+        "Heckman, James",
+        "Pinto, Rodrigo",
+        "Shaikh, Azeem M."
+      ],
+      "abstract_en": "This paper considers the problem of making inferences about the effects of a program on multiple outcomes when the assignment of treatment status is imperfectly randomized. By imperfect randomization we mean that treatment status is reassigned after an initial randomization on the basis of characteristics that may be observed or unobserved by the analyst. We develop a partial identification approach to this problem that makes use of information limiting the extent to which randomization is imperfect to show that it is still possible to make nontrivial inferences about the effects of the program in such settings. We consider a family of null hypotheses in which each null hypothesis specifies that the program has no effect on one of many outcomes of interest. Under weak assumptions, we construct a procedure for testing this family of null hypotheses in a way that controls the familywise error rate – the probability of even one false rejection – in finite samples. We develop our methodology in the context of a reanalysis of the HighScope Perry Preschool program. We find statistically significant effects of the program on a number of different outcomes of interest, including outcomes related to criminal activity for males and females, even after accounting for imperfections in the randomization and the multiplicity of null hypotheses.",
+      "abstract_cn": "本文考虑了当处理状态的分配不完美随机化时，对项目在多个结果上的效应进行推断的问题。所谓不完美随机化，是指处理状态在初始随机化后根据分析者可能观察到或未观察到的特征被重新分配。我们针对这一问题开发了一种部分识别方法，利用限制随机化不完美程度的信息，表明在此类设置中仍然可以对项目效应进行非平凡的推断。我们考虑一族零假设，其中每个零假设指定项目对众多感兴趣结果之一没有效应。在弱假设下，我们构建了一个检验这一族零假设的程序，该程序在有限样本中控制了族wise错误率——即至少一次错误拒绝的概率。我们在对高scope佩里学前项目的重新分析背景下发展我们的方法论。我们发现项目对许多不同感兴趣结果具有统计显著的效应，包括与男性和女性犯罪活动相关的结果，即使在考虑了随机化的不完美性和零假设的多重性之后也是如此。",
+      "doi": "10.1016/j.jeconom.2024.105683",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624000290",
+      "publication_date": "July 2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/243/issue/1-2",
+        "roster": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/243/issue/1-2",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304407624000290",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-27T17:07:00+00:00",
+        "source_hash": "cdf2e7888f05fc90803a2e6c241fed4b92a37fcf4ef874346e182ccca21aa07e"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.07.017",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Sample selection models without exclusion restrictions: Parameter heterogeneity and partial identification",
+      "title_cn": "无排除限制的样本选择模型：参数异质性与部分识别",
+      "authors": [
+        "Honoré, Bo E.",
+        "Hu, Luojia"
+      ],
+      "abstract_en": "This paper studies semiparametric versions of the classical sample selection model (Heckman, 1976, 1979) without exclusion restrictions. We extend the analysis in Honoré and Hu (2020) by allowing for parameter heterogeneity and derive implications of this model. We also consider models that allow for heteroskedasticity and briefly discuss other extensions. The key ideas are illustrated in a simple wage regression for females. We find that the derived implications of a semiparametric version of Heckman’s classical sample selection model are consistent with the data for women with no college education, but strongly rejected for women with a college degree or more.",
+      "abstract_cn": "本文研究了经典样本选择模型（Heckman, 1976, 1979）的半参数版本，且不依赖排除限制。我们通过允许参数异质性扩展了Honoré和Hu (2020)的分析，并推导出该模型的含义。我们还考虑了允许异方差性的模型，并简要讨论了其他扩展。关键思想在女性简单工资回归中得到了说明。我们发现，Heckman经典样本选择模型的半参数版本所推导的含义与未受过大学教育的女性数据一致，但对于拥有大学学位或更高学历的女性则被强烈拒绝。",
+      "doi": "10.1016/j.jeconom.2021.07.017",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407622001932",
+      "publication_date": "July 2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/243/issue/1-2",
+        "roster": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/243/issue/1-2",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304407622001932",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-27T17:06:59+00:00",
+        "source_hash": "3caa18283aa14a7cd3ff7bc8cf94f7c49040d3991c76f27996868163431cf90d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105718",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Policy evaluation with multiple instrumental variables",
+      "title_cn": "多重工具变量下的政策评估",
+      "authors": [
+        "Mogstad, Magne",
+        "Torgovitsky, Alexander",
+        "Walters, Christopher R."
+      ],
+      "abstract_en": "Marginal treatment effect methods are widely used for causal inference and policy evaluation with instrumental variables. However, they fundamentally rely on the well-known monotonicity (threshold-crossing) condition on treatment choice behavior. This condition cannot hold with multiple instruments unless treatment choice is effectively homogeneous. We develop a new marginal treatment effect framework under a weaker, partial monotonicity condition. The partial monotonicity condition is implied by standard choice theory and allows for rich unobserved heterogeneity even in the presence of multiple instruments. The new framework can be viewed as having multiple different choice models for the same observed treatment variable, all of which must be consistent with the data and with each other. Using this framework, we develop a methodology for partial identification of clearly stated, policy-relevant target parameters while allowing for a wide variety of nonparametric shape restrictions and parametric functional form assumptions. We show how the methodology can be used to combine multiple instruments together to yield more informative empirical conclusions than one would obtain by using each instrument separately. The methodology provides a blueprint for extracting and aggregating information from multiple controlled or natural experiments while still allowing for rich unobserved heterogeneity in both treatment effects and choice behavior.",
+      "abstract_cn": "边际处理效应方法广泛用于工具变量下的因果推断和政策评估。然而，它们从根本上依赖于关于治疗选择行为的众所周知的单调性（阈值交叉）条件。除非治疗选择实际上是同质的，否则该条件在存在多个工具变量时无法成立。我们在一个较弱的、部分单调性条件下开发了一个新的边际处理效应框架。部分单调性条件由标准选择理论所隐含，并允许在存在多个工具变量时存在丰富的不可观测异质性。新框架可以被视为对同一观测到的治疗变量具有多个不同的选择模型，所有这些模型都必须与数据以及彼此之间保持一致。利用这一框架，我们开发了一种方法论，用于对明确陈述的、与政策相关的目标参数进行部分识别，同时允许各种非参数形状限制和参数函数形式假设。我们展示了如何使用该方法论将多个工具变量结合起来，以产生比单独使用每个工具变量更具信息量的实证结论。该方法论为从多个受控或自然实验中提取和汇总信息提供了蓝图，同时仍然允许治疗效应和选择行为中存在丰富的不可观测异质性。",
+      "doi": "10.1016/j.jeconom.2024.105718",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624000642",
+      "publication_date": "July 2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/243/issue/1-2",
+        "roster": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/243/issue/1-2",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304407624000642",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-18T19:13:33+00:00",
+        "source_hash": "a20d71a5eca163294573d75804d9a0fe7598f12a54e88fe3dfb85838cfca352c"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.105652",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Eliciting willingness-to-pay to decompose beliefs and preferences that determine selection into competition in lab experiments",
+      "title_cn": "在实验室实验中引出支付意愿以分解决定竞争选择的信念和偏好",
+      "authors": [
+        "Chen, Yvonne Jie",
+        "Dutz, Deniz",
+        "Li, Li",
+        "Moon, Sarah",
+        "Vytlacil, Edward",
+        "Zhong, Songfa"
+      ],
+      "abstract_en": "This paper develops a partial-identification methodology for analyzing self-selection into alternative compensation schemes in a laboratory environment. We formulate a model of self-selection in which individuals select the compensation scheme with the largest expected valuation, which depends on individual- and scheme-specific beliefs and non-monetary preferences. We characterize the resulting sharp identified sets for individual-specific willingness-to-pay, subjective beliefs, and preferences, and develop conditions on the experimental design under which these identified sets are informative. We apply our methods to examine gender differences in preference for winner-take-all compensation schemes. We find that what has commonly been attributed to a gender difference in preference for performing in a competition is instead explained by men being more confident than women in their probability of winning a future (though not necessarily a past) competition.",
+      "abstract_cn": "本文开发了一种部分识别方法，用于分析实验室环境中对替代薪酬方案的自选择。我们构建了一个自选择模型，其中个体选择预期估值最大的薪酬方案，该估值取决于个体和方案特定的信念以及非货币偏好。我们刻画了由此产生的个体特定支付意愿、主观信念和偏好的尖锐识别集，并开发了实验设计条件下这些识别集具有信息量的条件。我们应用我们的方法来检验性别差异在赢家通吃薪酬方案偏好中的表现。我们发现，通常被归因于性别差异的竞争表现偏好，实际上是由男性比女性更自信于赢得未来（尽管不一定是过去）竞争的概率所解释的。",
+      "doi": "10.1016/j.jeconom.2023.105652",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623003688",
+      "publication_date": "July 2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/243/issue/1-2",
+        "roster": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/243/issue/1-2",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304407623003688",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-27T17:06:59+00:00",
+        "source_hash": "0c7f5c2dc5aaa3f1e07adc8bf415ae24ed3c30fba9b5680469dcd9dc34b78a77"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2022.08.005",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Gender pension gaps in a private retirement accounts system: A dynamic model of household labor supply and savings",
+      "title_cn": "私人退休账户体系中的性别养老金差距：家庭劳动供给与储蓄的动态模型",
+      "authors": [
+        "Joubert, Clement",
+        "Todd, Petra E."
+      ],
+      "abstract_en": "This paper develops and estimates a dynamic model of individuals’ and couples’ labor supply, savings, and retirement decisions to analyze how the design of Chile’s privatized pension system and a reform undertaken in 2008 affect gender pension gaps and old-age poverty. Chile has one of the longest-running private retirements accounts systems in the world, which has served as a model for many countries. The paper estimates the dynamic model using pre-reform data and compares the model’s short-term forecasts with reduced form estimates of the reform’s causal impacts. The model provides accurate forecasts, so it is used to evaluate how actual and counterfactual changes in the pension system design affect men’s and women’s labor supply and savings decisions, pension receipts, and program costs over a longer time horizon. The results show that three design features significantly reduce gender pension gaps: expanding minimum pension benefit eligibility, providing a per-child pension bonus, and increasing women’s retirement age to be equal to men’s. Overall, the 2008 pension reform largely achieved its goals of reducing gender gaps and old age poverty, although the new system costs double that of the old system.",
+      "abstract_cn": "本文开发并估计了一个关于个人和夫妻劳动供给、储蓄及退休决策的动态模型，以分析智利私有化养老金体系的设计以及2008年实施的一项改革如何影响性别养老金差距和老年贫困。智利拥有世界上运行时间最长的私人退休账户体系之一，已成为许多国家的典范。本文使用改革前数据估计动态模型，并将模型的短期预测与改革因果影响的简化形式估计进行比较。模型提供了准确的预测，因此用于评估养老金体系设计的实际和反事实变化如何在更长的时间范围内影响男性和女性的劳动供给与储蓄决策、养老金收入及项目成本。结果表明，三项设计特征显著缩小了性别养老金差距：扩大最低养老金福利资格、提供每孩养老金补贴以及将女性退休年龄提高至与男性相同。总体而言，2008年养老金改革在很大程度上实现了其缩小性别差距和老年贫困的目标，尽管新体系的成本是旧体系的两倍。",
+      "doi": "10.1016/j.jeconom.2022.08.005",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407622001622",
+      "publication_date": "July 2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/243/issue/1-2",
+        "roster": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/243/issue/1-2",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304407622001622",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-18T19:13:28+00:00",
+        "source_hash": "c078e520e799060796fd8776b99975eb12b77539bd344539087d6ac65060f1ec"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105720",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Human capital and migration: A cautionary tale",
+      "title_cn": "人力资本与迁移：一个警示故事",
+      "authors": [
+        "Navarro, Salvador",
+        "Zhou, Jin"
+      ],
+      "abstract_en": "We analyze the impact that the option of migration might have on human capital accumulation. We show that, when the return to education for migrants is lower in the destination than in the origin, the overall incentive to accumulate human capital is reduced as restrictions on migration are relaxed. We use panel data from the Chinese Household Income Project to document that the return to education for rural individuals is lower in urban areas than in rural areas. We then use a difference-in-differences design to show that the 1983 reform that eliminated the strong restriction that existed for rural–urban migration resulted in a reduction of 0.4 years of schooling for rural people in China. Guided by these results, we estimate a life-cycle dynamic discrete choice model of education decisions and circular rural–urban migration in which individuals differ in observable characteristics and unobservable cognitive and non-cognitive skills. We validate the model by showing it is able to replicate the impact estimates from the difference-in-differences specification. Our simulations show that, while it would take a small subsidy (conditional on staying in school) to undo about 40% of the negative effects of the 1983 policy on rural education, the annual subsidy would need to be half of annual earnings to undo the effects entirely.",
+      "abstract_cn": "我们分析了迁移选择可能对人力资本积累产生的影响。我们表明，当迁移者在目的地的教育回报低于来源地时，随着迁移限制的放宽，积累人力资本的总体激励会降低。我们使用中国家庭收入项目的面板数据来记录农村个体在城镇地区的教育回报低于农村地区。然后，我们使用双重差分设计来表明，1983年消除城乡迁移严格限制的改革导致中国农村人口受教育年限减少了0.4年。在这些结果的指导下，我们估计了一个关于教育决策和循环城乡迁移的生命周期动态离散选择模型，其中个体在可观测特征和不可观测的认知与非认知技能方面存在差异。我们通过展示该模型能够复制双重差分规范中的影响估计来验证模型。我们的模拟表明，虽然需要一笔小额补贴（以继续上学为条件）才能抵消1983年政策对农村教育负面影响的约40%，但年度补贴需要达到年收入的一半才能完全抵消这些影响。",
+      "doi": "10.1016/j.jeconom.2024.105720",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624000666",
+      "publication_date": "July 2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/243/issue/1-2",
+        "roster": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/243/issue/1-2",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304407624000666",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-18T19:13:36+00:00",
+        "source_hash": "021d5388cafcb49a4fccbb217de851f767b0faadf97f800b341f51e964673294"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "abstract",
+        "matched_terms": [
+          "in China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2023.105653",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Robust inference for moment condition models without rational expectations",
+      "title_cn": "无理性预期下矩条件模型的稳健推断",
+      "authors": [
+        "Chen, Xiaohong",
+        "Hansen, Lars Peter",
+        "Hansen, Peter G."
+      ],
+      "abstract_en": "Applied researchers using structural models under rational expectations (RE) often confront empirical evidence of misspecification. In this paper we consider a generic dynamic model that is posed as a vector of unconditional moment restrictions. We suppose that the model is globally misspecified under RE, and thus empirically flawed in a way that is not econometrically subtle. We relax the RE restriction by allowing subjective beliefs to differ from the data-generating probability (DGP) model while still maintaining that the moment conditions are satisfied under the subjective beliefs of economic agents. We use statistical measures of divergence relative to RE to bound the set of subjective probabilities. This form of misspecification alters econometric identification and inferences in a substantial way, leading us to construct robust confidence sets for various set identified functionals.",
+      "abstract_cn": "应用研究人员在使用理性预期（RE）下的结构模型时，经常面临模型误设的经验证据。本文考虑一个以无条件矩限制向量形式提出的通用动态模型。我们假设该模型在RE下是全局误设的，因此在经验上存在缺陷，且这种缺陷并非计量经济学上的微妙问题。我们通过允许主观信念与数据生成概率（DGP）模型不同来放宽RE限制，同时仍然保持经济主体的主观信念满足矩条件。我们使用相对于RE的统计散度度量来界定主观概率集合。这种形式的误设显著改变了计量经济学的识别和推断，促使我们为各种集合识别泛函构建稳健置信集。",
+      "doi": "10.1016/j.jeconom.2023.105653",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S030440762300369X",
+      "publication_date": "July 2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/243/issue/1-2",
+        "roster": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/243/issue/1-2",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S030440762300369X",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-18T19:13:30+00:00",
+        "source_hash": "00ea93bd6e2acd2508096dadcd3e816bcd39f12c07bee65ffa04ffc4c7805a3f"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.09.020",
+      "sequence": 9,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "You are what your parents expect: Height and local reference points",
+      "title_cn": "你即父母所期：身高与本地参照点",
+      "authors": [
+        "Wang, Fan",
+        "Puentes, Esteban",
+        "Behrman, Jere R.",
+        "Cunha, Flávio"
+      ],
+      "abstract_en": "Recent estimates are that about 150 million children under five years of age are stunted, with substantial negative consequences for their schooling, cognitive skills, health, and economic productivity. Therefore, understanding what determines such growth retardation is significant for designing public policies that aim to address this issue. We build a model for nutritional choices and health with reference-dependent preferences. Parents care about the health of their children relative to some reference population. In our empirical model, we use height as the health outcome that parents target. Reference height is an equilibrium object determined by earlier cohorts’ parents’ nutritional choices in the same village. We explore the exogenous variation in reference height produced by a protein-supplementation experiment in Guatemala to estimate our model’s parameters. We use our model to decompose the impact of the protein intervention on height into price and reference-point effects. We find that the changes in reference points account for 65% of the height difference between two-year-old children in experimental and control villages in the sixth annual cohort born after the initiation of the intervention.",
+      "abstract_cn": "最近的估计表明，约有150亿五岁以下儿童发育迟缓，这对他们的教育、认知能力、健康和经济生产力产生了重大的负面影响。因此，理解导致这种生长迟缓的因素对于设计旨在解决这一问题的公共政策具有重要意义。我们构建了一个具有参照依赖偏好的营养选择和健康模型。父母关心其子女相对于某个参照人群的健康状况。在我们的实证模型中，我们使用身高作为父母所针对的健康结果。参照身高是一个均衡对象，由同一村庄中较早队列的父母营养选择决定。我们利用危地马拉一项蛋白质补充实验所产生的参照身高的外生变异来估计我们模型的参数。我们使用我们的模型将蛋白质干预对身高的影响分解为价格效应和参照点效应。我们发现，在干预启动后出生的第六个年度队列中，实验村和对照村两岁儿童之间的身高差异中，参照点的变化占了65%。",
+      "doi": "10.1016/j.jeconom.2021.09.020",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407622000562",
+      "publication_date": "July 2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/243/issue/1-2",
+        "roster": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/243/issue/1-2",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304407622000562",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-18T19:13:24+00:00",
+        "source_hash": "dec77af3507ac452351c73e751ca6998411112433cc082808a4a217a884a92b5"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.12.010",
+      "sequence": 10,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "Some children left behind: Variation in the effects of an educational intervention",
+      "title_cn": "被落下的孩子：教育干预效果的异质性",
+      "authors": [
+        "Buhl-Wiggers, Julie",
+        "Kerwin, Jason T.",
+        "Muñoz-Morales, Juan",
+        "Smith, Jeffrey",
+        "Thornton, Rebecca"
+      ],
+      "abstract_en": "We document substantial variation in the effects of a highly-effective literacy program in northern Uganda. The program increases test scores by 1.4 SDs on average, but standard statistical bounds show that the impact standard deviation exceeds 1.0 SD. This implies that the variation in effects across our students is wider than the spread of mean effects across all randomized evaluations of developing country education interventions in the literature. This very effective program does indeed leave some students behind. At the same time, we do not learn much from our analyses that attempt to determine which students benefit more or less from the program. We reject rank preservation, and the weaker assumption of stochastic increasingness leaves wide bounds on quantile-specific average treatment effects. Neither conventional nor machine-learning approaches to estimating systematic heterogeneity capture more than a small fraction of the variation in impacts given our available candidate moderators.",
+      "abstract_cn": "我们记录了乌干达北部一个高效识字项目效果的显著异质性。该项目平均使测试分数提高1.4个标准差，但标准统计界限显示影响标准差超过1.0个标准差。这意味着我们学生之间效果的差异比文献中所有发展中国家教育干预随机评估的平均效果分布还要宽。这个非常有效的项目确实让一些学生落后了。与此同时，我们试图确定哪些学生从项目中受益更多或更少的分析并没有提供太多信息。我们拒绝秩保持假设，而较弱的随机递增假设对分位数特定的平均处理效应留下了宽界限。在我们可用的候选调节变量下，无论是传统方法还是机器学习方法估计系统性异质性，都只能捕捉到影响变异的一小部分。",
+      "doi": "10.1016/j.jeconom.2021.12.010",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407622000355",
+      "publication_date": "July 2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/243/issue/1-2",
+        "roster": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/243/issue/1-2",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304407622000355",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-26T07:43:47+00:00",
+        "source_hash": "7c9903d87d2e850c4a72c4e36668037d4bdc4d6106203fadb2db6cc1ee6cdb94"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2021.12.009",
+      "sequence": 11,
+      "source_sequence": 11,
+      "article_type": "research-article",
+      "title_en": "Earnings dynamics and intergenerational transmission of skill",
+      "title_cn": "收入动态与技能的代际传递",
+      "authors": [
+        "Lochner, Lance",
+        "Park, Youngmin"
+      ],
+      "abstract_en": "This paper develops and estimates a two-factor model of intergenerational skill transmission when earnings inequality reflects differences in individual skills and other non-skill shocks. We consider heterogeneity in both initial skills and skill growth rates, allowing variation in skill growth to change over the lifecycle. Using administrative tax data on two linked generations of Canadians covering 37 years, we exploit covariances in log earnings (at different ages) both across and within generations to identify and estimate the intergenerational correlation structure for initial skills and skill growth rates, lifecycle skill growth profiles, and the dynamics of non-skill earnings shocks. We estimate low intergenerational elasticities (IGEs) for earnings in Canada; however, skill IGEs are typically 2–3 times larger due to considerable (and persistent) variation in earnings conditional on skills. Both earnings and skill IGEs decline for more recent child cohorts and are lower for children born to younger fathers. Intergenerational transmission of both initial skills and skill growth rates explains up to 40% of children’s skill variation. Skills become a more important determinant of earnings over the first part of workers’ careers; however, intergenerational transmission of skills becomes less important as children age, because skill growth rates are not well-predicted by parental skills. Parents’ initial skills and skill growth rates are equally important determinants of children’s skills, largely because both strongly influence children’s initial skills. Finally, we study intergenerational mobility for the 35 largest cities in Canada, documenting the extent to which considerable differences in earnings and skill IGEs vary with the extent of local heterogeneity in parental skills vs. earnings instability.",
+      "abstract_cn": "本文在收入不平等反映个体技能差异及其他非技能冲击的背景下，构建并估计了一个两因素的技能代际传递模型。我们考虑了初始技能和技能增长率的异质性，允许技能增长的变化在整个生命周期中发生改变。利用覆盖37年的加拿大两代关联行政税收数据，我们利用跨代和代内的对数收入（在不同年龄）的协方差来识别和估计初始技能和技能增长率的代际相关结构、生命周期技能增长轨迹以及非技能收入冲击的动态。我们估计加拿大收入的代际弹性（IGEs）较低；然而，由于在技能条件下收入存在显著（且持续）的变异，技能IGEs通常是其2-3倍。收入和技能IGEs在更近期的子女队列中均有所下降，且对于父亲较年轻的子女而言更低。初始技能和技能增长率的代际传递解释了子女技能变异的至多40%。在工人职业生涯的前期，技能成为收入更重要的决定因素；然而，随着子女年龄增长，技能的代际传递变得不那么重要，因为技能增长率并不能很好地由父母技能预测。父母的初始技能和技能增长率对子女技能同等重要，这主要是因为两者都强烈影响子女的初始技能。最后，我们研究了加拿大35最大城市的代际流动性，记录了收入和技能IGEs的显著差异在多大程度上随父母技能的地方异质性程度与收入不稳定性而变化。",
+      "doi": "10.1016/j.jeconom.2021.12.009",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407622000343",
+      "publication_date": "July 2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/243/issue/1-2",
+        "roster": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/243/issue/1-2",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304407622000343",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-27T17:07:02+00:00",
+        "source_hash": "61813a8aa7a15413599844fd65e593c95bcbf02272c96f6e979b5baf55a0327f"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2024.105820",
+      "sequence": 12,
+      "source_sequence": 12,
+      "article_type": "research-article",
+      "title_en": "Reprint of: Profiling the plight of disconnected youth in America",
+      "title_cn": "转载：描绘美国失联青年的困境",
+      "authors": [
+        "MaCurdy, Thomas",
+        "Glick, David",
+        "Sherpa, Sonam",
+        "Nagavarapu, Sriniketh"
+      ],
+      "abstract_en": "In a successful transition from youth to adulthood, individuals pass through a sequence of roles involving school, work, and family formation that culminate in their becoming self-sufficient adults. However, some “disconnected” youth spend extended periods of time outside of any role that constitutes an element of the pathway towards adult independence. Assisting these youth requires a systematic understanding of what “disconnection” means, how many disconnected youth there are, who these youth are, and how the scale of the problem has evolved over time. Using the National Longitudinal Surveys of Youth for 1997 and 1979, we address these issues by creating concrete definitions of “disconnection spells” using rich data on youths’ enrollment, work, and personal histories. We estimate a multi-state duration model to account for right censoring and to understand differences across salient sub-groups. Our estimates imply that in the early 2000s, almost 19% and 25% of young men and young women, respectively, experienced a disconnection spell by age 23 using our basic definition. These rates are substantially higher for certain sub-groups defined by race/ethnicity, parental education, and government aid receipt, rising as high as 30+% by age 23. Approximately 60% of youth with a disconnection spell have it last longer than a year, and close to 10% have it last longer than 4 years. However, once reconnected, a majority of youth go at least three years without a re-disconnection spell. Patterns of initial disconnection changed markedly from the 1980s to the 2000s, as young women saw a 12 percentage point decline over time. Moreover, the Black-White gap in disconnection has fallen for women, but increased for men. Our profile of disconnection experiences provides a starting point for government agencies aiming to understand where, how, and with whom to intervene to prevent lengthy disconnection spells.",
+      "abstract_cn": "在从青年到成年的成功过渡中，个体经历一系列涉及学校、工作和家庭形成的角色序列，最终成为自给自足的成年人。然而，一些“失联”青年在构成通往成年独立路径要素的任何角色之外度过长时间。帮助这些青年需要系统理解“失联”的含义、失联青年有多少、这些青年是谁，以及问题规模如何随时间演变。利用1997年和1979年的全国青年纵向调查，我们通过使用关于青年入学、工作和个人历史的丰富数据，创建“失联期”的具体定义来解决这些问题。我们估计一个多状态持续时间模型，以考虑右删失并理解不同显著亚组之间的差异。我们的估计表明，在2000年代初，根据我们的基本定义，近19%的年轻男性和25%的年轻女性在23岁前经历了失联期。对于按种族/民族、父母教育和政府援助接受情况定义的某些亚组，这些比率显著更高，到30岁时高达23以上。大约60%有失联期的青年持续时间超过一年，接近10%持续时间超过4年。然而，一旦重新连接，大多数青年至少三年内不会再次失联。从1980年代到2000年代，初始失联模式发生显著变化，年轻女性的失联率随时间下降了12个百分点。此外，黑人与白人之间的失联差距在女性中缩小，但在男性中扩大。我们对失联经历的描绘为政府机构提供了一个起点，以了解在何处、如何以及与谁干预以防止长期失联期。",
+      "doi": "10.1016/j.jeconom.2024.105820",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407624001659",
+      "publication_date": "July 2024",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/243/issue/1-2",
+        "roster": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/243/issue/1-2",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S0304407624001659",
+        "abstract_en": "official-sciencedirect-issue-preview"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-18T19:13:39+00:00",
+        "source_hash": "dea0d18ce7e9ecf58af6520b7aa8dd42f5c507f9ba050a25540603a9a07e90a3"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_authority": "official-issue-page",
+    "roster_transport": "browser-authorized",
+    "official_item_count": 14,
+    "excluded_items": [],
+    "doi_complete": 12,
+    "authors_complete": 12,
+    "abstract_en_complete": 12,
+    "translation_complete": 12,
+    "duplicate_count": 0,
+    "flags": [],
+    "browser_capture": {
+      "captured_at": "2026-08-27T16:30:47.973Z",
+      "institutional_access_confirmed": true,
+      "privacy_fields_stored": false
+    },
+    "publishable_item_count": 12,
+    "excluded_item_count": 0,
+    "content_counts": {
+      "official_items": 14,
+      "observed_items": 12,
+      "publishable_items": 12,
+      "research_articles": 12,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 12
+    },
+    "official_roster_evidence": {
+      "captured_at": "2026-08-27T16:30:47.973Z",
+      "official_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/243/issue/1-2",
+      "method": "browser-authorized",
+      "item_count": 12,
+      "excluded_item_count": 2,
+      "archive_reordered": false,
+      "sequence_sha256": "0a4dda0c339d37f5849c4961617ed15fe491892ca10d72b067337050a4d8b12f",
+      "privacy_fields_stored": false
+    }
+  },
+  "content_counts": {
+    "official_items": 14,
+    "observed_items": 12,
+    "publishable_items": 12,
+    "research_articles": 12,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 12
+  },
+  "content_status": "complete",
+  "source_status": "official_verified"
+}

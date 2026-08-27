@@ -1,12 +1,12 @@
 # Field journal history backfill status
 
-Updated: 2026-08-27T13:01:27+00:00
+Updated: 2026-08-27T17:08:56+00:00
 
-Discovery coverage: 1331 discovered · 1230 archived · 1032 publication ready · 101 missing · 198 source pending
+Discovery coverage: 1331 discovered · 1233 archived · 1035 publication ready · 98 missing · 198 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 525 | 13 | 63 | 107 |
+| 2023-2024 | 528 | 13 | 60 | 107 |
 | 2023-2026 | 269 | 0 | 23 | 8 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
@@ -758,7 +758,7 @@ Discovery coverage: 1331 discovered · 1230 archived · 1032 publication ready �
 | JFE | jfe-147-2 | 2023 | ready |  |
 | JFE | jfe-147-3 | 2023 | ready |  |
 | JFE | jfe-148-1 | 2023 | blocked | possible_incomplete_volume: 2 articles collected vs current issue 17; needs offi |
-| JFE | jfe-148-2 | 2023 | blocked | possible_incomplete_volume: 3 articles collected vs current issue 17; needs offi |
+| JFE | jfe-148-2 | 2023 | ready |  |
 | JFE | jfe-148-3 | 2023 | ready |  |
 | JFE | jfe-149-1 | 2023 | ready |  |
 | JFE | jfe-149-2 | 2023 | ready |  |
@@ -919,10 +919,10 @@ Discovery coverage: 1331 discovered · 1230 archived · 1032 publication ready �
 | JOE | joe-241-2 | 2024 | ready |  |
 | JOE | joe-242-1 | 2024 | ready |  |
 | JOE | joe-242-2 | 2024 | ready |  |
-| JOE | joe-243-1-2 | 2024 | blocked | possible_incomplete_volume: 7 articles collected vs current issue 18; needs offi |
+| JOE | joe-243-1-2 | 2024 | ready |  |
 | JOE | joe-244-1 | 2024 | ready |  |
 | JOE | joe-244-2 | 2024 | ready |  |
-| JOE | joe-245-1-2 | 2024 | blocked | possible_incomplete_volume: 5 articles collected vs current issue 18; needs offi |
+| JOE | joe-245-1-2 | 2024 | ready |  |
 | JOE | joe-246-1-2 | 2024 | blocked | possible_incomplete_volume: 4 articles collected vs current issue 18; needs offi |
 | JOE | joe-247-c | 2025 | ready |  |
 | JOE | joe-248-c | 2025 | ready |  |
