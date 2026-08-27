@@ -387,6 +387,9 @@
       "status": "blocked",
       "last_error": "archive_content_gate_failed",
       "retry_class": "manual",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-08-27T10:26:20+00:00",
+      "last_error_code": "archive_content_gate_failed",
       "content_status": "blocked",
       "source_status": "publisher_verified",
       "publication_state": "blocked"
@@ -426,6 +429,9 @@
       "status": "blocked",
       "last_error": "archive_content_gate_failed",
       "retry_class": "manual",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-08-27T10:26:35+00:00",
+      "last_error_code": "archive_content_gate_failed",
       "content_status": "blocked",
       "source_status": "publisher_verified",
       "publication_state": "blocked"
@@ -2545,6 +2551,9 @@
       "status": "blocked",
       "last_error": "archive_content_gate_failed",
       "retry_class": "manual",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-08-27T10:21:33+00:00",
+      "last_error_code": "archive_content_gate_failed",
       "content_status": "blocked",
       "source_status": "publisher_verified",
       "publication_state": "blocked"
@@ -2857,6 +2866,9 @@
       "status": "blocked",
       "last_error": "archive_content_gate_failed",
       "retry_class": "manual",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-08-27T10:22:26+00:00",
+      "last_error_code": "archive_content_gate_failed",
       "content_status": "blocked",
       "source_status": "publisher_verified",
       "publication_state": "blocked"
@@ -3762,7 +3774,14 @@
       "issue": "2",
       "official_url": "https://onlinelibrary.wiley.com/toc/15567568/21/2",
       "status": "blocked",
-      "last_error": "MetadataFallbackError: Crossref returned no usable recent issue"
+      "last_error": "MetadataFallbackError: Crossref returned no usable recent issue",
+      "retry_class": "manual",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-08-27T10:20:51+00:00",
+      "last_error_code": "MetadataFallbackError",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "te-21-3": {
       "journal": "TE",
@@ -3771,7 +3790,14 @@
       "issue": "3",
       "official_url": "https://onlinelibrary.wiley.com/toc/15567568/21/3",
       "status": "blocked",
-      "last_error": "MetadataFallbackError: Crossref returned no usable recent issue"
+      "last_error": "MetadataFallbackError: Crossref returned no usable recent issue",
+      "retry_class": "manual",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-08-27T10:20:24+00:00",
+      "last_error_code": "MetadataFallbackError",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "ere-88-1": {
       "journal": "ERE",
@@ -5780,7 +5806,14 @@
       "issue": "5",
       "official_url": "https://www.journals.uchicago.edu/toc/jaere/2026/13/5",
       "status": "blocked",
-      "last_error": "MetadataFallbackError: Crossref returned no usable issue 13/5"
+      "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2026/13/5",
+      "retry_class": "manual",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-08-27T10:21:54+00:00",
+      "last_error_code": "HTTPError",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "ajae-107-1": {
       "journal": "AJAE",
@@ -6359,6 +6392,9 @@
       "status": "blocked",
       "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jole/2025/43/S1",
       "retry_class": "manual",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-08-27T10:21:26+00:00",
+      "last_error_code": "HTTPError",
       "content_status": "blocked",
       "source_status": "source_pending",
       "publication_state": "blocked"
@@ -6424,6 +6460,9 @@
       "status": "blocked",
       "last_error": "archive_content_gate_failed",
       "retry_class": "manual",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-08-27T10:22:39+00:00",
+      "last_error_code": "archive_content_gate_failed",
       "content_status": "blocked",
       "source_status": "publisher_verified",
       "publication_state": "blocked"
@@ -6435,7 +6474,14 @@
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/world-development/vol/208/suppl/C",
       "status": "blocked",
-      "last_error": "MetadataFallbackError: Crossref returned no usable issue 208/"
+      "last_error": "MetadataFallbackError: Crossref returned no usable issue 208/",
+      "retry_class": "manual",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-08-27T10:20:37+00:00",
+      "last_error_code": "MetadataFallbackError",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "jpube-262-c": {
       "journal": "JPubE",
@@ -6444,7 +6490,14 @@
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/journal-of-public-economics/vol/262/suppl/C",
       "status": "blocked",
-      "last_error": "MetadataFallbackError: Crossref returned no usable issue 262/"
+      "last_error": "MetadataFallbackError: Crossref returned no usable issue 262/",
+      "retry_class": "manual",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-08-27T10:24:50+00:00",
+      "last_error_code": "MetadataFallbackError",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "lup-170-c": {
       "journal": "LUP",
@@ -6455,6 +6508,9 @@
       "status": "blocked",
       "last_error": "archive_content_gate_failed",
       "retry_class": "manual",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-08-27T10:21:51+00:00",
+      "last_error_code": "archive_content_gate_failed",
       "content_status": "blocked",
       "source_status": "publisher_verified",
       "publication_state": "blocked"
@@ -6466,7 +6522,14 @@
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/land-use-policy/vol/171/suppl/C",
       "status": "blocked",
-      "last_error": "MetadataFallbackError: Crossref returned no usable issue 171/"
+      "last_error": "MetadataFallbackError: Crossref returned no usable issue 171/",
+      "retry_class": "manual",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-08-27T10:22:18+00:00",
+      "last_error_code": "MetadataFallbackError",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "jfe-184-c": {
       "journal": "JFE",
@@ -6475,7 +6538,14 @@
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/184/suppl/C",
       "status": "blocked",
-      "last_error": "MetadataFallbackError: Crossref returned no usable issue 184/"
+      "last_error": "MetadataFallbackError: Crossref returned no usable issue 184/",
+      "retry_class": "manual",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-08-27T10:24:29+00:00",
+      "last_error_code": "MetadataFallbackError",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "jie-164-c": {
       "journal": "JIE",
@@ -6484,7 +6554,14 @@
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
       "status": "blocked",
-      "last_error": "MetadataFallbackError: Crossref returned no usable issue 164/"
+      "last_error": "MetadataFallbackError: Crossref returned no usable issue 164/",
+      "retry_class": "manual",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-08-27T10:24:19+00:00",
+      "last_error_code": "MetadataFallbackError",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "red-55-c": {
       "journal": "RED",
@@ -6493,12 +6570,11 @@
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/55/suppl/C",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-08-25T14:24:25+00:00"
+      "publication_state": "source_pending"
     },
     "red-56-c": {
       "journal": "RED",
@@ -6507,12 +6583,11 @@
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/56/suppl/C",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-08-25T14:24:32+00:00"
+      "publication_state": "source_pending"
     },
     "red-57-c": {
       "journal": "RED",
@@ -6521,12 +6596,11 @@
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/57/suppl/C",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-08-25T14:24:38+00:00"
+      "publication_state": "source_pending"
     },
     "red-58-c": {
       "journal": "RED",
@@ -6535,12 +6609,11 @@
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/58/suppl/C",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-08-25T14:24:46+00:00"
+      "publication_state": "source_pending"
     },
     "red-59-c": {
       "journal": "RED",
@@ -6549,12 +6622,11 @@
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/59/suppl/C",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-08-25T14:24:51+00:00"
+      "publication_state": "source_pending"
     },
     "red-60-c": {
       "journal": "RED",
@@ -6576,12 +6648,11 @@
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/61/suppl/C",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-08-25T14:24:59+00:00"
+      "publication_state": "source_pending"
     },
     "jce-53-1": {
       "journal": "JCE",
@@ -6785,7 +6856,14 @@
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/labour-economics/vol/102/suppl/C",
       "status": "blocked",
-      "last_error": "MetadataFallbackError: Crossref returned no usable issue 102/"
+      "last_error": "MetadataFallbackError: Crossref returned no usable issue 102/",
+      "retry_class": "manual",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-08-27T10:23:01+00:00",
+      "last_error_code": "MetadataFallbackError",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "jhe-99-c": {
       "journal": "JHE",
@@ -7210,7 +7288,14 @@
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/journal-of-economic-dynamics-and-control/vol/191/suppl/C",
       "status": "blocked",
-      "last_error": "MetadataFallbackError: Crossref returned no usable issue 191/"
+      "last_error": "MetadataFallbackError: Crossref returned no usable issue 191/",
+      "retry_class": "manual",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-08-27T10:26:58+00:00",
+      "last_error_code": "MetadataFallbackError",
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "cer-89-c": {
       "journal": "CER",
@@ -7964,6 +8049,9 @@
       "status": "blocked",
       "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2026/13/6",
       "retry_class": "manual",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-08-27T10:22:03+00:00",
+      "last_error_code": "HTTPError",
       "content_status": "blocked",
       "source_status": "source_pending",
       "publication_state": "blocked"
@@ -8003,6 +8091,9 @@
       "status": "blocked",
       "last_error": "MetadataFallbackError: Crossref returned no usable issue 62/",
       "retry_class": "manual",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-08-27T10:22:51+00:00",
+      "last_error_code": "MetadataFallbackError",
       "content_status": "blocked",
       "source_status": "source_pending",
       "publication_state": "blocked"
@@ -8042,6 +8133,9 @@
       "status": "blocked",
       "last_error": "MetadataFallbackError: Crossref returned no usable issue 39/9",
       "retry_class": "manual",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-08-27T10:20:45+00:00",
+      "last_error_code": "MetadataFallbackError",
       "content_status": "blocked",
       "source_status": "source_pending",
       "publication_state": "blocked"
@@ -8055,6 +8149,9 @@
       "status": "blocked",
       "last_error": "MetadataFallbackError: Crossref returned no usable issue 237/",
       "retry_class": "manual",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-08-27T10:24:39+00:00",
+      "last_error_code": "MetadataFallbackError",
       "content_status": "blocked",
       "source_status": "source_pending",
       "publication_state": "blocked"
@@ -8068,6 +8165,9 @@
       "status": "blocked",
       "last_error": "MetadataFallbackError: Crossref returned no usable issue 250/",
       "retry_class": "manual",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-08-27T10:27:09+00:00",
+      "last_error_code": "MetadataFallbackError",
       "content_status": "blocked",
       "source_status": "source_pending",
       "publication_state": "blocked"
@@ -8081,6 +8181,9 @@
       "status": "blocked",
       "last_error": "MetadataFallbackError: Crossref returned no usable issue 156/",
       "retry_class": "manual",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-08-27T10:23:11+00:00",
+      "last_error_code": "MetadataFallbackError",
       "content_status": "blocked",
       "source_status": "source_pending",
       "publication_state": "blocked"
@@ -8094,6 +8197,9 @@
       "status": "blocked",
       "last_error": "MetadataFallbackError: Crossref returned no usable issue 162/",
       "retry_class": "manual",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-08-27T10:26:48+00:00",
+      "last_error_code": "MetadataFallbackError",
       "content_status": "blocked",
       "source_status": "source_pending",
       "publication_state": "blocked"
