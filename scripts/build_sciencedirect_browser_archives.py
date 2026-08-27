@@ -328,6 +328,10 @@ def build_rich_snapshot(
     }
 
 
+def historical_issue_path(journal_id: str, issue_id: str) -> Path:
+    return public_issue_path(journal_id).parent / f"{issue_id}.json"
+
+
 def promote_historical(candidate: dict[str, Any], *, state_root: Path) -> Path:
     if not is_archivable_snapshot(candidate):
         raise ValueError(
@@ -335,8 +339,7 @@ def promote_historical(candidate: dict[str, Any], *, state_root: Path) -> Path:
             f"{candidate['quality'].get('translation_complete', 0)}/"
             f"{candidate['research_article_count']} translated"
         )
-    target = public_issue_path(str(candidate["journal_id"]))
-    target = target.parent / "issues" / f"{candidate['issue_id']}.json"
+    target = historical_issue_path(str(candidate["journal_id"]), str(candidate["issue_id"]))
     write_json(target, candidate)
     archive_issue(candidate)
     reconcile_state_files(candidate, state_root)

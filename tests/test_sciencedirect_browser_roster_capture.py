@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import unittest
 
+from scripts.build_sciencedirect_browser_archives import historical_issue_path
 from scripts.capture_sciencedirect_browser_roster_evidence import build_evidence
 from scripts.capture_sciencedirect_browser_roster_evidence import _article_type
 
@@ -217,6 +218,12 @@ class ScienceDirectBrowserRosterCaptureTests(unittest.TestCase):
             "Introduction to the special issue on policy",
             evidence["excluded_items"][0]["title_en"],
         )
+
+
+    def test_historical_issue_path_avoids_double_issues_segment(self) -> None:
+        path = historical_issue_path("jfe", "jfe-148-1")
+        self.assertNotIn("issues/issues", str(path))
+        self.assertTrue(str(path).replace("\\", "/").endswith("journals/jfe/issues/jfe-148-1.json"))
 
 
 if __name__ == "__main__":
