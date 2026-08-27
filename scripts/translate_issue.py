@@ -111,6 +111,57 @@ MONTH_WORDS_ZH = {
     "November": "十一月",
     "December": "十二月",
 }
+MONTH_EN_INDEX = {
+    "january": 1,
+    "february": 2,
+    "march": 3,
+    "april": 4,
+    "may": 5,
+    "june": 6,
+    "july": 7,
+    "august": 8,
+    "september": 9,
+    "october": 10,
+    "november": 11,
+    "december": 12,
+}
+CHINESE_MONTH_PATTERN = re.compile(
+    r"(?<![一二三四五六七八九十])"
+    r"(一月|二月|三月|四月|五月|六月|七月|八月|九月|十月|十一月|十二月)"
+    r"(?![一二三四五六七八九十])"
+)
+
+
+def _month_numbers(value: str) -> list[str]:
+    """Month names are numeric values; ``July 2006`` equals ``7月``."""
+    numbers: list[str] = []
+    for name, index in MONTH_EN_INDEX.items():
+        month_with_year = re.compile(
+            rf"\b{name}\b(?=\s+(?:19|20)\d{{2}}\b)",
+            flags=re.IGNORECASE,
+        )
+        month_after_preposition = re.compile(
+            rf"\b(?:in|from|through|until|between|during|as of)\s+(?P<month>{name})\b",
+            flags=re.IGNORECASE,
+        )
+        seen_spans: set[tuple[int, int]] = set()
+        for _match in month_with_year.finditer(value):
+            span = (_match.start(), _match.end())
+            if span not in seen_spans:
+                seen_spans.add(span)
+                numbers.append(str(index))
+        for _match in month_after_preposition.finditer(value):
+            span = _match.span("month")
+            if span not in seen_spans:
+                seen_spans.add(span)
+                numbers.append(str(index))
+    for index, month_cn in enumerate(MONTH_WORDS_ZH.values(), start=1):
+        for _match in CHINESE_MONTH_PATTERN.finditer(value):
+            if _match.group(0) == month_cn:
+                numbers.append(str(index))
+    return numbers
+
+
 NUMBER_WORD_VALUES = {
     word: index
     for index, word in enumerate(
@@ -952,8 +1003,8 @@ def validate_translation(article: dict[str, Any], translated: dict[str, Any]) ->
         raise TranslationError("Translation must not contain Markdown fences")
     source_text = f"{article.get('title_en', '')}\n{article.get('abstract_en', '')}"
     translated_text = f"{title_cn}\n{abstract_cn}"
-    source_numbers = Counter(_numbers(source_text))
-    translated_numbers = Counter(_numbers(translated_text))
+    source_numbers = Counter(_numbers(source_text) + _month_numbers(source_text))
+    translated_numbers = Counter(_numbers(translated_text) + _month_numbers(translated_text))
     # Identifier labels (Section 5503, Table 2, 第5503条) are not data
     # values: exempt the source's identifier numbers on the translation side
     # too, so rendering them with Arabic digits is not flagged as invented.
