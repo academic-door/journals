@@ -119,6 +119,35 @@ class OfficialRosterEvidenceTests(unittest.TestCase):
         )
         self.assertTrue(candidate["quality"]["official_roster_evidence"]["sequence_sha256"])
 
+    def test_enrich_missing_elsevier_skips_non_pii_rosters(self) -> None:
+        payload = evidence()
+        for item in payload["items"]:
+            item.pop("source_id", None)
+            item.pop("official_authors", None)
+            item.pop("official_article_url", None)
+        enriched = enrich_missing_elsevier(payload, provisional_issue())
+        self.assertEqual(payload["items"], enriched["items"])
+
+    def test_apply_evidence_excludes_front_matter_row_not_in_archive(self) -> None:
+        issue = provisional_issue()
+        payload = evidence()
+        payload["excluded_item_count"] = 0
+        payload["excluded_items"] = []
+        payload["items"].append(
+            {
+                "sequence": 3,
+                "doi": "10.1086/729056",
+                "title_en": "Index to Volume 131",
+            }
+        )
+        candidate = apply_evidence(issue, payload)
+        self.assertEqual(2, len(candidate["articles"]))
+        excluded = candidate["quality"]["excluded_items"]
+        self.assertIn(
+            "10.1086/729056",
+            [str(entry.get("doi", "")).strip().lower() for entry in excluded],
+        )
+
     def test_mismatched_order_fails_closed(self) -> None:
         bad = evidence()
         bad["items"] = list(reversed(bad["items"]))

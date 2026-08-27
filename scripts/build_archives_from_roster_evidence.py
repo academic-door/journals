@@ -30,6 +30,7 @@ if str(ROOT) not in sys.path:
 from collectors.article_types import (  # noqa: E402
     PUBLISHABLE_TYPES,
     canonical_article_type,
+    evidence_roster_article_type,
     exclusion_reason,
     is_publishable_type,
     normalize_issue_taxonomy,
@@ -66,47 +67,6 @@ DEFAULT_EVIDENCE_ROOT = ROOT / "data" / "provenance" / "official-rosters"
 DEFAULT_API_ROOT = ROOT / "public" / "api" / "v1"
 DEFAULT_STATE_ROOT = ROOT / "data" / "backfill-state"
 DEFAULT_STAGING_ROOT = ROOT / "data" / "backfill-staging"
-
-# Publisher TOC pages expose front-matter rows (Wiley "First Page",
-# "ANNOUNCEMENTS", conference programs, Chicago "Index to Volume", MIT Press
-# cover rows, ...) that carry a DOI but no authors or abstracts.  They must
-# never count as research articles, or they block the whole issue.  These
-# heuristics are scoped to official roster evidence so existing published
-# archives keep their historical classification.
-EVIDENCE_FRONT_MATTER_PATTERN = re.compile(
-    r"^\s*first\s+page\s*$|"
-    r"^\s*(?:front|back)\s+cover\b|^\s*cover\s+(?:image|art|picture)\b|"
-    r"^\s*announcements?\s*$|"
-    r"^\s*masthead\s*$|"
-    r"^\s*preliminary\s+program(?:me)?\b|"
-    r"^\s*participant\s+schedule\b|"
-    r"^\s*index\s+to\s+volume\b|^\s*(?:author|subject)\s+index\s*$|"
-    r"^\s*american\s+finance\s+association\s*$|"
-    r"^\s*volume\s+information\s*$|"
-    r"^\s*about\s+(?:this\s+)?journal\s*$",
-    re.IGNORECASE,
-)
-EVIDENCE_REPLY_PATTERN = re.compile(
-    r"^\s*(?:a\s+)?repl(?:y|ies)(?:\s+to)?\b|:\s*(?:a\s+)?repl(?:y|ies)\s*$",
-    re.IGNORECASE,
-)
-
-
-def evidence_article_type(title: str) -> str:
-    """Classify one official-roster row for archive building.
-
-    Front-matter rows are excluded up front; reply/comment rows are kept as
-    publishable comments that do not require an English abstract.  Everything
-    else falls through to the shared taxonomy so existing behavior is
-    preserved for already-archived issues.
-    """
-
-    title = str(title or "")
-    if EVIDENCE_FRONT_MATTER_PATTERN.search(title):
-        return "front-matter"
-    if EVIDENCE_REPLY_PATTERN.search(title):
-        return "comment"
-    return canonical_article_type(title, "", raw_type="")
 
 
 def _split_volume_issue(issue_id: str, journal_id: str) -> tuple[str, str]:
@@ -287,7 +247,7 @@ def build_candidate_from_evidence(
         ).strip()
         authors = list(meta.get("authors", []))
         abstract = str(meta.get("abstract", "")).strip()
-        article_type = evidence_article_type(title)
+        article_type = evidence_roster_article_type(title)
         if article_type in PUBLISHABLE_TYPES and not authors:
             missing_authors.append(doi)
         if requires_abstract(article_type) and not abstract:

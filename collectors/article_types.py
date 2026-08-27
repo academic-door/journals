@@ -64,6 +64,47 @@ COMMENT_PATTERN = re.compile(
     re.IGNORECASE,
 )
 
+# Official TOC pages expose front-matter rows (Wiley "First Page",
+# "ANNOUNCEMENTS", conference programs, Chicago "Index to Volume", MIT Press
+# cover rows, ...) that carry a DOI but no authors or abstracts, and
+# reply/comment rows.  These heuristics are scoped to official roster
+# evidence so existing published archives keep their historical
+# classification (canonical_article_type stays untouched).
+EVIDENCE_FRONT_MATTER_PATTERN = re.compile(
+    r"^\s*first\s+page\s*$|"
+    r"^\s*(?:front|back)\s+cover\b|^\s*cover\s+(?:image|art|picture)\b|"
+    r"^\s*announcements?\s*$|"
+    r"^\s*masthead\s*$|"
+    r"^\s*preliminary\s+program(?:me)?\b|"
+    r"^\s*participant\s+schedule\b|"
+    r"^\s*index\s+to\s+volume\b|^\s*(?:author|subject)\s+index\s*$|"
+    r"^\s*american\s+finance\s+association\s*$|"
+    r"^\s*volume\s+information\s*$|"
+    r"^\s*about\s+(?:this\s+)?journal\s*$",
+    re.IGNORECASE,
+)
+EVIDENCE_REPLY_PATTERN = re.compile(
+    r"^\s*(?:a\s+)?repl(?:y|ies)(?:\s+to)?\b|:\s*(?:a\s+)?repl(?:y|ies)\s*$",
+    re.IGNORECASE,
+)
+
+
+def evidence_roster_article_type(title: str) -> str:
+    """Classify one official-roster row for evidence-driven archive building.
+
+    Front-matter rows are excluded up front; reply/comment rows are kept as
+    publishable comments that do not require an English abstract.  Everything
+    else falls through to the shared taxonomy so existing behavior is
+    preserved for already-archived issues.
+    """
+
+    title = str(title or "")
+    if EVIDENCE_FRONT_MATTER_PATTERN.search(title):
+        return "front-matter"
+    if EVIDENCE_REPLY_PATTERN.search(title):
+        return "comment"
+    return canonical_article_type(title, "", raw_type="")
+
 
 def canonical_issue_label(
     volume: object,
