@@ -6,6 +6,7 @@ import unittest
 from collectors.article_types import (
     canonical_article_type,
     canonical_issue_label,
+    evidence_roster_article_type,
     normalize_issue_taxonomy,
 )
 
@@ -28,6 +29,42 @@ class ArticleTypeTests(unittest.TestCase):
         self.assertEqual(
             "short-communication",
             canonical_article_type("A paper", raw_type="Short communication"),
+        )
+
+    def test_evidence_roster_classification_handles_front_matter_and_replies(self) -> None:
+        self.assertEqual("front-matter", evidence_roster_article_type("First Page"))
+        self.assertEqual("front-matter", evidence_roster_article_type("ANNOUNCEMENTS"))
+        self.assertEqual(
+            "front-matter",
+            evidence_roster_article_type(
+                "Preliminary Program AFA 2023 ANNUAL MEETING AMERICAN FINANCE ASSOCIATION"
+            ),
+        )
+        self.assertEqual(
+            "front-matter",
+            evidence_roster_article_type(
+                "Participant Schedule for the AFA 2023 Preliminary Program January 6-8, 2023"
+            ),
+        )
+        self.assertEqual(
+            "front-matter", evidence_roster_article_type("AMERICAN FINANCE ASSOCIATION")
+        )
+        self.assertEqual("front-matter", evidence_roster_article_type("Index to Volume 131"))
+        self.assertEqual(
+            "comment",
+            evidence_roster_article_type(
+                "Tax Smoothing in Frictional Labor Markets: A Reply"
+            ),
+        )
+        self.assertEqual(
+            "research-article",
+            evidence_roster_article_type(
+                "Front-Page News: The Effect of News Positioning on Financial Markets"
+            ),
+        )
+        # The shared taxonomy is untouched by evidence heuristics.
+        self.assertEqual(
+            "research-article", canonical_article_type("Index to Volume 131")
         )
 
     def test_issue_counts_and_progress_require_source_abstracts(self) -> None:
