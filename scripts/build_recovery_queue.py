@@ -20,6 +20,12 @@ MAX_CHUNK_SIZE = 12
 def _adapter(record: dict[str, Any], collector: str) -> str:
     category = str(record.get("category", ""))
     journal = str(record.get("journal", "")).upper()
+    official_url = str(record.get("official_url", ""))
+    if "link.springer.com" in official_url and category in {
+        "recoverable",
+        "source_pending",
+    }:
+        return "springer-evidence"
     if category == "translation_required":
         return "translation"
     if category == "browser_required":

@@ -265,8 +265,16 @@ def build_candidate_from_evidence(
         title = str(item.get("title_en", "")).strip() or str(
             meta.get("title", "")
         ).strip()
-        authors = list(meta.get("authors", []))
-        abstract = str(meta.get("abstract", "")).strip()
+        authors = [
+            str(author).strip()
+            for author in item.get("authors", [])
+            if str(author).strip()
+        ] or list(meta.get("authors", []))
+        abstract = str(item.get("abstract_en", "") or meta.get("abstract", "")).strip()
+        source_url = str(item.get("source_url", "") or official_url).strip()
+        abstract_source = (
+            source_url if item.get("abstract_en") else "crossref-or-semantic-scholar"
+        )
         article_type = evidence_roster_article_type(title)
         if article_type in PUBLISHABLE_TYPES and not authors:
             missing_authors.append(doi)
@@ -283,13 +291,13 @@ def build_candidate_from_evidence(
             "abstract_en": abstract,
             "abstract_cn": "",
             "doi": doi,
-            "source_url": official_url,
+            "source_url": source_url,
             "publication_date": publication_date,
             "sources": {
                 "issue": official_url,
                 "roster": official_url,
-                "metadata": f"https://doi.org/{doi}",
-                "abstract_en": "crossref-or-semantic-scholar",
+                "metadata": source_url if item.get("source_url") else f"https://doi.org/{doi}",
+                "abstract_en": abstract_source,
             },
             "translation": {"status": "missing"},
             "quality_flags": ["title_cn_missing", "abstract_cn_missing"],

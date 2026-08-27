@@ -82,6 +82,8 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         apply = workflow.index("Apply exact official roster evidence")
         self.assertLess(build, apply)
         self.assertIn("SEMANTIC_SCHOLAR_API_KEY", workflow)
+        self.assertIn("capture_springer_roster_evidence.py", workflow)
+        self.assertIn("data/provenance/official-rosters/springer", workflow)
 
     def test_passes_shared_semantic_scholar_key_without_exposing_it(self) -> None:
         workflow = self.workflow()

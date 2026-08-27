@@ -84,6 +84,26 @@ class RecoveryQueueTests(unittest.TestCase):
         )
         self.assertEqual("collect-oup", shards[0]["action"])
 
+    def test_routes_springer_recoverable_issue_to_official_evidence(self) -> None:
+        _, shards = build_queue(
+            {
+                "records": [
+                    {
+                        "issue_id": "ere-84-1",
+                        "journal": "ERE",
+                        "year": 2023,
+                        "category": "recoverable",
+                        "source_status": "source_pending",
+                        "official_url": "https://link.springer.com/journal/10640/volumes-and-issues",
+                    }
+                ]
+            },
+            {"ERE": {"collector": "repec"}},
+            categories={"recoverable"},
+            chunk_size=10,
+        )
+        self.assertEqual("springer-evidence", shards[0]["action"])
+
 
 if __name__ == "__main__":
     unittest.main()
