@@ -1,13 +1,13 @@
 # Field journal history backfill status
 
-Updated: 2026-08-27T10:36:49+00:00
+Updated: 2026-08-27T13:01:27+00:00
 
-Discovery coverage: 1331 discovered · 1230 archived · 1024 publication ready · 101 missing · 206 source pending
+Discovery coverage: 1331 discovered · 1230 archived · 1032 publication ready · 101 missing · 198 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 519 | 13 | 63 | 113 |
-| 2023-2026 | 261 | 0 | 23 | 16 |
+| 2023-2024 | 525 | 13 | 63 | 107 |
+| 2023-2026 | 269 | 0 | 23 | 8 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
 | 2026-2026 | 6 | 0 | 0 | 0 |
@@ -673,16 +673,16 @@ Discovery coverage: 1331 discovered · 1230 archived · 1024 publication ready �
 | JEEM | jeem-139-c | 2026 | ready |  |
 | JEEM | jeem-140-c | 2026 | ready |  |
 | JEH | jeh-83-1 | 2023 | ready |  |
-| JEH | jeh-83-2 | 2023 | source_pending |  |
-| JEH | jeh-83-3 | 2023 | source_pending |  |
+| JEH | jeh-83-2 | 2023 | ready |  |
+| JEH | jeh-83-3 | 2023 | ready |  |
 | JEH | jeh-83-4 | 2023 | source_pending |  |
-| JEH | jeh-84-1 | 2024 | source_pending |  |
-| JEH | jeh-84-2 | 2024 | source_pending |  |
-| JEH | jeh-84-3 | 2024 | source_pending |  |
-| JEH | jeh-84-4 | 2024 | source_pending |  |
+| JEH | jeh-84-1 | 2024 | ready |  |
+| JEH | jeh-84-2 | 2024 | ready |  |
+| JEH | jeh-84-3 | 2024 | ready |  |
+| JEH | jeh-84-4 | 2024 | ready |  |
 | JEH | jeh-85-1 | 2025 | ready |  |
-| JEH | jeh-85-2 | 2025 | source_pending | source authority pending official verification |
-| JEH | jeh-85-3 | 2025 | source_pending | source authority pending official verification |
+| JEH | jeh-85-2 | 2025 | ready |  |
+| JEH | jeh-85-3 | 2025 | ready |  |
 | JEH | jeh-85-4 | 2025 | source_pending |  |
 | JEH | jeh-86-1 | 2026 | ready |  |
 | JEH | jeh-86-2 | 2026 | source_pending | source authority pending official verification |
@@ -947,12 +947,12 @@ Discovery coverage: 1331 discovered · 1230 archived · 1024 publication ready �
 | JPE | jpe-131-7 | 2023 | source_pending | source authority pending official verification |
 | JPE | jpe-131-8 | 2023 | source_pending | source authority pending official verification |
 | JPE | jpe-131-9 | 2023 | source_pending | source authority pending official verification |
-| JPE | jpe-132-1 | 2024 | source_pending |  |
+| JPE | jpe-132-1 | 2024 | source_pending | source authority pending official verification |
 | JPE | jpe-132-10 | 2024 | ready |  |
 | JPE | jpe-132-11 | 2024 | ready |  |
 | JPE | jpe-132-12 | 2024 | ready |  |
-| JPE | jpe-132-2 | 2024 | source_pending |  |
-| JPE | jpe-132-3 | 2024 | source_pending |  |
+| JPE | jpe-132-2 | 2024 | source_pending | source authority pending official verification |
+| JPE | jpe-132-3 | 2024 | source_pending | source authority pending official verification |
 | JPE | jpe-132-4 | 2024 | source_pending | source authority pending official verification |
 | JPE | jpe-132-5 | 2024 | ready |  |
 | JPE | jpe-132-6 | 2024 | ready |  |
@@ -1184,20 +1184,20 @@ Discovery coverage: 1331 discovered · 1230 archived · 1024 publication ready �
 | RED | red-50-c | 2023 | source_pending | source authority pending official verification |
 | RED | red-51-c | 2023 | source_pending | source authority pending official verification |
 | RED | red-52-c | 2024 | source_pending | source authority pending official verification |
-| RED | red-53-c | 2024 | source_pending |  |
-| RED | red-54-c | 2024 | source_pending |  |
-| RED | red-55-c | 2025 | source_pending |  |
-| RED | red-56-c | 2025 | source_pending |  |
-| RED | red-57-c | 2025 | source_pending |  |
-| RED | red-58-c | 2025 | source_pending |  |
-| RED | red-59-c | 2026 | source_pending |  |
+| RED | red-53-c | 2024 | source_pending | source authority pending official verification |
+| RED | red-54-c | 2024 | source_pending | source authority pending official verification |
+| RED | red-55-c | 2025 | source_pending | source authority pending official verification |
+| RED | red-56-c | 2025 | source_pending | source authority pending official verification |
+| RED | red-57-c | 2025 | source_pending | source authority pending official verification |
+| RED | red-58-c | 2025 | source_pending | source authority pending official verification |
+| RED | red-59-c | 2026 | source_pending | source authority pending official verification |
 | RED | red-60-c | 2026 | source_pending | possible_incomplete_volume: 4 articles collected vs current issue 12; needs offi |
-| RED | red-61-c | 2026 | source_pending |  |
+| RED | red-61-c | 2026 | source_pending | source authority pending official verification |
 | RED | red-62-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 62/ |
-| RES | res-90-1 | 2023 | source_pending |  |
+| RES | res-90-1 | 2023 | source_pending | source authority pending official verification |
 | RES | res-90-2 | 2023 | source_pending | source authority pending official verification |
 | RES | res-90-3 | 2023 | source_pending | source authority pending official verification |
-| RES | res-90-4 | 2023 | source_pending |  |
+| RES | res-90-4 | 2023 | source_pending | source authority pending official verification |
 | RES | res-90-5 | 2023 | source_pending |  |
 | RES | res-90-6 | 2023 | source_pending | source authority pending official verification |
 | RES | res-91-1 | 2024 | source_pending | source authority pending official verification |
