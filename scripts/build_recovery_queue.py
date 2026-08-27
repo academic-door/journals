@@ -26,6 +26,8 @@ def _adapter(record: dict[str, Any], collector: str) -> str:
         "source_pending",
     }:
         return "springer-evidence"
+    if "www.cambridge.org" in official_url and category == "source_pending":
+        return "cambridge-evidence"
     if category == "translation_required":
         return "translation"
     if category == "browser_required":
