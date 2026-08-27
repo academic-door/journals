@@ -140,13 +140,22 @@ def _month_numbers(value: str) -> list[str]:
             rf"\b{name}\b(?=\s+(?:19|20)\d{{2}}\b)",
             flags=re.IGNORECASE,
         )
+        month_with_day_year = re.compile(
+            rf"\b(?P<month>{name})\b\s+\d{{1,2}}(?:st|nd|rd|th)?\s*,?\s+(?:19|20)\d{{2}}\b",
+            flags=re.IGNORECASE,
+        )
         month_after_preposition = re.compile(
-            rf"\b(?:in|from|through|until|between|during|as of)\s+(?P<month>{name})\b",
+            rf"\b(?:in|from|through|until|between|during|as of|to)\s+(?P<month>{name})\b",
             flags=re.IGNORECASE,
         )
         seen_spans: set[tuple[int, int]] = set()
         for _match in month_with_year.finditer(value):
             span = (_match.start(), _match.end())
+            if span not in seen_spans:
+                seen_spans.add(span)
+                numbers.append(str(index))
+        for _match in month_with_day_year.finditer(value):
+            span = _match.span("month")
             if span not in seen_spans:
                 seen_spans.add(span)
                 numbers.append(str(index))
