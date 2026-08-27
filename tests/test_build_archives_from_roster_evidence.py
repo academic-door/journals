@@ -253,6 +253,125 @@ class BuildArchivesFromRosterEvidenceTests(unittest.TestCase):
         )
         crossref_direct.assert_called_once()
 
+    def test_publication_date_falls_back_to_metadata_month(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            evidence_root = root / "evidence"
+            api_root = root / "api"
+            state_root = root / "state"
+            staging_root = root / "staging"
+            cache_root = root / "cache"
+            for folder in (
+                evidence_root,
+                api_root,
+                state_root,
+                staging_root,
+                cache_root,
+            ):
+                folder.mkdir(parents=True, exist_ok=True)
+            evidence = {
+                "schema_version": "1.0",
+                "capture_mode": "official-roster-evidence",
+                "method": "official-page-read",
+                "captured_at": "2026-08-26T00:00:00+00:00",
+                "finalized": True,
+                "journal_id": "demo",
+                "issue_id": "demo-5-2",
+                "official_url": "https://onlinelibrary.wiley.com/toc/12345678/2024/5/2",
+                "excluded_item_count": 0,
+                "items": [
+                    {
+                        "sequence": 1,
+                        "doi": "10.1111/demo.10001",
+                        "title_en": "A Test of Policy",
+                    }
+                ],
+            }
+            self.write(
+                evidence_root,
+                "demo/demo-5-2.json",
+                json.dumps(evidence),
+            )
+            journals_path = root / "journals.yml"
+            journals_path.write_text(
+                "journals:\n"
+                "  DEMO:\n"
+                "    id: demo\n"
+                "    name: Demo Journal\n"
+                "    issn: 1234-5678\n"
+                "    collector: wiley\n"
+                "    enabled: true\n",
+                encoding="utf-8",
+            )
+            crossref_items = [
+                {
+                    "DOI": "10.1111/demo.10001",
+                    "title": ["A Test of Policy"],
+                    "author": [{"given": "Alice", "family": "Smith"}],
+                    "abstract": "<jats:p>We study the policy effect.</jats:p>",
+                    "issued": {"date-parts": [[2024, 5]]},
+                }
+            ]
+            article = {
+                "doi": "10.1111/demo.10001",
+                "title_en": "A Test of Policy",
+                "abstract_en": "We study the policy effect.",
+            }
+            cache = {
+                "10.1111/demo.10001": {
+                    "title_cn": "政策检验",
+                    "abstract_cn": "我们研究了政策对经济行为的影响，并利用详细的微观数据估计了政策效应的大小与方向。",
+                    "source_hash": _source_hash(article),
+                    "translation": {
+                        "provider": "deepseek",
+                        "model": "deepseek-v4-flash",
+                        "prompt_version": "academic-door-abstract-zh-v2",
+                        "translated_at": "2026-08-26T00:00:00+00:00",
+                    },
+                }
+            }
+            self.write(cache_root, "demo.json", json.dumps(cache))
+            with (
+                patch(
+                    "scripts.build_archives_from_roster_evidence._crossref_items",
+                    return_value=crossref_items,
+                ),
+                patch(
+                    "scripts.build_archives_from_roster_evidence._semantic_scholar_metadata_batch",
+                    return_value={},
+                ),
+                patch(
+                    "scripts.build_archives_from_roster_evidence._publication_date",
+                    return_value="",
+                ),
+                patch(
+                    "scripts.build_archives_from_roster_evidence.JOURNALS_PATH",
+                    journals_path,
+                ),
+            ):
+                import requests
+
+                session = requests.Session()
+                result = process_evidence(
+                    evidence_root / "demo" / "demo-5-2.json",
+                    {"id": "demo", "name": "Demo Journal", "issn": "1234-5678"},
+                    session=session,
+                    api_root=api_root,
+                    state_root=state_root,
+                    staging_root=staging_root,
+                    translation_cache_root=cache_root,
+                    max_translations=120,
+                    start_year=2022,
+                    timeout=10,
+                )
+            self.assertEqual("ready", result["result"], result)
+            archive = json.loads(
+                (
+                    api_root / "journals" / "demo" / "issues" / "demo-5-2.json"
+                ).read_text(encoding="utf-8")
+            )
+            self.assertEqual("May 2024", archive["publication_date"])
+
     def test_builds_and_archives_issue_from_official_roster(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
