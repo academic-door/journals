@@ -5,46 +5,79 @@
   "journal_name": "The Journal of Finance",
   "volume": "78",
   "issue": "1",
+  "issue_label": "Vol. 78 · No. 1",
   "publication_date": "February 2023",
   "source_url": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
-  "retrieved_at": "2026-08-15T22:56:23+00:00",
-  "expected_article_count": 9,
-  "research_article_count": 9,
+  "retrieved_at": "2026-08-26T21:28:50.751Z",
+  "expected_article_count": 11,
+  "research_article_count": 11,
   "status": "incomplete",
+  "publication_state": "translation_partial",
   "development_sample": false,
   "articles": [
     {
       "paper_id": "doi:10.1111/jofi.13188",
       "sequence": 1,
-      "source_sequence": 5,
+      "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Optimal Financial Transaction Taxes",
-      "title_cn": "最优金融交易税",
+      "title_cn": "",
       "authors": [
         "EDUARDO DÁVILA"
       ],
       "abstract_en": "This paper characterizes the optimal transaction tax in an equilibrium model of financial markets. If investors hold heterogeneous beliefs unrelated to their fundamental trading motives and the planner calculates welfare using any single belief, a positive tax is optimal, regardless of the magnitude of fundamental trading. Under some conditions, the optimal tax is independent of the planner's belief. The optimal tax can be implemented by adjusting its value until total volume equals fundamental volume. Knowledge of (i) the share of nonfundamental trading volume and (ii) the semielasticity of trading volume to tax changes is sufficient to quantify the optimal tax.",
-      "abstract_cn": "本文在金融市场均衡模型中刻画了最优交易税的特征。如果投资者持有与其基本面交易动机无关的异质信念，且计划者使用任意单一信念计算福利，则无论基本面交易规模如何，正税收都是最优的。在某些条件下，最优税收独立于计划者的信念。最优税收可以通过调整其值直至总交易量等于基本面交易量来实施。了解（i）非基本面交易量占比和（ii）交易量对税收变化的半弹性，足以量化最优税收。",
-      "abstract_snippet_en": "",
+      "abstract_cn": "",
       "doi": "10.1111/jofi.13188",
-      "source_url": "https://doi.org/10.1111/jofi.13188",
-      "publication_date": "2023",
+      "source_url": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+      "publication_date": "February 2023",
       "sources": {
         "issue": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
-        "roster": "crossref:issn:0022-1082",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+        "metadata": "https://doi.org/10.1111/jofi.13188",
+        "abstract_en": "crossref-or-semantic-scholar"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-15T22:56:26+00:00",
-        "source_hash": "08b917c84b6c00eac21bb3b43fc134f9d5056c2bea2c7d1468443b7cfb870b93"
+        "status": "missing"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1111/jofi.13189",
+      "sequence": 2,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Less Mainstream Credit, More Payday Borrowing? Evidence from Debt Collection Restrictions",
+      "title_cn": "",
+      "authors": [
+        "JULIA FONSECA"
+      ],
+      "abstract_en": "Governments regulate debt collectors to protect consumers from predatory practices. These restrictions may lower repayment, reducing the supply of mainstream credit and increasing demand for alternative credit. Using individual credit record data and a difference‐in‐differences design comparing consumers in states that tighten restrictions on debt collection to those in neighboring states that do not, I find that restricting collections reduces access to mainstream credit and increases payday borrowing. These findings provide new evidence of substitution between alternative and mainstream credit and point to a trade‐off between shielding consumers from certain collection practices and pushing them into higher cost payday lending markets.",
+      "abstract_cn": "",
+      "doi": "10.1111/jofi.13189",
+      "source_url": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+        "roster": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+        "metadata": "https://doi.org/10.1111/jofi.13189",
+        "abstract_en": "crossref-or-semantic-scholar"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -54,37 +87,33 @@
     },
     {
       "paper_id": "doi:10.1111/jofi.13187",
-      "sequence": 2,
-      "source_sequence": 105,
+      "sequence": 3,
+      "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Disruption and Credit Markets",
-      "title_cn": "颠覆与信贷市场",
+      "title_cn": "",
       "authors": [
         "BO BECKER",
         "VICTORIA IVASHINA"
       ],
       "abstract_en": "We show that over the past half‐century, innovative disruptions were central to understanding corporate defaults. In a given year, industries experiencing abnormally high venture capital or initial public offering activity subsequently see higher default rates, higher segment exits by conglomerates, and higher yields on bonds issued by the firms in these industries. Overall, we find that disruption is a broad phenomenon, negatively affecting incumbent firms across the spectrum of age, valuation, and levers, with the exception of very large and low‐leverage firms, in line with our central hypothesis.",
-      "abstract_cn": "我们表明，在过去半个世纪中，创新性颠覆对于理解企业违约至关重要。在给定年份中，经历异常高的风险投资或首次公开募股活动的行业，随后会看到更高的违约率、企业集团更高的部门退出率，以及这些行业公司发行的债券收益率更高。总体而言，我们发现颠覆是一种广泛现象，对各个年龄、估值和杠杆水平的现有企业产生负面影响，但非常大的和低杠杆的企业除外，这与我们的核心假设一致。",
-      "abstract_snippet_en": "",
+      "abstract_cn": "",
       "doi": "10.1111/jofi.13187",
-      "source_url": "https://doi.org/10.1111/jofi.13187",
-      "publication_date": "2023",
+      "source_url": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+      "publication_date": "February 2023",
       "sources": {
         "issue": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
-        "roster": "crossref:issn:0022-1082",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+        "metadata": "https://doi.org/10.1111/jofi.13187",
+        "abstract_en": "crossref-or-semantic-scholar"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-15T22:56:28+00:00",
-        "source_hash": "4bcae838b21cbec7d6fd58d4a014f7ac0896ce6323709fb43fafc5d13c3730bf"
+        "status": "missing"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -94,11 +123,11 @@
     },
     {
       "paper_id": "doi:10.1111/jofi.13196",
-      "sequence": 3,
-      "source_sequence": 141,
+      "sequence": 4,
+      "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "How Risky Are U.S. Corporate Assets?",
-      "title_cn": "美国公司资产的风险有多大？",
+      "title_cn": "",
       "authors": [
         "TETIANA DAVYDIUK",
         "SCOTT RICHARD",
@@ -106,27 +135,23 @@
         "AMIR YARON"
       ],
       "abstract_en": "We use market data on corporate bonds and equities to measure the value of U.S. corporate assets and their payouts to investors. In contrast to equity dividends, total corporate payouts are highly volatile, turn negative when corporations raise capital, and are acyclical. At the same time, corporate asset returns are similar to returns on equity, and both are exposed to fluctuations in economic growth. To reconcile this evidence, we argue that acyclical but volatile net repurchases mask the exposure of total payouts' cash components to economic growth risks. We develop an asset pricing framework to quantitatively illustrate this economic channel.",
-      "abstract_cn": "我们利用公司债券和股票的市场数据来衡量美国公司资产的价值及其对投资者的支付。与股票股息相反，公司总支付波动性很大，在公司筹集资本时变为负值，并且是非周期性的。与此同时，公司资产回报与股票回报相似，两者都受到经济增长波动的影响。为了调和这一证据，我们认为，非周期性但波动性大的净回购掩盖了总支付的现金组成部分对经济增长风险的敞口。我们开发了一个资产定价框架来定量说明这一经济渠道。",
-      "abstract_snippet_en": "",
+      "abstract_cn": "",
       "doi": "10.1111/jofi.13196",
-      "source_url": "https://doi.org/10.1111/jofi.13196",
-      "publication_date": "2023",
+      "source_url": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+      "publication_date": "February 2023",
       "sources": {
         "issue": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
-        "roster": "crossref:issn:0022-1082",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+        "metadata": "https://doi.org/10.1111/jofi.13196",
+        "abstract_en": "crossref-or-semantic-scholar"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-15T22:56:29+00:00",
-        "source_hash": "271cdd1577b564c228cfe6ce3e514090c6896170a4b8fccec7bd42817d107df5"
+        "status": "missing"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -136,37 +161,106 @@
     },
     {
       "paper_id": "doi:10.1111/jofi.13191",
-      "sequence": 4,
-      "source_sequence": 209,
+      "sequence": 5,
+      "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "International Yield Curves and Currency Puzzles",
-      "title_cn": "国际收益率曲线与货币之谜",
+      "title_cn": "",
       "authors": [
         "MIKHAIL CHERNOV",
         "DREW CREAL"
       ],
       "abstract_en": "The currency depreciation rate is often computed as the ratio of foreign to domestic pricing kernels. Using bond prices alone to estimate these kernels leads to currency puzzles: the inability of models to match violations of uncovered interest parity and the volatility of exchange rates. This happens because of the FX bond disconnect , the inability of bonds to span exchange rates. Incorporating innovations to the pricing kernel that affect exchange rates but not bonds helps resolve the puzzles. This approach also allows one to relate news about cross‐country differences between international yields to news about currency risk premiums.",
-      "abstract_cn": "货币贬值率通常计算为外国与国内定价核的比率。仅使用债券价格来估计这些核会导致货币之谜：模型无法匹配未覆盖利率平价违背和汇率波动性。这是因为外汇债券脱节，即债券无法跨越汇率。将影响汇率但不影响债券的定价核创新纳入考虑有助于解决这些谜团。这种方法还允许人们将国际收益率跨国差异的新闻与货币风险溢价的新闻联系起来。",
-      "abstract_snippet_en": "",
+      "abstract_cn": "",
       "doi": "10.1111/jofi.13191",
-      "source_url": "https://doi.org/10.1111/jofi.13191",
-      "publication_date": "2023",
+      "source_url": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+      "publication_date": "February 2023",
       "sources": {
         "issue": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
-        "roster": "crossref:issn:0022-1082",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+        "metadata": "https://doi.org/10.1111/jofi.13191",
+        "abstract_en": "crossref-or-semantic-scholar"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-15T22:56:31+00:00",
-        "source_hash": "b1cc6ea8f7ab5ab87b0128653fb0716c99b70618ebe7302eca2d880d6b7532ba"
+        "status": "missing"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1111/jofi.13192",
+      "sequence": 6,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Decentralization through Tokenization",
+      "title_cn": "",
+      "authors": [
+        "MICHAEL SOCKIN",
+        "WEI XIONG"
+      ],
+      "abstract_en": "We examine decentralization of digital platforms through tokenization as an innovation to resolve the conflict between platforms and users. By delegating control to users, tokenization through utility tokens acts as a commitment device that prevents a platform from exploiting users. This commitment comes at the cost of not having an owner with an equity stake who, in conventional platforms, would subsidize participation to maximize the platform's network effect. This trade‐off makes utility tokens a more appealing funding scheme than equity for platforms with weak fundamentals. The conflict reappears when nonusers, such as token investors and validators, participate on the platform.",
+      "abstract_cn": "",
+      "doi": "10.1111/jofi.13192",
+      "source_url": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+        "roster": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+        "metadata": "https://doi.org/10.1111/jofi.13192",
+        "abstract_en": "crossref-or-semantic-scholar"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1111/jofi.13198",
+      "sequence": 7,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Beyond Basis Basics: Liquidity Demand and Deviations from the Law of One Price",
+      "title_cn": "",
+      "authors": [
+        "TODD M. HAZELKORN",
+        "TOBIAS J. MOSKOWITZ",
+        "KAUSHIK VASUDEVAN"
+      ],
+      "abstract_en": "Deviations from the law of one price between futures and spot prices—the futures‐cash basis—capture information about liquidity demand for equity market exposure in global markets. We show that the basis comoves with dealer and investor futures positions, is contemporaneously positively correlated with futures and spot market returns, and negatively predicts futures and spot returns. These findings are consistent with the futures‐cash basis reflecting liquidity demand that is common to futures and cash equity markets. We find persistent supply‐demand imbalances for equity index exposure reflected in the basis, giving rise to an annual premium of 5% to 6%.",
+      "abstract_cn": "",
+      "doi": "10.1111/jofi.13198",
+      "source_url": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+      "publication_date": "February 2023",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+        "roster": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+        "metadata": "https://doi.org/10.1111/jofi.13198",
+        "abstract_en": "crossref-or-semantic-scholar"
+      },
+      "translation": {
+        "status": "missing"
+      },
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -176,38 +270,34 @@
     },
     {
       "paper_id": "doi:10.1111/jofi.13199",
-      "sequence": 5,
-      "source_sequence": 347,
+      "sequence": 8,
+      "source_sequence": 9,
       "article_type": "research-article",
       "title_en": "Principal Portfolios",
-      "title_cn": "主成分投资组合",
+      "title_cn": "",
       "authors": [
         "BRYAN KELLY",
         "SEMYON MALAMUD",
         "LASSE HEJE PEDERSEN"
       ],
       "abstract_en": "We propose a new asset pricing framework in which all securities' signals predict each individual return. While the literature focuses on securities' own‐signal predictability, assuming equal strength across securities, our framework includes cross‐predictability—leading to three main results. First, we derive the optimal strategy in closed form. It consists of eigenvectors of a “prediction matrix,” which we call “principal portfolios.” Second, we decompose the problem into alpha and beta, yielding optimal strategies with, respectively, zero and positive factor exposure. Third, we provide a new test of asset pricing models. Empirically, principal portfolios deliver significant out‐of‐sample alphas to standard factors in several data sets.",
-      "abstract_cn": "我们提出一个新的资产定价框架，在该框架中，所有证券的信号都能预测每一个单独收益。虽然文献关注于证券自身信号的预测性，并假设各证券之间的强度相等，但我们的框架包含了交叉预测性——这导致了三个主要结果。首先，我们推导出闭式解中的最优策略。它由“预测矩阵”的特征向量组成，我们称之为“主成分投资组合”。其次，我们将问题分解为alpha和beta，分别得到因子暴露为零和为正的最优策略。第三，我们提供了资产定价模型的新检验。实证上，主成分投资组合在多个数据集中对标准因子产生了显著的样本外alpha。",
-      "abstract_snippet_en": "",
+      "abstract_cn": "",
       "doi": "10.1111/jofi.13199",
-      "source_url": "https://doi.org/10.1111/jofi.13199",
-      "publication_date": "2023",
+      "source_url": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+      "publication_date": "February 2023",
       "sources": {
         "issue": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
-        "roster": "crossref:issn:0022-1082",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+        "metadata": "https://doi.org/10.1111/jofi.13199",
+        "abstract_en": "crossref-or-semantic-scholar"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-15T22:56:33+00:00",
-        "source_hash": "6f30b95006b85dcff43661493441728ff76701c7922ec0b01203e77b45b5a2c6"
+        "status": "missing"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -217,37 +307,33 @@
     },
     {
       "paper_id": "doi:10.1111/jofi.13200",
-      "sequence": 6,
-      "source_sequence": 389,
+      "sequence": 9,
+      "source_sequence": 10,
       "article_type": "research-article",
       "title_en": "Small Business Equity Returns: Empirical Evidence from the Business Credit Card Securitization Market",
-      "title_cn": "小企业股权回报：来自商业信用卡证券化市场的经验证据",
+      "title_cn": "",
       "authors": [
         "MATTHIAS FLECKENSTEIN",
         "FRANCIS A. LONGSTAFF"
       ],
       "abstract_en": "We present a new approach for estimating small business equity returns. This approach applies the Merton (1974) credit model to the returns on entrepreneurial business credit card debt securitizations and solves for the implied equity returns for the small businesses owned by the cardholders. The estimated small business equity premium is 10.74%. The standard deviation of small business equity returns is 56.37%. We validate the methodology by applying it to investment‐grade corporate bonds and recovering a public equity premium of 6.17%.",
-      "abstract_cn": "我们提出了一种估算小企业股权回报的新方法。该方法将Merton（1974）信用模型应用于企业家商业信用卡债务证券化的回报，并求解持卡人拥有的小企业的隐含股权回报。估计的小企业股权溢价为10.74%。小企业股权回报的标准差为56.37%。我们通过将该方法应用于投资级公司债券并恢复出6.17%的公共股权溢价来验证该方法的有效性。",
-      "abstract_snippet_en": "",
+      "abstract_cn": "",
       "doi": "10.1111/jofi.13200",
-      "source_url": "https://doi.org/10.1111/jofi.13200",
-      "publication_date": "2023",
+      "source_url": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+      "publication_date": "February 2023",
       "sources": {
         "issue": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
-        "roster": "crossref:issn:0022-1082",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+        "metadata": "https://doi.org/10.1111/jofi.13200",
+        "abstract_en": "crossref-or-semantic-scholar"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-15T22:56:35+00:00",
-        "source_hash": "d825cfb5ea4c0367bd7f9c5b4ce096742959c2bf021de98185a22171185fe87a"
+        "status": "missing"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -257,38 +343,34 @@
     },
     {
       "paper_id": "doi:10.1111/jofi.13195",
-      "sequence": 7,
-      "source_sequence": 427,
+      "sequence": 10,
+      "source_sequence": 11,
       "article_type": "research-article",
       "title_en": "Beliefs Aggregation and Return Predictability",
-      "title_cn": "信念聚合与收益可预测性",
+      "title_cn": "",
       "authors": [
         "ALBERT S. KYLE",
         "ANNA A. OBIZHAEVA",
         "YAJUN WANG"
       ],
       "abstract_en": "We study return predictability using a model of speculative trading among competitive traders who agree to disagree about the precision of private information. Although traders apply Bayes' Law consistently, returns are predictable. In addition to trading on long‐term fundamental value, traders also trade on perceived short‐term opportunities arising from foreseen future disagreement, as in a Keynesian beauty contest. Contradicting conventional wisdom, this short‐term speculation dampens price fluctuations and generates time‐series momentum. Model calibration shows quantitatively realistic patterns of return dynamics. Consistent with empirical evidence, our model predicts more pronounced momentum for stocks with higher trading volume.",
-      "abstract_cn": "我们研究了一个投机交易模型中的收益可预测性，该模型中的竞争性交易者对于私人信息的精确度持有不同意见。尽管交易者一致地应用贝叶斯法则，收益仍然是可预测的。除了基于长期基本面价值进行交易外，交易者还根据预见的未来分歧所产生的感知短期机会进行交易，如同凯恩斯选美比赛。与传统观念相反，这种短期投机抑制了价格波动并产生了时间序列动量。模型校准显示了定量上现实的收益动态模式。与经验证据一致，我们的模型预测交易量较高的股票具有更显著的动量。",
-      "abstract_snippet_en": "",
+      "abstract_cn": "",
       "doi": "10.1111/jofi.13195",
-      "source_url": "https://doi.org/10.1111/jofi.13195",
-      "publication_date": "2023",
+      "source_url": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+      "publication_date": "February 2023",
       "sources": {
         "issue": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
-        "roster": "crossref:issn:0022-1082",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+        "metadata": "https://doi.org/10.1111/jofi.13195",
+        "abstract_en": "crossref-or-semantic-scholar"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-15T22:56:37+00:00",
-        "source_hash": "2de1e49c2c9e7057aa52843d7e96e20424cad9786244d54262452fd982b3d3ad"
+        "status": "missing"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -298,77 +380,33 @@
     },
     {
       "paper_id": "doi:10.1111/jofi.13197",
-      "sequence": 8,
-      "source_sequence": 487,
+      "sequence": 11,
+      "source_sequence": 12,
       "article_type": "research-article",
       "title_en": "Bayesian Solutions for the Factor Zoo: We Just Ran Two Quadrillion Models",
-      "title_cn": "因子动物园的贝叶斯解决方案：我们刚刚运行了两千二百五十万亿个模型",
+      "title_cn": "",
       "authors": [
         "SVETLANA BRYZGALOVA",
         "JIANTAO HUANG",
         "CHRISTIAN JULLIARD"
       ],
       "abstract_en": "We propose a novel framework for analyzing linear asset pricing models: simple, robust, and applicable to high‐dimensional problems. For a (potentially misspecified) stand‐alone model, it provides reliable price of risk estimates for both tradable and nontradable factors, and detects those weakly identified. For competing factors and (possibly nonnested) models, the method automatically selects the best specification— if a dominant one exists—or provides a Bayesian model averaging–stochastic discount factor (BMA‐SDF), if there is no clear winner. We analyze 2.25 quadrillion models generated by a large set of factors and find that the BMA‐SDF outperforms existing models in‐ and out‐of‐sample.",
-      "abstract_cn": "我们提出了一种分析线性资产定价模型的新框架：简单、稳健，且适用于高维问题。对于（可能错误设定的）独立模型，它能为可交易和不可交易因子提供可靠的风险价格估计，并检测出弱识别的因子。对于竞争因子和（可能非嵌套的）模型，该方法自动选择最佳设定——如果存在主导模型的话——或者在没有明确赢家时提供贝叶斯模型平均-随机贴现因子（BMA-SDF）。我们分析了由大量因子生成的2.25万亿个模型，发现BMA-SDF在样本内和样本外均优于现有模型。",
-      "abstract_snippet_en": "",
-      "doi": "10.1111/jofi.13197",
-      "source_url": "https://doi.org/10.1111/jofi.13197",
-      "publication_date": "2023",
-      "sources": {
-        "issue": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
-        "roster": "crossref:issn:0022-1082",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-15T22:56:39+00:00",
-        "source_hash": "dea79207a5f80bf5cf2646fc612aeb7ad7129ead083f5c8e6222734ef580d41a"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1111/jofi.13194",
-      "sequence": 9,
-      "source_sequence": 606,
-      "article_type": "research-article",
-      "title_en": "Participant Schedule for the AFA 2023 Preliminary Program January 6–8, 2023",
-      "title_cn": "",
-      "authors": [],
-      "abstract_en": "",
       "abstract_cn": "",
-      "abstract_snippet_en": "",
-      "doi": "10.1111/jofi.13194",
-      "source_url": "https://doi.org/10.1111/jofi.13194",
-      "publication_date": "2023",
+      "doi": "10.1111/jofi.13197",
+      "source_url": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+      "publication_date": "February 2023",
       "sources": {
         "issue": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
-        "roster": "crossref:issn:0022-1082",
-        "metadata": "crossref",
-        "abstract_en": "",
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1111/jofi.13194"
+        "roster": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+        "metadata": "https://doi.org/10.1111/jofi.13197",
+        "abstract_en": "crossref-or-semantic-scholar"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "missing"
       },
       "quality_flags": [
         "title_cn_missing",
-        "abstract_cn_missing",
-        "authors_missing",
-        "abstract_en_missing"
+        "abstract_cn_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -381,79 +419,188 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "crossref",
-    "roster_authority": "crossref-provisional",
-    "roster_match_scope": "crossref-issue-group",
-    "publisher_page_status": "blocked",
-    "excluded_item_count": 4,
+    "roster_authority": "official-issue-page",
+    "roster_transport": "official-page-read",
+    "official_item_count": 16,
     "excluded_items": [
       {
-        "title_en": "AMERICAN FINANCE ASSOCIATION",
-        "reason": "non_publishable_item",
-        "doi": "10.1111/jofi.13038",
-        "article_type": "research-article"
-      },
-      {
-        "title_en": "ISSUE INFORMATION FM",
-        "reason": "front_matter",
+        "paper_id": "doi:10.1111/jofi.13037",
+        "sequence": 1,
+        "source_sequence": 1,
+        "article_type": "front-matter",
+        "title_en": "First Page",
+        "title_cn": "",
+        "authors": [],
+        "abstract_en": "",
+        "abstract_cn": "",
         "doi": "10.1111/jofi.13037",
-        "article_type": "front-matter"
+        "source_url": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+        "publication_date": "February 2023",
+        "sources": {
+          "issue": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+          "roster": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+          "metadata": "https://doi.org/10.1111/jofi.13037",
+          "abstract_en": "crossref-or-semantic-scholar"
+        },
+        "translation": {
+          "status": "missing"
+        },
+        "quality_flags": [
+          "title_cn_missing",
+          "abstract_cn_missing"
+        ],
+        "reason": "front_matter"
       },
       {
+        "paper_id": "doi:10.1111/jofi.13201",
+        "sequence": 13,
+        "source_sequence": 13,
+        "article_type": "front-matter",
         "title_en": "ANNOUNCEMENTS",
-        "reason": "non_publishable_item",
+        "title_cn": "",
+        "authors": [],
+        "abstract_en": "",
+        "abstract_cn": "",
         "doi": "10.1111/jofi.13201",
-        "article_type": "research-article"
+        "source_url": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+        "publication_date": "February 2023",
+        "sources": {
+          "issue": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+          "roster": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+          "metadata": "https://doi.org/10.1111/jofi.13201",
+          "abstract_en": "crossref-or-semantic-scholar"
+        },
+        "translation": {
+          "status": "missing"
+        },
+        "quality_flags": [
+          "title_cn_missing",
+          "abstract_cn_missing"
+        ],
+        "reason": "front_matter"
       },
       {
-        "title_en": "Preliminary Program AFA 2023 ANNUAL MEETING EIGHTY‐THIRD ANNUAL MEETING AMERICAN FINANCE ASSOCIATION",
-        "reason": "non_publishable_item",
+        "paper_id": "doi:10.1111/jofi.13193",
+        "sequence": 14,
+        "source_sequence": 14,
+        "article_type": "front-matter",
+        "title_en": "Preliminary Program AFA 2023 ANNUAL MEETING EIGHTY-THIRD ANNUAL MEETING AMERICAN FINANCE ASSOCIATION",
+        "title_cn": "",
+        "authors": [],
+        "abstract_en": "",
+        "abstract_cn": "",
         "doi": "10.1111/jofi.13193",
-        "article_type": "research-article"
+        "source_url": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+        "publication_date": "February 2023",
+        "sources": {
+          "issue": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+          "roster": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+          "metadata": "https://doi.org/10.1111/jofi.13193",
+          "abstract_en": "crossref-or-semantic-scholar"
+        },
+        "translation": {
+          "status": "missing"
+        },
+        "quality_flags": [
+          "title_cn_missing",
+          "abstract_cn_missing"
+        ],
+        "reason": "front_matter"
+      },
+      {
+        "paper_id": "doi:10.1111/jofi.13194",
+        "sequence": 15,
+        "source_sequence": 15,
+        "article_type": "front-matter",
+        "title_en": "Participant Schedule for the AFA 2023 Preliminary Program January 6–8, 2023",
+        "title_cn": "",
+        "authors": [],
+        "abstract_en": "",
+        "abstract_cn": "",
+        "doi": "10.1111/jofi.13194",
+        "source_url": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+        "publication_date": "February 2023",
+        "sources": {
+          "issue": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+          "roster": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+          "metadata": "https://doi.org/10.1111/jofi.13194",
+          "abstract_en": "crossref-or-semantic-scholar"
+        },
+        "translation": {
+          "status": "missing"
+        },
+        "quality_flags": [
+          "title_cn_missing",
+          "abstract_cn_missing"
+        ],
+        "reason": "front_matter"
+      },
+      {
+        "paper_id": "doi:10.1111/jofi.13038",
+        "sequence": 16,
+        "source_sequence": 16,
+        "article_type": "front-matter",
+        "title_en": "AMERICAN FINANCE ASSOCIATION",
+        "title_cn": "",
+        "authors": [],
+        "abstract_en": "",
+        "abstract_cn": "",
+        "doi": "10.1111/jofi.13038",
+        "source_url": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+        "publication_date": "February 2023",
+        "sources": {
+          "issue": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+          "roster": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/1",
+          "metadata": "https://doi.org/10.1111/jofi.13038",
+          "abstract_en": "crossref-or-semantic-scholar"
+        },
+        "translation": {
+          "status": "missing"
+        },
+        "quality_flags": [
+          "title_cn_missing",
+          "abstract_cn_missing"
+        ],
+        "reason": "front_matter"
       }
     ],
-    "doi_complete": 9,
-    "authors_complete": 8,
-    "abstract_en_complete": 8,
-    "translation_complete": 8,
+    "doi_complete": 11,
+    "authors_complete": 11,
+    "abstract_en_complete": 11,
+    "translation_complete": 0,
     "duplicate_count": 0,
     "flags": [
-      "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster",
-      "abstract_en_incomplete",
       "translation_incomplete"
     ],
-    "official_item_count": 13,
-    "publishable_item_count": 9,
+    "publishable_item_count": 11,
+    "excluded_item_count": 5,
     "content_counts": {
-      "official_items": 13,
-      "observed_items": 13,
-      "publishable_items": 9,
-      "research_articles": 9,
+      "official_items": 16,
+      "observed_items": 16,
+      "publishable_items": 11,
+      "research_articles": 11,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
-      "front_matter": 1,
-      "other_excluded": 3,
-      "catalog_content_items": 9
+      "front_matter": 5,
+      "other_excluded": 0,
+      "catalog_content_items": 11
     }
   },
-  "source_status": "source_pending",
-  "publication_state": "blocked",
   "content_counts": {
-    "official_items": 13,
-    "observed_items": 13,
-    "publishable_items": 9,
-    "research_articles": 9,
+    "official_items": 16,
+    "observed_items": 16,
+    "publishable_items": 11,
+    "research_articles": 11,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
-    "front_matter": 1,
-    "other_excluded": 3,
-    "catalog_content_items": 9
+    "front_matter": 5,
+    "other_excluded": 0,
+    "catalog_content_items": 11
   },
-  "issue_label": "Vol. 78 · No. 1",
-  "content_status": "blocked"
+  "content_status": "translation_partial",
+  "source_status": "official_verified"
 }
