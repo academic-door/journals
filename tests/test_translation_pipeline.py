@@ -12,6 +12,7 @@ from scripts.translate_issue import (
     TranslationError,
     _canonicalize_arabic_numbers,
     _extract_json,
+    _month_numbers,
     _normalize_written_number_translations,
     _numbers,
     _protect_numbers,
@@ -209,6 +210,32 @@ class TranslationPipelineTests(unittest.TestCase):
                     ),
                 },
             )
+
+
+    def test_month_names_count_as_numeric_dates(self) -> None:
+        article = {
+            "doi": "10.0000/example",
+            "title_en": "Tail risk contagion",
+            "abstract_en": (
+                "From July 2006 through March 2023 we measure tail risk "
+                "contagion across electricity markets and document persistent "
+                "crisis-period linkages with a complete research design."
+            ),
+        }
+        validate_translation(
+            article,
+            {
+                "title_cn": "尾部风险传染",
+                "abstract_cn": (
+                    "从2006年7月至2023年3月，我们衡量电力市场之间的尾部风险传染，"
+                    "记录危机时期持续存在的联动关系，并完整保留研究设计。"
+                ),
+            },
+        )
+        self.assertEqual(
+            sorted(_month_numbers("July 2006 through March 2023")),
+            ["3", "7"],
+        )
 
     def test_protects_and_restores_numbers_without_reformatting(self) -> None:
         source = (
