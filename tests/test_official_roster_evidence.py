@@ -10,6 +10,7 @@ from unittest.mock import patch
 from scripts.import_official_roster_evidence import (
     apply_evidence,
     enrich_missing_elsevier,
+    main,
     reconcile_state_files,
     validate_evidence,
 )
@@ -319,6 +320,38 @@ class OfficialRosterEvidenceTests(unittest.TestCase):
         bad["cookie_header"] = "private"
         with self.assertRaisesRegex(ValueError, "forbidden private field"):
             validate_evidence(bad)
+
+    def test_main_defers_evidence_without_archive(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            api_root = root / "api"
+            evidence_root = root / "evidence"
+            api_root.mkdir(parents=True)
+            evidence_root.mkdir(parents=True)
+            payload = {
+                "schema_version": "1.0",
+                "capture_mode": "official-roster-evidence",
+                "method": "official-page-read",
+                "captured_at": "2026-08-26T00:00:00+00:00",
+                "finalized": True,
+                "journal_id": "demo",
+                "issue_id": "demo-1-1",
+                "official_url": "https://example.com/toc/1/1",
+                "excluded_item_count": 0,
+                "items": [],
+            }
+            evidence_path = evidence_root / "demo-1-1.json"
+            evidence_path.write_text(json.dumps(payload), encoding="utf-8")
+            with patch(
+                "sys.argv",
+                [
+                    "import_official_roster_evidence.py",
+                    str(evidence_path),
+                    "--api-root",
+                    str(api_root),
+                ],
+            ):
+                self.assertEqual(0, main())
 
 
 if __name__ == "__main__":

@@ -26,6 +26,40 @@ class ArticleTypeTests(unittest.TestCase):
         self.assertEqual("front-matter", canonical_article_type("Front Matter"))
         self.assertEqual("comment", canonical_article_type("Comment on a paper"))
         self.assertEqual(
+            "comment",
+            canonical_article_type(
+                "Tax Smoothing in Frictional Labor Markets: A Reply"
+            ),
+        )
+        self.assertEqual(
+            "comment",
+            canonical_article_type("Tax Smoothing in Frictional Labor Markets: A Comment"),
+        )
+        self.assertEqual("front-matter", canonical_article_type("First Page"))
+        self.assertEqual("front-matter", canonical_article_type("ANNOUNCEMENTS"))
+        self.assertEqual(
+            "front-matter",
+            canonical_article_type(
+                "Preliminary Program AFA 2023 ANNUAL MEETING AMERICAN FINANCE ASSOCIATION"
+            ),
+        )
+        self.assertEqual(
+            "front-matter",
+            canonical_article_type(
+                "Participant Schedule for the AFA 2023 Preliminary Program January 6-8, 2023"
+            ),
+        )
+        self.assertEqual(
+            "front-matter", canonical_article_type("AMERICAN FINANCE ASSOCIATION")
+        )
+        self.assertEqual("front-matter", canonical_article_type("Index to Volume 131"))
+        self.assertEqual(
+            "research-article",
+            canonical_article_type(
+                "Front-Page News: The Effect of News Positioning on Financial Markets"
+            ),
+        )
+        self.assertEqual(
             "short-communication",
             canonical_article_type("A paper", raw_type="Short communication"),
         )

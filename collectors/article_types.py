@@ -38,7 +38,17 @@ EDITORIAL_PATTERN = re.compile(
 FRONT_MATTER_PATTERN = re.compile(
     r"front\s*matter|back\s*matter|table\s+of\s+contents|"
     r"issue\s+information|submission\s+of\s+manuscripts|"
-    r"fellows?(?:\s+of\b|:|\s*$)|^award\s+winning\s+theses?\s*$",
+    r"fellows?(?:\s+of\b|:|\s*$)|^award\s+winning\s+theses?\s*$|"
+    r"^\s*first\s+page\s*$|"
+    r"^\s*(?:front|back)\s+cover\b|^\s*cover\s+(?:image|art|picture)\b|"
+    r"^\s*announcements?\s*$|"
+    r"^\s*masthead\s*$|"
+    r"^\s*preliminary\s+program(?:me)?\b|"
+    r"^\s*participant\s+schedule\b|"
+    r"^\s*index\s+to\s+volume\b|^\s*(?:author|subject)\s+index\s*$|"
+    r"^\s*american\s+finance\s+association\s*$|"
+    r"^\s*volume\s+information\s*$|"
+    r"^\s*about\s+(?:this\s+)?journal\s*$",
     re.IGNORECASE,
 )
 # Bare person-name titles ("Titus Awokuse", "Gerald 'Jerry' Shively") are
@@ -58,9 +68,9 @@ SHORT_PATTERN = re.compile(
     re.IGNORECASE,
 )
 COMMENT_PATTERN = re.compile(
-    r"\ba\s+comment\b|^\s*comments?(?:\s+on)?\b|"
-    r"^\s*reply(?:\s+to)?\b|:\s*(?:a\s+)?comments?\s*$|"
-    r":\s*reply\s*$|\bdiscussion\b",
+    r"\ba\s+comment\b|^\s*(?:a\s+)?comments?(?:\s+on)?\b|"
+    r"^\s*(?:a\s+)?repl(?:y|ies)(?:\s+to)?\b|:\s*(?:a\s+)?comments?\s*$|"
+    r":\s*(?:a\s+)?repl(?:y|ies)\s*$|\bdiscussion\b",
     re.IGNORECASE,
 )
 
