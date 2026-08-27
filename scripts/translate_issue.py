@@ -168,6 +168,13 @@ def _month_numbers(value: str) -> list[str]:
         for _match in CHINESE_MONTH_PATTERN.finditer(value):
             if _match.group(0) == month_cn:
                 numbers.append(str(index))
+    month_period_pattern = re.compile(
+        r"\b(\d{4})M(0?[1-9]|1[0-2])\b",
+        flags=re.IGNORECASE,
+    )
+    for _match in month_period_pattern.finditer(value):
+        numbers.append(_match.group(1))
+        numbers.append(str(int(_match.group(2))))
     return numbers
 
 

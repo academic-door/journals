@@ -212,6 +212,32 @@ class TranslationPipelineTests(unittest.TestCase):
             )
 
 
+
+    def test_month_period_notation_counts_as_date_numbers(self) -> None:
+        article = {
+            "doi": "10.0000/example",
+            "title_en": "Tail risk contagion",
+            "abstract_en": (
+                "Using data from 2006M07 to 2023M03, this study examines tail "
+                "risk contagion across electricity markets during crises and "
+                "documents the complete research design and policy implications."
+            ),
+        }
+        validate_translation(
+            article,
+            {
+                "title_cn": "尾部风险传染",
+                "abstract_cn": (
+                    "本研究使用2006年7月至2023年3月的数据，考察危机期间电力市场"
+                    "之间的尾部风险传染，并完整说明研究设计与政策含义。"
+                ),
+            },
+        )
+        self.assertEqual(
+            sorted(_month_numbers("from 2006M07 to 2023M03")),
+            ["2006", "2023", "3", "7"],
+        )
+
     def test_month_names_count_as_numeric_dates(self) -> None:
         article = {
             "doi": "10.0000/example",
