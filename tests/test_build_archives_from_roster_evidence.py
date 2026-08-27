@@ -8,6 +8,7 @@ from unittest.mock import patch
 
 from scripts.build_archives_from_roster_evidence import (
     _metadata_for_dois,
+    evidence_article_type,
     process_evidence,
 )
 from scripts.translate_issue import _source_hash
@@ -18,6 +19,29 @@ class BuildArchivesFromRosterEvidenceTests(unittest.TestCase):
         path = root / relative
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(value, encoding="utf-8")
+
+    def test_evidence_classifies_front_matter_and_replies(self) -> None:
+        self.assertEqual("front-matter", evidence_article_type("First Page"))
+        self.assertEqual("front-matter", evidence_article_type("ANNOUNCEMENTS"))
+        self.assertEqual(
+            "front-matter",
+            evidence_article_type(
+                "Participant Schedule for the AFA 2023 Preliminary Program January 6-8, 2023"
+            ),
+        )
+        self.assertEqual("front-matter", evidence_article_type("Index to Volume 131"))
+        self.assertEqual(
+            "comment",
+            evidence_article_type(
+                "Tax Smoothing in Frictional Labor Markets: A Reply"
+            ),
+        )
+        self.assertEqual(
+            "research-article",
+            evidence_article_type(
+                "Front-Page News: The Effect of News Positioning on Financial Markets"
+            ),
+        )
 
     def test_front_matter_and_comments_do_not_block_archiving(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
@@ -65,7 +89,7 @@ class BuildArchivesFromRosterEvidenceTests(unittest.TestCase):
                     {
                         "sequence": 4,
                         "doi": "10.1111/demo.10004",
-                        "title_en": "Comment on a Paper",
+                        "title_en": "Tax Smoothing in Frictional Labor Markets: A Reply",
                     },
                 ],
             }
@@ -119,7 +143,7 @@ class BuildArchivesFromRosterEvidenceTests(unittest.TestCase):
             }
             article4 = {
                 "doi": "10.1111/demo.10004",
-                "title_en": "Comment on a Paper",
+                "title_en": "Tax Smoothing in Frictional Labor Markets: A Reply",
                 "abstract_en": "",
             }
             cache = {}
@@ -195,6 +219,12 @@ class BuildArchivesFromRosterEvidenceTests(unittest.TestCase):
                 ["First Page"],
                 [item["title_en"] for item in archive["quality"]["excluded_items"]],
             )
+            reply = next(
+                article
+                for article in archive["articles"]
+                if article["doi"] == "10.1111/demo.10004"
+            )
+            self.assertEqual("comment", reply["article_type"])
 
     def test_metadata_backfills_truncated_crossref_with_direct_and_openalex(self) -> None:
         import requests
