@@ -26,6 +26,11 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+from collectors.article_types import (  # noqa: E402
+    evidence_roster_article_type,
+    exclusion_reason,
+    is_publishable_type,
+)
 from scripts.update_journals import (
     PUBLIC_API,
     TRANSLATION_CACHE,
@@ -249,12 +254,21 @@ def enrich_missing_elsevier(
     from collectors.metadata_fallback import _elsevier_lookup
 
     enriched = copy.deepcopy(evidence)
+    items = enriched.get("items", [])
+    if not any(
+        PII_SOURCE_ID_RE.fullmatch(str(item.get("source_id", "")).strip())
+        for item in items
+    ):
+        # Generic official rosters (Wiley, Chicago, MIT Press, Cambridge)
+        # carry DOI + title only and have no PII; there is nothing to enrich
+        # from the Elsevier API for them.
+        return enriched
     archive_dois = {
         str(article.get("doi", "")).strip().casefold()
         for article in issue.get("articles", [])
     }
     session = requests.Session()
-    for item in enriched.get("items", []):
+    for item in items:
         doi = str(item.get("doi", "")).strip().casefold()
         if doi in archive_dois or all(
             item.get(field) for field in ("authors", "abstract_en", "source_url")
@@ -338,6 +352,23 @@ def apply_evidence(issue: dict[str, Any], evidence: dict[str, Any]) -> dict[str,
             article["sequence"] = sequence
             article["source_sequence"] = sequence
         else:
+            atype = evidence_roster_article_type(str(item.get("title_en", "")))
+            if not is_publishable_type(atype):
+                excluded = candidate.setdefault("quality", {}).setdefault(
+                    "excluded_items", []
+                )
+                if not any(
+                    str(entry.get("doi", "")).strip().lower() == doi
+                    for entry in excluded
+                ):
+                    excluded.append(
+                        {
+                            "title_en": str(item.get("title_en", "")).strip(),
+                            "doi": doi,
+                            "reason": exclusion_reason(atype),
+                        }
+                    )
+                continue
             restored_count += 1
             article = _restored_article(
                 item,
