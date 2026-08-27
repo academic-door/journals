@@ -38,6 +38,7 @@ from collectors.article_types import (  # noqa: E402
 )
 from collectors.metadata_fallback import (  # noqa: E402
     CROSSREF_API,
+    MONTHS_BY_ISSUE,
     _authors,
     _clean_markup,
     _crossref_items,
@@ -85,6 +86,19 @@ def _abstract_from_crossref(item: dict[str, Any]) -> str:
     return _clean_markup(re.sub(r"<[^>]+>", " ", abstract)).strip()
 
 
+def _published_parts(item: dict[str, Any]) -> tuple[int, int]:
+    """Return (year, month) from a Crossref record, month 0 when unknown."""
+
+    for key in ("published-print", "published", "issued", "published-online"):
+        parts = item.get(key, {}).get("date-parts", [])
+        if parts and parts[0]:
+            year = int(parts[0][0])
+            month = int(parts[0][1]) if len(parts[0]) >= 2 else 0
+            if year:
+                return year, month
+    return 0, 0
+
+
 def _crossref_direct(
     session: requests.Session,
     doi: str,
@@ -114,6 +128,7 @@ def _crossref_direct(
         "abstract": _abstract_from_crossref(message),
         "title": str(message.get("title", [""])[0] if message.get("title") else ""),
         "year": _date_year(message),
+        "published": _published_parts(message),
     }
 
 
@@ -143,6 +158,7 @@ def _crossref_map(
             "abstract": _abstract_from_crossref(item),
             "title": str(item.get("title", [""])[0] if item.get("title") else ""),
             "year": _date_year(item),
+            "published": _published_parts(item),
         }
     return result
 
@@ -181,6 +197,8 @@ def _metadata_for_dois(
                     current["title"] = str(direct["title"])
                 if not current.get("year") and direct.get("year"):
                     current["year"] = str(direct["year"])
+                if not current.get("published") and direct.get("published"):
+                    current["published"] = tuple(direct["published"])
             if not metadata[doi].get("abstract") or not metadata[doi].get("authors"):
                 still_missing.append(doi)
         missing = still_missing
@@ -200,6 +218,8 @@ def _metadata_for_dois(
                 current["abstract"] = str(entry["abstract"])
             if not current.get("title") and entry.get("title"):
                 current["title"] = str(entry["title"])
+            if not current.get("published") and entry.get("published"):
+                current["published"] = tuple(entry["published"])
         missing = [
             doi
             for doi in missing
@@ -370,14 +390,30 @@ def process_evidence(
     metadata = _metadata_for_dois(session, dois, crossref, timeout=timeout)
 
     items = list(crossref.values()) if crossref else []
-    publication_date = _publication_date(
-        str(journal.get("issn", "")), volume, issue, items
-    )
-    if not publication_date:
+    issn = str(journal.get("issn", ""))
+    publication_date = _publication_date(issn, volume, issue, items)
+    if not publication_date or re.fullmatch(r"\d{4}", publication_date):
         year = Counter(
             str(meta.get("year", "")) for meta in metadata.values() if meta.get("year")
         ).most_common(1)
-        publication_date = year[0][0] if year else ""
+        year = year[0][0] if year else ""
+        month_name = MONTHS_BY_ISSUE.get(issn, {}).get(issue, "")
+        if not month_name:
+            months = [
+                int(meta.get("published", (0, 0))[1])
+                for meta in metadata.values()
+                if meta.get("published", (0, 0))[1]
+            ]
+            if months:
+                month_name = datetime(2000, Counter(months).most_common(1)[0][0], 1).strftime(
+                    "%B"
+                )
+        if month_name and year:
+            publication_date = f"{month_name} {year}"
+        elif year:
+            publication_date = year
+        else:
+            publication_date = ""
 
     candidate = build_candidate_from_evidence(
         evidence,
