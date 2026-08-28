@@ -20,6 +20,7 @@ from collectors.metadata_fallback import _strip_abstract_footnotes
 from collectors.article_types import (
     abstract_is_complete,
     canonical_issue_label,
+    has_official_no_abstract_exception,
     normalize_issue_taxonomy,
     translation_is_complete,
 )
@@ -76,6 +77,10 @@ def clean_abstract_label(value: Any) -> str:
 
 def comment_without_abstract(article: dict[str, Any]) -> bool:
     return article.get("article_type") == "comment" and not article.get("abstract_en")
+
+
+def abstract_without_body_is_allowed(article: dict[str, Any]) -> bool:
+    return comment_without_abstract(article) or has_official_no_abstract_exception(article)
 
 
 def issue_content_status(issue: dict[str, Any]) -> str:
@@ -328,7 +333,7 @@ def apply_translation_cache(
                 for flag in article["quality_flags"]
                 if flag != "abstract_cn_missing"
             ]
-        elif comment_without_abstract(article):
+        elif abstract_without_body_is_allowed(article):
             article["quality_flags"] = [
                 flag
                 for flag in article["quality_flags"]
@@ -342,7 +347,7 @@ def apply_translation_cache(
             )
         if article["title_cn"] and article["abstract_cn"]:
             article["translation"]["status"] = "complete"
-        elif comment_without_abstract(article) and article["title_cn"]:
+        elif abstract_without_body_is_allowed(article) and article["title_cn"]:
             article["translation"]["status"] = "complete"
         elif article["title_cn"] or article["abstract_cn"]:
             article["translation"]["status"] = "partial"

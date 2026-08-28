@@ -619,8 +619,8 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       const abstracts = articles.map((article, index) => [
         `### ${index + 1}. ${article.title_cn || article.title_en}`,
         `【作者】${article.authors.join(", ")}`,
-        `【Abstract】${article.abstract_en || (article.article_type === "comment" ? "This comment has no standalone abstract." : "待补全")}`,
-        `【摘要】${article.abstract_cn || (article.article_type === "comment" ? "该评论未提供独立摘要。" : "待补全")}`,
+        `【Abstract】${article.abstract_en || (article.abstract_status === "official_not_provided" ? "The publisher did not provide a standalone Abstract; please refer to the official full text beginning with Introduction." : article.article_type === "comment" ? "This comment has no standalone abstract." : "待补全")}`,
+        `【摘要】${article.abstract_cn || (article.abstract_status === "official_not_provided" ? "官方未提供独立 Abstract；请参阅从 Introduction 开始的官方全文。" : article.article_type === "comment" ? "该评论未提供独立摘要。" : "待补全")}`,
         `【DOI】[${article.doi || "原文"}](${article.source_url})`,
       ].join("\n\n")).join("\n\n");
       return [

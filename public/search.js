@@ -80,8 +80,8 @@ const resultCard = (record) => `
     <p class="paper-title-en">${escapeHtml(record.title_en)}</p>
     <p class="paper-authors">${escapeHtml((record.authors || []).join(", "))}</p>
     <div class="search-result-abstracts">
-      <p>${escapeHtml(record.abstract_en)}</p>
-      <p>${escapeHtml(record.abstract_cn)}</p>
+      <p>${escapeHtml(record.abstract_en || (record.abstract_status === "official_not_provided" ? "The publisher did not provide a standalone Abstract; refer to the official full text." : ""))}</p>
+      <p>${escapeHtml(record.abstract_cn || (record.abstract_status === "official_not_provided" ? "官方未提供独立 Abstract；请参阅官方全文。" : ""))}</p>
     </div>
     <footer class="paper-meta">
       ${record.doi ? `<span>DOI ${escapeHtml(record.doi)}</span>` : "<span></span>"}

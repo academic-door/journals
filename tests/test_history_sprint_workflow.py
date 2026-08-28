@@ -86,6 +86,8 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         self.assertIn("data/provenance/official-rosters/springer", workflow)
         self.assertIn("capture_cambridge_roster_evidence.py", workflow)
         self.assertIn("data/provenance/official-rosters/cambridge", workflow)
+        self.assertIn("EVIDENCE_ISSUE_IDS: ${{ inputs.evidence_issue_ids }}", workflow)
+        self.assertIn('evidence_args+=(--issue-ids "$EVIDENCE_ISSUE_IDS")', workflow)
 
     def test_passes_shared_semantic_scholar_key_without_exposing_it(self) -> None:
         workflow = self.workflow()

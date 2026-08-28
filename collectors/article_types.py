@@ -15,6 +15,33 @@ ARTICLE_TYPES = {
     "other",
 }
 PUBLISHABLE_TYPES = {"research-article", "comment", "short-communication"}
+OFFICIAL_NO_ABSTRACT_STATUS = "official_not_provided"
+
+# These two Nobel Lectures are the only approved no-abstract exceptions in
+# the monitored 2023-2026 history.  The publisher provides full text that
+# starts with an Introduction, but no standalone Abstract.  Keep the
+# exception DOI- and issue-scoped so a generic missing-abstract article can
+# never inherit the waiver.
+OFFICIAL_NO_ABSTRACT_EXCEPTIONS: dict[tuple[str, str], dict[str, str]] = {
+    (
+        "jpe-131-10",
+        "10.1086/725793",
+    ): {
+        "title_cn": "诺贝尔讲座：金融中介与金融危机",
+        "abstract_note": (
+            "JPE 官方页面提供完整正文，但未提供独立 Abstract；正文从 Introduction 开始。"
+        ),
+    },
+    (
+        "jpe-131-10",
+        "10.1086/725792",
+    ): {
+        "title_cn": "诺贝尔讲座：多重均衡",
+        "abstract_note": (
+            "JPE 官方页面提供完整正文，但未提供独立 Abstract；正文从 Introduction 开始。"
+        ),
+    },
+}
 CORRECTION_PATTERN = re.compile(
     r"^\s*(?:corrigendum|erratum|correction|addendum)(?:\s+to\b|:|\s*$)|"
     r"\bretraction\s+(?:notice|note)\b|"
@@ -178,7 +205,26 @@ def requires_abstract(article_type: str) -> bool:
     }
 
 
+def official_no_abstract_exception(
+    issue_id: object, doi: object
+) -> dict[str, str] | None:
+    """Return the narrowly allowlisted official no-abstract exception."""
+
+    key = (str(issue_id or "").strip().casefold(), str(doi or "").strip().casefold())
+    exception = OFFICIAL_NO_ABSTRACT_EXCEPTIONS.get(key)
+    return dict(exception) if exception else None
+
+
+def has_official_no_abstract_exception(article: dict[str, Any]) -> bool:
+    return (
+        str(article.get("abstract_status", "")).strip().casefold()
+        == OFFICIAL_NO_ABSTRACT_STATUS
+    )
+
+
 def abstract_is_complete(article: dict[str, Any]) -> bool:
+    if has_official_no_abstract_exception(article):
+        return True
     return bool(str(article.get("abstract_en", "")).strip()) or not requires_abstract(
         str(article.get("article_type", ""))
     )
@@ -187,6 +233,8 @@ def abstract_is_complete(article: dict[str, Any]) -> bool:
 def translation_is_complete(article: dict[str, Any]) -> bool:
     if not str(article.get("title_cn", "")).strip():
         return False
+    if has_official_no_abstract_exception(article):
+        return True
     abstract_en = str(article.get("abstract_en", "")).strip()
     abstract_cn = str(article.get("abstract_cn", "")).strip()
     if abstract_en:

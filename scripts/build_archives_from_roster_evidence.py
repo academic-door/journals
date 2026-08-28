@@ -32,6 +32,7 @@ from collectors.article_types import (  # noqa: E402
     canonical_article_type,
     evidence_roster_article_type,
     exclusion_reason,
+    official_no_abstract_exception,
     is_publishable_type,
     normalize_issue_taxonomy,
     requires_abstract,
@@ -280,7 +281,7 @@ def build_candidate_from_evidence(
             missing_authors.append(doi)
         if requires_abstract(article_type) and not abstract:
             missing_abstracts.append(doi)
-        return {
+        record = {
             "paper_id": f"doi:{doi}",
             "sequence": sequence,
             "source_sequence": sequence,
@@ -302,6 +303,24 @@ def build_candidate_from_evidence(
             "translation": {"status": "missing"},
             "quality_flags": ["title_cn_missing", "abstract_cn_missing"],
         }
+        exception = official_no_abstract_exception(issue_id, doi)
+        if exception:
+            record.update(
+                title_cn=exception["title_cn"],
+                abstract_status="official_not_provided",
+                abstract_note=exception["abstract_note"],
+                sources={
+                    **record["sources"],
+                    "abstract_en": "publisher-page-no-standalone-abstract",
+                },
+                translation={
+                    "status": "complete",
+                    "provider": "manual-official-title",
+                    "prompt_version": "official-no-abstract-v1",
+                },
+                quality_flags=["official_abstract_unavailable"],
+            )
+        return record
 
     for expected, item in enumerate(evidence.get("items", []), start=1):
         record = record_from_item(item, expected)

@@ -4,10 +4,13 @@ import copy
 import unittest
 
 from collectors.article_types import (
+    abstract_is_complete,
     canonical_article_type,
     canonical_issue_label,
     evidence_roster_article_type,
+    has_official_no_abstract_exception,
     normalize_issue_taxonomy,
+    translation_is_complete,
 )
 
 
@@ -195,6 +198,46 @@ class ArticleTypeTests(unittest.TestCase):
             "front_matter",
             normalized["quality"]["excluded_items"][0]["reason"],
         )
+
+    def test_official_no_abstract_exception_is_explicit_and_complete(self) -> None:
+        issue = {
+            "expected_article_count": 2,
+            "research_article_count": 2,
+            "articles": [
+                {
+                    "doi": "10.1086/725793",
+                    "article_type": "research-article",
+                    "title_en": "Nobel Lecture: Financial Intermediaries and Financial Crises",
+                    "title_cn": "诺贝尔讲座：金融中介与金融危机",
+                    "authors": ["Douglas W. Diamond"],
+                    "abstract_en": "",
+                    "abstract_cn": "",
+                    "abstract_status": "official_not_provided",
+                    "abstract_note": "官方页面未提供独立 Abstract。",
+                },
+                {
+                    "doi": "10.1086/725792",
+                    "article_type": "research-article",
+                    "title_en": "Nobel Lecture: Multiple Equilibria",
+                    "title_cn": "诺贝尔讲座：多重均衡",
+                    "authors": ["Philip H. Dybvig"],
+                    "abstract_en": "",
+                    "abstract_cn": "",
+                    "abstract_status": "official_not_provided",
+                    "abstract_note": "官方页面未提供独立 Abstract。",
+                },
+            ],
+            "quality": {"excluded_items": [], "flags": []},
+        }
+        normalized = normalize_issue_taxonomy(copy.deepcopy(issue))
+        for article in normalized["articles"]:
+            self.assertTrue(has_official_no_abstract_exception(article))
+            self.assertTrue(abstract_is_complete(article))
+            self.assertTrue(translation_is_complete(article))
+        self.assertEqual(2, normalized["quality"]["abstract_en_complete"])
+        self.assertEqual(2, normalized["quality"]["translation_complete"])
+        self.assertNotIn("abstract_en_incomplete", normalized["quality"]["flags"])
+        self.assertNotIn("translation_incomplete", normalized["quality"]["flags"])
 
 
 

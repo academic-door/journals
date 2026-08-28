@@ -29,7 +29,12 @@ const rssDate = (value) => {
 };
 
 const summarize = (article, limit = 320) => {
-  const text = (article.abstract_cn || article.abstract_en || "").trim();
+  const text = (
+    article.abstract_cn
+    || article.abstract_en
+    || article.abstract_note
+    || ""
+  ).trim();
   return text.length <= limit ? text : `${text.slice(0, limit - 1).trimEnd()}…`;
 };
 

@@ -2,10 +2,38 @@ from __future__ import annotations
 
 import unittest
 
-from scripts.build_recovery_queue import build_queue
+from scripts.build_recovery_queue import build_forecast, build_queue
 
 
 class RecoveryQueueTests(unittest.TestCase):
+    def test_forecast_counts_known_translation_work_without_calling_model(self) -> None:
+        forecast = build_forecast(
+            [
+                {
+                    "action": "translation",
+                    "records": [
+                        {
+                            "archive_exists": True,
+                            "counts": {"articles": 11, "translation_cn": 8},
+                        }
+                    ],
+                },
+                {
+                    "action": "browser",
+                    "records": [
+                        {
+                            "archive_exists": False,
+                            "counts": {"articles": 0, "translation_cn": 0},
+                        }
+                    ],
+                },
+            ]
+        )
+        self.assertEqual(2, forecast["issue_count"])
+        self.assertEqual(11, forecast["article_count_known"])
+        self.assertEqual(3, forecast["translation_calls_estimate"])
+        self.assertEqual(2, forecast["new_ready_upper_bound"])
+
     def test_chunks_exact_issue_ids_by_action_without_ready_records(self) -> None:
         manifest = {
             "generated_at": "2026-08-26T00:00:00+00:00",

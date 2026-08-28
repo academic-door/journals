@@ -425,6 +425,11 @@ const initialIssue = initialIssuePath
             <p class="abstract-label">Abstract</p>
             <p>${escapeHtml(article.abstract_en)}</p>
           </section>`
+        : article.abstract_status === "official_not_provided"
+          ? `<section class="abstract-panel abstract-en" aria-label="英文摘要缺失说明">
+              <p class="abstract-label">Abstract</p>
+              <p>The publisher did not provide a standalone Abstract; please refer to the official full text beginning with Introduction.</p>
+            </section>`
         : article.article_type === "comment"
           ? `<section class="abstract-panel abstract-en" aria-label="英文摘要">
               <p class="abstract-label">Abstract</p>
@@ -436,6 +441,11 @@ const initialIssue = initialIssuePath
             <p class="abstract-label">摘要</p>
             <p>${escapeHtml(article.abstract_cn)}</p>
           </section>`
+        : article.abstract_status === "official_not_provided"
+          ? `<section class="abstract-panel abstract-cn" aria-label="中文摘要缺失说明">
+              <p class="abstract-label">摘要</p>
+              <p>官方未提供独立 Abstract；请参阅从 Introduction 开始的官方全文。</p>
+            </section>`
         : article.article_type === "comment"
           ? `<section class="abstract-panel abstract-cn" aria-label="中文摘要">
               <p class="abstract-label">摘要</p>

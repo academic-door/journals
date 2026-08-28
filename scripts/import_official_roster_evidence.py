@@ -29,6 +29,7 @@ if str(ROOT) not in sys.path:
 from collectors.article_types import (  # noqa: E402
     evidence_roster_article_type,
     exclusion_reason,
+    official_no_abstract_exception,
     is_publishable_type,
 )
 from scripts.update_journals import (
@@ -138,6 +139,7 @@ def validate_evidence(evidence: dict[str, Any]) -> None:
         errors.append("items must be a non-empty array")
     else:
         seen: set[str] = set()
+        issue_id = str(evidence.get("issue_id", "")).strip().casefold()
         for expected, item in enumerate(items, start=1):
             if not isinstance(item, dict):
                 errors.append(f"item {expected}: expected object")
@@ -155,12 +157,13 @@ def validate_evidence(evidence: dict[str, Any]) -> None:
             detail_fields = ("authors", "abstract_en", "source_url")
             has_detail = any(item.get(field) for field in detail_fields)
             if has_detail:
+                no_abstract_exception = official_no_abstract_exception(issue_id, doi)
                 authors = item.get("authors")
                 if not isinstance(authors, list) or not authors or not all(
                     str(author).strip() for author in authors
                 ):
                     errors.append(f"item {expected}: authors must be a non-empty array")
-                if not str(item.get("abstract_en", "")).strip():
+                if not str(item.get("abstract_en", "")).strip() and not no_abstract_exception:
                     errors.append(f"item {expected}: abstract_en missing")
                 if not _official_url(item.get("source_url")):
                     errors.append(
@@ -201,11 +204,12 @@ def _restored_article(
     sequence: int,
     official_url: str,
     publication_date: str,
+    abstract_exception: dict[str, str] | None = None,
 ) -> dict[str, Any]:
     missing = [
         field
         for field in ("authors", "abstract_en", "source_url")
-        if not item.get(field)
+        if not item.get(field) and not (field == "abstract_en" and abstract_exception)
     ]
     if missing:
         raise ValueError(
@@ -237,6 +241,22 @@ def _restored_article(
         "translation": {"status": "missing"},
         "quality_flags": ["title_cn_missing", "abstract_cn_missing"],
     }
+    if abstract_exception:
+        article.update(
+            title_cn=abstract_exception["title_cn"],
+            abstract_status="official_not_provided",
+            abstract_note=abstract_exception["abstract_note"],
+            sources={
+                **article["sources"],
+                "abstract_en": "publisher-page-no-standalone-abstract",
+            },
+            translation={
+                "status": "complete",
+                "provider": "manual-official-title",
+                "prompt_version": "official-no-abstract-v1",
+            },
+            quality_flags=["official_abstract_unavailable"],
+        )
     if publication_date:
         article["publication_date"] = publication_date
     return article
@@ -371,11 +391,15 @@ def apply_evidence(issue: dict[str, Any], evidence: dict[str, Any]) -> dict[str,
                     )
                 continue
             restored_count += 1
+            abstract_exception = official_no_abstract_exception(
+                str(evidence["issue_id"]), doi
+            )
             article = _restored_article(
                 item,
                 sequence=sequence,
                 official_url=official_url,
                 publication_date=publication_date,
+                abstract_exception=abstract_exception,
             )
         article.setdefault("sources", {})["roster"] = official_url
         merged_articles.append(article)

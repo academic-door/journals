@@ -672,6 +672,54 @@ class BuildArchivesFromRosterEvidenceTests(unittest.TestCase):
                 result["translation_report"]["failed"][0]["error"],
             )
 
+    def test_jpe_no_abstract_exception_keeps_official_note_and_title(self) -> None:
+        evidence = {
+            "schema_version": "1.0",
+            "capture_mode": "official-roster-evidence",
+            "method": "browser-authorized",
+            "captured_at": "2026-08-27T17:01:11+00:00",
+            "finalized": True,
+            "journal_id": "jpe",
+            "issue_id": "jpe-131-10",
+            "official_url": "https://journals.uchicago.edu/toc/jpe/2023/131/10",
+            "excluded_item_count": 0,
+            "items": [
+                {
+                    "sequence": 1,
+                    "doi": "10.1086/725793",
+                    "title_en": "Nobel Lecture: Financial Intermediaries and Financial Crises",
+                    "authors": ["Douglas W. Diamond"],
+                    "source_url": "https://journals.uchicago.edu/doi/full/10.1086/725793",
+                },
+                {
+                    "sequence": 2,
+                    "doi": "10.1086/725792",
+                    "title_en": "Nobel Lecture: Multiple Equilibria",
+                    "authors": ["Philip H. Dybvig"],
+                    "source_url": "https://journals.uchicago.edu/doi/full/10.1086/725792",
+                },
+            ],
+        }
+        issue = build_candidate_from_evidence(
+            evidence,
+            {"name": "Journal of Political Economy"},
+            {},
+            publication_date="October 2023",
+        )
+        from scripts.update_journals import normalize_issue_content
+
+        issue = normalize_issue_content(issue)
+        self.assertEqual("ready", issue["publication_state"])
+        self.assertEqual(2, issue["quality"]["abstract_en_complete"])
+        self.assertEqual(2, issue["quality"]["translation_complete"])
+        self.assertEqual(
+            "official_not_provided",
+            issue["articles"][0]["abstract_status"],
+        )
+        self.assertEqual(
+            "诺贝尔讲座：多重均衡",
+            issue["articles"][1]["title_cn"],
+        )
 
 if __name__ == "__main__":
     unittest.main()
