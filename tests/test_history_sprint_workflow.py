@@ -98,6 +98,18 @@ class HistorySprintWorkflowTests(unittest.TestCase):
             2,
         )
 
+    def test_optional_publisher_steps_do_not_abort_the_publish_job(self) -> None:
+        workflow = self.workflow()
+        for step in (
+            "Build historical archives from ScienceDirect browser snapshots",
+            "Convert ScienceDirect browser snapshots to official evidence",
+            "Capture official Wiley roster evidence",
+        ):
+            start = workflow.index(step)
+            next_step = workflow.find("      - name:", start + 1)
+            section = workflow[start:next_step if next_step != -1 else None]
+            self.assertIn("continue-on-error: true", section)
+
     def test_restores_browser_snapshots_from_the_data_branch(self) -> None:
         workflow = self.workflow()
         self.assertIn("data/provenance/browser-snapshots", workflow)

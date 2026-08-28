@@ -371,6 +371,7 @@ jobs:
 
       - name: Build historical archives from ScienceDirect browser snapshots
         if: inputs.evidence_issue_ids != ''
+        continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || github.token }}
 
@@ -412,6 +413,7 @@ jobs:
 
       - name: Convert ScienceDirect browser snapshots to official evidence
         if: inputs.evidence_issue_ids != ''
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
@@ -441,6 +443,7 @@ jobs:
 
       - name: Capture official Wiley roster evidence
         if: inputs.capture_wiley_evidence
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
