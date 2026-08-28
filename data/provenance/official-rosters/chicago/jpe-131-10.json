@@ -1,13 +1,50 @@
 {
   "schema_version": "1.0",
   "capture_mode": "official-roster-evidence",
-  "method": "official-page-read",
-  "captured_at": "2026-08-26T21:45:15.028Z",
+  "method": "browser-authorized",
+  "captured_at": "2026-08-27T17:01:11+00:00",
   "finalized": true,
   "journal_id": "jpe",
   "issue_id": "jpe-131-10",
   "official_url": "https://journals.uchicago.edu/toc/jpe/2023/131/10",
-  "excluded_item_count": 0,
+  "excluded_item_count": 7,
+  "excluded_items": [
+    {
+      "doi": "10.1086/728386",
+      "title_en": "Front Matter",
+      "reason": "non-research-title"
+    },
+    {
+      "doi": "10.1086/724575",
+      "title_en": "Supplemental Material",
+      "reason": "supplementary-material"
+    },
+    {
+      "doi": "10.1086/724860",
+      "title_en": "Supplemental Material",
+      "reason": "supplementary-material"
+    },
+    {
+      "doi": "10.1086/724852",
+      "title_en": "Supplemental Material",
+      "reason": "supplementary-material"
+    },
+    {
+      "doi": "10.1086/724571",
+      "title_en": "Supplemental Material",
+      "reason": "supplementary-material"
+    },
+    {
+      "doi": "10.1086/724576",
+      "title_en": "Supplemental Material",
+      "reason": "supplementary-material"
+    },
+    {
+      "doi": "10.1086/728387",
+      "title_en": "Recent Referees",
+      "reason": "non-research-title"
+    }
+  ],
   "items": [
     {
       "sequence": 1,
@@ -22,67 +59,149 @@
     {
       "sequence": 3,
       "doi": "10.1086/724573",
-      "title_en": "Multiproduct Cost Pass-Through: Edgeworth’s Paradox Revisited"
+      "title_en": "Multiproduct Cost Pass-Through: Edgeworth’s Paradox Revisited",
+      "abstract_en": "Edgeworth’s paradox of taxation occurs when an increase in the unit cost of a product causes a multiproduct monopolist to reduce prices. We give simple illustrations of the paradox and a general analysis of the case of linear marginal cost and demand conditions, and we characterize which matrices of cost pass-through terms are consistent with profit maximization. When the firm supplies at least one pair of substitute products, we show how Edgeworth’s paradox always occurs with a suitable choice of cost function. We then establish a connection between Ramsey pricing and the paradox in a form relating to consumer surplus.",
+      "authors": [
+        "Mark Armstrong",
+        "John Vickers"
+      ],
+      "source_url": "https://journals.uchicago.edu/doi/abs/10.1086/724573"
     },
     {
       "sequence": 4,
       "doi": "10.1086/724575",
-      "title_en": "Information Acquisition, Efficiency, and Nonfundamental Volatility"
+      "title_en": "Information Acquisition, Efficiency, and Nonfundamental Volatility",
+      "abstract_en": "We analyze efficiency and nonfundamental volatility in a class of generalized beauty-contest economies with endogenous information. As in models of rational-expectations equilibria, agents learn about exogenous states and endogenous aggregate actions. As in models of rational inattention, agents choose their information structures subject to a cost. We identify conditions on information costs that guarantee the existence of efficient or inefficient equilibria; we further identify conditions that guarantee the existence or nonexistence of equilibria with zero nonfundamental volatility. Mutual information, the cost typically assumed in rational-inattention models, guarantees the existence of an efficient equilibrium with zero nonfundamental volatility.",
+      "authors": [
+        "Benjamin Hébert",
+        "Jennifer La’O"
+      ],
+      "source_url": "https://journals.uchicago.edu/doi/abs/10.1086/724575"
     },
     {
       "sequence": 5,
       "doi": "10.1086/724860",
-      "title_en": "Educational Attainment and Intergenerational Mobility: A Polygenic Score Analysis"
+      "title_en": "Educational Attainment and Intergenerational Mobility: A Polygenic Score Analysis",
+      "abstract_en": "We extend a standard model of parental investment and intergenerational mobility to include a fully specified genetic analysis of skill transmission. The model’s predictions differ substantially from the standard model’s. The coefficient of intergenerational income elasticity (IGE) may be larger than that in the standard model and depends on the distribution of the genotype. The distribution of genetic endowments may be stratified according to income. The model is tested on data, including genetic information, of twins and their parents, estimating how IGE is affected by genetic factors and how environment and genes interact. The effect of intelligence is substantially stronger than that of other traits.",
+      "authors": [
+        "Aldo Rustichini",
+        "William G. Iacono",
+        "James J. Lee",
+        "Matt McGue"
+      ],
+      "source_url": "https://journals.uchicago.edu/doi/abs/10.1086/724860"
     },
     {
       "sequence": 6,
       "doi": "10.1086/724852",
-      "title_en": "Labor Market Conflict and the Decline of the Rust Belt"
+      "title_en": "Labor Market Conflict and the Decline of the Rust Belt",
+      "abstract_en": "No region of the United States fared worse over the postwar period than the Rust Belt. This paper analyzes how much of its decline can be accounted for by the persistent labor market conflict that characterized Rust Belt union-management relations. We develop a multisector, multiregion, dynamic general equilibrium model in which labor market conflict leads to strikes, wage premia, lower investment, and lower productivity growth. These lead to shrinking Rust Belt industries and to workers moving out of the Rust Belt. Labor conflict accounts for half of the decline in the region’s share of manufacturing employment. Foreign competition plays a smaller role, and its effects are concentrated after most of the region’s decline had already occurred.",
+      "authors": [
+        "Simeon D. Alder",
+        "David Lagakos",
+        "Lee Ohanian"
+      ],
+      "source_url": "https://journals.uchicago.edu/doi/abs/10.1086/724852"
     },
     {
       "sequence": 7,
       "doi": "10.1086/724571",
-      "title_en": "Sovereign Debt Ratchets and Welfare Destruction"
+      "title_en": "Sovereign Debt Ratchets and Welfare Destruction",
+      "abstract_en": "We study an impatient, risk-neutral government that cannot commit to a particular debt path, financed by competitive lenders. In equilibrium, debt adjusts slowly toward a debt-to-income target, exacerbating booms and busts. Strikingly, gains from trade dissipate when trading is continuous, leaving the government no better off than in financial autarky, owing to a sovereign “debt ratchet effect.” Moreover, citizens who are more patient than their government are strictly harmed. We characterize equilibrium debt dynamics, ergodics, and comparative statics when income follows a geometric Brownian motion and analyze devices that allow the sovereign to recapture gains from trade.",
+      "authors": [
+        "Peter DeMarzo",
+        "Zhiguo He",
+        "Fabrice Tourre"
+      ],
+      "source_url": "https://journals.uchicago.edu/doi/abs/10.1086/724571"
     },
     {
       "sequence": 8,
       "doi": "10.1086/724574",
-      "title_en": "Multidimensional Premarital Investments with Imperfect Commitment"
+      "title_en": "Multidimensional Premarital Investments with Imperfect Commitment",
+      "abstract_en": "We analyze premarital investments in human capital and housing when individuals are unable to make binding commitments to share their labor income with a prospective spouse. Investments are distorted if there are gender differences in bargaining power over own labor income or marriage market imbalances. Distortions are magnified when ex ante bargaining power favors one sex (e.g., women in China) and ex post bargaining power favors the other (e.g., men in China), since parents of boys will increase housing investments in order to credibly commit to share more resources with the boy’s potential wife, possibly crowding out human capital investments.",
+      "authors": [
+        "V. Bhaskar",
+        "Wenchao Li",
+        "Junjian Yi"
+      ],
+      "source_url": "https://journals.uchicago.edu/doi/abs/10.1086/724574"
     },
     {
       "sequence": 9,
       "doi": "10.1086/724576",
-      "title_en": "Incentives and Performance with Optimal Money Management Contracts"
+      "title_en": "Incentives and Performance with Optimal Money Management Contracts",
+      "abstract_en": "I characterize the dynamics of incentives in an optimal contract with investment delegation, moral hazard, and uncertainty about the agent’s productivity. The principal increases the agent’s incentives after good performance in order to delegate more capital to an agent with higher perceived productivity, thus implementing a convex pay-for-performance scheme. Moreover, the principal commits to reduce the agent’s future incentives in order to mitigate ex ante investment distortions. Methodologically, I provide a duality-based strategy to overcome technical challenges common to continuous-time contracting models with state variables. I also derive a sufficient condition to verify the validity of the first-order approach.",
+      "authors": [
+        "Stefano Pegoraro"
+      ],
+      "source_url": "https://journals.uchicago.edu/doi/abs/10.1086/724576"
     },
     {
       "sequence": 10,
       "doi": "10.1086/720397",
-      "title_en": "Minimum Wage and Individual Worker Productivity: Evidence from a Large US Retailer"
+      "title_en": "Minimum Wage and Individual Worker Productivity: Evidence from a Large US Retailer",
+      "abstract_en": "We study workers who are employed by a large US retailer, work in many store locations, and are paid based on performance. By means of a border-discontinuity analysis, we document that workers become more productive and are terminated less often after a minimum wage increase. These effects are stronger among workers whose pay is more often supported by the minimum wage. However, when workers are monitored less intensely, the minimum wage depresses productivity. We interpret these findings through an efficiency wage model. After a minimum wage increase, profits decrease, and a calibration exercise suggests that worker welfare increases.",
+      "authors": [
+        "Decio Coviello",
+        "Erika Deserranno",
+        "Nicola Persico"
+      ],
+      "source_url": "https://journals.uchicago.edu/doi/abs/10.1086/720397"
     },
     {
       "sequence": 11,
       "doi": "10.1086/701789",
-      "title_en": "The Neolithic Agricultural Revolution and the Origins of Private Property"
+      "title_en": "The Neolithic Agricultural Revolution and the Origins of Private Property",
+      "abstract_en": "Familiar explanations of why hunter-gatherers first took up farming—superior labor productivity, population pressure, or adverse climate—receive little support from recent evidence. Farming would be an unlikely choice without possession-based private property, which appears to have existed among rare groups of sedentary hunter-gatherers who became the first farmers. Our model shows that among them, farming could have benefited first adopters because private possession was more readily established and defended for cultivated crops and domesticated animals than for the diffuse wild resources on which hunter-gatherers relied, thus explaining how farming could have been introduced even without a productivity advantage.",
+      "authors": [
+        "Samuel Bowles",
+        "Jung-Kyoo Choi"
+      ],
+      "source_url": "https://journals.uchicago.edu/doi/abs/10.1086/701789"
     },
     {
       "sequence": 12,
       "doi": "10.1086/711915",
-      "title_en": "The Effects of Fluoride in Drinking Water"
+      "title_en": "The Effects of Fluoride in Drinking Water",
+      "abstract_en": "Water fluoridation is a common but debated public policy. In this paper, we use Swedish registry data to study the causal effects of fluoride in drinking water. We exploit exogenous variation in natural fluoride stemming from variation in geological characteristics at water sources to identify its effects. First, we reconfirm the long-established positive effect of fluoride on dental health. Second, we estimate a zero effect on cognitive ability in contrast to several recent debated epidemiological studies. Third, fluoride is furthermore found to increase labor income. This effect is foremost driven by individuals from a lower socioeconomic background.",
+      "authors": [
+        "Linuz Aggeborn",
+        "Mattias Öhman"
+      ],
+      "source_url": "https://journals.uchicago.edu/doi/abs/10.1086/711915"
     },
     {
       "sequence": 13,
       "doi": "10.1086/261725",
-      "title_en": "Endogenous Technological Change"
+      "title_en": "Endogenous Technological Change",
+      "abstract_en": "Growth in this model is driven by technological change that arises from intentional investment decisions made by profit-maximizing agents. The distinguishing feature of the technology as an input is that it is neither a conventional good nor a public good; it is a nonrival, partially excludable good. Because of the nonconvexity introduced by a nonrival good, price-taking competition cannot be supported. Instead, the equilibrium is one with monopolistic competition. The main conclusions are that the stock of human capital determines the rate of growth, that too little human capital is devoted to research in equilibrium, that integration into world markets will increase growth rates, and that having a large population is not sufficient to generate growth.",
+      "authors": [
+        "Paul M. Romer"
+      ],
+      "source_url": "https://journals.uchicago.edu/doi/abs/10.1086/261725"
     },
     {
       "sequence": 14,
       "doi": "10.1086/705716",
-      "title_en": "Robots and Jobs: Evidence from US Labor Markets"
+      "title_en": "Robots and Jobs: Evidence from US Labor Markets",
+      "abstract_en": "We study the effects of industrial robots on US labor markets. We show theoretically that robots may reduce employment and wages and that their local impacts can be estimated using variation in exposure to robots—defined from industry-level advances in robotics and local industry employment. We estimate robust negative effects of robots on employment and wages across commuting zones. We also show that areas most exposed to robots after 1990 do not exhibit any differential trends before then, and robots’ impact is distinct from other capital and technologies. One more robot per thousand workers reduces the employment-to-population ratio by 0.2 percentage points and wages by 0.42%.",
+      "authors": [
+        "Daron Acemoglu",
+        "Pascual Restrepo"
+      ],
+      "source_url": "https://journals.uchicago.edu/doi/abs/10.1086/705716"
     },
     {
       "sequence": 15,
       "doi": "10.1086/260062",
-      "title_en": "The Pricing of Options and Corporate Liabilities"
+      "title_en": "The Pricing of Options and Corporate Liabilities",
+      "abstract_en": "If options are correctly priced in the market, it should not be possible to make sure profits by creating portfolios of long and short positions in options and their underlying stocks. Using this principle, a theoretical valuation formula for options is derived. Since almost all corporate liabilities can be viewed as combinations of options, the formula and the analysis that led to it are also applicable to corporate liabilities such as common stock, corporate bonds, and warrants. In particular, the formula can be used to derive the discount that should be applied to a corporate bond because of the possibility of default.",
+      "authors": [
+        "Fischer Black",
+        "Myron Scholes"
+      ],
+      "source_url": "https://journals.uchicago.edu/doi/abs/10.1086/260062"
     }
   ]
 }
