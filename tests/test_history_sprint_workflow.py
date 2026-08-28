@@ -91,6 +91,13 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         self.assertIn("if: always()", workflow[upload:])
         self.assertIn("if-no-files-found: warn", workflow[upload:])
 
+    def test_missing_browser_snapshot_directory_is_non_fatal(self) -> None:
+        workflow = self.workflow()
+        self.assertGreaterEqual(
+            workflow.count("mkdir -p data/provenance/browser-snapshots"),
+            2,
+        )
+
     def test_restores_browser_snapshots_from_the_data_branch(self) -> None:
         workflow = self.workflow()
         self.assertIn("data/provenance/browser-snapshots", workflow)

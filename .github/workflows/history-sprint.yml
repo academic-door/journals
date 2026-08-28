@@ -387,6 +387,7 @@ jobs:
           snapshot_args=()
           deferred="$RUNNER_TEMP/sciencedirect-evidence-deferred.txt"
           : > "$deferred"
+          mkdir -p data/provenance/browser-snapshots
           IFS=',' read -ra issue_ids <<< "${{ inputs.evidence_issue_ids }}"
           for issue_id in "${issue_ids[@]}"; do
             issue_id="${issue_id//[[:space:]]/}"
@@ -417,6 +418,7 @@ jobs:
           snapshot_args=()
           deferred="$RUNNER_TEMP/sciencedirect-evidence-deferred.txt"
           : > "$deferred"
+          mkdir -p data/provenance/browser-snapshots
           IFS=',' read -ra issue_ids <<< "${{ inputs.evidence_issue_ids }}"
           for issue_id in "${issue_ids[@]}"; do
             issue_id="${issue_id//[[:space:]]/}"
