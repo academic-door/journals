@@ -429,6 +429,11 @@ def process_evidence(
         metadata,
         publication_date=publication_date,
     )
+    # Normalize publisher labels before translation so the source hash used
+    # by the translator is identical to the hash checked when the cache is
+    # applied.  Otherwise an ``Abstract:`` prefix can make a valid cache look
+    # stale immediately after translation.
+    candidate = normalize_issue_content(candidate)
     cache_path = translation_cache_root / f"{journal_id}.json"
     if candidate["articles"]:
         report = translate_missing(
@@ -465,12 +470,17 @@ def process_evidence(
             "translated": int(
                 candidate["quality"].get("translation_complete", 0)
             ),
+            "translation_report": report,
             "staging": str(staging),
         }
 
     archived = archive_issue(candidate, api_root=api_root, replace_non_ready=True)
     if archived is None:
-        return {"issue_id": issue_id, "result": "archive-gate-failed"}
+        return {
+            "issue_id": issue_id,
+            "result": "archive-gate-failed",
+            "translation_report": report,
+        }
     try:
         from scripts.import_official_roster_evidence import reconcile_state_files
 
