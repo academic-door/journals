@@ -429,6 +429,11 @@ def process_evidence(
         metadata,
         publication_date=publication_date,
     )
+    # Normalize publisher labels before translation so the source hash used
+    # by the translator is identical to the hash checked when the cache is
+    # applied.  Otherwise an ``Abstract:`` prefix can make a valid cache look
+    # stale immediately after translation.
+    candidate = normalize_issue_content(candidate)
     cache_path = translation_cache_root / f"{journal_id}.json"
     if candidate["articles"]:
         report = translate_missing(

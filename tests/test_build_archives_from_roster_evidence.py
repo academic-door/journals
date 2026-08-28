@@ -600,7 +600,7 @@ class BuildArchivesFromRosterEvidenceTests(unittest.TestCase):
                         "doi": "10.1111/demo.10001",
                         "title_en": "A Test of Policy",
                         "authors": ["Alice Smith"],
-                        "abstract_en": "We study the policy effect.",
+                        "abstract_en": "Abstract: We study the policy effect.",
                         "source_url": "https://onlinelibrary.wiley.com/doi/10.1111/demo.10001",
                     }
                 ],
@@ -608,6 +608,29 @@ class BuildArchivesFromRosterEvidenceTests(unittest.TestCase):
             evidence_path = evidence_root / "demo" / "demo-1-1.json"
             evidence_path.parent.mkdir(parents=True, exist_ok=True)
             evidence_path.write_text(json.dumps(evidence), encoding="utf-8")
+
+            def fake_translate(issue, cache_path, *, max_translations):
+                self.assertEqual(
+                    "We study the policy effect.",
+                    issue["articles"][0]["abstract_en"],
+                )
+                return {
+                    "journal_id": "demo",
+                    "translated": 0,
+                    "invalid_cache_entries": 1,
+                    "upgraded_cache_entries": 0,
+                    "failed": [
+                        {
+                            "doi": "10.1111/demo.10001",
+                            "title_en": "A Test of Policy",
+                            "error": "provider unavailable",
+                        }
+                    ],
+                    "provider_state": {"deepseek": "provider unavailable"},
+                    "fallback_translated": 0,
+                    "model": "deepseek-chat",
+                    "prompt_version": "academic-door-abstract-zh-v2",
+                }
 
             with (
                 patch(
@@ -620,23 +643,7 @@ class BuildArchivesFromRosterEvidenceTests(unittest.TestCase):
                 ),
                 patch(
                     "scripts.build_archives_from_roster_evidence.translate_missing",
-                    return_value={
-                        "journal_id": "demo",
-                        "translated": 0,
-                        "invalid_cache_entries": 1,
-                        "upgraded_cache_entries": 0,
-                        "failed": [
-                            {
-                                "doi": "10.1111/demo.10001",
-                                "title_en": "A Test of Policy",
-                                "error": "provider unavailable",
-                            }
-                        ],
-                        "provider_state": {"deepseek": "provider unavailable"},
-                        "fallback_translated": 0,
-                        "model": "deepseek-chat",
-                        "prompt_version": "academic-door-abstract-zh-v2",
-                    },
+                    side_effect=fake_translate,
                 ),
             ):
                 import requests
