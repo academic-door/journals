@@ -1,12 +1,12 @@
 # Field journal history backfill status
 
-Updated: 2026-08-28T11:43:10+00:00
+Updated: 2026-08-28T18:45:43+00:00
 
 Discovery coverage: 1331 discovered · 1244 archived · 1046 publication ready · 87 missing · 198 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 539 | 12 | 50 | 107 |
+| 2023-2024 | 539 | 11 | 51 | 107 |
 | 2023-2026 | 271 | 0 | 21 | 8 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
@@ -740,10 +740,10 @@ Discovery coverage: 1331 discovered · 1244 archived · 1046 publication ready �
 | JF | jf-78-6 | 2023 | source_pending |  |
 | JF | jf-79-1 | 2024 | ready |  |
 | JF | jf-79-2 | 2024 | source_pending |  |
-| JF | jf-79-3 | 2024 | source_pending | source authority pending official verification |
-| JF | jf-79-4 | 2024 | source_pending | source authority pending official verification |
-| JF | jf-79-5 | 2024 | source_pending | source authority pending official verification |
-| JF | jf-79-6 | 2024 | source_pending | source authority pending official verification |
+| JF | jf-79-3 | 2024 | source_pending |  |
+| JF | jf-79-4 | 2024 | source_pending |  |
+| JF | jf-79-5 | 2024 | source_pending |  |
+| JF | jf-79-6 | 2024 | source_pending |  |
 | JF | jf-80-1 | 2025 | source_pending | source authority pending official verification |
 | JF | jf-80-2 | 2025 | source_pending | source authority pending official verification |
 | JF | jf-80-3 | 2025 | source_pending | source authority pending official verification |
@@ -1056,7 +1056,7 @@ Discovery coverage: 1331 discovered · 1244 archived · 1046 publication ready �
 | LABECO | labeco-83-c | 2023 | ready |  |
 | LABECO | labeco-84-c | 2023 | ready |  |
 | LABECO | labeco-85-c | 2023 | ready |  |
-| LABECO | labeco-86-c | 2024 | translation_partial |  |
+| LABECO | labeco-86-c | 2024 | blocked | archive_missing |
 | LABECO | labeco-87-c | 2024 | ready |  |
 | LABECO | labeco-88-c | 2024 | ready |  |
 | LABECO | labeco-89-c | 2024 | ready |  |
@@ -1184,15 +1184,15 @@ Discovery coverage: 1331 discovered · 1244 archived · 1046 publication ready �
 | RED | red-50-c | 2023 | source_pending |  |
 | RED | red-51-c | 2023 | source_pending |  |
 | RED | red-52-c | 2024 | source_pending |  |
-| RED | red-53-c | 2024 | source_pending | source authority pending official verification |
-| RED | red-54-c | 2024 | source_pending | source authority pending official verification |
-| RED | red-55-c | 2025 | source_pending | source authority pending official verification |
-| RED | red-56-c | 2025 | source_pending | source authority pending official verification |
-| RED | red-57-c | 2025 | source_pending | source authority pending official verification |
-| RED | red-58-c | 2025 | source_pending | source authority pending official verification |
-| RED | red-59-c | 2026 | source_pending | source authority pending official verification |
+| RED | red-53-c | 2024 | source_pending |  |
+| RED | red-54-c | 2024 | source_pending |  |
+| RED | red-55-c | 2025 | source_pending |  |
+| RED | red-56-c | 2025 | source_pending |  |
+| RED | red-57-c | 2025 | source_pending |  |
+| RED | red-58-c | 2025 | source_pending |  |
+| RED | red-59-c | 2026 | source_pending |  |
 | RED | red-60-c | 2026 | source_pending | possible_incomplete_volume: 4 articles collected vs current issue 12; needs offi |
-| RED | red-61-c | 2026 | source_pending | source authority pending official verification |
+| RED | red-61-c | 2026 | source_pending |  |
 | RED | red-62-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 62/ |
 | RES | res-90-1 | 2023 | source_pending |  |
 | RES | res-90-2 | 2023 | source_pending |  |
@@ -1222,12 +1222,12 @@ Discovery coverage: 1331 discovered · 1244 archived · 1046 publication ready �
 | RESTAT | restat-105-4 | 2023 | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs off |
 | RESTAT | restat-105-5 | 2023 | source_pending |  |
 | RESTAT | restat-105-6 | 2023 | source_pending |  |
-| RESTAT | restat-106-1 | 2024 | source_pending | source authority pending official verification |
-| RESTAT | restat-106-2 | 2024 | source_pending | source authority pending official verification |
+| RESTAT | restat-106-1 | 2024 | source_pending |  |
+| RESTAT | restat-106-2 | 2024 | source_pending |  |
 | RESTAT | restat-106-3 | 2024 | ready |  |
-| RESTAT | restat-106-4 | 2024 | source_pending | source authority pending official verification |
+| RESTAT | restat-106-4 | 2024 | source_pending |  |
 | RESTAT | restat-106-5 | 2024 | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs off |
-| RESTAT | restat-106-6 | 2024 | source_pending | source authority pending official verification |
+| RESTAT | restat-106-6 | 2024 | source_pending |  |
 | RESTAT | restat-107-1 | 2025 | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs off |
 | RESTAT | restat-107-2 | 2025 | source_pending | source authority pending official verification |
 | RESTAT | restat-107-3 | 2025 | source_pending | source authority pending official verification |
