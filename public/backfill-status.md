@@ -1,12 +1,12 @@
 # Field journal history backfill status
 
-Updated: 2026-08-28T10:47:16+00:00
+Updated: 2026-08-28T11:43:10+00:00
 
-Discovery coverage: 1331 discovered · 1243 archived · 1045 publication ready · 88 missing · 198 source pending
+Discovery coverage: 1331 discovered · 1244 archived · 1046 publication ready · 87 missing · 198 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 538 | 13 | 50 | 107 |
+| 2023-2024 | 539 | 12 | 50 | 107 |
 | 2023-2026 | 271 | 0 | 21 | 8 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
@@ -132,25 +132,25 @@ Discovery coverage: 1331 discovered · 1243 archived · 1045 publication ready �
 | AERI | aeri-7-4 | 2025 | ready |  |
 | AERI | aeri-8-1 | 2026 | ready |  |
 | AERI | aeri-8-2 | 2026 | ready |  |
-| AJAE | ajae-105-1 | 2023 | source_pending | source authority pending official verification |
-| AJAE | ajae-105-2 | 2023 | source_pending | source authority pending official verification |
-| AJAE | ajae-105-3 | 2023 | source_pending | source authority pending official verification |
-| AJAE | ajae-105-4 | 2023 | source_pending | source authority pending official verification |
-| AJAE | ajae-105-5 | 2023 | source_pending | source authority pending official verification |
-| AJAE | ajae-106-1 | 2024 | source_pending | source authority pending official verification |
+| AJAE | ajae-105-1 | 2023 | source_pending |  |
+| AJAE | ajae-105-2 | 2023 | source_pending |  |
+| AJAE | ajae-105-3 | 2023 | source_pending |  |
+| AJAE | ajae-105-4 | 2023 | source_pending |  |
+| AJAE | ajae-105-5 | 2023 | source_pending |  |
+| AJAE | ajae-106-1 | 2024 | source_pending |  |
 | AJAE | ajae-106-2 | 2024 | source_pending |  |
-| AJAE | ajae-106-3 | 2024 | source_pending | source authority pending official verification |
-| AJAE | ajae-106-4 | 2024 | source_pending | source authority pending official verification |
-| AJAE | ajae-106-5 | 2024 | source_pending | source authority pending official verification |
-| AJAE | ajae-107-1 | 2025 | source_pending | source authority pending official verification |
-| AJAE | ajae-107-2 | 2025 | source_pending | source authority pending official verification |
-| AJAE | ajae-107-3 | 2025 | source_pending | source authority pending official verification |
-| AJAE | ajae-107-4 | 2025 | source_pending | source authority pending official verification |
-| AJAE | ajae-107-5 | 2025 | source_pending | source authority pending official verification |
-| AJAE | ajae-108-1 | 2026 | source_pending | source authority pending official verification |
-| AJAE | ajae-108-2 | 2026 | source_pending | source authority pending official verification |
-| AJAE | ajae-108-3 | 2026 | source_pending | source authority pending official verification |
-| AJAE | ajae-108-4 | 2026 | source_pending | source authority pending official verification |
+| AJAE | ajae-106-3 | 2024 | source_pending |  |
+| AJAE | ajae-106-4 | 2024 | source_pending |  |
+| AJAE | ajae-106-5 | 2024 | source_pending |  |
+| AJAE | ajae-107-1 | 2025 | source_pending |  |
+| AJAE | ajae-107-2 | 2025 | source_pending |  |
+| AJAE | ajae-107-3 | 2025 | source_pending |  |
+| AJAE | ajae-107-4 | 2025 | source_pending |  |
+| AJAE | ajae-107-5 | 2025 | source_pending |  |
+| AJAE | ajae-108-1 | 2026 | source_pending |  |
+| AJAE | ajae-108-2 | 2026 | source_pending |  |
+| AJAE | ajae-108-3 | 2026 | source_pending |  |
+| AJAE | ajae-108-4 | 2026 | source_pending |  |
 | CER | cer-100-c | 2026 | source_pending | source authority pending official verification |
 | CER | cer-77-c | 2023 | ready |  |
 | CER | cer-78-c | 2023 | ready |  |
@@ -336,7 +336,7 @@ Discovery coverage: 1331 discovered · 1243 archived · 1045 publication ready �
 | ENERGY | energy-137-c | 2024 | ready |  |
 | ENERGY | energy-138-c | 2024 | translation_partial |  |
 | ENERGY | energy-139-c | 2024 | ready |  |
-| ENERGY | energy-140-c | 2024 | translation_partial |  |
+| ENERGY | energy-140-c | 2024 | ready |  |
 | ENERGY | energy-141-c | 2025 | ready |  |
 | ENERGY | energy-142-c | 2025 | ready |  |
 | ENERGY | energy-143-c | 2025 | ready |  |
@@ -685,7 +685,7 @@ Discovery coverage: 1331 discovered · 1243 archived · 1045 publication ready �
 | JEH | jeh-85-3 | 2025 | ready |  |
 | JEH | jeh-85-4 | 2025 | source_pending |  |
 | JEH | jeh-86-1 | 2026 | ready |  |
-| JEH | jeh-86-2 | 2026 | source_pending | source authority pending official verification |
+| JEH | jeh-86-2 | 2026 | source_pending |  |
 | JEP | jep-37-1 | 2023 | ready |  |
 | JEP | jep-37-2 | 2023 | ready |  |
 | JEP | jep-37-3 | 2023 | ready |  |

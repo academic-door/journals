@@ -1,14 +1,14 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-08-28T10:47:30+00:00
+Generated: 2026-08-28T11:43:27+00:00
 
 ## Summary
 
 - browser_required: 1
-- ready: 1045
+- ready: 1046
 - recoverable: 74
 - source_pending: 191
-- translation_required: 20
+- translation_required: 19
 
 ## Issue queue
 
@@ -132,25 +132,25 @@ Generated: 2026-08-28T10:47:30+00:00
 | AERI | aeri-7-4 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | AERI | aeri-8-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AERI | aeri-8-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
-| AJAE | ajae-105-1 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| AJAE | ajae-105-2 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| AJAE | ajae-105-3 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| AJAE | ajae-105-4 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| AJAE | ajae-105-5 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| AJAE | ajae-106-1 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
+| AJAE | ajae-105-1 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-105-2 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-105-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-105-4 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-105-5 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-106-1 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | AJAE | ajae-106-2 | 2024 | translation_required | complete | source_pending | translation incomplete |
-| AJAE | ajae-106-3 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| AJAE | ajae-106-4 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| AJAE | ajae-106-5 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| AJAE | ajae-107-1 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AJAE | ajae-107-2 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AJAE | ajae-107-3 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AJAE | ajae-107-4 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AJAE | ajae-107-5 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AJAE | ajae-108-1 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| AJAE | ajae-108-2 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| AJAE | ajae-108-3 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| AJAE | ajae-108-4 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
+| AJAE | ajae-106-3 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-106-4 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-106-5 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-107-1 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-107-2 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-107-3 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-107-4 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-107-5 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-108-1 | 2026 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-108-2 | 2026 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-108-3 | 2026 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-108-4 | 2026 | source_pending | complete | source_pending | official source verification pending |
 | CER | cer-100-c | 2026 | source_pending | complete | source_pending | source authority pending official verification |
 | CER | cer-77-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-78-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
@@ -336,7 +336,7 @@ Generated: 2026-08-28T10:47:30+00:00
 | ENERGY | energy-137-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | ENERGY | energy-138-c | 2024 | translation_required | blocked | source_pending | archive_missing |
 | ENERGY | energy-139-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
-| ENERGY | energy-140-c | 2024 | translation_required | blocked | source_pending | archive_missing |
+| ENERGY | energy-140-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | ENERGY | energy-141-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | ENERGY | energy-142-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | ENERGY | energy-143-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
@@ -685,7 +685,7 @@ Generated: 2026-08-28T10:47:30+00:00
 | JEH | jeh-85-3 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JEH | jeh-85-4 | 2025 | translation_required | complete | source_pending | translation incomplete |
 | JEH | jeh-86-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
-| JEH | jeh-86-2 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
+| JEH | jeh-86-2 | 2026 | source_pending | complete | source_pending | official source verification pending |
 | JEP | jep-37-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | JEP | jep-37-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | JEP | jep-37-3 | 2023 | ready | complete | official_verified | content and official source gates passed |

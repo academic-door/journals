@@ -7,7 +7,7 @@
   "issue": "4",
   "publication_date": "December 2025",
   "source_url": "https://www.cambridge.org/core/journals/journal-of-economic-history",
-  "retrieved_at": "2026-08-06T12:04:15+00:00",
+  "retrieved_at": "2026-08-28T11:35:28+00:00",
   "expected_article_count": 8,
   "research_article_count": 8,
   "status": "incomplete",
@@ -19,13 +19,13 @@
       "source_sequence": 921,
       "article_type": "research-article",
       "title_en": "Reconstructing History: Using Language to Estimate Religious Spread",
-      "title_cn": "",
+      "title_cn": "重构历史：利用语言估计宗教传播",
       "authors": [
         "Arthur Blouin",
         "Julian Dyer"
       ],
       "abstract_en": "We introduce a data-driven approach to use language to reconstruct history, and apply the methodology to estimate the geographic origins of religious spread. To validate the approach, we use language data to estimate origins of Islam and Buddhism to within 500km of their true (and uncontested) origins. We then apply the methodology to the more complex (and contested) cases of Christianity, Judaism, and Hinduism. We show that language-based estimates, in these cases, are significantly more aligned with the origin of scripture than with the origin of the religion.",
-      "abstract_cn": "",
+      "abstract_cn": "我们引入了一种数据驱动的方法，利用语言来重构历史，并将该方法应用于估计宗教传播的地理起源。为验证该方法，我们使用语言数据估计伊斯兰教和佛教的起源，误差在真实（且无争议）起源的500公里以内。然后，我们将该方法应用于更复杂（且有争议）的基督教、犹太教和印度教案例。我们表明，在这些案例中，基于语言的估计与经典的起源更为一致，而非宗教本身的起源。",
       "abstract_snippet_en": "",
       "doi": "10.1017/s0022050725100867",
       "source_url": "https://doi.org/10.1017/s0022050725100867",
@@ -37,15 +37,15 @@
         "abstract_en": "crossref"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-26T11:26:24+00:00",
+        "source_hash": "aa7f2a61d5b7cc1a511dfb35bf2115a668e42caefbe8c360c438a3f90e66e05f"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -344,22 +344,10 @@
     "excluded_item_count": 8,
     "excluded_items": [
       {
-        "title_en": "<i>The Political Economy of Commodity Cartel Formation: The Case of Coffee, 1930–1940</i>\n                    —ADDENDUM",
-        "reason": "non_publishable_item",
-        "doi": "10.1017/s0022050725101265",
-        "article_type": "research-article"
-      },
-      {
         "title_en": "Controlling Contagion: Epidemics and Institutions from the Black Death to COVID-19. By Sheilagh C. Ogilvie. Princeton: Princeton University Press, 2025. Pp. 544. $45.00, hardcover.",
         "reason": "non_publishable_item",
         "doi": "10.1017/s0022050725100983",
         "article_type": "research-article"
-      },
-      {
-        "title_en": "JEH volume 85 issue 4 Cover and Back matter",
-        "reason": "front_matter",
-        "doi": "10.1017/s0022050725101289",
-        "article_type": "front-matter"
       },
       {
         "title_en": "Fuel and Power: Energy, Trade, and Russian Foreign Relations from Lenin to Putin. By Jeronim Perović. Cambridge: Cambridge University Press, 2024. Pp. x, 250. £80.00, hardcover.",
@@ -374,33 +362,44 @@
         "article_type": "editorial"
       },
       {
-        "title_en": "JEH volume 85 issue 4 Cover and Front matter",
-        "reason": "front_matter",
-        "doi": "10.1017/s0022050725101277",
-        "article_type": "front-matter"
-      },
-      {
         "title_en": "The Rise and Fall of King Coal: American Energy Transitions in an Age of Markets, 1800–1940. By Mark Aldrich. Baltimore: Johns Hopkins University Press, 2025. Pp. 352. $64.95, hardcover.",
         "reason": "non_publishable_item",
         "doi": "10.1017/s0022050725101241",
         "article_type": "research-article"
       },
       {
+        "title_en": "JEH volume 85 issue 4 Cover and Front matter",
+        "reason": "front_matter",
+        "doi": "10.1017/s0022050725101277",
+        "article_type": "front-matter"
+      },
+      {
         "title_en": "Coffee Nation: How One Commodity Transformed the Early United States. By Michelle Craig McDonald. Philadelphia: University of Pennsylvania Press, 2025. Pp. 271. $45.00, hardcover; $45.00, eBook.",
         "reason": "non_publishable_item",
         "doi": "10.1017/s002205072510123x",
+        "article_type": "research-article"
+      },
+      {
+        "title_en": "JEH volume 85 issue 4 Cover and Back matter",
+        "reason": "front_matter",
+        "doi": "10.1017/s0022050725101289",
+        "article_type": "front-matter"
+      },
+      {
+        "title_en": "<i>The Political Economy of Commodity Cartel Formation: The Case of Coffee, 1930–1940</i>\n                    —ADDENDUM",
+        "reason": "non_publishable_item",
+        "doi": "10.1017/s0022050725101265",
         "article_type": "research-article"
       }
     ],
     "doi_complete": 8,
     "authors_complete": 8,
     "abstract_en_complete": 8,
-    "translation_complete": 7,
+    "translation_complete": 8,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster",
-      "translation_incomplete"
+      "crossref_provisional_roster"
     ],
     "official_item_count": 16,
     "publishable_item_count": 8,
@@ -418,6 +417,8 @@
       "catalog_content_items": 8
     }
   },
+  "source_status": "source_pending",
+  "publication_state": "source_pending",
   "content_counts": {
     "official_items": 16,
     "observed_items": 16,
@@ -431,5 +432,6 @@
     "other_excluded": 5,
     "catalog_content_items": 8
   },
-  "issue_label": "Vol. 85 · No. 4"
+  "issue_label": "Vol. 85 · No. 4",
+  "content_status": "complete"
 }
