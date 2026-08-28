@@ -18,6 +18,11 @@ on:
         required: true
         default: recoverable,translation_required
         type: string
+      issue_ids:
+        description: Optional comma-separated exact issue IDs to process
+        required: false
+        default: ""
+        type: string
       source_run_id:
         description: Reuse successful shard artifacts from this prior sprint run
         required: false
@@ -113,6 +118,7 @@ jobs:
           python scripts/build_recovery_queue.py \
             --gap-manifest public/api/v1/gap-manifest.json \
             --categories "${{ inputs.categories }}" \
+            --issue-ids "${{ inputs.issue_ids }}" \
             --chunk-size "${{ inputs.max_issues }}" \
             --output-dir output/recovery-shards \
             --plan-json output/recovery-plan.json \
@@ -455,6 +461,7 @@ jobs:
             --diagnostics-root "$RUNNER_TEMP/wiley-evidence-failures"
 
       - name: Build archives from generic official roster evidence
+        if: inputs.evidence_issue_ids != '' || inputs.categories != 'translation_required'
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           DEEPSEEK_MODEL: deepseek-chat
@@ -479,6 +486,7 @@ jobs:
             "${evidence_args[@]}"
 
       - name: Apply exact official roster evidence
+        if: inputs.evidence_issue_ids != '' || inputs.categories != 'translation_required'
         env:
           GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || github.token }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}

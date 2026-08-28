@@ -222,6 +222,72 @@ NUMBER_VALUES_ZH = {
     value: NUMBER_WORDS_ZH[word]
     for word, value in NUMBER_WORD_VALUES.items()
 }
+NUMBER_WORD_SCALES = {
+    "hundred": 100,
+    "thousand": 1_000,
+    "million": 1_000_000,
+    "billion": 1_000_000_000,
+}
+ENGLISH_NUMBER_WORDS = [*NUMBER_WORD_VALUES, *NUMBER_WORD_SCALES, "and"]
+ENGLISH_NUMBER_TOKEN_PATTERN = re.compile(
+    r"\b(?:"
+    + "|".join(sorted(ENGLISH_NUMBER_WORDS, key=len, reverse=True))
+    + r")(?:[-\s]+(?:"
+    + "|".join(sorted(ENGLISH_NUMBER_WORDS, key=len, reverse=True))
+    + r"))*\b",
+    re.IGNORECASE,
+)
+
+
+def _parse_english_number_phrase(phrase: str) -> int | None:
+    """Parse a conservative English number phrase into its numeric value."""
+
+    tokens = [
+        token
+        for token in re.split(r"[-\s]+", phrase.casefold())
+        if token and token != "and"
+    ]
+    if not tokens:
+        return None
+    total = 0
+    current = 0
+    for token in tokens:
+        if token in NUMBER_WORD_VALUES:
+            current += NUMBER_WORD_VALUES[token]
+        elif token in NUMBER_WORD_SCALES:
+            current = (current or 1) * NUMBER_WORD_SCALES[token]
+            total += current
+            current = 0
+        else:
+            return None
+    return total + current
+
+
+def _written_number_values(value: str) -> list[str]:
+    """Return unambiguous written-number quantities from English text."""
+
+    values: list[str] = []
+    for match in ENGLISH_NUMBER_TOKEN_PATTERN.finditer(value):
+        phrase = match.group(0)
+        parsed = _parse_english_number_phrase(phrase)
+        if parsed is None:
+            continue
+        following = value[match.end() :]
+        percent = re.match(r"\s+percent|\s+per\s+cent", following, re.IGNORECASE)
+        has_scale = any(
+            token in NUMBER_WORD_SCALES
+            for token in phrase.casefold().replace("-", " ").split()
+        )
+        has_cardinal = any(
+            token in NUMBER_WORD_VALUES
+            for token in phrase.casefold().replace("-", " ").split()
+        )
+        # A bare unit such as the ``billion`` in ``$14.5 billion`` is not a
+        # written number.  Only treat scale phrases as quantities when they
+        # contain an actual cardinal word (e.g. ``two thousand and ten``).
+        if percent or (has_scale and has_cardinal) or "-" in phrase:
+            values.append(f"{parsed}%" if percent else str(parsed))
+    return values
 CENTURY_ORDINAL_VALUES = {
     "first": 1,
     "second": 2,
@@ -786,7 +852,7 @@ def _canonicalize_chinese_numerals(source: str, translated: str) -> str:
     instead of script form, without disturbing legitimate Chinese renderings
     of English number words (e.g. ``half a million`` -> ``五十万``).
     """
-    source_numbers = set(_numbers(source))
+    source_numbers = set(_numbers(source) + _written_number_values(source))
 
     def replace_percent(match: re.Match[str]) -> str:
         value = _parse_chinese_numeral(match.group(1))
@@ -828,7 +894,7 @@ def _normalize_written_number_translations(source: str, translated: str) -> str:
     """
 
     normalized = _canonicalize_chinese_numerals(source, translated)
-    source_numbers = Counter(_numbers(source))
+    source_numbers = Counter(_numbers(source) + _written_number_values(source))
 
     # Models commonly render ``10 percent`` as ``10个百分点`` or ``10百分比``.
     # Preserve the natural Chinese wording unless the source actually carries
@@ -897,6 +963,16 @@ def _normalize_written_number_translations(source: str, translated: str) -> str:
         normalized, _changed = re.subn(
             rf"(?<![\d.]){value}\s*[%％](?!\d)",
             f"百分之{NUMBER_VALUES_ZH[value]}",
+            normalized,
+            count=1,
+        )
+    for value in _written_number_values(source):
+        if not value.endswith("%"):
+            continue
+        amount = int(value[:-1])
+        normalized, _changed = re.subn(
+            rf"(?<![\d.]){amount}\s*[%％](?!\d)",
+            f"百分之{_zh_integer(amount)}",
             normalized,
             count=1,
         )
@@ -996,6 +1072,17 @@ def _normalize_written_number_translations(source: str, translated: str) -> str:
     return normalized
 
 
+def _chinese_percent_numbers(value: str) -> list[str]:
+    """Extract Chinese percentage values for the strict numeric audit."""
+
+    return [
+        f"{_parse_chinese_numeral(match.group(1))}%"
+        for match in re.finditer(
+            r"百分之(" + CN_NUMERAL_PATTERN.pattern + r")", value
+        )
+    ]
+
+
 def validate_translation(article: dict[str, Any], translated: dict[str, Any]) -> None:
     title_cn = str(translated.get("title_cn", "")).strip()
     abstract_cn = str(translated.get("abstract_cn", "")).strip()
@@ -1027,8 +1114,16 @@ def validate_translation(article: dict[str, Any], translated: dict[str, Any]) ->
         raise TranslationError("Translation must not contain Markdown fences")
     source_text = f"{article.get('title_en', '')}\n{article.get('abstract_en', '')}"
     translated_text = f"{title_cn}\n{abstract_cn}"
-    source_numbers = Counter(_numbers(source_text) + _month_numbers(source_text))
-    translated_numbers = Counter(_numbers(translated_text) + _month_numbers(translated_text))
+    source_numbers = Counter(
+        _numbers(source_text)
+        + _month_numbers(source_text)
+        + _written_number_values(source_text)
+    )
+    translated_numbers = Counter(
+        _numbers(translated_text)
+        + _month_numbers(translated_text)
+        + _chinese_percent_numbers(translated_text)
+    )
     # Identifier labels (Section 5503, Table 2, 第5503条) are not data
     # values: exempt the source's identifier numbers on the translation side
     # too, so rendering them with Arabic digits is not flagged as invented.

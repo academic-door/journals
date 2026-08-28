@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import unittest
+from pathlib import Path
 
 from scripts.build_recovery_queue import build_forecast, build_queue
 
@@ -131,6 +132,42 @@ class RecoveryQueueTests(unittest.TestCase):
             chunk_size=10,
         )
         self.assertEqual("springer-evidence", shards[0]["action"])
+
+    def test_filters_to_explicit_issue_ids(self) -> None:
+        manifest = {
+            "records": [
+                {
+                    "issue_id": "jedc-147-c",
+                    "journal": "JEDC",
+                    "year": 2023,
+                    "category": "translation_required",
+                },
+                {
+                    "issue_id": "jde-161-c",
+                    "journal": "JDE",
+                    "year": 2023,
+                    "category": "translation_required",
+                },
+            ]
+        }
+        matrix, shards = build_queue(
+            manifest,
+            {"JEDC": {"collector": "elsevier"}, "JDE": {"collector": "elsevier"}},
+            categories={"translation_required"},
+            chunk_size=10,
+            issue_ids={"jedc-147-c"},
+        )
+        self.assertEqual(["jedc-147-c"], shards[0]["issue_ids"])
+        self.assertEqual("jedc-147-c", matrix["include"][0]["issue_ids"])
+
+    def test_cli_issue_count_is_number_of_issues_not_string_length(self) -> None:
+        source = (Path(__file__).resolve().parents[1] / "scripts" / "build_recovery_queue.py").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn(
+            "sum(len(item['issue_ids'].split(',')) for item in matrix['include'])",
+            source,
+        )
 
 
 if __name__ == "__main__":

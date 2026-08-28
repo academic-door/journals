@@ -56,6 +56,7 @@ def build_queue(
     *,
     categories: set[str],
     chunk_size: int,
+    issue_ids: set[str] | None = None,
 ) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     if not 1 <= chunk_size <= MAX_CHUNK_SIZE:
         raise ValueError(f"chunk_size must be between 1 and {MAX_CHUNK_SIZE}")
@@ -66,7 +67,12 @@ def build_queue(
         issue_id = str(raw.get("issue_id", "")).strip()
         category = str(raw.get("category", "")).strip()
         journal = str(raw.get("journal", "")).strip()
-        if not issue_id or category not in categories or not journal:
+        if (
+            not issue_id
+            or (issue_ids is not None and issue_id not in issue_ids)
+            or category not in categories
+            or not journal
+        ):
             continue
         collector = str((journals.get(journal) or {}).get("collector", "other"))
         record = dict(raw)
@@ -142,6 +148,11 @@ def main() -> int:
     parser.add_argument("--gap-manifest", type=Path, required=True)
     parser.add_argument("--journals-config", type=Path, default=Path("config/journals.yml"))
     parser.add_argument("--categories", default=DEFAULT_CATEGORIES)
+    parser.add_argument(
+        "--issue-ids",
+        default="",
+        help="Optional comma-separated exact issue IDs to include",
+    )
     parser.add_argument("--chunk-size", type=int, default=10)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--github-output", type=Path)
@@ -151,11 +162,13 @@ def main() -> int:
     manifest = json.loads(args.gap_manifest.read_text(encoding="utf-8"))
     journals = yaml.safe_load(args.journals_config.read_text(encoding="utf-8"))["journals"]
     categories = {value.strip() for value in args.categories.split(",") if value.strip()}
+    issue_ids = {value.strip() for value in args.issue_ids.split(",") if value.strip()}
     matrix, shards = build_queue(
         manifest,
         journals,
         categories=categories,
         chunk_size=args.chunk_size,
+        issue_ids=issue_ids or None,
     )
     args.output_dir.mkdir(parents=True, exist_ok=True)
     for shard in shards:
@@ -174,7 +187,10 @@ def main() -> int:
         with args.github_output.open("a", encoding="utf-8") as handle:
             handle.write(f"matrix={matrix_json}\n")
             handle.write(f"has_work={'true' if matrix['include'] else 'false'}\n")
-            handle.write(f"issue_count={sum(len(item['issue_ids']) for item in shards)}\n")
+            handle.write(
+                "issue_count="
+                f"{sum(len(item['issue_ids'].split(',')) for item in matrix['include'])}\n"
+            )
     print(matrix_json)
     return 0
 

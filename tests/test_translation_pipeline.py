@@ -352,6 +352,42 @@ class TranslationPipelineTests(unittest.TestCase):
         )
         self.assertEqual(_numbers(source), _numbers(normalized))
 
+    def test_hyphenated_written_percentages_match_arabic_translation(self) -> None:
+        source = (
+            "Fifty-three percent of account holders stayed with the old product, "
+            "and the study documents the complete decision process."
+        )
+        translated = (
+            "百分之五十三的账户持有人继续使用旧产品，"
+            "研究还完整记录了决策过程。"
+        )
+        normalized = _normalize_written_number_translations(source, translated)
+        validate_translation(
+            {
+                "title_en": "Financial decisions",
+                "abstract_en": source,
+                "article_type": "research-article",
+            },
+            {"title_cn": "金融决策", "abstract_cn": normalized},
+        )
+
+    def test_written_scale_year_matches_arabic_translation(self) -> None:
+        source = (
+            "The reform was introduced in two thousand and ten, and the paper "
+            "documents the institutional background and observed outcomes."
+        )
+        translated = (
+            "这项改革于2010年推出，本文记录了制度背景和观察到的结果。"
+        )
+        validate_translation(
+            {
+                "title_en": "Policy reform",
+                "abstract_en": source,
+                "article_type": "research-article",
+            },
+            {"title_cn": "政策改革", "abstract_cn": translated},
+        )
+
     def test_written_century_ordinal_does_not_look_like_an_added_number(self) -> None:
         source = (
             "Spain was rich around 1500, but prices rose by 200% by the "

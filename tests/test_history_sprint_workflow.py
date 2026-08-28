@@ -66,6 +66,15 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         self.assertIn("python scripts/check_recovery_progress.py", workflow)
         self.assertIn("data/provenance/official-rosters", workflow)
 
+    def test_can_limit_a_wave_to_named_issues_and_skip_source_steps_for_translation(self) -> None:
+        workflow = self.workflow()
+        self.assertIn("issue_ids:", workflow)
+        self.assertIn('--issue-ids "${{ inputs.issue_ids }}"', workflow)
+        self.assertIn(
+            "if: inputs.evidence_issue_ids != '' || inputs.categories != 'translation_required'",
+            workflow,
+        )
+
     def test_restores_browser_snapshots_from_the_data_branch(self) -> None:
         workflow = self.workflow()
         self.assertIn("data/provenance/browser-snapshots", workflow)
