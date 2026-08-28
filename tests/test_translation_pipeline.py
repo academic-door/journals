@@ -388,6 +388,43 @@ class TranslationPipelineTests(unittest.TestCase):
             {"title_cn": "政策改革", "abstract_cn": translated},
         )
 
+    def test_chinese_number_spacing_and_percentage_ranges_are_equivalent(self) -> None:
+        source = (
+            "The program reached nearly five million households, and adoption "
+            "rose from three to six percent."
+        )
+        translated = (
+            "该项目覆盖了近 五 百万户家庭，采用率从三到六个百分点上升。"
+        )
+        validate_translation(
+            {
+                "title_en": "Program reach",
+                "abstract_en": source,
+                "article_type": "research-article",
+            },
+            {"title_cn": "项目覆盖", "abstract_cn": translated},
+        )
+
+    def test_wrong_written_percentage_still_fails(self) -> None:
+        with self.assertRaises(TranslationError):
+            validate_translation(
+                {
+                    "title_en": "Loan repayment",
+                    "abstract_en": (
+                        "Ninety-eight percent of beneficiaries repaid the loan "
+                        "after harvest, according to the study results."
+                    ),
+                    "article_type": "research-article",
+                },
+                {
+                    "title_cn": "贷款偿还",
+                    "abstract_cn": (
+                        "研究结果显示，百分之九十的受益人在收获后偿还了贷款，"
+                        "这一结论来自完整的样本分析。"
+                    ),
+                },
+            )
+
     def test_written_century_ordinal_does_not_look_like_an_added_number(self) -> None:
         source = (
             "Spain was rich around 1500, but prices rose by 200% by the "

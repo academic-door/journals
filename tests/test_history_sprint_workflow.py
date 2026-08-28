@@ -66,6 +66,14 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         self.assertIn("python scripts/check_recovery_progress.py", workflow)
         self.assertIn("data/provenance/official-rosters", workflow)
 
+    def test_repairs_only_invalid_current_translations_before_acceptance(self) -> None:
+        workflow = self.workflow()
+        repair = workflow.index("python scripts/repair_current_translations.py")
+        audit = workflow.index("python scripts/audit_public_data.py --strict-provenance")
+        self.assertLess(repair, audit)
+        self.assertIn("--translation-cache-root data/translation-cache", workflow[repair:audit])
+        self.assertIn("current-translation-repair.json", workflow[repair:audit])
+
     def test_can_limit_a_wave_to_named_issues_and_skip_source_steps_for_translation(self) -> None:
         workflow = self.workflow()
         self.assertIn("issue_ids:", workflow)
@@ -74,6 +82,14 @@ class HistorySprintWorkflowTests(unittest.TestCase):
             "if: inputs.evidence_issue_ids != '' || inputs.categories != 'translation_required'",
             workflow,
         )
+
+    def test_one_failed_shard_still_uploads_partial_evidence(self) -> None:
+        workflow = self.workflow()
+        run = workflow.index("Run both historical year windows in this shard")
+        upload = workflow.index("Upload isolated shard staging")
+        self.assertIn("continue-on-error: true", workflow[run:upload])
+        self.assertIn("if: always()", workflow[upload:])
+        self.assertIn("if-no-files-found: warn", workflow[upload:])
 
     def test_restores_browser_snapshots_from_the_data_branch(self) -> None:
         workflow = self.workflow()

@@ -272,6 +272,23 @@ def _translation_payload_is_current(
     return True
 
 
+def validated_translation_count(issue: dict[str, Any]) -> int:
+    """Count translations using the same strict validator as public audits."""
+
+    count = 0
+    for article in issue.get("articles", []):
+        if not translation_is_complete(article):
+            continue
+        embedded = {
+            "title_cn": article.get("title_cn", ""),
+            "abstract_cn": article.get("abstract_cn", ""),
+            "source_hash": article.get("translation", {}).get("source_hash", ""),
+        }
+        if _translation_payload_is_current(article, embedded):
+            count += 1
+    return count
+
+
 def _clear_stale_translation(article: dict[str, Any]) -> None:
     article["title_cn"] = ""
     article["abstract_cn"] = ""
@@ -1656,7 +1673,7 @@ def update_indexes(
         if issue and is_publishable_snapshot(issue):
             stamp_issue_readiness(issue)
             usable_count += 1
-            translated = issue["quality"]["translation_complete"]
+            translated = validated_translation_count(issue)
             total = issue["research_article_count"]
             translated_articles += translated
             total_articles += total
@@ -1666,7 +1683,9 @@ def update_indexes(
                     "data_status": (
                         "healthy" if not structural_flags(issue) else "needs_attention"
                     ),
-                    "content_status": issue["content_status"],
+                    "content_status": (
+                        "complete" if translated == total else "translation_partial"
+                    ),
                     "source_status": issue["source_status"],
                     "publication_state": issue["publication_state"],
                     "latest_issue_id": issue["issue_id"],

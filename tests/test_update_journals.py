@@ -22,6 +22,7 @@ from scripts.update_journals import (
     issue_source_status,
     merge_issue_audit_metadata,
     order_verification_status,
+    validated_translation_count,
     write_archive_index,
     write_search_indexes,
 )
@@ -63,8 +64,18 @@ def archive_fixture(issue_id: str, volume: str) -> dict:
         "articles": [
             {
                 "doi": f"10.1/{volume}",
+                "title_en": "A complete article",
+                "title_cn": "一篇完整的文章",
                 "article_type": "research-article",
-                "abstract_en": "A complete abstract.",
+                "abstract_en": (
+                    "A complete abstract with enough source text for the strict "
+                    "translation quality gate."
+                ),
+                "abstract_cn": (
+                    "这是一篇完整的中文摘要，用于测试来源、内容、作者和翻译门禁，"
+                    "并确保样本长度足够。"
+                ),
+                "authors": ["Test Author"],
             }
         ],
         "quality": {
@@ -81,6 +92,32 @@ def archive_fixture(issue_id: str, volume: str) -> dict:
 
 
 class PublicationGateTests(unittest.TestCase):
+    def test_validated_translation_count_accepts_equivalent_numbers_only(self) -> None:
+        valid = {
+            "title_en": "Coverage",
+            "title_cn": "覆盖范围",
+            "article_type": "research-article",
+            "abstract_en": (
+                "The program reached one hundred households and improved outcomes "
+                "across the study period."
+            ),
+            "abstract_cn": (
+                "该项目覆盖了一百户家庭，并改善了相关结果和整体表现，"
+                "同时在整个研究期间保持了稳定的效果。"
+            ),
+        }
+        invalid = {
+            "title_en": "Repayment",
+            "title_cn": "偿还情况",
+            "article_type": "research-article",
+            "abstract_en": "Ninety-eight percent of beneficiaries repaid the loan after harvest.",
+            "abstract_cn": "收获后，百分之九十的受益人偿还了贷款，研究记录了这一结果。",
+        }
+        self.assertEqual(
+            1,
+            validated_translation_count({"articles": [valid, invalid]}),
+        )
+
     def test_placeholder_is_not_a_complete_abstract(self) -> None:
         self.assertEqual("", clean_abstract_label("Please provide abstract."))
 
@@ -659,7 +696,10 @@ class PublicationGateTests(unittest.TestCase):
             roster_transport="official-issue-page",
             flags=[],
         )
-        verified["articles"][0]["abstract_en"] = "Official reconciled abstract."
+        verified["articles"][0]["abstract_en"] = (
+            "Official reconciled abstract with enough source text for the "
+            "strict validation gate."
+        )
 
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
@@ -678,7 +718,10 @@ class PublicationGateTests(unittest.TestCase):
 
         self.assertEqual("official_verified", promoted["source_status"])
         self.assertEqual("ready", promoted["publication_state"])
-        self.assertEqual("Official reconciled abstract.", preserved["articles"][0]["abstract_en"])
+        self.assertEqual(
+            "Official reconciled abstract with enough source text for the strict validation gate.",
+            preserved["articles"][0]["abstract_en"],
+        )
         self.assertEqual("ready", preserved["publication_state"])
 
     def test_untranslated_snapshot_is_not_archived(self) -> None:
@@ -709,8 +752,14 @@ class PublicationGateTests(unittest.TestCase):
                     "title_en": title,
                     "title_cn": "测试论文",
                     "authors": ["Test Author"],
-                    "abstract_en": "Evidence from China." if issue is old_issue else "Evidence from Chinese firms.",
-                    "abstract_cn": "摘要",
+                    "abstract_en": (
+                        "Evidence from China demonstrates the complete result "
+                        "for this historical issue."
+                        if issue is old_issue
+                        else "Evidence from Chinese firms demonstrates the complete "
+                        "result for this historical issue."
+                    ),
+                    "abstract_cn": "这是一段足够长的中文摘要，用于验证历史搜索索引中的完整内容状态。",
                     "source_url": "https://example.org/paper",
                 }
             )

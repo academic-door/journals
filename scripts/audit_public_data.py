@@ -28,6 +28,7 @@ from scripts.update_journals import (
     issue_publication_state,
     issue_source_status,
     validate_issue,
+    validated_translation_count,
 )
 
 
@@ -359,7 +360,6 @@ def main(strict_provenance: bool = False) -> int:
                 findings.append(f"{label}: Chinese content missing or lacks source abstract")
                 continue
             if not article["abstract_en"]:
-                totals["translated"] += 1
                 continue
             try:
                 validate_translation(
@@ -371,8 +371,7 @@ def main(strict_provenance: bool = False) -> int:
                 )
             except TranslationError as error:
                 findings.append(f"{label}: {error}")
-            else:
-                totals["translated"] += 1
+        totals["translated"] += validated_translation_count(issue)
 
     if totals["journals"] != len(enabled):
         findings.append(

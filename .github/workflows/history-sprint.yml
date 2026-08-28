@@ -186,6 +186,7 @@ jobs:
         run: python scripts/elsevier_quota_check.py --write-json output/elsevier-quota.json
 
       - name: Run both historical year windows in this shard
+        continue-on-error: true
         env:
           PYTHONPATH: ${{ github.workspace }}
           GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || github.token }}
@@ -286,10 +287,11 @@ jobs:
           PY
 
       - name: Upload isolated shard staging
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: history-sprint-${{ matrix.shard }}
-          if-no-files-found: error
+          if-no-files-found: warn
           path: |
             public/api/v1/journals
             data/backfill-state
@@ -531,6 +533,22 @@ jobs:
               --translate \
               --promote
           done < "$evidence_list"
+
+      - name: Repair only invalid current-snapshot translations
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+          GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || github.token }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DEEPSEEK_MODEL: deepseek-chat
+          TRANSLATION_RETRIES: "2"
+          TRANSLATION_WORKERS: "4"
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/repair_current_translations.py \
+            --api-root public/api/v1 \
+            --translation-cache-root data/translation-cache \
+            --report-json "$RUNNER_TEMP/current-translation-repair.json"
 
       - name: Rebuild indexes and run strict acceptance gates
         env:
