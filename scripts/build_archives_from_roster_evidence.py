@@ -465,12 +465,17 @@ def process_evidence(
             "translated": int(
                 candidate["quality"].get("translation_complete", 0)
             ),
+            "translation_report": report,
             "staging": str(staging),
         }
 
     archived = archive_issue(candidate, api_root=api_root, replace_non_ready=True)
     if archived is None:
-        return {"issue_id": issue_id, "result": "archive-gate-failed"}
+        return {
+            "issue_id": issue_id,
+            "result": "archive-gate-failed",
+            "translation_report": report,
+        }
     try:
         from scripts.import_official_roster_evidence import reconcile_state_files
 

@@ -573,6 +573,98 @@ class BuildArchivesFromRosterEvidenceTests(unittest.TestCase):
             article["source_url"],
         )
 
+    def test_staged_result_preserves_translation_report(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            evidence_root = root / "evidence"
+            api_root = root / "api"
+            state_root = root / "state"
+            staging_root = root / "staging"
+            cache_root = root / "cache"
+            for folder in (evidence_root, api_root, state_root, staging_root, cache_root):
+                folder.mkdir(parents=True, exist_ok=True)
+
+            evidence = {
+                "schema_version": "1.0",
+                "capture_mode": "official-roster-evidence",
+                "method": "official-page-read",
+                "captured_at": "2026-08-27T00:00:00+00:00",
+                "finalized": True,
+                "journal_id": "demo",
+                "issue_id": "demo-1-1",
+                "official_url": "https://onlinelibrary.wiley.com/toc/12345678/2024/1/1",
+                "excluded_item_count": 0,
+                "items": [
+                    {
+                        "sequence": 1,
+                        "doi": "10.1111/demo.10001",
+                        "title_en": "A Test of Policy",
+                        "authors": ["Alice Smith"],
+                        "abstract_en": "We study the policy effect.",
+                        "source_url": "https://onlinelibrary.wiley.com/doi/10.1111/demo.10001",
+                    }
+                ],
+            }
+            evidence_path = evidence_root / "demo" / "demo-1-1.json"
+            evidence_path.parent.mkdir(parents=True, exist_ok=True)
+            evidence_path.write_text(json.dumps(evidence), encoding="utf-8")
+
+            with (
+                patch(
+                    "scripts.build_archives_from_roster_evidence._crossref_items",
+                    return_value=[],
+                ),
+                patch(
+                    "scripts.build_archives_from_roster_evidence._metadata_for_dois",
+                    return_value={},
+                ),
+                patch(
+                    "scripts.build_archives_from_roster_evidence.translate_missing",
+                    return_value={
+                        "journal_id": "demo",
+                        "translated": 0,
+                        "invalid_cache_entries": 1,
+                        "upgraded_cache_entries": 0,
+                        "failed": [
+                            {
+                                "doi": "10.1111/demo.10001",
+                                "title_en": "A Test of Policy",
+                                "error": "provider unavailable",
+                            }
+                        ],
+                        "provider_state": {"deepseek": "provider unavailable"},
+                        "fallback_translated": 0,
+                        "model": "deepseek-chat",
+                        "prompt_version": "academic-door-abstract-zh-v2",
+                    },
+                ),
+            ):
+                import requests
+
+                result = process_evidence(
+                    evidence_path,
+                    {
+                        "id": "demo",
+                        "name": "Demo Journal",
+                        "issn": "1234-5678",
+                    },
+                    session=requests.Session(),
+                    api_root=api_root,
+                    state_root=state_root,
+                    staging_root=staging_root,
+                    translation_cache_root=cache_root,
+                    max_translations=120,
+                    start_year=2022,
+                    timeout=10,
+                )
+
+            self.assertEqual("translation_partial", result["result"], result)
+            self.assertEqual(1, result["translation_report"]["invalid_cache_entries"])
+            self.assertEqual(
+                "provider unavailable",
+                result["translation_report"]["failed"][0]["error"],
+            )
+
 
 if __name__ == "__main__":
     unittest.main()
