@@ -1,12 +1,12 @@
 # Field journal history backfill status
 
-Updated: 2026-08-28T08:54:01+00:00
+Updated: 2026-08-28T10:47:16+00:00
 
-Discovery coverage: 1331 discovered · 1242 archived · 1044 publication ready · 89 missing · 198 source pending
+Discovery coverage: 1331 discovered · 1243 archived · 1045 publication ready · 88 missing · 198 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 537 | 13 | 51 | 107 |
+| 2023-2024 | 538 | 13 | 50 | 107 |
 | 2023-2026 | 271 | 0 | 21 | 8 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
@@ -936,7 +936,7 @@ Discovery coverage: 1331 discovered · 1242 archived · 1044 publication ready �
 | JOE | joe-256-c | 2026 | ready |  |
 | JOE | joe-257-c | 2026 | ready |  |
 | JPE | jpe-131-1 | 2023 | source_pending |  |
-| JPE | jpe-131-10 | 2023 | blocked | archive_content_gate_failed |
+| JPE | jpe-131-10 | 2023 | ready |  |
 | JPE | jpe-131-11 | 2023 | source_pending |  |
 | JPE | jpe-131-12 | 2023 | ready |  |
 | JPE | jpe-131-2 | 2023 | source_pending |  |

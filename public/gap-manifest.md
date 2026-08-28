@@ -1,11 +1,11 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-08-28T08:54:18+00:00
+Generated: 2026-08-28T10:47:30+00:00
 
 ## Summary
 
-- browser_required: 2
-- ready: 1044
+- browser_required: 1
+- ready: 1045
 - recoverable: 74
 - source_pending: 191
 - translation_required: 20
@@ -936,7 +936,7 @@ Generated: 2026-08-28T08:54:18+00:00
 | JOE | joe-256-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JOE | joe-257-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JPE | jpe-131-1 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| JPE | jpe-131-10 | 2023 | browser_required | blocked | source_pending | archive_missing |
+| JPE | jpe-131-10 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | JPE | jpe-131-11 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | JPE | jpe-131-12 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | JPE | jpe-131-2 | 2023 | source_pending | complete | source_pending | official source verification pending |

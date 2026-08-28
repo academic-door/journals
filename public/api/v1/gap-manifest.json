@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-28T08:54:18+00:00",
+  "generated_at": "2026-08-28T10:47:30+00:00",
   "target_years": [
     2023,
     2024,
@@ -61,8 +61,8 @@
   ],
   "discovery_snapshot_missing_journals": [],
   "summary": {
-    "browser_required": 2,
-    "ready": 1044,
+    "browser_required": 1,
+    "ready": 1045,
     "recoverable": 74,
     "source_pending": 191,
     "translation_required": 20
@@ -27734,29 +27734,29 @@
       "year": 2023,
       "volume": "131",
       "issue": "10",
-      "official_url": "https://www.journals.uchicago.edu/toc/jpe/2023/131/10",
+      "official_url": "https://journals.uchicago.edu/toc/jpe/2023/131/10",
       "authority": "official_archive",
       "refreshed_at": "2026-08-24T13:57:34+00:00",
       "collector_revision": "history-integrity-2026-08-11",
-      "category": "browser_required",
-      "reason": "archive_missing",
-      "status": "blocked",
+      "category": "ready",
+      "reason": "content and official source gates passed",
+      "status": "ready",
       "retry_class": "manual",
       "collector": "chicago",
       "attempt_count": 0,
       "last_attempt_at": "",
       "last_error_code": "",
       "next_retry_at": "",
-      "archive_exists": false,
-      "content_status": "blocked",
-      "source_status": "source_pending",
-      "publication_state": "blocked",
+      "archive_exists": true,
+      "content_status": "complete",
+      "source_status": "official_verified",
+      "publication_state": "ready",
       "counts": {
-        "articles": 0,
-        "abstract_en": 0,
-        "translation_cn": 0
+        "articles": 15,
+        "abstract_en": 15,
+        "translation_cn": 15
       },
-      "next_action": "read exact official issue page in authorized browser"
+      "next_action": "no action"
     },
     {
       "issue_id": "jpe-131-11",
