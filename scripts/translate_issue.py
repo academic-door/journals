@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Any
 
 import requests
+from collectors.article_types import has_official_no_abstract_exception
 
 
 GITHUB_MODELS_ENDPOINT = "https://models.github.ai/inference/chat/completions"
@@ -1002,18 +1003,25 @@ def validate_translation(article: dict[str, Any], translated: dict[str, Any]) ->
         article.get("article_type") == "comment"
         and not article.get("abstract_en")
     )
-    if not title_cn or (not abstract_cn and not comment_without_abstract):
+    official_no_abstract = has_official_no_abstract_exception(article)
+    if not title_cn or (
+        not abstract_cn
+        and not comment_without_abstract
+        and not official_no_abstract
+    ):
         raise TranslationError("Chinese title and abstract are both required")
     if not CJK_PATTERN.search(title_cn) or (
         abstract_cn and not CJK_PATTERN.search(abstract_cn)
     ):
         raise TranslationError("Translation must contain Chinese characters")
     minimum = (
-        10
+        0
+        if official_no_abstract
+        else 10
         if article.get("article_type") == "comment"
         else min(80, max(30, int(len(article["abstract_en"]) * 0.15)))
     )
-    if not comment_without_abstract and len(abstract_cn) < minimum:
+    if not comment_without_abstract and not official_no_abstract and len(abstract_cn) < minimum:
         raise TranslationError("Chinese abstract is suspiciously short")
     if "```" in title_cn or "```" in abstract_cn:
         raise TranslationError("Translation must not contain Markdown fences")
@@ -1495,12 +1503,23 @@ def _translate_missing_parallel(
             article.get("article_type") == "comment"
             and not article.get("abstract_en")
         )
-        if not doi or (not article.get("abstract_en") and not comment_without_abstract):
+        official_no_abstract = has_official_no_abstract_exception(article)
+        if not doi or (
+            not article.get("abstract_en")
+            and not comment_without_abstract
+            and not official_no_abstract
+        ):
+            continue
+        if official_no_abstract:
+            # The approved exception carries a manually verified Chinese
+            # title and deliberately has no abstract to send to a provider.
             continue
         existing = cache.get(doi, {})
         source_hash = _source_hash(article)
         if existing.get("title_cn") and (
-            existing.get("abstract_cn") or comment_without_abstract
+            existing.get("abstract_cn")
+            or comment_without_abstract
+            or official_no_abstract
         ):
             try:
                 validate_translation(article, existing)
@@ -1627,12 +1646,21 @@ def translate_missing(
             article.get("article_type") == "comment"
             and not article.get("abstract_en")
         )
-        if not doi or (not article.get("abstract_en") and not comment_without_abstract):
+        official_no_abstract = has_official_no_abstract_exception(article)
+        if not doi or (
+            not article.get("abstract_en")
+            and not comment_without_abstract
+            and not official_no_abstract
+        ):
+            continue
+        if official_no_abstract:
             continue
         existing = cache.get(doi, {})
         source_hash = _source_hash(article)
         if existing.get("title_cn") and (
-            existing.get("abstract_cn") or comment_without_abstract
+            existing.get("abstract_cn")
+            or comment_without_abstract
+            or official_no_abstract
         ):
             try:
                 validate_translation(article, existing)

@@ -95,6 +95,36 @@ def evidence() -> dict:
 
 
 class OfficialRosterEvidenceTests(unittest.TestCase):
+    def test_jpe_official_no_abstract_exception_is_valid_evidence(self) -> None:
+        official = {
+            "schema_version": "1.0",
+            "capture_mode": "official-roster-evidence",
+            "method": "browser-authorized",
+            "captured_at": "2026-08-27T17:01:11+00:00",
+            "finalized": True,
+            "journal_id": "jpe",
+            "issue_id": "jpe-131-10",
+            "official_url": "https://journals.uchicago.edu/toc/jpe/2023/131/10",
+            "excluded_item_count": 0,
+            "items": [
+                {
+                    "sequence": 1,
+                    "doi": "10.1086/725793",
+                    "title_en": "Nobel Lecture: Financial Intermediaries and Financial Crises",
+                    "authors": ["Douglas W. Diamond"],
+                    "source_url": "https://journals.uchicago.edu/doi/full/10.1086/725793",
+                },
+                {
+                    "sequence": 2,
+                    "doi": "10.1086/725792",
+                    "title_en": "Nobel Lecture: Multiple Equilibria",
+                    "authors": ["Philip H. Dybvig"],
+                    "source_url": "https://journals.uchicago.edu/doi/full/10.1086/725792",
+                },
+            ],
+        }
+        validate_evidence(official)
+
     def test_checked_in_official_evidence_is_privacy_safe_and_valid(self) -> None:
         root = Path(__file__).resolve().parents[1]
         evidence_paths = sorted(

@@ -112,6 +112,31 @@ def build_queue(
     return {"include": include}, shard_manifests
 
 
+def build_forecast(shards: list[dict[str, Any]]) -> dict[str, Any]:
+    """Summarize work before Actions starts network or model calls."""
+
+    records = [record for shard in shards for record in shard.get("records", [])]
+    by_action = Counter(str(shard.get("action", "")) for shard in shards)
+    article_count = sum(int((record.get("counts") or {}).get("articles") or 0) for record in records)
+    translation_calls = sum(
+        max(
+            0,
+            int((record.get("counts") or {}).get("articles") or 0)
+            - int((record.get("counts") or {}).get("translation_cn") or 0),
+        )
+        for record in records
+        if record.get("archive_exists")
+    )
+    return {
+        "issue_count": len(records),
+        "article_count_known": article_count,
+        "translation_calls_estimate": translation_calls,
+        "new_ready_upper_bound": len(records),
+        "shard_count": len(shards),
+        "shards_by_action": dict(sorted(by_action.items())),
+    }
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--gap-manifest", type=Path, required=True)
@@ -120,6 +145,7 @@ def main() -> int:
     parser.add_argument("--chunk-size", type=int, default=10)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--github-output", type=Path)
+    parser.add_argument("--plan-json", type=Path)
     args = parser.parse_args()
 
     manifest = json.loads(args.gap_manifest.read_text(encoding="utf-8"))
@@ -135,6 +161,12 @@ def main() -> int:
     for shard in shards:
         (args.output_dir / f"{shard['shard']}.json").write_text(
             json.dumps(shard, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+    if args.plan_json:
+        args.plan_json.parent.mkdir(parents=True, exist_ok=True)
+        args.plan_json.write_text(
+            json.dumps(build_forecast(shards), ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",
         )
     matrix_json = json.dumps(matrix, separators=(",", ":"))

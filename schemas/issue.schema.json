@@ -221,6 +221,14 @@
         "abstract_en": {
           "type": "string"
         },
+        "abstract_status": {
+          "enum": [
+            "official_not_provided"
+          ]
+        },
+        "abstract_note": {
+          "type": "string"
+        },
         "abstract_cn": {
           "type": "string"
         },

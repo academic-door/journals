@@ -1,10 +1,57 @@
 """Tests for translation numeric canonicalization."""
 import unittest
 from unittest import mock
+from pathlib import Path
+from tempfile import TemporaryDirectory
 
 
 
 class ChineseNumeralCanonicalizationTests(unittest.TestCase):
+    @mock.patch("scripts.translate_issue.request_deepseek_translation")
+    @mock.patch("scripts.translate_issue.request_translation")
+    @mock.patch("scripts.translate_issue.request_google_translation")
+    def test_official_no_abstract_does_not_call_translation_provider(
+        self, google, github, deepseek
+    ) -> None:
+        from scripts.translate_issue import translate_missing
+
+        issue = {
+            "journal_id": "jpe",
+            "articles": [
+                {
+                    "doi": "10.1086/725792",
+                    "article_type": "research-article",
+                    "title_en": "Nobel Lecture: Multiple Equilibria",
+                    "title_cn": "诺贝尔讲座：多重均衡",
+                    "abstract_en": "",
+                    "abstract_cn": "",
+                    "abstract_status": "official_not_provided",
+                }
+            ],
+        }
+        with TemporaryDirectory() as temporary:
+            report = translate_missing(issue, Path(temporary) / "jpe.json")
+
+        self.assertEqual(0, report["translated"])
+        self.assertEqual([], report["failed"])
+        deepseek.assert_not_called()
+        github.assert_not_called()
+        google.assert_not_called()
+
+    def test_official_no_abstract_translation_requires_only_title(self) -> None:
+        from scripts.translate_issue import validate_translation
+
+        article = {
+            "article_type": "research-article",
+            "title_en": "Nobel Lecture: Multiple Equilibria",
+            "abstract_en": "",
+            "abstract_status": "official_not_provided",
+        }
+        validate_translation(
+            article,
+            {"title_cn": "诺贝尔讲座：多重均衡", "abstract_cn": ""},
+        )
+
     def test_parse_chinese_numerals(self) -> None:
         from scripts.translate_issue import _parse_chinese_numeral
 

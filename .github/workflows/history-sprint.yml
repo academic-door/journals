@@ -115,12 +115,14 @@ jobs:
             --categories "${{ inputs.categories }}" \
             --chunk-size "${{ inputs.max_issues }}" \
             --output-dir output/recovery-shards \
+            --plan-json output/recovery-plan.json \
             --github-output "$GITHUB_OUTPUT"
       - uses: actions/upload-artifact@v4
         with:
           name: history-recovery-queue
           path: |
             output/recovery-shards
+            output/recovery-plan.json
             data/backfill-state
           if-no-files-found: warn
 
@@ -459,16 +461,22 @@ jobs:
           SEMANTIC_SCHOLAR_API_KEY: ${{ secrets.SEMANTIC_SCHOLAR_API_KEY }}
           TRANSLATION_RETRIES: "5"
           TRANSLATION_WORKERS: "4"
+          EVIDENCE_ISSUE_IDS: ${{ inputs.evidence_issue_ids }}
         shell: bash
         run: |
           set -euo pipefail
+          evidence_args=()
+          if [[ -n "${EVIDENCE_ISSUE_IDS:-}" ]]; then
+            evidence_args+=(--issue-ids "$EVIDENCE_ISSUE_IDS")
+          fi
           python scripts/build_archives_from_roster_evidence.py \
             --evidence-root data/provenance/official-rosters \
             --api-root public/api/v1 \
             --state-root data/backfill-state \
             --staging-root data/backfill-staging \
             --translation-cache-root data/translation-cache \
-            --report-json "$RUNNER_TEMP/roster-archive-report.json"
+            --report-json "$RUNNER_TEMP/roster-archive-report.json" \
+            "${evidence_args[@]}"
 
       - name: Apply exact official roster evidence
         env:
