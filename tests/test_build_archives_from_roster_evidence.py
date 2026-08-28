@@ -721,6 +721,5 @@ class BuildArchivesFromRosterEvidenceTests(unittest.TestCase):
             issue["articles"][1]["title_cn"],
         )
 
-
 if __name__ == "__main__":
     unittest.main()
