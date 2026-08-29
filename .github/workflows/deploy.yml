@@ -62,6 +62,7 @@ jobs:
           PYTHONPATH: ${{ github.workspace }}
           STRICT_HISTORY_COVERAGE_ENABLED: ${{ vars.STRICT_HISTORY_COVERAGE_ENABLED }}
         run: |
+          python scripts/rebuild_public_snapshot.py
           python scripts/rebuild_public_snapshot.py --check
           python scripts/audit_public_data.py --strict-provenance
           python scripts/audit_source_alignment.py \

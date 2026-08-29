@@ -173,6 +173,7 @@ class PublicDataBranchOwnershipTests(unittest.TestCase):
         self.assertLess(overlay, audit)
         self.assertLess(audit, build)
         self.assertIn("audit_public_data.py --strict-provenance", text)
+        self.assertIn("python scripts/rebuild_public_snapshot.py\n", text)
         self.assertIn("audit_source_alignment.py", text)
         self.assertIn("audit_privacy.py", text)
         self.assertIn("audit_history_coverage.py", text)
