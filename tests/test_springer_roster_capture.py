@@ -73,6 +73,17 @@ class SpringerRosterCaptureTests(unittest.TestCase):
         )
         self.assertEqual("First Research Paper", links[0]["title_en"])
 
+    def test_issue_parser_unwraps_urldefense_springer_links(self) -> None:
+        links = parse_springer_issue_links(
+            '<a href="https://urldefense.com/v3/__https:/link.springer.com/article/10.1007/s10640-022-00706-w__;XQ">Wrapped Paper</a>',
+            base_url="https://link.springer.com/journal/10640/volumes-and-issues/84-1",
+        )
+        self.assertEqual("10.1007/s10640-022-00706-w", links[0]["doi"])
+        self.assertEqual(
+            "https://link.springer.com/article/10.1007/s10640-022-00706-w",
+            links[0]["source_url"],
+        )
+
     def test_detail_parser_reads_official_article_metadata(self) -> None:
         detail = parse_springer_detail(
             self.DETAIL_HTML,

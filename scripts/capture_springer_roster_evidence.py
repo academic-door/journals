@@ -29,6 +29,10 @@ USER_AGENT = (
     "(non-profit academic metadata service; https://academic-door.github.io/)"
 )
 DOI_RE = re.compile(r"10\.\d{4,9}/[^\s\"'<>]+", re.IGNORECASE)
+SPRINGER_ARTICLE_RE = re.compile(
+    r"(?:https?:/+/)?link\.springer\.com/article/(10\.\d{4,9}/[^\s\"'<>]+)",
+    re.IGNORECASE,
+)
 NON_RESEARCH_RE = re.compile(
     r"^\s*(?:Correction|Erratum|Corrigendum|Retraction)\b|"
     r"^\s*Correction\s+to:|^\s*Editor's\s+Note\b|"
@@ -43,7 +47,22 @@ def _text(node: Any) -> str:
 
 def _clean_doi(value: object) -> str:
     match = DOI_RE.search(unquote(str(value or "")))
-    return match.group(0).rstrip(".,);").casefold() if match else ""
+    if not match:
+        return ""
+    return match.group(0).split("__", 1)[0].rstrip(".,);").casefold()
+
+
+def _canonical_springer_article_url(href: str, *, base_url: str) -> str:
+    decoded = unquote(str(href or "")).replace("\\", "/")
+    match = SPRINGER_ARTICLE_RE.search(decoded)
+    if match:
+        doi = _clean_doi(match.group(1))
+        return f"https://link.springer.com/article/{doi}" if doi else ""
+    absolute = urljoin(base_url, decoded)
+    parsed = urlparse(absolute)
+    if parsed.scheme == "https" and parsed.hostname == "link.springer.com":
+        return absolute
+    return ""
 
 
 def _get(session: requests.Session, url: str, *, attempts: int = 2) -> requests.Response:
@@ -112,18 +131,19 @@ def parse_springer_issue_links(
     soup = BeautifulSoup(html, "html.parser")
     links: list[dict[str, str]] = []
     seen: set[str] = set()
-    for link in soup.select('a[href*="/article/10."]'):
+    for link in soup.select("a[href]"):
         href = str(link.get("href", "")).strip()
-        doi = _clean_doi(href)
+        source_url = _canonical_springer_article_url(href, base_url=base_url)
+        doi = _clean_doi(source_url)
         title = _text(link)
-        if not doi or not title or doi in seen:
+        if not source_url or not doi or not title or doi in seen:
             continue
         seen.add(doi)
         links.append(
             {
                 "doi": doi,
                 "title_en": title,
-                "source_url": urljoin(base_url, href),
+                "source_url": source_url,
             }
         )
     if not links:
