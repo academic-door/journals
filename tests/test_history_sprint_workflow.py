@@ -93,6 +93,8 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         self.assertIn("python scripts/check_publish_subset.py", workflow)
         self.assertIn("--translation-model-calls 0", workflow)
         self.assertIn("--before-status \"$RUNNER_TEMP/status-before.json\"", workflow)
+        self.assertIn("Reuse named official evidence from source shards", workflow)
+        self.assertIn("data/provenance/official-rosters/reused", workflow)
 
     def test_one_failed_shard_still_uploads_partial_evidence(self) -> None:
         workflow = self.workflow()

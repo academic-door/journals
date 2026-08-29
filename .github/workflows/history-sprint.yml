@@ -390,6 +390,24 @@ jobs:
             --shards-root shards \
             "${merge_args[@]}"
 
+      - name: Reuse named official evidence from source shards
+        if: inputs.publish_issue_ids != ''
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p data/provenance/official-rosters/reused
+          IFS=',' read -ra issue_ids <<< "${{ inputs.publish_issue_ids }}"
+          for issue_id in "${issue_ids[@]}"; do
+            issue_id="${issue_id//[[:space:]]/}"
+            evidence="$(find shards -type f -path '*/data/provenance/official-rosters/*' -name "$issue_id.json" -print -quit)"
+            if [[ -z "$evidence" ]]; then
+              echo "Named official evidence not found in source artifacts: $issue_id" >&2
+              continue
+            fi
+            cp "$evidence" "data/provenance/official-rosters/reused/$issue_id.json"
+            echo "Reused official evidence: $issue_id"
+          done
+
       - name: Build historical archives from ScienceDirect browser snapshots
         if: inputs.evidence_issue_ids != ''
         continue-on-error: true
