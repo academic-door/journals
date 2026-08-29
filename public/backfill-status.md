@@ -1,13 +1,16 @@
 # Field journal history backfill status
 
-Updated: 2026-08-29T03:55:48+00:00
+Updated: 2026-08-29T11:08:52+00:00
 
 Discovery coverage: 1331 discovered · 1244 archived · 1046 publication ready · 87 missing · 198 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
 | 2023-2024 | 539 | 0 | 62 | 107 |
-| 2025-2026 | 508 | 0 | 25 | 91 |
+| 2023-2026 | 271 | 0 | 21 | 8 |
+| 2024-2024 | 12 | 0 | 0 | 0 |
+| 2025-2026 | 1 | 0 | 0 | 0 |
+| 2026-2026 | 6 | 0 | 0 | 0 |
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -360,10 +363,10 @@ Discovery coverage: 1331 discovered · 1244 archived · 1046 publication ready �
 | ERE | ere-84-2 | 2023 | ready |  |
 | ERE | ere-84-3 | 2023 | ready |  |
 | ERE | ere-84-4 | 2023 | ready |  |
-| ERE | ere-85-1 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-85-1 | 2023 | blocked | archive_content_gate_failed |
 | ERE | ere-85-2 | 2023 | ready |  |
-| ERE | ere-85-3-4 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
-| ERE | ere-86-1-2 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-85-3-4 | 2023 | blocked | archive_content_gate_failed |
+| ERE | ere-86-1-2 | 2023 | blocked | archive_content_gate_failed |
 | ERE | ere-86-3 | 2023 | ready |  |
 | ERE | ere-86-4 | 2023 | ready |  |
 | ERE | ere-87-1 | 2024 | ready |  |
@@ -374,7 +377,7 @@ Discovery coverage: 1331 discovered · 1244 archived · 1046 publication ready �
 | ERE | ere-87-3 | 2024 | ready |  |
 | ERE | ere-87-4 | 2024 | ready |  |
 | ERE | ere-87-5 | 2024 | ready |  |
-| ERE | ere-87-6 | 2024 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-87-6 | 2024 | blocked | archive_content_gate_failed |
 | ERE | ere-87-7 | 2024 | ready |  |
 | ERE | ere-87-8 | 2024 | ready |  |
 | ERE | ere-87-9 | 2024 | ready |  |
@@ -539,7 +542,7 @@ Discovery coverage: 1331 discovered · 1244 archived · 1046 publication ready �
 | JEBO | jebo-210-c | 2023 | ready |  |
 | JEBO | jebo-211-c | 2023 | ready |  |
 | JEBO | jebo-212-c | 2023 | ready |  |
-| JEBO | jebo-213-c | 2023 | ready |  |
+| JEBO | jebo-213-c | 2023 | ready | possible_incomplete_volume: 2 articles collected vs current issue 26; needs offi |
 | JEBO | jebo-214-c | 2023 | ready |  |
 | JEBO | jebo-215-c | 2023 | ready |  |
 | JEBO | jebo-216-c | 2023 | ready |  |
@@ -909,7 +912,7 @@ Discovery coverage: 1331 discovered · 1244 archived · 1046 publication ready �
 | JOE | joe-238-1 | 2024 | ready |  |
 | JOE | joe-238-2 | 2024 | ready |  |
 | JOE | joe-239-1 | 2024 | ready |  |
-| JOE | joe-239-2 | 2024 | ready |  |
+| JOE | joe-239-2 | 2024 | ready | archive_missing |
 | JOE | joe-240-1 | 2024 | ready |  |
 | JOE | joe-240-2 | 2024 | ready |  |
 | JOE | joe-241-1 | 2024 | ready |  |
@@ -1245,7 +1248,7 @@ Discovery coverage: 1331 discovered · 1244 archived · 1046 publication ready �
 | RFS | rfs-36-6 | 2023 | ready |  |
 | RFS | rfs-36-7 | 2023 | ready |  |
 | RFS | rfs-36-8 | 2023 | ready |  |
-| RFS | rfs-36-9 | 2023 | source_pending | source authority pending official verification |
+| RFS | rfs-36-9 | 2023 | source_pending |  |
 | RFS | rfs-37-1 | 2023 | ready |  |
 | RFS | rfs-37-10 | 2024 | ready |  |
 | RFS | rfs-37-11 | 2024 | ready |  |
