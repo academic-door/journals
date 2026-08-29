@@ -707,7 +707,13 @@ jobs:
           model_calls=0
           cache_reuses=0
           if [[ "${{ inputs.translation_only }}" = "true" ]]; then
-            read -r publish_ids model_calls cache_reuses < <(python scripts/summarize_translation_reports.py --shards-root shards)
+            translation_summary="$RUNNER_TEMP/translation-summary.json"
+            python scripts/summarize_translation_reports.py \
+              --shards-root shards \
+              --output "$translation_summary" >/dev/null
+            publish_ids="$(python -c 'import json,sys; print(",".join(json.load(open(sys.argv[1], encoding="utf-8"))["publishable_issue_ids"]))' "$translation_summary")"
+            model_calls="$(python -c 'import json,sys; print(json.load(open(sys.argv[1], encoding="utf-8"))["translation_model_calls"])' "$translation_summary")"
+            cache_reuses="$(python -c 'import json,sys; print(json.load(open(sys.argv[1], encoding="utf-8"))["translation_cache_reuses"])' "$translation_summary")"
           fi
           if [[ -z "$publish_ids" ]]; then
             echo "No successful translation issue in this batch" >&2
