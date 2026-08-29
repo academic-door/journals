@@ -47,7 +47,12 @@ def _classify(record: dict[str, Any]) -> str:
     return "EXTERNAL_BLOCKED"
 
 
-def classify(public_status: dict[str, Any], candidate_gap: dict[str, Any]) -> dict[str, Any]:
+def classify(
+    public_status: dict[str, Any],
+    candidate_gap: dict[str, Any],
+    *,
+    force_translation_fix_issue_ids: set[str] | None = None,
+) -> dict[str, Any]:
     coverage = public_status.get("coverage", {})
     public_ids = list(dict.fromkeys(
         [*coverage.get("missing_issue_ids", []), *coverage.get("source_pending_issue_ids", [])]
@@ -69,6 +74,8 @@ def classify(public_status: dict[str, Any], candidate_gap: dict[str, Any]) -> di
     for issue_id in public_ids:
         record = candidate_by_id[issue_id]
         closeout_category = _classify(record)
+        if force_translation_fix_issue_ids and issue_id in force_translation_fix_issue_ids:
+            closeout_category = "TRANSLATION_FIX"
         grouped[closeout_category].append(issue_id)
         details[issue_id] = {
             "issue_id": issue_id,
@@ -82,6 +89,10 @@ def classify(public_status: dict[str, Any], candidate_gap: dict[str, Any]) -> di
             "next_action": record.get("next_action", ""),
             "last_error_code": record.get("last_error_code", ""),
         }
+        if force_translation_fix_issue_ids and issue_id in force_translation_fix_issue_ids:
+            details[issue_id]["reclassification_reason"] = (
+                "A-class closeout verified translation_partial; route to translation-only recovery"
+            )
     for values in grouped.values():
         values.sort()
     return {
@@ -108,11 +119,25 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--public-status", type=Path, required=True)
     parser.add_argument("--candidate-gap", type=Path, required=True)
+    parser.add_argument(
+        "--force-translation-fix-issues",
+        default="",
+        help="Comma-separated issue IDs reclassified after a verified translation-only blocker",
+    )
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     public_status = json.loads(args.public_status.read_text(encoding="utf-8"))
     candidate_gap = json.loads(args.candidate_gap.read_text(encoding="utf-8"))
-    payload = classify(public_status, candidate_gap)
+    forced = {
+        value.strip()
+        for value in args.force_translation_fix_issues.split(",")
+        if value.strip()
+    }
+    payload = classify(
+        public_status,
+        candidate_gap,
+        force_translation_fix_issue_ids=forced or None,
+    )
     if sum(payload["counts"].values()) != payload["baseline"]["unresolved"]:
         raise ValueError("closeout categories do not sum to unresolved baseline")
     args.output.parent.mkdir(parents=True, exist_ok=True)

@@ -1734,7 +1734,14 @@ def _translate_missing_parallel(
                 result = future.result()
             except TranslationError as error:
                 failures.append(
-                    {"doi": doi, "title_en": article.get("title_en", ""), "error": str(error)}
+                    {
+                        "doi": doi,
+                        "title_en": article.get("title_en", ""),
+                        "source_hash": source_hash,
+                        "provider": "deepseek/github-models/google-translate",
+                        "model": model,
+                        "error": str(error),
+                    }
                 )
                 continue
             cache[doi] = {
@@ -1955,6 +1962,15 @@ def translate_missing(
                 {
                     "doi": doi,
                     "title_en": article.get("title_en", ""),
+                    "source_hash": _source_hash(article),
+                    "provider": provider,
+                    "model": (
+                        selected_model
+                        if provider == "github-models"
+                        else _deepseek_model()
+                        if provider == "deepseek"
+                        else "gtx-en-zh-CN"
+                    ),
                     "error": str(error),
                 }
             )

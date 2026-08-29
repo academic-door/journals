@@ -37,6 +37,7 @@ def build_report(
     after_gap: dict[str, Any],
     publish_issue_ids: list[str],
     translation_model_calls: int,
+    translation_cache_reuses: int = 0,
 ) -> dict[str, Any]:
     before = _records(before_gap)
     after = _records(after_gap)
@@ -73,6 +74,7 @@ def build_report(
         "source_pending_after_candidate": after_counts["source_pending"],
         "regressed_ready_issue_ids": regressed,
         "translation_model_calls": translation_model_calls,
+        "translation_cache_reuses": translation_cache_reuses,
     }
 
 
@@ -84,6 +86,7 @@ def main() -> int:
     parser.add_argument("--after-gap", type=Path, required=True)
     parser.add_argument("--publish-issue-ids", required=True)
     parser.add_argument("--translation-model-calls", type=int, default=0)
+    parser.add_argument("--translation-cache-reuses", type=int, default=0)
     parser.add_argument("--report", type=Path, required=True)
     args = parser.parse_args()
     report = build_report(
@@ -93,6 +96,7 @@ def main() -> int:
         _read(args.after_gap),
         args.publish_issue_ids.split(","),
         args.translation_model_calls,
+        args.translation_cache_reuses,
     )
     args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

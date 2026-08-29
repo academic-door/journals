@@ -41,6 +41,34 @@ class CloseoutManifestTests(unittest.TestCase):
         )
         self.assertEqual(6, sum(result["counts"].values()))
 
+    def test_verified_a_translation_blocker_is_reclassified_to_translation_fix(self) -> None:
+        public = {
+            "summary": {"complete": 2},
+            "coverage": {
+                "missing": 2,
+                "source_pending": 0,
+                "missing_issue_ids": ["ere-85-1", "ere-87-6"],
+                "source_pending_issue_ids": [],
+            },
+        }
+        candidate = {
+            "records": [
+                {"issue_id": "ere-85-1", "category": "recoverable"},
+                {"issue_id": "ere-87-6", "category": "recoverable"},
+            ]
+        }
+        result = classify(
+            public,
+            candidate,
+            force_translation_fix_issue_ids={"ere-85-1", "ere-87-6"},
+        )
+        self.assertEqual(0, result["counts"]["READY_CANDIDATE"])
+        self.assertEqual(2, result["counts"]["TRANSLATION_FIX"])
+        self.assertEqual(
+            "A-class closeout verified translation_partial; route to translation-only recovery",
+            result["details"]["ere-85-1"]["reclassification_reason"],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
