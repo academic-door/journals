@@ -50,7 +50,7 @@ def repair_current_issue(
         cache_path,
         token=token,
     )
-    apply_translation_cache(issue, cache_path)
+    apply_translation_cache(issue, cache_path=cache_path)
     normalize_issue_content(issue)
     after = validated_translation_count(issue)
     if report_path is not None:

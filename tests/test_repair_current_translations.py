@@ -68,6 +68,7 @@ class RepairCurrentTranslationsTests(unittest.TestCase):
                     )
         translate.assert_called_once()
         apply_cache.assert_called_once()
+        self.assertEqual(cache_path, apply_cache.call_args.kwargs["cache_path"])
         self.assertEqual("unresolved", result["status"])
         self.assertEqual(1, result["translation_calls"])
 
