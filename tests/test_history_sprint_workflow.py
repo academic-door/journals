@@ -78,10 +78,13 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         workflow = self.workflow()
         self.assertIn("issue_ids:", workflow)
         self.assertIn('--issue-ids "${{ inputs.issue_ids }}"', workflow)
-        self.assertIn(
-            "if: inputs.evidence_issue_ids != '' || inputs.categories != 'translation_required'",
-            workflow,
-        )
+        self.assertIn("if: inputs.evidence_issue_ids != ''", workflow)
+
+    def test_can_publish_only_a_verified_issue_subset(self) -> None:
+        workflow = self.workflow()
+        self.assertIn("publish_issue_ids:", workflow)
+        self.assertIn('--issue-ids "${{ inputs.publish_issue_ids }}"', workflow)
+        self.assertIn("if: inputs.evidence_issue_ids != ''", workflow)
 
     def test_one_failed_shard_still_uploads_partial_evidence(self) -> None:
         workflow = self.workflow()

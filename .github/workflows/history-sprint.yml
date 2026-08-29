@@ -43,6 +43,11 @@ on:
         required: false
         default: ""
         type: string
+      publish_issue_ids:
+        description: Optional comma-separated issue IDs to merge and publish
+        required: false
+        default: ""
+        type: string
       capture_wiley_evidence:
         description: Refresh official Wiley rosters for source-pending archives before promotion
         required: false
@@ -367,7 +372,17 @@ jobs:
         run: rm -rf shards/history-sprint-final-reports
 
       - name: Merge shard changes into the latest data baseline
-        run: python scripts/merge_history_shards.py --root . --shards-root shards
+        shell: bash
+        run: |
+          set -euo pipefail
+          merge_args=()
+          if [[ -n "${{ inputs.publish_issue_ids }}" ]]; then
+            merge_args+=(--issue-ids "${{ inputs.publish_issue_ids }}")
+          fi
+          python scripts/merge_history_shards.py \
+            --root . \
+            --shards-root shards \
+            "${merge_args[@]}"
 
       - name: Build historical archives from ScienceDirect browser snapshots
         if: inputs.evidence_issue_ids != ''
@@ -468,7 +483,7 @@ jobs:
             --diagnostics-root "$RUNNER_TEMP/wiley-evidence-failures"
 
       - name: Build archives from generic official roster evidence
-        if: inputs.evidence_issue_ids != '' || inputs.categories != 'translation_required'
+        if: inputs.evidence_issue_ids != ''
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           DEEPSEEK_MODEL: deepseek-chat
@@ -493,7 +508,7 @@ jobs:
             "${evidence_args[@]}"
 
       - name: Apply exact official roster evidence
-        if: inputs.evidence_issue_ids != '' || inputs.categories != 'translation_required'
+        if: inputs.evidence_issue_ids != ''
         env:
           GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || github.token }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}

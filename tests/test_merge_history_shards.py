@@ -107,6 +107,42 @@ class MergeHistoryShardsTests(unittest.TestCase):
             self.assertEqual("ready", merged["publication_state"])
             self.assertEqual("publisher_verified", merged["source_status"])
 
+    def test_issue_scoped_merge_publishes_only_named_issues(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary) / "root"
+            shards = Path(temporary) / "shards"
+            public = root / "public/api/v1/journals/ere/issues"
+            public.mkdir(parents=True)
+            (public / "ere-85-1.json").write_text(
+                json.dumps({"issue_id": "ere-85-1", "publication_state": "source_pending"}),
+                encoding="utf-8",
+            )
+            (public / "ere-87-6.json").write_text(
+                json.dumps({"issue_id": "ere-87-6", "publication_state": "ready"}),
+                encoding="utf-8",
+            )
+            shard_public = shards / "history-sprint-ere" / "public/api/v1/journals/ere/issues"
+            shard_output = shards / "history-sprint-ere" / "output"
+            shard_public.mkdir(parents=True)
+            shard_output.mkdir(parents=True)
+            (shard_public / "ere-85-1.json").write_text(
+                json.dumps({"issue_id": "ere-85-1", "publication_state": "ready"}),
+                encoding="utf-8",
+            )
+            (shard_public / "ere-87-6.json").write_text(
+                json.dumps({"issue_id": "ere-87-6", "publication_state": "source_pending"}),
+                encoding="utf-8",
+            )
+            (shard_output / "shard-metadata.json").write_text(
+                json.dumps({"journals": ["ERE"]}),
+                encoding="utf-8",
+            )
+            merge_shards(root, shards, issue_ids={"ere-85-1"})
+            selected = json.loads((public / "ere-85-1.json").read_text(encoding="utf-8"))
+            unrelated = json.loads((public / "ere-87-6.json").read_text(encoding="utf-8"))
+            self.assertEqual("ready", selected["publication_state"])
+            self.assertEqual("ready", unrelated["publication_state"])
+
 
 if __name__ == "__main__":
     unittest.main()

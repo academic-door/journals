@@ -43,7 +43,10 @@ def _attempt_stamp(payload: dict[str, Any]) -> str:
 
 
 def merge_state(
-    base: dict[str, Any], shard: dict[str, Any], shard_journals: set[str]
+    base: dict[str, Any],
+    shard: dict[str, Any],
+    shard_journals: set[str],
+    issue_ids: set[str] | None = None,
 ) -> dict[str, Any]:
     """Overlay only shard changes, preserving unrelated journals."""
 
@@ -51,7 +54,10 @@ def merge_state(
     shard_issues = shard.get("issues") if isinstance(shard.get("issues"), dict) else {}
     merged.setdefault("issues", {})
     for issue_id, entry in shard_issues.items():
-        if str(entry.get("journal", "")) in shard_journals:
+        if (
+            str(entry.get("journal", "")) in shard_journals
+            and (issue_ids is None or str(issue_id) in issue_ids)
+        ):
             existing = merged["issues"].get(issue_id)
             if isinstance(existing, dict) and isinstance(entry, dict):
                 existing_rank = _publication_rank(existing)
@@ -67,13 +73,16 @@ def merge_state(
     base_discovery = base.get("discovery") if isinstance(base.get("discovery"), dict) else {}
     shard_discovery = shard.get("discovery") if isinstance(shard.get("discovery"), dict) else {}
     merged.setdefault("discovery", {})
-    for journal, snapshot in shard_discovery.items():
-        if str(journal) in shard_journals:
-            merged["discovery"][journal] = snapshot
+    if issue_ids is None:
+        for journal, snapshot in shard_discovery.items():
+            if str(journal) in shard_journals:
+                merged["discovery"][journal] = snapshot
 
     shard_rotation = shard.get("rotation") if isinstance(shard.get("rotation"), dict) else {}
     merged.setdefault("rotation", {})
     for key, values in shard_rotation.items():
+        if issue_ids is not None:
+            continue
         if not isinstance(values, dict):
             merged["rotation"][key] = values
             continue
@@ -86,7 +95,13 @@ def merge_state(
     return merged
 
 
-def copy_tree_overlay(source: Path, target: Path) -> None:
+def copy_tree_overlay(
+    source: Path,
+    target: Path,
+    *,
+    issue_ids: set[str] | None = None,
+    issue_scoped: bool = False,
+) -> None:
     if not source.exists():
         return
     for item in source.rglob("*"):
@@ -96,6 +111,9 @@ def copy_tree_overlay(source: Path, target: Path) -> None:
             destination.mkdir(parents=True, exist_ok=True)
         else:
             destination.parent.mkdir(parents=True, exist_ok=True)
+            if issue_scoped and issue_ids is not None:
+                if item.name == "index.json" or item.stem not in issue_ids:
+                    continue
             # Shards are intentionally resumable and can be older than the
             # latest data baseline.  Preserve a stronger issue archive when
             # an old shard only contains a provisional/blocked copy; indexes
@@ -122,7 +140,12 @@ def copy_tree_overlay(source: Path, target: Path) -> None:
             shutil.copy2(item, destination)
 
 
-def merge_shards(root: Path, shards_root: Path) -> list[str]:
+def merge_shards(
+    root: Path,
+    shards_root: Path,
+    *,
+    issue_ids: set[str] | None = None,
+) -> list[str]:
     shard_paths = sorted(path for path in shards_root.iterdir() if path.is_dir())
     if not shard_paths:
         raise ValueError(f"no shard artifacts found under {shards_root}")
@@ -137,19 +160,33 @@ def merge_shards(root: Path, shards_root: Path) -> list[str]:
         }
         if not shard_journals:
             raise ValueError(f"missing shard metadata: {shard}")
-        copy_tree_overlay(shard / "public" / "api" / "v1" / "journals", root / "public" / "api" / "v1" / "journals")
-        copy_tree_overlay(shard / "data" / "backfill-staging", root / "data" / "backfill-staging")
+        copy_tree_overlay(
+            shard / "public" / "api" / "v1" / "journals",
+            root / "public" / "api" / "v1" / "journals",
+            issue_ids=issue_ids,
+            issue_scoped=issue_ids is not None,
+        )
+        copy_tree_overlay(
+            shard / "data" / "backfill-staging",
+            root / "data" / "backfill-staging",
+            issue_ids=issue_ids,
+            issue_scoped=issue_ids is not None,
+        )
         copy_tree_overlay(
             shard / "data" / "provenance" / "official-rosters",
             root / "data" / "provenance" / "official-rosters",
+            issue_ids=issue_ids,
+            issue_scoped=issue_ids is not None,
         )
         copy_tree_overlay(
             shard / "data" / "provenance" / "browser-snapshots",
             root / "data" / "provenance" / "browser-snapshots",
+            issue_ids=issue_ids,
+            issue_scoped=issue_ids is not None,
         )
         cache_source = shard / "data" / "translation-cache"
         cache_target = root / "data" / "translation-cache"
-        if cache_source.exists():
+        if cache_source.exists() and issue_ids is None:
             for cache_file in cache_source.glob("*.json"):
                 merged_cache = load_json(cache_target / cache_file.name, {})
                 shard_cache = load_json(cache_file, {})
@@ -167,6 +204,7 @@ def merge_shards(root: Path, shards_root: Path) -> list[str]:
                     load_json(target, {}),
                     load_json(state_file, {}),
                     shard_journals,
+                    issue_ids,
                 ),
             )
 
@@ -180,8 +218,14 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", default=".")
     parser.add_argument("--shards-root", required=True)
+    parser.add_argument("--issue-ids", default="")
     args = parser.parse_args()
-    reports = merge_shards(Path(args.root), Path(args.shards_root))
+    issue_ids = {value.strip() for value in args.issue_ids.split(",") if value.strip()}
+    reports = merge_shards(
+        Path(args.root),
+        Path(args.shards_root),
+        issue_ids=issue_ids or None,
+    )
     print(json.dumps({"shards": len(set(Path(path).parent for path in reports)), "reports": reports}, ensure_ascii=False))
     return 0
 
