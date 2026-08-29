@@ -391,6 +391,7 @@ def process_evidence(
     max_translations: int,
     start_year: int,
     timeout: int,
+    translate: bool = True,
 ) -> dict[str, Any]:
     evidence = json.loads(evidence_path.read_text(encoding="utf-8"))
     validate_evidence(evidence)
@@ -455,11 +456,16 @@ def process_evidence(
     candidate = normalize_issue_content(candidate)
     cache_path = translation_cache_root / f"{journal_id}.json"
     if candidate["articles"]:
-        report = translate_missing(
-            candidate,
-            cache_path,
-            max_translations=max_translations,
-        )
+        if translate:
+            report = translate_missing(
+                candidate,
+                cache_path,
+                max_translations=max_translations,
+            )
+        else:
+            report = {"translated": 0, "failed": [], "mode": "cache-only"}
+        # Cache application is always allowed; it is deterministic and does
+        # not call a provider.  Closeout A-mode uses this path exclusively.
         candidate = apply_translation_cache(candidate, cache_path=cache_path)
     else:
         report = {"translated": 0, "failed": []}
@@ -528,6 +534,11 @@ def main() -> int:
     parser.add_argument("--timeout", type=int, default=45)
     parser.add_argument("--issue-ids", default="")
     parser.add_argument("--report-json", type=Path)
+    parser.add_argument(
+        "--no-translate",
+        action="store_true",
+        help="Only apply already-valid cached translations; never call a provider",
+    )
     args = parser.parse_args()
 
     configs = yaml.safe_load(args.journals_config.read_text(encoding="utf-8"))[
@@ -571,6 +582,7 @@ def main() -> int:
                     staging_root=args.staging_root,
                     translation_cache_root=args.translation_cache_root,
                     max_translations=args.max_translations,
+                    translate=not args.no_translate,
                     start_year=args.start_year,
                     timeout=args.timeout,
                 )

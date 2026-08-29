@@ -22,6 +22,9 @@ class HistorySprintWorkflowTests(unittest.TestCase):
     def test_can_reuse_successful_shards_without_recollecting(self) -> None:
         workflow = self.workflow()
         self.assertIn("source_run_id:", workflow)
+        self.assertIn("restore_state:", workflow)
+        self.assertIn("default: \"\"", workflow[workflow.index("state_source_run_id:") : workflow.index("strict_final:")])
+        self.assertIn("inputs.restore_state && inputs.state_source_run_id != ''", workflow)
         self.assertIn("inputs.source_run_id == '' && needs.prepare.outputs.has_work == 'true'", workflow)
         self.assertIn("inputs.source_run_id != '' || needs.collect.result != 'skipped'", workflow)
         self.assertIn("run-id: ${{ inputs.source_run_id || github.run_id }}", workflow)
@@ -39,7 +42,7 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         privacy = workflow.index("python scripts/audit_privacy.py")
         self.assertIn('if [ "${{ inputs.strict_final }}" = "true" ]', workflow)
         self.assertIn("history_args+=(--strict)", workflow)
-        self.assertIn("--translate", workflow[evidence:audit])
+        self.assertIn("apply_args+=(--enrich-missing-elsevier --translate)", workflow)
         self.assertIn("DEEPSEEK_API_KEY", workflow)
 
     def test_can_retry_only_named_official_evidence_without_reprocessing_all(self) -> None:
@@ -70,6 +73,8 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         workflow = self.workflow()
         repair = workflow.index("python scripts/repair_current_translations.py")
         audit = workflow.index("python scripts/audit_public_data.py --strict-provenance")
+        repair_step = workflow.rindex("- name: Repair only invalid current-snapshot translations", 0, repair)
+        self.assertIn("if: inputs.publish_issue_ids == ''", workflow[repair_step:repair])
         self.assertLess(repair, audit)
         self.assertIn("--translation-cache-root data/translation-cache", workflow[repair:audit])
         self.assertIn("current-translation-repair.json", workflow[repair:audit])
@@ -85,6 +90,9 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         self.assertIn("publish_issue_ids:", workflow)
         self.assertIn('--issue-ids "${{ inputs.publish_issue_ids }}"', workflow)
         self.assertIn("if: inputs.evidence_issue_ids != ''", workflow)
+        self.assertIn("python scripts/check_publish_subset.py", workflow)
+        self.assertIn("--translation-model-calls 0", workflow)
+        self.assertIn("--before-status \"$RUNNER_TEMP/status-before.json\"", workflow)
 
     def test_one_failed_shard_still_uploads_partial_evidence(self) -> None:
         workflow = self.workflow()
@@ -135,6 +143,7 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         self.assertIn("data/provenance/official-rosters/cambridge", workflow)
         self.assertIn("EVIDENCE_ISSUE_IDS: ${{ inputs.evidence_issue_ids }}", workflow)
         self.assertIn('evidence_args+=(--issue-ids "$EVIDENCE_ISSUE_IDS")', workflow)
+        self.assertIn("--no-translate", workflow)
 
     def test_passes_shared_semantic_scholar_key_without_exposing_it(self) -> None:
         workflow = self.workflow()

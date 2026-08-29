@@ -31,8 +31,13 @@ on:
       state_source_run_id:
         description: One-time successful full-shard run used to restore missing discovery state
         required: false
-        default: "32734420419"
+        default: ""
         type: string
+      restore_state:
+        description: Explicitly restore discovery state from state_source_run_id
+        required: false
+        default: false
+        type: boolean
       strict_final:
         description: Fail unless every historical discovery/state/archive/index gap is zero
         required: false
@@ -88,7 +93,7 @@ jobs:
           git fetch origin data
           git archive origin/data public/api/v1/journals data/backfill-state | tar -x
       - name: Download the last complete discovery-state shards
-        if: inputs.state_source_run_id != ''
+        if: inputs.restore_state && inputs.state_source_run_id != ''
         uses: actions/download-artifact@v4
         with:
           pattern: history-sprint-*
@@ -97,7 +102,7 @@ jobs:
           run-id: ${{ inputs.state_source_run_id }}
           github-token: ${{ github.token }}
       - name: Restore missing discovery state without regressing current archives
-        if: inputs.state_source_run_id != ''
+        if: inputs.restore_state && inputs.state_source_run_id != ''
         shell: bash
         run: |
           set -euo pipefail
@@ -348,6 +353,7 @@ jobs:
             "${state_args[@]}" \
             --api-root public/api/v1 \
             --out-json public/api/v1/gap-manifest.json
+          cp public/api/v1/backfill-status.json "$RUNNER_TEMP/status-before.json"
           cp public/api/v1/gap-manifest.json "$RUNNER_TEMP/gap-before.json"
           python scripts/publish_data_delta.py snapshot \
             --root . \
@@ -498,6 +504,10 @@ jobs:
           if [[ -n "${EVIDENCE_ISSUE_IDS:-}" ]]; then
             evidence_args+=(--issue-ids "$EVIDENCE_ISSUE_IDS")
           fi
+          translate_args=()
+          if [[ -n "${{ inputs.publish_issue_ids }}" ]]; then
+            translate_args+=(--no-translate)
+          fi
           python scripts/build_archives_from_roster_evidence.py \
             --evidence-root data/provenance/official-rosters \
             --api-root public/api/v1 \
@@ -505,7 +515,8 @@ jobs:
             --staging-root data/backfill-staging \
             --translation-cache-root data/translation-cache \
             --report-json "$RUNNER_TEMP/roster-archive-report.json" \
-            "${evidence_args[@]}"
+            "${evidence_args[@]}" \
+            "${translate_args[@]}"
 
       - name: Apply exact official roster evidence
         if: inputs.evidence_issue_ids != ''
@@ -543,18 +554,23 @@ jobs:
               | sort -z > "$evidence_list"
           fi
           while IFS= read -r -d '' evidence; do
-            python scripts/import_official_roster_evidence.py \
-              "$evidence" \
-              --api-root public/api/v1 \
-              --output "$output/$(basename "$evidence")" \
-              --state-root data/backfill-state \
-              --translation-cache-root data/translation-cache \
-              --enrich-missing-elsevier \
-              --translate \
+            apply_args=(
+              "$evidence"
+              --api-root public/api/v1
+              --output "$output/$(basename "$evidence")"
+              --state-root data/backfill-state
+              --translation-cache-root data/translation-cache
               --promote
+            )
+            if [[ -z "${{ inputs.publish_issue_ids }}" ]]; then
+              apply_args+=(--enrich-missing-elsevier --translate)
+            fi
+            python scripts/import_official_roster_evidence.py \
+              "${apply_args[@]}"
           done < "$evidence_list"
 
       - name: Repair only invalid current-snapshot translations
+        if: inputs.publish_issue_ids == ''
         env:
           PYTHONPATH: ${{ github.workspace }}
           GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || github.token }}
@@ -597,6 +613,16 @@ jobs:
             --api-root public/api/v1 \
             --out-json public/api/v1/gap-manifest.json \
             --out-md public/gap-manifest.md
+          if [[ -n "${{ inputs.publish_issue_ids }}" ]]; then
+            python scripts/check_publish_subset.py \
+              --before-status "$RUNNER_TEMP/status-before.json" \
+              --after-status public/api/v1/backfill-status.json \
+              --before-gap "$RUNNER_TEMP/gap-before.json" \
+              --after-gap public/api/v1/gap-manifest.json \
+              --publish-issue-ids "${{ inputs.publish_issue_ids }}" \
+              --translation-model-calls 0 \
+              --report "$RUNNER_TEMP/closeout-publish.json"
+          fi
           python scripts/check_recovery_progress.py \
             --before "$RUNNER_TEMP/gap-before.json" \
             --after public/api/v1/gap-manifest.json \
@@ -676,6 +702,7 @@ jobs:
             public/gap-manifest.md
             ${{ runner.temp }}/history-coverage.json
             ${{ runner.temp }}/recovery-progress.json
+            ${{ runner.temp }}/closeout-publish.json
             sciencedirect-evidence-deferred.txt
 
   composer:
