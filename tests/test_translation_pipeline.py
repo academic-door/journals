@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import tempfile
 import unittest
+from collections import Counter
 from pathlib import Path
 from unittest.mock import patch
 
@@ -18,6 +19,8 @@ from scripts.translate_issue import (
     _protect_numbers,
     _repair_google_artifacts,
     _restore_numbers,
+    _translation_numeric_multiset,
+    _written_number_values,
     request_deepseek_translation,
     request_translation,
     translate_missing,
@@ -473,6 +476,32 @@ class TranslationPipelineTests(unittest.TestCase):
                     "本文完整说明研究设计、变量定义与主要经验结论。"
                 ),
             },
+        )
+
+    def test_chinese_one_in_hundred_year_idiom_matches_source(self) -> None:
+        source = "These were once 1-in-100-year events."
+        self.assertEqual(
+            Counter({"1": 1, "100": 1}),
+            _translation_numeric_multiset(source, "这些曾经是百年一遇的事件。"),
+        )
+
+    def test_hyphenated_survey_identifier_is_not_a_result_number(self) -> None:
+        self.assertEqual([], _numbers("We use NFHS-4 data."))
+
+    def test_unity_is_equivalent_to_one(self) -> None:
+        self.assertEqual(["1"], _written_number_values("risk aversion exceeds unity"))
+
+    def test_one_percentage_point_is_a_bare_quantity(self) -> None:
+        self.assertEqual(["1"], _written_number_values("a one-percentage-point increase"))
+
+    def test_fit_for_identifier_is_not_a_result_number(self) -> None:
+        self.assertEqual([], _numbers("The Fit-for-55 package was adopted."))
+
+    def test_decimal_chinese_million_keeps_coefficient(self) -> None:
+        source = "a million truckloads and 1.4 million tomatoes"
+        self.assertEqual(
+            Counter({"1000000": 1, "1.4": 1}),
+            _translation_numeric_multiset(source, "百万卡车装载量和1.4百万个番茄"),
         )
 
     def test_around_and_legal_labels_do_not_hide_numeric_results(self) -> None:

@@ -281,6 +281,13 @@ def _written_number_values(value: str) -> list[str]:
         flags=re.IGNORECASE,
     )
     values: list[str] = []
+    values.extend("1" for _ in re.finditer(r"\bunity\b", searchable, flags=re.IGNORECASE))
+    for match in re.finditer(
+        r"\b(one|two|three|four|five|six|seven|eight|nine|ten)-percentage-point\b",
+        searchable,
+        flags=re.IGNORECASE,
+    ):
+        values.append(str(NUMBER_WORD_VALUES[match.group(1).casefold()]))
     for match in ENGLISH_NUMBER_TOKEN_PATTERN.finditer(searchable):
         phrase = match.group(0)
         parsed = _parse_english_number_phrase(phrase)
@@ -445,6 +452,10 @@ def _cjk_identifier_label(prefix: str) -> str | None:
 
 def _is_identifier_number(value: str, match: re.Match[str]) -> bool:
     prefix = value[: match.start()]
+    if re.search(r"(?<![A-Za-z0-9])[A-Z]{2,8}-$", prefix):
+        return True
+    if re.search(r"(?i)\bfit-for-$", prefix):
+        return True
     if IDENTIFIER_EN.search(prefix):
         return True
     digits = re.sub(r"[^0-9]", "", str(match.group("number")))
@@ -1148,10 +1159,21 @@ def _translation_numeric_multiset(source: str, translated: str) -> Counter[str]:
         + _month_numbers(source)
         + _written_number_values(source)
     )
+    normalized = _collapse_chinese_numeral_spaces(translated)
+    # Decimal quantities with a Chinese scale (``1.4 百万``) represent the
+    # source coefficient, while a standalone ``百万`` represents one million.
+    # Remove the scale only from a decimal/integer coefficient before the
+    # Chinese numeral canonicalizer handles standalone scale words.
+    normalized = re.sub(r"(?<!\d)(\d+(?:\.\d+)?)\s*百万", r"\1", normalized)
+    normalized = re.sub(r"(?<!\d)(\d+(?:\.\d+)?)\s*亿", r"\1", normalized)
+    normalized = _normalize_written_number_translations(source, normalized)
     normalized = _canonicalize_chinese_numerals(
         source,
-        _normalize_written_number_translations(source, translated),
+        normalized,
     )
+    event_count = len(re.findall(r"\b1\s*-in-\s*100-year\b", source, flags=re.IGNORECASE))
+    for _ in range(event_count):
+        normalized = re.sub(r"(?:一百|百)年一遇", "1 100", normalized, count=1)
     translated_numbers = Counter(
         _numbers(normalized)
         + _month_numbers(normalized)
@@ -1356,7 +1378,7 @@ def request_translation(
             }
         except (requests.RequestException, KeyError, IndexError, TranslationError) as error:
             last_error = error
-            if protect_numbers and isinstance(error, TranslationError) and attempt + 1 < retries:
+            if isinstance(error, TranslationError) and attempt + 1 < retries:
                 # A deterministic retry repeats the same numeric drift. Give
                 # the model an explicit audit correction while keeping the
                 # final validation unchanged.
@@ -1366,7 +1388,7 @@ def request_translation(
                         "content": (
                             "上一次输出未通过数字审计。请重新输出严格 JSON；"
                             "逐字保留所有 ⟦ADNUM_...⟧ 占位符，不得删除、翻译或改写；"
-                            "除占位符恢复出的原始数字外，不得新增任何阿拉伯数字。"
+                            "除源文本中的原始数字外，不得新增、删除或改写任何数量。"
                             f"审计错误：{error}"
                         ),
                     }
