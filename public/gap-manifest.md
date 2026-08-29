@@ -1,12 +1,12 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-08-29T11:09:09+00:00
+Generated: 2026-08-29T11:27:35+00:00
 
 ## Summary
 
 - browser_required: 1
-- ready: 1046
-- recoverable: 86
+- ready: 1047
+- recoverable: 85
 - source_pending: 195
 - translation_required: 3
 
@@ -1056,7 +1056,7 @@ Generated: 2026-08-29T11:09:09+00:00
 | LABECO | labeco-83-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | LABECO | labeco-84-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | LABECO | labeco-85-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
-| LABECO | labeco-86-c | 2024 | recoverable | blocked | source_pending | archive_missing |
+| LABECO | labeco-86-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | LABECO | labeco-87-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | LABECO | labeco-88-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | LABECO | labeco-89-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |

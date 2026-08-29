@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-08-29T11:25:53+00:00",
+  "failures": [
+    {
+      "issue_id": "",
+      "doi": "",
+      "title_en": "",
+      "audit": "public_data_strict",
+      "exact_failure": "health API translation count differs from current snapshots",
+      "error_type": "health api translation count differs from current snapshots",
+      "normalized_reason": "health api translation count differs from current snapshots",
+      "severity": "error",
+      "scope": "health api translation count differs from current snapshots",
+      "baseline_reference": "80d72ca78147b68e",
+      "first_seen": "2026-08-29T11:25:53+00:00",
+      "current_status": "baseline_open",
+      "remediation_class": "audit_reconciliation"
+    },
+    {
+      "issue_id": "ajae-108-4",
+      "doi": "10.1111/ajae.70019",
+      "title_en": "Postharvest losses from temperature during transit: Evidence from a million truckloads",
+      "audit": "public_data_strict",
+      "exact_failure": "ajae:10.1111/ajae.70019: Translation changed numeric values: added 1000000",
+      "error_type": "translation changed numeric values",
+      "normalized_reason": "translation changed numeric values: added 1000000",
+      "severity": "error",
+      "scope": "article",
+      "baseline_reference": "8b00bdbeade8d8a2",
+      "first_seen": "2026-08-29T11:25:53+00:00",
+      "current_status": "baseline_open",
+      "remediation_class": "translation_fix"
+    },
+    {
+      "issue_id": "ej-136-677",
+      "doi": "10.1093/ej/ueag004",
+      "title_en": "Distributional Consequences of Becoming Climate-Neutral",
+      "audit": "public_data_strict",
+      "exact_failure": "ej:10.1093/ej/ueag004: Translation changed numeric values: added 55",
+      "error_type": "translation changed numeric values",
+      "normalized_reason": "translation changed numeric values: added 55",
+      "severity": "error",
+      "scope": "article",
+      "baseline_reference": "2a109f783eef6c2b",
+      "first_seen": "2026-08-29T11:25:53+00:00",
+      "current_status": "baseline_open",
+      "remediation_class": "translation_fix"
+    },
+    {
+      "issue_id": "qe-17-3",
+      "doi": "10.3982/qe2674",
+      "title_en": "Remittance frictions and seasonal poverty",
+      "audit": "public_data_strict",
+      "exact_failure": "qe:10.3982/qe2674: Translation changed numeric values: missing 8%; added 90",
+      "error_type": "translation changed numeric values",
+      "normalized_reason": "translation changed numeric values: missing 8%; added 90",
+      "severity": "error",
+      "scope": "article",
+      "baseline_reference": "e365a938285fcadd",
+      "first_seen": "2026-08-29T11:25:53+00:00",
+      "current_status": "baseline_open",
+      "remediation_class": "translation_fix"
+    },
+    {
+      "issue_id": "red-61-c",
+      "doi": "10.1016/j.red.2026.101351",
+      "title_en": "Haircut, interest rate, and collateral quality in the tri-party repo market: Evidence and theory",
+      "audit": "public_data_strict",
+      "exact_failure": "red:10.1016/j.red.2026.101351: Translation changed numeric values: added 1%",
+      "error_type": "translation changed numeric values",
+      "normalized_reason": "translation changed numeric values: added 1%",
+      "severity": "error",
+      "scope": "article",
+      "baseline_reference": "18e1f24ec340517d",
+      "first_seen": "2026-08-29T11:25:53+00:00",
+      "current_status": "baseline_open",
+      "remediation_class": "translation_fix"
+    }
+  ]
+}

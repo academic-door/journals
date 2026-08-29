@@ -1,12 +1,12 @@
 # Field journal history backfill status
 
-Updated: 2026-08-29T11:08:52+00:00
+Updated: 2026-08-29T11:27:18+00:00
 
-Discovery coverage: 1331 discovered · 1244 archived · 1046 publication ready · 87 missing · 198 source pending
+Discovery coverage: 1331 discovered · 1245 archived · 1047 publication ready · 86 missing · 198 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 539 | 0 | 62 | 107 |
+| 2023-2024 | 540 | 0 | 61 | 107 |
 | 2023-2026 | 271 | 0 | 21 | 8 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
@@ -1056,7 +1056,7 @@ Discovery coverage: 1331 discovered · 1244 archived · 1046 publication ready �
 | LABECO | labeco-83-c | 2023 | ready |  |
 | LABECO | labeco-84-c | 2023 | ready |  |
 | LABECO | labeco-85-c | 2023 | ready |  |
-| LABECO | labeco-86-c | 2024 | blocked | archive_missing |
+| LABECO | labeco-86-c | 2024 | ready | archive_missing |
 | LABECO | labeco-87-c | 2024 | ready |  |
 | LABECO | labeco-88-c | 2024 | ready |  |
 | LABECO | labeco-89-c | 2024 | ready |  |

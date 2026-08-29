@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-29T11:09:09+00:00",
+  "generated_at": "2026-08-29T11:27:35+00:00",
   "target_years": [
     2023,
     2024,
@@ -62,8 +62,8 @@
   "discovery_snapshot_missing_journals": [],
   "summary": {
     "browser_required": 1,
-    "ready": 1046,
-    "recoverable": 86,
+    "ready": 1047,
+    "recoverable": 85,
     "source_pending": 195,
     "translation_required": 3
   },
@@ -31338,8 +31338,8 @@
       "authority": "crossref_candidate",
       "refreshed_at": "2026-08-24T13:57:33+00:00",
       "collector_revision": "history-integrity-2026-08-11",
-      "category": "recoverable",
-      "reason": "archive_missing",
+      "category": "ready",
+      "reason": "content and official source gates passed",
       "status": "blocked",
       "retry_class": "transient",
       "collector": "elsevier",
@@ -31347,16 +31347,16 @@
       "last_attempt_at": "",
       "last_error_code": "",
       "next_retry_at": "",
-      "archive_exists": false,
-      "content_status": "blocked",
-      "source_status": "source_pending",
-      "publication_state": "blocked",
+      "archive_exists": true,
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready",
       "counts": {
-        "articles": 0,
-        "abstract_en": 0,
-        "translation_cn": 0
+        "articles": 4,
+        "abstract_en": 4,
+        "translation_cn": 4
       },
-      "next_action": "run official collector and validate archive"
+      "next_action": "no action"
     },
     {
       "issue_id": "labeco-87-c",

@@ -1,20 +1,20 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-08-29T11:08:52+00:00",
+  "updated_at": "2026-08-29T11:27:18+00:00",
   "summary": {
-    "complete": 1046,
+    "complete": 1047,
     "translation_partial": 0,
-    "blocked": 87,
+    "blocked": 86,
     "collected": 0,
     "pending": 198
   },
   "coverage": {
     "discovered": 1331,
-    "archived": 1244,
-    "content_ready": 1244,
-    "source_verified": 1046,
-    "publication_ready": 1046,
-    "missing": 87,
+    "archived": 1245,
+    "content_ready": 1245,
+    "source_verified": 1047,
+    "publication_ready": 1047,
+    "missing": 86,
     "source_pending": 198,
     "missing_issue_ids": [
       "ecolecon-224-c",
@@ -82,7 +82,6 @@
       "jue-144-c",
       "jue-156-c",
       "labeco-102-c",
-      "labeco-86-c",
       "lup-146-c",
       "lup-153-c",
       "lup-170-c",
@@ -3818,15 +3817,14 @@
     },
     "LABECO": {
       "discovered": 23,
-      "archived": 21,
-      "content_ready": 21,
-      "source_verified": 21,
-      "publication_ready": 21,
-      "missing": 2,
+      "archived": 22,
+      "content_ready": 22,
+      "source_verified": 22,
+      "publication_ready": 22,
+      "missing": 1,
       "source_pending": 0,
       "missing_issue_ids": [
-        "labeco-102-c",
-        "labeco-86-c"
+        "labeco-102-c"
       ],
       "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
@@ -3859,15 +3857,13 @@
         },
         "2024": {
           "discovered": 6,
-          "archived": 5,
-          "content_ready": 5,
-          "source_verified": 5,
-          "publication_ready": 5,
-          "missing": 1,
+          "archived": 6,
+          "content_ready": 6,
+          "source_verified": 6,
+          "publication_ready": 6,
+          "missing": 0,
           "source_pending": 0,
-          "missing_issue_ids": [
-            "labeco-86-c"
-          ],
+          "missing_issue_ids": [],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
@@ -16641,10 +16637,10 @@
         "year": 2024,
         "volume": "86",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
+        "status": "ready",
+        "content_status": "complete",
+        "source_status": "publisher_verified",
+        "publication_state": "ready",
         "last_error": "archive_missing",
         "retry_class": "transient"
       },
@@ -20131,9 +20127,9 @@
   "periods": {
     "2023-2024": {
       "summary": {
-        "complete": 539,
+        "complete": 540,
         "translation_partial": 0,
-        "blocked": 62,
+        "blocked": 61,
         "collected": 0,
         "pending": 107
       },
@@ -20141,11 +20137,11 @@
       "updated_at": "2026-08-29T03:53:34+00:00",
       "coverage": {
         "discovered": 708,
-        "archived": 646,
-        "content_ready": 646,
-        "source_verified": 539,
-        "publication_ready": 539,
-        "missing": 62,
+        "archived": 647,
+        "content_ready": 647,
+        "source_verified": 540,
+        "publication_ready": 540,
+        "missing": 61,
         "source_pending": 107,
         "missing_issue_ids": [
           "ecolecon-224-c",
@@ -20199,7 +20195,6 @@
           "joe-237-1",
           "jue-133-c",
           "jue-144-c",
-          "labeco-86-c",
           "lup-146-c",
           "te-18-1",
           "te-18-2",
@@ -21342,9 +21337,9 @@
     },
     "2024": {
       "summary": {
-        "complete": 281,
+        "complete": 282,
         "translation_partial": 0,
-        "blocked": 27,
+        "blocked": 26,
         "collected": 0,
         "pending": 47
       },
@@ -21402,11 +21397,11 @@
       ],
       "coverage": {
         "discovered": 355,
-        "archived": 328,
-        "content_ready": 328,
-        "source_verified": 281,
-        "publication_ready": 281,
-        "missing": 27,
+        "archived": 329,
+        "content_ready": 329,
+        "source_verified": 282,
+        "publication_ready": 282,
+        "missing": 26,
         "source_pending": 47,
         "missing_issue_ids": [
           "ecolecon-224-c",
@@ -21429,7 +21424,6 @@
           "jle-42-S1",
           "jme-141-c",
           "jue-144-c",
-          "labeco-86-c",
           "lup-146-c",
           "te-19-1",
           "te-19-2",
@@ -21997,15 +21991,13 @@
         },
         "LABECO": {
           "discovered": 6,
-          "archived": 5,
-          "content_ready": 5,
-          "source_verified": 5,
-          "publication_ready": 5,
-          "missing": 1,
+          "archived": 6,
+          "content_ready": 6,
+          "source_verified": 6,
+          "publication_ready": 6,
+          "missing": 0,
           "source_pending": 0,
-          "missing_issue_ids": [
-            "labeco-86-c"
-          ],
+          "missing_issue_ids": [],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
