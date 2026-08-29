@@ -25,11 +25,21 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         self.assertIn("restore_state:", workflow)
         self.assertIn("default: \"\"", workflow[workflow.index("state_source_run_id:") : workflow.index("strict_final:")])
         self.assertIn("inputs.restore_state && inputs.state_source_run_id != ''", workflow)
-        self.assertIn("inputs.source_run_id == '' && needs.prepare.outputs.has_work == 'true'", workflow)
+        self.assertIn("needs.prepare.outputs.has_work == 'true' && (inputs.source_run_id == '' || inputs.translation_only == true)", workflow)
         self.assertIn("inputs.source_run_id != '' || needs.collect.result != 'skipped'", workflow)
-        self.assertIn("run-id: ${{ inputs.source_run_id || github.run_id }}", workflow)
+        self.assertIn("run-id: ${{ inputs.translation_only && github.run_id || inputs.source_run_id || github.run_id }}", workflow)
         self.assertIn("github-token: ${{ github.token }}", workflow)
         self.assertIn("rm -rf shards/history-sprint-final-reports", workflow)
+
+    def test_translation_only_restores_only_named_candidate_files(self) -> None:
+        workflow = self.workflow()
+        self.assertIn("name: history-sprint-translation-001", workflow)
+        self.assertIn("run-id: ${{ inputs.source_run_id }}", workflow)
+        self.assertIn("Overlay only the requested translation files", workflow)
+        self.assertIn('find translation-source/data/backfill-staging -type f -name "$issue_id.json"', workflow)
+        self.assertIn('cp "$candidate" "data/backfill-staging/$journal/$issue_id.json"', workflow)
+        self.assertIn('cp "translation-source/data/translation-cache/$journal.json" "data/translation-cache/$journal.json"', workflow)
+        self.assertIn("run-id: ${{ inputs.translation_only && github.run_id || inputs.source_run_id || github.run_id }}", workflow)
 
     def test_applies_official_evidence_before_audit_and_runs_composer_after_reuse(self) -> None:
         workflow = self.workflow()

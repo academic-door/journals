@@ -160,7 +160,7 @@ jobs:
   collect:
     name: Recover ${{ matrix.shard }}
     needs: prepare
-    if: inputs.source_run_id == '' && needs.prepare.outputs.has_work == 'true'
+    if: needs.prepare.outputs.has_work == 'true' && (inputs.source_run_id == '' || inputs.translation_only == true)
     runs-on: ubuntu-latest
     timeout-minutes: 20
     strategy:
@@ -202,6 +202,41 @@ jobs:
         run: |
           set -euo pipefail
           cp -R recovery-baseline/data/backfill-state/. data/backfill-state/
+
+      - name: Restore only named translation candidates from the source shard
+        if: inputs.translation_only && inputs.source_run_id != ''
+        uses: actions/download-artifact@v4
+        with:
+          name: history-sprint-translation-001
+          path: translation-source
+          run-id: ${{ inputs.source_run_id }}
+          github-token: ${{ github.token }}
+
+      - name: Overlay only the requested translation files
+        if: inputs.translation_only && inputs.source_run_id != ''
+        shell: bash
+        run: |
+          set -euo pipefail
+          IFS=',' read -ra requested <<< "${{ inputs.issue_ids }}"
+          for issue_id in "${requested[@]}"; do
+            issue_id="${issue_id//[[:space:]]/}"
+            if [[ ! "$issue_id" =~ ^[A-Za-z0-9-]+$ ]]; then
+              echo "Invalid translation issue ID: $issue_id" >&2
+              exit 1
+            fi
+            journal="${issue_id%%-*}"
+            candidate="$(find translation-source/data/backfill-staging -type f -name "$issue_id.json" -print -quit)"
+            if [[ -z "$candidate" ]]; then
+              echo "Named translation candidate not found: $issue_id" >&2
+              exit 1
+            fi
+            mkdir -p "data/backfill-staging/$journal"
+            cp "$candidate" "data/backfill-staging/$journal/$issue_id.json"
+            if [[ -f "translation-source/data/translation-cache/$journal.json" ]]; then
+              mkdir -p data/translation-cache
+              cp "translation-source/data/translation-cache/$journal.json" "data/translation-cache/$journal.json"
+            fi
+          done
 
       - name: Stop Elsevier recovery before the shared quota is exhausted
         if: contains(matrix.action, 'elsevier')
@@ -408,7 +443,7 @@ jobs:
           pattern: history-sprint-*
           path: shards
           merge-multiple: false
-          run-id: ${{ inputs.source_run_id || github.run_id }}
+          run-id: ${{ inputs.translation_only && github.run_id || inputs.source_run_id || github.run_id }}
           github-token: ${{ github.token }}
 
       - name: Exclude prior final reports from shard merge
