@@ -40,6 +40,14 @@ class RecoveryProgressTests(unittest.TestCase):
         self.assertTrue(result["ok"])
         self.assertTrue(result["warnings"])
 
+    def test_accepts_source_pending_reduction_without_ready_increment(self) -> None:
+        result = evaluate_progress(
+            {"records": [record("aer-1-1", "source_pending")]},
+            {"records": [record("aer-1-1", "recoverable")]},
+        )
+        self.assertTrue(result["ok"])
+        self.assertTrue(result["source_pending_reduced"])
+
 
 if __name__ == "__main__":
     unittest.main()

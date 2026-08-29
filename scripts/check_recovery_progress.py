@@ -62,7 +62,13 @@ def evaluate_progress(before: dict[str, Any], after: dict[str, Any]) -> dict[str
         )
     if unresolved_after > unresolved_before:
         errors.append("unresolved issue count increased")
-    if not improved_ids and ready_after == ready_before and unresolved_after == unresolved_before:
+    source_pending_reduced = source_after < source_before
+    if (
+        not improved_ids
+        and not source_pending_reduced
+        and ready_after == ready_before
+        and unresolved_after == unresolved_before
+    ):
         errors.append("wave produced no measurable progress")
     return {
         "ok": not errors,
@@ -74,6 +80,7 @@ def evaluate_progress(before: dict[str, Any], after: dict[str, Any]) -> dict[str
         "unresolved_after": unresolved_after,
         "source_pending_before": source_before,
         "source_pending_after": source_after,
+        "source_pending_reduced": source_pending_reduced,
         "new_ready_issue_ids": sorted(ready_after - ready_before),
         "improved_issue_ids": sorted(improved_ids),
         "lost_ready_issue_ids": lost_ready,
