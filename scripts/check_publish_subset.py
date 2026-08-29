@@ -38,6 +38,7 @@ def build_report(
     publish_issue_ids: list[str],
     translation_model_calls: int,
     translation_cache_reuses: int = 0,
+    allow_translation_calls: bool = False,
 ) -> dict[str, Any]:
     before = _records(before_gap)
     after = _records(after_gap)
@@ -58,7 +59,7 @@ def build_report(
         errors.append("no requested issue became ready")
     if regressed:
         errors.append("existing ready issues regressed")
-    if translation_model_calls != 0:
+    if translation_model_calls != 0 and not allow_translation_calls:
         errors.append("A-mode translation_model_calls must be zero")
     return {
         "ok": not errors,
@@ -87,6 +88,7 @@ def main() -> int:
     parser.add_argument("--publish-issue-ids", required=True)
     parser.add_argument("--translation-model-calls", type=int, default=0)
     parser.add_argument("--translation-cache-reuses", type=int, default=0)
+    parser.add_argument("--allow-translation-calls", action="store_true")
     parser.add_argument("--report", type=Path, required=True)
     args = parser.parse_args()
     report = build_report(
@@ -97,6 +99,7 @@ def main() -> int:
         args.publish_issue_ids.split(","),
         args.translation_model_calls,
         args.translation_cache_reuses,
+        args.allow_translation_calls,
     )
     args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

@@ -102,6 +102,7 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         self.assertIn("if: inputs.evidence_issue_ids != ''", workflow)
         self.assertIn("python scripts/check_publish_subset.py", workflow)
         self.assertIn('--translation-model-calls "$model_calls"', workflow)
+        self.assertIn("publish_gate_args+=(--allow-translation-calls)", workflow)
         self.assertIn("--before-status \"$RUNNER_TEMP/status-before.json\"", workflow)
         self.assertIn("Reuse named official evidence from source shards", workflow)
         self.assertIn("data/provenance/official-rosters/reused", workflow)

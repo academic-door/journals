@@ -714,6 +714,10 @@ jobs:
             exit 2
           fi
           if [[ -n "${{ inputs.publish_issue_ids }}" ]]; then
+            publish_gate_args=()
+            if [[ "${{ inputs.translation_only }}" = "true" ]]; then
+              publish_gate_args+=(--allow-translation-calls)
+            fi
             python scripts/check_publish_subset.py \
               --before-status "$RUNNER_TEMP/status-before.json" \
               --after-status public/api/v1/backfill-status.json \
@@ -722,6 +726,7 @@ jobs:
               --publish-issue-ids "$publish_ids" \
               --translation-model-calls "$model_calls" \
               --translation-cache-reuses "$cache_reuses" \
+              "${publish_gate_args[@]}" \
               --report "$RUNNER_TEMP/closeout-publish.json"
           fi
           python scripts/check_recovery_progress.py \
