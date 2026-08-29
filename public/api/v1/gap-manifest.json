@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-08-29T11:27:35+00:00",
+  "generated_at": "2026-08-29T14:18:25+00:00",
   "target_years": [
     2023,
     2024,
@@ -62,8 +62,8 @@
   "discovery_snapshot_missing_journals": [],
   "summary": {
     "browser_required": 1,
-    "ready": 1047,
-    "recoverable": 85,
+    "ready": 1049,
+    "recoverable": 83,
     "source_pending": 195,
     "translation_required": 3
   },
@@ -10548,8 +10548,8 @@
       "authority": "crossref_candidate",
       "refreshed_at": "2026-08-24T17:03:09+00:00",
       "collector_revision": "history-integrity-2026-08-11",
-      "category": "recoverable",
-      "reason": "archive_missing",
+      "category": "ready",
+      "reason": "content and official source gates passed",
       "status": "blocked",
       "retry_class": "manual",
       "collector": "repec",
@@ -10557,16 +10557,16 @@
       "last_attempt_at": "",
       "last_error_code": "",
       "next_retry_at": "",
-      "archive_exists": false,
-      "content_status": "blocked",
-      "source_status": "source_pending",
-      "publication_state": "blocked",
+      "archive_exists": true,
+      "content_status": "complete",
+      "source_status": "official_verified",
+      "publication_state": "ready",
       "counts": {
-        "articles": 0,
-        "abstract_en": 0,
-        "translation_cn": 0
+        "articles": 10,
+        "abstract_en": 10,
+        "translation_cn": 10
       },
-      "next_action": "run official collector and validate archive"
+      "next_action": "no action"
     },
     {
       "issue_id": "ere-85-2",
@@ -10968,8 +10968,8 @@
       "authority": "crossref_candidate",
       "refreshed_at": "2026-08-24T17:03:09+00:00",
       "collector_revision": "history-integrity-2026-08-11",
-      "category": "recoverable",
-      "reason": "archive_missing",
+      "category": "ready",
+      "reason": "content and official source gates passed",
       "status": "blocked",
       "retry_class": "manual",
       "collector": "repec",
@@ -10977,16 +10977,16 @@
       "last_attempt_at": "",
       "last_error_code": "",
       "next_retry_at": "",
-      "archive_exists": false,
-      "content_status": "blocked",
-      "source_status": "source_pending",
-      "publication_state": "blocked",
+      "archive_exists": true,
+      "content_status": "complete",
+      "source_status": "official_verified",
+      "publication_state": "ready",
       "counts": {
-        "articles": 0,
-        "abstract_en": 0,
-        "translation_cn": 0
+        "articles": 12,
+        "abstract_en": 12,
+        "translation_cn": 12
       },
-      "next_action": "run official collector and validate archive"
+      "next_action": "no action"
     },
     {
       "issue_id": "ere-87-7",

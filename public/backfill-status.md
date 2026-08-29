@@ -1,13 +1,13 @@
 # Field journal history backfill status
 
-Updated: 2026-08-29T11:27:18+00:00
+Updated: 2026-08-29T14:18:08+00:00
 
-Discovery coverage: 1331 discovered · 1245 archived · 1047 publication ready · 86 missing · 198 source pending
+Discovery coverage: 1331 discovered · 1247 archived · 1049 publication ready · 84 missing · 198 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 540 | 0 | 61 | 107 |
-| 2023-2026 | 271 | 0 | 21 | 8 |
+| 2023-2024 | 542 | 0 | 59 | 107 |
+| 2023-2026 | 273 | 0 | 19 | 8 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
 | 2026-2026 | 6 | 0 | 0 | 0 |
@@ -363,7 +363,7 @@ Discovery coverage: 1331 discovered · 1245 archived · 1047 publication ready �
 | ERE | ere-84-2 | 2023 | ready |  |
 | ERE | ere-84-3 | 2023 | ready |  |
 | ERE | ere-84-4 | 2023 | ready |  |
-| ERE | ere-85-1 | 2023 | blocked | archive_content_gate_failed |
+| ERE | ere-85-1 | 2023 | ready | archive_content_gate_failed |
 | ERE | ere-85-2 | 2023 | ready |  |
 | ERE | ere-85-3-4 | 2023 | blocked | archive_content_gate_failed |
 | ERE | ere-86-1-2 | 2023 | blocked | archive_content_gate_failed |
@@ -377,7 +377,7 @@ Discovery coverage: 1331 discovered · 1245 archived · 1047 publication ready �
 | ERE | ere-87-3 | 2024 | ready |  |
 | ERE | ere-87-4 | 2024 | ready |  |
 | ERE | ere-87-5 | 2024 | ready |  |
-| ERE | ere-87-6 | 2024 | blocked | archive_content_gate_failed |
+| ERE | ere-87-6 | 2024 | ready | archive_content_gate_failed |
 | ERE | ere-87-7 | 2024 | ready |  |
 | ERE | ere-87-8 | 2024 | ready |  |
 | ERE | ere-87-9 | 2024 | ready |  |

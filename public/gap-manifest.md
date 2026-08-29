@@ -1,12 +1,12 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-08-29T11:27:35+00:00
+Generated: 2026-08-29T14:18:25+00:00
 
 ## Summary
 
 - browser_required: 1
-- ready: 1047
-- recoverable: 85
+- ready: 1049
+- recoverable: 83
 - source_pending: 195
 - translation_required: 3
 
@@ -363,7 +363,7 @@ Generated: 2026-08-29T11:27:35+00:00
 | ERE | ere-84-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | ERE | ere-84-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | ERE | ere-84-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| ERE | ere-85-1 | 2023 | recoverable | blocked | source_pending | archive_missing |
+| ERE | ere-85-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | ERE | ere-85-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | ERE | ere-85-3-4 | 2023 | recoverable | blocked | source_pending | archive_missing |
 | ERE | ere-86-1-2 | 2023 | recoverable | blocked | source_pending | archive_missing |
@@ -377,7 +377,7 @@ Generated: 2026-08-29T11:27:35+00:00
 | ERE | ere-87-3 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | ERE | ere-87-4 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | ERE | ere-87-5 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| ERE | ere-87-6 | 2024 | recoverable | blocked | source_pending | archive_missing |
+| ERE | ere-87-6 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | ERE | ere-87-7 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | ERE | ere-87-8 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | ERE | ere-87-9 | 2024 | ready | complete | official_verified | content and official source gates passed |

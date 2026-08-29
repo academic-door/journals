@@ -1,20 +1,20 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-08-29T11:27:18+00:00",
+  "updated_at": "2026-08-29T14:18:08+00:00",
   "summary": {
-    "complete": 1047,
+    "complete": 1049,
     "translation_partial": 0,
-    "blocked": 86,
+    "blocked": 84,
     "collected": 0,
     "pending": 198
   },
   "coverage": {
     "discovered": 1331,
-    "archived": 1245,
-    "content_ready": 1245,
-    "source_verified": 1047,
-    "publication_ready": 1047,
-    "missing": 86,
+    "archived": 1247,
+    "content_ready": 1247,
+    "source_verified": 1049,
+    "publication_ready": 1049,
+    "missing": 84,
     "source_pending": 198,
     "missing_issue_ids": [
       "ecolecon-224-c",
@@ -26,10 +26,8 @@
       "energy-134-c",
       "energy-138-c",
       "energy-162-c",
-      "ere-85-1",
       "ere-85-3-4",
       "ere-86-1-2",
-      "ere-87-6",
       "foodpolicy-118-c",
       "foodpolicy-134-c",
       "foodpolicy-137-c",
@@ -3400,31 +3398,28 @@
     },
     "ERE": {
       "discovered": 43,
-      "archived": 39,
-      "content_ready": 39,
-      "source_verified": 39,
-      "publication_ready": 39,
-      "missing": 4,
+      "archived": 41,
+      "content_ready": 41,
+      "source_verified": 41,
+      "publication_ready": 41,
+      "missing": 2,
       "source_pending": 0,
       "missing_issue_ids": [
-        "ere-85-1",
         "ere-85-3-4",
-        "ere-86-1-2",
-        "ere-87-6"
+        "ere-86-1-2"
       ],
       "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
       "years": {
         "2023": {
           "discovered": 10,
-          "archived": 7,
-          "content_ready": 7,
-          "source_verified": 7,
-          "publication_ready": 7,
-          "missing": 3,
+          "archived": 8,
+          "content_ready": 8,
+          "source_verified": 8,
+          "publication_ready": 8,
+          "missing": 2,
           "source_pending": 0,
           "missing_issue_ids": [
-            "ere-85-1",
             "ere-85-3-4",
             "ere-86-1-2"
           ],
@@ -3433,15 +3428,13 @@
         },
         "2024": {
           "discovered": 12,
-          "archived": 11,
-          "content_ready": 11,
-          "source_verified": 11,
-          "publication_ready": 11,
-          "missing": 1,
+          "archived": 12,
+          "content_ready": 12,
+          "source_verified": 12,
+          "publication_ready": 12,
+          "missing": 0,
           "source_pending": 0,
-          "missing_issue_ids": [
-            "ere-87-6"
-          ],
+          "missing_issue_ids": [],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
@@ -8273,10 +8266,10 @@
         "year": 2023,
         "volume": "85",
         "issue": "1",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
+        "status": "ready",
+        "content_status": "complete",
+        "source_status": "official_verified",
+        "publication_state": "ready",
         "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
@@ -8441,10 +8434,10 @@
         "year": 2024,
         "volume": "87",
         "issue": "6",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
+        "status": "ready",
+        "content_status": "complete",
+        "source_status": "official_verified",
+        "publication_state": "ready",
         "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
@@ -20127,9 +20120,9 @@
   "periods": {
     "2023-2024": {
       "summary": {
-        "complete": 540,
+        "complete": 542,
         "translation_partial": 0,
-        "blocked": 61,
+        "blocked": 59,
         "collected": 0,
         "pending": 107
       },
@@ -20137,11 +20130,11 @@
       "updated_at": "2026-08-29T03:53:34+00:00",
       "coverage": {
         "discovered": 708,
-        "archived": 647,
-        "content_ready": 647,
-        "source_verified": 540,
-        "publication_ready": 540,
-        "missing": 61,
+        "archived": 649,
+        "content_ready": 649,
+        "source_verified": 542,
+        "publication_ready": 542,
+        "missing": 59,
         "source_pending": 107,
         "missing_issue_ids": [
           "ecolecon-224-c",
@@ -20152,10 +20145,8 @@
           "energy-126-c",
           "energy-134-c",
           "energy-138-c",
-          "ere-85-1",
           "ere-85-3-4",
           "ere-86-1-2",
-          "ere-87-6",
           "foodpolicy-118-c",
           "ier-64-1",
           "jaere-10-1",
@@ -20320,9 +20311,9 @@
     },
     "2023-2026": {
       "summary": {
-        "complete": 271,
+        "complete": 273,
         "translation_partial": 0,
-        "blocked": 21,
+        "blocked": 19,
         "collected": 0,
         "pending": 8
       },
@@ -20330,11 +20321,11 @@
       "updated_at": "2026-08-26T18:31:56+00:00",
       "coverage": {
         "discovered": 428,
-        "archived": 399,
-        "content_ready": 399,
-        "source_verified": 391,
-        "publication_ready": 391,
-        "missing": 29,
+        "archived": 401,
+        "content_ready": 401,
+        "source_verified": 393,
+        "publication_ready": 393,
+        "missing": 27,
         "source_pending": 8,
         "missing_issue_ids": [
           "ecolecon-224-c",
@@ -20344,10 +20335,8 @@
           "energy-134-c",
           "energy-138-c",
           "energy-162-c",
-          "ere-85-1",
           "ere-85-3-4",
           "ere-86-1-2",
-          "ere-87-6",
           "jebo-205-c",
           "jebo-208-c",
           "jebo-220-c",
@@ -20453,9 +20442,9 @@
   "years": {
     "2023": {
       "summary": {
-        "complete": 257,
+        "complete": 258,
         "translation_partial": 0,
-        "blocked": 35,
+        "blocked": 34,
         "collected": 0,
         "pending": 60
       },
@@ -20513,18 +20502,17 @@
       ],
       "coverage": {
         "discovered": 352,
-        "archived": 317,
-        "content_ready": 317,
-        "source_verified": 257,
-        "publication_ready": 257,
-        "missing": 35,
+        "archived": 318,
+        "content_ready": 318,
+        "source_verified": 258,
+        "publication_ready": 258,
+        "missing": 34,
         "source_pending": 60,
         "missing_issue_ids": [
           "ecta-91-2",
           "ecta-91-3",
           "energy-120-c",
           "energy-126-c",
-          "ere-85-1",
           "ere-85-3-4",
           "ere-86-1-2",
           "foodpolicy-118-c",
@@ -20806,14 +20794,13 @@
         },
         "ERE": {
           "discovered": 10,
-          "archived": 7,
-          "content_ready": 7,
-          "source_verified": 7,
-          "publication_ready": 7,
-          "missing": 3,
+          "archived": 8,
+          "content_ready": 8,
+          "source_verified": 8,
+          "publication_ready": 8,
+          "missing": 2,
           "source_pending": 0,
           "missing_issue_ids": [
-            "ere-85-1",
             "ere-85-3-4",
             "ere-86-1-2"
           ],
@@ -21337,9 +21324,9 @@
     },
     "2024": {
       "summary": {
-        "complete": 282,
+        "complete": 283,
         "translation_partial": 0,
-        "blocked": 26,
+        "blocked": 25,
         "collected": 0,
         "pending": 47
       },
@@ -21397,18 +21384,17 @@
       ],
       "coverage": {
         "discovered": 355,
-        "archived": 329,
-        "content_ready": 329,
-        "source_verified": 282,
-        "publication_ready": 282,
-        "missing": 26,
+        "archived": 330,
+        "content_ready": 330,
+        "source_verified": 283,
+        "publication_ready": 283,
+        "missing": 25,
         "source_pending": 47,
         "missing_issue_ids": [
           "ecolecon-224-c",
           "ecolecon-225-c",
           "energy-134-c",
           "energy-138-c",
-          "ere-87-6",
           "jaere-11-1",
           "jaere-11-2",
           "jaere-11-3",
@@ -21663,15 +21649,13 @@
         },
         "ERE": {
           "discovered": 12,
-          "archived": 11,
-          "content_ready": 11,
-          "source_verified": 11,
-          "publication_ready": 11,
-          "missing": 1,
+          "archived": 12,
+          "content_ready": 12,
+          "source_verified": 12,
+          "publication_ready": 12,
+          "missing": 0,
           "source_pending": 0,
-          "missing_issue_ids": [
-            "ere-87-6"
-          ],
+          "missing_issue_ids": [],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
