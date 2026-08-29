@@ -57,6 +57,7 @@ def build_queue(
     categories: set[str],
     chunk_size: int,
     issue_ids: set[str] | None = None,
+    translation_only: bool = False,
 ) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     if not 1 <= chunk_size <= MAX_CHUNK_SIZE:
         raise ValueError(f"chunk_size must be between 1 and {MAX_CHUNK_SIZE}")
@@ -77,7 +78,7 @@ def build_queue(
         collector = str((journals.get(journal) or {}).get("collector", "other"))
         record = dict(raw)
         record["collector"] = collector
-        record["action"] = _adapter(record, collector)
+        record["action"] = "translation" if translation_only else _adapter(record, collector)
         grouped[record["action"]].append(record)
 
     include: list[dict[str, Any]] = []
@@ -153,6 +154,11 @@ def main() -> int:
         default="",
         help="Optional comma-separated exact issue IDs to include",
     )
+    parser.add_argument(
+        "--translation-only",
+        action="store_true",
+        help="Route every explicitly named issue to the translation-only adapter",
+    )
     parser.add_argument("--chunk-size", type=int, default=10)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--github-output", type=Path)
@@ -169,6 +175,7 @@ def main() -> int:
         categories=categories,
         chunk_size=args.chunk_size,
         issue_ids=issue_ids or None,
+        translation_only=args.translation_only,
     )
     args.output_dir.mkdir(parents=True, exist_ok=True)
     for shard in shards:

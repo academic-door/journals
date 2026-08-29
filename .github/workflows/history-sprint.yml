@@ -58,6 +58,11 @@ on:
         required: false
         default: false
         type: boolean
+      translation_only:
+        description: Translate only the explicitly named issue IDs without source collection
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   actions: read
@@ -125,6 +130,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          translation_args=()
+          if [[ "${{ inputs.translation_only }}" = "true" ]]; then
+            translation_args+=(--translation-only)
+          fi
           python scripts/build_recovery_queue.py \
             --gap-manifest public/api/v1/gap-manifest.json \
             --categories "${{ inputs.categories }}" \
@@ -132,6 +141,7 @@ jobs:
             --chunk-size "${{ inputs.max_issues }}" \
             --output-dir output/recovery-shards \
             --plan-json output/recovery-plan.json \
+            "${translation_args[@]}" \
             --github-output "$GITHUB_OUTPUT"
       - uses: actions/upload-artifact@v4
         with:
@@ -218,7 +228,15 @@ jobs:
           if [[ -n "${DEEPSEEK_API_KEY:-}" ]]; then echo "[translate] DeepSeek secret available"; else echo "[translate] DeepSeek secret unavailable to this job"; fi
           mkdir -p output data/provenance/official-rosters
           shard_manifest="recovery-baseline/output/recovery-shards/${{ matrix.shard }}.json"
-          case "$SHARD_ACTION" in
+          if [[ "${{ inputs.translation_only }}" = "true" ]]; then
+            python scripts/translate_issue_subset.py \
+              --api-root public/api/v1 \
+              --staging-root data/backfill-staging \
+              --cache-root data/translation-cache \
+              --issue-ids "$SHARD_ISSUE_IDS" \
+              --report output/translation-fix.json
+          else
+            case "$SHARD_ACTION" in
             collect-*|translation)
               for window in 2023-2024 2025-2026; do
                 state="data/backfill-state/field-${window}.json"
@@ -275,7 +293,8 @@ jobs:
               echo "Unsupported recovery action: $SHARD_ACTION" >&2
               exit 2
               ;;
-          esac
+            esac
+          fi
           SHARD_JOURNALS="$SHARD_JOURNALS" SHARD_ISSUE_IDS="$SHARD_ISSUE_IDS" SHARD_ACTION="$SHARD_ACTION" python - <<'PY'
           import json
           import os
@@ -631,14 +650,25 @@ jobs:
             --api-root public/api/v1 \
             --out-json public/api/v1/gap-manifest.json \
             --out-md public/gap-manifest.md
+          publish_ids="${{ inputs.publish_issue_ids }}"
+          model_calls=0
+          cache_reuses=0
+          if [[ "${{ inputs.translation_only }}" = "true" ]]; then
+            read -r publish_ids model_calls cache_reuses < <(python scripts/summarize_translation_reports.py --shards-root shards)
+          fi
+          if [[ -z "$publish_ids" ]]; then
+            echo "No successful translation issue in this batch" >&2
+            exit 2
+          fi
           if [[ -n "${{ inputs.publish_issue_ids }}" ]]; then
             python scripts/check_publish_subset.py \
               --before-status "$RUNNER_TEMP/status-before.json" \
               --after-status public/api/v1/backfill-status.json \
               --before-gap "$RUNNER_TEMP/gap-before.json" \
               --after-gap public/api/v1/gap-manifest.json \
-              --publish-issue-ids "${{ inputs.publish_issue_ids }}" \
-              --translation-model-calls 0 \
+              --publish-issue-ids "$publish_ids" \
+              --translation-model-calls "$model_calls" \
+              --translation-cache-reuses "$cache_reuses" \
               --report "$RUNNER_TEMP/closeout-publish.json"
           fi
           python scripts/check_recovery_progress.py \

@@ -143,6 +143,41 @@ class MergeHistoryShardsTests(unittest.TestCase):
             self.assertEqual("ready", selected["publication_state"])
             self.assertEqual("ready", unrelated["publication_state"])
 
+    def test_issue_scoped_merge_keeps_only_selected_translation_cache_entries(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary) / "root"
+            shards = Path(temporary) / "shards"
+            public = root / "public/api/v1/journals/ere/issues"
+            public.mkdir(parents=True)
+            (public / "ere-85-1.json").write_text(
+                json.dumps({"issue_id": "ere-85-1", "articles": [{"doi": "10.1000/a"}]}),
+                encoding="utf-8",
+            )
+            cache = root / "data/translation-cache"
+            cache.mkdir(parents=True)
+            (cache / "ere.json").write_text(json.dumps({"10.1000/old": {"title_cn": "old"}}), encoding="utf-8")
+            shard_cache = shards / "history-sprint-ere/data/translation-cache"
+            shard_cache.mkdir(parents=True)
+            (shard_cache / "ere.json").write_text(
+                json.dumps({"10.1000/a": {"title_cn": "selected"}, "10.1000/b": {"title_cn": "unselected"}}),
+                encoding="utf-8",
+            )
+            shard_public = shards / "history-sprint-ere/public/api/v1/journals/ere/issues"
+            shard_public.mkdir(parents=True)
+            (shard_public / "ere-85-1.json").write_text(
+                json.dumps({"issue_id": "ere-85-1", "articles": [{"doi": "10.1000/a"}]}),
+                encoding="utf-8",
+            )
+            metadata = shards / "history-sprint-ere/output"
+            metadata.mkdir(parents=True)
+            (metadata / "shard-metadata.json").write_text(json.dumps({"journals": ["ERE"]}), encoding="utf-8")
+            merge_history = __import__("scripts.merge_history_shards", fromlist=["merge_shards"])
+            merge_history.merge_shards(root, shards, issue_ids={"ere-85-1"})
+            result = json.loads((cache / "ere.json").read_text(encoding="utf-8"))
+            self.assertIn("10.1000/old", result)
+            self.assertIn("10.1000/a", result)
+            self.assertNotIn("10.1000/b", result)
+
 
 if __name__ == "__main__":
     unittest.main()

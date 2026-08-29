@@ -91,7 +91,7 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         self.assertIn('--issue-ids "${{ inputs.publish_issue_ids }}"', workflow)
         self.assertIn("if: inputs.evidence_issue_ids != ''", workflow)
         self.assertIn("python scripts/check_publish_subset.py", workflow)
-        self.assertIn("--translation-model-calls 0", workflow)
+        self.assertIn('--translation-model-calls "$model_calls"', workflow)
         self.assertIn("--before-status \"$RUNNER_TEMP/status-before.json\"", workflow)
         self.assertIn("Reuse named official evidence from source shards", workflow)
         self.assertIn("data/provenance/official-rosters/reused", workflow)
@@ -146,6 +146,14 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         self.assertIn("EVIDENCE_ISSUE_IDS: ${{ inputs.evidence_issue_ids }}", workflow)
         self.assertIn('evidence_args+=(--issue-ids "$EVIDENCE_ISSUE_IDS")', workflow)
         self.assertIn("--no-translate", workflow)
+
+    def test_translation_only_routes_exact_issue_ids_without_source_collection(self) -> None:
+        workflow = self.workflow()
+        self.assertIn("translation_only:", workflow)
+        self.assertIn("translation_args+=(--translation-only)", workflow)
+        self.assertIn("python scripts/translate_issue_subset.py", workflow)
+        self.assertIn("output/translation-fix.json", workflow)
+        self.assertIn("inputs.translation_only", workflow)
 
     def test_passes_shared_semantic_scholar_key_without_exposing_it(self) -> None:
         workflow = self.workflow()

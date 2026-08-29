@@ -160,6 +160,24 @@ class RecoveryQueueTests(unittest.TestCase):
         self.assertEqual(["jedc-147-c"], shards[0]["issue_ids"])
         self.assertEqual("jedc-147-c", matrix["include"][0]["issue_ids"])
 
+    def test_translation_only_routes_named_issues_without_source_collectors(self) -> None:
+        manifest = {
+            "records": [
+                {"issue_id": "ere-85-1", "category": "recoverable", "journal": "ERE"},
+                {"issue_id": "energy-120-c", "category": "translation_required", "journal": "ENERGY"},
+            ]
+        }
+        matrix, shards = build_queue(
+            manifest,
+            {"ERE": {"collector": "repec"}, "ENERGY": {"collector": "elsevier"}},
+            categories={"recoverable", "translation_required"},
+            chunk_size=10,
+            issue_ids={"ere-85-1", "energy-120-c"},
+            translation_only=True,
+        )
+        self.assertEqual("translation", matrix["include"][0]["action"])
+        self.assertEqual("energy-120-c,ere-85-1", matrix["include"][0]["issue_ids"])
+
     def test_cli_issue_count_is_number_of_issues_not_string_length(self) -> None:
         source = (Path(__file__).resolve().parents[1] / "scripts" / "build_recovery_queue.py").read_text(
             encoding="utf-8"

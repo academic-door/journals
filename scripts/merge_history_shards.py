@@ -186,15 +186,41 @@ def merge_shards(
         )
         cache_source = shard / "data" / "translation-cache"
         cache_target = root / "data" / "translation-cache"
-        if cache_source.exists() and issue_ids is None:
+        selected_dois: set[str] | None = None
+        if issue_ids is not None:
+            selected_dois = set()
+            for issue_root in (
+                shard / "public" / "api" / "v1" / "journals",
+                shard / "data" / "backfill-staging",
+            ):
+                if not issue_root.exists():
+                    continue
+                for issue_path in issue_root.rglob("*.json"):
+                    if issue_path.stem not in issue_ids:
+                        continue
+                    payload = load_json(issue_path, {})
+                    for article in payload.get("articles", []):
+                        if isinstance(article, dict) and article.get("doi"):
+                            selected_dois.add(str(article["doi"]).strip().casefold())
+        if cache_source.exists():
             for cache_file in cache_source.glob("*.json"):
                 merged_cache = load_json(cache_target / cache_file.name, {})
                 shard_cache = load_json(cache_file, {})
                 if isinstance(merged_cache, dict) and isinstance(shard_cache, dict):
-                    merged_cache.update(shard_cache)
+                    if selected_dois is None:
+                        merged_cache.update(shard_cache)
+                    else:
+                        merged_cache.update(
+                            {
+                                doi: entry
+                                for doi, entry in shard_cache.items()
+                                if str(doi).strip().casefold() in selected_dois
+                            }
+                        )
                     write_json(cache_target / cache_file.name, merged_cache)
                 else:
-                    shutil.copy2(cache_file, cache_target / cache_file.name)
+                    if selected_dois is None:
+                        shutil.copy2(cache_file, cache_target / cache_file.name)
 
         for state_file in (shard / "data" / "backfill-state").glob("*.json"):
             target = state_dir / state_file.name
