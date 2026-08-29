@@ -452,7 +452,7 @@ def _cjk_identifier_label(prefix: str) -> str | None:
 
 def _is_identifier_number(value: str, match: re.Match[str]) -> bool:
     prefix = value[: match.start()]
-    if re.search(r"(?<![A-Za-z0-9])[A-Z]{2,8}-$", prefix):
+    if re.search(r"(?<![A-Za-z0-9])[A-Z]{2,8}[‐‑‒–—-]$", prefix):
         return True
     if re.search(r"(?i)\bfit-for-$", prefix):
         return True

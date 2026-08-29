@@ -497,6 +497,12 @@ class TranslationPipelineTests(unittest.TestCase):
     def test_fit_for_identifier_is_not_a_result_number(self) -> None:
         self.assertEqual([], _numbers("The Fit-for-55 package was adopted."))
 
+    def test_unicode_hyphenated_model_identifier_matches_ascii_translation(self) -> None:
+        source = "The result is confirmed for DICE‐2023."
+        translated = "该结果在DICE-2023中得到证实。"
+        self.assertEqual([], _numbers(source))
+        self.assertEqual([], _numbers(translated))
+
     def test_decimal_chinese_million_keeps_coefficient(self) -> None:
         source = "a million truckloads and 1.4 million tomatoes"
         self.assertEqual(
