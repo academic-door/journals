@@ -7,29 +7,30 @@
   "issue": "654",
   "publication_date": "July 2023",
   "source_url": "https://academic.oup.com/ej/issue/133/654",
-  "retrieved_at": "2026-08-10T23:20:06+00:00",
-  "expected_article_count": 7,
-  "research_article_count": 7,
+  "retrieved_at": "2026-08-29T03:53:23+00:00",
+  "expected_article_count": 11,
+  "research_article_count": 11,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1093/ej/uead036",
+      "paper_id": "doi:10.1093/ej/uead032",
       "sequence": 1,
-      "source_sequence": 2085,
+      "source_sequence": 2110,
       "article_type": "research-article",
-      "title_en": "The Dark Side of Transparency: Mission Variety and Industry Equilibrium in Decentralised Public Good Provision",
-      "title_cn": "透明的阴暗面：分散化公共物品供给中的使命多样性与行业均衡",
+      "title_en": "Urban Sprawl and Social Capital: Evidence from Indonesian Cities",
+      "title_cn": "城市蔓延与社会资本：来自印度尼西亚城市的证据",
       "authors": [
-        "Gani Aldashev",
-        "Esteban Jaimovich",
-        "Thierry Verdier"
+        "Andrea Civelli",
+        "Arya Gaduh",
+        "Alexander D Rothenberg",
+        "Yao Wang"
       ],
-      "abstract_en": "We study the implications of transparency policies on decentralised public good provision by the non-profit sector. We present a model where imperfect monitoring of the use of funds interacts with the competitive structure of the non-profit sector under alternative informational regimes. Increasing transparency regarding the use of funds may have ambiguous effects on total public good provision and on donors’ welfare. On the one hand, transparency encourages all non-profit firms to engage more actively in curbing fund diversion. On the other hand, it tilts the playing field against non-profits facing higher monitoring costs, pressing them to give up on their missions. This effect on the extensive margin implies that transparency policies lead to a reduction in the diversity of social missions addressed by the non-profit sector. We show that the negative impact of transparency on social mission variety and on donors’ welfare is highest for intermediate levels of asymmetry in monitoring costs.",
-      "abstract_cn": "我们研究了透明度政策对非营利部门分散化公共物品供给的影响。我们提出了一个模型，其中资金使用的非完美监督与不同信息制度下非营利部门的竞争结构相互作用。提高资金使用的透明度可能对公共物品总供给和捐赠者福利产生模糊的影响。一方面，透明度鼓励所有非营利企业更积极地参与遏制资金挪用。另一方面，它使面临更高监督成本的非营利组织处于不利地位，迫使它们放弃自己的使命。这种广泛边际上的影响意味着透明度政策导致非营利部门所承担的社会使命多样性减少。我们表明，透明度对社会使命多样性和捐赠者福利的负面影响在监督成本不对称程度处于中间水平时最大。",
+      "abstract_en": "We use detailed data from Indonesian cities to study how variation in density within urban areas affects social capital. For identification, we instrument density with soil characteristics, and control for community averages of observed characteristics. Under plausible assumptions, these controls address sorting on observables and unobservables. We find that lower density increases trust in neighbours and community participation. We also find that lower density is associated with reduced interethnic tolerance, but this relationship is explained by sorting. Heterogeneity analysis suggests that crime in dense areas undermines community trust and participation, intensifying the negative impact of density.",
+      "abstract_cn": "我们利用印度尼西亚城市的详细数据，研究城市区域内密度变化如何影响社会资本。为识别因果关系，我们使用土壤特征作为密度的工具变量，并控制社区平均观测特征。在合理假设下，这些控制变量能够处理基于可观测和不可观测特征的分类选择问题。我们发现，较低的密度增加了对邻居的信任和社区参与。我们还发现，较低的密度与族裔间容忍度降低相关，但这种关系可由分类选择解释。异质性分析表明，高密度地区的犯罪破坏了社区信任和参与，加剧了密度的负面影响。",
       "abstract_snippet_en": "",
-      "doi": "10.1093/ej/uead036",
-      "source_url": "https://doi.org/10.1093/ej/uead036",
+      "doi": "10.1093/ej/uead032",
+      "source_url": "https://doi.org/10.1093/ej/uead032",
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/133/654",
@@ -43,8 +44,49 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "deepseek-chat",
-        "translated_at": "2026-08-10T23:20:08+00:00",
-        "source_hash": "08019708187294d6025ab254ca643ffcdae8ddf230c346221c93926da851dae2"
+        "translated_at": "2026-08-24T14:16:32+00:00",
+        "source_hash": "96545f0916e1671f523dc9458433915c2cb7e31e66f4389d116c4316805316eb"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/ej/uead035",
+      "sequence": 2,
+      "source_sequence": 2147,
+      "article_type": "research-article",
+      "title_en": "Police Response Time and Injury Outcomes",
+      "title_cn": "警察响应时间与伤害结果",
+      "authors": [
+        "Gregory DeAngelo",
+        "Marina Toger",
+        "Sarit Weisburd"
+      ],
+      "abstract_en": "The delayed response of law enforcement to calls for service has become a hot button issue when evaluating police department performance. While it is often assumed that faster response times could play an important role in quelling potentially violent incidents, there is no empirical evidence to support this claim. In this paper, we measure the effect of police response time on the likelihood that an incident will result in an injury. To overcome the endogeneity of more severe calls being assigned higher priority, which requires a faster response, we take several steps. First, we focus on the subset of calls for service categorised as ‘Major Disturbance—Violence’ that all receive the same priority level. Second, we instrument for police response time with the number of vehicles within a 2.5-mile radius of the incident at the time it is received by the call centre. When controlling for beat, month and time-of-day fixed effects, this instrumenting strategy allows us to take advantage of the geographical constraints faced by a dispatcher when assigning officers to an incident. In contrast to the ordinary least squares estimates, our two-stage least squares analysis establishes a strong causal relationship whereby increasing response time increases the likelihood that an incident results in an injury. The effect is concentrated among female victims, suggesting that faster response time could potentially play an important role in reducing injuries related to domestic violence.",
+      "abstract_cn": "执法部门对服务呼叫的延迟响应已成为评估警察部门绩效时的一个热点问题。虽然通常假设更快的响应时间可能在平息潜在暴力事件中发挥重要作用，但没有经验证据支持这一说法。在本文中，我们衡量了警察响应时间对事件导致伤害可能性的影响。为了克服更严重呼叫被分配更高优先级（这需要更快的响应）的内生性问题，我们采取了几个步骤。首先，我们关注被归类为“重大骚乱——暴力”的服务呼叫子集，这些呼叫都获得相同的优先级水平。其次，我们使用事件被呼叫中心接收时事件周围2.5英里半径内的车辆数量作为警察响应时间的工具变量。在控制警区、月份和时段固定效应时，这种工具变量策略使我们能够利用调度员在分配警员到事件时所面临的地理限制。与普通最小二乘估计相反，我们的两阶段最小二乘分析建立了强有力的因果关系，即增加响应时间会增加事件导致伤害的可能性。这种效应集中在女性受害者中，表明更快的响应时间可能在减少与家庭暴力相关的伤害方面发挥重要作用。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/ej/uead035",
+      "source_url": "https://doi.org/10.1093/ej/uead035",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://academic.oup.com/ej/issue/133/654",
+        "roster": "crossref:issn:0013-0133",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T14:16:35+00:00",
+        "source_hash": "12602a1eba9107a21e9bf2de9cdf301b567b8234d485e3c85175401d43b3a680"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -56,7 +98,7 @@
     },
     {
       "paper_id": "doi:10.1093/ej/uead027",
-      "sequence": 2,
+      "sequence": 3,
       "source_sequence": 2178,
       "article_type": "research-article",
       "title_en": "Individual Consequences of Occupational Decline",
@@ -98,8 +140,52 @@
       }
     },
     {
+      "paper_id": "doi:10.1093/ej/uead031",
+      "sequence": 4,
+      "source_sequence": 2251,
+      "article_type": "research-article",
+      "title_en": "Unraveling Firms: Demand, Productivity and Markups Heterogeneity",
+      "title_cn": "解构企业：需求、生产率与加成率异质性",
+      "authors": [
+        "Emanuele Forlani",
+        "Ralf Martin",
+        "Giordano Mion",
+        "Mirabelle Muûls"
+      ],
+      "abstract_en": "We develop a novel framework that simultaneously allows recovering heterogeneity in demand, quantity total factor productivity and markups across firms while leaving the correlation between the three dimensions unrestricted. We accomplish this by explicitly introducing demand heterogeneity and systematically exploiting assumptions used in previous productivity estimation approaches. In doing so, we provide an exact decomposition of revenue productivity in terms of the underlying heterogeneities, thus bridging the gap between quantity and revenue productivity estimations. We use Belgian firms’ production data to quantify total factor productivity, demand and markups, and show how they are correlated with each other across time and with measures obtained from other approaches. In doing so, we find quantity total factor productivity and demand to be strongly negatively correlated with each other, so suggesting a trade-off between the quality of a firm’s products and their production cost. We also show how our framework provides deeper and sharper insights on the response of firms to increasing import competition from China. In particular, we find that changes in revenue productivity materialise as the outcome of complex and sometimes offsetting changes in quantity total factor productivity, demand, markups and production scale.",
+      "abstract_cn": "我们开发了一个新颖的框架，该框架同时允许恢复企业间需求、数量全要素生产率与加成率的异质性，同时不限制这三个维度之间的相关性。我们通过明确引入需求异质性并系统性地利用先前生产率估计方法中所使用的假设来实现这一目标。在此过程中，我们提供了收入生产率在潜在异质性方面的精确分解，从而弥合了数量与收入生产率估计之间的差距。我们使用比利时企业的生产数据来量化全要素生产率、需求与加成率，并展示它们如何随时间以及与其他方法所得指标相互关联。我们发现，数量全要素生产率与需求之间存在强烈的负相关，这表明企业产品质量与其生产成本之间存在权衡。我们还展示了我们的框架如何为企业应对来自中国日益增长的进口竞争提供更深入、更清晰的见解。特别是，我们发现收入生产率的变化是数量全要素生产率、需求、加成率与生产规模复杂且有时相互抵消的变化的结果。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/ej/uead031",
+      "source_url": "https://doi.org/10.1093/ej/uead031",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://academic.oup.com/ej/issue/133/654",
+        "roster": "crossref:issn:0013-0133",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T14:16:38+00:00",
+        "source_hash": "d84c33e5c24d962529d2f4f684297c62a6fc60ebe8c3013a2f8dbeb5a2dac18d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "abstract",
+        "matched_terms": [
+          "from China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1093/ej/uead029",
-      "sequence": 3,
+      "sequence": 5,
       "source_sequence": 2303,
       "article_type": "research-article",
       "title_en": "The Intergenerational Transmission of World War I on Female Labour",
@@ -137,8 +223,50 @@
       }
     },
     {
+      "paper_id": "doi:10.1093/ej/uead015",
+      "sequence": 6,
+      "source_sequence": 2334,
+      "article_type": "research-article",
+      "title_en": "Parental Responses to Information about School Quality: Evidence from Linked Survey and Administrative Data",
+      "title_cn": "家长对学校质量信息的反应：来自关联调查和行政数据的证据",
+      "authors": [
+        "Ellen Greaves",
+        "Iftikhar Hussain",
+        "Birgitta Rabe",
+        "Imran Rasul"
+      ],
+      "abstract_en": "We study the interaction between family and school inputs by identifying the causal impact of information about school quality on parental time investment into children. Inspection ratings provide news that shifts parental beliefs about school quality, and hence investment into children. We study this using household panel data from England, linked to administrative records on school inspection ratings. We find that parents receiving good news over school quality significantly decrease time investment into their children. We provide insights on the distributional and test score impacts of the nationwide inspections regime, through multiple margins of endogenous response of parents and children.",
+      "abstract_cn": "我们通过识别学校质量信息对家长时间投入子女的因果影响，研究家庭与学校投入之间的相互作用。检查评级提供了改变家长对学校质量信念的新闻，从而影响他们对子女的投资。我们使用英格兰的家庭面板数据，并与学校检查评级的行政记录相关联来研究这一点。我们发现，收到学校质量好消息的家长显著减少了投入子女的时间。我们通过家长和儿童内生反应的多重边际，提供了全国性检查制度对分布和考试成绩影响的见解。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/ej/uead015",
+      "source_url": "https://doi.org/10.1093/ej/uead015",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://academic.oup.com/ej/issue/133/654",
+        "roster": "crossref:issn:0013-0133",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T14:16:40+00:00",
+        "source_hash": "562f90d379e5f3555eda6af90248d664dd98e5b570e065f542a3e50f2928e805"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1093/ej/uead033",
-      "sequence": 4,
+      "sequence": 7,
       "source_sequence": 2403,
       "article_type": "research-article",
       "title_en": "Culture and Gender Differences in Willingness to Compete",
@@ -179,7 +307,7 @@
     },
     {
       "paper_id": "doi:10.1093/ej/uead025",
-      "sequence": 5,
+      "sequence": 8,
       "source_sequence": 2427,
       "article_type": "research-article",
       "title_en": "Formal Employment and Organised Crime: Regression Discontinuity Evidence from Colombia",
@@ -222,7 +350,7 @@
     },
     {
       "paper_id": "doi:10.1093/ej/uead034",
-      "sequence": 6,
+      "sequence": 9,
       "source_sequence": 2449,
       "article_type": "research-article",
       "title_en": "Ride-Sharing and the Geography of Consumption Industries",
@@ -261,22 +389,20 @@
       }
     },
     {
-      "paper_id": "doi:10.1093/ej/uead037",
-      "sequence": 7,
-      "source_sequence": 2533,
+      "paper_id": "doi:10.1093/ej/uead024",
+      "sequence": 10,
+      "source_sequence": 2483,
       "article_type": "research-article",
-      "title_en": "When Information Conflicts with Obligations: the Role of Motivated Cognition",
-      "title_cn": "当信息与义务冲突时：动机性认知的作用",
+      "title_en": "Optimal Contact Tracing and Social Distancing Policies to Suppress A New Infectious Disease",
+      "title_cn": "最优接触者追踪与社交距离政策以抑制新型传染病",
       "authors": [
-        "Ao Wang",
-        "Shaoda Wang",
-        "Xiaoyang Ye"
+        "Stefan Pollinger"
       ],
-      "abstract_en": "We experimentally test how psychological motivations can impact the processing of purely objective information. We first document that, when the high-stakes College Entrance Exam is held in the month of Ramadan, Chinese Muslim students perform significantly worse. When asked about the impact of fasting, they severely underestimate the cost of taking the exam during Ramadan, even when presented with direct empirical evidence. In the experiment, we randomly offer students reading materials in which well-respected Muslim clerics explain that it is permissible to postpone the fast until after the exam. Consistent with an interpretation of motivated cognition, students who receive the material distort the statistics about the fasting cost significantly less and become more accepting of delaying the fast for the exam.",
-      "abstract_cn": "我们通过实验检验心理动机如何影响对纯粹客观信息的处理。我们首先记录到，当高考这一高利害考试在斋月举行时，中国穆斯林学生的表现显著更差。当被问及禁食的影响时，他们严重低估了在斋月期间参加考试的成本，即使面对直接的实证证据也是如此。在实验中，我们随机向学生提供阅读材料，其中德高望重的穆斯林学者解释称，将禁食推迟到考试之后是允许的。与动机性认知的解释一致，收到材料的学生对禁食成本的统计数据的扭曲程度显著降低，并且更倾向于接受为考试推迟禁食。",
+      "abstract_en": "This paper studies the suppression of an infectious disease in the canonical susceptible-infectious-recovered model. It derives three results. First, if technically feasible, the optimal response to a sufficiently small outbreak is halting transmissions instead of building up immunity through infections. Second, the crucial trade-off is not between health and economic costs, but between the intensity and duration of control measures. A simple formula of observables characterises the optimum. Third, the total cost depends critically on the efficiency of contact tracing, since it allows relaxing costly social distancing without increasing transmissions. A calibration to the COVID-19 pandemic illustrates the theoretical findings.",
+      "abstract_cn": "本文在经典的易感-感染-恢复模型中研究传染病的抑制问题。本文得出三个结果。第一，如果技术上可行，对足够小的疫情的最优反应是阻断传播，而不是通过感染建立免疫力。第二，关键的权衡不在于健康与经济成本之间，而在于控制措施的强度与持续时间之间。一个由可观测变量构成的简单公式刻画了最优状态。第三，总成本关键取决于接触者追踪的效率，因为它允许在不增加传播的情况下放松代价高昂的社交距离。对COVID-19大流行的校准说明了理论发现。",
       "abstract_snippet_en": "",
-      "doi": "10.1093/ej/uead037",
-      "source_url": "https://doi.org/10.1093/ej/uead037",
+      "doi": "10.1093/ej/uead024",
+      "source_url": "https://doi.org/10.1093/ej/uead024",
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/133/654",
@@ -290,8 +416,49 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "deepseek-chat",
-        "translated_at": "2026-08-10T23:20:22+00:00",
-        "source_hash": "2d281759cdf10566b851c703515451ff775d92c3912cd40d6b891e15e8b75376"
+        "translated_at": "2026-08-24T14:16:42+00:00",
+        "source_hash": "c090b14221446ad2a3e1296b86544026aa48fa34d5d0bb7fd499b338bd27bbc4"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/ej/uead030",
+      "sequence": 11,
+      "source_sequence": 2504,
+      "article_type": "research-article",
+      "title_en": "Rice Farming and the Origins of Cooperative Behaviour",
+      "title_cn": "水稻种植与协作行为的起源",
+      "authors": [
+        "Xiaoyu Zhou",
+        "Theodore Alysandratos",
+        "Michael Naef"
+      ],
+      "abstract_en": "This paper provides novel evidence for links between historic farming practices and current norms of cooperative behaviour. We hypothesise that the cooperation required in wetland rice farming gives rise to strong cultural norms of cooperativeness. We compare participants from prefecture cities that predominately practice wetland rice cultivation to those from non-rice regions. A public goods game with and without punishment is the main measure for cooperative behaviour. Results indicate a strong and robust positive effect of wetland rice farming on cooperative behaviour and pro-social punishment. Complementary, consistent evidence from a natural field experiment and a survey further enriches our data.",
+      "abstract_cn": "本文为历史耕作实践与当前协作行为规范之间的联系提供了新的证据。我们假设，湿地水稻种植所需的合作会形成强烈的合作文化规范。我们将主要进行湿地水稻种植的辖区城市参与者与非水稻种植地区的参与者进行比较。采用有惩罚和无惩罚的公共物品博弈作为协作行为的主要衡量标准。结果表明，湿地水稻种植对协作行为和亲社会惩罚具有强烈且稳健的正向影响。补充性的自然实地实验和调查的一致证据进一步丰富了我们的数据。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/ej/uead030",
+      "source_url": "https://doi.org/10.1093/ej/uead030",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://academic.oup.com/ej/issue/133/654",
+        "roster": "crossref:issn:0013-0133",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T14:16:44+00:00",
+        "source_hash": "142f96197a1a7fc3f3f6a17b5462da4a843c8939c7c3089fe4328a5d479e3435"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -311,43 +478,46 @@
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 7,
-    "authors_complete": 7,
-    "abstract_en_complete": 7,
-    "translation_complete": 7,
+    "doi_complete": 11,
+    "authors_complete": 11,
+    "abstract_en_complete": 11,
+    "translation_complete": 11,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
       "crossref_provisional_roster"
     ],
-    "official_item_count": 7,
-    "publishable_item_count": 7,
+    "official_item_count": 11,
+    "publishable_item_count": 11,
     "content_counts": {
-      "official_items": 7,
-      "observed_items": 7,
-      "publishable_items": 7,
-      "research_articles": 7,
+      "official_items": 11,
+      "observed_items": 11,
+      "publishable_items": 11,
+      "research_articles": 11,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 7
+      "catalog_content_items": 11
     }
   },
+  "source_status": "source_pending",
+  "publication_state": "source_pending",
   "content_counts": {
-    "official_items": 7,
-    "observed_items": 7,
-    "publishable_items": 7,
-    "research_articles": 7,
+    "official_items": 11,
+    "observed_items": 11,
+    "publishable_items": 11,
+    "research_articles": 11,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 7
+    "catalog_content_items": 11
   },
-  "issue_label": "Vol. 133 · No. 654"
+  "issue_label": "Vol. 133 · No. 654",
+  "content_status": "complete"
 }

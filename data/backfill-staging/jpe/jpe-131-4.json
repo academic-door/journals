@@ -7,15 +7,56 @@
   "issue": "4",
   "publication_date": "April 2023",
   "source_url": "https://www.journals.uchicago.edu/toc/jpe/2023/131/4",
-  "retrieved_at": "2026-08-13T09:38:58+00:00",
-  "expected_article_count": 4,
-  "research_article_count": 4,
+  "retrieved_at": "2026-08-29T03:52:07+00:00",
+  "expected_article_count": 5,
+  "research_article_count": 5,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1086/722090",
+      "paper_id": "doi:10.1086/722093",
       "sequence": 1,
+      "source_sequence": 877,
+      "article_type": "research-article",
+      "title_en": "Distinctively Black Names and Educational Outcomes",
+      "title_cn": "显著黑人名字与教育成果",
+      "authors": [
+        "Daniel Kreisman",
+        "Jonathan Smith"
+      ],
+      "abstract_en": "Names can convey information about race or ethnicity and therefore can be used to discriminate against protected groups; many researchers have demonstrated as much through audit studies. Yet few studies link life outcomes with names using observational data. We use administrative data from over 3 million Black students to ask whether those with more statistically Black names have differential educational outcomes. We find that while test scores, college enrollment, and college completion are negatively correlated with Black names net of background characteristics, this relationship is absent when we compare across siblings within households.",
+      "abstract_cn": "名字可以传达关于种族或民族的信息，因此可以被用来歧视受保护群体；许多研究者已通过审计研究证明了这一点。然而，很少有研究使用观测数据将生活结果与名字联系起来。我们使用超过3万黑人学生的行政数据，探究那些名字在统计上更具黑人特征的学生是否在教育成果上存在差异。我们发现，尽管在控制背景特征后，考试成绩、大学入学率和大学完成率与黑人名字呈负相关，但在比较同一家庭内的兄弟姐妹时，这种关系并不存在。",
+      "abstract_snippet_en": "",
+      "doi": "10.1086/722093",
+      "source_url": "https://doi.org/10.1086/722093",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.journals.uchicago.edu/toc/jpe/2023/131/4",
+        "roster": "crossref:issn:0022-3808",
+        "metadata": "crossref",
+        "abstract_en": "openalex",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1086/722093"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T14:13:41+00:00",
+        "source_hash": "a92d223934094b2171c0b38f3505262f26d8bbf94ea6985de83f60ddfe3c3d1c"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1086/722090",
+      "sequence": 2,
       "source_sequence": 898,
       "article_type": "research-article",
       "title_en": "Social Networks with Unobserved Links",
@@ -57,7 +98,7 @@
     },
     {
       "paper_id": "doi:10.1086/722214",
-      "sequence": 2,
+      "sequence": 3,
       "source_sequence": 947,
       "article_type": "research-article",
       "title_en": "Self-Fulfilling Prophecies, Quasi Nonergodicity, and Wealth Inequality",
@@ -98,7 +139,7 @@
     },
     {
       "paper_id": "doi:10.1086/722092",
-      "sequence": 3,
+      "sequence": 4,
       "source_sequence": 994,
       "article_type": "research-article",
       "title_en": "Race, Representation, and Local Governments in the US South: The Effect of the Voting Rights Act",
@@ -140,7 +181,7 @@
     },
     {
       "paper_id": "doi:10.1086/722227",
-      "sequence": 4,
+      "sequence": 5,
       "source_sequence": 1057,
       "article_type": "research-article",
       "title_en": "The Multidimensional Impact of Teachers on Students",
@@ -202,45 +243,45 @@
         "article_type": "research-article"
       }
     ],
-    "doi_complete": 4,
-    "authors_complete": 4,
-    "abstract_en_complete": 4,
-    "translation_complete": 4,
+    "doi_complete": 5,
+    "authors_complete": 5,
+    "abstract_en_complete": 5,
+    "translation_complete": 5,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
       "crossref_provisional_roster"
     ],
-    "official_item_count": 6,
-    "publishable_item_count": 4,
+    "official_item_count": 7,
+    "publishable_item_count": 5,
     "content_counts": {
-      "official_items": 6,
-      "observed_items": 6,
-      "publishable_items": 4,
-      "research_articles": 4,
+      "official_items": 7,
+      "observed_items": 7,
+      "publishable_items": 5,
+      "research_articles": 5,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 1,
       "other_excluded": 1,
-      "catalog_content_items": 4
+      "catalog_content_items": 5
     }
   },
   "source_status": "source_pending",
   "publication_state": "source_pending",
   "content_counts": {
-    "official_items": 6,
-    "observed_items": 6,
-    "publishable_items": 4,
-    "research_articles": 4,
+    "official_items": 7,
+    "observed_items": 7,
+    "publishable_items": 5,
+    "research_articles": 5,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 1,
     "other_excluded": 1,
-    "catalog_content_items": 4
+    "catalog_content_items": 5
   },
   "issue_label": "Vol. 131 · No. 4",
   "content_status": "complete"

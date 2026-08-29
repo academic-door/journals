@@ -7,9 +7,9 @@
   "issue": "6",
   "publication_date": "November 2023",
   "source_url": "https://direct.mit.edu/rest/issue/105/6",
-  "retrieved_at": "2026-08-18T17:48:55+00:00",
-  "expected_article_count": 9,
-  "research_article_count": 9,
+  "retrieved_at": "2026-08-29T03:51:22+00:00",
+  "expected_article_count": 11,
+  "research_article_count": 11,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
@@ -55,47 +55,8 @@
       }
     },
     {
-      "paper_id": "doi:10.1162/rest_a_01158",
-      "sequence": 2,
-      "source_sequence": 1352,
-      "article_type": "research-article",
-      "title_en": "For Want of a Cup: The Rise of Tea in England and the Impact of Water Quality on Mortality",
-      "title_cn": "因一杯茶之故：英格兰茶的兴起与水质对死亡率的影响",
-      "authors": [
-        "Francisca M. Antman"
-      ],
-      "abstract_en": "This paper explores the impact of water quality on mortality by exploiting a natural experiment: the rise of tea consumption in eighteenth century England. This resulted in an unintentional increase in consumption of boiled water, thereby reducing mortality rates. The methodology uses two identification strategies tying areas with lower initial water quality to larger declines in mortality rates after tea drinking became widespread and following larger volumes of tea imports. Results are robust to the inclusion of controls for income and access to trade. The hypothesis is further bolstered by suggestive evidence from cause specific deaths and early childhood mortality.",
-      "abstract_cn": "本文通过利用一个自然实验——十八世纪英格兰茶消费的兴起——来探讨水质对死亡率的影响。这导致了煮沸水消费的无意增加，从而降低了死亡率。该方法采用了两种识别策略，将初始水质较差的地区与茶饮普及后以及茶叶进口量增加后死亡率下降幅度更大的情况联系起来。在纳入收入和控制贸易渠道的变量后，结果依然稳健。该假设进一步得到了来自特定死因和幼儿死亡率的提示性证据的支持。",
-      "abstract_snippet_en": "",
-      "doi": "10.1162/rest_a_01158",
-      "source_url": "https://doi.org/10.1162/rest_a_01158",
-      "publication_date": "2023",
-      "sources": {
-        "issue": "https://direct.mit.edu/rest/issue/105/6",
-        "roster": "crossref:issn:0034-6535",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-18T17:49:03+00:00",
-        "source_hash": "5a1b976fa7140a84f39408d8422c9d672cf72967d913f91ba812d62570e41b5a"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
       "paper_id": "doi:10.1162/rest_a_01135",
-      "sequence": 3,
+      "sequence": 2,
       "source_sequence": 1379,
       "article_type": "research-article",
       "title_en": "The Impact of Short-Term Employment for Low-Income Youth: Experimental Evidence from the Philippines",
@@ -124,6 +85,45 @@
         "model": "deepseek-chat",
         "translated_at": "2026-08-18T17:49:05+00:00",
         "source_hash": "0d1721266ec4aaeca9997ade1c3ea361d0d65c9520a463f1235c80efd25adc42"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1162/rest_a_01129",
+      "sequence": 3,
+      "source_sequence": 1394,
+      "article_type": "research-article",
+      "title_en": "Parental Incarceration and Children's Educational Attainment",
+      "title_cn": "父母入狱与子女教育成就",
+      "authors": [
+        "Carolina Arteaga"
+      ],
+      "abstract_en": "This paper presents new evidence showing that parental incarceration increases children's education. I collect criminal records for 90,000 low-income parents who have been convicted of a crime in Colombia, and link the educational attainment of their children. I exploit exogenous variation resulting from the random assignment of judges and extend the standard framework to incorporate both conviction and incarceration decisions. I show that the effect of incarceration for a given conviction threshold can be identified. My results indicate that parental incarceration increases educational attainment by 0.78 years for the children of convicted parents on the margin of incarceration.",
+      "abstract_cn": "本文提供了新的证据，表明父母入狱会提高子女的教育水平。我收集了哥伦比亚90,000位因犯罪被定罪的低收入父母的犯罪记录，并将其子女的教育成就与之关联。我利用法官随机分配产生的外生变异，并扩展标准框架以同时纳入定罪和监禁决策。我证明，对于给定的定罪阈值，监禁效应可以被识别。我的结果表明，对于处于监禁边缘的被定罪父母的子女，父母入狱使教育成就提高了0.78年。",
+      "abstract_snippet_en": "",
+      "doi": "10.1162/rest_a_01129",
+      "source_url": "https://doi.org/10.1162/rest_a_01129",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://direct.mit.edu/rest/issue/105/6",
+        "roster": "crossref:issn:0034-6535",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-26T07:39:53+00:00",
+        "source_hash": "fa8b88983aa7fe5ffd39794ee87ce76b46b3befdec5cc4d9d1052f5e68c58b06"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -253,21 +253,23 @@
       }
     },
     {
-      "paper_id": "doi:10.1162/rest_a_01119",
+      "paper_id": "doi:10.1162/rest_a_01150",
       "sequence": 7,
-      "source_sequence": 1500,
+      "source_sequence": 1530,
       "article_type": "research-article",
-      "title_en": "Measuring the Output Gap using Large Datasets",
-      "title_cn": "利用大数据集测算产出缺口",
+      "title_en": "An Experimental Study on the Effects of Communication, Credibility, and Clustering in Network Games",
+      "title_cn": "网络博弈中沟通、可信度与聚类效应的实验研究",
       "authors": [
-        "Matteo Barigozzi",
-        "Matteo Luciani"
+        "Gary Charness",
+        "Francesco Feri",
+        "Miguel A. Meléndez-Jiménez",
+        "Matthias Sutter"
       ],
-      "abstract_en": "We propose a new measure of the output gap based on a dynamic factor model that is estimated on a large number of U.S. macroeconomic indicators and which incorporates relevant stylized facts about macroeconomic data (comovements, nonstationarity, and the slow drift in long-run output growth over time). We find that (1) from the mid-1990s to 2008, the U.S. economy operated above its potential and (2) in 2018:Q4, the labor market was tighter than the market for goods and services. Because it is mainly data-driven, our measure is a natural complementary tool to the theoretical models used at policy institutions.",
-      "abstract_cn": "我们提出了一种基于动态因子模型的产出缺口新测度方法，该模型在大量美国宏观经济指标上估计，并纳入了宏观经济数据相关的典型化事实（共同变动、非平稳性以及长期产出增长随时间的缓慢漂移）。我们发现，（1）从1990年代中期到2008年，美国经济在潜在水平之上运行，且（2）在2018年第四季度，劳动力市场比商品和服务市场更为紧张。由于我们的测度主要基于数据驱动，因此它是政策机构所用理论模型的自然补充工具。",
+      "abstract_en": "We examine how preplay communication and clustering affect play in a challenging hybrid experimental game on networks. Free-form chat is impressively effective in achieving the nonequilibrium efficient outcome, but restricted communication has little effect. We support this result with a model about the credibility of cheap-talk messages. We also offer a model of message diffusion that correctly predicts more rapid diffusion without clustering. We show an interaction effect of network structure and communication technologies. A remarkable result is that restricted communication is quite effective in a network stag hunt but not in our extended game.",
+      "abstract_cn": "我们研究了预先沟通和聚类如何影响网络上一项具有挑战性的混合实验博弈中的行为。自由形式的聊天在实现非均衡的有效结果方面效果显著，但受限沟通的效果甚微。我们通过一个关于廉价交谈信息可信度的模型来支持这一结果。我们还提出了一个信息扩散模型，该模型正确预测了在没有聚类的情况下信息扩散更快。我们展示了网络结构与沟通技术之间的交互效应。一个显著的结果是，受限沟通在网络的猎鹿博弈中相当有效，但在我们的扩展博弈中并非如此。",
       "abstract_snippet_en": "",
-      "doi": "10.1162/rest_a_01119",
-      "source_url": "https://doi.org/10.1162/rest_a_01119",
+      "doi": "10.1162/rest_a_01150",
+      "source_url": "https://doi.org/10.1162/rest_a_01150",
       "publication_date": "2023",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/105/6",
@@ -281,8 +283,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "deepseek-chat",
-        "translated_at": "2026-08-18T17:49:14+00:00",
-        "source_hash": "5f77c1405e1f523115969ab4acd14e1d186995600e11d56a6c7799196bacb416"
+        "translated_at": "2026-08-26T07:39:53+00:00",
+        "source_hash": "a67190ed8eae890c9c2e3e5e3752a9e29481bfa7f9e16915fc58cc240c13da55"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -293,20 +295,22 @@
       }
     },
     {
-      "paper_id": "doi:10.1162/rest_a_01177",
+      "paper_id": "doi:10.1162/rest_a_01084",
       "sequence": 8,
-      "source_sequence": 1580,
+      "source_sequence": 1562,
       "article_type": "research-article",
-      "title_en": "Aging, Secular Stagnation, and the Business Cycle",
-      "title_cn": "老龄化、长期停滞与经济周期",
+      "title_en": "Valuing Domestic Transport Infrastructure: A View from the Route Choice of Exporters",
+      "title_cn": "评估国内交通基础设施：来自出口商路线选择的视角",
       "authors": [
-        "Callum Jones"
+        "Jingting Fan",
+        "Yi Lu",
+        "Wenlan Luo"
       ],
-      "abstract_en": "By the end of 2019, U.S. output was 14% below the level predicted by its pre-2008 trend. To understand why, I develop and estimate a model of the United States with demographics, real and monetary shocks, and the occasionally binding zero lower bound on nominal rates. Demographic shocks generate slow-moving trends in interest rates, employment, and productivity. Demographics alone can explain about 40% of the gap between log output per capita and its linear trend by 2019. By lowering interest rates, demographic changes caused the zero lower bound to bind after the Great Recession, contributing to the slow recovery.",
-      "abstract_cn": "截至2019年底，美国产出比其2008年前趋势预测的水平低14%。为了理解这一现象，我开发并估计了一个包含人口结构、实际和货币冲击以及名义利率偶尔触及零下限的美国模型。人口冲击在利率、就业和生产率方面产生了缓慢移动的趋势。仅人口结构因素就能解释截至2019年人均对数产出与其线性趋势之间差距的约40%。通过降低利率，人口结构变化导致零下限在大衰退后生效，从而导致了缓慢的复苏。",
+      "abstract_en": "A key input to quantitative evaluations of transport infrastructure projects is their impact on transport costs. We propose a new method of estimating this impact relying on widely accessible customs data: by using the route choice of exporters. We combine our method with a spatial equilibrium model to study the effects of the massive expressway construction in China between 1999 and 2010. We find transport costs are 20% lower on expressways than on regular roads. The expressways construction increases aggregate exports by 10% and domestic trade by 14%. It generates 5.1% welfare gains, implying a 150% net return to investment.",
+      "abstract_cn": "交通基础设施项目定量评估的一个关键投入是它们对运输成本的影响。我们提出了一种新方法，利用广泛可获取的海关数据来估计这种影响：通过出口商的路线选择。我们将我们的方法与空间均衡模型相结合，研究中国在1999至2010年间大规模高速公路建设的影响。我们发现高速公路上的运输成本比普通公路低20%。高速公路建设使总出口增加10%，国内贸易增加14%。它产生了5.1%的福利收益，意味着150%的投资净回报。",
       "abstract_snippet_en": "",
-      "doi": "10.1162/rest_a_01177",
-      "source_url": "https://doi.org/10.1162/rest_a_01177",
+      "doi": "10.1162/rest_a_01084",
+      "source_url": "https://doi.org/10.1162/rest_a_01084",
       "publication_date": "2023",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/105/6",
@@ -320,8 +324,50 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "deepseek-chat",
-        "translated_at": "2026-08-18T17:49:16+00:00",
-        "source_hash": "0bf609ef69f4db6c80feacd8c9063989ca92bf136c16db6659cffea46927b490"
+        "translated_at": "2026-08-26T07:39:53+00:00",
+        "source_hash": "1b8468505fc4a352e86d4da6d20e3f9e1aa596eef39a46e900b8e6c15f2d03cf"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "abstract",
+        "matched_terms": [
+          "in China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1162/rest_a_01207",
+      "sequence": 9,
+      "source_sequence": 1596,
+      "article_type": "research-article",
+      "title_en": "Moved to Vote: The Long-Run Effects of Neighborhoods on Political Participation",
+      "title_cn": "迁移投票：社区对政治参与的长期影响",
+      "authors": [
+        "Eric Chyn",
+        "Kareem Haggag"
+      ],
+      "abstract_en": "How does one's childhood neighborhood shape political engagement later in life? We study voting rates of children who were displaced by public housing demolitions and moved to higher opportunity areas using housing vouchers. Those displaced during childhood had 11% (2 pp) higher participation in the 2016 Presidential election and were 10% (2.9 pp) more likely to vote in any general election. We argue that the results are unlikely to be driven by changes in incarceration or parental outcomes but rather by political socialization or improvements in education and earnings. These results suggest that housing assistance programs may reduce inequality in political participation.",
+      "abstract_cn": "一个人的童年社区如何影响其成年后的政治参与？我们研究了因公共住房拆迁而被迫搬迁至更高机会区域的儿童的投票率。童年时期被迁移的个体在2016总统选举中的参与率高出11%（2个百分点），并且在任何大选中投票的可能性高出10%（2.9个百分点）。我们认为，这些结果不太可能由监禁或父母结果的变化所驱动，而更可能是由政治社会化或教育与收入的改善所驱动。这些结果表明，住房援助计划可能减少政治参与的不平等。",
+      "abstract_snippet_en": "",
+      "doi": "10.1162/rest_a_01207",
+      "source_url": "https://doi.org/10.1162/rest_a_01207",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://direct.mit.edu/rest/issue/105/6",
+        "roster": "crossref:issn:0034-6535",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-26T07:39:53+00:00",
+        "source_hash": "784ee02ac0d0b94299c493af9bef12b21774242c25dd2f5937315a5e4a52e3dd"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -333,7 +379,7 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01130",
-      "sequence": 9,
+      "sequence": 10,
       "source_sequence": 1606,
       "article_type": "research-article",
       "title_en": "Markups and Fixed Costs in Generic and Off-Patent Pharmaceutical Markets",
@@ -370,6 +416,48 @@
         "matched_terms": [],
         "source": "academic-door-rules-v1"
       }
+    },
+    {
+      "paper_id": "doi:10.1162/rest_a_01132",
+      "sequence": 11,
+      "source_sequence": 1615,
+      "article_type": "research-article",
+      "title_en": "Is OTT Video a Substitute for TV? Policy Insights from Cord-Cutting",
+      "title_cn": "OTT视频是电视的替代品吗？来自剪线的政策启示",
+      "authors": [
+        "Jacob B. Malone",
+        "Aviv Nevo",
+        "Zachary Nolan",
+        "Jonathan W. Williams"
+      ],
+      "abstract_en": "The video entertainment industry is experiencing increases in over-the-top (OTT) video usage and cord-cutting behavior. Using unique panel data from 2012–2016, we document the behavior of the 2.4% of households who “cut the cord” annually. After dropping TV, these households increase internet usage by 22%, reduce payments to multiple-system operators (MSOs) by 50%, and 16% acquire new OTT video subscriptions. These results indicate meaningful substitution between OTT video and TV and suggest that competition authorities should consider broadening market definitions. MSOs appear to have little incentive to degrade OTT video, despite OTT video's contribution to declining TV revenues.",
+      "abstract_cn": "视频娱乐行业正经历着OTT视频使用和剪线行为的增长。利用来自2012-2016的独特面板数据，我们记录了每年“剪线”的2.4%家庭的行为。在放弃电视后，这些家庭的互联网使用量增加了22%，对多系统运营商（MSOs）的支付减少了50%，并且16%获得了新的OTT视频订阅。这些结果表明OTT视频与电视之间存在显著的替代关系，并提示竞争主管部门应考虑拓宽市场定义。尽管OTT视频对电视收入下降有贡献，但MSOs似乎几乎没有动机去降低OTT视频的质量。",
+      "abstract_snippet_en": "",
+      "doi": "10.1162/rest_a_01132",
+      "source_url": "https://doi.org/10.1162/rest_a_01132",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://direct.mit.edu/rest/issue/105/6",
+        "roster": "crossref:issn:0034-6535",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-26T07:39:56+00:00",
+        "source_hash": "aee947a5d41dc8ff76a513ebcaf01a9129f479188d1338f3dce0281a47d2639d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     }
   ],
   "quality": {
@@ -381,45 +469,45 @@
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 9,
-    "authors_complete": 9,
-    "abstract_en_complete": 9,
-    "translation_complete": 9,
+    "doi_complete": 11,
+    "authors_complete": 11,
+    "abstract_en_complete": 11,
+    "translation_complete": 11,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
       "crossref_provisional_roster"
     ],
-    "official_item_count": 9,
-    "publishable_item_count": 9,
+    "official_item_count": 11,
+    "publishable_item_count": 11,
     "content_counts": {
-      "official_items": 9,
-      "observed_items": 9,
-      "publishable_items": 9,
-      "research_articles": 9,
+      "official_items": 11,
+      "observed_items": 11,
+      "publishable_items": 11,
+      "research_articles": 11,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 9
+      "catalog_content_items": 11
     }
   },
   "source_status": "source_pending",
   "publication_state": "source_pending",
   "content_counts": {
-    "official_items": 9,
-    "observed_items": 9,
-    "publishable_items": 9,
-    "research_articles": 9,
+    "official_items": 11,
+    "observed_items": 11,
+    "publishable_items": 11,
+    "research_articles": 11,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 9
+    "catalog_content_items": 11
   },
   "issue_label": "Vol. 105 · No. 6",
   "content_status": "complete"

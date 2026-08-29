@@ -7,9 +7,9 @@
   "issue": "3",
   "publication_date": "May 2023",
   "source_url": "https://direct.mit.edu/rest/issue/105/3",
-  "retrieved_at": "2026-08-18T17:47:49+00:00",
-  "expected_article_count": 5,
-  "research_article_count": 5,
+  "retrieved_at": "2026-08-29T03:51:20+00:00",
+  "expected_article_count": 11,
+  "research_article_count": 11,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
@@ -55,8 +55,48 @@
       }
     },
     {
-      "paper_id": "doi:10.1162/rest_a_01101",
+      "paper_id": "doi:10.1162/rest_a_01068",
       "sequence": 2,
+      "source_sequence": 528,
+      "article_type": "research-article",
+      "title_en": "What Is the US Comparative Advantage in Entrepreneurship? Evidence from Israeli Migration to the United States",
+      "title_cn": "美国的创业比较优势是什么？来自以色列移民到美国的证据",
+      "authors": [
+        "Annamaria Conti",
+        "Jorge A. Guzman"
+      ],
+      "abstract_en": "We investigate underlying sources of the US entrepreneurial ecosystem's advantage compared to other innovative economies by assessing the benefits that Israeli startups derive from migrating to the United States. Addressing positive sorting into migration, we show that migrants raise larger funding amounts and are more likely to have a U.S. trademark and be acquired than nonmigrants. Migrants also achieve a higher acquisition value. However, their patent output is not larger. We conclude that the United States entrepreneurial ecosystem's advantage vis-à-vis other innovative economies arises from several sources producing sizeable gains for startups. These sources are investor availability as well as large consumer and acquisitions markets.",
+      "abstract_cn": "我们通过评估以色列初创企业从迁移到美国中获得的收益，来研究美国创业生态系统相对于其他创新经济体的优势的潜在来源。针对迁移中的正向选择，我们表明移民者比非移民者筹集到更多的资金，更有可能拥有美国商标并被收购。移民者也实现了更高的收购价值。然而，他们的专利产出并不更大。我们得出结论，美国创业生态系统相对于其他创新经济体的优势源于多个来源，为初创企业带来了可观的收益。这些来源包括投资者的可获得性以及庞大的消费者和收购市场。",
+      "abstract_snippet_en": "",
+      "doi": "10.1162/rest_a_01068",
+      "source_url": "https://doi.org/10.1162/rest_a_01068",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://direct.mit.edu/rest/issue/105/3",
+        "roster": "crossref:issn:0034-6535",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-26T07:39:41+00:00",
+        "source_hash": "30a158952e046e065b4780b00ac2bdedb87d5125c3164353ad0904caa0c116c9"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1162/rest_a_01101",
+      "sequence": 3,
       "source_sequence": 545,
       "article_type": "research-article",
       "title_en": "The Dynamic Effects of Tax Audits",
@@ -96,8 +136,87 @@
       }
     },
     {
+      "paper_id": "doi:10.1162/rest_a_01083",
+      "sequence": 4,
+      "source_sequence": 562,
+      "article_type": "research-article",
+      "title_en": "Benign Effects of Automation: New Evidence from Patent Texts",
+      "title_cn": "自动化的良性效应：来自专利文本的新证据",
+      "authors": [
+        "Katja Mann",
+        "Lukas Püttmann"
+      ],
+      "abstract_en": "We provide a new measure of automation based on patents and study its employment effects. Classifying all U.S. patents granted between 1976 and 2014 as automation or nonautomation patents, we document a strong rise in the number and share of automation patents. We link patents to their industries of use and to commuting zones. To estimate the effect of automation, we use an instrumental variables strategy that relies on innovations developed independently from U.S. labor market trends. We find that automation technology has a positive effect on employment in local labor markets, driven by job growth in the service sector.",
+      "abstract_cn": "我们基于专利提供了一种新的自动化度量方法，并研究了其对就业的影响。我们将1976至2014年间授予的所有美国专利分类为自动化或非自动化专利，记录了自动化专利数量和占比的强劲上升。我们将专利与其使用行业和通勤区联系起来。为估计自动化的效应，我们使用了一种依赖于独立于美国劳动力市场趋势的创新的工具变量策略。我们发现自动化技术对地方劳动力市场的就业有正向影响，这主要由服务业的就业增长所驱动。",
+      "abstract_snippet_en": "",
+      "doi": "10.1162/rest_a_01083",
+      "source_url": "https://doi.org/10.1162/rest_a_01083",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://direct.mit.edu/rest/issue/105/3",
+        "roster": "crossref:issn:0034-6535",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-26T07:39:41+00:00",
+        "source_hash": "ffe74a41352155a65305966bd7f96e5b4400b6718e41cada920213d081380fa2"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1162/rest_a_01076",
+      "sequence": 5,
+      "source_sequence": 580,
+      "article_type": "research-article",
+      "title_en": "The Effects of State Business Taxes on Plant Closures: Evidence from Unemployment Insurance Taxation and Multiestablishment Firms",
+      "title_cn": "州商业税对工厂关闭的影响：来自失业保险税收和多机构企业的证据",
+      "authors": [
+        "Audrey Guo"
+      ],
+      "abstract_en": "This paper investigates the extent to which state-level differences in business taxes influence the location decisions of multiestablishment firms. Each state in the United States administers their own unemployment insurance program, and cross-state variation leads to significant tax differences across state lines. This decentralized administration creates opposing employment incentives on the intensive and extensive margins depending on the economic conditions. Studying the locations of multistate manufacturing firms, I find that firms are more likely to exit from high-tax states during economic downturns, but high-tax plants experience more stable employment during nonrecession years.",
+      "abstract_cn": "本文研究了州级商业税差异在多大程度上影响多机构企业的选址决策。美国各州自行管理其失业保险计划，跨州差异导致州际间显著的税收差异。这种分散管理根据经济状况在集约边际和扩展边际上创造了相反的就业激励。通过研究跨州制造业企业的选址，我发现企业在经济衰退期间更有可能退出高税收州，但在非衰退年份，高税收工厂的就业更为稳定。",
+      "abstract_snippet_en": "",
+      "doi": "10.1162/rest_a_01076",
+      "source_url": "https://doi.org/10.1162/rest_a_01076",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://direct.mit.edu/rest/issue/105/3",
+        "roster": "crossref:issn:0034-6535",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-26T07:39:41+00:00",
+        "source_hash": "b82089c7f0235d6572463d45c93fc111f1e9d88c4d38353bb87a2a0827e45ba0"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1162/rest_a_01097",
-      "sequence": 3,
+      "sequence": 6,
       "source_sequence": 596,
       "article_type": "research-article",
       "title_en": "The Speed of Justice",
@@ -136,8 +255,87 @@
       }
     },
     {
+      "paper_id": "doi:10.1162/rest_a_01047",
+      "sequence": 7,
+      "source_sequence": 614,
+      "article_type": "research-article",
+      "title_en": "Peer Effects in the Adoption of a Youth Employment Subsidy",
+      "title_cn": "青年就业补贴采用中的同伴效应",
+      "authors": [
+        "Claudio A. Mora-García",
+        "Tomás Rau"
+      ],
+      "abstract_en": "This paper studies the effects of peers on the adoption of a Youth Employment Subsidy in Chile since its inception. We examine the effects that former classmates' and coworkers' adoption have on one's adoption. Identification comes from discontinuities in the assignment rule that allow us to construct valid instrumental variables for peers' adoption. Using a comprehensive set of administrative records, we find that classmates and especially coworkers play significant roles in the adoption of the subsidy. Peer effects are determined during the early stages of the program's implementation and vary by network characteristics and the strength of network ties.",
+      "abstract_cn": "本文研究了智利青年就业补贴自实施以来同伴对其采用的影响。我们考察了前同学和同事的采用对个人采用的影响。识别策略基于分配规则中的不连续性，这使我们能够为同伴的采用构建有效的工具变量。利用一套全面的行政记录，我们发现同学尤其是同事在补贴采用中发挥着重要作用。同伴效应在项目实施的早期阶段就已确定，并随网络特征和网络联系的强度而变化。",
+      "abstract_snippet_en": "",
+      "doi": "10.1162/rest_a_01047",
+      "source_url": "https://doi.org/10.1162/rest_a_01047",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://direct.mit.edu/rest/issue/105/3",
+        "roster": "crossref:issn:0034-6535",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-26T07:39:40+00:00",
+        "source_hash": "b1a9c422703c6a21010f237df9e4bf926adb1562d198eb1f634d531dfaafec54"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1162/rest_a_01069",
+      "sequence": 8,
+      "source_sequence": 646,
+      "article_type": "research-article",
+      "title_en": "Reconciling Seemingly Contradictory Results from the Oregon Health Insurance Experiment and the Massachusetts Health Reform",
+      "title_cn": "调和俄勒冈健康保险实验与马萨诸塞州医疗改革看似矛盾的结果",
+      "authors": [
+        "Amanda E. Kowalski"
+      ],
+      "abstract_en": "A headline result from the Oregon Health Insurance Experiment is that emergency room (ER) utilization increased. A seemingly contradictory result from the Massachusetts health reform is that ER utilization decreased. I reconcile both results by identifying treatment effect heterogeneity within the Oregon experiment and extrapolating it to Massachusetts. Even though Oregon compliers increased their ER utilization, they were adversely selected relative to Oregon never takers, who would have decreased their ER utilization. Massachusetts expanded coverage from a higher level to healthier compliers. Therefore, Massachusetts compliers are comparable to a subset of Oregon never takers, which can reconcile the results.",
+      "abstract_cn": "俄勒冈健康保险实验的一个头条结果是急诊室（ER）利用率上升。马萨诸塞州医疗改革的一个看似矛盾的结果是急诊室利用率下降。我通过识别俄勒冈实验中的处理效应异质性并将其外推到马萨诸塞州来调和这两个结果。尽管俄勒冈州的依从者增加了他们的急诊室利用率，但相对于俄勒冈州的从不依从者（他们的急诊室利用率会下降），他们是逆选择。马萨诸塞州从更高的覆盖水平扩展到更健康的依从者。因此，马萨诸塞州的依从者与俄勒冈州从不依从者的一个子集相当，这可以调和这些结果。",
+      "abstract_snippet_en": "",
+      "doi": "10.1162/rest_a_01069",
+      "source_url": "https://doi.org/10.1162/rest_a_01069",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://direct.mit.edu/rest/issue/105/3",
+        "roster": "crossref:issn:0034-6535",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-26T07:39:42+00:00",
+        "source_hash": "6474f4d8536966d41b37d4b64c8f5c41b4fc7bc2531415dde0a92d0c7f19fc93"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1162/rest_a_01079",
-      "sequence": 4,
+      "sequence": 9,
       "source_sequence": 665,
       "article_type": "research-article",
       "title_en": "New Characteristics and Hedonic Price Index Numbers",
@@ -176,21 +374,22 @@
       }
     },
     {
-      "paper_id": "doi:10.1162/rest_a_01049",
-      "sequence": 5,
-      "source_sequence": 683,
+      "paper_id": "doi:10.1162/rest_a_01072",
+      "sequence": 10,
+      "source_sequence": 700,
       "article_type": "research-article",
-      "title_en": "Is Generosity Time-Inconsistent? Present Bias across Individual and Social Contexts",
-      "title_cn": "慷慨是否具有时间不一致性？个人与社会情境下的现时偏向",
+      "title_en": "MPCs, MPEs, and Multipliers: A Trilemma for New Keynesian Models",
+      "title_cn": "边际消费倾向、边际收入倾向与乘数：新凯恩斯模型的三难困境",
       "authors": [
-        "Felix Kölle",
-        "Lukas Wenner"
+        "Adrien Auclert",
+        "Bence Bardóczy",
+        "Matthew Rognlie"
       ],
-      "abstract_en": "We investigate dynamically inconsistent time preferences across contexts with and without interpersonal trade-offs. In a longitudinal experiment, participants make a series of intertemporal allocation decisions of real-effort tasks between themselves and another person. Our results reveal that agents are present-biased when making choices that affect only themselves but not when choosing on behalf of others. Despite this asymmetry, we find no evidence for time-inconsistent generosity, that is, when choices involve trade-offs between one's own and others' consumption. Structural estimations reveal no individual-level correlation of present bias across contexts. Discounting in social situations thus seems to be conceptually different from discounting in individual situations.",
-      "abstract_cn": "我们研究了在有无人际权衡的情境下动态不一致的时间偏好。在一项纵向实验中，参与者在一系列跨期分配决策中，在自身与他人之间分配实际努力任务。我们的结果显示，当选择仅影响自身时，个体表现出现时偏向，但在代表他人做选择时则不然。尽管存在这种不对称性，我们没有发现时间不一致的慷慨行为的证据，即当选择涉及自身与他人消费之间的权衡时。结构估计显示，不同情境下的现时偏向在个体层面没有相关性。因此，社会情境中的贴现似乎在概念上不同于个人情境中的贴现。",
+      "abstract_en": "We show that New Keynesian models with frictionless labor supply face a challenge: given standard parameters, they cannot simultaneously match plausible estimates of marginal propensities to consume (MPCs), marginal propensities to earn (MPEs), and fiscal multipliers. A HANK model with sticky wages provides a solution to this trilemma.",
+      "abstract_cn": "我们表明，具有无摩擦劳动力供给的新凯恩斯模型面临一个挑战：在标准参数下，它们无法同时匹配边际消费倾向（MPCs）、边际收入倾向（MPEs）和财政乘数的合理估计。具有粘性工资的HANK模型为这一三难困境提供了解决方案。",
       "abstract_snippet_en": "",
-      "doi": "10.1162/rest_a_01049",
-      "source_url": "https://doi.org/10.1162/rest_a_01049",
+      "doi": "10.1162/rest_a_01072",
+      "source_url": "https://doi.org/10.1162/rest_a_01072",
       "publication_date": "2023",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/105/3",
@@ -204,8 +403,49 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "deepseek-chat",
-        "translated_at": "2026-08-18T17:48:01+00:00",
-        "source_hash": "d6dcdb43653cfd16d55a6f06c569053fad381f3314b20263fd12e374c3a438a0"
+        "translated_at": "2026-08-26T07:39:42+00:00",
+        "source_hash": "7f3beaf64b4241fa904b708e821107ad88256dbd33142b6d38072e176e3f1c5a"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1162/rest_a_01073",
+      "sequence": 11,
+      "source_sequence": 733,
+      "article_type": "research-article",
+      "title_en": "Inflation Expectations and the Pass-Through of Oil Prices",
+      "title_cn": "通胀预期与油价传导",
+      "authors": [
+        "Knut Are Aastveit",
+        "Hilde C. Bjørnland",
+        "Jamie L. Cross"
+      ],
+      "abstract_en": "Inflation expectations and the associated pass-through of oil price shocks depend on demand and supply conditions underlying the global oil market. We establish this result using a structural VAR model of the global oil market that jointly identifies transmissions of oil demand and supply shocks through real oil prices to both expected and actual inflation. We demonstrate that economic activity shocks have a significantly longer-lasting effect on inflation expectations and actual inflation than other types of real oil price shocks, and resolve disagreements around the role of oil prices in explaining the missing deflation puzzle of the Great Recession.",
+      "abstract_cn": "通胀预期以及相关的油价冲击传导取决于全球石油市场背后的需求和供给条件。我们通过一个全球石油市场的结构VAR模型确立了这一结果，该模型联合识别了石油需求和供给冲击通过实际油价对预期通胀和实际通胀的传导。我们证明，经济活动冲击对通胀预期和实际通胀的影响显著比其他类型的实际油价冲击更持久，并解决了关于油价在解释大衰退期间缺失通缩之谜中所起作用的争议。",
+      "abstract_snippet_en": "",
+      "doi": "10.1162/rest_a_01073",
+      "source_url": "https://doi.org/10.1162/rest_a_01073",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://direct.mit.edu/rest/issue/105/3",
+        "roster": "crossref:issn:0034-6535",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-26T07:39:42+00:00",
+        "source_hash": "ca4932e76698195d675924762b139e6ac4745c4eb82a3458967308d76005b438"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -225,45 +465,45 @@
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 5,
-    "authors_complete": 5,
-    "abstract_en_complete": 5,
-    "translation_complete": 5,
+    "doi_complete": 11,
+    "authors_complete": 11,
+    "abstract_en_complete": 11,
+    "translation_complete": 11,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
       "crossref_provisional_roster"
     ],
-    "official_item_count": 5,
-    "publishable_item_count": 5,
+    "official_item_count": 11,
+    "publishable_item_count": 11,
     "content_counts": {
-      "official_items": 5,
-      "observed_items": 5,
-      "publishable_items": 5,
-      "research_articles": 5,
+      "official_items": 11,
+      "observed_items": 11,
+      "publishable_items": 11,
+      "research_articles": 11,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 5
+      "catalog_content_items": 11
     }
   },
   "source_status": "source_pending",
   "publication_state": "source_pending",
   "content_counts": {
-    "official_items": 5,
-    "observed_items": 5,
-    "publishable_items": 5,
-    "research_articles": 5,
+    "official_items": 11,
+    "observed_items": 11,
+    "publishable_items": 11,
+    "research_articles": 11,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 5
+    "catalog_content_items": 11
   },
   "issue_label": "Vol. 105 · No. 3",
   "content_status": "complete"

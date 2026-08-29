@@ -7,15 +7,100 @@
   "issue": "6",
   "publication_date": "June 2023",
   "source_url": "https://www.journals.uchicago.edu/toc/jpe/2023/131/6",
-  "retrieved_at": "2026-08-13T09:39:38+00:00",
-  "expected_article_count": 3,
-  "research_article_count": 3,
+  "retrieved_at": "2026-08-29T03:52:17+00:00",
+  "expected_article_count": 5,
+  "research_article_count": 5,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1086/722936",
+      "paper_id": "doi:10.1086/722934",
       "sequence": 1,
+      "source_sequence": 1385,
+      "article_type": "research-article",
+      "title_en": "Partial Default",
+      "title_cn": "部分违约",
+      "authors": [
+        "Cristina Arellano",
+        "Xavier Mateos-Planas",
+        "José-Víctor Ríos-Rull"
+      ],
+      "abstract_en": "We document that countries partially default often and with varying intensity, resulting in lengthy episodes and hump-shaped patterns for partial default and debt. Default episodes lead to haircuts for lenders but not to reductions in debt, because the defaulted debt accumulates and borrowing continues. We present a theory of partial default rationalizing these patterns and the heterogeneity of partial default, and partial default’s comovements with spreads, debt, and output that are absent in standard sovereign default theory. We include policy counterfactuals in the form of pari passu and no-dilution clauses and debt-relief policies, and their welfare implications.",
+      "abstract_cn": "我们记录了国家经常以不同强度进行部分违约，导致部分违约和债务出现漫长的阶段和驼峰状模式。违约事件导致贷款人遭受减记，但并未减少债务，因为违约债务会累积且借款仍在继续。我们提出了一个部分违约理论，解释了这些模式、部分违约的异质性，以及部分违约与利差、债务和产出的联动，而这些联动在标准主权违约理论中是不存在的。我们纳入了政策反事实分析，形式包括同等权益条款、禁止稀释条款和债务减免政策，及其福利影响。",
+      "abstract_snippet_en": "",
+      "doi": "10.1086/722934",
+      "source_url": "https://doi.org/10.1086/722934",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.journals.uchicago.edu/toc/jpe/2023/131/6",
+        "roster": "crossref:issn:0022-3808",
+        "metadata": "crossref",
+        "abstract_en": "openalex",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1086/722934"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T14:13:54+00:00",
+        "source_hash": "868be750aff11c7c9b855a5625235d0956b1121bef403f615446676950e79e67"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1086/722935",
+      "sequence": 2,
+      "source_sequence": 1440,
+      "article_type": "research-article",
+      "title_en": "The Equilibrium Existence Duality",
+      "title_cn": "均衡存在性对偶",
+      "authors": [
+        "Elizabeth Baldwin",
+        "Ravi Jagadeesan",
+        "Paul Klemperer",
+        "Alexander Teytelboym"
+      ],
+      "abstract_en": "We show that with indivisible goods, the existence of competitive equilibrium fundamentally depends on agents’ substitution effects, not their income effects. Our equilibrium existence duality allows us to transport results on the existence of competitive equilibrium from settings with transferable utility to settings with income effects. One consequence is that net substitutability—which is a strictly weaker condition than gross substitutability—is sufficient for the existence of competitive equilibrium. Further applications give new existence results beyond the case of (net) substitutes. Our results have implications for auction design.",
+      "abstract_cn": "我们证明，在不可分割商品的情况下，竞争均衡的存在性根本上取决于代理人的替代效应，而非收入效应。我们的均衡存在性对偶使我们能够将竞争均衡存在性的结果从可转移效用环境迁移到具有收入效应的环境中。一个推论是，净替代性——这是比总替代性严格更弱的条件——足以保证竞争均衡的存在。进一步的应用给出了超越（净）替代情形的新存在性结果。我们的结果对拍卖设计具有启示意义。",
+      "abstract_snippet_en": "",
+      "doi": "10.1086/722935",
+      "source_url": "https://doi.org/10.1086/722935",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.journals.uchicago.edu/toc/jpe/2023/131/6",
+        "roster": "crossref:issn:0022-3808",
+        "metadata": "crossref",
+        "abstract_en": "openalex",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1086/722935"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T14:13:56+00:00",
+        "source_hash": "c442e02262fc163e777d48fbdc6033bf3d6dd964e33b70f55b1653b36620eeec"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1086/722936",
+      "sequence": 3,
       "source_sequence": 1477,
       "article_type": "research-article",
       "title_en": "The Lasting Effects of Early-Childhood Education on Promoting the Skills and Social Mobility of Disadvantaged African Americans and Their Children",
@@ -56,49 +141,8 @@
       }
     },
     {
-      "paper_id": "doi:10.1086/722933",
-      "sequence": 2,
-      "source_sequence": 1507,
-      "article_type": "research-article",
-      "title_en": "The Mainstreaming of Marx: Measuring the Effect of the Russian Revolution on Karl Marx’s Influence",
-      "title_cn": "马克思的主流化：衡量俄国革命对卡尔·马克思影响力的作用",
-      "authors": [
-        "Phillip W. Magness",
-        "Michael Makovi"
-      ],
-      "abstract_en": "Karl Marx’s high academic stature outside of economics diverges sharply from his peripheral influence within the discipline, particularly after nineteenth-century developments rendered the labor theory of value obsolete. We hypothesize that the 1917 Russian Revolution is responsible for elevating Marx into the academic mainstream. Using the synthetic control method, we construct a counterfactual for Marx’s citation patterns in Google Ngram data. This allows us to predict how often Marx would have been cited if the Russian Revolution had not happened. We find a significant treatment effect, meaning that Marx’s academic stature today owes a substantial debt to political happenstance.",
-      "abstract_cn": "卡尔·马克思在经济学之外的学术地位很高，但在经济学学科内部的影响力却边缘化，尤其是在十九世纪的发展使劳动价值论过时之后。我们假设1917年俄国革命将马克思提升到了学术主流。使用合成控制法，我们在谷歌Ngram数据中为马克思的引用模式构建了一个反事实。这使我们能够预测如果俄国革命没有发生，马克思会被引用的频率。我们发现了显著的处理效应，这意味着马克思今天的学术地位在很大程度上归功于政治偶然事件。",
-      "abstract_snippet_en": "",
-      "doi": "10.1086/722933",
-      "source_url": "https://doi.org/10.1086/722933",
-      "publication_date": "2023",
-      "sources": {
-        "issue": "https://www.journals.uchicago.edu/toc/jpe/2023/131/6",
-        "roster": "crossref:issn:0022-3808",
-        "metadata": "crossref",
-        "abstract_en": "openalex",
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1086/722933"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-13T09:39:42+00:00",
-        "source_hash": "829bd43ea1bb884f08b35c8a8b3157f0acf643ca02897908aa426cb28b7fa538"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
       "paper_id": "doi:10.1086/722932",
-      "sequence": 3,
+      "sequence": 4,
       "source_sequence": 1546,
       "article_type": "research-article",
       "title_en": "Pareto-Improving Segmentation of Multiproduct Markets",
@@ -136,6 +180,48 @@
         "matched_terms": [],
         "source": "academic-door-rules-v1"
       }
+    },
+    {
+      "paper_id": "doi:10.1086/722930",
+      "sequence": 5,
+      "source_sequence": 1576,
+      "article_type": "research-article",
+      "title_en": "Voluntary Interaction and the Principle of Mutual Benefit",
+      "title_cn": "自愿互动与互利原则",
+      "authors": [
+        "Andrea Isoni",
+        "Robert Sugden",
+        "Jiwei Zheng"
+      ],
+      "abstract_en": "Most social preference theories are based on observations of nonvoluntary interactions. Nonselfish behavior may take fundamentally different forms in voluntary interactions, such as market transactions. We investigate the “Principle of Mutual Benefit”—an injunctive norm requiring individuals who enter interactions voluntarily to conform to common expectations about behavior within them. This norm induces patterns of behavior inconsistent with existing social preference theories and allows extrinsic incentives to crowd in trustworthiness. We embed this norm in a model consistent with evidence about promise keeping, gift exchange, and “avoiding the ask.” We present new experimental evidence that people adhere to it.",
+      "abstract_cn": "大多数社会偏好理论基于对非自愿互动的观察。在自愿互动（如市场交易）中，非自私行为可能呈现根本不同的形式。我们研究了“互利原则”——一种要求自愿进入互动的人遵守其中行为共同期望的命令性规范。该规范引发了与现有社会偏好理论不一致的行为模式，并允许外在激励挤入可信赖性。我们将此规范嵌入一个与关于信守承诺、礼物交换和“回避请求”的证据相一致的模型中。我们提供了新的实验证据，表明人们遵守这一规范。",
+      "abstract_snippet_en": "",
+      "doi": "10.1086/722930",
+      "source_url": "https://doi.org/10.1086/722930",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.journals.uchicago.edu/toc/jpe/2023/131/6",
+        "roster": "crossref:issn:0022-3808",
+        "metadata": "crossref",
+        "abstract_en": "openalex",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1086/722930"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T14:13:57+00:00",
+        "source_hash": "b89d7db1fa8df33c12c495928318fe12eacdabc2ae0b531f6b03195e6e73763f"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     }
   ],
   "quality": {
@@ -145,7 +231,7 @@
     "roster_authority": "crossref-provisional",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
-    "excluded_item_count": 3,
+    "excluded_item_count": 2,
     "excluded_items": [
       {
         "title_en": "JPE Turnaround Times",
@@ -154,57 +240,51 @@
         "article_type": "research-article"
       },
       {
-        "title_en": "Front Matter",
-        "reason": "front_matter",
-        "doi": "10.1086/726348",
-        "article_type": "front-matter"
-      },
-      {
         "title_en": "Recent Referees",
         "reason": "editorial_material",
         "doi": "10.1086/726349",
         "article_type": "editorial"
       }
     ],
-    "doi_complete": 3,
-    "authors_complete": 3,
-    "abstract_en_complete": 3,
-    "translation_complete": 3,
+    "doi_complete": 5,
+    "authors_complete": 5,
+    "abstract_en_complete": 5,
+    "translation_complete": 5,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
       "crossref_provisional_roster"
     ],
-    "official_item_count": 6,
-    "publishable_item_count": 3,
+    "official_item_count": 7,
+    "publishable_item_count": 5,
     "content_counts": {
-      "official_items": 6,
-      "observed_items": 6,
-      "publishable_items": 3,
-      "research_articles": 3,
+      "official_items": 7,
+      "observed_items": 7,
+      "publishable_items": 5,
+      "research_articles": 5,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 1,
-      "front_matter": 1,
+      "front_matter": 0,
       "other_excluded": 1,
-      "catalog_content_items": 3
+      "catalog_content_items": 5
     }
   },
   "source_status": "source_pending",
   "publication_state": "source_pending",
   "content_counts": {
-    "official_items": 6,
-    "observed_items": 6,
-    "publishable_items": 3,
-    "research_articles": 3,
+    "official_items": 7,
+    "observed_items": 7,
+    "publishable_items": 5,
+    "research_articles": 5,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 1,
-    "front_matter": 1,
+    "front_matter": 0,
     "other_excluded": 1,
-    "catalog_content_items": 3
+    "catalog_content_items": 5
   },
   "issue_label": "Vol. 131 · No. 6",
   "content_status": "complete"

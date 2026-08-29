@@ -7,9 +7,9 @@
   "issue": "1",
   "publication_date": "January 2023",
   "source_url": "https://direct.mit.edu/rest/issue/105/1",
-  "retrieved_at": "2026-08-18T17:47:00+00:00",
-  "expected_article_count": 10,
-  "research_article_count": 10,
+  "retrieved_at": "2026-08-29T03:51:19+00:00",
+  "expected_article_count": 14,
+  "research_article_count": 14,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
@@ -54,8 +54,48 @@
       }
     },
     {
-      "paper_id": "doi:10.1162/rest_a_01024",
+      "paper_id": "doi:10.1162/rest_a_01036",
       "sequence": 2,
+      "source_sequence": 40,
+      "article_type": "research-article",
+      "title_en": "Beliefs about Racial Discrimination and Support for Pro-Black Policies",
+      "title_cn": "关于种族歧视的信念与对支持黑人政策的态度",
+      "authors": [
+        "Ingar Haaland",
+        "Christopher Roth"
+      ],
+      "abstract_en": "This paper provides representative evidence on beliefs about racial discrimination and examines whether information causally affects support for pro-black policies. Eliciting quantitative beliefs about the extent of hiring discrimination against blacks, we uncover large disagreement about the extent of racial discrimination with particularly pronounced partisan differences. An information treatment leads to a convergence in beliefs about racial discrimination but does not lead to a similar convergence in support of pro-black policies. The results demonstrate that while providing information can substantially reduce disagreement about the extent of racial discrimination, it is not sufficient to reduce disagreement about pro-black policies.",
+      "abstract_cn": "本文提供了关于种族歧视信念的代表性证据，并考察了信息是否因果性地影响对支持黑人政策的支持度。通过引出关于雇佣歧视黑人的程度的定量信念，我们发现了关于种族歧视程度的巨大分歧，尤其是党派差异尤为显著。信息处理导致了对种族歧视信念的趋同，但并未导致对支持黑人政策支持度的类似趋同。结果表明，虽然提供信息可以大幅减少关于种族歧视程度的分歧，但不足以减少关于支持黑人政策的分歧。",
+      "abstract_snippet_en": "",
+      "doi": "10.1162/rest_a_01036",
+      "source_url": "https://doi.org/10.1162/rest_a_01036",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://direct.mit.edu/rest/issue/105/1",
+        "roster": "crossref:issn:0034-6535",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-26T07:39:19+00:00",
+        "source_hash": "7d659dc1baf6c45bae1a3dccf1e03843b61d2504058844699be4ec6bca9d7712"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1162/rest_a_01024",
+      "sequence": 3,
       "source_sequence": 54,
       "article_type": "research-article",
       "title_en": "Sinning in the Rain: Weather Shocks, Church Attendance, and Crime",
@@ -93,8 +133,48 @@
       }
     },
     {
+      "paper_id": "doi:10.1162/rest_a_01005",
+      "sequence": 4,
+      "source_sequence": 70,
+      "article_type": "research-article",
+      "title_en": "The Micro-Origins of Business Cycles: Evidence from German Metropolitan Areas",
+      "title_cn": "商业周期的微观起源：来自德国大都市区的证据",
+      "authors": [
+        "Federica Daniele",
+        "Heiko Stüber"
+      ],
+      "abstract_en": "How large is volatility due to large firms? We answer this question through both reduced-form analysis and a calibration exercise. First, we exploit time and spatial variation across German cities and show that higher concentration is associated with more persistent local business cycles, and local concentration Granger causes local employment volatility. From a business cycle perspective, we find evidence in favor of granularity-driven recessions only. Next, we calibrate a structural model along the lines of Carvalho and Grassi (2019) and find that the more fat-tailed productivity distribution in bigger cities crucially depends also on the higher probability that firms will grow.",
+      "abstract_cn": "大企业导致的波动性有多大？我们通过简化形式分析和校准练习来回答这个问题。首先，我们利用德国城市间的时间和空间变化，表明更高的集中度与更持久的本地商业周期相关，并且本地集中度格兰杰导致本地就业波动。从商业周期的角度来看，我们仅发现支持颗粒性驱动的衰退的证据。接下来，我们按照Carvalho和Grassi（2019）的思路校准一个结构模型，发现大城市中更肥尾的生产率分布也关键地取决于企业增长的可能性更高。",
+      "abstract_snippet_en": "",
+      "doi": "10.1162/rest_a_01005",
+      "source_url": "https://doi.org/10.1162/rest_a_01005",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://direct.mit.edu/rest/issue/105/1",
+        "roster": "crossref:issn:0034-6535",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-26T07:39:19+00:00",
+        "source_hash": "9ead66edd327c57a1e77b6bf4726315bf290f42af96315f75439a2bbc85407a4"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1162/rest_a_01030",
-      "sequence": 3,
+      "sequence": 5,
       "source_sequence": 86,
       "article_type": "research-article",
       "title_en": "Exchange Rate Shocks and Quality Adjustments",
@@ -134,7 +214,7 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01017",
-      "sequence": 4,
+      "sequence": 6,
       "source_sequence": 101,
       "article_type": "research-article",
       "title_en": "Targeted Undersmoothing: Sensitivity Analysis for Sparse Estimators",
@@ -175,7 +255,7 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01038",
-      "sequence": 5,
+      "sequence": 7,
       "source_sequence": 125,
       "article_type": "research-article",
       "title_en": "Endogenous Time Variation in Vector Autoregressions",
@@ -214,8 +294,49 @@
       }
     },
     {
+      "paper_id": "doi:10.1162/rest_a_01041",
+      "sequence": 8,
+      "source_sequence": 143,
+      "article_type": "research-article",
+      "title_en": "Cash Transfers and Migration: Theory and Evidence from a Randomized Controlled Trial",
+      "title_cn": "现金转移与移民：来自随机对照试验的理论与证据",
+      "authors": [
+        "Jules Gazeaud",
+        "Eric Mvukiyehe",
+        "Olivier Sterck"
+      ],
+      "abstract_en": "Will the fast expansion of cash-based programming in poor countries increase international migration? Theoretically, cash transfers may deter migration by increasing its opportunity cost or favor migration by relaxing liquidity, credit, and risk constraints. This paper evaluates the impact of a cash-for-work program on migration. Randomly selected households in Comoros were offered up to US$320 in cash in exchange for their participation in public works projects. We find that the program increased international migration by 38% from 7.8% to 10.8%. The increase in migration appears to be driven by the alleviation of liquidity and risk constraints.",
+      "abstract_cn": "贫困国家现金援助项目的快速扩张是否会增加国际移民？理论上，现金转移可能通过增加移民的机会成本来抑制移民，或通过缓解流动性、信贷和风险约束来促进移民。本文评估了一个以工代赈项目对移民的影响。在科摩罗，随机选择的家庭被提供高达US$320的现金，以换取他们参与公共工程项目。我们发现该项目使国际移民从7.8%增加到10.8%，增加了38%。移民的增加似乎是由流动性和风险约束的缓解所驱动的。",
+      "abstract_snippet_en": "",
+      "doi": "10.1162/rest_a_01041",
+      "source_url": "https://doi.org/10.1162/rest_a_01041",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://direct.mit.edu/rest/issue/105/1",
+        "roster": "crossref:issn:0034-6535",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-26T07:39:19+00:00",
+        "source_hash": "2a213025545b16c19a721e3b753631380fd7ab5ea14a36e08277869a2de68c51"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1162/rest_a_01045",
-      "sequence": 6,
+      "sequence": 9,
       "source_sequence": 158,
       "article_type": "research-article",
       "title_en": "How Much Do Consumers Value Fuel Economy and Performance? Evidence from Technology Adoption",
@@ -256,7 +377,7 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01040",
-      "sequence": 7,
+      "sequence": 10,
       "source_sequence": 175,
       "article_type": "research-article",
       "title_en": "Leader Identity and Coordination",
@@ -298,7 +419,7 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01028",
-      "sequence": 8,
+      "sequence": 11,
       "source_sequence": 190,
       "article_type": "research-article",
       "title_en": "Herding and Contrarianism: A Matter of Preference?",
@@ -336,8 +457,50 @@
       }
     },
     {
+      "paper_id": "doi:10.1162/rest_a_01037",
+      "sequence": 12,
+      "source_sequence": 206,
+      "article_type": "research-article",
+      "title_en": "Paying Outsourced Labor: Direct Evidence from Linked Temp Agency-Worker-Client Data",
+      "title_cn": "为外包劳动力支付报酬：来自关联临时工中介-工人-客户数据的直接证据",
+      "authors": [
+        "Andres Drenik",
+        "Simon Jäger",
+        "Pascuel Plotkin",
+        "Benjamin Schoefer"
+      ],
+      "abstract_en": "We estimate how much firms differentiate pay premia between regular and outsourced workers in temp agency work arrangements. We leverage unique Argentinian administrative data that feature links between user firms (the workplaces where temp workers perform their labor) and temp agencies (their formal employers). We estimate that a high-wage user firm that pays a regular worker a 10% premium pays a temp worker on average only a 4.9% premium, compared to what these workers would earn in a low-wage user firm in their respective work arrangements. This 49% pass-through constitutes the midpoint between the benchmarks for insiders (one) and the competitive spot-labor market (zero).",
+      "abstract_cn": "我们估计了在临时工中介安排中，企业如何在正式员工和外包员工之间区分工资溢价。我们利用了独特的阿根廷行政数据，这些数据将用户企业（临时工执行劳动的工作场所）与临时工中介（其正式雇主）联系起来。我们估计，一家高工资用户企业向其正式员工支付10%的溢价，而向其临时工平均仅支付4.9%的溢价，相比之下，这些工人在各自的工作安排中在低工资用户企业所能获得的收入。这一49%的传导率介于内部人基准（一）和竞争性即期劳动力市场基准（零）之间。",
+      "abstract_snippet_en": "",
+      "doi": "10.1162/rest_a_01037",
+      "source_url": "https://doi.org/10.1162/rest_a_01037",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://direct.mit.edu/rest/issue/105/1",
+        "roster": "crossref:issn:0034-6535",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-26T07:39:34+00:00",
+        "source_hash": "89c7489f52720c02a1ca64c6027b77bbb063e8ba674de5a7557ba4d98d9a9012"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1162/rest_a_01039",
-      "sequence": 9,
+      "sequence": 13,
       "source_sequence": 217,
       "article_type": "research-article",
       "title_en": "Fiscal Incentives for Conflict: Evidence from India's Red Corridor",
@@ -377,7 +540,7 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01021",
-      "sequence": 10,
+      "sequence": 14,
       "source_sequence": 226,
       "article_type": "research-article",
       "title_en": "Does Market Interaction Erode Moral Values?",
@@ -426,45 +589,45 @@
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 10,
-    "authors_complete": 10,
-    "abstract_en_complete": 10,
-    "translation_complete": 10,
+    "doi_complete": 14,
+    "authors_complete": 14,
+    "abstract_en_complete": 14,
+    "translation_complete": 14,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
       "crossref_provisional_roster"
     ],
-    "official_item_count": 10,
-    "publishable_item_count": 10,
+    "official_item_count": 14,
+    "publishable_item_count": 14,
     "content_counts": {
-      "official_items": 10,
-      "observed_items": 10,
-      "publishable_items": 10,
-      "research_articles": 10,
+      "official_items": 14,
+      "observed_items": 14,
+      "publishable_items": 14,
+      "research_articles": 14,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 10
+      "catalog_content_items": 14
     }
   },
   "source_status": "source_pending",
   "publication_state": "source_pending",
   "content_counts": {
-    "official_items": 10,
-    "observed_items": 10,
-    "publishable_items": 10,
-    "research_articles": 10,
+    "official_items": 14,
+    "observed_items": 14,
+    "publishable_items": 14,
+    "research_articles": 14,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 10
+    "catalog_content_items": 14
   },
   "issue_label": "Vol. 105 · No. 1",
   "content_status": "complete"

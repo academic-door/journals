@@ -7,15 +7,56 @@
   "issue": "2",
   "publication_date": "February 2023",
   "source_url": "https://www.journals.uchicago.edu/toc/jpe/2023/131/2",
-  "retrieved_at": "2026-08-13T09:38:14+00:00",
+  "retrieved_at": "2026-08-29T03:51:46+00:00",
   "expected_article_count": 4,
   "research_article_count": 4,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1086/721153",
+      "paper_id": "doi:10.1086/721702",
       "sequence": 1,
+      "source_sequence": 247,
+      "article_type": "research-article",
+      "title_en": "Consumption and Income Inequality in the United States since the 1960s",
+      "title_cn": "自1960年代以来美国的消费与收入不平等",
+      "authors": [
+        "Bruce D. Meyer",
+        "James X. Sullivan"
+      ],
+      "abstract_en": "Recent research concludes that the rise in consumption inequality mirrors, or even exceeds, the rise in income inequality. We revisit this finding, constructing improved measures of consumption, focusing on its well-measured components that are reported at a high and stable rate relative to national accounts. While overall income inequality rose over the past 5 decades, the rise in overall consumption inequality was small. The declining quality of income data likely contributes to these differences for the bottom of the distribution. Asset price changes likely account for some of the differences in recent years for the top of the distribution.",
+      "abstract_cn": "近期研究得出结论，消费不平等的上升与收入不平等的上升相当，甚至超过后者。我们重新审视这一发现，构建了改进的消费衡量指标，重点关注那些相对于国民账户以高且稳定比率报告的、测量良好的组成部分。尽管过去5年间总体收入不平等有所上升，但总体消费不平等的上升幅度较小。收入数据质量的下降可能导致了分布底部的这些差异。资产价格变动可能解释了近年来分布顶部的部分差异。",
+      "abstract_snippet_en": "",
+      "doi": "10.1086/721702",
+      "source_url": "https://doi.org/10.1086/721702",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.journals.uchicago.edu/toc/jpe/2023/131/2",
+        "roster": "crossref:issn:0022-3808",
+        "metadata": "crossref",
+        "abstract_en": "openalex",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1086/721702"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T14:13:16+00:00",
+        "source_hash": "83775c6aedd72287e5c3df23d16750ebc4da9d9ea9d3da345ff4f09b6589232d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1086/721153",
+      "sequence": 2,
       "source_sequence": 285,
       "article_type": "research-article",
       "title_en": "Getting Dynamic Implementation to Work",
@@ -58,28 +99,30 @@
       }
     },
     {
-      "paper_id": "doi:10.1086/721657",
-      "sequence": 2,
-      "source_sequence": 456,
+      "paper_id": "doi:10.1086/721230",
+      "sequence": 3,
+      "source_sequence": 388,
       "article_type": "research-article",
-      "title_en": "Sources of Wage Growth",
-      "title_cn": "工资增长的来源",
+      "title_en": "The Performance of School Assignment Mechanisms in Practice",
+      "title_cn": "学校分配机制在实践中的表现",
       "authors": [
-        "Jérôme Adda",
-        "Christian Dustmann"
+        "Monique De Haan",
+        "Pieter A. Gautier",
+        "Hessel Oosterbeek",
+        "Bas van der Klaauw"
       ],
-      "abstract_en": "This paper investigates the sources of wage growth over the life cycle, determined by sectoral and firm mobility, unobserved ability, the accumulation of cognitive-abstract or routine-manual skills, and whether workers enroll in vocational training at the start of their career. Our analysis uses longitudinal administrative data over three decades and shows that routine-manual skills drive early wage growth, while cognitive-abstract skills become more important later. Moreover, job amenities are an important determinant of mobility decisions. Vocational training has long-term effects on career outcomes through various channels and generates returns for both the individual and society.",
-      "abstract_cn": "本文研究了生命周期中工资增长的来源，这些来源由部门和企业的流动性、未观测到的能力、认知抽象或常规手工技能的积累，以及工人是否在职业生涯开始时参加职业培训所决定。我们的分析使用了跨越三十年的纵向行政数据，并表明常规手工技能推动了早期的工资增长，而认知抽象技能在后期变得更加重要。此外，工作福利是流动性决策的重要决定因素。职业培训通过多种渠道对职业结果产生长期影响，并为个人和社会带来回报。",
+      "abstract_en": "We use a unique combination of register and survey data from Amsterdam to investigate the performance of school assignment mechanisms in practice. We find that deferred acceptance (DA) results in higher mean welfare than the adaptive Boston mechanism. This is due to students making strategic mistakes. The welfare gain of a switch from actual Boston to DA is over 90% of the welfare difference between actual Boston and optimal (proxy) Boston. Disadvantaged and lower-ability students would benefit most from such a switch.",
+      "abstract_cn": "我们利用阿姆斯特丹的登记和调查数据的独特组合来研究学校分配机制在实践中的表现。我们发现，延迟接受（DA）比适应性波士顿机制产生更高的平均福利。这是由于学生犯策略性错误。从实际波士顿机制转向DA的福利收益超过实际波士顿机制与最优（代理）波士顿机制之间福利差异的90%。弱势和低能力学生将从这种转变中受益最多。",
       "abstract_snippet_en": "",
-      "doi": "10.1086/721657",
-      "source_url": "https://doi.org/10.1086/721657",
+      "doi": "10.1086/721230",
+      "source_url": "https://doi.org/10.1086/721230",
       "publication_date": "2023",
       "sources": {
         "issue": "https://www.journals.uchicago.edu/toc/jpe/2023/131/2",
         "roster": "crossref:issn:0022-3808",
         "metadata": "crossref",
         "abstract_en": "openalex",
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1086/721657"
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1086/721230"
       },
       "translation": {
         "status": "complete",
@@ -87,8 +130,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "deepseek-chat",
-        "translated_at": "2026-08-13T09:38:18+00:00",
-        "source_hash": "3d392a3a745660fe12d1012827547b08dbe4b6ce83c1e30a490120f15730f02c"
+        "translated_at": "2026-08-24T14:13:18+00:00",
+        "source_hash": "40c5440ec63a5595e89ff3fbcb2bcb504e91803a2c52caebd18acccab80d44e9"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -100,7 +143,7 @@
     },
     {
       "paper_id": "doi:10.1086/721618",
-      "sequence": 3,
+      "sequence": 4,
       "source_sequence": 504,
       "article_type": "research-article",
       "title_en": "Costless Information and Costly Verification: A Case for Transparency",
@@ -138,46 +181,6 @@
         "matched_terms": [],
         "source": "academic-door-rules-v1"
       }
-    },
-    {
-      "paper_id": "doi:10.1086/721619",
-      "sequence": 4,
-      "source_sequence": 549,
-      "article_type": "research-article",
-      "title_en": "Large-Scale Education Reform in General Equilibrium: Regression Discontinuity Evidence from India",
-      "title_cn": "一般均衡中的大规模教育改革：来自印度的断点回归证据",
-      "authors": [
-        "Gaurav Khanna"
-      ],
-      "abstract_en": "The economic consequences of large-scale government investments in education depend on general equilibrium effects in both the labor market and the education sector. I develop a general equilibrium model capturing the consequences of massive countrywide schooling initiatives. I provide unbiased estimates of the model’s elasticities, using a regression discontinuity derived from Indian government policy. The earnings returns to a year of education are 13.4%, and the general equilibrium labor market effects substantially depress returns, by 6.6 percentage points. These general equilibrium effects have distributional consequences across cohorts and skill groups, whereby unskilled workers are better off and skilled workers worse off.",
-      "abstract_cn": "大规模政府教育投资的经济后果取决于劳动力市场和教育部门的一般均衡效应。我构建了一个一般均衡模型，用以捕捉全国性大规模教育倡议的后果。我利用印度政府政策产生的断点回归，提供了模型弹性的无偏估计。一年教育的收益回报为13.4%，而一般均衡劳动力市场效应使回报大幅下降，降幅为6.6个百分点。这些一般均衡效应对不同队列和技能群体产生了分配性后果，其中非技术工人状况改善，而技术工人状况恶化。",
-      "abstract_snippet_en": "",
-      "doi": "10.1086/721619",
-      "source_url": "https://doi.org/10.1086/721619",
-      "publication_date": "2023",
-      "sources": {
-        "issue": "https://www.journals.uchicago.edu/toc/jpe/2023/131/2",
-        "roster": "crossref:issn:0022-3808",
-        "metadata": "crossref",
-        "abstract_en": "openalex",
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.1086/721619"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-13T09:38:22+00:00",
-        "source_hash": "aa7448e83f375b76b3cf55178328ef07df5c956d9f6062013678ccbafa849233"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
     }
   ],
   "quality": {
@@ -187,8 +190,14 @@
     "roster_authority": "crossref-provisional",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
-    "excluded_item_count": 2,
+    "excluded_item_count": 3,
     "excluded_items": [
+      {
+        "title_en": "Recent Referees",
+        "reason": "editorial_material",
+        "doi": "10.1086/724739",
+        "article_type": "editorial"
+      },
       {
         "title_en": "JPE Turnaround Times",
         "reason": "non_publishable_item",
@@ -211,17 +220,17 @@
       "publisher_html_blocked_crossref_fallback",
       "crossref_provisional_roster"
     ],
-    "official_item_count": 6,
+    "official_item_count": 7,
     "publishable_item_count": 4,
     "content_counts": {
-      "official_items": 6,
-      "observed_items": 6,
+      "official_items": 7,
+      "observed_items": 7,
       "publishable_items": 4,
       "research_articles": 4,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
-      "editorial_material": 0,
+      "editorial_material": 1,
       "front_matter": 1,
       "other_excluded": 1,
       "catalog_content_items": 4
@@ -230,14 +239,14 @@
   "source_status": "source_pending",
   "publication_state": "source_pending",
   "content_counts": {
-    "official_items": 6,
-    "observed_items": 6,
+    "official_items": 7,
+    "observed_items": 7,
     "publishable_items": 4,
     "research_articles": 4,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
-    "editorial_material": 0,
+    "editorial_material": 1,
     "front_matter": 1,
     "other_excluded": 1,
     "catalog_content_items": 4

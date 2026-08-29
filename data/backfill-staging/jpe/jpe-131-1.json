@@ -7,15 +7,56 @@
   "issue": "1",
   "publication_date": "January 2023",
   "source_url": "https://www.journals.uchicago.edu/toc/jpe/2023/131/1",
-  "retrieved_at": "2026-08-13T09:37:56+00:00",
-  "expected_article_count": 3,
-  "research_article_count": 3,
+  "retrieved_at": "2026-08-29T03:51:36+00:00",
+  "expected_article_count": 5,
+  "research_article_count": 5,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1086/720890",
+      "paper_id": "doi:10.1086/720986",
       "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Collective Brand Reputation",
+      "title_cn": "集体品牌声誉",
+      "authors": [
+        "Volker Nocke",
+        "Roland Strausz"
+      ],
+      "abstract_en": "We develop a theory of collective brand reputation for markets in which product quality is jointly determined by local and global players. In a repeated game of imperfect public monitoring, we model collective branding as an aggregation of quality signals generated in different markets. Such aggregation yields a beneficial informativeness effect for incentivizing the global player. It however also induces harmful free-riding by local, market-specific players. The resulting trade-off yields a theory of optimal brand size and revenue sharing that applies to platform markets, franchising, licensing, umbrella branding, and firms with team production.",
+      "abstract_cn": "我们发展了一个关于集体品牌声誉的理论，适用于产品质量由本地和全球参与者共同决定的市场。在不完美公共监督的重复博弈中，我们将集体品牌建模为不同市场产生的质量信号的聚合。这种聚合对激励全球参与者产生了有益的信息效应，但同时也诱导了本地市场特定参与者的有害搭便车行为。由此产生的权衡得出了一个关于最优品牌规模和收入分享的理论，该理论适用于平台市场、特许经营、许可、伞形品牌和团队生产的企业。",
+      "abstract_snippet_en": "",
+      "doi": "10.1086/720986",
+      "source_url": "https://doi.org/10.1086/720986",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.journals.uchicago.edu/toc/jpe/2023/131/1",
+        "roster": "crossref:issn:0022-3808",
+        "metadata": "crossref",
+        "abstract_en": "openalex",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1086/720986"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T14:13:01+00:00",
+        "source_hash": "b15c5953e85ce157cd338c52a42180523842e8e5cce03c7e94939bb4783a60e4"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1086/720890",
+      "sequence": 2,
       "source_sequence": 59,
       "article_type": "research-article",
       "title_en": "The Mechanics of the Industrial Revolution",
@@ -56,8 +97,50 @@
       }
     },
     {
+      "paper_id": "doi:10.1086/720889",
+      "sequence": 3,
+      "source_sequence": 95,
+      "article_type": "research-article",
+      "title_en": "Optimal Cooperative Taxation in the Global Economy",
+      "title_cn": "全球经济中的最优合作税收",
+      "authors": [
+        "V. V. Chari",
+        "Juan Pablo Nicolini",
+        "Pedro Teles"
+      ],
+      "abstract_en": "How should countries cooperate in setting fiscal and trade policies when government expenditures must be financed with distorting taxes? We show that even if countries cannot make explicit transfers to each other, every point on the Pareto frontier is production efficient, so that international trade and capital flows should be effectively free. Trade agreements must be supplemented with fiscal policy agreements. Residence-based income tax systems have advantages over source-based systems. Taxing all household asset income at a country-specific uniform rate and setting the corporate income tax to zero yield efficient outcomes. Value-added taxes should be adjusted at the border.",
+      "abstract_cn": "当政府支出必须通过扭曲性税收来融资时，各国应如何合作制定财政和贸易政策？我们表明，即使各国之间无法进行明确的转移支付，帕累托边界上的每一点都是生产有效的，因此国际贸易和资本流动应实际上是自由的。贸易协定必须辅以财政政策协定。基于居住地的所得税制度优于基于来源地的制度。对所有家庭资产收入按国别统一税率征税并将企业所得税设为零，可产生有效结果。增值税应在边境进行调整。",
+      "abstract_snippet_en": "",
+      "doi": "10.1086/720889",
+      "source_url": "https://doi.org/10.1086/720889",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.journals.uchicago.edu/toc/jpe/2023/131/1",
+        "roster": "crossref:issn:0022-3808",
+        "metadata": "crossref",
+        "abstract_en": "openalex",
+        "openalex": "https://api.openalex.org/works/https://doi.org/10.1086/720889"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T14:13:03+00:00",
+        "source_hash": "ee4d57fd713888ab08d440478ba0a7b20371f5ab7dc8747819fa01133b0f4fe7"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1086/720982",
-      "sequence": 2,
+      "sequence": 4,
       "source_sequence": 190,
       "article_type": "research-article",
       "title_en": "A Semistructural Methodology for Policy Counterfactuals",
@@ -97,7 +180,7 @@
     },
     {
       "paper_id": "doi:10.1086/720984",
-      "sequence": 3,
+      "sequence": 5,
       "source_sequence": 202,
       "article_type": "research-article",
       "title_en": "Attraction versus Persuasion: Information Provision in Search Markets",
@@ -147,57 +230,57 @@
     "excluded_item_count": 2,
     "excluded_items": [
       {
-        "title_en": "Front Matter",
-        "reason": "front_matter",
-        "doi": "10.1086/724168",
-        "article_type": "front-matter"
-      },
-      {
         "title_en": "JPE Turnaround Times",
         "reason": "non_publishable_item",
         "doi": "10.1086/723888",
         "article_type": "research-article"
+      },
+      {
+        "title_en": "Back Cover",
+        "doi": "10.1086/724170",
+        "article_type": "front-matter",
+        "reason": "front_matter"
       }
     ],
-    "doi_complete": 3,
-    "authors_complete": 3,
-    "abstract_en_complete": 3,
-    "translation_complete": 3,
+    "doi_complete": 5,
+    "authors_complete": 5,
+    "abstract_en_complete": 5,
+    "translation_complete": 5,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
       "crossref_provisional_roster"
     ],
-    "official_item_count": 5,
-    "publishable_item_count": 3,
+    "official_item_count": 7,
+    "publishable_item_count": 5,
     "content_counts": {
-      "official_items": 5,
-      "observed_items": 5,
-      "publishable_items": 3,
-      "research_articles": 3,
+      "official_items": 7,
+      "observed_items": 7,
+      "publishable_items": 5,
+      "research_articles": 5,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 1,
       "other_excluded": 1,
-      "catalog_content_items": 3
+      "catalog_content_items": 5
     }
   },
   "source_status": "source_pending",
   "publication_state": "source_pending",
   "content_counts": {
-    "official_items": 5,
-    "observed_items": 5,
-    "publishable_items": 3,
-    "research_articles": 3,
+    "official_items": 7,
+    "observed_items": 7,
+    "publishable_items": 5,
+    "research_articles": 5,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 1,
     "other_excluded": 1,
-    "catalog_content_items": 3
+    "catalog_content_items": 5
   },
   "issue_label": "Vol. 131 · No. 1",
   "content_status": "complete"
