@@ -63,6 +63,11 @@ on:
         required: false
         default: false
         type: boolean
+      allow_preexisting_audit_failures:
+        description: Permit only unchanged strict-audit baseline findings during partial publish
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   actions: read
@@ -384,6 +389,19 @@ jobs:
             --path data/provenance/official-rosters \
             --exclude 'public/api/v1/journals/*/issues/index.json'
 
+      - name: Record full strict audit baseline and debt
+        shell: bash
+        run: |
+          set +e
+          python scripts/audit_public_data.py --strict-provenance > "$RUNNER_TEMP/public-audit-before.log" 2>&1
+          status=$?
+          set -e
+          echo "full strict baseline audit exit=$status"
+          python scripts/update_baseline_strict_debt.py \
+            --log "$RUNNER_TEMP/public-audit-before.log" \
+            --api-root public/api/v1 \
+            --output public/api/v1/baseline-strict-debt.json
+
       - name: Download all isolated shards
         uses: actions/download-artifact@v4
         with:
@@ -675,7 +693,21 @@ jobs:
             --before "$RUNNER_TEMP/gap-before.json" \
             --after public/api/v1/gap-manifest.json \
             --report "$RUNNER_TEMP/recovery-progress.json"
-          python scripts/audit_public_data.py --strict-provenance
+          if [[ "${{ inputs.allow_preexisting_audit_failures }}" = "true" ]]; then
+            set +e
+            python scripts/audit_public_data.py --strict-provenance > "$RUNNER_TEMP/public-audit-after.log" 2>&1
+            audit_status=$?
+            set -e
+            python scripts/check_incremental_audit.py \
+              --before "$RUNNER_TEMP/public-audit-before.log" \
+              --after "$RUNNER_TEMP/public-audit-after.log" \
+              --api-root public/api/v1 \
+              --publish-issue-ids "$publish_ids" \
+              --report "$RUNNER_TEMP/public-audit-incremental.json"
+            echo "full strict after-audit exit=$audit_status"
+          else
+            python scripts/audit_public_data.py --strict-provenance
+          fi
           python scripts/audit_source_alignment.py --strict
           history_args=()
           if [ "${{ inputs.strict_final }}" = "true" ]; then
@@ -751,6 +783,9 @@ jobs:
             ${{ runner.temp }}/history-coverage.json
             ${{ runner.temp }}/recovery-progress.json
             ${{ runner.temp }}/closeout-publish.json
+            ${{ runner.temp }}/public-audit-before.log
+            ${{ runner.temp }}/public-audit-after.log
+            ${{ runner.temp }}/public-audit-incremental.json
             sciencedirect-evidence-deferred.txt
 
   composer:

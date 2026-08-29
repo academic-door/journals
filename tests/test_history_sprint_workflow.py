@@ -14,7 +14,7 @@ class HistorySprintWorkflowTests(unittest.TestCase):
     def test_repairs_jpube_dates_before_strict_audit(self) -> None:
         workflow = self.workflow()
         repair = workflow.index("python scripts/repair_history_dates.py")
-        audit = workflow.index("python scripts/audit_public_data.py --strict-provenance")
+        audit = workflow.rindex("python scripts/audit_public_data.py --strict-provenance")
         for journal in ("JPubE", "ENERGY", "ECOLECON", "JUE", "JET", "JEDC", "JOE", "JFE"):
             self.assertIn(f"--journal {journal}", workflow[repair:audit])
         self.assertLess(repair, audit)
@@ -34,7 +34,7 @@ class HistorySprintWorkflowTests(unittest.TestCase):
     def test_applies_official_evidence_before_audit_and_runs_composer_after_reuse(self) -> None:
         workflow = self.workflow()
         evidence = workflow.index("python scripts/import_official_roster_evidence.py")
-        audit = workflow.index("python scripts/audit_public_data.py --strict-provenance")
+        audit = workflow.rindex("python scripts/audit_public_data.py --strict-provenance")
         self.assertLess(evidence, audit)
         self.assertIn("if: always() && needs.publish.result == 'success'", workflow)
         self.assertIn("--state-root data/backfill-state", workflow)
@@ -72,7 +72,7 @@ class HistorySprintWorkflowTests(unittest.TestCase):
     def test_repairs_only_invalid_current_translations_before_acceptance(self) -> None:
         workflow = self.workflow()
         repair = workflow.index("python scripts/repair_current_translations.py")
-        audit = workflow.index("python scripts/audit_public_data.py --strict-provenance")
+        audit = workflow.rindex("python scripts/audit_public_data.py --strict-provenance")
         repair_step = workflow.rindex("- name: Repair only invalid current-snapshot translations", 0, repair)
         self.assertIn("if: inputs.publish_issue_ids == ''", workflow[repair_step:repair])
         self.assertLess(repair, audit)
@@ -154,6 +154,10 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         self.assertIn("python scripts/translate_issue_subset.py", workflow)
         self.assertIn("output/translation-fix.json", workflow)
         self.assertIn("inputs.translation_only", workflow)
+        self.assertIn("allow_preexisting_audit_failures:", workflow)
+        self.assertIn("Record full strict audit baseline and debt", workflow)
+        self.assertIn("python scripts/check_incremental_audit.py", workflow)
+        self.assertIn("python scripts/update_baseline_strict_debt.py", workflow)
 
     def test_passes_shared_semantic_scholar_key_without_exposing_it(self) -> None:
         workflow = self.workflow()
