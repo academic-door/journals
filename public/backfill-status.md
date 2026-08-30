@@ -1,13 +1,16 @@
 # Field journal history backfill status
 
-Updated: 2026-08-30T00:44:54+00:00
+Updated: 2026-08-30T04:34:55+00:00
 
-Discovery coverage: 1331 discovered · 1252 archived · 1054 publication ready · 79 missing · 198 source pending
+Discovery coverage: 1331 discovered · 1255 archived · 1057 publication ready · 76 missing · 198 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 547 | 0 | 54 | 107 |
-| 2025-2026 | 508 | 0 | 25 | 91 |
+| 2023-2024 | 550 | 0 | 51 | 107 |
+| 2023-2026 | 273 | 0 | 19 | 8 |
+| 2024-2024 | 12 | 0 | 0 | 0 |
+| 2025-2026 | 1 | 0 | 0 | 0 |
+| 2026-2026 | 6 | 0 | 0 | 0 |
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -313,13 +316,13 @@ Discovery coverage: 1331 discovered · 1252 archived · 1054 publication ready �
 | ENERGY | energy-117-c | 2023 | ready |  |
 | ENERGY | energy-118-c | 2023 | ready |  |
 | ENERGY | energy-119-c | 2023 | ready |  |
-| ENERGY | energy-120-c | 2023 | blocked | archive_missing |
+| ENERGY | energy-120-c | 2023 | ready | archive_missing |
 | ENERGY | energy-121-c | 2023 | ready |  |
 | ENERGY | energy-122-c | 2023 | ready |  |
 | ENERGY | energy-123-c | 2023 | ready |  |
 | ENERGY | energy-124-c | 2023 | ready |  |
 | ENERGY | energy-125-c | 2023 | ready |  |
-| ENERGY | energy-126-c | 2023 | blocked | archive_missing |
+| ENERGY | energy-126-c | 2023 | ready | archive_missing |
 | ENERGY | energy-127-c | 2023 | ready |  |
 | ENERGY | energy-128-c | 2023 | ready |  |
 | ENERGY | energy-129-c | 2024 | ready |  |
@@ -327,7 +330,7 @@ Discovery coverage: 1331 discovered · 1252 archived · 1054 publication ready �
 | ENERGY | energy-131-c | 2024 | ready |  |
 | ENERGY | energy-132-c | 2024 | ready |  |
 | ENERGY | energy-133-c | 2024 | ready |  |
-| ENERGY | energy-134-c | 2024 | blocked | archive_missing |
+| ENERGY | energy-134-c | 2024 | ready | archive_missing |
 | ENERGY | energy-135-c | 2024 | ready |  |
 | ENERGY | energy-136-c | 2024 | ready |  |
 | ENERGY | energy-137-c | 2024 | ready |  |
@@ -360,10 +363,10 @@ Discovery coverage: 1331 discovered · 1252 archived · 1054 publication ready �
 | ERE | ere-84-2 | 2023 | ready |  |
 | ERE | ere-84-3 | 2023 | ready |  |
 | ERE | ere-84-4 | 2023 | ready |  |
-| ERE | ere-85-1 | 2023 | ready | ValueError: RePEc history requires a configured series code |
+| ERE | ere-85-1 | 2023 | ready | archive_content_gate_failed |
 | ERE | ere-85-2 | 2023 | ready |  |
-| ERE | ere-85-3-4 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
-| ERE | ere-86-1-2 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-85-3-4 | 2023 | blocked | archive_content_gate_failed |
+| ERE | ere-86-1-2 | 2023 | blocked | archive_content_gate_failed |
 | ERE | ere-86-3 | 2023 | ready |  |
 | ERE | ere-86-4 | 2023 | ready |  |
 | ERE | ere-87-1 | 2024 | ready |  |
@@ -374,7 +377,7 @@ Discovery coverage: 1331 discovered · 1252 archived · 1054 publication ready �
 | ERE | ere-87-3 | 2024 | ready |  |
 | ERE | ere-87-4 | 2024 | ready |  |
 | ERE | ere-87-5 | 2024 | ready |  |
-| ERE | ere-87-6 | 2024 | ready | ValueError: RePEc history requires a configured series code |
+| ERE | ere-87-6 | 2024 | ready | archive_content_gate_failed |
 | ERE | ere-87-7 | 2024 | ready |  |
 | ERE | ere-87-8 | 2024 | ready |  |
 | ERE | ere-87-9 | 2024 | ready |  |
@@ -539,7 +542,7 @@ Discovery coverage: 1331 discovered · 1252 archived · 1054 publication ready �
 | JEBO | jebo-210-c | 2023 | ready |  |
 | JEBO | jebo-211-c | 2023 | ready |  |
 | JEBO | jebo-212-c | 2023 | ready |  |
-| JEBO | jebo-213-c | 2023 | ready |  |
+| JEBO | jebo-213-c | 2023 | ready | possible_incomplete_volume: 2 articles collected vs current issue 26; needs offi |
 | JEBO | jebo-214-c | 2023 | ready |  |
 | JEBO | jebo-215-c | 2023 | ready |  |
 | JEBO | jebo-216-c | 2023 | ready |  |
@@ -909,7 +912,7 @@ Discovery coverage: 1331 discovered · 1252 archived · 1054 publication ready �
 | JOE | joe-238-1 | 2024 | ready |  |
 | JOE | joe-238-2 | 2024 | ready |  |
 | JOE | joe-239-1 | 2024 | ready |  |
-| JOE | joe-239-2 | 2024 | ready |  |
+| JOE | joe-239-2 | 2024 | ready | archive_missing |
 | JOE | joe-240-1 | 2024 | ready |  |
 | JOE | joe-240-2 | 2024 | ready |  |
 | JOE | joe-241-1 | 2024 | ready |  |

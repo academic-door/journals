@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-08-29T14:16:40+00:00",
+  "updated_at": "2026-08-30T04:33:14+00:00",
   "failures": [
     {
       "issue_id": "",
@@ -16,6 +16,21 @@
       "first_seen": "2026-08-29T11:25:53+00:00",
       "current_status": "baseline_open",
       "remediation_class": "audit_reconciliation"
+    },
+    {
+      "issue_id": "ecolecon-250-c",
+      "doi": "10.1016/j.ecolecon.2026.109169",
+      "title_en": "Valuing improvements in native fish populations from river restoration projects: Evidence from a choice experiment in the Murray-Darling Basin in Australia",
+      "audit": "public_data_strict",
+      "exact_failure": "ecolecon:10.1016/j.ecolecon.2026.109169: Translation changed numeric values: missing 18500000; added 18.5",
+      "error_type": "translation changed numeric values",
+      "normalized_reason": "translation changed numeric values: missing 18500000; added 18.5",
+      "severity": "error",
+      "scope": "article",
+      "baseline_reference": "184e07fd7e2b852e",
+      "first_seen": "2026-08-30T04:33:14+00:00",
+      "current_status": "baseline_open",
+      "remediation_class": "translation_fix"
     },
     {
       "issue_id": "qe-17-3",
