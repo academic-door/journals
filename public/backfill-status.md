@@ -1,8 +1,8 @@
 # Field journal history backfill status
 
-Updated: 2026-08-30T08:22:08+00:00
+Updated: 2026-08-30T14:20:53+00:00
 
-Discovery coverage: 1331 discovered · 1255 archived · 1057 publication ready · 76 missing · 198 source pending
+Discovery coverage: 1331 discovered · 1255 archived · 1058 publication ready · 76 missing · 197 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
@@ -311,7 +311,7 @@ Discovery coverage: 1331 discovered · 1255 archived · 1057 publication ready �
 | EJ | ej-136-674 | 2026 | source_pending | source authority pending official verification |
 | EJ | ej-136-675 | 2026 | source_pending | source authority pending official verification |
 | EJ | ej-136-676 | 2026 | source_pending | source authority pending official verification |
-| EJ | ej-136-677 | 2026 | source_pending |  |
+| EJ | ej-136-677 | 2026 | ready |  |
 | EJ | ej-136-678 | 2026 | source_pending | source authority pending official verification |
 | ENERGY | energy-117-c | 2023 | ready |  |
 | ENERGY | energy-118-c | 2023 | ready |  |
