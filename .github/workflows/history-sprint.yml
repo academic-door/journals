@@ -135,6 +135,15 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          if [[ -n "${{ inputs.issue_ids }}" ]]; then
+            python scripts/preflight_source_wave.py \
+              --manifest public/api/v1/gap-manifest.json \
+              --issue-ids "${{ inputs.issue_ids }}" \
+              --categories "${{ inputs.categories }}" \
+              --strategy-status "unvalidated" \
+              --source-run-id "${{ inputs.source_run_id }}" \
+              --output output/source-wave-precheck.json
+          fi
           translation_args=()
           if [[ "${{ inputs.translation_only }}" = "true" ]]; then
             translation_args+=(--translation-only)
