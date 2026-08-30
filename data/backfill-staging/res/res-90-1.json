@@ -7,15 +7,56 @@
   "issue": "1",
   "publication_date": "January 2023",
   "source_url": "https://academic.oup.com/restud/issue/90/1",
-  "retrieved_at": "2026-08-18T17:35:40+00:00",
-  "expected_article_count": 9,
-  "research_article_count": 9,
+  "retrieved_at": "2026-08-30T00:40:01+00:00",
+  "expected_article_count": 15,
+  "research_article_count": 15,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1093/restud/rdac023",
+      "paper_id": "doi:10.1093/restud/rdac011",
       "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Immigration and Redistribution",
+      "title_cn": "移民与再分配",
+      "authors": [
+        "Alberto Alesina",
+        "Armando Miano",
+        "Stefanie Stantcheva"
+      ],
+      "abstract_en": "Does immigration change support for redistribution? We design and conduct large-scale surveys and experiments in six countries to investigate how people perceive immigrants and how these perceptions influence their support for redistribution. We find striking misperceptions about the number and characteristics of immigrants. In all countries, respondents greatly overestimate the total number of immigrants, think immigrants are culturally and religiously more distant from them, and economically weaker—less educated, more unemployed, and more reliant on and favoured by government transfers—than they actually are. In the experimental part of our article, we show that simply making respondents think about immigration before asking questions about redistribution makes them support less redistribution, including actual donations to charities. The perception that immigrants are economically weaker and more likely to take advantage of the welfare system is strongly correlated with lower support for redistribution, much more so than the perceived cultural distance or the perceived share of immigrants. These findings are confirmed by further experimental evidence. Information about the true shares and origins of immigrants does not change support for redistribution. An anecdote about a “hard-working” immigrant has somewhat stronger effects but is unable to counteract the negative priming effect of making people think about immigration. Our results further suggest that narratives shape people’s views on immigration more deeply than hard facts.",
+      "abstract_cn": "移民会改变对再分配的支持吗？我们在六个国家设计并进行了大规模调查和实验，以研究人们如何看待移民，以及这些看法如何影响他们对再分配的支持。我们发现，关于移民数量和特征的认知存在严重偏差。在所有国家，受访者都大大高估了移民总数，认为移民在文化和宗教上与自己更为疏远，且经济上更弱——受教育程度更低、失业率更高、更依赖并更受政府转移支付青睐——而实际情况并非如此。在我们文章的实验部分，我们表明，仅仅让受访者在回答再分配问题之前思考移民问题，就会使他们减少对再分配的支持，包括对慈善机构的实际捐赠。认为移民经济上更弱且更可能利用福利制度的看法，与对再分配支持度降低密切相关，其相关性远高于感知的文化距离或感知的移民比例。这些发现得到了进一步实验证据的证实。关于移民真实比例和来源的信息并不会改变对再分配的支持。一个关于“勤劳”移民的轶事有稍强的影响，但无法抵消让人们思考移民问题所产生的负面启动效应。我们的结果进一步表明，叙事比硬性事实更能深刻塑造人们对移民的看法。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdac011",
+      "source_url": "https://doi.org/10.1093/restud/rdac011",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/90/1",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-26T07:38:41+00:00",
+        "source_hash": "d2e1294c88eb4101dbd3216c89668a1368559f01938322059558fe84fb4dcb9f"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdac023",
+      "sequence": 2,
       "source_sequence": 40,
       "article_type": "research-article",
       "title_en": "Measuring Belief-dependent Preferences without Data on Beliefs",
@@ -55,7 +96,7 @@
     },
     {
       "paper_id": "doi:10.1093/restud/rdac025",
-      "sequence": 2,
+      "sequence": 3,
       "source_sequence": 65,
       "article_type": "research-article",
       "title_en": "What is a Good School, and Can Parents Tell? Evidence on the Multidimensionality of School Output",
@@ -97,7 +138,7 @@
     },
     {
       "paper_id": "doi:10.1093/restud/rdac018",
-      "sequence": 3,
+      "sequence": 4,
       "source_sequence": 102,
       "article_type": "research-article",
       "title_en": "Are Marriage-Related Taxes and Social Security Benefits Holding Back Female Labour Supply?",
@@ -138,7 +179,7 @@
     },
     {
       "paper_id": "doi:10.1093/restud/rdac019",
-      "sequence": 4,
+      "sequence": 5,
       "source_sequence": 132,
       "article_type": "research-article",
       "title_en": "A World Equilibrium Model of the Oil Market",
@@ -178,8 +219,49 @@
       }
     },
     {
+      "paper_id": "doi:10.1093/restud/rdac026",
+      "sequence": 6,
+      "source_sequence": 165,
+      "article_type": "research-article",
+      "title_en": "Racial Diversity and Racial Policy Preferences: The Great Migration and Civil Rights",
+      "title_cn": "种族多样性与种族政策偏好：大迁徙与民权运动",
+      "authors": [
+        "Alvaro Calderon",
+        "Vasiliki Fouka",
+        "Marco Tabellini"
+      ],
+      "abstract_en": "Between 1940 and 1970, more than 4 million African Americans moved from the South to the North of the US, during the Second Great Migration. This same period witnessed the struggle and eventual success of the civil rights movement in ending institutionalized racial discrimination. This article shows that the Great Migration and support for civil rights are causally linked. Predicting Black inflows with a shift-share instrument, we find that the Great Migration raised support for the Democratic Party, increased Congress members’ propensity to promote civil rights legislation, and encouraged pro-civil rights activism outside the US South. We provide different pieces of evidence that support for civil rights was not confined to the Black electorate but was also shared by segments of the white population.",
+      "abstract_cn": "在1940至1970年间，超过4百万非裔美国人从美国南部迁往北部，即第二次大迁徙。同一时期，民权运动为终结制度化种族歧视而斗争并最终取得成功。本文表明，大迁徙与对民权运动的支持之间存在因果关系。利用转移份额工具预测黑人流入，我们发现大迁徙提高了对民主党的支持，增加了国会议员推动民权立法的倾向，并鼓励了美国南部以外的亲民权行动主义。我们提供了不同证据表明，对民权运动的支持不仅限于黑人选民，白人群体的部分成员也持有同样立场。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdac026",
+      "source_url": "https://doi.org/10.1093/restud/rdac026",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/90/1",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-26T07:38:40+00:00",
+        "source_hash": "86e63f57fd9562211d744834afe2040a11f6753fdf093a051d5d1b34be1b8811"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1093/restud/rdac015",
-      "sequence": 5,
+      "sequence": 7,
       "source_sequence": 201,
       "article_type": "research-article",
       "title_en": "Simple Adaptive Size-Exact Testing for Full-Vector and Subvector Inference in Moment Inequality Models",
@@ -219,7 +301,7 @@
     },
     {
       "paper_id": "doi:10.1093/restud/rdac021",
-      "sequence": 6,
+      "sequence": 8,
       "source_sequence": 229,
       "article_type": "research-article",
       "title_en": "Innovation and Strategic Network Formation",
@@ -258,7 +340,7 @@
     },
     {
       "paper_id": "doi:10.1093/restud/rdac014",
-      "sequence": 7,
+      "sequence": 9,
       "source_sequence": 261,
       "article_type": "research-article",
       "title_en": "The Emergence of Market Structure",
@@ -298,8 +380,90 @@
       }
     },
     {
+      "paper_id": "doi:10.1093/restud/rdac024",
+      "sequence": 10,
+      "source_sequence": 293,
+      "article_type": "research-article",
+      "title_en": "Affordable Housing and City Welfare",
+      "title_cn": "可负担住房与城市福利",
+      "authors": [
+        "Jack Favilukis",
+        "Pierre Mabille",
+        "Stijn Van Nieuwerburgh"
+      ],
+      "abstract_en": "Housing affordability is the main policy challenge for most large cities in the world. Zoning changes, rent control, housing vouchers, and tax credits are the main levers employed by policymakers. How effective are they at combatting the affordability crisis? We build a dynamic stochastic spatial equilibrium model to evaluate the effect of these policies on the well-being of its citizens. The model endogenizes house prices, rents, construction, labour supply, output, income, and wealth inequality, the location decisions of households within the city as well as inter-city migration. Its main novel features are risk, risk aversion, and incomplete risk-sharing. We calibrate the model to the New York metropolitan statistical area. Housing affordability policies carry substantial insurance value but affect aggregate housing and labour supply and cause misallocation in labour and housing markets. Housing affordability policies that enhance access to this insurance especially for the neediest households create substantial net welfare gains.",
+      "abstract_cn": "住房可负担性是世界上大多数大城市面临的主要政策挑战。分区变更、租金管制、住房券和税收抵免是政策制定者采用的主要手段。它们在应对可负担性危机方面效果如何？我们构建了一个动态随机空间均衡模型来评估这些政策对市民福祉的影响。该模型内生了房价、租金、建设、劳动力供给、产出、收入和财富不平等、城市内家庭区位选择以及城市间迁移。其主要新颖特征在于风险、风险厌恶和不完全风险分担。我们将模型校准至纽约大都市统计区。住房可负担性政策具有显著的保险价值，但会影响总体住房和劳动力供给，并导致劳动力和住房市场的错配。增强最贫困家庭获得此类保险机会的住房可负担性政策能创造可观的净福利收益。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdac024",
+      "source_url": "https://doi.org/10.1093/restud/rdac024",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/90/1",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-26T07:38:40+00:00",
+        "source_hash": "e1801bf3c8185a03edf29fb641352743cc91e280913709aa68eec76527b99b36"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdac020",
+      "sequence": 11,
+      "source_sequence": 331,
+      "article_type": "research-article",
+      "title_en": "Slicing the Pie: Quantifying the Aggregate and Distributional Effects of Trade",
+      "title_cn": "分割蛋糕：量化贸易的总体与分配效应",
+      "authors": [
+        "Simon Galle",
+        "Andrés Rodríguez-Clare",
+        "Moises Yi"
+      ],
+      "abstract_en": "We develop a multi-sector gravity model with heterogeneous workers to quantify the aggregate and group-level welfare effects of trade. The model generalizes the specific-factors intuition to a setting with labour reallocation, leads to a parsimonious formula for the group-level welfare effects from trade, and nests the aggregate results in Arkolakis, Costinot and Rodríguez-Clare (2012, “New Trade Models, Same Old Gains?”, American Economic Review, 102, 94–130). We estimate the model using the structural relationship between China-shock driven changes in manufacturing employment and average earnings across US groups defined as commuting zones. We find that the China shock increases average welfare but some groups experience losses as high as four times the average gain. However, adjusting for plausible measures of inequality aversion barely affects the welfare gains. We also develop and estimate an extension of the model that endogenizes labour force participation and unemployment, finding similar welfare effects from the China shock.",
+      "abstract_cn": "我们构建了一个包含异质性工人的多部门引力模型，以量化贸易的总体和群体层面福利效应。该模型将特定要素直觉推广到包含劳动力重新配置的设定中，得出了群体层面贸易福利效应的简约公式，并嵌套了Arkolakis、Costinot和Rodríguez-Clare（2012，“新贸易模型，同样的旧收益？”，《美国经济评论》，102，94-130）的总体结果。我们利用中国冲击导致的制造业就业变化与美国按通勤区划分的群体平均收入之间的结构关系来估计该模型。我们发现中国冲击提高了平均福利，但一些群体的损失高达平均收益的四倍。然而，调整合理的厌恶不平等指标后，福利收益几乎不受影响。我们还开发并估计了模型的扩展版本，将劳动力参与率和失业率内生化，发现中国冲击的福利效应相似。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdac020",
+      "source_url": "https://doi.org/10.1093/restud/rdac020",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/90/1",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-26T07:38:40+00:00",
+        "source_hash": "24d5e27f5edf9dcc92c7f604d7bce99aec650be6bb1a85a12a8303c9fa012852"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1093/restud/rdac013",
-      "sequence": 8,
+      "sequence": 12,
       "source_sequence": 376,
       "article_type": "research-article",
       "title_en": "Using Bid Rotation and Incumbency to Detect Collusion: A Regression Discontinuity Approach",
@@ -341,7 +505,7 @@
     },
     {
       "paper_id": "doi:10.1093/restud/rdac017",
-      "sequence": 9,
+      "sequence": 13,
       "source_sequence": 404,
       "article_type": "research-article",
       "title_en": "Should Central Banks Issue Digital Currency?",
@@ -378,6 +542,85 @@
         "matched_terms": [],
         "source": "academic-door-rules-v1"
       }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdac022",
+      "sequence": 14,
+      "source_sequence": 432,
+      "article_type": "research-article",
+      "title_en": "Behaviour within a Clinical Trial and Implications for Mammography Guidelines",
+      "title_cn": "临床试验中的行为及其对乳腺X线摄影指南的启示",
+      "authors": [
+        "Amanda E Kowalski"
+      ],
+      "abstract_en": "Mammography guidelines have weakened in response to evidence that mammograms diagnose breast cancers that would never eventually cause symptoms, a phenomenon called “overdiagnosis.” Given concerns about overdiagnosis, instead of recommending mammograms, US guidelines encourage women aged 40–49 to get them as they see fit. To assess whether these guidelines target women effectively, I propose an approach that examines mammography behaviour within an influential clinical trial that followed participants long enough to find overdiagnosis. I find that women who are more likely to receive mammograms are healthier and have higher socioeconomic status. More importantly, I find that the 20-year level of overdiagnosis is at least 3.5 times higher among women who are most likely to receive mammograms. At least 36$\\%$ of their cancers are overdiagnosed. These findings imply that US guidelines encourage mammograms among healthier women who are more likely to be overdiagnosed by them. Guidelines in other countries do not.",
+      "abstract_cn": "乳腺X线摄影指南因证据显示乳腺X线摄影能诊断出永远不会引起症状的乳腺癌（即“过度诊断”现象）而有所弱化。鉴于对过度诊断的担忧，美国指南不再推荐乳腺X线摄影，而是鼓励年龄在40-49岁的女性根据自身情况接受检查。为评估这些指南是否有效针对女性，我提出了一种方法，在一项具有影响力的临床试验中考察乳腺X线摄影行为，该试验随访参与者时间足够长以发现过度诊断。我发现，更可能接受乳腺X线摄影的女性更健康且社会经济地位更高。更重要的是，我发现20年水平的过度诊断在最可能接受乳腺X线摄影的女性中至少高出3.5倍。她们至少36$\\%$的癌症属于过度诊断。这些发现表明，美国指南鼓励更健康、更可能被过度诊断的女性接受乳腺X线摄影。其他国家的指南则不然。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdac022",
+      "source_url": "https://doi.org/10.1093/restud/rdac022",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/90/1",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-26T07:38:42+00:00",
+        "source_hash": "a859e10b967cacdfd63305f10e8feb61b9d09e4dfcf65e4b5752aecf30662410"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdac016",
+      "sequence": 15,
+      "source_sequence": 463,
+      "article_type": "research-article",
+      "title_en": "How Do Inheritances Shape Wealth Inequality? Theory and Evidence from Sweden",
+      "title_cn": "遗产如何影响财富不平等？来自瑞典的理论与证据",
+      "authors": [
+        "Arash Nekoei",
+        "David Seim"
+      ],
+      "abstract_en": "This article aims to measure and understand the role of inheritances in shaping wealth inequality. We use a quasi-experimental design and Swedish administrative data to document that the average heir depletes her inheritance within a decade while the inheritances of wealthy heirs remain intact. These different depletion rates are not due to different consumption or labour supply responses but due to different rates of return on inherited wealth. Upon their receipt, inheritances reduce relative measures of wealth inequality, such as top shares or percentile ratios. Theoretically, this reduction in inequality could be due to either a compressed inheritance distribution or similar chances of having wealthy parents (high intergenerational mobility). Empirically, the first force is more significant in Sweden. Within a decade, however, the effect is reversed: inheritances increase wealth inequality since the different depletion rates widen the inequality in inherited wealth over time. This implies that inheritance taxation can reduce long run wealth inequality only through the taxation of wealthy heirs.",
+      "abstract_cn": "本文旨在衡量并理解遗产在塑造财富不平等中的作用。我们利用准实验设计和瑞典行政数据，记录到普通继承人会在十年内耗尽遗产，而富裕继承人的遗产则保持完整。这些不同的消耗率并非源于不同的消费或劳动供给反应，而是源于继承财富的不同回报率。在收到遗产时，遗产降低了财富不平等的相对衡量指标，如最高份额或百分位比率。理论上，这种不平等的减少可能源于压缩的遗产分配或拥有富裕父母的相似机会（高代际流动性）。实证上，第一种力量在瑞典更为显著。然而，在十年内，效应发生逆转：遗产增加了财富不平等，因为不同的消耗率随时间扩大了继承财富的不平等。这意味着遗产税只有通过对富裕继承人征税才能减少长期财富不平等。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdac016",
+      "source_url": "https://doi.org/10.1093/restud/rdac016",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/90/1",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-26T07:38:42+00:00",
+        "source_hash": "99a9478d9befb1c1415d0e780bdcf6f78d90bf3e87bc1ecaa41ec4c8baa03e73"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     }
   ],
   "quality": {
@@ -389,45 +632,45 @@
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 9,
-    "authors_complete": 9,
-    "abstract_en_complete": 9,
-    "translation_complete": 9,
+    "doi_complete": 15,
+    "authors_complete": 15,
+    "abstract_en_complete": 15,
+    "translation_complete": 15,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
       "crossref_provisional_roster"
     ],
-    "official_item_count": 9,
-    "publishable_item_count": 9,
+    "official_item_count": 15,
+    "publishable_item_count": 15,
     "content_counts": {
-      "official_items": 9,
-      "observed_items": 9,
-      "publishable_items": 9,
-      "research_articles": 9,
+      "official_items": 15,
+      "observed_items": 15,
+      "publishable_items": 15,
+      "research_articles": 15,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 9
+      "catalog_content_items": 15
     }
   },
   "source_status": "source_pending",
   "publication_state": "source_pending",
   "content_counts": {
-    "official_items": 9,
-    "observed_items": 9,
-    "publishable_items": 9,
-    "research_articles": 9,
+    "official_items": 15,
+    "observed_items": 15,
+    "publishable_items": 15,
+    "research_articles": 15,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 9
+    "catalog_content_items": 15
   },
   "issue_label": "Vol. 90 · No. 1",
   "content_status": "complete"

@@ -7,9 +7,9 @@
   "issue": "3",
   "publication_date": "May 2023",
   "source_url": "https://academic.oup.com/restud/issue/90/3",
-  "retrieved_at": "2026-08-22T22:57:58+00:00",
-  "expected_article_count": 13,
-  "research_article_count": 13,
+  "retrieved_at": "2026-08-30T00:40:25+00:00",
+  "expected_article_count": 10,
+  "research_article_count": 10,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
@@ -54,49 +54,8 @@
       }
     },
     {
-      "paper_id": "doi:10.1093/restud/rdac043",
-      "sequence": 2,
-      "source_sequence": 1041,
-      "article_type": "research-article",
-      "title_en": "Wall Street and Silicon Valley: A Delicate Interaction",
-      "title_cn": "华尔街与硅谷：微妙的互动",
-      "authors": [
-        "George-Marios Angeletos",
-        "Guido Lorenzoni",
-        "Alessandro Pavan"
-      ],
-      "abstract_en": "Entrepreneurs and venture capitalists are concerned about investors’ beliefs in asset markets because these beliefs shape the value of a potential IPO and the possibility to expand. Investors’ beliefs, on the other hand, can be influenced by start-up activity insofar as the latter contains valuable information about eventual profitability. This two-way feedback is shown to generate excessive, non-fundamental, waves in start-up activity, IPOs, and asset prices. Policies that “lean against the wind” can improve welfare, without requiring an informational advantage by the government.",
-      "abstract_cn": "企业家和风险投资家关注投资者在资产市场中的信念，因为这些信念决定了潜在IPO的价值以及扩张的可能性。另一方面，投资者的信念可能受到初创活动的影响，因为初创活动包含有关最终盈利能力的宝贵信息。这种双向反馈被证明会在初创活动、IPO和资产价格中产生过度的、非基本的波动。‘逆风而行’的政策可以提高福利，而不需要政府拥有信息优势。",
-      "abstract_snippet_en": "",
-      "doi": "10.1093/restud/rdac043",
-      "source_url": "https://doi.org/10.1093/restud/rdac043",
-      "publication_date": "2023",
-      "sources": {
-        "issue": "https://academic.oup.com/restud/issue/90/3",
-        "roster": "crossref:issn:0034-6527",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-18T17:37:05+00:00",
-        "source_hash": "7ebfb235e02ff0e49553cb0ab1147838c101dc20e77d79678a0dd29a88b11465"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
       "paper_id": "doi:10.1093/restud/rdac044",
-      "sequence": 3,
+      "sequence": 2,
       "source_sequence": 1084,
       "article_type": "research-article",
       "title_en": "Matching in Dynamic Imbalanced Markets",
@@ -137,7 +96,7 @@
     },
     {
       "paper_id": "doi:10.1093/restud/rdac054",
-      "sequence": 4,
+      "sequence": 3,
       "source_sequence": 1125,
       "article_type": "research-article",
       "title_en": "Infrequent Random Portfolio Decisions in an Open Economy Model",
@@ -177,50 +136,8 @@
       }
     },
     {
-      "paper_id": "doi:10.1093/restud/rdac046",
-      "sequence": 5,
-      "source_sequence": 1155,
-      "article_type": "research-article",
-      "title_en": "Multinomial Logit Processes and Preference Discovery: Inside and Outside the Black Box",
-      "title_cn": "多项Logit过程与偏好发现：黑箱内外",
-      "authors": [
-        "Simone Cerreia-Vioglio",
-        "Fabio Maccheroni",
-        "Massimo Marinacci",
-        "Aldo Rustichini"
-      ],
-      "abstract_en": "We provide two characterizations, one axiomatic and the other neuro-computational, of the dependence of choice probabilities on deadlines, within the widely used softmax representation $$\\begin{align*} p_{t}\\left( a,A\\right) =\\dfrac{e^{\\frac{u\\left( a\\right) }{\\lambda\\left( t\\right) }+\\alpha\\left( a\\right) }}{\\sum_{b\\in A}e^{\\frac{u\\left( b\\right) }{\\lambda\\left( t\\right) }+\\alpha\\left( b\\right) }}, \\end{align*}$$ where $p_{t}\\left( a,A\\right)$ is the probability that alternative $a$ is selected from the set $A$ of feasible alternatives if $t$ is the time available to decide, $\\lambda$ is a time-dependent noise parameter measuring the unit cost of information, $u$ is a time-independent utility function, and $\\alpha$ is an alternative-specific bias that determines the initial choice probabilities (reflecting prior information and memory anchoring). Our axiomatic analysis provides a behavioural foundation of softmax (also known as Multinomial Logit Model when $\\alpha$ is constant). Our neuro-computational derivation provides a biologically inspired algorithm that may explain the emergence of softmax in choice behaviour. Jointly, the two approaches provide a thorough understanding of softmaximization in terms of internal causes (neuro-physiological mechanisms) and external effects (testable implications).",
-      "abstract_cn": "我们提供了两种刻画，一种是公理性的，另一种是神经计算性的，关于选择概率对截止时间的依赖性，在广泛使用的softmax表示中：p_t(a,A)=e^{u(a)/λ(t)+α(a)}/∑_{b∈A}e^{u(b)/λ(t)+α(b)}，其中p_t(a,A)是在给定决策时间t时从可行备选集合A中选择备选a的概率，λ是依赖于时间的噪声参数，衡量信息的单位成本，u是独立于时间的效用函数，α是决定初始选择概率的备选特定偏差（反映先验信息和记忆锚定）。我们的公理分析为softmax（当α为常数时也称为多项Logit模型）提供了行为基础。我们的神经计算推导提供了一种受生物学启发的算法，可能解释softmax在选择行为中的出现。两种方法共同提供了对softmax最大化在内部原因（神经生理机制）和外部效应（可检验的含义）方面的全面理解。",
-      "abstract_snippet_en": "",
-      "doi": "10.1093/restud/rdac046",
-      "source_url": "https://doi.org/10.1093/restud/rdac046",
-      "publication_date": "2023",
-      "sources": {
-        "issue": "https://academic.oup.com/restud/issue/90/3",
-        "roster": "crossref:issn:0034-6527",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-18T17:37:13+00:00",
-        "source_hash": "6ce76c8e64c243662b5f51f3b353f5a43f3b42b4ae9cc90bb61da727c3470cc5"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
       "paper_id": "doi:10.1093/restud/rdac060",
-      "sequence": 6,
+      "sequence": 4,
       "source_sequence": 1195,
       "article_type": "research-article",
       "title_en": "Estimating Intergenerational and Assortative Processes in Extended Family Data",
@@ -261,7 +178,7 @@
     },
     {
       "paper_id": "doi:10.1093/restud/rdac051",
-      "sequence": 7,
+      "sequence": 5,
       "source_sequence": 1228,
       "article_type": "research-article",
       "title_en": "Price Discrimination and Public Policy in the US College Market",
@@ -300,7 +217,7 @@
     },
     {
       "paper_id": "doi:10.1093/restud/rdac048",
-      "sequence": 8,
+      "sequence": 6,
       "source_sequence": 1304,
       "article_type": "research-article",
       "title_en": "Asset Prices and Unemployment Fluctuations: A Resolution of the Unemployment Volatility Puzzle",
@@ -342,7 +259,7 @@
     },
     {
       "paper_id": "doi:10.1093/restud/rdac053",
-      "sequence": 9,
+      "sequence": 7,
       "source_sequence": 1358,
       "article_type": "research-article",
       "title_en": "Sentimental Business Cycles",
@@ -383,7 +300,7 @@
     },
     {
       "paper_id": "doi:10.1093/restud/rdac047",
-      "sequence": 10,
+      "sequence": 8,
       "source_sequence": 1394,
       "article_type": "research-article",
       "title_en": "Consumer Search and Prices in the Automobile Market",
@@ -423,47 +340,8 @@
       }
     },
     {
-      "paper_id": "doi:10.1093/restud/rdac052",
-      "sequence": 11,
-      "source_sequence": 1441,
-      "article_type": "research-article",
-      "title_en": "Reputation Building under Observational Learning",
-      "title_cn": "观察学习下的声誉建立",
-      "authors": [
-        "Harry Pei"
-      ],
-      "abstract_en": "A patient seller interacts with a sequence of myopic consumers. Each period, the seller chooses the quality of his product, and a consumer decides whether to trust the seller after she observes the seller’s actions in the last $K$ periods (limited memory) and at least one previous consumer’s action (observational learning). However, the consumer cannot observe the seller’s action in the current period. With positive probability, the seller is a commitment type who plays his Stackelberg action in every period. I show that under limited memory and observational learning, consumers are concerned that the seller will not play his Stackelberg action when he has a positive reputation and will play his Stackelberg action after he has lost his reputation. Such a concern leads to equilibria where the seller receives a low payoff from building a reputation. I also show that my reputation failure result hinges on consumers’ observational learning.",
-      "abstract_cn": "一位耐心的卖家与一系列短视的消费者互动。在每个时期，卖家选择其产品质量，而消费者在观察到卖家过去$K$期的行为（有限记忆）以及至少一位先前消费者的行为（观察学习）后，决定是否信任卖家。然而，消费者无法观察到卖家当前时期的行为。以正概率存在一种承诺型卖家，他在每个时期都采取其斯塔克尔伯格行动。我证明，在有限记忆和观察学习下，消费者担心当卖家拥有正声誉时不会采取其斯塔克尔伯格行动，而在失去声誉后会采取其斯塔克尔伯格行动。这种担忧导致了卖家从建立声誉中获得低收益的均衡。我还证明，我的声誉失败结果取决于消费者的观察学习。",
-      "abstract_snippet_en": "",
-      "doi": "10.1093/restud/rdac052",
-      "source_url": "https://doi.org/10.1093/restud/rdac052",
-      "publication_date": "2023",
-      "sources": {
-        "issue": "https://academic.oup.com/restud/issue/90/3",
-        "roster": "crossref:issn:0034-6527",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-18T17:37:28+00:00",
-        "source_hash": "9c571f0a8ed3db2b4eaa88994f56acd1a335271a87403bc89ab7bcbc2ed7b1a0"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
       "paper_id": "doi:10.1093/restud/rdac055",
-      "sequence": 12,
+      "sequence": 9,
       "source_sequence": 1470,
       "article_type": "research-article",
       "title_en": "We Are All Behavioural, More, or Less: A Taxonomy of Consumer Decision-Making",
@@ -503,7 +381,7 @@
     },
     {
       "paper_id": "doi:10.1093/restud/rdac042",
-      "sequence": 13,
+      "sequence": 10,
       "source_sequence": 1535,
       "article_type": "research-article",
       "title_en": "Hours Constraints, Occupational Choice, and Gender: Evidence from Medical Residents",
@@ -550,45 +428,45 @@
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 13,
-    "authors_complete": 13,
-    "abstract_en_complete": 13,
-    "translation_complete": 13,
+    "doi_complete": 10,
+    "authors_complete": 10,
+    "abstract_en_complete": 10,
+    "translation_complete": 10,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
       "crossref_provisional_roster"
     ],
-    "official_item_count": 13,
-    "publishable_item_count": 13,
+    "official_item_count": 10,
+    "publishable_item_count": 10,
     "content_counts": {
-      "official_items": 13,
-      "observed_items": 13,
-      "publishable_items": 13,
-      "research_articles": 13,
+      "official_items": 10,
+      "observed_items": 10,
+      "publishable_items": 10,
+      "research_articles": 10,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 13
+      "catalog_content_items": 10
     }
   },
   "source_status": "source_pending",
   "publication_state": "source_pending",
   "content_counts": {
-    "official_items": 13,
-    "observed_items": 13,
-    "publishable_items": 13,
-    "research_articles": 13,
+    "official_items": 10,
+    "observed_items": 10,
+    "publishable_items": 10,
+    "research_articles": 10,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 13
+    "catalog_content_items": 10
   },
   "issue_label": "Vol. 90 · No. 3",
   "content_status": "complete"

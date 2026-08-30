@@ -7,9 +7,9 @@
   "issue": "6",
   "publication_date": "November 2023",
   "source_url": "https://academic.oup.com/restud/issue/90/6",
-  "retrieved_at": "2026-08-22T23:00:50+00:00",
-  "expected_article_count": 11,
-  "research_article_count": 11,
+  "retrieved_at": "2026-08-30T00:40:58+00:00",
+  "expected_article_count": 13,
+  "research_article_count": 13,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
@@ -98,8 +98,49 @@
       }
     },
     {
-      "paper_id": "doi:10.1093/restud/rdad009",
+      "paper_id": "doi:10.1093/restud/rdad004",
       "sequence": 3,
+      "source_sequence": 2763,
+      "article_type": "research-article",
+      "title_en": "Inference for Linear Conditional Moment Inequalities",
+      "title_cn": "线性条件矩不等式的推断",
+      "authors": [
+        "Isaiah Andrews",
+        "Jonathan Roth",
+        "Ariel Pakes"
+      ],
+      "abstract_en": "We show that moment inequalities in a wide variety of economic applications have a particular linear conditional structure. We use this structure to construct uniformly valid confidence sets that remain computationally tractable even in settings with nuisance parameters. We first introduce least-favorable critical values which deliver non-conservative tests if all moments are binding. Next, we introduce a novel conditional inference approach which ensures a strong form of insensitivity to slack moments. Our recommended approach is a hybrid technique which combines desirable aspects of the least favorable and conditional methods. The hybrid approach performs well in simulations calibrated to Wollmann (2018, American Economic Review, 108, 1364–1406), with favorable power and computational time comparisons relative to existing alternatives.",
+      "abstract_cn": "我们表明，在广泛的经济应用中，矩不等式具有特定的线性条件结构。我们利用这一结构构建了均匀有效的置信集，即使在存在干扰参数的情况下，这些置信集在计算上仍然易于处理。我们首先引入了最不利的临界值，当所有矩都约束时，这些临界值能提供非保守的检验。接下来，我们引入了一种新颖的条件推断方法，该方法确保了对松弛矩的强形式不敏感性。我们推荐的方法是一种混合技术，它结合了最不利方法和条件方法的理想特性。在模拟中，混合方法在针对Wollmann（2018，《美国经济评论》，108，1364-1406）的校准中表现良好，与现有替代方法相比，在功效和计算时间方面具有优势。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdad004",
+      "source_url": "https://doi.org/10.1093/restud/rdad004",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/90/6",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T14:06:45+00:00",
+        "source_hash": "890ad272ecead6ce91d2da3a1a55c6c404a78e27c078980e42273aaed379ef96"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdad009",
+      "sequence": 4,
       "source_sequence": 2792,
       "article_type": "research-article",
       "title_en": "Stalled Racial Progress and Japanese Trade in the 1970s and 1980s",
@@ -138,8 +179,89 @@
       }
     },
     {
+      "paper_id": "doi:10.1093/restud/rdad003",
+      "sequence": 5,
+      "source_sequence": 2822,
+      "article_type": "research-article",
+      "title_en": "Bond Premium Cyclicality and Liquidity Traps",
+      "title_cn": "债券溢价周期性与流动性陷阱",
+      "authors": [
+        "Nicolas Caramp",
+        "Sanjay R Singh"
+      ],
+      "abstract_en": "Safe asset shortages can expose an economy to liquidity traps. The nature of these traps is determined by the cyclicality of the bond premium. A counter-cyclical bond premium opens the possibility of expectations-driven liquidity traps in which small issuances of government debt crowd out private debt and reduce output. In contrast, when the bond premium is pro-cyclical and the economy is in a liquidity trap, government debt is expansionary. In the data, we find evidence of a counter-cyclical bond premium. Large interventions can prevent the emergence of self-fulfilling traps, but they require sufficient fiscal capacity. In a quantitative model calibrated to the Great Recession, a promise to increase the government debt-to-GDP ratio by 20 percentage points precludes the possibility of self-fulfilling traps.",
+      "abstract_cn": "安全资产短缺可能使经济陷入流动性陷阱。这些陷阱的性质取决于债券溢价的周期性。逆周期的债券溢价开启了预期驱动的流动性陷阱的可能性，在这种陷阱中，少量政府债务发行会挤出私人债务并降低产出。相反，当债券溢价是顺周期的且经济处于流动性陷阱中时，政府债务具有扩张性。在数据中，我们发现了逆周期债券溢价的证据。大规模干预可以防止自我实现陷阱的出现，但这需要足够的财政能力。在一个以“大衰退”为校准对象的定量模型中，承诺将政府债务与GDP之比提高20个百分点可以排除自我实现陷阱的可能性。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdad003",
+      "source_url": "https://doi.org/10.1093/restud/rdad003",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/90/6",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T14:06:47+00:00",
+        "source_hash": "f3eed861a7cfa75c77171413e80f472088fff806bf969dfd8fcbca5f6c0b59dd"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdad012",
+      "sequence": 6,
+      "source_sequence": 2880,
+      "article_type": "research-article",
+      "title_en": "The Effects of Partial Employment Protection Reforms: Evidence from Italy",
+      "title_cn": "部分就业保护改革的影响：来自意大利的证据",
+      "authors": [
+        "Diego Daruich",
+        "Sabrina Di Addario",
+        "Raffaele Saggio"
+      ],
+      "abstract_en": "We combine matched employer–employee data with firms’ financial records to study a 2001 Italian reform that lifted constraints on the employment of temporary contract workers while maintaining rigid employment protection regulations for employees hired under permanent contracts. Exploiting the staggered implementation of the reform across different collective bargaining agreements, we find that this policy change led to an increase in the share of temporary contracts but failed to raise employment. The reform had both winners and losers. Firms are the main winners as the reform was successful in decreasing labor costs, leading to higher profits. By contrast, young workers are the main losers since their earnings were substantially depressed following the policy change. Rent-sharing estimates show that temporary workers receive only two-thirds of the rents shared by firms with permanent workers, helping explain most of the labor costs and earnings reductions caused by the reform.",
+      "abstract_cn": "我们将匹配的雇主-雇员数据与企业财务记录相结合，研究2001年意大利的一项改革，该改革解除了对临时合同工人就业的限制，同时维持了对永久合同雇员严格的就业保护规定。利用不同集体谈判协议中改革的分阶段实施，我们发现这一政策变化导致临时合同份额增加，但未能提高就业。改革既有赢家也有输家。企业是主要赢家，因为改革成功降低了劳动力成本，从而提高了利润。相比之下，年轻工人是主要输家，因为政策变化后他们的收入大幅下降。租金分享估计显示，临时工人仅获得企业与永久工人分享租金的三分之二，这有助于解释改革造成的大部分劳动力成本和收入减少。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdad012",
+      "source_url": "https://doi.org/10.1093/restud/rdad012",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/90/6",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T14:06:49+00:00",
+        "source_hash": "0b204fb283db5cbbad582c26066a694402ea131b61f1332a024d92c3241cd38d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1093/restud/rdad011",
-      "sequence": 4,
+      "sequence": 7,
       "source_sequence": 2943,
       "article_type": "research-article",
       "title_en": "Down the River: Glyphosate Use in Agriculture and Birth Outcomes of Surrounding Populations",
@@ -179,50 +301,8 @@
       }
     },
     {
-      "paper_id": "doi:10.1093/restud/rdad007",
-      "sequence": 5,
-      "source_sequence": 2982,
-      "article_type": "research-article",
-      "title_en": "Regional Consumption Responses and the Aggregate Fiscal Multiplier",
-      "title_cn": "区域消费反应与总财政乘数",
-      "authors": [
-        "Bill Dupor",
-        "Marios Karabarbounis",
-        "Marianna Kudlyak",
-        "M Saif Mehkari"
-      ],
-      "abstract_en": "We use regional variation in the American Recovery and Reinvestment Act (2009–12) to analyse the effect of government spending on consumer spending. Our consumption data come from household-level retail purchases in the Nielsen scanner data and auto purchases from Equifax credit balances. We estimate that a $1 increase in county-level government spending increases local non-durable consumer spending by $0.29 and local auto spending by $0.09. We translate the regional consumption responses to an aggregate fiscal multiplier using a multi-region, new Keynesian model with heterogeneous agents, incomplete markets, and trade linkages. Our model is consistent with the estimated positive local multiplier, a result that distinguishes our incomplete markets model from models with complete markets. At the zero lower bound, the aggregate consumption multiplier is twice as large as the local multiplier because trade linkages propagate the effect of government spending across regions.",
-      "abstract_cn": "我们利用《美国复苏与再投资法案》（2009-12）的区域差异来分析政府支出对消费者支出的影响。我们的消费数据来自尼尔森扫描数据中的家庭零售购买以及Equifax信贷余额中的汽车购买。我们估计，县级政府支出每增加1美元，当地非耐用品消费支出增加0.29美元，当地汽车支出增加0.09美元。我们使用一个包含异质性主体、不完全市场和贸易联系的多区域新凯恩斯模型，将区域消费反应转化为总财政乘数。我们的模型与估计的正向局部乘数一致，这一结果将我们的不完全市场模型与完全市场模型区分开来。在零下限时，总消费乘数是局部乘数的两倍，因为贸易联系将政府支出的效应传播到各个区域。",
-      "abstract_snippet_en": "",
-      "doi": "10.1093/restud/rdad007",
-      "source_url": "https://doi.org/10.1093/restud/rdad007",
-      "publication_date": "2023",
-      "sources": {
-        "issue": "https://academic.oup.com/restud/issue/90/6",
-        "roster": "crossref:issn:0034-6527",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-18T17:40:27+00:00",
-        "source_hash": "0fa68eefb2d72a0c4bbdc1f0b9e7dce2dcfc343fe259c6513591f11461eea103"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
       "paper_id": "doi:10.1093/restud/rdad017",
-      "sequence": 6,
+      "sequence": 8,
       "source_sequence": 3022,
       "article_type": "research-article",
       "title_en": "Risk Classification in Insurance Markets with Risk and Preference Heterogeneity",
@@ -263,7 +343,7 @@
     },
     {
       "paper_id": "doi:10.1093/restud/rdad010",
-      "sequence": 7,
+      "sequence": 9,
       "source_sequence": 3119,
       "article_type": "research-article",
       "title_en": "Central Bank Balance Sheet Policies Without Rational Expectations",
@@ -302,12 +382,54 @@
       }
     },
     {
+      "paper_id": "doi:10.1093/restud/rdad026",
+      "sequence": 10,
+      "source_sequence": 3153,
+      "article_type": "research-article",
+      "title_en": "Credit Access, Selection, and Incentives in a Market for Asset-Collateralized Loans: Evidence From Kenya",
+      "title_cn": "资产抵押贷款市场中的信贷获取、选择与激励：来自肯尼亚的证据",
+      "authors": [
+        "William Jack",
+        "Michael Kremer",
+        "Joost de Laat",
+        "Tavneet Suri"
+      ],
+      "abstract_en": "We study the potential for asset collateralization to expand access to credit in rural Kenya. Increasing the share of a loan for a durable agricultural asset that is collateralized by the physical asset itself (from 0 to 96%) while reducing the share backed by financial assets increases loan take-up considerably, with only a very limited impact on repayment behavior and the lender's profitability. A Karlan–Zinman test finds evidence of small and marginally significant selection effects in some specifications but no evidence of moral hazard. We find no evidence that joint versus individual liability affects take-up or repayment. Loans had real impacts on investment, milk sales, and girls’ school enrollment. The lender, a savings and credit cooperative, responded to the study results by offering 80% asset-collateralized loans.",
+      "abstract_cn": "我们研究了资产抵押化在扩大肯尼亚农村信贷获取方面的潜力。将耐用农业资产贷款中由实物资产本身抵押的比例（从0提高到96%），同时降低金融资产抵押的比例，会显著提高贷款接受率，而对还款行为和贷款人盈利能力的影响非常有限。Karlan–Zinman检验在某些设定中发现了较小且边际显著的选择效应，但没有发现道德风险的证据。我们没有发现联合责任与个人责任对贷款接受率或还款有影响的证据。贷款对投资、牛奶销售和女童入学率产生了实际影响。贷款机构，一家储蓄和信贷合作社，根据研究结果提供了80%的资产抵押贷款。",
+      "abstract_snippet_en": "",
+      "doi": "10.1093/restud/rdad026",
+      "source_url": "https://doi.org/10.1093/restud/rdad026",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://academic.oup.com/restud/issue/90/6",
+        "roster": "crossref:issn:0034-6527",
+        "metadata": "crossref",
+        "abstract_en": "crossref"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T14:06:52+00:00",
+        "source_hash": "99f85e15b179bd063848522ede0d16a7d39a5f9dffd077c754727b7d00fc88d0"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1093/restud/rdad014",
-      "sequence": 8,
+      "sequence": 11,
       "source_sequence": 3186,
       "article_type": "research-article",
       "title_en": "Left-Digit Bias at Lyft",
-      "title_cn": "",
+      "title_cn": "Lyft的左位数偏差",
       "authors": [
         "John A List",
         "Ian Muir",
@@ -315,7 +437,7 @@
         "Gregory Sun"
       ],
       "abstract_en": "Left-digit bias (or 99-cent pricing) has been discussed extensively in economics, psychology, and marketing. Despite this, we show that the rideshare company, Lyft, was not using a 99-cent pricing strategy prior to our study. Based on observational data from over 600 million Lyft sessions followed by a field experiment conducted with 21 million Lyft passengers, we provide evidence of large discontinuities in demand at dollar values. Approximately half of the downward slope of the demand curve occurs discontinuously as the price of a ride drops below a dollar value (e.g. $14.00 to $13.99). If our short-run estimates persist in the longer run, we calculate that Lyft could increase its profits by roughly $160M per year by employing a left-digit bias pricing strategy. Our results showcase the robustness of an important behavioral bias for a large, modern company and its persistence in a highly competitive market.",
-      "abstract_cn": "",
+      "abstract_cn": "左位数偏差（或99美分定价）已在经济学、心理学和市场营销领域被广泛讨论。尽管如此，我们表明，在我们研究之前，拼车公司Lyft并未采用99美分定价策略。基于超过600百万次Lyft会话的观测数据，以及随后对21百万名Lyft乘客进行的实地实验，我们提供了在美元价值处需求存在巨大不连续性的证据。需求曲线向下倾斜的部分中，大约一半发生在乘车价格降至美元价值以下时（例如，从$14.00降至$13.99）。如果我们的短期估计在长期内持续，我们计算Lyft通过采用左位数偏差定价策略每年可增加约$160M的利润。我们的结果展示了一个重要行为偏差对一家大型现代公司的稳健性，以及其在高度竞争市场中的持续性。",
       "abstract_snippet_en": "",
       "doi": "10.1093/restud/rdad014",
       "source_url": "https://doi.org/10.1093/restud/rdad014",
@@ -327,15 +449,15 @@
         "abstract_en": "crossref"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T14:07:19+00:00",
+        "source_hash": "52b56f5e328597718de60d3ab837490b994844cf64578afdd9fb39ea467fc2e3"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -345,7 +467,7 @@
     },
     {
       "paper_id": "doi:10.1093/restud/rdad008",
-      "sequence": 9,
+      "sequence": 12,
       "source_sequence": 3238,
       "article_type": "research-article",
       "title_en": "Hinterlands, City Formation and Growth: Evidence from the U.S. Westward Expansion",
@@ -384,7 +506,7 @@
     },
     {
       "paper_id": "doi:10.1093/restud/rdad022",
-      "sequence": 10,
+      "sequence": 13,
       "source_sequence": 3282,
       "article_type": "research-article",
       "title_en": "Dynamic Asset-Backed Security Design",
@@ -422,45 +544,6 @@
         "matched_terms": [],
         "source": "academic-door-rules-v1"
       }
-    },
-    {
-      "paper_id": "doi:10.1093/restud/rdad005",
-      "sequence": 11,
-      "source_sequence": 3315,
-      "article_type": "research-article",
-      "title_en": "Estimating Production Functions of Multiproduct Firms",
-      "title_cn": "多产品企业生产函数的估计",
-      "authors": [
-        "Nelli Valmari"
-      ],
-      "abstract_en": "Multiproduct firms constitute a considerable share of firms and account for an even greater share of production. Nevertheless, the vast majority of production function estimates are based on the assumption that firms are single-product manufacturers. This assumption is due to a lack of data on how firms allocate their inputs across their various product lines. I provide a strategy for estimating product-specific input allocations and production functions of multiproduct firms involved in monopolistic competition. The strategy is based on using firms’ product prices and output demand in solving for product-level input allocations.",
-      "abstract_cn": "多产品企业在企业中占有相当大的份额，并且在生产中占据更大的份额。然而，绝大多数生产函数估计都是基于企业是单一产品制造商的假设。这一假设是由于缺乏关于企业如何在其各种产品线之间分配投入的数据。我提供了一种策略，用于估计参与垄断竞争的多产品企业的产品特定投入分配和生产函数。该策略基于利用企业的产品价格和产出需求来求解产品层面的投入分配。",
-      "abstract_snippet_en": "",
-      "doi": "10.1093/restud/rdad005",
-      "source_url": "https://doi.org/10.1093/restud/rdad005",
-      "publication_date": "2023",
-      "sources": {
-        "issue": "https://academic.oup.com/restud/issue/90/6",
-        "roster": "crossref:issn:0034-6527",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-18T17:41:14+00:00",
-        "source_hash": "0801d1853a55377c888c50c009ce17844ca10710fb213f166793737a63087fb4"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
     }
   ],
   "quality": {
@@ -479,47 +562,46 @@
         "article_type": "correction"
       }
     ],
-    "doi_complete": 11,
-    "authors_complete": 11,
-    "abstract_en_complete": 11,
-    "translation_complete": 10,
+    "doi_complete": 13,
+    "authors_complete": 13,
+    "abstract_en_complete": 13,
+    "translation_complete": 13,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster",
-      "translation_incomplete"
+      "crossref_provisional_roster"
     ],
-    "official_item_count": 12,
-    "publishable_item_count": 11,
+    "official_item_count": 14,
+    "publishable_item_count": 13,
     "content_counts": {
-      "official_items": 12,
-      "observed_items": 12,
-      "publishable_items": 11,
-      "research_articles": 11,
+      "official_items": 14,
+      "observed_items": 14,
+      "publishable_items": 13,
+      "research_articles": 13,
       "comments": 0,
       "short_communications": 0,
       "corrections": 1,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 12
+      "catalog_content_items": 14
     }
   },
   "source_status": "source_pending",
-  "publication_state": "translation_partial",
+  "publication_state": "source_pending",
   "content_counts": {
-    "official_items": 12,
-    "observed_items": 12,
-    "publishable_items": 11,
-    "research_articles": 11,
+    "official_items": 14,
+    "observed_items": 14,
+    "publishable_items": 13,
+    "research_articles": 13,
     "comments": 0,
     "short_communications": 0,
     "corrections": 1,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 12
+    "catalog_content_items": 14
   },
   "issue_label": "Vol. 90 · No. 6",
-  "content_status": "translation_partial"
+  "content_status": "complete"
 }
