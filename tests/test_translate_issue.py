@@ -310,5 +310,32 @@ class DeepSeekModelResolutionTests(unittest.TestCase):
 
 
 
+    def test_energy_false_positive_formats_pass_numeric_validation(self) -> None:
+        from scripts.translate_issue import _month_numbers, _numbers, validate_translation
+
+        self.assertEqual(["5000", "9000"], _numbers("prices fell by £5k to £9k"))
+        self.assertEqual([], _numbers("from 1995Q1 to 2018Q4"))
+        self.assertEqual([], _numbers("policies support SDGs 7, 8, 12, and 13"))
+        self.assertEqual([], _numbers("between 9AM and 5PM"))
+        self.assertEqual([], _numbers("可持续发展目标7、8、12和13，上午9点至下午5点"))
+        self.assertEqual(["2"], _month_numbers("during Feb 2020"))
+
+        article = {
+            "article_type": "research",
+            "title_en": "Energy policy",
+            "abstract_en": (
+                "Prices fell by £5k to £9k from 1995Q1 to 2018Q4. "
+                "The policy supports SDGs 7, 8, 12, and 13 between 9AM and 5PM."
+            ),
+        }
+        validate_translation(article, {
+            "title_cn": "能源政策",
+            "abstract_cn": (
+                "价格从5000英镑降至9000英镑，时间范围为1995年第一季度至2018年第四季度。"
+                "该政策支持可持续发展目标7、8、12和13，适用时段为上午9点至下午5点。"
+            ),
+        })
+
+
 if __name__ == "__main__":
     unittest.main()

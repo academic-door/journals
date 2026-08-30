@@ -169,6 +169,17 @@ def _month_numbers(value: str) -> list[str]:
         for _match in CHINESE_MONTH_PATTERN.finditer(value):
             if _match.group(0) == month_cn:
                 numbers.append(str(index))
+    month_abbreviations = {
+        "jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
+        "jul": 7, "aug": 8, "sep": 9, "sept": 9, "oct": 10,
+        "nov": 11, "dec": 12,
+    }
+    for alias, index in month_abbreviations.items():
+        pattern = re.compile(
+            rf"\b{alias}\.?\b(?=\s+(?:19|20)\d{{2}}\b)",
+            flags=re.IGNORECASE,
+        )
+        numbers.extend(str(index) for _ in pattern.finditer(value))
     month_period_pattern = re.compile(
         r"\b(\d{4})M(0?[1-9]|1[0-2])\b",
         flags=re.IGNORECASE,
@@ -236,6 +247,27 @@ ENGLISH_NUMBER_TOKEN_PATTERN = re.compile(
     + "|".join(sorted(ENGLISH_NUMBER_WORDS, key=len, reverse=True))
     + r"))*\b",
     re.IGNORECASE,
+)
+COMPACT_CURRENCY_PATTERN = re.compile(
+    r"(?i)(?<![A-Za-z0-9])(?P<symbol>[£$€¥])\s*"
+    r"(?P<amount>\d+(?:\.\d+)?)\s*(?P<scale>[kmb])\b"
+)
+QUARTER_PATTERN = re.compile(
+    r"(?i)(?<![A-Za-z0-9])(?P<year>(?:19|20)\d{2})\s*Q(?P<quarter>[1-4])(?![A-Za-z0-9_])"
+)
+TIME_PATTERN = re.compile(
+    r"(?i)(?<![A-Za-z0-9])\d{1,2}:?\d{0,2}\s*(?:AM|PM)\b|"
+    r"(上午|下午|早上|晚上|凌晨)\s*\d{1,2}\s*(?:点|時|时)"
+)
+SDG_LIST_PATTERN = re.compile(
+    r"(?i)\bSDGs?\b\s+\d+(?:\s*,\s*\d+)*(?:\s*,?\s*(?:and|or)\s+\d+)?"
+)
+SDG_LIST_ZH_PATTERN = re.compile(
+    r"可持续发展目标\s*[0-9０-９一二三四五六七八九十、，,\s和及以及]+"
+)
+QUARTER_ZH_PATTERN = re.compile(
+    r"(?P<year>(?:19|20)\d{2})\s*年\s*(?:第\s*)?"
+    r"(?P<quarter>[一二三四1-4])\s*季度"
 )
 
 
@@ -386,13 +418,14 @@ IDENTIFIER_EN = re.compile(
     r"hypothesis|column|row|part|step|panel|scenario|test|trial|wave|round|stage|phase|studies|"
     r"cohort|group|sample|survey|task|condition|session|block|version|"
     r"chapter|bill|article|act|title|clause|provision|rule|law|regulation|"
-    r"specification)\s*$"
+    r"specification|sdgs?)\s*$"
 )
 # Chinese label nouns that fuse with ordinals ("实验2" = Experiment 2,
 # "第2轮" = Round 2). Longer words are matched first; single-character labels
 # must not be the tail of a longer verb or noun ("进行2.1%" is a statistic,
 # not a row/column label; "around" must not match "round").
 IDENTIFIER_CJK_WORDS = [
+    "可持续发展目标",
     "实验",
     "研究",
     "图表",
@@ -509,6 +542,21 @@ def _canonical_number(number: str) -> str:
 def _numbers(value: str) -> list[str]:
     values: list[str] = []
     protected_spans: list[tuple[int, int]] = []
+    for match in COMPACT_CURRENCY_PATTERN.finditer(value):
+        protected_spans.append(match.span())
+        scale = {"k": 1_000, "m": 1_000_000, "b": 1_000_000_000}[match.group("scale").lower()]
+        amount = float(match.group("amount")) * scale
+        values.append(str(int(amount)) if amount.is_integer() else str(amount))
+    for match in QUARTER_PATTERN.finditer(value):
+        protected_spans.append(match.span())
+    for match in QUARTER_ZH_PATTERN.finditer(value):
+        protected_spans.append(match.span())
+    for match in TIME_PATTERN.finditer(value):
+        protected_spans.append(match.span())
+    for match in SDG_LIST_PATTERN.finditer(value):
+        protected_spans.append(match.span())
+    for match in SDG_LIST_ZH_PATTERN.finditer(value):
+        protected_spans.append(match.span())
     for match in CURRENCY_PREFIX_PATTERN.finditer(value):
         protected_spans.append(match.span())
         values.append(_canonical_number(match.group("amount")))
@@ -1085,13 +1133,12 @@ def _normalize_written_number_translations(source: str, translated: str) -> str:
 
     quarter_match = re.search(r"\b(\d{4})\s*Q([1-4])\b", source, re.IGNORECASE)
     if quarter_match:
-        year = quarter_match.group(1)
-        zh_quarter = {"1": "一", "2": "二", "3": "三", "4": "四"}[quarter_match.group(2)]
+        quarter_map = {"一": "1", "二": "2", "三": "3", "四": "4"}
         normalized, _changed = re.subn(
-            rf"(?<![\d]){year}\s*年\s*第{zh_quarter}季度",
-            f"{year}Q{quarter_match.group(2)}",
+            r"(?<![\d])(\d{4})\s*年\s*(?:第\s*)?([一二三四1-4])季度",
+            lambda match: f"{match.group(1)}Q{quarter_map.get(match.group(2), match.group(2))}",
             normalized,
-            count=1,
+            count=0,
         )
     source_digit_counts = source_numbers
     for match in word_pattern.finditer(source):
