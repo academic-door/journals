@@ -674,7 +674,7 @@ jobs:
           done < "$evidence_list"
 
       - name: Repair only invalid current-snapshot translations
-        if: inputs.publish_issue_ids == ''
+        if: inputs.publish_issue_ids == '' && !inputs.translation_only
         env:
           PYTHONPATH: ${{ github.workspace }}
           GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || github.token }}
