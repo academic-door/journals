@@ -1,16 +1,13 @@
 # Field journal history backfill status
 
-Updated: 2026-08-30T14:20:53+00:00
+Updated: 2026-08-31T00:53:52+00:00
 
 Discovery coverage: 1331 discovered · 1255 archived · 1058 publication ready · 76 missing · 197 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 550 | 0 | 51 | 107 |
-| 2023-2026 | 273 | 0 | 19 | 8 |
-| 2024-2024 | 12 | 0 | 0 | 0 |
-| 2025-2026 | 1 | 0 | 0 | 0 |
-| 2026-2026 | 6 | 0 | 0 | 0 |
+| 2023-2024 | 550 | 1 | 50 | 107 |
+| 2025-2026 | 509 | 0 | 25 | 90 |
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -363,10 +360,10 @@ Discovery coverage: 1331 discovered · 1255 archived · 1058 publication ready �
 | ERE | ere-84-2 | 2023 | ready |  |
 | ERE | ere-84-3 | 2023 | ready |  |
 | ERE | ere-84-4 | 2023 | ready |  |
-| ERE | ere-85-1 | 2023 | ready | archive_content_gate_failed |
+| ERE | ere-85-1 | 2023 | ready | ValueError: RePEc history requires a configured series code |
 | ERE | ere-85-2 | 2023 | ready |  |
-| ERE | ere-85-3-4 | 2023 | blocked | archive_content_gate_failed |
-| ERE | ere-86-1-2 | 2023 | blocked | archive_content_gate_failed |
+| ERE | ere-85-3-4 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-86-1-2 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
 | ERE | ere-86-3 | 2023 | ready |  |
 | ERE | ere-86-4 | 2023 | ready |  |
 | ERE | ere-87-1 | 2024 | ready |  |
@@ -377,7 +374,7 @@ Discovery coverage: 1331 discovered · 1255 archived · 1058 publication ready �
 | ERE | ere-87-3 | 2024 | ready |  |
 | ERE | ere-87-4 | 2024 | ready |  |
 | ERE | ere-87-5 | 2024 | ready |  |
-| ERE | ere-87-6 | 2024 | ready | archive_content_gate_failed |
+| ERE | ere-87-6 | 2024 | ready | ValueError: RePEc history requires a configured series code |
 | ERE | ere-87-7 | 2024 | ready |  |
 | ERE | ere-87-8 | 2024 | ready |  |
 | ERE | ere-87-9 | 2024 | ready |  |
@@ -406,7 +403,7 @@ Discovery coverage: 1331 discovered · 1255 archived · 1058 publication ready �
 | FOODPOLICY | foodpolicy-115-c | 2023 | ready |  |
 | FOODPOLICY | foodpolicy-116-c | 2023 | ready |  |
 | FOODPOLICY | foodpolicy-117-c | 2023 | ready |  |
-| FOODPOLICY | foodpolicy-118-c | 2023 | blocked | archive_missing |
+| FOODPOLICY | foodpolicy-118-c | 2023 | translation_partial |  |
 | FOODPOLICY | foodpolicy-119-c | 2023 | ready |  |
 | FOODPOLICY | foodpolicy-120-c | 2023 | ready |  |
 | FOODPOLICY | foodpolicy-121-c | 2023 | ready |  |
@@ -498,7 +495,7 @@ Discovery coverage: 1331 discovered · 1255 archived · 1058 publication ready �
 | JAERE | jaere-13-6 | 2026 | blocked | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.ed |
 | JCE | jce-51-1 | 2023 | ready |  |
 | JCE | jce-51-2 | 2023 | ready |  |
-| JCE | jce-51-3 | 2023 | ready | archive_missing |
+| JCE | jce-51-3 | 2023 | ready |  |
 | JCE | jce-51-4 | 2023 | ready |  |
 | JCE | jce-52-1 | 2024 | ready |  |
 | JCE | jce-52-2 | 2024 | ready |  |
@@ -542,7 +539,7 @@ Discovery coverage: 1331 discovered · 1255 archived · 1058 publication ready �
 | JEBO | jebo-210-c | 2023 | ready |  |
 | JEBO | jebo-211-c | 2023 | ready |  |
 | JEBO | jebo-212-c | 2023 | ready |  |
-| JEBO | jebo-213-c | 2023 | ready | possible_incomplete_volume: 2 articles collected vs current issue 26; needs offi |
+| JEBO | jebo-213-c | 2023 | ready |  |
 | JEBO | jebo-214-c | 2023 | ready |  |
 | JEBO | jebo-215-c | 2023 | ready |  |
 | JEBO | jebo-216-c | 2023 | ready |  |
@@ -581,7 +578,7 @@ Discovery coverage: 1331 discovered · 1255 archived · 1058 publication ready �
 | JEBO | jebo-249-c | 2026 | ready |  |
 | JEBO | jebo-250-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 250/ |
 | JEDC | jedc-146-c | 2023 | ready |  |
-| JEDC | jedc-147-c | 2023 | ready | archive_missing |
+| JEDC | jedc-147-c | 2023 | ready |  |
 | JEDC | jedc-148-c | 2023 | ready |  |
 | JEDC | jedc-149-c | 2023 | ready |  |
 | JEDC | jedc-150-c | 2023 | ready |  |
@@ -626,12 +623,12 @@ Discovery coverage: 1331 discovered · 1255 archived · 1058 publication ready �
 | JEDC | jedc-189-c | 2026 | ready |  |
 | JEDC | jedc-190-c | 2026 | ready |  |
 | JEDC | jedc-191-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 191/ |
-| JEEA | jeea-21-1 | 2023 | source_pending | source authority pending official verification |
-| JEEA | jeea-21-2 | 2023 | source_pending | source authority pending official verification |
-| JEEA | jeea-21-3 | 2023 | source_pending | source authority pending official verification |
-| JEEA | jeea-21-4 | 2023 | source_pending | source authority pending official verification |
-| JEEA | jeea-21-5 | 2023 | source_pending | source authority pending official verification |
-| JEEA | jeea-21-6 | 2023 | source_pending | source authority pending official verification |
+| JEEA | jeea-21-1 | 2023 | source_pending |  |
+| JEEA | jeea-21-2 | 2023 | source_pending |  |
+| JEEA | jeea-21-3 | 2023 | source_pending |  |
+| JEEA | jeea-21-4 | 2023 | source_pending |  |
+| JEEA | jeea-21-5 | 2023 | source_pending |  |
+| JEEA | jeea-21-6 | 2023 | source_pending |  |
 | JEEA | jeea-22-1 | 2024 | source_pending |  |
 | JEEA | jeea-22-2 | 2024 | source_pending |  |
 | JEEA | jeea-22-3 | 2024 | source_pending |  |
@@ -912,7 +909,7 @@ Discovery coverage: 1331 discovered · 1255 archived · 1058 publication ready �
 | JOE | joe-238-1 | 2024 | ready |  |
 | JOE | joe-238-2 | 2024 | ready |  |
 | JOE | joe-239-1 | 2024 | ready |  |
-| JOE | joe-239-2 | 2024 | ready | archive_missing |
+| JOE | joe-239-2 | 2024 | ready |  |
 | JOE | joe-240-1 | 2024 | ready |  |
 | JOE | joe-240-2 | 2024 | ready |  |
 | JOE | joe-241-1 | 2024 | ready |  |
@@ -1149,12 +1146,12 @@ Discovery coverage: 1331 discovered · 1255 archived · 1058 publication ready �
 | QE | qe-17-2 | 2026 | ready |  |
 | QE | qe-17-3 | 2026 | ready |  |
 | QE | qe-17-4 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
-| QJE | qje-138-2 | 2023 | source_pending | source authority pending official verification |
-| QJE | qje-138-3 | 2023 | source_pending | source authority pending official verification |
-| QJE | qje-138-4 | 2023 | source_pending | source authority pending official verification |
-| QJE | qje-139-1 | 2024 | source_pending | source authority pending official verification |
-| QJE | qje-139-2 | 2024 | source_pending | source authority pending official verification |
-| QJE | qje-139-3 | 2024 | source_pending | source authority pending official verification |
+| QJE | qje-138-2 | 2023 | source_pending |  |
+| QJE | qje-138-3 | 2023 | source_pending |  |
+| QJE | qje-138-4 | 2023 | source_pending |  |
+| QJE | qje-139-1 | 2024 | source_pending |  |
+| QJE | qje-139-2 | 2024 | source_pending |  |
+| QJE | qje-139-3 | 2024 | source_pending |  |
 | QJE | qje-139-4 | 2024 | source_pending |  |
 | QJE | qje-140-1 | 2025 | source_pending | source authority pending official verification |
 | QJE | qje-140-2 | 2025 | source_pending | source authority pending official verification |
@@ -1194,12 +1191,12 @@ Discovery coverage: 1331 discovered · 1255 archived · 1058 publication ready �
 | RED | red-60-c | 2026 | source_pending | possible_incomplete_volume: 4 articles collected vs current issue 12; needs offi |
 | RED | red-61-c | 2026 | source_pending |  |
 | RED | red-62-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 62/ |
-| RES | res-90-1 | 2023 | source_pending | source authority pending official verification |
-| RES | res-90-2 | 2023 | source_pending | source authority pending official verification |
-| RES | res-90-3 | 2023 | source_pending | source authority pending official verification |
-| RES | res-90-4 | 2023 | source_pending | source authority pending official verification |
-| RES | res-90-5 | 2023 | source_pending | source authority pending official verification |
-| RES | res-90-6 | 2023 | source_pending | source authority pending official verification |
+| RES | res-90-1 | 2023 | source_pending |  |
+| RES | res-90-2 | 2023 | source_pending |  |
+| RES | res-90-3 | 2023 | source_pending |  |
+| RES | res-90-4 | 2023 | source_pending |  |
+| RES | res-90-5 | 2023 | source_pending |  |
+| RES | res-90-6 | 2023 | source_pending |  |
 | RES | res-91-1 | 2024 | source_pending |  |
 | RES | res-91-2 | 2024 | source_pending |  |
 | RES | res-91-3 | 2024 | source_pending |  |
@@ -1311,7 +1308,7 @@ Discovery coverage: 1331 discovered · 1255 archived · 1058 publication ready �
 | WD | wd-172-c | 2023 | ready |  |
 | WD | wd-173-c | 2024 | ready |  |
 | WD | wd-174-c | 2024 | ready |  |
-| WD | wd-175-c | 2024 | ready | archive_missing |
+| WD | wd-175-c | 2024 | ready |  |
 | WD | wd-176-c | 2024 | ready |  |
 | WD | wd-177-c | 2024 | ready |  |
 | WD | wd-178-c | 2024 | ready |  |
