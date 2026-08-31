@@ -1,12 +1,12 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-08-31T13:54:36+00:00
+Generated: 2026-08-31T15:50:58+00:00
 
 ## Summary
 
 - browser_required: 1
-- ready: 1058
-- recoverable: 74
+- ready: 1060
+- recoverable: 72
 - source_pending: 195
 - translation_required: 3
 
@@ -534,10 +534,10 @@ Generated: 2026-08-31T13:54:36+00:00
 | JDE | jde-181-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JDE | jde-182-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JDE | jde-183-c | 2026 | ready | complete | official_verified | content and official source gates passed |
-| JEBO | jebo-205-c | 2023 | recoverable | blocked | source_pending | archive_missing |
+| JEBO | jebo-205-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JEBO | jebo-206-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JEBO | jebo-207-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
-| JEBO | jebo-208-c | 2023 | recoverable | blocked | source_pending | archive_missing |
+| JEBO | jebo-208-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JEBO | jebo-209-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JEBO | jebo-210-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JEBO | jebo-211-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |

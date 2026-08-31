@@ -1,20 +1,20 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-08-31T13:54:18+00:00",
+  "updated_at": "2026-08-31T15:50:40+00:00",
   "summary": {
-    "complete": 1058,
+    "complete": 1060,
     "translation_partial": 1,
-    "blocked": 75,
+    "blocked": 73,
     "collected": 0,
     "pending": 197
   },
   "coverage": {
     "discovered": 1331,
-    "archived": 1255,
-    "content_ready": 1255,
-    "source_verified": 1058,
-    "publication_ready": 1058,
-    "missing": 76,
+    "archived": 1257,
+    "content_ready": 1257,
+    "source_verified": 1060,
+    "publication_ready": 1060,
+    "missing": 74,
     "source_pending": 197,
     "missing_issue_ids": [
       "ecolecon-224-c",
@@ -44,8 +44,6 @@
       "jaere-11-S1",
       "jaere-13-5",
       "jaere-13-6",
-      "jebo-205-c",
-      "jebo-208-c",
       "jebo-220-c",
       "jebo-250-c",
       "jedc-191-c",
@@ -1940,15 +1938,13 @@
     },
     "JEBO": {
       "discovered": 46,
-      "archived": 42,
-      "content_ready": 42,
-      "source_verified": 42,
-      "publication_ready": 42,
-      "missing": 4,
+      "archived": 44,
+      "content_ready": 44,
+      "source_verified": 44,
+      "publication_ready": 44,
+      "missing": 2,
       "source_pending": 0,
       "missing_issue_ids": [
-        "jebo-205-c",
-        "jebo-208-c",
         "jebo-220-c",
         "jebo-250-c"
       ],
@@ -1957,16 +1953,13 @@
       "years": {
         "2023": {
           "discovered": 12,
-          "archived": 10,
-          "content_ready": 10,
-          "source_verified": 10,
-          "publication_ready": 10,
-          "missing": 2,
+          "archived": 12,
+          "content_ready": 12,
+          "source_verified": 12,
+          "publication_ready": 12,
+          "missing": 0,
           "source_pending": 0,
-          "missing_issue_ids": [
-            "jebo-205-c",
-            "jebo-208-c"
-          ],
+          "missing_issue_ids": [],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
@@ -10298,10 +10291,10 @@
         "year": 2023,
         "volume": "205",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
+        "status": "ready",
+        "content_status": "complete",
+        "source_status": "publisher_verified",
+        "publication_state": "ready",
         "last_error": "archive_missing",
         "retry_class": "transient"
       },
@@ -10334,10 +10327,10 @@
         "year": 2023,
         "volume": "208",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
+        "status": "ready",
+        "content_status": "complete",
+        "source_status": "publisher_verified",
+        "publication_state": "ready",
         "last_error": "archive_missing",
         "retry_class": "transient"
       },
@@ -20086,9 +20079,9 @@
   "periods": {
     "2023-2024": {
       "summary": {
-        "complete": 550,
+        "complete": 552,
         "translation_partial": 1,
-        "blocked": 50,
+        "blocked": 48,
         "collected": 0,
         "pending": 107
       },
@@ -20096,11 +20089,11 @@
       "updated_at": "2026-08-31T00:51:02+00:00",
       "coverage": {
         "discovered": 708,
-        "archived": 657,
-        "content_ready": 657,
-        "source_verified": 550,
-        "publication_ready": 550,
-        "missing": 51,
+        "archived": 659,
+        "content_ready": 659,
+        "source_verified": 552,
+        "publication_ready": 552,
+        "missing": 49,
         "source_pending": 107,
         "missing_issue_ids": [
           "ecolecon-224-c",
@@ -20125,8 +20118,6 @@
           "jaere-11-5",
           "jaere-11-6",
           "jaere-11-S1",
-          "jebo-205-c",
-          "jebo-208-c",
           "jebo-220-c",
           "jeem-118-c",
           "jle-41-1",
@@ -20269,9 +20260,9 @@
     },
     "2023-2026": {
       "summary": {
-        "complete": 273,
+        "complete": 275,
         "translation_partial": 0,
-        "blocked": 19,
+        "blocked": 17,
         "collected": 0,
         "pending": 8
       },
@@ -20279,11 +20270,11 @@
       "updated_at": "2026-08-26T18:31:56+00:00",
       "coverage": {
         "discovered": 428,
-        "archived": 404,
-        "content_ready": 404,
-        "source_verified": 396,
-        "publication_ready": 396,
-        "missing": 24,
+        "archived": 406,
+        "content_ready": 406,
+        "source_verified": 398,
+        "publication_ready": 398,
+        "missing": 22,
         "source_pending": 8,
         "missing_issue_ids": [
           "ecolecon-224-c",
@@ -20292,8 +20283,6 @@
           "energy-162-c",
           "ere-85-3-4",
           "ere-86-1-2",
-          "jebo-205-c",
-          "jebo-208-c",
           "jebo-220-c",
           "jebo-250-c",
           "joe-234-c",
@@ -20397,9 +20386,9 @@
   "years": {
     "2023": {
       "summary": {
-        "complete": 264,
+        "complete": 266,
         "translation_partial": 1,
-        "blocked": 27,
+        "blocked": 25,
         "collected": 0,
         "pending": 60
       },
@@ -20457,11 +20446,11 @@
       ],
       "coverage": {
         "discovered": 352,
-        "archived": 324,
-        "content_ready": 324,
-        "source_verified": 264,
-        "publication_ready": 264,
-        "missing": 28,
+        "archived": 326,
+        "content_ready": 326,
+        "source_verified": 266,
+        "publication_ready": 266,
+        "missing": 26,
         "source_pending": 60,
         "missing_issue_ids": [
           "ecta-91-2",
@@ -20476,8 +20465,6 @@
           "jaere-10-4",
           "jaere-10-5",
           "jaere-10-6",
-          "jebo-205-c",
-          "jebo-208-c",
           "jeem-118-c",
           "jle-41-1",
           "jle-41-2",
@@ -20841,16 +20828,13 @@
         },
         "JEBO": {
           "discovered": 12,
-          "archived": 10,
-          "content_ready": 10,
-          "source_verified": 10,
-          "publication_ready": 10,
-          "missing": 2,
+          "archived": 12,
+          "content_ready": 12,
+          "source_verified": 12,
+          "publication_ready": 12,
+          "missing": 0,
           "source_pending": 0,
-          "missing_issue_ids": [
-            "jebo-205-c",
-            "jebo-208-c"
-          ],
+          "missing_issue_ids": [],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
