@@ -58,6 +58,11 @@ on:
         required: false
         default: false
         type: boolean
+      reuse_browser_checkpoints:
+        description: Reuse already captured browser evidence without running publisher collectors
+        required: false
+        default: false
+        type: boolean
       translation_only:
         description: Translate only the explicitly named issue IDs without source collection
         required: false
@@ -490,7 +495,7 @@ jobs:
           done
 
       - name: Build historical archives from ScienceDirect browser snapshots
-        if: inputs.evidence_issue_ids != ''
+        if: inputs.evidence_issue_ids != '' && !inputs.reuse_browser_checkpoints
         continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || github.token }}
@@ -532,7 +537,7 @@ jobs:
           cp "$deferred" "$GITHUB_WORKSPACE/sciencedirect-evidence-deferred.txt"
 
       - name: Convert ScienceDirect browser snapshots to official evidence
-        if: inputs.evidence_issue_ids != ''
+        if: inputs.evidence_issue_ids != '' && !inputs.reuse_browser_checkpoints
         continue-on-error: true
         shell: bash
         run: |
