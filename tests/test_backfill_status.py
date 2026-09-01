@@ -209,6 +209,53 @@ class BackfillStatusTests(unittest.TestCase):
             1, payload["journal_coverage"]["AER"]["years"]["2024"]["missing"]
         )
 
+    def test_not_yet_published_issue_is_excluded_but_retained_for_rediscovery(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            state_path = root / "field-2025-2026.json"
+            state_path.write_text(
+                json.dumps(
+                    {
+                        "schema_version": "1.1",
+                        "issues": {
+                            "qe-17-4": {
+                                "journal": "QE",
+                                "year": 2026,
+                                "volume": "17",
+                                "issue": "4",
+                                "status": "blocked",
+                            }
+                        },
+                        "expected_issue_exclusions": {
+                            "qe-17-4": {
+                                "status": "not_yet_published",
+                                "rediscover": True,
+                            }
+                        },
+                        "discovery": {
+                            "QE": {
+                                "issue_ids": ["qe-17-4"],
+                                "issue_years": {"qe-17-4": 2026},
+                                "authority": "official_archive",
+                            }
+                        },
+                    }
+                ),
+                encoding="utf-8",
+            )
+            payload = build_payload(
+                [state_path],
+                journals={"QE": {"id": "qe", "name": "Quantitative Economics"}},
+                api_root=root / "api",
+            )
+        self.assertEqual(0, payload["coverage"]["discovered"])
+        self.assertEqual(0, payload["coverage"]["missing"])
+        self.assertEqual(0, payload["coverage"]["source_pending"])
+        self.assertEqual(
+            "not_yet_published",
+            payload["expected_issue_exclusions"]["qe-17-4"]["status"],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

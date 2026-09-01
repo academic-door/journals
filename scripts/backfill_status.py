@@ -162,6 +162,8 @@ def discovery_expectations(
 ) -> dict[str, dict[str, Any]]:
     """Union per-period discovery snapshots into issue-level expectations."""
 
+    states = list(states)
+    excluded = expected_issue_exclusions(states)
     expected: dict[str, dict[str, Any]] = {}
     for state in states:
         discovery = state.get("discovery", {})
@@ -174,6 +176,8 @@ def discovery_expectations(
             issue_refs = snapshot.get("issue_refs", {}) or {}
             for issue_id in snapshot.get("issue_ids", []):
                 issue_id = str(issue_id)
+                if issue_id in excluded:
+                    continue
                 entry = merged_issues.get(issue_id, {})
                 reference = issue_refs.get(issue_id, {})
                 if not isinstance(reference, dict):
@@ -192,6 +196,33 @@ def discovery_expectations(
                     "collector_revision": str(snapshot.get("collector_revision", "")),
                 }
     return expected
+
+
+def expected_issue_exclusions(states: Iterable[dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    """Return explicitly known issues that are not yet published.
+
+    These records remain in discovery/state for future rediscovery, but are
+    excluded from the current expected historical universe and therefore do
+    not count as missing or source-pending.
+    """
+
+    exclusions: dict[str, dict[str, Any]] = {}
+    for state in states:
+        raw = state.get("expected_issue_exclusions", {})
+        if isinstance(raw, dict):
+            for issue_id, record in raw.items():
+                issue_id = str(issue_id).strip()
+                if not issue_id:
+                    continue
+                exclusions[issue_id] = dict(record) if isinstance(record, dict) else {
+                    "status": str(record or "not_yet_published")
+                }
+        elif isinstance(raw, list):
+            for issue_id in raw:
+                issue_id = str(issue_id).strip()
+                if issue_id:
+                    exclusions[issue_id] = {"status": "not_yet_published"}
+    return exclusions
 
 
 def _empty_coverage() -> dict[str, Any]:
@@ -351,22 +382,28 @@ def build_payload(
         raw_periods.append((period_label(state_path), state))
         merged_issues.update(issues)
     reconciled = reconcile_entries(merged_issues, journals, api_root)
-    expected = discovery_expectations(states, reconciled)
+    expected_exclusions = expected_issue_exclusions(states)
+    active_reconciled = {
+        issue_id: entry
+        for issue_id, entry in reconciled.items()
+        if issue_id not in expected_exclusions
+    }
+    expected = discovery_expectations(states, active_reconciled)
     coverage, journal_coverage, year_coverage = build_coverage(
-        expected, reconciled, journals, api_root
+        expected, active_reconciled, journals, api_root
     )
 
     periods: dict[str, dict[str, Any]] = {}
     for label, state in raw_periods:
         issue_ids = list((state.get("issues", {}) or {}).keys())
         period_issues = {
-            issue_id: reconciled[issue_id]
+            issue_id: active_reconciled[issue_id]
             for issue_id in issue_ids
-            if issue_id in reconciled
+            if issue_id in active_reconciled
         }
-        period_expected = discovery_expectations([state], reconciled)
+        period_expected = discovery_expectations([state], active_reconciled)
         period_coverage, _, _ = build_coverage(
-            period_expected, reconciled, journals, api_root
+            period_expected, active_reconciled, journals, api_root
         )
         periods[label] = {
             "summary": summarize(period_issues),
@@ -376,7 +413,7 @@ def build_payload(
         }
 
     year_entries: dict[str, dict[str, Any]] = {}
-    for issue_id, entry in reconciled.items():
+    for issue_id, entry in active_reconciled.items():
         year = str(entry.get("year") or "")
         if year:
             year_entries.setdefault(year, {})[issue_id] = entry
@@ -403,10 +440,11 @@ def build_payload(
     return {
         "schema_version": "1.2",
         "updated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
-        "summary": summarize(reconciled),
+        "summary": summarize(active_reconciled),
         "coverage": coverage,
         "journal_coverage": journal_coverage,
-        "journals": group_by_journal(reconciled),
+        "journals": group_by_journal(active_reconciled),
+        "expected_issue_exclusions": expected_exclusions,
         "periods": periods,
         "years": years,
     }
