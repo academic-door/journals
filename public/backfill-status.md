@@ -1,8 +1,8 @@
 # Field journal history backfill status
 
-Updated: 2026-09-01T20:04:00+00:00
+Updated: 2026-09-01T21:07:50+00:00
 
-Discovery coverage: 1330 discovered · 1264 archived · 1081 publication ready · 66 missing · 183 source pending
+Discovery coverage: 1331 discovered · 1265 archived · 1082 publication ready · 66 missing · 183 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
@@ -579,7 +579,7 @@ Discovery coverage: 1330 discovered · 1264 archived · 1081 publication ready �
 | JEBO | jebo-247-c | 2026 | ready |  |
 | JEBO | jebo-248-c | 2026 | ready |  |
 | JEBO | jebo-249-c | 2026 | ready |  |
-| JEBO | jebo-250-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 250/ |
+| JEBO | jebo-250-c | 2026 | ready | MetadataFallbackError: Crossref returned no usable issue 250/ |
 | JEDC | jedc-146-c | 2023 | ready |  |
 | JEDC | jedc-147-c | 2023 | ready |  |
 | JEDC | jedc-148-c | 2023 | ready |  |
@@ -1148,6 +1148,7 @@ Discovery coverage: 1330 discovered · 1264 archived · 1081 publication ready �
 | QE | qe-17-1 | 2026 | ready |  |
 | QE | qe-17-2 | 2026 | ready |  |
 | QE | qe-17-3 | 2026 | ready |  |
+| QE | qe-17-4 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
 | QJE | qje-138-2 | 2023 | source_pending |  |
 | QJE | qje-138-3 | 2023 | source_pending |  |
 | QJE | qje-138-4 | 2023 | source_pending |  |

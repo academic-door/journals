@@ -1,11 +1,12 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-01T20:04:18+00:00
+Generated: 2026-09-01T21:08:08+00:00
 
 ## Summary
 
-- ready: 1081
-- recoverable: 66
+- browser_required: 1
+- ready: 1082
+- recoverable: 65
 - source_pending: 181
 - translation_required: 2
 
@@ -578,7 +579,7 @@ Generated: 2026-09-01T20:04:18+00:00
 | JEBO | jebo-247-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JEBO | jebo-248-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JEBO | jebo-249-c | 2026 | ready | complete | official_verified | content and official source gates passed |
-| JEBO | jebo-250-c | 2026 | recoverable | blocked | source_pending | archive_missing |
+| JEBO | jebo-250-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JEDC | jedc-146-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JEDC | jedc-147-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JEDC | jedc-148-c | 2023 | ready | complete | official_verified | content and official source gates passed |
@@ -1147,6 +1148,7 @@ Generated: 2026-09-01T20:04:18+00:00
 | QE | qe-17-1 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | QE | qe-17-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | QE | qe-17-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| QE | qe-17-4 | 2026 | browser_required | blocked | source_pending | archive_missing |
 | QJE | qje-138-2 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | QJE | qje-138-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | QJE | qje-138-4 | 2023 | source_pending | complete | source_pending | official source verification pending |
