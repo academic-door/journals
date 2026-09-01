@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-01T01:29:55+00:00",
+  "updated_at": "2026-09-01T05:18:58+00:00",
   "status": "degraded",
   "content_status": "complete",
   "summary": {
     "enabled_journals": 49,
     "available_journals": 49,
-    "articles": 730,
-    "translated_articles": 730
+    "articles": 687,
+    "translated_articles": 687
   },
   "checks": {
     "aer_roster_match": true,
@@ -30,7 +30,7 @@
     "jde_primary_transport": true,
     "jpube_roster_match": true,
     "jpube_order_preserved": true,
-    "jpube_primary_transport": true,
+    "jpube_primary_transport": false,
     "jeem_roster_match": true,
     "jeem_order_preserved": true,
     "jeem_primary_transport": true,
@@ -63,7 +63,7 @@
     "geb_primary_transport": true,
     "jet_roster_match": true,
     "jet_order_preserved": true,
-    "jet_primary_transport": true,
+    "jet_primary_transport": false,
     "te_roster_match": true,
     "te_order_preserved": true,
     "te_primary_transport": false,
@@ -87,7 +87,7 @@
     "jf_primary_transport": false,
     "jfe_roster_match": true,
     "jfe_order_preserved": true,
-    "jfe_primary_transport": true,
+    "jfe_primary_transport": false,
     "rfs_roster_match": true,
     "rfs_order_preserved": true,
     "rfs_primary_transport": false,
