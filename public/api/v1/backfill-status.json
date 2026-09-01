@@ -1,21 +1,21 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-09-01T17:21:45+00:00",
+  "updated_at": "2026-09-01T19:19:07+00:00",
   "summary": {
     "complete": 1080,
     "translation_partial": 1,
-    "blocked": 67,
+    "blocked": 66,
     "collected": 0,
     "pending": 183
   },
   "coverage": {
-    "discovered": 1331,
-    "archived": 1263,
+    "discovered": 1330,
+    "archived": 1264,
     "content_ready": 1263,
     "source_verified": 1080,
     "publication_ready": 1080,
-    "missing": 68,
-    "source_pending": 183,
+    "missing": 66,
+    "source_pending": 184,
     "missing_issue_ids": [
       "ecolecon-224-c",
       "ecolecon-225-c",
@@ -57,7 +57,6 @@
       "jle-42-3",
       "jle-42-4",
       "jle-42-S1",
-      "jle-43-S1",
       "jme-141-c",
       "joe-234-c",
       "joe-235-2",
@@ -69,7 +68,6 @@
       "lup-153-c",
       "lup-170-c",
       "lup-171-c",
-      "qe-17-4",
       "red-62-c",
       "rfs-39-9",
       "te-18-1",
@@ -184,6 +182,7 @@
       "jf-81-2",
       "jf-81-3",
       "jf-81-4",
+      "jle-43-S1",
       "jpe-131-1",
       "jpe-131-11",
       "jpe-131-2",
@@ -271,7 +270,9 @@
       "te-20-3",
       "te-20-4"
     ],
-    "blocked_issue_ids": []
+    "blocked_issue_ids": [
+      "jle-43-S1"
+    ]
   },
   "journal_coverage": {
     "AER": {
@@ -2649,16 +2650,14 @@
       }
     },
     "QE": {
-      "discovered": 16,
+      "discovered": 15,
       "archived": 15,
       "content_ready": 15,
       "source_verified": 15,
       "publication_ready": 15,
-      "missing": 1,
+      "missing": 0,
       "source_pending": 0,
-      "missing_issue_ids": [
-        "qe-17-4"
-      ],
+      "missing_issue_ids": [],
       "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
       "years": {
@@ -2699,16 +2698,14 @@
           "blocked_issue_ids": []
         },
         "2026": {
-          "discovered": 4,
+          "discovered": 3,
           "archived": 3,
           "content_ready": 3,
           "source_verified": 3,
           "publication_ready": 3,
-          "missing": 1,
+          "missing": 0,
           "source_pending": 0,
-          "missing_issue_ids": [
-            "qe-17-4"
-          ],
+          "missing_issue_ids": [],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         }
@@ -2844,12 +2841,12 @@
     },
     "JLE": {
       "discovered": 18,
-      "archived": 7,
+      "archived": 8,
       "content_ready": 7,
       "source_verified": 7,
       "publication_ready": 7,
-      "missing": 11,
-      "source_pending": 0,
+      "missing": 10,
+      "source_pending": 1,
       "missing_issue_ids": [
         "jle-41-1",
         "jle-41-2",
@@ -2860,11 +2857,14 @@
         "jle-42-2",
         "jle-42-3",
         "jle-42-4",
-        "jle-42-S1",
+        "jle-42-S1"
+      ],
+      "source_pending_issue_ids": [
         "jle-43-S1"
       ],
-      "source_pending_issue_ids": [],
-      "blocked_issue_ids": [],
+      "blocked_issue_ids": [
+        "jle-43-S1"
+      ],
       "years": {
         "2023": {
           "discovered": 5,
@@ -2904,17 +2904,19 @@
         },
         "2025": {
           "discovered": 5,
-          "archived": 4,
+          "archived": 5,
           "content_ready": 4,
           "source_verified": 4,
           "publication_ready": 4,
-          "missing": 1,
-          "source_pending": 0,
-          "missing_issue_ids": [
+          "missing": 0,
+          "source_pending": 1,
+          "missing_issue_ids": [],
+          "source_pending_issue_ids": [
             "jle-43-S1"
           ],
-          "source_pending_issue_ids": [],
-          "blocked_issue_ids": []
+          "blocked_issue_ids": [
+            "jle-43-S1"
+          ]
         },
         "2026": {
           "discovered": 3,
@@ -8152,7 +8154,7 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "archive_content_gate_failed",
+        "last_error": "ValueError: RePEc history requires a configured series code",
         "retry_class": "manual"
       },
       {
@@ -8176,7 +8178,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "archive_content_gate_failed",
+        "last_error": "ValueError: RePEc history requires a configured series code",
         "retry_class": "manual"
       },
       {
@@ -8188,7 +8190,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "archive_content_gate_failed",
+        "last_error": "ValueError: RePEc history requires a configured series code",
         "retry_class": "manual"
       },
       {
@@ -8320,7 +8322,7 @@
         "content_status": "complete",
         "source_status": "official_verified",
         "publication_state": "ready",
-        "last_error": "archive_content_gate_failed",
+        "last_error": "ValueError: RePEc history requires a configured series code",
         "retry_class": "manual"
       },
       {
@@ -10314,7 +10316,7 @@
         "content_status": "complete",
         "source_status": "publisher_verified",
         "publication_state": "ready",
-        "last_error": "possible_incomplete_volume: 2 articles collected vs current issue 26; needs official page or browser-authorized capture",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -14176,7 +14178,7 @@
         "content_status": "blocked",
         "source_status": "source_pending",
         "publication_state": "blocked",
-        "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jole/2025/43/S1",
+        "last_error": "archive_issue_id_mismatch: expected jle-43-S1, got jle-43-s1",
         "retry_class": "manual"
       },
       {
@@ -14780,8 +14782,8 @@
         "content_status": "complete",
         "source_status": "publisher_verified",
         "publication_state": "ready",
-        "last_error": "archive_missing",
-        "retry_class": "transient"
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "joe-240-1",
@@ -17616,18 +17618,6 @@
         "publication_state": "ready",
         "last_error": "",
         "retry_class": "manual"
-      },
-      {
-        "issue_id": "qe-17-4",
-        "year": 2026,
-        "volume": "17",
-        "issue": "4",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "MetadataFallbackError: Crossref returned no usable recent issue",
-        "retry_class": ""
       }
     ],
     "QJE": [
@@ -18839,7 +18829,7 @@
         "source_status": "source_pending",
         "publication_state": "source_pending",
         "last_error": "",
-        "retry_class": "translation"
+        "retry_class": "source"
       },
       {
         "issue_id": "rfs-37-1",
@@ -19999,6 +19989,19 @@
       }
     ]
   },
+  "expected_issue_exclusions": {
+    "qe-17-4": {
+      "status": "not_yet_published",
+      "journal": "QE",
+      "year": 2026,
+      "volume": "17",
+      "issue": "4",
+      "official_url": "https://onlinelibrary.wiley.com/loi/17597331/year/2026",
+      "reason": "Official archive currently exposes Volume 17 Issues 1–3; Issue 4 is not yet published.",
+      "rediscover": true,
+      "recorded_at": "2026-09-02"
+    }
+  },
   "periods": {
     "2023-2024": {
       "summary": {
@@ -20177,127 +20180,129 @@
         "blocked_issue_ids": []
       }
     },
-    "2023-2026": {
+    "2025-2026": {
       "summary": {
-        "complete": 275,
+        "complete": 525,
         "translation_partial": 0,
-        "blocked": 17,
+        "blocked": 18,
         "collected": 0,
-        "pending": 8
+        "pending": 80
       },
-      "issue_count": 300,
-      "updated_at": "2026-08-26T18:31:56+00:00",
+      "issue_count": 623,
+      "updated_at": "2026-08-30T05:11:19+00:00",
       "coverage": {
-        "discovered": 428,
-        "archived": 407,
-        "content_ready": 407,
-        "source_verified": 399,
-        "publication_ready": 399,
-        "missing": 21,
-        "source_pending": 8,
+        "discovered": 623,
+        "archived": 606,
+        "content_ready": 605,
+        "source_verified": 525,
+        "publication_ready": 525,
+        "missing": 17,
+        "source_pending": 81,
         "missing_issue_ids": [
-          "ecolecon-224-c",
-          "ecolecon-225-c",
-          "energy-138-c",
-          "ere-85-3-4",
-          "ere-86-1-2",
-          "jebo-220-c",
+          "foodpolicy-134-c",
+          "foodpolicy-137-c",
+          "jaere-13-5",
+          "jaere-13-6",
           "jebo-250-c",
-          "joe-234-c",
-          "joe-235-2",
-          "joe-237-1",
+          "jie-164-c",
+          "jue-156-c",
+          "lup-153-c",
+          "lup-170-c",
+          "lup-171-c",
+          "red-62-c",
           "rfs-39-9",
-          "te-18-1",
-          "te-18-2",
-          "te-18-3",
-          "te-18-4",
-          "te-19-1",
-          "te-19-2",
-          "te-19-3",
-          "te-19-4",
           "te-21-2",
-          "te-21-3"
+          "te-21-3",
+          "wd-192-c",
+          "wd-207-c",
+          "wd-208-c"
         ],
         "source_pending_issue_ids": [
-          "jeh-83-4",
+          "ajae-107-1",
+          "ajae-107-2",
+          "ajae-107-3",
+          "ajae-107-4",
+          "ajae-107-5",
+          "ajae-108-1",
+          "ajae-108-2",
+          "ajae-108-3",
+          "ajae-108-4",
+          "cer-100-c",
+          "cer-94-c",
+          "ej-135-668",
+          "ej-135-669",
+          "ej-135-670",
+          "ej-135-671",
+          "ej-135-672",
+          "ej-136-673",
+          "ej-136-674",
+          "ej-136-675",
+          "ej-136-676",
+          "ej-136-678",
+          "jeea-23-1",
+          "jeea-23-2",
+          "jeea-23-3",
+          "jeea-23-4",
+          "jeea-23-5",
+          "jeea-23-6",
+          "jeea-24-1",
+          "jeea-24-2",
+          "jeea-24-3",
+          "jeea-24-4",
           "jeh-85-4",
           "jeh-86-2",
-          "rfs-36-9",
+          "jf-80-1",
+          "jf-80-2",
+          "jf-80-3",
+          "jf-80-4",
+          "jf-80-5",
+          "jf-80-6",
+          "jf-81-1",
+          "jf-81-2",
+          "jf-81-3",
+          "jf-81-4",
+          "jle-43-S1",
+          "qje-140-1",
+          "qje-140-2",
+          "qje-140-3",
+          "qje-140-4",
+          "qje-141-1",
+          "qje-141-2",
+          "red-55-c",
+          "red-56-c",
+          "red-57-c",
+          "red-58-c",
+          "red-59-c",
+          "red-60-c",
+          "red-61-c",
+          "res-92-1",
+          "res-92-2",
+          "res-92-3",
+          "res-92-4",
+          "res-92-5",
+          "res-92-6",
+          "res-93-1",
+          "res-93-2",
+          "res-93-3",
+          "res-93-4",
+          "restat-107-1",
+          "restat-107-2",
+          "restat-107-3",
+          "restat-107-4",
+          "restat-107-5",
+          "restat-107-6",
+          "restat-108-1",
+          "restat-108-2",
+          "restat-108-3",
+          "restat-108-4",
           "te-20-1",
           "te-20-2",
           "te-20-3",
           "te-20-4"
         ],
-        "blocked_issue_ids": []
-      }
-    },
-    "2024-2024": {
-      "summary": {
-        "complete": 12,
-        "translation_partial": 0,
-        "blocked": 0,
-        "collected": 0,
-        "pending": 0
-      },
-      "issue_count": 12,
-      "updated_at": "2026-08-14T05:08:38+00:00",
-      "coverage": {
-        "discovered": 12,
-        "archived": 12,
-        "content_ready": 12,
-        "source_verified": 12,
-        "publication_ready": 12,
-        "missing": 0,
-        "source_pending": 0,
-        "missing_issue_ids": [],
-        "source_pending_issue_ids": [],
-        "blocked_issue_ids": []
-      }
-    },
-    "2025-2026": {
-      "summary": {
-        "complete": 1,
-        "translation_partial": 0,
-        "blocked": 0,
-        "collected": 0,
-        "pending": 0
-      },
-      "issue_count": 1,
-      "updated_at": "2026-08-12T23:33:10+00:00",
-      "coverage": {
-        "discovered": 0,
-        "archived": 0,
-        "content_ready": 0,
-        "source_verified": 0,
-        "publication_ready": 0,
-        "missing": 0,
-        "source_pending": 0,
-        "missing_issue_ids": [],
-        "source_pending_issue_ids": [],
-        "blocked_issue_ids": []
-      }
-    },
-    "2026-2026": {
-      "summary": {
-        "complete": 6,
-        "translation_partial": 0,
-        "blocked": 0,
-        "collected": 0,
-        "pending": 0
-      },
-      "issue_count": 6,
-      "updated_at": "2026-08-14T08:16:38+00:00",
-      "coverage": {
-        "discovered": 9,
-        "archived": 9,
-        "content_ready": 9,
-        "source_verified": 9,
-        "publication_ready": 9,
-        "missing": 0,
-        "source_pending": 0,
-        "missing_issue_ids": [],
-        "source_pending_issue_ids": [],
-        "blocked_issue_ids": []
+        "blocked_issue_ids": [
+          "jle-43-S1"
+        ]
       }
     }
   },
@@ -22040,16 +22045,15 @@
       ],
       "coverage": {
         "discovered": 345,
-        "archived": 340,
+        "archived": 341,
         "content_ready": 340,
         "source_verified": 292,
         "publication_ready": 292,
-        "missing": 5,
-        "source_pending": 48,
+        "missing": 4,
+        "source_pending": 49,
         "missing_issue_ids": [
           "foodpolicy-134-c",
           "foodpolicy-137-c",
-          "jle-43-S1",
           "lup-153-c",
           "wd-192-c"
         ],
@@ -22078,6 +22082,7 @@
           "jf-80-4",
           "jf-80-5",
           "jf-80-6",
+          "jle-43-S1",
           "qje-140-1",
           "qje-140-2",
           "qje-140-3",
@@ -22103,7 +22108,9 @@
           "te-20-3",
           "te-20-4"
         ],
-        "blocked_issue_ids": []
+        "blocked_issue_ids": [
+          "jle-43-S1"
+        ]
       },
       "by_journal": {
         "AEJAPP": {
@@ -22513,17 +22520,19 @@
         },
         "JLE": {
           "discovered": 5,
-          "archived": 4,
+          "archived": 5,
           "content_ready": 4,
           "source_verified": 4,
           "publication_ready": 4,
-          "missing": 1,
-          "source_pending": 0,
-          "missing_issue_ids": [
+          "missing": 0,
+          "source_pending": 1,
+          "missing_issue_ids": [],
+          "source_pending_issue_ids": [
             "jle-43-S1"
           ],
-          "source_pending_issue_ids": [],
-          "blocked_issue_ids": []
+          "blocked_issue_ids": [
+            "jle-43-S1"
+          ]
         },
         "JME": {
           "discovered": 8,
@@ -22768,11 +22777,11 @@
       "summary": {
         "complete": 233,
         "translation_partial": 0,
-        "blocked": 14,
+        "blocked": 13,
         "collected": 0,
         "pending": 32
       },
-      "issue_count": 279,
+      "issue_count": 278,
       "journals": [
         "AEJAPP",
         "AEJMACRO",
@@ -22825,12 +22834,12 @@
         "WD"
       ],
       "coverage": {
-        "discovered": 279,
+        "discovered": 278,
         "archived": 265,
         "content_ready": 265,
         "source_verified": 233,
         "publication_ready": 233,
-        "missing": 14,
+        "missing": 13,
         "source_pending": 32,
         "missing_issue_ids": [
           "jaere-13-5",
@@ -22840,7 +22849,6 @@
           "jue-156-c",
           "lup-170-c",
           "lup-171-c",
-          "qe-17-4",
           "red-62-c",
           "rfs-39-9",
           "te-21-2",
@@ -23403,16 +23411,14 @@
           "blocked_issue_ids": []
         },
         "QE": {
-          "discovered": 4,
+          "discovered": 3,
           "archived": 3,
           "content_ready": 3,
           "source_verified": 3,
           "publication_ready": 3,
-          "missing": 1,
+          "missing": 0,
           "source_pending": 0,
-          "missing_issue_ids": [
-            "qe-17-4"
-          ],
+          "missing_issue_ids": [],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
