@@ -605,11 +605,15 @@
       "issue": "1",
       "official_url": "https://onlinelibrary.wiley.com/toc/14678276/2023/105/1",
       "status": "source_pending",
-      "last_error": "",
+      "last_error": "source authority pending official verification",
       "retry_class": "source",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-09-01T01:25:48+00:00",
+      "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending"
+      "publication_state": "source_pending",
+      "next_retry_at": "2026-09-02T01:25:49+00:00"
     },
     "ajae-105-2": {
       "journal": "AJAE",
@@ -618,11 +622,15 @@
       "issue": "2",
       "official_url": "https://onlinelibrary.wiley.com/toc/14678276/2023/105/2",
       "status": "source_pending",
-      "last_error": "",
+      "last_error": "source authority pending official verification",
       "retry_class": "source",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-09-01T01:26:02+00:00",
+      "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending"
+      "publication_state": "source_pending",
+      "next_retry_at": "2026-09-02T01:26:07+00:00"
     },
     "ajae-105-3": {
       "journal": "AJAE",
@@ -631,11 +639,15 @@
       "issue": "3",
       "official_url": "https://onlinelibrary.wiley.com/toc/14678276/2023/105/3",
       "status": "source_pending",
-      "last_error": "",
+      "last_error": "source authority pending official verification",
       "retry_class": "source",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-09-01T01:26:19+00:00",
+      "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending"
+      "publication_state": "source_pending",
+      "next_retry_at": "2026-09-02T01:26:19+00:00"
     },
     "ajae-105-4": {
       "journal": "AJAE",
@@ -644,11 +656,15 @@
       "issue": "4",
       "official_url": "https://onlinelibrary.wiley.com/toc/14678276/2023/105/4",
       "status": "source_pending",
-      "last_error": "",
+      "last_error": "source authority pending official verification",
       "retry_class": "source",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-09-01T01:26:31+00:00",
+      "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending"
+      "publication_state": "source_pending",
+      "next_retry_at": "2026-09-02T01:26:32+00:00"
     },
     "ajae-105-5": {
       "journal": "AJAE",
@@ -657,11 +673,15 @@
       "issue": "5",
       "official_url": "https://onlinelibrary.wiley.com/toc/14678276/2023/105/5",
       "status": "source_pending",
-      "last_error": "",
+      "last_error": "source authority pending official verification",
       "retry_class": "source",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-09-01T01:26:45+00:00",
+      "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending"
+      "publication_state": "source_pending",
+      "next_retry_at": "2026-09-02T01:26:45+00:00"
     },
     "ajae-106-1": {
       "journal": "AJAE",
@@ -670,11 +690,15 @@
       "issue": "1",
       "official_url": "https://onlinelibrary.wiley.com/toc/14678276/2024/106/1",
       "status": "source_pending",
-      "last_error": "",
+      "last_error": "source authority pending official verification",
       "retry_class": "source",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-09-01T01:26:57+00:00",
+      "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending"
+      "publication_state": "source_pending",
+      "next_retry_at": "2026-09-02T01:26:57+00:00"
     },
     "cer-77-c": {
       "journal": "CER",
@@ -1238,16 +1262,15 @@
       "volume": "118",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/food-policy/vol/118/suppl/C",
-      "status": "translation_partial",
-      "last_error": "",
-      "retry_class": "translation",
+      "status": "blocked",
+      "last_error": "archive_missing",
+      "retry_class": "transient",
       "attempt_count": 2,
       "last_attempt_at": "2026-08-31T00:49:35+00:00",
       "last_error_code": "",
-      "content_status": "translation_partial",
+      "content_status": "blocked",
       "source_status": "source_pending",
-      "publication_state": "translation_partial",
-      "next_retry_at": "2026-08-31T06:51:02+00:00"
+      "publication_state": "blocked"
     },
     "foodpolicy-119-c": {
       "journal": "FOODPOLICY",
@@ -1675,15 +1698,15 @@
       "volume": "160",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/160/suppl/C",
-      "status": "blocked",
-      "last_error": "archive_missing",
-      "retry_class": "transient",
+      "status": "ready",
+      "last_error": "",
+      "retry_class": "manual",
       "attempt_count": 1,
       "last_attempt_at": "2026-08-28T11:37:14+00:00",
       "last_error_code": "",
-      "content_status": "blocked",
-      "source_status": "source_pending",
-      "publication_state": "blocked"
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "jde-161-c": {
       "journal": "JDE",
@@ -1691,15 +1714,15 @@
       "volume": "161",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/161/suppl/C",
-      "status": "blocked",
-      "last_error": "archive_missing",
-      "retry_class": "transient",
+      "status": "ready",
+      "last_error": "",
+      "retry_class": "manual",
       "attempt_count": 1,
       "last_attempt_at": "2026-08-28T11:33:04+00:00",
       "last_error_code": "",
-      "content_status": "blocked",
-      "source_status": "source_pending",
-      "publication_state": "blocked"
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "jde-162-c": {
       "journal": "JDE",
@@ -7880,14 +7903,15 @@
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/47/suppl/C",
       "status": "source_pending",
-      "last_error": "",
+      "last_error": "source authority pending official verification",
       "retry_class": "source",
-      "attempt_count": 1,
-      "last_attempt_at": "2026-08-27T03:32:53+00:00",
+      "attempt_count": 2,
+      "last_attempt_at": "2026-09-01T01:24:07+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending"
+      "publication_state": "source_pending",
+      "next_retry_at": "2026-09-02T01:24:07+00:00"
     },
     "red-48-c": {
       "journal": "RED",
@@ -7896,14 +7920,15 @@
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/48/suppl/C",
       "status": "source_pending",
-      "last_error": "",
+      "last_error": "source authority pending official verification",
       "retry_class": "source",
-      "attempt_count": 1,
-      "last_attempt_at": "2026-08-27T03:33:03+00:00",
+      "attempt_count": 2,
+      "last_attempt_at": "2026-09-01T01:24:21+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending"
+      "publication_state": "source_pending",
+      "next_retry_at": "2026-09-02T01:24:21+00:00"
     },
     "red-49-c": {
       "journal": "RED",
@@ -7912,14 +7937,15 @@
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/49/suppl/C",
       "status": "source_pending",
-      "last_error": "",
+      "last_error": "source authority pending official verification",
       "retry_class": "source",
-      "attempt_count": 1,
-      "last_attempt_at": "2026-08-27T03:33:14+00:00",
+      "attempt_count": 2,
+      "last_attempt_at": "2026-09-01T01:24:36+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending"
+      "publication_state": "source_pending",
+      "next_retry_at": "2026-09-02T01:24:36+00:00"
     },
     "red-50-c": {
       "journal": "RED",
@@ -7928,14 +7954,15 @@
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/50/suppl/C",
       "status": "source_pending",
-      "last_error": "",
+      "last_error": "source authority pending official verification",
       "retry_class": "source",
-      "attempt_count": 1,
-      "last_attempt_at": "2026-08-27T03:33:24+00:00",
+      "attempt_count": 2,
+      "last_attempt_at": "2026-09-01T01:24:48+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending"
+      "publication_state": "source_pending",
+      "next_retry_at": "2026-09-02T01:24:48+00:00"
     },
     "red-51-c": {
       "journal": "RED",
@@ -7944,14 +7971,15 @@
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/51/suppl/C",
       "status": "source_pending",
-      "last_error": "",
+      "last_error": "source authority pending official verification",
       "retry_class": "source",
-      "attempt_count": 1,
-      "last_attempt_at": "2026-08-27T03:33:53+00:00",
+      "attempt_count": 2,
+      "last_attempt_at": "2026-09-01T01:25:28+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending"
+      "publication_state": "source_pending",
+      "next_retry_at": "2026-09-02T01:25:29+00:00"
     },
     "red-52-c": {
       "journal": "RED",
@@ -7960,14 +7988,15 @@
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/52/suppl/C",
       "status": "source_pending",
-      "last_error": "",
+      "last_error": "source authority pending official verification",
       "retry_class": "source",
-      "attempt_count": 1,
-      "last_attempt_at": "2026-08-27T03:34:03+00:00",
+      "attempt_count": 2,
+      "last_attempt_at": "2026-09-01T01:25:36+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending"
+      "publication_state": "source_pending",
+      "next_retry_at": "2026-09-02T01:25:36+00:00"
     },
     "red-53-c": {
       "journal": "RED",
@@ -8280,15 +8309,15 @@
       "volume": "120",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/energy-economics/vol/120/suppl/C",
-      "status": "blocked",
-      "last_error": "archive_missing",
-      "retry_class": "transient",
+      "status": "ready",
+      "last_error": "",
+      "retry_class": "manual",
       "attempt_count": 1,
       "last_attempt_at": "2026-08-28T11:33:35+00:00",
       "last_error_code": "",
-      "content_status": "blocked",
-      "source_status": "source_pending",
-      "publication_state": "blocked"
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "energy-121-c": {
       "journal": "ENERGY",
@@ -8361,15 +8390,15 @@
       "volume": "126",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/energy-economics/vol/126/suppl/C",
-      "status": "blocked",
-      "last_error": "archive_missing",
-      "retry_class": "transient",
+      "status": "ready",
+      "last_error": "",
+      "retry_class": "manual",
       "attempt_count": 1,
       "last_attempt_at": "2026-08-28T11:34:22+00:00",
       "last_error_code": "",
-      "content_status": "blocked",
-      "source_status": "source_pending",
-      "publication_state": "blocked"
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "energy-127-c": {
       "journal": "ENERGY",
@@ -8481,15 +8510,15 @@
       "volume": "134",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/energy-economics/vol/134/suppl/C",
-      "status": "blocked",
-      "last_error": "archive_missing",
-      "retry_class": "transient",
+      "status": "ready",
+      "last_error": "",
+      "retry_class": "manual",
       "attempt_count": 1,
       "last_attempt_at": "2026-08-28T11:35:18+00:00",
       "last_error_code": "",
-      "content_status": "blocked",
-      "source_status": "source_pending",
-      "publication_state": "blocked"
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "energy-135-c": {
       "journal": "ENERGY",
@@ -8536,15 +8565,16 @@
       "volume": "138",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/energy-economics/vol/138/suppl/C",
-      "status": "blocked",
-      "last_error": "archive_missing",
-      "retry_class": "transient",
-      "attempt_count": 1,
-      "last_attempt_at": "2026-08-28T11:36:10+00:00",
+      "status": "translation_partial",
+      "last_error": "",
+      "retry_class": "translation",
+      "attempt_count": 2,
+      "last_attempt_at": "2026-09-01T01:27:08+00:00",
       "last_error_code": "",
-      "content_status": "blocked",
-      "source_status": "source_pending",
-      "publication_state": "blocked"
+      "content_status": "translation_partial",
+      "source_status": "publisher_verified",
+      "publication_state": "translation_partial",
+      "next_retry_at": "2026-09-01T07:28:27+00:00"
     },
     "energy-139-c": {
       "journal": "ENERGY",
@@ -9682,13 +9712,13 @@
       "AEJMICRO": "2026-08-24T07:51:15+00:00",
       "AEJPOL": "2026-08-24T07:52:53+00:00",
       "AERI": "2026-08-24T07:46:41+00:00",
-      "AJAE": "2026-08-26T11:31:15+00:00",
+      "AJAE": "2026-09-01T01:26:57+00:00",
       "CER": "2026-08-28T06:17:36+00:00",
       "ECOLECON": "2026-08-24T14:23:58+00:00",
       "ECTA": "2026-08-27T03:35:11+00:00",
       "EER": "2026-08-24T14:11:50+00:00",
       "EJ": "2026-08-29T03:53:34+00:00",
-      "ENERGY": "2026-08-26T11:29:52+00:00",
+      "ENERGY": "2026-09-01T01:28:27+00:00",
       "ERE": "2026-08-18T16:59:43+00:00",
       "FOODPOLICY": "2026-08-31T00:51:02+00:00",
       "GEB": "2026-08-18T17:16:16+00:00",
@@ -9696,7 +9726,7 @@
       "JAERE": "2026-08-18T18:19:04+00:00",
       "JCE": "2026-08-31T00:49:19+00:00",
       "AER": "2026-08-18T18:00:21+00:00",
-      "JDE": "2026-08-26T11:26:12+00:00",
+      "JDE": "2026-09-01T01:28:27+00:00",
       "JPE": "2026-08-29T03:52:28+00:00",
       "QJE": "2026-08-30T00:42:06+00:00",
       "JEEA": "2026-08-30T00:39:49+00:00",
@@ -9720,7 +9750,7 @@
       "RESTAT": "2026-08-29T03:51:25+00:00",
       "LUP": "2026-08-26T11:21:23+00:00",
       "WD": "2026-08-31T00:51:02+00:00",
-      "RED": "2026-08-27T03:34:03+00:00",
+      "RED": "2026-09-01T01:25:36+00:00",
       "LABECO": "2026-08-30T00:42:06+00:00",
       "QE": "2026-08-18T17:02:05+00:00",
       "TE": "2026-08-18T17:02:05+00:00",
@@ -9728,7 +9758,7 @@
       "LANDECON": "2026-08-24T14:00:30+00:00"
     }
   },
-  "updated_at": "2026-08-31T00:51:02+00:00",
+  "updated_at": "2026-09-01T01:28:27+00:00",
   "discovery": {
     "AER": {
       "issue_ids": [
@@ -10284,7 +10314,7 @@
         }
       },
       "authority": "crossref_candidate",
-      "refreshed_at": "2026-08-24T13:57:31+00:00",
+      "refreshed_at": "2026-09-01T01:23:46+00:00",
       "collector_revision": "history-integrity-2026-08-11"
     },
     "EER": {
@@ -14078,7 +14108,7 @@
         }
       },
       "authority": "crossref_candidate",
-      "refreshed_at": "2026-08-24T13:57:36+00:00",
+      "refreshed_at": "2026-09-01T01:23:50+00:00",
       "collector_revision": "history-integrity-2026-08-11"
     },
     "JEP": {
@@ -15982,7 +16012,7 @@
         }
       },
       "authority": "crossref_candidate",
-      "refreshed_at": "2026-08-24T13:57:31+00:00",
+      "refreshed_at": "2026-09-01T01:23:49+00:00",
       "collector_revision": "history-integrity-2026-08-11"
     },
     "ECOLECON": {
@@ -16411,7 +16441,7 @@
         }
       },
       "authority": "crossref_candidate",
-      "refreshed_at": "2026-08-27T03:32:39+00:00",
+      "refreshed_at": "2026-09-01T01:23:51+00:00",
       "collector_revision": "history-integrity-2026-08-11"
     },
     "JEDC": {

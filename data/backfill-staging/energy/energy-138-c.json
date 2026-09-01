@@ -7,7 +7,7 @@
   "issue": "C",
   "publication_date": "February 2024",
   "source_url": "https://ideas.repec.org/s/eee/eneeco.html",
-  "retrieved_at": "2026-08-18T18:31:57+00:00",
+  "retrieved_at": "2026-09-01T01:27:05+00:00",
   "expected_article_count": 54,
   "research_article_count": 54,
   "status": "incomplete",
@@ -80,8 +80,9 @@
       "translation": {
         "status": "complete",
         "provider": "deepseek",
-        "model": "deepseek-chat",
         "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
         "translated_at": "2026-08-30T04:30:01+00:00",
         "source_hash": "7818b134e849dcf620c741273c539d0e7fe4124b3cefa67f75ad91bafdad4ff6"
       },
@@ -146,13 +147,13 @@
       "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "The impact of public health measures on household energy consumption: The case of the UK COVID-19 tier system",
-      "title_cn": "公共卫生措施对家庭能源消耗的影响：英国COVID-19分级系统的案例",
+      "title_cn": "",
       "authors": [
         "Kentaro Florian Mayr",
         "Paolo Agnolucci"
       ],
       "abstract_en": "Substantial attention has been paid to household energy consumption during COVID-19 lockdowns, however, there exists a dearth of studies on the impact of more granular health restrictions; understanding the consequences of differentiated health measures is important for policymakers and grid operators alike. We investigate the marginal impact of additional restrictions by studying the COVID-19 tier system of the UK. Each additional tier tightened applicable rules and imposed more restrictions to many aspects of life, such as the types of social interactions that were permissible and which stores were allowed to operate. We use the novel vector matching method, which enables causal identification of treatment effects in cases of multiple ordinal treatments. Our results indicate that moving from a low-restrictions environment to a medium and high restriction environment increased electricity consumption by 18% to 45%, respectively. These increases in consumption manifest predominantly between 9AM to 5PM, even when remaining home is not required by the measures in place. The changes in behaviour resulting from additional restrictions would amount to 0.57 £/day (＋18%) and 1.41 £/day (＋45%) when transitioning from low to medium and high restrictions, respectively.",
-      "abstract_cn": "在COVID-19封锁期间，家庭能源消耗受到了广泛关注，然而，关于更细粒度健康限制影响的研究却很少；理解差异化健康措施的后果对政策制定者和电网运营商 alike 都很重要。我们通过研究英国的COVID-19分级系统来调查额外限制的边际影响。每一级更高的限制都收紧了适用规则，并对生活的许多方面施加了更多限制，例如允许的社交互动类型以及允许营业的商店。我们使用新颖的向量匹配方法，该方法能够在多个有序处理的情况下对处理效应进行因果识别。我们的结果表明，从低限制环境转向中限制和高限制环境，电力消耗分别增加了18%和45%。这些消耗的增加主要出现在上午9点到下午5点之间，即使所实施的措施并不要求人们留在家中。由额外限制引起的行为变化，在从低限制转向中限制和高限制时，将分别相当于0.57英镑/天（＋18%）和1.41英镑/天（＋45%）。",
+      "abstract_cn": "",
       "doi": "10.1016/j.eneco.2024.107788",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988324004961",
       "publication_date": "February 2024",
@@ -164,15 +165,15 @@
         "repec": "https://ideas.repec.org/a/eee/eneeco/v138y2024ics0140988324004961.html"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-30T04:30:02+00:00",
-        "source_hash": "efe79767cd9e65356764ee42403bf48db6a90ffc58a63374e392f7da0ff4b202"
+        "status": "pending",
+        "provider": "",
+        "prompt_version": "",
+        "glossary_version": "1"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -1928,7 +1929,7 @@
       "source_sequence": 47,
       "article_type": "research-article",
       "title_en": "Extreme co-movements between CO2 emission allowances and commodity markets and their response to economic policy uncertainty",
-      "title_cn": "",
+      "title_cn": "碳排放配额与大宗商品市场的极端联动及其对经济政策不确定性的响应",
       "authors": [
         "Xunfa Lu",
         "Pengchao He",
@@ -1936,7 +1937,7 @@
         "Nicholas Apergis"
       ],
       "abstract_en": "This study employs the generalized extreme value - autoregressive conditional Fréchet - tail quotient correlation coefficient (GEV-AcF-TQCC) analytical framework to investigate the extreme co-movements between the EU carbon futures market and the commodity futures market. Subsequently, it also examines the response of the dynamic tail quotient correlation coefficient (TQCC) values to economic policy uncertainty stemming from the US using the linear Granger causality test. The empirical results demonstrate that the tail risk indices for both upside and downside trends of the two futures markets experience changes most of the time and show drastic changes during extreme events. More importantly, before the outbreaks of the COVID-19 pandemic (from September 2019 to February 2020) and the Russia-Ukraine conflict (from May 2021 to February 2022), the dynamic TQCC values for the downside trends of the two futures markets remain at relatively high levels. Of note, when examining the dynamic TQCC values between GSCI_down and EUA_down, as well as between GSCI_down and EUA_up, it can be observed that these TQCC values rise to higher levels during periods of extreme volatility. However, they quickly decline as the GSCI futures market experiences significant fluctuations during its downside trend. This pattern indicates a tail risk spillover effect from the GSCI futures market to the EUA futures market. Further analysis using the linear Granger causality test reveals that economic policy uncertainty is a significant driver of the extreme co-movements between the EU carbon and the commodity futures markets in most cases, in addition to the extreme co-movements between the downside trend of the EU carbon futures market and the upside trend of the commodity futures market. The insights gained from this study can provide valuable guidance and enlightenment for policymakers, financial investors, and academic researchers in understanding the dynamics of the extreme relationship between the two markets under discussion, and the impacts of economic policy uncertainty on their extreme co-movements.",
-      "abstract_cn": "",
+      "abstract_cn": "本研究采用广义极值-自回归条件弗雷歇-尾部商相关系数（GEV-AcF-TQCC）分析框架，考察欧盟碳期货市场与大宗商品期货市场之间的极端联动。随后，利用线性格兰杰因果检验，进一步考察动态尾部商相关系数（TQCC）值对美国经济政策不确定性的响应。实证结果表明，两个期货市场在上涨和下跌趋势中的尾部风险指数在大多数时间内发生变化，并在极端事件期间表现出剧烈变化。更重要的是，在COVID-19疫情爆发（2019年九月至2020年二月）和俄乌冲突（2021年五月至2022年二月）之前，两个期货市场下跌趋势的动态TQCC值保持在相对较高的水平。值得注意的是，在考察GSCI_down与EUA_down以及GSCI_down与EUA_up之间的动态TQCC值时，可以观察到这些TQCC值在极端波动时期升至更高水平。然而，随着GSCI期货市场在其下跌趋势中经历显著波动，这些TQCC值迅速下降。这一模式表明，GSCI期货市场对EUA期货市场存在尾部风险溢出效应。进一步的线性格兰杰因果检验分析显示，在大多数情况下，经济政策不确定性是欧盟碳与大宗商品期货市场极端联动的重要驱动因素，但欧盟碳期货市场下跌趋势与大宗商品期货市场上涨趋势之间的极端联动除外。本研究获得的见解可为政策制定者、金融投资者和学术研究人员提供有价值的指导和启示，有助于理解所讨论的两个市场之间极端关系的动态，以及经济政策不确定性对其极端联动的影响。",
       "doi": "10.1016/j.eneco.2024.107868",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0140988324005760",
       "publication_date": "February 2024",
@@ -1948,12 +1949,15 @@
         "repec": "https://ideas.repec.org/a/eee/eneeco/v138y2024ics0140988324005760.html"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-18T18:35:09+00:00",
+        "source_hash": "690f52c5b97340c0f78cc623a235434d6d8213ac196e376ff96b408d16c7a809"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
