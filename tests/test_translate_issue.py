@@ -319,6 +319,12 @@ class DeepSeekModelResolutionTests(unittest.TestCase):
         self.assertEqual([], _numbers("between 9AM and 5PM"))
         self.assertEqual([], _numbers("可持续发展目标7、8、12和13，上午9点至下午5点"))
         self.assertEqual(["2"], _month_numbers("during Feb 2020"))
+        self.assertCountEqual(
+            ["9", "2", "5", "2"],
+            _month_numbers(
+                "from September 2019 to February 2020 and from May 2021 to February 2022"
+            ),
+        )
 
         article = {
             "article_type": "research",

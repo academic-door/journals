@@ -136,6 +136,20 @@ CHINESE_MONTH_PATTERN = re.compile(
 def _month_numbers(value: str) -> list[str]:
     """Month names are numeric values; ``July 2006`` equals ``7月``."""
     numbers: list[str] = []
+    seen_english_spans: list[tuple[int, int]] = []
+
+    def add_english_month(index: int, span: tuple[int, int]) -> None:
+        # A month can match both the full-name rule (``May 2021``) and the
+        # abbreviation rule (``May``).  Count the semantic occurrence once,
+        # even when the parser spans differ but overlap.
+        if any(
+            not (span[1] <= existing[0] or span[0] >= existing[1])
+            for existing in seen_english_spans
+        ):
+            return
+        seen_english_spans.append(span)
+        numbers.append(str(index))
+
     for name, index in MONTH_EN_INDEX.items():
         month_with_year = re.compile(
             rf"\b{name}\b(?=\s+(?:19|20)\d{{2}}\b)",
@@ -154,17 +168,17 @@ def _month_numbers(value: str) -> list[str]:
             span = (_match.start(), _match.end())
             if span not in seen_spans:
                 seen_spans.add(span)
-                numbers.append(str(index))
+                add_english_month(index, span)
         for _match in month_with_day_year.finditer(value):
             span = _match.span("month")
             if span not in seen_spans:
                 seen_spans.add(span)
-                numbers.append(str(index))
+                add_english_month(index, span)
         for _match in month_after_preposition.finditer(value):
             span = _match.span("month")
             if span not in seen_spans:
                 seen_spans.add(span)
-                numbers.append(str(index))
+                add_english_month(index, span)
     for index, month_cn in enumerate(MONTH_WORDS_ZH.values(), start=1):
         for _match in CHINESE_MONTH_PATTERN.finditer(value):
             if _match.group(0) == month_cn:
@@ -179,7 +193,8 @@ def _month_numbers(value: str) -> list[str]:
             rf"\b{alias}\.?\b(?=\s+(?:19|20)\d{{2}}\b)",
             flags=re.IGNORECASE,
         )
-        numbers.extend(str(index) for _ in pattern.finditer(value))
+        for _match in pattern.finditer(value):
+            add_english_month(index, _match.span())
     month_period_pattern = re.compile(
         r"\b(\d{4})M(0?[1-9]|1[0-2])\b",
         flags=re.IGNORECASE,
