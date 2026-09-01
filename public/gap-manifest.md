@@ -1,13 +1,13 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-01T11:47:05+00:00
+Generated: 2026-09-01T14:05:25+00:00
 
 ## Summary
 
 - browser_required: 1
-- ready: 1066
+- ready: 1078
 - recoverable: 66
-- source_pending: 195
+- source_pending: 183
 - translation_required: 3
 
 ## Issue queue
@@ -484,16 +484,16 @@ Generated: 2026-09-01T11:47:05+00:00
 | JAERE | jaere-11-5 | 2024 | recoverable | blocked | source_pending | archive_missing |
 | JAERE | jaere-11-6 | 2024 | recoverable | blocked | source_pending | archive_missing |
 | JAERE | jaere-11-S1 | 2024 | recoverable | blocked | source_pending | archive_missing |
-| JAERE | jaere-12-1 | 2025 | source_pending | complete | source_pending | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2025/12/1 |
-| JAERE | jaere-12-2 | 2025 | source_pending | complete | source_pending | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2025/12/2 |
-| JAERE | jaere-12-3 | 2025 | source_pending | complete | source_pending | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2025/12/3 |
-| JAERE | jaere-12-4 | 2025 | source_pending | complete | source_pending | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2025/12/4 |
-| JAERE | jaere-12-5 | 2025 | source_pending | complete | source_pending | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2025/12/5 |
-| JAERE | jaere-12-6 | 2025 | source_pending | complete | source_pending | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2025/12/6 |
+| JAERE | jaere-12-1 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| JAERE | jaere-12-2 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| JAERE | jaere-12-3 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| JAERE | jaere-12-4 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| JAERE | jaere-12-5 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| JAERE | jaere-12-6 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JAERE | jaere-13-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JAERE | jaere-13-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JAERE | jaere-13-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
-| JAERE | jaere-13-4 | 2026 | source_pending | complete | source_pending | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2026/13/4 |
+| JAERE | jaere-13-4 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JAERE | jaere-13-5 | 2026 | recoverable | blocked | source_pending | archive_missing |
 | JAERE | jaere-13-6 | 2026 | recoverable | blocked | source_pending | archive_missing |
 | JCE | jce-51-1 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
@@ -630,7 +630,7 @@ Generated: 2026-09-01T11:47:05+00:00
 | JEEA | jeea-21-2 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | JEEA | jeea-21-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | JEEA | jeea-21-4 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| JEEA | jeea-21-5 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| JEEA | jeea-21-5 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | JEEA | jeea-21-6 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | JEEA | jeea-22-1 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | JEEA | jeea-22-2 | 2024 | source_pending | complete | source_pending | official source verification pending |
@@ -733,7 +733,7 @@ Generated: 2026-09-01T11:47:05+00:00
 | JET | jet-236-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JET | jet-237-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JF | jf-78-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| JF | jf-78-2 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| JF | jf-78-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | JF | jf-78-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | JF | jf-78-4 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | JF | jf-78-5 | 2023 | source_pending | complete | source_pending | official source verification pending |
@@ -858,14 +858,14 @@ Generated: 2026-09-01T11:47:05+00:00
 | JLE | jle-42-3 | 2024 | recoverable | blocked | source_pending | archive_missing |
 | JLE | jle-42-4 | 2024 | recoverable | blocked | source_pending | archive_missing |
 | JLE | jle-42-S1 | 2024 | recoverable | blocked | source_pending | archive_missing |
-| JLE | jle-43-1 | 2025 | source_pending | complete | source_pending | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jole/2025/43/1 |
+| JLE | jle-43-1 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-43-2 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-43-3 | 2025 | ready | complete | official_verified | content and official source gates passed |
-| JLE | jle-43-4 | 2025 | source_pending | complete | source_pending | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jole/2025/43/4 |
+| JLE | jle-43-4 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-43-S1 | 2025 | recoverable | blocked | source_pending | archive_missing |
 | JLE | jle-44-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-44-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
-| JLE | jle-44-3 | 2026 | source_pending | complete | source_pending | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jole/2026/44/3 |
+| JLE | jle-44-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JME | jme-133-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JME | jme-134-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JME | jme-135-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
