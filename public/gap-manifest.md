@@ -1,13 +1,13 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-01T16:45:40+00:00
+Generated: 2026-09-01T17:22:03+00:00
 
 ## Summary
 
 - browser_required: 1
-- ready: 1079
+- ready: 1080
 - recoverable: 66
-- source_pending: 182
+- source_pending: 181
 - translation_required: 3
 
 ## Issue queue
@@ -1216,7 +1216,7 @@ Generated: 2026-09-01T16:45:40+00:00
 | RES | res-93-2 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
 | RES | res-93-3 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
 | RES | res-93-4 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| RESTAT | restat-105-1 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| RESTAT | restat-105-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RESTAT | restat-105-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RESTAT | restat-105-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | RESTAT | restat-105-4 | 2023 | source_pending | complete | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs official page or browser-authorized capture |

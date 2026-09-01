@@ -1,12 +1,12 @@
 # Field journal history backfill status
 
-Updated: 2026-09-01T16:45:23+00:00
+Updated: 2026-09-01T17:21:45+00:00
 
-Discovery coverage: 1331 discovered · 1263 archived · 1079 publication ready · 68 missing · 184 source pending
+Discovery coverage: 1331 discovered · 1263 archived · 1080 publication ready · 68 missing · 183 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 555 | 1 | 48 | 104 |
+| 2023-2024 | 556 | 1 | 48 | 103 |
 | 2023-2026 | 275 | 0 | 17 | 8 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
@@ -1216,7 +1216,7 @@ Discovery coverage: 1331 discovered · 1263 archived · 1079 publication ready �
 | RES | res-93-2 | 2026 | source_pending | source authority pending official verification |
 | RES | res-93-3 | 2026 | source_pending | source authority pending official verification |
 | RES | res-93-4 | 2026 | source_pending | source authority pending official verification |
-| RESTAT | restat-105-1 | 2023 | source_pending |  |
+| RESTAT | restat-105-1 | 2023 | ready |  |
 | RESTAT | restat-105-2 | 2023 | ready |  |
 | RESTAT | restat-105-3 | 2023 | source_pending |  |
 | RESTAT | restat-105-4 | 2023 | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs off |
