@@ -84,7 +84,10 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         repair = workflow.index("python scripts/repair_current_translations.py")
         audit = workflow.rindex("python scripts/audit_public_data.py --strict-provenance")
         repair_step = workflow.rindex("- name: Repair only invalid current-snapshot translations", 0, repair)
-        self.assertIn("if: inputs.publish_issue_ids == ''", workflow[repair_step:repair])
+        self.assertIn(
+            "if: inputs.publish_issue_ids == '' && inputs.issue_ids == '' && !inputs.translation_only",
+            workflow[repair_step:repair],
+        )
         self.assertLess(repair, audit)
         self.assertIn("--translation-cache-root data/translation-cache", workflow[repair:audit])
         self.assertIn("current-translation-repair.json", workflow[repair:audit])
