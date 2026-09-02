@@ -3,20 +3,33 @@
 Reusable, deterministic production capability.  For every tracked journal it
 measures which 2026 issues the authoritative sources have published and which of
 those Academic Door has saved.  It is derived exclusively from persisted
-discovery snapshots and archive read-back, never from config ``year_ranges``
-(which cannot prove that an expected issue exists).
+discovery snapshots + archive read-back, never from config ``year_ranges``.
 
-The script is intentionally self-contained (stdlib + ``yaml`` only) so it can be
-run in the data/runtime environment without the collector stack.
+Authority semantics (important, do not weaken):
 
-Status semantics (factual, not aspirational):
+- A generic discovery snapshot alone does NOT prove the 2026 expected set.
+- ``crossref_candidate`` is NOT authoritative expected-set evidence.
+- An expected set is authoritative only when a discovery snapshot for the
+  journal carries a non-crossref authority (e.g. official_archive / publisher)
+  AND covers the audit window.
+- Without an authoritative expected set the journal is ``NOT_MEASURED``, even
+  if individual issues were observed.
 
-``COMPLETE``        authoritative expected set established and missing == 0
-``PARTIAL``         authoritative expected set established and specific missing
-                    issues are known
-``NOT_MEASURED``    no authoritative expected set can be established yet
-``SOURCE_BLOCKED``  the authoritative source was attempted but is externally
-                    blocked (no usable expected/authority evidence)
+Per-issue state (for an authoritative expected issue, via archive read-back):
+
+- ``publicationReady``: archive exists, identity valid, publication_state == ready
+- ``blocked`` (source-pending / blocked): archive exists but is NOT publication-ready
+  (or identity mismatch, which must never satisfy COMPLETE)
+- ``missing``: no archive on disk
+
+Journal status:
+
+- COMPLETE:       authoritative expected set, publicationReady == expectedCount,
+                  missing == 0, blocked == 0
+- PARTIAL:        authoritative expected set, one or more concrete expected
+                  issues are absent (missing > 0); expose missing + blocked lists
+- SOURCE_BLOCKED: authoritative expected set, missing == 0, blocked > 0
+- NOT_MEASURED:   authoritative expected set for the audit window not established
 """
 
 from __future__ import annotations
@@ -38,17 +51,9 @@ if str(ROOT) not in sys.path:
 
 WINDOW_START = "2026-01-01"
 VALID_STATUSES = {"COMPLETE", "PARTIAL", "NOT_MEASURED", "SOURCE_BLOCKED"}
-_BLOCKED_PUBLICATION_STATES = {"blocked"}
-_BLOCKED_SOURCE_STATUSES = {"source_pending", "blocked"}
-_BLOCKED_AUTHORITY_MARKERS = (
-    "captcha",
-    "blocked",
-    "403",
-    "forbidden",
-    "paywall",
-    "robots",
-    "cloudflare",
-)
+NON_AUTHORITATIVE_AUTHORITIES = {"crossref_candidate", ""}
+# States that mean "present on disk but not publication-ready".
+_NON_READY_STATES = {"blocked", "source_pending", "translation_partial"}
 
 
 def _today() -> str:
@@ -93,87 +98,124 @@ def _archive_path(api_root: Path, config: dict[str, Any], issue_id: str) -> Path
     )
 
 
-def _inspect_archive(
-    archive: Path, expected_issue_id: str, expected_journal_id: str
-) -> dict[str, Any]:
-    """Lightweight archive read-back (no collector stack required)."""
-    if not archive.exists():
+def _status_fields(status: str) -> dict[str, str]:
+    """Mirror the canonical archive state mapping (no collector stack required)."""
+    if status == "ready":
         return {
-            "archive_exists": False,
-            "content_status": "blocked",
-            "source_status": "source_pending",
-            "publication_state": "blocked",
-            "reason": "",
+            "content_status": "complete",
+            "source_status": "official_verified",
+            "publication_state": "ready",
         }
-    try:
-        payload = json.loads(archive.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError):
+    if status == "source_pending":
         return {
-            "archive_exists": False,
-            "content_status": "blocked",
+            "content_status": "complete",
             "source_status": "source_pending",
-            "publication_state": "blocked",
-            "reason": "archive_unreadable",
+            "publication_state": "source_pending",
         }
-    status = str(payload.get("status", "") or payload.get("publication_state", ""))
-    source_status = str(payload.get("source_status", ""))
-    content_status = str(payload.get("content_status", ""))
-    reason = str(payload.get("reason", ""))
-    archive_exists = status in {"ready", "complete", "blocked", "source_pending"} or bool(
-        payload.get("archive_exists", True)
-    )
-    publication_state = "ready" if status in {"ready", "complete"} else status
+    if status == "translation_partial":
+        return {
+            "content_status": "translation_partial",
+            "source_status": "source_pending",
+            "publication_state": "translation_partial",
+        }
     return {
-        "archive_exists": archive_exists,
-        "content_status": content_status or ("complete" if status in {"ready", "complete"} else "blocked"),
-        "source_status": source_status,
-        "publication_state": publication_state,
-        "reason": reason,
+        "content_status": "blocked",
+        "source_status": "source_pending",
+        "publication_state": "blocked",
     }
 
 
-def _snapshot_present(states: Iterable[dict[str, Any]], journal: str) -> bool:
-    """A discovery snapshot establishes the authoritative expected set.
+def inspect_archive(
+    path: Path, *, expected_issue_id: str = "", expected_journal_id: str = ""
+) -> dict[str, Any]:
+    """Faithful, self-contained archive inspector (mirrors the canonical one).
 
-    Only a real discovery snapshot is a valid source of expected issues; config
-    year_ranges are deliberately ignored.
+    Existence alone is never success.  Validates the issue/journal identity and
+    maps the archive ``status`` to content/source/publication state.
     """
-    for state in states:
-        discovery = state.get("discovery", {})
-        if not isinstance(discovery, dict):
-            continue
-        snapshot = discovery.get(journal) or discovery.get(journal.upper())
-        if isinstance(snapshot, dict):
-            return True
-    return False
+    if not path.exists():
+        return {
+            "archive_exists": False,
+            "archive_valid": False,
+            "content_status": "blocked",
+            "source_status": "source_pending",
+            "publication_state": "blocked",
+            "reason": "archive_missing",
+        }
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {
+            "archive_exists": True,
+            "archive_valid": False,
+            "content_status": "blocked",
+            "source_status": "source_pending",
+            "publication_state": "blocked",
+            "reason": "archive_invalid: JSONDecodeError",
+        }
+    if not isinstance(payload, dict):
+        return {
+            "archive_exists": True,
+            "archive_valid": False,
+            "content_status": "blocked",
+            "source_status": "source_pending",
+            "publication_state": "blocked",
+            "reason": "archive_invalid: not an object",
+        }
+    status = str(payload.get("status", "") or payload.get("publication_state", ""))
+    fields = _status_fields(status)
+    # Prefer the persisted, canonical-recomputed state fields when present
+    # (the raw ``status`` label can be legacy/stale, e.g. "incomplete").
+    fields = {
+        "content_status": str(payload.get("content_status") or fields["content_status"]),
+        "source_status": str(payload.get("source_status") or fields["source_status"]),
+        "publication_state": str(payload.get("publication_state") or fields["publication_state"]),
+    }
+    identity_ok = True
+    if expected_issue_id and str(payload.get("issue_id", "")) != expected_issue_id:
+        identity_ok = False
+    if expected_journal_id and str(payload.get("journal_id", "")) != expected_journal_id:
+        identity_ok = False
+    if not identity_ok:
+        fields = {
+            "content_status": "blocked",
+            "source_status": "source_pending",
+            "publication_state": "blocked",
+        }
+        return {
+            "archive_exists": True,
+            "archive_valid": False,
+            "content_status": "blocked",
+            "source_status": "source_pending",
+            "publication_state": "blocked",
+            "reason": "archive_identity_mismatch",
+            "issue": payload,
+        }
+    return {
+        "archive_exists": True,
+        "archive_valid": True,
+        "content_status": fields["content_status"],
+        "source_status": fields["source_status"],
+        "publication_state": fields["publication_state"],
+        "reason": "",
+        "issue": payload,
+    }
 
 
-def _source_blocked(authority: str, entry: dict[str, Any], integrity: dict[str, Any]) -> bool:
-    """Only a genuine upstream/publisher block counts as SOURCE_BLOCKED.
+def _is_authoritative(authority: str) -> bool:
+    return authority not in NON_AUTHORITATIVE_AUTHORITIES
 
-    A simply-missing archive must never be treated as a source block; its default
-    placeholder ``publication_state``/``source_status`` are not evidence.  We
-    require either an existing-but-blocked archive or explicit text markers in
-    the authority / error / reason.
+
+def _authoritative_expectations(
+    states: Iterable[dict[str, Any]], window_year: str
+) -> dict[str, dict[str, dict[str, Any]]]:
+    """Per journal: expected 2026 issues from AUTHORITATIVE snapshots only.
+
+    Returns ``{journal_key: {issue_id: expectation}}``.  Crossref-only snapshots
+    are ignored because they cannot establish an authoritative expected set.
     """
-    if integrity.get("archive_exists"):
-        if integrity.get("publication_state") in _BLOCKED_PUBLICATION_STATES:
-            return True
-        if integrity.get("source_status") in _BLOCKED_SOURCE_STATUSES:
-            return True
-    text = " ".join(
-        str(value).casefold()
-        for value in (authority, entry.get("last_error", ""), integrity.get("reason", ""))
-    )
-    return any(marker in text for marker in _BLOCKED_AUTHORITY_MARKERS)
-
-
-def discovery_expectations(
-    states: Iterable[dict[str, Any]],
-    merged_issues: dict[str, Any],
-) -> dict[str, dict[str, Any]]:
-    """Union per-period discovery snapshots into issue-level expectations."""
-    expected: dict[str, dict[str, Any]] = {}
+    out: dict[str, dict[str, dict[str, Any]]] = {}
+    author: dict[str, str] = {}
     for state in states:
         discovery = state.get("discovery", {})
         if not isinstance(discovery, dict):
@@ -181,27 +223,35 @@ def discovery_expectations(
         for journal, snapshot in discovery.items():
             if not isinstance(snapshot, dict):
                 continue
+            authority = str(snapshot.get("authority", ""))
+            if not _is_authoritative(authority):
+                continue
             issue_years = snapshot.get("issue_years", {}) or {}
             issue_refs = snapshot.get("issue_refs", {}) or {}
             for issue_id in snapshot.get("issue_ids", []):
                 issue_id = str(issue_id)
-                entry = merged_issues.get(issue_id, {})
+                if _year(issue_years.get(issue_id)) != window_year:
+                    continue
                 reference = issue_refs.get(issue_id, {})
                 if not isinstance(reference, dict):
                     reference = {}
-                year = issue_years.get(issue_id) or entry.get("year")
-                expected[issue_id] = {
+                out.setdefault(journal, {})[issue_id] = {
                     "issue_id": issue_id,
                     "journal": str(journal),
-                    "year": year,
-                    "volume": reference.get("volume") or entry.get("volume", ""),
-                    "issue": reference.get("issue") or entry.get("issue", ""),
-                    "official_url": reference.get("official_url") or entry.get("official_url", ""),
-                    "authority": str(snapshot.get("authority", "")),
+                    "year": issue_years.get(issue_id),
+                    "volume": reference.get("volume", ""),
+                    "issue": reference.get("issue", ""),
+                    "official_url": reference.get("official_url", ""),
+                    "authority": authority,
                     "refreshed_at": str(snapshot.get("refreshed_at", "")),
                     "collector_revision": str(snapshot.get("collector_revision", "")),
                 }
-    return expected
+                author[journal] = authority
+    # annotate authority on each record
+    for journal, issues in out.items():
+        for issue_id, rec in issues.items():
+            rec["authority"] = author.get(journal, rec.get("authority", ""))
+    return out
 
 
 def build_ledger(
@@ -216,77 +266,53 @@ def build_ledger(
     window_year = _year(window_start[:4])
 
     states: list[dict[str, Any]] = []
-    merged_issues: dict[str, Any] = {}
     for state_path in state_paths:
-        state = load_state(state_path)
-        states.append(state)
-        issues = state.get("issues", {}) if isinstance(state.get("issues"), dict) else {}
-        merged_issues.update(issues)
+        states.append(load_state(state_path))
 
-    expected = discovery_expectations(states, merged_issues)
-
-    expected_ids: dict[str, list[str]] = {}
-    observed_ids: dict[str, list[str]] = {}
-    missing_ids: dict[str, list[str]] = {}
-    blocked_ids: dict[str, list[str]] = {}
-    authorities: dict[str, str] = {}
-
-    for issue_id, exp in expected.items():
-        if _year(exp.get("year")) != window_year:
-            continue
-        journal = str(exp.get("journal", ""))
-        key = journal if journal in journals else journal.upper()
-        if key not in journals:
-            continue
-        expected_ids.setdefault(key, []).append(issue_id)
-        authorities[key] = str(exp.get("authority", ""))
-        config = journals.get(key) or {}
-        archive = _archive_path(api_root, config, issue_id)
-        integrity = _inspect_archive(
-            archive, expected_issue_id=issue_id, expected_journal_id=_journal_id(key, config)
-        )
-        entry = merged_issues.get(issue_id) or {}
-        if integrity.get("archive_exists"):
-            observed_ids.setdefault(key, []).append(issue_id)
-        elif _source_blocked(authorities[key], entry, integrity):
-            blocked_ids.setdefault(key, []).append(issue_id)
-        else:
-            missing_ids.setdefault(key, []).append(issue_id)
+    auth_expected = _authoritative_expectations(states, window_year)
 
     records: list[dict[str, Any]] = []
     for key, config in journals.items():
         journal_id = _journal_id(key, config)
         title = str(config.get("name") or key)
-        snapshot = _snapshot_present(states, key)
-        exp_ids = sorted(set(expected_ids.get(key, [])))
-        obs_ids = sorted(set(observed_ids.get(key, [])))
-        mis_ids = sorted(set(missing_ids.get(key, [])))
-        blk_ids = sorted(set(blocked_ids.get(key, [])))
+        exp_map = auth_expected.get(key) or auth_expected.get(key.upper()) or {}
+        exp_ids = sorted(exp_map.keys())
 
-        if not snapshot and not exp_ids:
+        ready_ids: list[str] = []
+        blocked_ids: list[str] = []
+        missing_ids: list[str] = []
+        authority = ""
+        refreshed_at = ""
+        for iid in exp_ids:
+            rec = exp_map[iid]
+            authority = str(rec.get("authority", authority))
+            refreshed_at = str(rec.get("refreshed_at", refreshed_at)) or refreshed_at
+            integrity = inspect_archive(
+                _archive_path(api_root, config, iid),
+                expected_issue_id=iid,
+                expected_journal_id=journal_id,
+            )
+            if integrity.get("archive_exists"):
+                if integrity.get("publication_state") == "ready" and integrity.get("archive_valid"):
+                    ready_ids.append(iid)
+                else:
+                    blocked_ids.append(iid)
+            else:
+                missing_ids.append(iid)
+
+        if not exp_ids:
             status = "NOT_MEASURED"
-            missing_issues: list[dict[str, Any]] = []
-            evidence = "no 2026 discovery snapshot on file"
-        elif not mis_ids and not blk_ids:
-            status = "COMPLETE"
-            missing_issues = []
-            evidence = "all expected 2026 issues observed"
-        elif not mis_ids and blk_ids:
-            status = "SOURCE_BLOCKED"
-            missing_issues = []
-            evidence = "expected set blocked by upstream/publisher access"
+            evidence = "no authoritative 2026 expected set (no non-crossref snapshot covering the window)"
         else:
-            status = "PARTIAL"
-            missing_issues = [
-                {
-                    "issue_id": issue_id,
-                    "volume": str(expected[issue_id].get("volume", "")) if issue_id in expected else "",
-                    "issue": str(expected[issue_id].get("issue", "")) if issue_id in expected else "",
-                    "official_url": str(expected[issue_id].get("official_url", "")) if issue_id in expected else "",
-                }
-                for issue_id in mis_ids
-            ]
-            evidence = f"{len(mis_ids)} expected 2026 issue(s) not observed"
+            if not missing_ids and not blocked_ids:
+                status = "COMPLETE"
+                evidence = "all authoritative expected 2026 issues publication-ready"
+            elif missing_ids:
+                status = "PARTIAL"
+                evidence = f"{len(missing_ids)} authoritative expected 2026 issue(s) absent"
+            else:
+                status = "SOURCE_BLOCKED"
+                evidence = "expected set exists but one or more issues blocked/source-pending"
 
         records.append(
             {
@@ -295,12 +321,27 @@ def build_ledger(
                 "title": title,
                 "windowStart": window_start,
                 "windowEnd": window_end,
+                "authority": authority,
+                "evidenceRef": "",
+                "discoveryRefreshedAt": refreshed_at,
                 "expectedIssues": exp_ids,
-                "observedIssues": obs_ids,
-                "missingIssues": missing_issues,
+                "archivedIssues": sorted(set(ready_ids) | set(blocked_ids)),
+                "publicationReadyIssues": ready_ids,
+                "missingIssues": [
+                    {
+                        "issue_id": iid,
+                        "volume": str(exp_map[iid].get("volume", "")),
+                        "issue": str(exp_map[iid].get("issue", "")),
+                        "official_url": str(exp_map[iid].get("official_url", "")),
+                    }
+                    for iid in missing_ids
+                ],
+                "sourceBlockedIssues": blocked_ids,
                 "expectedIssueCount": len(exp_ids),
-                "observedIssueCount": len(obs_ids),
-                "missingIssueCount": len(mis_ids),
+                "archivedIssueCount": len(set(ready_ids) | set(blocked_ids)),
+                "publicationReadyIssueCount": len(ready_ids),
+                "missingIssueCount": len(missing_ids),
+                "sourceBlockedIssueCount": len(blocked_ids),
                 "status": status,
                 "evidence": evidence,
                 "lastCheckedAt": window_end,
@@ -319,12 +360,14 @@ def build_ledger(
         "not_measured": counts["NOT_MEASURED"],
         "source_blocked": counts["SOURCE_BLOCKED"],
         "expected_issues_total": sum(r["expectedIssueCount"] for r in records),
-        "observed_issues_total": sum(r["observedIssueCount"] for r in records),
+        "archived_issues_total": sum(r["archivedIssueCount"] for r in records),
+        "publication_ready_issues_total": sum(r["publicationReadyIssueCount"] for r in records),
         "confirmed_missing_issues_total": sum(r["missingIssueCount"] for r in records),
+        "blocked_issues_total": sum(r["sourceBlockedIssueCount"] for r in records),
     }
 
     return {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         "windowStart": window_start,
         "windowEnd": window_end,
@@ -354,20 +397,23 @@ def render_markdown(payload: dict[str, Any]) -> str:
         f"- NOT_MEASURED: {rec['not_measured']}",
         f"- SOURCE_BLOCKED: {rec['source_blocked']}",
         f"- expected issues: {rec['expected_issues_total']}",
-        f"- observed issues: {rec['observed_issues_total']}",
+        f"- archived issues: {rec['archived_issues_total']}",
+        f"- publication-ready issues: {rec['publication_ready_issues_total']}",
         f"- confirmed missing issues: {rec['confirmed_missing_issues_total']}",
+        f"- blocked issues: {rec['blocked_issues_total']}",
         "",
         "## Per-journal",
         "",
-        "| Journal | Status | Expected | Observed | Missing | Evidence |",
-        "|---|---|---:|---:|---:|---|",
+        "| Journal | Status | Authority | Expected | Archived | Ready | Missing | Blocked | Evidence |",
+        "|---|---|---|---|---:|---:|---:|---:|---|",
     ]
     for record in payload["journals"]:
         evidence = re.sub(r"\s+", " ", str(record.get("evidence", ""))).replace("|", "/")
         lines.append(
-            f"| {record['journalKey']} | {record['status']} | "
-            f"{record['expectedIssueCount']} | {record['observedIssueCount']} | "
-            f"{record['missingIssueCount']} | {evidence[:80]} |"
+            f"| {record['journalKey']} | {record['status']} | {str(record.get('authority')) or '-'} | "
+            f"{record['expectedIssueCount']} | {record['archivedIssueCount']} | "
+            f"{record['publicationReadyIssueCount']} | {record['missingIssueCount']} | "
+            f"{record['sourceBlockedIssueCount']} | {evidence[:80]} |"
         )
     return "\n".join(lines) + "\n"
 
