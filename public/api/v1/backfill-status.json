@@ -1,21 +1,21 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-09-02T20:07:15+00:00",
+  "updated_at": "2026-09-02T20:10:47+00:00",
   "summary": {
-    "complete": 1112,
+    "complete": 1113,
     "translation_partial": 0,
     "blocked": 66,
     "collected": 0,
-    "pending": 153
+    "pending": 152
   },
   "coverage": {
     "discovered": 1331,
     "archived": 1265,
     "content_ready": 1265,
-    "source_verified": 1111,
-    "publication_ready": 1111,
+    "source_verified": 1112,
+    "publication_ready": 1112,
     "missing": 66,
-    "source_pending": 154,
+    "source_pending": 153,
     "missing_issue_ids": [
       "ecolecon-224-c",
       "ecolecon-225-c",
@@ -110,7 +110,6 @@
       "ecta-91-1",
       "ecta-91-4",
       "ecta-91-5",
-      "ej-136-678",
       "ier-64-2",
       "ier-64-3",
       "jeea-21-1",
@@ -1045,14 +1044,12 @@
       "discovered": 29,
       "archived": 29,
       "content_ready": 29,
-      "source_verified": 28,
-      "publication_ready": 28,
+      "source_verified": 29,
+      "publication_ready": 29,
       "missing": 0,
-      "source_pending": 1,
+      "source_pending": 0,
       "missing_issue_ids": [],
-      "source_pending_issue_ids": [
-        "ej-136-678"
-      ],
+      "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
       "years": {
         "2023": {
@@ -1095,14 +1092,12 @@
           "discovered": 6,
           "archived": 6,
           "content_ready": 6,
-          "source_verified": 5,
-          "publication_ready": 5,
+          "source_verified": 6,
+          "publication_ready": 6,
           "missing": 0,
-          "source_pending": 1,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "ej-136-678"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         }
       }
@@ -7432,12 +7427,12 @@
         "year": 2026,
         "volume": "136",
         "issue": "678",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "source_recovered"
       }
     ],
     "ENERGY": [

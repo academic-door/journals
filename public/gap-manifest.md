@@ -5,9 +5,9 @@ Generated: 2026-09-02T16:38:19+00:00
 ## Summary
 
 - browser_required: 1
-- ready: 1107
+- ready: 1108
 - recoverable: 65
-- source_pending: 157
+- source_pending: 156
 - translation_required: 1
 
 ## Issue queue
@@ -312,7 +312,7 @@ Generated: 2026-09-02T16:38:19+00:00
 | EJ | ej-136-675 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
 | EJ | ej-136-676 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | EJ | ej-136-677 | 2026 | ready | complete | official_verified | content and official source gates passed |
-| EJ | ej-136-678 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
+| EJ | ej-136-678 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | ENERGY | energy-117-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | ENERGY | energy-118-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | ENERGY | energy-119-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
