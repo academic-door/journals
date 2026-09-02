@@ -1,21 +1,21 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-09-02T19:17:32+00:00",
+  "updated_at": "2026-09-02T19:23:37+00:00",
   "summary": {
-    "complete": 1102,
+    "complete": 1103,
     "translation_partial": 0,
     "blocked": 66,
     "collected": 0,
-    "pending": 163
+    "pending": 162
   },
   "coverage": {
     "discovered": 1331,
     "archived": 1265,
     "content_ready": 1265,
-    "source_verified": 1101,
-    "publication_ready": 1101,
+    "source_verified": 1102,
+    "publication_ready": 1102,
     "missing": 66,
-    "source_pending": 164,
+    "source_pending": 163,
     "missing_issue_ids": [
       "ecolecon-224-c",
       "ecolecon-225-c",
@@ -110,7 +110,6 @@
       "ecta-91-1",
       "ecta-91-4",
       "ecta-91-5",
-      "ej-135-666",
       "ej-135-668",
       "ej-135-669",
       "ej-135-670",
@@ -1055,13 +1054,12 @@
       "discovered": 29,
       "archived": 29,
       "content_ready": 29,
-      "source_verified": 18,
-      "publication_ready": 18,
+      "source_verified": 19,
+      "publication_ready": 19,
       "missing": 0,
-      "source_pending": 11,
+      "source_pending": 10,
       "missing_issue_ids": [],
       "source_pending_issue_ids": [
-        "ej-135-666",
         "ej-135-668",
         "ej-135-669",
         "ej-135-670",
@@ -1091,14 +1089,12 @@
           "discovered": 9,
           "archived": 9,
           "content_ready": 9,
-          "source_verified": 8,
-          "publication_ready": 8,
+          "source_verified": 9,
+          "publication_ready": 9,
           "missing": 0,
-          "source_pending": 1,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "ej-135-666"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "2025": {
@@ -7320,12 +7316,12 @@
         "year": 2024,
         "volume": "135",
         "issue": "666",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
+        "source_status": "official_verified",
+        "publication_state": "ready",
         "last_error": "",
-        "retry_class": "source"
+        "retry_class": "source_recovered"
       },
       {
         "issue_id": "ej-135-667",
@@ -19934,11 +19930,11 @@
   "periods": {
     "2023-2024": {
       "summary": {
-        "complete": 576,
+        "complete": 577,
         "translation_partial": 0,
         "blocked": 48,
         "collected": 0,
-        "pending": 84
+        "pending": 83
       },
       "issue_count": 708,
       "updated_at": "2026-09-02T00:30:27+00:00",
