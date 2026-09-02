@@ -1,14 +1,13 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-02T11:23:46+00:00
+Generated: 2026-09-02T12:02:28+00:00
 
 ## Summary
 
-- browser_required: 1
-- ready: 1083
-- recoverable: 65
+- blocked: 1
+- ready: 1084
+- recoverable: 64
 - source_pending: 181
-- translation_required: 1
 
 ## Issue queue
 
@@ -284,7 +283,7 @@ Generated: 2026-09-02T11:23:46+00:00
 | EER | eer-187-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | EER | eer-188-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | EER | eer-189-c | 2026 | ready | complete | official_verified | content and official source gates passed |
-| EJ | ej-133-650 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| EJ | ej-133-650 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | EJ | ej-133-651 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | EJ | ej-133-652 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | EJ | ej-133-653 | 2023 | source_pending | complete | source_pending | official source verification pending |
@@ -862,7 +861,7 @@ Generated: 2026-09-02T11:23:46+00:00
 | JLE | jle-43-2 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-43-3 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-43-4 | 2025 | ready | complete | official_verified | content and official source gates passed |
-| JLE | jle-43-S1 | 2025 | recoverable | blocked | source_pending | archive_missing |
+| JLE | jle-43-S1 | 2025 | blocked | blocked | source_pending | archive_issue_id_mismatch: expected jle-43-S1, got jle-43-s1 |
 | JLE | jle-44-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-44-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-44-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
@@ -1148,7 +1147,6 @@ Generated: 2026-09-02T11:23:46+00:00
 | QE | qe-17-1 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | QE | qe-17-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | QE | qe-17-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
-| QE | qe-17-4 | 2026 | browser_required | blocked | source_pending | archive_missing |
 | QJE | qje-138-2 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | QJE | qje-138-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | QJE | qje-138-4 | 2023 | source_pending | complete | source_pending | official source verification pending |
@@ -1248,7 +1246,7 @@ Generated: 2026-09-02T11:23:46+00:00
 | RFS | rfs-36-6 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-36-7 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-36-8 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| RFS | rfs-36-9 | 2023 | translation_required | complete | source_pending | translation incomplete |
+| RFS | rfs-36-9 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | RFS | rfs-37-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-37-10 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-37-11 | 2024 | ready | complete | official_verified | content and official source gates passed |

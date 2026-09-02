@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-02T11:23:46+00:00",
+  "generated_at": "2026-09-02T12:02:28+00:00",
   "target_years": [
     2023,
     2024,
@@ -61,11 +61,10 @@
   ],
   "discovery_snapshot_missing_journals": [],
   "summary": {
-    "browser_required": 1,
-    "ready": 1083,
-    "recoverable": 65,
-    "source_pending": 181,
-    "translation_required": 1
+    "blocked": 1,
+    "ready": 1084,
+    "recoverable": 64,
+    "source_pending": 181
   },
   "records": [
     {
@@ -8178,8 +8177,8 @@
       "authority": "crossref_candidate",
       "refreshed_at": "2026-08-29T03:51:05+00:00",
       "collector_revision": "history-integrity-2026-08-11",
-      "category": "source_pending",
-      "reason": "official source verification pending",
+      "category": "ready",
+      "reason": "content and official source gates passed",
       "status": "source_pending",
       "retry_class": "source",
       "collector": "oup",
@@ -8189,14 +8188,14 @@
       "next_retry_at": "",
       "archive_exists": true,
       "content_status": "complete",
-      "source_status": "source_pending",
-      "publication_state": "source_pending",
+      "source_status": "official_verified",
+      "publication_state": "ready",
       "counts": {
-        "articles": 10,
-        "abstract_en": 10,
-        "translation_cn": 10
+        "articles": 13,
+        "abstract_en": 13,
+        "translation_cn": 13
       },
-      "next_action": "attach official roster/source evidence; do not publish"
+      "next_action": "no action"
     },
     {
       "issue_id": "ej-133-651",
@@ -25518,8 +25517,8 @@
       "authority": "crossref_candidate",
       "refreshed_at": "2026-08-24T14:22:44+00:00",
       "collector_revision": "history-integrity-2026-08-11",
-      "category": "recoverable",
-      "reason": "archive_missing",
+      "category": "blocked",
+      "reason": "archive_issue_id_mismatch: expected jle-43-S1, got jle-43-s1",
       "status": "blocked",
       "retry_class": "manual",
       "collector": "chicago",
@@ -25527,16 +25526,16 @@
       "last_attempt_at": "2026-08-27T10:21:26+00:00",
       "last_error_code": "HTTPError",
       "next_retry_at": "",
-      "archive_exists": false,
+      "archive_exists": true,
       "content_status": "blocked",
       "source_status": "source_pending",
       "publication_state": "blocked",
       "counts": {
-        "articles": 0,
-        "abstract_en": 0,
-        "translation_cn": 0
+        "articles": 12,
+        "abstract_en": 12,
+        "translation_cn": 12
       },
-      "next_action": "run official collector and validate archive"
+      "next_action": "inspect issue error and route to the correct retry queue"
     },
     {
       "issue_id": "jle-44-1",
@@ -34089,36 +34088,6 @@
       "next_action": "no action"
     },
     {
-      "issue_id": "qe-17-4",
-      "journal": "QE",
-      "year": 2026,
-      "volume": "17",
-      "issue": "4",
-      "official_url": "https://onlinelibrary.wiley.com/toc/17597331/17/4",
-      "authority": "official_archive",
-      "refreshed_at": "2026-08-24T14:00:38+00:00",
-      "collector_revision": "history-integrity-2026-08-11",
-      "category": "browser_required",
-      "reason": "archive_missing",
-      "status": "blocked",
-      "retry_class": "",
-      "collector": "repec",
-      "attempt_count": 0,
-      "last_attempt_at": "",
-      "last_error_code": "",
-      "next_retry_at": "",
-      "archive_exists": false,
-      "content_status": "blocked",
-      "source_status": "source_pending",
-      "publication_state": "blocked",
-      "counts": {
-        "articles": 0,
-        "abstract_en": 0,
-        "translation_cn": 0
-      },
-      "next_action": "read exact official issue page in authorized browser"
-    },
-    {
       "issue_id": "qje-138-2",
       "journal": "QJE",
       "year": 2023,
@@ -37098,8 +37067,8 @@
       "authority": "crossref_candidate",
       "refreshed_at": "2026-08-24T07:32:04+00:00",
       "collector_revision": "history-integrity-2026-08-11",
-      "category": "translation_required",
-      "reason": "translation incomplete",
+      "category": "source_pending",
+      "reason": "official source verification pending",
       "status": "translation_partial",
       "retry_class": "translation",
       "collector": "oup",
@@ -37116,7 +37085,7 @@
         "abstract_en": 6,
         "translation_cn": 6
       },
-      "next_action": "translate missing articles using cache-aware queue"
+      "next_action": "attach official roster/source evidence; do not publish"
     },
     {
       "issue_id": "rfs-37-1",

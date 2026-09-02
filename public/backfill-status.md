@@ -1,12 +1,12 @@
 # Field journal history backfill status
 
-Updated: 2026-09-02T11:23:32+00:00
+Updated: 2026-09-02T12:05:27+00:00
 
-Discovery coverage: 1331 discovered · 1265 archived · 1083 publication ready · 66 missing · 182 source pending
+Discovery coverage: 1330 discovered · 1266 archived · 1084 publication ready · 64 missing · 182 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 557 | 0 | 48 | 103 |
+| 2023-2024 | 558 | 0 | 48 | 102 |
 | 2023-2026 | 276 | 0 | 17 | 7 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
@@ -284,7 +284,7 @@ Discovery coverage: 1331 discovered · 1265 archived · 1083 publication ready �
 | EER | eer-187-c | 2026 | ready |  |
 | EER | eer-188-c | 2026 | ready |  |
 | EER | eer-189-c | 2026 | ready |  |
-| EJ | ej-133-650 | 2023 | source_pending |  |
+| EJ | ej-133-650 | 2023 | ready |  |
 | EJ | ej-133-651 | 2023 | source_pending |  |
 | EJ | ej-133-652 | 2023 | source_pending |  |
 | EJ | ej-133-653 | 2023 | source_pending |  |
@@ -862,7 +862,7 @@ Discovery coverage: 1331 discovered · 1265 archived · 1083 publication ready �
 | JLE | jle-43-2 | 2025 | ready |  |
 | JLE | jle-43-3 | 2025 | ready |  |
 | JLE | jle-43-4 | 2025 | ready |  |
-| JLE | jle-43-S1 | 2025 | blocked | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.ed |
+| JLE | jle-43-S1 | 2025 | blocked | archive_issue_id_mismatch: expected jle-43-S1, got jle-43-s1 |
 | JLE | jle-44-1 | 2026 | ready |  |
 | JLE | jle-44-2 | 2026 | ready |  |
 | JLE | jle-44-3 | 2026 | ready |  |
@@ -1148,7 +1148,6 @@ Discovery coverage: 1331 discovered · 1265 archived · 1083 publication ready �
 | QE | qe-17-1 | 2026 | ready |  |
 | QE | qe-17-2 | 2026 | ready |  |
 | QE | qe-17-3 | 2026 | ready |  |
-| QE | qe-17-4 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
 | QJE | qje-138-2 | 2023 | source_pending |  |
 | QJE | qje-138-3 | 2023 | source_pending |  |
 | QJE | qje-138-4 | 2023 | source_pending |  |
