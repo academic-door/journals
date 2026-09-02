@@ -2,11 +2,11 @@
 
 Updated: 2026-09-02T16:38:01+00:00
 
-Discovery coverage: 1331 discovered — 1265 archived — 1092 publication ready — 66 missing — 173 source pending
+Discovery coverage: 1331 discovered — 1265 archived — 1093 publication ready — 66 missing — 172 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 567 | 0 | 48 | 93 |
+| 2023-2024 | 568 | 0 | 48 | 92 |
 | 2023-2026 | 276 | 0 | 17 | 7 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
