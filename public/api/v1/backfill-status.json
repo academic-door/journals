@@ -1,20 +1,20 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-09-02T08:03:48+00:00",
+  "updated_at": "2026-09-02T11:23:32+00:00",
   "summary": {
     "complete": 1083,
     "translation_partial": 0,
-    "blocked": 65,
+    "blocked": 66,
     "collected": 0,
     "pending": 182
   },
   "coverage": {
-    "discovered": 1330,
+    "discovered": 1331,
     "archived": 1265,
     "content_ready": 1265,
     "source_verified": 1083,
     "publication_ready": 1083,
-    "missing": 65,
+    "missing": 66,
     "source_pending": 182,
     "missing_issue_ids": [
       "ecolecon-224-c",
@@ -67,6 +67,7 @@
       "lup-153-c",
       "lup-170-c",
       "lup-171-c",
+      "qe-17-4",
       "red-62-c",
       "rfs-39-9",
       "te-18-1",
@@ -2639,14 +2640,16 @@
       }
     },
     "QE": {
-      "discovered": 15,
+      "discovered": 16,
       "archived": 15,
       "content_ready": 15,
       "source_verified": 15,
       "publication_ready": 15,
-      "missing": 0,
+      "missing": 1,
       "source_pending": 0,
-      "missing_issue_ids": [],
+      "missing_issue_ids": [
+        "qe-17-4"
+      ],
       "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
       "years": {
@@ -2687,14 +2690,16 @@
           "blocked_issue_ids": []
         },
         "2026": {
-          "discovered": 3,
+          "discovered": 4,
           "archived": 3,
           "content_ready": 3,
           "source_verified": 3,
           "publication_ready": 3,
-          "missing": 0,
+          "missing": 1,
           "source_pending": 0,
-          "missing_issue_ids": [],
+          "missing_issue_ids": [
+            "qe-17-4"
+          ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         }
@@ -17598,6 +17603,18 @@
         "publication_state": "ready",
         "last_error": "",
         "retry_class": "manual"
+      },
+      {
+        "issue_id": "qe-17-4",
+        "year": 2026,
+        "volume": "17",
+        "issue": "4",
+        "status": "blocked",
+        "content_status": "blocked",
+        "source_status": "source_pending",
+        "publication_state": "blocked",
+        "last_error": "MetadataFallbackError: Crossref returned no usable recent issue",
+        "retry_class": ""
       }
     ],
     "QJE": [
@@ -19968,19 +19985,6 @@
         "retry_class": "manual"
       }
     ]
-  },
-  "expected_issue_exclusions": {
-    "qe-17-4": {
-      "status": "not_yet_published",
-      "journal": "QE",
-      "year": 2026,
-      "volume": "17",
-      "issue": "4",
-      "official_url": "https://onlinelibrary.wiley.com/loi/17597331/year/2026",
-      "reason": "Official archive currently exposes Volume 17 Issues 1–3; Issue 4 is not yet published.",
-      "rediscover": true,
-      "recorded_at": "2026-09-02"
-    }
   },
   "periods": {
     "2023-2024": {
@@ -22741,11 +22745,11 @@
       "summary": {
         "complete": 234,
         "translation_partial": 0,
-        "blocked": 12,
+        "blocked": 13,
         "collected": 0,
         "pending": 32
       },
-      "issue_count": 278,
+      "issue_count": 279,
       "journals": [
         "AEJAPP",
         "AEJMACRO",
@@ -22798,12 +22802,12 @@
         "WD"
       ],
       "coverage": {
-        "discovered": 278,
+        "discovered": 279,
         "archived": 266,
         "content_ready": 266,
         "source_verified": 234,
         "publication_ready": 234,
-        "missing": 12,
+        "missing": 13,
         "source_pending": 32,
         "missing_issue_ids": [
           "jaere-13-5",
@@ -22812,6 +22816,7 @@
           "jue-156-c",
           "lup-170-c",
           "lup-171-c",
+          "qe-17-4",
           "red-62-c",
           "rfs-39-9",
           "te-21-2",
@@ -23372,14 +23377,16 @@
           "blocked_issue_ids": []
         },
         "QE": {
-          "discovered": 3,
+          "discovered": 4,
           "archived": 3,
           "content_ready": 3,
           "source_verified": 3,
           "publication_ready": 3,
-          "missing": 0,
+          "missing": 1,
           "source_pending": 0,
-          "missing_issue_ids": [],
+          "missing_issue_ids": [
+            "qe-17-4"
+          ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },

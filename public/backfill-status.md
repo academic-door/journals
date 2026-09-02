@@ -1,8 +1,8 @@
 # Field journal history backfill status
 
-Updated: 2026-09-02T08:03:48+00:00
+Updated: 2026-09-02T11:23:32+00:00
 
-Discovery coverage: 1330 discovered · 1265 archived · 1083 publication ready · 65 missing · 182 source pending
+Discovery coverage: 1331 discovered · 1265 archived · 1083 publication ready · 66 missing · 182 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
@@ -1148,6 +1148,7 @@ Discovery coverage: 1330 discovered · 1265 archived · 1083 publication ready �
 | QE | qe-17-1 | 2026 | ready |  |
 | QE | qe-17-2 | 2026 | ready |  |
 | QE | qe-17-3 | 2026 | ready |  |
+| QE | qe-17-4 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
 | QJE | qje-138-2 | 2023 | source_pending |  |
 | QJE | qje-138-3 | 2023 | source_pending |  |
 | QJE | qje-138-4 | 2023 | source_pending |  |

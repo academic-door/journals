@@ -1,12 +1,14 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-02T08:04:06+00:00
+Generated: 2026-09-02T11:23:46+00:00
 
 ## Summary
 
+- browser_required: 1
 - ready: 1083
 - recoverable: 65
-- source_pending: 182
+- source_pending: 181
+- translation_required: 1
 
 ## Issue queue
 
@@ -1146,6 +1148,7 @@ Generated: 2026-09-02T08:04:06+00:00
 | QE | qe-17-1 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | QE | qe-17-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | QE | qe-17-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| QE | qe-17-4 | 2026 | browser_required | blocked | source_pending | archive_missing |
 | QJE | qje-138-2 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | QJE | qje-138-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | QJE | qje-138-4 | 2023 | source_pending | complete | source_pending | official source verification pending |
@@ -1245,7 +1248,7 @@ Generated: 2026-09-02T08:04:06+00:00
 | RFS | rfs-36-6 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-36-7 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-36-8 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| RFS | rfs-36-9 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| RFS | rfs-36-9 | 2023 | translation_required | complete | source_pending | translation incomplete |
 | RFS | rfs-37-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-37-10 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-37-11 | 2024 | ready | complete | official_verified | content and official source gates passed |
