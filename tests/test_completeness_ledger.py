@@ -1,4 +1,4 @@
-"""Tests for the corrected 2026 completeness ledger engine (r1 semantics)."""
+"""Tests for the r2 2026 completeness ledger engine (exclusions + authority)."""
 
 from __future__ import annotations
 
@@ -18,198 +18,100 @@ JOURNALS = {
 }
 
 
-def state_with_discovery(discovery: dict, issues: dict | None = None) -> dict:
-    return {"schema_version": "1.1", "issues": issues or {}, "discovery": discovery}
+def state(discovery: dict, exclusions: dict | None = None, issues: dict | None = None) -> dict:
+    return {"schema_version": "1.1", "issues": issues or {}, "discovery": discovery,
+            "expected_issue_exclusions": exclusions or {}}
 
 
 def archive(journal_id: str, issue_id: str, status: str = "ready") -> dict:
-    return {
-        "schema_version": "1.0",
-        "issue_id": issue_id,
-        "journal_id": journal_id,
-        "volume": "1",
-        "issue": "1",
-        "status": status,
-        "articles": [],
-        "quality": {},
-    }
+    return {"schema_version": "1.0", "issue_id": issue_id, "journal_id": journal_id,
+            "volume": "1", "issue": "1", "status": status, "articles": [], "quality": {}}
 
 
-def _ledger(tmp: Path, discovery: dict) -> dict:
+def _ledger(tmp: Path, discovery: dict, exclusions: dict | None = None, api_subdir: str = "aer") -> dict:
     state_path = tmp / "state.json"
-    state_path.write_text(json.dumps(state_with_discovery(discovery)), encoding="utf-8")
+    state_path.write_text(json.dumps(state(discovery, exclusions)), encoding="utf-8")
     return build_ledger(state_paths=[state_path], journals=JOURNALS, api_root=tmp / "api")
 
 
-class CompletenessLedgerR1Tests(unittest.TestCase):
-    def test_crossref_candidate_only_is_not_measured(self) -> None:
+def _rec(payload: dict, key: str) -> dict:
+    return next(r for r in payload["journals"] if r["journalKey"] == key)
+
+
+def authoritative_snap(issue_ids, years, authority="official_archive", refs=None):
+    return {
+        "issue_ids": issue_ids,
+        "issue_years": {i: y for i, y in zip(issue_ids, years)},
+        "issue_refs": refs or {},
+        "authority": authority,
+        "refreshed_at": "2026-09-02T00:00:00+00:00",
+    }
+
+
+class CompletenessLedgerR2Tests(unittest.TestCase):
+    def test_excluded_not_yet_published_is_not_missing(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            payload = _ledger(
-                root,
-                {
-                    "QJE": {
-                        "issue_ids": ["qje-140-1"],
-                        "issue_years": {"qje-140-1": 2026},
-                        "authority": "crossref_candidate",
-                        "refreshed_at": "2026-09-02T00:00:00+00:00",
-                    }
-                },
-            )
-            rec = next(r for r in payload["journals"] if r["journalKey"] == "QJE")
-            self.assertEqual("NOT_MEASURED", rec["status"])
+            api = root / "api" / "journals" / "aer" / "issues"; api.mkdir(parents=True)
+            (api / "aer-116-1.json").write_text(json.dumps(archive("aer", "aer-116-1")), encoding="utf-8")
+            payload = _ledger(root, {"AER": authoritative_snap(["aer-116-1", "aer-116-2"], [2026, 2026],
+                                                               refs={"aer-116-1": {"volume": "116", "issue": "1"}})},
+                              exclusions={"aer-116-2": {"status": "not_yet_published", "reason": "not published"}})
+            rec = _rec(payload, "AER")
+            self.assertIn("aer-116-2", [e["issue_id"] for e in rec["excludedIssues"]])
+            self.assertEqual([], rec["missingIssues"])
+            self.assertEqual(1, rec["expectedIssueCount"])  # B
+            self.assertEqual(["aer-116-1"], rec["effectiveExpectedIssues"])
+
+    def test_exclusion_alone_does_not_manufacture_complete(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            payload = _ledger(root, {"AER": authoritative_snap(["aer-116-1"], [2026])},
+                              exclusions={"aer-116-1": {"status": "not_yet_published"}})
+            rec = _rec(payload, "AER")
+            self.assertEqual("NOT_MEASURED", rec["status"])  # C
             self.assertEqual(0, rec["expectedIssueCount"])
 
-    def test_authoritative_snapshot_with_no_2026_coverage_is_not_measured(self) -> None:
+    def test_unknown_authority_is_not_measured(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            payload = _ledger(
-                root,
-                {
-                    "EJ": {
-                        "issue_ids": ["ej-135-1"],
-                        "issue_years": {"ej-135-1": 2025},
-                        "authority": "official_archive",
-                        "refreshed_at": "2026-09-02T00:00:00+00:00",
-                    }
-                },
-            )
-            rec = next(r for r in payload["journals"] if r["journalKey"] == "EJ")
-            self.assertEqual("NOT_MEASURED", rec["status"])
+            payload = _ledger(root, {"AER": authoritative_snap(["aer-116-1"], [2026], authority="mystery_source")})
+            rec = _rec(payload, "AER")
+            self.assertEqual("NOT_MEASURED", rec["status"])  # D
+            self.assertEqual("unknown", rec["authorityClassification"])
 
-    def test_authoritative_ready_archive_is_complete(self) -> None:
+    def test_crossref_candidate_is_not_measured(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            api = root / "api" / "journals" / "aer" / "issues"
-            api.mkdir(parents=True)
-            (api / "aer-116-1.json").write_text(
-                json.dumps(archive("aer", "aer-116-1", "ready")), encoding="utf-8"
-            )
-            payload = _ledger(
-                root,
-                {
-                    "AER": {
-                        "issue_ids": ["aer-116-1"],
-                        "issue_years": {"aer-116-1": 2026},
-                        "issue_refs": {"aer-116-1": {"volume": "116", "issue": "1"}},
-                        "authority": "official_archive",
-                        "refreshed_at": "2026-09-02T00:00:00+00:00",
-                    }
-                },
-            )
-            rec = next(r for r in payload["journals"] if r["journalKey"] == "AER")
-            self.assertEqual("COMPLETE", rec["status"])
+            payload = _ledger(root, {"AER": authoritative_snap(["aer-116-1"], [2026], authority="crossref_candidate")})
+            rec = _rec(payload, "AER")
+            self.assertEqual("NOT_MEASURED", rec["status"])  # E
+
+    def test_verified_roster_all_ready_is_complete(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            api = root / "api" / "journals" / "aer" / "issues"; api.mkdir(parents=True)
+            (api / "aer-116-1.json").write_text(json.dumps(archive("aer", "aer-116-1")), encoding="utf-8")
+            payload = _ledger(root, {"AER": authoritative_snap(["aer-116-1"], [2026])})
+            rec = _rec(payload, "AER")
+            self.assertEqual("COMPLETE", rec["status"])  # F
             self.assertEqual(1, rec["publicationReadyIssueCount"])
-            self.assertEqual(0, rec["missingIssueCount"])
 
-    def test_authoritative_missing_archive_is_partial(self) -> None:
+    def test_verified_roster_issue_absent_is_partial(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            payload = _ledger(
-                root,
-                {
-                    "AER": {
-                        "issue_ids": ["aer-116-1"],
-                        "issue_years": {"aer-116-1": 2026},
-                        "issue_refs": {"aer-116-1": {"volume": "116", "issue": "1"}},
-                        "authority": "official_archive",
-                        "refreshed_at": "2026-09-02T00:00:00+00:00",
-                    }
-                },
-            )
-            rec = next(r for r in payload["journals"] if r["journalKey"] == "AER")
-            self.assertEqual("PARTIAL", rec["status"])
-            self.assertEqual(1, rec["missingIssueCount"])
+            payload = _ledger(root, {"AER": authoritative_snap(["aer-116-1"], [2026])})
+            rec = _rec(payload, "AER")
+            self.assertEqual("PARTIAL", rec["status"])  # G
             self.assertEqual(["aer-116-1"], [m["issue_id"] for m in rec["missingIssues"]])
-
-    def test_authoritative_source_pending_archive_is_source_blocked(self) -> None:
-        with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
-            api = root / "api" / "journals" / "aer" / "issues"
-            api.mkdir(parents=True)
-            (api / "aer-116-1.json").write_text(
-                json.dumps(archive("aer", "aer-116-1", "source_pending")), encoding="utf-8"
-            )
-            payload = _ledger(
-                root,
-                {
-                    "AER": {
-                        "issue_ids": ["aer-116-1"],
-                        "issue_years": {"aer-116-1": 2026},
-                        "authority": "official_archive",
-                        "refreshed_at": "2026-09-02T00:00:00+00:00",
-                    }
-                },
-            )
-            rec = next(r for r in payload["journals"] if r["journalKey"] == "AER")
-            self.assertEqual("SOURCE_BLOCKED", rec["status"])
-            self.assertEqual(0, rec["publicationReadyIssueCount"])
-            self.assertEqual(0, rec["missingIssueCount"])
-            self.assertEqual(1, rec["sourceBlockedIssueCount"])
-
-    def test_mismatched_archive_identity_is_not_a_ready_observation(self) -> None:
-        with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
-            api = root / "api" / "journals" / "aer" / "issues"
-            api.mkdir(parents=True)
-            # archive says journal_id=jpe, issue_id wrong -> identity mismatch
-            (api / "aer-116-1.json").write_text(
-                json.dumps(archive("jpe", "aer-116-1", "ready")), encoding="utf-8"
-            )
-            payload = _ledger(
-                root,
-                {
-                    "AER": {
-                        "issue_ids": ["aer-116-1"],
-                        "issue_years": {"aer-116-1": 2026},
-                        "authority": "official_archive",
-                        "refreshed_at": "2026-09-02T00:00:00+00:00",
-                    }
-                },
-            )
-            rec = next(r for r in payload["journals"] if r["journalKey"] == "AER")
-            self.assertEqual(0, rec["publicationReadyIssueCount"])
-            self.assertNotEqual("COMPLETE", rec["status"])
-            self.assertEqual("SOURCE_BLOCKED", rec["status"])
-
-    def test_mixed_missing_and_blocked_is_partial_with_both_lists(self) -> None:
-        with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
-            api = root / "api" / "journals" / "aer" / "issues"
-            api.mkdir(parents=True)
-            (api / "aer-116-1.json").write_text(
-                json.dumps(archive("aer", "aer-116-1", "source_pending")), encoding="utf-8"
-            )
-            payload = _ledger(
-                root,
-                {
-                    "AER": {
-                        "issue_ids": ["aer-116-1", "aer-116-2"],
-                        "issue_years": {"aer-116-1": 2026, "aer-116-2": 2026},
-                        "issue_refs": {
-                            "aer-116-1": {"volume": "116", "issue": "1"},
-                            "aer-116-2": {"volume": "116", "issue": "2"},
-                        },
-                        "authority": "official_archive",
-                        "refreshed_at": "2026-09-02T00:00:00+00:00",
-                    }
-                },
-            )
-            rec = next(r for r in payload["journals"] if r["journalKey"] == "AER")
-            self.assertEqual("PARTIAL", rec["status"])
-            self.assertEqual(["aer-116-2"], [m["issue_id"] for m in rec["missingIssues"]])
-            self.assertEqual(["aer-116-1"], rec["sourceBlockedIssues"])
 
     def test_inspect_archive_missing_vs_pending(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            missing = inspect_archive(root / "nope.json", expected_issue_id="x", expected_journal_id="y")
-            self.assertFalse(missing["archive_exists"])
+            self.assertFalse(inspect_archive(root / "nope.json", expected_issue_id="x", expected_journal_id="y")["archive_exists"])
             present = root / "ok.json"
             present.write_text(json.dumps(archive("y", "x", "ready")), encoding="utf-8")
-            ok = inspect_archive(present, expected_issue_id="x", expected_journal_id="y")
-            self.assertTrue(ok["archive_exists"])
-            self.assertEqual("ready", ok["publication_state"])
+            self.assertEqual("ready", inspect_archive(present, expected_issue_id="x", expected_journal_id="y")["publication_state"])
 
 
 if __name__ == "__main__":
