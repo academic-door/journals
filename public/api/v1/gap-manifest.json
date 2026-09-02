@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-02T12:35:00+00:00",
+  "generated_at": "2026-09-02T12:53:45+00:00",
   "target_years": [
     2023,
     2024,
@@ -62,9 +62,9 @@
   "discovery_snapshot_missing_journals": [],
   "summary": {
     "blocked": 1,
-    "ready": 1085,
+    "ready": 1086,
     "recoverable": 64,
-    "source_pending": 180
+    "source_pending": 179
   },
   "records": [
     {
@@ -8237,8 +8237,8 @@
       "authority": "crossref_candidate",
       "refreshed_at": "2026-08-29T03:51:05+00:00",
       "collector_revision": "history-integrity-2026-08-11",
-      "category": "source_pending",
-      "reason": "official source verification pending",
+      "category": "ready",
+      "reason": "content and official source gates passed",
       "status": "source_pending",
       "retry_class": "source",
       "collector": "oup",
@@ -8248,14 +8248,14 @@
       "next_retry_at": "",
       "archive_exists": true,
       "content_status": "complete",
-      "source_status": "source_pending",
-      "publication_state": "source_pending",
+      "source_status": "official_verified",
+      "publication_state": "ready",
       "counts": {
-        "articles": 12,
-        "abstract_en": 12,
-        "translation_cn": 12
+        "articles": 14,
+        "abstract_en": 14,
+        "translation_cn": 14
       },
-      "next_action": "attach official roster/source evidence; do not publish"
+      "next_action": "no action"
     },
     {
       "issue_id": "ej-133-653",

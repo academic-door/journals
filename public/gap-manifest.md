@@ -1,13 +1,13 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-02T12:35:00+00:00
+Generated: 2026-09-02T12:53:45+00:00
 
 ## Summary
 
 - blocked: 1
-- ready: 1085
+- ready: 1086
 - recoverable: 64
-- source_pending: 180
+- source_pending: 179
 
 ## Issue queue
 
@@ -285,7 +285,7 @@ Generated: 2026-09-02T12:35:00+00:00
 | EER | eer-189-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | EJ | ej-133-650 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | EJ | ej-133-651 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| EJ | ej-133-652 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| EJ | ej-133-652 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | EJ | ej-133-653 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | EJ | ej-133-654 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | EJ | ej-133-655 | 2023 | source_pending | complete | source_pending | official source verification pending |
