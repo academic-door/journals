@@ -1,69 +1,71 @@
 # Academic Door 2026 completeness ledger
 
 Window: 2026-01-01 -> 2026-09-02
-Generated: 2026-09-02T16:50:49+00:00
+Generated: 2026-09-02T17:59:22+00:00
 
 ## Summary
 
 - journals tracked: 49
-- COMPLETE: 0
-- PARTIAL: 0
-- NOT_MEASURED: 49
+- COMPLETE: 2
+- PARTIAL: 1
+- NOT_MEASURED: 46
 - SOURCE_BLOCKED: 0
-- expected issues: 0
-- observed issues: 0
-- confirmed missing issues: 0
+- expected issues: 19
+- archived issues: 18
+- publication-ready issues: 18
+- confirmed missing issues: 1
+- blocked issues: 0
 
 ## Per-journal
 
-| Journal | Status | Expected | Observed | Missing | Evidence |
-|---|---|---:|---:|---:|---|
-| AEJAPP | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| AEJMACRO | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| AEJMICRO | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| AEJPOL | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| AER | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| AERI | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| AJAE | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| CER | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| ECOLECON | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| ECTA | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| EER | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| EJ | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| ENERGY | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| ERE | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| FOODPOLICY | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| GEB | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| IER | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| JAERE | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| JCE | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| JDE | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| JEBO | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| JEDC | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| JEEA | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| JEEM | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| JEH | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| JEP | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| JET | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| JF | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| JFE | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| JHE | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| JIE | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| JLE | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| JME | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| JOE | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| JPE | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| JPubE | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| JUE | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| LABECO | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| LANDECON | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| LUP | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| QE | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| QJE | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| RAND | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| RED | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| RES | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| RESTAT | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| RFS | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| TE | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
-| WD | NOT_MEASURED | 0 | 0 | 0 | no 2026 discovery snapshot on file |
+| Journal | Status | Authority | Expected | Archived | Ready | Missing | Blocked | Evidence |
+|---|---|---|---|---:|---:|---:|---:|---|
+| AEJAPP | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| AEJMACRO | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| AEJMICRO | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| AEJPOL | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| AER | COMPLETE | official_archive | 8 | 8 | 8 | 0 | 0 | all authoritative expected 2026 issues publication-ready |
+| AERI | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| AJAE | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| CER | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| ECOLECON | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| ECTA | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| EER | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| EJ | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| ENERGY | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| ERE | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| FOODPOLICY | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| GEB | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| IER | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| JAERE | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| JCE | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| JDE | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| JEBO | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| JEDC | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| JEEA | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| JEEM | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| JEH | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| JEP | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| JET | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| JF | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| JFE | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| JHE | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| JIE | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| JLE | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| JME | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| JOE | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| JPE | COMPLETE | official_archive | 7 | 7 | 7 | 0 | 0 | all authoritative expected 2026 issues publication-ready |
+| JPubE | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| JUE | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| LABECO | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| LANDECON | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| LUP | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| QE | PARTIAL | official_archive | 4 | 3 | 3 | 1 | 0 | 1 authoritative expected 2026 issue(s) absent |
+| QJE | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| RAND | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| RED | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| RES | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| RESTAT | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| RFS | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| TE | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
+| WD | NOT_MEASURED | - | 0 | 0 | 0 | 0 | 0 | no authoritative 2026 expected set (no non-crossref snapshot covering the window |
