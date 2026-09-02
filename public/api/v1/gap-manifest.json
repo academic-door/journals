@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-02T19:29:14+00:00",
+  "generated_at": "2026-09-02T19:34:23+00:00",
   "target_years": [
     2023,
     2024,
@@ -62,9 +62,9 @@
   "discovery_snapshot_missing_journals": [],
   "summary": {
     "browser_required": 1,
-    "ready": 1102,
+    "ready": 1103,
     "recoverable": 65,
-    "source_pending": 162,
+    "source_pending": 161,
     "translation_required": 1
   },
   "records": [
@@ -8745,28 +8745,28 @@
       "volume": "135",
       "issue": "669",
       "official_url": "https://academic.oup.com/ej/issue/135/669",
-      "authority": "crossref_candidate",
-      "refreshed_at": "2026-08-24T14:22:32+00:00",
-      "collector_revision": "history-integrity-2026-08-11",
-      "category": "source_pending",
-      "reason": "source authority pending official verification",
-      "status": "source_pending",
-      "retry_class": "source",
-      "collector": "oup",
+      "authority": "official_issue_page",
+      "refreshed_at": "2026-09-02T19:34:23+00:00",
+      "collector_revision": "browser-authorized-2026-09-03",
+      "category": "ready",
+      "reason": "content and official source gates passed",
+      "status": "ready",
+      "retry_class": "source_recovered",
+      "collector": "browser-authorized",
       "attempt_count": 1,
       "last_attempt_at": "2026-08-27T12:55:05+00:00",
-      "last_error_code": "source authority pending official verification",
-      "next_retry_at": "2026-08-28T12:55:05+00:00",
+      "last_error_code": "",
+      "next_retry_at": "",
       "archive_exists": true,
       "content_status": "complete",
-      "source_status": "source_pending",
-      "publication_state": "source_pending",
+      "source_status": "official_verified",
+      "publication_state": "ready",
       "counts": {
         "articles": 10,
         "abstract_en": 10,
         "translation_cn": 10
       },
-      "next_action": "attach official roster/source evidence; do not publish"
+      "next_action": "closed"
     },
     {
       "issue_id": "ej-135-670",
