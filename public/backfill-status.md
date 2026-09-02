@@ -2,7 +2,7 @@
 
 Updated: 2026-09-02T16:38:01+00:00
 
-Discovery coverage: 1331 discovered — 1265 archived — 1110 publication ready — 66 missing — 155 source pending
+Discovery coverage: 1331 discovered — 1265 archived — 1111 publication ready — 66 missing — 154 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
@@ -309,8 +309,8 @@ Discovery coverage: 1331 discovered — 1265 archived — 1110 publication ready
 | EJ | ej-135-672 | 2023 | ready |  |
 | EJ | ej-136-673 | 2026 | source_pending | source authority pending official verification |
 | EJ | ej-136-674 | 2023 | ready |  |
-| EJ | ej-136-675 | 2023 | ready |  |
-| EJ | ej-136-676 | 2026 | source_pending | source authority pending official verification |
+| EJ | ej-136-675 | 2026 | source_pending | source authority pending official verification |
+| EJ | ej-136-676 | 2023 | ready |  |
 | EJ | ej-136-677 | 2026 | ready |  |
 | EJ | ej-136-678 | 2026 | source_pending | source authority pending official verification |
 | ENERGY | energy-117-c | 2023 | ready |  |

@@ -309,8 +309,8 @@ Generated: 2026-09-02T16:38:19+00:00
 | EJ | ej-135-672 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | EJ | ej-136-673 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
 | EJ | ej-136-674 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| EJ | ej-136-675 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| EJ | ej-136-676 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
+| EJ | ej-136-675 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
+| EJ | ej-136-676 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | EJ | ej-136-677 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | EJ | ej-136-678 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
 | ENERGY | energy-117-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |

@@ -1,21 +1,21 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-09-02T20:04:33+00:00",
+  "updated_at": "2026-09-02T20:07:15+00:00",
   "summary": {
-    "complete": 1111,
+    "complete": 1112,
     "translation_partial": 0,
     "blocked": 66,
     "collected": 0,
-    "pending": 154
+    "pending": 153
   },
   "coverage": {
     "discovered": 1331,
     "archived": 1265,
     "content_ready": 1265,
-    "source_verified": 1110,
-    "publication_ready": 1110,
+    "source_verified": 1111,
+    "publication_ready": 1111,
     "missing": 66,
-    "source_pending": 155,
+    "source_pending": 154,
     "missing_issue_ids": [
       "ecolecon-224-c",
       "ecolecon-225-c",
@@ -110,7 +110,6 @@
       "ecta-91-1",
       "ecta-91-4",
       "ecta-91-5",
-      "ej-136-676",
       "ej-136-678",
       "ier-64-2",
       "ier-64-3",
@@ -1046,13 +1045,12 @@
       "discovered": 29,
       "archived": 29,
       "content_ready": 29,
-      "source_verified": 27,
-      "publication_ready": 27,
+      "source_verified": 28,
+      "publication_ready": 28,
       "missing": 0,
-      "source_pending": 2,
+      "source_pending": 1,
       "missing_issue_ids": [],
       "source_pending_issue_ids": [
-        "ej-136-676",
         "ej-136-678"
       ],
       "blocked_issue_ids": [],
@@ -1097,13 +1095,12 @@
           "discovered": 6,
           "archived": 6,
           "content_ready": 6,
-          "source_verified": 4,
-          "publication_ready": 4,
+          "source_verified": 5,
+          "publication_ready": 5,
           "missing": 0,
-          "source_pending": 2,
+          "source_pending": 1,
           "missing_issue_ids": [],
           "source_pending_issue_ids": [
-            "ej-136-676",
             "ej-136-678"
           ],
           "blocked_issue_ids": []
@@ -7411,12 +7408,12 @@
         "year": 2026,
         "volume": "136",
         "issue": "676",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "source_recovered"
       },
       {
         "issue_id": "ej-136-677",
