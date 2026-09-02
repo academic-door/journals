@@ -49,7 +49,7 @@ CORRECTION_PATTERN = re.compile(
     re.IGNORECASE,
 )
 EDITORIAL_PATTERN = re.compile(
-    r"editorial\s+board|editors?[’'＊]?s?\s+notes?|reports?|recent\s+referees|"
+    r"editorial\s+board|editors?[’'＊]?s?\s+notes?|\breports?\b|recent\s+referees|"
     r"acknowledg(?:e)?ments?\s+of\s+referees|annual\s+report|"
     r"report\s+of\s+the\s+est\b|report\s+of\s+the\s+editor.+for\s+the\s+year|annual\s+membership\s+meeting|"
     r"prizes?\s+for\s+\d{4}|fischer\s+black\s+prize|brattle\s+group|"

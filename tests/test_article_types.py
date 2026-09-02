@@ -65,6 +65,13 @@ class ArticleTypeTests(unittest.TestCase):
                 "Front-Page News: The Effect of News Positioning on Financial Markets"
             ),
         )
+        self.assertEqual(
+            "research-article",
+            evidence_roster_article_type(
+                "The Usual Suspects: Offender Origin, Media Reporting and Natives’ Attitudes Towards Immigration"
+            ),
+        )
+        self.assertEqual("editorial", canonical_article_type("Annual Report"))
         # The shared taxonomy is untouched by evidence heuristics.
         self.assertEqual(
             "research-article", canonical_article_type("Index to Volume 131")
