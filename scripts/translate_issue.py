@@ -328,6 +328,14 @@ def _written_number_values(value: str) -> list[str]:
         flags=re.IGNORECASE,
     )
     values: list[str] = []
+    coordinated_horizon_pattern = re.compile(
+        r"\b(?:one|two|three|four|five|six|seven|eight|nine|ten)-\s+and\s+"
+        r"(?:one|two|three|four|five|six|seven|eight|nine|ten)-year\b",
+        flags=re.IGNORECASE,
+    )
+    coordinated_horizon_spans = [
+        match.span() for match in coordinated_horizon_pattern.finditer(searchable)
+    ]
     values.extend("1" for _ in re.finditer(r"\bunity\b", searchable, flags=re.IGNORECASE))
     for match in re.finditer(
         r"\b(one|two|three|four|five|six|seven|eight|nine|ten)-percentage-point\b",
@@ -336,6 +344,17 @@ def _written_number_values(value: str) -> list[str]:
     ):
         values.append(str(NUMBER_WORD_VALUES[match.group(1).casefold()]))
     for match in ENGLISH_NUMBER_TOKEN_PATTERN.finditer(searchable):
+        if any(
+            not (
+                match.end() <= start
+                or match.start() >= end
+            )
+            for start, end in coordinated_horizon_spans
+        ):
+            # ``one- and two-year horizons`` names two time horizons; treating
+            # the coordinated phrase as the arithmetic value three creates a
+            # number that no faithful translation should contain.
+            continue
         phrase = match.group(0)
         parsed = _parse_english_number_phrase(phrase)
         if parsed is None:

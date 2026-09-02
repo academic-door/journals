@@ -311,7 +311,12 @@ class DeepSeekModelResolutionTests(unittest.TestCase):
 
 
     def test_energy_false_positive_formats_pass_numeric_validation(self) -> None:
-        from scripts.translate_issue import _month_numbers, _numbers, validate_translation
+        from scripts.translate_issue import (
+            _month_numbers,
+            _numbers,
+            _written_number_values,
+            validate_translation,
+        )
 
         self.assertEqual(["5000", "9000"], _numbers("prices fell by £5k to £9k"))
         self.assertEqual([], _numbers("from 1995Q1 to 2018Q4"))
@@ -323,6 +328,12 @@ class DeepSeekModelResolutionTests(unittest.TestCase):
             ["9", "2", "5", "2"],
             _month_numbers(
                 "from September 2019 to February 2020 and from May 2021 to February 2022"
+            ),
+        )
+        self.assertNotIn(
+            "3",
+            _written_number_values(
+                "A one percentage point increase has effects over one- and two-year horizons."
             ),
         )
 
@@ -341,6 +352,26 @@ class DeepSeekModelResolutionTests(unittest.TestCase):
                 "该政策支持可持续发展目标7、8、12和13，适用时段为上午9点至下午5点。"
             ),
         })
+
+        horizon_article = {
+            "article_type": "research",
+            "title_en": "Migration and housing markets",
+            "abstract_en": (
+                "A one percentage point increase in migration raises house rents by "
+                "2.8% and unit rents by 4.3%, and increases unit prices by 3.2%. "
+                "Cumulative estimates over one- and two-year horizons become negative."
+            ),
+        }
+        validate_translation(
+            horizon_article,
+            {
+                "title_cn": "移民与住房市场",
+                "abstract_cn": (
+                    "移民比例每增加一个百分点，房屋租金提高2.8%，单元房租金提高4.3%，"
+                    "单元房价格提高3.2%。一年和两年期的累积估计变为负值。"
+                ),
+            },
+        )
 
 
 if __name__ == "__main__":
