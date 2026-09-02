@@ -58,6 +58,24 @@ class GapManifestTests(unittest.TestCase):
         )
         self.assertEqual("translation_required", category)
 
+    def test_stale_translation_state_does_not_override_complete_archive(self):
+        category, _ = classify_gap(
+            archive={
+                "archive_exists": True,
+                "content_status": "complete",
+                "source_status": "source_pending",
+                "publication_state": "source_pending",
+                "issue": {
+                    "research_article_count": 8,
+                    "articles": [{}] * 8,
+                    "quality": {"translation_complete": 8},
+                },
+            },
+            entry={"status": "translation_partial"},
+            authority="crossref_candidate",
+        )
+        self.assertEqual("source_pending", category)
+
     def test_official_exclusion_is_never_recollected(self):
         category, _ = classify_gap(
             archive={"archive_exists": False},

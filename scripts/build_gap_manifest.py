@@ -105,11 +105,32 @@ def classify_gap(
     source_status = str(archive.get("source_status", "source_pending"))
     reason = str(archive.get("reason") or entry.get("last_error") or "")
 
+    archive_issue = archive.get("issue") if isinstance(archive.get("issue"), dict) else {}
+    archive_quality = (
+        archive_issue.get("quality")
+        if isinstance(archive_issue.get("quality"), dict)
+        else {}
+    )
+    archive_article_count = int(
+        archive_issue.get("research_article_count")
+        or len(archive_issue.get("articles") or [])
+        or 0
+    )
+    archive_translation_count = int(
+        archive_quality.get("translation_complete") or 0
+    )
+    archive_translation_incomplete = bool(
+        archive.get("archive_exists")
+        and archive_article_count
+        and archive_translation_count < archive_article_count
+    )
+
     if publication_state == "ready":
         return "ready", "content and official source gates passed"
-    if content_status == "translation_partial" or str(
-        entry.get("status", "")
-    ) == "translation_partial":
+    if content_status == "translation_partial" or archive_translation_incomplete or (
+        not archive.get("archive_exists")
+        and str(entry.get("status", "")) == "translation_partial"
+    ):
         return "translation_required", reason or "translation incomplete"
     if archive.get("archive_exists") and content_status == "complete":
         if source_status in {"official_verified", "publisher_verified"}:
