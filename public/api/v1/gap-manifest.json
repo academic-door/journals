@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-02T07:17:22+00:00",
+  "generated_at": "2026-09-02T07:38:41+00:00",
   "target_years": [
     2023,
     2024,
@@ -64,8 +64,7 @@
     "blocked": 1,
     "ready": 1082,
     "recoverable": 64,
-    "source_pending": 181,
-    "translation_required": 2
+    "source_pending": 183
   },
   "records": [
     {
@@ -20148,8 +20147,8 @@
       "authority": "crossref_candidate",
       "refreshed_at": "2026-08-24T13:58:22+00:00",
       "collector_revision": "history-integrity-2026-08-11",
-      "category": "translation_required",
-      "reason": "translation incomplete",
+      "category": "source_pending",
+      "reason": "official source verification pending",
       "status": "translation_partial",
       "retry_class": "translation",
       "collector": "crossref",
@@ -20166,7 +20165,7 @@
         "abstract_en": 8,
         "translation_cn": 8
       },
-      "next_action": "translate missing articles using cache-aware queue"
+      "next_action": "attach official roster/source evidence; do not publish"
     },
     {
       "issue_id": "jeh-86-1",
@@ -37068,8 +37067,8 @@
       "authority": "crossref_candidate",
       "refreshed_at": "2026-08-24T07:32:04+00:00",
       "collector_revision": "history-integrity-2026-08-11",
-      "category": "translation_required",
-      "reason": "translation incomplete",
+      "category": "source_pending",
+      "reason": "official source verification pending",
       "status": "translation_partial",
       "retry_class": "translation",
       "collector": "oup",
@@ -37086,7 +37085,7 @@
         "abstract_en": 6,
         "translation_cn": 6
       },
-      "next_action": "translate missing articles using cache-aware queue"
+      "next_action": "attach official roster/source evidence; do not publish"
     },
     {
       "issue_id": "rfs-37-1",

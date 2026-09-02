@@ -1,14 +1,13 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-02T07:17:22+00:00
+Generated: 2026-09-02T07:38:41+00:00
 
 ## Summary
 
 - blocked: 1
 - ready: 1082
 - recoverable: 64
-- source_pending: 181
-- translation_required: 2
+- source_pending: 183
 
 ## Issue queue
 
@@ -683,7 +682,7 @@ Generated: 2026-09-02T07:17:22+00:00
 | JEH | jeh-85-1 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JEH | jeh-85-2 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JEH | jeh-85-3 | 2025 | ready | complete | official_verified | content and official source gates passed |
-| JEH | jeh-85-4 | 2025 | translation_required | complete | source_pending | translation incomplete |
+| JEH | jeh-85-4 | 2025 | source_pending | complete | source_pending | official source verification pending |
 | JEH | jeh-86-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JEH | jeh-86-2 | 2026 | source_pending | complete | source_pending | official source verification pending |
 | JEP | jep-37-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
@@ -1247,7 +1246,7 @@ Generated: 2026-09-02T07:17:22+00:00
 | RFS | rfs-36-6 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-36-7 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-36-8 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| RFS | rfs-36-9 | 2023 | translation_required | complete | source_pending | translation incomplete |
+| RFS | rfs-36-9 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | RFS | rfs-37-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-37-10 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-37-11 | 2024 | ready | complete | official_verified | content and official source gates passed |
