@@ -5,18 +5,18 @@
   "journal_name": "The Economic Journal",
   "volume": "133",
   "issue": "654",
-  "publication_date": "July 2023",
+  "publication_date": "August 2023",
   "source_url": "https://academic.oup.com/ej/issue/133/654",
   "retrieved_at": "2026-08-10T23:20:06+00:00",
-  "expected_article_count": 7,
-  "research_article_count": 7,
-  "status": "incomplete",
+  "expected_article_count": 14,
+  "research_article_count": 14,
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
       "paper_id": "doi:10.1093/ej/uead036",
       "sequence": 1,
-      "source_sequence": 2085,
+      "source_sequence": 1,
       "article_type": "research-article",
       "title_en": "The Dark Side of Transparency: Mission Variety and Industry Equilibrium in Decentralised Public Good Provision",
       "title_cn": "透明的阴暗面：分散化公共物品供给中的使命多样性与行业均衡",
@@ -33,7 +33,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/133/654",
-        "roster": "crossref:issn:0013-0133",
+        "roster": "https://academic.oup.com/ej/issue/133/654",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -55,9 +55,86 @@
       }
     },
     {
-      "paper_id": "doi:10.1093/ej/uead027",
+      "paper_id": "doi:10.1093/ej/uead032",
       "sequence": 2,
-      "source_sequence": 2178,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Urban Sprawl and Social Capital: Evidence from Indonesian Cities",
+      "title_cn": "城市扩张与社会资本：来自印度尼西亚城市的证据",
+      "authors": [
+        "Andrea Civelli",
+        "Arya Gaduh",
+        "Alexander D Rothenberg",
+        "Yao Wang"
+      ],
+      "abstract_en": "We use detailed data from Indonesian cities to study how variation in density within urban areas affects social capital. For identification, we instrument density with soil characteristics, and control for community averages of observed characteristics. Under plausible assumptions, these controls address sorting on observables and unobservables. We find that lower density increases trust in neighbours and community participation. We also find that lower density is associated with reduced interethnic tolerance, but this relationship is explained by sorting. Heterogeneity analysis suggests that crime in dense areas undermines community trust and participation, intensifying the negative impact of density.",
+      "abstract_cn": "我们利用印度尼西亚城市的详细数据，研究城市内部密度差异如何影响社会资本。为进行识别，我们用土壤特征作为密度的工具变量，并控制社区层面观测特征的平均值。在合理假设下，这些控制变量能够处理可观测和不可观测特征导致的排序问题。我们发现，较低的密度会提高对邻居的信任和社区参与度。我们还发现，较低密度与族际容忍度下降相关，但这一关系可以由排序解释。异质性分析表明，密集地区的犯罪会削弱社区信任和参与度，从而加剧密度的负面影响。",
+      "doi": "10.1093/ej/uead032",
+      "source_url": "https://academic.oup.com/ej/article/133/654/2110/7143098",
+      "sources": {
+        "roster": "https://academic.oup.com/ej/issue/133/654",
+        "metadata": "https://academic.oup.com/ej/article/133/654/2110/7143098",
+        "abstract_en": "https://academic.oup.com/ej/article/133/654/2110/7143098"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "codex-local-manual",
+        "model": "local-manual",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-03T10:20:00+00:00",
+        "source_hash": "96545f0916e1671f523dc9458433915c2cb7e31e66f4389d116c4316805316eb"
+      },
+      "quality_flags": [],
+      "publication_date": "July 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/ej/uead035",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Police Response Time and Injury Outcomes",
+      "title_cn": "警察响应时间与伤害结果",
+      "authors": [
+        "Gregory DeAngelo",
+        "Marina Toger",
+        "Sarit Weisburd"
+      ],
+      "abstract_en": "The delayed response of law enforcement to calls for service has become a hot button issue when evaluating police department performance. While it is often assumed that faster response times could play an important role in quelling potentially violent incidents, there is no empirical evidence to support this claim. In this paper, we measure the effect of police response time on the likelihood that an incident will result in an injury. To overcome the endogeneity of more severe calls being assigned higher priority, which requires a faster response, we take several steps. First, we focus on the subset of calls for service categorised as ‘Major Disturbance—Violence’ that all receive the same priority level. Second, we instrument for police response time with the number of vehicles within a 2.5-mile radius of the incident at the time it is received by the call centre. When controlling for beat, month and time-of-day fixed effects, this instrumenting strategy allows us to take advantage of the geographical constraints faced by a dispatcher when assigning officers to an incident. In contrast to the ordinary least squares estimates, our two-stage least squares analysis establishes a strong causal relationship whereby increasing response time increases the likelihood that an incident results in an injury. The effect is concentrated among female victims, suggesting that faster response time could potentially play an important role in reducing injuries related to domestic violence.",
+      "abstract_cn": "执法部门对服务呼叫的延迟响应，在评估警察部门绩效时已成为一个热点问题。虽然人们通常认为，更快的响应时间可能在平息潜在暴力事件中发挥重要作用，但目前没有支持这一说法的经验证据。本文衡量警察响应时间对事件造成伤害可能性的影响。为克服更严重呼叫被赋予更高优先级、因而需要更快响应所带来的内生性问题，我们采取了几项措施。第一，我们聚焦于所有获得相同优先级的“重大骚乱—暴力”服务呼叫子样本。第二，我们用呼叫中心接到事件时其2.5英里半径内的车辆数量作为警察响应时间的工具变量。在控制警区、月份和时段固定效应后，该工具变量策略利用了调度员为事件分配警员时面临的地理约束。不同于普通最小二乘估计，我们的两阶段最小二乘分析建立了强因果关系：响应时间增加会提高事件导致伤害的可能性。这一效应集中于女性受害者，表明更快的响应时间可能在减少与家庭暴力相关的伤害方面发挥重要作用。",
+      "doi": "10.1093/ej/uead035",
+      "source_url": "https://academic.oup.com/ej/article/133/654/2147/7147570",
+      "sources": {
+        "roster": "https://academic.oup.com/ej/issue/133/654",
+        "metadata": "https://academic.oup.com/ej/article/133/654/2147/7147570",
+        "abstract_en": "https://academic.oup.com/ej/article/133/654/2147/7147570"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "codex-local-manual",
+        "model": "local-manual",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-03T10:20:00+00:00",
+        "source_hash": "12602a1eba9107a21e9bf2de9cdf301b567b8234d485e3c85175401d43b3a680"
+      },
+      "quality_flags": [],
+      "publication_date": "July 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/ej/uead027",
+      "sequence": 4,
+      "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Individual Consequences of Occupational Decline",
       "title_cn": "职业衰退的个体后果",
@@ -76,7 +153,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/133/654",
-        "roster": "crossref:issn:0013-0133",
+        "roster": "https://academic.oup.com/ej/issue/133/654",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -98,9 +175,88 @@
       }
     },
     {
+      "paper_id": "doi:10.1093/ej/uead028",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Labour Taxes, Market Size and Productivity Growth",
+      "title_cn": "劳动税、市场规模与生产率增长",
+      "authors": [
+        "Domenico Ferraro",
+        "Soroush Ghazi",
+        "Pietro F Peretto"
+      ],
+      "abstract_en": "How do changes in labour taxes affect innovation and aggregate productivity growth? To answer this question, we propose a quantitative, general equilibrium growth model featuring product and quality innovation with endogenous market structure, estimate its parameters and provide empirical validation for the propagation mechanism of labour tax changes. We find that a temporary cut in flat-rate labour taxes produces a growth acceleration in aggregate productivity, permanently increasing the path of real GDP per capita. Moreover, such permanent gains are sizeable even without long-run growth effects.",
+      "abstract_cn": "劳动税的变化如何影响创新和总量生产率增长？为回答这一问题，我们提出一个定量的一般均衡增长模型，其中包含具有内生市场结构的产品创新和质量创新，估计模型参数，并对劳动税变化的传导机制进行实证验证。我们发现，暂时降低统一税率的劳动税会加快总量生产率增长，并永久性地提高实际人均GDP的增长路径。此外，即使不存在长期增长效应，这种永久性收益也相当可观。",
+      "doi": "10.1093/ej/uead028",
+      "source_url": "https://academic.oup.com/ej/article/133/654/2210/7131444",
+      "sources": {
+        "roster": "https://academic.oup.com/ej/issue/133/654",
+        "metadata": "https://academic.oup.com/ej/article/133/654/2210/7131444",
+        "abstract_en": "https://academic.oup.com/ej/article/133/654/2210/7131444"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "codex-local-manual",
+        "model": "local-manual",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-03T10:20:00+00:00",
+        "source_hash": "2ecfb31f8a34f0bfe544c211f93b52df737e808ceb3d661659c92224d24153c8"
+      },
+      "quality_flags": [],
+      "publication_date": "July 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/ej/uead031",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Unraveling Firms: Demand, Productivity and Markups Heterogeneity",
+      "title_cn": "揭示企业：需求、生产率与加成率异质性",
+      "authors": [
+        "Emanuele Forlani",
+        "Ralf Martin",
+        "Giordano Mion",
+        "Mirabelle Muûls"
+      ],
+      "abstract_en": "We develop a novel framework that simultaneously allows recovering heterogeneity in demand, quantity total factor productivity and markups across firms while leaving the correlation between the three dimensions unrestricted. We accomplish this by explicitly introducing demand heterogeneity and systematically exploiting assumptions used in previous productivity estimation approaches. In doing so, we provide an exact decomposition of revenue productivity in terms of the underlying heterogeneities, thus bridging the gap between quantity and revenue productivity estimations. We use Belgian firms’ production data to quantify total factor productivity, demand and markups, and show how they are correlated with each other across time and with measures obtained from other approaches. In doing so, we find quantity total factor productivity and demand to be strongly negatively correlated with each other, so suggesting a trade-off between the quality of a firm’s products and their production cost. We also show how our framework provides deeper and sharper insights on the response of firms to increasing import competition from China. In particular, we find that changes in revenue productivity materialise as the outcome of complex and sometimes offsetting changes in quantity total factor productivity, demand, markups and production scale.",
+      "abstract_cn": "我们构建一个新框架，在不限制三者相关性的情况下，同时恢复企业间需求、数量型全要素生产率和加成率的异质性。为此，我们明确引入需求异质性，并系统利用既有生产率估计方法所采用的假设。由此，我们根据底层异质性对收入生产率进行精确分解，从而弥合数量生产率和收入生产率估计之间的差距。我们利用比利时企业的生产数据，量化全要素生产率、需求和加成率，并展示它们在不同时间以及与其他方法所得指标之间的相关性。我们发现，数量型全要素生产率与需求之间存在很强的负相关，这表明企业产品质量与生产成本之间存在权衡。我们还展示，该框架能够更深入、更清晰地揭示企业对中国进口竞争加剧的反应。具体而言，我们发现，收入生产率的变化，是数量型全要素生产率、需求、加成率和生产规模发生复杂且有时相互抵消的变化共同作用的结果。",
+      "doi": "10.1093/ej/uead031",
+      "source_url": "https://academic.oup.com/ej/article/133/654/2251/7127693",
+      "sources": {
+        "roster": "https://academic.oup.com/ej/issue/133/654",
+        "metadata": "https://academic.oup.com/ej/article/133/654/2251/7127693",
+        "abstract_en": "https://academic.oup.com/ej/article/133/654/2251/7127693"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "codex-local-manual",
+        "model": "local-manual",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-03T10:20:00+00:00",
+        "source_hash": "d84c33e5c24d962529d2f4f684297c62a6fc60ebe8c3013a2f8dbeb5a2dac18d"
+      },
+      "quality_flags": [],
+      "publication_date": "July 2023",
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "abstract",
+        "matched_terms": [
+          "from China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1093/ej/uead029",
-      "sequence": 3,
-      "source_sequence": 2303,
+      "sequence": 7,
+      "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "The Intergenerational Transmission of World War I on Female Labour",
       "title_cn": "第一次世界大战对女性劳动力的代际传递",
@@ -115,7 +271,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/133/654",
-        "roster": "crossref:issn:0013-0133",
+        "roster": "https://academic.oup.com/ej/issue/133/654",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -137,9 +293,48 @@
       }
     },
     {
+      "paper_id": "doi:10.1093/ej/uead015",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Parental Responses to Information about School Quality: Evidence from Linked Survey and Administrative Data",
+      "title_cn": "家长对学校质量信息的反应：来自调查与行政数据匹配的证据",
+      "authors": [
+        "Ellen Greaves",
+        "Iftikhar Hussain",
+        "Birgitta Rabe",
+        "Imran Rasul"
+      ],
+      "abstract_en": "We study the interaction between family and school inputs by identifying the causal impact of information about school quality on parental time investment into children. Inspection ratings provide news that shifts parental beliefs about school quality, and hence investment into children. We study this using household panel data from England, linked to administrative records on school inspection ratings. We find that parents receiving good news over school quality significantly decrease time investment into their children. We provide insights on the distributional and test score impacts of the nationwide inspections regime, through multiple margins of endogenous response of parents and children.",
+      "abstract_cn": "我们通过识别学校质量信息对父母投入时间教育子女的因果影响，研究家庭投入与学校投入之间的互动。学校检查评级提供了改变父母对学校质量信念的信息，进而影响父母对孩子的投入。我们利用英国家庭面板数据，并将其与学校检查评级的行政记录相匹配来进行研究。我们发现，收到关于学校质量的好消息的父母会显著减少对子女的时间投入。通过父母和子女内生反应的多个维度，我们进一步揭示全国学校检查制度对分配和考试成绩的影响。",
+      "doi": "10.1093/ej/uead015",
+      "source_url": "https://academic.oup.com/ej/article/133/654/2334/7024843",
+      "sources": {
+        "roster": "https://academic.oup.com/ej/issue/133/654",
+        "metadata": "https://academic.oup.com/ej/article/133/654/2334/7024843",
+        "abstract_en": "https://academic.oup.com/ej/article/133/654/2334/7024843"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "codex-local-manual",
+        "model": "local-manual",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-03T10:20:00+00:00",
+        "source_hash": "562f90d379e5f3555eda6af90248d664dd98e5b570e065f542a3e50f2928e805"
+      },
+      "quality_flags": [],
+      "publication_date": "July 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1093/ej/uead033",
-      "sequence": 4,
-      "source_sequence": 2403,
+      "sequence": 9,
+      "source_sequence": 9,
       "article_type": "research-article",
       "title_en": "Culture and Gender Differences in Willingness to Compete",
       "title_cn": "文化差异与竞争意愿中的性别差异",
@@ -156,7 +351,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/133/654",
-        "roster": "crossref:issn:0013-0133",
+        "roster": "https://academic.oup.com/ej/issue/133/654",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -179,8 +374,8 @@
     },
     {
       "paper_id": "doi:10.1093/ej/uead025",
-      "sequence": 5,
-      "source_sequence": 2427,
+      "sequence": 10,
+      "source_sequence": 10,
       "article_type": "research-article",
       "title_en": "Formal Employment and Organised Crime: Regression Discontinuity Evidence from Colombia",
       "title_cn": "正规就业与有组织犯罪：来自哥伦比亚的断点回归证据",
@@ -199,7 +394,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/133/654",
-        "roster": "crossref:issn:0013-0133",
+        "roster": "https://academic.oup.com/ej/issue/133/654",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -222,8 +417,8 @@
     },
     {
       "paper_id": "doi:10.1093/ej/uead034",
-      "sequence": 6,
-      "source_sequence": 2449,
+      "sequence": 11,
+      "source_sequence": 11,
       "article_type": "research-article",
       "title_en": "Ride-Sharing and the Geography of Consumption Industries",
       "title_cn": "网约车与消费产业的地理分布",
@@ -239,7 +434,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/133/654",
-        "roster": "crossref:issn:0013-0133",
+        "roster": "https://academic.oup.com/ej/issue/133/654",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -261,9 +456,83 @@
       }
     },
     {
+      "paper_id": "doi:10.1093/ej/uead024",
+      "sequence": 12,
+      "source_sequence": 12,
+      "article_type": "research-article",
+      "title_en": "Optimal Contact Tracing and Social Distancing Policies to Suppress A New Infectious Disease",
+      "title_cn": "抑制新型传染病的最优接触者追踪与社交距离政策",
+      "authors": [
+        "Stefan Pollinger"
+      ],
+      "abstract_en": "This paper studies the suppression of an infectious disease in the canonical susceptible-infectious-recovered model. It derives three results. First, if technically feasible, the optimal response to a sufficiently small outbreak is halting transmissions instead of building up immunity through infections. Second, the crucial trade-off is not between health and economic costs, but between the intensity and duration of control measures. A simple formula of observables characterises the optimum. Third, the total cost depends critically on the efficiency of contact tracing, since it allows relaxing costly social distancing without increasing transmissions. A calibration to the COVID-19 pandemic illustrates the theoretical findings.",
+      "abstract_cn": "本文在经典的易感者—感染者—康复者模型中研究传染病的抑制。我们得到三个结果。第一，如果技术上可行，对于足够小的疫情暴发，最优反应是阻断传播，而不是通过感染建立免疫。第二，关键权衡不是健康成本与经济成本之间的权衡，而是控制措施的强度与持续时间之间的权衡。一个由可观测变量构成的简单公式刻画了最优方案。第三，总成本关键取决于接触者追踪的效率，因为接触者追踪能在不增加传播的情况下放松代价高昂的社交距离措施。对COVID-19疫情的校准说明了理论结果。",
+      "doi": "10.1093/ej/uead024",
+      "source_url": "https://academic.oup.com/ej/article/133/654/2483/7084014",
+      "sources": {
+        "roster": "https://academic.oup.com/ej/issue/133/654",
+        "metadata": "https://academic.oup.com/ej/article/133/654/2483/7084014",
+        "abstract_en": "https://academic.oup.com/ej/article/133/654/2483/7084014"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "codex-local-manual",
+        "model": "local-manual",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-03T10:20:00+00:00",
+        "source_hash": "c090b14221446ad2a3e1296b86544026aa48fa34d5d0bb7fd499b338bd27bbc4"
+      },
+      "quality_flags": [],
+      "publication_date": "July 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/ej/uead030",
+      "sequence": 13,
+      "source_sequence": 13,
+      "article_type": "research-article",
+      "title_en": "Rice Farming and the Origins of Cooperative Behaviour",
+      "title_cn": "水稻种植与合作行为的起源",
+      "authors": [
+        "Xiaoyu Zhou",
+        "Theodore Alysandratos",
+        "Michael Naef"
+      ],
+      "abstract_en": "This paper provides novel evidence for links between historic farming practices and current norms of cooperative behaviour. We hypothesise that the cooperation required in wetland rice farming gives rise to strong cultural norms of cooperativeness. We compare participants from prefecture cities that predominately practice wetland rice cultivation to those from non-rice regions. A public goods game with and without punishment is the main measure for cooperative behaviour. Results indicate a strong and robust positive effect of wetland rice farming on cooperative behaviour and pro-social punishment. Complementary, consistent evidence from a natural field experiment and a survey further enriches our data.",
+      "abstract_cn": "本文提供历史农业实践与当前合作行为规范之间联系的新证据。我们提出假说：湿地水稻种植所需的合作会形成强烈的合作文化规范。我们比较主要从事湿地水稻种植的府城参与者与非水稻地区参与者。带惩罚和不带惩罚的公共品博弈是衡量合作行为的主要方法。结果表明，湿地水稻种植对合作行为和亲社会惩罚具有强劲且稳健的正向影响。来自自然田野实验和调查的补充证据与上述结果一致，进一步丰富了我们的数据。",
+      "doi": "10.1093/ej/uead030",
+      "source_url": "https://academic.oup.com/ej/article/133/654/2504/7120030",
+      "sources": {
+        "roster": "https://academic.oup.com/ej/issue/133/654",
+        "metadata": "https://academic.oup.com/ej/article/133/654/2504/7120030",
+        "abstract_en": "https://academic.oup.com/ej/article/133/654/2504/7120030"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "codex-local-manual",
+        "model": "local-manual",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-03T10:20:00+00:00",
+        "source_hash": "142f96197a1a7fc3f3f6a17b5462da4a843c8939c7c3089fe4328a5d479e3435"
+      },
+      "quality_flags": [],
+      "publication_date": "July 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1093/ej/uead037",
-      "sequence": 7,
-      "source_sequence": 2533,
+      "sequence": 14,
+      "source_sequence": 14,
       "article_type": "research-article",
       "title_en": "When Information Conflicts with Obligations: the Role of Motivated Cognition",
       "title_cn": "当信息与义务冲突时：动机性认知的作用",
@@ -280,7 +549,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/133/654",
-        "roster": "crossref:issn:0013-0133",
+        "roster": "https://academic.oup.com/ej/issue/133/654",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -305,52 +574,59 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "crossref",
-    "roster_authority": "crossref-provisional",
+    "roster_transport": "browser-authorized",
+    "roster_authority": "official-issue-page",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 7,
-    "authors_complete": 7,
-    "abstract_en_complete": 7,
-    "translation_complete": 7,
+    "doi_complete": 14,
+    "authors_complete": 14,
+    "abstract_en_complete": 14,
+    "translation_complete": 14,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
-    ],
-    "official_item_count": 7,
-    "publishable_item_count": 7,
+    "flags": [],
+    "official_item_count": 14,
+    "publishable_item_count": 14,
     "content_counts": {
-      "official_items": 7,
-      "observed_items": 7,
-      "publishable_items": 7,
-      "research_articles": 7,
+      "official_items": 14,
+      "observed_items": 14,
+      "publishable_items": 14,
+      "research_articles": 14,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 7
+      "catalog_content_items": 14
+    },
+    "official_roster_evidence": {
+      "captured_at": "2026-09-03T10:00:00Z",
+      "official_url": "https://academic.oup.com/ej/issue/133/654",
+      "method": "browser-authorized",
+      "item_count": 14,
+      "excluded_item_count": 0,
+      "archive_reordered": false,
+      "sequence_sha256": "38ede9e0fcc4439cdc3336f30a48778328dc1800978dbed42e79e7d4f6eb70a2",
+      "privacy_fields_stored": false
     }
   },
   "content_counts": {
-    "official_items": 7,
-    "observed_items": 7,
-    "publishable_items": 7,
-    "research_articles": 7,
+    "official_items": 14,
+    "observed_items": 14,
+    "publishable_items": 14,
+    "research_articles": 14,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 7
+    "catalog_content_items": 14
   },
   "issue_label": "Vol. 133 · No. 654",
   "content_status": "complete",
-  "source_status": "source_pending",
-  "publication_state": "source_pending"
+  "source_status": "official_verified",
+  "publication_state": "ready"
 }

@@ -2,11 +2,11 @@
 
 Updated: 2026-09-02T16:38:01+00:00
 
-Discovery coverage: 1331 discovered · 1265 archived · 1089 publication ready · 66 missing · 176 source pending
+Discovery coverage: 1331 discovered — 1265 archived — 1090 publication ready — 66 missing — 175 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 563 | 0 | 48 | 97 |
+| 2023-2024 | 564 | 0 | 48 | 96 |
 | 2023-2026 | 276 | 0 | 17 | 7 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
@@ -288,7 +288,7 @@ Discovery coverage: 1331 discovered · 1265 archived · 1089 publication ready �
 | EJ | ej-133-651 | 2023 | ready |  |
 | EJ | ej-133-652 | 2023 | ready |  |
 | EJ | ej-133-653 | 2023 | ready |  |
-| EJ | ej-133-654 | 2023 | source_pending |  |
+| EJ | ej-133-654 | 2023 | ready |  |
 | EJ | ej-133-655 | 2023 | source_pending |  |
 | EJ | ej-133-656 | 2023 | source_pending |  |
 | EJ | ej-134-657 | 2023 | source_pending |  |
