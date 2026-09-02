@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-02T07:38:41+00:00",
+  "generated_at": "2026-09-02T08:04:06+00:00",
   "target_years": [
     2023,
     2024,
@@ -61,10 +61,9 @@
   ],
   "discovery_snapshot_missing_journals": [],
   "summary": {
-    "blocked": 1,
-    "ready": 1082,
-    "recoverable": 64,
-    "source_pending": 183
+    "ready": 1083,
+    "recoverable": 65,
+    "source_pending": 182
   },
   "records": [
     {
@@ -20143,29 +20142,29 @@
       "year": 2025,
       "volume": "85",
       "issue": "4",
-      "official_url": "https://www.cambridge.org/core/journals/journal-of-economic-history",
+      "official_url": "https://www.cambridge.org/core/journals/journal-of-economic-history/issue/BB85F5E6B46CF80126636A16C2899DB4",
       "authority": "crossref_candidate",
       "refreshed_at": "2026-08-24T13:58:22+00:00",
       "collector_revision": "history-integrity-2026-08-11",
-      "category": "source_pending",
-      "reason": "official source verification pending",
-      "status": "translation_partial",
-      "retry_class": "translation",
+      "category": "ready",
+      "reason": "content and official source gates passed",
+      "status": "ready",
+      "retry_class": "manual",
       "collector": "crossref",
       "attempt_count": 0,
       "last_attempt_at": "",
       "last_error_code": "",
-      "next_retry_at": "2026-08-24T19:59:35+00:00",
+      "next_retry_at": "",
       "archive_exists": true,
       "content_status": "complete",
-      "source_status": "source_pending",
-      "publication_state": "source_pending",
+      "source_status": "official_verified",
+      "publication_state": "ready",
       "counts": {
         "articles": 8,
         "abstract_en": 8,
         "translation_cn": 8
       },
-      "next_action": "attach official roster/source evidence; do not publish"
+      "next_action": "no action"
     },
     {
       "issue_id": "jeh-86-1",
@@ -25517,8 +25516,8 @@
       "authority": "crossref_candidate",
       "refreshed_at": "2026-08-24T14:22:44+00:00",
       "collector_revision": "history-integrity-2026-08-11",
-      "category": "blocked",
-      "reason": "archive_issue_id_mismatch: expected jle-43-S1, got jle-43-s1",
+      "category": "recoverable",
+      "reason": "archive_missing",
       "status": "blocked",
       "retry_class": "manual",
       "collector": "chicago",
@@ -25526,16 +25525,16 @@
       "last_attempt_at": "2026-08-27T10:21:26+00:00",
       "last_error_code": "HTTPError",
       "next_retry_at": "",
-      "archive_exists": true,
+      "archive_exists": false,
       "content_status": "blocked",
       "source_status": "source_pending",
       "publication_state": "blocked",
       "counts": {
-        "articles": 12,
-        "abstract_en": 12,
-        "translation_cn": 12
+        "articles": 0,
+        "abstract_en": 0,
+        "translation_cn": 0
       },
-      "next_action": "inspect issue error and route to the correct retry queue"
+      "next_action": "run official collector and validate archive"
     },
     {
       "issue_id": "jle-44-1",

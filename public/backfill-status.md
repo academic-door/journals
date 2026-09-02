@@ -1,13 +1,13 @@
 # Field journal history backfill status
 
-Updated: 2026-09-02T07:16:37+00:00
+Updated: 2026-09-02T08:03:48+00:00
 
-Discovery coverage: 1330 discovered · 1266 archived · 1082 publication ready · 64 missing · 184 source pending
+Discovery coverage: 1330 discovered · 1265 archived · 1083 publication ready · 65 missing · 182 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
 | 2023-2024 | 557 | 0 | 48 | 103 |
-| 2023-2026 | 275 | 0 | 17 | 8 |
+| 2023-2026 | 276 | 0 | 17 | 7 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
 | 2026-2026 | 6 | 0 | 0 | 0 |
@@ -683,7 +683,7 @@ Discovery coverage: 1330 discovered · 1266 archived · 1082 publication ready �
 | JEH | jeh-85-1 | 2025 | ready |  |
 | JEH | jeh-85-2 | 2025 | ready |  |
 | JEH | jeh-85-3 | 2025 | ready |  |
-| JEH | jeh-85-4 | 2025 | source_pending |  |
+| JEH | jeh-85-4 | 2025 | ready |  |
 | JEH | jeh-86-1 | 2026 | ready |  |
 | JEH | jeh-86-2 | 2026 | source_pending |  |
 | JEP | jep-37-1 | 2023 | ready |  |
@@ -862,7 +862,7 @@ Discovery coverage: 1330 discovered · 1266 archived · 1082 publication ready �
 | JLE | jle-43-2 | 2025 | ready |  |
 | JLE | jle-43-3 | 2025 | ready |  |
 | JLE | jle-43-4 | 2025 | ready |  |
-| JLE | jle-43-S1 | 2025 | blocked | archive_issue_id_mismatch: expected jle-43-S1, got jle-43-s1 |
+| JLE | jle-43-S1 | 2025 | blocked | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.ed |
 | JLE | jle-44-1 | 2026 | ready |  |
 | JLE | jle-44-2 | 2026 | ready |  |
 | JLE | jle-44-3 | 2026 | ready |  |

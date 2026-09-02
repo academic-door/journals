@@ -1,13 +1,12 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-02T07:38:41+00:00
+Generated: 2026-09-02T08:04:06+00:00
 
 ## Summary
 
-- blocked: 1
-- ready: 1082
-- recoverable: 64
-- source_pending: 183
+- ready: 1083
+- recoverable: 65
+- source_pending: 182
 
 ## Issue queue
 
@@ -682,7 +681,7 @@ Generated: 2026-09-02T07:38:41+00:00
 | JEH | jeh-85-1 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JEH | jeh-85-2 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JEH | jeh-85-3 | 2025 | ready | complete | official_verified | content and official source gates passed |
-| JEH | jeh-85-4 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| JEH | jeh-85-4 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JEH | jeh-86-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JEH | jeh-86-2 | 2026 | source_pending | complete | source_pending | official source verification pending |
 | JEP | jep-37-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
@@ -861,7 +860,7 @@ Generated: 2026-09-02T07:38:41+00:00
 | JLE | jle-43-2 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-43-3 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-43-4 | 2025 | ready | complete | official_verified | content and official source gates passed |
-| JLE | jle-43-S1 | 2025 | blocked | blocked | source_pending | archive_issue_id_mismatch: expected jle-43-S1, got jle-43-s1 |
+| JLE | jle-43-S1 | 2025 | recoverable | blocked | source_pending | archive_missing |
 | JLE | jle-44-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-44-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-44-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
