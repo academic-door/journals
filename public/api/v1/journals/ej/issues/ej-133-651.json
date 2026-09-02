@@ -5,18 +5,54 @@
   "journal_name": "The Economic Journal",
   "volume": "133",
   "issue": "651",
-  "publication_date": "March 2023",
+  "publication_date": "April 2023",
   "source_url": "https://academic.oup.com/ej/issue/133/651",
   "retrieved_at": "2026-08-10T23:18:34+00:00",
-  "expected_article_count": 7,
-  "research_article_count": 7,
-  "status": "incomplete",
+  "expected_article_count": 12,
+  "research_article_count": 12,
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1093/ej/ueac071",
+      "paper_id": "doi:10.1093/ej/ueac088",
       "sequence": 1,
-      "source_sequence": 928,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Multi-Product Pricing: Theory and Evidence from Large Retailers",
+      "title_cn": "多产品定价：来自大型零售商的理论与证据",
+      "authors": [
+        "Marco Bonomo and others"
+      ],
+      "abstract_en": "We study a unique dataset with comprehensive coverage of daily prices in large multi-product retailers in Israel. Retail stores synchronise price changes around occasional ‘peak’ days when they reprice around 10% of their products. To assess aggregate implications of partial price synchronisation, we develop a new model in which multi-product firms face economies of scope in price adjustment, and synchronisation is endogenous. Synchronisation of price changes attenuates the average price response to monetary shocks, but only high degrees of synchronisation can substantially strengthen the real effects of monetary policy shocks. Our calibrated model generates real effects similar in magnitude to those in M. Golosov, and R.E. Lucas, Journal of Political Economy (2007), vol. 115, pp. 171–99.",
+      "abstract_cn": "我们研究了一个独特的数据集，该数据集全面覆盖了以色列大型多产品零售商的每日价格。零售商店在偶尔的“高峰”日同步调整价格，在这些日子里，它们对约10%的产品重新定价。为了评估部分价格同步的总体影响，我们开发了一个新模型，在该模型中，多产品企业面临价格调整的范围经济，且同步是内生的。价格变化的同步减弱了平均价格对货币冲击的响应，但只有高度同步才能显著增强货币政策冲击的实际效应。我们的校准模型产生的实际效应与M. Golosov和R.E. Lucas在《政治经济学杂志》（2007年）第115卷，第171-99页中的结果在数量级上相似。",
+      "doi": "10.1093/ej/ueac088",
+      "source_url": "https://academic.oup.com/ej/article/133/651/905/6888011",
+      "sources": {
+        "roster": "https://academic.oup.com/ej/issue/133/651",
+        "metadata": "https://academic.oup.com/ej/article/133/651/905/6888011",
+        "abstract_en": "https://academic.oup.com/ej/article/133/651/905/6888011"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-24T14:15:42+00:00",
+        "source_hash": "160e1ae26084952d38818b487f23bf5d2d386299d8abce5b91a6da55e5b2c4c8"
+      },
+      "quality_flags": [],
+      "publication_date": "March 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/ej/ueac071",
+      "sequence": 2,
+      "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Trends in Assortative Mating and Offspring Outcomes",
       "title_cn": "同型婚配趋势与后代结果",
@@ -35,7 +71,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/133/651",
-        "roster": "crossref:issn:0013-0133",
+        "roster": "https://academic.oup.com/ej/issue/133/651",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -58,8 +94,8 @@
     },
     {
       "paper_id": "doi:10.1093/ej/ueac082",
-      "sequence": 2,
-      "source_sequence": 951,
+      "sequence": 3,
+      "source_sequence": 3,
       "article_type": "research-article",
       "title_en": "The Merit Primacy Effect",
       "title_cn": "功绩优先效应",
@@ -77,7 +113,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/133/651",
-        "roster": "crossref:issn:0013-0133",
+        "roster": "https://academic.oup.com/ej/issue/133/651",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -100,8 +136,8 @@
     },
     {
       "paper_id": "doi:10.1093/ej/ueac085",
-      "sequence": 3,
-      "source_sequence": 971,
+      "sequence": 4,
+      "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "International Trade and Innovation Dynamics with Endogenous Markups",
       "title_cn": "内生加成率下的国际贸易与创新动态",
@@ -118,7 +154,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/133/651",
-        "roster": "crossref:issn:0013-0133",
+        "roster": "https://academic.oup.com/ej/issue/133/651",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -141,8 +177,8 @@
     },
     {
       "paper_id": "doi:10.1093/ej/ueac052",
-      "sequence": 4,
-      "source_sequence": 1005,
+      "sequence": 5,
+      "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "Identification and Parametric Estimation of Empirical Dynamic Marriage Matching Models",
       "title_cn": "经验动态婚姻匹配模型的识别与参数估计",
@@ -158,7 +194,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/133/651",
-        "roster": "crossref:issn:0013-0133",
+        "roster": "https://academic.oup.com/ej/issue/133/651",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -182,9 +218,82 @@
       }
     },
     {
+      "paper_id": "doi:10.1093/ej/ueac086",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Coordinated Work Schedules and the Gender Wage Gap",
+      "title_cn": "协调工作安排与性别工资差距",
+      "authors": [
+        "German Cubas and others"
+      ],
+      "abstract_en": "This paper studies how coordinated work schedules across jobs contribute to the gender wage gap. Using US time diary data, we construct occupation-level measures of coordinated schedules. Higher coordination is associated with higher wages and a larger gender wage gap. Empirically, women with children allocate more time to household care and are penalised for missing work during peak hours. An equilibrium occupational choice model generates a gender wage gap of 8.9%; most of the gender wage gap is within occupations. If coordination is set to the value of healthcare support across all occupations, the within-occupation gender gap halves.",
+      "abstract_cn": "本文研究跨工作的协调工作安排如何导致性别工资差距。利用美国时间日记数据，我们构建了职业层面的协调安排指标。更高的协调性与更高的工资和更大的性别工资差距相关。实证上，有子女的女性将更多时间分配给家庭照料，并因在高峰时段缺勤而受到惩罚。一个均衡的职业选择模型产生了8.9%的性别工资差距；大部分性别工资差距存在于职业内部。如果将协调性设定为所有职业中医疗保健支持的值，职业内部的性别差距将减半。",
+      "doi": "10.1093/ej/ueac086",
+      "source_url": "https://academic.oup.com/ej/article/133/651/1036/6849557",
+      "sources": {
+        "roster": "https://academic.oup.com/ej/issue/133/651",
+        "metadata": "https://academic.oup.com/ej/article/133/651/1036/6849557",
+        "abstract_en": "https://academic.oup.com/ej/article/133/651/1036/6849557"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-24T14:15:43+00:00",
+        "source_hash": "197266a97fdac1ecdc3b5c4c65b7d9d5e4cf32b5f8ac9a7adb09785164509afa"
+      },
+      "quality_flags": [],
+      "publication_date": "March 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/ej/ueac063",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "The Emperor’s Geography—City Locations, Nature and Institutional Optimisation",
+      "title_cn": "皇帝的疆域——城市区位、自然条件与制度优化",
+      "authors": [
+        "Christian Düben",
+        "Melanie Krause"
+      ],
+      "abstract_en": "The emergence of cities in specific locations depends on both geographical features (such as elevation and proximity to rivers) and institutional factors (such as centrality within an administrative region). In this paper, we analyse the importance of these factors at different levels of the urban hierarchy. To do so, we exploit a unique data set on the locations of cities of different status in imperial China from 221 BCE to 1911 CE, a geographically diverse empire with a long history of centralised rule. Developing a stylised theoretical model, we combine econometrics with machine learning techniques. Our results suggest that the higher a city is in the urban hierarchy, the less important are local geographical features compared to institutional factors. At the lower end of the scale, market towns without government responsibilities are most strongly shaped by geographical characteristics. We also find evidence that many cities of political importance in imperial times still enjoy a special status nowadays, underlining the modern relevance of these historical factors.",
+      "abstract_cn": "特定区位的城市的出现既取决于地理特征（如海拔和与河流的邻近性），也取决于制度因素（如在行政区域内的中心性）。在本文中，我们分析了这些因素在城市层级不同水平上的重要性。为此，我们利用了公元前221年至公元1911年间中华帝国不同地位城市区位的独特数据集，这是一个地理多样且具有悠久中央集权统治历史的帝国。通过开发一个程式化的理论模型，我们将计量经济学与机器学习技术相结合。我们的结果表明，城市在城市层级中越高，当地地理特征相对于制度因素的重要性就越低。在规模的低端，没有政府职责的集镇受地理特征的影响最为强烈。我们还发现证据表明，帝国时期许多具有政治重要性的城市至今仍享有特殊地位，这凸显了这些历史因素的现代相关性。",
+      "doi": "10.1093/ej/ueac063",
+      "source_url": "https://academic.oup.com/ej/article/133/651/1067/6695308",
+      "sources": {
+        "roster": "https://academic.oup.com/ej/issue/133/651",
+        "metadata": "https://academic.oup.com/ej/article/133/651/1067/6695308",
+        "abstract_en": "https://academic.oup.com/ej/article/133/651/1067/6695308"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-24T14:15:46+00:00",
+        "source_hash": "cfba11080a5a629a1fc079d51d1df433aeef75d27e0d4beef2b90cbed94e7d23"
+      },
+      "quality_flags": [],
+      "publication_date": "March 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1093/ej/ueac080",
-      "sequence": 5,
-      "source_sequence": 1106,
+      "sequence": 8,
+      "source_sequence": 8,
       "article_type": "research-article",
       "title_en": "Auctions with Privately Known Capacities: Understanding Competition Among Renewables",
       "title_cn": "具有私人已知容量的拍卖：理解可再生能源之间的竞争",
@@ -200,7 +309,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/133/651",
-        "roster": "crossref:issn:0013-0133",
+        "roster": "https://academic.oup.com/ej/issue/133/651",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -223,8 +332,8 @@
     },
     {
       "paper_id": "doi:10.1093/ej/ueac084",
-      "sequence": 6,
-      "source_sequence": 1147,
+      "sequence": 9,
+      "source_sequence": 9,
       "article_type": "research-article",
       "title_en": "Is School-Based Financial Education Effective? Immediate and Long-Lasting Impacts on High School Students",
       "title_cn": "学校教育中的金融教育是否有效？对高中生的即时与长期影响",
@@ -239,7 +348,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/133/651",
-        "roster": "crossref:issn:0013-0133",
+        "roster": "https://academic.oup.com/ej/issue/133/651",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -261,9 +370,45 @@
       }
     },
     {
+      "paper_id": "doi:10.1093/ej/ueac076",
+      "sequence": 10,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "Pledge-and-Review Bargaining: from Kyoto to Paris",
+      "title_cn": "承诺与审查式谈判：从京都到巴黎",
+      "authors": [
+        "Bård Harstad"
+      ],
+      "abstract_en": "A tractable dynamic model of international climate policies is analysed. The choice of bargaining game influences participation levels, emission quotas and technology investment levels. I derive several predictions that are arguably consistent with the differences between the 1997 Kyoto Protocol and the 2015 Paris Agreement—including the transitioning from the former to the latter.",
+      "abstract_cn": "本文分析一个易于处理的国际气候政策动态模型。谈判博弈的选择会影响参与水平、排放配额和技术投资水平。我推导出若干预测，这些预测与1997年《京都议定书》和2015年《巴黎协定》之间的差异大体一致，包括从前者向后者的过渡。",
+      "doi": "10.1093/ej/ueac076",
+      "source_url": "https://academic.oup.com/ej/article/133/651/1181/6815771",
+      "sources": {
+        "roster": "https://academic.oup.com/ej/issue/133/651",
+        "metadata": "https://academic.oup.com/ej/article/133/651/1181/6815771",
+        "abstract_en": "https://academic.oup.com/ej/article/133/651/1181/6815771"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "codex-local",
+        "model": "codex-local",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-02T12:35:00+00:00",
+        "source_hash": "20fcb21759ee80d98c8de388b290760fac72cfb759f7725507e03ba136d0676b"
+      },
+      "quality_flags": [],
+      "publication_date": "March 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1093/ej/ueac079",
-      "sequence": 7,
-      "source_sequence": 1217,
+      "sequence": 11,
+      "source_sequence": 11,
       "article_type": "research-article",
       "title_en": "Multi-Dimensional Skills and Gender Differences in STEM Majors",
       "title_cn": "多维技能与STEM专业中的性别差异",
@@ -278,7 +423,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/133/651",
-        "roster": "crossref:issn:0013-0133",
+        "roster": "https://academic.oup.com/ej/issue/133/651",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -298,57 +443,101 @@
         "matched_terms": [],
         "source": "academic-door-rules-v1"
       }
+    },
+    {
+      "paper_id": "doi:10.1093/ej/ueac083",
+      "sequence": 12,
+      "source_sequence": 12,
+      "article_type": "research-article",
+      "title_en": "Welfare Cuts and Crime: Evidence from the New Poor Law",
+      "title_cn": "福利削减与犯罪：来自新济贫法的证据",
+      "authors": [
+        "Eric Melander",
+        "Martina Miotto"
+      ],
+      "abstract_en": "The New Poor Law reform of 1834 induced dramatic and heterogeneous reductions in welfare spending across English and Welsh counties. Using the reform in a difference-in-differences instrumental variables strategy, we document a robust negative relationship between the generosity of welfare provision and criminal activity. Results are driven by non-violent property crimes and are stronger during months of seasonal agricultural unemployment, highlighting the particularly criminogenic combination of welfare cuts and precarious work opportunities for the economically vulnerable.",
+      "abstract_cn": "1834年的《新济贫法》改革使英格兰和威尔士各郡的福利支出发生了显著且不均衡的削减。我们将这项改革纳入双重差分工具变量策略，发现福利供给的慷慨程度与犯罪活动之间存在稳健的负相关关系。该结果主要由非暴力财产犯罪驱动，并且在季节性农业失业月份更为明显，凸显了福利削减与经济脆弱群体就业机会不稳定相结合所产生的特殊犯罪诱发效应。",
+      "doi": "10.1093/ej/ueac083",
+      "source_url": "https://academic.oup.com/ej/article/133/651/1248/6798382",
+      "sources": {
+        "roster": "https://academic.oup.com/ej/issue/133/651",
+        "metadata": "https://academic.oup.com/ej/article/133/651/1248/6798382",
+        "abstract_en": "https://academic.oup.com/ej/article/133/651/1248/6798382"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "codex-local",
+        "model": "codex-local",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-02T12:35:00+00:00",
+        "source_hash": "0d24414618a9f2e3ae974e04b00ca222fbfd7e2be155ca62f97689e44c94efbe"
+      },
+      "quality_flags": [],
+      "publication_date": "March 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     }
   ],
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "crossref",
-    "roster_authority": "crossref-provisional",
+    "roster_transport": "browser-authorized",
+    "roster_authority": "official-issue-page",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 7,
-    "authors_complete": 7,
-    "abstract_en_complete": 7,
-    "translation_complete": 7,
+    "doi_complete": 12,
+    "authors_complete": 12,
+    "abstract_en_complete": 12,
+    "translation_complete": 12,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
-    ],
-    "official_item_count": 7,
-    "publishable_item_count": 7,
+    "flags": [],
+    "official_item_count": 12,
+    "publishable_item_count": 12,
     "content_counts": {
-      "official_items": 7,
-      "observed_items": 7,
-      "publishable_items": 7,
-      "research_articles": 7,
+      "official_items": 12,
+      "observed_items": 12,
+      "publishable_items": 12,
+      "research_articles": 12,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 7
+      "catalog_content_items": 12
+    },
+    "official_roster_evidence": {
+      "captured_at": "2026-09-02T12:25:21Z",
+      "official_url": "https://academic.oup.com/ej/issue/133/651",
+      "method": "browser-authorized",
+      "item_count": 12,
+      "excluded_item_count": 0,
+      "archive_reordered": false,
+      "sequence_sha256": "3f1a337ec3c401b838205a47aaab795ad7f5858f527d9799e26ce4e0cc7185c6",
+      "privacy_fields_stored": false
     }
   },
   "content_counts": {
-    "official_items": 7,
-    "observed_items": 7,
-    "publishable_items": 7,
-    "research_articles": 7,
+    "official_items": 12,
+    "observed_items": 12,
+    "publishable_items": 12,
+    "research_articles": 12,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 7
+    "catalog_content_items": 12
   },
   "issue_label": "Vol. 133 · No. 651",
   "content_status": "complete",
-  "source_status": "source_pending",
-  "publication_state": "source_pending"
+  "source_status": "official_verified",
+  "publication_state": "ready"
 }
