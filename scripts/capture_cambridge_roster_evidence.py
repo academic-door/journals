@@ -31,9 +31,10 @@ ISSUE_LABEL_RE = re.compile(
 )
 DOI_DATA_RE = re.compile(r'data-doi="(10\.[^"]+)"')
 NON_RESEARCH_RE = re.compile(
-    r"^\s*(?:cover\s+and\s+(?:front|back)\s+matter|"
+    r"(?:^\s*(?:cover\s+and\s+(?:front|back)\s+matter|"
     r"editors?[^a-z]*report|editorial|correction|erratum|"
-    r"corrigendum|retraction|expression\s+of\s+concern)\b",
+    r"corrigendum|retraction|expression\s+of\s+concern)\b|"
+    r"\baddendum\b)",
     re.IGNORECASE,
 )
 BOOK_REVIEW_RE = re.compile(r"\bPp\.\s*\d+|\(Orgs?\.\)|\s+By\s+[A-Z]", re.IGNORECASE)

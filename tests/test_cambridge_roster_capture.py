@@ -41,6 +41,11 @@ ISSUE_HTML = """
   <a class="part-link" href="/core/journals/journal-of-economic-history/article/front/DDD">JEH volume 83 issue 1 Cover and Front matter</a>
   <div class="altmetric-embed" data-doi="10.1017/S000000000000004"></div>
 </div>
+<div class="product-listing-with-inputs-content">
+  <a class="part-link" href="/core/journals/journal-of-economic-history/article/addendum/EEE">A Research Paper — ADDENDUM</a>
+  <div class="author"><a class="more-by-this-author">Author Three</a></div>
+  <div class="altmetric-embed" data-doi="10.1017/S000000000000005"></div>
+</div>
 </body></html>
 """
 
@@ -66,7 +71,7 @@ class CambridgeRosterCaptureTests(unittest.TestCase):
             base_url="https://www.cambridge.org/core/journals/journal-of-economic-history/issue/ABC",
         )
         self.assertEqual(2, len(items))
-        self.assertEqual(2, len(excluded))
+        self.assertEqual(3, len(excluded))
         self.assertEqual("10.1017/s000000000000001", items[0]["doi"])
         self.assertEqual("First Research Paper", items[0]["title_en"])
         self.assertEqual(["Author One"], items[0]["authors"])
@@ -76,6 +81,7 @@ class CambridgeRosterCaptureTests(unittest.TestCase):
         )
         self.assertEqual("book-review", excluded[0]["reason"])
         self.assertEqual("front-matter-no-detail", excluded[1]["reason"])
+        self.assertEqual("non-research-title", excluded[2]["reason"])
 
     def test_source_pending_selection_uses_cambridge_host(self) -> None:
         manifest = {
