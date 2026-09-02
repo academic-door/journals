@@ -637,8 +637,6 @@ def _is_awaiting_upstream(error_text: str) -> bool:
             "abstract_en_incomplete",
             "missing abstracts",
             "source authority is not publication-ready",
-            "publisher_rss_reverse_order_normalized",
-            "publisher_html_blocked_repec_fallback",
         )
     )
 
@@ -928,3 +926,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
