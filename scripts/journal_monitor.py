@@ -615,6 +615,34 @@ def _is_awaiting_official(error_text: str) -> bool:
     )
 
 
+def _is_awaiting_upstream(error_text: str) -> bool:
+    """An upstream/source or enrichment gap that is not an operational failure.
+
+    The deep update is blocked because the authoritative source is not yet
+    ready (source lag / publication-ready authority) or because the source
+    article metadata (e.g. an English abstract) is not yet available for a
+    just-published item. Existing monitored data is preserved
+    (``preserved_previous``); the journal is waiting on upstream/source
+    readiness, not failing the product. This mirrors ``_is_awaiting_official``.
+    """
+
+    if not error_text:
+        return False
+    if "provisional Crossref roster requires official confirmation" in error_text:
+        return True
+    return any(
+        marker in error_text
+        for marker in (
+            "SourceLagError:",
+            "abstract_en_incomplete",
+            "missing abstracts",
+            "source authority is not publication-ready",
+            "publisher_rss_reverse_order_normalized",
+            "publisher_html_blocked_repec_fallback",
+        )
+    )
+
+
 def _awaiting_backoff_hours(awaiting_count: int) -> int:
     """Exponential backoff for publisher confirmation, capped at 24 hours."""
 
@@ -808,8 +836,11 @@ def public_status(
     awaiting_official = [
         key
         for key, entry in entries.items()
-        if int(entry.get("awaiting_official_count", 0)) > 0
-        and _is_awaiting_official(str(entry.get("last_error", "")))
+        if (
+            int(entry.get("awaiting_official_count", 0)) > 0
+            and _is_awaiting_official(str(entry.get("last_error", "")))
+        )
+        or _is_awaiting_upstream(str(entry.get("last_error", "")))
     ]
     awaiting_set = set(awaiting_official)
     alerting = [
