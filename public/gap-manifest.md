@@ -5,9 +5,9 @@ Generated: 2026-09-02T16:38:19+00:00
 ## Summary
 
 - browser_required: 1
-- ready: 1093
+- ready: 1094
 - recoverable: 65
-- source_pending: 171
+- source_pending: 170
 - translation_required: 1
 
 ## Issue queue
@@ -292,7 +292,7 @@ Generated: 2026-09-02T16:38:19+00:00
 | EJ | ej-133-655 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | EJ | ej-133-656 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | EJ | ej-134-657 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| EJ | ej-134-658 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| EJ | ej-134-658 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | EJ | ej-134-659 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | EJ | ej-134-660 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | EJ | ej-134-661 | 2024 | source_pending | complete | source_pending | official source verification pending |
