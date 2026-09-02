@@ -8,15 +8,15 @@
   "publication_date": "November 2024",
   "source_url": "https://academic.oup.com/ej/issue/134/664",
   "retrieved_at": "2026-08-18T18:13:54+00:00",
-  "expected_article_count": 13,
-  "research_article_count": 13,
-  "status": "incomplete",
+  "expected_article_count": 15,
+  "research_article_count": 15,
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
       "paper_id": "doi:10.1093/ej/ueae053",
       "sequence": 1,
-      "source_sequence": 3063,
+      "source_sequence": 1,
       "article_type": "research-article",
       "title_en": "Demand for Commitment in Credit and Saving Contracts: A Field Experiment",
       "title_cn": "信贷与储蓄合同中的承诺需求：一项实地实验",
@@ -35,7 +35,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/134/664",
-        "roster": "crossref:issn:0013-0133",
+        "roster": "https://academic.oup.com/ej/issue/134/664",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -57,9 +57,86 @@
       }
     },
     {
-      "paper_id": "doi:10.1093/ej/ueae057",
+      "paper_id": "doi:10.1093/ej/ueae051",
       "sequence": 2,
-      "source_sequence": 3173,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Vaccination Policy, Delayed Care and Health Expenditures",
+      "title_cn": "疫苗接种政策、延迟就医与医疗支出",
+      "authors": [
+        "Erkmen G Aslim",
+        "Wei Fu",
+        "Chia-Lun Liu",
+        "Erdal Tekin"
+      ],
+      "abstract_en": "This paper evaluates the effect of COVID-19 vaccination on the individual propensity to delay or skip medical care. Our research design exploits the arguably exogenous variation in age-specific vaccine eligibility rollout across states and over time as an instrument for individual vaccination status. We find that receiving a COVID-19 vaccine reduces the likelihood of delaying care for any medical condition by 37%. Furthermore, our analysis reveals that children are significantly less likely to delay or skip healthcare as a result of their parents becoming vaccine eligible, indicating the presence of a positive health spillover within households that extends beyond protection against infection. Our analysis also shows that vaccination reduces concerns about contracting or spreading COVID-19, leading to increased mobility and potentially reducing delays or avoidance in seeking healthcare. Additionally, we find that vaccination notably increased access to elective care and surgeries, but had no significant impact on emergency department admissions, mental health cases or other medical conditions. Our results highlight the important role that vaccines play in, not only protecting against coronavirus, but also safeguarding against the worsening of health due to delayed or foregone medical care. The decline in delayed or foregone care caused by vaccination is particularly strong among minorities and those with a low socioeconomic background, revealing an important role that vaccination efforts can play in narrowing inequities in health and healthcare. In supplementary analysis, we use novel data on debit and credit card spending to demonstrate that increased vaccine uptake has a positive, albeit statistically insignificant, effect on consumer healthcare spending in the short run. Taken together, our findings imply that advancements in vaccine development coupled with a regulatory process that accelerates the availability of vaccines to the public in a safe manner can have the additional benefit of tackling unmet healthcare needs during a public health crisis.",
+      "abstract_cn": "本文评估了COVID-19疫苗接种对个人延迟或放弃就医倾向的影响。我们的研究设计利用了各州按年龄划分的疫苗资格推广在时间和空间上的外生变化，作为个人疫苗接种状态的工具变量。我们发现，接种COVID-19疫苗可将因任何医疗状况而延迟就医的可能性降低37%。此外，我们的分析显示，由于父母获得疫苗资格，儿童延迟或放弃医疗保健的可能性显著降低，这表明家庭内部存在积极的健康溢出效应，其影响超越了感染防护。我们的分析还表明，疫苗接种减少了对感染或传播COVID-19的担忧，从而增加了流动性，并可能减少就医延迟或回避。此外，我们发现疫苗接种显著增加了获得选择性护理和手术的机会，但对急诊科入院、心理健康病例或其他医疗状况没有显著影响。我们的结果凸显了疫苗在不仅防护冠状病毒，而且防止因延迟或放弃医疗护理而导致健康状况恶化方面的重要作用。疫苗接种导致的延迟或放弃护理减少在少数族裔和社会经济背景较低的人群中尤为明显，揭示了疫苗接种工作在缩小健康和医疗保健不平等方面可以发挥的重要作用。在补充分析中，我们使用借记卡和信用卡支出的新数据来证明，疫苗摄取增加对消费者短期医疗保健支出有积极但不显著的影响。综合来看，我们的研究结果表明，疫苗开发的进步加上加速疫苗安全向公众提供的监管流程，可以在公共卫生危机期间额外带来解决未满足医疗需求的好处。",
+      "doi": "10.1093/ej/ueae051",
+      "source_url": "https://academic.oup.com/ej/article/134/664/3096/7701410",
+      "sources": {
+        "roster": "https://academic.oup.com/ej/issue/134/664",
+        "metadata": "https://academic.oup.com/ej/article/134/664/3096/7701410",
+        "abstract_en": "https://academic.oup.com/ej/article/134/664/3096/7701410"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-24T14:19:17+00:00",
+        "source_hash": "527509f62d32d3908c75f74037f42f23dce1eb8ff57e4468ce4ab9e2c0845fdf"
+      },
+      "quality_flags": [],
+      "publication_date": "November 2024",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/ej/ueae040",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Long-Term Effects of Equal Sharing: Evidence from Inheritance Rules for Land",
+      "title_cn": "平等分割的长期效应：来自土地继承规则的证据",
+      "authors": [
+        "Charlotte Bartels",
+        "Simon Jäger",
+        "Natalie Obergruber"
+      ],
+      "abstract_en": "What are the long-term economic effects of a more equal distribution of wealth? We investigate consequences of land inequality, exploiting variation in land inheritance rules that traverse political, linguistic, geological and religious borders in Germany. In some German areas, inherited land was to be shared or divided equally among children, while in others land was ruled to be indivisible. Using a geographic regression discontinuity design, we first show a more equal land distribution in areas with equal division; other potential drivers of growth are smooth at the boundary and equal division areas were not historically more developed. Today, equal division areas feature higher average incomes and more entrepreneurship which goes hand in hand with a right-shifted skill, income and wealth distribution. We show evidence consistent with the more even distribution of land leading to more innovative industrial by-employment during Germany’s transition from an agrarian to an industrial economy that, in the long run, led to more entrepreneurship.",
+      "abstract_cn": "更平等的财富分配有哪些长期经济效应？我们利用德国跨越政治、语言、地质和宗教边界的土地继承规则的变化，来研究土地不平等的影响。在德国的一些地区，继承的土地要在子女间平均分割，而在其他地区，土地则被视为不可分割。使用地理回归不连续设计，我们首先发现在平均分割的地区，土地分配更加平等；其他潜在的增长驱动因素在边界处是平滑的，且平均分割地区在历史上并未更发达。如今，平均分割地区拥有更高的平均收入和更多的创业活动，这与技能、收入和财富分布的右移相伴。我们提供的证据表明，更平均的土地分配导致了德国从农业经济向工业经济转型期间更具创新性的工业兼业活动，从长远来看，这导致了更多的创业。",
+      "doi": "10.1093/ej/ueae040",
+      "source_url": "https://academic.oup.com/ej/article/134/664/3137/7679128",
+      "sources": {
+        "roster": "https://academic.oup.com/ej/issue/134/664",
+        "metadata": "https://academic.oup.com/ej/article/134/664/3137/7679128",
+        "abstract_en": "https://academic.oup.com/ej/article/134/664/3137/7679128"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-24T14:19:19+00:00",
+        "source_hash": "dbe4a6496003789148f422eb34d2404c81474d5dfd1eff22fe9619636eac8bed"
+      },
+      "quality_flags": [],
+      "publication_date": "November 2024",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/ej/ueae057",
+      "sequence": 4,
+      "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Measuring the Total Number of US Job Seekers",
       "title_cn": "衡量美国求职者总数",
@@ -74,7 +151,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/134/664",
-        "roster": "crossref:issn:0013-0133",
+        "roster": "https://academic.oup.com/ej/issue/134/664",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -97,8 +174,8 @@
     },
     {
       "paper_id": "doi:10.1093/ej/ueae041",
-      "sequence": 3,
-      "source_sequence": 3202,
+      "sequence": 5,
+      "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "Judicial Decisions, Backlash and Secessionism: The Spanish Constitutional Court and Catalonia",
       "title_cn": "司法裁决、反弹与分离主义：西班牙宪法法院与加泰罗尼亚",
@@ -115,7 +192,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/134/664",
-        "roster": "crossref:issn:0013-0133",
+        "roster": "https://academic.oup.com/ej/issue/134/664",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -138,8 +215,8 @@
     },
     {
       "paper_id": "doi:10.1093/ej/ueae058",
-      "sequence": 4,
-      "source_sequence": 3232,
+      "sequence": 6,
+      "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "Using List Prices to Collude or to Compete?",
       "title_cn": "利用标价进行合谋还是竞争？",
@@ -155,7 +232,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/134/664",
-        "roster": "crossref:issn:0013-0133",
+        "roster": "https://academic.oup.com/ej/issue/134/664",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -178,8 +255,8 @@
     },
     {
       "paper_id": "doi:10.1093/ej/ueae039",
-      "sequence": 5,
-      "source_sequence": 3262,
+      "sequence": 7,
+      "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "Incentivising Textbooks for Self-Study: Experimental Evidence from the Democratic Republic of the Congo",
       "title_cn": "激励自学教科书：来自刚果民主共和国的实验证据",
@@ -196,7 +273,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/134/664",
-        "roster": "crossref:issn:0013-0133",
+        "roster": "https://academic.oup.com/ej/issue/134/664",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -219,8 +296,8 @@
     },
     {
       "paper_id": "doi:10.1093/ej/ueae071",
-      "sequence": 6,
-      "source_sequence": 3291,
+      "sequence": 8,
+      "source_sequence": 8,
       "article_type": "research-article",
       "title_en": "Relative Income and Mental Health in Couples",
       "title_cn": "夫妻相对收入与心理健康",
@@ -235,7 +312,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/134/664",
-        "roster": "crossref:issn:0013-0133",
+        "roster": "https://academic.oup.com/ej/issue/134/664",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -258,8 +335,8 @@
     },
     {
       "paper_id": "doi:10.1093/ej/ueae061",
-      "sequence": 7,
-      "source_sequence": 3306,
+      "sequence": 9,
+      "source_sequence": 9,
       "article_type": "research-article",
       "title_en": "Church Membership and Economic Recovery: Evidence from the 2005 Hurricane Season",
       "title_cn": "教会成员身份与经济复苏：来自2005年飓风季的证据",
@@ -276,7 +353,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/134/664",
-        "roster": "crossref:issn:0013-0133",
+        "roster": "https://academic.oup.com/ej/issue/134/664",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -299,8 +376,8 @@
     },
     {
       "paper_id": "doi:10.1093/ej/ueae056",
-      "sequence": 8,
-      "source_sequence": 3333,
+      "sequence": 10,
+      "source_sequence": 10,
       "article_type": "research-article",
       "title_en": "Allocation of Female Talent and Cross-Country Productivity Differences",
       "title_cn": "女性人才配置与跨国生产率差异",
@@ -315,7 +392,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/134/664",
-        "roster": "crossref:issn:0013-0133",
+        "roster": "https://academic.oup.com/ej/issue/134/664",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -338,8 +415,8 @@
     },
     {
       "paper_id": "doi:10.1093/ej/ueae050",
-      "sequence": 9,
-      "source_sequence": 3360,
+      "sequence": 11,
+      "source_sequence": 11,
       "article_type": "research-article",
       "title_en": "Cash Versus Kind: Benchmarking a Child Nutrition Program Against Unconditional Cash Transfers in Rwanda",
       "title_cn": "现金与实物：卢旺达儿童营养项目与无条件现金转移支付的基准比较",
@@ -355,7 +432,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/134/664",
-        "roster": "crossref:issn:0013-0133",
+        "roster": "https://academic.oup.com/ej/issue/134/664",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -378,8 +455,8 @@
     },
     {
       "paper_id": "doi:10.1093/ej/ueae029",
-      "sequence": 10,
-      "source_sequence": 3390,
+      "sequence": 12,
+      "source_sequence": 12,
       "article_type": "research-article",
       "title_en": "Disability and risk preferences: Experimental and survey evidence from Vietnam",
       "title_cn": "残疾与风险偏好：来自越南的实验和调查证据",
@@ -396,7 +473,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/134/664",
-        "roster": "crossref:issn:0013-0133",
+        "roster": "https://academic.oup.com/ej/issue/134/664",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -419,8 +496,8 @@
     },
     {
       "paper_id": "doi:10.1093/ej/ueae055",
-      "sequence": 11,
-      "source_sequence": 3428,
+      "sequence": 13,
+      "source_sequence": 13,
       "article_type": "research-article",
       "title_en": "Robot Imports and Firm-Level Outcomes",
       "title_cn": "机器人进口与企业层面结果",
@@ -438,7 +515,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/134/664",
-        "roster": "crossref:issn:0013-0133",
+        "roster": "https://academic.oup.com/ej/issue/134/664",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -461,8 +538,8 @@
     },
     {
       "paper_id": "doi:10.1093/ej/ueae046",
-      "sequence": 12,
-      "source_sequence": 3445,
+      "sequence": 14,
+      "source_sequence": 14,
       "article_type": "research-article",
       "title_en": "Heat and Observed Economic Activity in the Rich Urban Tropics",
       "title_cn": "富裕热带城市中的高温与观测到的经济活动",
@@ -480,7 +557,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/134/664",
-        "roster": "crossref:issn:0013-0133",
+        "roster": "https://academic.oup.com/ej/issue/134/664",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -503,8 +580,8 @@
     },
     {
       "paper_id": "doi:10.1093/ej/ueae052",
-      "sequence": 13,
-      "source_sequence": 3461,
+      "sequence": 15,
+      "source_sequence": 15,
       "article_type": "research-article",
       "title_en": "Gender Differences in Math Tests: the Role of Time Pressure",
       "title_cn": "数学测试中的性别差异：时间压力的作用",
@@ -520,7 +597,7 @@
       "publication_date": "2024",
       "sources": {
         "issue": "https://academic.oup.com/ej/issue/134/664",
-        "roster": "crossref:issn:0013-0133",
+        "roster": "https://academic.oup.com/ej/issue/134/664",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -545,8 +622,8 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "crossref",
-    "roster_authority": "crossref-provisional",
+    "roster_transport": "browser-authorized",
+    "roster_authority": "official-issue-page",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
     "excluded_item_count": 1,
@@ -558,45 +635,52 @@
         "article_type": "correction"
       }
     ],
-    "doi_complete": 13,
-    "authors_complete": 13,
-    "abstract_en_complete": 13,
-    "translation_complete": 13,
+    "doi_complete": 15,
+    "authors_complete": 15,
+    "abstract_en_complete": 15,
+    "translation_complete": 15,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
-    ],
-    "official_item_count": 14,
-    "publishable_item_count": 13,
+    "flags": [],
+    "official_item_count": 16,
+    "publishable_item_count": 15,
     "content_counts": {
-      "official_items": 14,
-      "observed_items": 14,
-      "publishable_items": 13,
-      "research_articles": 13,
+      "official_items": 16,
+      "observed_items": 16,
+      "publishable_items": 15,
+      "research_articles": 15,
       "comments": 0,
       "short_communications": 0,
       "corrections": 1,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 14
+      "catalog_content_items": 16
+    },
+    "official_roster_evidence": {
+      "captured_at": "2026-09-02T19:11:43+00:00",
+      "official_url": "https://academic.oup.com/ej/issue/134/664",
+      "method": "browser-authorized",
+      "item_count": 15,
+      "excluded_item_count": 1,
+      "archive_reordered": false,
+      "sequence_sha256": "775c12da3836196b7ecec73c1cdbf7826e2945a9695fe154e2c0c2a0a6725a76",
+      "privacy_fields_stored": false
     }
   },
-  "source_status": "source_pending",
-  "publication_state": "source_pending",
+  "source_status": "official_verified",
+  "publication_state": "ready",
   "content_counts": {
-    "official_items": 14,
-    "observed_items": 14,
-    "publishable_items": 13,
-    "research_articles": 13,
+    "official_items": 16,
+    "observed_items": 16,
+    "publishable_items": 15,
+    "research_articles": 15,
     "comments": 0,
     "short_communications": 0,
     "corrections": 1,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 14
+    "catalog_content_items": 16
   },
   "issue_label": "Vol. 134 · No. 664",
   "content_status": "complete"
