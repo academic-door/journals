@@ -8,15 +8,53 @@
   "publication_date": "July 2023",
   "source_url": "https://direct.mit.edu/rest/issue/105/4",
   "retrieved_at": "2026-08-18T17:48:07+00:00",
-  "expected_article_count": 13,
-  "research_article_count": 13,
-  "status": "incomplete",
+  "expected_article_count": 19,
+  "research_article_count": 19,
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1162/rest_a_01236",
+      "paper_id": "doi:10.1162/rest_a_01092",
       "sequence": 1,
-      "source_sequence": 766,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Long-Term Care Hospitals: A Case Study in Waste",
+      "title_cn": "长期护理医院：医疗浪费的一个案例研究",
+      "authors": [
+        "Liran Einav",
+        "Amy Finkelstein",
+        "Neale Mahoney"
+      ],
+      "abstract_en": "There is substantial waste in U.S. healthcare but little consensus on how to combat it. We identify one source of waste: long-term care hospitals (LTCHs). Using the entry of LTCHs into hospital markets in an event study design, we find that most LTCH patients would have counterfactually received care at Skilled Nursing Facilities—facilities that provide medically similar care but are paid significantly less—and that substitution to LTCHs leaves patients unaffected or worse off on all dimensions we can objectively measure. Our results imply Medicare could save about $4.6 billion per year by not allowing discharge to LTCHs.",
+      "abstract_cn": "美国医疗保健领域存在大量浪费，但对于如何应对几乎没有共识。我们识别出一个浪费来源：长期护理医院（LTCH）。利用长期护理医院进入医院市场这一事件开展事件研究，我们发现，大多数长期护理医院患者在反事实情况下本会在专业护理机构接受治疗；这些机构提供医学上相似的护理，但获得的支付显著更低；而转入长期护理医院并未使患者在我们能够客观衡量的任何维度上获益，甚至使其处境更差。我们的结果意味着，如果不允许患者出院后转入长期护理医院，Medicare每年可节省约4.6十亿美元。",
+      "doi": "10.1162/rest_a_01092",
+      "source_url": "https://direct.mit.edu/rest/article/105/4/745/106903/Long-Term-Care-Hospitals-A-Case-Study-in-Waste",
+      "sources": {
+        "roster": "https://direct.mit.edu/rest/issue/105/4",
+        "metadata": "https://direct.mit.edu/rest/article/105/4/745/106903/Long-Term-Care-Hospitals-A-Case-Study-in-Waste",
+        "abstract_en": "https://direct.mit.edu/rest/article/105/4/745/106903/Long-Term-Care-Hospitals-A-Case-Study-in-Waste"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "codex-local-manual",
+        "model": "local-manual",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-03T09:20:00+00:00",
+        "source_hash": "13cc41d06e12ea32c042437ef923c59e2485a09c5613e1ac8fdbc8f87e43787e"
+      },
+      "quality_flags": [],
+      "publication_date": "July 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1162/rest_a_01236",
+      "sequence": 2,
+      "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Patient-Physician Race Concordance, Physician Decisions, and Patient Outcomes",
       "title_cn": "患者与医生种族一致性、医生决策与患者结局",
@@ -32,7 +70,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/105/4",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/105/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -54,9 +92,130 @@
       }
     },
     {
+      "paper_id": "doi:10.1162/rest_a_01117",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Serving the Underserved: Microcredit as a Pathway to Commercial Banks",
+      "title_cn": "服务未获银行服务的群体：小额信贷如何成为通往商业银行的路径",
+      "authors": [
+        "Sumit Agarwal",
+        "Thomas Kigabo",
+        "Camelia Minoiu",
+        "Andrea F. Presbitero",
+        "André F. Silva"
+      ],
+      "abstract_en": "A large-scale microcredit expansion program—together with a credit bureau accessible to all lenders—can enable unbanked borrowers to build a credit history, facilitating their transition to commercial banks. Loan-level data from Rwanda show the program improved access to credit and reduced poverty. A sizable share of first-time borrowers switched to commercial banks, which cream-skim less risky borrowers and grant them larger, cheaper, and longer-maturity loans. Switchers have lower default risk than nonswitchers and are not riskier than other bank borrowers. Switchers also obtain better loan terms from banks compared with first-time bank borrowers without a credit history.",
+      "abstract_cn": "大规模小额信贷扩张项目——加上所有贷款机构都能使用的征信机构——可以帮助未获得银行服务的借款人建立信用记录，促进他们转向商业银行。来自卢旺达的贷款层面数据显示，该项目改善了信贷可得性并减少了贫困。相当一部分首次借款人转入商业银行；商业银行会筛选风险较低的借款人，并向他们提供额度更大、成本更低、期限更长的贷款。转入者的违约风险低于未转入者，且并不比其他银行借款人风险更高。与没有信用记录的首次银行借款人相比，转入者还从银行获得了更有利的贷款条件。",
+      "doi": "10.1162/rest_a_01117",
+      "source_url": "https://direct.mit.edu/rest/article/105/4/780/107657/Serving-the-Underserved-Microcredit-as-a-Pathway",
+      "sources": {
+        "roster": "https://direct.mit.edu/rest/issue/105/4",
+        "metadata": "https://direct.mit.edu/rest/article/105/4/780/107657/Serving-the-Underserved-Microcredit-as-a-Pathway",
+        "abstract_en": "https://direct.mit.edu/rest/article/105/4/780/107657/Serving-the-Underserved-Microcredit-as-a-Pathway"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "cache-reconciled-local",
+        "model": "existing-cache",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-03T09:20:00+00:00",
+        "source_hash": "4b4e53a2f256db3601b345bce60bcf0dcc681b4826bf1f29bed6f2964726529d"
+      },
+      "quality_flags": [],
+      "publication_date": "July 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1162/rest_a_01087",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Decomposing the Wedge between Projected and Realized Returns in Energy Efficiency Programs",
+      "title_cn": "能源效率项目中预测回报与实际回报之间差距的分解",
+      "authors": [
+        "Peter Christensen",
+        "Paul Francisco",
+        "Erica Myers",
+        "Mateus Souza"
+      ],
+      "abstract_en": "Evaluations of energy efficiency programs reveal that realized savings consistently fall short of projections. We decompose this “performance wedge” using data from the Illinois Home Weatherization Assistance Program (IHWAP) and a machine learning-based event study research design. We find that bias in engineering models can account for up to 41% of the wedge, primarily from overestimated savings in wall insulation. Heterogeneity in workmanship can also account for a large fraction (43%) of the wedge, while the rebound effect can explain only 6%. We find substantial heterogeneity in energy-related benefits from IHWAP projects, suggesting opportunities for better targeting of investments.",
+      "abstract_cn": "对能源效率项目的评估表明，实际节能量持续低于预测值。我们利用伊利诺伊州住宅气候化援助计划（IHWAP）的数据和基于机器学习的事件研究设计，对这一“绩效差距”进行分解。我们发现，工程模型中的偏误最多可以解释该差距的41%，主要源于高估墙体保温带来的节能量。施工质量的异质性也可以解释该差距的很大一部分（43%），而反弹效应只能解释6%。我们发现，IHWAP项目带来的能源相关收益存在显著异质性，这表明有机会更有针对性地配置投资。",
+      "doi": "10.1162/rest_a_01087",
+      "source_url": "https://direct.mit.edu/rest/article/105/4/798/106914/Decomposing-the-Wedge-between-Projected-and",
+      "sources": {
+        "roster": "https://direct.mit.edu/rest/issue/105/4",
+        "metadata": "https://direct.mit.edu/rest/article/105/4/798/106914/Decomposing-the-Wedge-between-Projected-and",
+        "abstract_en": "https://direct.mit.edu/rest/article/105/4/798/106914/Decomposing-the-Wedge-between-Projected-and"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "cache-reconciled-local",
+        "model": "existing-cache",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-03T09:20:00+00:00",
+        "source_hash": "12ecce472bc78e05b39e897a3d13d3b54d8949ce6bbc1a0e12a06f9715338d60"
+      },
+      "quality_flags": [],
+      "publication_date": "July 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1162/rest_a_01093",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Cognitive Biases: Mistakes or Missing Stakes?",
+      "title_cn": "认知偏误：错误还是激励不足？",
+      "authors": [
+        "Benjamin Enke",
+        "Uri Gneezy",
+        "Brian Hall",
+        "David Martin",
+        "Vadim Nelidov",
+        "Theo Offerman",
+        "Jeroen van de Ven"
+      ],
+      "abstract_en": "Despite decades of research on heuristics and biases, evidence on the effect of large incentives on cognitive biases is scant. We test the effect of incentives on four widely documented biases: base-rate neglect, anchoring, failure of contingent thinking, and intuitive reasoning. In laboratory experiments with 1,236 college students in Nairobi, we implement three incentive levels: no incentives, standard lab payments, and very high incentives. We find that very high stakes increase response times by 40% but improve performance only very mildly or not at all. In none of the tasks do very high stakes come close to debiasing participants.",
+      "abstract_cn": "尽管关于启发式与偏误的研究已有数十年，但关于高额激励如何影响认知偏误的证据仍然很少。我们检验激励对四种有充分文献记录的偏误的影响：基础比率忽视、锚定效应、条件思维失败和直觉推理。在一项以奈罗毕1,236名大学生为对象的实验室实验中，我们设置三种激励水平：无激励、标准实验室报酬和极高激励。我们发现，极高激励使反应时间增加40%，但只带来非常轻微的表现改善，甚至没有改善。在任何一项任务中，极高激励都远未达到消除参与者认知偏误的程度。",
+      "doi": "10.1162/rest_a_01093",
+      "source_url": "https://direct.mit.edu/rest/article/105/4/818/106905/Cognitive-Biases-Mistakes-or-Missing-Stakes",
+      "sources": {
+        "roster": "https://direct.mit.edu/rest/issue/105/4",
+        "metadata": "https://direct.mit.edu/rest/article/105/4/818/106905/Cognitive-Biases-Mistakes-or-Missing-Stakes",
+        "abstract_en": "https://direct.mit.edu/rest/article/105/4/818/106905/Cognitive-Biases-Mistakes-or-Missing-Stakes"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "codex-local-manual",
+        "model": "local-manual",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-03T09:20:00+00:00",
+        "source_hash": "496ac71ff1d54341bb48184f87a1fb1a4853a6a751656746db0b39e878c3e5e9"
+      },
+      "quality_flags": [],
+      "publication_date": "July 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1162/rest_a_01086",
-      "sequence": 2,
-      "source_sequence": 833,
+      "sequence": 6,
+      "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "Saving for Multiple Financial Needs: Evidence from Lockboxes and Mobile Money in Malawi",
       "title_cn": "为多种财务需求储蓄：来自马拉维锁箱和移动货币的证据",
@@ -73,7 +232,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/105/4",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/105/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -96,8 +255,8 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01074",
-      "sequence": 3,
-      "source_sequence": 852,
+      "sequence": 7,
+      "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "Advancing the Agency of Adolescent Girls",
       "title_cn": "提升青春期女孩的自主权",
@@ -114,7 +273,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/105/4",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/105/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -137,8 +296,8 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01098",
-      "sequence": 4,
-      "source_sequence": 867,
+      "sequence": 8,
+      "source_sequence": 8,
       "article_type": "research-article",
       "title_en": "The Effects of Career and Technical Education: Evidence from the Connecticut Technical High School System",
       "title_cn": "职业与技术教育的影响：来自康涅狄格州技术高中系统的证据",
@@ -155,7 +314,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/105/4",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/105/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -178,8 +337,8 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01088",
-      "sequence": 5,
-      "source_sequence": 883,
+      "sequence": 9,
+      "source_sequence": 9,
       "article_type": "research-article",
       "title_en": "Relaxed Optimization: How Close Is a Consumer to Satisfying First-Order Conditions?",
       "title_cn": "松弛优化：消费者满足一阶条件的程度有多接近？",
@@ -195,7 +354,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/105/4",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/105/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -218,8 +377,8 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01085",
-      "sequence": 6,
-      "source_sequence": 899,
+      "sequence": 10,
+      "source_sequence": 10,
       "article_type": "research-article",
       "title_en": "Measuring Commuting and Economic Activity inside Cities with Cell Phone Records",
       "title_cn": "利用手机记录测量城市内部的通勤与经济活动",
@@ -235,7 +394,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/105/4",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/105/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -257,9 +416,45 @@
       }
     },
     {
+      "paper_id": "doi:10.1162/rest_a_01112",
+      "sequence": 11,
+      "source_sequence": 11,
+      "article_type": "research-article",
+      "title_en": "Endogenous Vertical Differentiation, Variety, and the Unequal Gains from Trade",
+      "title_cn": "内生垂直差异化、产品种类与贸易收益的不平等",
+      "authors": [
+        "Gunnar Heins"
+      ],
+      "abstract_en": "How unequal are the gains from trade? This paper develops a structural framework to quantify the consequences of international trade on welfare of consumers across the income distribution, allowing for nonhomothetic demand and endogenous quality choices by firms. Using random coefficients demand estimation techniques, I infer demand and supply parameters, as well as household-specific price indexes for more than 3,000 distinct industries and find the gains from trade to be moderately unequal except in wealthier and small economies. Further, not accounting for endogenous vertical differentiation would overstate the impact of trade on cost-of-living inequality by close to 50%.",
+      "abstract_cn": "贸易收益有多不平等？本文构建了一个结构框架，用于量化国际贸易对不同收入分布消费者福利的影响；该框架允许非齐次需求和企业内生的质量选择。利用随机系数需求估计技术，我推断出需求和供给参数，以及3,000多个不同产业的家庭特定价格指数，并发现，除较富裕经济体和小型经济体外，贸易收益存在中等程度的不平等。此外，不考虑内生的垂直差异化，会使对贸易生活成本不平等影响的估计高估近50%。",
+      "doi": "10.1162/rest_a_01112",
+      "source_url": "https://direct.mit.edu/rest/article/105/4/910/107667/Endogenous-Vertical-Differentiation-Variety-and",
+      "sources": {
+        "roster": "https://direct.mit.edu/rest/issue/105/4",
+        "metadata": "https://direct.mit.edu/rest/article/105/4/910/107667/Endogenous-Vertical-Differentiation-Variety-and",
+        "abstract_en": "https://direct.mit.edu/rest/article/105/4/910/107667/Endogenous-Vertical-Differentiation-Variety-and"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "cache-reconciled-local",
+        "model": "existing-cache",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-03T09:20:00+00:00",
+        "source_hash": "2564ac7d45411e2cb62051bd9e90f69cc14cae242b13e5c0fe150b8e540d27a0"
+      },
+      "quality_flags": [],
+      "publication_date": "July 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1162/rest_a_01071",
-      "sequence": 7,
-      "source_sequence": 931,
+      "sequence": 12,
+      "source_sequence": 12,
       "article_type": "research-article",
       "title_en": "The Four-Equation New Keynesian Model",
       "title_cn": "四方程新凯恩斯模型",
@@ -276,7 +471,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/105/4",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/105/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -299,8 +494,8 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01118",
-      "sequence": 8,
-      "source_sequence": 948,
+      "sequence": 13,
+      "source_sequence": 13,
       "article_type": "research-article",
       "title_en": "Household Inflation Expectations and Consumer Spending: Evidence from Panel Data",
       "title_cn": "家庭通胀预期与消费支出：来自面板数据的证据",
@@ -316,7 +511,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/105/4",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/105/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -339,8 +534,8 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01116",
-      "sequence": 9,
-      "source_sequence": 962,
+      "sequence": 14,
+      "source_sequence": 14,
       "article_type": "research-article",
       "title_en": "Structural Change and Internal Labor Migration: Evidence from the Great Depression",
       "title_cn": "结构变迁与国内劳动力迁移：来自大萧条的证据",
@@ -356,7 +551,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/105/4",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/105/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -379,8 +574,8 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01128",
-      "sequence": 10,
-      "source_sequence": 982,
+      "sequence": 15,
+      "source_sequence": 15,
       "article_type": "research-article",
       "title_en": "Omitted Variable Bias of Lasso-Based Inference Methods: A Finite Sample Analysis",
       "title_cn": "基于Lasso的推断方法的遗漏变量偏误：有限样本分析",
@@ -396,7 +591,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/105/4",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/105/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -418,9 +613,47 @@
       }
     },
     {
+      "paper_id": "doi:10.1162/rest_a_01123",
+      "sequence": 16,
+      "source_sequence": 16,
+      "article_type": "research-article",
+      "title_en": "Norms, Enforcement, and Tax Evasion",
+      "title_cn": "规范、执法与逃税",
+      "authors": [
+        "Timothy Besley",
+        "Anders Jensen",
+        "Torsten Persson"
+      ],
+      "abstract_en": "This paper studies individual and social motives in tax evasion. We build a simple dynamic model that incorporates these motives and their interaction. The social motives underpin the role of norms and are the source of the dynamics that we study. Our empirical analysis exploits the adoption in 1990 of a poll tax to fund local government in the United Kingdom, which led to widespread evasion. The evidence is consistent with the model's main predictions on the dynamics of evasion.",
+      "abstract_cn": "本文研究逃税中的个体动机和社会动机。我们构建一个纳入这些动机及其相互作用的简单动态模型。社会动机支撑规范的作用，也是我们所研究动态的来源。实证分析利用英国1990年采用人头税为地方政府筹资这一事件；该政策导致普遍逃税。证据与模型关于逃税动态的主要预测一致。",
+      "doi": "10.1162/rest_a_01123",
+      "source_url": "https://direct.mit.edu/rest/article/105/4/998/107652/Norms-Enforcement-and-Tax-Evasion",
+      "sources": {
+        "roster": "https://direct.mit.edu/rest/issue/105/4",
+        "metadata": "https://direct.mit.edu/rest/article/105/4/998/107652/Norms-Enforcement-and-Tax-Evasion",
+        "abstract_en": "https://direct.mit.edu/rest/article/105/4/998/107652/Norms-Enforcement-and-Tax-Evasion"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "codex-local-manual",
+        "model": "local-manual",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-03T09:20:00+00:00",
+        "source_hash": "63205edc0e9923a704fd23c1a597576f100e010e15b3616ebbe4101f722ecc71"
+      },
+      "quality_flags": [],
+      "publication_date": "July 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1162/rest_a_01090",
-      "sequence": 11,
-      "source_sequence": 1008,
+      "sequence": 17,
+      "source_sequence": 17,
       "article_type": "research-article",
       "title_en": "Discrimination, Narratives, and Family History: An Experiment with Jordanian Host and Syrian Refugee Children",
       "title_cn": "歧视、叙事与家族历史：约旦宿主儿童与叙利亚难民儿童的实验研究",
@@ -439,7 +672,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/105/4",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/105/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -462,8 +695,8 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01108",
-      "sequence": 12,
-      "source_sequence": 1017,
+      "sequence": 18,
+      "source_sequence": 18,
       "article_type": "research-article",
       "title_en": "Do Stay-at-Home Orders Cause People to Stay at Home? Effects of Stay-at-Home Orders on Consumer Behavior",
       "title_cn": "居家令是否真的让人们待在家里？居家令对消费者行为的影响",
@@ -479,7 +712,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/105/4",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/105/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -502,8 +735,8 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01096",
-      "sequence": 13,
-      "source_sequence": 1028,
+      "sequence": 19,
+      "source_sequence": 19,
       "article_type": "research-article",
       "title_en": "Crisis and the Trajectory of Science: Evidence from the 2014 Ebola Outbreak",
       "title_cn": "危机与科学轨迹：来自2014年埃博拉疫情的证据",
@@ -518,7 +751,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/105/4",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/105/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -543,51 +776,58 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "crossref",
-    "roster_authority": "crossref-provisional",
+    "roster_transport": "browser-authorized",
+    "roster_authority": "official-issue-page",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 13,
-    "authors_complete": 13,
-    "abstract_en_complete": 13,
-    "translation_complete": 13,
+    "doi_complete": 19,
+    "authors_complete": 19,
+    "abstract_en_complete": 19,
+    "translation_complete": 19,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
-    ],
-    "official_item_count": 13,
-    "publishable_item_count": 13,
+    "flags": [],
+    "official_item_count": 19,
+    "publishable_item_count": 19,
     "content_counts": {
-      "official_items": 13,
-      "observed_items": 13,
-      "publishable_items": 13,
-      "research_articles": 13,
+      "official_items": 19,
+      "observed_items": 19,
+      "publishable_items": 19,
+      "research_articles": 19,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 13
+      "catalog_content_items": 19
+    },
+    "official_roster_evidence": {
+      "captured_at": "2026-09-03T09:00:00Z",
+      "official_url": "https://direct.mit.edu/rest/issue/105/4",
+      "method": "browser-authorized",
+      "item_count": 19,
+      "excluded_item_count": 0,
+      "archive_reordered": false,
+      "sequence_sha256": "1a0e8c887c19cebb99251d5a4a8edd5ab8122a18726284db534fbd2b2a54c71b",
+      "privacy_fields_stored": false
     }
   },
-  "source_status": "source_pending",
-  "publication_state": "source_pending",
+  "source_status": "official_verified",
+  "publication_state": "ready",
   "content_counts": {
-    "official_items": 13,
-    "observed_items": 13,
-    "publishable_items": 13,
-    "research_articles": 13,
+    "official_items": 19,
+    "observed_items": 19,
+    "publishable_items": 19,
+    "research_articles": 19,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 13
+    "catalog_content_items": 19
   },
   "issue_label": "Vol. 105 · No. 4",
   "content_status": "complete"

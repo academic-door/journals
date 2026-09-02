@@ -2,12 +2,12 @@
 
 Updated: 2026-09-02T15:11:22+00:00
 
-Discovery coverage: 1331 discovered · 1265 archived · 1087 publication ready · 66 missing · 178 source pending
+Discovery coverage: 1331 discovered — 1265 archived — 1089 publication ready — 66 missing — 176 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 561 | 0 | 48 | 99 |
-| 2023-2026 | 276 | 0 | 17 | 7 |
+| 2023-2024 | 563 | 0 | 47 | 98 |
+| 2023-2026 | 278 | 0 | 16 | 6 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
 | 2026-2026 | 6 | 0 | 0 | 0 |
@@ -1218,8 +1218,8 @@ Discovery coverage: 1331 discovered · 1265 archived · 1087 publication ready �
 | RES | res-93-4 | 2026 | source_pending | source authority pending official verification |
 | RESTAT | restat-105-1 | 2023 | ready |  |
 | RESTAT | restat-105-2 | 2023 | ready |  |
-| RESTAT | restat-105-3 | 2023 | source_pending |  |
-| RESTAT | restat-105-4 | 2023 | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs off |
+| RESTAT | restat-105-3 | 2023 | ready |  |
+| RESTAT | restat-105-4 | 2023 | ready |  |
 | RESTAT | restat-105-5 | 2023 | source_pending |  |
 | RESTAT | restat-105-6 | 2023 | source_pending |  |
 | RESTAT | restat-106-1 | 2024 | source_pending |  |

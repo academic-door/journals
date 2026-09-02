@@ -1,21 +1,21 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-09-02T15:11:22+00:00",
+  "updated_at": "2026-09-02T16:36:12+00:00",
   "summary": {
-    "complete": 1087,
+    "complete": 1089,
     "translation_partial": 0,
-    "blocked": 66,
+    "blocked": 65,
     "collected": 0,
-    "pending": 178
+    "pending": 177
   },
   "coverage": {
     "discovered": 1331,
     "archived": 1265,
     "content_ready": 1265,
-    "source_verified": 1087,
-    "publication_ready": 1087,
+    "source_verified": 1089,
+    "publication_ready": 1089,
     "missing": 66,
-    "source_pending": 178,
+    "source_pending": 176,
     "missing_issue_ids": [
       "ecolecon-224-c",
       "ecolecon-225-c",
@@ -239,8 +239,6 @@
       "res-93-2",
       "res-93-3",
       "res-93-4",
-      "restat-105-3",
-      "restat-105-4",
       "restat-105-5",
       "restat-105-6",
       "restat-106-1",
@@ -2402,14 +2400,12 @@
       "discovered": 22,
       "archived": 22,
       "content_ready": 22,
-      "source_verified": 3,
-      "publication_ready": 3,
+      "source_verified": 5,
+      "publication_ready": 5,
       "missing": 0,
-      "source_pending": 19,
+      "source_pending": 17,
       "missing_issue_ids": [],
       "source_pending_issue_ids": [
-        "restat-105-3",
-        "restat-105-4",
         "restat-105-5",
         "restat-105-6",
         "restat-106-1",
@@ -2434,14 +2430,12 @@
           "discovered": 6,
           "archived": 6,
           "content_ready": 6,
-          "source_verified": 2,
-          "publication_ready": 2,
+          "source_verified": 4,
+          "publication_ready": 4,
           "missing": 0,
-          "source_pending": 4,
+          "source_pending": 2,
           "missing_issue_ids": [],
           "source_pending_issue_ids": [
-            "restat-105-3",
-            "restat-105-4",
             "restat-105-5",
             "restat-105-6"
           ],
@@ -18447,24 +18441,24 @@
         "year": 2023,
         "volume": "105",
         "issue": "3",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
+        "source_status": "official_verified",
+        "publication_state": "ready",
         "last_error": "",
-        "retry_class": "source"
+        "retry_class": "source_recovered"
       },
       {
         "issue_id": "restat-105-4",
         "year": 2023,
         "volume": "105",
         "issue": "4",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "possible_incomplete_volume: 10 articles collected vs current issue 21; needs official page or browser-authorized capture",
-        "retry_class": "manual"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "source_recovered"
       },
       {
         "issue_id": "restat-105-5",
@@ -19977,11 +19971,11 @@
   "periods": {
     "2023-2024": {
       "summary": {
-        "complete": 561,
+        "complete": 563,
         "translation_partial": 0,
-        "blocked": 48,
+        "blocked": 47,
         "collected": 0,
-        "pending": 99
+        "pending": 98
       },
       "issue_count": 708,
       "updated_at": "2026-09-02T00:30:27+00:00",
@@ -20149,11 +20143,11 @@
     },
     "2023-2026": {
       "summary": {
-        "complete": 276,
+        "complete": 278,
         "translation_partial": 0,
-        "blocked": 17,
+        "blocked": 16,
         "collected": 0,
-        "pending": 7
+        "pending": 6
       },
       "issue_count": 300,
       "updated_at": "2026-09-02T08:02:23+00:00",
@@ -20271,11 +20265,11 @@
   "years": {
     "2023": {
       "summary": {
-        "complete": 273,
+        "complete": 275,
         "translation_partial": 0,
-        "blocked": 26,
+        "blocked": 25,
         "collected": 0,
-        "pending": 53
+        "pending": 52
       },
       "issue_count": 352,
       "journals": [

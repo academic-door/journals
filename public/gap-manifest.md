@@ -5,9 +5,9 @@ Generated: 2026-09-02T15:11:37+00:00
 ## Summary
 
 - browser_required: 1
-- ready: 1087
+- ready: 1089
 - recoverable: 65
-- source_pending: 177
+- source_pending: 175
 - translation_required: 1
 
 ## Issue queue
@@ -1218,8 +1218,8 @@ Generated: 2026-09-02T15:11:37+00:00
 | RES | res-93-4 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
 | RESTAT | restat-105-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RESTAT | restat-105-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| RESTAT | restat-105-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-105-4 | 2023 | source_pending | complete | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs official page or browser-authorized capture |
+| RESTAT | restat-105-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| RESTAT | restat-105-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RESTAT | restat-105-5 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | RESTAT | restat-105-6 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | RESTAT | restat-106-1 | 2024 | source_pending | complete | source_pending | official source verification pending |
