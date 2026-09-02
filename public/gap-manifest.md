@@ -298,8 +298,8 @@ Generated: 2026-09-02T16:38:19+00:00
 | EJ | ej-134-661 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | EJ | ej-134-662 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | EJ | ej-134-663 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| EJ | ej-134-664 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| EJ | ej-135-665 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| EJ | ej-134-664 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| EJ | ej-135-665 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | EJ | ej-135-666 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | EJ | ej-135-667 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | EJ | ej-135-668 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
