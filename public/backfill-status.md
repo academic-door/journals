@@ -2,7 +2,7 @@
 
 Updated: 2026-09-02T16:38:01+00:00
 
-Discovery coverage: 1331 discovered — 1265 archived — 1112 publication ready — 66 missing — 153 source pending
+Discovery coverage: 1331 discovered — 1265 archived — 1118 publication ready — 66 missing — 147 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
@@ -626,13 +626,13 @@ Discovery coverage: 1331 discovered — 1265 archived — 1112 publication ready
 | JEDC | jedc-189-c | 2026 | ready |  |
 | JEDC | jedc-190-c | 2026 | ready |  |
 | JEDC | jedc-191-c | 2026 | ready | MetadataFallbackError: Crossref returned no usable issue 191/ |
-| JEEA | jeea-21-1 | 2023 | source_pending |  |
-| JEEA | jeea-21-2 | 2023 | source_pending |  |
-| JEEA | jeea-21-3 | 2023 | source_pending |  |
-| JEEA | jeea-21-4 | 2023 | source_pending |  |
+| JEEA | jeea-21-1 | 2023 | ready |  |
+| JEEA | jeea-21-2 | 2023 | ready |  |
+| JEEA | jeea-21-3 | 2023 | ready |  |
+| JEEA | jeea-21-4 | 2023 | ready |  |
 | JEEA | jeea-21-5 | 2023 | ready |  |
-| JEEA | jeea-21-6 | 2023 | source_pending |  |
-| JEEA | jeea-22-1 | 2024 | source_pending |  |
+| JEEA | jeea-21-6 | 2023 | ready |  |
+| JEEA | jeea-22-1 | 2023 | ready |  |
 | JEEA | jeea-22-2 | 2024 | source_pending |  |
 | JEEA | jeea-22-3 | 2024 | source_pending |  |
 | JEEA | jeea-22-4 | 2024 | source_pending |  |

@@ -5,9 +5,9 @@ Generated: 2026-09-02T16:38:19+00:00
 ## Summary
 
 - browser_required: 1
-- ready: 1108
+- ready: 1114
 - recoverable: 65
-- source_pending: 156
+- source_pending: 150
 - translation_required: 1
 
 ## Issue queue
@@ -626,13 +626,13 @@ Generated: 2026-09-02T16:38:19+00:00
 | JEDC | jedc-189-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JEDC | jedc-190-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JEDC | jedc-191-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
-| JEEA | jeea-21-1 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| JEEA | jeea-21-2 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| JEEA | jeea-21-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| JEEA | jeea-21-4 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| JEEA | jeea-21-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| JEEA | jeea-21-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| JEEA | jeea-21-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| JEEA | jeea-21-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | JEEA | jeea-21-5 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| JEEA | jeea-21-6 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| JEEA | jeea-22-1 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| JEEA | jeea-21-6 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| JEEA | jeea-22-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | JEEA | jeea-22-2 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | JEEA | jeea-22-3 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | JEEA | jeea-22-4 | 2024 | source_pending | complete | source_pending | official source verification pending |
