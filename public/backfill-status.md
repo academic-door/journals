@@ -2,7 +2,7 @@
 
 Updated: 2026-09-02T16:38:01+00:00
 
-Discovery coverage: 1331 discovered — 1265 archived — 1118 publication ready — 66 missing — 147 source pending
+Discovery coverage: 1331 discovered — 1265 archived — 1124 publication ready — 66 missing — 141 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
@@ -633,12 +633,12 @@ Discovery coverage: 1331 discovered — 1265 archived — 1118 publication ready
 | JEEA | jeea-21-5 | 2023 | ready |  |
 | JEEA | jeea-21-6 | 2023 | ready |  |
 | JEEA | jeea-22-1 | 2023 | ready |  |
-| JEEA | jeea-22-2 | 2024 | source_pending |  |
-| JEEA | jeea-22-3 | 2024 | source_pending |  |
-| JEEA | jeea-22-4 | 2024 | source_pending |  |
-| JEEA | jeea-22-5 | 2024 | source_pending |  |
-| JEEA | jeea-22-6 | 2024 | source_pending |  |
-| JEEA | jeea-23-1 | 2025 | source_pending | source authority pending official verification |
+| JEEA | jeea-22-2 | 2023 | ready |  |
+| JEEA | jeea-22-3 | 2023 | ready |  |
+| JEEA | jeea-22-4 | 2023 | ready |  |
+| JEEA | jeea-22-5 | 2023 | ready |  |
+| JEEA | jeea-22-6 | 2023 | ready |  |
+| JEEA | jeea-23-1 | 2023 | ready |  |
 | JEEA | jeea-23-2 | 2025 | source_pending | source authority pending official verification |
 | JEEA | jeea-23-3 | 2025 | source_pending | source authority pending official verification |
 | JEEA | jeea-23-4 | 2025 | source_pending | source authority pending official verification |
