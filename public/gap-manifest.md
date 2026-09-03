@@ -5,9 +5,9 @@ Generated: 2026-09-02T16:38:19+00:00
 ## Summary
 
 - browser_required: 1
-- ready: 1148
+- ready: 1154
 - recoverable: 65
-- source_pending: 116
+- source_pending: 110
 - translation_required: 1
 
 ## Issue queue
@@ -1206,12 +1206,12 @@ Generated: 2026-09-02T16:38:19+00:00
 | RES | res-91-4 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | RES | res-91-5 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | RES | res-91-6 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| RES | res-92-1 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RES | res-92-2 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RES | res-92-3 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RES | res-92-4 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RES | res-92-5 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RES | res-92-6 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
+| RES | res-92-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| RES | res-92-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| RES | res-92-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| RES | res-92-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| RES | res-92-5 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| RES | res-92-6 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RES | res-93-1 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
 | RES | res-93-2 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
 | RES | res-93-3 | 2026 | source_pending | complete | source_pending | source authority pending official verification |

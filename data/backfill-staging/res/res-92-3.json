@@ -10,13 +10,13 @@
   "retrieved_at": "2026-07-28T23:22:14+00:00",
   "expected_article_count": 20,
   "research_article_count": 20,
-  "status": "incomplete",
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
       "paper_id": "doi:10.1093/restud/rdae056",
       "sequence": 1,
-      "source_sequence": 1293,
+      "source_sequence": 1,
       "article_type": "research-article",
       "title_en": "Who Are the Hand-to-Mouth?",
       "title_cn": "谁是手到口？",
@@ -32,7 +32,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/92/3",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/92/3",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -42,7 +42,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-28T23:22:15+00:00"
+        "translated_at": "2026-07-28T23:22:15+00:00",
+        "source_hash": "88bed4e367ef70ba0180433da2e44559b7a904bc2655dd1e6bd4e9f30549df47"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -55,7 +56,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdae059",
       "sequence": 2,
-      "source_sequence": 1341,
+      "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Expectations and Learning from Prices",
       "title_cn": "期望和从价格中学习",
@@ -70,7 +71,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/92/3",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/92/3",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -80,7 +81,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-28T23:22:17+00:00"
+        "translated_at": "2026-07-28T23:22:17+00:00",
+        "source_hash": "41542b55d21422bfdc4dacf5c8dcb17bc76b2a0f6d750a88f3517bc1d99615a1"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -93,7 +95,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdae054",
       "sequence": 3,
-      "source_sequence": 1375,
+      "source_sequence": 3,
       "article_type": "research-article",
       "title_en": "Survey Data and Subjective Beliefs in Business Cycle Models",
       "title_cn": "经济周期模型中的调查数据和主观信念",
@@ -109,7 +111,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/92/3",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/92/3",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -119,7 +121,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-28T23:22:18+00:00"
+        "translated_at": "2026-07-28T23:22:18+00:00",
+        "source_hash": "1fd5ae7bccf40d1ce9d992c76ac8c19509b02c59cac5793a52994857cfec9f78"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -132,7 +135,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdae064",
       "sequence": 4,
-      "source_sequence": 1438,
+      "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Job Applications and Labour Market Flows",
       "title_cn": "工作申请和劳动力市场流动",
@@ -148,7 +151,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/92/3",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/92/3",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -158,7 +161,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-28T23:22:19+00:00"
+        "translated_at": "2026-07-28T23:22:19+00:00",
+        "source_hash": "0602a706384bbd85ce0429e5ba087ed34686e2e16e63804522d11574702f245f"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -171,10 +175,10 @@
     {
       "paper_id": "doi:10.1093/restud/rdae079",
       "sequence": 5,
-      "source_sequence": 1497,
+      "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "Gang Rule: Understanding and Countering Criminal Governance",
-      "title_cn": "帮派统治：理解与应对刑事治理",
+      "title_cn": "帮派统治：理解并应对犯罪治理",
       "authors": [
         "Christopher Blattman",
         "Gustavo Duncan",
@@ -182,23 +186,23 @@
         "Santiago Tobón"
       ],
       "abstract_en": "Criminal groups govern millions worldwide. Even in strong states, gangs resolve disputes and provide security. Why do these duopolies of coercion emerge? Often, gangs fill vacuums of official power, suggesting that increasing state presence should crowd out criminal governance. We show, however, that state and gang rule can be strategic complements. In particular, gangs could minimize seizures and arrests by keeping neighbourhoods orderly and loyal. If true, increasing state presence could increase incentives for gang rule. In Medellín, Colombia, criminal leaders told us they rule to protect drug rents from police. We test gang responses to state presence using a geographic discontinuity. Internal border changes in 1987 assigned blocks to be closer or further from state security for three decades. Gangs exogenously closer to state presence developed more governance over time. They primarily did so in neighbourhoods with the greatest potential drug rents. This suggests new strategies for countering criminal governance.",
-      "abstract_cn": "犯罪集团统治着全世界数百万人。即使在强国，帮派也会解决争端并提供安全。为什么会出现这些强制的双头垄断？通常，帮派会填补官方权力的真空，这表明国家存在的增加应该会排挤犯罪治理。然而，我们表明，国家和帮派统治可以是战略补充。特别是，帮派可以通过保持社区秩序和忠诚来最大程度地减少扣押和逮捕。如果属实，增加国家存在可能会增加帮派统治的动力。在哥伦比亚麦德林，犯罪头目告诉我们，他们的规定是为了保护毒品租金免受警方侵害。我们使用地理不连续性来测试帮派对国家存在的反应。 1987 的内部边界发生了变化，指定的区块在 三 几十年内变得更接近或更远离国家安全。随着时间的推移，与国家存在关系更密切的帮派发展出了更多的治理。他们主要在毒品租金潜力最大的社区这样做。这提出了打击犯罪治理的新策略。",
+      "abstract_cn": "犯罪集团在全球范围内治理着数百万人。即使在强国家中，帮派也会解决争端并提供安全保障。为什么这种强制权力的双寡头会出现？通常，帮派填补了官方权力的真空，这意味着增加国家存在本应挤出犯罪治理。然而，我们表明，国家统治与帮派统治也可能构成战略互补。具体而言，帮派可以通过维持社区秩序和忠诚，减少被查缴和逮捕的风险。如果这一点成立，增加国家存在反而可能提高帮派统治的激励。在哥伦比亚麦德林，犯罪头目告诉我们，他们进行统治是为了保护毒品租金不被警方夺取。我们利用地理不连续性检验帮派对国家存在的反应。1987年的内部边界变化，使一些街区在此后三十年内距离国家安全力量更近或更远。外生地更接近国家存在的帮派，随时间推移发展出更多治理活动；他们主要在潜在毒品租金最高的社区这样做。这为应对犯罪治理提供了新的策略。",
       "doi": "10.1093/restud/rdae079",
       "source_url": "https://doi.org/10.1093/restud/rdae079",
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/92/3",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/92/3",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
-        "provider": "google-translate",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-28T23:22:20+00:00"
+        "provider": "local-translation-repair",
+        "model": "codex-local",
+        "prompt_version": "res-browser-article-repair-v1",
+        "translated_at": "2026-09-03T07:33:38+00:00",
+        "source_hash": "76fbc513dc89604cd5786a7406d85114eec21dd9176ecd3f5baffd75c2d1eecd"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -211,7 +215,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdae070",
       "sequence": 6,
-      "source_sequence": 1532,
+      "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "Imagining the Future: Memory, Simulation, and Beliefs",
       "title_cn": "想象未来：记忆、模拟和信念",
@@ -229,7 +233,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/92/3",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/92/3",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -239,7 +243,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-28T23:22:20+00:00"
+        "translated_at": "2026-07-28T23:22:20+00:00",
+        "source_hash": "1c80cefa450f1f79b786b605bcbd2bf97285bee93bd99dbcab6eb8f2d019ea88"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -252,7 +257,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdae063",
       "sequence": 7,
-      "source_sequence": 1564,
+      "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "Inflation Levels and (In)Attention",
       "title_cn": "通货膨胀水平和关注",
@@ -267,7 +272,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/92/3",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/92/3",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -277,7 +282,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-28T23:22:21+00:00"
+        "translated_at": "2026-07-28T23:22:21+00:00",
+        "source_hash": "41b42e6988131f976c610eebdd2e8cade08a69435216bc1861e64f0db3c1d531"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -290,7 +296,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdae057",
       "sequence": 8,
-      "source_sequence": 1595,
+      "source_sequence": 8,
       "article_type": "research-article",
       "title_en": "Market Structure and Extortion: Evidence from 50,000 Extortion Payments",
       "title_cn": "市场结构和勒索：来自 50,000 勒索付款的证据",
@@ -307,7 +313,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/92/3",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/92/3",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -317,7 +323,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-28T23:22:22+00:00"
+        "translated_at": "2026-07-28T23:22:22+00:00",
+        "source_hash": "c25f03c4313ded7af370011a75e2246eda5fa96f06016d75b386db6ff1775555"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -330,7 +337,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdae055",
       "sequence": 9,
-      "source_sequence": 1625,
+      "source_sequence": 9,
       "article_type": "research-article",
       "title_en": "Does Pricing Carbon Mitigate Climate Change? Firm-Level Evidence from the European Union Emissions Trading System",
       "title_cn": "碳定价能减缓气候变化吗？来自欧盟排放交易系统的公司级证据",
@@ -347,7 +354,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/92/3",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/92/3",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -357,7 +364,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-28T23:22:24+00:00"
+        "translated_at": "2026-07-28T23:22:24+00:00",
+        "source_hash": "b2ff12313558ddf47367d86aca93f47b80170dbe6f1e119183cc57f5c2f3310a"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -370,7 +378,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdae095",
       "sequence": 10,
-      "source_sequence": 1661,
+      "source_sequence": 10,
       "article_type": "research-article",
       "title_en": "Employer Credit Checks: Poverty Traps Versus Matching Efficiency",
       "title_cn": "雇主信用检查：贫困陷阱与匹配效率",
@@ -385,7 +393,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/92/3",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/92/3",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -395,7 +403,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-28T23:22:25+00:00"
+        "translated_at": "2026-07-28T23:22:25+00:00",
+        "source_hash": "77dda0a3f59303dfcd3ea6e599df5891578b21c3b33b6c1b885425c83ea6163e"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -408,7 +417,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdae061",
       "sequence": 11,
-      "source_sequence": 1699,
+      "source_sequence": 11,
       "article_type": "research-article",
       "title_en": "What Good Are Treatment Effects Without Treatment? Mental Health and the Reluctance to Use Talk Therapy",
       "title_cn": "不治疗的话治疗效果有什么好处？心理健康和不愿使用谈话疗法",
@@ -424,7 +433,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/92/3",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/92/3",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -434,7 +443,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-28T23:22:26+00:00"
+        "translated_at": "2026-07-28T23:22:26+00:00",
+        "source_hash": "dabcfb35c78e65d3f38426374b4c14a88daf39913080cb9da4f03639f0e58817"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -447,7 +457,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdae049",
       "sequence": 12,
-      "source_sequence": 1738,
+      "source_sequence": 12,
       "article_type": "research-article",
       "title_en": "The Impact of Online Competition on Local Newspapers: Evidence from the Introduction of Craigslist",
       "title_cn": "在线竞争对当地报纸的影响：来自 Craigslist 推出的证据",
@@ -463,7 +473,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/92/3",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/92/3",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -473,7 +483,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-28T23:22:28+00:00"
+        "translated_at": "2026-07-28T23:22:28+00:00",
+        "source_hash": "b4ea4fc6f93d3f5a9648eb7b45c23bdaa34c6f8aae29ca010d3d52c5e74d8a4d"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -486,7 +497,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdae074",
       "sequence": 13,
-      "source_sequence": 1773,
+      "source_sequence": 13,
       "article_type": "research-article",
       "title_en": "Optimal Pricing of a New Utility Service: The Case of Piped Water in Vietnam",
       "title_cn": "新公用事业服务的最优定价：越南自来水案例",
@@ -501,7 +512,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/92/3",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/92/3",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -511,7 +522,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-28T23:22:29+00:00"
+        "translated_at": "2026-07-28T23:22:29+00:00",
+        "source_hash": "cafc3e958e91070ffe7cf61da32f51d5bb71c4bffdb97d4f44ede782b540a25a"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -524,7 +536,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdae052",
       "sequence": 14,
-      "source_sequence": 1801,
+      "source_sequence": 14,
       "article_type": "research-article",
       "title_en": "Consumption Quality and Employment Across the Wealth Distribution",
       "title_cn": "财富分配中的消费质量和就业",
@@ -539,7 +551,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/92/3",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/92/3",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -549,7 +561,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-28T23:22:31+00:00"
+        "translated_at": "2026-07-28T23:22:31+00:00",
+        "source_hash": "1e16aa597d4723b48c3349ac8297da1eda96ab21a1871c70b44a51e360ffe051"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -562,7 +575,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdae067",
       "sequence": 15,
-      "source_sequence": 1837,
+      "source_sequence": 15,
       "article_type": "research-article",
       "title_en": "“You Will:” A Macroeconomic Analysis of Digital Advertising",
       "title_cn": "“你会的：”数字广告的宏观经济分析",
@@ -578,7 +591,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/92/3",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/92/3",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -588,7 +601,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-28T23:22:32+00:00"
+        "translated_at": "2026-07-28T23:22:32+00:00",
+        "source_hash": "cf07b87ba59f7d02e51f011f7bf60e5a2959031c9e20a75d9e23227a2655494c"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -601,7 +615,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdae058",
       "sequence": 16,
-      "source_sequence": 1882,
+      "source_sequence": 16,
       "article_type": "research-article",
       "title_en": "Motivated Skepticism",
       "title_cn": "动机怀疑",
@@ -616,7 +630,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/92/3",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/92/3",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -626,7 +640,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-28T23:22:33+00:00"
+        "translated_at": "2026-07-28T23:22:33+00:00",
+        "source_hash": "bfff179be832c23902da846d1cfdb922a33478bfb4330e7790719aa4ed5089ca"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -639,7 +654,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdae071",
       "sequence": 17,
-      "source_sequence": 1920,
+      "source_sequence": 17,
       "article_type": "research-article",
       "title_en": "A Structural Analysis of Mental Health and Labour Market Trajectories",
       "title_cn": "心理健康和劳动力市场轨迹的结构分析",
@@ -654,7 +669,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/92/3",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/92/3",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -664,7 +679,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-28T23:22:34+00:00"
+        "translated_at": "2026-07-28T23:22:34+00:00",
+        "source_hash": "c6041c92d3240b1d556ba7774d9dd1b7f34e981693c1d566567708b22741ff81"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -677,7 +693,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdae077",
       "sequence": 18,
-      "source_sequence": 1955,
+      "source_sequence": 18,
       "article_type": "research-article",
       "title_en": "Market Power and Price Informativeness",
       "title_cn": "市场力量和价格信息",
@@ -693,7 +709,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/92/3",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/92/3",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -703,7 +719,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-28T23:22:35+00:00"
+        "translated_at": "2026-07-28T23:22:35+00:00",
+        "source_hash": "3cd0409f5a46c81420ecfdda1da6b92ec41a71fc713cabc175e6a33af1c4675b"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -716,7 +733,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdae080",
       "sequence": 19,
-      "source_sequence": 1987,
+      "source_sequence": 19,
       "article_type": "research-article",
       "title_en": "The Lifetime Costs of Bad Health",
       "title_cn": "健康状况不佳的终生成本",
@@ -732,7 +749,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/92/3",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/92/3",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -742,7 +759,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-28T23:22:36+00:00"
+        "translated_at": "2026-07-28T23:22:36+00:00",
+        "source_hash": "06a7bc5f8200857060193c102faef429a46476174a0985c554c3ad248acfa313"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -755,7 +773,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdae060",
       "sequence": 20,
-      "source_sequence": 2027,
+      "source_sequence": 20,
       "article_type": "research-article",
       "title_en": "Should We Prevent Off-Label Drug Prescriptions? Empirical Evidence from France",
       "title_cn": "我们应该防止超说明书用药吗？来自法国的经验证据",
@@ -769,7 +787,7 @@
       "publication_date": "2025",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/92/3",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/92/3",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -779,7 +797,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-28T23:22:38+00:00"
+        "translated_at": "2026-07-28T23:22:38+00:00",
+        "source_hash": "8d75f6b198d0500d511b2578845f255c50b6f6be65946c565805447bbb4f7237"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -793,8 +812,8 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "crossref",
-    "roster_authority": "crossref-provisional",
+    "roster_transport": "browser-authorized",
+    "roster_authority": "official-issue-page",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
@@ -804,9 +823,48 @@
     "abstract_en_complete": 20,
     "translation_complete": 20,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
-    ]
-  }
+    "flags": [],
+    "official_item_count": 20,
+    "publishable_item_count": 20,
+    "content_counts": {
+      "official_items": 20,
+      "observed_items": 20,
+      "publishable_items": 20,
+      "research_articles": 20,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 20
+    },
+    "official_roster_evidence": {
+      "captured_at": "2026-09-03T07:33:48+00:00",
+      "official_url": "https://academic.oup.com/restud/issue/92/3",
+      "method": "browser-authorized",
+      "item_count": 20,
+      "excluded_item_count": 0,
+      "archive_reordered": false,
+      "sequence_sha256": "22800800d2b06a5ec33aa8ac469ca0d614809c58ad478929c8174957bb03c506",
+      "privacy_fields_stored": false
+    }
+  },
+  "content_counts": {
+    "official_items": 20,
+    "observed_items": 20,
+    "publishable_items": 20,
+    "research_articles": 20,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 20
+  },
+  "issue_label": "Vol. 92 · No. 3",
+  "content_status": "complete",
+  "source_status": "official_verified",
+  "publication_state": "ready"
 }
