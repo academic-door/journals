@@ -5,9 +5,9 @@ Generated: 2026-09-02T16:38:19+00:00
 ## Summary
 
 - browser_required: 1
-- ready: 1126
+- ready: 1132
 - recoverable: 65
-- source_pending: 138
+- source_pending: 132
 - translation_required: 1
 
 ## Issue queue
@@ -1149,13 +1149,13 @@ Generated: 2026-09-02T16:38:19+00:00
 | QE | qe-17-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | QE | qe-17-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | QE | qe-17-4 | 2026 | browser_required | blocked | source_pending | archive_missing |
-| QJE | qje-138-2 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| QJE | qje-138-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| QJE | qje-138-4 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| QJE | qje-138-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| QJE | qje-138-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| QJE | qje-138-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | QJE | qje-139-1 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| QJE | qje-139-2 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| QJE | qje-139-3 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| QJE | qje-139-4 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| QJE | qje-139-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| QJE | qje-139-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| QJE | qje-139-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | QJE | qje-140-1 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
 | QJE | qje-140-2 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
 | QJE | qje-140-3 | 2025 | source_pending | complete | source_pending | source authority pending official verification |

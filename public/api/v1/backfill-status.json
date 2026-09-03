@@ -1,21 +1,21 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-09-03T04:52:23+00:00",
+  "updated_at": "2026-09-03T04:59:07+00:00",
   "summary": {
-    "complete": 1116,
+    "complete": 1117,
     "translation_partial": 0,
     "blocked": 66,
     "collected": 0,
-    "pending": 149
+    "pending": 148
   },
   "coverage": {
     "discovered": 1331,
     "archived": 1265,
     "content_ready": 1265,
-    "source_verified": 1130,
-    "publication_ready": 1130,
+    "source_verified": 1136,
+    "publication_ready": 1136,
     "missing": 66,
-    "source_pending": 135,
+    "source_pending": 129,
     "missing_issue_ids": [
       "ecolecon-224-c",
       "ecolecon-225-c",
@@ -149,12 +149,6 @@
       "jpe-132-2",
       "jpe-132-3",
       "jpe-132-4",
-      "qje-138-2",
-      "qje-138-3",
-      "qje-138-4",
-      "qje-139-2",
-      "qje-139-3",
-      "qje-139-4",
       "qje-140-1",
       "qje-140-2",
       "qje-140-3",
@@ -381,18 +375,12 @@
       "discovered": 14,
       "archived": 14,
       "content_ready": 14,
-      "source_verified": 2,
-      "publication_ready": 2,
+      "source_verified": 8,
+      "publication_ready": 8,
       "missing": 0,
-      "source_pending": 12,
+      "source_pending": 6,
       "missing_issue_ids": [],
       "source_pending_issue_ids": [
-        "qje-138-2",
-        "qje-138-3",
-        "qje-138-4",
-        "qje-139-2",
-        "qje-139-3",
-        "qje-139-4",
         "qje-140-1",
         "qje-140-2",
         "qje-140-3",
@@ -406,32 +394,24 @@
           "discovered": 3,
           "archived": 3,
           "content_ready": 3,
-          "source_verified": 0,
-          "publication_ready": 0,
+          "source_verified": 3,
+          "publication_ready": 3,
           "missing": 0,
-          "source_pending": 3,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "qje-138-2",
-            "qje-138-3",
-            "qje-138-4"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "2024": {
           "discovered": 4,
           "archived": 4,
           "content_ready": 4,
-          "source_verified": 1,
-          "publication_ready": 1,
+          "source_verified": 4,
+          "publication_ready": 4,
           "missing": 0,
-          "source_pending": 3,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "qje-139-2",
-            "qje-139-3",
-            "qje-139-4"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "2025": {
@@ -17492,36 +17472,39 @@
         "year": 2023,
         "volume": "138",
         "issue": "2",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
+        "source_status": "official_verified",
+        "publication_state": "ready",
         "last_error": "",
-        "retry_class": "source"
+        "retry_class": "source_recovered",
+        "last_error_code": ""
       },
       {
         "issue_id": "qje-138-3",
         "year": 2023,
         "volume": "138",
         "issue": "3",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
+        "source_status": "official_verified",
+        "publication_state": "ready",
         "last_error": "",
-        "retry_class": "source"
+        "retry_class": "source_recovered",
+        "last_error_code": ""
       },
       {
         "issue_id": "qje-138-4",
         "year": 2023,
         "volume": "138",
         "issue": "4",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
+        "source_status": "official_verified",
+        "publication_state": "ready",
         "last_error": "",
-        "retry_class": "source"
+        "retry_class": "source_recovered",
+        "last_error_code": ""
       },
       {
         "issue_id": "qje-139-1",
@@ -17540,36 +17523,39 @@
         "year": 2024,
         "volume": "139",
         "issue": "2",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
+        "source_status": "official_verified",
+        "publication_state": "ready",
         "last_error": "",
-        "retry_class": "source"
+        "retry_class": "source_recovered",
+        "last_error_code": ""
       },
       {
         "issue_id": "qje-139-3",
         "year": 2024,
         "volume": "139",
         "issue": "3",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
+        "source_status": "official_verified",
+        "publication_state": "ready",
         "last_error": "",
-        "retry_class": "source"
+        "retry_class": "source_recovered",
+        "last_error_code": ""
       },
       {
         "issue_id": "qje-139-4",
         "year": 2024,
         "volume": "139",
         "issue": "4",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
+        "source_status": "official_verified",
+        "publication_state": "ready",
         "last_error": "",
-        "retry_class": "source"
+        "retry_class": "source_recovered",
+        "last_error_code": ""
       },
       {
         "issue_id": "qje-140-1",
@@ -19858,11 +19844,11 @@
   "periods": {
     "2023-2024": {
       "summary": {
-        "complete": 588,
+        "complete": 594,
         "translation_partial": 0,
         "blocked": 48,
         "collected": 0,
-        "pending": 72
+        "pending": 66
       },
       "issue_count": 708,
       "updated_at": "2026-09-02T00:30:27+00:00",
@@ -20150,11 +20136,11 @@
   "years": {
     "2023": {
       "summary": {
-        "complete": 285,
+        "complete": 288,
         "translation_partial": 0,
         "blocked": 26,
         "collected": 0,
-        "pending": 41
+        "pending": 38
       },
       "issue_count": 352,
       "journals": [
@@ -20993,11 +20979,11 @@
     },
     "2024": {
       "summary": {
-        "complete": 293,
+        "complete": 296,
         "translation_partial": 0,
         "blocked": 22,
         "collected": 0,
-        "pending": 40
+        "pending": 37
       },
       "issue_count": 355,
       "journals": [

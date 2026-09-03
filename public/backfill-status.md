@@ -2,7 +2,7 @@
 
 Updated: 2026-09-02T16:38:01+00:00
 
-Discovery coverage: 1331 discovered — 1265 archived — 1130 publication ready — 66 missing — 135 source pending
+Discovery coverage: 1331 discovered — 1265 archived — 1136 publication ready — 66 missing — 129 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
@@ -1149,13 +1149,13 @@ Discovery coverage: 1331 discovered — 1265 archived — 1130 publication ready
 | QE | qe-17-2 | 2026 | ready |  |
 | QE | qe-17-3 | 2026 | ready |  |
 | QE | qe-17-4 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
-| QJE | qje-138-2 | 2023 | source_pending |  |
-| QJE | qje-138-3 | 2023 | source_pending |  |
-| QJE | qje-138-4 | 2023 | source_pending |  |
+| QJE | qje-138-2 | 2023 | ready |  |
+| QJE | qje-138-3 | 2023 | ready |  |
+| QJE | qje-138-4 | 2023 | ready |  |
 | QJE | qje-139-1 | 2024 | ready |  |
-| QJE | qje-139-2 | 2024 | source_pending |  |
-| QJE | qje-139-3 | 2024 | source_pending |  |
-| QJE | qje-139-4 | 2024 | source_pending |  |
+| QJE | qje-139-2 | 2023 | ready |  |
+| QJE | qje-139-3 | 2023 | ready |  |
+| QJE | qje-139-4 | 2023 | ready |  |
 | QJE | qje-140-1 | 2025 | source_pending | source authority pending official verification |
 | QJE | qje-140-2 | 2025 | source_pending | source authority pending official verification |
 | QJE | qje-140-3 | 2025 | source_pending | source authority pending official verification |
