@@ -2,7 +2,7 @@
 
 Updated: 2026-09-02T16:38:01+00:00
 
-Discovery coverage: 1331 discovered — 1265 archived — 1150 publication ready — 66 missing — 115 source pending
+Discovery coverage: 1331 discovered — 1265 archived — 1156 publication ready — 66 missing — 109 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
@@ -1200,12 +1200,12 @@ Discovery coverage: 1331 discovered — 1265 archived — 1150 publication ready
 | RES | res-90-4 | 2023 | ready |  |
 | RES | res-90-5 | 2023 | ready |  |
 | RES | res-90-6 | 2023 | ready |  |
-| RES | res-91-1 | 2024 | source_pending |  |
-| RES | res-91-2 | 2024 | source_pending |  |
-| RES | res-91-3 | 2024 | source_pending |  |
-| RES | res-91-4 | 2024 | source_pending |  |
-| RES | res-91-5 | 2024 | source_pending |  |
-| RES | res-91-6 | 2024 | source_pending |  |
+| RES | res-91-1 | 2023 | ready |  |
+| RES | res-91-2 | 2023 | ready |  |
+| RES | res-91-3 | 2023 | ready |  |
+| RES | res-91-4 | 2023 | ready |  |
+| RES | res-91-5 | 2023 | ready |  |
+| RES | res-91-6 | 2023 | ready |  |
 | RES | res-92-1 | 2025 | source_pending | source authority pending official verification |
 | RES | res-92-2 | 2025 | source_pending | source authority pending official verification |
 | RES | res-92-3 | 2025 | source_pending | source authority pending official verification |

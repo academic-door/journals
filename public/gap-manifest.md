@@ -5,9 +5,9 @@ Generated: 2026-09-02T16:38:19+00:00
 ## Summary
 
 - browser_required: 1
-- ready: 1145
+- ready: 1151
 - recoverable: 65
-- source_pending: 119
+- source_pending: 113
 - translation_required: 1
 
 ## Issue queue
@@ -1200,12 +1200,12 @@ Generated: 2026-09-02T16:38:19+00:00
 | RES | res-90-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RES | res-90-5 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RES | res-90-6 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| RES | res-91-1 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| RES | res-91-2 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| RES | res-91-3 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| RES | res-91-4 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| RES | res-91-5 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| RES | res-91-6 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| RES | res-91-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| RES | res-91-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| RES | res-91-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| RES | res-91-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| RES | res-91-5 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| RES | res-91-6 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RES | res-92-1 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
 | RES | res-92-2 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
 | RES | res-92-3 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
