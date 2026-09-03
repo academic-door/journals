@@ -258,7 +258,7 @@ ENGLISH_NUMBER_WORDS = [*NUMBER_WORD_VALUES, *NUMBER_WORD_SCALES, "and"]
 ENGLISH_NUMBER_TOKEN_PATTERN = re.compile(
     r"\b(?:"
     + "|".join(sorted(ENGLISH_NUMBER_WORDS, key=len, reverse=True))
-    + r")(?:[-\s]+(?:"
+    + r")(?:[-‐‑‒–—\s]+(?:"
     + "|".join(sorted(ENGLISH_NUMBER_WORDS, key=len, reverse=True))
     + r"))*\b",
     re.IGNORECASE,
@@ -291,7 +291,7 @@ def _parse_english_number_phrase(phrase: str) -> int | None:
 
     tokens = [
         token
-        for token in re.split(r"[-\s]+", phrase.casefold())
+        for token in re.split(r"[-‐‑‒–—\s]+", phrase.casefold())
         if token and token != "and"
     ]
     if not tokens:
@@ -1050,18 +1050,26 @@ def _canonicalize_chinese_numerals(source: str, translated: str) -> str:
     source_numbers = set(_numbers(source) + _written_number_values(source))
 
     # Google and other translators often combine an Arabic coefficient with
-    # a Chinese large-number unit (``6亿`` or ``2100万``).  Parse that form
-    # before the Chinese-character-only matcher so it can be compared with
-    # expanded source quantities such as ``600 million``.
+    # a Chinese large-number unit (``6亿``, ``2100万`` or ``3十亿``). Parse
+    # that form before the Chinese-character-only matcher so it can be
+    # compared with expanded source quantities such as ``600 million``.
+    chinese_scale_values = {
+        "万": 10_000,
+        "亿": 100_000_000,
+        "百万": 1_000_000,
+        "千万": 10_000_000,
+        "十亿": 1_000_000_000,
+    }
+
     def replace_arabic_scale(match: re.Match[str]) -> str:
         raw = match.group("number").replace(",", "")
-        value = float(raw) * {"万": 10_000, "亿": 100_000_000}[match.group("unit")]
+        value = float(raw) * chinese_scale_values[match.group("unit")]
         rendered = str(int(value)) if value.is_integer() else str(value)
         return rendered if rendered in source_numbers else match.group(0)
 
     normalized = re.sub(
         r"(?<!\d)(?P<number>\d{1,3}(?:,\d{3})+|\d+(?:\.\d+)?)\s*"
-        r"(?P<unit>[万亿])",
+        r"(?P<unit>百万|千万|十亿|万|亿)",
         replace_arabic_scale,
         _collapse_chinese_numeral_spaces(translated),
     )
@@ -1331,11 +1339,20 @@ def _translation_numeric_multiset(source: str, translated: str) -> Counter[str]:
     )
     normalized = _collapse_chinese_numeral_spaces(translated)
     # Decimal quantities with a Chinese scale (``1.4 百万``) represent the
-    # source coefficient, while a standalone ``百万`` represents one million.
-    # Remove the scale only from a decimal/integer coefficient before the
-    # Chinese numeral canonicalizer handles standalone scale words.
-    normalized = re.sub(r"(?<!\d)(\d+\.\d+)\s*百万", r"\1", normalized)
-    normalized = re.sub(r"(?<!\d)(\d+\.\d+)\s*亿", r"\1", normalized)
+    # source coefficient unless the source itself uses an expanded compact
+    # amount such as ``$18.5m``. Keep the scale only in the latter case.
+    def strip_decimal_scale(match: re.Match[str]) -> str:
+        coefficient = float(match.group("number"))
+        expanded = coefficient * {"百万": 1_000_000, "亿": 100_000_000}[match.group("unit")]
+        rendered = str(int(expanded)) if expanded.is_integer() else str(expanded)
+        return match.group(0) if source_numbers.get(rendered) else match.group("number")
+
+    normalized = re.sub(
+        r"(?<!\d)(?P<number>\d+\.\d+)\s*"
+        r"(?P<unit>百万|亿)",
+        strip_decimal_scale,
+        normalized,
+    )
     normalized = _normalize_written_number_translations(source, normalized)
     normalized = _canonicalize_chinese_numerals(
         source,
