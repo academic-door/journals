@@ -2,7 +2,7 @@
 
 Updated: 2026-09-02T16:38:01+00:00
 
-Discovery coverage: 1331 discovered — 1265 archived — 1146 publication ready — 66 missing — 119 source pending
+Discovery coverage: 1331 discovered — 1265 archived — 1150 publication ready — 66 missing — 115 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
@@ -1196,10 +1196,10 @@ Discovery coverage: 1331 discovered — 1265 archived — 1146 publication ready
 | RED | red-62-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 62/ |
 | RES | res-90-1 | 2023 | source_pending |  |
 | RES | res-90-2 | 2023 | ready |  |
-| RES | res-90-3 | 2023 | source_pending |  |
-| RES | res-90-4 | 2023 | source_pending |  |
-| RES | res-90-5 | 2023 | source_pending |  |
-| RES | res-90-6 | 2023 | source_pending |  |
+| RES | res-90-3 | 2023 | ready |  |
+| RES | res-90-4 | 2023 | ready |  |
+| RES | res-90-5 | 2023 | ready |  |
+| RES | res-90-6 | 2023 | ready |  |
 | RES | res-91-1 | 2024 | source_pending |  |
 | RES | res-91-2 | 2024 | source_pending |  |
 | RES | res-91-3 | 2024 | source_pending |  |

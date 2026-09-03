@@ -1,21 +1,21 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-09-03T06:27:58+00:00",
+  "updated_at": "2026-09-03T06:44:22+00:00",
   "summary": {
-    "complete": 1122,
+    "complete": 1123,
     "translation_partial": 0,
     "blocked": 66,
     "collected": 0,
-    "pending": 143
+    "pending": 142
   },
   "coverage": {
     "discovered": 1331,
     "archived": 1265,
     "content_ready": 1265,
-    "source_verified": 1146,
-    "publication_ready": 1146,
+    "source_verified": 1150,
+    "publication_ready": 1150,
     "missing": 66,
-    "source_pending": 119,
+    "source_pending": 115,
     "missing_issue_ids": [
       "ecolecon-224-c",
       "ecolecon-225-c",
@@ -163,10 +163,6 @@
       "red-59-c",
       "red-60-c",
       "red-61-c",
-      "res-90-3",
-      "res-90-4",
-      "res-90-5",
-      "res-90-6",
       "res-91-1",
       "res-91-2",
       "res-91-3",
@@ -427,16 +423,12 @@
       "discovered": 22,
       "archived": 22,
       "content_ready": 22,
-      "source_verified": 2,
-      "publication_ready": 2,
+      "source_verified": 6,
+      "publication_ready": 6,
       "missing": 0,
-      "source_pending": 20,
+      "source_pending": 16,
       "missing_issue_ids": [],
       "source_pending_issue_ids": [
-        "res-90-3",
-        "res-90-4",
-        "res-90-5",
-        "res-90-6",
         "res-91-1",
         "res-91-2",
         "res-91-3",
@@ -460,17 +452,12 @@
           "discovered": 6,
           "archived": 6,
           "content_ready": 6,
-          "source_verified": 2,
-          "publication_ready": 2,
+          "source_verified": 6,
+          "publication_ready": 6,
           "missing": 0,
-          "source_pending": 4,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "res-90-3",
-            "res-90-4",
-            "res-90-5",
-            "res-90-6"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "2024": {
@@ -18022,48 +18009,52 @@
         "year": 2023,
         "volume": "90",
         "issue": "3",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
+        "source_status": "official_verified",
+        "publication_state": "ready",
         "last_error": "",
-        "retry_class": "source"
+        "retry_class": "source_recovered",
+        "last_error_code": ""
       },
       {
         "issue_id": "res-90-4",
         "year": 2023,
         "volume": "90",
         "issue": "4",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
+        "source_status": "official_verified",
+        "publication_state": "ready",
         "last_error": "",
-        "retry_class": "source"
+        "retry_class": "source_recovered",
+        "last_error_code": ""
       },
       {
         "issue_id": "res-90-5",
         "year": 2023,
         "volume": "90",
         "issue": "5",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
+        "source_status": "official_verified",
+        "publication_state": "ready",
         "last_error": "",
-        "retry_class": "source"
+        "retry_class": "source_recovered",
+        "last_error_code": ""
       },
       {
         "issue_id": "res-90-6",
         "year": 2023,
         "volume": "90",
         "issue": "6",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
+        "source_status": "official_verified",
+        "publication_state": "ready",
         "last_error": "",
-        "retry_class": "source"
+        "retry_class": "source_recovered",
+        "last_error_code": ""
       },
       {
         "issue_id": "res-91-1",
@@ -19819,11 +19810,11 @@
   "periods": {
     "2023-2024": {
       "summary": {
-        "complete": 597,
+        "complete": 601,
         "translation_partial": 0,
         "blocked": 48,
         "collected": 0,
-        "pending": 63
+        "pending": 59
       },
       "issue_count": 708,
       "updated_at": "2026-09-02T00:30:27+00:00",
@@ -20111,11 +20102,11 @@
   "years": {
     "2023": {
       "summary": {
-        "complete": 291,
+        "complete": 295,
         "translation_partial": 0,
         "blocked": 26,
         "collected": 0,
-        "pending": 35
+        "pending": 31
       },
       "issue_count": 352,
       "journals": [

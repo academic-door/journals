@@ -7,16 +7,16 @@
   "issue": "4",
   "publication_date": "July 2023",
   "source_url": "https://academic.oup.com/restud/issue/90/4",
-  "retrieved_at": "2026-08-30T00:40:36+00:00",
-  "expected_article_count": 12,
-  "research_article_count": 12,
-  "status": "incomplete",
+  "retrieved_at": "2026-08-26T07:39:16+00:00",
+  "expected_article_count": 15,
+  "research_article_count": 15,
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
       "paper_id": "doi:10.1093/restud/rdac062",
       "sequence": 1,
-      "source_sequence": 1569,
+      "source_sequence": 1,
       "article_type": "research-article",
       "title_en": "Managerial Quality and Productivity Dynamics",
       "title_cn": "管理质量与生产率动态",
@@ -33,7 +33,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/90/4",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/90/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -57,7 +57,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdac064",
       "sequence": 2,
-      "source_sequence": 1608,
+      "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Optimal Environmental Targeting in the Amazon Rainforest",
       "title_cn": "亚马逊雨林的环境最优靶向治理",
@@ -68,24 +68,23 @@
         "Eduardo Souza-Rodrigues"
       ],
       "abstract_en": "This article sets out a data-driven approach for targeting environmental policies optimally in order to combat deforestation. We focus on the Amazon, the world’s most extensive rainforest, where Brazil’s federal government issued a “Priority List” of municipalities in 2008—a blacklist to be targeted with more intense environmental monitoring and enforcement. First, we estimate the causal impact of the Priority List on deforestation (along with other relevant treatment effects) using “changes-in-changes” due to Athey and Imbens (2006), finding that it reduced deforestation by 43$\\%$ and cut emissions by almost 50 million tons of carbon. Second, we develop a novel framework for computing targeted optimal blacklists that draws on our treatment effect estimates, assigning municipalities to a counterfactual list that minimizes total deforestation subject to realistic resource constraints. We show that the ex post optimal list would result in carbon emissions over 10$\\%$ lower than the actual list, amounting to savings of more than $ \\$ $1.2 billion (34$\\%$ of the total value of the Priority List), with emissions over 23$\\%$ lower on average than a randomly selected list. The approach we propose is relevant both for assessing targeted counterfactual policies to reduce deforestation and for quantifying the impacts of policy targeting more generally.",
-      "abstract_cn": "本文提出了一种数据驱动的方法，用于最优地靶向环境政策以对抗森林砍伐。我们关注亚马逊——世界上面积最大的雨林，巴西联邦政府于2008年发布了一份“优先名单”，列出了一些市镇，作为黑名单以加强环境监测和执法。首先，我们使用Athey和Imbens（2006）的“变化中的变化”方法估计优先名单对森林砍伐的因果影响（以及其他相关处理效应），发现它使森林砍伐减少了43，并减少了近50万吨碳排放。其次，我们开发了一个新颖的框架，用于计算靶向的最优黑名单，该框架利用我们的处理效应估计，将市镇分配到反事实名单中，以在现实资源约束下最小化总森林砍伐。我们表明，事后最优名单将导致碳排放比实际名单低10以上，节省超过1.2亿美元（占优先名单总价值的34），且平均排放比随机选择的名单低23以上。我们提出的方法既适用于评估减少森林砍伐的靶向反事实政策，也适用于更普遍地量化政策靶向的影响。",
+      "abstract_cn": "本文提出了一种数据驱动的方法，用于最优地靶向环境政策以对抗森林砍伐。我们关注亚马逊——世界上面积最大的雨林，巴西联邦政府于2008年发布了一份“优先名单”，列出了一些市镇，作为黑名单以加强环境监测和执法。首先，我们使用Athey和Imbens（2006）的“变化中的变化”方法估计优先名单对森林砍伐的因果影响（以及其他相关处理效应），发现它使森林砍伐减少了43%，并减少了近5000万吨碳排放。其次，我们开发了一个新颖的框架，用于计算靶向的最优黑名单，该框架利用我们的处理效应估计，将市镇分配到反事实名单中，以在现实资源约束下最小化总森林砍伐。我们表明，事后最优名单将导致碳排放比实际名单低10%以上，节省超过1.2亿美元（占优先名单总价值的34%），且平均排放比随机选择的名单低23%以上。我们提出的方法既适用于评估减少森林砍伐的靶向反事实政策，也适用于更普遍地量化政策靶向的影响。",
       "abstract_snippet_en": "",
       "doi": "10.1093/restud/rdac064",
       "source_url": "https://doi.org/10.1093/restud/rdac064",
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/90/4",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/90/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-18T17:37:51+00:00",
+        "provider": "local-translation-repair",
+        "model": "codex-local",
+        "prompt_version": "res-browser-article-repair-v1",
+        "translated_at": "2026-09-03T06:43:38+00:00",
         "source_hash": "8aa5bd906f2f113470416dbafbb900a10b1a2bdc6966288cb21a2725c6198654"
       },
       "quality_flags": [],
@@ -99,7 +98,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdac057",
       "sequence": 3,
-      "source_sequence": 1642,
+      "source_sequence": 3,
       "article_type": "research-article",
       "title_en": "Wealth Dynamics in Communities",
       "title_cn": "社区中的财富动态",
@@ -116,7 +115,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/90/4",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/90/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -140,7 +139,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdac059",
       "sequence": 4,
-      "source_sequence": 1669,
+      "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Culture and the Historical Fertility Transition",
       "title_cn": "文化与历史生育转型",
@@ -156,7 +155,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/90/4",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/90/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -180,7 +179,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdac056",
       "sequence": 5,
-      "source_sequence": 1701,
+      "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "Data-intensive Innovation and the State: Evidence from AI Firms in China",
       "title_cn": "数据密集型创新与国家：来自中国人工智能企业的证据",
@@ -197,7 +196,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/90/4",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/90/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -221,9 +220,124 @@
       }
     },
     {
-      "paper_id": "doi:10.1093/restud/rdac065",
+      "paper_id": "doi:10.1093/restud/rdac061",
       "sequence": 6,
-      "source_sequence": 1832,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "An Instrumental Variable Approach to Dynamic Models",
+      "title_cn": "动态模型的工具变量方法",
+      "authors": [
+        "Berry, Steven T",
+        "Compiani, Giovanni"
+      ],
+      "abstract_en": "We present a new class of methods for identification and inference in dynamic models with serially correlated unobservables, which typically imply that state variables are econometrically endogenous. In the context of Industrial Organization, these state variables often reflect econometrically endogenous market structure. We propose the use of Generalized Instrument Variables methods to identify those dynamic policy functions that are consistent with instrumental variable (IV) restrictions. Extending popular “two-step” methods, these policy functions then identify a set of structural parameters that are consistent with the dynamic model, the IV restrictions and the data. We provide computed illustrations to both single-agent and oligopoly examples. We also present a simple empirical analysis that, among other things, supports the counterfactual study of an environmental policy entailing an increase in sunk costs.",
+      "abstract_cn": "我们提出了一类新的方法，用于具有序列相关不可观测因素的动态模型中的识别和推断，这些不可观测因素通常意味着状态变量在经济计量上是内生的。在产业组织的背景下，这些状态变量通常反映经济计量上内生的市场结构。我们建议使用广义工具变量方法来识别那些与工具变量（IV）约束一致的政策函数。扩展流行的“两步”方法，这些政策函数随后识别出一组与动态模型、IV约束和数据一致的结构参数。我们提供了对单代理和寡头垄断示例的计算说明。我们还提出了一个简单的实证分析，该分析除其他外，支持对涉及沉没成本增加的环境政策的反事实研究。",
+      "doi": "10.1093/restud/rdac061",
+      "source_url": "https://academic.oup.com/restud/article/90/4/1724/6694055",
+      "sources": {
+        "roster": "https://academic.oup.com/restud/issue/90/4",
+        "metadata": "https://academic.oup.com/restud/article/90/4/1724/6694055",
+        "abstract_en": "https://academic.oup.com/restud/article/90/4/1724/6694055"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-18T17:37:56+00:00",
+        "source_hash": "249a398b30edf9d4d753e7c72425f8772f9ad57f114d52b7246a20b4cd97e581"
+      },
+      "quality_flags": [],
+      "publication_date": "July 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdac063",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Time Consistency and Duration of Government Debt: A Model of Quantitative Easing",
+      "title_cn": "政府债务期限与时间一致性：量化宽松模型",
+      "authors": [
+        "Bhattarai, Saroj",
+        "Eggertsson, Gauti B",
+        "Gafarov, Bulat"
+      ],
+      "abstract_en": "This article presents a model of quantitative easing (QE) at the zero lower bound (ZLB) on the short-term nominal interest rate. QE, which reduces the maturity of government debt, is effective at the ZLB because it generates expectations of future monetary expansion in a time-consistent equilibrium. Numerical experiments show that this effect can be substantial.",
+      "abstract_cn": "本文提出一个短期名义利率处于零下限时的量化宽松模型。量化宽松通过缩短政府债务期限发挥作用，因为在时间一致的均衡中，它会形成对未来货币扩张的预期。数值实验表明，这一效应可能相当显著。",
+      "doi": "10.1093/restud/rdac063",
+      "source_url": "https://academic.oup.com/restud/article/90/4/1759/6693635",
+      "sources": {
+        "roster": "https://academic.oup.com/restud/issue/90/4",
+        "metadata": "https://academic.oup.com/restud/article/90/4/1759/6693635",
+        "abstract_en": "https://academic.oup.com/restud/article/90/4/1759/6693635"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "local-translation-repair",
+        "model": "codex-local",
+        "prompt_version": "res-browser-article-repair-v1",
+        "translated_at": "2026-09-03T06:43:38+00:00",
+        "source_hash": "ab3008caab5138560dca4f73b387f05862997f185f29ed7d5020493c7dfe28f2"
+      },
+      "quality_flags": [],
+      "publication_date": "July 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdac067",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Career Spillovers in Internal Labour Markets",
+      "title_cn": "内部劳动力市场中的职业溢出效应",
+      "authors": [
+        "Bianchi, Nicola",
+        "Bovini, Giulia",
+        "Li, Jin",
+        "Paradisi, Matteo",
+        "Powell, Michael"
+      ],
+      "abstract_en": "This article studies career spillovers across workers, which arise in firms with limited promotion opportunities. We exploit a 2011 Italian pension reform that unexpectedly tightened eligibility criteria for the public pension, leading to sudden, substantial, and heterogeneous retirement delays. Using administrative data on Italian private-sector workers, the analysis leverages cross-firm variation to isolate the effect of retirement delays among soon-to-retire workers on the wage growth and promotions of their colleagues. We find evidence of spillover patterns consistent with older workers blocking the careers of their younger colleagues, but only in firms with limited promotion opportunities.",
+      "abstract_cn": "本文研究劳动者之间的职业溢出效应，这种效应产生于晋升机会有限的企业。我们利用2011年意大利养老金改革：该改革意外收紧了公共养老金的资格标准，导致退休延迟突然出现，而且幅度大、差异明显。基于意大利私营部门劳动者的行政数据，研究利用企业间差异，识别临近退休劳动者退休延迟对同事工资增长和晋升的影响。我们发现的溢出模式与这样的解释一致：年长劳动者阻碍了年轻同事的职业发展，但这一现象只存在于晋升机会有限的企业。",
+      "doi": "10.1093/restud/rdac067",
+      "source_url": "https://academic.oup.com/restud/article/90/4/1800/6754834",
+      "sources": {
+        "roster": "https://academic.oup.com/restud/issue/90/4",
+        "metadata": "https://academic.oup.com/restud/article/90/4/1800/6754834",
+        "abstract_en": "https://academic.oup.com/restud/article/90/4/1800/6754834"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "local-translation-repair",
+        "model": "codex-local",
+        "prompt_version": "res-browser-article-repair-v1",
+        "translated_at": "2026-09-03T06:43:38+00:00",
+        "source_hash": "adf13887d99ae160ff6f40acb21a0f5e4bdb9c967c56d56c67c4adb320606237"
+      },
+      "quality_flags": [],
+      "publication_date": "July 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdac065",
+      "sequence": 9,
+      "source_sequence": 9,
       "article_type": "research-article",
       "title_en": "Opinions as Facts",
       "title_cn": "观点即事实",
@@ -241,7 +355,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/90/4",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/90/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -264,8 +378,8 @@
     },
     {
       "paper_id": "doi:10.1093/restud/rdac071",
-      "sequence": 7,
-      "source_sequence": 1865,
+      "sequence": 10,
+      "source_sequence": 10,
       "article_type": "research-article",
       "title_en": "Agenda-Manipulation in Ranking",
       "title_cn": "排名中的议程操纵",
@@ -281,7 +395,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/90/4",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/90/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -304,8 +418,8 @@
     },
     {
       "paper_id": "doi:10.1093/restud/rdac068",
-      "sequence": 8,
-      "source_sequence": 1893,
+      "sequence": 11,
+      "source_sequence": 11,
       "article_type": "research-article",
       "title_en": "Optimal Corporate Taxation Under Financial Frictions",
       "title_cn": "金融摩擦下的最优企业税收",
@@ -321,7 +435,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/90/4",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/90/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -344,8 +458,8 @@
     },
     {
       "paper_id": "doi:10.1093/restud/rdac066",
-      "sequence": 9,
-      "source_sequence": 1934,
+      "sequence": 12,
+      "source_sequence": 12,
       "article_type": "research-article",
       "title_en": "Moral Universalism and the Structure of Ideology",
       "title_cn": "道德普遍主义与意识形态结构",
@@ -362,7 +476,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/90/4",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/90/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -385,8 +499,8 @@
     },
     {
       "paper_id": "doi:10.1093/restud/rdac069",
-      "sequence": 10,
-      "source_sequence": 1963,
+      "sequence": 13,
+      "source_sequence": 13,
       "article_type": "research-article",
       "title_en": "Subsidizing Labour Hoarding in Recessions: The Employment and Welfare Effects of Short-time Work",
       "title_cn": "衰退期间的劳动力囤积补贴：短时工作的就业与福利效应",
@@ -402,7 +516,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/90/4",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/90/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -425,8 +539,8 @@
     },
     {
       "paper_id": "doi:10.1093/restud/rdac058",
-      "sequence": 11,
-      "source_sequence": 2006,
+      "sequence": 14,
+      "source_sequence": 14,
       "article_type": "research-article",
       "title_en": "Estimation of Discrete Games with Weak Assumptions on Information",
       "title_cn": "弱信息假设下离散博弈的估计",
@@ -442,7 +556,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/90/4",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/90/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -465,8 +579,8 @@
     },
     {
       "paper_id": "doi:10.1093/restud/rdac070",
-      "sequence": 12,
-      "source_sequence": 2042,
+      "sequence": 15,
+      "source_sequence": 15,
       "article_type": "research-article",
       "title_en": "Screening with Frames: Implementation in Extensive Form",
       "title_cn": "框架筛选：扩展式实施",
@@ -482,7 +596,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/90/4",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/90/4",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -507,8 +621,8 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "crossref",
-    "roster_authority": "crossref-provisional",
+    "roster_transport": "browser-authorized",
+    "roster_authority": "official-issue-page",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
     "excluded_item_count": 2,
@@ -526,45 +640,52 @@
         "article_type": "correction"
       }
     ],
-    "doi_complete": 12,
-    "authors_complete": 12,
-    "abstract_en_complete": 12,
-    "translation_complete": 12,
+    "doi_complete": 15,
+    "authors_complete": 15,
+    "abstract_en_complete": 15,
+    "translation_complete": 15,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
-    ],
-    "official_item_count": 14,
-    "publishable_item_count": 12,
+    "flags": [],
+    "official_item_count": 17,
+    "publishable_item_count": 15,
     "content_counts": {
-      "official_items": 14,
-      "observed_items": 14,
-      "publishable_items": 12,
-      "research_articles": 12,
+      "official_items": 17,
+      "observed_items": 17,
+      "publishable_items": 15,
+      "research_articles": 15,
       "comments": 0,
       "short_communications": 0,
       "corrections": 2,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 14
+      "catalog_content_items": 17
+    },
+    "official_roster_evidence": {
+      "captured_at": "2026-09-03T06:43:48+00:00",
+      "official_url": "https://academic.oup.com/restud/issue/90/4",
+      "method": "browser-authorized",
+      "item_count": 15,
+      "excluded_item_count": 2,
+      "archive_reordered": false,
+      "sequence_sha256": "daa07ca775a61c8bb27291d2af5631ae60476cd1598dc2511cb57fc8e64ba346",
+      "privacy_fields_stored": false
     }
   },
-  "source_status": "source_pending",
-  "publication_state": "source_pending",
+  "source_status": "official_verified",
+  "publication_state": "ready",
   "content_counts": {
-    "official_items": 14,
-    "observed_items": 14,
-    "publishable_items": 12,
-    "research_articles": 12,
+    "official_items": 17,
+    "observed_items": 17,
+    "publishable_items": 15,
+    "research_articles": 15,
     "comments": 0,
     "short_communications": 0,
     "corrections": 2,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 14
+    "catalog_content_items": 17
   },
   "issue_label": "Vol. 90 · No. 4",
   "content_status": "complete"

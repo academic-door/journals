@@ -7,16 +7,54 @@
   "issue": "5",
   "publication_date": "September 2023",
   "source_url": "https://academic.oup.com/restud/issue/90/5",
-  "retrieved_at": "2026-08-30T00:40:47+00:00",
-  "expected_article_count": 11,
-  "research_article_count": 11,
-  "status": "incomplete",
+  "retrieved_at": "2026-08-25T16:29:58+00:00",
+  "expected_article_count": 16,
+  "research_article_count": 16,
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1093/restud/rdac081",
+      "paper_id": "doi:10.1093/restud/rdac073",
       "sequence": 1,
-      "source_sequence": 2116,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Price Discrimination in the Information Age: Prices, Poaching, and Privacy with Personalized Targeted Discounts",
+      "title_cn": "信息时代的价格歧视：个性化定向折扣下的价格、挖角与隐私",
+      "authors": [
+        "Simon Anderson",
+        "Alicia Baik",
+        "Nathan Larson"
+      ],
+      "abstract_en": "We study list price competition when firms can individually target consumer discounts (at a cost) afterwards, and we address recent privacy regulation (like the GDPR) allowing consumers to choose whether to opt-in to targeting. Targeted consumers receive poaching and retention discount offers. Equilibrium discount offers are in mixed strategies, but only two firms vie for each contested consumer and final profits on them are Bertrand-like. When targeting is unrestricted, firm list pricing resembles monopoly. For plausible demand conditions and if targeting costs are not too low, firms and consumers are worse off with unrestricted targeting than banning it. However, targeting induces higher (lower) list prices if demand is convex (concave), and either side of the market can benefit if list prices shift enough in its favour. Given the choice, consumers opt in only when expected discounts exceed privacy costs. Under empirically plausible conditions, opt-in choice makes all consumers better off.",
+      "abstract_cn": "我们研究当企业可以在事后（以一定成本）针对个别消费者提供折扣时的标价竞争，并探讨近期的隐私法规（如GDPR）允许消费者选择是否选择加入定向营销。被定向的消费者会收到挖角和保留折扣报价。均衡折扣报价采用混合策略，但每个被争夺的消费者只有两家企业竞争，最终利润类似伯特兰德竞争。当定向不受限制时，企业标价类似于垄断。在合理的需求条件下，且定向成本不是太低时，不受限制的定向比禁止定向使企业和消费者境况更差。然而，如果需求是凸（凹）的，定向会导致更高的（更低的）标价，并且如果标价向某一方足够倾斜，市场中的任何一方都可能受益。在给定选择的情况下，只有当预期折扣超过隐私成本时，消费者才会选择加入。在经验上合理的条件下，选择加入使所有消费者境况更好。",
+      "doi": "10.1093/restud/rdac073",
+      "source_url": "https://academic.oup.com/restud/article/90/5/2085/6777274",
+      "sources": {
+        "roster": "https://academic.oup.com/restud/issue/90/5",
+        "metadata": "https://academic.oup.com/restud/article/90/5/2085/6777274",
+        "abstract_en": "https://academic.oup.com/restud/article/90/5/2085/6777274"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-18T17:38:21+00:00",
+        "source_hash": "181e1cff36228737b759abc3554933aa194545b482ea389e304dd573ea0e970f"
+      },
+      "quality_flags": [],
+      "publication_date": "September 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/restud/rdac081",
+      "sequence": 2,
+      "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Save, Spend, or Give? A Model of Housing, Family Insurance, and Savings in Old Age",
       "title_cn": "储蓄、消费还是给予？老年住房、家庭保险与储蓄模型",
@@ -33,7 +71,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/90/5",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/90/5",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -55,9 +93,47 @@
       }
     },
     {
+      "paper_id": "doi:10.1093/restud/rdac078",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Hazed and Confused: The Effect of Air Pollution on Dementia",
+      "title_cn": "雾霾与困惑：空气污染对痴呆症的影响",
+      "authors": [
+        "Bishop, Kelly C",
+        "Ketcham, Jonathan D",
+        "Kuminoff, Nicolai V"
+      ],
+      "abstract_en": "We study whether long-term cumulative exposure to airborne small particulate matter (PM2.5) affects the probability that an individual receives a new diagnosis of Alzheimer's disease or related dementias. We track the health, residential location, and PM2.5 exposures of Americans aged sixty-five and above from 2001 through 2013. The expansion of Clean Air Act regulations led to quasi-random variation in individuals’ subsequent exposures to PM2.5. We leverage these regulations to construct instrumental variables for individual-level decadal PM2.5 that we use within flexible probit models that also account for any potential sample selection based on survival. We find that a 1 µg/m3 increase in decadal PM2.5 increases the probability of a new dementia diagnosis by an average of 2.15 percentage points (pp). All else equal, we find larger effects for women, older people, and people with more clinical risk factors for dementia. These effects persist below current regulatory thresholds.",
+      "abstract_cn": "我们研究长期累积暴露于空气中细颗粒物（PM2.5）是否会影响个体新诊断阿尔茨海默病或相关痴呆症的概率。我们追踪2001年至2013年间年龄为65岁及以上美国人的健康状况、居住地点和PM2.5暴露。清洁空气法监管范围的扩大，使个体后续PM2.5暴露水平出现近似随机的变化。我们利用这些监管变化，为个体层面的十年PM2.5暴露构造工具变量，并在灵活的概率单位模型中使用这些变量，同时考虑基于生存状况产生的潜在样本选择。我们发现，十年PM2.5每增加1微克/立方米，新发痴呆症诊断的概率平均增加2.15个百分点（pp）。在其他条件相同的情况下，女性、老年人以及具有更多临床痴呆风险因素的人受到的影响更大。这些影响在当前监管阈值以下仍然存在。",
+      "doi": "10.1093/restud/rdac078",
+      "source_url": "https://academic.oup.com/restud/article/90/5/2188/6889625",
+      "sources": {
+        "roster": "https://academic.oup.com/restud/issue/90/5",
+        "metadata": "https://academic.oup.com/restud/article/90/5/2188/6889625",
+        "abstract_en": "https://academic.oup.com/restud/article/90/5/2188/6889625"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "local-translation-repair",
+        "model": "codex-local",
+        "prompt_version": "res-browser-article-repair-v1",
+        "translated_at": "2026-09-03T06:43:39+00:00",
+        "source_hash": "0da370c61c1dd6641a121f8fe103a6ccc0e58eb86647e4daaccfb6fd0db579ab"
+      },
+      "quality_flags": [],
+      "publication_date": "September 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1093/restud/rdac079",
-      "sequence": 2,
-      "source_sequence": 2215,
+      "sequence": 4,
+      "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "“Since You’re So Rich, You Must Be Really Smart”: Talent, Rent Sharing, and the Finance Wage Premium",
       "title_cn": "“既然你这么有钱，你一定很聪明”：人才、租金分享与金融业工资溢价",
@@ -74,7 +150,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/90/5",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/90/5",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -97,8 +173,8 @@
     },
     {
       "paper_id": "doi:10.1093/restud/rdac076",
-      "sequence": 3,
-      "source_sequence": 2261,
+      "sequence": 5,
+      "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "Robots, Trade, and Luddism: A Sufficient Statistic Approach to Optimal Technology Regulation",
       "title_cn": "机器人、贸易与卢德主义：最优技术监管的充分统计量方法",
@@ -114,7 +190,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/90/5",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/90/5",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -136,9 +212,48 @@
       }
     },
     {
+      "paper_id": "doi:10.1093/restud/rdac075",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "IQ, Expectations, and Choice",
+      "title_cn": "智商、预期与选择",
+      "authors": [
+        "D’Acunto, Francesco",
+        "Hoang, Daniel",
+        "Paloviita, Maritta",
+        "Weber, Michael"
+      ],
+      "abstract_en": "We use administrative and survey-based micro data to study the relationship between cognitive abilities (IQ), the formation of inflation expectations, and the consumption plans of a representative male population. High-IQ men display 50% lower forecast errors for inflation than other men. High-IQ men, but not others, have consistent inflation expectations and perceptions over time. In terms of choice, only high-IQ men increase their consumption propensity when expecting higher inflation as the consumer Euler equation prescribes. Education levels, income, other expectations, and socio-economic status, although important, do not explain the variation in expectations and choice by IQ. Recent modelling attempts to incorporate boundedly rational agents into macro models do not fully capture all the facts we document. We discuss which dimensions of expectations formation and choice are important for heterogeneous-agents models of household consumption and for the transmission of fiscal and monetary policy.",
+      "abstract_cn": "我们使用行政数据和基于调查的微观数据，研究认知能力（IQ）、通胀预期形成与一组男性人口消费计划之间的关系。高IQ男性的通胀预测误差比其他男性低50%。只有高IQ男性会随着时间形成一致的通胀预期和感知。在选择方面，只有高IQ男性在预期通胀上升时提高消费倾向，正如消费者欧拉方程所预测的那样。尽管教育水平、收入、其他预期和社会经济地位都很重要，但它们无法解释IQ造成的预期和选择差异。近期将有限理性主体纳入宏观模型的尝试，仍不能完全解释我们记录的事实。我们讨论预期形成和选择的哪些维度对于异质性主体家庭消费模型，以及财政政策和货币政策传导，具有重要意义。",
+      "doi": "10.1093/restud/rdac075",
+      "source_url": "https://academic.oup.com/restud/article/90/5/2292/6782973",
+      "sources": {
+        "roster": "https://academic.oup.com/restud/issue/90/5",
+        "metadata": "https://academic.oup.com/restud/article/90/5/2292/6782973",
+        "abstract_en": "https://academic.oup.com/restud/article/90/5/2292/6782973"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "local-translation-repair",
+        "model": "codex-local",
+        "prompt_version": "res-browser-article-repair-v1",
+        "translated_at": "2026-09-03T06:43:39+00:00",
+        "source_hash": "2470b3d765bf94a646b8adf17f699a6ce2523698183de6c329e5168b0ace09d5"
+      },
+      "quality_flags": [],
+      "publication_date": "September 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1093/restud/rdac077",
-      "sequence": 4,
-      "source_sequence": 2326,
+      "sequence": 7,
+      "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "Learning from Neighbours about a Changing State",
       "title_cn": "从邻居处学习关于变化的状态",
@@ -155,7 +270,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/90/5",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/90/5",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -178,8 +293,8 @@
     },
     {
       "paper_id": "doi:10.1093/restud/rdac074",
-      "sequence": 5,
-      "source_sequence": 2370,
+      "sequence": 8,
+      "source_sequence": 8,
       "article_type": "research-article",
       "title_en": "Optimal Feedback in Contests",
       "title_cn": "竞赛中的最优反馈",
@@ -197,7 +312,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/90/5",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/90/5",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -220,8 +335,8 @@
     },
     {
       "paper_id": "doi:10.1093/restud/rdac072",
-      "sequence": 6,
-      "source_sequence": 2395,
+      "sequence": 9,
+      "source_sequence": 9,
       "article_type": "research-article",
       "title_en": "Liquidity and Exchange Rates: An Empirical Investigation",
       "title_cn": "流动性与汇率：一项实证研究",
@@ -237,7 +352,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/90/5",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/90/5",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -260,8 +375,8 @@
     },
     {
       "paper_id": "doi:10.1093/restud/rdac080",
-      "sequence": 7,
-      "source_sequence": 2439,
+      "sequence": 10,
+      "source_sequence": 10,
       "article_type": "research-article",
       "title_en": "Unemployment Insurance in Macroeconomic Stabilization",
       "title_cn": "宏观经济稳定中的失业保险",
@@ -276,7 +391,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/90/5",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/90/5",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -298,9 +413,46 @@
       }
     },
     {
+      "paper_id": "doi:10.1093/restud/rdad015",
+      "sequence": 11,
+      "source_sequence": 11,
+      "article_type": "research-article",
+      "title_en": "A Welfare Analysis of Occupational Licensing in U.S. States",
+      "title_cn": "美国各州职业许可的福利分析",
+      "authors": [
+        "Kleiner, Morris M",
+        "Soltas, Evan J"
+      ],
+      "abstract_en": "We assess the welfare consequences of occupational licensing for workers and consumers. We estimate a model of labour market equilibrium in which licensing restricts labour supply but also affects labour demand via worker quality and selection. On the margin of occupations licensed differently between U.S. states, we find that licensing raises wages and hours but reduces employment. We estimate an average welfare loss of 12% of occupational surplus. Workers and consumers respectively bear 70% and 30% of the incidence. Higher willingness to pay offsets 80% of higher prices for consumers, and higher wages compensate workers for 60% of the cost of mandated investment in occupation-specific human capital. Welfare effects appear more favourable in occupations in which licensing is more common.",
+      "abstract_cn": "我们评估了职业许可对工人和消费者的福利后果。我们估计了一个劳动力市场均衡模型，其中许可限制了劳动力供给，但也通过工人质量和选择影响劳动力需求。在美国各州许可程度不同的职业边际上，我们发现许可提高了工资和工作时间，但减少了就业。我们估计平均福利损失为职业剩余的12%。工人和消费者分别承担70%和30%的负担。更高的支付意愿抵消了消费者面临的80%的价格上涨，而更高的工资补偿了工人因强制投资于职业特定人力资本而承担的60%的成本。在许可更为普遍的职业中，福利效应似乎更为有利。",
+      "doi": "10.1093/restud/rdad015",
+      "source_url": "https://academic.oup.com/restud/article/90/5/2481/7049987",
+      "sources": {
+        "roster": "https://academic.oup.com/restud/issue/90/5",
+        "metadata": "https://academic.oup.com/restud/article/90/5/2481/7049987",
+        "abstract_en": "https://academic.oup.com/restud/article/90/5/2481/7049987"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-18T17:39:18+00:00",
+        "source_hash": "d9fed176b4757c734d6188fe60410b8b25a15ef8797eb020557ec0330a498dbb"
+      },
+      "quality_flags": [],
+      "publication_date": "September 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1093/restud/rdac084",
-      "sequence": 8,
-      "source_sequence": 2517,
+      "sequence": 12,
+      "source_sequence": 12,
       "article_type": "research-article",
       "title_en": "A Network Solution to Robust Implementation: The Case of Identical but Unknown Distributions",
       "title_cn": "稳健实施的网络解决方案：相同但未知分布的情形",
@@ -316,7 +468,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/90/5",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/90/5",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -339,8 +491,8 @@
     },
     {
       "paper_id": "doi:10.1093/restud/rdad018",
-      "sequence": 9,
-      "source_sequence": 2555,
+      "sequence": 13,
+      "source_sequence": 13,
       "article_type": "research-article",
       "title_en": "A More Credible Approach to Parallel Trends",
       "title_cn": "一种更可信的平行趋势方法",
@@ -356,7 +508,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/90/5",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/90/5",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -379,8 +531,8 @@
     },
     {
       "paper_id": "doi:10.1093/restud/rdad002",
-      "sequence": 10,
-      "source_sequence": 2592,
+      "sequence": 14,
+      "source_sequence": 14,
       "article_type": "research-article",
       "title_en": "Testing the Production Approach to Markup Estimation",
       "title_cn": "检验加成率估计的生产方法",
@@ -395,7 +547,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/90/5",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/90/5",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -417,9 +569,45 @@
       }
     },
     {
+      "paper_id": "doi:10.1093/restud/rdac082",
+      "sequence": 15,
+      "source_sequence": 15,
+      "article_type": "research-article",
+      "title_en": "More Than a Penny’s Worth: Left-Digit Bias and Firm Pricing",
+      "title_cn": "不止一分钱：左位数字偏差与企业定价",
+      "authors": [
+        "Strulov-Shlain, Avner"
+      ],
+      "abstract_en": "Firms arguably price at ninety-nine-ending prices because of left-digit bias—the tendency of consumers to perceive a $4.99 as much lower than a $5.00. Analysis of retail scanner data on 3500 products sold by twenty-five U.S. chains provides robust support for this explanation. I structurally estimate the magnitude of left-digit bias and find that consumers respond to a one-cent increase from a ninety-nine-ending price as if it were more than a twenty-cent increase. Next, I solve a portable model of optimal pricing given left-digit biased demand. I use this model and other pricing procedures to estimate the level of left-digit bias retailers perceive when making their pricing decisions. While all retailers respond to left-digit bias by using ninety-nine-ending prices, their behaviour is consistently at odds with the demand they face. Firms price as if the bias were much smaller than it is, and their pricing is more consistent with heuristics and rule-of-thumb than with optimization given the structure of demand. I calculate that retailers forgo 1–4% of potential gross profits due to this coarse response to demand.",
+      "abstract_cn": "企业之所以采用以99结尾的价格，可能是因为左位数字偏差，即消费者倾向于认为4.99美元远低于5.00美元。对25家美国连锁企业销售的3500种产品进行零售扫描数据分析，为这一解释提供了有力支持。我结构性估计左位数字偏差的大小，发现消费者对以99结尾的价格上涨1美分的反应，仿佛价格上涨超过20美分。随后，我在存在左位数字偏差需求的情况下，求解最优定价的可移植模型。我使用这一模型和其他定价程序，估计零售商在制定定价决策时所感知的左位数字偏差程度。虽然所有零售商都会利用左位数字偏差采用以99结尾的价格，但其行为始终与所面对的需求不一致。企业定价时所依据的偏差远小于实际偏差，其定价行为也更符合启发式规则，而不是在需求结构给定时进行优化。我计算出，由于这种粗略的反应，零售商放弃了潜在毛利润的1–4%。",
+      "doi": "10.1093/restud/rdac082",
+      "source_url": "https://academic.oup.com/restud/article/90/5/2612/6931812",
+      "sources": {
+        "roster": "https://academic.oup.com/restud/issue/90/5",
+        "metadata": "https://academic.oup.com/restud/article/90/5/2612/6931812",
+        "abstract_en": "https://academic.oup.com/restud/article/90/5/2612/6931812"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "local-translation-repair",
+        "model": "codex-local",
+        "prompt_version": "res-browser-article-repair-v1",
+        "translated_at": "2026-09-03T06:43:39+00:00",
+        "source_hash": "bee76d758ab698dfe252aa645cc154cbc5184d1dafe041d44a6a60bc56632b91"
+      },
+      "quality_flags": [],
+      "publication_date": "September 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1093/restud/rdac083",
-      "sequence": 11,
-      "source_sequence": 2646,
+      "sequence": 16,
+      "source_sequence": 16,
       "article_type": "research-article",
       "title_en": "Stratification Trees for Adaptive Randomisation in Randomised Controlled Trials",
       "title_cn": "分层树用于随机对照试验中的自适应随机化",
@@ -434,7 +622,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/90/5",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/90/5",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -459,51 +647,58 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "crossref",
-    "roster_authority": "crossref-provisional",
+    "roster_transport": "browser-authorized",
+    "roster_authority": "official-issue-page",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 11,
-    "authors_complete": 11,
-    "abstract_en_complete": 11,
-    "translation_complete": 11,
+    "doi_complete": 16,
+    "authors_complete": 16,
+    "abstract_en_complete": 16,
+    "translation_complete": 16,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
-    ],
-    "official_item_count": 11,
-    "publishable_item_count": 11,
+    "flags": [],
+    "official_item_count": 17,
+    "publishable_item_count": 16,
     "content_counts": {
-      "official_items": 11,
-      "observed_items": 11,
-      "publishable_items": 11,
-      "research_articles": 11,
+      "official_items": 17,
+      "observed_items": 16,
+      "publishable_items": 16,
+      "research_articles": 16,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 11
+      "catalog_content_items": 16
+    },
+    "official_roster_evidence": {
+      "captured_at": "2026-09-03T06:43:48+00:00",
+      "official_url": "https://academic.oup.com/restud/issue/90/5",
+      "method": "browser-authorized",
+      "item_count": 16,
+      "excluded_item_count": 1,
+      "archive_reordered": false,
+      "sequence_sha256": "3fb024e50d934374e8d67e946000331518ceb0504f2dcf04d394bcd9b24bf222",
+      "privacy_fields_stored": false
     }
   },
-  "source_status": "source_pending",
-  "publication_state": "source_pending",
+  "source_status": "official_verified",
+  "publication_state": "ready",
   "content_counts": {
-    "official_items": 11,
-    "observed_items": 11,
-    "publishable_items": 11,
-    "research_articles": 11,
+    "official_items": 17,
+    "observed_items": 16,
+    "publishable_items": 16,
+    "research_articles": 16,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 11
+    "catalog_content_items": 16
   },
   "issue_label": "Vol. 90 · No. 5",
   "content_status": "complete"
