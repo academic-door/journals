@@ -428,6 +428,23 @@ class TranslationPipelineTests(unittest.TestCase):
                 },
             )
 
+    def test_unicode_hyphen_written_percentage_keeps_compound_value(self) -> None:
+        source = (
+            "Ninety‑eight percent of beneficiaries repaid the loan after harvest, "
+            "according to the study's complete results."
+        )
+        translated = (
+            "收获后，百分之九十八的受益人偿还了贷款；研究还完整记录了这一结果及其含义。"
+        )
+        validate_translation(
+            {
+                "title_en": "Loan repayment",
+                "abstract_en": source,
+                "article_type": "research-article",
+            },
+            {"title_cn": "贷款偿还", "abstract_cn": translated},
+        )
+
     def test_written_century_ordinal_does_not_look_like_an_added_number(self) -> None:
         source = (
             "Spain was rich around 1500, but prices rose by 200% by the "
@@ -544,6 +561,14 @@ class TranslationPipelineTests(unittest.TestCase):
         translated = "该研究覆盖6亿次会话和2100万名乘客。"
         self.assertEqual(
             Counter({"600000000": 1, "21000000": 1}),
+            _translation_numeric_multiset(source, translated),
+        )
+
+    def test_million_and_billion_chinese_scale_variants_match(self) -> None:
+        source = "The hospital received $3 billion and studied 10 million cases."
+        translated = "该医院获得3十亿资金并研究了10百万个病例。"
+        self.assertEqual(
+            Counter({"3000000000": 1, "10000000": 1}),
             _translation_numeric_multiset(source, translated),
         )
 
