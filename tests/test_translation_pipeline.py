@@ -441,6 +441,14 @@ class TranslationPipelineTests(unittest.TestCase):
         self.assertIn("十七世纪中叶", normalized)
         self.assertCountEqual(_numbers(source), _numbers(normalized))
 
+    def test_hyphenated_english_number_word_does_not_split_suffix_digit(self) -> None:
+        source = "The sample follows sixty-five-year-old participants through 2013."
+        self.assertEqual(_numbers(source), ["2013"])
+        self.assertEqual(_numbers("The sample covers under-65 adults."), ["65"])
+
+    def test_written_decades_keep_their_numeric_horizon(self) -> None:
+        self.assertEqual(_written_number_values("in less than two decades"), ["20"])
+
     def test_hyphenated_and_coordinated_centuries_preserve_numeric_facts(self) -> None:
         article = {
             "title_en": "When Did Growth Begin?",
@@ -530,6 +538,18 @@ class TranslationPipelineTests(unittest.TestCase):
             Counter({"1000000": 1, "1.4": 1}),
             _translation_numeric_multiset(source, "百万卡车装载量和1.4百万个番茄"),
         )
+
+    def test_arabic_scale_quantities_match_chinese_scales(self) -> None:
+        source = "The study covers 600 million sessions and 21 million passengers."
+        translated = "该研究覆盖6亿次会话和2100万名乘客。"
+        self.assertEqual(
+            Counter({"600000000": 1, "21000000": 1}),
+            _translation_numeric_multiset(source, translated),
+        )
+
+    def test_latex_percent_and_decimal_scale_are_not_split(self) -> None:
+        source = r"Emissions fell by 43$\%$ and savings exceeded $1.2 billion."
+        self.assertEqual(_numbers(source), ["43%", "1.2"])
 
     def test_around_and_legal_labels_do_not_hide_numeric_results(self) -> None:
         # "around" must not be treated as the identifier label "round".

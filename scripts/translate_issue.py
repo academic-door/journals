@@ -381,6 +381,18 @@ def _written_number_values(value: str) -> list[str]:
         if percent or percent_range or (has_scale and has_cardinal) or "-" in phrase:
             values.append(f"{parsed}%" if percent or percent_range else str(parsed))
 
+    decade_words = "|".join(
+        word
+        for word, number in NUMBER_WORD_VALUES.items()
+        if 1 <= number <= 10
+    )
+    for match in re.finditer(
+        rf"\b(?P<number>{decade_words})\s+decades?\b",
+        searchable,
+        flags=re.IGNORECASE,
+    ):
+        values.append(str(NUMBER_WORD_VALUES[match.group("number").casefold()] * 10))
+
     # Historical economics abstracts commonly use ordinal century phrases in
     # both ``seventeenth-century`` and coordinated plural forms such as
     # ``eighteenth and early nineteenth centuries``.  These are numeric facts
@@ -592,6 +604,11 @@ ATTACHED_QUANTITY_PATTERN = re.compile(
     r"(?:pp|bps?|km(?:2|3|²|³)?|m(?:2|3|²|³)|cm(?:2|3|²|³)|"
     r"mm(?:2|3|²|³)|kg|mg|ha|mph|kph|US\$)(?![A-Za-z0-9_])"
 )
+ARABIC_SCALE_PATTERN = re.compile(
+    r"(?i)(?<![A-Za-z0-9_.])"
+    r"(?P<number>\d{1,3}(?:,\d{3})+|\d+)\s+"
+    r"(?P<scale>thousand|million|billion)(?![A-Za-z0-9_])"
+)
 
 
 def _canonical_number(number: str) -> str:
@@ -606,6 +623,9 @@ def _canonical_number(number: str) -> str:
 
 
 def _numbers(value: str) -> list[str]:
+    # Crossref/OUP deposits sometimes encode a percent sign as ``$\\%$``.
+    # Normalize this presentation artifact before extracting the numeric fact.
+    value = str(value).replace("$\\%$", "%").replace("\\%", "%")
     values: list[str] = []
     protected_spans: list[tuple[int, int]] = []
     for match in COMPACT_CURRENCY_PATTERN.finditer(value):
@@ -629,10 +649,30 @@ def _numbers(value: str) -> list[str]:
     for match in ATTACHED_QUANTITY_PATTERN.finditer(value):
         protected_spans.append(match.span())
         values.append(_canonical_number(match.group("number")))
+    for match in ARABIC_SCALE_PATTERN.finditer(value):
+        protected_spans.append(match.span())
+        scale = {
+            "thousand": 1_000,
+            "million": 1_000_000,
+            "billion": 1_000_000_000,
+        }[match.group("scale").casefold()]
+        amount = int(match.group("number").replace(",", "")) * scale
+        values.append(str(amount))
     for match in NUMBER_PATTERN.finditer(value):
         # Currency-prefixed amounts and attached quantities were already
         # captured above; do not count their digits a second time.
         if any(start <= match.start() < end for start, end in protected_spans):
+            continue
+        # A numeric suffix in a hyphenated English number word (``sixty-five``)
+        # is not an independent Arabic data value.  Keep ``1-in-100`` and
+        # similar numeric compounds countable by requiring the alphabetic
+        # segment to start at a token boundary rather than after another
+        # digit/hyphen.
+        hyphenated_word = re.search(
+            r"(?<![A-Za-z0-9_\-])(?P<word>[A-Za-z]+)[-‐‑‒–—]$",
+            value[: match.start()],
+        )
+        if hyphenated_word and hyphenated_word.group("word").casefold() in NUMBER_WORD_VALUES:
             continue
         # Unit exponents such as ``year−1`` are commonly rendered as “每年” in
         # Chinese. They describe a denominator, not a reported numeric result.
@@ -1009,6 +1049,23 @@ def _canonicalize_chinese_numerals(source: str, translated: str) -> str:
     """
     source_numbers = set(_numbers(source) + _written_number_values(source))
 
+    # Google and other translators often combine an Arabic coefficient with
+    # a Chinese large-number unit (``6亿`` or ``2100万``).  Parse that form
+    # before the Chinese-character-only matcher so it can be compared with
+    # expanded source quantities such as ``600 million``.
+    def replace_arabic_scale(match: re.Match[str]) -> str:
+        raw = match.group("number").replace(",", "")
+        value = float(raw) * {"万": 10_000, "亿": 100_000_000}[match.group("unit")]
+        rendered = str(int(value)) if value.is_integer() else str(value)
+        return rendered if rendered in source_numbers else match.group(0)
+
+    normalized = re.sub(
+        r"(?<!\d)(?P<number>\d{1,3}(?:,\d{3})+|\d+(?:\.\d+)?)\s*"
+        r"(?P<unit>[万亿])",
+        replace_arabic_scale,
+        _collapse_chinese_numeral_spaces(translated),
+    )
+
     def replace_percent(match: re.Match[str]) -> str:
         value = _parse_chinese_numeral(match.group(1))
         rendered = f"{value}%"
@@ -1019,7 +1076,7 @@ def _canonicalize_chinese_numerals(source: str, translated: str) -> str:
     normalized = re.sub(
         r"百分之(" + CN_NUMERAL_PATTERN.pattern + r")",
         replace_percent,
-        _collapse_chinese_numeral_spaces(translated),
+        normalized,
     )
 
     def replace_numeral(match: re.Match[str]) -> str:
@@ -1277,8 +1334,8 @@ def _translation_numeric_multiset(source: str, translated: str) -> Counter[str]:
     # source coefficient, while a standalone ``百万`` represents one million.
     # Remove the scale only from a decimal/integer coefficient before the
     # Chinese numeral canonicalizer handles standalone scale words.
-    normalized = re.sub(r"(?<!\d)(\d+(?:\.\d+)?)\s*百万", r"\1", normalized)
-    normalized = re.sub(r"(?<!\d)(\d+(?:\.\d+)?)\s*亿", r"\1", normalized)
+    normalized = re.sub(r"(?<!\d)(\d+\.\d+)\s*百万", r"\1", normalized)
+    normalized = re.sub(r"(?<!\d)(\d+\.\d+)\s*亿", r"\1", normalized)
     normalized = _normalize_written_number_translations(source, normalized)
     normalized = _canonicalize_chinese_numerals(
         source,
