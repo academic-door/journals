@@ -1194,7 +1194,7 @@ Generated: 2026-09-02T16:38:19+00:00
 | RED | red-60-c | 2026 | source_pending | complete | source_pending | possible_incomplete_volume: 4 articles collected vs current issue 12; needs official page or browser-authorized capture |
 | RED | red-61-c | 2026 | source_pending | complete | source_pending | official source verification pending |
 | RED | red-62-c | 2026 | recoverable | blocked | source_pending | archive_missing |
-| RES | res-90-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| RES | res-90-1 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | RES | res-90-2 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | RES | res-90-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | RES | res-90-4 | 2023 | source_pending | complete | source_pending | official source verification pending |
@@ -1248,7 +1248,7 @@ Generated: 2026-09-02T16:38:19+00:00
 | RFS | rfs-36-6 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-36-7 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-36-8 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| RFS | rfs-36-9 | 2023 | translation_required | complete | source_pending | translation incomplete |
+| RFS | rfs-36-9 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-37-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-37-10 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-37-11 | 2024 | ready | complete | official_verified | content and official source gates passed |

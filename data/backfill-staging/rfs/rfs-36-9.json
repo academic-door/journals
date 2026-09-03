@@ -7,16 +7,16 @@
   "issue": "9",
   "publication_date": "August 2023",
   "source_url": "https://academic.oup.com/rfs/issue/36/9",
-  "retrieved_at": "2026-09-03T00:35:42+00:00",
-  "expected_article_count": 6,
-  "research_article_count": 6,
-  "status": "incomplete",
+  "retrieved_at": "2026-08-24T14:04:31+00:00",
+  "expected_article_count": 10,
+  "research_article_count": 10,
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
       "paper_id": "doi:10.1093/rfs/hhad014",
       "sequence": 1,
-      "source_sequence": 3423,
+      "source_sequence": 1,
       "article_type": "research-article",
       "title_en": "How ETFs Amplify the Global Financial Cycle in Emerging Markets",
       "title_cn": "ETF如何放大新兴市场的全球金融周期",
@@ -33,7 +33,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/36/9",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/36/9",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -55,9 +55,85 @@
       }
     },
     {
-      "paper_id": "doi:10.1093/rfs/hhad017",
+      "paper_id": "doi:10.1093/rfs/hhad019",
       "sequence": 2,
-      "source_sequence": 3548,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "SPACs",
+      "title_cn": "特殊目的收购公司（SPAC）",
+      "authors": [
+        "Minmo Gahng",
+        "Jay R Ritter",
+        "Donghang Zhang"
+      ],
+      "abstract_en": "Going public by merging with a Special Purpose Acquisition Company (SPAC) is much more expensive than conducting a traditional IPO. We rationalize why some companies merge with a SPAC by listing the potential benefits. We analyze the agency problems that certain SPAC features address. SPAC IPO investors and deal sponsors have earned remarkably high annualized average returns, although we warn that recent deals are likely to disappoint. Public investors in the merged companies have earned very low market-adjusted returns on an equally weighted basis, although high redemptions on the worst deals have limited the amount of money that they lost.",
+      "abstract_cn": "通过与特殊目的收购公司（SPAC）合并上市，成本远高于传统首次公开募股。我们列举潜在收益，解释为何一些公司选择与SPAC合并上市，并分析SPAC的某些特征所应对的代理问题。SPAC首次公开募股投资者和交易发起人获得了异常高的年化平均回报，但我们提醒，近期交易可能令人失望。合并后公司的公众投资者在等权重口径下获得了极低的市场调整后回报，尽管最差交易中的高赎回率限制了他们的损失。",
+      "doi": "10.1093/rfs/hhad019",
+      "source_url": "https://academic.oup.com/rfs/article/36/9/3463/7067751",
+      "sources": {
+        "roster": "https://academic.oup.com/rfs/issue/36/9",
+        "metadata": "https://academic.oup.com/rfs/article/36/9/3463/7067751",
+        "abstract_en": "https://academic.oup.com/rfs/article/36/9/3463/7067751"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "manual-local",
+        "model": "codex",
+        "prompt_version": "manual-rfs-36-9-article-repair-v1",
+        "translated_at": "2026-09-03T00:00:00+00:00",
+        "source_hash": "d86de1b94e6dacf7404c28231fb93041132f7e502136da9353e04e88245c1c7e"
+      },
+      "quality_flags": [],
+      "publication_date": "August 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/rfs/hhad020",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "The Overnight Drift",
+      "title_cn": "隔夜漂移",
+      "authors": [
+        "Nina Boyarchenko",
+        "Lars C Larsen",
+        "Paul Whelan"
+      ],
+      "abstract_en": "This paper documents that U.S. equity returns are large and positive during the opening hours of European markets. These returns are pervasive and highly economically and statistically significant. Consistent with models of inventory risk, we demonstrate a strong relationship with order imbalances at the close of the preceding U.S. trading day. Rationalizing unconditionally positive “overnight drift” returns, we uncover an asymmetric reaction to demand shocks: market sell-offs generate robust positive overnight reversals, while reversals following market rallies are much more modest. We argue that demand shock asymmetry can arise in inventory management models with time-varying market maker risk-bearing capacity.",
+      "abstract_cn": "本文记录了美国股票收益在欧洲市场开盘期间是巨大且为正的。这些收益普遍存在，且在经济和统计上高度显著。与库存风险模型一致，我们证明了其与前一美国交易日收盘时的订单失衡存在强关系。为了合理化无条件为正的“隔夜漂移”收益，我们发现了对需求冲击的不对称反应：市场抛售产生强劲的正隔夜反转，而市场反弹后的反转则温和得多。我们认为，需求冲击的不对称性可能产生于具有时变做市商风险承受能力的库存管理模型中。作者提供了互联网附录，可在牛津大学出版社网站上与最终发表论文的链接旁边获取。",
+      "doi": "10.1093/rfs/hhad020",
+      "source_url": "https://academic.oup.com/rfs/article/36/9/3502/7076616",
+      "sources": {
+        "roster": "https://academic.oup.com/rfs/issue/36/9",
+        "metadata": "https://academic.oup.com/rfs/article/36/9/3502/7076616",
+        "abstract_en": "https://academic.oup.com/rfs/article/36/9/3502/7076616"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-18T17:26:17+00:00",
+        "source_hash": "bee5e55048b170c840cb41052597729c8862c60e85e39b3538b7048d6cda8b86"
+      },
+      "quality_flags": [],
+      "publication_date": "August 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1093/rfs/hhad017",
+      "sequence": 4,
+      "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Option Return Predictability with Machine Learning and Big Data",
       "title_cn": "机器学习和大数据下的期权收益可预测性",
@@ -75,7 +151,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/36/9",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/36/9",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -97,9 +173,48 @@
       }
     },
     {
+      "paper_id": "doi:10.1093/rfs/hhad021",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "How to Talk When a Machine Is Listening: Corporate Disclosure in the Age of AI",
+      "title_cn": "当机器在倾听时如何说话：人工智能时代的企业信息披露",
+      "authors": [
+        "Sean Cao",
+        "Wei Jiang",
+        "Baozhong Yang",
+        "Alan L Zhang"
+      ],
+      "abstract_en": "Growing AI readership (proxied for by machine downloads and ownership by AI-equipped investors) motivates firms to prepare filings friendlier to machine processing and to mitigate linguistic tones that are unfavorably perceived by algorithms. Loughran and McDonald (2011) and BERT available since 2018 serve as event studies supporting attribution of the decrease in the measured negative sentiment to increased machine readership. This relationship is stronger among firms with higher benefits to (e.g., external financing needs) or lower cost (e.g., litigation risk) of sentiment management. This is the first study exploring the feedback effect on corporate disclosure in response to technology.",
+      "abstract_cn": "日益增长的AI读者群（以机器下载量和配备AI的投资者持股作为代理指标）促使企业编制更便于机器处理的文件，并缓解算法不友好感知的语言语调。Loughran和McDonald（2011）以及自2018年起可用的BERT作为事件研究，支持将负面情绪测量值的下降归因于机器读者群的增加。这种关系在情绪管理收益较高（如外部融资需求）或成本较低（如诉讼风险）的企业中更为显著。这是首项探讨企业信息披露对技术反馈效应的研究。作者提供了互联网附录，可在牛津大学出版社网站上与最终在线发表论文的链接旁获取。",
+      "doi": "10.1093/rfs/hhad021",
+      "source_url": "https://academic.oup.com/rfs/article/36/9/3603/7087110",
+      "sources": {
+        "roster": "https://academic.oup.com/rfs/issue/36/9",
+        "metadata": "https://academic.oup.com/rfs/article/36/9/3603/7087110",
+        "abstract_en": "https://academic.oup.com/rfs/article/36/9/3603/7087110"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-18T17:26:19+00:00",
+        "source_hash": "f4760d898b84e28b42d194e3dea62c1f1a7e987ddb4f912b6f3d845490eb43f7"
+      },
+      "quality_flags": [],
+      "publication_date": "August 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1093/rfs/hhad018",
-      "sequence": 3,
-      "source_sequence": 3643,
+      "sequence": 6,
+      "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "Secret and Overt Information Acquisition in Financial Markets",
       "title_cn": "金融市场中的秘密与公开信息获取",
@@ -115,7 +230,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/36/9",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/36/9",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -138,8 +253,8 @@
     },
     {
       "paper_id": "doi:10.1093/rfs/hhad013",
-      "sequence": 4,
-      "source_sequence": 3693,
+      "sequence": 7,
+      "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "Designing Securities for Scrutiny",
       "title_cn": "设计接受审查的证券",
@@ -156,7 +271,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/36/9",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/36/9",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -178,9 +293,47 @@
       }
     },
     {
+      "paper_id": "doi:10.1093/rfs/hhad016",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Monetary Policy, Business Liquidity and Survival: Evidence from the Refinancing Channel",
+      "title_cn": "货币政策、企业流动性与生存：来自再融资渠道的证据",
+      "authors": [
+        "Haoyang Liu",
+        "Dean Parker",
+        "Rodney Ramcharan"
+      ],
+      "abstract_en": "We study the impact of the refinancing channel of monetary policy on very small and medium-sized businesses. Using data covering the near universe of these businesses, we find that increased household refinancing reduces the probability that a business exits or exhausts its debt capacity in the calendar year, as well as 6 years after the first exposure. It also helps younger businesses maintain credit relationships. Financial factors, like business liquidity, as well as local demand dependence, amplify these effects, especially for very small businesses. These results suggest that the refinancing channel of monetary policy can have large long-run effects on local economies.",
+      "abstract_cn": "我们研究了货币政策的再融资渠道对非常小型和中型企业的影响。利用覆盖这些企业近乎总体的数据，我们发现，家庭再融资的增加降低了企业在日历年内以及首次暴露后6年退出或耗尽债务能力的概率。它还有助于年轻企业维持信贷关系。财务因素，如企业流动性，以及当地需求依赖，放大了这些效应，尤其是对非常小型企业。这些结果表明，货币政策的再融资渠道可以对当地经济产生巨大的长期影响。作者提供了互联网附录，可在牛津大学出版社网站上与最终发表论文的链接旁边获取。",
+      "doi": "10.1093/rfs/hhad016",
+      "source_url": "https://academic.oup.com/rfs/article/36/9/3738/7056663",
+      "sources": {
+        "roster": "https://academic.oup.com/rfs/issue/36/9",
+        "metadata": "https://academic.oup.com/rfs/article/36/9/3738/7056663",
+        "abstract_en": "https://academic.oup.com/rfs/article/36/9/3738/7056663"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-18T17:26:25+00:00",
+        "source_hash": "a508e6e08a688d4706db685f8e82e133b64693191c06e8507175b639ec709bcc"
+      },
+      "quality_flags": [],
+      "publication_date": "August 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1093/rfs/hhad015",
-      "sequence": 5,
-      "source_sequence": 3781,
+      "sequence": 9,
+      "source_sequence": 9,
       "article_type": "research-article",
       "title_en": "Joining Forces: The Spillover Effects of EPA Enforcement Actions and the Role of Socially Responsible Investors",
       "title_cn": "联合力量：EPA执法行动的溢出效应与社会责任投资者的作用",
@@ -197,7 +350,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/36/9",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/36/9",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -220,8 +373,8 @@
     },
     {
       "paper_id": "doi:10.1093/rfs/hhad012",
-      "sequence": 6,
-      "source_sequence": 3825,
+      "sequence": 10,
+      "source_sequence": 10,
       "article_type": "research-article",
       "title_en": "What Drives Firms’ Hiring Decisions? An Asset Pricing Perspective",
       "title_cn": "什么驱动企业的招聘决策？一个资产定价视角",
@@ -239,7 +392,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue/36/9",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rfs/issue/36/9",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -264,51 +417,58 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "crossref",
-    "roster_authority": "crossref-provisional",
+    "roster_transport": "browser-authorized",
+    "roster_authority": "official-issue-page",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 6,
-    "authors_complete": 6,
-    "abstract_en_complete": 6,
-    "translation_complete": 6,
+    "doi_complete": 10,
+    "authors_complete": 10,
+    "abstract_en_complete": 10,
+    "translation_complete": 10,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
-    ],
-    "official_item_count": 6,
-    "publishable_item_count": 6,
+    "flags": [],
+    "official_item_count": 10,
+    "publishable_item_count": 10,
     "content_counts": {
-      "official_items": 6,
-      "observed_items": 6,
-      "publishable_items": 6,
-      "research_articles": 6,
+      "official_items": 10,
+      "observed_items": 10,
+      "publishable_items": 10,
+      "research_articles": 10,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 6
+      "catalog_content_items": 10
+    },
+    "official_roster_evidence": {
+      "captured_at": "2026-09-03T06:11:23+00:00",
+      "official_url": "https://academic.oup.com/rfs/issue/36/9",
+      "method": "browser-authorized",
+      "item_count": 10,
+      "excluded_item_count": 0,
+      "archive_reordered": false,
+      "sequence_sha256": "e65e0dea42239dc7913f880a55207ec85754707972512172f03732135f495afe",
+      "privacy_fields_stored": false
     }
   },
-  "source_status": "source_pending",
-  "publication_state": "source_pending",
+  "source_status": "official_verified",
+  "publication_state": "ready",
   "content_counts": {
-    "official_items": 6,
-    "observed_items": 6,
-    "publishable_items": 6,
-    "research_articles": 6,
+    "official_items": 10,
+    "observed_items": 10,
+    "publishable_items": 10,
+    "research_articles": 10,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 6
+    "catalog_content_items": 10
   },
   "issue_label": "Vol. 36 · No. 9",
   "content_status": "complete"

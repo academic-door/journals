@@ -1,21 +1,21 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-09-03T06:12:49+00:00",
+  "updated_at": "2026-09-03T06:14:01+00:00",
   "summary": {
-    "complete": 1120,
+    "complete": 1121,
     "translation_partial": 0,
     "blocked": 66,
     "collected": 0,
-    "pending": 145
+    "pending": 144
   },
   "coverage": {
     "discovered": 1331,
     "archived": 1265,
     "content_ready": 1265,
-    "source_verified": 1144,
-    "publication_ready": 1144,
+    "source_verified": 1145,
+    "publication_ready": 1145,
     "missing": 66,
-    "source_pending": 121,
+    "source_pending": 120,
     "missing_issue_ids": [
       "ecolecon-224-c",
       "ecolecon-225-c",
@@ -201,7 +201,6 @@
       "restat-108-2",
       "restat-108-3",
       "restat-108-4",
-      "rfs-36-9",
       "te-20-1",
       "te-20-2",
       "te-20-3",
@@ -2081,30 +2080,26 @@
       "discovered": 44,
       "archived": 43,
       "content_ready": 43,
-      "source_verified": 42,
-      "publication_ready": 42,
+      "source_verified": 43,
+      "publication_ready": 43,
       "missing": 1,
-      "source_pending": 1,
+      "source_pending": 0,
       "missing_issue_ids": [
         "rfs-39-9"
       ],
-      "source_pending_issue_ids": [
-        "rfs-36-9"
-      ],
+      "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
       "years": {
         "2023": {
           "discovered": 12,
           "archived": 12,
           "content_ready": 12,
-          "source_verified": 11,
-          "publication_ready": 11,
+          "source_verified": 12,
+          "publication_ready": 12,
           "missing": 0,
-          "source_pending": 1,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "rfs-36-9"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "2024": {
@@ -18657,12 +18652,13 @@
         "year": 2023,
         "volume": "36",
         "issue": "9",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
+        "source_status": "official_verified",
+        "publication_state": "ready",
         "last_error": "",
-        "retry_class": "translation"
+        "retry_class": "source_recovered",
+        "last_error_code": ""
       },
       {
         "issue_id": "rfs-37-1",
@@ -19825,11 +19821,11 @@
   "periods": {
     "2023-2024": {
       "summary": {
-        "complete": 595,
+        "complete": 596,
         "translation_partial": 0,
         "blocked": 48,
         "collected": 0,
-        "pending": 65
+        "pending": 64
       },
       "issue_count": 708,
       "updated_at": "2026-09-02T00:30:27+00:00",
@@ -19995,11 +19991,11 @@
     },
     "2023-2026": {
       "summary": {
-        "complete": 276,
+        "complete": 277,
         "translation_partial": 0,
         "blocked": 17,
         "collected": 0,
-        "pending": 7
+        "pending": 6
       },
       "issue_count": 300,
       "updated_at": "2026-09-02T08:02:23+00:00",
@@ -20117,11 +20113,11 @@
   "years": {
     "2023": {
       "summary": {
-        "complete": 289,
+        "complete": 290,
         "translation_partial": 0,
         "blocked": 26,
         "collected": 0,
-        "pending": 37
+        "pending": 36
       },
       "issue_count": 352,
       "journals": [
