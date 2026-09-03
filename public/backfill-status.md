@@ -1281,7 +1281,7 @@ Discovery coverage: 1331 discovered — 1265 archived — 1150 publication ready
 | RFS | rfs-39-6 | 2026 | ready |  |
 | RFS | rfs-39-7 | 2026 | ready |  |
 | RFS | rfs-39-8 | 2026 | ready |  |
-| RFS | rfs-39-9 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 39/9 |
+| RFS | rfs-39-9 | 2023 | ready |  |
 | TE | te-18-1 | 2023 | blocked | archive_content_gate_failed |
 | TE | te-18-2 | 2023 | blocked | archive_content_gate_failed |
 | TE | te-18-3 | 2023 | blocked | archive_content_gate_failed |

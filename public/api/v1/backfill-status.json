@@ -1,12 +1,12 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-09-03T06:44:22+00:00",
+  "updated_at": "2026-09-03T06:53:29+00:00",
   "summary": {
-    "complete": 1123,
+    "complete": 1124,
     "translation_partial": 0,
     "blocked": 66,
     "collected": 0,
-    "pending": 142
+    "pending": 141
   },
   "coverage": {
     "discovered": 1331,
@@ -19038,12 +19038,13 @@
         "year": 2026,
         "volume": "39",
         "issue": "9",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "MetadataFallbackError: Crossref returned no usable issue 39/9",
-        "retry_class": "manual"
+        "status": "ready",
+        "content_status": "complete",
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "source_recovered",
+        "last_error_code": ""
       }
     ],
     "TE": [

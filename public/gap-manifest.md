@@ -5,9 +5,9 @@ Generated: 2026-09-02T16:38:19+00:00
 ## Summary
 
 - browser_required: 1
-- ready: 1144
+- ready: 1145
 - recoverable: 65
-- source_pending: 120
+- source_pending: 119
 - translation_required: 1
 
 ## Issue queue
@@ -1281,7 +1281,7 @@ Generated: 2026-09-02T16:38:19+00:00
 | RFS | rfs-39-6 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-39-7 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-39-8 | 2026 | ready | complete | official_verified | content and official source gates passed |
-| RFS | rfs-39-9 | 2026 | recoverable | blocked | source_pending | archive_missing |
+| RFS | rfs-39-9 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | TE | te-18-1 | 2023 | recoverable | blocked | source_pending | archive_missing |
 | TE | te-18-2 | 2023 | recoverable | blocked | source_pending | archive_missing |
 | TE | te-18-3 | 2023 | recoverable | blocked | source_pending | archive_missing |
