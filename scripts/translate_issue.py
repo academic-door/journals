@@ -380,6 +380,38 @@ def _written_number_values(value: str) -> list[str]:
         # contain an actual cardinal word (e.g. ``two thousand and ten``).
         if percent or percent_range or (has_scale and has_cardinal) or "-" in phrase:
             values.append(f"{parsed}%" if percent or percent_range else str(parsed))
+
+    # Historical economics abstracts commonly use ordinal century phrases in
+    # both ``seventeenth-century`` and coordinated plural forms such as
+    # ``eighteenth and early nineteenth centuries``.  These are numeric facts
+    # when translated as 17/18/19 世纪, not invented numbers.  Handle the
+    # coordinated form first so the second ordinal is not counted twice by
+    # the general matcher below.
+    century_words = "|".join(
+        sorted(CENTURY_ORDINAL_VALUES, key=len, reverse=True)
+    )
+    coordinated_century_pattern = re.compile(
+        rf"\b(?P<first>{century_words})\s+and\s+"
+        rf"(?:early\s+|late\s+|mid[-\s]+)?(?P<second>{century_words})\s+centuries\b",
+        flags=re.IGNORECASE,
+    )
+    coordinated_spans: list[tuple[int, int]] = []
+    for match in coordinated_century_pattern.finditer(searchable):
+        coordinated_spans.append(match.span())
+        values.append(str(CENTURY_ORDINAL_VALUES[match.group("first").casefold()]))
+        values.append(str(CENTURY_ORDINAL_VALUES[match.group("second").casefold()]))
+    century_pattern = re.compile(
+        rf"\b(?P<ordinal>{century_words})(?:\s*[-‐‑‒–—]\s*|\s+)"
+        r"centur(?:y|ies)\b",
+        flags=re.IGNORECASE,
+    )
+    for match in century_pattern.finditer(searchable):
+        if any(
+            not (match.end() <= start or match.start() >= end)
+            for start, end in coordinated_spans
+        ):
+            continue
+        values.append(str(CENTURY_ORDINAL_VALUES[match.group("ordinal").casefold()]))
     return values
 CENTURY_ORDINAL_VALUES = {
     "first": 1,
@@ -1038,7 +1070,7 @@ def _normalize_written_number_translations(source: str, translated: str) -> str:
     century_pattern = re.compile(
         r"\b(" + "|".join(
             sorted(CENTURY_ORDINAL_VALUES, key=len, reverse=True)
-        ) + r")\s+century\b",
+        ) + r")(?:\s*[-‐‑‒–—]\s*|\s+)centur(?:y|ies)\b",
         re.IGNORECASE,
     )
     for match in century_pattern.finditer(source):

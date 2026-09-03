@@ -441,6 +441,27 @@ class TranslationPipelineTests(unittest.TestCase):
         self.assertIn("十七世纪中叶", normalized)
         self.assertCountEqual(_numbers(source), _numbers(normalized))
 
+    def test_hyphenated_and_coordinated_centuries_preserve_numeric_facts(self) -> None:
+        article = {
+            "title_en": "When Did Growth Begin?",
+            "abstract_en": (
+                "Growth began in the seventeenth-century countryside. "
+                "Productivity rose in the eighteenth and early nineteenth "
+                "centuries, reaching 5% by 1860."
+            ),
+            "article_type": "research-article",
+        }
+        validate_translation(
+            article,
+            {
+                "title_cn": "增长何时开始？",
+                "abstract_cn": (
+                    "增长始于17世纪的乡村。生产率在18世纪和19世纪初上升，"
+                    "到1860年达到5%。这段摘要保留了全部研究事实与结论。"
+                ),
+            },
+        )
+
     def test_repairs_google_age_ranges_and_percent_phrases(self) -> None:
         source = (
             "Using birth certificates linked to administrative records, we find "
