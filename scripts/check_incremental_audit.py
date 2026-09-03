@@ -13,8 +13,12 @@ DOI_RE = re.compile(r"^(10\.\S+?):\s*(.*)$")
 
 def canonical_failure(line: str, *, doi_to_issue: dict[str, str] | None = None) -> dict[str, Any] | None:
     raw = re.sub(r"\x1b\[[0-?]*[ -/]*[@-~]", "", line).strip()
-    if raw.startswith("FAIL "):
-        raw = raw[5:].strip()
+    # ``audit_public_data.py`` emits a success summary on stdout.  Only its
+    # explicit ``FAIL `` records are audit findings; treating any other line
+    # as a failure makes a clean audit fail the incremental gate.
+    if not raw.startswith("FAIL "):
+        return None
+    raw = raw[5:].strip()
     if not raw:
         return None
     scope, separator, remainder = raw.partition(":")
