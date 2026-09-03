@@ -165,19 +165,32 @@ class PublicDataBranchOwnershipTests(unittest.TestCase):
                 self.assertNotIn("--path public/api", section)
                 self.assertNotRegex(section, r"git .*add .*public/api")
 
+    def test_deploy_always_uses_main_application_code(self) -> None:
+        text = self.workflow("deploy.yml")
+        checkout = text.index("uses: actions/checkout@v7")
+        overlay = text.index("Overlay generated data branch")
+        main_ref = text.index("ref: main", checkout)
+        self.assertLess(checkout, main_ref)
+        self.assertLess(main_ref, overlay)
+
     def test_deploy_audits_the_overlaid_data_before_build(self) -> None:
         text = self.workflow("deploy.yml")
         overlay = text.index("Overlay generated data branch")
+        completeness = text.index("Rebuild release-derived completeness ledger")
         audit = text.index("Audit overlaid release data")
         build = text.index("pnpm run build")
-        self.assertLess(overlay, audit)
+        self.assertLess(overlay, completeness)
+        self.assertLess(completeness, audit)
         self.assertLess(audit, build)
+        self.assertIn("scripts/build_completeness_ledger.py", text)
+        self.assertIn("public/api/v1/completeness/2026.json", text)
         self.assertIn("audit_public_data.py --strict-provenance", text)
         self.assertIn("audit_source_alignment.py", text)
         self.assertIn("audit_privacy.py", text)
         self.assertIn("audit_history_coverage.py", text)
         self.assertIn("STRICT_HISTORY_COVERAGE_ENABLED", text)
         self.assertIn("tests.test_history_period_audit", text)
+        self.assertIn("tests.test_public_data_branch_ownership", text)
 
     def test_health_check_validates_json_semantics_and_freshness(self) -> None:
         text = (ROOT / ".github" / "workflows" / "health.yml").read_text(
@@ -187,6 +200,9 @@ class PublicDataBranchOwnershipTests(unittest.TestCase):
         self.assertIn("translated_articles", text)
         self.assertIn("configured_journals", text)
         self.assertIn("source-audit.json", text)
+        self.assertIn("completeness/2026.json", text)
+        self.assertIn("completeness journal_count is not 49", text)
+        self.assertIn('timestamp_field(completeness, "completeness", "generated_at", 6)', text)
         self.assertIn("is stale", text)
         self.assertIn("Close recovered health issue", text)
 

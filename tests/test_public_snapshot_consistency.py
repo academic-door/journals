@@ -78,18 +78,33 @@ class PublicSnapshotConsistencyTests(unittest.TestCase):
         self.assertIn("全站合计 49 本", readme)
 
     def test_editorial_introduction_is_not_a_research_article(self) -> None:
-        issue = load_json(
-            PUBLIC_API / "journals" / "ej" / "issues" / "current.json"
-        )
-        included_titles = {article["title_en"] for article in issue["articles"]}
-        self.assertNotIn("Introduction by the Editor", included_titles)
-        matching = [
-            item
-            for item in issue["quality"]["excluded_items"]
-            if item.get("title_en") == "Introduction by the Editor"
-        ]
-        self.assertEqual(1, len(matching))
-        self.assertEqual("editorial", matching[0]["article_type"])
+        """Current snapshots must never publish a known editorial as research.
+
+        The previous assertion additionally required the *current* EJ issue to
+        contain exactly one excluded item titled "Introduction by the Editor".
+        That made the production monitor fail whenever EJ legitimately moved to
+        an issue without that editorial.  Article-type fixture tests cover the
+        positive classification rule; this repository-wide consistency guard
+        only enforces the invariant that the editorial cannot enter research.
+        """
+
+        for path in (PUBLIC_API / "journals").glob("*/issues/current.json"):
+            issue = load_json(path)
+            included_titles = {
+                article.get("title_en", "") for article in issue.get("articles", [])
+            }
+            self.assertNotIn(
+                "Introduction by the Editor",
+                included_titles,
+                path.as_posix(),
+            )
+            for item in issue.get("quality", {}).get("excluded_items", []):
+                if item.get("title_en") == "Introduction by the Editor":
+                    self.assertEqual(
+                        "editorial",
+                        item.get("article_type"),
+                        path.as_posix(),
+                    )
 
     def test_current_issue_dates_do_not_predate_their_articles(self) -> None:
         for path in (PUBLIC_API / "journals").glob("*/issues/current.json"):

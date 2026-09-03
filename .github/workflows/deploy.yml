@@ -28,6 +28,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          # Production application code is always the canonical main branch.
+          # workflow_dispatch remains available for recovery, but selecting a
+          # feature branch in the UI cannot publish that branch's application code.
+          ref: main
 
       - name: Overlay generated data branch when available
         shell: bash
@@ -56,6 +61,22 @@ jobs:
           cache: pip
 
       - run: python -m pip install -r requirements.txt
+
+      - name: Rebuild release-derived completeness ledger
+        shell: bash
+        run: |
+          state_args=()
+          for state in "$RUNNER_TEMP/data-state"/*.json; do
+            [ ! -f "$state" ] || state_args+=(--state "$state")
+          done
+          if [ "${#state_args[@]}" -eq 0 ]; then
+            echo "No persisted backfill state is available for the completeness ledger" >&2
+            exit 1
+          fi
+          python scripts/build_completeness_ledger.py \
+            "${state_args[@]}" \
+            --api-root public/api/v1 \
+            --out-json public/api/v1/completeness/2026.json
 
       - name: Audit overlaid release data
         env:
@@ -87,6 +108,7 @@ jobs:
             tests.test_issue_schema \
             tests.test_history_period_audit \
             tests.test_public_snapshot_consistency \
+            tests.test_public_data_branch_ownership \
             -v
 
       - uses: pnpm/action-setup@v6
