@@ -8,6 +8,8 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from collections import Counter
 from datetime import datetime, timezone
 from hashlib import sha256
+from decimal import Decimal
+
 from pathlib import Path
 from typing import Any
 
@@ -528,23 +530,32 @@ _CN_UNIT_CHARS = "十百千万亿"
 _FUZZY_CN_PREFIXES = "数几上成近约超逾余过多少"
 
 
-def _quantity_token(value: float) -> str:
-    """Render a semantic quantity as a canonical integer-or-decimal string."""
-    rounded = round(float(value), 9)
-    if rounded.is_integer():
-        return str(int(rounded))
-    text = f"{rounded:.9f}".rstrip("0").rstrip(".")
+def _quantity_token(value: "Decimal | int") -> str:
+    """Render a semantic quantity as a canonical integer-or-decimal string.
+
+    Uses ``decimal.Decimal`` (exact base-10 arithmetic) so ``1.033 billion``
+    canonicalizes to ``1033000000`` without binary floating-point residue.
+    """
+    if isinstance(value, int):
+        value = Decimal(value)
+    normalized = value.normalize()
+    if normalized == normalized.to_integral_value():
+        return str(int(normalized))
+    text = format(normalized, "f").rstrip("0").rstrip(".")
     return text or "0"
 
 
 def _scaled_token(amount: str, scale: int) -> str:
-    """Multiply a (already canonicalized) amount string by a scale factor."""
+    """Multiply a (already canonicalized) amount string by a scale factor.
+
+    The multiplication is performed in exact decimal arithmetic so scale
+    conversion never introduces binary-float artifacts.
+    """
     try:
-        value = float(_canonical_number(amount)) * scale
-    except ValueError:
+        value = Decimal(_canonical_number(amount)) * Decimal(scale)
+    except (ValueError, ArithmeticError):
         return _canonical_number(amount)
     return _quantity_token(value)
-
 
 def _is_chinese_identifier_ordinal(value: str, match: re.Match[str]) -> bool:
     """True when a Chinese-numeral run marks a small identifier ordinal."""
@@ -555,6 +566,62 @@ def _is_chinese_identifier_ordinal(value: str, match: re.Match[str]) -> bool:
     return False
 
 
+# A single Chinese digit drawn from a larger numeral run is handled by step 5;
+# this targets only standalone single-digit count words ("三年", "五组").
+_CN_NUM_CHARS = "零〇一二两三四五六七八九十百千万亿"
+_SINGLE_CN_DIGIT_RE = re.compile(
+    r"(?<![" + _CN_NUM_CHARS + r"])"
+    r"(?P<digit>[零〇一二两三四五六七八九十])"
+    r"(?![" + _CN_NUM_CHARS + r"])"
+)
+
+
+def _is_identifier_ordinal_context(value: str, match: re.Match[str]) -> bool:
+    """True when a single Chinese digit marks an ordinal (研究三 / 第2)."""
+    prefix = value[: match.start()]
+    if _cjk_identifier_label(prefix) is not None:
+        return True
+    return prefix.rstrip(" \t").endswith("第")
+
+
+def _single_cn_digit_values(value: str) -> list[str]:
+    """Return canonical quantity strings for standalone single Chinese digits.
+
+    Only 一..九 / 两(2) / 十(10) / 零.〇(0) are considered; 百/千/万/亿 alone are
+    too ambiguous ("百姓") and are ignored.  Ordinal contexts are excluded.
+    """
+    out: list[str] = []
+    for match in _SINGLE_CN_DIGIT_RE.finditer(value):
+        digit = match.group("digit")
+        if _is_identifier_ordinal_context(value, match):
+            continue
+        if digit == "十":
+            out.append("10")
+        elif digit in ("零", "〇"):
+            out.append("0")
+        else:
+            out.append(str(CN_DIGITS[digit]))
+    return out
+
+
+def _reconcile_single_cn_digits(
+    translated_text: str,
+    source_numbers: "Counter[str]",
+    translated_numbers: "Counter[str]",
+) -> None:
+    """Source-aware reconciliation of single Chinese digits.
+
+    A single Chinese digit in the translation is counted as a quantity only when
+    the source reliably carries that exact value beyond what the translation
+    already accounts for in Arabic.  This is fail closed: a translation cannot
+    fabricate a numeric value just by containing "三".
+    """
+    added: list[str] = []
+    for token in _single_cn_digit_values(translated_text):
+        if translated_numbers[token] + added.count(token) < source_numbers[token]:
+            added.append(token)
+    for token in added:
+        translated_numbers[token] += 1
 def _semantic_numbers(value: str) -> list[str]:
     """Return the reported numeric *quantities* in ``value`` as canonical strings.
 
@@ -1235,6 +1302,10 @@ def validate_translation(article: dict[str, Any], translated: dict[str, Any]) ->
     translated_text = f"{title_cn}\n{abstract_cn}"
     source_numbers = Counter(_semantic_numbers(source_text) + _month_numbers(source_text))
     translated_numbers = Counter(_semantic_numbers(translated_text) + _month_numbers(translated_text))
+    # Source-aware reconcile: a translation's single Chinese digit is counted
+    # only when the source carries that exact quantity (fail closed), so
+    # "3 years" -> "三年" passes and a stray "三" cannot invent a numeric value.
+    _reconcile_single_cn_digits(translated_text, source_numbers, translated_numbers)
     # Identifier labels (Section 5503, Table 2, 第5503条) are not data
     # values: exempt the source's identifier numbers on the translation side
     # too, so rendering them with Arabic digits is not flagged as invented.

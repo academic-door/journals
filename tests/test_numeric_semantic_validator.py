@@ -28,7 +28,7 @@ _PAD = (
 def _article(source_text: str) -> dict:
     return {
         "article_type": "research-article",
-        "title_en": "Test title",
+        "title_en": "Policy effects",
         "abstract_en": source_text,
     }
 
@@ -141,6 +141,77 @@ class AuditPublicDataSemanticWiringTests(unittest.TestCase):
                 _translation(translated),
             )
         self.assertGreater(spy.call_count, 0)
+
+
+
+
+class SemanticHardeningTests(unittest.TestCase):
+    """A1/A2/A3 hardening regression tests for validator defects."""
+
+    # --- A1: exact decimal canonicalization (no binary-float residue) ---
+    def test_a1_decimal_scale_is_exact(self) -> None:
+        self.assertEqual(_semantic_numbers("1.033 billion"), ["1033000000"])
+        self.assertEqual(_semantic_numbers("17.81 billion"), ["17810000000"])
+        self.assertEqual(_semantic_numbers("3.45 million"), ["3450000"])
+        self.assertEqual(_semantic_numbers("1033000000"), ["1033000000"])
+
+    def test_a1_no_binary_float_residue(self) -> None:
+        for text in ("1.033 billion", "17.81 billion", "3.45 million"):
+            for token in _semantic_numbers(text):
+                self.assertNotIn(".", token, f"{text!r} produced a float token {token!r}")
+
+    def test_a1_decimal_non_integer_is_stable(self) -> None:
+        self.assertEqual(_semantic_numbers("1.033"), ["1.033"])
+        self.assertEqual(_semantic_numbers("3.45"), ["3.45"])
+
+    # --- A2: source-aware single Chinese digit reconciliation ---
+    def test_a2_single_chinese_digit_matches_source_quantity(self) -> None:
+        validate_translation(
+            _article("3 years"), _translation("三年")
+        )
+        validate_translation(
+            _article("5 groups"), _translation("五组")
+        )
+        # A single digit is confirmed when the source carries the exact value.
+        validate_translation(_article("3 years"), _translation("三"))
+
+    def test_a2_single_chinese_digit_is_fail_closed(self) -> None:
+        # A different quantity (source 3 years vs 2 months) must fail.
+        with self.assertRaises(TranslationError):
+            validate_translation(
+                _article("3 years"), _translation("两个月")
+            )
+        # A non-quantified count word is not fabricated into a number.
+        validate_translation(_article("two types"), _translation("两种"))
+        # A standalone "三" with no source quantity does not invent a 3.
+        validate_translation(_article("several"), _translation("三"))
+        # A precise Chinese numeral absent from the source is still flagged.
+        with self.assertRaises(TranslationError):
+            validate_translation(_article("several"), _translation("三千"))
+
+    # --- A3: year/scale adjacency, identifier boundaries, percent ---
+    def test_a3_year_is_not_scaled(self) -> None:
+        self.assertEqual(_semantic_numbers("in the 1970s"), ["1970"])
+        self.assertEqual(_semantic_numbers("2023年"), ["2023"])
+        self.assertEqual(_semantic_numbers("from 1970 to 2010"), ["1970", "2010"])
+        # An Arabic "year" adjacent to a scale unit with no space means a quantity
+        # (2023万 = 20,230,000), not a year; that is a deliberate scalar.
+        self.assertEqual(_semantic_numbers("2023万"), ["20230000"])
+
+    def test_a3_identifier_ordinals_are_not_quantities(self) -> None:
+        self.assertEqual(_semantic_numbers("Section 5503"), [])
+        self.assertEqual(_semantic_numbers("Table 10"), [])
+        self.assertEqual(_semantic_numbers("Study 2"), [])
+        self.assertEqual(_semantic_numbers("第2轮"), [])
+        self.assertEqual(_semantic_numbers("研究三"), [])
+
+    def test_a3_percent_distinct_from_bare(self) -> None:
+        self.assertNotEqual(_semantic_numbers("100%"), _semantic_numbers("100"))
+
+    def test_a3_unicode_punctuation_no_span_overlap(self) -> None:
+        self.assertEqual(_semantic_numbers("3 - 5"), ["3", "5"])
+        self.assertEqual(_semantic_numbers("3.45–4.50"), ["3.45", "4.50"])
+        self.assertEqual(_semantic_numbers("2,000万人"), ["20000000"])
 
 
 if __name__ == "__main__":
