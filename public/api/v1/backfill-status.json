@@ -1,21 +1,21 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-09-03T04:59:07+00:00",
+  "updated_at": "2026-09-03T05:12:15+00:00",
   "summary": {
-    "complete": 1117,
+    "complete": 1118,
     "translation_partial": 0,
     "blocked": 66,
     "collected": 0,
-    "pending": 148
+    "pending": 147
   },
   "coverage": {
     "discovered": 1331,
     "archived": 1265,
     "content_ready": 1265,
-    "source_verified": 1136,
-    "publication_ready": 1136,
+    "source_verified": 1142,
+    "publication_ready": 1142,
     "missing": 66,
-    "source_pending": 129,
+    "source_pending": 123,
     "missing_issue_ids": [
       "ecolecon-224-c",
       "ecolecon-225-c",
@@ -149,12 +149,6 @@
       "jpe-132-2",
       "jpe-132-3",
       "jpe-132-4",
-      "qje-140-1",
-      "qje-140-2",
-      "qje-140-3",
-      "qje-140-4",
-      "qje-141-1",
-      "qje-141-2",
       "red-47-c",
       "red-48-c",
       "red-49-c",
@@ -375,19 +369,12 @@
       "discovered": 14,
       "archived": 14,
       "content_ready": 14,
-      "source_verified": 8,
-      "publication_ready": 8,
+      "source_verified": 14,
+      "publication_ready": 14,
       "missing": 0,
-      "source_pending": 6,
+      "source_pending": 0,
       "missing_issue_ids": [],
-      "source_pending_issue_ids": [
-        "qje-140-1",
-        "qje-140-2",
-        "qje-140-3",
-        "qje-140-4",
-        "qje-141-1",
-        "qje-141-2"
-      ],
+      "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
       "years": {
         "2023": {
@@ -418,32 +405,24 @@
           "discovered": 4,
           "archived": 4,
           "content_ready": 4,
-          "source_verified": 0,
-          "publication_ready": 0,
+          "source_verified": 4,
+          "publication_ready": 4,
           "missing": 0,
-          "source_pending": 4,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "qje-140-1",
-            "qje-140-2",
-            "qje-140-3",
-            "qje-140-4"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "2026": {
           "discovered": 3,
           "archived": 3,
           "content_ready": 3,
-          "source_verified": 1,
-          "publication_ready": 1,
+          "source_verified": 3,
+          "publication_ready": 3,
           "missing": 0,
-          "source_pending": 2,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "qje-141-1",
-            "qje-141-2"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         }
       }
@@ -17562,72 +17541,78 @@
         "year": 2025,
         "volume": "140",
         "issue": "1",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "source_recovered",
+        "last_error_code": ""
       },
       {
         "issue_id": "qje-140-2",
         "year": 2025,
         "volume": "140",
         "issue": "2",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "source_recovered",
+        "last_error_code": ""
       },
       {
         "issue_id": "qje-140-3",
         "year": 2025,
         "volume": "140",
         "issue": "3",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "source_recovered",
+        "last_error_code": ""
       },
       {
         "issue_id": "qje-140-4",
         "year": 2025,
         "volume": "140",
         "issue": "4",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "source_recovered",
+        "last_error_code": ""
       },
       {
         "issue_id": "qje-141-1",
         "year": 2026,
         "volume": "141",
         "issue": "1",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "source_recovered",
+        "last_error_code": ""
       },
       {
         "issue_id": "qje-141-2",
         "year": 2026,
         "volume": "141",
         "issue": "2",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "source_recovered",
+        "last_error_code": ""
       },
       {
         "issue_id": "qje-141-3",
@@ -21797,11 +21782,11 @@
     },
     "2025": {
       "summary": {
-        "complete": 299,
+        "complete": 303,
         "translation_partial": 0,
         "blocked": 5,
         "collected": 0,
-        "pending": 41
+        "pending": 37
       },
       "issue_count": 345,
       "journals": [
@@ -22580,11 +22565,11 @@
     },
     "2026": {
       "summary": {
-        "complete": 235,
+        "complete": 237,
         "translation_partial": 0,
         "blocked": 13,
         "collected": 0,
-        "pending": 31
+        "pending": 29
       },
       "issue_count": 279,
       "journals": [

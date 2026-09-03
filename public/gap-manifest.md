@@ -5,9 +5,9 @@ Generated: 2026-09-02T16:38:19+00:00
 ## Summary
 
 - browser_required: 1
-- ready: 1132
+- ready: 1138
 - recoverable: 65
-- source_pending: 132
+- source_pending: 126
 - translation_required: 1
 
 ## Issue queue
@@ -1156,12 +1156,12 @@ Generated: 2026-09-02T16:38:19+00:00
 | QJE | qje-139-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | QJE | qje-139-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | QJE | qje-139-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| QJE | qje-140-1 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| QJE | qje-140-2 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| QJE | qje-140-3 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| QJE | qje-140-4 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| QJE | qje-141-1 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| QJE | qje-141-2 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
+| QJE | qje-140-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| QJE | qje-140-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| QJE | qje-140-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| QJE | qje-140-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| QJE | qje-141-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| QJE | qje-141-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | QJE | qje-141-3 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | RAND | rand-54-1 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | RAND | rand-54-2 | 2023 | ready | complete | publisher_verified | content and official source gates passed |

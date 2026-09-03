@@ -2,7 +2,7 @@
 
 Updated: 2026-09-02T16:38:01+00:00
 
-Discovery coverage: 1331 discovered — 1265 archived — 1136 publication ready — 66 missing — 129 source pending
+Discovery coverage: 1331 discovered — 1265 archived — 1142 publication ready — 66 missing — 123 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
@@ -1156,12 +1156,12 @@ Discovery coverage: 1331 discovered — 1265 archived — 1136 publication ready
 | QJE | qje-139-2 | 2023 | ready |  |
 | QJE | qje-139-3 | 2023 | ready |  |
 | QJE | qje-139-4 | 2023 | ready |  |
-| QJE | qje-140-1 | 2025 | source_pending | source authority pending official verification |
-| QJE | qje-140-2 | 2025 | source_pending | source authority pending official verification |
-| QJE | qje-140-3 | 2025 | source_pending | source authority pending official verification |
-| QJE | qje-140-4 | 2025 | source_pending | source authority pending official verification |
-| QJE | qje-141-1 | 2026 | source_pending | source authority pending official verification |
-| QJE | qje-141-2 | 2026 | source_pending | source authority pending official verification |
+| QJE | qje-140-1 | 2023 | ready |  |
+| QJE | qje-140-2 | 2023 | ready |  |
+| QJE | qje-140-3 | 2023 | ready |  |
+| QJE | qje-140-4 | 2023 | ready |  |
+| QJE | qje-141-1 | 2023 | ready |  |
+| QJE | qje-141-2 | 2023 | ready |  |
 | QJE | qje-141-3 | 2026 | ready |  |
 | RAND | rand-54-1 | 2023 | ready |  |
 | RAND | rand-54-2 | 2023 | ready |  |
