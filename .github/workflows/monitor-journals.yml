@@ -2,6 +2,11 @@ name: Monitor journal updates
 
 on:
   workflow_dispatch:
+  workflow_run:
+    workflows:
+      - Auto-approve PR
+    types:
+      - completed
   schedule:
     # Every two hours at minute 17. Detection is metadata-only unless a change
     # is confirmed, so publisher sites are not polled 41 times per cycle.
@@ -18,6 +23,7 @@ concurrency:
 
 jobs:
   monitor:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7

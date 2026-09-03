@@ -173,6 +173,18 @@ class PublicDataBranchOwnershipTests(unittest.TestCase):
         self.assertLess(checkout, main_ref)
         self.assertLess(main_ref, overlay)
 
+    def test_governed_merges_refresh_runtime_from_main(self) -> None:
+        deploy = self.workflow("deploy.yml")
+        monitor = self.workflow("monitor-journals.yml")
+        for name, text in (("deploy", deploy), ("monitor", monitor)):
+            with self.subTest(workflow=name):
+                self.assertIn("workflow_run:", text)
+                self.assertIn("- Auto-approve PR", text)
+                self.assertIn(
+                    "github.event.workflow_run.conclusion == 'success'",
+                    text,
+                )
+
     def test_deploy_audits_the_overlaid_data_before_build(self) -> None:
         text = self.workflow("deploy.yml")
         overlay = text.index("Overlay generated data branch")
