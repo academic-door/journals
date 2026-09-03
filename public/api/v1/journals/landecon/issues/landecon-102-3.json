@@ -68,7 +68,7 @@
         "Xibo Wan"
       ],
       "abstract_en": "<h3>Abstract</h3> Accurately estimating the welfare impacts of environmental changes in recreation demand modeling requires robust causal inference methods. However, a persistent challenge remains as the zero market share issue restricts the causal inference application to broader regions and longer periods. To address this, we integrate empirical Bayes posterior mean estimation into a two-step random coefficient logit model, ensuring that sites with low or zero visitation are properly incorporated without distorting demand estimates. We apply this framework to the 2021 Huntington Beach oil spill, using high-frequency cellphone data to track changes in beach visits. By combining the Synthetic Difference-in-Differences (SDID) approach with empirical Bayes-adjusted market shares, we examine the causal effects of temporary beach closures on visitor welfare. Our findings reveal that Huntington Beach experienced the largest and most prolonged welfare loss, with an estimated aggregate loss of $1.0 million and weekly losses of $83 thousand persisting beyond the initial closure. In contrast, Newport Beach and Laguna Beach exhibited faster recoveries. This study advances recreation demand modeling by refining demand estimation for low-visit sites and strengthening causal inference techniques for environmental disruptions, ultimately providing a more reliable framework for assessing the economic costs of beach closures and other environmental policy interventions.",
-      "abstract_cn": "在休闲需求建模中，准确估计环境变化的福利影响需要稳健的因果推断方法。然而，零市场份额问题持续构成挑战，限制了因果推断在更广泛区域和更长时期内的应用。为解决这一问题，我们将经验贝叶斯后验均值估计整合到两步随机系数logit模型中，确保低访问量或零访问量的地点被适当纳入，而不会扭曲需求估计。我们将该框架应用于2021年亨廷顿海滩石油泄漏事件，利用高频手机数据追踪海滩访问量的变化。通过将合成双重差分（SDID）方法与经验贝叶斯调整后的市场份额相结合，我们检验了临时海滩关闭对游客福利的因果效应。研究结果显示，亨廷顿海滩经历了最大且最持久的福利损失，估计总损失为1.0万美元，且每周损失83万美元，持续到初始关闭期之后。相比之下，纽波特海滩和拉古纳海滩恢复更快。本研究通过改进低访问量地点的需求估计并加强环境干扰的因果推断技术，推进了休闲需求建模，最终为评估海滩关闭及其他环境政策干预的经济成本提供了更可靠的框架。",
+      "abstract_cn": "在休闲需求建模中，准确估计环境变化的福利影响需要稳健的因果推断方法。然而，零市场份额问题持续构成挑战，限制了因果推断在更广泛区域和更长时期内的应用。为解决这一问题，我们将经验贝叶斯后验均值估计整合到两步随机系数logit模型中，确保低访问量或零访问量的地点被适当纳入，而不会扭曲需求估计。我们将该框架应用于2021年亨廷顿海滩石油泄漏事件，利用高频手机数据追踪海滩访问量的变化。通过将合成双重差分（SDID）方法与经验贝叶斯调整后的市场份额相结合，我们检验了临时海滩关闭对游客福利的因果效应。研究结果显示，亨廷顿海滩经历了最大且最持久的福利损失，估计总损失为1.0万美元，且每周损失83000美元，持续到初始关闭期之后。相比之下，纽波特海滩和拉古纳海滩恢复更快。本研究通过改进低访问量地点的需求估计并加强环境干扰的因果推断技术，推进了休闲需求建模，最终为评估海滩关闭及其他环境政策干预的经济成本提供了更可靠的框架。",
       "doi": "10.3368/le.102.3.013026-0020",
       "source_url": "https://doi.org/10.3368/le.102.3.013026-0020",
       "publication_date": "2026",
@@ -81,11 +81,10 @@
       },
       "translation": {
         "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-24T13:05:25+00:00",
+        "provider": "local-numeric-normalization",
+        "model": "codex-local",
+        "prompt_version": "current-snapshot-numeric-debt-v1",
+        "translated_at": "2026-09-03T07:52:42+00:00",
         "source_hash": "742c6ec197893d5e6e1b04e53191f233011c61a3b2e3642dbb362610f3660a0b"
       },
       "quality_flags": [],
