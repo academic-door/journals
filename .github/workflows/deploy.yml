@@ -6,6 +6,7 @@ on:
       - main
   workflow_run:
     workflows:
+      - Auto-approve PR
       - Update journal data
       - Monitor journal updates
       - Backfill field journal history
