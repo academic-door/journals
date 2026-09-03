@@ -28,10 +28,10 @@ def archive(journal_id: str, issue_id: str, status: str = "ready") -> dict:
             "volume": "1", "issue": "1", "status": status, "articles": [], "quality": {}}
 
 
-def _ledger(tmp: Path, discovery: dict, exclusions: dict | None = None, api_subdir: str = "aer") -> dict:
+def _ledger(tmp: Path, discovery: dict, exclusions: dict | None = None, window_end: str = "") -> dict:
     state_path = tmp / "state.json"
     state_path.write_text(json.dumps(state(discovery, exclusions)), encoding="utf-8")
-    return build_ledger(state_paths=[state_path], journals=JOURNALS, api_root=tmp / "api")
+    return build_ledger(state_paths=[state_path], journals=JOURNALS, api_root=tmp / "api", window_end=window_end)
 
 
 def _rec(payload: dict, key: str) -> dict:
@@ -112,6 +112,52 @@ class CompletenessLedgerR2Tests(unittest.TestCase):
             present = root / "ok.json"
             present.write_text(json.dumps(archive("y", "x", "ready")), encoding="utf-8")
             self.assertEqual("ready", inspect_archive(present, expected_issue_id="x", expected_journal_id="y")["publication_state"])
+
+
+class CompletenessLedgerFreshnessTests(unittest.TestCase):
+    def _complete_ledger(self, window_end: str):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            api = root / "api" / "journals" / "aer" / "issues"; api.mkdir(parents=True)
+            (api / "aer-116-1.json").write_text(json.dumps(archive("aer", "aer-116-1")), encoding="utf-8")
+            payload = _ledger(root, {"AER": authoritative_snap(["aer-116-1"], [2026])}, window_end=window_end)
+            return payload
+
+    def test_evidence_at_audit_end_is_current(self) -> None:
+        # refreshed_at == window end -> CURRENT_FOR_AUDIT_END
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            api = root / "api" / "journals" / "aer" / "issues"; api.mkdir(parents=True)
+            (api / "aer-116-1.json").write_text(json.dumps(archive("aer", "aer-116-1")), encoding="utf-8")
+            snap = authoritative_snap(["aer-116-1"], [2026])
+            snap["refreshed_at"] = "2026-09-02T00:00:00+00:00"
+            state_path = root / "state.json"
+            state_path.write_text(json.dumps(state({"AER": snap})), encoding="utf-8")
+            payload = build_ledger(state_paths=[state_path], journals=JOURNALS, api_root=root / "api", window_end="2026-09-02")
+            rec = _rec(payload, "AER")
+            self.assertEqual("COMPLETE", rec["status"])
+            self.assertEqual("CURRENT_FOR_AUDIT_END", rec["freshnessStatus"])
+            self.assertEqual(1, payload["reconciliation"]["complete_current_to_audit_end"])
+
+    def test_evidence_older_than_audit_end_is_stale(self) -> None:
+        payload = self._complete_ledger("2026-09-02")  # refreshed_at default 2026-09-02? set below explicitly
+        # authoritative_snap default refreshed_at is 2026-09-02; force older
+        rec = _rec(payload, "AER")
+        # Use a controlled state for 08-24 evidence
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            api = root / "api" / "journals" / "aer" / "issues"; api.mkdir(parents=True)
+            (api / "aer-116-1.json").write_text(json.dumps(archive("aer", "aer-116-1")), encoding="utf-8")
+            snap = authoritative_snap(["aer-116-1"], [2026])
+            snap["refreshed_at"] = "2026-08-24T00:00:00+00:00"
+            state_path = root / "state.json"
+            state_path.write_text(json.dumps(state({"AER": snap})), encoding="utf-8")
+            payload = build_ledger(state_paths=[state_path], journals=JOURNALS, api_root=root / "api", window_end="2026-09-02")
+            rec = _rec(payload, "AER")
+            self.assertEqual("STALE_FOR_AUDIT_END", rec["freshnessStatus"])
+            self.assertEqual(0, payload["reconciliation"]["complete_current_to_audit_end"])
+            self.assertEqual(1, payload["reconciliation"]["complete_as_measured"])
+
 
 
 if __name__ == "__main__":
