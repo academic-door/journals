@@ -5,9 +5,9 @@ Generated: 2026-09-02T16:38:19+00:00
 ## Summary
 
 - browser_required: 1
-- ready: 1138
+- ready: 1139
 - recoverable: 65
-- source_pending: 126
+- source_pending: 125
 - translation_required: 1
 
 ## Issue queue
@@ -647,7 +647,7 @@ Generated: 2026-09-02T16:38:19+00:00
 | JEEA | jeea-24-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | JEEA | jeea-24-2 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
 | JEEA | jeea-24-3 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| JEEA | jeea-24-4 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
+| JEEA | jeea-24-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | JEEM | jeem-117-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JEEM | jeem-118-c | 2023 | recoverable | blocked | source_pending | archive_missing |
 | JEEM | jeem-119-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
