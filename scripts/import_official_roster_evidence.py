@@ -339,6 +339,22 @@ def apply_evidence(issue: dict[str, Any], evidence: dict[str, Any]) -> dict[str,
         str(item.get("doi", "")).strip().lower()
         for item in evidence.get("excluded_items", [])
     }
+    # A prior provisional archive may have classified an item as excluded
+    # before an official roster proves that it is a publishable article.  The
+    # official roster is authoritative for this issue, so remove only those
+    # stale exclusions whose DOI is now present in evidence_items; preserve
+    # exclusions explicitly retained by the current official evidence.
+    quality = candidate.setdefault("quality", {})
+    existing_excluded = quality.get("excluded_items", [])
+    if isinstance(existing_excluded, list):
+        quality["excluded_items"] = [
+            item
+            for item in existing_excluded
+            if not (
+                isinstance(item, dict)
+                and str(item.get("doi", "")).strip().lower() in set(evidence_dois)
+            )
+        ]
     if any(
         doi not in evidence_positions and doi not in excluded_dois
         for doi in archive_dois

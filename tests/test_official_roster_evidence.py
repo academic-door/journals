@@ -271,6 +271,22 @@ class OfficialRosterEvidenceTests(unittest.TestCase):
         self.assertEqual("translation_partial", candidate["publication_state"])
         self.assertEqual("official_verified", candidate["source_status"])
 
+    def test_official_roster_removes_stale_exclusion_for_restored_article(self) -> None:
+        issue = provisional_issue()
+        issue["quality"]["excluded_items"] = [
+            {
+                "doi": "10.1093/rfs/demo1",
+                "title_en": "The Case of RD",
+                "article_type": "editorial",
+                "reason": "editorial_material",
+            }
+        ]
+        candidate = apply_evidence(issue, evidence())
+        self.assertNotIn(
+            "10.1093/rfs/demo1",
+            [item.get("doi") for item in candidate["quality"]["excluded_items"]],
+        )
+
     def test_official_superset_requires_detail_for_missing_article(self) -> None:
         official = evidence()
         official["items"].append(
