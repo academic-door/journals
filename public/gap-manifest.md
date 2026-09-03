@@ -5,9 +5,9 @@ Generated: 2026-09-02T16:38:19+00:00
 ## Summary
 
 - browser_required: 1
-- ready: 1120
+- ready: 1126
 - recoverable: 65
-- source_pending: 144
+- source_pending: 138
 - translation_required: 1
 
 ## Issue queue
@@ -639,12 +639,12 @@ Generated: 2026-09-02T16:38:19+00:00
 | JEEA | jeea-22-5 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | JEEA | jeea-22-6 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | JEEA | jeea-23-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| JEEA | jeea-23-2 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| JEEA | jeea-23-3 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| JEEA | jeea-23-4 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| JEEA | jeea-23-5 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| JEEA | jeea-23-6 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| JEEA | jeea-24-1 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
+| JEEA | jeea-23-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| JEEA | jeea-23-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| JEEA | jeea-23-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| JEEA | jeea-23-5 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| JEEA | jeea-23-6 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| JEEA | jeea-24-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | JEEA | jeea-24-2 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
 | JEEA | jeea-24-3 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
 | JEEA | jeea-24-4 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
