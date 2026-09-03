@@ -2,7 +2,7 @@
 
 Updated: 2026-09-02T16:38:01+00:00
 
-Discovery coverage: 1331 discovered — 1265 archived — 1143 publication ready — 66 missing — 122 source pending
+Discovery coverage: 1331 discovered — 1265 archived — 1144 publication ready — 66 missing — 121 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
@@ -647,7 +647,7 @@ Discovery coverage: 1331 discovered — 1265 archived — 1143 publication ready
 | JEEA | jeea-24-1 | 2023 | ready |  |
 | JEEA | jeea-24-2 | 2026 | source_pending | source authority pending official verification |
 | JEEA | jeea-24-3 | 2026 | source_pending | source authority pending official verification |
-| JEEA | jeea-24-4 | 2023 | ready |  |
+| JEEA | jeea-24-4 | 2026 | source_pending | source authority pending official verification |
 | JEEM | jeem-117-c | 2023 | ready |  |
 | JEEM | jeem-118-c | 2023 | blocked | archive_content_gate_failed |
 | JEEM | jeem-119-c | 2023 | ready |  |
@@ -1194,7 +1194,7 @@ Discovery coverage: 1331 discovered — 1265 archived — 1143 publication ready
 | RED | red-60-c | 2026 | source_pending | possible_incomplete_volume: 4 articles collected vs current issue 12; needs offi |
 | RED | red-61-c | 2026 | source_pending |  |
 | RED | red-62-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 62/ |
-| RES | res-90-1 | 2023 | source_pending |  |
+| RES | res-90-1 | 2023 | ready |  |
 | RES | res-90-2 | 2023 | source_pending |  |
 | RES | res-90-3 | 2023 | source_pending |  |
 | RES | res-90-4 | 2023 | source_pending |  |
