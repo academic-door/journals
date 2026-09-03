@@ -4,6 +4,11 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "45 1 * * *"
+  workflow_run:
+    workflows:
+      - Deploy GitHub Pages
+    types:
+      - completed
 
 permissions:
   contents: read
@@ -11,6 +16,11 @@ permissions:
 
 jobs:
   check:
+    # Independent public health only after a *successful* Pages deployment.
+    # A failed or cancelled deploy must not produce a healthy acceptance, so we
+    # only run the real check when this is a non-workflow_run event (manual or
+    # scheduled) or the triggering deploy concluded successfully.
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Check public endpoints and semantics

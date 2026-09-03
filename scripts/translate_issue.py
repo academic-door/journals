@@ -460,6 +460,212 @@ def _identifier_numbers(value: str) -> list[str]:
     ]
 
 
+# ---------------------------------------------------------------------------
+# Semantic numeric canonicalization for translation validation.
+#
+# The historical validator compared the *surface tokens* emitted by ``_numbers``
+# on each side (e.g. "100" vs "100000000").  That misses the quantity semantics
+# of scale words, so ``100 million`` (100,000,000) and ``100000000`` failed to
+# match, while ``$1.0 million`` (1,000,000) and ``1.0万美元`` (10,000) wrongly
+# matched because both surface as "1.0".  ``_semantic_numbers`` canonicalizes a
+# numeric expression into its reported quantity so equivalent renderings compare
+# equal and scale errors are still detected (fail closed, no allowlist).
+# ---------------------------------------------------------------------------
+
+_ENG_SCALE_WORDS = {
+    "thousand": 1_000,
+    "million": 1_000_000,
+    "billion": 1_000_000_000,
+    "bn": 1_000_000_000,
+}
+# 百万=1e6, 千万=1e7, 亿=1e8, 十亿=1e9.  The compound CJK scales must be tried
+# before their component units so "百万" is not read as "百"+"万".
+_CN_SCALE_WORDS = {
+    "十亿": 1_000_000_000,
+    "千万": 10_000_000,
+    "百万": 1_000_000,
+    "亿": 100_000_000,
+    "千": 1_000,
+    "万": 10_000,
+}
+
+_CURRENCY_CHARS = r"USD|EUR|GBP|CNY|RMB|NTD|TWD|\$|€|£|¥"
+# Arabic/currency amount followed by an English scale word.
+_ENG_SCALED_RE = re.compile(
+    r"(?i)(?<![A-Za-z0-9])"
+    r"(?:(?P<currency>" + _CURRENCY_CHARS + r")\s*)?"
+    r"(?P<amount>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
+    r"\s*(?P<scale>thousand|million|billion|bn)"
+    r"(?![A-Za-z0-9])"
+)
+# Arabic/currency amount followed by a Chinese scale unit.
+_CN_SCALED_RE = re.compile(
+    r"(?<![\d])"
+    r"(?:(?P<currency>" + _CURRENCY_CHARS + r")\s*)?"
+    r"(?P<amount>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
+    r"\s*(?P<scale>十亿|千万|百万|亿|千|万)"
+    r"(?![A-Za-z0-9])"
+)
+# English written numeral ("two", "a") + English scale word.
+_WRITTEN_SCALED_RE = re.compile(
+    r"(?i)\b(?P<word>a|an|one|two|three|four|five|six|seven|eight|nine|ten|"
+    r"eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|"
+    r"nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)\b"
+    r"\s+(?P<scale>thousand|million|billion)\b"
+)
+# English written numeral + a measure unit.  "decades"/"centuries" are
+# converted to years so "two decades" equals "20年"; other units keep the
+# written value ("thirty years" -> 30).
+_WRITTEN_MEASURE_RE = re.compile(
+    r"(?i)\b(?P<word>one|two|three|four|five|six|seven|eight|nine|ten|"
+    r"eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|"
+    r"nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)\b"
+    r"\s+(?P<unit>decades?|years?|centuries?|months?|weeks?|days?)\b"
+)
+_CN_UNIT_CHARS = "十百千万亿"
+# Approximate-quantifier chars that precede a fuzzy Chinese numeral ("数百万",
+# "数十", "上百", "近百万", "成千上万").  These are not precise reported values.
+_FUZZY_CN_PREFIXES = "数几上成近约超逾余过多少"
+
+
+def _quantity_token(value: float) -> str:
+    """Render a semantic quantity as a canonical integer-or-decimal string."""
+    rounded = round(float(value), 9)
+    if rounded.is_integer():
+        return str(int(rounded))
+    text = f"{rounded:.9f}".rstrip("0").rstrip(".")
+    return text or "0"
+
+
+def _scaled_token(amount: str, scale: int) -> str:
+    """Multiply a (already canonicalized) amount string by a scale factor."""
+    try:
+        value = float(_canonical_number(amount)) * scale
+    except ValueError:
+        return _canonical_number(amount)
+    return _quantity_token(value)
+
+
+def _is_chinese_identifier_ordinal(value: str, match: re.Match[str]) -> bool:
+    """True when a Chinese-numeral run marks a small identifier ordinal."""
+    prefix = value[: match.start()]
+    if _cjk_identifier_label(prefix) is not None:
+        digits = str(_parse_chinese_numeral(match.group(0)))
+        return len(digits) <= 3
+    return False
+
+
+def _semantic_numbers(value: str) -> list[str]:
+    """Return the reported numeric *quantities* in ``value`` as canonical strings.
+
+    Unlike ``_numbers`` (which compares surface tokens), this canonicalizes
+    scale words (thousand/million/billion, 万/百万/千万/亿/十亿), English written
+    numerals, and "decade -> years" so semantically equivalent renderings
+    compare equal.  Percent signs and identifier exemptions are preserved.
+    Approximate Chinese quantities ("数百万", "数十") are deliberately ignored
+    because they are not precise reported values and would otherwise be
+    mistaken for invented (or missing) quantities.
+    """
+    values: list[str] = []
+    protected_spans: list[tuple[int, int]] = []
+
+    def record(token: str, span: tuple[int, int]) -> None:
+        values.append(token)
+        protected_spans.append(span)
+
+    def overlaps(span: tuple[int, int]) -> bool:
+        start, end = span
+        return any(start <= pe and ps <= end for ps, pe in protected_spans)
+
+    # 1. Arabic/currency amount + English scale word ("$1.0 million", "100 million").
+    for match in _ENG_SCALED_RE.finditer(value):
+        amount = match.group("amount")
+        scale = _ENG_SCALE_WORDS[match.group("scale").lower()]
+        record(_scaled_token(amount, scale), match.span())
+
+    # 2. Arabic/currency amount + Chinese scale unit ("1300万", "1.0 百万美元").
+    for match in _CN_SCALED_RE.finditer(value):
+        amount = match.group("amount")
+        scale = _CN_SCALE_WORDS[match.group("scale")]
+        record(_scaled_token(amount, scale), match.span())
+
+    # 3. English written numeral + English scale word ("two million", "a billion").
+    for match in _WRITTEN_SCALED_RE.finditer(value):
+        word = match.group("word").lower()
+        amount = 1 if word in ("a", "an") else NUMBER_WORD_VALUES[word]
+        scale = _ENG_SCALE_WORDS[match.group("scale").lower()]
+        record(_quantity_token(amount * scale), match.span())
+
+    # 4. English written numeral + measure unit ("two decades" -> 20 years,
+    #    "thirty years" -> 30).
+    for match in _WRITTEN_MEASURE_RE.finditer(value):
+        word = match.group("word").lower()
+        unit = match.group("unit").lower()
+        base = NUMBER_WORD_VALUES[word]
+        if unit.startswith("decade"):
+            record(_quantity_token(base * 10), match.span())
+        elif unit.startswith("centur"):
+            record(_quantity_token(base * 100), match.span())
+        else:
+            record(_quantity_token(base), match.span())
+
+    # 5. Precise Chinese-written numeral quantity (二十万, 八十) when it is a real
+    #    value, not a single ambiguous digit ("two" in 两种), not an approximate
+    #    quantifier ("数百万", "数十"), and not an identifier ordinal.
+    for match in CN_NUMERAL_PATTERN.finditer(value):
+        span = match.span()
+        if overlaps(span):
+            continue
+        sequence = match.group(0)
+        if len(sequence) < 2:
+            continue
+        if value[: match.start()] and value[match.start() - 1] in _FUZZY_CN_PREFIXES:
+            continue
+        has_unit = any(ch in _CN_UNIT_CHARS for ch in sequence)
+        if not has_unit:
+            # Pure digit runs such as "三四" (three-or-four) are ambiguous and
+            # must not be read as 34; only unit-bearing numerals are precise.
+            continue
+        if _is_chinese_identifier_ordinal(value, match):
+            continue
+        record(_quantity_token(_parse_chinese_numeral(sequence)), span)
+
+    # 6. Remaining bare numbers (mirrors _numbers, honoring the spans already
+    #    consumed by scale / written / Chinese-numeral detection).
+    for match in CURRENCY_PREFIX_PATTERN.finditer(value):
+        span = match.span()
+        if overlaps(span):
+            continue
+        record(_canonical_number(match.group("amount")), span)
+    for match in ATTACHED_QUANTITY_PATTERN.finditer(value):
+        span = match.span()
+        if overlaps(span):
+            continue
+        record(_canonical_number(match.group("number")), span)
+    for match in NUMBER_PATTERN.finditer(value):
+        span = match.span()
+        if overlaps(span):
+            continue
+        if (
+            match.start() > 1
+            and value[match.start() - 1] == "−"
+            and value[match.start() - 2].isalpha()
+        ):
+            continue
+        if _is_identifier_number(value, match):
+            continue
+        number = _canonical_number(match.group("number"))
+        if match.group("percent_word") and not number.endswith("%"):
+            number += "%"
+        elif (
+            not number.endswith("%")
+            and value[match.end() :].lstrip().startswith("%")
+        ):
+            number += "%"
+        record(number, span)
+    return values
+
+
 def _source_hash(article: dict[str, Any]) -> str:
     source = f"{article.get('title_en', '')}\n{article.get('abstract_en', '')}"
     return sha256(source.encode("utf-8")).hexdigest()
@@ -1027,8 +1233,8 @@ def validate_translation(article: dict[str, Any], translated: dict[str, Any]) ->
         raise TranslationError("Translation must not contain Markdown fences")
     source_text = f"{article.get('title_en', '')}\n{article.get('abstract_en', '')}"
     translated_text = f"{title_cn}\n{abstract_cn}"
-    source_numbers = Counter(_numbers(source_text) + _month_numbers(source_text))
-    translated_numbers = Counter(_numbers(translated_text) + _month_numbers(translated_text))
+    source_numbers = Counter(_semantic_numbers(source_text) + _month_numbers(source_text))
+    translated_numbers = Counter(_semantic_numbers(translated_text) + _month_numbers(translated_text))
     # Identifier labels (Section 5503, Table 2, 第5503条) are not data
     # values: exempt the source's identifier numbers on the translation side
     # too, so rendering them with Arabic digits is not flagged as invented.
