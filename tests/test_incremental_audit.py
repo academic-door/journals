@@ -6,6 +6,14 @@ from scripts.check_incremental_audit import compare_audit_logs
 
 
 class IncrementalAuditTests(unittest.TestCase):
+    def test_success_summary_is_not_a_failure(self) -> None:
+        result = compare_audit_logs(
+            ["FAIL ajae:10.1111/ajae.1: Translation changed numeric values: added 1"],
+            ["public data audit: 49 journals, 671 articles, 671 translations verified"],
+        )
+        self.assertTrue(result["ok"])
+        self.assertEqual([], result["candidate_strict_failures"])
+
     def test_identical_failures_are_preserved(self) -> None:
         result = compare_audit_logs(
             ["FAIL ajae:10.1111/ajae.1: Translation changed numeric values: added 1"],
