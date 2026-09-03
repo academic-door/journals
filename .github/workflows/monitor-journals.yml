@@ -404,3 +404,16 @@ jobs:
               print(f"- Deep update {item['journal']}: {item['result']}")
           PY
           echo "- Composer sync: ${{ steps.composer.outcome }}" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f output/email-notification-result.json ]; then
+            python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          from pathlib import Path
+          result = json.loads(
+              Path("output/email-notification-result.json").read_text(encoding="utf-8")
+          )
+          print(
+              f"- Private email: {result['status']} "
+              f"(sent {result['sent']}, queued {result['queued']})"
+          )
+          PY
+          fi
