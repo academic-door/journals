@@ -1,21 +1,21 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-09-03T07:12:34+00:00",
+  "updated_at": "2026-09-03T07:19:10+00:00",
   "summary": {
-    "complete": 1126,
+    "complete": 1127,
     "translation_partial": 0,
     "blocked": 66,
     "collected": 0,
-    "pending": 139
+    "pending": 138
   },
   "coverage": {
     "discovered": 1331,
     "archived": 1265,
     "content_ready": 1265,
-    "source_verified": 1156,
-    "publication_ready": 1156,
+    "source_verified": 1157,
+    "publication_ready": 1157,
     "missing": 66,
-    "source_pending": 109,
+    "source_pending": 108,
     "missing_issue_ids": [
       "ecolecon-224-c",
       "ecolecon-225-c",
@@ -112,7 +112,6 @@
       "ecta-91-5",
       "ier-64-2",
       "ier-64-3",
-      "jeea-24-2",
       "jeea-24-3",
       "jeh-83-4",
       "jeh-86-2",
@@ -1007,13 +1006,12 @@
       "discovered": 22,
       "archived": 22,
       "content_ready": 22,
-      "source_verified": 20,
-      "publication_ready": 20,
+      "source_verified": 21,
+      "publication_ready": 21,
       "missing": 0,
-      "source_pending": 2,
+      "source_pending": 1,
       "missing_issue_ids": [],
       "source_pending_issue_ids": [
-        "jeea-24-2",
         "jeea-24-3"
       ],
       "blocked_issue_ids": [],
@@ -1058,13 +1056,12 @@
           "discovered": 4,
           "archived": 4,
           "content_ready": 4,
-          "source_verified": 2,
-          "publication_ready": 2,
+          "source_verified": 3,
+          "publication_ready": 3,
           "missing": 0,
-          "source_pending": 2,
+          "source_pending": 1,
           "missing_issue_ids": [],
           "source_pending_issue_ids": [
-            "jeea-24-2",
             "jeea-24-3"
           ],
           "blocked_issue_ids": []
@@ -11319,12 +11316,13 @@
         "year": 2026,
         "volume": "24",
         "issue": "2",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "source_recovered",
+        "last_error_code": ""
       },
       {
         "issue_id": "jeea-24-3",
@@ -22534,11 +22532,11 @@
     },
     "2026": {
       "summary": {
-        "complete": 238,
+        "complete": 239,
         "translation_partial": 0,
         "blocked": 13,
         "collected": 0,
-        "pending": 28
+        "pending": 27
       },
       "issue_count": 279,
       "journals": [
