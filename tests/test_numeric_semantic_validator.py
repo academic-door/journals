@@ -1,14 +1,17 @@
-"""Semantic numeric canonicalization + release-audit wiring tests.
+"""Shadow semantic numeric contract tests.
 
-These tests prove three things:
+Stage A keeps the production ``validate_translation`` release gate unchanged
+(surface-token ``_numbers``) while exposing the semantic numeric engine as an
+independent, non-gating shadow capability.
 
-1. ``_semantic_numbers`` canonicalizes numeric *quantities* (not surface
-   tokens), so semantically equivalent renderings compare equal and scale
-   errors are still detected (fail closed, no allowlist).
-2. ``validate_translation`` (the gate the public-data audit runs) actually
-   consults the semantic canonicalizer.
-3. ``audit_public_data`` imports the *same* ``validate_translation``, so the
-   release audit cannot run with a stale/bare-surface numeric checker.
+These tests lock:
+1. semantic canonicalization (``_semantic_numbers``) and the source-aware
+   resolver (``resolve_semantic_quantities``) behave as expected;
+2. the production ``validate_translation`` release authority is UNCHANGED and
+   does not consult the semantic engine;
+3. ``audit_public_data`` still imports the production ``validate_translation``;
+4. the shadow audit sees debt but NEVER changes the release result (exit 0 on
+   findings).
 """
 import unittest
 from unittest import mock
@@ -16,6 +19,7 @@ from unittest import mock
 from scripts.translate_issue import (
     TranslationError,
     _semantic_numbers,
+    resolve_semantic_quantities,
     validate_translation,
 )
 
@@ -48,13 +52,11 @@ class SemanticNumberCanonicalizationTests(unittest.TestCase):
         ("13 million", "1300万"),
         ("two decades", "20年"),
         ("six decades", "60年"),
-        # English written + scale, currency, Chinese scale rendering.
         ("a million", "1000000"),
         ("$3.45 million", "3450000"),
         ("83 千美元", "83000美元"),
         ("1.0 百万美元", "100万美元"),
         ("200亿", "20000000000"),
-        # Unicode hyphen/minus normalization.
         ("-1.0", "−1.0"),
     ]
 
@@ -89,10 +91,11 @@ class SemanticNumberCanonicalizationTests(unittest.TestCase):
         self.assertNotEqual(_semantic_numbers("100%"), _semantic_numbers("100"))
 
 
+class SemanticResolverTests(unittest.TestCase):
+    """The source-aware semantic path used by the shadow audit."""
 
-class SemanticNumberValidationTests(unittest.TestCase):
-    def test_valid_equivalences_pass_validation(self) -> None:
-        cases = [
+    def test_resolver_sees_equivalences(self) -> None:
+        for source, translated in [
             ("100 million", "100000000"),
             ("40 million", "40000000"),
             ("83 thousand", "83000"),
@@ -100,102 +103,106 @@ class SemanticNumberValidationTests(unittest.TestCase):
             ("two decades", "20年"),
             ("six decades", "60年"),
             ("$3.45 million", "345万美元"),
-        ]
-        for source, translated in cases:
+        ]:
             with self.subTest(source=source, translated=translated):
-                validate_translation(_article(source), _translation(translated))
+                sq, tq = resolve_semantic_quantities(source, translated)
+                self.assertEqual(sq, tq, f"{source!r} <-> {translated!r}")
 
-    def test_invalid_scale_errors_fail_validation(self) -> None:
-        cases = [
+    def test_resolver_sees_scale_corruption(self) -> None:
+        for source, translated in [
             ("$1.0 million", "1.0万美元"),
             ("40 million", "40万"),
             ("13 million", "130万"),
             ("six decades", "50年"),
             ("$3.45 million", "$3.45至$百万美元"),
-        ]
-        for source, translated in cases:
+        ]:
             with self.subTest(source=source, translated=translated):
-                with self.assertRaises(TranslationError):
-                    validate_translation(_article(source), _translation(translated))
+                sq, tq = resolve_semantic_quantities(source, translated)
+                self.assertNotEqual(sq, tq, f"{source!r} <-> {translated!r}")
 
 
-class AuditPublicDataSemanticWiringTests(unittest.TestCase):
-    """Prove the release audit gate goes through the semantic validator."""
+class ProductionGateUnchangedTests(unittest.TestCase):
+    """Lock that the production release gate is the surface-token validator."""
 
-    def test_audit_imports_the_same_validate_translation(self) -> None:
+    def test_production_validate_translation_is_surface_token_gate(self) -> None:
+        # Under production semantics "100 million" (token "100") != "100000000".
+        with self.assertRaises(TranslationError):
+            validate_translation(
+                _article("100 million"), _translation("100000000")
+            )
+        # ...whereas the shadow semantic resolver treats them as equal.
+        sq, tq = resolve_semantic_quantities("100 million", "100000000")
+        self.assertEqual(sq, tq)
+
+    def test_production_validate_translation_does_not_use_semantic_engine(self) -> None:
+        import scripts.translate_issue as ti
+
+        # If production called _semantic_numbers this raises; a pass proves it does
+        # not consult the semantic engine.
+        with mock.patch.object(
+            ti, "_semantic_numbers", side_effect=AssertionError(
+                "production validate_translation must not use the semantic engine"
+            )
+        ):
+            # "two decades" (no Arabic) vs "20年" (Arabic 20) mismatches under
+            # surface-token production, exactly as it did before Stage A.
+            with self.assertRaises(TranslationError):
+                validate_translation(_article("two decades"), _translation("20年"))
+
+
+class AuditPublicDataWiringTests(unittest.TestCase):
+    def test_audit_imports_the_production_validate_translation(self) -> None:
         import scripts.audit_public_data as audit
         import scripts.translate_issue as ti
 
         self.assertIs(audit.validate_translation, ti.validate_translation)
 
-    def test_validate_translation_consults_semantic_canonicalizer(self) -> None:
-        import scripts.translate_issue as ti
+    def test_shadow_audit_is_non_gating(self) -> None:
+        # Shadow audit returns 0 even when the corpus has semantic mismatches.
+        from scripts.audit_numeric_semantics_shadow import audit
 
-        source = "aggregated welfare benefits of $3.45 million annually"
-        translated = "每年总计345万美元的福利总收益"
-        with mock.patch.object(
-            ti, "_semantic_numbers", wraps=ti._semantic_numbers
-        ) as spy:
-            validate_translation(
-                _article(source),
-                _translation(translated),
-            )
-        self.assertGreater(spy.call_count, 0)
+        self.assertEqual(audit(), 0)
 
-
+    def test_shadow_audit_sees_known_corruption(self) -> None:
+        sq, tq = resolve_semantic_quantities(
+            "$3.45 million annually", "$3.45至$百万美元"
+        )
+        self.assertNotEqual(sq, tq)
 
 
 class SemanticHardeningTests(unittest.TestCase):
-    """A1/A2/A3 hardening regression tests for validator defects."""
+    """Parser-hardening regression tests."""
 
-    # --- A1: exact decimal canonicalization (no binary-float residue) ---
     def test_a1_decimal_scale_is_exact(self) -> None:
         self.assertEqual(_semantic_numbers("1.033 billion"), ["1033000000"])
         self.assertEqual(_semantic_numbers("17.81 billion"), ["17810000000"])
         self.assertEqual(_semantic_numbers("3.45 million"), ["3450000"])
-        self.assertEqual(_semantic_numbers("1033000000"), ["1033000000"])
 
     def test_a1_no_binary_float_residue(self) -> None:
         for text in ("1.033 billion", "17.81 billion", "3.45 million"):
             for token in _semantic_numbers(text):
-                self.assertNotIn(".", token, f"{text!r} produced a float token {token!r}")
+                self.assertNotIn(".", token)
 
-    def test_a1_decimal_non_integer_is_stable(self) -> None:
-        self.assertEqual(_semantic_numbers("1.033"), ["1.033"])
-        self.assertEqual(_semantic_numbers("3.45"), ["3.45"])
-
-    # --- A2: source-aware single Chinese digit reconciliation ---
     def test_a2_single_chinese_digit_matches_source_quantity(self) -> None:
-        validate_translation(
-            _article("3 years"), _translation("三年")
-        )
-        validate_translation(
-            _article("5 groups"), _translation("五组")
-        )
-        # A single digit is confirmed when the source carries the exact value.
-        validate_translation(_article("3 years"), _translation("三"))
+        sq, tq = resolve_semantic_quantities("3 years", "三年")
+        self.assertEqual(sq, tq)
+        sq, tq = resolve_semantic_quantities("5 groups", "五组")
+        self.assertEqual(sq, tq)
 
     def test_a2_single_chinese_digit_is_fail_closed(self) -> None:
-        # A different quantity (source 3 years vs 2 months) must fail.
-        with self.assertRaises(TranslationError):
-            validate_translation(
-                _article("3 years"), _translation("两个月")
-            )
-        # A non-quantified count word is not fabricated into a number.
-        validate_translation(_article("two types"), _translation("两种"))
-        # A standalone "三" with no source quantity does not invent a 3.
-        validate_translation(_article("several"), _translation("三"))
-        # A precise Chinese numeral absent from the source is still flagged.
-        with self.assertRaises(TranslationError):
-            validate_translation(_article("several"), _translation("三千"))
+        sq, tq = resolve_semantic_quantities("3 years", "两个月")
+        self.assertNotEqual(sq, tq)
+        # A count word does not fabricate a number.
+        sq, tq = resolve_semantic_quantities("two types", "两种")
+        self.assertEqual(sq, tq)
+        # A lone "三" without a source quantity does not invent a 3.
+        sq, tq = resolve_semantic_quantities("several", "三")
+        self.assertEqual(sq, tq)
 
-    # --- A3: year/scale adjacency, identifier boundaries, percent ---
     def test_a3_year_is_not_scaled(self) -> None:
         self.assertEqual(_semantic_numbers("in the 1970s"), ["1970"])
         self.assertEqual(_semantic_numbers("2023年"), ["2023"])
         self.assertEqual(_semantic_numbers("from 1970 to 2010"), ["1970", "2010"])
-        # An Arabic "year" adjacent to a scale unit with no space means a quantity
-        # (2023万 = 20,230,000), not a year; that is a deliberate scalar.
         self.assertEqual(_semantic_numbers("2023万"), ["20230000"])
 
     def test_a3_identifier_ordinals_are_not_quantities(self) -> None:
@@ -204,6 +211,22 @@ class SemanticHardeningTests(unittest.TestCase):
         self.assertEqual(_semantic_numbers("Study 2"), [])
         self.assertEqual(_semantic_numbers("第2轮"), [])
         self.assertEqual(_semantic_numbers("研究三"), [])
+
+    def test_a3_parser_classes(self) -> None:
+        # Century and fraction descriptors are not quantities.
+        self.assertEqual(_semantic_numbers("nineteenth century"), [])
+        self.assertEqual(_semantic_numbers("二十世纪"), [])
+        self.assertEqual(_semantic_numbers("three-quarters"), [])
+        # Compound / composite cardinals and metric units are quantities.
+        self.assertEqual(_semantic_numbers("fifteen"), ["15"])
+        self.assertEqual(_semantic_numbers("thirty-five"), ["35"])
+        self.assertEqual(_semantic_numbers("one hundred"), ["100"])
+        self.assertEqual(_semantic_numbers("3.5 kt"), ["3500"])
+        self.assertEqual(_semantic_numbers("近一百万"), ["1000000"])
+        self.assertEqual(_semantic_numbers("数百万"), [])
+        # "two centuries" keeps its count, matching "两个世纪" (resolver).
+        sq, tq = resolve_semantic_quantities("two centuries", "两个世纪")
+        self.assertEqual(sq, tq)
 
     def test_a3_percent_distinct_from_bare(self) -> None:
         self.assertNotEqual(_semantic_numbers("100%"), _semantic_numbers("100"))

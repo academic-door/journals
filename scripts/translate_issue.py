@@ -479,10 +479,13 @@ _ENG_SCALE_WORDS = {
     "million": 1_000_000,
     "billion": 1_000_000_000,
     "bn": 1_000_000_000,
+    "trillion": 1_000_000_000_000,
+    "hundred": 100,
 }
 # 百万=1e6, 千万=1e7, 亿=1e8, 十亿=1e9.  The compound CJK scales must be tried
 # before their component units so "百万" is not read as "百"+"万".
 _CN_SCALE_WORDS = {
+    "万亿": 1_000_000_000_000,
     "十亿": 1_000_000_000,
     "千万": 10_000_000,
     "百万": 1_000_000,
@@ -497,7 +500,7 @@ _ENG_SCALED_RE = re.compile(
     r"(?i)(?<![A-Za-z0-9])"
     r"(?:(?P<currency>" + _CURRENCY_CHARS + r")\s*)?"
     r"(?P<amount>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
-    r"\s*(?P<scale>thousand|million|billion|bn)"
+    r"\s*(?P<scale>thousand|million|billion|bn|trillion)"
     r"(?![A-Za-z0-9])"
 )
 # Arabic/currency amount followed by a Chinese scale unit.
@@ -505,28 +508,123 @@ _CN_SCALED_RE = re.compile(
     r"(?<![\d])"
     r"(?:(?P<currency>" + _CURRENCY_CHARS + r")\s*)?"
     r"(?P<amount>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
-    r"\s*(?P<scale>十亿|千万|百万|亿|千|万)"
+    r"\s*(?P<scale>万亿|十亿|千万|百万|亿|千|万)"
     r"(?![A-Za-z0-9])"
 )
-# English written numeral ("two", "a") + English scale word.
-_WRITTEN_SCALED_RE = re.compile(
-    r"(?i)\b(?P<word>a|an|one|two|three|four|five|six|seven|eight|nine|ten|"
-    r"eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|"
-    r"nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)\b"
-    r"\s+(?P<scale>thousand|million|billion)\b"
+# English cardinal number words and a unified written-number phrase matcher.
+_EN_CARD_VALUES = {
+    "zero": 0, "one": 1, "two": 2, "three": 3, "four": 4, "five": 5,
+    "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10, "eleven": 11,
+    "twelve": 12, "thirteen": 13, "fourteen": 14, "fifteen": 15, "sixteen": 16,
+    "seventeen": 17, "eighteen": 18, "nineteen": 19, "twenty": 20, "thirty": 30,
+    "forty": 40, "fifty": 50, "sixty": 60, "seventy": 70, "eighty": 80,
+    "ninety": 90,
+}
+_EN_CARD_PATTERN = (
+    r"(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)"
+    r"(?:[-\s](?:one|two|three|four|five|six|seven|eight|nine))?"
+    r"|(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|"
+    r"thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen)"
+    r"|(?:a|an)"
 )
-# English written numeral + a measure unit.  "decades"/"centuries" are
-# converted to years so "two decades" equals "20年"; other units keep the
-# written value ("thirty years" -> 30).
-_WRITTEN_MEASURE_RE = re.compile(
-    r"(?i)\b(?P<word>one|two|three|four|five|six|seven|eight|nine|ten|"
-    r"eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|"
-    r"nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)\b"
-    r"\s+(?P<unit>decades?|years?|centuries?|months?|weeks?|days?)\b"
+# Written cardinal + optional English scale + optional measure/percent unit.
+# This covers "thirty-five percent", "one hundred years", "two decades",
+# "forty-year", "ninety-eight", and "three million" in one pass.
+_EN_NUMBER_UNIT_RE = re.compile(
+    r"(?i)(?<![A-Za-z])"
+    r"(?P<num>" + _EN_CARD_PATTERN + r")"
+    r"(?P<scale>\s+(?:hundred|thousand|million|billion|trillion))?"
+    r"(?:[\s-]+(?P<unit>decades?|years?|centuries?|months?|weeks?|days?|percent|per\s+cent))?"
+    r"(?![A-Za-z])"
+)
+# A quantity written with the metric unit "kt" / "kilotonne(s)" (e.g. "3.5 kt").
+_KT_UNIT_RE = re.compile(
+    r"(?i)(?<![A-Za-z0-9_])"
+    r"(?P<amount>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
+    r"\s*(?:kt|kilotonnes?)\b"
+    r"(?![A-Za-z0-9])"
+)
+# Collapse a stray infix quantifier in a likely mis-typed Chinese numeral
+# ("二数十年" -> "二十年") without touching genuine fuzzy quantifiers
+# ("数十" has no preceding digit; "三十多年" has "多" before the unit tail).
+_CN_INFIX_COLLAPSE_RE = re.compile(
+    r"(?<=[零〇一二两三四五六七八九十百千万亿])[数多几余](?=[十百千万亿])"
 )
 _CN_UNIT_CHARS = "十百千万亿"
-# Approximate-quantifier chars that precede a fuzzy Chinese numeral ("数百万",
-# "数十", "上百", "近百万", "成千上万").  These are not precise reported values.
+# True indefinite-quantifier chars.  Approximation adverbs ("近/约/超/逾/余/过")
+# precede a *precise* numeral ("近一百万") and must NOT suppress it; only a
+# run that does not start with a cardinal digit ("数百万", "数十") is indefinite.
+_CN_INDEFINITE_PREFIXES = "数几上成多" + "若干"
+
+
+def _en_cardinal_value(phrase: str) -> "int | None":
+    """Parse a written English cardinal phrase into an integer.
+
+    Supports simple ("fifteen", "one"), hyphen/space compounds ("thirty-five",
+    "twenty one"), and composites ("one hundred", "five thousand").
+    """
+    parts = [p for p in re.split(r"[-\s]+", phrase.strip().lower()) if p]
+    if not parts:
+        return None
+    if len(parts) == 1 and parts[0] in ("a", "an"):
+        return 1
+    if all(p in _EN_CARD_VALUES for p in parts):
+        # No scale word: a single word or a tens+ones compound ("thirty five").
+        if len(parts) == 1:
+            return _EN_CARD_VALUES[parts[0]]
+        tens = _EN_CARD_VALUES.get(parts[0])
+        ones = _EN_CARD_VALUES.get(parts[1])
+        if tens is not None and ones is not None and parts[0] in {
+            "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty",
+            "ninety",
+        }:
+            return tens + ones
+        return None
+    total = 0
+    for part in parts:
+        if part in _EN_CARD_VALUES:
+            total += _EN_CARD_VALUES[part]
+        elif part == "hundred":
+            total = (total or 1) * 100
+        elif part == "thousand":
+            total = (total or 1) * 1000
+        elif part == "million":
+            total = (total or 1) * 1_000_000
+        elif part == "billion":
+            total = (total or 1) * 1_000_000_000
+        elif part == "trillion":
+            total = (total or 1) * 1_000_000_000_000
+        else:
+            return None
+    return total
+
+
+def _is_english_century_ordinal(value: str, match: "re.Match[str]") -> bool:
+    """True when a written number is a descriptor (century/fraction/pronoun/compound)."""
+    rest = value[match.end():].lstrip()
+    if rest.startswith("century") or rest.startswith("centuries"):
+        return True
+    if re.match(
+        r"(?:[-\s])?(?:quarters?|halves?|half|thirds?|fourths?|fifths?|"
+        r"sixths?|sevenths?|eighths?|ninth|tenths?|hundredths?|thousandths?)",
+        rest,
+        re.IGNORECASE,
+    ):
+        return True
+    # Pronoun / partitive "one's rival", "one of the ..." and non-count method
+    # compounds "one-step", "two-way", "three-fold", "one-to-one".
+    if re.match(r"(?:\'s|\bof\b|[-\s](?:steps?|ways?|folds?|sided|to-one|"
+                r"to-two|to-three|to-four|degree|degrees|period|periods|"
+                r"sample|samples|stage|stages|round|rounds|order|orders)\b)",
+                rest, re.IGNORECASE):
+        return True
+    return False
+
+
+def _is_chinese_century(value: str, match: "re.Match[str]") -> bool:
+    """True when a Chinese numeral is a century descriptor (not a data value)."""
+    rest = value[match.end():].lstrip()
+    return rest.startswith("世纪")
 _FUZZY_CN_PREFIXES = "数几上成近约超逾余过多少"
 
 
@@ -622,6 +720,25 @@ def _reconcile_single_cn_digits(
             added.append(token)
     for token in added:
         translated_numbers[token] += 1
+def resolve_semantic_quantities(
+    source_text: str,
+    translated_text: str,
+) -> "tuple[Counter[str], Counter[str]]":
+    """Return (source, resolved-translation) semantic quantity counters.
+
+    This is the shadow/semantic comparison path: it canonicalizes quantities
+    with ``_semantic_numbers``, applies the source-aware single-Chinese-digit
+    reconcile, and exempts identifier ordinals.  It is intentionally separate
+    from the production ``validate_translation`` release path.
+    """
+    source_q = Counter(_semantic_numbers(source_text) + _month_numbers(source_text))
+    translated_q = Counter(_semantic_numbers(translated_text) + _month_numbers(translated_text))
+    _reconcile_single_cn_digits(translated_text, source_q, translated_q)
+    for identifier_number in _identifier_numbers(source_text):
+        if translated_q[identifier_number] > source_q[identifier_number]:
+            translated_q[identifier_number] -= 1
+    return source_q, translated_q
+
 def _semantic_numbers(value: str) -> list[str]:
     """Return the reported numeric *quantities* in ``value`` as canonical strings.
 
@@ -644,6 +761,10 @@ def _semantic_numbers(value: str) -> list[str]:
         start, end = span
         return any(start <= pe and ps <= end for ps, pe in protected_spans)
 
+    # Collapse a stray infix quantifier in a likely mis-typed Chinese numeral
+    # ("二数十年" -> "二十年") so the numeral run is contiguous.
+    value = _CN_INFIX_COLLAPSE_RE.sub("", value)
+
     # 1. Arabic/currency amount + English scale word ("$1.0 million", "100 million").
     for match in _ENG_SCALED_RE.finditer(value):
         amount = match.group("amount")
@@ -656,29 +777,41 @@ def _semantic_numbers(value: str) -> list[str]:
         scale = _CN_SCALE_WORDS[match.group("scale")]
         record(_scaled_token(amount, scale), match.span())
 
-    # 3. English written numeral + English scale word ("two million", "a billion").
-    for match in _WRITTEN_SCALED_RE.finditer(value):
-        word = match.group("word").lower()
-        amount = 1 if word in ("a", "an") else NUMBER_WORD_VALUES[word]
-        scale = _ENG_SCALE_WORDS[match.group("scale").lower()]
-        record(_quantity_token(amount * scale), match.span())
+    # 2b. Metric unit "kt"/"kilotonne" ("3.5 kt" -> 3500 tonnes).
+    for match in _KT_UNIT_RE.finditer(value):
+        record(_scaled_token(match.group("amount"), 1000), match.span())
 
-    # 4. English written numeral + measure unit ("two decades" -> 20 years,
-    #    "thirty years" -> 30).
-    for match in _WRITTEN_MEASURE_RE.finditer(value):
-        word = match.group("word").lower()
-        unit = match.group("unit").lower()
-        base = NUMBER_WORD_VALUES[word]
+    # 3+4. English written cardinal + optional scale + optional measure/percent
+    #       ("thirty-five percent", "one hundred years", "two decades",
+    #        "forty-year", "ninety-eight", "three million").
+    for match in _EN_NUMBER_UNIT_RE.finditer(value):
+        span = match.span()
+        if overlaps(span):
+            continue
+        if _is_english_century_ordinal(value, match):
+            continue
+        base = _en_cardinal_value(match.group("num"))
+        if base is None:
+            continue
+        scale_word = match.group("scale")
+        if match.group("num").lower() in ("a", "an") and not scale_word:
+            # Indefinite article ("a paper") is not a quantity; only "a million".
+            continue
+        if scale_word:
+            base *= _ENG_SCALE_WORDS[scale_word.strip().lower()]
+        unit = (match.group("unit") or "").strip().lower()
         if unit.startswith("decade"):
-            record(_quantity_token(base * 10), match.span())
-        elif unit.startswith("centur"):
-            record(_quantity_token(base * 100), match.span())
+            base *= 10
+        # Centuries keep their own count ("两个世纪"), matching the source count.
+        is_percent = "per cent" in unit or "percent" in unit
+        if is_percent:
+            record(_quantity_token(base) + "%", span)
         else:
-            record(_quantity_token(base), match.span())
+            record(_quantity_token(base), span)
 
-    # 5. Precise Chinese-written numeral quantity (二十万, 八十) when it is a real
-    #    value, not a single ambiguous digit ("two" in 两种), not an approximate
-    #    quantifier ("数百万", "数十"), and not an identifier ordinal.
+    # 5. Chinese-written numeral quantity (二十万, 八十, 二十) when it is a real
+    #    value, not a century descriptor, not an identifier ordinal, and not an
+    #    indefinite quantifier ("数百万", "数十").
     for match in CN_NUMERAL_PATTERN.finditer(value):
         span = match.span()
         if overlaps(span):
@@ -686,8 +819,14 @@ def _semantic_numbers(value: str) -> list[str]:
         sequence = match.group(0)
         if len(sequence) < 2:
             continue
-        if value[: match.start()] and value[match.start() - 1] in _FUZZY_CN_PREFIXES:
+        if _is_chinese_century(value, match):
             continue
+        # Only a run that does NOT start with a cardinal digit is an indefinite
+        # quantifier ("数百万", "数十", "近百万"); a leading digit is precise
+        # even under an approximation adverb ("近一百万" -> 1000000).
+        if value[: match.start()] and value[match.start() - 1] in _CN_INDEFINITE_PREFIXES:
+            if not (sequence[0] in CN_DIGITS and CN_DIGITS[sequence[0]] != 0):
+                continue
         has_unit = any(ch in _CN_UNIT_CHARS for ch in sequence)
         if not has_unit:
             # Pure digit runs such as "三四" (three-or-four) are ambiguous and
@@ -1300,12 +1439,8 @@ def validate_translation(article: dict[str, Any], translated: dict[str, Any]) ->
         raise TranslationError("Translation must not contain Markdown fences")
     source_text = f"{article.get('title_en', '')}\n{article.get('abstract_en', '')}"
     translated_text = f"{title_cn}\n{abstract_cn}"
-    source_numbers = Counter(_semantic_numbers(source_text) + _month_numbers(source_text))
-    translated_numbers = Counter(_semantic_numbers(translated_text) + _month_numbers(translated_text))
-    # Source-aware reconcile: a translation's single Chinese digit is counted
-    # only when the source carries that exact quantity (fail closed), so
-    # "3 years" -> "三年" passes and a stray "三" cannot invent a numeric value.
-    _reconcile_single_cn_digits(translated_text, source_numbers, translated_numbers)
+    source_numbers = Counter(_numbers(source_text) + _month_numbers(source_text))
+    translated_numbers = Counter(_numbers(translated_text) + _month_numbers(translated_text))
     # Identifier labels (Section 5503, Table 2, 第5503条) are not data
     # values: exempt the source's identifier numbers on the translation side
     # too, so rendering them with Arabic digits is not flagged as invented.
