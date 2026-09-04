@@ -15,10 +15,12 @@
     "abstract_cn": "本文利用密歇根州的大规模移动数据，考察了鱼类消费建议对休闲行为和游客福利的影响。通过将基于手机的位置数据与离散选择模型框架相结合，我们估计了建议对休闲地点选择的因果效应，并量化了披露风险所带来的相关福利效益。我们的研究结果表明，建议显著减少了休闲访问，平均每位游客愿意为避开有建议的地点每次支付约72美元。我们还发现，建议的披露每年带来总计3.45万美元的福利效益，凸显了其更广泛的休闲效益。",
     "source_hash": "b09e45fc31f14434c13510dae98a1106b368900a2c76b564b528eabc46bb57b7",
     "translation": {
-      "provider": "deepseek",
-      "model": "deepseek-chat",
-      "prompt_version": "academic-door-abstract-zh-v2",
-      "translated_at": "2026-08-24T13:05:22+00:00"
+      "provider": "local-translation-repair",
+      "model": "codex-local",
+      "prompt_version": "numeric-translation-debt-burndown-v1",
+      "translated_at": "2026-09-04T19:47:06+00:00",
+      "status": "complete",
+      "source_hash": "b09e45fc31f14434c13510dae98a1106b368900a2c76b564b528eabc46bb57b7"
     }
   },
   "10.3368/le.102.3.013026-0020": {
@@ -26,10 +28,12 @@
     "abstract_cn": "在休闲需求建模中，准确估计环境变化的福利影响需要稳健的因果推断方法。然而，零市场份额问题持续构成挑战，限制了因果推断在更广泛区域和更长时期内的应用。为解决这一问题，我们将经验贝叶斯后验均值估计整合到两步随机系数logit模型中，确保低访问量或零访问量的地点被适当纳入，而不会扭曲需求估计。我们将该框架应用于2021年亨廷顿海滩石油泄漏事件，利用高频手机数据追踪海滩访问量的变化。通过将合成双重差分（SDID）方法与经验贝叶斯调整后的市场份额相结合，我们检验了临时海滩关闭对游客福利的因果效应。研究结果显示，亨廷顿海滩经历了最大且最持久的福利损失，估计总损失为100万美元，且每周损失8.3万美元，持续到初始关闭期之后。相比之下，纽波特海滩和拉古纳海滩恢复更快。本研究通过改进低访问量地点的需求估计并加强环境干扰的因果推断技术，推进了休闲需求建模，最终为评估海滩关闭及其他环境政策干预的经济成本提供了更可靠的框架。",
     "source_hash": "742c6ec197893d5e6e1b04e53191f233011c61a3b2e3642dbb362610f3660a0b",
     "translation": {
-      "provider": "local-numeric-normalization",
+      "provider": "local-translation-repair",
       "model": "codex-local",
-      "prompt_version": "current-snapshot-numeric-debt-v1",
-      "translated_at": "2026-09-03T07:52:42+00:00"
+      "prompt_version": "numeric-translation-debt-burndown-v1",
+      "translated_at": "2026-09-04T19:47:06+00:00",
+      "status": "complete",
+      "source_hash": "742c6ec197893d5e6e1b04e53191f233011c61a3b2e3642dbb362610f3660a0b"
     }
   },
   "10.3368/le.102.3.012626-0015": {
@@ -103,10 +107,12 @@
     "abstract_cn": "本研究利用手机信令数据追踪2020年从333个城市到103个县的游客流动，评估了中国内蒙古草原旅游的经济价值。采用分区旅行成本模型，包括参数和非参数方法。结果表明，旅游价值在5859亿至5984亿元人民币（约84.9-86.7亿美元）之间，约为旅游收入的2.5倍，占区域GDP的29%。在没有COVID-19的情况下，该价值将达到9365亿元人民币。研究揭示了空间差异，草原质量、基础设施和区域发展驱动旅游价值。",
     "source_hash": "ac8bca58e71a98d2c2ac39e0001220804870df7e3ea61bc442ba622e95a80e7c",
     "translation": {
-      "provider": "deepseek",
-      "model": "deepseek-chat",
-      "prompt_version": "academic-door-abstract-zh-v2",
-      "translated_at": "2026-08-24T13:05:29+00:00"
+      "provider": "local-translation-repair",
+      "model": "codex-local",
+      "prompt_version": "numeric-translation-debt-burndown-v1",
+      "translated_at": "2026-09-04T19:47:06+00:00",
+      "status": "complete",
+      "source_hash": "ac8bca58e71a98d2c2ac39e0001220804870df7e3ea61bc442ba622e95a80e7c"
     }
   },
   "10.3368/le.101.1.011224-0003": {
