@@ -319,7 +319,6 @@ IDENTIFIER_CJK_WORDS = [
     "章节",
     "附录",
     "方程",
-    "假设",
     "场景",
     "轮次",
     "图",
@@ -480,6 +479,7 @@ _ENG_SCALE_WORDS = {
     "billion": 1_000_000_000,
     "bn": 1_000_000_000,
     "trillion": 1_000_000_000_000,
+    "mil": 1_000_000,
     "hundred": 100,
 }
 # 百万=1e6, 千万=1e7, 亿=1e8, 十亿=1e9.  The compound CJK scales must be tried
@@ -500,7 +500,7 @@ _ENG_SCALED_RE = re.compile(
     r"(?i)(?<![A-Za-z0-9])"
     r"(?:(?P<currency>" + _CURRENCY_CHARS + r")\s*)?"
     r"(?P<amount>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
-    r"\s*(?P<scale>thousand|million|billion|bn|trillion)"
+    r"\s*(?P<scale>thousand|million|billion|bn|trillion|mil)"
     r"(?![A-Za-z0-9])"
 )
 # Arabic/currency amount followed by a Chinese scale unit.
@@ -509,7 +509,7 @@ _CN_SCALED_RE = re.compile(
     r"(?:(?P<currency>" + _CURRENCY_CHARS + r")\s*)?"
     r"(?P<amount>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
     r"\s*(?P<scale>万亿|十亿|千万|百万|亿|千|万)"
-    r"(?![A-Za-z0-9])"
+    r"(?![0-9])"
 )
 # English cardinal number words and a unified written-number phrase matcher.
 _EN_CARD_VALUES = {
@@ -534,7 +534,7 @@ _EN_NUMBER_UNIT_RE = re.compile(
     r"(?i)(?<![A-Za-z])"
     r"(?P<num>" + _EN_CARD_PATTERN + r")"
     r"(?P<scale>\s+(?:hundred|thousand|million|billion|trillion))?"
-    r"(?:[\s-]+(?P<unit>decades?|years?|centuries?|months?|weeks?|days?|percent|per\s+cent))?"
+    r"(?:[\s-]+(?P<unit>decades?|years?|centuries?|months?|weeks?|days?|percent|per\s+cent|percentage[-\s]*points?))?"
     r"(?![A-Za-z])"
 )
 # A quantity written with the metric unit "kt" / "kilotonne(s)" (e.g. "3.5 kt").
@@ -556,6 +556,130 @@ _CN_UNIT_CHARS = "十百千万亿"
 # run that does not start with a cardinal digit ("数百万", "数十") is indefinite.
 _CN_INDEFINITE_PREFIXES = "数几上成多" + "若干"
 
+
+
+# --- Stage C-P2 shared-scale / abbreviation / fraction / fold helpers ---
+# Shared-scale range ("585.9 to 598.4 billion", "$0.79-$11.91 million", "2.3-3.5 kt"):
+_EN_RANGE_SCALED_RE = re.compile(
+    r"(?i)(?<![A-Za-z0-9])"
+    r"(?:(?P<cur_a>" + _CURRENCY_CHARS + r")\s*)?"
+    r"(?P<a>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
+    r"\s*(?:to|[-–—])\s*"
+    r"(?:(?P<cur_b>" + _CURRENCY_CHARS + r")\s*)?"
+    r"(?P<b>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
+    r"\s*(?P<scale>thousand|million|billion|bn|trillion|mil|kt|kilotonnes?|kilotonne)\b"
+    r"(?![A-Za-z0-9])"
+)
+# Chinese shared-scale range ("849至867亿美元"):
+_CN_RANGE_SCALED_RE = re.compile(
+    r"(?<![\d])"
+    r"(?:(?P<cur_a>" + _CURRENCY_CHARS + r")\s*)?"
+    r"(?P<a>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
+    r"\s*(?:至|到|[-–—])\s*"
+    r"(?:(?P<cur_b>" + _CURRENCY_CHARS + r")\s*)?"
+    r"(?P<b>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
+    r"\s*(?P<scale>万亿|十亿|千万|百万|亿|千|万)"
+    r"(?![0-9])"
+)
+# English "M" = million shorthand, case-sensitive ("$18.5 M"):
+_EN_MILLION_ABBREV_RE = re.compile(
+    r"(?<![A-Za-z0-9])"
+    r"(?:(?P<currency>" + _CURRENCY_CHARS + r")\s*)?"
+    r"(?P<amount>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
+    r"\s*M\b"
+    r"(?![A-Za-z0-9])"
+)
+# Written fraction + scale ("half a billion", "three-quarters of a million"):
+_EN_FRACTION_SCALE_RE = re.compile(
+    r"(?i)(?<![A-Za-z])"
+    r"(?P<num>half|one\s+half|one\s+quarter|three\s*[- ]?quarters|two\s*[- ]?thirds|one\s*[- ]?third)\b"
+    r"(?:\s+(?:of\s+)?(?:an?\s+)?(?P<scale>thousand|million|billion|trillion))"
+)
+# English fold multiplier ("a thousandfold", "tenfold"):
+_EN_FOLD_RE = re.compile(
+    r"(?i)(?<![A-Za-z])"
+    r"(?:(?:(?:an?\s+)?(?P<scale>hundred|thousand|million|billion|trillion|ten|"
+    r"twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety))\s*)?"
+    r"(?P<fold>fold)\b"
+    r"(?![A-Za-z])"
+)
+# English "percentage points" ("by 5.1 percentage points"):
+_EN_PERCENTAGE_POINTS_RE = re.compile(
+    r"(?i)(?<![A-Za-z0-9])"
+    r"(?P<amount>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
+    r"[-\s]*(?:percentage[-\s]*points?|points?|pp|p\.p\.|pct)\.?\b"
+)
+
+# English "percentage points" range ("3.6-6.9 percentage points"):
+_EN_PERCENTAGE_POINTS_RANGE_RE = re.compile(
+    r"(?i)(?<![A-Za-z0-9])"
+    r"(?P<a>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
+    r"\s*(?:to|[-–—])\s*"
+    r"(?P<b>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
+    r"[-\s]*(?:percentage[-\s]*points?|points?|pp|p\.p\.|pct)\.?\b"
+)
+
+# English written-cardinal percent range ("three to six percent"):
+_EN_PERCENT_RANGE_WRITTEN_RE = re.compile(
+    r"(?i)(?<![A-Za-z])"
+    r"(?P<a>" + _EN_CARD_PATTERN + r")"
+    r"\s*(?:to)\s*"
+    r"(?P<b>" + _EN_CARD_PATTERN + r")"
+    r"\s*(?:percent|per\s+cent)\b"
+)
+# English shared-unit percentage-point list ("8.2, 15.4, and 40 percentage points"):
+_EN_PERCENTAGE_POINTS_LIST_RE = re.compile(
+    r"(?i)(?<![A-Za-z0-9])"
+    r"(?P<list>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?"
+    r"(?:\s*(?:,|,?\s*(?:and|&)\s*)\s*[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)*)"
+    r"\s*percentage\s+points?\b"
+)
+# Chinese percent prefix ("百分之九十八" -> 98%):
+_CN_PERCENT_RE = re.compile(
+    r"(?<![\u4e00-\u9fff])"
+    r"百分之"
+    r"(?P<amount>[+\-\u2212]?(?:\d+(?:\.\d+)?|[零〇一二两三四五六七八九十百千万亿]+))"
+)
+# Chinese "percentage points" (三到六个百分点 / 三个百分点):
+_CN_PERCENT_POINT_RE = re.compile(
+    r"(?<![\d.])"
+    r"(?P<value>[零〇一二两三四五六七八九十百千万亿]+|[+\-\u2212]?[\d.]+)"
+    r"\s*个?\s*百分点"
+)
+_CN_PERCENT_RANGE_RE = re.compile(
+    r"(?<![\d.])"
+    r"(?P<a>[零〇一二两三四五六七八九十百千万亿]+|[+\-\u2212]?[\d.]+)"
+    r"\s*(?:到|至|-|和|及|与)\s*"
+    r"(?P<b>[零〇一二两三四五六七八九十百千万亿]+|[+\-\u2212]?[\d.]+)"
+    r"\s*个?\s*百分点"
+)
+
+# Chinese shared-unit percentage-point list ("8.2、15.4和40个百分点"):
+_CN_PERCENT_POINT_LIST_RE = re.compile(
+    r"(?<![\d.])"
+    r"(?P<list>(?:[零〇一二两三四五六七八九十百千万亿]+|[+\-\u2212]?[\d.]+)"
+    r"(?:[、，和及与]+(?:[零〇一二两三四五六七八九十百千万亿]+|[+\-\u2212]?[\d.]+))+)"
+    r"\s*个?\s*百分点"
+)
+# Chinese "half a <scale>" (半个百万, 半百万):
+_CN_HALF_SCALE_RE = re.compile(
+    r"(?P<half>半)\s*(?:个|的)?\s*(?P<scale>万亿|十亿|千万|百万|亿|千|万)"
+)
+
+_EN_FRACTION_FACTORS = {
+    "half": 0.5, "one half": 0.5, "one quarter": 0.25,
+    "three quarters": 0.75, "two thirds": 2.0/3.0, "one third": 1.0/3.0,
+}
+_EN_FOLD_VALUES = {
+    "hundred": 100, "thousand": 1000, "million": 1000000, "billion": 1000000000,
+    "trillion": 1000000000000, "ten": 10, "twenty": 20, "thirty": 30, "forty": 40,
+    "fifty": 50, "sixty": 60, "seventy": 70, "eighty": 80, "ninety": 90,
+}
+# Measure/classifier chars that make a single Chinese digit a real count
+# rather than an identifier ordinal ("研究三" vs "研究三种"):
+_CN_MEASURE_CHARS = set(
+    "个个种名年月日岁人组次篇类项位元倍家户套张台辆件条款轮期版批量层款名点斤千克"
+)
 
 def _en_cardinal_value(phrase: str) -> "int | None":
     """Parse a written English cardinal phrase into an integer.
@@ -600,7 +724,15 @@ def _en_cardinal_value(phrase: str) -> "int | None":
 
 
 def _is_english_century_ordinal(value: str, match: "re.Match[str]") -> bool:
-    """True when a written number is a descriptor (century/fraction/pronoun/compound)."""
+    """True when a written number is a descriptor (century/fraction/pronoun/compound).
+
+    The ``of`` / possessive / non-count-compound exemptions apply ONLY when the
+    matched phrase carries no scale and no measure unit.  This keeps genuine
+    quantities such as "two decades of ...", "six decades of ..." and
+    "ninety-eight percent of ..." from being silently exempted, while still
+    exempting partitives ("one of the ...", "one's rival") and method/compound
+    descriptors ("two-way", "one-step", "two-quantile-regression").
+    """
     rest = value[match.end():].lstrip()
     if rest.startswith("century") or rest.startswith("centuries"):
         return True
@@ -611,16 +743,20 @@ def _is_english_century_ordinal(value: str, match: "re.Match[str]") -> bool:
         re.IGNORECASE,
     ):
         return True
+    unit = (match.group("unit") or "").strip().lower()
+    scale = (match.group("scale") or "").strip().lower()
+    if unit or scale:
+        return False
     # Pronoun / partitive "one's rival", "one of the ..." and non-count method
-    # compounds "one-step", "two-way", "three-fold", "one-to-one".
+    # compounds "one-step", "two-way", "three-fold", "one-to-one",
+    # "two-quantile-regression".
     if re.match(r"(?:\'s|\bof\b|[-\s](?:steps?|ways?|folds?|sided|to-one|"
                 r"to-two|to-three|to-four|degree|degrees|period|periods|"
-                r"sample|samples|stage|stages|round|rounds|order|orders)\b)",
+                r"sample|samples|stage|stages|round|rounds|order|orders|"
+                r"quantile|quantiles|regression|regressions)\b)",
                 rest, re.IGNORECASE):
         return True
     return False
-
-
 def _is_chinese_century(value: str, match: "re.Match[str]") -> bool:
     """True when a Chinese numeral is a century descriptor (not a data value)."""
     rest = value[match.end():].lstrip()
@@ -677,11 +813,13 @@ _SINGLE_CN_DIGIT_RE = re.compile(
 def _is_identifier_ordinal_context(value: str, match: re.Match[str]) -> bool:
     """True when a single Chinese digit marks an ordinal (研究三 / 第2)."""
     prefix = value[: match.start()]
+    # A digit followed by a measure/classifier is a real count, not an ordinal
+    # ("研究三种" = three types vs "研究三" = Study 3).
+    if match.end() < len(value) and value[match.end()] in _CN_MEASURE_CHARS:
+        return False
     if _cjk_identifier_label(prefix) is not None:
         return True
     return prefix.rstrip(" \t").endswith("第")
-
-
 def _single_cn_digit_values(value: str) -> list[str]:
     """Return canonical quantity strings for standalone single Chinese digits.
 
@@ -720,6 +858,138 @@ def _reconcile_single_cn_digits(
             added.append(token)
     for token in added:
         translated_numbers[token] += 1
+# --- Stage C-P2: structural enumeration preservation + percentage-point unit drop ---
+_CN_ENUM_ITEM_CHARS = r"[^。；、和及与]+"
+_CN_ENUMERATION_RE = re.compile(
+    _CN_ENUM_ITEM_CHARS + r"(?:[、和及与]+" + _CN_ENUM_ITEM_CHARS + r")+"
+)
+
+
+def _cn_enumeration_item_counts(value: str) -> list[int]:
+    """Return item counts of CJK enumerations (2..6) found in ``value``.
+
+    Only dedicated list separators (、 and the conjuncts 和/及/与) are treated as
+    item boundaries.  The clause comma ， is not, so a clause like "考察X，并结合Y与Z"
+    does not become a spurious 3-item list.  Enumerations are matched within a single
+    clause (split on 。；，！？) and bounded to a short, named-entity style list so a
+    long prose run with many conjuncts is not mistaken for one enumeration.
+    """
+    counts: list[int] = []
+    for clause in re.split(r"[。；，！？\n]", value):
+        if not clause.strip():
+            continue
+        for match in _CN_ENUMERATION_RE.finditer(clause):
+            items = [x for x in re.split(r"[、和及与]+", match.group(0)) if x.strip()]
+            if 2 <= len(items) <= 6 and all(len(x) <= 12 for x in items):
+                counts.append(len(items))
+    return counts
+
+
+def _en_reference_count_values(value: str) -> set[str]:
+    """Return canonical values of bare English count words used as count references.
+
+    A bare cardinal (no scale, no unit/percent, not a century/method descriptor) that
+    is followed by a plural countable noun ("three theories", "two different indices")
+    or a definite determiner before it ("the two") is a count-of-entities reference,
+    not a measured amount.  Such counts may be preserved structurally by the
+    translation enumerating the items rather than repeating the numeral.
+    """
+    out: set[str] = set()
+    for match in _EN_NUMBER_UNIT_RE.finditer(value):
+        if match.group("scale") or match.group("unit"):
+            continue
+        if _is_english_century_ordinal(value, match):
+            continue
+        num = match.group("num").strip().lower()
+        if num in ("a", "an"):
+            continue
+        base = _en_cardinal_value(num)
+        if base is None:
+            continue
+        rest = value[match.end():].lstrip()
+        preceded_by_determiner = re.search(
+            r"\b(?:the|these|those|such)\s*$",
+            value[:match.start()].rstrip(),
+            re.IGNORECASE,
+        ) is not None
+        if re.match(r"[A-Za-z][A-Za-z\s-]*", rest, re.IGNORECASE) or preceded_by_determiner:
+            out.add(_quantity_token(base))
+    return out
+
+
+def _reconcile_missing_enumeration_counts(
+    source_text: str,
+    translated_text: str,
+    source_q: "Counter[str]",
+    translated_q: "Counter[str]",
+) -> None:
+    """Derequire a source reference count that the translation preserves structurally.
+
+    When the source carries a bare count word ("the two", "three theories") and the
+    translation omits the numeral but enumerates exactly that many items ("A、B和C",
+    "一个X和一个Y"), the count is preserved and no longer required.  Fail closed: it
+    only fires when the count is already missing on the translation side and a matching
+    enumeration of exactly the same item count is present.
+    """
+    reference_counts = _en_reference_count_values(source_text)
+    enum_available: dict[str, int] = {}
+    for c in _cn_enumeration_item_counts(translated_text):
+        key = str(c)
+        enum_available[key] = enum_available.get(key, 0) + 1
+    for token in sorted(source_q):
+        if not token.isdigit():
+            continue
+        if source_q[token] <= translated_q[token]:
+            continue
+        if token not in reference_counts:
+            continue
+        if enum_available.get(token, 0) <= 0:
+            continue
+        source_q[token] -= 1
+        enum_available[token] -= 1
+
+
+def _en_percentage_point_values(value: str) -> set[str]:
+    """Return canonical bare values appearing in English 'percentage point(s)' contexts."""
+    out: set[str] = set()
+    for match in _EN_PERCENTAGE_POINTS_LIST_RE.finditer(value):
+        for n in re.findall(
+            r"[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?",
+            match.group("list"),
+        ):
+            out.add(_quantity_token(Decimal(_canonical_number(n))))
+    for match in _EN_PERCENTAGE_POINTS_RANGE_RE.finditer(value):
+        for g in ("a", "b"):
+            out.add(_quantity_token(Decimal(_canonical_number(match.group(g)))))
+    for match in _EN_PERCENTAGE_POINTS_RE.finditer(value):
+        out.add(_quantity_token(Decimal(_canonical_number(match.group("amount")))))
+    return out
+
+
+def _reconcile_percentage_point_unit_drop(
+    source_text: str,
+    translated_text: str,
+    source_q: "Counter[str]",
+    translated_q: "Counter[str]",
+) -> None:
+    """Accept a translation that drops the 'percentage point' unit but keeps the value.
+
+    The legacy gate treats percentage points as bare numbers, so a translation that
+    renders "0.7-1 percentage point" as bare "0.7-1" preserves the numeric values even
+    though it omits the unit token.  We only forgive it when the source explicitly
+    carried the percentage-point marker and the translation has a surplus bare value for
+    the same number, never for a genuine percent (value + '%') mismatch.
+    """
+    for value in _en_percentage_point_values(source_text):
+        token = value + "%"
+        if source_q.get(token, 0) <= translated_q.get(token, 0):
+            continue
+        if translated_q.get(value, 0) <= source_q.get(value, 0):
+            continue
+        source_q[token] -= 1
+        translated_q[value] -= 1
+
+
 def resolve_semantic_quantities(
     source_text: str,
     translated_text: str,
@@ -734,6 +1004,8 @@ def resolve_semantic_quantities(
     source_q = Counter(_semantic_numbers(source_text) + _month_numbers(source_text))
     translated_q = Counter(_semantic_numbers(translated_text) + _month_numbers(translated_text))
     _reconcile_single_cn_digits(translated_text, source_q, translated_q)
+    _reconcile_missing_enumeration_counts(source_text, translated_text, source_q, translated_q)
+    _reconcile_percentage_point_unit_drop(source_text, translated_text, source_q, translated_q)
     for identifier_number in _identifier_numbers(source_text):
         if translated_q[identifier_number] > source_q[identifier_number]:
             translated_q[identifier_number] -= 1
@@ -765,20 +1037,150 @@ def _semantic_numbers(value: str) -> list[str]:
     # ("二数十年" -> "二十年") so the numeral run is contiguous.
     value = _CN_INFIX_COLLAPSE_RE.sub("", value)
 
+    # Normalize Unicode hyphens (hyphen, non-breaking hyphen, en/em dash, minus)
+    # so written cardinals like "ninety‐eight" and ranges like "84.9–86.7" are
+    # tokenized consistently.  The minus sign U+2212 is deliberately left intact
+    # so "year−1" unit-exponent handling stays correct.
+    value = value.replace("\u2010", "-").replace("\u2011", "-")
+
+    # 0. Shared-scale ranges: "585.9 to 598.4 billion", "849至867亿美元",
+    #    "$0.79-$11.91 million", "2.3-3.5 kt".  The trailing scale applies to BOTH.
+    for match in _EN_RANGE_SCALED_RE.finditer(value):
+        span=match.span()
+        if overlaps(span): continue
+        sw=match.group("scale").lower()
+        scale = 1000 if sw in ("kt","kilotonne","kilotonnes") else _ENG_SCALE_WORDS[sw]
+        record(_scaled_token(match.group("a"), scale), span)
+        record(_scaled_token(match.group("b"), scale), span)
+    for match in _CN_RANGE_SCALED_RE.finditer(value):
+        span=match.span()
+        if overlaps(span): continue
+        scale=_CN_SCALE_WORDS[match.group("scale")]
+        record(_scaled_token(match.group("a"), scale), span)
+        record(_scaled_token(match.group("b"), scale), span)
+
+    # 0b. English "M" = million shorthand ("$18.5 M" -> 18500000).
+    for match in _EN_MILLION_ABBREV_RE.finditer(value):
+        span=match.span()
+        if overlaps(span): continue
+        record(_scaled_token(match.group("amount"), 1_000_000), span)
+
+    # 0c. Written fraction + scale ("half a billion").
+    for match in _EN_FRACTION_SCALE_RE.finditer(value):
+        span=match.span()
+        if overlaps(span): continue
+        frac=float(_EN_FRACTION_FACTORS[match.group("num").strip().lower().replace("-", " ")])
+        scale_word=(match.group("scale") or "").strip().lower()
+        scale=float(_ENG_SCALE_WORDS.get(scale_word, 1))
+        record(_quantity_token(Decimal(str(frac*scale))), span)
+
+    # 0d. English fold multiplier ("a thousandfold").
+    for match in _EN_FOLD_RE.finditer(value):
+        span=match.span()
+        if overlaps(span): continue
+        sw=(match.group("scale") or "").strip().lower()
+        if not sw: continue
+        record(_quantity_token(_EN_FOLD_VALUES[sw]), span)
+
+    # 0e. Chinese percent prefix ("百分之九十八" -> 98%).
+    for match in _CN_PERCENT_RE.finditer(value):
+        span=match.span()
+        if overlaps(span): continue
+        amt=match.group("amount")
+        if amt[0].isdigit():
+            num=_quantity_token(Decimal(_canonical_number(amt)))
+        else:
+            num=str(_parse_chinese_numeral(amt))
+        record(num+"%", span)
+
+    # 0f. Chinese "half a <scale>" ("半个百万" -> 500000).
+    for match in _CN_HALF_SCALE_RE.finditer(value):
+        span=match.span()
+        if overlaps(span): continue
+        scale=float(_CN_SCALE_WORDS[match.group("scale")])
+        record(_quantity_token(Decimal(str(0.5*scale))), span)
+
+    # 0g. Chinese percentage points ("三到六个百分点" -> 3% 6%).
+    for match in _CN_PERCENT_POINT_LIST_RE.finditer(value):
+        span=match.span()
+        if overlaps(span): continue
+        lst=match.group("list")
+        import re as _re3
+        for n in _re3.findall(r'[零〇一二两三四五六七八九十百千万亿]+|[+\-\u2212]?\d+(?:\.\d+)?', lst):
+            if any(ch.isdigit() for ch in n):
+                num=_quantity_token(Decimal(_canonical_number(n)))
+            else:
+                num=str(_parse_chinese_numeral(n))
+            record(num+"%", span)
+    for match in _CN_PERCENT_RANGE_RE.finditer(value):
+        span=match.span()
+        if overlaps(span): continue
+        for g in ("a","b"):
+            amt=match.group(g)
+            num=_quantity_token(Decimal(_canonical_number(amt))) if any(ch.isdigit() for ch in amt) else str(_parse_chinese_numeral(amt))
+            record(num+"%", span)
+
+    # 0g2. Chinese shared-unit percentage-point list ("8.2、15.4和40个百分点").
+    for match in _CN_PERCENT_POINT_RE.finditer(value):
+        span=match.span()
+        if overlaps(span): continue
+        amt=match.group("value")
+        num=_quantity_token(Decimal(_canonical_number(amt))) if any(ch.isdigit() for ch in amt) else str(_parse_chinese_numeral(amt))
+        record(num+"%", span)
+
+    # 0h. English "percentage points" ("by 5.1 percentage points" -> 5.1%).
+    for match in _EN_PERCENTAGE_POINTS_RANGE_RE.finditer(value):
+        span=match.span()
+        if overlaps(span): continue
+        for g in ("a","b"):
+            record(_quantity_token(Decimal(_canonical_number(match.group(g))))+"%", span)
+
+    # 0i. English written-cardinal percent range ("three to six percent" -> 3% 6%).
+    for match in _EN_PERCENT_RANGE_WRITTEN_RE.finditer(value):
+        span=match.span()
+        if overlaps(span): continue
+        for g in ("a","b"):
+            card=_en_cardinal_value(match.group(g))
+            if card is None: continue
+            record(_quantity_token(card)+"%", span)
+    # 0j. English shared-unit percentage-point list ("8.2, 15.4, and 40 percentage points").
+    for match in _EN_PERCENTAGE_POINTS_LIST_RE.finditer(value):
+        span=match.span()
+        if overlaps(span): continue
+        lst=match.group("list")
+        import re as _re2
+        for n in _re2.findall(r'[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?', lst):
+            record(_quantity_token(Decimal(_canonical_number(n)))+"%", span)
+    for match in _EN_PERCENTAGE_POINTS_RE.finditer(value):
+        span=match.span()
+        if overlaps(span): continue
+        record(_quantity_token(Decimal(_canonical_number(match.group("amount"))))+"%", span)
+
+
+
     # 1. Arabic/currency amount + English scale word ("$1.0 million", "100 million").
     for match in _ENG_SCALED_RE.finditer(value):
+        span = match.span()
+        if overlaps(span):
+            continue
         amount = match.group("amount")
         scale = _ENG_SCALE_WORDS[match.group("scale").lower()]
         record(_scaled_token(amount, scale), match.span())
 
     # 2. Arabic/currency amount + Chinese scale unit ("1300万", "1.0 百万美元").
     for match in _CN_SCALED_RE.finditer(value):
+        span = match.span()
+        if overlaps(span):
+            continue
         amount = match.group("amount")
         scale = _CN_SCALE_WORDS[match.group("scale")]
         record(_scaled_token(amount, scale), match.span())
 
     # 2b. Metric unit "kt"/"kilotonne" ("3.5 kt" -> 3500 tonnes).
     for match in _KT_UNIT_RE.finditer(value):
+        span = match.span()
+        if overlaps(span):
+            continue
         record(_scaled_token(match.group("amount"), 1000), match.span())
 
     # 3+4. English written cardinal + optional scale + optional measure/percent
@@ -792,12 +1194,19 @@ def _semantic_numbers(value: str) -> list[str]:
             continue
         base = _en_cardinal_value(match.group("num"))
         if base is None:
+
             continue
+
         scale_word = match.group("scale")
+
         if match.group("num").lower() in ("a", "an") and not scale_word:
+
             # Indefinite article ("a paper") is not a quantity; only "a million".
+
             continue
+
         if scale_word:
+
             base *= _ENG_SCALE_WORDS[scale_word.strip().lower()]
         unit = (match.group("unit") or "").strip().lower()
         if unit.startswith("decade"):
@@ -821,6 +1230,9 @@ def _semantic_numbers(value: str) -> list[str]:
             continue
         if _is_chinese_century(value, match):
             continue
+        if match.end() < len(value) and value[match.end()] == "月":
+            if 1 <= _parse_chinese_numeral(sequence) <= 12:
+                continue
         # Only a run that does NOT start with a cardinal digit is an indefinite
         # quantifier ("数百万", "数十", "近百万"); a leading digit is precise
         # even under an approximation adverb ("近一百万" -> 1000000).
