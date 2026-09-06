@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import sys
+import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -61,13 +62,23 @@ NEGATIVE = [
 ]
 
 
-def test_stage_c_positive_regressions():
-    for family, source, translated in POSITIVE:
-        assert _eq(source, translated), f"[{family}] {source!r} != {translated!r}"
+class StageCShadowParserTests(unittest.TestCase):
+    def test_stage_c_positive_regressions(self) -> None:
+        for family, source, translated in POSITIVE:
+            with self.subTest(family=family, source=source, translated=translated):
+                self.assertTrue(
+                    _eq(source, translated),
+                    f"[{family}] {source!r} != {translated!r}",
+                )
+
+    def test_stage_c_fail_closed_negatives(self) -> None:
+        for family, source, translated in NEGATIVE:
+            with self.subTest(family=family, source=source, translated=translated):
+                self.assertFalse(
+                    _eq(source, translated),
+                    f"[{family}] fail-closed broken: {source!r} == {translated!r}",
+                )
 
 
-def test_stage_c_fail_closed_negatives():
-    for family, source, translated in NEGATIVE:
-        assert not _eq(source, translated), (
-            f"[{family}] fail-closed broken: {source!r} == {translated!r}"
-        )
+if __name__ == "__main__":
+    unittest.main()
