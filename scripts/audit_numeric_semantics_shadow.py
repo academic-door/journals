@@ -16,6 +16,7 @@ Output: prints a summary to stdout and writes SHADOW_NUMERIC_BASELINE_V1.json
 """
 
 import json
+import os
 import sys
 from collections import Counter
 from pathlib import Path
@@ -89,21 +90,31 @@ def audit() -> int:
                     }
                 )
 
+    main_sha = os.environ.get("SHADOW_MAIN_SHA", "").strip()
+    data_sha = os.environ.get("SHADOW_DATA_SHA", "").strip()
     report = {
         "schema_version": "1.0",
         "scope": "shadow-semantic-numeric",
         "total_articles_scanned": scanned,
         "semantic_mismatch_count": len(findings),
+        "main_sha": main_sha or None,
+        "data_sha": data_sha or None,
         "findings": findings,
     }
     (ROOT / "SHADOW_NUMERIC_BASELINE_V1.json").write_text(
         json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8"
     )
-    print(
-        "shadow numeric audit: "
+    summary = (
         f"{scanned} translated articles scanned, "
         f"{len(findings)} semantic mismatches (shadow only, non-gating)"
     )
+    if main_sha and data_sha:
+        print(
+            "shadow numeric audit (canonical data overlay): "
+            f"main_sha={main_sha} data_sha={data_sha} "
+            f"articles_scanned={scanned} total_semantic_mismatches={len(findings)}"
+        )
+    print("shadow numeric audit: " + summary)
     # Findings are non-blocking; only a real failure raises earlier.
     return 0
 

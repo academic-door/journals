@@ -36,7 +36,11 @@ POSITIVE = [
     ("reference-count", "the joint distribution of the two", "估计值与状态的联合分布"),
     ("reference-count", "Guided by three theories (human capital, rat race, tournament)", "根据人力资本、竞争和锦标赛理论"),
     ("reference-count", "Using two different indices, one remotely sensed and one from ground data", "利用包括遥感的一和地面观测的一的不同指数"),
-    ("pp-unit-drop", "associated with a 0.7\u20131 percentage point increase", "与提高0.7-1相关"),
+    ("percentage-point-single", "one percentage point", "一个百分点"),
+    ("percentage-point-range-cn", "0.7\u20131 percentage point", "0.7和1个百分点"),
+    ("percentage-point-list", "8.2, 15.4, and 40 percentage points", "8.2、15.4和40个百分点"),
+    ("percentage-point-neg-pp", "\u22128.40 pp", "\u22128.40个百分点"),
+    ("percentage-point-vs-cn-pp", "three to six percent", "三到六个百分点"),
 ]
 
 # Fail-closed negatives: true scale/value errors must STILL be detected.
@@ -53,6 +57,7 @@ NEGATIVE = [
     ("year-date-wrong", "in 2001 and 2020", "在2001和2019之间"),
     ("reference-count-wrong", "by three theories", "根据两个理论"),
     ("pp-unit-wrong", "a 0.7\u20131 percentage point increase", "与提高0.7-2相关"),
+    ("pp-unit-drop", "associated with a 0.7\u20131 percentage point increase", "与提高0.7-1相关"),
 ]
 
 
