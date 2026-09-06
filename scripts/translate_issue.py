@@ -948,48 +948,6 @@ def _reconcile_missing_enumeration_counts(
         source_q[token] -= 1
         enum_available[token] -= 1
 
-
-def _en_percentage_point_values(value: str) -> set[str]:
-    """Return canonical bare values appearing in English 'percentage point(s)' contexts."""
-    out: set[str] = set()
-    for match in _EN_PERCENTAGE_POINTS_LIST_RE.finditer(value):
-        for n in re.findall(
-            r"[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?",
-            match.group("list"),
-        ):
-            out.add(_quantity_token(Decimal(_canonical_number(n))))
-    for match in _EN_PERCENTAGE_POINTS_RANGE_RE.finditer(value):
-        for g in ("a", "b"):
-            out.add(_quantity_token(Decimal(_canonical_number(match.group(g)))))
-    for match in _EN_PERCENTAGE_POINTS_RE.finditer(value):
-        out.add(_quantity_token(Decimal(_canonical_number(match.group("amount")))))
-    return out
-
-
-def _reconcile_percentage_point_unit_drop(
-    source_text: str,
-    translated_text: str,
-    source_q: "Counter[str]",
-    translated_q: "Counter[str]",
-) -> None:
-    """Accept a translation that drops the 'percentage point' unit but keeps the value.
-
-    The legacy gate treats percentage points as bare numbers, so a translation that
-    renders "0.7-1 percentage point" as bare "0.7-1" preserves the numeric values even
-    though it omits the unit token.  We only forgive it when the source explicitly
-    carried the percentage-point marker and the translation has a surplus bare value for
-    the same number, never for a genuine percent (value + '%') mismatch.
-    """
-    for value in _en_percentage_point_values(source_text):
-        token = value + "%"
-        if source_q.get(token, 0) <= translated_q.get(token, 0):
-            continue
-        if translated_q.get(value, 0) <= source_q.get(value, 0):
-            continue
-        source_q[token] -= 1
-        translated_q[value] -= 1
-
-
 def resolve_semantic_quantities(
     source_text: str,
     translated_text: str,
@@ -1005,7 +963,6 @@ def resolve_semantic_quantities(
     translated_q = Counter(_semantic_numbers(translated_text) + _month_numbers(translated_text))
     _reconcile_single_cn_digits(translated_text, source_q, translated_q)
     _reconcile_missing_enumeration_counts(source_text, translated_text, source_q, translated_q)
-    _reconcile_percentage_point_unit_drop(source_text, translated_text, source_q, translated_q)
     for identifier_number in _identifier_numbers(source_text):
         if translated_q[identifier_number] > source_q[identifier_number]:
             translated_q[identifier_number] -= 1
