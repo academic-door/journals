@@ -166,18 +166,18 @@ jobs:
             --path data/backfill-staging \
             --exclude 'public/api/v1/journals/*/issues/index.json'
 
-      - name: Refresh live AER authoritative discovery evidence
+      - name: Refresh live AEA-family authoritative discovery evidence
         shell: bash
         run: |
           set -euo pipefail
           if [ "$GITHUB_EVENT_NAME" != "schedule" ]; then
-            echo "AER coverage refresh is scheduled-run only."
+            echo "AEA-family coverage refresh is scheduled-run only."
             exit 0
           fi
           python scripts/backfill_history.py \
             --config config/field-history.yml \
             --state data/backfill-state/field-2025-2026.json \
-            --journals AER \
+            --journals AER,AEJAPP,AEJMACRO,AEJMICRO,AEJPOL \
             --from-year 2025 \
             --to-year 2026 \
             --refresh-discovery-only
@@ -204,13 +204,13 @@ jobs:
             --max-journals "${{ inputs.max_journals || '4' }}" \
             --print-pending-journals)
           echo "Pending journals: $pending"
-          force_publish_scheduled_aer=false
+          force_publish_scheduled_aea_family=false
           if [ "$GITHUB_EVENT_NAME" = "schedule" ]; then
-            # The scheduled live AER discovery refresh mutates the 2025-2026
+            # The scheduled live AEA-family discovery refresh mutates the 2025-2026
             # state even when the rotating 2023-2024 queue has no pending work.
-            force_publish_scheduled_aer=true
+            force_publish_scheduled_aea_family=true
           fi
-          if [ "$pending" != "[]" ] || [ "$force_publish_scheduled_aer" = "true" ]; then
+          if [ "$pending" != "[]" ] || [ "$force_publish_scheduled_aea_family" = "true" ]; then
             has_pending=true
           else
             has_pending=false
