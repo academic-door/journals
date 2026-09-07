@@ -1,0 +1,57 @@
+name: R2 AEA-family canonical discovery refresh
+
+on:
+  push:
+    branches: [r2-aea-data-refresh-run]
+
+jobs:
+  aejapp:
+    uses: ./.github/workflows/backfill-field-history.yml
+    with:
+      journal: AEJAPP
+      from_year: "2025"
+      to_year: "2026"
+      max_issues: "1"
+      max_translations: "1"
+      max_journals: "1"
+      refresh_discovery_only: true
+    secrets: inherit
+
+  aejmacro:
+    needs: aejapp
+    uses: ./.github/workflows/backfill-field-history.yml
+    with:
+      journal: AEJMACRO
+      from_year: "2025"
+      to_year: "2026"
+      max_issues: "1"
+      max_translations: "1"
+      max_journals: "1"
+      refresh_discovery_only: true
+    secrets: inherit
+
+  aejmicro:
+    needs: aejmacro
+    uses: ./.github/workflows/backfill-field-history.yml
+    with:
+      journal: AEJMICRO
+      from_year: "2025"
+      to_year: "2026"
+      max_issues: "1"
+      max_translations: "1"
+      max_journals: "1"
+      refresh_discovery_only: true
+    secrets: inherit
+
+  aejpol:
+    needs: aejmicro
+    uses: ./.github/workflows/backfill-field-history.yml
+    with:
+      journal: AEJPOL
+      from_year: "2025"
+      to_year: "2026"
+      max_issues: "1"
+      max_translations: "1"
+      max_journals: "1"
+      refresh_discovery_only: true
+    secrets: inherit
