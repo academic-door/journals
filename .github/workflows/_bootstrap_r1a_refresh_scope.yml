@@ -28,106 +28,19 @@ jobs:
         shell: bash
         run: |
           python - <<'PY'
+          import base64
           from pathlib import Path
 
           script = Path('scripts/backfill_history.py')
           text = script.read_text(encoding='utf-8')
-          old = '''    if migrate_legacy_state(state, journals):
-        atomic_write_json(state_path, state)
-'''
-          new = '''    # Discovery-only refresh must never reconcile or downgrade historical
-    # issue checkpoints. It is an evidence refresh, not an archive-state repair.
-    if not args.refresh_discovery_only and migrate_legacy_state(state, journals):
-        atomic_write_json(state_path, state)
-'''
+          old = "    if migrate_legacy_state(state, journals):\n        atomic_write_json(state_path, state)\n"
+          new = "    # Discovery-only refresh must never reconcile or downgrade historical\n    # issue checkpoints. It is an evidence refresh, not an archive-state repair.\n    if not args.refresh_discovery_only and migrate_legacy_state(state, journals):\n        atomic_write_json(state_path, state)\n"
           if old not in text:
               raise SystemExit('migrate_legacy_state block not found')
-          text = text.replace(old, new, 1)
-          script.write_text(text, encoding='utf-8')
+          script.write_text(text.replace(old, new, 1), encoding='utf-8')
 
-          test = Path('tests/test_refresh_discovery_scope.py')
-          test.write_text('''import json
-import sys
-import tempfile
-import unittest
-from pathlib import Path
-from unittest.mock import patch
-
-import yaml
-
-import scripts.backfill_history as backfill
-
-
-class RefreshDiscoveryScopeTests(unittest.TestCase):
-    def test_refresh_discovery_only_never_reconciles_issue_state(self):
-        original_issue = {
-            "journal": "AER",
-            "year": 2026,
-            "volume": "116",
-            "issue": "8",
-            "official_url": "https://www.aeaweb.org/journals/aer/issue/116/8",
-            "status": "ready",
-            "last_error": "",
-            "retry_class": "manual",
-            "content_status": "complete",
-            "source_status": "official_verified",
-            "publication_state": "ready",
-        }
-        with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp)
-            state_path = root / "state.json"
-            config_path = root / "history.yml"
-            state_path.write_text(
-                json.dumps(
-                    {
-                        "schema_version": "1.1",
-                        "updated_at": "2026-08-24T00:00:00+00:00",
-                        "issues": {"aer-116-8": original_issue},
-                        "discovery": {},
-                    }
-                ),
-                encoding="utf-8",
-            )
-            config_path.write_text(
-                yaml.safe_dump(
-                    {
-                        "journals": {
-                            "AER": {
-                                "platform": "year_ranges",
-                                "allowed_host": "www.aeaweb.org",
-                                "issue_url_template": "https://www.aeaweb.org/journals/aer/issue/{volume}/{issue}",
-                                "year_ranges": {2026: {"volume": "116", "issues": [8, 9]}},
-                            }
-                        }
-                    },
-                    sort_keys=False,
-                ),
-                encoding="utf-8",
-            )
-            argv = [
-                "backfill_history.py",
-                "--config", str(config_path),
-                "--state", str(state_path),
-                "--journals", "AER",
-                "--from-year", "2026",
-                "--to-year", "2026",
-                "--refresh-discovery-only",
-            ]
-            with patch.object(sys, "argv", argv), patch.object(
-                backfill,
-                "migrate_legacy_state",
-                side_effect=AssertionError("discovery-only must not reconcile issue state"),
-            ):
-                self.assertEqual(backfill.main(), 0)
-
-            payload = json.loads(state_path.read_text(encoding="utf-8"))
-            self.assertEqual(payload["issues"], {"aer-116-8": original_issue})
-            self.assertEqual(payload["discovery"]["AER"]["issue_ids"], ["aer-116-8", "aer-116-9"])
-
-
-if __name__ == "__main__":
-    unittest.main()
-''', encoding='utf-8')
+          test_b64 = "aW1wb3J0IGpzb24KaW1wb3J0IHN5cwppbXBvcnQgdGVtcGZpbGUKaW1wb3J0IHVuaXR0ZXN0CmZyb20gcGF0aGxpYiBpbXBvcnQgUGF0aApmcm9tIHVuaXR0ZXN0Lm1vY2sgaW1wb3J0IHBhdGNoCgppbXBvcnQgeWFtbAoKaW1wb3J0IHNjcmlwdHMuYmFja2ZpbGxfaGlzdG9yeSBhcyBiYWNrZmlsbAoKCmNsYXNzIFJlZnJlc2hEaXNjb3ZlcnlTY29wZVRlc3RzKHVuaXR0ZXN0LlRlc3RDYXNlKToKICAgIGRlZiB0ZXN0X3JlZnJlc2hfZGlzY292ZXJ5X29ubHlfbmV2ZXJfcmVjb25jaWxlc19pc3N1ZV9zdGF0ZShzZWxmKToKICAgICAgICBvcmlnaW5hbF9pc3N1ZSA9IHsKICAgICAgICAgICAgImpvdXJuYWwiOiAiQUVSIiwKICAgICAgICAgICAgInllYXIiOiAyMDI2LAogICAgICAgICAgICAidm9sdW1lIjogIjExNiIsCiAgICAgICAgICAgICJpc3N1ZSI6ICI4IiwKICAgICAgICAgICAgIm9mZmljaWFsX3VybCI6ICJodHRwczovL3d3dy5hZWF3ZWIub3JnL2pvdXJuYWxzL2Flci9pc3N1ZS8xMTYvOCIsCiAgICAgICAgICAgICJzdGF0dXMiOiAicmVhZHkiLAogICAgICAgICAgICAibGFzdF9lcnJvciI6ICIiLAogICAgICAgICAgICAicmV0cnlfY2xhc3MiOiAibWFudWFsIiwKICAgICAgICAgICAgImNvbnRlbnRfc3RhdHVzIjogImNvbXBsZXRlIiwKICAgICAgICAgICAgInNvdXJjZV9zdGF0dXMiOiAib2ZmaWNpYWxfdmVyaWZpZWQiLAogICAgICAgICAgICAicHVibGljYXRpb25fc3RhdGUiOiAicmVhZHkiLAogICAgICAgIH0KICAgICAgICB3aXRoIHRlbXBmaWxlLlRlbXBvcmFyeURpcmVjdG9yeSgpIGFzIHRtcDoKICAgICAgICAgICAgcm9vdCA9IFBhdGgodG1wKQogICAgICAgICAgICBzdGF0ZV9wYXRoID0gcm9vdCAvICJzdGF0ZS5qc29uIgogICAgICAgICAgICBjb25maWdfcGF0aCA9IHJvb3QgLyAiaGlzdG9yeS55bWwiCiAgICAgICAgICAgIHN0YXRlX3BhdGgud3JpdGVfdGV4dCgKICAgICAgICAgICAgICAgIGpzb24uZHVtcHMoCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgICAic2NoZW1hX3ZlcnNpb24iOiAiMS4xIiwKICAgICAgICAgICAgICAgICAgICAgICAgInVwZGF0ZWRfYXQiOiAiMjAyNi0wOC0yNFQwMDowMDowMCswMDowMCIsCiAgICAgICAgICAgICAgICAgICAgICAgICJpc3N1ZXMiOiB7ImFlci0xMTYtOCI6IG9yaWdpbmFsX2lzc3VlfSwKICAgICAgICAgICAgICAgICAgICAgICAgImRpc2NvdmVyeSI6IHt9LAogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICksCiAgICAgICAgICAgICAgICBlbmNvZGluZz0idXRmLTgiLAogICAgICAgICAgICApCiAgICAgICAgICAgIGNvbmZpZ19wYXRoLndyaXRlX3RleHQoCiAgICAgICAgICAgICAgICB5YW1sLnNhZmVfZHVtcCgKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAgICJqb3VybmFscyI6IHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICJBRVIiOiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgInBsYXRmb3JtIjogInllYXJfcmFuZ2VzIiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiYWxsb3dlZF9ob3N0IjogInd3dy5hZWF3ZWIub3JnIiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiaXNzdWVfdXJsX3RlbXBsYXRlIjogImh0dHBzOi8vd3d3LmFlYXdlYi5vcmcvam91cm5hbHMvYWVyL2lzc3VlL3t2b2x1bWV9L3tpc3N1ZX0iLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICJ5ZWFyX3JhbmdlcyI6IHsyMDI2OiB7InZvbHVtZSI6ICIxMTYiLCAiaXNzdWVzIjogWzgsIDldfX0sCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgICAgIHNvcnRfa2V5cz1GYWxzZSwKICAgICAgICAgICAgICAgICksCiAgICAgICAgICAgICAgICBlbmNvZGluZz0idXRmLTgiLAogICAgICAgICAgICApCiAgICAgICAgICAgIGFyZ3YgPSBbCiAgICAgICAgICAgICAgICAiYmFja2ZpbGxfaGlzdG9yeS5weSIsCiAgICAgICAgICAgICAgICAiLS1jb25maWciLCBzdHIoY29uZmlnX3BhdGgpLAogICAgICAgICAgICAgICAgIi0tc3RhdGUiLCBzdHIoc3RhdGVfcGF0aCksCiAgICAgICAgICAgICAgICAiLS1qb3VybmFscyIsICJBRVIiLAogICAgICAgICAgICAgICAgIi0tZnJvbS15ZWFyIiwgIjIwMjYiLAogICAgICAgICAgICAgICAgIi0tdG8teWVhciIsICIyMDI2IiwKICAgICAgICAgICAgICAgICItLXJlZnJlc2gtZGlzY292ZXJ5LW9ubHkiLAogICAgICAgICAgICBdCiAgICAgICAgICAgIHdpdGggcGF0Y2gub2JqZWN0KHN5cywgImFyZ3YiLCBhcmd2KSwgcGF0Y2gub2JqZWN0KAogICAgICAgICAgICAgICAgYmFja2ZpbGwsCiAgICAgICAgICAgICAgICAibWlncmF0ZV9sZWdhY3lfc3RhdGUiLAogICAgICAgICAgICAgICAgc2lkZV9lZmZlY3Q9QXNzZXJ0aW9uRXJyb3IoImRpc2NvdmVyeS1vbmx5IG11c3Qgbm90IHJlY29uY2lsZSBpc3N1ZSBzdGF0ZSIpLAogICAgICAgICAgICApOgogICAgICAgICAgICAgICAgc2VsZi5hc3NlcnRFcXVhbChiYWNrZmlsbC5tYWluKCksIDApCgogICAgICAgICAgICBwYXlsb2FkID0ganNvbi5sb2FkcyhzdGF0ZV9wYXRoLnJlYWRfdGV4dChlbmNvZGluZz0idXRmLTgiKSkKICAgICAgICAgICAgc2VsZi5hc3NlcnRFcXVhbChwYXlsb2FkWyJpc3N1ZXMiXSwgeyJhZXItMTE2LTgiOiBvcmlnaW5hbF9pc3N1ZX0pCiAgICAgICAgICAgIHNlbGYuYXNzZXJ0RXF1YWwocGF5bG9hZFsiZGlzY292ZXJ5Il1bIkFFUiJdWyJpc3N1ZV9pZHMiXSwgWyJhZXItMTE2LTgiLCAiYWVyLTExNi05Il0pCgoKaWYgX19uYW1lX18gPT0gIl9fbWFpbl9fIjoKICAgIHVuaXR0ZXN0Lm1haW4oKQo="
+          Path('tests/test_refresh_discovery_scope.py').write_bytes(base64.b64decode(test_b64))
           PY
 
       - name: Run regressions and full suite
@@ -146,7 +59,6 @@ if __name__ == "__main__":
           mkdir -p data/backfill-state
           git show origin/data:data/backfill-state/field-2025-2026.json > data/backfill-state/field-2025-2026.json
           cp data/backfill-state/field-2025-2026.json "$RUNNER_TEMP/before.json"
-
           python scripts/backfill_history.py \
             --config config/field-history.yml \
             --state data/backfill-state/field-2025-2026.json \
@@ -154,7 +66,6 @@ if __name__ == "__main__":
             --from-year 2025 \
             --to-year 2026 \
             --refresh-discovery-only
-
           python - "$RUNNER_TEMP/before.json" data/backfill-state/field-2025-2026.json <<'PY'
           import json, sys
           before = json.load(open(sys.argv[1], encoding='utf-8'))
@@ -164,7 +75,7 @@ if __name__ == "__main__":
           assert before.get('rotation') == after.get('rotation'), 'rotation mutated'
           bdisc = dict(before.get('discovery') or {})
           adisc = dict(after.get('discovery') or {})
-          b_aer = bdisc.pop('AER', None)
+          bdisc.pop('AER', None)
           a_aer = adisc.pop('AER', None)
           assert bdisc == adisc, 'non-AER discovery mutated'
           assert a_aer and a_aer.get('authority') == 'official_archive', a_aer
@@ -173,8 +84,7 @@ if __name__ == "__main__":
               if key in {'updated_at', 'discovery'}:
                   continue
               assert before.get(key) == after.get(key), f'top-level mutation: {key}'
-          print('AER discovery-only scope guard passed')
-          print('old refreshed_at:', (b_aer or {}).get('refreshed_at'))
+          print('AER discovery-only semantic scope guard passed')
           print('new refreshed_at:', a_aer.get('refreshed_at'))
           PY
 
@@ -185,25 +95,9 @@ if __name__ == "__main__":
           baseline="$RUNNER_TEMP/r1a-baseline"
           generated="$RUNNER_TEMP/r1a-generated"
           data_tree="$RUNNER_TEMP/r1a-data-tree"
-          cp "$RUNNER_TEMP/before.json" data/backfill-state/field-2025-2026.json.before
-          mkdir -p "$baseline" "$generated"
-          cp data/backfill-state/field-2025-2026.json.before "$baseline/field-2025-2026.json"
-          cp data/backfill-state/field-2025-2026.json "$generated/field-2025-2026.json"
-
-          python scripts/publish_data_delta.py snapshot \
-            --root . \
-            --output "$baseline" \
-            --path data/backfill-state/field-2025-2026.json.before >/dev/null 2>&1 || true
-          rm -rf "$baseline" "$generated"
-          python scripts/publish_data_delta.py snapshot \
-            --root "$RUNNER_TEMP" \
-            --output "$baseline" \
-            --path before.json
-          mkdir -p "$RUNNER_TEMP/generated-root/data/backfill-state"
-          cp data/backfill-state/field-2025-2026.json "$RUNNER_TEMP/generated-root/data/backfill-state/field-2025-2026.json"
-          mkdir -p "$RUNNER_TEMP/baseline-root/data/backfill-state"
+          mkdir -p "$RUNNER_TEMP/baseline-root/data/backfill-state" "$RUNNER_TEMP/generated-root/data/backfill-state"
           cp "$RUNNER_TEMP/before.json" "$RUNNER_TEMP/baseline-root/data/backfill-state/field-2025-2026.json"
-          rm -rf "$baseline" "$generated"
+          cp data/backfill-state/field-2025-2026.json "$RUNNER_TEMP/generated-root/data/backfill-state/field-2025-2026.json"
           python scripts/publish_data_delta.py snapshot \
             --root "$RUNNER_TEMP/baseline-root" \
             --output "$baseline" \
@@ -212,7 +106,6 @@ if __name__ == "__main__":
             --root "$RUNNER_TEMP/generated-root" \
             --output "$generated" \
             --path data/backfill-state/field-2025-2026.json
-
           for attempt in 1 2 3 4 5; do
             git fetch origin data
             git worktree remove --force "$data_tree" 2>/dev/null || true
