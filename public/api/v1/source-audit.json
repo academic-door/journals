@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-02T16:38:20+00:00",
+  "updated_at": "2026-09-07T06:10:03+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 49,
     "official_page_verified": 12,
-    "publisher_feed_verified": 19,
-    "fallback_verified": 18,
+    "publisher_feed_verified": 18,
+    "fallback_verified": 19,
     "needs_attention": 0,
     "missing": 0,
     "invariant_errors": 0
@@ -649,33 +649,31 @@
       "status": "fallback_verified",
       "current": {
         "available": true,
-        "status": "fallback_verified",
-        "issue_id": "ej-136-677",
-        "publication_date": "July 2026",
-        "publication_state": "source_pending",
-        "source_url": "https://academic.oup.com/ej/issue",
-        "roster_authority": "crossref-provisional",
-        "roster_transport": "crossref",
-        "order_verified": false,
+        "status": "official_page_verified",
+        "issue_id": "ej-136-678",
+        "publication_date": "August 2026",
+        "publication_state": "ready",
+        "source_url": "https://academic.oup.com/ej/issue/136/678",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "browser-authorized",
+        "order_verified": true,
         "content_counts": {
           "official_items": 12,
           "observed_items": 12,
-          "publishable_items": 11,
-          "research_articles": 11,
+          "publishable_items": 12,
+          "research_articles": 12,
           "comments": 0,
           "short_communications": 0,
           "corrections": 0,
-          "editorial_material": 1,
+          "editorial_material": 0,
           "front_matter": 0,
           "other_excluded": 0,
-          "catalog_content_items": 11
+          "catalog_content_items": 12
         },
-        "abstracts_complete": 11,
-        "translations_complete": 11,
+        "abstracts_complete": 12,
+        "translations_complete": 12,
         "errors": [],
-        "warnings": [
-          "crossref_provisional_roster"
-        ]
+        "warnings": []
       },
       "detected": {
         "available": true,
@@ -1741,33 +1739,31 @@
       "status": "fallback_verified",
       "current": {
         "available": true,
-        "status": "fallback_verified",
-        "issue_id": "rfs-39-8",
-        "publication_date": "August 2026",
-        "publication_state": "source_pending",
-        "source_url": "https://academic.oup.com/rfs/issue/39/8",
-        "roster_authority": "crossref-provisional",
-        "roster_transport": "crossref",
-        "order_verified": false,
+        "status": "official_page_verified",
+        "issue_id": "rfs-39-9",
+        "publication_date": "2026-09",
+        "publication_state": "ready",
+        "source_url": "https://academic.oup.com/rfs/issue/39/9",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "browser-authorized",
+        "order_verified": true,
         "content_counts": {
-          "official_items": 8,
-          "observed_items": 8,
-          "publishable_items": 8,
-          "research_articles": 8,
+          "official_items": 7,
+          "observed_items": 7,
+          "publishable_items": 7,
+          "research_articles": 7,
           "comments": 0,
           "short_communications": 0,
           "corrections": 0,
           "editorial_material": 0,
           "front_matter": 0,
           "other_excluded": 0,
-          "catalog_content_items": 8
+          "catalog_content_items": 7
         },
-        "abstracts_complete": 8,
-        "translations_complete": 8,
+        "abstracts_complete": 7,
+        "translations_complete": 7,
         "errors": [],
-        "warnings": [
-          "crossref_provisional_roster"
-        ]
+        "warnings": []
       },
       "detected": {
         "available": true,
@@ -1808,7 +1804,7 @@
       "name": "World Development",
       "publisher": "Elsevier",
       "configured_source": "https://www.sciencedirect.com/journal/world-development/issues",
-      "status": "publisher_feed_verified",
+      "status": "fallback_verified",
       "current": {
         "available": true,
         "status": "fallback_verified",
@@ -1841,23 +1837,23 @@
       },
       "detected": {
         "available": true,
-        "status": "publisher_feed_verified",
+        "status": "fallback_verified",
         "issue_id": "wd-207-c",
         "publication_date": "November 2026",
         "publication_state": "blocked",
         "source_url": "https://www.sciencedirect.com/journal/world-development/vol/207/suppl/C",
-        "roster_authority": "publisher-rss",
-        "roster_transport": "sciencedirect-rss",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-issue-page",
         "order_verified": false,
         "content_counts": {
-          "official_items": 29,
-          "observed_items": 29,
+          "official_items": 28,
+          "observed_items": 28,
           "publishable_items": 27,
           "research_articles": 27,
           "comments": 0,
           "short_communications": 0,
           "corrections": 1,
-          "editorial_material": 1,
+          "editorial_material": 0,
           "front_matter": 0,
           "other_excluded": 0,
           "catalog_content_items": 28
@@ -2681,7 +2677,7 @@
           "catalog_content_items": 55
         },
         "abstracts_complete": 53,
-        "translations_complete": 53,
+        "translations_complete": 51,
         "errors": [],
         "warnings": [
           "official_order_unverified",
