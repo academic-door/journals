@@ -110,7 +110,7 @@ class HistoryDiscoveryTests(unittest.TestCase):
         )
         self.assertEqual(["jpe-133-1", "jpe-133-2"], [item.issue_id for item in issues])
 
-    def test_qe_2023_and_2024_volumes_are_mapped_from_field_config(self) -> None:
+    def test_qe_2023_and_2024_use_live_wiley_archive_config(self) -> None:
         import yaml
 
         config = yaml.safe_load(
@@ -121,17 +121,27 @@ class HistoryDiscoveryTests(unittest.TestCase):
         qe = config["journals"]["QE"]
         self.assertIn(2023, config["years"])
         self.assertIn(2024, config["years"])
-        self.assertEqual("14", qe["year_ranges"][2023]["volume"])
-        self.assertEqual("15", qe["year_ranges"][2024]["volume"])
-        issues = discover_official_issues(
-            "QE",
-            qe,
+        self.assertEqual("wiley", qe["platform"])
+        self.assertEqual("17597331", qe["toc_id"])
+        self.assertNotIn("year_ranges", qe)
+        archive = b"""
+        <a href="/toc/17597331/2023/14/1">Volume 14, Issue 1</a>
+        <a href="/toc/17597331/2024/15/4">Volume 15, Issue 4</a>
+        <a href="/toc/14680262/2024/92/4">Associated title</a>
+        """
+        issues = parse_archive(
+            archive,
+            "https://onlinelibrary.wiley.com/loi/17597331/year/2024",
+            journal="QE",
+            platform="wiley",
             years=[2023, 2024],
+            allowed_host=qe["allowed_host"],
+            toc_id=qe["toc_id"],
         )
-        ids = [item.issue_id for item in issues]
-        self.assertIn("qe-14-1", ids)
-        self.assertIn("qe-15-4", ids)
-        self.assertEqual(8, len(ids))
+        self.assertEqual(
+            ["qe-14-1", "qe-15-4"],
+            [item.issue_id for item in issues],
+        )
 
     def test_aer_and_jpe_2024_use_complete_official_discovery(self) -> None:
         import yaml
@@ -166,8 +176,23 @@ class HistoryDiscoveryTests(unittest.TestCase):
         )
 
         jpe = config["JPE"]
-        self.assertEqual("year_ranges", jpe["platform"])
-        jpe_issues = discover_official_issues("JPE", jpe, years=[2024])
+        self.assertEqual("chicago", jpe["platform"])
+        self.assertEqual(
+            "https://www.journals.uchicago.edu/loi/jpe",
+            jpe["archive_url"],
+        )
+        jpe_archive = "".join(
+            f'<a href="/toc/jpe/2024/132/{number}">Volume 132 Number {number}</a>'
+            for number in range(1, 13)
+        ).encode()
+        jpe_issues = parse_archive(
+            jpe_archive,
+            jpe["archive_url"],
+            journal="JPE",
+            platform="chicago",
+            years=[2024],
+            allowed_host=jpe["allowed_host"],
+        )
         self.assertEqual(
             [f"jpe-132-{number}" for number in range(1, 13)],
             [item.issue_id for item in jpe_issues],
@@ -175,7 +200,6 @@ class HistoryDiscoveryTests(unittest.TestCase):
         self.assertTrue(
             all(jpe["allowed_host"] in item.official_url for item in jpe_issues)
         )
-
 
 
 class CrossrefDiscoveryTests(unittest.TestCase):
@@ -246,8 +270,6 @@ class CrossrefDiscoveryTests(unittest.TestCase):
             issues[0].official_url,
         )
 
-
-
     def test_crossref_pagination_stops_on_empty_page(self) -> None:
         from collectors.history import discover_crossref_issues
 
@@ -293,4 +315,3 @@ class CrossrefDiscoveryTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
