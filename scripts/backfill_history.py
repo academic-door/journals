@@ -577,11 +577,31 @@ def is_actionable(entry: dict[str, Any] | None) -> bool:
 
 
 def discovery_authority(definition: dict[str, Any]) -> str:
-    return (
-        "crossref_candidate"
-        if str(definition.get("platform", "")).casefold() == "crossref"
-        else "official_archive"
-    )
+    if definition.get("observed_evidence_path"):
+        return "official_archive_snapshot"
+    platform = str(definition.get("platform", "")).casefold()
+    if platform == "crossref":
+        return "crossref_candidate"
+    if definition.get("year_ranges"):
+        return "configured_schedule_candidate"
+    return "official_archive"
+
+
+def discovery_refreshed_at(definition: dict[str, Any]) -> str | None:
+    evidence_path = str(definition.get("observed_evidence_path", "")).strip()
+    if not evidence_path:
+        return None
+    path = Path(evidence_path)
+    if not path.is_absolute():
+        path = ROOT / path
+    payload = load_json(path, {})
+    stamp = str(payload.get("observed_at", "")).strip()
+    if not stamp:
+        raise ValueError(f"observed evidence missing observed_at: {path}")
+    parsed = datetime.fromisoformat(stamp)
+    if parsed.tzinfo is None:
+        raise ValueError(f"observed evidence timestamp must be timezone-aware: {path}")
+    return stamp
 
 
 def record_discovery(
@@ -1223,7 +1243,13 @@ def main() -> int:
             discovered = discover_official_issues(
                 key, history["journals"][key], years=years
             )
-            record_discovery(state, key, discovered, history["journals"][key])
+            record_discovery(
+                state,
+                key,
+                discovered,
+                history["journals"][key],
+                refreshed_at=discovery_refreshed_at(history["journals"][key]),
+            )
             refreshed[key] = len(discovered)
         print(
             json.dumps(
@@ -1292,7 +1318,13 @@ def main() -> int:
                 key, history["journals"][key], years=years
             )
             plan.extend(discovered)
-            record_discovery(state, key, discovered, history["journals"][key])
+            record_discovery(
+                state,
+                key,
+                discovered,
+                history["journals"][key],
+                refreshed_at=discovery_refreshed_at(history["journals"][key]),
+            )
     plan.sort(key=historical_issue_sort_key)
 
     def _needs_processing(issue: HistoricalIssue) -> bool:

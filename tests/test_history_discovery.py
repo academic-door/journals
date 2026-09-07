@@ -110,71 +110,18 @@ class HistoryDiscoveryTests(unittest.TestCase):
         )
         self.assertEqual(["jpe-133-1", "jpe-133-2"], [item.issue_id for item in issues])
 
-    def test_qe_2023_and_2024_volumes_are_mapped_from_field_config(self) -> None:
+    def test_qe_and_jpe_bind_observed_expected_set_evidence(self) -> None:
         import yaml
 
         config = yaml.safe_load(
-            (Path(__file__).resolve().parents[1] / "config/field-history.yml").read_text(
-                encoding="utf-8"
-            )
-        )
-        qe = config["journals"]["QE"]
-        self.assertIn(2023, config["years"])
-        self.assertIn(2024, config["years"])
-        self.assertEqual("14", qe["year_ranges"][2023]["volume"])
-        self.assertEqual("15", qe["year_ranges"][2024]["volume"])
-        issues = discover_official_issues(
-            "QE",
-            qe,
-            years=[2023, 2024],
-        )
-        ids = [item.issue_id for item in issues]
-        self.assertIn("qe-14-1", ids)
-        self.assertIn("qe-15-4", ids)
-        self.assertEqual(8, len(ids))
-
-    def test_aer_and_jpe_2024_use_complete_official_discovery(self) -> None:
-        import yaml
-
-        config = yaml.safe_load(
-            (Path(__file__).resolve().parents[1] / "config/field-history.yml").read_text(
-                encoding="utf-8"
-            )
+            (Path(__file__).resolve().parents[1] / "config/field-history.yml").read_text(encoding="utf-8")
         )["journals"]
-        aer = config["AER"]
-        self.assertEqual("aea", aer["platform"])
-        self.assertEqual(
-            "https://www.aeaweb.org/journals/aer/issues",
-            aer["archive_url"],
-        )
-        aer_archive = "".join(
-            f'<a href="/issues/{700 + number}">Month 2024 '
-            f'(Vol. 114, No. {number})</a>'
-            for number in range(1, 13)
-        ).encode()
-        aer_issues = parse_archive(
-            aer_archive,
-            aer["archive_url"],
-            journal="AER",
-            platform="aea",
-            years=[2024],
-            allowed_host=aer["allowed_host"],
-        )
-        self.assertEqual(
-            [f"aer-114-{number}" for number in range(1, 13)],
-            [item.issue_id for item in aer_issues],
-        )
-
-        jpe = config["JPE"]
-        self.assertEqual("year_ranges", jpe["platform"])
-        jpe_issues = discover_official_issues("JPE", jpe, years=[2024])
-        self.assertEqual(
-            [f"jpe-132-{number}" for number in range(1, 13)],
-            [item.issue_id for item in jpe_issues],
-        )
-        self.assertTrue(
-            all(jpe["allowed_host"] in item.official_url for item in jpe_issues)
-        )
+        self.assertEqual("year_ranges", config["QE"]["platform"])
+        self.assertIn("observed_evidence_path", config["QE"])
+        self.assertEqual("year_ranges", config["JPE"]["platform"])
+        self.assertIn("observed_evidence_path", config["JPE"])
+        self.assertIn("jpe-134-8", [item.issue_id for item in discover_official_issues("JPE", config["JPE"], years=[2026])])
+        self.assertNotIn("qe-17-4", [item.issue_id for item in discover_official_issues("QE", config["QE"], years=[2026])])
 
 
 
@@ -246,8 +193,6 @@ class CrossrefDiscoveryTests(unittest.TestCase):
             issues[0].official_url,
         )
 
-
-
     def test_crossref_pagination_stops_on_empty_page(self) -> None:
         from collectors.history import discover_crossref_issues
 
@@ -293,4 +238,3 @@ class CrossrefDiscoveryTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

@@ -79,6 +79,7 @@ journals:
     issue_url_template: https://academic.oup.com/jeea/issue/{volume}/{issue}
   QE:
     platform: year_ranges
+    observed_evidence_path: data/provenance/expected-set-observations/qe-2025-2026.json
     issn: 1759-7331
     issue_url_template: https://onlinelibrary.wiley.com/toc/17597331/{volume}/{issue}
     allowed_host: onlinelibrary.wiley.com
@@ -111,6 +112,7 @@ journals:
     issue_url_template: https://www.aeaweb.org/journals/aer/issue/{volume}/{issue}
   JPE:
     platform: year_ranges
+    observed_evidence_path: data/provenance/expected-set-observations/jpe-2025-2026.json
     issn: 0022-3808
     allowed_host: www.journals.uchicago.edu
     issue_url_template: https://www.journals.uchicago.edu/toc/jpe/{year}/{volume}/{issue}

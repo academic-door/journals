@@ -2,8 +2,10 @@
 
 from __future__ import annotations
 
+import json
 import re
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Iterable
 from urllib.parse import urljoin, urlparse
 
@@ -15,6 +17,7 @@ USER_AGENT = (
     "AcademicDoorJournals/0.1 "
     "(non-profit academic metadata service; https://academic-door.github.io/)"
 )
+ROOT = Path(__file__).resolve().parents[1]
 YEAR_PATTERN = re.compile(r"\b(20\d{2})\b")
 VOLUME_ISSUE_PATTERN = re.compile(
     r"(?:Vol(?:ume)?\.?\s*)?(\d+)\s*[,·]?\s*"
@@ -257,6 +260,29 @@ def discover_official_issues(
 ) -> list[HistoricalIssue]:
     found: dict[str, HistoricalIssue] = {}
     year_values = sorted(set(years))
+    evidence_path = str(definition.get("observed_evidence_path", "")).strip()
+    if evidence_path:
+        path = Path(evidence_path)
+        if not path.is_absolute():
+            path = ROOT / path
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        if str(payload.get("journal", "")) != journal:
+            raise ValueError(f"observed evidence journal mismatch for {journal}")
+        wanted = set(year_values)
+        for raw in payload.get("issues", []):
+            year = int(raw["year"])
+            if year not in wanted:
+                continue
+            _add(
+                found,
+                journal=journal,
+                year=year,
+                volume=str(raw["volume"]),
+                issue=str(raw["issue"]),
+                url=str(raw["official_url"]),
+                allowed_host=definition["allowed_host"],
+            )
+        return sorted(found.values(), key=historical_issue_sort_key)
     if definition.get("platform") == "crossref":
         return discover_crossref_issues(
             journal,
