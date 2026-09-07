@@ -1,0 +1,130 @@
+name: Bootstrap R1B JPE QE live evidence
+
+on:
+  push:
+    branches:
+      - r1b-jpe-qe-live-evidence
+
+permissions:
+  contents: write
+
+jobs:
+  patch-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: r1b-jpe-qe-live-evidence
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r requirements.txt
+      - name: Apply R1B live evidence contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          def replace(path: str, old: str, new: str) -> None:
+              p = Path(path)
+              text = p.read_text(encoding="utf-8")
+              if old not in text:
+                  raise SystemExit(f"patch anchor not found: {path}")
+              p.write_text(text.replace(old, new, 1), encoding="utf-8")
+
+          replace(
+              "collectors/history.py",
+              '''def parse_archive(\n    content: bytes,\n    archive_url: str,\n    *,\n    journal: str,\n    platform: str,\n    years: Iterable[int],\n    allowed_host: str,\n) -> list[HistoricalIssue]:''',
+              '''def parse_archive(\n    content: bytes,\n    archive_url: str,\n    *,\n    journal: str,\n    platform: str,\n    years: Iterable[int],\n    allowed_host: str,\n    toc_id: str = "",\n) -> list[HistoricalIssue]:''',
+          )
+          replace(
+              "collectors/history.py",
+              '''        elif platform == "wiley":\n            match = re.search(r"/toc/14680262/(20\\d{2})/(\\d+)/(\\d+)", path)\n            if match:\n                year, volume, issue = int(match.group(1)), match.group(2), match.group(3)''',
+              '''        elif platform == "wiley":\n            match = re.search(r"/toc/(\\d+)/(20\\d{2})/(\\d+)/(\\d+)", path)\n            if match:\n                serial, year_text, volume, issue = match.groups()\n                if toc_id and serial != toc_id:\n                    continue\n                year = int(year_text)''',
+          )
+          replace(
+              "collectors/history.py",
+              '''            years=year_values,\n            allowed_host=definition["allowed_host"],\n        ):''',
+              '''            years=year_values,\n            allowed_host=definition["allowed_host"],\n            toc_id=str(definition.get("toc_id", "")),\n        ):''',
+          )
+
+          replace(
+              "scripts/backfill_history.py",
+              '''def discovery_authority(definition: dict[str, Any]) -> str:\n    return (\n        "crossref_candidate"\n        if str(definition.get("platform", "")).casefold() == "crossref"\n        else "official_archive"\n    )''',
+              '''def discovery_authority(definition: dict[str, Any]) -> str:\n    platform = str(definition.get("platform", "")).casefold()\n    if platform == "crossref":\n        return "crossref_candidate"\n    if definition.get("year_ranges"):\n        return "configured_schedule_candidate"\n    return "official_archive"''',
+          )
+
+          replace(
+              "scripts/build_completeness_ledger.py",
+              'NON_AUTHORITATIVE_AUTHORITIES = {"crossref_candidate", ""}',
+              'NON_AUTHORITATIVE_AUTHORITIES = {"crossref_candidate", "configured_schedule_candidate", ""}',
+          )
+
+          replace(
+              "config/field-history.yml",
+              '''  QE:\n    platform: year_ranges\n    issn: 1759-7331\n    issue_url_template: https://onlinelibrary.wiley.com/toc/17597331/{volume}/{issue}\n    allowed_host: onlinelibrary.wiley.com\n    year_ranges:\n      2023:\n        volume: "14"\n        issues: [1, 2, 3, 4]\n      2024:\n        volume: "15"\n        issues: [1, 2, 3, 4]\n      2025:\n        volume: "16"\n        issues: [1, 2, 3, 4]\n      2026:\n        volume: "17"\n        issues: [1, 2, 3, 4]''',
+              '''  QE:\n    platform: wiley\n    issn: 1759-7331\n    toc_id: "17597331"\n    archive_url_template: https://onlinelibrary.wiley.com/loi/17597331/year/{year}\n    issue_url_template: https://onlinelibrary.wiley.com/toc/17597331/{year}/{volume}/{issue}\n    allowed_host: onlinelibrary.wiley.com''',
+          )
+          replace(
+              "config/field-history.yml",
+              '''  JPE:\n    platform: year_ranges\n    issn: 0022-3808\n    allowed_host: www.journals.uchicago.edu\n    issue_url_template: https://www.journals.uchicago.edu/toc/jpe/{year}/{volume}/{issue}\n    year_ranges:\n      2023:\n        volume: "131"\n        issues: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]\n      2024:\n        volume: "132"\n        issues: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]\n      2025:\n        volume: "133"\n        issues: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]\n      2026:\n        volume: "134"\n        issues: [1, 2, 3, 4, 5, 6, 7]''',
+              '''  JPE:\n    platform: chicago\n    issn: 0022-3808\n    archive_url: https://www.journals.uchicago.edu/loi/jpe\n    allowed_host: www.journals.uchicago.edu\n    issue_url_template: https://www.journals.uchicago.edu/toc/jpe/{year}/{volume}/{issue}''',
+          )
+
+          replace(
+              ".github/workflows/backfill-field-history.yml",
+              '''      - name: Refresh live AER authoritative discovery evidence\n        shell: bash\n        run: |\n          set -euo pipefail\n          if [ "$GITHUB_EVENT_NAME" != "schedule" ]; then\n            echo "AER coverage refresh is scheduled-run only."\n            exit 0\n          fi\n          python scripts/backfill_history.py \\\n            --config config/field-history.yml \\\n            --state data/backfill-state/field-2025-2026.json \\\n            --journals AER \\\n            --from-year 2025 \\\n            --to-year 2026 \\\n            --refresh-discovery-only''',
+              '''      - name: Refresh live authoritative discovery evidence\n        shell: bash\n        run: |\n          set -euo pipefail\n          if [ "$GITHUB_EVENT_NAME" != "schedule" ]; then\n            echo "Live coverage refresh is scheduled-run only."\n            exit 0\n          fi\n          python scripts/backfill_history.py \\\n            --config config/field-history.yml \\\n            --state data/backfill-state/field-2025-2026.json \\\n            --journals AER,JPE,QE \\\n            --from-year 2025 \\\n            --to-year 2026 \\\n            --refresh-discovery-only''',
+          )
+          replace(
+              ".github/workflows/backfill-field-history.yml",
+              '''          force_publish_scheduled_aer=false\n          if [ "$GITHUB_EVENT_NAME" = "schedule" ]; then\n            # The scheduled live AER discovery refresh mutates the 2025-2026\n            # state even when the rotating 2023-2024 queue has no pending work.\n            force_publish_scheduled_aer=true\n          fi\n          if [ "$pending" != "[]" ] || [ "$force_publish_scheduled_aer" = "true" ]; then''',
+              '''          force_publish_scheduled_live=false\n          if [ "$GITHUB_EVENT_NAME" = "schedule" ]; then\n            # The scheduled live AER/JPE/QE discovery refresh mutates the\n            # 2025-2026 state even when the rotating queue has no pending work.\n            force_publish_scheduled_live=true\n          fi\n          if [ "$pending" != "[]" ] || [ "$force_publish_scheduled_live" = "true" ]; then''',
+          )
+
+          Path("tests/test_r1b_live_history_discovery.py").write_text('''from __future__ import annotations\n\nimport unittest\nfrom pathlib import Path\n\nimport yaml\n\nfrom collectors.history import parse_archive\nfrom scripts.backfill_history import discovery_authority\nfrom scripts.build_completeness_ledger import _authority_kind\n\n\nclass R1BLiveHistoryDiscoveryTests(unittest.TestCase):\n    def test_chicago_archive_discovers_live_issue_links(self) -> None:\n        html = b\"\"\"\n        <a href='/toc/jpe/2026/134/7'>Volume 134 Number 7 July 2026</a>\n        <a href='/toc/jpe/2026/134/8'>Volume 134 Number 8 August 2026</a>\n        <a href='/toc/jpe/2025/133/12'>Volume 133 Number 12 December 2025</a>\n        \"\"\"\n        issues = parse_archive(\n            html,\n            \"https://www.journals.uchicago.edu/loi/jpe\",\n            journal=\"JPE\",\n            platform=\"chicago\",\n            years=[2026],\n            allowed_host=\"www.journals.uchicago.edu\",\n        )\n        self.assertEqual([\"jpe-134-7\", \"jpe-134-8\"], [x.issue_id for x in issues])\n\n    def test_wiley_archive_is_scoped_to_configured_serial(self) -> None:\n        html = b\"\"\"\n        <a href='/toc/17597331/2026/17/3'>Volume 17, Issue 3</a>\n        <a href='/toc/17597331/2026/17/2'>Volume 17, Issue 2</a>\n        <a href='/toc/14680262/2026/94/3'>Associated title</a>\n        \"\"\"\n        issues = parse_archive(\n            html,\n            \"https://onlinelibrary.wiley.com/loi/17597331/year/2026\",\n            journal=\"QE\",\n            platform=\"wiley\",\n            years=[2026],\n            allowed_host=\"onlinelibrary.wiley.com\",\n            toc_id=\"17597331\",\n        )\n        self.assertEqual([\"qe-17-2\", \"qe-17-3\"], [x.issue_id for x in issues])\n\n    def test_static_schedule_is_never_authoritative(self) -> None:\n        authority = discovery_authority({\"platform\": \"year_ranges\", \"year_ranges\": {2026: {}}})\n        self.assertEqual(\"configured_schedule_candidate\", authority)\n        self.assertEqual(\"candidate\", _authority_kind(authority))\n\n    def test_jpe_and_qe_configs_are_live_publisher_archives(self) -> None:\n        root = Path(__file__).resolve().parents[1]\n        config = yaml.safe_load((root / \"config/field-history.yml\").read_text(encoding=\"utf-8\"))[\"journals\"]\n        self.assertEqual(\"chicago\", config[\"JPE\"][\"platform\"])\n        self.assertNotIn(\"year_ranges\", config[\"JPE\"])\n        self.assertEqual(\"wiley\", config[\"QE\"][\"platform\"])\n        self.assertEqual(\"17597331\", config[\"QE\"][\"toc_id\"])\n        self.assertNotIn(\"year_ranges\", config[\"QE\"])\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n''', encoding="utf-8")
+          PY
+      - name: Verify unit contract
+        run: |
+          python -m unittest tests.test_r1b_live_history_discovery -v
+          python -m unittest tests.test_backfill_history -v
+          python -m unittest tests.test_build_completeness_ledger -v
+          git diff --check
+      - name: Verify live publisher discovery
+        shell: bash
+        run: |
+          set -euo pipefail
+          state="$RUNNER_TEMP/r1b-live-state.json"
+          python scripts/backfill_history.py \
+            --config config/field-history.yml \
+            --state "$state" \
+            --journals JPE,QE \
+            --from-year 2025 \
+            --to-year 2026 \
+            --refresh-discovery-only
+          STATE="$state" python - <<'PY'
+          import json, os
+          from pathlib import Path
+          state = json.loads(Path(os.environ["STATE"]).read_text(encoding="utf-8"))
+          jpe = state["discovery"]["JPE"]
+          qe = state["discovery"]["QE"]
+          assert jpe["authority"] == "official_archive", jpe
+          assert "jpe-134-8" in jpe["issue_ids"], jpe
+          assert qe["authority"] == "official_archive", qe
+          assert "qe-17-3" in qe["issue_ids"], qe
+          assert "qe-17-4" not in qe["issue_ids"], qe
+          print(json.dumps({
+              "JPE": {"authority": jpe["authority"], "refreshed_at": jpe["refreshed_at"], "2026": [i for i in jpe["issue_ids"] if i.startswith("jpe-134-")]},
+              "QE": {"authority": qe["authority"], "refreshed_at": qe["refreshed_at"], "2026": [i for i in qe["issue_ids"] if i.startswith("qe-17-")]},
+          }, indent=2))
+          PY
+      - name: Commit verified R1B implementation
+        run: |
+          set -euo pipefail
+          git config user.name academic-door-bot
+          git config user.email academic-door-bot@users.noreply.github.com
+          git add collectors/history.py scripts/backfill_history.py scripts/build_completeness_ledger.py config/field-history.yml .github/workflows/backfill-field-history.yml tests/test_r1b_live_history_discovery.py
+          git commit -m "feat: make JPE and QE expected sets live-authoritative"
+          git push origin HEAD:r1b-jpe-qe-live-evidence
