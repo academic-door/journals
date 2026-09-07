@@ -1,11 +1,11 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-07T06:10:03+00:00
+Generated: 2026-09-07T09:13:02+00:00
 
 ## Summary
 
 - browser_required: 1
-- ready: 1165
+- ready: 1166
 - recoverable: 63
 - source_pending: 101
 - translation_required: 1
@@ -118,6 +118,7 @@ Generated: 2026-09-07T06:10:03+00:00
 | AER | aer-116-6 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AER | aer-116-7 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AER | aer-116-8 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| AER | aer-116-9 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AERI | aeri-5-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | AERI | aeri-5-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | AERI | aeri-5-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
