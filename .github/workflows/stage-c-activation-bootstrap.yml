@@ -1,0 +1,188 @@
+name: Stage C activation bootstrap
+
+on:
+  push:
+    branches:
+      - stagec-semantic-gate-activation
+
+permissions:
+  contents: write
+
+jobs:
+  activate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Apply bounded semantic-authority wiring and integration regression
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          path = Path('scripts/translate_issue.py')
+          text = path.read_bytes().decode('utf-8')
+          start_marker = '    source_numbers = Counter(_numbers(source_text) + _month_numbers(source_text))'
+          if text.count(start_marker) != 1:
+              raise SystemExit(f'expected exactly one legacy numeric authority block, found {text.count(start_marker)}')
+          start = text.index(start_marker)
+          end_match = re.search(r'\r?\n\r?\n\r?\ndef _prompt\(', text[start:])
+          if not end_match:
+              raise SystemExit('could not locate end of validate_translation numeric block')
+          end = start + end_match.start()
+          local = text[start:end]
+          nl = '\r\n' if '\r\n' in local else '\n'
+          replacement_lines = [
+              '    # Stage C production authority: compare semantic quantities rather than',
+              '    # legacy surface tokens. This is fail-closed and carries the same',
+              '    # identifier/source-aware reconciliation used by the audited shadow path.',
+              '    source_numbers, translated_numbers = resolve_semantic_quantities(',
+              '        source_text, translated_text',
+              '    )',
+              '    if source_numbers != translated_numbers:',
+              '        missing_numbers = list((source_numbers - translated_numbers).elements())',
+              '        added_numbers = list((translated_numbers - source_numbers).elements())',
+              '        details = []',
+              '        if missing_numbers:',
+              '            details.append("missing " + ", ".join(missing_numbers))',
+              '        if added_numbers:',
+              '            details.append("added " + ", ".join(added_numbers))',
+              '        raise TranslationError(',
+              '            "Translation changed semantic numeric quantities: " + "; ".join(details)',
+              '        )',
+          ]
+          text = text[:start] + nl.join(replacement_lines) + text[end:]
+
+          old_doc = (
+              '    This is the shadow/semantic comparison path: it canonicalizes quantities\n'
+              '    with ``_semantic_numbers``, applies the source-aware single-Chinese-digit\n'
+              '    reconcile, and exempts identifier ordinals.  It is intentionally separate\n'
+              '    from the production ``validate_translation`` release path.\n'
+          )
+          old_doc_crlf = old_doc.replace('\n', '\r\n')
+          new_doc = (
+              '    This is the canonical semantic comparison path: it canonicalizes quantities\n'
+              '    with ``_semantic_numbers``, applies source-aware reconciliation, and exempts\n'
+              '    identifier ordinals. It is shared by production ``validate_translation``\n'
+              '    and the non-gating corpus audit.\n'
+          )
+          if old_doc in text:
+              text = text.replace(old_doc, new_doc, 1)
+          elif old_doc_crlf in text:
+              text = text.replace(old_doc_crlf, new_doc.replace('\n', '\r\n'), 1)
+          else:
+              raise SystemExit('semantic resolver docstring precondition not found')
+
+          path.write_bytes(text.encode('utf-8'))
+
+          test = Path('tests/test_stage_c_production_authority.py')
+          test.write_text('''from __future__ import annotations
+
+import sys
+import unittest
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from scripts.translate_issue import TranslationError, validate_translation
+
+
+def _article(abstract_en: str) -> dict[str, str]:
+    return {
+        "title_en": "Numeric translation integration test",
+        "abstract_en": abstract_en,
+        "article_type": "research-article",
+    }
+
+
+def _translated(abstract_cn: str) -> dict[str, str]:
+    return {
+        "title_cn": "数值翻译集成测试",
+        "abstract_cn": abstract_cn,
+    }
+
+
+class StageCProductionAuthorityTests(unittest.TestCase):
+    def test_validate_translation_accepts_semantic_equivalents(self) -> None:
+        cases = [
+            (
+                "Customers bear $10.4 billion in additional annual hedging costs under the policy.",
+                "研究结果表明，在该政策下，客户每年承担104亿美元的额外对冲成本，其他结论保持不变。",
+            ),
+            (
+                "The program reaches 100 million people after two decades of expansion.",
+                "研究结果表明，该项目经过二十年的扩张后覆盖1亿人，并保持其余结论不变。",
+            ),
+        ]
+        for source, translated in cases:
+            with self.subTest(source=source):
+                validate_translation(_article(source), _translated(translated))
+
+    def test_validate_translation_rejects_true_numeric_corruption(self) -> None:
+        cases = [
+            (
+                "The program spends $1.0 million each year on administration.",
+                "研究结果表明，该项目每年在管理上支出1.0万美元，其他结论保持不变。",
+            ),
+            (
+                "The reform is associated with a 0.7–1 percentage point increase in participation.",
+                "研究结果表明，该改革与参与率提高0.7至2个百分点相关，其他结论保持不变。",
+            ),
+        ]
+        for source, translated in cases:
+            with self.subTest(source=source):
+                with self.assertRaises(TranslationError):
+                    validate_translation(_article(source), _translated(translated))
+
+
+if __name__ == "__main__":
+    unittest.main()
+''', encoding='utf-8')
+          PY
+      - name: Run direct production-path integration regression
+        run: python -m unittest tests.test_stage_c_production_authority -v
+      - name: Run full governed Python suite
+        run: python -m unittest discover -s tests -v
+      - name: Prove current canonical-data semantic zero before publication
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          DATA_SHA="$(git rev-parse origin/data)"
+          rm -rf public/api
+          git archive origin/data public/api public/project-manifest.json | tar -x
+          if git cat-file -e origin/data:data/translation-cache 2>/dev/null; then
+            rm -rf data/translation-cache
+            git archive origin/data data/translation-cache | tar -x
+          fi
+          SHADOW_MAIN_SHA="$GITHUB_SHA" SHADOW_DATA_SHA="$DATA_SHA" python scripts/audit_numeric_semantics_shadow.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          report = json.loads(Path('SHADOW_NUMERIC_BASELINE_V1.json').read_text(encoding='utf-8'))
+          if report['semantic_mismatch_count'] != 0:
+              raise SystemExit(f"semantic mismatches must be zero, got {report['semantic_mismatch_count']}")
+          print(f"current-data semantic audit zero: data_sha={report['data_sha']} articles={report['total_articles_scanned']}")
+          PY
+      - name: Commit bounded activation changes and remove bootstrap
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm .github/workflows/stage-c-activation-bootstrap.yml
+          git restore public/api data/translation-cache SHADOW_NUMERIC_BASELINE_V1.json 2>/dev/null || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/translate_issue.py tests/test_stage_c_production_authority.py .github/workflows/stage-c-activation-bootstrap.yml
+          git diff --cached --check
+          git commit -m "feat: activate semantic numeric translation authority"
+          git push origin HEAD:stagec-semantic-gate-activation
