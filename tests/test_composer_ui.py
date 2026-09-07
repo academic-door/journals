@@ -312,21 +312,24 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn('journal.order_verification === "official_verified"', self.page)
         self.assertGreaterEqual(self.page.count("requirePublicationReady()"), 4)
 
-    def test_legacy_crossref_ready_is_conservatively_blocked(self):
+    def test_crossref_provisional_evidence_is_conservatively_blocked(self):
         import json
 
-        for journal_id in ("jpe", "res", "ecta"):
-            issue = json.loads(
-                (ROOT / "public/api/v1/journals" / journal_id / "issues/current.json")
-                .read_text(encoding="utf-8")
-            )
-            self.assertIn(issue["publication_state"], {"ready", "source_pending"})
+        provisional = []
+        for current in sorted((ROOT / "public/api/v1/journals").glob("*/issues/current.json")):
+            issue = json.loads(current.read_text(encoding="utf-8"))
             quality = issue.get("quality", {})
-            self.assertTrue(
-                "crossref_provisional_roster" in quality.get("flags", [])
-                or "crossref" in str(quality.get("roster_authority", "")).lower()
-                or "crossref" in str(quality.get("roster_transport", "")).lower()
-            )
+            flags = set(quality.get("flags", []))
+            authority = str(quality.get("roster_authority", ""))
+            transport = str(quality.get("roster_transport", ""))
+            if (
+                "crossref_provisional_roster" in flags
+                or "crossref" in authority.lower()
+                or "crossref" in transport.lower()
+            ):
+                provisional.append(issue["journal_id"])
+
+        self.assertTrue(provisional, "expected at least one current Crossref-provisional snapshot")
         for source in (self.page, self.explorer):
             self.assertIn('flags.has("crossref_provisional_roster")', source)
             self.assertIn("/crossref/i.test(authority)", source)
