@@ -954,10 +954,10 @@ def resolve_semantic_quantities(
 ) -> "tuple[Counter[str], Counter[str]]":
     """Return (source, resolved-translation) semantic quantity counters.
 
-    This is the shadow/semantic comparison path: it canonicalizes quantities
-    with ``_semantic_numbers``, applies the source-aware single-Chinese-digit
-    reconcile, and exempts identifier ordinals.  It is intentionally separate
-    from the production ``validate_translation`` release path.
+    This is the canonical semantic comparison path: it canonicalizes quantities
+    with ``_semantic_numbers``, applies source-aware reconciliation, and exempts
+    identifier ordinals. It is shared by production ``validate_translation``
+    and the non-gating corpus audit.
     """
     source_q = Counter(_semantic_numbers(source_text) + _month_numbers(source_text))
     translated_q = Counter(_semantic_numbers(translated_text) + _month_numbers(translated_text))
@@ -1808,19 +1808,12 @@ def validate_translation(article: dict[str, Any], translated: dict[str, Any]) ->
         raise TranslationError("Translation must not contain Markdown fences")
     source_text = f"{article.get('title_en', '')}\n{article.get('abstract_en', '')}"
     translated_text = f"{title_cn}\n{abstract_cn}"
-    source_numbers = Counter(_numbers(source_text) + _month_numbers(source_text))
-    translated_numbers = Counter(_numbers(translated_text) + _month_numbers(translated_text))
-    # Identifier labels (Section 5503, Table 2, 第5503条) are not data
-    # values: exempt the source's identifier numbers on the translation side
-    # too, so rendering them with Arabic digits is not flagged as invented.
-    for identifier_number in _identifier_numbers(source_text):
-        # Only exempt a translation-side occurrence when the translation has
-        # more of that value than the source's actual data count. When the
-        # same value appears both as an identifier and as a data number
-        # (e.g. "Study 3" plus "Studies 2 and 3"), the data occurrence must
-        # keep counting; an unconditional subtraction would swallow it.
-        if translated_numbers[identifier_number] > source_numbers[identifier_number]:
-            translated_numbers[identifier_number] -= 1
+    # Stage C production authority: compare semantic quantities rather than
+    # legacy surface tokens. This is fail-closed and carries the same
+    # identifier/source-aware reconciliation used by the audited shadow path.
+    source_numbers, translated_numbers = resolve_semantic_quantities(
+        source_text, translated_text
+    )
     if source_numbers != translated_numbers:
         missing_numbers = list((source_numbers - translated_numbers).elements())
         added_numbers = list((translated_numbers - source_numbers).elements())
@@ -1830,7 +1823,7 @@ def validate_translation(article: dict[str, Any], translated: dict[str, Any]) ->
         if added_numbers:
             details.append("added " + ", ".join(added_numbers))
         raise TranslationError(
-            "Translation changed numeric values: " + "; ".join(details)
+            "Translation changed semantic numeric quantities: " + "; ".join(details)
         )
 
 
