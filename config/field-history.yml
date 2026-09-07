@@ -97,8 +97,10 @@ journals:
         volume: "17"
         issues: [1, 2, 3, 4]
   AEJMICRO:
-    platform: crossref
+    platform: aea
     issn: 1945-7669
+    archive_url: https://www.aeaweb.org/journals/mic/issues
+    allowed_host: www.aeaweb.org
     issue_url_template: https://www.aeaweb.org/journals/mic/issue/{volume}/{issue}
   AERI:
     platform: crossref
@@ -174,17 +176,23 @@ journals:
     issn: 0034-6535
     issue_url_template: https://direct.mit.edu/rest/issue/{volume}/{issue}
   AEJAPP:
-    platform: crossref
+    platform: aea
     issn: 1945-7782
+    archive_url: https://www.aeaweb.org/journals/app/issues
+    allowed_host: www.aeaweb.org
     issue_url_template: https://www.aeaweb.org/journals/app/issue/{volume}/{issue}
   AEJPOL:
-    platform: crossref
+    platform: aea
     issn: 1945-7731
+    archive_url: https://www.aeaweb.org/journals/pol/issues
+    allowed_host: www.aeaweb.org
     issue_url_template: https://www.aeaweb.org/journals/pol/issue/{volume}/{issue}
   AEJMACRO:
-    platform: crossref
+    platform: aea
     issn: 1945-7707
-    issue_url_template: https://www.aeaweb.org/journals/macro/issue/{volume}/{issue}
+    archive_url: https://www.aeaweb.org/journals/mac/issues
+    allowed_host: www.aeaweb.org
+    issue_url_template: https://www.aeaweb.org/journals/mac/issue/{volume}/{issue}
   JLE:
     platform: crossref
     issn: 0734-306X
