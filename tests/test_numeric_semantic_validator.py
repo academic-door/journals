@@ -1,14 +1,14 @@
-"""Shadow semantic numeric contract tests.
+"""Semantic numeric contract tests.
 
-Stage A keeps the production ``validate_translation`` release gate unchanged
-(surface-token ``_numbers``) while exposing the semantic numeric engine as an
-independent, non-gating shadow capability.
+Stage C promotes the audited semantic quantity comparison into production
+``validate_translation`` while retaining the corpus audit as an independent,
+non-gating observability path.
 
 These tests lock:
 1. semantic canonicalization (``_semantic_numbers``) and the source-aware
    resolver (``resolve_semantic_quantities``) behave as expected;
-2. the production ``validate_translation`` release authority is UNCHANGED and
-   does not consult the semantic engine;
+2. production ``validate_translation`` uses semantic quantity authority and
+   remains fail-closed for true numeric corruption;
 3. ``audit_public_data`` still imports the production ``validate_translation``;
 4. the shadow audit sees debt but NEVER changes the release result (exit 0 on
    findings).
@@ -92,7 +92,7 @@ class SemanticNumberCanonicalizationTests(unittest.TestCase):
 
 
 class SemanticResolverTests(unittest.TestCase):
-    """The source-aware semantic path used by the shadow audit."""
+    """The source-aware semantic path shared by production and shadow audit."""
 
     def test_resolver_sees_equivalences(self) -> None:
         for source, translated in [
@@ -121,33 +121,30 @@ class SemanticResolverTests(unittest.TestCase):
                 self.assertNotEqual(sq, tq, f"{source!r} <-> {translated!r}")
 
 
-class ProductionGateUnchangedTests(unittest.TestCase):
-    """Lock that the production release gate is the surface-token validator."""
+class ProductionGateActivatedTests(unittest.TestCase):
+    """Lock Stage C semantic quantity comparison as production authority."""
 
-    def test_production_validate_translation_is_surface_token_gate(self) -> None:
-        # Under production semantics "100 million" (token "100") != "100000000".
-        with self.assertRaises(TranslationError):
-            validate_translation(
-                _article("100 million"), _translation("100000000")
-            )
-        # ...whereas the shadow semantic resolver treats them as equal.
-        sq, tq = resolve_semantic_quantities("100 million", "100000000")
-        self.assertEqual(sq, tq)
-
-    def test_production_validate_translation_does_not_use_semantic_engine(self) -> None:
+    def test_production_validate_translation_uses_semantic_authority(self) -> None:
         import scripts.translate_issue as ti
 
-        # If production called _semantic_numbers this raises; a pass proves it does
-        # not consult the semantic engine.
         with mock.patch.object(
-            ti, "_semantic_numbers", side_effect=AssertionError(
-                "production validate_translation must not use the semantic engine"
-            )
+            ti,
+            "resolve_semantic_quantities",
+            side_effect=AssertionError("semantic production authority invoked"),
         ):
-            # "two decades" (no Arabic) vs "20年" (Arabic 20) mismatches under
-            # surface-token production, exactly as it did before Stage A.
-            with self.assertRaises(TranslationError):
+            with self.assertRaisesRegex(
+                AssertionError, "semantic production authority invoked"
+            ):
                 validate_translation(_article("two decades"), _translation("20年"))
+
+    def test_production_validate_translation_is_semantic_quantity_gate(self) -> None:
+        validate_translation(
+            _article("100 million"), _translation("100000000")
+        )
+        with self.assertRaises(TranslationError):
+            validate_translation(
+                _article("$1.0 million"), _translation("1.0万美元")
+            )
 
 
 class AuditPublicDataWiringTests(unittest.TestCase):
