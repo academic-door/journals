@@ -1,13 +1,13 @@
 # Field journal history backfill status
 
-Updated: 2026-09-07T11:08:39+00:00
+Updated: 2026-09-07T12:15:46+00:00
 
-Discovery coverage: 1332 discovered · 1267 archived · 1166 publication ready · 65 missing · 101 source pending
+Discovery coverage: 1332 discovered · 1268 archived · 1167 publication ready · 64 missing · 101 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
 | 2023-2024 | 606 | 1 | 47 | 54 |
-| 2025-2026 | 560 | 0 | 17 | 47 |
+| 2025-2026 | 561 | 0 | 17 | 47 |
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -148,7 +148,7 @@ Discovery coverage: 1332 discovered · 1267 archived · 1166 publication ready �
 | AJAE | ajae-108-2 | 2026 | source_pending |  |
 | AJAE | ajae-108-3 | 2026 | source_pending |  |
 | AJAE | ajae-108-4 | 2026 | source_pending |  |
-| CER | cer-100-c | 2026 | source_pending | source authority pending official verification |
+| CER | cer-100-c | 2026 | source_pending |  |
 | CER | cer-77-c | 2023 | ready |  |
 | CER | cer-78-c | 2023 | ready |  |
 | CER | cer-79-c | 2023 | ready |  |
@@ -166,7 +166,7 @@ Discovery coverage: 1332 discovered · 1267 archived · 1166 publication ready �
 | CER | cer-91-c | 2025 | ready |  |
 | CER | cer-92-c | 2025 | ready |  |
 | CER | cer-93-c | 2025 | ready |  |
-| CER | cer-94-c | 2025 | source_pending | source authority pending official verification |
+| CER | cer-94-c | 2025 | source_pending |  |
 | CER | cer-95-c | 2026 | ready |  |
 | CER | cer-96-c | 2026 | ready |  |
 | CER | cer-97-c | 2026 | ready |  |
@@ -299,17 +299,17 @@ Discovery coverage: 1332 discovered · 1267 archived · 1166 publication ready �
 | EJ | ej-135-665 | 2024 | ready |  |
 | EJ | ej-135-666 | 2024 | ready |  |
 | EJ | ej-135-667 | 2025 | ready |  |
-| EJ | ej-135-668 | 2025 | ready | source authority pending official verification |
-| EJ | ej-135-669 | 2025 | ready | source authority pending official verification |
-| EJ | ej-135-670 | 2025 | ready | source authority pending official verification |
-| EJ | ej-135-671 | 2025 | ready | source authority pending official verification |
-| EJ | ej-135-672 | 2025 | ready | source authority pending official verification |
-| EJ | ej-136-673 | 2026 | ready | source authority pending official verification |
-| EJ | ej-136-674 | 2026 | ready | source authority pending official verification |
-| EJ | ej-136-675 | 2026 | ready | source authority pending official verification |
-| EJ | ej-136-676 | 2026 | ready | source authority pending official verification |
+| EJ | ej-135-668 | 2025 | ready |  |
+| EJ | ej-135-669 | 2025 | ready |  |
+| EJ | ej-135-670 | 2025 | ready |  |
+| EJ | ej-135-671 | 2025 | ready |  |
+| EJ | ej-135-672 | 2025 | ready |  |
+| EJ | ej-136-673 | 2026 | ready |  |
+| EJ | ej-136-674 | 2026 | ready |  |
+| EJ | ej-136-675 | 2026 | ready |  |
+| EJ | ej-136-676 | 2026 | ready |  |
 | EJ | ej-136-677 | 2026 | ready |  |
-| EJ | ej-136-678 | 2026 | ready | source authority pending official verification |
+| EJ | ej-136-678 | 2026 | ready |  |
 | ENERGY | energy-117-c | 2023 | ready |  |
 | ENERGY | energy-118-c | 2023 | ready |  |
 | ENERGY | energy-119-c | 2023 | ready |  |
@@ -635,13 +635,13 @@ Discovery coverage: 1332 discovered · 1267 archived · 1166 publication ready �
 | JEEA | jeea-22-4 | 2024 | ready |  |
 | JEEA | jeea-22-5 | 2024 | ready |  |
 | JEEA | jeea-22-6 | 2024 | ready |  |
-| JEEA | jeea-23-1 | 2025 | ready | source authority pending official verification |
-| JEEA | jeea-23-2 | 2025 | ready | source authority pending official verification |
-| JEEA | jeea-23-3 | 2025 | ready | source authority pending official verification |
-| JEEA | jeea-23-4 | 2025 | ready | source authority pending official verification |
-| JEEA | jeea-23-5 | 2025 | ready | source authority pending official verification |
-| JEEA | jeea-23-6 | 2025 | ready | source authority pending official verification |
-| JEEA | jeea-24-1 | 2026 | ready | source authority pending official verification |
+| JEEA | jeea-23-1 | 2025 | ready |  |
+| JEEA | jeea-23-2 | 2025 | ready |  |
+| JEEA | jeea-23-3 | 2025 | ready |  |
+| JEEA | jeea-23-4 | 2025 | ready |  |
+| JEEA | jeea-23-5 | 2025 | ready |  |
+| JEEA | jeea-23-6 | 2025 | ready |  |
+| JEEA | jeea-24-1 | 2026 | ready |  |
 | JEEA | jeea-24-2 | 2026 | ready |  |
 | JEEA | jeea-24-3 | 2026 | ready |  |
 | JEEA | jeea-24-4 | 2026 | ready |  |
@@ -741,16 +741,16 @@ Discovery coverage: 1332 discovered · 1267 archived · 1166 publication ready �
 | JF | jf-79-4 | 2024 | source_pending |  |
 | JF | jf-79-5 | 2024 | source_pending |  |
 | JF | jf-79-6 | 2024 | source_pending |  |
-| JF | jf-80-1 | 2025 | source_pending | source authority pending official verification |
-| JF | jf-80-2 | 2025 | source_pending | source authority pending official verification |
-| JF | jf-80-3 | 2025 | source_pending | source authority pending official verification |
-| JF | jf-80-4 | 2025 | source_pending | source authority pending official verification |
-| JF | jf-80-5 | 2025 | source_pending | source authority pending official verification |
-| JF | jf-80-6 | 2025 | source_pending | source authority pending official verification |
-| JF | jf-81-1 | 2026 | source_pending | source authority pending official verification |
-| JF | jf-81-2 | 2026 | source_pending | source authority pending official verification |
-| JF | jf-81-3 | 2026 | source_pending | source authority pending official verification |
-| JF | jf-81-4 | 2026 | source_pending | source authority pending official verification |
+| JF | jf-80-1 | 2025 | source_pending |  |
+| JF | jf-80-2 | 2025 | source_pending |  |
+| JF | jf-80-3 | 2025 | source_pending |  |
+| JF | jf-80-4 | 2025 | source_pending |  |
+| JF | jf-80-5 | 2025 | source_pending |  |
+| JF | jf-80-6 | 2025 | source_pending |  |
+| JF | jf-81-1 | 2026 | source_pending |  |
+| JF | jf-81-2 | 2026 | source_pending |  |
+| JF | jf-81-3 | 2026 | source_pending |  |
+| JF | jf-81-4 | 2026 | source_pending |  |
 | JFE | jfe-147-1 | 2023 | ready |  |
 | JFE | jfe-147-2 | 2023 | ready |  |
 | JFE | jfe-147-3 | 2023 | ready |  |
@@ -975,6 +975,7 @@ Discovery coverage: 1332 discovered · 1267 archived · 1166 publication ready �
 | JPE | jpe-134-5 | 2026 | ready |  |
 | JPE | jpe-134-6 | 2026 | ready |  |
 | JPE | jpe-134-7 | 2026 | ready |  |
+| JPE | jpe-134-8 | 2026 | ready |  |
 | JPubE | jpube-217-c | 2023 | ready |  |
 | JPubE | jpube-218-c | 2023 | ready |  |
 | JPubE | jpube-219-c | 2023 | ready |  |
@@ -1209,10 +1210,10 @@ Discovery coverage: 1332 discovered · 1267 archived · 1166 publication ready �
 | RES | res-92-4 | 2025 | ready |  |
 | RES | res-92-5 | 2025 | ready |  |
 | RES | res-92-6 | 2025 | ready |  |
-| RES | res-93-1 | 2026 | source_pending | source authority pending official verification |
-| RES | res-93-2 | 2026 | source_pending | source authority pending official verification |
-| RES | res-93-3 | 2026 | source_pending | source authority pending official verification |
-| RES | res-93-4 | 2026 | source_pending | source authority pending official verification |
+| RES | res-93-1 | 2026 | source_pending |  |
+| RES | res-93-2 | 2026 | source_pending |  |
+| RES | res-93-3 | 2026 | source_pending |  |
+| RES | res-93-4 | 2026 | source_pending |  |
 | RESTAT | restat-105-1 | 2023 | ready |  |
 | RESTAT | restat-105-2 | 2023 | ready |  |
 | RESTAT | restat-105-3 | 2023 | ready |  |
@@ -1226,15 +1227,15 @@ Discovery coverage: 1332 discovered · 1267 archived · 1166 publication ready �
 | RESTAT | restat-106-5 | 2024 | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs off |
 | RESTAT | restat-106-6 | 2024 | source_pending | source authority pending official verification |
 | RESTAT | restat-107-1 | 2025 | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs off |
-| RESTAT | restat-107-2 | 2025 | source_pending | source authority pending official verification |
-| RESTAT | restat-107-3 | 2025 | source_pending | source authority pending official verification |
-| RESTAT | restat-107-4 | 2025 | source_pending | source authority pending official verification |
-| RESTAT | restat-107-5 | 2025 | source_pending | source authority pending official verification |
-| RESTAT | restat-107-6 | 2025 | source_pending | source authority pending official verification |
-| RESTAT | restat-108-1 | 2026 | source_pending | source authority pending official verification |
-| RESTAT | restat-108-2 | 2026 | source_pending | source authority pending official verification |
-| RESTAT | restat-108-3 | 2026 | source_pending | source authority pending official verification |
-| RESTAT | restat-108-4 | 2026 | source_pending | source authority pending official verification |
+| RESTAT | restat-107-2 | 2025 | source_pending |  |
+| RESTAT | restat-107-3 | 2025 | source_pending |  |
+| RESTAT | restat-107-4 | 2025 | source_pending |  |
+| RESTAT | restat-107-5 | 2025 | source_pending |  |
+| RESTAT | restat-107-6 | 2025 | source_pending |  |
+| RESTAT | restat-108-1 | 2026 | source_pending |  |
+| RESTAT | restat-108-2 | 2026 | source_pending |  |
+| RESTAT | restat-108-3 | 2026 | source_pending |  |
+| RESTAT | restat-108-4 | 2026 | source_pending |  |
 | RFS | rfs-36-10 | 2023 | ready |  |
 | RFS | rfs-36-11 | 2023 | ready |  |
 | RFS | rfs-36-12 | 2023 | ready |  |
