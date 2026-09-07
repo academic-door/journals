@@ -66,6 +66,11 @@ class TranslationProviderBenchmarkTests(unittest.TestCase):
         self.assertFalse(
             is_deepseek_peak(datetime(2026, 9, 7, 10, 0, tzinfo=timezone.utc), PRICING)
         )
+        # Weekend hours are always off-peak even when the clock falls inside a
+        # weekday peak window.
+        self.assertFalse(
+            is_deepseek_peak(datetime(2026, 9, 6, 2, 0, tzinfo=timezone.utc), PRICING)
+        )
 
     def test_deepseek_cost_uses_cache_and_peak_band(self) -> None:
         usage = {

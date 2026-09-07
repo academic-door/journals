@@ -29,9 +29,11 @@ DEFAULT_API_ROOT = ROOT / "public" / "api" / "v1"
 DEFAULT_OUTPUT = ROOT / "output" / "translation-provider-benchmark.json"
 QWEN_MODEL = "qwen-mt-flash"
 QWEN_ENDPOINTS = {
+    # Existing DashScope domains that Alibaba currently documents. Regions
+    # without a DashScope domain require a workspace-dedicated base URL and
+    # must not be guessed by this shadow harness.
     "beijing": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
     "singapore": "https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions",
-    "virginia": "https://dashscope-us.aliyuncs.com/compatible-mode/v1/chat/completions",
 }
 QWEN_DOMAIN = (
     "Academic economics journal article. Preserve quantitative meaning, "
@@ -86,6 +88,11 @@ def _minutes(value: str) -> int:
 
 def is_deepseek_peak(at: datetime, pricing: dict[str, Any]) -> bool:
     stamp = at.astimezone(timezone.utc)
+    # Official pricing: peak windows apply Monday-Friday Beijing time. UTC and
+    # Beijing share the same calendar weekday throughout these 01:00-10:00 UTC
+    # windows, so weekday() on the UTC stamp is sufficient here.
+    if stamp.weekday() >= 5:
+        return False
     minute = stamp.hour * 60 + stamp.minute
     windows = pricing["providers"]["deepseek"]["peak_utc_windows"]
     return any(_minutes(start) <= minute < _minutes(end) for start, end in windows)
