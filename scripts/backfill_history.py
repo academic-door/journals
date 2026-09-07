@@ -1209,7 +1209,9 @@ def main() -> int:
             )
         )
         return 0
-    if migrate_legacy_state(state, journals):
+    # Discovery-only refresh must never reconcile or downgrade historical
+    # issue checkpoints. It is an evidence refresh, not an archive-state repair.
+    if not args.refresh_discovery_only and migrate_legacy_state(state, journals):
         atomic_write_json(state_path, state)
     scoped_history = {
         "journals": {key: history["journals"][key] for key in selected}
