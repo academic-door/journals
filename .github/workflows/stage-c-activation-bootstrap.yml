@@ -42,8 +42,6 @@ jobs:
           if not end_match:
               raise SystemExit('could not locate end of validate_translation numeric block')
           end = start + end_match.start()
-          local = text[start:end]
-          nl = '\r\n' if '\r\n' in local else '\n'
           replacement_lines = [
               '    # Stage C production authority: compare semantic quantities rather than',
               '    # legacy surface tokens. This is fail-closed and carries the same',
@@ -63,7 +61,7 @@ jobs:
               '            "Translation changed semantic numeric quantities: " + "; ".join(details)',
               '        )',
           ]
-          text = text[:start] + nl.join(replacement_lines) + text[end:]
+          text = text[:start] + '\n'.join(replacement_lines) + text[end:]
 
           old_doc = (
               '    This is the shadow/semantic comparison path: it canonicalizes quantities\n'
@@ -81,7 +79,7 @@ jobs:
           if old_doc in text:
               text = text.replace(old_doc, new_doc, 1)
           elif old_doc_crlf in text:
-              text = text.replace(old_doc_crlf, new_doc.replace('\n', '\r\n'), 1)
+              text = text.replace(old_doc_crlf, new_doc, 1)
           else:
               raise SystemExit('semantic resolver docstring precondition not found')
 
