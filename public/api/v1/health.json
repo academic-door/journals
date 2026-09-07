@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-07T18:14:03+00:00",
+  "updated_at": "2026-09-07T18:44:03+00:00",
   "status": "degraded",
   "content_status": "complete",
   "summary": {
     "enabled_journals": 49,
     "available_journals": 49,
-    "articles": 671,
-    "translated_articles": 671
+    "articles": 672,
+    "translated_articles": 672
   },
   "checks": {
     "aer_roster_match": true,
@@ -15,7 +15,7 @@
     "aer_primary_transport": true,
     "jpe_roster_match": true,
     "jpe_order_preserved": true,
-    "jpe_primary_transport": false,
+    "jpe_primary_transport": true,
     "qje_roster_match": true,
     "qje_order_preserved": true,
     "qje_primary_transport": true,

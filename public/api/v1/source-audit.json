@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-07T18:14:58+00:00",
+  "updated_at": "2026-09-07T18:45:23+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 49,
@@ -87,32 +87,32 @@
       "status": "publisher_feed_verified",
       "current": {
         "available": true,
-        "status": "fallback_verified",
-        "issue_id": "jpe-134-7",
-        "publication_date": "July 2026",
-        "publication_state": "source_pending",
-        "source_url": "https://www.journals.uchicago.edu/toc/jpe/current",
-        "roster_authority": "crossref-provisional",
-        "roster_transport": "crossref",
-        "order_verified": false,
+        "status": "official_page_verified",
+        "issue_id": "jpe-134-8",
+        "publication_date": "August 2026",
+        "publication_state": "ready",
+        "source_url": "https://ideas.repec.org/s/ucp/jpolec.html",
+        "roster_authority": "repec-publisher-supplied",
+        "roster_transport": "repec-serial-page",
+        "order_verified": true,
         "content_counts": {
-          "official_items": 10,
-          "observed_items": 10,
-          "publishable_items": 7,
-          "research_articles": 6,
-          "comments": 1,
+          "official_items": 8,
+          "observed_items": 8,
+          "publishable_items": 8,
+          "research_articles": 8,
+          "comments": 0,
           "short_communications": 0,
           "corrections": 0,
-          "editorial_material": 1,
-          "front_matter": 1,
-          "other_excluded": 1,
-          "catalog_content_items": 7
+          "editorial_material": 0,
+          "front_matter": 0,
+          "other_excluded": 0,
+          "catalog_content_items": 8
         },
-        "abstracts_complete": 7,
-        "translations_complete": 7,
+        "abstracts_complete": 8,
+        "translations_complete": 8,
         "errors": [],
         "warnings": [
-          "crossref_provisional_roster"
+          "snapshot_uses_alternate_official_source"
         ]
       },
       "detected": {

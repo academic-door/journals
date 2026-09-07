@@ -3,14 +3,14 @@
   "collection_id": "top5",
   "title": "Top 5 Economics Journals",
   "title_cn": "经济学 TOP5",
-  "updated_at": "2026-09-07T18:14:03+00:00",
+  "updated_at": "2026-09-07T18:44:03+00:00",
   "data_status": "degraded",
   "content_status": "complete",
   "summary": {
     "configured_journals": 5,
     "available_journals": 5,
-    "articles": 65,
-    "translated_articles": 65
+    "articles": 66,
+    "translated_articles": 66
   },
   "journals": [
     {
@@ -90,7 +90,7 @@
       "collections": [
         "top5"
       ],
-      "status": "incomplete",
+      "status": "ready",
       "latest_detected_issue_id": "jpe-134-8",
       "latest_detected_issue_url": "/journals/api/v1/journals/jpe/issues/detected.json",
       "latest_detected_issue_label": "Vol. 134 · No. 8",
@@ -118,34 +118,34 @@
       "latest_detected_source_status": "publisher_verified",
       "latest_detected_publication_state": "translation_partial",
       "update_state": "translation_partial",
-      "data_status": "needs_attention",
+      "data_status": "healthy",
       "content_status": "complete",
-      "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "latest_issue_id": "jpe-134-7",
-      "latest_ready_issue_id": "jpe-134-7",
+      "source_status": "publisher_verified",
+      "publication_state": "ready",
+      "latest_issue_id": "jpe-134-8",
+      "latest_ready_issue_id": "jpe-134-8",
       "latest_issue_url": "/journals/api/v1/journals/jpe/issues/current.json",
       "latest_ready_issue_url": "/journals/api/v1/journals/jpe/issues/current.json",
-      "latest_issue_label": "Vol. 134 · No. 7",
-      "publication_date": "July 2026",
-      "article_count": 7,
-      "translation_complete": 7,
+      "latest_issue_label": "Vol. 134 · No. 8",
+      "publication_date": "August 2026",
+      "article_count": 8,
+      "translation_complete": 8,
       "content_counts": {
-        "official_items": 10,
-        "observed_items": 10,
-        "publishable_items": 7,
-        "research_articles": 6,
-        "comments": 1,
+        "official_items": 8,
+        "observed_items": 8,
+        "publishable_items": 8,
+        "research_articles": 8,
+        "comments": 0,
         "short_communications": 0,
         "corrections": 0,
-        "editorial_material": 1,
-        "front_matter": 1,
-        "other_excluded": 1,
-        "catalog_content_items": 7
+        "editorial_material": 0,
+        "front_matter": 0,
+        "other_excluded": 0,
+        "catalog_content_items": 8
       },
-      "roster_authority": "crossref-provisional",
-      "roster_transport": "crossref",
-      "order_verification": "pending_official"
+      "roster_authority": "repec-publisher-supplied",
+      "roster_transport": "repec-serial-page",
+      "order_verification": "official_verified"
     },
     {
       "journal_id": "qje",
