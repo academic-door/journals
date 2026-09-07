@@ -4,54 +4,52 @@ on:
   push:
     branches: [r2-aea-data-refresh-run]
 
+permissions:
+  actions: write
+  contents: read
+
 jobs:
-  aejapp:
-    uses: ./.github/workflows/backfill-field-history.yml
-    with:
-      journal: AEJAPP
-      from_year: "2025"
-      to_year: "2026"
-      max_issues: "1"
-      max_translations: "1"
-      max_journals: "1"
-      refresh_discovery_only: true
-    secrets: inherit
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch official AEJAPP discovery refresh on main
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import os
+          import urllib.request
 
-  aejmacro:
-    needs: aejapp
-    uses: ./.github/workflows/backfill-field-history.yml
-    with:
-      journal: AEJMACRO
-      from_year: "2025"
-      to_year: "2026"
-      max_issues: "1"
-      max_translations: "1"
-      max_journals: "1"
-      refresh_discovery_only: true
-    secrets: inherit
-
-  aejmicro:
-    needs: aejmacro
-    uses: ./.github/workflows/backfill-field-history.yml
-    with:
-      journal: AEJMICRO
-      from_year: "2025"
-      to_year: "2026"
-      max_issues: "1"
-      max_translations: "1"
-      max_journals: "1"
-      refresh_discovery_only: true
-    secrets: inherit
-
-  aejpol:
-    needs: aejmicro
-    uses: ./.github/workflows/backfill-field-history.yml
-    with:
-      journal: AEJPOL
-      from_year: "2025"
-      to_year: "2026"
-      max_issues: "1"
-      max_translations: "1"
-      max_journals: "1"
-      refresh_discovery_only: true
-    secrets: inherit
+          url = "https://api.github.com/repos/academic-door/journals/actions/workflows/backfill-field-history.yml/dispatches"
+          payload = {
+              "ref": "main",
+              "inputs": {
+                  "journal": "AEJAPP",
+                  "from_year": "2025",
+                  "to_year": "2026",
+                  "max_issues": "1",
+                  "max_translations": "1",
+                  "max_journals": "1",
+                  "translation_model": "deepseek-chat",
+                  "refresh_discovery_only": "true",
+              },
+          }
+          req = urllib.request.Request(
+              url,
+              data=json.dumps(payload).encode("utf-8"),
+              method="POST",
+              headers={
+                  "Authorization": f"Bearer {os.environ['GH_TOKEN']}",
+                  "Accept": "application/vnd.github+json",
+                  "X-GitHub-Api-Version": "2022-11-28",
+                  "Content-Type": "application/json",
+              },
+          )
+          with urllib.request.urlopen(req, timeout=30) as response:
+              if response.status != 204:
+                  raise SystemExit(f"unexpected dispatch status {response.status}")
+          print("dispatched AEJAPP discovery-only refresh on canonical main")
+          PY
