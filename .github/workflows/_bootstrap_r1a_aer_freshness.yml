@@ -1,0 +1,230 @@
+name: Bootstrap R1A AER freshness durability
+
+on:
+  push:
+    branches:
+      - journals-r1a-aer-freshness
+
+permissions:
+  contents: write
+
+concurrency:
+  group: journal-data-update
+  cancel-in-progress: false
+
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: journals-r1a-aer-freshness
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: python -m pip install -r requirements.txt
+
+      - name: Patch scheduled AER freshness and add regression
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          workflow = Path('.github/workflows/backfill-field-history.yml')
+          text = workflow.read_text(encoding='utf-8')
+          marker = '      - name: Check pending work\n        id: check\n'
+          if marker not in text:
+              raise SystemExit('Check pending work marker not found')
+          if 'Refresh live AER authoritative discovery evidence' not in text:
+              insert = '''      - name: Refresh live AER authoritative discovery evidence
+                shell: bash
+                run: |
+                  set -euo pipefail
+                  if [ "$GITHUB_EVENT_NAME" != "schedule" ]; then
+                    echo "AER coverage refresh is scheduled-run only."
+                    exit 0
+                  fi
+                  python scripts/backfill_history.py \\
+                    --config config/field-history.yml \\
+                    --state data/backfill-state/field-2025-2026.json \\
+                    --journals AER \\
+                    --from-year 2025 \\
+                    --to-year 2026 \\
+                    --refresh-discovery-only
+
+          '''
+              # The literal is intentionally indented for Python readability;
+              # normalize it to workflow step indentation.
+              import textwrap
+              insert = textwrap.dedent(insert)
+              insert = ''.join(('      ' + line if line.strip() else line) for line in insert.splitlines(True))
+              text = text.replace(marker, insert + marker, 1)
+
+          old = '''          if [ "$pending" != "[]" ]; then
+            has_pending=true
+          else
+            has_pending=false
+          fi
+          echo "has_pending=$has_pending" >> "$GITHUB_OUTPUT"
+'''
+          new = '''          force_publish_scheduled_aer=false
+          if [ "$GITHUB_EVENT_NAME" = "schedule" ]; then
+            # The scheduled live AER discovery refresh mutates the 2025-2026
+            # state even when the rotating 2023-2024 queue has no pending work.
+            force_publish_scheduled_aer=true
+          fi
+          if [ "$pending" != "[]" ] || [ "$force_publish_scheduled_aer" = "true" ]; then
+            has_pending=true
+          else
+            has_pending=false
+          fi
+          echo "has_pending=$has_pending" >> "$GITHUB_OUTPUT"
+'''
+          if old not in text:
+              raise SystemExit('pending decision block not found')
+          text = text.replace(old, new, 1)
+          workflow.write_text(text, encoding='utf-8')
+
+          test = Path('tests/test_r1a_aer_freshness_workflow.py')
+          test.write_text('''from pathlib import Path
+import unittest
+
+
+ROOT = Path(__file__).resolve().parents[1]
+WORKFLOW = ROOT / ".github" / "workflows" / "backfill-field-history.yml"
+
+
+class R1AAERFreshnessWorkflowTests(unittest.TestCase):
+    def test_scheduled_run_refreshes_only_live_aer_2025_2026(self):
+        text = WORKFLOW.read_text(encoding="utf-8")
+        self.assertIn("Refresh live AER authoritative discovery evidence", text)
+        self.assertIn("--state data/backfill-state/field-2025-2026.json", text)
+        self.assertIn("--journals AER", text)
+        self.assertIn("--from-year 2025", text)
+        self.assertIn("--to-year 2026", text)
+        self.assertIn("--refresh-discovery-only", text)
+        self.assertIn('if [ "$GITHUB_EVENT_NAME" != "schedule" ]', text)
+        self.assertNotIn("--journals JPE", text)
+        self.assertNotIn("--journals QE", text)
+
+    def test_scheduled_aer_refresh_forces_guarded_publish(self):
+        text = WORKFLOW.read_text(encoding="utf-8")
+        self.assertIn("force_publish_scheduled_aer=true", text)
+        self.assertIn('[ "$pending" != "[]" ] || [ "$force_publish_scheduled_aer" = "true" ]', text)
+        self.assertIn("python scripts/publish_data_delta.py apply", text)
+        self.assertIn("--path data/backfill-state", text)
+
+
+if __name__ == "__main__":
+    unittest.main()
+''', encoding='utf-8')
+          PY
+
+      - name: Run targeted and full tests
+        run: |
+          python -m unittest tests.test_r1a_aer_freshness_workflow -v
+          python -m unittest discover -s tests -v
+
+      - name: Prove live AER archive discovery now
+        shell: bash
+        run: |
+          set -euo pipefail
+          state="$RUNNER_TEMP/aer-live-discovery.json"
+          python scripts/backfill_history.py \
+            --config config/field-history.yml \
+            --state "$state" \
+            --journals AER \
+            --from-year 2025 \
+            --to-year 2026 \
+            --refresh-discovery-only
+          python - "$state" <<'PY'
+          import json, sys
+          from datetime import datetime, timezone
+          payload = json.load(open(sys.argv[1], encoding='utf-8'))
+          snap = payload['discovery']['AER']
+          assert snap['authority'] == 'official_archive', snap
+          assert 'aer-116-9' in snap['issue_ids'], snap['issue_ids']
+          refreshed = datetime.fromisoformat(snap['refreshed_at'])
+          if refreshed.tzinfo is None:
+              refreshed = refreshed.replace(tzinfo=timezone.utc)
+          age = (datetime.now(timezone.utc) - refreshed).total_seconds()
+          assert 0 <= age < 600, age
+          print('live-aer-authoritative-discovery:', snap['refreshed_at'], len(snap['issue_ids']))
+          print('2026 issues:', [x for x in snap['issue_ids'] if x.startswith('aer-116-')])
+          PY
+
+      - name: Publish fresh AER discovery through guarded data delta
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          mkdir -p data/backfill-state
+          git show origin/data:data/backfill-state/field-2025-2026.json > data/backfill-state/field-2025-2026.json
+          baseline="$RUNNER_TEMP/aer-data-baseline"
+          generated="$RUNNER_TEMP/aer-data-generated"
+          data_tree="$RUNNER_TEMP/aer-data-tree"
+          python scripts/publish_data_delta.py snapshot \
+            --root . \
+            --output "$baseline" \
+            --path data/backfill-state/field-2025-2026.json
+          python scripts/backfill_history.py \
+            --config config/field-history.yml \
+            --state data/backfill-state/field-2025-2026.json \
+            --journals AER \
+            --from-year 2025 \
+            --to-year 2026 \
+            --refresh-discovery-only
+          python scripts/publish_data_delta.py snapshot \
+            --root . \
+            --output "$generated" \
+            --path data/backfill-state/field-2025-2026.json
+
+          published=false
+          for attempt in 1 2 3 4 5; do
+            git fetch origin data
+            git worktree remove --force "$data_tree" 2>/dev/null || true
+            rm -rf "$data_tree"
+            git worktree add "$data_tree" origin/data
+            git -C "$data_tree" switch -C data
+            if ! python scripts/publish_data_delta.py apply \
+              --baseline "$baseline" \
+              --generated "$generated" \
+              --target "$data_tree" \
+              --path data/backfill-state/field-2025-2026.json; then
+              sleep $((attempt * 5))
+              continue
+            fi
+            changed=$(git -C "$data_tree" diff --name-only)
+            if [ "$changed" != "data/backfill-state/field-2025-2026.json" ]; then
+              echo "Unexpected data mutation: $changed"
+              exit 1
+            fi
+            git -C "$data_tree" config user.name "academic-door-bot"
+            git -C "$data_tree" config user.email "academic-door-bot@users.noreply.github.com"
+            git -C "$data_tree" add -f data/backfill-state/field-2025-2026.json
+            git -C "$data_tree" commit -m "Refresh AER authoritative discovery evidence"
+            if git -C "$data_tree" push origin HEAD:data; then
+              published=true
+              git -C "$data_tree" rev-parse HEAD
+              break
+            fi
+            sleep $((attempt * 5))
+          done
+          [ "$published" = "true" ] || { echo "Failed to publish AER discovery delta"; exit 1; }
+
+      - name: Finalize branch without bootstrap workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm .github/workflows/_bootstrap_r1a_aer_freshness.yml
+          git config user.name "academic-door-bot"
+          git config user.email "academic-door-bot@users.noreply.github.com"
+          git add .github/workflows/backfill-field-history.yml tests/test_r1a_aer_freshness_workflow.py
+          git add -u .github/workflows/_bootstrap_r1a_aer_freshness.yml
+          git diff --check
+          git commit -m "ci: keep live AER completeness evidence fresh"
+          git push origin HEAD:journals-r1a-aer-freshness
