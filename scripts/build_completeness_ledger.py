@@ -46,7 +46,7 @@ if str(ROOT) not in sys.path:
 
 WINDOW_START = "2026-01-01"
 VALID_STATUSES = {"COMPLETE", "PARTIAL", "NOT_MEASURED", "SOURCE_BLOCKED"}
-NON_AUTHORITATIVE_AUTHORITIES = {"crossref_candidate", ""}
+NON_AUTHORITATIVE_AUTHORITIES = {"crossref_candidate", "configured_schedule_candidate", ""}
 AUTHORITATIVE_AUTHORITIES = {
     "official_archive", "official-issue-page", "official_issue_page",
     "publisher_verified", "publisher_archive", "publisher_issue_page",
