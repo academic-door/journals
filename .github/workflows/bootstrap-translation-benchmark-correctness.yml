@@ -1,0 +1,94 @@
+name: Bootstrap translation benchmark correctness
+
+on:
+  push:
+    branches:
+      - journals-translation-benchmark
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: journals-translation-benchmark
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Patch pricing-window and Qwen region semantics
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          script = Path('scripts/benchmark_translation_providers.py')
+          text = script.read_text(encoding='utf-8')
+          old = '''QWEN_ENDPOINTS = {
+    "beijing": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+    "singapore": "https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions",
+    "virginia": "https://dashscope-us.aliyuncs.com/compatible-mode/v1/chat/completions",
+}'''
+          new = '''QWEN_ENDPOINTS = {
+    # Existing DashScope domains that Alibaba currently documents. Regions
+    # without a DashScope domain require a workspace-dedicated base URL and
+    # must not be guessed by this shadow harness.
+    "beijing": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+    "singapore": "https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions",
+}'''
+          if old not in text:
+              raise SystemExit('QWEN endpoint block not found')
+          text = text.replace(old, new, 1)
+          old = '''def is_deepseek_peak(at: datetime, pricing: dict[str, Any]) -> bool:
+    stamp = at.astimezone(timezone.utc)
+    minute = stamp.hour * 60 + stamp.minute
+    windows = pricing["providers"]["deepseek"]["peak_utc_windows"]
+    return any(_minutes(start) <= minute < _minutes(end) for start, end in windows)
+'''
+          new = '''def is_deepseek_peak(at: datetime, pricing: dict[str, Any]) -> bool:
+    stamp = at.astimezone(timezone.utc)
+    # Official pricing: peak windows apply Monday-Friday Beijing time. UTC and
+    # Beijing are always the same calendar weekday for these 01:00-10:00 UTC
+    # windows, so weekday() on the UTC stamp is sufficient here.
+    if stamp.weekday() >= 5:
+        return False
+    minute = stamp.hour * 60 + stamp.minute
+    windows = pricing["providers"]["deepseek"]["peak_utc_windows"]
+    return any(_minutes(start) <= minute < _minutes(end) for start, end in windows)
+'''
+          if old not in text:
+              raise SystemExit('DeepSeek peak function not found')
+          script.write_text(text.replace(old, new, 1), encoding='utf-8')
+
+          test = Path('tests/test_translation_provider_benchmark.py')
+          t = test.read_text(encoding='utf-8')
+          anchor = '''        self.assertFalse(
+            is_deepseek_peak(datetime(2026, 9, 7, 10, 0, tzinfo=timezone.utc), PRICING)
+        )
+'''
+          addition = anchor + '''        # Weekend hours are always off-peak even when the clock falls inside a
+        # weekday peak window.
+        self.assertFalse(
+            is_deepseek_peak(datetime(2026, 9, 6, 2, 0, tzinfo=timezone.utc), PRICING)
+        )
+'''
+          if anchor not in t:
+              raise SystemExit('peak-window test anchor not found')
+          test.write_text(t.replace(anchor, addition, 1), encoding='utf-8')
+          PY
+      - name: Verify benchmark unit tests
+        run: |
+          python -m pip install -r requirements.txt
+          python -m unittest tests.test_translation_provider_benchmark -v
+          python -m py_compile scripts/benchmark_translation_providers.py
+          git diff --check
+      - name: Commit verified fix
+        run: |
+          set -euo pipefail
+          git config user.name academic-door-bot
+          git config user.email academic-door-bot@users.noreply.github.com
+          git add scripts/benchmark_translation_providers.py tests/test_translation_provider_benchmark.py
+          git commit -m "fix: make translation benchmark pricing semantics truthful"
+          git push origin HEAD:journals-translation-benchmark
