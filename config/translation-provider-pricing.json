@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "pricing_version": "2026-09-07-official",
+  "currency": "USD",
+  "unit": "per_1m_tokens",
+  "providers": {
+    "deepseek": {
+      "model": "deepseek-v4-flash",
+      "source": "https://api-docs.deepseek.com/quick_start/pricing/",
+      "peak_utc_windows": [
+        ["01:00", "04:00"],
+        ["06:00", "10:00"]
+      ],
+      "rates": {
+        "off_peak": {
+          "cache_hit_input": 0.007,
+          "cache_miss_input": 0.22,
+          "output": 0.66
+        },
+        "peak": {
+          "cache_hit_input": 0.014,
+          "cache_miss_input": 0.44,
+          "output": 1.32
+        }
+      }
+    },
+    "qwen": {
+      "model": "qwen-mt-flash",
+      "source": "https://www.alibabacloud.com/help/en/model-studio/model-pricing",
+      "region_rates": {
+        "beijing": {
+          "input": 0.101,
+          "output": 0.280
+        },
+        "singapore": {
+          "input": 0.16,
+          "output": 0.49
+        },
+        "virginia": {
+          "input": 0.101,
+          "output": 0.280
+        }
+      }
+    }
+  }
+}
