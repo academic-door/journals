@@ -1,0 +1,130 @@
+name: Bootstrap R2 AEA family tranche
+
+on:
+  push:
+    branches: [r2-aea-aej-family]
+
+permissions:
+  contents: write
+
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: r2-aea-aej-family
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: python -m pip install -r requirements.txt
+
+      - name: Apply bounded AEA-family tranche
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          config_path = Path("config/field-history.yml")
+          text = config_path.read_text(encoding="utf-8")
+          replacements = {
+              "  AEJMICRO:\n    platform: crossref\n    issn: 1945-7669\n    issue_url_template: https://www.aeaweb.org/journals/mic/issue/{volume}/{issue}\n":
+              "  AEJMICRO:\n    platform: aea\n    issn: 1945-7669\n    archive_url: https://www.aeaweb.org/journals/mic/issues\n    allowed_host: www.aeaweb.org\n    issue_url_template: https://www.aeaweb.org/journals/mic/issue/{volume}/{issue}\n",
+              "  AEJAPP:\n    platform: crossref\n    issn: 1945-7782\n    issue_url_template: https://www.aeaweb.org/journals/app/issue/{volume}/{issue}\n":
+              "  AEJAPP:\n    platform: aea\n    issn: 1945-7782\n    archive_url: https://www.aeaweb.org/journals/app/issues\n    allowed_host: www.aeaweb.org\n    issue_url_template: https://www.aeaweb.org/journals/app/issue/{volume}/{issue}\n",
+              "  AEJPOL:\n    platform: crossref\n    issn: 1945-7731\n    issue_url_template: https://www.aeaweb.org/journals/pol/issue/{volume}/{issue}\n":
+              "  AEJPOL:\n    platform: aea\n    issn: 1945-7731\n    archive_url: https://www.aeaweb.org/journals/pol/issues\n    allowed_host: www.aeaweb.org\n    issue_url_template: https://www.aeaweb.org/journals/pol/issue/{volume}/{issue}\n",
+              "  AEJMACRO:\n    platform: crossref\n    issn: 1945-7707\n    issue_url_template: https://www.aeaweb.org/journals/macro/issue/{volume}/{issue}\n":
+              "  AEJMACRO:\n    platform: aea\n    issn: 1945-7707\n    archive_url: https://www.aeaweb.org/journals/mac/issues\n    allowed_host: www.aeaweb.org\n    issue_url_template: https://www.aeaweb.org/journals/mac/issue/{volume}/{issue}\n",
+          }
+          for old, new in replacements.items():
+              if old not in text:
+                  raise SystemExit(f"expected config block missing: {old.splitlines()[0]}")
+              text = text.replace(old, new, 1)
+          config_path.write_text(text, encoding="utf-8")
+
+          workflow_path = Path(".github/workflows/backfill-field-history.yml")
+          workflow = workflow_path.read_text(encoding="utf-8")
+          workflow_replacements = {
+              "Refresh live AER authoritative discovery evidence": "Refresh live AEA-family authoritative discovery evidence",
+              "AER coverage refresh is scheduled-run only.": "AEA-family coverage refresh is scheduled-run only.",
+              "--journals AER \\": "--journals AER,AEJAPP,AEJMACRO,AEJMICRO,AEJPOL \\",
+              "force_publish_scheduled_aer=false": "force_publish_scheduled_aea_family=false",
+              "# The scheduled live AER discovery refresh mutates the 2025-2026": "# The scheduled live AEA-family discovery refresh mutates the 2025-2026",
+              "force_publish_scheduled_aer=true": "force_publish_scheduled_aea_family=true",
+              "[ \"$pending\" != \"[]\" ] || [ \"$force_publish_scheduled_aer\" = \"true\" ]": "[ \"$pending\" != \"[]\" ] || [ \"$force_publish_scheduled_aea_family\" = \"true\" ]",
+          }
+          for old, new in workflow_replacements.items():
+              if old not in workflow:
+                  raise SystemExit(f"expected workflow token missing: {old}")
+              workflow = workflow.replace(old, new, 1)
+          workflow_path.write_text(workflow, encoding="utf-8")
+
+          test_path = Path("tests/test_r1a_aer_freshness_workflow.py")
+          test_path.write_text('''from pathlib import Path\nimport unittest\n\nROOT = Path(__file__).resolve().parents[1]\nWORKFLOW = ROOT / ".github" / "workflows" / "backfill-field-history.yml"\n\n\nclass R2AEAFamilyFreshnessWorkflowTests(unittest.TestCase):\n    def test_scheduled_run_refreshes_live_aea_family_authoritative_evidence(self):\n        text = WORKFLOW.read_text(encoding="utf-8")\n        self.assertIn("Refresh live AEA-family authoritative discovery evidence", text)\n        self.assertIn("--journals AER,AEJAPP,AEJMACRO,AEJMICRO,AEJPOL", text)\n        self.assertIn("--refresh-discovery-only", text)\n        self.assertNotIn("AER,JPE,QE", text)\n\n    def test_scheduled_aea_family_refresh_forces_guarded_publish(self):\n        text = WORKFLOW.read_text(encoding="utf-8")\n        self.assertIn("force_publish_scheduled_aea_family=true", text)\n        self.assertIn("python scripts/publish_data_delta.py apply", text)\n\n\nif __name__ == "__main__":\n    unittest.main()\n''', encoding="utf-8")
+
+          Path("tests/test_r2_aea_family.py").write_text('''from pathlib import Path\nimport unittest\n\nimport yaml\n\nROOT = Path(__file__).resolve().parents[1]\nCONFIG = ROOT / "config" / "field-history.yml"\n\n\nclass R2AEAFamilyContractTests(unittest.TestCase):\n    def test_four_aej_journals_use_live_aea_archives(self):\n        journals = yaml.safe_load(CONFIG.read_text(encoding="utf-8"))["journals"]\n        expected = {\n            "AEJAPP": "https://www.aeaweb.org/journals/app/issues",\n            "AEJMACRO": "https://www.aeaweb.org/journals/mac/issues",\n            "AEJMICRO": "https://www.aeaweb.org/journals/mic/issues",\n            "AEJPOL": "https://www.aeaweb.org/journals/pol/issues",\n        }\n        for key, archive_url in expected.items():\n            with self.subTest(journal=key):\n                definition = journals[key]\n                self.assertEqual("aea", definition["platform"])\n                self.assertEqual(archive_url, definition["archive_url"])\n                self.assertEqual("www.aeaweb.org", definition["allowed_host"])\n                self.assertNotIn("observed_evidence_path", definition)\n\n    def test_jpe_qe_observed_snapshot_contract_is_unchanged(self):\n        journals = yaml.safe_load(CONFIG.read_text(encoding="utf-8"))["journals"]\n        for key in ("JPE", "QE"):\n            self.assertEqual("year_ranges", journals[key]["platform"])\n            self.assertIn("observed_evidence_path", journals[key])\n\n\nif __name__ == "__main__":\n    unittest.main()\n''', encoding="utf-8")
+          PY
+
+      - name: Run targeted and full tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m unittest tests.test_r1a_aer_freshness_workflow tests.test_r2_aea_family -v
+          python -m unittest discover -s tests -v
+          git diff --check
+
+      - name: Probe live AEA publisher archives
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+          from collectors.history import discover_official_issues
+
+          journals = yaml.safe_load(Path("config/field-history.yml").read_text(encoding="utf-8"))["journals"]
+          expected = {
+              "AEJAPP": {"aejapp-18-1", "aejapp-18-2", "aejapp-18-3"},
+              "AEJMACRO": {"aejmacro-18-1", "aejmacro-18-2", "aejmacro-18-3"},
+              "AEJMICRO": {"aejmicro-18-1", "aejmicro-18-2", "aejmicro-18-3"},
+              "AEJPOL": {"aejpol-18-1", "aejpol-18-2", "aejpol-18-3"},
+          }
+          for key, required in expected.items():
+              issues = discover_official_issues(key, journals[key], years=[2026])
+              ids = {item.issue_id for item in issues}
+              missing = sorted(required - ids)
+              if missing:
+                  raise SystemExit(f"{key}: live AEA archive missing expected published issues: {missing}; got={sorted(ids)}")
+              if not issues:
+                  raise SystemExit(f"{key}: live AEA archive returned no issues")
+              if any("aeaweb.org" not in item.official_url for item in issues):
+                  raise SystemExit(f"{key}: non-AEA issue URL observed")
+              print(key, sorted(ids))
+          PY
+
+      - name: Commit verified implementation
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/workflows/bootstrap-r2-aea-family.yml
+          git config user.name "academic-door-bot"
+          git config user.email "academic-door-bot@users.noreply.github.com"
+          git add config/field-history.yml .github/workflows/backfill-field-history.yml tests/test_r1a_aer_freshness_workflow.py tests/test_r2_aea_family.py
+          git add -u .github/workflows/bootstrap-r2-aea-family.yml
+          git diff --cached --check
+          git commit -m "feat(history): add AEA-family authoritative expected-set tranche"
+          echo "FINAL_COMMIT=$(git rev-parse HEAD)"
+          set +e
+          git push origin HEAD:r2-aea-aej-family
+          status=$?
+          set -e
+          if [ "$status" -ne 0 ]; then
+            echo "Push failed after verified commit; commit object remains available for controller ref update."
+            exit "$status"
+          fi
