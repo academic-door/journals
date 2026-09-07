@@ -1,0 +1,72 @@
+name: Translation provider shadow benchmark
+
+on:
+  push:
+    branches:
+      - journals-translation-benchmark
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: Maximum benchmark articles (0 = full fixed corpus)
+        required: false
+        default: "0"
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: python -m pip install -r requirements.txt
+
+      - name: Test benchmark telemetry and pricing
+        run: |
+          python -m unittest tests.test_translation_provider_benchmark -v
+          python -m py_compile scripts/benchmark_translation_providers.py
+
+      - name: Restore canonical public API from data branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          rm -rf public/api
+          git archive origin/data public/api | tar -x
+
+      - name: Run shadow benchmark
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
+          QWEN_REGION: ${{ vars.QWEN_REGION }}
+        run: |
+          mkdir -p output
+          python scripts/benchmark_translation_providers.py \
+            --manifest config/translation-benchmark-dois.json \
+            --pricing config/translation-provider-pricing.json \
+            --api-root public/api/v1 \
+            --output output/translation-provider-benchmark.json \
+            --limit "${{ inputs.limit || '0' }}"
+
+      - name: Privacy audit
+        if: always()
+        run: python scripts/audit_privacy.py
+
+      - name: Upload benchmark evidence
+        if: always() && hashFiles('output/translation-provider-benchmark.json') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: translation-provider-benchmark
+          path: output/translation-provider-benchmark.json
+          if-no-files-found: error
+          retention-days: 14

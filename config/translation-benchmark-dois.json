@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "description": "Fixed shadow-only economics translation benchmark. Source text is resolved from canonical public API by DOI at run time; benchmark outputs never overwrite canonical translations.",
+  "corpus": [
+    {
+      "doi": "10.1016/j.jfineco.2026.104348",
+      "classes": ["currency", "billion-scale", "decimal-scale"]
+    },
+    {
+      "doi": "10.1016/j.landusepol.2026.108145",
+      "classes": ["shared-scale-range", "currency", "year"]
+    },
+    {
+      "doi": "10.1016/j.jpubeco.2026.105722",
+      "classes": ["large-count", "year-range"]
+    },
+    {
+      "doi": "10.1016/j.landusepol.2026.108157",
+      "classes": ["enumerative-count", "technical-terminology"]
+    },
+    {
+      "doi": "10.1016/j.landusepol.2026.108165",
+      "classes": ["duration", "written-number"]
+    },
+    {
+      "doi": "10.1016/j.ecolecon.2026.109104",
+      "classes": ["signed-number", "percentage", "percentage-point"]
+    },
+    {
+      "doi": "10.1016/j.foodpol.2026.103148",
+      "classes": ["shared-unit-list", "percentage-point"]
+    },
+    {
+      "doi": "10.1016/j.red.2026.101351",
+      "classes": ["decimal", "percentage-point"]
+    },
+    {
+      "doi": "10.1016/j.worlddev.2026.107467",
+      "classes": ["percentage-range", "percentage-point", "year-range"]
+    },
+    {
+      "doi": "10.1086/740567",
+      "classes": ["enumerative-count", "economics-terminology"]
+    },
+    {
+      "doi": "10.1086/733490",
+      "classes": ["enumerative-count", "theory-terminology"]
+    },
+    {
+      "doi": "10.3982/te5315",
+      "classes": ["enumerative-count", "theory-terminology"]
+    }
+  ]
+}
