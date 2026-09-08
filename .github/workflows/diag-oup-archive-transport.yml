@@ -1,0 +1,62 @@
+name: Diagnostic OUP archive transport
+
+on:
+  push:
+    branches: [diag-oup-archive-transport]
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    env:
+      JINA_API_KEY: ${{ secrets.JINA_API_KEY }}
+    steps:
+      - name: Probe QJE archive transports
+        shell: bash
+        run: |
+          set -euo pipefail
+          target="https://academic.oup.com/qje/issue-archive/2025"
+          mkdir -p "$RUNNER_TEMP/oup-probe"
+
+          report() {
+            local name="$1"
+            local file="$2"
+            local status="$3"
+            local count
+            count=$(grep -Eo 'https://academic\.oup\.com/qje/issue/[0-9]+/[0-9]+' "$file" 2>/dev/null | sort -u | wc -l | tr -d ' ' || true)
+            echo "$name status=$status official_issue_links=${count:-0} bytes=$(wc -c < "$file" | tr -d ' ')"
+          }
+
+          current_out="$RUNNER_TEMP/oup-probe/current.html"
+          current_status=$(curl -L -sS --connect-timeout 10 --max-time 45 \
+            -o "$current_out" -w '%{http_code}' \
+            -H 'User-Agent: AcademicDoorJournals/0.1 (non-profit academic metadata service; https://academic-door.github.io/)' \
+            -H 'Accept-Language: en-US,en;q=0.8' \
+            "$target" || true)
+          report current_ua "$current_out" "$current_status"
+
+          browser_out="$RUNNER_TEMP/oup-probe/browser.html"
+          browser_status=$(curl -L -sS --connect-timeout 10 --max-time 45 \
+            -o "$browser_out" -w '%{http_code}' \
+            -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36' \
+            -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8' \
+            -H 'Accept-Language: en-US,en;q=0.8' \
+            "$target" || true)
+          report browser_ua "$browser_out" "$browser_status"
+
+          jina_out="$RUNNER_TEMP/oup-probe/jina.txt"
+          if [ -n "${JINA_API_KEY:-}" ]; then
+            jina_status=$(curl -L -sS --connect-timeout 10 --max-time 60 \
+              -o "$jina_out" -w '%{http_code}' \
+              -H "Authorization: Bearer $JINA_API_KEY" \
+              -H 'Accept: text/plain' \
+              "https://r.jina.ai/$target" || true)
+            report jina_reader "$jina_out" "$jina_status"
+            echo "jina_key_set=yes"
+          else
+            : > "$jina_out"
+            echo "jina_reader status=SKIPPED official_issue_links=0 bytes=0"
+            echo "jina_key_set=no"
+          fi
