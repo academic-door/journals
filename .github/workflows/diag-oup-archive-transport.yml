@@ -60,3 +60,40 @@ jobs:
             echo "jina_reader status=SKIPPED official_issue_links=0 bytes=0"
             echo "jina_key_set=no"
           fi
+
+      - name: Inspect RePEc serial markup from runner
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/repec-probe"
+          for spec in \
+            'WD|https://ideas.repec.org/s/eee/wdevel.html' \
+            'LUP|https://ideas.repec.org/s/eee/lauspo.html'; do
+            name="${spec%%|*}"
+            url="${spec#*|}"
+            out="$RUNNER_TEMP/repec-probe/${name}.html"
+            status=$(curl -L -sS --connect-timeout 10 --max-time 60 \
+              -o "$out" -w '%{http_code}' \
+              -H 'User-Agent: AcademicDoorJournals/0.1 (non-profit academic metadata service; https://academic-door.github.io/)' \
+              -H 'Accept: text/html,application/xhtml+xml,application/json' \
+              -H 'Accept-Language: en-US,en;q=0.8' \
+              "$url" || true)
+            echo "$name status=$status bytes=$(wc -c < "$out" | tr -d ' ')"
+            FILE="$out" NAME="$name" python - <<'PY'
+          import html
+          import os
+          import re
+          from pathlib import Path
+
+          text = Path(os.environ['FILE']).read_text(encoding='utf-8', errors='replace')
+          headings = []
+          for match in re.finditer(r'<h([1-6])\b[^>]*>(.*?)</h\1\s*>', text, flags=re.I | re.S):
+              value = re.sub(r'<[^>]+>', ' ', match.group(2))
+              value = ' '.join(html.unescape(value).split())
+              if value:
+                  headings.append((match.group(1), value[:180]))
+          issue_like = [item for item in headings if re.search(r'\bVolume\b|\bIssue\b', item[1], flags=re.I)]
+          print(f"{os.environ['NAME']} headings_total={len(headings)} issue_like={issue_like[:8]}")
+          print(f"{os.environ['NAME']} has_current_regex={bool(re.search(r'\d{4},\s*Volume\s+[A-Za-z0-9.-]+,\s*Issue\s+[A-Za-z0-9.-]+', text, flags=re.I))}")
+          PY
+          done
