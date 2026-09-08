@@ -17,18 +17,35 @@ class R2OUPFamilyContractTests(unittest.TestCase):
             (ROOT / "config/field-history.yml").read_text(encoding="utf-8")
         )["journals"]
 
-    def test_qje_and_res_use_observed_oup_archive_evidence(self) -> None:
+    def test_tracked_oup_journals_use_observed_archive_evidence(self) -> None:
         expected = {
             "QJE": (
                 "https://academic.oup.com/qje/issue-archive/{year}",
                 "data/provenance/expected-set-observations/qje-2025-2026.json",
+                "2026-09-08T11:13:10+00:00",
             ),
             "RES": (
                 "https://academic.oup.com/restud/issue-archive/{year}",
                 "data/provenance/expected-set-observations/res-2025-2026.json",
+                "2026-09-08T11:13:10+00:00",
+            ),
+            "EJ": (
+                "https://academic.oup.com/ej/issue-archive/{year}",
+                "data/provenance/expected-set-observations/ej-2025-2026.json",
+                "2026-09-08T15:23:03+00:00",
+            ),
+            "JEEA": (
+                "https://academic.oup.com/jeea/issue-archive/{year}",
+                "data/provenance/expected-set-observations/jeea-2025-2026.json",
+                "2026-09-08T15:23:03+00:00",
+            ),
+            "RFS": (
+                "https://academic.oup.com/rfs/issue-archive/{year}",
+                "data/provenance/expected-set-observations/rfs-2025-2026.json",
+                "2026-09-08T15:23:03+00:00",
             ),
         }
-        for key, (archive_template, evidence_path) in expected.items():
+        for key, (archive_template, evidence_path, refreshed_at) in expected.items():
             with self.subTest(journal=key):
                 definition = self.config[key]
                 self.assertEqual("oup", definition["platform"])
@@ -39,32 +56,31 @@ class R2OUPFamilyContractTests(unittest.TestCase):
                     "official_archive_snapshot", discovery_authority(definition)
                 )
                 self.assertEqual(
-                    "2026-09-08T11:13:10+00:00",
+                    refreshed_at,
                     discovery_refreshed_at(definition),
                 )
 
-    def test_observed_oup_snapshot_has_exact_2025_2026_issue_sets(self) -> None:
+    def test_observed_oup_snapshots_have_exact_2025_2026_issue_sets(self) -> None:
         expected = {
             "QJE": [
-                "qje-140-1",
-                "qje-140-2",
-                "qje-140-3",
-                "qje-140-4",
-                "qje-141-1",
-                "qje-141-2",
-                "qje-141-3",
+                "qje-140-1", "qje-140-2", "qje-140-3", "qje-140-4",
+                "qje-141-1", "qje-141-2", "qje-141-3",
             ],
             "RES": [
-                "res-92-1",
-                "res-92-2",
-                "res-92-3",
-                "res-92-4",
-                "res-92-5",
-                "res-92-6",
-                "res-93-1",
-                "res-93-2",
-                "res-93-3",
-                "res-93-4",
+                "res-92-1", "res-92-2", "res-92-3", "res-92-4", "res-92-5", "res-92-6",
+                "res-93-1", "res-93-2", "res-93-3", "res-93-4",
+            ],
+            "EJ": [
+                *[f"ej-135-{issue}" for issue in range(667, 673)],
+                *[f"ej-136-{issue}" for issue in range(673, 679)],
+            ],
+            "JEEA": [
+                *[f"jeea-23-{issue}" for issue in range(1, 7)],
+                *[f"jeea-24-{issue}" for issue in range(1, 5)],
+            ],
+            "RFS": [
+                *[f"rfs-38-{issue}" for issue in range(1, 13)],
+                *[f"rfs-39-{issue}" for issue in range(1, 10)],
             ],
         }
         for key, expected_ids in expected.items():
@@ -82,16 +98,7 @@ class R2OUPFamilyContractTests(unittest.TestCase):
                     )
                 )
 
-    def test_other_oup_journals_remain_crossref_candidates(self) -> None:
-        for key in ("EJ", "JEEA", "RFS"):
-            with self.subTest(journal=key):
-                definition = self.config[key]
-                self.assertEqual("crossref", definition["platform"])
-                self.assertEqual("crossref_candidate", discovery_authority(definition))
-                self.assertNotIn("archive_url_template", definition)
-                self.assertNotIn("observed_evidence_path", definition)
-
-    def test_live_oup_archive_parser_handles_qje_and_res(self) -> None:
+    def test_live_oup_archive_parser_handles_all_tracked_slugs(self) -> None:
         fixtures = (
             (
                 "QJE",
@@ -104,6 +111,24 @@ class R2OUPFamilyContractTests(unittest.TestCase):
                 b'<a href="/restud/issue/93/4">Volume 93, Issue 4, July 2026</a>',
                 "https://academic.oup.com/restud/issue-archive/2026",
                 "res-93-4",
+            ),
+            (
+                "EJ",
+                b'<a href="/ej/issue/136/678">Volume 136, Issue 678, August 2026</a>',
+                "https://academic.oup.com/ej/issue-archive/2026",
+                "ej-136-678",
+            ),
+            (
+                "JEEA",
+                b'<a href="/jeea/issue/24/4">Volume 24, Issue 4, August 2026</a>',
+                "https://academic.oup.com/jeea/issue-archive/2026",
+                "jeea-24-4",
+            ),
+            (
+                "RFS",
+                b'<a href="/rfs/issue/39/9">Volume 39, Issue 9, September 2026</a>',
+                "https://academic.oup.com/rfs/issue-archive/2026",
+                "rfs-39-9",
             ),
         )
         for journal, content, archive_url, expected_issue_id in fixtures:
