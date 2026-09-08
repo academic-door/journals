@@ -1,0 +1,53 @@
+name: R2 OUP ledger authority bootstrap
+
+on:
+  push:
+    branches:
+      - r2-oup-ledger-authority
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: r2-oup-ledger-authority
+          fetch-depth: 0
+
+      - name: Patch snapshot authority classification and add regression
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("scripts/build_completeness_ledger.py")
+          text = path.read_text(encoding="utf-8")
+          old = '    "official_archive", "official-issue-page", "official_issue_page",\n'
+          new = '    "official_archive", "official_archive_snapshot", "official-issue-page", "official_issue_page",\n'
+          if old not in text:
+              raise SystemExit("expected authoritative allowlist anchor not found")
+          if "official_archive_snapshot" in text[text.index("AUTHORITATIVE_AUTHORITIES"):text.index("EXCLUSION_OUT_OF_SET_STATUSES")]:
+              raise SystemExit("official_archive_snapshot already classified; refusing duplicate patch")
+          path.write_text(text.replace(old, new, 1), encoding="utf-8")
+
+          test = Path("tests/test_r2_snapshot_authority.py")
+          test.write_text('''from __future__ import annotations\n\nimport unittest\n\nfrom scripts.build_completeness_ledger import _authority_kind\n\n\nclass R2ObservedSnapshotAuthorityTests(unittest.TestCase):\n    def test_official_archive_snapshot_is_authoritative(self) -> None:\n        self.assertEqual("authoritative", _authority_kind("official_archive_snapshot"))\n\n    def test_candidate_authorities_remain_fail_closed(self) -> None:\n        self.assertEqual("candidate", _authority_kind("crossref_candidate"))\n        self.assertEqual("candidate", _authority_kind("configured_schedule_candidate"))\n        self.assertEqual("unknown", _authority_kind("mystery_source"))\n\n\nif __name__ == "__main__":\n    unittest.main()\n''', encoding="utf-8")
+          PY
+
+          rm .github/workflows/r2-oup-ledger-authority-bootstrap.yml
+          python -m unittest tests.test_completeness_ledger tests.test_r2_snapshot_authority tests.test_r2_oup_family -v
+
+      - name: Commit bounded repair
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "academic-door-bot"
+          git config user.email "academic-door-bot@users.noreply.github.com"
+          git add scripts/build_completeness_ledger.py tests/test_r2_snapshot_authority.py
+          git rm .github/workflows/r2-oup-ledger-authority-bootstrap.yml
+          git commit -m "fix(history): classify observed archive snapshots as authoritative"
+          git push origin HEAD:r2-oup-ledger-authority
