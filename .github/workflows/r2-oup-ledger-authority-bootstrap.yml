@@ -17,6 +17,13 @@ jobs:
           ref: r2-oup-ledger-authority
           fetch-depth: 0
 
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: python -m pip install -r requirements.txt
+
       - name: Patch snapshot authority classification and add regression
         shell: bash
         run: |
