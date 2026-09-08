@@ -133,12 +133,14 @@ journals:
         issues: [1, 2, 3, 4, 5, 6, 7]
   QJE:
     platform: oup
+    observed_evidence_path: data/provenance/expected-set-observations/qje-2025-2026.json
     issn: 0033-5533
     archive_url_template: https://academic.oup.com/qje/issue-archive/{year}
     allowed_host: academic.oup.com
     issue_url_template: https://academic.oup.com/qje/issue/{volume}/{issue}
   RES:
     platform: oup
+    observed_evidence_path: data/provenance/expected-set-observations/res-2025-2026.json
     issn: 0034-6527
     archive_url_template: https://academic.oup.com/restud/issue-archive/{year}
     allowed_host: academic.oup.com
