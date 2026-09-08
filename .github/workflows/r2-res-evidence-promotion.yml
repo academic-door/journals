@@ -56,6 +56,50 @@ jobs:
           mkdir -p data/provenance/official-rosters/res
           cp "$evidence_root"/*.json data/provenance/official-rosters/res/
 
+      - name: Install validated rdaf031 numeric translation repair
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from datetime import datetime, timezone
+          from pathlib import Path
+          from scripts.translate_issue import _source_hash, validate_translation
+
+          doi = "10.1093/restud/rdaf031"
+          archive_path = Path("public/api/v1/journals/res/issues/res-93-1.json")
+          cache_path = Path("data/translation-cache/res.json")
+          archive = json.loads(archive_path.read_text(encoding="utf-8"))
+          article = next(item for item in archive["articles"] if item.get("doi") == doi)
+          translated = {
+              "title_cn": "巴西亚马逊的有效保护：动态模型的估计",
+              "abstract_cn": (
+                  "本文估计巴西亚马逊地区的碳效率森林覆盖率，即农民将碳的社会成本内部化时的森林覆盖率。"
+                  "我们提出一个动态离散选择土地利用模型，并使用2008年至2017年间由57亿个像素构成的土地利用和碳储量面板数据进行估计。"
+                  "照常发展情景意味着，从长期看，由于一片面积相当于法国两倍的森林遭到砍伐，会低效率地释放420亿吨CO2。"
+                  "让农民内部化碳的社会成本的碳税可以实现有效配置，并产生超过1.6万亿美元的福利增益。"
+                  "对碳税的反应高度凸：仅每吨10美元的碳税就会保留95%的有效碳储量。"
+                  "对养牛征收消费税作为次优政策，最多可实现一阶最优福利增益的87%。"
+              ),
+          }
+          validate_translation(article, translated)
+          cache = json.loads(cache_path.read_text(encoding="utf-8")) if cache_path.exists() else {}
+          cache[doi] = {
+              **translated,
+              "source_hash": _source_hash(article),
+              "translation": {
+                  "provider": "openai-chatgpt",
+                  "model": "gpt-5.6-sol",
+                  "prompt_version": "academic-door-abstract-zh-v2",
+                  "translated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+              },
+          }
+          cache_path.write_text(json.dumps(cache, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          print("rdaf031 numeric translation repair validated and staged")
+          PY
+
       - name: Apply exact official RES evidence and translation gate
         env:
           PYTHONPATH: ${{ github.workspace }}
