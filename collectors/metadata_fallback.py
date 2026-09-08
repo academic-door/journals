@@ -920,7 +920,16 @@ def _issue_is_not_future(
     issue_year = min(years)
     month_name = MONTHS_BY_ISSUE.get(issn, {}).get(issue, "")
     if month_name:
-        issue_month = datetime.strptime(month_name, "%B").month
+        season_months = {
+            "spring": 3,
+            "summer": 6,
+            "fall": 9,
+            "autumn": 9,
+            "winter": 12,
+        }
+        issue_month = season_months.get(month_name.casefold())
+        if issue_month is None:
+            issue_month = datetime.strptime(month_name, "%B").month
         return (issue_year, issue_month) <= (current.year, current.month)
     date_parts: list[tuple[int, int, int]] = []
     for item in items:
