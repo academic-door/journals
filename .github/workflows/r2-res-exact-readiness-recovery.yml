@@ -9,20 +9,16 @@ permissions:
   contents: write
   models: read
 
-concurrency:
-  group: journal-data-update
-  cancel-in-progress: false
-
 jobs:
   res:
     uses: academic-door/journals/.github/workflows/backfill-field-history.yml@main
     with:
       journal: RES
-      from_year: 2026
-      to_year: 2026
-      max_issues: 4
-      max_translations: 120
-      max_journals: 1
+      from_year: "2026"
+      to_year: "2026"
+      max_issues: "4"
+      max_translations: "120"
+      max_journals: "1"
       translation_model: deepseek-chat
       refresh_discovery_only: false
     secrets: inherit
