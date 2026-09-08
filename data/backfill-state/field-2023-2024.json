@@ -1178,12 +1178,15 @@
       "volume": "85",
       "issue": "1",
       "official_url": "https://link.springer.com/journal/10640/volumes-and-issues",
-      "status": "blocked",
-      "last_error": "ValueError: RePEc history requires a configured series code",
+      "status": "ready",
+      "last_error": "",
       "retry_class": "manual",
-      "content_status": "blocked",
-      "source_status": "source_pending",
-      "publication_state": "blocked"
+      "attempt_count": 0,
+      "last_attempt_at": "",
+      "last_error_code": "",
+      "content_status": "complete",
+      "source_status": "official_verified",
+      "publication_state": "ready"
     },
     "ere-85-2": {
       "journal": "ERE",
@@ -1256,16 +1259,15 @@
       "volume": "118",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/food-policy/vol/118/suppl/C",
-      "status": "translation_partial",
-      "last_error": "",
-      "retry_class": "translation",
+      "status": "blocked",
+      "last_error": "archive_missing",
+      "retry_class": "transient",
       "attempt_count": 4,
       "last_attempt_at": "2026-09-07T00:19:05+00:00",
       "last_error_code": "",
-      "content_status": "translation_partial",
+      "content_status": "blocked",
       "source_status": "source_pending",
-      "publication_state": "translation_partial",
-      "next_retry_at": "2026-09-07T06:20:27+00:00"
+      "publication_state": "blocked"
     },
     "foodpolicy-119-c": {
       "journal": "FOODPOLICY",
@@ -1752,15 +1754,14 @@
       "issue": "1",
       "official_url": "https://www.journals.uchicago.edu/toc/jpe/2023/131/1",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "attempt_count": 4,
       "last_attempt_at": "2026-09-07T00:20:39+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-09-08T00:20:39+00:00"
+      "publication_state": "source_pending"
     },
     "jpe-131-2": {
       "journal": "JPE",
@@ -1769,15 +1770,14 @@
       "issue": "2",
       "official_url": "https://www.journals.uchicago.edu/toc/jpe/2023/131/2",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "attempt_count": 4,
       "last_attempt_at": "2026-09-07T00:20:51+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-09-08T00:20:51+00:00"
+      "publication_state": "source_pending"
     },
     "jpe-131-3": {
       "journal": "JPE",
@@ -1786,15 +1786,14 @@
       "issue": "3",
       "official_url": "https://www.journals.uchicago.edu/toc/jpe/2023/131/3",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "attempt_count": 4,
       "last_attempt_at": "2026-09-07T00:21:03+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-09-08T00:21:03+00:00"
+      "publication_state": "source_pending"
     },
     "jpe-131-4": {
       "journal": "JPE",
@@ -1803,15 +1802,14 @@
       "issue": "4",
       "official_url": "https://www.journals.uchicago.edu/toc/jpe/2023/131/4",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "attempt_count": 4,
       "last_attempt_at": "2026-09-07T00:21:14+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-09-08T00:21:14+00:00"
+      "publication_state": "source_pending"
     },
     "jpe-131-5": {
       "journal": "JPE",
@@ -1833,15 +1831,14 @@
       "issue": "6",
       "official_url": "https://www.journals.uchicago.edu/toc/jpe/2023/131/6",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "attempt_count": 4,
       "last_attempt_at": "2026-09-07T00:21:26+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-09-08T00:21:26+00:00"
+      "publication_state": "source_pending"
     },
     "qje-138-2": {
       "journal": "QJE",
@@ -2369,15 +2366,14 @@
       "issue": "3",
       "official_url": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/3",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "attempt_count": 4,
       "last_attempt_at": "2026-09-07T00:18:30+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-09-08T00:18:30+00:00"
+      "publication_state": "source_pending"
     },
     "jf-78-4": {
       "journal": "JF",
@@ -2386,15 +2382,14 @@
       "issue": "4",
       "official_url": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/4",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "attempt_count": 4,
       "last_attempt_at": "2026-09-07T00:18:32+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-09-08T00:18:32+00:00"
+      "publication_state": "source_pending"
     },
     "jf-78-5": {
       "journal": "JF",
@@ -2403,15 +2398,14 @@
       "issue": "5",
       "official_url": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/5",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "attempt_count": 4,
       "last_attempt_at": "2026-09-07T00:18:33+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-09-08T00:18:33+00:00"
+      "publication_state": "source_pending"
     },
     "jf-78-6": {
       "journal": "JF",
@@ -2420,15 +2414,14 @@
       "issue": "6",
       "official_url": "https://onlinelibrary.wiley.com/toc/15406261/2023/78/6",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "attempt_count": 4,
       "last_attempt_at": "2026-09-07T00:18:34+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-09-08T00:18:35+00:00"
+      "publication_state": "source_pending"
     },
     "jeh-83-1": {
       "journal": "JEH",
@@ -4073,15 +4066,14 @@
       "issue": "5",
       "official_url": "https://direct.mit.edu/rest/issue/105/5",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "attempt_count": 3,
       "last_attempt_at": "2026-09-07T00:18:41+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-09-08T00:18:41+00:00"
+      "publication_state": "source_pending"
     },
     "restat-105-6": {
       "journal": "RESTAT",
@@ -4090,15 +4082,14 @@
       "issue": "6",
       "official_url": "https://direct.mit.edu/rest/issue/105/6",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "attempt_count": 3,
       "last_attempt_at": "2026-09-07T00:18:43+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-09-08T00:18:44+00:00"
+      "publication_state": "source_pending"
     },
     "restat-106-1": {
       "journal": "RESTAT",
@@ -4107,15 +4098,14 @@
       "issue": "1",
       "official_url": "https://direct.mit.edu/rest/issue/106/1",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "attempt_count": 3,
       "last_attempt_at": "2026-09-07T00:18:45+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-09-08T00:18:45+00:00"
+      "publication_state": "source_pending"
     },
     "restat-106-2": {
       "journal": "RESTAT",
@@ -4124,15 +4114,14 @@
       "issue": "2",
       "official_url": "https://direct.mit.edu/rest/issue/106/2",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "attempt_count": 3,
       "last_attempt_at": "2026-09-07T00:18:47+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-09-08T00:18:47+00:00"
+      "publication_state": "source_pending"
     },
     "restat-106-3": {
       "journal": "RESTAT",
@@ -4154,15 +4143,14 @@
       "issue": "4",
       "official_url": "https://direct.mit.edu/rest/issue/106/4",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "attempt_count": 2,
       "last_attempt_at": "2026-09-07T00:18:49+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-09-08T00:18:49+00:00"
+      "publication_state": "source_pending"
     },
     "restat-106-5": {
       "journal": "RESTAT",
@@ -4184,15 +4172,14 @@
       "issue": "6",
       "official_url": "https://direct.mit.edu/rest/issue/106/6",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "attempt_count": 2,
       "last_attempt_at": "2026-09-07T00:18:50+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-09-08T00:18:50+00:00"
+      "publication_state": "source_pending"
     },
     "ajae-106-2": {
       "journal": "AJAE",
@@ -4412,15 +4399,14 @@
       "issue": "7",
       "official_url": "https://www.journals.uchicago.edu/toc/jpe/2023/131/7",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "attempt_count": 4,
       "last_attempt_at": "2026-09-07T00:21:37+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-09-08T00:21:37+00:00"
+      "publication_state": "source_pending"
     },
     "jpe-131-8": {
       "journal": "JPE",
@@ -5097,12 +5083,15 @@
       "volume": "87",
       "issue": "6",
       "official_url": "https://link.springer.com/journal/10640/volumes-and-issues",
-      "status": "blocked",
-      "last_error": "ValueError: RePEc history requires a configured series code",
+      "status": "ready",
+      "last_error": "",
       "retry_class": "manual",
-      "content_status": "blocked",
-      "source_status": "source_pending",
-      "publication_state": "blocked"
+      "attempt_count": 0,
+      "last_attempt_at": "",
+      "last_error_code": "",
+      "content_status": "complete",
+      "source_status": "official_verified",
+      "publication_state": "ready"
     },
     "ere-87-7": {
       "journal": "ERE",
@@ -9474,15 +9463,14 @@
       "issue": "2",
       "official_url": "https://onlinelibrary.wiley.com/toc/15406261/2024/79/2",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "attempt_count": 4,
       "last_attempt_at": "2026-09-07T00:18:36+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-09-08T00:18:37+00:00"
+      "publication_state": "source_pending"
     },
     "jf-79-3": {
       "journal": "JF",
@@ -9491,15 +9479,14 @@
       "issue": "3",
       "official_url": "https://onlinelibrary.wiley.com/toc/15406261/2024/79/3",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "attempt_count": 3,
       "last_attempt_at": "2026-09-07T00:18:39+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-09-08T00:18:39+00:00"
+      "publication_state": "source_pending"
     },
     "jf-79-4": {
       "journal": "JF",
@@ -9737,7 +9724,7 @@
       "EER": "2026-08-24T14:11:50+00:00",
       "EJ": "2026-08-29T03:53:34+00:00",
       "ENERGY": "2026-09-01T01:28:27+00:00",
-      "ERE": "2026-08-18T16:59:43+00:00",
+      "ERE": "2026-09-08T00:40:13+00:00",
       "FOODPOLICY": "2026-09-07T00:20:27+00:00",
       "GEB": "2026-08-18T17:16:16+00:00",
       "IER": "2026-08-18T17:03:26+00:00",
@@ -9776,7 +9763,7 @@
       "LANDECON": "2026-08-24T14:00:30+00:00"
     }
   },
-  "updated_at": "2026-09-07T00:21:37+00:00",
+  "updated_at": "2026-09-08T00:40:13+00:00",
   "discovery": {
     "AER": {
       "issue_ids": [
@@ -13241,86 +13228,11 @@
       "collector_revision": "history-integrity-2026-08-11"
     },
     "QE": {
-      "issue_ids": [
-        "qe-14-1",
-        "qe-14-2",
-        "qe-14-3",
-        "qe-14-4",
-        "qe-15-1",
-        "qe-15-2",
-        "qe-15-3",
-        "qe-15-4"
-      ],
-      "issue_years": {
-        "qe-14-1": 2023,
-        "qe-14-2": 2023,
-        "qe-14-3": 2023,
-        "qe-14-4": 2023,
-        "qe-15-1": 2024,
-        "qe-15-2": 2024,
-        "qe-15-3": 2024,
-        "qe-15-4": 2024
-      },
-      "issue_refs": {
-        "qe-14-1": {
-          "journal": "QE",
-          "year": 2023,
-          "volume": "14",
-          "issue": "1",
-          "official_url": "https://onlinelibrary.wiley.com/toc/17597331/14/1"
-        },
-        "qe-14-2": {
-          "journal": "QE",
-          "year": 2023,
-          "volume": "14",
-          "issue": "2",
-          "official_url": "https://onlinelibrary.wiley.com/toc/17597331/14/2"
-        },
-        "qe-14-3": {
-          "journal": "QE",
-          "year": 2023,
-          "volume": "14",
-          "issue": "3",
-          "official_url": "https://onlinelibrary.wiley.com/toc/17597331/14/3"
-        },
-        "qe-14-4": {
-          "journal": "QE",
-          "year": 2023,
-          "volume": "14",
-          "issue": "4",
-          "official_url": "https://onlinelibrary.wiley.com/toc/17597331/14/4"
-        },
-        "qe-15-1": {
-          "journal": "QE",
-          "year": 2024,
-          "volume": "15",
-          "issue": "1",
-          "official_url": "https://onlinelibrary.wiley.com/toc/17597331/15/1"
-        },
-        "qe-15-2": {
-          "journal": "QE",
-          "year": 2024,
-          "volume": "15",
-          "issue": "2",
-          "official_url": "https://onlinelibrary.wiley.com/toc/17597331/15/2"
-        },
-        "qe-15-3": {
-          "journal": "QE",
-          "year": 2024,
-          "volume": "15",
-          "issue": "3",
-          "official_url": "https://onlinelibrary.wiley.com/toc/17597331/15/3"
-        },
-        "qe-15-4": {
-          "journal": "QE",
-          "year": 2024,
-          "volume": "15",
-          "issue": "4",
-          "official_url": "https://onlinelibrary.wiley.com/toc/17597331/15/4"
-        }
-      },
-      "authority": "official_archive",
-      "refreshed_at": "2026-08-24T13:58:03+00:00",
+      "issue_ids": [],
+      "issue_years": {},
+      "issue_refs": {},
+      "authority": "official_archive_snapshot",
+      "refreshed_at": "2026-09-07T10:34:06+00:00",
       "collector_revision": "history-integrity-2026-08-11"
     },
     "AEJMICRO": {
@@ -14375,7 +14287,7 @@
         }
       },
       "authority": "crossref_candidate",
-      "refreshed_at": "2026-08-24T13:58:06+00:00",
+      "refreshed_at": "2026-09-08T00:40:12+00:00",
       "collector_revision": "history-integrity-2026-08-11"
     },
     "JEH": {
@@ -15556,7 +15468,7 @@
         }
       },
       "authority": "crossref_candidate",
-      "refreshed_at": "2026-08-24T13:58:03+00:00",
+      "refreshed_at": "2026-09-08T00:40:10+00:00",
       "collector_revision": "history-integrity-2026-08-11"
     },
     "JHE": {
@@ -15675,7 +15587,7 @@
         }
       },
       "authority": "crossref_candidate",
-      "refreshed_at": "2026-08-24T13:57:34+00:00",
+      "refreshed_at": "2026-09-08T00:40:11+00:00",
       "collector_revision": "history-integrity-2026-08-11"
     },
     "CER": {
