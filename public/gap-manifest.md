@@ -1,13 +1,12 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-08T14:01:55+00:00
+Generated: 2026-09-08T14:15:29+00:00
 
 ## Summary
 
-- ready: 1159
+- ready: 1163
 - recoverable: 64
-- source_pending: 100
-- translation_required: 1
+- source_pending: 97
 
 ## Issue queue
 
@@ -1204,10 +1203,10 @@ Generated: 2026-09-08T14:01:55+00:00
 | RES | res-92-4 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | RES | res-92-5 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | RES | res-92-6 | 2025 | ready | complete | official_verified | content and official source gates passed |
-| RES | res-93-1 | 2026 | translation_required | complete | source_pending | translation incomplete |
-| RES | res-93-2 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| RES | res-93-3 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| RES | res-93-4 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
+| RES | res-93-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| RES | res-93-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| RES | res-93-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| RES | res-93-4 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RESTAT | restat-105-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RESTAT | restat-105-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RESTAT | restat-105-3 | 2023 | ready | complete | official_verified | content and official source gates passed |

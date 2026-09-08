@@ -1,21 +1,21 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-09-08T14:01:38+00:00",
+  "updated_at": "2026-09-08T14:15:11+00:00",
   "summary": {
-    "complete": 1166,
+    "complete": 1170,
     "translation_partial": 0,
     "blocked": 65,
     "collected": 0,
-    "pending": 101
+    "pending": 97
   },
   "coverage": {
     "discovered": 1324,
     "archived": 1260,
     "content_ready": 1260,
-    "source_verified": 1159,
-    "publication_ready": 1159,
+    "source_verified": 1163,
+    "publication_ready": 1163,
     "missing": 64,
-    "source_pending": 101,
+    "source_pending": 97,
     "missing_issue_ids": [
       "ecolecon-224-c",
       "ecolecon-225-c",
@@ -159,10 +159,6 @@
       "red-59-c",
       "red-60-c",
       "red-61-c",
-      "res-93-1",
-      "res-93-2",
-      "res-93-3",
-      "res-93-4",
       "restat-105-5",
       "restat-105-6",
       "restat-106-1",
@@ -407,17 +403,12 @@
       "discovered": 22,
       "archived": 22,
       "content_ready": 22,
-      "source_verified": 18,
-      "publication_ready": 18,
+      "source_verified": 22,
+      "publication_ready": 22,
       "missing": 0,
-      "source_pending": 4,
+      "source_pending": 0,
       "missing_issue_ids": [],
-      "source_pending_issue_ids": [
-        "res-93-1",
-        "res-93-2",
-        "res-93-3",
-        "res-93-4"
-      ],
+      "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
       "years": {
         "2023": {
@@ -460,17 +451,12 @@
           "discovered": 4,
           "archived": 4,
           "content_ready": 4,
-          "source_verified": 0,
-          "publication_ready": 0,
+          "source_verified": 4,
+          "publication_ready": 4,
           "missing": 0,
-          "source_pending": 4,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "res-93-1",
-            "res-93-2",
-            "res-93-3",
-            "res-93-4"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         }
       }
@@ -18100,48 +18086,48 @@
         "year": 2026,
         "volume": "93",
         "issue": "1",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
+        "source_status": "official_verified",
+        "publication_state": "ready",
         "last_error": "",
-        "retry_class": "translation"
+        "retry_class": "manual"
       },
       {
         "issue_id": "res-93-2",
         "year": 2026,
         "volume": "93",
         "issue": "2",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "res-93-3",
         "year": 2026,
         "volume": "93",
         "issue": "3",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "res-93-4",
         "year": 2026,
         "volume": "93",
         "issue": "4",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       }
     ],
     "RESTAT": [
@@ -19926,29 +19912,24 @@
     },
     "2026-2026": {
       "summary": {
-        "complete": 6,
+        "complete": 10,
         "translation_partial": 0,
         "blocked": 0,
         "collected": 0,
-        "pending": 4
+        "pending": 0
       },
       "issue_count": 10,
-      "updated_at": "2026-09-08T13:23:52+00:00",
+      "updated_at": "2026-09-08T14:14:07+00:00",
       "coverage": {
         "discovered": 13,
         "archived": 13,
         "content_ready": 13,
-        "source_verified": 9,
-        "publication_ready": 9,
+        "source_verified": 13,
+        "publication_ready": 13,
         "missing": 0,
-        "source_pending": 4,
+        "source_pending": 0,
         "missing_issue_ids": [],
-        "source_pending_issue_ids": [
-          "res-93-1",
-          "res-93-2",
-          "res-93-3",
-          "res-93-4"
-        ],
+        "source_pending_issue_ids": [],
         "blocked_issue_ids": []
       }
     }
@@ -22235,11 +22216,11 @@
     },
     "2026": {
       "summary": {
-        "complete": 247,
+        "complete": 251,
         "translation_partial": 0,
         "blocked": 12,
         "collected": 0,
-        "pending": 21
+        "pending": 17
       },
       "issue_count": 280,
       "journals": [
@@ -22297,10 +22278,10 @@
         "discovered": 280,
         "archived": 269,
         "content_ready": 269,
-        "source_verified": 248,
-        "publication_ready": 248,
+        "source_verified": 252,
+        "publication_ready": 252,
         "missing": 11,
-        "source_pending": 21,
+        "source_pending": 17,
         "missing_issue_ids": [
           "jaere-13-5",
           "jaere-13-6",
@@ -22328,10 +22309,6 @@
           "red-59-c",
           "red-60-c",
           "red-61-c",
-          "res-93-1",
-          "res-93-2",
-          "res-93-3",
-          "res-93-4",
           "restat-108-1",
           "restat-108-2",
           "restat-108-3",
@@ -22902,17 +22879,12 @@
           "discovered": 4,
           "archived": 4,
           "content_ready": 4,
-          "source_verified": 0,
-          "publication_ready": 0,
+          "source_verified": 4,
+          "publication_ready": 4,
           "missing": 0,
-          "source_pending": 4,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "res-93-1",
-            "res-93-2",
-            "res-93-3",
-            "res-93-4"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "RESTAT": {

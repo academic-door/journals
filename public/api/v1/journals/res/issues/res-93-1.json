@@ -10,7 +10,7 @@
   "retrieved_at": "2026-07-29T06:11:17+00:00",
   "expected_article_count": 20,
   "research_article_count": 20,
-  "status": "incomplete",
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
@@ -30,7 +30,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/93/1",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/93/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -40,7 +40,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T06:11:18+00:00"
+        "translated_at": "2026-07-29T06:11:18+00:00",
+        "source_hash": "86749a7479de86672b28c13fe9fea1c212d2e56173849274c960b39d59133b20"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -53,7 +54,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdaf024",
       "sequence": 2,
-      "source_sequence": 35,
+      "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Colluding Against Environmental Regulation",
       "title_cn": "串通环境监管",
@@ -70,7 +71,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/93/1",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/93/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -80,7 +81,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T06:11:19+00:00"
+        "translated_at": "2026-07-29T06:11:19+00:00",
+        "source_hash": "3a9ca1012544a1aa4a034f4f49f0c5fe29efde1319e0bc8faa61dc47464b671a"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -93,7 +95,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdaf031",
       "sequence": 3,
-      "source_sequence": 72,
+      "source_sequence": 3,
       "article_type": "research-article",
       "title_en": "Efficient Conservation of the Brazilian Amazon: Estimates from a Dynamic Model",
       "title_cn": "巴西亚马逊的有效保护：动态模型的估计",
@@ -103,23 +105,23 @@
         "Marcelo Sant’Anna"
       ],
       "abstract_en": "This paper estimates the Brazilian Amazon’s carbon-efficient forest cover—i.e. when farmers internalize the social cost of carbon. We propose a dynamic discrete choice land-use model and estimate it using a panel of land use and carbon stock of 5.7 billion pixels between 2008 and 2017. The business-as-usual scenario implies an inefficient release of 42 billion tons of CO2 in the long run, resulting from the deforestation of an area twice the size of France. A carbon tax that makes farmers internalize the social cost of carbon would implement the efficient allocation and generate welfare gains exceeding 1.6 trillion dollars. Responses from a carbon tax are highly convex: a carbon tax of only $10/ton would preserve 95% of the efficient carbon stock. An excise tax on cattle ranching, a second-best policy, achieves at most 87% of the first-best welfare gains.",
-      "abstract_cn": "本文估计了巴西亚马逊地区的碳效率森林覆盖率，即当农民将碳的社会成本内部化时。我们提出了一个动态离散选择土地利用模型，并使用 5.7 和 2008 之间 2017 十亿 像素的土地利用和碳储量面板对其进行估计。一切照旧的情景意味着从长远来看，由于面积是法国两倍的森林砍伐，将导致42十亿吨二氧化碳的低效释放。碳税使农民将碳的社会成本内在化，从而实现有效分配并产生超过1.6万亿美元的福利收益。碳税的反应是高度凸的：仅$10/吨的碳税将保留95%的有效碳储量。对养牛场征收消费税是一项第二-最佳政策，最多可实现87%的第一-最佳福利收益。",
+      "abstract_cn": "本文估计巴西亚马逊地区的碳效率森林覆盖率，即农民将碳的社会成本内部化时的森林覆盖率。我们提出一个动态离散选择土地利用模型，并使用2008年至2017年间由57亿个像素构成的土地利用和碳储量面板数据进行估计。照常发展情景意味着，从长期看，由于一片面积相当于法国两倍的森林遭到砍伐，会低效率地释放420亿吨CO2。让农民内部化碳的社会成本的碳税可以实现有效配置，并产生超过1.6万亿美元的福利增益。对碳税的反应高度凸：仅每吨10美元的碳税就会保留95%的有效碳储量。对养牛征收消费税作为次优政策，最多可实现一阶最优福利增益的87%。",
       "doi": "10.1093/restud/rdaf031",
       "source_url": "https://doi.org/10.1093/restud/rdaf031",
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/93/1",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/93/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
-        "provider": "google-translate",
+        "provider": "openai-chatgpt",
+        "model": "gpt-5.6-sol",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T06:11:20+00:00"
+        "translated_at": "2026-09-08T14:14:04+00:00",
+        "source_hash": "eb62da7a55c9fb4c5e31659caceb2fd54c837c36788c23a8f0f9fb78c796999f"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -132,7 +134,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdaf035",
       "sequence": 4,
-      "source_sequence": 106,
+      "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "A Q-Theory of Banks",
       "title_cn": "银行的 Q 理论",
@@ -149,7 +151,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/93/1",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/93/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -159,7 +161,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T06:11:22+00:00"
+        "translated_at": "2026-07-29T06:11:22+00:00",
+        "source_hash": "36b984be1769e31da8a8c102de2a83b98108789558c076e624992e758ef5da3f"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -172,7 +175,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdaf034",
       "sequence": 5,
-      "source_sequence": 144,
+      "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "The Economics and Econometrics of Gene–Environment Interplay",
       "title_cn": "基因与环境相互作用的经济学和计量经济学",
@@ -191,7 +194,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/93/1",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/93/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -201,7 +204,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T06:11:22+00:00"
+        "translated_at": "2026-07-29T06:11:22+00:00",
+        "source_hash": "fc6b0d35c8bf87d61bd484cd4d6110a24c7bde0a7cdec6d4f5e6bcfec2443533"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -214,7 +218,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdaf017",
       "sequence": 6,
-      "source_sequence": 181,
+      "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "Global Value Chains and Trade Policy",
       "title_cn": "全球价值链和贸易政策",
@@ -230,7 +234,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/93/1",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/93/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -240,7 +244,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T06:11:23+00:00"
+        "translated_at": "2026-07-29T06:11:23+00:00",
+        "source_hash": "63181362b28017c6f3b486050647b355d59c8bd3d33d1a80bcec17699b0d2cbc"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -255,7 +260,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdaf020",
       "sequence": 7,
-      "source_sequence": 215,
+      "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "The U.S., Economic News, and the Global Financial Cycle",
       "title_cn": "美国、经济新闻和全球金融周期",
@@ -270,7 +275,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/93/1",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/93/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -280,7 +285,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T06:11:23+00:00"
+        "translated_at": "2026-07-29T06:11:23+00:00",
+        "source_hash": "4cac8e673ba37f1b1498b17439e077d776cb74878ecb32619cc9c666a9755770"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -293,7 +299,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdaf022",
       "sequence": 8,
-      "source_sequence": 250,
+      "source_sequence": 8,
       "article_type": "research-article",
       "title_en": "How People Use Statistics",
       "title_cn": "人们如何使用统计数据",
@@ -311,7 +317,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/93/1",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/93/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -321,7 +327,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T06:11:24+00:00"
+        "translated_at": "2026-07-29T06:11:24+00:00",
+        "source_hash": "6a088a2fbd08a08ce0104e65f35337398c470b7555cc0b3242284488e6bd74c5"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -334,7 +341,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdaf029",
       "sequence": 9,
-      "source_sequence": 286,
+      "source_sequence": 9,
       "article_type": "research-article",
       "title_en": "Barriers to Entry and Regional Economic Growth in China",
       "title_cn": "中国的进入壁垒和区域经济增长",
@@ -350,7 +357,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/93/1",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/93/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -360,7 +367,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T06:11:24+00:00"
+        "translated_at": "2026-07-29T06:11:24+00:00",
+        "source_hash": "63ba7867854dba88034530c3cc42eeb48035aa8e8c0448cf7fcb22e0cb0030f7"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -375,7 +383,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdaf027",
       "sequence": 10,
-      "source_sequence": 327,
+      "source_sequence": 10,
       "article_type": "research-article",
       "title_en": "Trauma at School: The Impacts of Shootings on Students’ Human Capital and Economic Outcomes",
       "title_cn": "学校创伤：枪击事件对学生人力资本和经济成果的影响",
@@ -393,7 +401,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/93/1",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/93/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -403,7 +411,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T06:11:25+00:00"
+        "translated_at": "2026-07-29T06:11:25+00:00",
+        "source_hash": "bbd55d860f7f147deb8e5a78b3745199b927de8f32280b40ec5ae9b525869a6a"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -416,7 +425,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdaf016",
       "sequence": 11,
-      "source_sequence": 366,
+      "source_sequence": 11,
       "article_type": "research-article",
       "title_en": "Identification and Inference in First-Price Auctions with Risk-Averse Bidders and Selective Entry",
       "title_cn": "第一-规避风险的投标人和选择性进入的价格拍卖中的识别和推理",
@@ -433,7 +442,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/93/1",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/93/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -443,7 +452,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T06:11:25+00:00"
+        "translated_at": "2026-07-29T06:11:25+00:00",
+        "source_hash": "a1e50fa94f83d658ba21d25166d9ffe41f97c5b2678b5367b563dec717d24d6a"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -456,33 +466,33 @@
     {
       "paper_id": "doi:10.1093/restud/rdaf018",
       "sequence": 12,
-      "source_sequence": 404,
+      "source_sequence": 12,
       "article_type": "research-article",
       "title_en": "“Bad” Oil, “Worse” Oil, and Carbon Misallocation",
-      "title_cn": "“劣质”石油、“更差”石油和碳分配不当",
+      "title_cn": "“坏”石油、“更坏”石油与碳错配",
       "authors": [
         "Renaud Coulomb",
         "Fanny Henriet",
         "Léo Reitzmann"
       ],
       "abstract_en": "Not all barrels of oil are created equal: their extraction varies in both private cost and carbon intensity. Leveraging a comprehensive micro-dataset on world oil fields, alongside detailed estimates of carbon intensities and private extraction costs, this study quantifies the additional emissions and costs from having extracted the “wrong” deposits. We do so by comparing historical deposit-level supplies to counterfactuals that factor in pollution costs, while keeping annual global consumption unchanged. Between 1992 and 2018, carbon misallocation amounted to at least 11.00 gigatons of CO2-equivalent (GtCO2eq), incurring an environmental cost evaluated at $2.2 trillion (US$ 2018). This translates into a significant supply-side ecological debt for major producers of high-carbon oil. Looking forward, we estimate the gains from making deposit-level extraction socially optimal at about 9.30 GtCO2eq, valued at $1.9 trillion, along a future aggregate demand pathway coherent with the objective of net-zero emissions in 2050, and document unequal reserve stranding across oil nations.",
-      "abstract_cn": "并非所有桶石油都是一样的：它们的开采在私人成本和碳强度方面都有所不同。这项研究利用世界油田的全面微观数据集，以及对碳强度和私人开采成本的详细估计，量化了因开采“错误”矿藏而产生的额外排放和成本。我们通过将历史存款水平供应与考虑污染成本的反事实进行比较，同时保持全球年度消费量不变来做到这一点。在1992和2018之间，碳分配不当至少达到11.00十亿吨二氧化碳当量（GtCO2eq），造成的环境成本估计为2.2万亿美元（2018美元）。这对于高碳石油的主要生产商来说意味着巨大的供应方生态债务。展望未来，我们估计，沿着与9.30净零排放目标相一致的未来总需求路径，使矿床水平开采在约1.9 GtCO2eq上达到社会最佳效益，价值为2050万亿美元，并记录石油国家之间不平等的储备搁浅。",
+      "abstract_cn": "并非所有石油桶都生而平等：其开采在私人成本和碳强度上均存在差异。利用一个涵盖全球油田的微观数据集，结合碳强度和私人开采成本的详细估计，本研究量化了开采“错误”矿床所产生的额外排放和成本。我们通过将历史矿床层面的供应与考虑污染成本的反事实情景进行比较来实现这一目标，同时保持全球年度消费量不变。在1992年至2018年间，碳错配至少达到11.00吉吨二氧化碳当量（GtCO2eq），造成了以2.2万亿美元（2018年美元）计的环境成本。这转化为高碳石油主要生产国面临的重大供给侧生态债务。展望未来，我们估计，在一条与2050年净零排放目标相一致的未来总需求路径上，使矿床层面的开采达到社会最优状态可带来约9.30 GtCO2eq的收益，价值1.9万亿美元，并记录了石油国家间不平等的储量搁浅情况。",
       "doi": "10.1093/restud/rdaf018",
       "source_url": "https://doi.org/10.1093/restud/rdaf018",
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/93/1",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/93/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
-        "provider": "google-translate",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T06:11:26+00:00"
+        "translated_at": "2026-09-08T13:22:12+00:00",
+        "source_hash": "af87fa381b2bc9526ce38fde41cded9a9d32a4c01426910ef45549e2c2927928"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -495,7 +505,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdaf026",
       "sequence": 13,
-      "source_sequence": 438,
+      "source_sequence": 13,
       "article_type": "research-article",
       "title_en": "Creating Cohesive Communities: A Youth Camp Experiment in India",
       "title_cn": "创建有凝聚力的社区：印度的青年营实验",
@@ -512,7 +522,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/93/1",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/93/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -522,7 +532,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T06:11:26+00:00"
+        "translated_at": "2026-07-29T06:11:26+00:00",
+        "source_hash": "5120a793b2bcc0162d5c118279d57476b2b8d37753408484ae8c43932353f3dc"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -535,7 +546,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdaf032",
       "sequence": 14,
-      "source_sequence": 476,
+      "source_sequence": 14,
       "article_type": "research-article",
       "title_en": "Retractions: Updating from Complex Information",
       "title_cn": "撤回：从复杂信息中更新",
@@ -551,7 +562,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/93/1",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/93/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -561,7 +572,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T06:11:27+00:00"
+        "translated_at": "2026-07-29T06:11:27+00:00",
+        "source_hash": "0690e603092b76d31a12830788261d6ebdc1f8612437f8d503c5b90b9f6fbd46"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -574,7 +586,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdaf019",
       "sequence": 15,
-      "source_sequence": 517,
+      "source_sequence": 15,
       "article_type": "research-article",
       "title_en": "Unemployment Insurance Reforms and Labour Market Dynamics",
       "title_cn": "失业保险改革与劳动力市场动态",
@@ -590,7 +602,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/93/1",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/93/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -600,7 +612,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T06:11:27+00:00"
+        "translated_at": "2026-07-29T06:11:27+00:00",
+        "source_hash": "2d8316b183627f3a492ca337accd340a5c8babdd17434e415f038fe5bdb9080f"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -613,7 +626,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdaf030",
       "sequence": 16,
-      "source_sequence": 556,
+      "source_sequence": 16,
       "article_type": "research-article",
       "title_en": "How Important Is Health Inequality for Lifetime Earnings Inequality?",
       "title_cn": "健康不平等对于终生收入不平等有多重要？",
@@ -629,7 +642,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/93/1",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/93/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -639,7 +652,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T06:11:28+00:00"
+        "translated_at": "2026-07-29T06:11:28+00:00",
+        "source_hash": "4e5898b0cb18dc017e678ef1e114c5bca25dbd98a00b592c96e48fbdd24e8d02"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -652,7 +666,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdaf023",
       "sequence": 17,
-      "source_sequence": 600,
+      "source_sequence": 17,
       "article_type": "research-article",
       "title_en": "The Value of Privacy in Cartels: An Analysis of the Inner Workings of a Bidding Ring",
       "title_cn": "卡特尔中隐私的价值：投标环内部运作的分析",
@@ -668,7 +682,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/93/1",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/93/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -678,7 +692,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T06:11:28+00:00"
+        "translated_at": "2026-07-29T06:11:28+00:00",
+        "source_hash": "2a55d93d13ba8b1f394c250ca99be34708eada29636393d3ec6b90fc5d9613ee"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -691,7 +706,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdaf033",
       "sequence": 18,
-      "source_sequence": 629,
+      "source_sequence": 18,
       "article_type": "research-article",
       "title_en": "Pareto Improvements in the Contest for College Admissions",
       "title_cn": "大学招生竞赛中的帕累托改进",
@@ -709,7 +724,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/93/1",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/93/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -719,7 +734,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T06:11:28+00:00"
+        "translated_at": "2026-07-29T06:11:28+00:00",
+        "source_hash": "0b84592be813422517d10c4a900c6de0bcb905593825b275c496caf74786e8ef"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -732,7 +748,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdaf028",
       "sequence": 19,
-      "source_sequence": 664,
+      "source_sequence": 19,
       "article_type": "research-article",
       "title_en": "Attention Utility: Evidence from Individual Investors",
       "title_cn": "注意力效用：来自个人投资者的证据",
@@ -749,7 +765,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/93/1",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/93/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -759,7 +775,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T06:11:29+00:00"
+        "translated_at": "2026-07-29T06:11:29+00:00",
+        "source_hash": "a1ce3f93e394c6ef38c344ab77a01bcd56b1a3100c1491eec48bf0d176fac777"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -772,7 +789,7 @@
     {
       "paper_id": "doi:10.1093/restud/rdaf025",
       "sequence": 20,
-      "source_sequence": 697,
+      "source_sequence": 20,
       "article_type": "research-article",
       "title_en": "Belief Identification by Proxy",
       "title_cn": "代理信念识别",
@@ -786,7 +803,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://academic.oup.com/restud/issue/93/1",
-        "roster": "crossref:issn:0034-6527",
+        "roster": "https://academic.oup.com/restud/issue/93/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -796,7 +813,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T06:11:29+00:00"
+        "translated_at": "2026-07-29T06:11:29+00:00",
+        "source_hash": "ab4a8b91a61fb708e1f79b12628311c2fab4153a74b706fe78c5db920e0b2540"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -810,8 +828,8 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "crossref",
-    "roster_authority": "crossref-provisional",
+    "roster_transport": "official-page-read",
+    "roster_authority": "official-issue-page",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
@@ -821,10 +839,7 @@
     "abstract_en_complete": 20,
     "translation_complete": 20,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
-    ],
+    "flags": [],
     "official_item_count": 20,
     "publishable_item_count": 20,
     "content_counts": {
@@ -839,6 +854,16 @@
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 20
+    },
+    "official_roster_evidence": {
+      "captured_at": "2026-09-08T13:36:34+00:00",
+      "official_url": "https://academic.oup.com/restud/issue/93/1",
+      "method": "official-page-read",
+      "item_count": 20,
+      "excluded_item_count": 0,
+      "archive_reordered": false,
+      "sequence_sha256": "41c85566ce2a9a888b2546461016d38316022fe94b25d51f41866bb0073f1a62",
+      "privacy_fields_stored": false
     }
   },
   "content_counts": {
@@ -856,6 +881,6 @@
   },
   "issue_label": "Vol. 93 · No. 1",
   "content_status": "complete",
-  "source_status": "source_pending",
-  "publication_state": "source_pending"
+  "source_status": "official_verified",
+  "publication_state": "ready"
 }

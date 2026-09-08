@@ -1,8 +1,8 @@
 # Field journal history backfill status
 
-Updated: 2026-09-08T14:01:38+00:00
+Updated: 2026-09-08T14:15:11+00:00
 
-Discovery coverage: 1324 discovered · 1260 archived · 1159 publication ready · 64 missing · 101 source pending
+Discovery coverage: 1324 discovered · 1260 archived · 1163 publication ready · 64 missing · 97 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
@@ -10,7 +10,7 @@ Discovery coverage: 1324 discovered · 1260 archived · 1159 publication ready �
 | 2023-2026 | 278 | 0 | 16 | 6 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
-| 2026-2026 | 6 | 0 | 0 | 4 |
+| 2026-2026 | 10 | 0 | 0 | 0 |
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -1213,10 +1213,10 @@ Discovery coverage: 1324 discovered · 1260 archived · 1159 publication ready �
 | RES | res-92-4 | 2025 | ready |  |
 | RES | res-92-5 | 2025 | ready |  |
 | RES | res-92-6 | 2025 | ready |  |
-| RES | res-93-1 | 2026 | source_pending |  |
-| RES | res-93-2 | 2026 | source_pending | source authority pending official verification |
-| RES | res-93-3 | 2026 | source_pending | source authority pending official verification |
-| RES | res-93-4 | 2026 | source_pending | source authority pending official verification |
+| RES | res-93-1 | 2026 | ready |  |
+| RES | res-93-2 | 2026 | ready |  |
+| RES | res-93-3 | 2026 | ready |  |
+| RES | res-93-4 | 2026 | ready |  |
 | RESTAT | restat-105-1 | 2023 | ready |  |
 | RESTAT | restat-105-2 | 2023 | ready |  |
 | RESTAT | restat-105-3 | 2023 | ready |  |
