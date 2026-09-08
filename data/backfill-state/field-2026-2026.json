@@ -78,9 +78,77 @@
       "content_status": "complete",
       "source_status": "publisher_verified",
       "publication_state": "ready"
+    },
+    "res-93-1": {
+      "journal": "RES",
+      "year": 2026,
+      "volume": "93",
+      "issue": "1",
+      "official_url": "https://academic.oup.com/restud/issue/93/1",
+      "status": "translation_partial",
+      "last_error": "",
+      "retry_class": "translation",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-09-08T13:20:50+00:00",
+      "last_error_code": "",
+      "content_status": "translation_partial",
+      "source_status": "source_pending",
+      "publication_state": "translation_partial",
+      "next_retry_at": "2026-09-08T19:22:13+00:00"
+    },
+    "res-93-2": {
+      "journal": "RES",
+      "year": 2026,
+      "volume": "93",
+      "issue": "2",
+      "official_url": "https://academic.oup.com/restud/issue/93/2",
+      "status": "source_pending",
+      "last_error": "source authority pending official verification",
+      "retry_class": "source",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-09-08T13:22:24+00:00",
+      "last_error_code": "source authority pending official verification",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending",
+      "next_retry_at": "2026-09-09T13:22:26+00:00"
+    },
+    "res-93-3": {
+      "journal": "RES",
+      "year": 2026,
+      "volume": "93",
+      "issue": "3",
+      "official_url": "https://academic.oup.com/restud/issue/93/3",
+      "status": "source_pending",
+      "last_error": "source authority pending official verification",
+      "retry_class": "source",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-09-08T13:22:38+00:00",
+      "last_error_code": "source authority pending official verification",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending",
+      "next_retry_at": "2026-09-09T13:22:44+00:00"
+    },
+    "res-93-4": {
+      "journal": "RES",
+      "year": 2026,
+      "volume": "93",
+      "issue": "4",
+      "official_url": "https://academic.oup.com/restud/issue/93/4",
+      "status": "source_pending",
+      "last_error": "source authority pending official verification",
+      "retry_class": "source",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-09-08T13:22:55+00:00",
+      "last_error_code": "source authority pending official verification",
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending",
+      "next_retry_at": "2026-09-09T13:23:52+00:00"
     }
   },
-  "updated_at": "2026-08-14T08:16:38+00:00",
+  "updated_at": "2026-09-08T13:23:52+00:00",
   "discovery": {
     "EER": {
       "issue_ids": [
@@ -173,11 +241,59 @@
       "authority": "crossref_candidate",
       "refreshed_at": "2026-08-14T08:16:24+00:00",
       "collector_revision": "history-integrity-2026-08-11"
+    },
+    "RES": {
+      "issue_ids": [
+        "res-93-1",
+        "res-93-2",
+        "res-93-3",
+        "res-93-4"
+      ],
+      "issue_years": {
+        "res-93-1": 2026,
+        "res-93-2": 2026,
+        "res-93-3": 2026,
+        "res-93-4": 2026
+      },
+      "issue_refs": {
+        "res-93-1": {
+          "journal": "RES",
+          "year": 2026,
+          "volume": "93",
+          "issue": "1",
+          "official_url": "https://academic.oup.com/restud/issue/93/1"
+        },
+        "res-93-2": {
+          "journal": "RES",
+          "year": 2026,
+          "volume": "93",
+          "issue": "2",
+          "official_url": "https://academic.oup.com/restud/issue/93/2"
+        },
+        "res-93-3": {
+          "journal": "RES",
+          "year": 2026,
+          "volume": "93",
+          "issue": "3",
+          "official_url": "https://academic.oup.com/restud/issue/93/3"
+        },
+        "res-93-4": {
+          "journal": "RES",
+          "year": 2026,
+          "volume": "93",
+          "issue": "4",
+          "official_url": "https://academic.oup.com/restud/issue/93/4"
+        }
+      },
+      "authority": "official_archive_snapshot",
+      "refreshed_at": "2026-09-08T11:13:10+00:00",
+      "collector_revision": "history-integrity-2026-08-11"
     }
   },
   "rotation": {
     "last_run_at": {
-      "EER": "2026-08-14T08:16:38+00:00"
+      "EER": "2026-08-14T08:16:38+00:00",
+      "RES": "2026-09-08T13:23:52+00:00"
     }
   }
 }
