@@ -1,99 +1,69 @@
-name: Diagnostic OUP archive transport
+name: Diagnostic RAND season hotfix executor
 
 on:
   push:
     branches: [diag-oup-archive-transport]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  probe:
+  patch-rand:
     runs-on: ubuntu-latest
-    env:
-      JINA_API_KEY: ${{ secrets.JINA_API_KEY }}
     steps:
-      - name: Probe QJE archive transports
+      - name: Check out fix branch
+        uses: actions/checkout@v7
+        with:
+          ref: fix-rand-season-monitor-health
+          fetch-depth: 0
+
+      - name: Apply exact season-horizon patch
         shell: bash
         run: |
           set -euo pipefail
-          target="https://academic.oup.com/qje/issue-archive/2025"
-          mkdir -p "$RUNNER_TEMP/oup-probe"
-
-          report() {
-            local name="$1"
-            local file="$2"
-            local status="$3"
-            local count
-            count=$(grep -Eo 'https://academic\.oup\.com/qje/issue/[0-9]+/[0-9]+' "$file" 2>/dev/null | sort -u | wc -l | tr -d ' ' || true)
-            echo "$name status=$status official_issue_links=${count:-0} bytes=$(wc -c < "$file" | tr -d ' ')"
-          }
-
-          current_out="$RUNNER_TEMP/oup-probe/current.html"
-          current_status=$(curl -L -sS --connect-timeout 10 --max-time 45 \
-            -o "$current_out" -w '%{http_code}' \
-            -H 'User-Agent: AcademicDoorJournals/0.1 (non-profit academic metadata service; https://academic-door.github.io/)' \
-            -H 'Accept-Language: en-US,en;q=0.8' \
-            "$target" || true)
-          report current_ua "$current_out" "$current_status"
-
-          browser_out="$RUNNER_TEMP/oup-probe/browser.html"
-          browser_status=$(curl -L -sS --connect-timeout 10 --max-time 45 \
-            -o "$browser_out" -w '%{http_code}' \
-            -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36' \
-            -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8' \
-            -H 'Accept-Language: en-US,en;q=0.8' \
-            "$target" || true)
-          report browser_ua "$browser_out" "$browser_status"
-
-          jina_out="$RUNNER_TEMP/oup-probe/jina.txt"
-          if [ -n "${JINA_API_KEY:-}" ]; then
-            jina_status=$(curl -L -sS --connect-timeout 10 --max-time 60 \
-              -o "$jina_out" -w '%{http_code}' \
-              -H "Authorization: Bearer $JINA_API_KEY" \
-              -H 'Accept: text/plain' \
-              "https://r.jina.ai/$target" || true)
-            report jina_reader "$jina_out" "$jina_status"
-            echo "jina_key_set=yes"
-          else
-            : > "$jina_out"
-            echo "jina_reader status=SKIPPED official_issue_links=0 bytes=0"
-            echo "jina_key_set=no"
-          fi
-
-      - name: Inspect RePEc serial markup from runner
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p "$RUNNER_TEMP/repec-probe"
-          for spec in \
-            'WD|https://ideas.repec.org/s/eee/wdevel.html' \
-            'LUP|https://ideas.repec.org/s/eee/lauspo.html'; do
-            name="${spec%%|*}"
-            url="${spec#*|}"
-            out="$RUNNER_TEMP/repec-probe/${name}.html"
-            status=$(curl -L -sS --connect-timeout 10 --max-time 60 \
-              -o "$out" -w '%{http_code}' \
-              -H 'User-Agent: AcademicDoorJournals/0.1 (non-profit academic metadata service; https://academic-door.github.io/)' \
-              -H 'Accept: text/html,application/xhtml+xml,application/json' \
-              -H 'Accept-Language: en-US,en;q=0.8' \
-              "$url" || true)
-            echo "$name status=$status bytes=$(wc -c < "$out" | tr -d ' ')"
-            FILE="$out" NAME="$name" python - <<'PY'
-          import html
-          import os
-          import re
+          python - <<'PY'
           from pathlib import Path
 
-          text = Path(os.environ['FILE']).read_text(encoding='utf-8', errors='replace')
-          headings = []
-          for match in re.finditer(r'<h([1-6])\b[^>]*>(.*?)</h\1\s*>', text, flags=re.I | re.S):
-              value = re.sub(r'<[^>]+>', ' ', match.group(2))
-              value = ' '.join(html.unescape(value).split())
-              if value:
-                  headings.append((match.group(1), value[:180]))
-          issue_like = [item for item in headings if re.search(r'\bVolume\b|\bIssue\b', item[1], flags=re.I)]
-          print(f"{os.environ['NAME']} headings_total={len(headings)} issue_like={issue_like[:8]}")
-          print(f"{os.environ['NAME']} has_current_regex={bool(re.search(r'\d{4},\s*Volume\s+[A-Za-z0-9.-]+,\s*Issue\s+[A-Za-z0-9.-]+', text, flags=re.I))}")
+          path = Path("collectors/metadata_fallback.py")
+          text = path.read_text(encoding="utf-8")
+          old = '''    month_name = MONTHS_BY_ISSUE.get(issn, {}).get(issue, "")
+              if month_name:
+                  issue_month = datetime.strptime(month_name, "%B").month
+                  return (issue_year, issue_month) <= (current.year, current.month)
+          '''
+          new = '''    month_name = MONTHS_BY_ISSUE.get(issn, {}).get(issue, "")
+              if month_name:
+                  season_months = {
+                      "spring": 3,
+                      "summer": 6,
+                      "fall": 9,
+                      "autumn": 9,
+                      "winter": 12,
+                  }
+                  issue_month = season_months.get(month_name.casefold())
+                  if issue_month is None:
+                      issue_month = datetime.strptime(month_name, "%B").month
+                  return (issue_year, issue_month) <= (current.year, current.month)
+          '''
+          if text.count(old) != 1:
+              raise SystemExit(f"expected exactly one target snippet, found {text.count(old)}")
+          path.write_text(text.replace(old, new), encoding="utf-8")
           PY
-          done
+
+      - name: Verify focused regression
+        run: |
+          python -m pip install -r requirements.txt
+          python -m unittest tests.test_rand_season_horizon -v
+
+      - name: Commit only production fix
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --check
+          git status --short
+          test "$(git diff --name-only)" = "collectors/metadata_fallback.py"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add collectors/metadata_fallback.py
+          git commit -m "fix: handle seasonal issue horizon"
+          git push origin HEAD:fix-rand-season-monitor-health
