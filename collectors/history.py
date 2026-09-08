@@ -136,7 +136,7 @@ def parse_archive(
             if match:
                 year, volume, issue = int(match.group(1)), match.group(2), match.group(3)
         elif platform == "oup":
-            match = re.search(r"/(?:qje|restud)/issue/(\d+)/(\d+)", path)
+            match = re.search(r"/(?:qje|restud|ej|jeea|rfs)/issue/(\d+)/(\d+)", path)
             if match:
                 volume, issue = match.groups()
                 year_match = YEAR_PATTERN.search(text) or YEAR_PATTERN.search(archive_url)

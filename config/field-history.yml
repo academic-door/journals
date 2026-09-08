@@ -70,12 +70,18 @@ journals:
     issn: 0020-6598
     issue_url_template: https://onlinelibrary.wiley.com/toc/14682354/{volume}
   EJ:
-    platform: crossref
+    platform: oup
+    observed_evidence_path: data/provenance/expected-set-observations/ej-2025-2026.json
     issn: 0013-0133
+    archive_url_template: https://academic.oup.com/ej/issue-archive/{year}
+    allowed_host: academic.oup.com
     issue_url_template: https://academic.oup.com/ej/issue/{volume}/{issue}
   JEEA:
-    platform: crossref
+    platform: oup
+    observed_evidence_path: data/provenance/expected-set-observations/jeea-2025-2026.json
     issn: 1542-4766
+    archive_url_template: https://academic.oup.com/jeea/issue-archive/{year}
+    allowed_host: academic.oup.com
     issue_url_template: https://academic.oup.com/jeea/issue/{volume}/{issue}
   QE:
     platform: year_ranges
@@ -174,8 +180,11 @@ journals:
     issn: 0022-1082
     issue_url_template: https://onlinelibrary.wiley.com/toc/15406261/{year}/{volume}/{issue}
   RFS:
-    platform: crossref
+    platform: oup
+    observed_evidence_path: data/provenance/expected-set-observations/rfs-2025-2026.json
     issn: 0893-9454
+    archive_url_template: https://academic.oup.com/rfs/issue-archive/{year}
+    allowed_host: academic.oup.com
     issue_url_template: https://academic.oup.com/rfs/issue/{volume}/{issue}
   RESTAT:
     platform: crossref
