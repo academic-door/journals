@@ -1,10 +1,10 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-09T09:54:15+00:00
+Generated: 2026-09-09T10:40:57+00:00
 
 ## Summary
 
-- ready: 1163
+- ready: 1164
 - recoverable: 64
 - source_pending: 97
 
@@ -1207,6 +1207,7 @@ Generated: 2026-09-09T09:54:15+00:00
 | RES | res-93-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RES | res-93-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RES | res-93-4 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| RES | res-93-5 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | RESTAT | restat-105-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RESTAT | restat-105-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RESTAT | restat-105-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
