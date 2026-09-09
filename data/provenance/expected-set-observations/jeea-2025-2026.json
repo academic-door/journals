@@ -2,78 +2,42 @@
   "schema_version": "1.0",
   "journal": "JEEA",
   "authority": "official_publisher_archive",
-  "transport": "chatgpt_web_official_page_observation",
-  "observed_at": "2026-09-08T15:23:03+00:00",
+  "transport": "composite_official_publisher_observation",
+  "observed_at": "2026-09-09T14:18:10+00:00",
   "sources": [
+    {"url": "https://academic.oup.com/jeea/issue-archive/2025", "year": 2025, "role": "baseline_archive_observation"},
+    {"url": "https://academic.oup.com/jeea/issue-archive/2026", "year": 2026, "role": "baseline_archive_observation"},
+    {"url": "https://academic.oup.com/jeea", "year": 2026, "role": "fresh_current_issue_attestation"},
+    {"url": "https://academic.oup.com/jeea/issue/24/4", "year": 2026, "role": "fresh_exact_issue_verification"}
+  ],
+  "observation_chain": [
     {
-      "url": "https://academic.oup.com/jeea/issue-archive/2025",
-      "year": 2025
+      "observed_at": "2026-09-08T15:23:03+00:00",
+      "transport": "chatgpt_web_official_page_observation",
+      "scope": "official OUP 2025 and 2026 archive observation through 24/4"
     },
     {
-      "url": "https://academic.oup.com/jeea/issue-archive/2026",
-      "year": 2026
+      "observed_at": "2026-09-09T14:18:10+00:00",
+      "transport": "chatgpt_web_official_current_issue_observation",
+      "scope": "fresh official OUP journal landing page and exact current issue verification",
+      "latest_issue": {
+        "year": 2026,
+        "volume": "24",
+        "issue": "4",
+        "official_url": "https://academic.oup.com/jeea/issue/24/4"
+      }
     }
   ],
   "issues": [
-    {
-      "year": 2025,
-      "volume": "23",
-      "issue": "1",
-      "official_url": "https://academic.oup.com/jeea/issue/23/1"
-    },
-    {
-      "year": 2025,
-      "volume": "23",
-      "issue": "2",
-      "official_url": "https://academic.oup.com/jeea/issue/23/2"
-    },
-    {
-      "year": 2025,
-      "volume": "23",
-      "issue": "3",
-      "official_url": "https://academic.oup.com/jeea/issue/23/3"
-    },
-    {
-      "year": 2025,
-      "volume": "23",
-      "issue": "4",
-      "official_url": "https://academic.oup.com/jeea/issue/23/4"
-    },
-    {
-      "year": 2025,
-      "volume": "23",
-      "issue": "5",
-      "official_url": "https://academic.oup.com/jeea/issue/23/5"
-    },
-    {
-      "year": 2025,
-      "volume": "23",
-      "issue": "6",
-      "official_url": "https://academic.oup.com/jeea/issue/23/6"
-    },
-    {
-      "year": 2026,
-      "volume": "24",
-      "issue": "1",
-      "official_url": "https://academic.oup.com/jeea/issue/24/1"
-    },
-    {
-      "year": 2026,
-      "volume": "24",
-      "issue": "2",
-      "official_url": "https://academic.oup.com/jeea/issue/24/2"
-    },
-    {
-      "year": 2026,
-      "volume": "24",
-      "issue": "3",
-      "official_url": "https://academic.oup.com/jeea/issue/24/3"
-    },
-    {
-      "year": 2026,
-      "volume": "24",
-      "issue": "4",
-      "official_url": "https://academic.oup.com/jeea/issue/24/4"
-    }
+    {"year": 2025, "volume": "23", "issue": "1", "official_url": "https://academic.oup.com/jeea/issue/23/1"},
+    {"year": 2025, "volume": "23", "issue": "2", "official_url": "https://academic.oup.com/jeea/issue/23/2"},
+    {"year": 2025, "volume": "23", "issue": "3", "official_url": "https://academic.oup.com/jeea/issue/23/3"},
+    {"year": 2025, "volume": "23", "issue": "4", "official_url": "https://academic.oup.com/jeea/issue/23/4"},
+    {"year": 2025, "volume": "23", "issue": "5", "official_url": "https://academic.oup.com/jeea/issue/23/5"},
+    {"year": 2025, "volume": "23", "issue": "6", "official_url": "https://academic.oup.com/jeea/issue/23/6"},
+    {"year": 2026, "volume": "24", "issue": "1", "official_url": "https://academic.oup.com/jeea/issue/24/1"},
+    {"year": 2026, "volume": "24", "issue": "2", "official_url": "https://academic.oup.com/jeea/issue/24/2"},
+    {"year": 2026, "volume": "24", "issue": "3", "official_url": "https://academic.oup.com/jeea/issue/24/3"},
+    {"year": 2026, "volume": "24", "issue": "4", "official_url": "https://academic.oup.com/jeea/issue/24/4"}
   ]
 }
