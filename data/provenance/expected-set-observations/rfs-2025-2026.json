@@ -2,144 +2,53 @@
   "schema_version": "1.0",
   "journal": "RFS",
   "authority": "official_publisher_archive",
-  "transport": "chatgpt_web_official_page_observation",
-  "observed_at": "2026-09-08T15:23:03+00:00",
+  "transport": "composite_official_publisher_observation",
+  "observed_at": "2026-09-09T14:18:10+00:00",
   "sources": [
+    {"url": "https://academic.oup.com/rfs/issue-archive/2025", "year": 2025, "role": "baseline_archive_observation"},
+    {"url": "https://academic.oup.com/rfs/issue-archive/2026", "year": 2026, "role": "baseline_archive_observation"},
+    {"url": "https://academic.oup.com/rfs", "year": 2026, "role": "fresh_current_issue_attestation"},
+    {"url": "https://academic.oup.com/rfs/issue/39/9", "year": 2026, "role": "fresh_exact_issue_verification"}
+  ],
+  "observation_chain": [
     {
-      "url": "https://academic.oup.com/rfs/issue-archive/2025",
-      "year": 2025
+      "observed_at": "2026-09-08T15:23:03+00:00",
+      "transport": "chatgpt_web_official_page_observation",
+      "scope": "official OUP 2025 and 2026 archive observation through 39/9"
     },
     {
-      "url": "https://academic.oup.com/rfs/issue-archive/2026",
-      "year": 2026
+      "observed_at": "2026-09-09T14:18:10+00:00",
+      "transport": "chatgpt_web_official_current_issue_observation",
+      "scope": "fresh official OUP journal landing page and exact current issue verification",
+      "latest_issue": {
+        "year": 2026,
+        "volume": "39",
+        "issue": "9",
+        "official_url": "https://academic.oup.com/rfs/issue/39/9"
+      }
     }
   ],
   "issues": [
-    {
-      "year": 2025,
-      "volume": "38",
-      "issue": "1",
-      "official_url": "https://academic.oup.com/rfs/issue/38/1"
-    },
-    {
-      "year": 2025,
-      "volume": "38",
-      "issue": "2",
-      "official_url": "https://academic.oup.com/rfs/issue/38/2"
-    },
-    {
-      "year": 2025,
-      "volume": "38",
-      "issue": "3",
-      "official_url": "https://academic.oup.com/rfs/issue/38/3"
-    },
-    {
-      "year": 2025,
-      "volume": "38",
-      "issue": "4",
-      "official_url": "https://academic.oup.com/rfs/issue/38/4"
-    },
-    {
-      "year": 2025,
-      "volume": "38",
-      "issue": "5",
-      "official_url": "https://academic.oup.com/rfs/issue/38/5"
-    },
-    {
-      "year": 2025,
-      "volume": "38",
-      "issue": "6",
-      "official_url": "https://academic.oup.com/rfs/issue/38/6"
-    },
-    {
-      "year": 2025,
-      "volume": "38",
-      "issue": "7",
-      "official_url": "https://academic.oup.com/rfs/issue/38/7"
-    },
-    {
-      "year": 2025,
-      "volume": "38",
-      "issue": "8",
-      "official_url": "https://academic.oup.com/rfs/issue/38/8"
-    },
-    {
-      "year": 2025,
-      "volume": "38",
-      "issue": "9",
-      "official_url": "https://academic.oup.com/rfs/issue/38/9"
-    },
-    {
-      "year": 2025,
-      "volume": "38",
-      "issue": "10",
-      "official_url": "https://academic.oup.com/rfs/issue/38/10"
-    },
-    {
-      "year": 2025,
-      "volume": "38",
-      "issue": "11",
-      "official_url": "https://academic.oup.com/rfs/issue/38/11"
-    },
-    {
-      "year": 2025,
-      "volume": "38",
-      "issue": "12",
-      "official_url": "https://academic.oup.com/rfs/issue/38/12"
-    },
-    {
-      "year": 2026,
-      "volume": "39",
-      "issue": "1",
-      "official_url": "https://academic.oup.com/rfs/issue/39/1"
-    },
-    {
-      "year": 2026,
-      "volume": "39",
-      "issue": "2",
-      "official_url": "https://academic.oup.com/rfs/issue/39/2"
-    },
-    {
-      "year": 2026,
-      "volume": "39",
-      "issue": "3",
-      "official_url": "https://academic.oup.com/rfs/issue/39/3"
-    },
-    {
-      "year": 2026,
-      "volume": "39",
-      "issue": "4",
-      "official_url": "https://academic.oup.com/rfs/issue/39/4"
-    },
-    {
-      "year": 2026,
-      "volume": "39",
-      "issue": "5",
-      "official_url": "https://academic.oup.com/rfs/issue/39/5"
-    },
-    {
-      "year": 2026,
-      "volume": "39",
-      "issue": "6",
-      "official_url": "https://academic.oup.com/rfs/issue/39/6"
-    },
-    {
-      "year": 2026,
-      "volume": "39",
-      "issue": "7",
-      "official_url": "https://academic.oup.com/rfs/issue/39/7"
-    },
-    {
-      "year": 2026,
-      "volume": "39",
-      "issue": "8",
-      "official_url": "https://academic.oup.com/rfs/issue/39/8"
-    },
-    {
-      "year": 2026,
-      "volume": "39",
-      "issue": "9",
-      "official_url": "https://academic.oup.com/rfs/issue/39/9"
-    }
+    {"year": 2025, "volume": "38", "issue": "1", "official_url": "https://academic.oup.com/rfs/issue/38/1"},
+    {"year": 2025, "volume": "38", "issue": "2", "official_url": "https://academic.oup.com/rfs/issue/38/2"},
+    {"year": 2025, "volume": "38", "issue": "3", "official_url": "https://academic.oup.com/rfs/issue/38/3"},
+    {"year": 2025, "volume": "38", "issue": "4", "official_url": "https://academic.oup.com/rfs/issue/38/4"},
+    {"year": 2025, "volume": "38", "issue": "5", "official_url": "https://academic.oup.com/rfs/issue/38/5"},
+    {"year": 2025, "volume": "38", "issue": "6", "official_url": "https://academic.oup.com/rfs/issue/38/6"},
+    {"year": 2025, "volume": "38", "issue": "7", "official_url": "https://academic.oup.com/rfs/issue/38/7"},
+    {"year": 2025, "volume": "38", "issue": "8", "official_url": "https://academic.oup.com/rfs/issue/38/8"},
+    {"year": 2025, "volume": "38", "issue": "9", "official_url": "https://academic.oup.com/rfs/issue/38/9"},
+    {"year": 2025, "volume": "38", "issue": "10", "official_url": "https://academic.oup.com/rfs/issue/38/10"},
+    {"year": 2025, "volume": "38", "issue": "11", "official_url": "https://academic.oup.com/rfs/issue/38/11"},
+    {"year": 2025, "volume": "38", "issue": "12", "official_url": "https://academic.oup.com/rfs/issue/38/12"},
+    {"year": 2026, "volume": "39", "issue": "1", "official_url": "https://academic.oup.com/rfs/issue/39/1"},
+    {"year": 2026, "volume": "39", "issue": "2", "official_url": "https://academic.oup.com/rfs/issue/39/2"},
+    {"year": 2026, "volume": "39", "issue": "3", "official_url": "https://academic.oup.com/rfs/issue/39/3"},
+    {"year": 2026, "volume": "39", "issue": "4", "official_url": "https://academic.oup.com/rfs/issue/39/4"},
+    {"year": 2026, "volume": "39", "issue": "5", "official_url": "https://academic.oup.com/rfs/issue/39/5"},
+    {"year": 2026, "volume": "39", "issue": "6", "official_url": "https://academic.oup.com/rfs/issue/39/6"},
+    {"year": 2026, "volume": "39", "issue": "7", "official_url": "https://academic.oup.com/rfs/issue/39/7"},
+    {"year": 2026, "volume": "39", "issue": "8", "official_url": "https://academic.oup.com/rfs/issue/39/8"},
+    {"year": 2026, "volume": "39", "issue": "9", "official_url": "https://academic.oup.com/rfs/issue/39/9"}
   ]
 }

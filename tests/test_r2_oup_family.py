@@ -33,17 +33,17 @@ class R2OUPFamilyContractTests(unittest.TestCase):
             "EJ": (
                 "https://academic.oup.com/ej/issue-archive/{year}",
                 "data/provenance/expected-set-observations/ej-2025-2026.json",
-                "2026-09-08T15:23:03+00:00",
+                "2026-09-09T14:18:10+00:00",
             ),
             "JEEA": (
                 "https://academic.oup.com/jeea/issue-archive/{year}",
                 "data/provenance/expected-set-observations/jeea-2025-2026.json",
-                "2026-09-08T15:23:03+00:00",
+                "2026-09-09T14:18:10+00:00",
             ),
             "RFS": (
                 "https://academic.oup.com/rfs/issue-archive/{year}",
                 "data/provenance/expected-set-observations/rfs-2025-2026.json",
-                "2026-09-08T15:23:03+00:00",
+                "2026-09-09T14:18:10+00:00",
             ),
         }
         for key, (archive_template, evidence_path, refreshed_at) in expected.items():
@@ -116,6 +116,44 @@ class R2OUPFamilyContractTests(unittest.TestCase):
             },
             chain[1]["latest_issue"],
         )
+
+    def test_ej_jeea_rfs_snapshots_record_current_issue_observation_chain(self) -> None:
+        expected_latest = {
+            "ej-2025-2026.json": {
+                "year": 2026,
+                "volume": "136",
+                "issue": "678",
+                "official_url": "https://academic.oup.com/ej/issue/136/678",
+            },
+            "jeea-2025-2026.json": {
+                "year": 2026,
+                "volume": "24",
+                "issue": "4",
+                "official_url": "https://academic.oup.com/jeea/issue/24/4",
+            },
+            "rfs-2025-2026.json": {
+                "year": 2026,
+                "volume": "39",
+                "issue": "9",
+                "official_url": "https://academic.oup.com/rfs/issue/39/9",
+            },
+        }
+        for filename, latest_issue in expected_latest.items():
+            with self.subTest(filename=filename):
+                path = ROOT / "data/provenance/expected-set-observations" / filename
+                payload = json.loads(path.read_text(encoding="utf-8"))
+                self.assertEqual(
+                    "composite_official_publisher_observation", payload["transport"]
+                )
+                chain = payload["observation_chain"]
+                self.assertEqual(2, len(chain))
+                self.assertEqual("2026-09-08T15:23:03+00:00", chain[0]["observed_at"])
+                self.assertEqual("2026-09-09T14:18:10+00:00", chain[1]["observed_at"])
+                self.assertEqual(
+                    "chatgpt_web_official_current_issue_observation",
+                    chain[1]["transport"],
+                )
+                self.assertEqual(latest_issue, chain[1]["latest_issue"])
 
     def test_live_oup_archive_parser_handles_all_tracked_slugs(self) -> None:
         fixtures = (
