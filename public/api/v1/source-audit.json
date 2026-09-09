@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-08T21:13:18+00:00",
+  "updated_at": "2026-09-09T00:24:05+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 49,
     "official_page_verified": 12,
-    "publisher_feed_verified": 18,
-    "fallback_verified": 19,
+    "publisher_feed_verified": 19,
+    "fallback_verified": 18,
     "needs_attention": 0,
     "missing": 0,
     "invariant_errors": 0
@@ -218,67 +218,62 @@
       "name": "The Review of Economic Studies",
       "publisher": "Oxford University Press",
       "configured_source": "https://academic.oup.com/restud/issue",
-      "status": "fallback_verified",
+      "status": "publisher_feed_verified",
       "current": {
         "available": true,
-        "status": "fallback_verified",
-        "issue_id": "res-93-4",
-        "publication_date": "July 2026",
-        "publication_state": "source_pending",
+        "status": "publisher_feed_verified",
+        "issue_id": "res-93-5",
+        "publication_date": "September 2026",
+        "publication_state": "ready",
         "source_url": "https://academic.oup.com/restud/issue",
-        "roster_authority": "crossref-provisional",
-        "roster_transport": "crossref-newer-than-rss",
-        "order_verified": false,
+        "roster_authority": "publisher-rss",
+        "roster_transport": "publisher-rss",
+        "order_verified": true,
         "content_counts": {
-          "official_items": 20,
-          "observed_items": 20,
-          "publishable_items": 20,
-          "research_articles": 20,
+          "official_items": 18,
+          "observed_items": 18,
+          "publishable_items": 18,
+          "research_articles": 18,
           "comments": 0,
           "short_communications": 0,
           "corrections": 0,
           "editorial_material": 0,
           "front_matter": 0,
           "other_excluded": 0,
-          "catalog_content_items": 20
+          "catalog_content_items": 18
         },
-        "abstracts_complete": 20,
-        "translations_complete": 20,
+        "abstracts_complete": 18,
+        "translations_complete": 18,
         "errors": [],
-        "warnings": [
-          "crossref_provisional_roster"
-        ]
+        "warnings": []
       },
       "detected": {
         "available": true,
-        "status": "fallback_verified",
-        "issue_id": "res-93-4",
-        "publication_date": "July 2026",
-        "publication_state": "enriching",
+        "status": "publisher_feed_verified",
+        "issue_id": "res-93-5",
+        "publication_date": "September 2026",
+        "publication_state": "ready",
         "source_url": "https://academic.oup.com/restud/issue",
-        "roster_authority": "crossref-provisional",
-        "roster_transport": "crossref-newer-than-rss",
-        "order_verified": false,
+        "roster_authority": "publisher-rss",
+        "roster_transport": "publisher-rss",
+        "order_verified": true,
         "content_counts": {
-          "official_items": 20,
-          "observed_items": 20,
-          "publishable_items": 20,
-          "research_articles": 20,
+          "official_items": 18,
+          "observed_items": 18,
+          "publishable_items": 18,
+          "research_articles": 18,
           "comments": 0,
           "short_communications": 0,
           "corrections": 0,
           "editorial_material": 0,
           "front_matter": 0,
           "other_excluded": 0,
-          "catalog_content_items": 20
+          "catalog_content_items": 18
         },
-        "abstracts_complete": 20,
-        "translations_complete": 19,
+        "abstracts_complete": 18,
+        "translations_complete": 18,
         "errors": [],
-        "warnings": [
-          "crossref_provisional_roster",
-          "translation_incomplete"
-        ]
+        "warnings": []
       }
     },
     {
