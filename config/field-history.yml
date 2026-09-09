@@ -109,8 +109,10 @@ journals:
     allowed_host: www.aeaweb.org
     issue_url_template: https://www.aeaweb.org/journals/mic/issue/{volume}/{issue}
   AERI:
-    platform: crossref
+    platform: aea
     issn: 2640-205X
+    archive_url: https://www.aeaweb.org/journals/aeri/issues
+    allowed_host: www.aeaweb.org
     issue_url_template: https://www.aeaweb.org/journals/aeri/issue/{volume}/{issue}
   AER:
     platform: aea
@@ -160,8 +162,10 @@ journals:
     issn: 0002-9092
     issue_url_template: https://onlinelibrary.wiley.com/toc/14678276/{year}/{volume}/{issue}
   JEP:
-    platform: crossref
+    platform: aea
     issn: 0895-3309
+    archive_url: https://www.aeaweb.org/journals/jep/issues
+    allowed_host: www.aeaweb.org
     issue_url_template: https://www.aeaweb.org/journals/jep/issue/{volume}/{issue}
   TE:
     platform: crossref

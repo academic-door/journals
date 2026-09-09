@@ -177,7 +177,7 @@ jobs:
           python scripts/backfill_history.py \
             --config config/field-history.yml \
             --state data/backfill-state/field-2025-2026.json \
-            --journals AER,AEJAPP,AEJMACRO,AEJMICRO,AEJPOL \
+            --journals AER,AEJAPP,AEJMACRO,AEJMICRO,AEJPOL,JEP,AERI \
             --from-year 2025 \
             --to-year 2026 \
             --refresh-discovery-only
