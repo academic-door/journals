@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import unittest
 from pathlib import Path
 
@@ -27,7 +28,7 @@ class R2OUPFamilyContractTests(unittest.TestCase):
             "RES": (
                 "https://academic.oup.com/restud/issue-archive/{year}",
                 "data/provenance/expected-set-observations/res-2025-2026.json",
-                "2026-09-08T11:13:10+00:00",
+                "2026-09-09T09:35:01+00:00",
             ),
             "EJ": (
                 "https://academic.oup.com/ej/issue-archive/{year}",
@@ -68,7 +69,7 @@ class R2OUPFamilyContractTests(unittest.TestCase):
             ],
             "RES": [
                 "res-92-1", "res-92-2", "res-92-3", "res-92-4", "res-92-5", "res-92-6",
-                "res-93-1", "res-93-2", "res-93-3", "res-93-4",
+                "res-93-1", "res-93-2", "res-93-3", "res-93-4", "res-93-5",
             ],
             "EJ": [
                 *[f"ej-135-{issue}" for issue in range(667, 673)],
@@ -98,6 +99,24 @@ class R2OUPFamilyContractTests(unittest.TestCase):
                     )
                 )
 
+    def test_res_snapshot_records_cumulative_publisher_observation_chain(self) -> None:
+        path = ROOT / "data/provenance/expected-set-observations/res-2025-2026.json"
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual("composite_official_publisher_observation", payload["transport"])
+        chain = payload["observation_chain"]
+        self.assertEqual(2, len(chain))
+        self.assertEqual("2026-09-08T11:13:10+00:00", chain[0]["observed_at"])
+        self.assertEqual("2026-09-09T09:35:01+00:00", chain[1]["observed_at"])
+        self.assertEqual(
+            {
+                "year": 2026,
+                "volume": "93",
+                "issue": "5",
+                "official_url": "https://academic.oup.com/restud/issue/93/5",
+            },
+            chain[1]["latest_issue"],
+        )
+
     def test_live_oup_archive_parser_handles_all_tracked_slugs(self) -> None:
         fixtures = (
             (
@@ -108,9 +127,9 @@ class R2OUPFamilyContractTests(unittest.TestCase):
             ),
             (
                 "RES",
-                b'<a href="/restud/issue/93/4">Volume 93, Issue 4, July 2026</a>',
+                b'<a href="/restud/issue/93/5">Volume 93, Issue 5, October 2026</a>',
                 "https://academic.oup.com/restud/issue-archive/2026",
-                "res-93-4",
+                "res-93-5",
             ),
             (
                 "EJ",
