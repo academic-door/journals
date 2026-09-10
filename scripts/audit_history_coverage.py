@@ -1,4 +1,4 @@
-"""Strict four-way audit for history discovery, state, index and archives."""
+"""Strict audit for expected-set closure and canonical history inventory."""
 
 from __future__ import annotations
 
@@ -43,6 +43,68 @@ def _index_entries(path: Path) -> tuple[dict[str, dict[str, Any]], str]:
         return {}, f"index_invalid: {type(error).__name__}: {error}"
 
 
+def _state_publication(entry: dict[str, Any]) -> str:
+    value = str(entry.get("publication_state") or entry.get("status") or "")
+    return "ready" if value == "complete" else value
+
+
+def _is_canonical_inventory_only_entry(
+    issue_id: str,
+    entry: dict[str, Any],
+    *,
+    journals: dict[str, Any],
+    api_root: Path,
+    index_cache: dict[str, tuple[dict[str, dict[str, Any]], str]],
+) -> bool:
+    """Whether a non-expected state row is independently backed by public truth.
+
+    Authoritative discovery defines the measured expected set. Older archived
+    history can legitimately outlive that measurement window, so it must not
+    be called an orphan merely because a newer observed expected-set snapshot
+    is narrower. Tolerance is intentionally strict: the archive must be READY,
+    source-verified, indexed, and agree with state on all readiness fields.
+    """
+
+    journal = str(entry.get("journal", ""))
+    config = journals.get(journal) or journals.get(journal.upper())
+    if config is None:
+        return False
+    journal_id = str(config["id"])
+    integrity = inspect_archive(
+        api_root / "journals" / journal_id / "issues" / f"{issue_id}.json",
+        expected_issue_id=issue_id,
+        expected_journal_id=journal_id,
+    )
+    if not integrity.get("archive_exists"):
+        return False
+    if integrity.get("publication_state") != "ready":
+        return False
+    if integrity.get("content_status") != "complete":
+        return False
+    if integrity.get("source_status") not in VERIFIED_SOURCE_STATUSES:
+        return False
+    if _state_publication(entry) != "ready":
+        return False
+    for field in ("content_status", "source_status"):
+        if str(entry.get(field, "")) != str(integrity.get(field, "")):
+            return False
+
+    if journal_id not in index_cache:
+        index_cache[journal_id] = _index_entries(
+            api_root / "journals" / journal_id / "issues" / "index.json"
+        )
+    index, index_error = index_cache[journal_id]
+    if index_error:
+        return False
+    index_entry = index.get(issue_id)
+    if index_entry is None:
+        return False
+    for field in ("content_status", "source_status", "publication_state"):
+        if str(index_entry.get(field, "")) != str(integrity.get(field, "")):
+            return False
+    return True
+
+
 def audit_history_integrity(
     states: list[dict[str, Any]],
     *,
@@ -51,10 +113,14 @@ def audit_history_integrity(
 ) -> dict[str, Any]:
     errors: list[str] = []
     merged_issues: dict[str, Any] = {}
+    excluded_ids: set[str] = set()
     for state in states:
         issues = state.get("issues", {})
         if isinstance(issues, dict):
             merged_issues.update(issues)
+        exclusions = state.get("expected_issue_exclusions", {})
+        if isinstance(exclusions, dict):
+            excluded_ids.update(str(issue_id) for issue_id in exclusions)
     expected = discovery_expectations(states, merged_issues)
 
     discovered_journals: set[str] = set()
@@ -87,10 +153,26 @@ def audit_history_integrity(
     state_ids = set(merged_issues)
     for issue_id in sorted(expected_ids - state_ids):
         errors.append(f"{issue_id}: discovery has no state entry")
+
+    # Discovery is the measured expected set, not the complete archive catalog.
+    # Preserve strict orphan detection while allowing two explicit non-expected
+    # states: an expected-set exclusion, or independently proven READY archive
+    # inventory that is also present and consistent in the canonical index.
+    index_cache: dict[str, tuple[dict[str, dict[str, Any]], str]] = {}
     for issue_id in sorted(state_ids - expected_ids):
+        if issue_id in excluded_ids:
+            continue
+        entry = merged_issues.get(issue_id, {})
+        if isinstance(entry, dict) and _is_canonical_inventory_only_entry(
+            issue_id,
+            entry,
+            journals=journals,
+            api_root=api_root,
+            index_cache=index_cache,
+        ):
+            continue
         errors.append(f"{issue_id}: state entry absent from discovery snapshot")
 
-    index_cache: dict[str, tuple[dict[str, dict[str, Any]], str]] = {}
     counts = {
         "discovered": len(expected_ids),
         "state": len(expected_ids & state_ids),
@@ -124,12 +206,8 @@ def audit_history_integrity(
             counts["source_pending"] += 1
 
         entry = merged_issues.get(issue_id, {})
-        state_publication = str(
-            entry.get("publication_state") or entry.get("status") or ""
-        )
+        state_publication = _state_publication(entry)
         archive_publication = str(integrity.get("publication_state", "blocked"))
-        if state_publication == "complete":
-            state_publication = "ready"
         if state_publication != archive_publication:
             errors.append(
                 f"{issue_id}: state publication {state_publication or 'missing'} "
