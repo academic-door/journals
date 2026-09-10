@@ -81,7 +81,7 @@ jobs:
           if got != wanted:
               raise SystemExit(f'ERE live Springer issue set mismatch: {got} != {wanted}')
           PY
-      - name: Verify 2026 ERE archives already ready on data branch
+      - name: Verify 2026 ERE archives are publication-ready on data branch
         shell: bash
         run: |
           set -euo pipefail
@@ -95,8 +95,13 @@ jobs:
               path = f'public/api/v1/journals/ere/issues/{issue_id}.json'
               raw = subprocess.check_output(['git', 'show', f'origin/data:{path}'])
               payload = json.loads(raw)
-              if payload.get('status') != 'ready':
-                  raise SystemExit(f'{issue_id} is not ready: {payload.get("status")}')
+              publication_state = payload.get('publication_state') or payload.get('status')
+              content_status = payload.get('content_status') or ('complete' if publication_state == 'ready' else 'blocked')
+              if publication_state != 'ready' or content_status != 'complete':
+                  raise SystemExit(
+                      f'{issue_id} is not publication-ready: '
+                      f'publication_state={publication_state} content_status={content_status}'
+                  )
           PY
       - name: Run full unit suite against bounded patch
         run: python -m unittest discover -s tests -v
