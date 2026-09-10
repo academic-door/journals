@@ -142,6 +142,22 @@ def parse_archive(
                 year_match = YEAR_PATTERN.search(text) or YEAR_PATTERN.search(archive_url)
                 if year_match:
                     year = int(year_match.group(1))
+        elif platform == "springer":
+            match = re.fullmatch(
+                r"/journal/\d+/volumes-and-issues/(\d+)-(\d+(?:-\d+)*)",
+                path.rstrip("/"),
+            )
+            if match:
+                volume, issue = match.groups()
+                container = link.find_parent("li") or link.parent
+                context = (
+                    " ".join(container.get_text(" ", strip=True).split())
+                    if container is not None
+                    else text
+                )
+                year_match = YEAR_PATTERN.search(context)
+                if year_match:
+                    year = int(year_match.group(1))
         elif platform == "wiley":
             match = re.search(r"/toc/14680262/(20\d{2})/(\d+)/(\d+)", path)
             if match:
