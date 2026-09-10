@@ -1,0 +1,46 @@
+name: Probe R2 Cambridge JEH archive transport
+
+on:
+  push:
+    branches:
+      - probe/r2-next-family-20260910
+    paths:
+      - .github/workflows/probe-r2-cambridge-jeh.yml
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python -m pip install requests beautifulsoup4
+      - name: Probe official Cambridge all-issues archive
+        shell: bash
+        run: |
+          python - <<'PY'
+          import re
+          import requests
+          from bs4 import BeautifulSoup
+
+          url = "https://www.cambridge.org/core/journals/journal-of-economic-history/all-issues"
+          response = requests.get(
+              url,
+              headers={"User-Agent": "Mozilla/5.0 (compatible; AcademicDoor-R2-Evidence/1.0)"},
+              timeout=30,
+          )
+          print("JEH status", response.status_code, "bytes", len(response.content), "url", response.url)
+          response.raise_for_status()
+          soup = BeautifulSoup(response.content, "html.parser")
+          text = " ".join(soup.stripped_strings)
+          for marker in ("2026 - Volume 86", "2025 - Volume 85", "Issue 2", "Issue 1", "Issue 4"):
+              print(marker, marker in text)
+              assert marker in text, marker
+          hrefs = [a.get("href", "") for a in soup.find_all("a") if a.get("href")]
+          issue_links = [h for h in hrefs if "/journal-of-economic-history/issue/" in h]
+          print("issue_links", len(issue_links))
+          assert len(issue_links) >= 6
+          PY
