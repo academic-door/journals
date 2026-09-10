@@ -14,26 +14,38 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
-      - name: Fetch official UW Press archive and print exact 2025-2026 issue links
+      - name: Verify official UW Press 2025-2026 expected set
         shell: bash
         run: |
           set -euo pipefail
-          url='https://le.uwpress.org/content/by/year'
-          body="$RUNNER_TEMP/landecon.html"
-          code=$(curl -L --compressed --retry 2 --connect-timeout 10 --max-time 60 \
-            -A 'AcademicDoorJournals/0.1 (non-profit academic metadata service; https://academic-door.github.io/)' \
-            -o "$body" -sS -w '%{http_code}' "$url")
-          test "$code" = 200
-          echo "HTTP: $code"
-          echo '-- exact issue links --'
-          grep -Eo 'href="[^"]+"' "$body" \
-            | sed -E 's/^href="|"$//g' \
-            | grep -E '^/content/(101|102)/[1-4](\.toc)?$' \
-            | sort -u
-          echo '-- exact page context --'
-          grep -Eo '.{0,100}(Vol\. 10[12]|Volume 10[12]|2025|2026).{0,180}' "$body" \
-            | head -80 || true
-      - name: Verify canonical 2025-2026 archive readiness
+          tmp="$RUNNER_TEMP/landecon-issues.txt"
+          : > "$tmp"
+          for year in 2025 2026; do
+            url="https://le.uwpress.org/content/by/year/${year}"
+            body="$RUNNER_TEMP/landecon-${year}.html"
+            code=$(curl -L --compressed --retry 2 --connect-timeout 10 --max-time 60 \
+              -A 'AcademicDoorJournals/0.1 (non-profit academic metadata service; https://academic-door.github.io/)' \
+              -o "$body" -sS -w '%{http_code}' "$url")
+            echo "$year HTTP: $code"
+            test "$code" = 200
+            grep -Eo 'href="[^"]+"' "$body" \
+              | sed -E 's/^href="|"$//g' \
+              | grep -E '^/content/(101|102)/[1-4]$' \
+              | sort -u >> "$tmp"
+          done
+          sort -u "$tmp" -o "$tmp"
+          cat "$tmp"
+          cat > "$RUNNER_TEMP/expected.txt" <<'EOF'
+          /content/101/1
+          /content/101/2
+          /content/101/3
+          /content/101/4
+          /content/102/1
+          /content/102/2
+          /content/102/3
+          EOF
+          diff -u "$RUNNER_TEMP/expected.txt" "$tmp"
+      - name: Verify canonical archive readiness for the exact set
         shell: bash
         run: |
           set -euo pipefail
@@ -51,5 +63,5 @@ jobs:
               row=(issue_id,p.get('content_status'),p.get('source_status'),p.get('publication_state'),p.get('expected_article_count'),len(p.get('articles',[])))
               rows.append(row)
               print(row)
-          assert all(r[1]=='complete' and r[3]=='ready' for r in rows), rows
+          assert all(r[1]=='complete' and r[2]=='official_verified' and r[3]=='ready' for r in rows), rows
           PY
