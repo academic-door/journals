@@ -84,9 +84,12 @@ jobs:
           assert p['method'] == 'official-page-read'
           assert p['finalized'] is True
           assert len(p['items']) == 7, len(p['items'])
-          assert p.get('excluded_item_count') == 1, p.get('excluded_items')
+          excluded = p.get('excluded_items', [])
+          assert p.get('excluded_item_count') == len(excluded)
+          addenda = [item for item in excluded if item.get('reason') == 'addendum']
+          assert len(addenda) == 3, addenda
           print('official roster:', [x.get('doi') for x in p['items']])
-          print('excluded:', p.get('excluded_items'))
+          print('excluded:', excluded)
           PY
 
       - name: Promote exact official roster evidence
