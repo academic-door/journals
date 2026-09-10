@@ -8,6 +8,8 @@ import shutil
 from pathlib import Path
 from typing import Any
 
+from scripts.state_precedence import choose_discovery_snapshot, choose_issue_entry
+
 
 def load_json(path: Path, default: Any) -> Any:
     if not path.exists():
@@ -38,10 +40,6 @@ def _publication_rank(payload: dict[str, Any]) -> tuple[int, int, int]:
     )
 
 
-def _attempt_stamp(payload: dict[str, Any]) -> str:
-    return str(payload.get("last_attempt_at") or payload.get("updated_at") or "")
-
-
 def merge_state(
     base: dict[str, Any], shard: dict[str, Any], shard_journals: set[str]
 ) -> dict[str, Any]:
@@ -52,24 +50,17 @@ def merge_state(
     merged.setdefault("issues", {})
     for issue_id, entry in shard_issues.items():
         if str(entry.get("journal", "")) in shard_journals:
-            existing = merged["issues"].get(issue_id)
-            if isinstance(existing, dict) and isinstance(entry, dict):
-                existing_rank = _publication_rank(existing)
-                incoming_rank = _publication_rank(entry)
-                if existing_rank > incoming_rank or (
-                    existing_rank == incoming_rank
-                    and _attempt_stamp(existing)
-                    and _attempt_stamp(existing) >= _attempt_stamp(entry)
-                ):
-                    continue
-            merged["issues"][issue_id] = entry
+            merged["issues"][issue_id] = choose_issue_entry(
+                merged["issues"].get(issue_id), entry
+            )
 
-    base_discovery = base.get("discovery") if isinstance(base.get("discovery"), dict) else {}
     shard_discovery = shard.get("discovery") if isinstance(shard.get("discovery"), dict) else {}
     merged.setdefault("discovery", {})
     for journal, snapshot in shard_discovery.items():
         if str(journal) in shard_journals:
-            merged["discovery"][journal] = snapshot
+            merged["discovery"][journal] = choose_discovery_snapshot(
+                merged["discovery"].get(journal), snapshot
+            )
 
     shard_rotation = shard.get("rotation") if isinstance(shard.get("rotation"), dict) else {}
     merged.setdefault("rotation", {})
@@ -97,7 +88,7 @@ def copy_tree_overlay(source: Path, target: Path) -> None:
         else:
             destination.parent.mkdir(parents=True, exist_ok=True)
             # Shards are intentionally resumable and can be older than the
-            # latest data baseline.  Preserve a stronger issue archive when
+            # latest data baseline. Preserve a stronger issue archive when
             # an old shard only contains a provisional/blocked copy; indexes
             # and non-issue files are rebuilt later in the workflow.
             is_issue_archive = (
@@ -107,7 +98,12 @@ def copy_tree_overlay(source: Path, target: Path) -> None:
                 and "journals" in destination.parts
                 and destination.parent.name == "issues"
             )
-            if is_issue_archive and destination.name != "index.json" and destination.suffix == ".json" and destination.exists():
+            if (
+                is_issue_archive
+                and destination.name != "index.json"
+                and destination.suffix == ".json"
+                and destination.exists()
+            ):
                 try:
                     existing = load_json(destination, {})
                     incoming = load_json(item, {})
@@ -137,8 +133,14 @@ def merge_shards(root: Path, shards_root: Path) -> list[str]:
         }
         if not shard_journals:
             raise ValueError(f"missing shard metadata: {shard}")
-        copy_tree_overlay(shard / "public" / "api" / "v1" / "journals", root / "public" / "api" / "v1" / "journals")
-        copy_tree_overlay(shard / "data" / "backfill-staging", root / "data" / "backfill-staging")
+        copy_tree_overlay(
+            shard / "public" / "api" / "v1" / "journals",
+            root / "public" / "api" / "v1" / "journals",
+        )
+        copy_tree_overlay(
+            shard / "data" / "backfill-staging",
+            root / "data" / "backfill-staging",
+        )
         copy_tree_overlay(
             shard / "data" / "provenance" / "official-rosters",
             root / "data" / "provenance" / "official-rosters",
@@ -182,7 +184,15 @@ def main() -> int:
     parser.add_argument("--shards-root", required=True)
     args = parser.parse_args()
     reports = merge_shards(Path(args.root), Path(args.shards_root))
-    print(json.dumps({"shards": len(set(Path(path).parent for path in reports)), "reports": reports}, ensure_ascii=False))
+    print(
+        json.dumps(
+            {
+                "shards": len(set(Path(path).parent for path in reports)),
+                "reports": reports,
+            },
+            ensure_ascii=False,
+        )
+    )
     return 0
 
 
