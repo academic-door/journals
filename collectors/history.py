@@ -148,7 +148,19 @@ def parse_archive(
                 path.rstrip("/"),
             )
             if match:
-                volume, issue = match.groups()
+                volume, url_issue = match.groups()
+                # Springer canonical URLs for combined issues use only the
+                # first issue number (for example, Issue 3-4 lives at /85-3).
+                # Preserve the publisher's full issue identity from link text
+                # when it is consistent with that canonical URL prefix.
+                issue = url_issue
+                label_match = re.search(
+                    r"\bIssue\s+(\d+(?:[-–]\d+)*)\b", text, re.IGNORECASE
+                )
+                if label_match:
+                    label = label_match.group(1).replace("–", "-")
+                    if label.split("-", 1)[0] == url_issue.split("-", 1)[0]:
+                        issue = label
                 container = link.find_parent("li") or link.parent
                 context = (
                     " ".join(container.get_text(" ", strip=True).split())
