@@ -1,0 +1,126 @@
+name: Probe R3 current history debt
+
+on:
+  push:
+    branches:
+      - probe/r3-current-history-audit-20260910
+
+permissions:
+  contents: read
+
+jobs:
+  classify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Restore current canonical data branch
+        run: |
+          set -euo pipefail
+          git fetch --depth=1 origin data
+          for path in public/api data/backfill-state; do
+            rm -rf "$path"
+            git archive origin/data "$path" | tar -x
+          done
+          echo "DATA_SHA=$(git rev-parse origin/data)"
+      - name: Run current four-way audit and classify measured-scope debt
+        run: |
+          set -euo pipefail
+          python scripts/audit_history_coverage.py \
+            --state data/backfill-state/field-2023-2024.json \
+            --state data/backfill-state/field-2025-2026.json \
+            --api-root public/api/v1 \
+            --report-json /tmp/history-coverage.json
+          python - <<'PY'
+          import json, re, yaml
+          from collections import Counter, defaultdict
+          from pathlib import Path
+
+          report = json.loads(Path('/tmp/history-coverage.json').read_text())
+          cfg = yaml.safe_load(Path('config/journals.yml').read_text())['journals']
+          id_to_key = {str(v['id']).lower(): k for k, v in cfg.items()}
+
+          ledger = json.loads(Path('public/api/v1/completeness/2026.json').read_text())
+          entries = ledger.get('journals', [])
+          complete_keys = set()
+          for item in entries:
+            if not isinstance(item, dict) or item.get('status') != 'COMPLETE':
+              continue
+            candidates = [item.get('journal'), item.get('journal_key'), item.get('short_name'), item.get('journal_id'), item.get('id')]
+            for value in candidates:
+              if not value:
+                continue
+              raw = str(value)
+              if raw in cfg:
+                complete_keys.add(raw)
+              key = id_to_key.get(raw.lower())
+              if key:
+                complete_keys.add(key)
+
+          # Fallback to the production-accepted set if schema identifiers are not exposed as expected.
+          if len(complete_keys) < 10:
+            complete_keys = {
+              'AER','AEJAPP','AEJMACRO','AEJMICRO','AEJPOL','JEP','AERI',
+              'JPE','QE','QJE','RES','EJ','JEEA','RFS','ERE','JEH','LANDECON'
+            }
+
+          def classify(error):
+            if error.endswith('discovery has no state entry'): return 'discovery_no_state'
+            if error.endswith('state entry absent from discovery snapshot'): return 'state_absent_discovery'
+            if error.endswith('archive missing'): return 'archive_missing'
+            if error.endswith('archive index entry missing'): return 'index_missing'
+            if ': state publication ' in error: return 'state_publication_mismatch'
+            if ': state content_status ' in error: return 'state_content_mismatch'
+            if ': state source_status ' in error: return 'state_source_mismatch'
+            if ': index publication_state ' in error: return 'index_publication_mismatch'
+            if ': index content_status ' in error: return 'index_content_mismatch'
+            if ': index source_status ' in error: return 'index_source_mismatch'
+            if 'stale collector_revision' in error: return 'stale_collector_revision'
+            if 'discovery snapshot' in error: return 'discovery_snapshot'
+            return 'other'
+
+          def journal_for(error):
+            token = error.split(':', 1)[0]
+            if token in cfg:
+              return token
+            lower = token.lower()
+            # Longest id prefix wins, allowing continuous-volume ids such as landecon-102-3.
+            matches = [(jid, key) for jid, key in id_to_key.items() if lower == jid or lower.startswith(jid + '-')]
+            if matches:
+              return max(matches, key=lambda x: len(x[0]))[1]
+            return 'UNKNOWN'
+
+          all_by_journal = Counter()
+          all_by_class = Counter()
+          measured_by_journal = Counter()
+          measured_by_class = Counter()
+          measured_errors = []
+          for error in report['errors']:
+            journal = journal_for(error)
+            klass = classify(error)
+            all_by_journal[journal] += 1
+            all_by_class[klass] += 1
+            if journal in complete_keys:
+              measured_by_journal[journal] += 1
+              measured_by_class[klass] += 1
+              measured_errors.append(error)
+
+          print('R3_CURRENT_AUDIT', json.dumps({
+            'total_errors': report['error_count'],
+            'counts': report['counts'],
+            'complete_journal_count': len(complete_keys),
+            'complete_journals': sorted(complete_keys),
+            'measured_scope_error_count': len(measured_errors),
+            'measured_by_journal': dict(sorted(measured_by_journal.items())),
+            'measured_by_class': dict(sorted(measured_by_class.items())),
+            'all_by_class': dict(sorted(all_by_class.items())),
+          }, sort_keys=True))
+          print('R3_MEASURED_ERRORS_BEGIN')
+          for error in measured_errors:
+            print(error)
+          print('R3_MEASURED_ERRORS_END')
+          PY
