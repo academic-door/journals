@@ -36,37 +36,21 @@ jobs:
             --api-root public/api/v1 \
             --report-json /tmp/history-coverage.json
           python - <<'PY'
-          import json, re, yaml
-          from collections import Counter, defaultdict
+          import json, yaml
+          from collections import Counter
           from pathlib import Path
 
           report = json.loads(Path('/tmp/history-coverage.json').read_text())
           cfg = yaml.safe_load(Path('config/journals.yml').read_text())['journals']
           id_to_key = {str(v['id']).lower(): k for k, v in cfg.items()}
 
-          ledger = json.loads(Path('public/api/v1/completeness/2026.json').read_text())
-          entries = ledger.get('journals', [])
-          complete_keys = set()
-          for item in entries:
-            if not isinstance(item, dict) or item.get('status') != 'COMPLETE':
-              continue
-            candidates = [item.get('journal'), item.get('journal_key'), item.get('short_name'), item.get('journal_id'), item.get('id')]
-            for value in candidates:
-              if not value:
-                continue
-              raw = str(value)
-              if raw in cfg:
-                complete_keys.add(raw)
-              key = id_to_key.get(raw.lower())
-              if key:
-                complete_keys.add(key)
-
-          # Fallback to the production-accepted set if schema identifiers are not exposed as expected.
-          if len(complete_keys) < 10:
-            complete_keys = {
-              'AER','AEJAPP','AEJMACRO','AEJMICRO','AEJPOL','JEP','AERI',
-              'JPE','QE','QJE','RES','EJ','JEEA','RFS','ERE','JEH','LANDECON'
-            }
+          # Production-accepted R2 measured set at the current checkpoint. This
+          # classifier intentionally does not infer COMPLETE from canonical data.
+          # Completeness is release-derived and its accepted set is recorded in #205.
+          complete_keys = {
+            'AER','AEJAPP','AEJMACRO','AEJMICRO','AEJPOL','JEP','AERI',
+            'JPE','QE','QJE','RES','EJ','JEEA','RFS','ERE','JEH','LANDECON'
+          }
 
           def classify(error):
             if error.endswith('discovery has no state entry'): return 'discovery_no_state'
@@ -88,13 +72,11 @@ jobs:
             if token in cfg:
               return token
             lower = token.lower()
-            # Longest id prefix wins, allowing continuous-volume ids such as landecon-102-3.
             matches = [(jid, key) for jid, key in id_to_key.items() if lower == jid or lower.startswith(jid + '-')]
             if matches:
               return max(matches, key=lambda x: len(x[0]))[1]
             return 'UNKNOWN'
 
-          all_by_journal = Counter()
           all_by_class = Counter()
           measured_by_journal = Counter()
           measured_by_class = Counter()
@@ -102,7 +84,6 @@ jobs:
           for error in report['errors']:
             journal = journal_for(error)
             klass = classify(error)
-            all_by_journal[journal] += 1
             all_by_class[klass] += 1
             if journal in complete_keys:
               measured_by_journal[journal] += 1
