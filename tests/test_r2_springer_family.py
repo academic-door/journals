@@ -57,6 +57,50 @@ class R2SpringerFamilyContractTests(unittest.TestCase):
         )
         self.assertEqual([], issues)
 
+    def test_springer_archive_parser_preserves_compound_issue_label(self):
+        archive_url = "https://link.springer.com/journal/10640/volumes-and-issues"
+        html = b"""
+        <ul>
+          <li><a href="/journal/10640/volumes-and-issues/85-3">Issue 3-4</a> August 2023</li>
+          <li><a href="/journal/10640/volumes-and-issues/86-1">Issue 1-2</a> October 2023</li>
+        </ul>
+        """
+        issues = parse_archive(
+            html,
+            archive_url,
+            journal="ERE",
+            platform="springer",
+            years=[2023],
+            allowed_host="link.springer.com",
+        )
+        self.assertEqual(
+            ["ere-85-3-4", "ere-86-1-2"],
+            [item.issue_id for item in issues],
+        )
+        self.assertEqual(
+            [
+                "https://link.springer.com/journal/10640/volumes-and-issues/85-3",
+                "https://link.springer.com/journal/10640/volumes-and-issues/86-1",
+            ],
+            [item.official_url for item in issues],
+        )
+
+    def test_springer_archive_parser_does_not_trust_mismatched_link_label(self):
+        archive_url = "https://link.springer.com/journal/10640/volumes-and-issues"
+        html = (
+            b'<ul><li><a href="/journal/10640/volumes-and-issues/89-9">'
+            b'Issue 8-9</a> September 2026</li></ul>'
+        )
+        issues = parse_archive(
+            html,
+            archive_url,
+            journal="ERE",
+            platform="springer",
+            years=[2026],
+            allowed_host="link.springer.com",
+        )
+        self.assertEqual(["ere-89-9"], [item.issue_id for item in issues])
+
     def test_scheduled_refresh_is_bounded_to_ere_discovery(self):
         text = WORKFLOW.read_text(encoding="utf-8")
         self.assertIn("journal: ERE", text)
