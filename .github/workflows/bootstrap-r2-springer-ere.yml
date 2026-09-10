@@ -53,7 +53,67 @@ jobs:
           workflow.write_text(text.replace(anchor, ere_refresh + anchor, 1), encoding='utf-8')
 
           test = Path('tests/test_r2_springer_family.py')
-          test.write_text('''from pathlib import Path\nimport unittest\n\nimport yaml\n\nfrom collectors.history import parse_archive\n\nROOT = Path(__file__).resolve().parents[1]\nCONFIG = ROOT / "config" / "field-history.yml"\nWORKFLOW = ROOT / ".github" / "workflows" / "backfill-field-history.yml"\n\n\nclass R2SpringerFamilyContractTests(unittest.TestCase):\n    def test_ere_uses_live_springer_archive(self):\n        journals = yaml.safe_load(CONFIG.read_text(encoding="utf-8"))["journals"]\n        definition = journals["ERE"]\n        self.assertEqual("springer", definition["platform"])\n        self.assertEqual(\n            "https://link.springer.com/journal/10640/volumes-and-issues",\n            definition["archive_url"],\n        )\n        self.assertEqual("link.springer.com", definition["allowed_host"])\n        self.assertNotIn("observed_evidence_path", definition)\n\n    def test_scheduled_refresh_includes_ere(self):\n        text = WORKFLOW.read_text(encoding="utf-8")\n        self.assertIn("Refresh live Springer ERE authoritative discovery evidence", text)\n        self.assertIn("--journals ERE", text)\n\n    def test_springer_archive_parser_accepts_issue_link(self):\n        html = b'''<ul><li><a href="/journal/10640/volumes-and-issues/89-9">Issue 9</a> September 2026</li></ul>'''\n        issues = parse_archive(\n            html,\n            "https://link.springer.com/journal/10640/volumes-and-issues",\n            journal="ERE",\n            platform="springer",\n            years=[2026],\n            allowed_host="link.springer.com",\n        )\n        self.assertEqual(["ere-89-9"], [item.issue_id for item in issues])\n        self.assertEqual(\n            "https://link.springer.com/journal/10640/volumes-and-issues/89-9",\n            issues[0].official_url,\n        )\n\n    def test_springer_archive_parser_rejects_wrong_host(self):\n        html = b'''<ul><li><a href="https://example.com/journal/10640/volumes-and-issues/89-9">Issue 9</a> September 2026</li></ul>'''\n        issues = parse_archive(\n            html,\n            "https://link.springer.com/journal/10640/volumes-and-issues",\n            journal="ERE",\n            platform="springer",\n            years=[2026],\n            allowed_host="link.springer.com",\n        )\n        self.assertEqual([], issues)\n\n\nif __name__ == "__main__":\n    unittest.main()\n''', encoding='utf-8')
+          test.write_text("""from pathlib import Path
+import unittest
+
+import yaml
+
+from collectors.history import parse_archive
+
+ROOT = Path(__file__).resolve().parents[1]
+CONFIG = ROOT / "config" / "field-history.yml"
+WORKFLOW = ROOT / ".github" / "workflows" / "backfill-field-history.yml"
+
+
+class R2SpringerFamilyContractTests(unittest.TestCase):
+    def test_ere_uses_live_springer_archive(self):
+        journals = yaml.safe_load(CONFIG.read_text(encoding="utf-8"))["journals"]
+        definition = journals["ERE"]
+        self.assertEqual("springer", definition["platform"])
+        self.assertEqual(
+            "https://link.springer.com/journal/10640/volumes-and-issues",
+            definition["archive_url"],
+        )
+        self.assertEqual("link.springer.com", definition["allowed_host"])
+        self.assertNotIn("observed_evidence_path", definition)
+
+    def test_scheduled_refresh_includes_ere(self):
+        text = WORKFLOW.read_text(encoding="utf-8")
+        self.assertIn("Refresh live Springer ERE authoritative discovery evidence", text)
+        self.assertIn("--journals ERE", text)
+
+    def test_springer_archive_parser_accepts_issue_link(self):
+        html = b'<ul><li><a href="/journal/10640/volumes-and-issues/89-9">Issue 9</a> September 2026</li></ul>'
+        issues = parse_archive(
+            html,
+            "https://link.springer.com/journal/10640/volumes-and-issues",
+            journal="ERE",
+            platform="springer",
+            years=[2026],
+            allowed_host="link.springer.com",
+        )
+        self.assertEqual(["ere-89-9"], [item.issue_id for item in issues])
+        self.assertEqual(
+            "https://link.springer.com/journal/10640/volumes-and-issues/89-9",
+            issues[0].official_url,
+        )
+
+    def test_springer_archive_parser_rejects_wrong_host(self):
+        html = b'<ul><li><a href="https://example.com/journal/10640/volumes-and-issues/89-9">Issue 9</a> September 2026</li></ul>'
+        issues = parse_archive(
+            html,
+            "https://link.springer.com/journal/10640/volumes-and-issues",
+            journal="ERE",
+            platform="springer",
+            years=[2026],
+            allowed_host="link.springer.com",
+        )
+        self.assertEqual([], issues)
+
+
+if __name__ == "__main__":
+    unittest.main()
+""", encoding='utf-8')
           PY
       - name: Probe exact live Springer issue set
         shell: bash
