@@ -20,7 +20,7 @@ jobs:
         run: |
           python - <<'PY'
           import re
-          import requests
+          from urllib.request import Request, urlopen
 
           urls = {
               2025: "https://onlinelibrary.wiley.com/loi/15406261/year/2025",
@@ -35,10 +35,13 @@ jobs:
               "Accept-Language": "en-US,en;q=0.8",
           }
           for year, url in urls.items():
-              response = requests.get(url, headers=headers, timeout=(10, 45))
-              print(f"JF {year} status={response.status_code} bytes={len(response.content)} url={response.url}")
-              response.raise_for_status()
-              text = response.text
+              request = Request(url, headers=headers)
+              with urlopen(request, timeout=45) as response:
+                  status = response.status
+                  final_url = response.geturl()
+                  content = response.read()
+              print(f"JF {year} status={status} bytes={len(content)} url={final_url}")
+              text = content.decode("utf-8", errors="replace")
               volume, wanted_issues = expected[year]
               observed = set(
                   re.findall(
