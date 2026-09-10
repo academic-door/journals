@@ -1,0 +1,49 @@
+name: Probe R2 ScienceDirect archive transport
+
+on:
+  push:
+    branches: [probe/sciencedirect-r2-20260910]
+    paths: [.github/workflows/probe-r2-sciencedirect.yml]
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Probe official ScienceDirect issue archives
+        shell: bash
+        run: |
+          set -euo pipefail
+          slugs=(
+            journal-of-development-economics
+            journal-of-environmental-economics-and-management
+            journal-of-urban-economics
+            games-and-economic-behavior
+            journal-of-international-economics
+            journal-of-comparative-economics
+            ecological-economics
+          )
+          for slug in "${slugs[@]}"; do
+            url="https://www.sciencedirect.com/journal/${slug}/issues"
+            body="$RUNNER_TEMP/${slug}.html"
+            headers="$RUNNER_TEMP/${slug}.headers"
+            code=$(curl -L --compressed --retry 2 --connect-timeout 10 --max-time 60 \
+              -A 'AcademicDoorJournals/0.1 (non-profit academic metadata service; https://academic-door.github.io/)' \
+              -D "$headers" -o "$body" -sS -w '%{http_code}' "$url" || true)
+            echo "=== ${slug} ==="
+            echo "URL: $url"
+            echo "HTTP: $code"
+            echo "BYTES: $(wc -c < "$body" 2>/dev/null || echo 0)"
+            grep -i '^content-type:' "$headers" | tail -1 || true
+            echo '-- candidate issue/archive hrefs --'
+            grep -Eo 'href="[^"]+"' "$body" 2>/dev/null \
+              | sed -E 's/^href="|"$//g' \
+              | grep -E '/journal/.+/(vol|issue|issues)' \
+              | head -40 || true
+            echo '-- year/volume markers --'
+            grep -Eo '(20(25|26)|Volume [0-9]+|vol/[0-9]+)' "$body" 2>/dev/null \
+              | head -40 || true
+          done
