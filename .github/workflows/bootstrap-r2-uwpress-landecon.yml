@@ -1,0 +1,110 @@
+name: Bootstrap R2 UW Press LANDECON
+
+on:
+  push:
+    branches: [r2/uwpress-landecon-20260910]
+    paths: [.github/workflows/bootstrap-r2-uwpress-landecon.yml]
+
+permissions:
+  contents: write
+
+jobs:
+  verify-and-persist:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+
+      - name: Apply bounded UW Press parser, LANDECON config, and tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          history = Path('collectors/history.py')
+          text = history.read_text()
+          needle = (
+              '        elif platform == "wiley":\n'
+              '            match = re.search(r"/toc/14680262/(20\\d{2})/(\\d+)/(\\d+)", path)\n'
+              '            if match:\n'
+              '                year, volume, issue = int(match.group(1)), match.group(2), match.group(3)\n'
+          )
+          replacement = (
+              '        elif platform == "highwire":\n'
+              '            match = re.fullmatch(r"/content/(\\d+)/(\\d+)", path.rstrip("/"))\n'
+              '            archive_container = link.find_parent("div", class_="archive-issue-list")\n'
+              '            year_match = YEAR_PATTERN.search(archive_url)\n'
+              '            if match and archive_container is not None and year_match:\n'
+              '                volume, issue = match.groups()\n'
+              '                year = int(year_match.group(1))\n'
+              '        elif platform == "wiley":\n'
+              '            match = re.search(r"/toc/14680262/(20\\d{2})/(\\d+)/(\\d+)", path)\n'
+              '            if match:\n'
+              '                year, volume, issue = int(match.group(1)), match.group(2), match.group(3)\n'
+          )
+          if needle not in text:
+              raise SystemExit('history parser anchor not found')
+          history.write_text(text.replace(needle, replacement, 1))
+
+          config = Path('config/field-history.yml')
+          text = config.read_text()
+          needle = (
+              '  LANDECON:\n'
+              '    platform: crossref\n'
+              '    issn: 0023-7639\n'
+              '    issue_url_template: https://le.uwpress.org/content/by/year\n'
+          )
+          replacement = (
+              '  LANDECON:\n'
+              '    platform: highwire\n'
+              '    issn: 0023-7639\n'
+              '    archive_url_template: https://le.uwpress.org/content/by/year/{year}\n'
+              '    allowed_host: le.uwpress.org\n'
+              '    issue_url_template: https://le.uwpress.org/content/{volume}/{issue}\n'
+          )
+          if needle not in text:
+              raise SystemExit('LANDECON config anchor not found')
+          config.write_text(text.replace(needle, replacement, 1))
+
+          test = Path('tests/test_r2_uwpress_family.py')
+          test.write_text('''from pathlib import Path\nimport unittest\n\nimport yaml\n\nfrom collectors.history import parse_archive\n\n\nROOT = Path(__file__).resolve().parents[1]\nCONFIG = ROOT / "config" / "field-history.yml"\nWORKFLOW = ROOT / ".github" / "workflows" / "refresh-r2-uwpress.yml"\nDEPLOY_WORKFLOW = ROOT / ".github" / "workflows" / "deploy.yml"\n\n\nclass R2UWPressFamilyContractTests(unittest.TestCase):\n    def test_landecon_uses_live_uwpress_year_archives(self):\n        journals = yaml.safe_load(CONFIG.read_text(encoding="utf-8"))["journals"]\n        definition = journals["LANDECON"]\n        self.assertEqual("highwire", definition["platform"])\n        self.assertEqual(\n            "https://le.uwpress.org/content/by/year/{year}",\n            definition["archive_url_template"],\n        )\n        self.assertEqual("le.uwpress.org", definition["allowed_host"])\n        self.assertEqual(\n            "https://le.uwpress.org/content/{volume}/{issue}",\n            definition["issue_url_template"],\n        )\n\n    def test_highwire_archive_parser_requires_archive_container_and_allowed_host(self):\n        archive_url = "https://le.uwpress.org/content/by/year/2026"\n        html = b'''<html><body>\n          <div class="archive-issue-list">\n            <a href="/content/102/1">January 01, 2026: Vol. 102, Issue 1</a>\n            <a href="/content/102/2">March 01, 2026: Vol. 102, Issue 2</a>\n            <a href="https://example.com/content/102/4">Wrong host</a>\n          </div>\n          <a href="/content/999/9">Current issue outside archive list</a>\n        </body></html>'''\n        issues = parse_archive(\n            html,\n            archive_url,\n            journal="LANDECON",\n            platform="highwire",\n            years=[2026],\n            allowed_host="le.uwpress.org",\n        )\n        self.assertEqual(\n            ["landecon-102-1", "landecon-102-2"],\n            [item.issue_id for item in issues],\n        )\n\n    def test_scheduled_refresh_is_bounded_to_landecon_discovery(self):\n        text = WORKFLOW.read_text(encoding="utf-8")\n        self.assertIn("journal: LANDECON", text)\n        self.assertIn('from_year: "2025"', text)\n        self.assertIn('to_year: "2026"', text)\n        self.assertIn('max_translations: "0"', text)\n        self.assertIn("refresh_discovery_only: true", text)\n        self.assertIn("backfill-field-history.yml@main", text)\n\n    def test_successful_uwpress_refresh_triggers_production_deploy(self):\n        text = DEPLOY_WORKFLOW.read_text(encoding="utf-8")\n        self.assertIn("- Refresh R2 UW Press expected sets", text)\n        self.assertIn("github.event.workflow_run.conclusion == 'success'", text)\n\n\nif __name__ == "__main__":\n    unittest.main()\n''')
+          PY
+
+      - name: Verify exact live UW Press expected set
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import yaml
+          from collectors.history import discover_official_issues
+
+          definition = yaml.safe_load(open('config/field-history.yml'))['journals']['LANDECON']
+          issues = discover_official_issues('LANDECON', definition, years=[2025, 2026])
+          got = [issue.issue_id for issue in issues]
+          expected = [
+              'landecon-101-1', 'landecon-101-2', 'landecon-101-3', 'landecon-101-4',
+              'landecon-102-1', 'landecon-102-2', 'landecon-102-3',
+          ]
+          print('live LANDECON issues:', got)
+          assert got == expected, got
+          PY
+
+      - name: Run unit suite
+        run: python -m unittest discover -s tests -v
+
+      - name: Persist bounded implementation
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name academic-door-bot
+          git config user.email academic-door-bot@users.noreply.github.com
+          git add collectors/history.py config/field-history.yml tests/test_r2_uwpress_family.py
+          git diff --cached --check
+          git commit -m 'feat(history): add LANDECON live UW Press expected set'
+          git push origin HEAD:r2/uwpress-landecon-20260910
