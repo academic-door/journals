@@ -43,6 +43,34 @@ class SpringerRosterCaptureTests(unittest.TestCase):
             ),
         )
 
+    def test_exact_compound_issue_url_keeps_canonical_first_issue_route(self) -> None:
+        record = {
+            "issue_id": "ere-85-3-4",
+            "volume": "85",
+            "issue": "3-4",
+            "issn": "0924-6460",
+            "official_url": "https://link.springer.com/journal/10640/volumes-and-issues/85-3",
+        }
+        self.assertEqual(record["official_url"], springer_issue_url(record))
+        self.assertEqual(
+            [
+                record["official_url"],
+                "https://link.springer.com/openurl?genre=journal&issn=0924-6460&volume=85&issue=3-4",
+            ],
+            springer_issue_url_candidates(record),
+        )
+
+    def test_exact_compound_issue_url_rejects_mismatched_first_issue(self) -> None:
+        with self.assertRaises(ValueError):
+            springer_issue_url(
+                {
+                    "issue_id": "ere-85-3-4",
+                    "volume": "85",
+                    "issue": "3-4",
+                    "official_url": "https://link.springer.com/journal/10640/volumes-and-issues/85-4",
+                }
+            )
+
     def test_openurl_candidate_is_available_when_issn_is_known(self) -> None:
         urls = springer_issue_url_candidates(
             {

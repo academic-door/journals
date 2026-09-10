@@ -79,6 +79,20 @@ def springer_issue_url(record: dict[str, Any]) -> str:
         base = official.rstrip("/")
         if base.endswith(f"/{volume}-{issue}"):
             return base
+        exact_route = re.fullmatch(
+            r"/journal/\d+/volumes-and-issues/(\d+)-(\d+)",
+            parsed.path.rstrip("/"),
+        )
+        first_issue = issue.split("-", 1)[0]
+        if (
+            exact_route
+            and exact_route.group(1) == volume
+            and exact_route.group(2) == first_issue
+        ):
+            # Springer canonically routes combined issues such as 3-4 through
+            # the first issue number (/85-3). Preserve that observed official
+            # URL instead of inventing a non-existent /85-3-4 route.
+            return base
         if base.endswith("/volumes-and-issues"):
             return f"{base}/{volume}-{issue}"
     journal_code = str(record.get("springer_journal_code", "") or "").strip()
