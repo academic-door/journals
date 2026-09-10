@@ -1,0 +1,61 @@
+name: Probe R3 QE audit acceptance
+
+on:
+  push:
+    branches:
+      - probe/r3-qe-audit-acceptance-20260910
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Audit current canonical data with PR-head semantics
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          data_sha="$(git rev-parse origin/data)"
+          test "$data_sha" = "02441d1bae1d02a39ac1040849f97b8270afff91"
+          rm -rf public/api data/backfill-state
+          git archive origin/data public/api data/backfill-state | tar -x
+          python scripts/audit_history_coverage.py \
+            --state data/backfill-state/field-2023-2024.json \
+            --state data/backfill-state/field-2025-2026.json \
+            --api-root public/api/v1 \
+            --report-json "$RUNNER_TEMP/history.json"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          report=json.loads(Path(os.environ['RUNNER_TEMP']).joinpath('history.json').read_text())
+          expected_counts={
+              'discovered':1326,
+              'state':1326,
+              'indexed':1262,
+              'archived':1262,
+              'publication_ready':1166,
+              'source_pending':160,
+          }
+          assert report['counts']==expected_counts, report['counts']
+          assert report['error_count']==193, report['error_count']
+          qe=[e for e in report['errors'] if e.startswith('qe-')]
+          assert not qe, qe
+          ere=[e for e in report['errors'] if e.startswith('ere-')]
+          expected_ere={
+              'ere-85-3-4: archive missing',
+              'ere-85-3-4: archive index entry missing',
+              'ere-86-1-2: archive missing',
+              'ere-86-1-2: archive index entry missing',
+          }
+          assert set(ere)==expected_ere, ere
+          print('R3_QE_ACCEPTANCE_OK', report['error_count'], report['counts'])
+          print('ERE_GUARD_PRESERVED', sorted(ere))
+          PY
