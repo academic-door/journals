@@ -1,0 +1,104 @@
+name: Bootstrap R2 Springer ERE tranche
+
+on:
+  push:
+    branches: [r2/springer-ere-20260910]
+    paths: [.github/workflows/bootstrap-r2-springer-ere.yml]
+
+permissions:
+  contents: write
+
+jobs:
+  patch-and-probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: r2/springer-ere-20260910
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Patch bounded Springer expected-set scope
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          history = Path('collectors/history.py')
+          text = history.read_text(encoding='utf-8')
+          marker = '''        elif platform == "wiley":\n'''
+          springer = '''        elif platform == "springer":\n            match = re.fullmatch(\n                r"/journal/\\d+/volumes-and-issues/(\\d+)-(\\d+(?:-\\d+)*)",\n                path.rstrip("/"),\n            )\n            if match:\n                volume, issue = match.groups()\n                container = link.find_parent("li") or link.parent\n                context = (\n                    " ".join(container.get_text(" ", strip=True).split())\n                    if container is not None\n                    else text\n                )\n                year_match = YEAR_PATTERN.search(context)\n                if year_match:\n                    year = int(year_match.group(1))\n'''
+          if text.count(marker) != 1:
+              raise SystemExit(f'expected one Wiley parser marker, found {text.count(marker)}')
+          history.write_text(text.replace(marker, springer + marker, 1), encoding='utf-8')
+
+          config = Path('config/field-history.yml')
+          text = config.read_text(encoding='utf-8')
+          old_ere = '''  ERE:\n    platform: crossref\n    issn: 0924-6460\n    issue_url_template: https://link.springer.com/journal/10640/volumes-and-issues\n'''
+          new_ere = '''  ERE:\n    platform: springer\n    issn: 0924-6460\n    archive_url: https://link.springer.com/journal/10640/volumes-and-issues\n    allowed_host: link.springer.com\n    issue_url_template: https://link.springer.com/journal/10640/volumes-and-issues/{volume}-{issue}\n'''
+          if text.count(old_ere) != 1:
+              raise SystemExit(f'expected one ERE field-history block, found {text.count(old_ere)}')
+          config.write_text(text.replace(old_ere, new_ere, 1), encoding='utf-8')
+
+          workflow = Path('.github/workflows/backfill-field-history.yml')
+          text = workflow.read_text(encoding='utf-8')
+          anchor = '''      - name: Check pending work\n'''
+          ere_refresh = '''      - name: Refresh live Springer ERE authoritative discovery evidence\n        shell: bash\n        run: |\n          set -euo pipefail\n          if [ "$GITHUB_EVENT_NAME" != "schedule" ]; then\n            echo "Springer ERE coverage refresh is scheduled-run only."\n            exit 0\n          fi\n          python scripts/backfill_history.py \\\n            --config config/field-history.yml \\\n            --state data/backfill-state/field-2025-2026.json \\\n            --journals ERE \\\n            --from-year 2025 \\\n            --to-year 2026 \\\n            --refresh-discovery-only\n\n'''
+          if text.count(anchor) != 1:
+              raise SystemExit(f'expected one pending-work anchor, found {text.count(anchor)}')
+          workflow.write_text(text.replace(anchor, ere_refresh + anchor, 1), encoding='utf-8')
+
+          test = Path('tests/test_r2_springer_family.py')
+          test.write_text('''from pathlib import Path\nimport unittest\n\nimport yaml\n\nfrom collectors.history import parse_archive\n\nROOT = Path(__file__).resolve().parents[1]\nCONFIG = ROOT / "config" / "field-history.yml"\nWORKFLOW = ROOT / ".github" / "workflows" / "backfill-field-history.yml"\n\n\nclass R2SpringerFamilyContractTests(unittest.TestCase):\n    def test_ere_uses_live_springer_archive(self):\n        journals = yaml.safe_load(CONFIG.read_text(encoding="utf-8"))["journals"]\n        definition = journals["ERE"]\n        self.assertEqual("springer", definition["platform"])\n        self.assertEqual(\n            "https://link.springer.com/journal/10640/volumes-and-issues",\n            definition["archive_url"],\n        )\n        self.assertEqual("link.springer.com", definition["allowed_host"])\n        self.assertNotIn("observed_evidence_path", definition)\n\n    def test_scheduled_refresh_includes_ere(self):\n        text = WORKFLOW.read_text(encoding="utf-8")\n        self.assertIn("Refresh live Springer ERE authoritative discovery evidence", text)\n        self.assertIn("--journals ERE", text)\n\n    def test_springer_archive_parser_accepts_issue_link(self):\n        html = b'''<ul><li><a href="/journal/10640/volumes-and-issues/89-9">Issue 9</a> September 2026</li></ul>'''\n        issues = parse_archive(\n            html,\n            "https://link.springer.com/journal/10640/volumes-and-issues",\n            journal="ERE",\n            platform="springer",\n            years=[2026],\n            allowed_host="link.springer.com",\n        )\n        self.assertEqual(["ere-89-9"], [item.issue_id for item in issues])\n        self.assertEqual(\n            "https://link.springer.com/journal/10640/volumes-and-issues/89-9",\n            issues[0].official_url,\n        )\n\n    def test_springer_archive_parser_rejects_wrong_host(self):\n        html = b'''<ul><li><a href="https://example.com/journal/10640/volumes-and-issues/89-9">Issue 9</a> September 2026</li></ul>'''\n        issues = parse_archive(\n            html,\n            "https://link.springer.com/journal/10640/volumes-and-issues",\n            journal="ERE",\n            platform="springer",\n            years=[2026],\n            allowed_host="link.springer.com",\n        )\n        self.assertEqual([], issues)\n\n\nif __name__ == "__main__":\n    unittest.main()\n''', encoding='utf-8')
+          PY
+      - name: Probe exact live Springer issue set
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import yaml
+          from pathlib import Path
+          from collectors.history import discover_official_issues
+
+          config = yaml.safe_load(Path('config/field-history.yml').read_text(encoding='utf-8'))['journals']
+          issues = discover_official_issues('ERE', config['ERE'], years=range(2025, 2027))
+          got = [item.issue_id for item in issues]
+          wanted = [f'ere-88-{i}' for i in range(1, 13)] + [f'ere-89-{i}' for i in range(1, 10)]
+          print('ERE', got)
+          if got != wanted:
+              raise SystemExit(f'ERE live Springer issue set mismatch: {got} != {wanted}')
+          PY
+      - name: Verify 2026 ERE archives already ready on data branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          python - <<'PY'
+          import json
+          import subprocess
+
+          for i in range(1, 10):
+              issue_id = f'ere-89-{i}'
+              path = f'public/api/v1/journals/ere/issues/{issue_id}.json'
+              raw = subprocess.check_output(['git', 'show', f'origin/data:{path}'])
+              payload = json.loads(raw)
+              if payload.get('status') != 'ready':
+                  raise SystemExit(f'{issue_id} is not ready: {payload.get("status")}')
+          PY
+      - name: Run bounded regression tests
+        run: python -m unittest tests.test_r2_springer_family -v
+      - name: Commit bounded implementation and remove bootstrap workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm .github/workflows/bootstrap-r2-springer-ere.yml
+          git config user.name "academic-door-bot"
+          git config user.email "academic-door-bot@users.noreply.github.com"
+          git add collectors/history.py config/field-history.yml .github/workflows/backfill-field-history.yml tests/test_r2_springer_family.py
+          git add -u .github/workflows/bootstrap-r2-springer-ere.yml
+          git commit -m "feat(history): add ERE live Springer expected set"
+          git push origin HEAD:r2/springer-ere-20260910
