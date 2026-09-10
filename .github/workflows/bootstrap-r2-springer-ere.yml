@@ -6,7 +6,7 @@ on:
     paths: [.github/workflows/bootstrap-r2-springer-ere.yml]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   patch-and-probe:
@@ -105,3 +105,16 @@ jobs:
           PY
       - name: Run full unit suite against bounded patch
         run: python -m unittest discover -s tests -v
+      - name: Persist verified bounded implementation
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add collectors/history.py config/field-history.yml
+          if git diff --cached --quiet; then
+            echo "No bounded implementation changes to persist."
+            exit 0
+          fi
+          git commit -m "feat(history): add ERE live Springer expected set"
+          git push origin HEAD:r2/springer-ere-20260910
