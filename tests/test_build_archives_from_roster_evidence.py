@@ -8,6 +8,7 @@ from unittest.mock import patch
 
 from scripts.build_archives_from_roster_evidence import (
     _metadata_for_dois,
+    _split_volume_issue,
     build_candidate_from_evidence,
     process_evidence,
 )
@@ -15,6 +16,11 @@ from scripts.translate_issue import _source_hash
 
 
 class BuildArchivesFromRosterEvidenceTests(unittest.TestCase):
+    def test_compound_issue_id_preserves_full_issue_label(self) -> None:
+        self.assertEqual(("85", "3-4"), _split_volume_issue("ere-85-3-4", "ere"))
+        self.assertEqual(("86", "1-2"), _split_volume_issue("ere-86-1-2", "ere"))
+        self.assertEqual(("84", "1"), _split_volume_issue("ere-84-1", "ere"))
+
     def write(self, root: Path, relative: str, value: str) -> None:
         path = root / relative
         path.parent.mkdir(parents=True, exist_ok=True)
