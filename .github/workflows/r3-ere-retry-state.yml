@@ -1,0 +1,71 @@
+name: R3 ERE retry state repair
+
+on:
+  push:
+    branches:
+      - r3/ere-retry-state-20260910
+
+permissions:
+  contents: write
+
+concurrency:
+  group: journal-data-update
+  cancel-in-progress: false
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Repair exactly two ERE retry checkpoints
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          data_tree="$RUNNER_TEMP/data-tree"
+          git worktree add "$data_tree" origin/data
+          git -C "$data_tree" switch -C data
+          DATA_TREE="$data_tree" python - <<'PY'
+          import json, os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          root = Path(os.environ['DATA_TREE'])
+          state_path = root / 'data/backfill-state/field-2023-2024.json'
+          state = json.loads(state_path.read_text(encoding='utf-8'))
+          discovery = state['discovery']['ERE']
+          expected = {
+              'ere-85-3-4': '/journal/10640/volumes-and-issues/85-3',
+              'ere-86-1-2': '/journal/10640/volumes-and-issues/86-1',
+          }
+          assert discovery.get('authority') == 'official_archive', discovery.get('authority')
+          for issue_id, suffix in expected.items():
+              assert issue_id in discovery.get('issue_ids', []), issue_id
+              ref = discovery['issue_refs'][issue_id]
+              assert ref['official_url'].endswith(suffix), (issue_id, ref['official_url'])
+              entry = state['issues'][issue_id]
+              assert entry.get('status') == 'blocked', (issue_id, entry.get('status'))
+              archive = root / 'public/api/v1/journals/ere/issues' / f'{issue_id}.json'
+              assert not archive.exists(), f'unexpected archive exists: {archive}'
+              entry['official_url'] = ref['official_url']
+              entry['status'] = 'blocked'
+              entry['last_error'] = 'archive_missing'
+              entry['last_error_code'] = 'archive_missing'
+              entry['retry_class'] = 'transient'
+              entry['content_status'] = 'blocked'
+              entry['source_status'] = 'source_pending'
+              entry['publication_state'] = 'blocked'
+              entry.pop('next_retry_at', None)
+          state['updated_at'] = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+          state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          print('ERE_RETRY_STATE_OK', json.dumps({k: state['issues'][k] for k in expected}, sort_keys=True))
+          PY
+          git -C "$data_tree" config user.name "academic-door-bot"
+          git -C "$data_tree" config user.email "academic-door-bot@users.noreply.github.com"
+          git -C "$data_tree" add data/backfill-state/field-2023-2024.json
+          git -C "$data_tree" diff --cached --check
+          git -C "$data_tree" commit -m "Repair ERE compound retry checkpoints"
+          git -C "$data_tree" push origin data
