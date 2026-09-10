@@ -1,0 +1,23 @@
+name: R3 ERE discovery refresh
+
+on:
+  push:
+    branches:
+      - r3/ere-discovery-refresh-20260910
+
+permissions:
+  contents: write
+  models: read
+
+jobs:
+  refresh:
+    uses: academic-door/journals/.github/workflows/backfill-field-history.yml@main
+    with:
+      journal: ERE
+      from_year: "2023"
+      to_year: "2024"
+      max_issues: "1"
+      max_translations: "0"
+      max_journals: "1"
+      refresh_discovery_only: true
+    secrets: inherit
