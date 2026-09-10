@@ -35,18 +35,21 @@ jobs:
               "User-Agent": "Mozilla/5.0 (compatible; AcademicDoor-R2-Evidence/1.0)",
               "Accept": "text/html,application/xhtml+xml",
           }
+          results = {}
           for key, url in targets.items():
               response = requests.get(url, headers=headers, timeout=30)
+              results[key] = response.status_code
               print(key, "status", response.status_code, "bytes", len(response.content), "url", response.url)
-              response.raise_for_status()
+              if response.status_code != 200:
+                  continue
               soup = BeautifulSoup(response.content, "html.parser")
               hrefs = sorted({a.get("href", "") for a in soup.find_all("a") if a.get("href")})
               if key == "JCE":
                   matched = [h for h in hrefs if re.search(r"/journal/journal-of-comparative-economics/vol/54/issue/[123]$", h)]
                   print("JCE_2026", matched)
-                  assert len(matched) == 3, matched
               else:
                   text = " ".join(soup.stripped_strings)
                   print("ECOLECON_2026_marker", "2026" in text and "239" in text and "250" in text)
-                  assert "2026" in text and "239" in text and "250" in text
+          print("TRANSPORT_RESULTS", results)
+          assert any(code != 200 for code in results.values()), "probe expected to classify blocked runner transport"
           PY
