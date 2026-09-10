@@ -58,6 +58,19 @@ def ready_issue() -> dict:
     return stamp_issue_readiness(normalize_issue_content(issue))
 
 
+def ready_state_entry(*, year: int = 2024, volume: str = "114", issue: str = "1") -> dict:
+    return {
+        "journal": "AER",
+        "year": year,
+        "volume": volume,
+        "issue": issue,
+        "status": "ready",
+        "content_status": "complete",
+        "source_status": "official_verified",
+        "publication_state": "ready",
+    }
+
+
 class HistoryCoverageAuditTests(unittest.TestCase):
     def test_script_entrypoint_resolves_repo_imports(self) -> None:
         script = Path(__file__).resolve().parents[1] / "scripts" / "audit_history_coverage.py"
@@ -96,18 +109,7 @@ class HistoryCoverageAuditTests(unittest.TestCase):
         )
         state = {
             "schema_version": "1.1",
-            "issues": {
-                "aer-114-1": {
-                    "journal": "AER",
-                    "year": 2024,
-                    "volume": "114",
-                    "issue": "1",
-                    "status": "ready",
-                    "content_status": "complete",
-                    "source_status": "official_verified",
-                    "publication_state": "ready",
-                }
-            },
+            "issues": {"aer-114-1": ready_state_entry()},
             "discovery": {
                 "AER": {
                     "issue_ids": ["aer-114-1"],
@@ -119,6 +121,38 @@ class HistoryCoverageAuditTests(unittest.TestCase):
             },
         }
         return [state], {"AER": {"id": "aer", "name": "AER"}}, api_root
+
+    def _add_inventory_archive(
+        self,
+        states: list[dict],
+        api_root: Path,
+        *,
+        indexed: bool,
+    ) -> str:
+        issue_id = "aer-113-4"
+        issue_dir = api_root / "journals" / "aer" / "issues"
+        issue = ready_issue()
+        issue["issue_id"] = issue_id
+        issue["volume"] = "113"
+        issue["issue"] = "4"
+        issue["source_url"] = "https://www.aeaweb.org/issues/699"
+        (issue_dir / f"{issue_id}.json").write_text(json.dumps(issue), encoding="utf-8")
+        states[0]["issues"][issue_id] = ready_state_entry(
+            year=2023, volume="113", issue="4"
+        )
+        if indexed:
+            index_path = issue_dir / "index.json"
+            payload = json.loads(index_path.read_text(encoding="utf-8"))
+            payload["issues"].append(
+                {
+                    "issue_id": issue_id,
+                    "content_status": "complete",
+                    "source_status": "official_verified",
+                    "publication_state": "ready",
+                }
+            )
+            index_path.write_text(json.dumps(payload), encoding="utf-8")
+        return issue_id
 
     def test_four_way_consistency_passes(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -145,6 +179,74 @@ class HistoryCoverageAuditTests(unittest.TestCase):
         self.assertIn("archive missing", joined)
         self.assertIn("archive index entry missing", joined)
         self.assertIn("state publication ready != archive blocked", joined)
+
+    def test_ready_archive_inventory_may_outlive_expected_set_window(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            states, journals, api_root = self._fixture(Path(directory))
+            issue_id = self._add_inventory_archive(states, api_root, indexed=True)
+            report = audit_history_integrity(
+                states, journals=journals, api_root=api_root
+            )
+        self.assertEqual("pass", report["status"], report["errors"])
+        self.assertNotIn(
+            f"{issue_id}: state entry absent from discovery snapshot", report["errors"]
+        )
+        self.assertEqual(1, report["counts"]["discovered"])
+        self.assertEqual(1, report["counts"]["state"])
+
+    def test_inventory_only_state_still_requires_matching_index(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            states, journals, api_root = self._fixture(Path(directory))
+            issue_id = self._add_inventory_archive(states, api_root, indexed=False)
+            report = audit_history_integrity(
+                states, journals=journals, api_root=api_root
+            )
+        self.assertIn(
+            f"{issue_id}: state entry absent from discovery snapshot", report["errors"]
+        )
+
+    def test_unbacked_extra_state_remains_an_orphan_error(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            states, journals, api_root = self._fixture(Path(directory))
+            issue_id = "aer-113-4"
+            states[0]["issues"][issue_id] = ready_state_entry(
+                year=2023, volume="113", issue="4"
+            )
+            report = audit_history_integrity(
+                states, journals=journals, api_root=api_root
+            )
+        self.assertIn(
+            f"{issue_id}: state entry absent from discovery snapshot", report["errors"]
+        )
+
+    def test_explicit_expected_set_exclusion_is_not_an_orphan(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            states, journals, api_root = self._fixture(Path(directory))
+            issue_id = "aer-115-4"
+            states[0]["issues"][issue_id] = {
+                "journal": "AER",
+                "year": 2025,
+                "volume": "115",
+                "issue": "4",
+                "status": "blocked",
+                "last_error": "not yet published",
+            }
+            states[0]["expected_issue_exclusions"] = {
+                issue_id: {
+                    "status": "not_yet_published",
+                    "journal": "AER",
+                    "year": 2025,
+                    "volume": "115",
+                    "issue": "4",
+                }
+            }
+            report = audit_history_integrity(
+                states, journals=journals, api_root=api_root
+            )
+        self.assertEqual("pass", report["status"], report["errors"])
+        self.assertNotIn(
+            f"{issue_id}: state entry absent from discovery snapshot", report["errors"]
+        )
 
 
 if __name__ == "__main__":
