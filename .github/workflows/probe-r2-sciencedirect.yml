@@ -1,4 +1,4 @@
-name: Probe R2 remaining archive transports
+name: Probe R2 Land Economics exact inventory
 
 on:
   push:
@@ -13,38 +13,43 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Probe official archive surfaces
+      - uses: actions/checkout@v7
+      - name: Fetch official UW Press archive and print exact 2025-2026 issue links
         shell: bash
         run: |
           set -euo pipefail
-          urls=(
-            'LANDECON|https://le.uwpress.org/content/by/year'
-            'RESTAT|https://direct.mit.edu/rest/issue'
-            'ECTA|https://onlinelibrary.wiley.com/loi/14680262'
-            'IER|https://onlinelibrary.wiley.com/loi/14682354'
-            'AJAE|https://onlinelibrary.wiley.com/loi/14678276'
-            'TE|https://onlinelibrary.wiley.com/loi/15567568'
-            'RAND|https://onlinelibrary.wiley.com/loi/17562171'
-            'JF|https://onlinelibrary.wiley.com/loi/15406261'
-          )
-          for pair in "${urls[@]}"; do
-            key="${pair%%|*}"
-            url="${pair#*|}"
-            body="$RUNNER_TEMP/${key}.html"
-            headers="$RUNNER_TEMP/${key}.headers"
-            code=$(curl -L --compressed --retry 2 --connect-timeout 10 --max-time 60 \
-              -A 'AcademicDoorJournals/0.1 (non-profit academic metadata service; https://academic-door.github.io/)' \
-              -D "$headers" -o "$body" -sS -w '%{http_code}' "$url" || true)
-            echo "=== ${key} ==="
-            echo "URL: $url"
-            echo "HTTP: $code"
-            echo "BYTES: $(wc -c < "$body" 2>/dev/null || echo 0)"
-            grep -i '^content-type:' "$headers" | tail -1 || true
-            echo '-- archive markers --'
-            grep -Eo 'href="[^"]+"' "$body" 2>/dev/null \
-              | sed -E 's/^href="|"$//g' \
-              | grep -Ei '(issue|toc|volume|content/[0-9]{4})' \
-              | head -30 || true
-            grep -Eo '(2025|2026|Volume [0-9]+|Vol\. [0-9]+)' "$body" 2>/dev/null \
-              | head -30 || true
-          done
+          url='https://le.uwpress.org/content/by/year'
+          body="$RUNNER_TEMP/landecon.html"
+          code=$(curl -L --compressed --retry 2 --connect-timeout 10 --max-time 60 \
+            -A 'AcademicDoorJournals/0.1 (non-profit academic metadata service; https://academic-door.github.io/)' \
+            -o "$body" -sS -w '%{http_code}' "$url")
+          test "$code" = 200
+          echo "HTTP: $code"
+          echo '-- exact issue links --'
+          grep -Eo 'href="[^"]+"' "$body" \
+            | sed -E 's/^href="|"$//g' \
+            | grep -E '^/content/(101|102)/[1-4](\.toc)?$' \
+            | sort -u
+          echo '-- exact page context --'
+          grep -Eo '.{0,100}(Vol\. 10[12]|Volume 10[12]|2025|2026).{0,180}' "$body" \
+            | head -80 || true
+      - name: Verify canonical 2025-2026 archive readiness
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          python - <<'PY'
+          import json, subprocess
+          expected = [
+              'landecon-101-1','landecon-101-2','landecon-101-3','landecon-101-4',
+              'landecon-102-1','landecon-102-2','landecon-102-3',
+          ]
+          rows=[]
+          for issue_id in expected:
+              raw=subprocess.check_output(['git','show',f'origin/data:public/api/v1/journals/landecon/issues/{issue_id}.json'])
+              p=json.loads(raw)
+              row=(issue_id,p.get('content_status'),p.get('source_status'),p.get('publication_state'),p.get('expected_article_count'),len(p.get('articles',[])))
+              rows.append(row)
+              print(row)
+          assert all(r[1]=='complete' and r[3]=='ready' for r in rows), rows
+          PY
