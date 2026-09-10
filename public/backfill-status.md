@@ -1,13 +1,16 @@
 # Field journal history backfill status
 
-Updated: 2026-09-10T17:00:58+00:00
+Updated: 2026-09-10T16:27:58+00:00
 
 Discovery coverage: 1326 discovered · 1262 archived · 1166 publication ready · 64 missing · 96 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
 | 2023-2024 | 606 | 0 | 48 | 54 |
-| 2025-2026 | 569 | 0 | 17 | 42 |
+| 2023-2026 | 279 | 0 | 16 | 5 |
+| 2024-2024 | 12 | 0 | 0 | 0 |
+| 2025-2026 | 1 | 0 | 0 | 0 |
+| 2026-2026 | 10 | 0 | 0 | 0 |
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -115,7 +118,6 @@ Discovery coverage: 1326 discovered · 1262 archived · 1166 publication ready �
 | AER | aer-116-6 | 2026 | ready |  |
 | AER | aer-116-7 | 2026 | ready |  |
 | AER | aer-116-8 | 2026 | ready |  |
-| AER | aer-116-9 | 2026 | ready |  |
 | AERI | aeri-5-1 | 2023 | ready |  |
 | AERI | aeri-5-2 | 2023 | ready |  |
 | AERI | aeri-5-3 | 2023 | ready |  |
@@ -130,7 +132,6 @@ Discovery coverage: 1326 discovered · 1262 archived · 1166 publication ready �
 | AERI | aeri-7-4 | 2025 | ready |  |
 | AERI | aeri-8-1 | 2026 | ready |  |
 | AERI | aeri-8-2 | 2026 | ready |  |
-| AERI | aeri-8-3 | 2026 | ready |  |
 | AJAE | ajae-105-1 | 2023 | source_pending |  |
 | AJAE | ajae-105-2 | 2023 | source_pending |  |
 | AJAE | ajae-105-3 | 2023 | source_pending |  |
@@ -362,10 +363,10 @@ Discovery coverage: 1326 discovered · 1262 archived · 1166 publication ready �
 | ERE | ere-84-2 | 2023 | ready |  |
 | ERE | ere-84-3 | 2023 | ready |  |
 | ERE | ere-84-4 | 2023 | ready |  |
-| ERE | ere-85-1 | 2023 | ready |  |
+| ERE | ere-85-1 | 2023 | ready | archive_content_gate_failed |
 | ERE | ere-85-2 | 2023 | ready |  |
-| ERE | ere-85-3-4 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
-| ERE | ere-86-1-2 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-85-3-4 | 2023 | blocked | archive_content_gate_failed |
+| ERE | ere-86-1-2 | 2023 | blocked | archive_content_gate_failed |
 | ERE | ere-86-3 | 2023 | ready |  |
 | ERE | ere-86-4 | 2023 | ready |  |
 | ERE | ere-87-1 | 2024 | ready |  |
@@ -376,7 +377,7 @@ Discovery coverage: 1326 discovered · 1262 archived · 1166 publication ready �
 | ERE | ere-87-3 | 2024 | ready |  |
 | ERE | ere-87-4 | 2024 | ready |  |
 | ERE | ere-87-5 | 2024 | ready |  |
-| ERE | ere-87-6 | 2024 | ready |  |
+| ERE | ere-87-6 | 2024 | ready | archive_content_gate_failed |
 | ERE | ere-87-7 | 2024 | ready |  |
 | ERE | ere-87-8 | 2024 | ready |  |
 | ERE | ere-87-9 | 2024 | ready |  |
@@ -533,15 +534,15 @@ Discovery coverage: 1326 discovered · 1262 archived · 1166 publication ready �
 | JDE | jde-181-c | 2026 | ready |  |
 | JDE | jde-182-c | 2026 | ready |  |
 | JDE | jde-183-c | 2026 | ready |  |
-| JEBO | jebo-205-c | 2023 | ready |  |
+| JEBO | jebo-205-c | 2023 | ready | archive_missing |
 | JEBO | jebo-206-c | 2023 | ready |  |
 | JEBO | jebo-207-c | 2023 | ready |  |
-| JEBO | jebo-208-c | 2023 | ready |  |
+| JEBO | jebo-208-c | 2023 | ready | archive_missing |
 | JEBO | jebo-209-c | 2023 | ready |  |
 | JEBO | jebo-210-c | 2023 | ready |  |
 | JEBO | jebo-211-c | 2023 | ready |  |
 | JEBO | jebo-212-c | 2023 | ready |  |
-| JEBO | jebo-213-c | 2023 | ready |  |
+| JEBO | jebo-213-c | 2023 | ready | possible_incomplete_volume: 2 articles collected vs current issue 26; needs offi |
 | JEBO | jebo-214-c | 2023 | ready |  |
 | JEBO | jebo-215-c | 2023 | ready |  |
 | JEBO | jebo-216-c | 2023 | ready |  |
@@ -911,7 +912,7 @@ Discovery coverage: 1326 discovered · 1262 archived · 1166 publication ready �
 | JOE | joe-238-1 | 2024 | ready |  |
 | JOE | joe-238-2 | 2024 | ready |  |
 | JOE | joe-239-1 | 2024 | ready |  |
-| JOE | joe-239-2 | 2024 | ready |  |
+| JOE | joe-239-2 | 2024 | ready | archive_missing |
 | JOE | joe-240-1 | 2024 | ready |  |
 | JOE | joe-240-2 | 2024 | ready |  |
 | JOE | joe-241-1 | 2024 | ready |  |
@@ -1216,7 +1217,6 @@ Discovery coverage: 1326 discovered · 1262 archived · 1166 publication ready �
 | RES | res-93-2 | 2026 | ready |  |
 | RES | res-93-3 | 2026 | ready |  |
 | RES | res-93-4 | 2026 | ready |  |
-| RES | res-93-5 | 2026 | ready |  |
 | RESTAT | restat-105-1 | 2023 | ready |  |
 | RESTAT | restat-105-2 | 2023 | ready |  |
 | RESTAT | restat-105-3 | 2023 | ready |  |
