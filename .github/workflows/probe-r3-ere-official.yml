@@ -1,0 +1,39 @@
+name: Probe R3 ERE official identity
+
+on:
+  push:
+    branches:
+      - probe/r3-ere-official-20260910
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Discover exact 2023-2024 ERE issues from official Springer archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp data/backfill-state/field-2023-2024.json "$RUNNER_TEMP/ere-state.json"
+          python scripts/backfill_history.py \
+            --config config/field-history.yml \
+            --state "$RUNNER_TEMP/ere-state.json" \
+            --journal ERE \
+            --from-year 2023 \
+            --to-year 2024 \
+            --refresh-discovery-only
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          s=json.loads(Path(os.environ['RUNNER_TEMP']).joinpath('ere-state.json').read_text())
+          d=s['discovery']['ERE']
+          print('ERE_OFFICIAL_2023_2024',json.dumps(d,sort_keys=True))
+          PY
