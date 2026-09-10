@@ -8,6 +8,8 @@ import sys
 from datetime import datetime
 from pathlib import Path, PurePosixPath
 
+from scripts.state_precedence import choose_discovery_snapshot, choose_issue_entry
+
 
 ALLOWED_PATHS = (
     "public/api",
@@ -158,9 +160,6 @@ def _merge_translation_cache_json(
         else:
             generated_stamp = translated_at(generated_item)
             target_stamp = translated_at(target_item)
-            # The target is normally newer because it was fetched after the
-            # baseline. Only replace it when the generated translation is
-            # demonstrably newer.
             selected = (
                 generated_item
                 if generated_stamp is not None
@@ -189,10 +188,10 @@ def _merge_backfill_state_json(
     """Merge concurrent backfill-state writers per issue and per journal.
 
     A sprint and another writer can both update the same state file while
-    touching different issues or discovery journals.  Treat the file as a
-    per-issue / per-journal map instead of a single top-level unit: prefer a
-    higher publication rank, then a newer attempt stamp, and otherwise keep
-    the freshly fetched branch so concurrent progress survives.
+    touching different issues or discovery journals. Treat the file as a
+    per-issue / per-journal map instead of a single top-level unit. Issue
+    records preserve stronger publication truth and actual attempt freshness;
+    discovery records additionally enforce publisher-authority precedence.
     """
     try:
         baseline_value = json.loads(baseline_path.read_text(encoding="utf-8"))
@@ -209,67 +208,19 @@ def _merge_backfill_state_json(
     missing = object()
     merged = dict(target_value)
 
-    state_rank = {
-        "ready": 4,
-        "translation_partial": 3,
-        "source_pending": 2,
-        "enriching": 1,
-        "blocked": 0,
-    }
-
-    def issue_rank(payload: dict) -> tuple[int, int, int]:
-        publication_state = (
-            payload.get("publication_state") or payload.get("status") or "blocked"
-        )
-        return (
-            state_rank.get(str(publication_state), 0),
-            int(payload.get("content_status") == "complete"),
-            int(
-                payload.get("source_status")
-                in {"official_verified", "publisher_verified"}
-            ),
-        )
-
-    def issue_stamp(payload: dict) -> str:
-        return str(
-            payload.get("last_attempt_at") or payload.get("updated_at") or ""
-        )
-
     def choose_issue(existing: object, incoming: object) -> object:
         if existing is missing:
             return incoming
         if incoming is missing:
             return existing
-        if not isinstance(existing, dict) or not isinstance(incoming, dict):
-            return incoming
-        existing_rank = issue_rank(existing)
-        incoming_rank = issue_rank(incoming)
-        if existing_rank > incoming_rank:
-            return existing
-        if incoming_rank > existing_rank:
-            return incoming
-        existing_stamp = issue_stamp(existing)
-        incoming_stamp = issue_stamp(incoming)
-        if existing_stamp and existing_stamp >= incoming_stamp:
-            return existing
-        return incoming
+        return choose_issue_entry(existing, incoming)
 
-    def choose_timestamped(existing: object, incoming: object) -> object:
+    def choose_discovery(existing: object, incoming: object) -> object:
         if existing is missing:
             return incoming
         if incoming is missing:
             return existing
-        if not isinstance(existing, dict) or not isinstance(incoming, dict):
-            return incoming
-        existing_stamp = str(
-            existing.get("refreshed_at") or existing.get("updated_at") or ""
-        )
-        incoming_stamp = str(
-            incoming.get("refreshed_at") or incoming.get("updated_at") or ""
-        )
-        if incoming_stamp and incoming_stamp > existing_stamp:
-            return incoming
-        return existing
+        return choose_discovery_snapshot(existing, incoming)
 
     baseline_issues = baseline_value.get("issues")
     generated_issues = generated_value.get("issues")
@@ -323,7 +274,7 @@ def _merge_backfill_state_json(
             elif target_item == generated_item:
                 selected = target_item
             elif key == "discovery":
-                selected = choose_timestamped(target_item, generated_item)
+                selected = choose_discovery(target_item, generated_item)
             else:
                 selected = target_item
             if selected is missing:
