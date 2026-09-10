@@ -172,6 +172,13 @@ def parse_archive(
                 volume = panel_match.group(1)
                 issue = issue_match.group(1)
                 year = int(year_match.group(1))
+        elif platform == "highwire":
+            match = re.fullmatch(r"/content/(\d+)/(\d+)", path.rstrip("/"))
+            archive_container = link.find_parent("div", class_="archive-issue-list")
+            year_match = YEAR_PATTERN.search(archive_url)
+            if match and archive_container is not None and year_match:
+                volume, issue = match.groups()
+                year = int(year_match.group(1))
         elif platform == "wiley":
             match = re.search(r"/toc/14680262/(20\d{2})/(\d+)/(\d+)", path)
             if match:
