@@ -1,6 +1,9 @@
 name: Refresh R2 Cambridge expected sets
 
 on:
+  push:
+    branches: [propagate/cambridge-jeh-20260910]
+    paths: [.github/workflows/refresh-r2-cambridge.yml]
   schedule:
     - cron: "25 23 * * *"
   workflow_dispatch:
