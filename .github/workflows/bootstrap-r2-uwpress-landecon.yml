@@ -20,7 +20,7 @@ jobs:
           cache: pip
       - run: python -m pip install -r requirements.txt
 
-      - name: Apply bounded UW Press parser, LANDECON config, and tests
+      - name: Apply bounded UW Press parser and LANDECON config
         shell: bash
         run: |
           set -euo pipefail
@@ -71,10 +71,83 @@ jobs:
           if needle not in text:
               raise SystemExit('LANDECON config anchor not found')
           config.write_text(text.replace(needle, replacement, 1))
-
-          test = Path('tests/test_r2_uwpress_family.py')
-          test.write_text('''from pathlib import Path\nimport unittest\n\nimport yaml\n\nfrom collectors.history import parse_archive\n\n\nROOT = Path(__file__).resolve().parents[1]\nCONFIG = ROOT / "config" / "field-history.yml"\nWORKFLOW = ROOT / ".github" / "workflows" / "refresh-r2-uwpress.yml"\nDEPLOY_WORKFLOW = ROOT / ".github" / "workflows" / "deploy.yml"\n\n\nclass R2UWPressFamilyContractTests(unittest.TestCase):\n    def test_landecon_uses_live_uwpress_year_archives(self):\n        journals = yaml.safe_load(CONFIG.read_text(encoding="utf-8"))["journals"]\n        definition = journals["LANDECON"]\n        self.assertEqual("highwire", definition["platform"])\n        self.assertEqual(\n            "https://le.uwpress.org/content/by/year/{year}",\n            definition["archive_url_template"],\n        )\n        self.assertEqual("le.uwpress.org", definition["allowed_host"])\n        self.assertEqual(\n            "https://le.uwpress.org/content/{volume}/{issue}",\n            definition["issue_url_template"],\n        )\n\n    def test_highwire_archive_parser_requires_archive_container_and_allowed_host(self):\n        archive_url = "https://le.uwpress.org/content/by/year/2026"\n        html = b'''<html><body>\n          <div class="archive-issue-list">\n            <a href="/content/102/1">January 01, 2026: Vol. 102, Issue 1</a>\n            <a href="/content/102/2">March 01, 2026: Vol. 102, Issue 2</a>\n            <a href="https://example.com/content/102/4">Wrong host</a>\n          </div>\n          <a href="/content/999/9">Current issue outside archive list</a>\n        </body></html>'''\n        issues = parse_archive(\n            html,\n            archive_url,\n            journal="LANDECON",\n            platform="highwire",\n            years=[2026],\n            allowed_host="le.uwpress.org",\n        )\n        self.assertEqual(\n            ["landecon-102-1", "landecon-102-2"],\n            [item.issue_id for item in issues],\n        )\n\n    def test_scheduled_refresh_is_bounded_to_landecon_discovery(self):\n        text = WORKFLOW.read_text(encoding="utf-8")\n        self.assertIn("journal: LANDECON", text)\n        self.assertIn('from_year: "2025"', text)\n        self.assertIn('to_year: "2026"', text)\n        self.assertIn('max_translations: "0"', text)\n        self.assertIn("refresh_discovery_only: true", text)\n        self.assertIn("backfill-field-history.yml@main", text)\n\n    def test_successful_uwpress_refresh_triggers_production_deploy(self):\n        text = DEPLOY_WORKFLOW.read_text(encoding="utf-8")\n        self.assertIn("- Refresh R2 UW Press expected sets", text)\n        self.assertIn("github.event.workflow_run.conclusion == 'success'", text)\n\n\nif __name__ == "__main__":\n    unittest.main()\n''')
           PY
+
+      - name: Write bounded UW Press contract tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > tests/test_r2_uwpress_family.py <<'PYTEST'
+          from pathlib import Path
+          import unittest
+
+          import yaml
+
+          from collectors.history import parse_archive
+
+
+          ROOT = Path(__file__).resolve().parents[1]
+          CONFIG = ROOT / "config" / "field-history.yml"
+          WORKFLOW = ROOT / ".github" / "workflows" / "refresh-r2-uwpress.yml"
+          DEPLOY_WORKFLOW = ROOT / ".github" / "workflows" / "deploy.yml"
+
+
+          class R2UWPressFamilyContractTests(unittest.TestCase):
+              def test_landecon_uses_live_uwpress_year_archives(self):
+                  journals = yaml.safe_load(CONFIG.read_text(encoding="utf-8"))["journals"]
+                  definition = journals["LANDECON"]
+                  self.assertEqual("highwire", definition["platform"])
+                  self.assertEqual(
+                      "https://le.uwpress.org/content/by/year/{year}",
+                      definition["archive_url_template"],
+                  )
+                  self.assertEqual("le.uwpress.org", definition["allowed_host"])
+                  self.assertEqual(
+                      "https://le.uwpress.org/content/{volume}/{issue}",
+                      definition["issue_url_template"],
+                  )
+
+              def test_highwire_archive_parser_requires_archive_container_and_allowed_host(self):
+                  archive_url = "https://le.uwpress.org/content/by/year/2026"
+                  html = b"""<html><body>
+                    <div class="archive-issue-list">
+                      <a href="/content/102/1">January 01, 2026: Vol. 102, Issue 1</a>
+                      <a href="/content/102/2">March 01, 2026: Vol. 102, Issue 2</a>
+                      <a href="https://example.com/content/102/4">Wrong host</a>
+                    </div>
+                    <a href="/content/999/9">Current issue outside archive list</a>
+                  </body></html>"""
+                  issues = parse_archive(
+                      html,
+                      archive_url,
+                      journal="LANDECON",
+                      platform="highwire",
+                      years=[2026],
+                      allowed_host="le.uwpress.org",
+                  )
+                  self.assertEqual(
+                      ["landecon-102-1", "landecon-102-2"],
+                      [item.issue_id for item in issues],
+                  )
+
+              def test_scheduled_refresh_is_bounded_to_landecon_discovery(self):
+                  text = WORKFLOW.read_text(encoding="utf-8")
+                  self.assertIn("journal: LANDECON", text)
+                  self.assertIn('from_year: "2025"', text)
+                  self.assertIn('to_year: "2026"', text)
+                  self.assertIn('max_translations: "0"', text)
+                  self.assertIn("refresh_discovery_only: true", text)
+                  self.assertIn("backfill-field-history.yml@main", text)
+
+              def test_successful_uwpress_refresh_triggers_production_deploy(self):
+                  text = DEPLOY_WORKFLOW.read_text(encoding="utf-8")
+                  self.assertIn("- Refresh R2 UW Press expected sets", text)
+                  self.assertIn("github.event.workflow_run.conclusion == 'success'", text)
+
+
+          if __name__ == "__main__":
+              unittest.main()
+          PYTEST
 
       - name: Verify exact live UW Press expected set
         shell: bash
