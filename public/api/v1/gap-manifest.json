@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-10T10:49:46+00:00",
+  "generated_at": "2026-09-10T11:07:35+00:00",
   "target_years": [
     2023,
     2024,
@@ -61,9 +61,9 @@
   ],
   "discovery_snapshot_missing_journals": [],
   "summary": {
-    "ready": 1165,
+    "ready": 1166,
     "recoverable": 64,
-    "source_pending": 97
+    "source_pending": 96
   },
   "records": [
     {
@@ -20262,14 +20262,14 @@
       "year": 2026,
       "volume": "86",
       "issue": "2",
-      "official_url": "https://www.cambridge.org/core/journals/journal-of-economic-history",
+      "official_url": "https://www.cambridge.org/core/journals/journal-of-economic-history/issue/0E726D7DE1CC1721DB663EF8EAEABC57",
       "authority": "crossref_candidate",
       "refreshed_at": "2026-08-24T13:58:22+00:00",
       "collector_revision": "history-integrity-2026-08-11",
-      "category": "source_pending",
-      "reason": "official source verification pending",
-      "status": "source_pending",
-      "retry_class": "source",
+      "category": "ready",
+      "reason": "content and official source gates passed",
+      "status": "ready",
+      "retry_class": "manual",
       "collector": "crossref",
       "attempt_count": 0,
       "last_attempt_at": "",
@@ -20277,14 +20277,14 @@
       "next_retry_at": "",
       "archive_exists": true,
       "content_status": "complete",
-      "source_status": "source_pending",
-      "publication_state": "source_pending",
+      "source_status": "official_verified",
+      "publication_state": "ready",
       "counts": {
         "articles": 7,
         "abstract_en": 7,
         "translation_cn": 7
       },
-      "next_action": "attach official roster/source evidence; do not publish"
+      "next_action": "no action"
     },
     {
       "issue_id": "jep-37-1",

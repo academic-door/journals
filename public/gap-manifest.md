@@ -1,12 +1,12 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-10T10:49:46+00:00
+Generated: 2026-09-10T11:07:35+00:00
 
 ## Summary
 
-- ready: 1165
+- ready: 1166
 - recoverable: 64
-- source_pending: 97
+- source_pending: 96
 
 ## Issue queue
 
@@ -685,7 +685,7 @@ Generated: 2026-09-10T10:49:46+00:00
 | JEH | jeh-85-3 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JEH | jeh-85-4 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JEH | jeh-86-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
-| JEH | jeh-86-2 | 2026 | source_pending | complete | source_pending | official source verification pending |
+| JEH | jeh-86-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JEP | jep-37-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | JEP | jep-37-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | JEP | jep-37-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
