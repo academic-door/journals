@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 jobs:
-  classify:
+  simulate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -27,81 +27,42 @@ jobs:
             git archive origin/data "$path" | tar -x
           done
           echo "DATA_SHA=$(git rev-parse origin/data)"
-      - name: Run current four-way audit and classify measured-scope debt
+      - name: Simulate legacy-state reconciliation in runner workspace only
         run: |
           set -euo pipefail
+          python - <<'PY'
+          import copy, json, yaml
+          from pathlib import Path
+          from scripts.backfill_history import migrate_legacy_state
+
+          root = Path('.')
+          journals = yaml.safe_load((root/'config/journals.yml').read_text())['journals']
+          targets = {'aer-116-9','aeri-8-3','res-93-5','qe-14-1','qe-14-2','qe-14-3','qe-14-4','qe-15-1','qe-15-2','qe-15-3','qe-15-4','qe-17-4','ere-85-3-4','ere-86-1-2'}
+          for state_path in [root/'data/backfill-state/field-2023-2024.json', root/'data/backfill-state/field-2025-2026.json']:
+              state = json.loads(state_path.read_text())
+              before = copy.deepcopy(state)
+              changed = migrate_legacy_state(state, journals, public_api=root/'public/api/v1')
+              print('STATE', state_path.name, 'changed', changed)
+              before_issues = before.get('issues', {})
+              after_issues = state.get('issues', {})
+              for iid in sorted(set(before_issues)|set(after_issues)):
+                  if before_issues.get(iid) != after_issues.get(iid) and iid in targets:
+                      print('TARGET_DELTA', iid, 'BEFORE', json.dumps(before_issues.get(iid), sort_keys=True), 'AFTER', json.dumps(after_issues.get(iid), sort_keys=True))
+              # Save only inside ephemeral runner so the existing audit can measure effect.
+              state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2)+'\n')
+          PY
           python scripts/audit_history_coverage.py \
             --state data/backfill-state/field-2023-2024.json \
             --state data/backfill-state/field-2025-2026.json \
             --api-root public/api/v1 \
-            --report-json /tmp/history-coverage.json
+            --report-json /tmp/after.json || true
           python - <<'PY'
-          import json, yaml
-          from collections import Counter
-          from pathlib import Path
-
-          report = json.loads(Path('/tmp/history-coverage.json').read_text())
-          cfg = yaml.safe_load(Path('config/journals.yml').read_text())['journals']
-          id_to_key = {str(v['id']).lower(): k for k, v in cfg.items()}
-
-          # Production-accepted R2 measured set at the current checkpoint. This
-          # classifier intentionally does not infer COMPLETE from canonical data.
-          # Completeness is release-derived and its accepted set is recorded in #205.
-          complete_keys = {
-            'AER','AEJAPP','AEJMACRO','AEJMICRO','AEJPOL','JEP','AERI',
-            'JPE','QE','QJE','RES','EJ','JEEA','RFS','ERE','JEH','LANDECON'
-          }
-
-          def classify(error):
-            if error.endswith('discovery has no state entry'): return 'discovery_no_state'
-            if error.endswith('state entry absent from discovery snapshot'): return 'state_absent_discovery'
-            if error.endswith('archive missing'): return 'archive_missing'
-            if error.endswith('archive index entry missing'): return 'index_missing'
-            if ': state publication ' in error: return 'state_publication_mismatch'
-            if ': state content_status ' in error: return 'state_content_mismatch'
-            if ': state source_status ' in error: return 'state_source_mismatch'
-            if ': index publication_state ' in error: return 'index_publication_mismatch'
-            if ': index content_status ' in error: return 'index_content_mismatch'
-            if ': index source_status ' in error: return 'index_source_mismatch'
-            if 'stale collector_revision' in error: return 'stale_collector_revision'
-            if 'discovery snapshot' in error: return 'discovery_snapshot'
-            return 'other'
-
-          def journal_for(error):
-            token = error.split(':', 1)[0]
-            if token in cfg:
-              return token
-            lower = token.lower()
-            matches = [(jid, key) for jid, key in id_to_key.items() if lower == jid or lower.startswith(jid + '-')]
-            if matches:
-              return max(matches, key=lambda x: len(x[0]))[1]
-            return 'UNKNOWN'
-
-          all_by_class = Counter()
-          measured_by_journal = Counter()
-          measured_by_class = Counter()
-          measured_errors = []
-          for error in report['errors']:
-            journal = journal_for(error)
-            klass = classify(error)
-            all_by_class[klass] += 1
-            if journal in complete_keys:
-              measured_by_journal[journal] += 1
-              measured_by_class[klass] += 1
-              measured_errors.append(error)
-
-          print('R3_CURRENT_AUDIT', json.dumps({
-            'total_errors': report['error_count'],
-            'counts': report['counts'],
-            'complete_journal_count': len(complete_keys),
-            'complete_journals': sorted(complete_keys),
-            'measured_scope_error_count': len(measured_errors),
-            'measured_by_journal': dict(sorted(measured_by_journal.items())),
-            'measured_by_class': dict(sorted(measured_by_class.items())),
-            'all_by_class': dict(sorted(all_by_class.items())),
-          }, sort_keys=True))
-          print('R3_MEASURED_ERRORS_BEGIN')
-          for error in measured_errors:
-            print(error)
-          print('R3_MEASURED_ERRORS_END')
+          import json
+          r=json.load(open('/tmp/after.json'))
+          measured_prefixes=('aer-','aeri-','res-','qe-','ere-')
+          print('AFTER_TOTAL', r['error_count'])
+          print('AFTER_TARGET_FAMILY_ERRORS_BEGIN')
+          for e in r['errors']:
+              if e.startswith(measured_prefixes): print(e)
+          print('AFTER_TARGET_FAMILY_ERRORS_END')
           PY
