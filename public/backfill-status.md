@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-09-10T18:03:32+00:00
+Updated: 2026-09-10T18:14:19+00:00
 
 Discovery coverage: 1326 discovered · 1262 archived · 1166 publication ready · 64 missing · 96 source pending
 
@@ -364,8 +364,8 @@ Discovery coverage: 1326 discovered · 1262 archived · 1166 publication ready �
 | ERE | ere-84-4 | 2023 | ready |  |
 | ERE | ere-85-1 | 2023 | ready |  |
 | ERE | ere-85-2 | 2023 | ready |  |
-| ERE | ere-85-3-4 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
-| ERE | ere-86-1-2 | 2023 | blocked | ValueError: RePEc history requires a configured series code |
+| ERE | ere-85-3-4 | 2023 | blocked | archive_content_gate_failed |
+| ERE | ere-86-1-2 | 2023 | blocked | archive_content_gate_failed |
 | ERE | ere-86-3 | 2023 | ready |  |
 | ERE | ere-86-4 | 2023 | ready |  |
 | ERE | ere-87-1 | 2024 | ready |  |

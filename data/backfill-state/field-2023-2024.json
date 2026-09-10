@@ -4967,12 +4967,14 @@
       "issue": "3-4",
       "official_url": "https://link.springer.com/journal/10640/volumes-and-issues/85-3",
       "status": "blocked",
-      "last_error": "archive_missing",
-      "retry_class": "transient",
+      "last_error": "archive_content_gate_failed",
+      "retry_class": "manual",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-09-10T18:11:18+00:00",
+      "last_error_code": "archive_content_gate_failed",
       "content_status": "blocked",
       "source_status": "source_pending",
-      "publication_state": "blocked",
-      "last_error_code": "archive_missing"
+      "publication_state": "blocked"
     },
     "ere-86-1-2": {
       "journal": "ERE",
@@ -4981,12 +4983,14 @@
       "issue": "1-2",
       "official_url": "https://link.springer.com/journal/10640/volumes-and-issues/86-1",
       "status": "blocked",
-      "last_error": "archive_missing",
-      "retry_class": "transient",
+      "last_error": "archive_content_gate_failed",
+      "retry_class": "manual",
+      "attempt_count": 1,
+      "last_attempt_at": "2026-09-10T18:11:24+00:00",
+      "last_error_code": "archive_content_gate_failed",
       "content_status": "blocked",
       "source_status": "source_pending",
-      "publication_state": "blocked",
-      "last_error_code": "archive_missing"
+      "publication_state": "blocked"
     },
     "ere-86-3": {
       "journal": "ERE",
@@ -9726,7 +9730,7 @@
       "EER": "2026-08-24T14:11:50+00:00",
       "EJ": "2026-08-29T03:53:34+00:00",
       "ENERGY": "2026-09-01T01:28:27+00:00",
-      "ERE": "2026-09-08T00:40:13+00:00",
+      "ERE": "2026-09-10T18:11:25+00:00",
       "FOODPOLICY": "2026-09-07T00:20:27+00:00",
       "GEB": "2026-08-18T17:16:16+00:00",
       "IER": "2026-08-18T17:03:26+00:00",
@@ -9765,7 +9769,7 @@
       "LANDECON": "2026-08-24T14:00:30+00:00"
     }
   },
-  "updated_at": "2026-09-10T18:08:41+00:00",
+  "updated_at": "2026-09-10T18:11:25+00:00",
   "discovery": {
     "AER": {
       "issue_ids": [
@@ -15470,7 +15474,7 @@
         }
       },
       "authority": "official_archive",
-      "refreshed_at": "2026-09-10T18:01:09+00:00",
+      "refreshed_at": "2026-09-10T18:11:14+00:00",
       "collector_revision": "history-integrity-2026-08-11"
     },
     "JHE": {
