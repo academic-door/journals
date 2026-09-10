@@ -223,9 +223,11 @@ journals:
     issn: 2333-5955
     issue_url_template: https://www.journals.uchicago.edu/toc/jaere/{year}/{volume}/{issue}
   LANDECON:
-    platform: crossref
+    platform: highwire
     issn: 0023-7639
-    issue_url_template: https://le.uwpress.org/content/by/year
+    archive_url_template: https://le.uwpress.org/content/by/year/{year}
+    allowed_host: le.uwpress.org
+    issue_url_template: https://le.uwpress.org/content/{volume}/{issue}
   ERE:
     platform: springer
     issn: 0924-6460
