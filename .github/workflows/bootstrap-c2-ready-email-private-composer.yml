@@ -62,39 +62,40 @@ jobs:
               raise SystemExit('test import anchor not found')
           text = text.replace(old, new, 1)
           anchor = 'class EmailNotificationTests(unittest.TestCase):\n'
-          test = '''class EmailNotificationTests(unittest.TestCase):
-    def test_ready_composer_link_uses_private_worker_without_identity_drift(self):
-        issue = {
-            "journal_id": "AER",
-            "journal_name": "American Economic Review",
-            "issue_id": "aer-116-8",
-            "volume": "116",
-            "issue": "8",
-            "publication_date": "August 2026",
-            "research_article_count": 1,
-            "quality": {"abstract_en_complete": 1, "translation_complete": 1},
-            "articles": [{"paper_id": "doi:10.1/one"}],
-        }
-        snapshot = issue_snapshot(issue, {"aer": ["top5"]})
-        self.assertEqual(
-            "https://academic-door-composer.academic-door.workers.dev/?journal=aer&issue=aer-116-8",
-            snapshot["composer_url"],
-        )
-        self.assertEqual(
-            "https://academic-door.github.io/journals/?journal=aer",
-            snapshot["directory_url"],
-        )
-
-    def test_sync_steps_still_precede_ready_email_delivery(self):
-        root = Path(__file__).resolve().parents[1]
-        for name in ("monitor-journals.yml", "update-journals.yml"):
-            source = (root / ".github" / "workflows" / name).read_text(encoding="utf-8")
-            self.assertLess(
-                source.index("      - name: Sync audited"),
-                source.index("      - name: Send private new-issue email"),
-            )
-
-'''
+          test = (
+              'class EmailNotificationTests(unittest.TestCase):\n'
+              '    def test_ready_composer_link_uses_private_worker_without_identity_drift(self):\n'
+              '        issue = {\n'
+              '            "journal_id": "AER",\n'
+              '            "journal_name": "American Economic Review",\n'
+              '            "issue_id": "aer-116-8",\n'
+              '            "volume": "116",\n'
+              '            "issue": "8",\n'
+              '            "publication_date": "August 2026",\n'
+              '            "research_article_count": 1,\n'
+              '            "quality": {"abstract_en_complete": 1, "translation_complete": 1},\n'
+              '            "articles": [{"paper_id": "doi:10.1/one"}],\n'
+              '        }\n'
+              '        snapshot = issue_snapshot(issue, {"aer": ["top5"]})\n'
+              '        self.assertEqual(\n'
+              '            "https://academic-door-composer.academic-door.workers.dev/?journal=aer&issue=aer-116-8",\n'
+              '            snapshot["composer_url"],\n'
+              '        )\n'
+              '        self.assertEqual(\n'
+              '            "https://academic-door.github.io/journals/?journal=aer",\n'
+              '            snapshot["directory_url"],\n'
+              '        )\n'
+              '\n'
+              '    def test_sync_steps_still_precede_ready_email_delivery(self):\n'
+              '        root = Path(__file__).resolve().parents[1]\n'
+              '        for name in ("monitor-journals.yml", "update-journals.yml"):\n'
+              '            source = (root / ".github" / "workflows" / name).read_text(encoding="utf-8")\n'
+              '            self.assertLess(\n'
+              '                source.index("      - name: Sync audited"),\n'
+              '                source.index("      - name: Send private new-issue email"),\n'
+              '            )\n'
+              '\n'
+          )
           if anchor not in text:
               raise SystemExit('test class anchor not found')
           path.write_text(text.replace(anchor, test, 1), encoding='utf-8')
