@@ -1,0 +1,23 @@
+name: R3 ERE compound collection
+
+on:
+  push:
+    branches:
+      - r3/ere-compound-collect-20260910
+
+permissions:
+  contents: write
+  models: read
+
+jobs:
+  collect:
+    uses: academic-door/journals/.github/workflows/backfill-field-history.yml@main
+    with:
+      journal: ERE
+      from_year: "2023"
+      to_year: "2024"
+      max_issues: "2"
+      max_translations: "80"
+      max_journals: "1"
+      refresh_discovery_only: false
+    secrets: inherit
