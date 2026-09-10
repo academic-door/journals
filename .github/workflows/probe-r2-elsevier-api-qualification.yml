@@ -19,336 +19,101 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-      - name: Bounded Article Metadata API qualification
+      - name: Diagnose bounded Article Metadata query shapes
         shell: bash
         run: |
           set -euo pipefail
           python - <<'PY'
-          import hashlib
-          import json
-          import os
-          import re
-          import time
-          import uuid
+          import hashlib, json, os, time, uuid
           from datetime import datetime, timezone
-          from urllib.error import HTTPError, URLError
+          from urllib.error import HTTPError
           from urllib.parse import urlencode
           from urllib.request import Request, urlopen
           from xml.etree import ElementTree as ET
 
-          ENDPOINT = "https://api.elsevier.com/content/metadata/article"
-          API_KEY = os.environ.get("ELSEVIER_API_KEY", "").strip()
-          INST_TOKEN = os.environ.get("ELSEVIER_INST_TOKEN", "").strip()
-          COUNT = 25
-          MAX_PAGES_PER_QUERY = 12
-          RESERVE_FRACTION = 0.25
-          MIN_REQUEST_INTERVAL_SECONDS = 0.25
-          JOURNALS = {
-              "JCE": "0147-5967",
-              "ECOLECON": "0921-8009",
-          }
-          YEARS = (2025, 2026)
-
-          if not API_KEY:
+          endpoint = "https://api.elsevier.com/content/metadata/article"
+          api_key = os.environ.get("ELSEVIER_API_KEY", "").strip()
+          inst_token = os.environ.get("ELSEVIER_INST_TOKEN", "").strip()
+          if not api_key:
               raise SystemExit("ELSEVIER_API_KEY is not configured")
+
+          queries = [
+              ("known_volume", "ISSN(0147-5967) AND VOLUME(54)"),
+              ("issn_only", "ISSN(0147-5967)"),
+              ("year_window", "ISSN(0147-5967) AND PUB-DATE AFT 2024 AND PUB-DATE BEF 2027"),
+          ]
 
           def local(tag):
               return tag.rsplit("}", 1)[-1]
 
-          def text_by_local(node, *names):
-              wanted = {name.casefold() for name in names}
+          def first_text(node, name):
               for child in node.iter():
-                  if local(child.tag).casefold() in wanted and child.text:
+                  if local(child.tag).casefold() == name.casefold() and child.text:
                       value = " ".join(child.text.split())
                       if value:
                           return value
               return ""
 
-          def quota_snapshot(headers):
-              lowered = {str(k).casefold(): str(v).strip() for k, v in headers.items()}
-              snap = {}
-              for target, header in (
-                  ("limit", "x-ratelimit-limit"),
-                  ("remaining", "x-ratelimit-remaining"),
-                  ("reset", "x-ratelimit-reset"),
-                  ("els_status", "x-els-status"),
-              ):
-                  value = lowered.get(header, "")
-                  if value:
-                      snap[target] = int(value) if target in {"limit", "remaining"} and value.isdigit() else value
-              return snap
-
-          def below_reserve(snap):
-              limit_ = snap.get("limit")
-              remaining = snap.get("remaining")
-              return (
-                  isinstance(limit_, int)
-                  and isinstance(remaining, int)
-                  and limit_ > 0
-                  and remaining <= int(limit_ * RESERVE_FRACTION)
-              )
-
-          telemetry = []
-          last_request_monotonic = 0.0
-
-          def fetch_page(code, issn, year, start):
-              global last_request_monotonic
-              # Article Metadata Search Tips define PUB-DATE as a field-restricted
-              # date query. Use a closed year window via AFT/BEF sentinels.
-              query = (
-                  f"ISSN({issn}) AND PUB-DATE AFT {year - 1}1231 "
-                  f"AND PUB-DATE BEF {year + 1}0101"
-              )
-              params = {
-                  "query": query,
-                  "view": "COMPLETE",
-                  "count": str(COUNT),
-                  "start": str(start),
-                  "httpAccept": "application/xml",
-                  "suppressNavLinks": "true",
-              }
-              fingerprint = hashlib.sha256(
-                  json.dumps(params, sort_keys=True, separators=(",", ":")).encode()
-              ).hexdigest()
-              headers = {
-                  "Accept": "application/xml",
-                  "X-ELS-APIKey": API_KEY,
-                  "X-ELS-ReqId": str(uuid.uuid4()),
-                  "User-Agent": "AcademicDoorJournals/0.1 (non-profit academic metadata service; https://academic-door.github.io/)",
-              }
-              if INST_TOKEN:
-                  headers["X-ELS-Insttoken"] = INST_TOKEN
-              wait = MIN_REQUEST_INTERVAL_SECONDS - (time.monotonic() - last_request_monotonic)
+          out = {
+              "schema_version": 1,
+              "observed_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+              "credential_presence": {"api_key_configured": bool(api_key), "inst_token_configured": bool(inst_token)},
+              "semantic_scholar_used": False,
+              "queries": [],
+          }
+          last = 0.0
+          for label, query in queries:
+              wait = 0.25 - (time.monotonic() - last)
               if wait > 0:
                   time.sleep(wait)
-              attempted_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
-              url = ENDPOINT + "?" + urlencode(params)
+              params = {"query": query, "view": "COMPLETE", "count": "10", "start": "0", "httpAccept": "application/xml", "suppressNavLinks": "true"}
+              fingerprint = hashlib.sha256(json.dumps(params, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+              headers = {"Accept": "application/xml", "X-ELS-APIKey": api_key, "X-ELS-ReqId": str(uuid.uuid4())}
+              if inst_token:
+                  headers["X-ELS-Insttoken"] = inst_token
               try:
-                  with urlopen(Request(url, headers=headers), timeout=45) as response:
-                      body = response.read()
-                      status = int(response.status)
-                      snap = quota_snapshot(response.headers)
-              except HTTPError as error:
-                  body = error.read()
-                  status = int(error.code)
-                  snap = quota_snapshot(error.headers or {})
-                  error_hash = hashlib.sha256(body).hexdigest() if body else ""
-                  telemetry.append({
-                      "provider": "elsevier",
-                      "endpoint_class": "article-metadata",
-                      "timestamp": attempted_at,
-                      "subsystem": "journals",
-                      "workload_class": "ROUTINE_MONITOR",
-                      "journal": code,
-                      "year": year,
-                      "start": start,
-                      "request_fingerprint": fingerprint,
-                      "status": status,
-                      "outcome": "rate_limited" if status == 429 else "entitlement_error" if status == 403 else "provider_error",
-                      "error_payload_sha256": error_hash,
-                      **snap,
-                  })
-                  return None, snap, fingerprint, status
-              except URLError:
-                  telemetry.append({
-                      "provider": "elsevier",
-                      "endpoint_class": "article-metadata",
-                      "timestamp": attempted_at,
-                      "subsystem": "journals",
-                      "workload_class": "ROUTINE_MONITOR",
-                      "journal": code,
-                      "year": year,
-                      "start": start,
-                      "request_fingerprint": fingerprint,
-                      "status": 0,
-                      "outcome": "transport_error",
-                  })
-                  return None, {}, fingerprint, 0
-              finally:
-                  last_request_monotonic = time.monotonic()
-              telemetry.append({
-                  "provider": "elsevier",
-                  "endpoint_class": "article-metadata",
-                  "timestamp": attempted_at,
-                  "subsystem": "journals",
-                  "workload_class": "ROUTINE_MONITOR",
-                  "journal": code,
-                  "year": year,
-                  "start": start,
+                  with urlopen(Request(endpoint + "?" + urlencode(params), headers=headers), timeout=45) as r:
+                      body = r.read()
+                      status = int(r.status)
+                      h = {str(k).casefold(): str(v) for k, v in r.headers.items()}
+              except HTTPError as e:
+                  body = e.read()
+                  status = int(e.code)
+                  h = {str(k).casefold(): str(v) for k, v in (e.headers or {}).items()}
+              last = time.monotonic()
+              row = {
+                  "label": label,
                   "request_fingerprint": fingerprint,
                   "status": status,
-                  "outcome": "ok",
-                  **snap,
-              })
-              return body, snap, fingerprint, status
-
-          def parse_page(body, issn):
-              root = ET.fromstring(body)
-              total_raw = text_by_local(root, "totalResults")
-              total = int(total_raw) if total_raw.isdigit() else None
-              entries = []
-              expected_prefix = "S" + re.sub(r"[^0-9]", "", issn)
-              for entry in root.iter():
-                  if local(entry.tag).casefold() != "entry":
-                      continue
-                  pii = re.sub(r"[^A-Za-z0-9]", "", text_by_local(entry, "pii"))
-                  doi = text_by_local(entry, "doi")
-                  if not doi:
-                      identifier = text_by_local(entry, "identifier")
-                      match = re.search(r"10\.\d{4,9}/\S+", identifier)
-                      doi = match.group(0) if match else ""
-                  entries.append({
-                      "pii": pii,
-                      "doi": doi,
-                      "volume": text_by_local(entry, "volume"),
-                      "issue_identifier": text_by_local(entry, "issueIdentifier"),
-                      "cover_date": text_by_local(entry, "coverDate"),
-                      "pii_matches_journal": bool(pii) and pii.upper().startswith(expected_prefix.upper()),
-                  })
-              return total, entries
-
-          def observation(code, issn, year):
-              observed_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
-              all_entries = []
-              total_results = None
-              pages = 0
-              coverage_complete = False
-              stop_reason = ""
-              request_fingerprints = []
-              start = 0
-              while pages < MAX_PAGES_PER_QUERY:
-                  body, snap, fingerprint, status = fetch_page(code, issn, year, start)
-                  request_fingerprints.append(fingerprint)
-                  pages += 1
-                  if body is None:
-                      stop_reason = f"http_{status}" if status else "transport_error"
-                      break
-                  total, entries = parse_page(body, issn)
-                  if total_results is None:
-                      total_results = total
-                  elif total is not None and total_results != total:
-                      stop_reason = "total_results_changed_during_pagination"
-                      break
-                  all_entries.extend(entries)
-                  if total_results is not None and len(all_entries) >= total_results:
-                      coverage_complete = True
-                      break
-                  if len(entries) < COUNT:
-                      coverage_complete = total_results is None or len(all_entries) >= total_results
-                      break
-                  if below_reserve(snap):
-                      stop_reason = "quota_reserve_guard"
-                      break
-                  start += COUNT
-              if not coverage_complete and not stop_reason:
-                  stop_reason = "bounded_page_cap"
-
-              ids = [e["pii"] or e["doi"] for e in all_entries if e["pii"] or e["doi"]]
-              unique_ids = sorted(set(ids))
-              groups = {}
-              for e in all_entries:
-                  key = (e["volume"], e["issue_identifier"])
-                  groups.setdefault(key, []).append(e)
-              issues = []
-              for (volume, issue), members in sorted(groups.items()):
-                  member_ids = sorted(set(m["pii"] or m["doi"] for m in members if m["pii"] or m["doi"]))
-                  dates = sorted(set(m["cover_date"] for m in members if m["cover_date"]))
-                  issues.append({
-                      "volume": volume,
-                      "issue_identifier": issue,
-                      "article_count": len(members),
-                      "member_identity_count": len(member_ids),
-                      "membership_sha256": hashlib.sha256("\n".join(member_ids).encode()).hexdigest(),
-                      "cover_dates": dates,
-                  })
-              return {
-                  "provider": "elsevier",
-                  "endpoint_class": "article-metadata",
-                  "subsystem": "journals",
-                  "workload_class": "ROUTINE_MONITOR",
-                  "authority_role": "qualification_candidate",
-                  "journal": code,
-                  "issn": issn,
-                  "year": year,
-                  "observed_at": observed_at,
-                  "query_semantics": "ISSN + PUB-DATE year window",
-                  "total_results": total_results,
-                  "pages_fetched": pages,
-                  "coverage_complete": coverage_complete,
-                  "stop_reason": stop_reason,
-                  "returned_entries": len(all_entries),
-                  "unique_member_identities": len(unique_ids),
-                  "duplicate_member_identities": len(ids) - len(unique_ids),
-                  "foreign_pii_entries": sum(bool(e["pii"]) and not e["pii_matches_journal"] for e in all_entries),
-                  "missing_member_identity": sum(not (e["pii"] or e["doi"]) for e in all_entries),
-                  "missing_volume": sum(not e["volume"] for e in all_entries),
-                  "missing_issue_identifier": sum(not e["issue_identifier"] for e in all_entries),
-                  "request_fingerprints": request_fingerprints,
-                  "issues": issues,
+                  "limit": h.get("x-ratelimit-limit", ""),
+                  "remaining": h.get("x-ratelimit-remaining", ""),
+                  "reset": h.get("x-ratelimit-reset", ""),
+                  "els_status": h.get("x-els-status", ""),
               }
-
-          result = {
-              "schema_version": 1,
-              "qualification": "elsevier_expected_set_api",
-              "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
-              "credential_presence": {
-                  "api_key_configured": bool(API_KEY),
-                  "inst_token_configured": bool(INST_TOKEN),
-              },
-              "policy": {
-                  "reserve_fraction": RESERVE_FRACTION,
-                  "max_pages_per_query": MAX_PAGES_PER_QUERY,
-                  "count_per_page": COUNT,
-                  "min_request_interval_seconds": MIN_REQUEST_INTERVAL_SECONDS,
-                  "semantic_scholar_used": False,
-              },
-              "observations": [],
-              "repeatability": {},
-          }
-
-          for code, issn in JOURNALS.items():
-              for year in YEARS:
-                  obs = observation(code, issn, year)
-                  result["observations"].append(obs)
-                  last = telemetry[-1]
-                  if obs["stop_reason"].startswith("http_") or obs["stop_reason"] == "transport_error":
-                      result["stopped_for_provider_error"] = True
-                      break
-                  if isinstance(last.get("limit"), int) and isinstance(last.get("remaining"), int) and last["remaining"] <= int(last["limit"] * RESERVE_FRACTION):
-                      result["stopped_for_quota_reserve"] = True
-                      break
-              if result.get("stopped_for_provider_error") or result.get("stopped_for_quota_reserve"):
-                  break
-
-          baseline = next((o for o in result["observations"] if o["journal"] == "JCE" and o["year"] == 2026), None)
-          if baseline and baseline["coverage_complete"] and not result.get("stopped_for_provider_error") and not result.get("stopped_for_quota_reserve"):
-              repeat = observation("JCE", JOURNALS["JCE"], 2026)
-              def signature(obs):
-                  return {
-                      "total_results": obs["total_results"],
-                      "returned_entries": obs["returned_entries"],
-                      "issues": [
-                          {
-                              "volume": x["volume"],
-                              "issue_identifier": x["issue_identifier"],
-                              "article_count": x["article_count"],
-                              "membership_sha256": x["membership_sha256"],
-                              "cover_dates": x["cover_dates"],
-                          }
-                          for x in obs["issues"]
-                      ],
-                  }
-              result["repeatability"] = {
-                  "journal": "JCE",
-                  "year": 2026,
-                  "baseline_observed_at": baseline["observed_at"],
-                  "repeat_observed_at": repeat["observed_at"],
-                  "equal": signature(baseline) == signature(repeat),
-                  "baseline_signature_sha256": hashlib.sha256(json.dumps(signature(baseline), sort_keys=True, separators=(",", ":")).encode()).hexdigest(),
-                  "repeat_signature_sha256": hashlib.sha256(json.dumps(signature(repeat), sort_keys=True, separators=(",", ":")).encode()).hexdigest(),
-              }
-
-          result["telemetry"] = telemetry
-          result["request_attempt_count"] = len(telemetry)
-          print("QUALIFICATION_RESULT=" + json.dumps(result, ensure_ascii=False, sort_keys=True))
+              if status == 200:
+                  root = ET.fromstring(body)
+                  total = first_text(root, "totalResults")
+                  valid_entries = []
+                  for entry in root.iter():
+                      if local(entry.tag).casefold() != "entry":
+                          continue
+                      pii = first_text(entry, "pii")
+                      doi = first_text(entry, "doi")
+                      volume = first_text(entry, "volume")
+                      issue = first_text(entry, "issueIdentifier")
+                      cover = first_text(entry, "coverDate")
+                      if pii or doi or volume or issue or cover:
+                          valid_entries.append((bool(pii or doi), volume, issue, cover))
+                  row.update({
+                      "total_results": int(total) if total.isdigit() else None,
+                      "valid_entries_on_first_page": len(valid_entries),
+                      "first_entry_identity_present": valid_entries[0][0] if valid_entries else False,
+                      "first_entry_volume": valid_entries[0][1] if valid_entries else "",
+                      "first_entry_issue_identifier": valid_entries[0][2] if valid_entries else "",
+                      "first_entry_cover_date": valid_entries[0][3] if valid_entries else "",
+                  })
+              else:
+                  row["error_payload_sha256"] = hashlib.sha256(body).hexdigest() if body else ""
+              out["queries"].append(row)
+          print("QUERY_DIAGNOSTIC=" + json.dumps(out, sort_keys=True))
           PY
