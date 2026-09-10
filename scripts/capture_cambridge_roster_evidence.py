@@ -37,6 +37,7 @@ NON_RESEARCH_RE = re.compile(
     re.IGNORECASE,
 )
 BOOK_REVIEW_RE = re.compile(r"\bPp\.\s*\d+|\(Orgs?\.\)|\s+By\s+[A-Z]", re.IGNORECASE)
+ADDENDUM_RE = re.compile(r"(?:[-–—]\s*)?ADDENDUM\s*$", re.IGNORECASE)
 
 
 def _text(node: Any) -> str:
@@ -112,6 +113,8 @@ def cambridge_issue_url(
 def _non_research_reason(title: str, authors: list[str], abstract: str) -> str:
     if NON_RESEARCH_RE.search(title):
         return "non-research-title"
+    if ADDENDUM_RE.search(title):
+        return "addendum"
     if not abstract and authors and BOOK_REVIEW_RE.search(title):
         return "book-review"
     if not abstract and not authors:
