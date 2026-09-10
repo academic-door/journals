@@ -9,6 +9,7 @@ from collectors.history import parse_archive
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "config" / "field-history.yml"
 WORKFLOW = ROOT / ".github" / "workflows" / "refresh-r2-springer.yml"
+DEPLOY_WORKFLOW = ROOT / ".github" / "workflows" / "deploy.yml"
 
 
 class R2SpringerFamilyContractTests(unittest.TestCase):
@@ -64,6 +65,11 @@ class R2SpringerFamilyContractTests(unittest.TestCase):
         self.assertIn('max_translations: "0"', text)
         self.assertIn("refresh_discovery_only: true", text)
         self.assertIn("backfill-field-history.yml@main", text)
+
+    def test_successful_springer_refresh_triggers_production_deploy(self):
+        text = DEPLOY_WORKFLOW.read_text(encoding="utf-8")
+        self.assertIn("- Refresh R2 Springer expected sets", text)
+        self.assertIn("github.event.workflow_run.conclusion == 'success'", text)
 
 
 if __name__ == "__main__":
