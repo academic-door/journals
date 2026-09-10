@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-09-10T16:27:58+00:00
+Updated: 2026-09-10T17:32:43+00:00
 
 Discovery coverage: 1326 discovered · 1262 archived · 1166 publication ready · 64 missing · 96 source pending
 
@@ -118,6 +118,7 @@ Discovery coverage: 1326 discovered · 1262 archived · 1166 publication ready �
 | AER | aer-116-6 | 2026 | ready |  |
 | AER | aer-116-7 | 2026 | ready |  |
 | AER | aer-116-8 | 2026 | ready |  |
+| AER | aer-116-9 | 2026 | ready |  |
 | AERI | aeri-5-1 | 2023 | ready |  |
 | AERI | aeri-5-2 | 2023 | ready |  |
 | AERI | aeri-5-3 | 2023 | ready |  |
@@ -132,6 +133,7 @@ Discovery coverage: 1326 discovered · 1262 archived · 1166 publication ready �
 | AERI | aeri-7-4 | 2025 | ready |  |
 | AERI | aeri-8-1 | 2026 | ready |  |
 | AERI | aeri-8-2 | 2026 | ready |  |
+| AERI | aeri-8-3 | 2026 | ready |  |
 | AJAE | ajae-105-1 | 2023 | source_pending |  |
 | AJAE | ajae-105-2 | 2023 | source_pending |  |
 | AJAE | ajae-105-3 | 2023 | source_pending |  |
@@ -1217,6 +1219,7 @@ Discovery coverage: 1326 discovered · 1262 archived · 1166 publication ready �
 | RES | res-93-2 | 2026 | ready |  |
 | RES | res-93-3 | 2026 | ready |  |
 | RES | res-93-4 | 2026 | ready |  |
+| RES | res-93-5 | 2026 | ready |  |
 | RESTAT | restat-105-1 | 2023 | ready |  |
 | RESTAT | restat-105-2 | 2023 | ready |  |
 | RESTAT | restat-105-3 | 2023 | ready |  |
