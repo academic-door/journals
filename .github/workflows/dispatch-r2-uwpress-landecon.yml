@@ -1,0 +1,25 @@
+name: Dispatch R2 UW Press LANDECON propagation
+
+on:
+  push:
+    branches: [propagate/uwpress-landecon-20260910]
+    paths: [.github/workflows/dispatch-r2-uwpress-landecon.yml]
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch governed UW Press refresh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh api --method POST \
+            repos/academic-door/journals/actions/workflows/refresh-r2-uwpress.yml/dispatches \
+            -f ref=main
+          echo "Dispatched Refresh R2 UW Press expected sets on main."
