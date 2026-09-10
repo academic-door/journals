@@ -225,9 +225,11 @@ journals:
     issn: 0023-7639
     issue_url_template: https://le.uwpress.org/content/by/year
   ERE:
-    platform: crossref
+    platform: springer
     issn: 0924-6460
-    issue_url_template: https://link.springer.com/journal/10640/volumes-and-issues
+    archive_url: https://link.springer.com/journal/10640/volumes-and-issues
+    allowed_host: link.springer.com
+    issue_url_template: https://link.springer.com/journal/10640/volumes-and-issues/{volume}-{issue}
   JHE:
     platform: crossref
     issn: 0167-6296
