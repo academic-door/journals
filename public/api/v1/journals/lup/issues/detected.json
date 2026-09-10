@@ -8,7 +8,7 @@
   "issue_label": "Vol. 170",
   "publication_date": "November 2026",
   "source_url": "https://www.sciencedirect.com/journal/land-use-policy/vol/170/suppl/C",
-  "retrieved_at": "2026-09-10T00:17:44+00:00",
+  "retrieved_at": "2026-09-10T09:50:18+00:00",
   "expected_article_count": 54,
   "research_article_count": 54,
   "status": "incomplete",
@@ -753,8 +753,8 @@
       },
       "quality_flags": [
         "title_cn_missing",
-        "abstract_en_missing",
-        "abstract_cn_missing"
+        "abstract_cn_missing",
+        "abstract_en_missing"
       ],
       "china_relevance": {
         "status": "no",
@@ -875,7 +875,7 @@
       "source_sequence": 21,
       "article_type": "research-article",
       "title_en": "Massive hidden cropland transitions undermine China's agricultural sustainability",
-      "title_cn": "",
+      "title_cn": "大规模隐性耕地转换破坏中国农业可持续性",
       "authors": [
         "Nufang Fang",
         "Renjie Zong",
@@ -884,7 +884,7 @@
         "Wei Dai"
       ],
       "abstract_en": "Balancing cropland protection and abandonment is a major challenge for sustainable food production. The link between cropland abandonment and reclamation is still unclear, making it hard to assess their combined effects on land use. Here we use 30-m resolution remote sensing data (1992–2020) and geographically weighted regression to analyze cropland dynamics across 343 Chinese prefectures. We find that abandonment (56.28 Mha) and reclamation (55.72 Mha) exceed net cropland change, revealing massive hidden transitions. Spatial analysis identifies expanding collective hot spots where both processes co-occur, particularly in ecologically fragile regions. Abandonment shows a strong positive correlation with subsequent reclamation, explaining 63–84% of reclamation patterns, which is substantially more than the combined influence of natural and socioeconomic factors (61–78%). These findings indicate that stable cropland totals may conceal the hidden cropland transition and potential suitability mismatches, highlighting the need to incorporate gross transitions and land quality into sustainable cropland management.",
-      "abstract_cn": "",
+      "abstract_cn": "平衡耕地保护与撂荒是可持续粮食生产的一项重大挑战。耕地撂荒与复垦之间的联系仍不明确，这使得难以评估二者对土地利用的综合影响。在此，我们使用30米分辨率遥感数据（1992-2020）和地理加权回归，分析中国343个地级行政区的耕地动态。我们发现，撂荒（56.28 Mha）和复垦（55.72 Mha）超过耕地净变化，揭示出大规模隐性转换。空间分析识别出两种过程共同发生的不断扩大的集体热点，尤其是在生态脆弱地区。撂荒与随后的复垦表现出强正相关，解释了63-84%的复垦模式，这大大超过自然和社会经济因素的综合影响（61-78%）。这些发现表明，稳定的耕地总量可能掩盖隐性耕地转换和潜在适宜性错配，凸显出将总转换和土地质量纳入可持续耕地管理的必要性。",
       "doi": "10.1016/j.landusepol.2026.108199",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0264837726002838",
       "publication_date": "2026",
@@ -895,15 +895,15 @@
         "abstract_en": "official-sciencedirect-issue"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-09-10T09:51:37+00:00",
+        "source_hash": "ba84ff1dc48ff7eb094cf89037328fde38f190b30d8a395e14fc579b67459bb4"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "yes",
         "evidence": "title",
@@ -2273,7 +2273,7 @@
     "doi_complete": 54,
     "authors_complete": 54,
     "abstract_en_complete": 53,
-    "translation_complete": 51,
+    "translation_complete": 52,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_repec_fallback",
