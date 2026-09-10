@@ -1,0 +1,54 @@
+name: Probe R3 QE state
+
+on:
+  push:
+    branches:
+      - probe/r3-qe-state-20260910
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Inspect current canonical QE state/archive/discovery
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          rm -rf public/api data/backfill-state
+          git archive origin/data public/api data/backfill-state | tar -x
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          for state_name in ['field-2023-2024.json','field-2025-2026.json']:
+              p=Path('data/backfill-state')/state_name
+              s=json.loads(p.read_text())
+              qe_issues={k:v for k,v in s.get('issues',{}).items() if str(v.get('journal','')).upper()=='QE' or k.startswith('qe-')}
+              d=s.get('discovery',{}).get('QE',{})
+              x={k:v for k,v in s.get('expected_issue_exclusions',{}).items() if k.startswith('qe-')}
+              print('STATE',state_name)
+              print('QE_DISCOVERY',json.dumps(d,sort_keys=True))
+              print('QE_EXCLUSIONS',json.dumps(x,sort_keys=True))
+              print('QE_ISSUES',json.dumps(qe_issues,sort_keys=True))
+
+          idx_candidates=list(Path('public/api/v1/journals').glob('*/issues/index.json'))
+          qe_indexes=[]
+          for p in idx_candidates:
+              try:
+                  raw=json.loads(p.read_text())
+              except Exception:
+                  continue
+              text=json.dumps(raw)
+              if 'qe-' in text:
+                  qe_indexes.append((str(p), raw))
+          print('QE_INDEXES',json.dumps(qe_indexes,sort_keys=True))
+
+          qe_archives=[]
+          for p in Path('public/api/v1/journals').glob('*/issues/qe-*.json'):
+              qe_archives.append(str(p))
+          print('QE_ARCHIVE_FILES',json.dumps(sorted(qe_archives)))
+          PY
