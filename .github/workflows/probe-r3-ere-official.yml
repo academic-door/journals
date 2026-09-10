@@ -22,7 +22,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          cp data/backfill-state/field-2023-2024.json "$RUNNER_TEMP/ere-state.json"
+          git fetch origin data
+          git show origin/data:data/backfill-state/field-2023-2024.json > "$RUNNER_TEMP/ere-state.json"
+          echo "DATA_SHA=$(git rev-parse origin/data)"
           python scripts/backfill_history.py \
             --config config/field-history.yml \
             --state "$RUNNER_TEMP/ere-state.json" \
