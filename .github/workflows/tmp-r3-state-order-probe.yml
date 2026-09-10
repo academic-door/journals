@@ -1,0 +1,77 @@
+name: Temporary R3 state order probe
+
+on:
+  push:
+    branches:
+      - probe/r3-state-order-20260910
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Restore current data branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          rm -rf public/api data/backfill-state
+          mkdir -p public data
+          git archive origin/data public/api data/backfill-state | tar -x
+          ls -1 data/backfill-state/*.json
+      - name: Compare forward and reverse state ordering
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t states < <(find data/backfill-state -maxdepth 1 -type f -name '*.json' | sort)
+          forward=()
+          reverse=()
+          for s in "${states[@]}"; do forward+=(--state "$s"); done
+          for ((i=${#states[@]}-1; i>=0; i--)); do reverse+=(--state "${states[$i]}"); done
+
+          python scripts/build_gap_manifest.py "${forward[@]}" --api-root public/api/v1 --out-json "$RUNNER_TEMP/gap-forward.json"
+          python scripts/build_gap_manifest.py "${reverse[@]}" --api-root public/api/v1 --out-json "$RUNNER_TEMP/gap-reverse.json"
+          python scripts/audit_history_coverage.py "${forward[@]}" --api-root public/api/v1 --report-json "$RUNNER_TEMP/audit-forward.json"
+          python scripts/audit_history_coverage.py "${reverse[@]}" --api-root public/api/v1 --report-json "$RUNNER_TEMP/audit-reverse.json"
+          python scripts/backfill_status.py "${forward[@]}" --api-root public/api/v1 --out-json "$RUNNER_TEMP/status-forward.json"
+          python scripts/backfill_status.py "${reverse[@]}" --api-root public/api/v1 --out-json "$RUNNER_TEMP/status-reverse.json"
+
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          root=Path(os.environ['RUNNER_TEMP'])
+          def load(name): return json.loads((root/name).read_text())
+          gf,gr=load('gap-forward.json'),load('gap-reverse.json')
+          gf.pop('generated_at',None); gr.pop('generated_at',None)
+          af,ar=load('audit-forward.json'),load('audit-reverse.json')
+          sf,sr=load('status-forward.json'),load('status-reverse.json')
+          sf.pop('updated_at',None); sr.pop('updated_at',None)
+          print('GAP_EQUAL', gf==gr)
+          print('AUDIT_EQUAL', af==ar, 'forward_errors',af['error_count'],'reverse_errors',ar['error_count'])
+          print('STATUS_EQUAL', sf==sr)
+          for issue in ('ere-85-3-4','ere-86-1-2'):
+              f=next((x for x in gf['records'] if x.get('issue_id')==issue),None)
+              r=next((x for x in gr['records'] if x.get('issue_id')==issue),None)
+              print('ISSUE',issue,'FORWARD',f and {k:f.get(k) for k in ('official_url','authority','refreshed_at','status','publication_state')})
+              print('ISSUE',issue,'REVERSE',r and {k:r.get(k) for k in ('official_url','authority','refreshed_at','status','publication_state')})
+          if gf != gr:
+              fby={x.get('issue_id'):x for x in gf['records'] if x.get('issue_id')}
+              rby={x.get('issue_id'):x for x in gr['records'] if x.get('issue_id')}
+              changed=[i for i in sorted(set(fby)|set(rby)) if fby.get(i)!=rby.get(i)]
+              print('GAP_CHANGED_COUNT',len(changed))
+              print('GAP_CHANGED_SAMPLE',changed[:30])
+          if af != ar:
+              print('AUDIT_FORWARD_ONLY', sorted(set(af['errors'])-set(ar['errors']))[:30])
+              print('AUDIT_REVERSE_ONLY', sorted(set(ar['errors'])-set(af['errors']))[:30])
+          if sf != sr:
+              print('STATUS_SUMMARY_FORWARD',sf.get('summary'))
+              print('STATUS_SUMMARY_REVERSE',sr.get('summary'))
+          PY
