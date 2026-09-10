@@ -1,0 +1,51 @@
+name: Probe R2 Cambridge JEH source recovery
+
+on:
+  push:
+    branches:
+      - probe/r2-next-family-20260910
+    paths:
+      - .github/workflows/probe-r2-cambridge-jeh-source.yml
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r requirements.txt
+      - name: Compare official JEH 86-2 roster with canonical archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          git show origin/data:public/api/v1/journals/jeh/issues/jeh-86-2.json > "$RUNNER_TEMP/jeh-86-2.json"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from scripts.capture_cambridge_roster_evidence import capture_record
+
+          record = {
+              "journal": "JEH",
+              "issue_id": "jeh-86-2",
+              "year": 2026,
+              "issue": "2",
+              "source_status": "source_pending",
+              "official_url": "https://www.cambridge.org/core/journals/journal-of-economic-history",
+          }
+          evidence = capture_record(record, captured_at="2026-09-10T00:00:00+00:00")
+          archive = json.loads(Path("/tmp/jeh-86-2.json").read_text(encoding="utf-8"))
+          official = [item["doi"].casefold() for item in evidence["items"]]
+          existing = [item["doi"].casefold() for item in archive["articles"]]
+          print("official_url", evidence["official_url"])
+          print("official_publishable", len(official), official)
+          print("existing_publishable", len(existing), existing)
+          print("excluded", evidence["excluded_item_count"])
+          assert official == existing, {"official": official, "existing": existing}
+          print("JEH_86_2_ROSTER_EXACT=true")
+          PY
