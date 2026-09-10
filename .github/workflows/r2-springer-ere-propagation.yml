@@ -1,0 +1,24 @@
+name: R2 Springer ERE propagation
+
+on:
+  push:
+    branches: [propagate/springer-ere-20260910]
+    paths: [.github/workflows/r2-springer-ere-propagation.yml]
+
+permissions:
+  contents: write
+  models: read
+
+jobs:
+  ere:
+    uses: academic-door/journals/.github/workflows/backfill-field-history.yml@main
+    with:
+      journal: ERE
+      from_year: "2025"
+      to_year: "2026"
+      max_issues: "1"
+      max_translations: "0"
+      max_journals: "1"
+      translation_model: deepseek-chat
+      refresh_discovery_only: true
+    secrets: inherit
