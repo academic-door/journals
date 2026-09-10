@@ -85,7 +85,11 @@ Both returned one valid record with HTTP 200 / `X-ELS-Status: OK`. Quota remaini
 
 ## Quota / retention policy check
 
-The current Elsevier API Service Agreement states that Elsevier may deactivate API keys that have not been used to access the APIs for 90 days. This qualification itself, plus existing legitimate Journals metadata/recovery usage, demonstrates active use; **no artificial keepalive workload is justified now**.
+The **current** Elsevier API Service Agreement (as read on 2026-09-10) does not state a fixed inactivity-retention interval. It reserves Elsevier's right to monitor usage and throttle, suspend, or deactivate the API Service for suspected unauthorized use, and the term continues until credentials are deactivated or the applicable institutional agreement terminates.
+
+A 90-day unused-key deactivation clause appears in the archived 2024 API Service Agreement, and older TDM-specific terms contain different inactivity language. Those archived/specialized provisions are **not treated as the current general API retention contract**.
+
+Therefore there is no current evidence requiring an artificial keepalive cadence. Existing legitimate Journals metadata/recovery use and this bounded qualification also demonstrate present activity. No new keepalive workload is introduced.
 
 Decision 0015 controls remain:
 
