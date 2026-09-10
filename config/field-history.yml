@@ -176,8 +176,10 @@ journals:
     issn: 0741-6261
     issue_url_template: https://onlinelibrary.wiley.com/toc/17562171/{year}/{volume}/{issue}
   JEH:
-    platform: crossref
+    platform: cambridge
     issn: 0022-0507
+    archive_url: https://www.cambridge.org/core/journals/journal-of-economic-history/all-issues
+    allowed_host: www.cambridge.org
     issue_url_template: https://www.cambridge.org/core/journals/journal-of-economic-history
   JF:
     platform: crossref
