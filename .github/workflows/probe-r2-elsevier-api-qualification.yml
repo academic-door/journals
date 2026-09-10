@@ -19,12 +19,12 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-      - name: Diagnose bounded Article Metadata query shapes
+      - name: Verify known DOI lookup against Article Metadata API
         shell: bash
         run: |
           set -euo pipefail
           python - <<'PY'
-          import hashlib, json, os, time, uuid
+          import hashlib, json, os, re, time, uuid
           from datetime import datetime, timezone
           from urllib.error import HTTPError
           from urllib.parse import urlencode
@@ -37,35 +37,37 @@ jobs:
           if not api_key:
               raise SystemExit("ELSEVIER_API_KEY is not configured")
 
-          queries = [
-              ("known_volume", "ISSN(0147-5967) AND VOLUME(54)"),
-              ("issn_only", "ISSN(0147-5967)"),
-              ("year_window", "ISSN(0147-5967) AND PUB-DATE AFT 2024 AND PUB-DATE BEF 2027"),
+          cases = [
+              ("JCE", "10.1016/j.jce.2026.01.006"),
+              ("JDE", "10.1016/j.jdeveco.2026.103834"),
           ]
 
           def local(tag):
               return tag.rsplit("}", 1)[-1]
 
-          def first_text(node, name):
+          def first_text(node, *names):
+              wanted = {name.casefold() for name in names}
               for child in node.iter():
-                  if local(child.tag).casefold() == name.casefold() and child.text:
+                  if local(child.tag).casefold() in wanted and child.text:
                       value = " ".join(child.text.split())
                       if value:
                           return value
               return ""
 
-          out = {
+          result = {
               "schema_version": 1,
               "observed_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
               "credential_presence": {"api_key_configured": bool(api_key), "inst_token_configured": bool(inst_token)},
               "semantic_scholar_used": False,
-              "queries": [],
+              "authority_role": "known_item_metadata_qualification",
+              "cases": [],
           }
           last = 0.0
-          for label, query in queries:
+          for journal, doi in cases:
               wait = 0.25 - (time.monotonic() - last)
               if wait > 0:
                   time.sleep(wait)
+              query = f"DOI({doi})"
               params = {"query": query, "view": "COMPLETE", "count": "10", "start": "0", "httpAccept": "application/xml", "suppressNavLinks": "true"}
               fingerprint = hashlib.sha256(json.dumps(params, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
               headers = {"Accept": "application/xml", "X-ELS-APIKey": api_key, "X-ELS-ReqId": str(uuid.uuid4())}
@@ -82,7 +84,8 @@ jobs:
                   h = {str(k).casefold(): str(v) for k, v in (e.headers or {}).items()}
               last = time.monotonic()
               row = {
-                  "label": label,
+                  "journal": journal,
+                  "doi_sha256": hashlib.sha256(doi.encode()).hexdigest(),
                   "request_fingerprint": fingerprint,
                   "status": status,
                   "limit": h.get("x-ratelimit-limit", ""),
@@ -93,27 +96,35 @@ jobs:
               if status == 200:
                   root = ET.fromstring(body)
                   total = first_text(root, "totalResults")
-                  valid_entries = []
+                  entries = []
                   for entry in root.iter():
                       if local(entry.tag).casefold() != "entry":
                           continue
+                      observed_doi = first_text(entry, "doi")
+                      identifier = first_text(entry, "identifier")
+                      if not observed_doi:
+                          match = re.search(r"10\.\d{4,9}/\S+", identifier)
+                          observed_doi = match.group(0) if match else ""
                       pii = first_text(entry, "pii")
-                      doi = first_text(entry, "doi")
                       volume = first_text(entry, "volume")
                       issue = first_text(entry, "issueIdentifier")
                       cover = first_text(entry, "coverDate")
-                      if pii or doi or volume or issue or cover:
-                          valid_entries.append((bool(pii or doi), volume, issue, cover))
+                      if observed_doi or pii or volume or issue or cover:
+                          entries.append({
+                              "identity_present": bool(observed_doi or pii),
+                              "doi_matches_requested": observed_doi.casefold() == doi.casefold() if observed_doi else False,
+                              "pii_present": bool(pii),
+                              "volume": volume,
+                              "issue_identifier": issue,
+                              "cover_date": cover,
+                          })
                   row.update({
                       "total_results": int(total) if total.isdigit() else None,
-                      "valid_entries_on_first_page": len(valid_entries),
-                      "first_entry_identity_present": valid_entries[0][0] if valid_entries else False,
-                      "first_entry_volume": valid_entries[0][1] if valid_entries else "",
-                      "first_entry_issue_identifier": valid_entries[0][2] if valid_entries else "",
-                      "first_entry_cover_date": valid_entries[0][3] if valid_entries else "",
+                      "valid_entries": len(entries),
+                      "first_entry": entries[0] if entries else None,
                   })
               else:
                   row["error_payload_sha256"] = hashlib.sha256(body).hexdigest() if body else ""
-              out["queries"].append(row)
-          print("QUERY_DIAGNOSTIC=" + json.dumps(out, sort_keys=True))
+              result["cases"].append(row)
+          print("KNOWN_ITEM_RESULT=" + json.dumps(result, sort_keys=True))
           PY
