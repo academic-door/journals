@@ -1,0 +1,54 @@
+name: Probe R2 Wiley JF
+
+on:
+  push:
+    branches:
+      - probe/r2-wiley-jf-20260910
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Probe Wiley official issue archive
+        run: |
+          python - <<'PY'
+          import re
+          import requests
+
+          urls = {
+              2025: "https://onlinelibrary.wiley.com/loi/15406261/year/2025",
+              2026: "https://onlinelibrary.wiley.com/loi/15406261/year/2026",
+          }
+          expected = {
+              2025: ("80", {"1", "2", "3", "4", "5", "6"}),
+              2026: ("81", {"1", "2", "3", "4"}),
+          }
+          headers = {
+              "User-Agent": "AcademicDoorJournals/0.1 (non-profit academic metadata service; https://academic-door.github.io/)",
+              "Accept-Language": "en-US,en;q=0.8",
+          }
+          for year, url in urls.items():
+              response = requests.get(url, headers=headers, timeout=(10, 45))
+              print(f"JF {year} status={response.status_code} bytes={len(response.content)} url={response.url}")
+              response.raise_for_status()
+              text = response.text
+              volume, wanted_issues = expected[year]
+              observed = set(
+                  re.findall(
+                      rf"Volume\s*{re.escape(volume)}\s*,?\s*Issue\s*(\d+)",
+                      text,
+                      flags=re.IGNORECASE,
+                  )
+              )
+              print(f"JF {year} volume={volume} observed={sorted(observed)}")
+              missing = wanted_issues - observed
+              if missing:
+                  raise SystemExit(f"JF {year} missing expected issue markers: {sorted(missing)}")
+          PY
