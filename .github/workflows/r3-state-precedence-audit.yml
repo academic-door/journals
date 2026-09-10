@@ -1,0 +1,130 @@
+name: R3 state precedence audit
+
+on:
+  push:
+    branches:
+      - ops/r3-state-precedence-20260910
+
+permissions:
+  contents: read
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    env:
+      DATA_SHA: 3edcb79f24a92223151ea67cde3964ad1192ba64
+      BASE_SHA: e14b4e9ba4e7df50b5eada5ebeb6a3df7fe02826
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Materialize identical canonical data for before and after
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data main
+          before="$RUNNER_TEMP/before"
+          git worktree add "$before" "$BASE_SHA"
+          for tree in "$GITHUB_WORKSPACE" "$before"; do
+            rm -rf "$tree/public/api/v1/journals" "$tree/data/backfill-state"
+            mkdir -p "$tree/public/api/v1" "$tree/data"
+            git archive "$DATA_SHA" public/api/v1/journals data/backfill-state | tar -x -C "$tree"
+          done
+      - name: Run full-history audit before and after
+        shell: bash
+        run: |
+          set -euo pipefail
+          run_audit() {
+            tree="$1"
+            output="$2"
+            state_args=()
+            for state in "$tree"/data/backfill-state/*.json; do
+              [ -f "$state" ] && state_args+=(--state "$state")
+            done
+            (
+              cd "$tree"
+              PYTHONPATH="$tree" python scripts/audit_history_coverage.py \
+                "${state_args[@]}" \
+                --api-root public/api/v1 \
+                --report-json "$output"
+            )
+          }
+          run_audit "$RUNNER_TEMP/before" "$RUNNER_TEMP/history-before.json"
+          run_audit "$GITHUB_WORKSPACE" "$RUNNER_TEMP/history-after.json"
+      - name: Probe real overlapping ERE route selection
+        shell: bash
+        run: |
+          set -euo pipefail
+          probe() {
+            tree="$1"
+            output="$2"
+            (
+              cd "$tree"
+              PYTHONPATH="$tree" python - "$output" <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+          from scripts.backfill_status import discovery_expectations, load_state
+
+          states = [load_state(path) for path in sorted(Path("data/backfill-state").glob("*.json"))]
+          issues = {}
+          for state in states:
+              value = state.get("issues")
+              if isinstance(value, dict):
+                  issues.update(value)
+          selected = discovery_expectations(states, issues)["ere-85-3-4"]
+          Path(sys.argv[1]).write_text(json.dumps(selected, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          print(json.dumps(selected, ensure_ascii=False, sort_keys=True))
+          PY
+            )
+          }
+          probe "$RUNNER_TEMP/before" "$RUNNER_TEMP/ere-before.json"
+          probe "$GITHUB_WORKSPACE" "$RUNNER_TEMP/ere-after.json"
+      - name: Compare acceptance evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          temp = Path(os.environ["RUNNER_TEMP"])
+          before = json.loads((temp / "history-before.json").read_text())
+          after = json.loads((temp / "history-after.json").read_text())
+          route_before = json.loads((temp / "ere-before.json").read_text())
+          route_after = json.loads((temp / "ere-after.json").read_text())
+          evidence = {
+              "data_sha": os.environ["DATA_SHA"],
+              "base_sha": os.environ["BASE_SHA"],
+              "before_error_count": before["error_count"],
+              "after_error_count": after["error_count"],
+              "before_counts": before["counts"],
+              "after_counts": after["counts"],
+              "added_errors": sorted(set(after["errors"]) - set(before["errors"])),
+              "removed_errors": sorted(set(before["errors"]) - set(after["errors"])),
+              "ere_before": route_before,
+              "ere_after": route_after,
+          }
+          print(json.dumps(evidence, ensure_ascii=False, indent=2, sort_keys=True))
+          if before["counts"] != after["counts"] or before["errors"] != after["errors"]:
+              raise SystemExit("full-history audit changed; inspect before/after instead of masking errors")
+          if route_after.get("authority") not in {"official_archive", "official_archive_snapshot", "publisher_archive", "publisher_issue_page", "publisher_verified", "official-issue-page", "official_issue_page"}:
+              raise SystemExit("ERE route did not resolve to authoritative discovery")
+          if not str(route_after.get("official_url", "")).endswith("/85-3"):
+              raise SystemExit("ERE route did not resolve to exact Springer issue URL")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r3-state-precedence-audit
+          path: |
+            ${{ runner.temp }}/history-before.json
+            ${{ runner.temp }}/history-after.json
+            ${{ runner.temp }}/ere-before.json
+            ${{ runner.temp }}/ere-after.json
