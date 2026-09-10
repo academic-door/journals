@@ -1,0 +1,50 @@
+name: Bootstrap R2 Cambridge JEH
+
+on:
+  push:
+    branches: [r2/cambridge-jeh-20260910]
+    paths: [.github/workflows/bootstrap-r2-cambridge-jeh.yml]
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install probe deps
+        run: python -m pip install --quiet requests beautifulsoup4
+      - name: Inspect live Cambridge issue anchors
+        run: |
+          python - <<'PY'
+          import requests
+          from bs4 import BeautifulSoup
+
+          url = 'https://www.cambridge.org/core/journals/journal-of-economic-history/all-issues'
+          r = requests.get(url, headers={'User-Agent': 'AcademicDoorJournals/0.1 (non-profit academic metadata service; https://academic-door.github.io/)', 'Accept-Language': 'en-US,en;q=0.8'}, timeout=(10, 45))
+          print('status', r.status_code, 'bytes', len(r.content))
+          r.raise_for_status()
+          soup = BeautifulSoup(r.content, 'html.parser')
+          seen = 0
+          for a in soup.select('a[href*="/core/journals/journal-of-economic-history/issue/"]'):
+              text = ' '.join(a.get_text(' ', strip=True).split())
+              if 'Issue ' not in text and 'Special Issue ' not in text:
+                  continue
+              print('ANCHOR', a.get('href'), 'TEXT=', text)
+              node = a
+              for depth in range(1, 6):
+                  node = node.parent
+                  if node is None:
+                      break
+                  ctx = ' '.join(node.get_text(' ', strip=True).split())[:500]
+                  print(f'PARENT{depth}', node.name, dict(node.attrs), 'CTX=', ctx)
+              print('---')
+              seen += 1
+              if seen >= 8:
+                  break
+          assert seen >= 6, seen
+          PY
