@@ -44,7 +44,7 @@ jobs:
             [ -f "$state" ] && state_args+=(--state "$state")
           done
           python scripts/audit_history_coverage.py "${state_args[@]}" --api-root public/api/v1 --report-json "$RUNNER_TEMP/history-before.json"
-          python scripts/build_gap_manifest.py "${state_args[@]}" --api-root public/api/v1 --out-json "$RUNNER_TEMP/gap.json"
+          python scripts/build_gap_manifest.py --state data/backfill-state/field-2023-2024.json --api-root public/api/v1 --out-json "$RUNNER_TEMP/gap.json"
           python scripts/publish_data_delta.py snapshot \
             --root . --output "$RUNNER_TEMP/data-baseline" \
             --path public/api/v1/journals \
@@ -61,6 +61,14 @@ jobs:
           print('target_errors', found)
           if len(found) < 2:
               raise SystemExit('expected unresolved ERE target errors before recovery')
+          gap=json.load(open(os.environ['RUNNER_TEMP']+'/gap.json'))
+          by={r.get('issue_id'):r for r in gap.get('records',[])}
+          expected={'ere-85-3-4':'https://link.springer.com/journal/10640/volumes-and-issues/85-3','ere-86-1-2':'https://link.springer.com/journal/10640/volumes-and-issues/86-1'}
+          for issue_id,url in expected.items():
+              r=by.get(issue_id)
+              if not r or r.get('official_url') != url:
+                  raise SystemExit(f'authoritative recovery URL mismatch for {issue_id}: {r}')
+              print(issue_id, 'recovery_url', r['official_url'])
           PY
 
       - name: Capture exact Springer official evidence
@@ -77,12 +85,13 @@ jobs:
           import json, os
           from pathlib import Path
           root=Path('data/provenance/official-rosters/springer')
+          expected={'ere-85-3-4':'https://link.springer.com/journal/10640/volumes-and-issues/85-3','ere-86-1-2':'https://link.springer.com/journal/10640/volumes-and-issues/86-1'}
           for issue_id in os.environ['TARGETS'].split(','):
               path=root/f'{issue_id}.json'
               if not path.exists(): raise SystemExit(f'missing evidence: {issue_id}')
               p=json.loads(path.read_text())
               assert p['issue_id']==issue_id and p['finalized'] is True
-              assert p['official_url'].startswith('https://link.springer.com/')
+              assert p['official_url']==expected[issue_id]
               assert len(p.get('items',[])) > 0
               print(issue_id, 'official_items', len(p.get('items',[])), 'excluded', len(p.get('excluded_items',[])), 'url', p['official_url'])
           PY
