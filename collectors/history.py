@@ -158,6 +158,20 @@ def parse_archive(
                 year_match = YEAR_PATTERN.search(context)
                 if year_match:
                     year = int(year_match.group(1))
+        elif platform == "cambridge":
+            match = re.fullmatch(
+                r"/core/journals/journal-of-economic-history/issue/[^/]+",
+                path.rstrip("/"),
+            )
+            issue_match = re.search(r"\b(?:Special\s+)?Issue\s+(\d+)\b", text, re.IGNORECASE)
+            panel = link.find_parent("div", id=re.compile(r"^panel\d+$"))
+            panel_id = str(panel.get("id", "")) if panel is not None else ""
+            panel_match = re.fullmatch(r"panel(\d+)", panel_id)
+            year_match = YEAR_PATTERN.search(text)
+            if match and issue_match and panel_match and year_match:
+                volume = panel_match.group(1)
+                issue = issue_match.group(1)
+                year = int(year_match.group(1))
         elif platform == "wiley":
             match = re.search(r"/toc/14680262/(20\d{2})/(\d+)/(\d+)", path)
             if match:
