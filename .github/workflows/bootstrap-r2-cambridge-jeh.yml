@@ -107,14 +107,14 @@ jobs:
           import json
           p = json.load(open('public/api/v1/journals/jeh/issues/jeh-86-2.json'))
           assert p.get('content_status') == 'complete', p.get('content_status')
-          assert p.get('source_status') == 'publisher_verified', p.get('source_status')
+          assert p.get('source_status') == 'official_verified', p.get('source_status')
           assert p.get('publication_state') == 'ready', p.get('publication_state')
           q = p.get('quality', {})
           assert q.get('roster_match') is True
           assert q.get('order_preserved') is True
           assert q.get('roster_authority') == 'official-issue-page', q.get('roster_authority')
           assert q.get('roster_transport') == 'official-page-read', q.get('roster_transport')
-          print('JEH 86(2) promoted publisher_verified/ready')
+          print('JEH 86(2) promoted official_verified/ready')
           PY
 
       - name: Rebuild and audit canonical public data
