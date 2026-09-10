@@ -28,6 +28,7 @@ DEFAULT_PUBLIC_ROOT = ROOT / "public" / "api" / "v1" / "journals"
 DEFAULT_STATE = ROOT / "data" / "monitoring" / "email-notifications.json"
 DEFAULT_OUTCOME = ROOT / "output" / "email-notification-result.json"
 SITE_ROOT = "https://academic-door.github.io/journals"
+COMPOSER_ROOT = "https://academic-door-composer.academic-door.workers.dev"
 STATE_SCHEMA_VERSION = "1.2"
 
 
@@ -116,7 +117,7 @@ def issue_snapshot(
         "fingerprint": issue_fingerprint(issue),
         "directory_url": _issue_link(journal_id, collections),
         "composer_url": (
-            f"{SITE_ROOT}/composer/?journal={journal_id}"
+            f"{COMPOSER_ROOT}/?journal={journal_id}"
             f"&issue={issue.get('issue_id', '')}"
         ),
     }

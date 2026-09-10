@@ -12,6 +12,7 @@ from unittest.mock import patch
 from scripts.email_notifications import (
     SMTPSettings,
     build_message,
+    issue_snapshot,
     send_test_notification,
     synchronize,
 )
@@ -76,6 +77,37 @@ def settings() -> SMTPSettings:
 
 
 class EmailNotificationTests(unittest.TestCase):
+    def test_ready_composer_link_uses_private_worker_without_identity_drift(self):
+        issue = {
+            "journal_id": "AER",
+            "journal_name": "American Economic Review",
+            "issue_id": "aer-116-8",
+            "volume": "116",
+            "issue": "8",
+            "publication_date": "August 2026",
+            "research_article_count": 1,
+            "quality": {"abstract_en_complete": 1, "translation_complete": 1},
+            "articles": [{"paper_id": "doi:10.1/one"}],
+        }
+        snapshot = issue_snapshot(issue, {"aer": ["top5"]})
+        self.assertEqual(
+            "https://academic-door-composer.academic-door.workers.dev/?journal=aer&issue=aer-116-8",
+            snapshot["composer_url"],
+        )
+        self.assertEqual(
+            "https://academic-door.github.io/journals/?journal=aer",
+            snapshot["directory_url"],
+        )
+
+    def test_sync_steps_still_precede_ready_email_delivery(self):
+        root = Path(__file__).resolve().parents[1]
+        for name in ("monitor-journals.yml", "update-journals.yml"):
+            source = (root / ".github" / "workflows" / name).read_text(encoding="utf-8")
+            self.assertLess(
+                source.index("      - name: Sync audited"),
+                source.index("      - name: Send private new-issue email"),
+            )
+
     def test_manual_test_email_does_not_touch_notification_state(self):
         messages = []
         send_test_notification(
