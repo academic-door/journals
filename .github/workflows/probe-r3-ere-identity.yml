@@ -1,0 +1,40 @@
+name: Probe R3 ERE identity
+
+on:
+  push:
+    branches:
+      - probe/r3-ere-identity-20260910
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Inspect current canonical ERE identity state
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          echo "DATA_SHA=$(git rev-parse origin/data)"
+          rm -rf public/api data/backfill-state
+          git archive origin/data public/api data/backfill-state | tar -x
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for name in ['field-2023-2024.json','field-2025-2026.json']:
+              s=json.loads((Path('data/backfill-state')/name).read_text())
+              issues={k:v for k,v in s.get('issues',{}).items() if str(v.get('journal','')).upper()=='ERE' or k.startswith('ere-')}
+              disc=s.get('discovery',{}).get('ERE',{})
+              exc={k:v for k,v in s.get('expected_issue_exclusions',{}).items() if k.startswith('ere-')}
+              print('STATE',name)
+              print('DISCOVERY',json.dumps(disc,sort_keys=True))
+              print('EXCLUSIONS',json.dumps(exc,sort_keys=True))
+              print('ISSUES',json.dumps(issues,sort_keys=True))
+          d=Path('public/api/v1/journals/ere/issues')
+          print('ARCHIVES',json.dumps(sorted(p.name for p in d.glob('ere-*.json'))))
+          p=d/'index.json'
+          print('INDEX',p.read_text() if p.exists() else 'MISSING')
+          PY
