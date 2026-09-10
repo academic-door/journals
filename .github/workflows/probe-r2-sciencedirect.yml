@@ -1,0 +1,52 @@
+name: Probe R2 ScienceDirect archive transport
+
+on:
+  push:
+    branches:
+      - probe/r2-sciencedirect-20260910
+    paths:
+      - .github/workflows/probe-r2-sciencedirect.yml
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python -m pip install requests beautifulsoup4
+      - name: Probe official ScienceDirect issue archives
+        shell: bash
+        run: |
+          python - <<'PY'
+          import re
+          import requests
+          from bs4 import BeautifulSoup
+
+          targets = {
+              "JCE": "https://www.sciencedirect.com/journal/journal-of-comparative-economics/issues",
+              "ECOLECON": "https://www.sciencedirect.com/journal/ecological-economics/issues",
+          }
+          headers = {
+              "User-Agent": "Mozilla/5.0 (compatible; AcademicDoor-R2-Evidence/1.0)",
+              "Accept": "text/html,application/xhtml+xml",
+          }
+          for key, url in targets.items():
+              response = requests.get(url, headers=headers, timeout=30)
+              print(key, "status", response.status_code, "bytes", len(response.content), "url", response.url)
+              response.raise_for_status()
+              soup = BeautifulSoup(response.content, "html.parser")
+              hrefs = sorted({a.get("href", "") for a in soup.find_all("a") if a.get("href")})
+              if key == "JCE":
+                  matched = [h for h in hrefs if re.search(r"/journal/journal-of-comparative-economics/vol/54/issue/[123]$", h)]
+                  print("JCE_2026", matched)
+                  assert len(matched) == 3, matched
+              else:
+                  text = " ".join(soup.stripped_strings)
+                  print("ECOLECON_2026_marker", "2026" in text and "239" in text and "250" in text)
+                  assert "2026" in text and "239" in text and "250" in text
+          PY
