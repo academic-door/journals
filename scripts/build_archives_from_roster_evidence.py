@@ -74,7 +74,7 @@ DEFAULT_STAGING_ROOT = ROOT / "data" / "backfill-staging"
 def _split_volume_issue(issue_id: str, journal_id: str) -> tuple[str, str]:
     prefix = f"{journal_id}-"
     rest = issue_id[len(prefix):] if issue_id.startswith(prefix) else issue_id
-    parts = rest.rsplit("-", 1)
+    parts = rest.split("-", 1)
     if len(parts) != 2 or not parts[0] or not parts[1]:
         raise ValueError(f"cannot parse volume/issue from {issue_id}")
     return parts[0], parts[1]
