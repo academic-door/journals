@@ -1,0 +1,71 @@
+name: Temporary R3 compound builder patch
+
+on:
+  push:
+    branches:
+      - r3/ere-compound-builder-20260910
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: r3/ere-compound-builder-20260910
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Patch compound issue parsing and regression
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          script = Path("scripts/build_archives_from_roster_evidence.py")
+          text = script.read_text(encoding="utf-8")
+          old = '    parts = rest.rsplit("-", 1)\n'
+          new = '    parts = rest.split("-", 1)\n'
+          if new not in text:
+              if old not in text:
+                  raise SystemExit("expected split implementation not found")
+              text = text.replace(old, new, 1)
+              script.write_text(text, encoding="utf-8")
+
+          test = Path("tests/test_build_archives_from_roster_evidence.py")
+          text = test.read_text(encoding="utf-8")
+          import_old = "from scripts.build_archives_from_roster_evidence import (\n    _metadata_for_dois,\n"
+          import_new = "from scripts.build_archives_from_roster_evidence import (\n    _metadata_for_dois,\n    _split_volume_issue,\n"
+          if "    _split_volume_issue,\n" not in text:
+              if import_old not in text:
+                  raise SystemExit("expected import block not found")
+              text = text.replace(import_old, import_new, 1)
+
+          marker = "class BuildArchivesFromRosterEvidenceTests(unittest.TestCase):\n"
+          method = '''class BuildArchivesFromRosterEvidenceTests(unittest.TestCase):\n    def test_compound_issue_id_preserves_full_issue_label(self) -> None:\n        self.assertEqual(("85", "3-4"), _split_volume_issue("ere-85-3-4", "ere"))\n        self.assertEqual(("86", "1-2"), _split_volume_issue("ere-86-1-2", "ere"))\n        self.assertEqual(("84", "1"), _split_volume_issue("ere-84-1", "ere"))\n\n'''
+          if "def test_compound_issue_id_preserves_full_issue_label" not in text:
+              if marker not in text:
+                  raise SystemExit("test class marker not found")
+              text = text.replace(marker, method, 1)
+          test.write_text(text, encoding="utf-8")
+          PY
+      - name: Verify focused regression
+        run: python -m unittest tests.test_build_archives_from_roster_evidence.BuildArchivesFromRosterEvidenceTests.test_compound_issue_id_preserves_full_issue_label -v
+      - name: Verify builder suite
+        run: python -m unittest tests.test_build_archives_from_roster_evidence -v
+      - name: Commit only durable code and tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          git rm .github/workflows/tmp-r3-compound-builder-fix.yml
+          git config user.name "academic-door-bot"
+          git config user.email "academic-door-bot@users.noreply.github.com"
+          git add scripts/build_archives_from_roster_evidence.py tests/test_build_archives_from_roster_evidence.py
+          git commit -m "fix(history): preserve compound issue labels in roster archive builder"
+          git push origin HEAD:r3/ere-compound-builder-20260910
