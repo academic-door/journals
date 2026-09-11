@@ -968,6 +968,28 @@ def resolve_semantic_quantities(
             translated_q[identifier_number] -= 1
     return source_q, translated_q
 
+def _is_parallel_anaphoric_one(value: str, match: re.Match[str]) -> bool:
+    """True only for a bounded parallel pro-form such as ``an environment ... nor ... one ...``.
+
+    Bare ``one`` is normally a numeric quantity.  Exempt it only when the
+    same clause contains an explicit singular antecedent in a ``neither ...
+    nor ...`` parallel construction and the pro-form is followed by ``with``.
+    Unit-bearing quantities such as ``one year`` never reach this exemption.
+    """
+    if match.group("num").strip().lower() != "one":
+        return False
+    if match.group("scale") or match.group("unit"):
+        return False
+    if re.match(r"\s+with\b", value[match.end():], re.IGNORECASE) is None:
+        return False
+    prefix = value[: match.start()]
+    return re.search(
+        r"\bneither\s+almost\s+an?\s+[A-Za-z][A-Za-z-]*\s+with\b"
+        r"[^.;:!?]{0,160}\bnor\s+almost\s*$",
+        prefix,
+        re.IGNORECASE,
+    ) is not None
+
 def _semantic_numbers(value: str) -> list[str]:
     """Return the reported numeric *quantities* in ``value`` as canonical strings.
 
@@ -1148,6 +1170,8 @@ def _semantic_numbers(value: str) -> list[str]:
         if overlaps(span):
             continue
         if _is_english_century_ordinal(value, match):
+            continue
+        if _is_parallel_anaphoric_one(value, match):
             continue
         base = _en_cardinal_value(match.group("num"))
         if base is None:
