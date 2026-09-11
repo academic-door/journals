@@ -1213,8 +1213,9 @@ def fetch_repec_history_issue(
                 )
             except requests.RequestException:
                 doi = ""
-        if not doi:
-            doi = _configured_repec_doi(entry.get("detail_url", ""), doi_template)
+        configured_doi = _configured_repec_doi(entry.get("detail_url", ""), doi_template)
+        if configured_doi:
+            doi = configured_doi
         crossref = crossref_by_doi.get(doi, {})
         authors = _authors(crossref) or detail_authors
         abstract = (
