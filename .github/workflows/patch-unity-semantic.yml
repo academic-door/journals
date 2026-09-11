@@ -31,10 +31,9 @@ jobs:
 
           path = Path('scripts/translate_issue.py')
           raw = path.read_bytes()
-          nl = b'\r\n' if b'\r\n' in raw else b'\n'
 
           helper_anchor = b'def _semantic_numbers(value: str) -> list[str]:'
-          helper = nl.join([
+          helper = b'\n'.join([
               b'_MATHEMATICAL_UNITY_RE = re.compile(',
               b'    r"(?:\\b(?:equals?|equal\\s+to|above|below|greater\\s+than|less\\s+than|relative\\s+to)\\s+"',
               b'    r"(?P<direct>unity)\\b|"',
@@ -49,10 +48,8 @@ jobs:
               raise SystemExit(f'helper anchor count={raw.count(helper_anchor)}')
           raw = raw.replace(helper_anchor, helper, 1)
 
-          loop_anchor = b'    value = value.replace("\\u2010", "-").replace("\\u2011", "-")'
-          loop = nl.join([
-              loop_anchor,
-              b'',
+          loop_anchor = b'    # 0. Shared-scale ranges:'
+          loop = b'\n'.join([
               b'    # Mathematical "unity" denotes numeric 1 only in explicit comparator/relation contexts.',
               b'    for match in _MATHEMATICAL_UNITY_RE.finditer(value):',
               b'        group = "direct" if match.group("direct") is not None else "relational"',
@@ -60,6 +57,8 @@ jobs:
               b'        if overlaps(span):',
               b'            continue',
               b'        record("1", span)',
+              b'',
+              loop_anchor,
           ])
           if raw.count(loop_anchor) != 1:
               raise SystemExit(f'loop anchor count={raw.count(loop_anchor)}')
