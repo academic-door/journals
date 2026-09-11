@@ -44,18 +44,28 @@ class TranslationAnaphoricOneTests(unittest.TestCase):
         article = {
             "article_type": "research-article",
             "title_en": "A probability limit",
-            "abstract_en": "The normalized probability is almost one under the limiting model.",
+            "abstract_en": (
+                "The normalized probability is almost one under the limiting model, "
+                "and the estimate remains stable across repeated simulations and "
+                "alternative specifications."
+            ),
         }
         translated_missing = {
             "title_cn": "概率极限",
-            "abstract_cn": "在极限模型下，归一化概率已接近其上界。",
+            "abstract_cn": (
+                "在极限模型下，归一化概率已接近其上界，而且该估计在重复模拟和"
+                "不同模型设定中保持稳定。"
+            ),
         }
         with self.assertRaises(TranslationError):
             validate_translation(article, translated_missing)
 
         translated_ok = {
             "title_cn": "概率极限",
-            "abstract_cn": "在极限模型下，归一化概率接近1。",
+            "abstract_cn": (
+                "在极限模型下，归一化概率接近1，而且该估计在重复模拟和不同模型"
+                "设定中保持稳定。"
+            ),
         }
         validate_translation(article, translated_ok)
 
