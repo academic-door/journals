@@ -1,4 +1,4 @@
-name: R3 TE DOI template qualification
+name: R3 TE DOI template full qualification
 
 on:
   push:
@@ -19,13 +19,14 @@ jobs:
           cache: pip
       - run: python -m pip install -r requirements.txt
 
-      - name: Resolve three mechanically-derived TE DOI candidates and compare titles
+      - name: Resolve every mechanically-derived DOI for the eight TE target issues
         shell: bash
         run: |
           set -euo pipefail
           python - <<'PY'
           import json
           import re
+          from concurrent.futures import ThreadPoolExecutor, as_completed
           from difflib import SequenceMatcher
           from pathlib import Path
           from urllib.parse import quote
@@ -38,42 +39,60 @@ jobs:
               return re.sub(r'[^a-z0-9]+', ' ', str(value or '').casefold()).strip()
 
           cfg = yaml.safe_load(Path('config/journals.yml').read_text())['journals']['TE']
-          session = requests.Session()
-          session.headers.update({'User-Agent': USER_AGENT, 'Accept': 'application/json'})
           serial_url = _repec_serial_url(cfg['repec_series_code'])
-          serial = session.get(serial_url, timeout=60, headers={'Accept':'text/html,application/xhtml+xml'})
+          serial_session = requests.Session()
+          serial_session.headers.update({'User-Agent': USER_AGENT})
+          serial = serial_session.get(serial_url, timeout=60, headers={'Accept':'text/html,application/xhtml+xml'})
           serial.raise_for_status()
           parsed = _parse_repec_serial_issues(serial.content, serial_url)
-          target = next(r for r in parsed if str(r['volume']) == '18' and str(r['issue']) == '1')
+          wanted = {('18','1'),('18','2'),('18','3'),('18','4'),('19','1'),('19','2'),('19','3'),('19','4')}
+          entries = []
+          for issue in parsed:
+              key = (str(issue['volume']), str(issue['issue']))
+              if key not in wanted:
+                  continue
+              issue_id = f"te-{key[0]}-{key[1]}"
+              for entry in issue['items']:
+                  match = re.search(r'/([0-9]+)\.html(?:$|\?)', entry['detail_url'])
+                  paper_id = match.group(1) if match else ''
+                  candidate = str(cfg['doi_template']).format(id=paper_id) if paper_id else ''
+                  entries.append((issue_id, entry['title'], entry['detail_url'], paper_id, candidate))
+
+          def verify(row):
+              issue_id, title, detail_url, paper_id, candidate = row
+              session = requests.Session()
+              session.headers.update({'User-Agent': USER_AGENT, 'Accept': 'application/json'})
+              if not candidate:
+                  return {'issue_id':issue_id,'title':title,'detail_url':detail_url,'paper_id':paper_id,'candidate_doi':'','status':0,'resolved_title':'','similarity':0.0}
+              response = session.get('https://api.crossref.org/works/' + quote(candidate, safe=''), timeout=60)
+              resolved_title = ''
+              if response.ok:
+                  titles = (response.json().get('message') or {}).get('title') or []
+                  resolved_title = str(titles[0]) if titles else ''
+              similarity = SequenceMatcher(None, norm(title), norm(resolved_title)).ratio() if resolved_title else 0.0
+              return {'issue_id':issue_id,'title':title,'detail_url':detail_url,'paper_id':paper_id,'candidate_doi':candidate,'status':response.status_code,'resolved_title':resolved_title,'similarity':round(similarity,4)}
+
           rows = []
-          for entry in target['items'][:3]:
-              match = re.search(r'/([0-9]+)\.html(?:$|\?)', entry['detail_url'])
-              paper_id = match.group(1) if match else ''
-              candidate = str(cfg['doi_template']).format(id=paper_id) if paper_id else ''
-              response = session.get('https://api.crossref.org/works/' + quote(candidate, safe=''), timeout=60) if candidate else None
-              status = response.status_code if response is not None else 0
-              metadata_title = ''
-              if response is not None and response.ok:
-                  message = response.json().get('message') or {}
-                  titles = message.get('title') or []
-                  metadata_title = str(titles[0]) if titles else ''
-              similarity = SequenceMatcher(None, norm(entry['title']), norm(metadata_title)).ratio() if metadata_title else 0.0
-              rows.append({
-                  'repec_title': entry['title'],
-                  'detail_url': entry['detail_url'],
-                  'paper_id': paper_id,
-                  'candidate_doi': candidate,
-                  'crossref_status': status,
-                  'crossref_title': metadata_title,
-                  'title_similarity': round(similarity, 4),
-              })
-          report = {'issue_id':'te-18-1','rows':rows}
-          Path('te-doi-template-qualification.json').write_text(json.dumps(report, indent=2) + '\n')
+          with ThreadPoolExecutor(max_workers=8) as pool:
+              futures = [pool.submit(verify, row) for row in entries]
+              for future in as_completed(futures):
+                  rows.append(future.result())
+          rows.sort(key=lambda r:(r['issue_id'], r['paper_id']))
+          failures = [r for r in rows if r['status'] != 200 or r['similarity'] < 0.95]
+          per_issue = {}
+          for r in rows:
+              bucket = per_issue.setdefault(r['issue_id'], {'total':0,'verified':0})
+              bucket['total'] += 1
+              bucket['verified'] += int(r['status'] == 200 and r['similarity'] >= 0.95)
+          report = {'expected_issue_count':8,'issue_count':len(per_issue),'article_count':len(rows),'verified_count':len(rows)-len(failures),'failure_count':len(failures),'per_issue':per_issue,'failures':failures}
+          Path('te-doi-template-full-qualification.json').write_text(json.dumps(report, indent=2) + '\n')
           print(json.dumps(report, indent=2))
+          if len(per_issue) != 8 or failures:
+              raise SystemExit('TE DOI template qualification failed')
           PY
 
       - uses: actions/upload-artifact@v4
         with:
-          name: r3-te-doi-template-qualification
-          path: te-doi-template-qualification.json
+          name: r3-te-doi-template-full-qualification
+          path: te-doi-template-full-qualification.json
           if-no-files-found: error
