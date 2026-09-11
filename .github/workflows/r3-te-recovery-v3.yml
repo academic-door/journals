@@ -37,7 +37,8 @@ jobs:
         run: |
           set -euo pipefail
           git fetch origin data
-          echo "DATA_BASE_SHA=$(git rev-parse origin/data)" | tee -a "$GITHUB_ENV"
+          export DATA_BASE_SHA="$(git rev-parse origin/data)"
+          echo "DATA_BASE_SHA=$DATA_BASE_SHA" | tee -a "$GITHUB_ENV"
           rm -rf public/api data/backfill-state data/backfill-staging data/translation-cache
           mkdir -p public data
           git archive origin/data public/api data/backfill-state data/backfill-staging data/translation-cache | tar -x
