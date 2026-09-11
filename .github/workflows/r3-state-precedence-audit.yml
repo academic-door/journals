@@ -12,7 +12,7 @@ jobs:
   compare:
     runs-on: ubuntu-latest
     env:
-      DATA_SHA: 3edcb79f24a92223151ea67cde3964ad1192ba64
+      DATA_SHA: 794ae0b6cfe86e76ec20bcd03a4306984f232af7
       BASE_SHA: e14b4e9ba4e7df50b5eada5ebeb6a3df7fe02826
     steps:
       - uses: actions/checkout@v7
