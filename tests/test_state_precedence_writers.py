@@ -1,12 +1,18 @@
 from __future__ import annotations
 
 import json
+import os
+import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
 
 from scripts.merge_history_shards import merge_state
 from scripts.publish_data_delta import _merge_backfill_state_json
+
+
+ROOT = Path(__file__).resolve().parents[1]
 
 
 class StatePrecedenceWriterTests(unittest.TestCase):
@@ -94,6 +100,28 @@ class StatePrecedenceWriterTests(unittest.TestCase):
             exact,
             merged["discovery"]["ERE"]["issue_refs"]["ere-85-3-4"]["official_url"],
         )
+
+    def test_writer_scripts_support_direct_cli_execution_without_pythonpath(self) -> None:
+        environment = os.environ.copy()
+        environment.pop("PYTHONPATH", None)
+        for relative_path in (
+            "scripts/merge_history_shards.py",
+            "scripts/publish_data_delta.py",
+        ):
+            with self.subTest(script=relative_path):
+                result = subprocess.run(
+                    [sys.executable, relative_path, "--help"],
+                    cwd=ROOT,
+                    env=environment,
+                    capture_output=True,
+                    text=True,
+                    check=False,
+                )
+                self.assertEqual(
+                    0,
+                    result.returncode,
+                    msg=f"{relative_path} failed direct CLI execution:\n{result.stderr}",
+                )
 
 
 if __name__ == "__main__":
