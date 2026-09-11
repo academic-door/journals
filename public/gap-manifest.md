@@ -1,11 +1,11 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-11T19:00:54+00:00
+Generated: 2026-09-11T19:06:25+00:00
 
 ## Summary
 
-- ready: 1168
-- recoverable: 62
+- ready: 1176
+- recoverable: 54
 - source_pending: 96
 
 ## Issue queue
@@ -1275,14 +1275,14 @@ Generated: 2026-09-11T19:00:54+00:00
 | RFS | rfs-39-7 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-39-8 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-39-9 | 2026 | ready | complete | official_verified | content and official source gates passed |
-| TE | te-18-1 | 2023 | recoverable | blocked | source_pending | archive_missing |
-| TE | te-18-2 | 2023 | recoverable | blocked | source_pending | archive_missing |
-| TE | te-18-3 | 2023 | recoverable | blocked | source_pending | archive_missing |
-| TE | te-18-4 | 2023 | recoverable | blocked | source_pending | archive_missing |
-| TE | te-19-1 | 2024 | recoverable | blocked | source_pending | archive_missing |
-| TE | te-19-2 | 2024 | recoverable | blocked | source_pending | archive_missing |
-| TE | te-19-3 | 2024 | recoverable | blocked | source_pending | archive_missing |
-| TE | te-19-4 | 2024 | recoverable | blocked | source_pending | archive_missing |
+| TE | te-18-1 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| TE | te-18-2 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| TE | te-18-3 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| TE | te-18-4 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
+| TE | te-19-1 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
+| TE | te-19-2 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
+| TE | te-19-3 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
+| TE | te-19-4 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | TE | te-20-1 | 2025 | source_pending | complete | source_pending | official source verification pending |
 | TE | te-20-2 | 2025 | source_pending | complete | source_pending | official source verification pending |
 | TE | te-20-3 | 2025 | source_pending | complete | source_pending | official source verification pending |

@@ -1,13 +1,13 @@
 # Field journal history backfill status
 
-Updated: 2026-09-11T19:00:36+00:00
+Updated: 2026-09-11T19:06:07+00:00
 
-Discovery coverage: 1326 discovered · 1264 archived · 1168 publication ready · 62 missing · 96 source pending
+Discovery coverage: 1326 discovered · 1272 archived · 1176 publication ready · 54 missing · 96 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 608 | 0 | 46 | 54 |
-| 2023-2026 | 281 | 0 | 14 | 5 |
+| 2023-2024 | 616 | 0 | 38 | 54 |
+| 2023-2026 | 289 | 0 | 6 | 5 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
 | 2026-2026 | 10 | 0 | 0 | 0 |
@@ -1286,14 +1286,14 @@ Discovery coverage: 1326 discovered · 1264 archived · 1168 publication ready �
 | RFS | rfs-39-7 | 2026 | ready |  |
 | RFS | rfs-39-8 | 2026 | ready |  |
 | RFS | rfs-39-9 | 2026 | ready |  |
-| TE | te-18-1 | 2023 | blocked | archive_content_gate_failed |
-| TE | te-18-2 | 2023 | blocked | archive_content_gate_failed |
-| TE | te-18-3 | 2023 | blocked | archive_content_gate_failed |
-| TE | te-18-4 | 2023 | blocked | archive_content_gate_failed |
-| TE | te-19-1 | 2024 | blocked | archive_content_gate_failed |
-| TE | te-19-2 | 2024 | blocked | archive_content_gate_failed |
-| TE | te-19-3 | 2024 | blocked | archive_content_gate_failed |
-| TE | te-19-4 | 2024 | blocked | archive_content_gate_failed |
+| TE | te-18-1 | 2023 | ready |  |
+| TE | te-18-2 | 2023 | ready |  |
+| TE | te-18-3 | 2023 | ready |  |
+| TE | te-18-4 | 2023 | ready |  |
+| TE | te-19-1 | 2024 | ready |  |
+| TE | te-19-2 | 2024 | ready |  |
+| TE | te-19-3 | 2024 | ready |  |
+| TE | te-19-4 | 2024 | ready |  |
 | TE | te-20-1 | 2025 | source_pending |  |
 | TE | te-20-2 | 2025 | source_pending |  |
 | TE | te-20-3 | 2025 | source_pending |  |
