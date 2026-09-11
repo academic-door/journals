@@ -990,6 +990,14 @@ def _is_parallel_anaphoric_one(value: str, match: re.Match[str]) -> bool:
         re.IGNORECASE,
     ) is not None
 
+_MATHEMATICAL_UNITY_RE = re.compile(
+    r"(?:\b(?:equals?|equal\s+to|above|below|greater\s+than|less\s+than|relative\s+to)\s+"
+    r"(?P<direct>unity)\b|"
+    r"\b(?:relationship|ratio|value|coefficient|elasticity|parameter|statistic|index|measure)\b"
+    r"[^.;:!?]{0,80}\b(?:with|to)\s+(?P<relational>unity)\b)",
+    re.IGNORECASE,
+)
+
 def _semantic_numbers(value: str) -> list[str]:
     """Return the reported numeric *quantities* in ``value`` as canonical strings.
 
@@ -1021,6 +1029,14 @@ def _semantic_numbers(value: str) -> list[str]:
     # tokenized consistently.  The minus sign U+2212 is deliberately left intact
     # so "year−1" unit-exponent handling stays correct.
     value = value.replace("\u2010", "-").replace("\u2011", "-")
+
+    # Mathematical "unity" denotes numeric 1 only in explicit comparator/relation contexts.
+    for match in _MATHEMATICAL_UNITY_RE.finditer(value):
+        group = "direct" if match.group("direct") is not None else "relational"
+        span = match.span(group)
+        if overlaps(span):
+            continue
+        record("1", span)
 
     # 0. Shared-scale ranges: "585.9 to 598.4 billion", "849至867亿美元",
     #    "$0.79-$11.91 million", "2.3-3.5 kt".  The trailing scale applies to BOTH.
