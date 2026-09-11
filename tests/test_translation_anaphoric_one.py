@@ -82,6 +82,16 @@ class TranslationAnaphoricOneTests(unittest.TestCase):
             validate_translation(article, translated_missing)
         validate_translation(article, translated_ok)
 
+    def test_bare_one_without_parallel_noun_antecedent_remains_numeric(self) -> None:
+        from scripts.translate_issue import resolve_semantic_quantities
+
+        source_q, _ = resolve_semantic_quantities(
+            "The normalized score is neither almost zero nor almost one with rounding applied.",
+            "归一化得分在舍入后既不接近0，也不接近1。",
+        )
+        self.assertEqual(1, source_q["0"])
+        self.assertEqual(1, source_q["1"])
+
 
 if __name__ == "__main__":
     unittest.main()
