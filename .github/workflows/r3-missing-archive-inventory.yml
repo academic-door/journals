@@ -1,0 +1,134 @@
+name: R3 missing archive inventory
+
+on:
+  push:
+    branches:
+      - ops/r3-state-reconcile-data-20260911
+
+permissions:
+  contents: read
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+
+      - name: Restore current canonical history surface
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          echo "DATA_SHA=$(git rev-parse origin/data)"
+          rm -rf data/backfill-state public/api/v1/journals data/provenance data/backfill-staging
+          git archive origin/data data/backfill-state public/api/v1/journals | tar -x
+          mkdir -p data/provenance data/backfill-staging
+          for path in data/provenance/official-rosters data/provenance/browser-snapshots data/backfill-staging; do
+            if git ls-tree -r --name-only origin/data -- "$path" | grep -q .; then
+              git archive origin/data "$path" | tar -x
+            fi
+          done
+
+      - name: Build canonical gap and recovery queue
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/recovery-shards"
+          state_args=()
+          for state in data/backfill-state/*.json; do
+            [ -f "$state" ] && state_args+=(--state "$state")
+          done
+          python scripts/build_gap_manifest.py \
+            "${state_args[@]}" \
+            --api-root public/api/v1 \
+            --out-json "$RUNNER_TEMP/gap.json"
+          python scripts/build_recovery_queue.py \
+            --gap-manifest "$RUNNER_TEMP/gap.json" \
+            --journals-config config/journals.yml \
+            --output-dir "$RUNNER_TEMP/recovery-shards" \
+            --plan-json "$RUNNER_TEMP/plan.json"
+
+      - name: Summarize missing archive mechanisms and persisted evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import os
+          from collections import Counter, defaultdict
+          from pathlib import Path
+
+          root = Path('.')
+          temp = Path(os.environ['RUNNER_TEMP'])
+          gap = json.loads((temp / 'gap.json').read_text())
+          action_by_issue = {}
+          for shard_path in sorted((temp / 'recovery-shards').glob('*.json')):
+              shard = json.loads(shard_path.read_text())
+              for record in shard.get('records', []):
+                  action_by_issue[str(record.get('issue_id', ''))] = str(record.get('action', ''))
+
+          missing = [r for r in gap.get('records', []) if r.get('issue_id') and not r.get('archive_exists')]
+          by_action = Counter()
+          by_collector = Counter()
+          by_journal = Counter()
+          by_category = Counter()
+          evidence_counts = Counter()
+          rows = []
+          for r in missing:
+              issue_id = str(r['issue_id'])
+              action = action_by_issue.get(issue_id, '')
+              official = list((root / 'data/provenance/official-rosters').rglob(f'{issue_id}.json')) if (root / 'data/provenance/official-rosters').exists() else []
+              browser = list((root / 'data/provenance/browser-snapshots').rglob(f'{issue_id}.json')) if (root / 'data/provenance/browser-snapshots').exists() else []
+              staging = list((root / 'data/backfill-staging').rglob(f'*{issue_id}*')) if (root / 'data/backfill-staging').exists() else []
+              if official: evidence_counts['official_roster'] += 1
+              if browser: evidence_counts['browser_snapshot'] += 1
+              if staging: evidence_counts['staging'] += 1
+              by_action[action or '<none>'] += 1
+              by_collector[str(r.get('collector') or '<none>')] += 1
+              by_journal[str(r.get('journal') or '<none>')] += 1
+              by_category[str(r.get('category') or '<none>')] += 1
+              rows.append({
+                  'issue_id': issue_id,
+                  'journal': r.get('journal'),
+                  'year': r.get('year'),
+                  'category': r.get('category'),
+                  'collector': r.get('collector'),
+                  'action': action,
+                  'authority': r.get('authority'),
+                  'official_url': r.get('official_url'),
+                  'reason': r.get('reason'),
+                  'official_roster': [str(p) for p in official],
+                  'browser_snapshot': [str(p) for p in browser],
+                  'staging': [str(p) for p in staging],
+              })
+          payload = {
+              'missing_count': len(missing),
+              'by_category': dict(sorted(by_category.items())),
+              'by_action': dict(sorted(by_action.items())),
+              'by_collector': dict(sorted(by_collector.items())),
+              'by_journal': dict(sorted(by_journal.items())),
+              'persisted_evidence': dict(sorted(evidence_counts.items())),
+              'rows': rows,
+          }
+          (temp / 'missing-inventory.json').write_text(json.dumps(payload, indent=2) + '\n')
+          print(json.dumps({k: payload[k] for k in ('missing_count','by_category','by_action','by_collector','by_journal','persisted_evidence')}, indent=2))
+          print('ROWS_BEGIN')
+          for row in rows:
+              print(json.dumps(row, sort_keys=True))
+          print('ROWS_END')
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: r3-missing-archive-inventory
+          path: |
+            ${{ runner.temp }}/gap.json
+            ${{ runner.temp }}/plan.json
+            ${{ runner.temp }}/missing-inventory.json
+            ${{ runner.temp }}/recovery-shards
+          if-no-files-found: error
