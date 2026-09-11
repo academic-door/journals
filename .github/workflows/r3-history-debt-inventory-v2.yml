@@ -1,0 +1,103 @@
+name: R3 history debt inventory v2
+
+on:
+  push:
+    branches:
+      - probe/r3-history-debt-inventory-v2-20260911
+    paths:
+      - .github/workflows/r3-history-debt-inventory-v2.yml
+
+permissions:
+  contents: read
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: probe/r3-history-debt-inventory-v2-20260911
+          fetch-depth: 1
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements.txt
+      - name: Materialize execution-time canonical data
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          echo "DATA_SHA=$(git rev-parse origin/data)"
+          rm -rf data/backfill-state public/api
+          mkdir -p data public
+          git archive origin/data data/backfill-state public/api | tar -x
+      - name: Audit and classify remaining R3 debt
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t states < <(find data/backfill-state -maxdepth 1 -type f -name '*.json' | sort)
+          args=()
+          for state in "${states[@]}"; do args+=(--state "$state"); done
+          python scripts/audit_history_coverage.py "${args[@]}" --api-root public/api/v1 --report-json /tmp/history.json
+          python scripts/build_gap_manifest.py "${args[@]}" --api-root public/api/v1 --out-json /tmp/gap.json
+          python - <<'PY'
+          import collections, json, re
+          from pathlib import Path
+
+          history=json.loads(Path('/tmp/history.json').read_text())
+          gap=json.loads(Path('/tmp/gap.json').read_text())
+          errors=list(map(str, history.get('errors', [])))
+
+          def category(error: str) -> str:
+              patterns=[
+                  ('archive_missing', r'archive missing$'),
+                  ('index_entry_missing', r'archive index entry missing$'),
+                  ('state_source_mismatch', r'state source_status .* != archive '),
+                  ('state_publication_mismatch', r'state publication .* != archive '),
+                  ('state_content_mismatch', r'state content_status .* != archive '),
+                  ('discovery_no_state', r'discovery has no state entry$'),
+                  ('state_absent_discovery', r'state entry absent from discovery snapshot$'),
+              ]
+              for name, pat in patterns:
+                  if re.search(pat, error): return name
+              return 'other'
+
+          cats=collections.Counter(category(e) for e in errors)
+          per_issue=collections.defaultdict(list)
+          for error in errors:
+              issue=error.split(':',1)[0]
+              per_issue[issue].append(category(error))
+          journal_errors=collections.Counter()
+          for issue, kinds in per_issue.items():
+              journal_errors[issue.split('-',1)[0]] += len(kinds)
+
+          records=[r for r in gap.get('records',[]) if r.get('category') in {'recoverable','source_pending'}]
+          gap_by_category=collections.Counter(r.get('category') for r in records)
+          gap_by_journal=collections.defaultdict(lambda: collections.Counter())
+          for r in records:
+              issue=str(r.get('issue_id',''))
+              journal=issue.split('-',1)[0]
+              gap_by_journal[journal][r.get('category')] += 1
+
+          candidates=[]
+          for issue, kinds in sorted(per_issue.items()):
+              rec=next((r for r in records if r.get('issue_id')==issue), None)
+              candidates.append({
+                  'issue_id': issue,
+                  'journal': issue.split('-',1)[0],
+                  'error_categories': sorted(kinds),
+                  'gap_category': None if rec is None else rec.get('category'),
+                  'archive_exists': None if rec is None else rec.get('archive_exists'),
+              })
+
+          print('R3_DATA_COUNTS=' + json.dumps(history.get('counts',{}), sort_keys=True))
+          print('R3_ERROR_COUNT=' + str(history.get('error_count')))
+          print('R3_ERROR_CATEGORIES=' + json.dumps(cats, sort_keys=True))
+          print('R3_ERROR_JOURNALS=' + json.dumps(journal_errors.most_common(), ensure_ascii=False))
+          print('R3_GAP_COUNTS=' + json.dumps(gap_by_category, sort_keys=True))
+          print('R3_GAP_JOURNALS=' + json.dumps({k:dict(v) for k,v in sorted(gap_by_journal.items())}, ensure_ascii=False, sort_keys=True))
+          print('R3_CANDIDATES_BEGIN')
+          for item in candidates:
+              print(json.dumps(item, ensure_ascii=False, sort_keys=True))
+          print('R3_CANDIDATES_END')
+          PY
