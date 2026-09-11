@@ -1,0 +1,131 @@
+name: R3 state reconcile qualification
+
+on:
+  push:
+    branches:
+      - probe/r3-history-debt-inventory-20260911
+
+permissions:
+  contents: read
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    env:
+      DATA_SHA: b54433f2bafafec3f9a09f3b1870dddf6a739e78
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements.txt
+      - name: Materialize pinned canonical history data
+        run: |
+          git fetch --depth=1 origin data
+          rm -rf data/backfill-state public/api/v1/journals
+          git archive "$DATA_SHA" data/backfill-state public/api/v1/journals | tar -x
+      - name: Simulate archive-index-backed state reconciliation
+        run: |
+          python - <<'PY'
+          import copy, json
+          from pathlib import Path
+          import yaml
+          from scripts.audit_history_coverage import audit_history_integrity, _index_entries, _state_publication
+          from scripts.backfill_history import inspect_archive, retry_class_for
+          from scripts.backfill_status import load_state
+
+          state_paths = sorted(Path('data/backfill-state').glob('*.json'))
+          journals = yaml.safe_load(Path('config/journals.yml').read_text())['journals']
+          api_root = Path('public/api/v1')
+          states = [load_state(path) for path in state_paths]
+          before = audit_history_integrity(states, journals=journals, api_root=api_root)
+
+          index_cache = {}
+          changed_rows = []
+          changed_files = set()
+          for path, state in zip(state_paths, states):
+              issues = state.get('issues', {})
+              if not isinstance(issues, dict):
+                  continue
+              for issue_id, raw_entry in issues.items():
+                  if not isinstance(raw_entry, dict):
+                      continue
+                  journal = str(raw_entry.get('journal', ''))
+                  config = journals.get(journal) or journals.get(journal.upper())
+                  if not config:
+                      continue
+                  journal_id = str(config['id'])
+                  integrity = inspect_archive(
+                      api_root / 'journals' / journal_id / 'issues' / f'{issue_id}.json',
+                      expected_issue_id=issue_id,
+                      expected_journal_id=journal_id,
+                  )
+                  if not integrity.get('archive_exists'):
+                      continue
+                  if journal_id not in index_cache:
+                      index_cache[journal_id] = _index_entries(
+                          api_root / 'journals' / journal_id / 'issues' / 'index.json'
+                      )
+                  index, index_error = index_cache[journal_id]
+                  if index_error:
+                      continue
+                  index_entry = index.get(issue_id)
+                  if not isinstance(index_entry, dict):
+                      continue
+                  if any(
+                      str(index_entry.get(field, '')) != str(integrity.get(field, ''))
+                      for field in ('content_status', 'source_status', 'publication_state')
+                  ):
+                      continue
+                  desired_pub = str(integrity['publication_state'])
+                  desired = {
+                      'status': desired_pub,
+                      'content_status': str(integrity['content_status']),
+                      'source_status': str(integrity['source_status']),
+                      'publication_state': desired_pub,
+                      'last_error': str(integrity.get('reason', '')) if desired_pub == 'blocked' else '',
+                      'retry_class': retry_class_for(
+                          desired_pub,
+                          str(integrity.get('reason', '')) if desired_pub == 'blocked' else '',
+                      ),
+                  }
+                  current = {
+                      'status': str(raw_entry.get('status', '')),
+                      'content_status': str(raw_entry.get('content_status', '')),
+                      'source_status': str(raw_entry.get('source_status', '')),
+                      'publication_state': str(raw_entry.get('publication_state', '')),
+                      'last_error': str(raw_entry.get('last_error', '')),
+                      'retry_class': str(raw_entry.get('retry_class', '')),
+                  }
+                  readiness_changed = (
+                      _state_publication(raw_entry) != desired_pub
+                      or current['content_status'] != desired['content_status']
+                      or current['source_status'] != desired['source_status']
+                  )
+                  if not readiness_changed:
+                      continue
+                  raw_entry.update(desired)
+                  raw_entry.pop('next_retry_at', None)
+                  changed_rows.append({
+                      'file': path.name,
+                      'issue_id': issue_id,
+                      'before': current,
+                      'after': desired,
+                  })
+                  changed_files.add(path.name)
+
+          after = audit_history_integrity(states, journals=journals, api_root=api_root)
+          before_errors = set(before['errors'])
+          after_errors = set(after['errors'])
+          print('R3_RECONCILE_BEFORE=' + str(before['error_count']))
+          print('R3_RECONCILE_AFTER=' + str(after['error_count']))
+          print('R3_RECONCILE_CHANGED_ROW_COUNT=' + str(len(changed_rows)))
+          print('R3_RECONCILE_CHANGED_FILE_COUNT=' + str(len(changed_files)))
+          print('R3_RECONCILE_CHANGED_FILES=' + json.dumps(sorted(changed_files)))
+          print('R3_RECONCILE_ADDED_ERRORS=' + json.dumps(sorted(after_errors - before_errors)))
+          print('R3_RECONCILE_REMOVED_ERROR_COUNT=' + str(len(before_errors - after_errors)))
+          print('R3_RECONCILE_REMOVED_ERRORS=' + json.dumps(sorted(before_errors - after_errors)))
+          print('R3_RECONCILE_ROWS=' + json.dumps(changed_rows, ensure_ascii=False, sort_keys=True))
+          if after_errors - before_errors:
+              raise SystemExit('simulation introduced new history audit errors')
+          PY
