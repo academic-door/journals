@@ -33,14 +33,8 @@ jobs:
           raw = path.read_bytes()
           nl = b'\r\n' if b'\r\n' in raw else b'\n'
 
-          helper_anchor = nl.join([
-              b'    ) is not None',
-              b'',
-              b'def _semantic_numbers(value: str) -> list[str]:',
-          ])
+          helper_anchor = b'def _semantic_numbers(value: str) -> list[str]:'
           helper = nl.join([
-              b'    ) is not None',
-              b'',
               b'_MATHEMATICAL_UNITY_RE = re.compile(',
               b'    r"(?:\\b(?:equals?|equal\\s+to|above|below|greater\\s+than|less\\s+than|relative\\s+to)\\s+"',
               b'    r"(?P<direct>unity)\\b|"',
@@ -49,19 +43,15 @@ jobs:
               b'    re.IGNORECASE,',
               b')',
               b'',
-              b'def _semantic_numbers(value: str) -> list[str]:',
+              helper_anchor,
           ])
           if raw.count(helper_anchor) != 1:
               raise SystemExit(f'helper anchor count={raw.count(helper_anchor)}')
           raw = raw.replace(helper_anchor, helper, 1)
 
-          loop_anchor = nl.join([
-              b'    value = value.replace("\\u2010", "-").replace("\\u2011", "-")',
-              b'',
-              b'    # 0. Shared-scale ranges: "585.9 to 598.4 billion", "849\xe8\x87\xb3867\xe4\xba\xbf\xe7\xbe\x8e\xe5\x85\x83",',
-          ])
+          loop_anchor = b'    value = value.replace("\\u2010", "-").replace("\\u2011", "-")'
           loop = nl.join([
-              b'    value = value.replace("\\u2010", "-").replace("\\u2011", "-")',
+              loop_anchor,
               b'',
               b'    # Mathematical "unity" denotes numeric 1 only in explicit comparator/relation contexts.',
               b'    for match in _MATHEMATICAL_UNITY_RE.finditer(value):',
@@ -70,8 +60,6 @@ jobs:
               b'        if overlaps(span):',
               b'            continue',
               b'        record("1", span)',
-              b'',
-              b'    # 0. Shared-scale ranges: "585.9 to 598.4 billion", "849\xe8\x87\xb3867\xe4\xba\xbf\xe7\xbe\x8e\xe5\x85\x83",',
           ])
           if raw.count(loop_anchor) != 1:
               raise SystemExit(f'loop anchor count={raw.count(loop_anchor)}')
