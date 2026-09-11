@@ -119,12 +119,15 @@ class HistoryStateReconcileScopeTests(unittest.TestCase):
                 encoding="utf-8",
             )
 
-            result = reconcile_state_file(
-                state_path,
-                journals={"AER": {"id": "aer", "name": "AER"}},
-                api_root=root / "api",
-                issue_ids={"aer-114-1"},
-            )
+            try:
+                result = reconcile_state_file(
+                    state_path,
+                    journals={"AER": {"id": "aer", "name": "AER"}},
+                    api_root=root / "api",
+                    issue_ids={"aer-114-1"},
+                )
+            except TypeError as error:
+                self.fail(f"reconcile_state_file must accept an issue_ids scope: {error}")
             state = json.loads(state_path.read_text(encoding="utf-8"))
 
             self.assertEqual(1, result["changed_count"])
