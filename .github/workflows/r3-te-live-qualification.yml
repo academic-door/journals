@@ -1,0 +1,144 @@
+name: R3 TE live qualification
+
+on:
+  push:
+    branches:
+      - ops/r3-te-live-qualify-20260911
+    paths:
+      - .github/workflows/r3-te-live-qualification.yml
+
+permissions:
+  contents: read
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ops/r3-te-live-qualify-20260911
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Restore execution-time canonical data
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          echo "DATA_SHA=$(git rev-parse origin/data)" | tee -a "$GITHUB_ENV"
+          rm -rf public/api/v1/journals data/backfill-state
+          mkdir -p public/api/v1 data
+          git archive origin/data public/api/v1/journals data/backfill-state | tar -x
+      - name: Build current gap manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          state_args=()
+          for state in data/backfill-state/*.json; do
+            [ -f "$state" ] && state_args+=(--state "$state")
+          done
+          python scripts/build_gap_manifest.py \
+            "${state_args[@]}" \
+            --api-root public/api/v1 \
+            --out-json /tmp/gap.json
+      - name: Qualify all current TE 2023-2024 missing archives with production collector
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import yaml
+
+          from collectors.history import HistoricalIssue
+          from scripts.backfill_history import collector_for_issue
+
+          manifest = json.loads(Path('/tmp/gap.json').read_text())
+          rows = [
+              row for row in manifest['records']
+              if row.get('journal') == 'TE'
+              and row.get('year') in (2023, 2024)
+              and row.get('category') == 'recoverable'
+              and not row.get('archive_exists')
+          ]
+          rows.sort(key=lambda row: (row['year'], int(str(row['volume'])), int(str(row['issue']))))
+          issue_ids = [row['issue_id'] for row in rows]
+          print('TE_TARGETS=' + ','.join(issue_ids))
+          if len(rows) != 8:
+              raise SystemExit(f'expected exactly 8 TE 2023-2024 recoverable missing archives, got {len(rows)}: {issue_ids}')
+
+          config = yaml.safe_load(Path('config/journals.yml').read_text())['journals']['TE']
+          results = []
+          for row in rows:
+              ref = HistoricalIssue(
+                  row['journal'],
+                  int(row['year']),
+                  str(row['volume']),
+                  str(row['issue']),
+                  str(row['official_url']),
+              )
+              candidate = collector_for_issue(config, ref)()
+              quality = candidate.get('quality') or {}
+              articles = candidate.get('articles') or []
+              count = len(articles)
+              dois = [str(article.get('doi') or '').lower() for article in articles]
+              failures = []
+              expected_id = row['issue_id'].lower()
+              if str(candidate.get('issue_id') or '').lower() != expected_id:
+                  failures.append('issue_id_mismatch')
+              if not quality.get('roster_match'):
+                  failures.append('roster_mismatch')
+              if quality.get('roster_transport') != 'repec-serial-page':
+                  failures.append('wrong_roster_transport')
+              if quality.get('roster_authority') != 'repec-publisher-supplied':
+                  failures.append('wrong_roster_authority')
+              if int(quality.get('duplicate_count') or 0) != 0:
+                  failures.append('duplicate_doi')
+              if int(quality.get('doi_complete') or 0) != count:
+                  failures.append('doi_incomplete')
+              if int(quality.get('authors_complete') or 0) != count:
+                  failures.append('authors_incomplete')
+              if int(quality.get('abstract_en_complete') or 0) != count:
+                  failures.append('abstract_en_incomplete')
+              if not all(doi.startswith('10.3982/te') for doi in dois):
+                  failures.append('doi_template_identity_mismatch')
+              result = {
+                  'issue_id': row['issue_id'],
+                  'year': row['year'],
+                  'volume': row['volume'],
+                  'issue': row['issue'],
+                  'article_count': count,
+                  'doi_complete': quality.get('doi_complete'),
+                  'authors_complete': quality.get('authors_complete'),
+                  'abstract_en_complete': quality.get('abstract_en_complete'),
+                  'roster_authority': quality.get('roster_authority'),
+                  'roster_transport': quality.get('roster_transport'),
+                  'duplicate_count': quality.get('duplicate_count'),
+                  'failures': failures,
+              }
+              print(json.dumps(result, sort_keys=True))
+              results.append(result)
+              if failures:
+                  raise SystemExit(f"qualification failed for {row['issue_id']}: {failures}")
+
+          payload = {
+              'data_sha': __import__('os').environ['DATA_SHA'],
+              'main_sha': __import__('subprocess').check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
+              'issue_count': len(results),
+              'article_count': sum(item['article_count'] for item in results),
+              'issues': results,
+          }
+          Path('/tmp/te-live-qualification.json').write_text(json.dumps(payload, indent=2) + '\n')
+          print('QUALIFICATION=' + json.dumps({
+              'data_sha': payload['data_sha'],
+              'issue_count': payload['issue_count'],
+              'article_count': payload['article_count'],
+          }, sort_keys=True))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: te-live-qualification
+          path: /tmp/te-live-qualification.json
