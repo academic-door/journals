@@ -28,6 +28,7 @@ jobs:
       - run: python scripts/_tmp_r2_wiley_bind.py
       - run: python -m unittest tests.test_r2_wiley_observed_evidence tests.test_history_discovery tests.test_r2_snapshot_authority -v
       - run: git diff --check
+      - run: git diff --stat -- config/field-history.yml
 
       - name: Commit config binding
         shell: bash
