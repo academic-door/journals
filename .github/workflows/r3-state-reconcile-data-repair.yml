@@ -1,0 +1,183 @@
+name: R3 state reconciliation repair
+
+on:
+  push:
+    branches:
+      - ops/r3-state-reconcile-data-20260911
+
+permissions:
+  contents: write
+
+concurrency:
+  group: journal-data-update
+  cancel-in-progress: false
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+
+      - name: Restore current canonical history data and capture baseline
+        id: baseline
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          data_sha="$(git rev-parse origin/data)"
+          echo "data_sha=$data_sha" >> "$GITHUB_OUTPUT"
+          rm -rf data/backfill-state public/api/v1/journals
+          git archive origin/data data/backfill-state public/api/v1/journals | tar -x
+          state_args=()
+          for state in data/backfill-state/*.json; do
+            [ -f "$state" ] && state_args+=(--state "$state")
+          done
+          python scripts/audit_history_coverage.py \
+            "${state_args[@]}" \
+            --api-root public/api/v1 \
+            --report-json "$RUNNER_TEMP/history-before.json"
+          python scripts/publish_data_delta.py snapshot \
+            --root . \
+            --output "$RUNNER_TEMP/data-baseline" \
+            --path data/backfill-state
+          find public/api/v1/journals -type f -print0 | sort -z | xargs -0 sha256sum > "$RUNNER_TEMP/public-before.sha256"
+
+      - name: Reconcile only archive-index-backed state drift
+        shell: bash
+        run: |
+          set -euo pipefail
+          state_args=()
+          for state in data/backfill-state/*.json; do
+            [ -f "$state" ] && state_args+=(--state "$state")
+          done
+          python scripts/history_state_reconcile.py \
+            "${state_args[@]}" \
+            --api-root public/api/v1 \
+            --report-json "$RUNNER_TEMP/reconcile.json"
+          python scripts/audit_history_coverage.py \
+            "${state_args[@]}" \
+            --api-root public/api/v1 \
+            --report-json "$RUNNER_TEMP/history-after.json"
+          find public/api/v1/journals -type f -print0 | sort -z | xargs -0 sha256sum > "$RUNNER_TEMP/public-after.sha256"
+          cmp "$RUNNER_TEMP/public-before.sha256" "$RUNNER_TEMP/public-after.sha256"
+
+      - name: Enforce qualified repair invariant
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          temp = Path(os.environ["RUNNER_TEMP"])
+          before = json.loads((temp / "history-before.json").read_text())
+          after = json.loads((temp / "history-after.json").read_text())
+          reconcile = json.loads((temp / "reconcile.json").read_text())
+          before_errors = set(before["errors"])
+          after_errors = set(after["errors"])
+          added = sorted(after_errors - before_errors)
+          removed = sorted(before_errors - after_errors)
+          changed_files = sorted(
+              Path(state["state_path"]).name
+              for state in reconcile["states"]
+              if state["changed_count"]
+          )
+          expected_files = [
+              "field-2023-2024.json",
+              "field-2023-2026.json",
+              "field-2025-2026.json",
+          ]
+          print(f"R3_DATA_BASELINE_ERROR_COUNT={before['error_count']}")
+          print(f"R3_DATA_AFTER_ERROR_COUNT={after['error_count']}")
+          print(f"R3_DATA_CHANGED_ROWS={reconcile['changed_count']}")
+          print(f"R3_DATA_CHANGED_FILES={changed_files}")
+          print(f"R3_DATA_ADDED_ERRORS={added}")
+          print(f"R3_DATA_REMOVED_ERROR_COUNT={len(removed)}")
+          if before["error_count"] != 210:
+              raise SystemExit("historical baseline moved from qualified 210-error surface")
+          if after["error_count"] != 146:
+              raise SystemExit("reconcile result moved from qualified 146-error surface")
+          if reconcile["changed_count"] != 28:
+              raise SystemExit("reconcile row count moved from qualified 28-row surface")
+          if changed_files != expected_files:
+              raise SystemExit(f"unexpected state files changed: {changed_files}")
+          if added:
+              raise SystemExit(f"reconcile introduced history errors: {added}")
+          if len(removed) != 64:
+              raise SystemExit(f"expected 64 removed state-drift errors, got {len(removed)}")
+          PY
+
+      - name: Apply state delta to latest data branch and verify readback before push
+        shell: bash
+        run: |
+          set -euo pipefail
+          generated="$RUNNER_TEMP/generated-state"
+          data_tree="$RUNNER_TEMP/data-tree"
+          python scripts/publish_data_delta.py snapshot \
+            --root . \
+            --output "$generated" \
+            --path data/backfill-state
+          git fetch origin data
+          git worktree add "$data_tree" origin/data
+          git -C "$data_tree" switch -C data
+          python scripts/publish_data_delta.py apply \
+            --baseline "$RUNNER_TEMP/data-baseline" \
+            --generated "$generated" \
+            --target "$data_tree" \
+            --path data/backfill-state
+
+          mapfile -t changed < <(git -C "$data_tree" diff --name-only -- data/backfill-state | sort)
+          expected=(
+            data/backfill-state/field-2023-2024.json
+            data/backfill-state/field-2023-2026.json
+            data/backfill-state/field-2025-2026.json
+          )
+          if [[ "${changed[*]}" != "${expected[*]}" ]]; then
+            printf 'Unexpected target diff: %s\n' "${changed[*]}" >&2
+            exit 1
+          fi
+
+          target_state_args=()
+          for state in "$data_tree"/data/backfill-state/*.json; do
+            [ -f "$state" ] && target_state_args+=(--state "$state")
+          done
+          python scripts/audit_history_coverage.py \
+            "${target_state_args[@]}" \
+            --api-root "$data_tree/public/api/v1" \
+            --report-json "$RUNNER_TEMP/history-target.json"
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          temp = Path(os.environ["RUNNER_TEMP"])
+          after = json.loads((temp / "history-after.json").read_text())
+          target = json.loads((temp / "history-target.json").read_text())
+          if target["counts"] != after["counts"] or target["errors"] != after["errors"]:
+              raise SystemExit("guarded delta target does not match qualified post-reconcile audit")
+          print(f"R3_TARGET_ERROR_COUNT={target['error_count']}")
+          PY
+
+          git -C "$data_tree" config user.name "academic-door-bot"
+          git -C "$data_tree" config user.email "academic-door-bot@users.noreply.github.com"
+          git -C "$data_tree" add data/backfill-state/field-2023-2024.json \
+            data/backfill-state/field-2023-2026.json \
+            data/backfill-state/field-2025-2026.json
+          git -C "$data_tree" commit -m "Reconcile historical state from canonical archives"
+          git -C "$data_tree" push origin HEAD:data
+
+      - name: Upload reconciliation evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: r3-state-reconcile-evidence
+          path: |
+            ${{ runner.temp }}/history-before.json
+            ${{ runner.temp }}/history-after.json
+            ${{ runner.temp }}/history-target.json
+            ${{ runner.temp }}/reconcile.json
+          if-no-files-found: error
