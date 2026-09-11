@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-09-11T14:46:55+00:00
+Updated: 2026-09-11T15:16:33+00:00
 
 Discovery coverage: 1326 discovered · 1264 archived · 1168 publication ready · 62 missing · 96 source pending
 
@@ -360,12 +360,12 @@ Discovery coverage: 1326 discovered · 1264 archived · 1168 publication ready �
 | ENERGY | energy-159-c | 2026 | ready |  |
 | ENERGY | energy-160-c | 2026 | ready |  |
 | ENERGY | energy-161-c | 2026 | ready |  |
-| ENERGY | energy-162-c | 2026 | ready | MetadataFallbackError: Crossref returned no usable issue 162/ |
+| ENERGY | energy-162-c | 2026 | ready |  |
 | ERE | ere-84-1 | 2023 | ready |  |
 | ERE | ere-84-2 | 2023 | ready |  |
 | ERE | ere-84-3 | 2023 | ready |  |
 | ERE | ere-84-4 | 2023 | ready |  |
-| ERE | ere-85-1 | 2023 | ready | archive_content_gate_failed |
+| ERE | ere-85-1 | 2023 | ready |  |
 | ERE | ere-85-2 | 2023 | ready |  |
 | ERE | ere-85-3-4 | 2023 | ready |  |
 | ERE | ere-86-1-2 | 2023 | ready |  |
@@ -379,7 +379,7 @@ Discovery coverage: 1326 discovered · 1264 archived · 1168 publication ready �
 | ERE | ere-87-3 | 2024 | ready |  |
 | ERE | ere-87-4 | 2024 | ready |  |
 | ERE | ere-87-5 | 2024 | ready |  |
-| ERE | ere-87-6 | 2024 | ready | archive_content_gate_failed |
+| ERE | ere-87-6 | 2024 | ready |  |
 | ERE | ere-87-7 | 2024 | ready |  |
 | ERE | ere-87-8 | 2024 | ready |  |
 | ERE | ere-87-9 | 2024 | ready |  |
@@ -458,8 +458,8 @@ Discovery coverage: 1326 discovered · 1264 archived · 1168 publication ready �
 | GEB | geb-158-c | 2026 | ready |  |
 | GEB | geb-159-c | 2026 | ready |  |
 | IER | ier-64-1 | 2023 | blocked | MetadataFallbackError: RePEc serial page has no issue 64/1 |
-| IER | ier-64-2 | 2023 | source_pending | MetadataFallbackError: RePEc serial page has no issue 64/2 |
-| IER | ier-64-3 | 2023 | source_pending | MetadataFallbackError: RePEc serial page has no issue 64/3 |
+| IER | ier-64-2 | 2023 | source_pending |  |
+| IER | ier-64-3 | 2023 | source_pending |  |
 | IER | ier-64-4 | 2023 | ready |  |
 | IER | ier-65-1 | 2024 | ready |  |
 | IER | ier-65-2 | 2024 | ready |  |
@@ -536,15 +536,15 @@ Discovery coverage: 1326 discovered · 1264 archived · 1168 publication ready �
 | JDE | jde-181-c | 2026 | ready |  |
 | JDE | jde-182-c | 2026 | ready |  |
 | JDE | jde-183-c | 2026 | ready |  |
-| JEBO | jebo-205-c | 2023 | ready | archive_missing |
+| JEBO | jebo-205-c | 2023 | ready |  |
 | JEBO | jebo-206-c | 2023 | ready |  |
 | JEBO | jebo-207-c | 2023 | ready |  |
-| JEBO | jebo-208-c | 2023 | ready | archive_missing |
+| JEBO | jebo-208-c | 2023 | ready |  |
 | JEBO | jebo-209-c | 2023 | ready |  |
 | JEBO | jebo-210-c | 2023 | ready |  |
 | JEBO | jebo-211-c | 2023 | ready |  |
 | JEBO | jebo-212-c | 2023 | ready |  |
-| JEBO | jebo-213-c | 2023 | ready | possible_incomplete_volume: 2 articles collected vs current issue 26; needs offi |
+| JEBO | jebo-213-c | 2023 | ready |  |
 | JEBO | jebo-214-c | 2023 | ready |  |
 | JEBO | jebo-215-c | 2023 | ready |  |
 | JEBO | jebo-216-c | 2023 | ready |  |
@@ -581,7 +581,7 @@ Discovery coverage: 1326 discovered · 1264 archived · 1168 publication ready �
 | JEBO | jebo-247-c | 2026 | ready |  |
 | JEBO | jebo-248-c | 2026 | ready |  |
 | JEBO | jebo-249-c | 2026 | ready |  |
-| JEBO | jebo-250-c | 2026 | ready | MetadataFallbackError: Crossref returned no usable issue 250/ |
+| JEBO | jebo-250-c | 2026 | ready |  |
 | JEDC | jedc-146-c | 2023 | ready |  |
 | JEDC | jedc-147-c | 2023 | ready |  |
 | JEDC | jedc-148-c | 2023 | ready |  |
@@ -627,7 +627,7 @@ Discovery coverage: 1326 discovered · 1264 archived · 1168 publication ready �
 | JEDC | jedc-188-c | 2026 | ready |  |
 | JEDC | jedc-189-c | 2026 | ready |  |
 | JEDC | jedc-190-c | 2026 | ready |  |
-| JEDC | jedc-191-c | 2026 | ready | MetadataFallbackError: Crossref returned no usable issue 191/ |
+| JEDC | jedc-191-c | 2026 | ready |  |
 | JEEA | jeea-21-1 | 2023 | ready |  |
 | JEEA | jeea-21-2 | 2023 | ready |  |
 | JEEA | jeea-21-3 | 2023 | ready |  |
@@ -733,7 +733,7 @@ Discovery coverage: 1326 discovered · 1264 archived · 1168 publication ready �
 | JET | jet-234-c | 2026 | ready |  |
 | JET | jet-235-c | 2026 | ready |  |
 | JET | jet-236-c | 2026 | ready |  |
-| JET | jet-237-c | 2026 | ready | MetadataFallbackError: Crossref returned no usable issue 237/ |
+| JET | jet-237-c | 2026 | ready |  |
 | JF | jf-78-1 | 2023 | ready |  |
 | JF | jf-78-2 | 2023 | ready |  |
 | JF | jf-78-3 | 2023 | source_pending |  |
@@ -801,7 +801,7 @@ Discovery coverage: 1326 discovered · 1264 archived · 1168 publication ready �
 | JFE | jfe-181-c | 2026 | ready |  |
 | JFE | jfe-182-c | 2026 | ready |  |
 | JFE | jfe-183-c | 2026 | ready |  |
-| JFE | jfe-184-c | 2026 | ready | MetadataFallbackError: Crossref returned no usable issue 184/ |
+| JFE | jfe-184-c | 2026 | ready |  |
 | JHE | jhe-100-c | 2025 | ready |  |
 | JHE | jhe-101-c | 2025 | ready |  |
 | JHE | jhe-102-c | 2025 | ready |  |
@@ -914,7 +914,7 @@ Discovery coverage: 1326 discovered · 1264 archived · 1168 publication ready �
 | JOE | joe-238-1 | 2024 | ready |  |
 | JOE | joe-238-2 | 2024 | ready |  |
 | JOE | joe-239-1 | 2024 | ready |  |
-| JOE | joe-239-2 | 2024 | ready | archive_missing |
+| JOE | joe-239-2 | 2024 | ready |  |
 | JOE | joe-240-1 | 2024 | ready |  |
 | JOE | joe-240-2 | 2024 | ready |  |
 | JOE | joe-241-1 | 2024 | ready |  |
@@ -1026,7 +1026,7 @@ Discovery coverage: 1326 discovered · 1264 archived · 1168 publication ready �
 | JPubE | jpube-259-c | 2026 | ready |  |
 | JPubE | jpube-260-c | 2026 | ready |  |
 | JPubE | jpube-261-c | 2026 | ready |  |
-| JPubE | jpube-262-c | 2026 | ready | MetadataFallbackError: Crossref returned no usable issue 262/ |
+| JPubE | jpube-262-c | 2026 | ready |  |
 | JUE | jue-133-c | 2023 | blocked | archive_content_gate_failed |
 | JUE | jue-134-c | 2023 | ready |  |
 | JUE | jue-135-c | 2023 | ready |  |
@@ -1052,7 +1052,7 @@ Discovery coverage: 1326 discovered · 1264 archived · 1168 publication ready �
 | JUE | jue-156-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 156/ |
 | LABECO | labeco-100-c | 2026 | ready |  |
 | LABECO | labeco-101-c | 2026 | ready |  |
-| LABECO | labeco-102-c | 2026 | ready | MetadataFallbackError: Crossref returned no usable issue 102/ |
+| LABECO | labeco-102-c | 2026 | ready |  |
 | LABECO | labeco-80-c | 2023 | ready |  |
 | LABECO | labeco-81-c | 2023 | ready |  |
 | LABECO | labeco-82-c | 2023 | ready |  |
@@ -1194,7 +1194,7 @@ Discovery coverage: 1326 discovered · 1264 archived · 1168 publication ready �
 | RED | red-57-c | 2025 | source_pending |  |
 | RED | red-58-c | 2025 | source_pending |  |
 | RED | red-59-c | 2026 | source_pending |  |
-| RED | red-60-c | 2026 | source_pending | possible_incomplete_volume: 4 articles collected vs current issue 12; needs offi |
+| RED | red-60-c | 2026 | source_pending |  |
 | RED | red-61-c | 2026 | source_pending |  |
 | RED | red-62-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 62/ |
 | RES | res-90-1 | 2023 | ready |  |
@@ -1230,9 +1230,9 @@ Discovery coverage: 1326 discovered · 1264 archived · 1168 publication ready �
 | RESTAT | restat-106-2 | 2024 | source_pending |  |
 | RESTAT | restat-106-3 | 2024 | ready |  |
 | RESTAT | restat-106-4 | 2024 | source_pending |  |
-| RESTAT | restat-106-5 | 2024 | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs off |
+| RESTAT | restat-106-5 | 2024 | source_pending |  |
 | RESTAT | restat-106-6 | 2024 | source_pending |  |
-| RESTAT | restat-107-1 | 2025 | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs off |
+| RESTAT | restat-107-1 | 2025 | source_pending |  |
 | RESTAT | restat-107-2 | 2025 | source_pending |  |
 | RESTAT | restat-107-3 | 2025 | source_pending |  |
 | RESTAT | restat-107-4 | 2025 | source_pending |  |
@@ -1294,10 +1294,10 @@ Discovery coverage: 1326 discovered · 1264 archived · 1168 publication ready �
 | TE | te-19-2 | 2024 | blocked | archive_content_gate_failed |
 | TE | te-19-3 | 2024 | blocked | archive_content_gate_failed |
 | TE | te-19-4 | 2024 | blocked | archive_content_gate_failed |
-| TE | te-20-1 | 2025 | source_pending | archive_content_gate_failed |
-| TE | te-20-2 | 2025 | source_pending | archive_content_gate_failed |
-| TE | te-20-3 | 2025 | source_pending | archive_content_gate_failed |
-| TE | te-20-4 | 2025 | source_pending | archive_content_gate_failed |
+| TE | te-20-1 | 2025 | source_pending |  |
+| TE | te-20-2 | 2025 | source_pending |  |
+| TE | te-20-3 | 2025 | source_pending |  |
+| TE | te-20-4 | 2025 | source_pending |  |
 | TE | te-21-1 | 2026 | ready |  |
 | TE | te-21-2 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
 | TE | te-21-3 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |

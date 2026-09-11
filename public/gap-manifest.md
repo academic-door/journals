@@ -1,6 +1,6 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-11T14:47:12+00:00
+Generated: 2026-09-11T15:16:47+00:00
 
 ## Summary
 
@@ -456,8 +456,8 @@ Generated: 2026-09-11T14:47:12+00:00
 | GEB | geb-158-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | GEB | geb-159-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | IER | ier-64-1 | 2023 | recoverable | blocked | source_pending | archive_missing |
-| IER | ier-64-2 | 2023 | source_pending | complete | source_pending | MetadataFallbackError: RePEc serial page has no issue 64/2 |
-| IER | ier-64-3 | 2023 | source_pending | complete | source_pending | MetadataFallbackError: RePEc serial page has no issue 64/3 |
+| IER | ier-64-2 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| IER | ier-64-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | IER | ier-64-4 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | IER | ier-65-1 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | IER | ier-65-2 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
@@ -1183,7 +1183,7 @@ Generated: 2026-09-11T14:47:12+00:00
 | RED | red-57-c | 2025 | source_pending | complete | source_pending | official source verification pending |
 | RED | red-58-c | 2025 | source_pending | complete | source_pending | official source verification pending |
 | RED | red-59-c | 2026 | source_pending | complete | source_pending | official source verification pending |
-| RED | red-60-c | 2026 | source_pending | complete | source_pending | possible_incomplete_volume: 4 articles collected vs current issue 12; needs official page or browser-authorized capture |
+| RED | red-60-c | 2026 | source_pending | complete | source_pending | official source verification pending |
 | RED | red-61-c | 2026 | source_pending | complete | source_pending | official source verification pending |
 | RED | red-62-c | 2026 | recoverable | blocked | source_pending | archive_missing |
 | RES | res-90-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
@@ -1219,9 +1219,9 @@ Generated: 2026-09-11T14:47:12+00:00
 | RESTAT | restat-106-2 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | RESTAT | restat-106-3 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | RESTAT | restat-106-4 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-106-5 | 2024 | source_pending | complete | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs official page or browser-authorized capture |
+| RESTAT | restat-106-5 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | RESTAT | restat-106-6 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-107-1 | 2025 | source_pending | complete | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs official page or browser-authorized capture |
+| RESTAT | restat-107-1 | 2025 | source_pending | complete | source_pending | official source verification pending |
 | RESTAT | restat-107-2 | 2025 | source_pending | complete | source_pending | official source verification pending |
 | RESTAT | restat-107-3 | 2025 | source_pending | complete | source_pending | official source verification pending |
 | RESTAT | restat-107-4 | 2025 | source_pending | complete | source_pending | official source verification pending |
@@ -1283,10 +1283,10 @@ Generated: 2026-09-11T14:47:12+00:00
 | TE | te-19-2 | 2024 | recoverable | blocked | source_pending | archive_missing |
 | TE | te-19-3 | 2024 | recoverable | blocked | source_pending | archive_missing |
 | TE | te-19-4 | 2024 | recoverable | blocked | source_pending | archive_missing |
-| TE | te-20-1 | 2025 | source_pending | complete | source_pending | archive_content_gate_failed |
-| TE | te-20-2 | 2025 | source_pending | complete | source_pending | archive_content_gate_failed |
-| TE | te-20-3 | 2025 | source_pending | complete | source_pending | archive_content_gate_failed |
-| TE | te-20-4 | 2025 | source_pending | complete | source_pending | archive_content_gate_failed |
+| TE | te-20-1 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| TE | te-20-2 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| TE | te-20-3 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| TE | te-20-4 | 2025 | source_pending | complete | source_pending | official source verification pending |
 | TE | te-21-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | TE | te-21-2 | 2026 | recoverable | blocked | source_pending | archive_missing |
 | TE | te-21-3 | 2026 | recoverable | blocked | source_pending | archive_missing |
