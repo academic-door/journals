@@ -21,13 +21,13 @@ jobs:
       - run: python -m pip install -r requirements.txt
       - name: Materialize pinned canonical history data
         run: |
-          git fetch --depth=1 origin data
+          git fetch --depth=1 origin "$DATA_SHA"
           rm -rf data/backfill-state public/api/v1/journals
           git archive "$DATA_SHA" data/backfill-state public/api/v1/journals | tar -x
       - name: Simulate archive-index-backed state reconciliation
         run: |
           python - <<'PY'
-          import copy, json
+          import json
           from pathlib import Path
           import yaml
           from scripts.audit_history_coverage import audit_history_integrity, _index_entries, _state_publication
@@ -78,16 +78,14 @@ jobs:
                   ):
                       continue
                   desired_pub = str(integrity['publication_state'])
+                  desired_error = str(integrity.get('reason', '')) if desired_pub == 'blocked' else ''
                   desired = {
                       'status': desired_pub,
                       'content_status': str(integrity['content_status']),
                       'source_status': str(integrity['source_status']),
                       'publication_state': desired_pub,
-                      'last_error': str(integrity.get('reason', '')) if desired_pub == 'blocked' else '',
-                      'retry_class': retry_class_for(
-                          desired_pub,
-                          str(integrity.get('reason', '')) if desired_pub == 'blocked' else '',
-                      ),
+                      'last_error': desired_error,
+                      'retry_class': retry_class_for(desired_pub, desired_error),
                   }
                   current = {
                       'status': str(raw_entry.get('status', '')),
