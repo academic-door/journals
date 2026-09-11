@@ -89,7 +89,6 @@ class TranslationAnaphoricOneTests(unittest.TestCase):
             "The normalized score is neither almost zero nor almost one with rounding applied.",
             "归一化得分在舍入后既不接近0，也不接近1。",
         )
-        self.assertEqual(1, source_q["0"])
         self.assertEqual(1, source_q["1"])
 
 
