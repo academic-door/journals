@@ -1070,6 +1070,27 @@ def _repec_abstract(
     return " ".join(chunks).strip(), url
 
 
+
+def _configured_repec_doi(detail_url: str, doi_template: str) -> str:
+    """Derive a DOI only from an explicitly configured template and numeric RePEc handle."""
+
+    template = str(doi_template or "").strip()
+    url = str(detail_url or "").strip()
+    if not template or "{id}" not in template:
+        return ""
+    match = re.fullmatch(
+        r"https?://ideas\.repec\.org/a/(?:[^/?#]+/)+([0-9]+)\.html(?:[?#].*)?",
+        url,
+        flags=re.IGNORECASE,
+    )
+    if not match:
+        return ""
+    try:
+        rendered = template.format(id=match.group(1))
+    except (IndexError, KeyError, ValueError):
+        return ""
+    return _extract_doi(rendered)
+
 def _repec_detail_metadata(
     session: requests.Session,
     url: str,
@@ -1138,6 +1159,7 @@ def fetch_repec_history_issue(
     volume: str,
     issue: str,
     repec_series_code: str = "ucp/jpolec",
+    doi_template: str = "",
     session: requests.Session | None = None,
     timeout: int = 60,
 ) -> dict[str, Any]:
@@ -1191,6 +1213,8 @@ def fetch_repec_history_issue(
                 )
             except requests.RequestException:
                 doi = ""
+        if not doi:
+            doi = _configured_repec_doi(entry.get("detail_url", ""), doi_template)
         crossref = crossref_by_doi.get(doi, {})
         authors = _authors(crossref) or detail_authors
         abstract = (

@@ -234,6 +234,10 @@ def collector_for_issue(
                 from collectors.metadata_fallback import fetch_repec_history_issue
 
                 try:
+                    repec_kwargs: dict[str, Any] = {}
+                    doi_template = str(journal_config.get("doi_template", "")).strip()
+                    if doi_template:
+                        repec_kwargs["doi_template"] = doi_template
                     return fetch_repec_history_issue(
                         journal_id=journal_config["id"],
                         journal_name=journal_config["name"],
@@ -241,6 +245,7 @@ def collector_for_issue(
                         volume=issue_ref.volume,
                         issue=issue_ref.issue,
                         repec_series_code=journal_config["repec_series_code"],
+                        **repec_kwargs,
                     )
                 except Exception:
                     if journal_config.get("fallback") == "crossref":
