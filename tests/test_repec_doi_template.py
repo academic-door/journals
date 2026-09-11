@@ -4,8 +4,49 @@ import unittest
 from unittest.mock import patch
 
 from collectors.history import HistoricalIssue
-from collectors.metadata_fallback import _configured_repec_doi
+from collectors.metadata_fallback import _configured_repec_doi, fetch_repec_history_issue
 from scripts.backfill_history import collector_for_issue
+
+
+class Response:
+    def __init__(self, payload: dict | None = None, content: bytes = b"", status_code: int = 200) -> None:
+        self.payload = payload or {}
+        self.content = content
+        self.status_code = status_code
+
+    def raise_for_status(self) -> None:
+        if self.status_code >= 400:
+            raise RuntimeError(f"HTTP {self.status_code}")
+
+    def json(self) -> dict:
+        return self.payload
+
+
+class TemplateRepecSession:
+    def get(self, url: str, **kwargs) -> Response:
+        if "api.crossref.org" in url:
+            return Response({"message": {"items": []}})
+        if "/s/the/publsh.html" in url:
+            return Response(
+                content=b"""
+                <html><body>
+                  <h3>2023, Volume 18, Issue 1</h3>
+                  <ul>
+                    <li><a href="/a/the/publsh/3501.html">Sample TE paper</a></li>
+                  </ul>
+                </body></html>
+                """
+            )
+        if "/a/the/publsh/3501.html" in url:
+            return Response(
+                content=b"""
+                <html><body>
+                  <h2>Author</h2><ul><li>Ada Lovelace</li></ul>
+                  <h2>Abstract</h2><p>A complete publisher-supplied abstract.</p>
+                </body></html>
+                """
+            )
+        return Response({"authorships": []})
 
 
 class RepecDoiTemplateTests(unittest.TestCase):
@@ -42,6 +83,26 @@ class RepecDoiTemplateTests(unittest.TestCase):
                 "10.3982/TE{id}",
             ),
         )
+
+    def test_fetch_repec_history_issue_uses_configured_template_for_article_identity(self) -> None:
+        with patch(
+            "collectors.metadata_fallback._openalex_metadata",
+            return_value=([], "", ""),
+        ):
+            issue = fetch_repec_history_issue(
+                journal_id="te",
+                journal_name="Theoretical Economics",
+                issn="1555-7561",
+                volume="18",
+                issue="1",
+                repec_series_code="the/publsh",
+                doi_template="10.3982/TE{id}",
+                session=TemplateRepecSession(),
+            )
+        article = issue["articles"][0]
+        self.assertEqual("10.3982/te3501", article["doi"])
+        self.assertEqual("doi:10.3982/te3501", article["paper_id"])
+        self.assertEqual("https://doi.org/10.3982/te3501", article["source_url"])
 
     def test_repec_backfill_passes_only_explicit_configured_template(self) -> None:
         config = {
