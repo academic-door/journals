@@ -8,6 +8,7 @@ from scripts.translate_issue import resolve_semantic_quantities
 
 class TranslationUnitySemanticTests(unittest.TestCase):
     def test_mathematical_unity_matches_numeric_one(self) -> None:
+        # Regression: TE4117 uses quantitative "one" and mathematical "unity" for 1.
         source = (
             "Under homotheticity, the REMV always equals one, so saving is signed "
             "by the relationship of the EIS with unity."
