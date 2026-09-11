@@ -1,0 +1,101 @@
+name: R3 RePEc DOI code patch
+
+on:
+  push:
+    branches:
+      - ops/r3-repec-doi-template-20260911
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.event.head_commit.message == 'ci: apply RePEc DOI template patch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ops/r3-repec-doi-template-20260911
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+
+      - name: Apply exact production patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          metadata_path = Path('collectors/metadata_fallback.py')
+          text = metadata_path.read_text()
+          if 'def _configured_repec_doi(' in text:
+              raise SystemExit('helper already exists')
+
+          anchor = '\ndef _repec_detail_metadata(\n'
+          if text.count(anchor) != 1:
+              raise SystemExit(f'unexpected metadata helper anchor count: {text.count(anchor)}')
+          helper = r'''
+
+def _configured_repec_doi(detail_url: str, doi_template: str) -> str:
+    """Derive a DOI only from an explicitly configured template and numeric RePEc handle."""
+
+    template = str(doi_template or "").strip()
+    url = str(detail_url or "").strip()
+    if not template or "{id}" not in template:
+        return ""
+    match = re.fullmatch(
+        r"https?://ideas\.repec\.org/a/(?:[^/?#]+/)+([0-9]+)\.html(?:[?#].*)?",
+        url,
+        flags=re.IGNORECASE,
+    )
+    if not match:
+        return ""
+    try:
+        rendered = template.format(id=match.group(1))
+    except (IndexError, KeyError, ValueError):
+        return ""
+    return _extract_doi(rendered)
+'''
+          text = text.replace(anchor, helper + anchor, 1)
+
+          old_signature = '''    repec_series_code: str = "ucp/jpolec",\n    session: requests.Session | None = None,\n'''
+          new_signature = '''    repec_series_code: str = "ucp/jpolec",\n    doi_template: str = "",\n    session: requests.Session | None = None,\n'''
+          if text.count(old_signature) != 1:
+              raise SystemExit(f'unexpected fetch signature anchor count: {text.count(old_signature)}')
+          text = text.replace(old_signature, new_signature, 1)
+
+          old_article = '''        if entry.get("detail_url") and not doi:\n            try:\n                doi, detail_authors, detail_abstract = _repec_detail_metadata(\n                    client,\n                    entry["detail_url"],\n                    timeout=timeout,\n                )\n            except requests.RequestException:\n                doi = ""\n        crossref = crossref_by_doi.get(doi, {})\n'''
+          new_article = '''        if entry.get("detail_url") and not doi:\n            try:\n                doi, detail_authors, detail_abstract = _repec_detail_metadata(\n                    client,\n                    entry["detail_url"],\n                    timeout=timeout,\n                )\n            except requests.RequestException:\n                doi = ""\n        if not doi:\n            doi = _configured_repec_doi(entry.get("detail_url", ""), doi_template)\n        crossref = crossref_by_doi.get(doi, {})\n'''
+          if text.count(old_article) != 1:
+              raise SystemExit(f'unexpected article anchor count: {text.count(old_article)}')
+          text = text.replace(old_article, new_article, 1)
+          metadata_path.write_text(text)
+
+          backfill_path = Path('scripts/backfill_history.py')
+          backfill = backfill_path.read_text()
+          old_call = '''                    return fetch_repec_history_issue(\n                        journal_id=journal_config["id"],\n                        journal_name=journal_config["name"],\n                        issn=str(journal_config["issn"]),\n                        volume=issue_ref.volume,\n                        issue=issue_ref.issue,\n                        repec_series_code=journal_config["repec_series_code"],\n                    )\n'''
+          new_call = '''                    repec_kwargs: dict[str, Any] = {}\n                    doi_template = str(journal_config.get("doi_template", "")).strip()\n                    if doi_template:\n                        repec_kwargs["doi_template"] = doi_template\n                    return fetch_repec_history_issue(\n                        journal_id=journal_config["id"],\n                        journal_name=journal_config["name"],\n                        issn=str(journal_config["issn"]),\n                        volume=issue_ref.volume,\n                        issue=issue_ref.issue,\n                        repec_series_code=journal_config["repec_series_code"],\n                        **repec_kwargs,\n                    )\n'''
+          if backfill.count(old_call) != 1:
+              raise SystemExit(f'unexpected backfill call anchor count: {backfill.count(old_call)}')
+          backfill = backfill.replace(old_call, new_call, 1)
+          backfill_path.write_text(backfill)
+          PY
+          git diff --check
+          git diff -- collectors/metadata_fallback.py scripts/backfill_history.py
+
+      - name: Verify focused regression contract
+        run: python -m unittest tests.test_repec_doi_template -v
+
+      - name: Commit production patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'academic-door-bot'
+          git config user.email 'academic-door-bot@users.noreply.github.com'
+          git add collectors/metadata_fallback.py scripts/backfill_history.py
+          git commit -m 'fix(history): apply configured RePEc DOI templates'
+          git push origin HEAD:ops/r3-repec-doi-template-20260911
