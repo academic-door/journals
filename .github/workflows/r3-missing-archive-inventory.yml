@@ -1,4 +1,4 @@
-name: R3 RePEc DOI evidence qualification
+name: R3 TE DOI template qualification
 
 on:
   push:
@@ -19,57 +19,61 @@ jobs:
           cache: pip
       - run: python -m pip install -r requirements.txt
 
-      - name: Inspect DOI-bearing attributes on representative TE RePEc detail pages
+      - name: Resolve three mechanically-derived TE DOI candidates and compare titles
         shell: bash
         run: |
           set -euo pipefail
           python - <<'PY'
           import json
           import re
+          from difflib import SequenceMatcher
           from pathlib import Path
+          from urllib.parse import quote
           import requests
           import yaml
-          from bs4 import BeautifulSoup
 
-          from collectors.metadata_fallback import USER_AGENT, _parse_repec_serial_issues, _repec_serial_url, _extract_doi
+          from collectors.metadata_fallback import USER_AGENT, _parse_repec_serial_issues, _repec_serial_url
+
+          def norm(value):
+              return re.sub(r'[^a-z0-9]+', ' ', str(value or '').casefold()).strip()
 
           cfg = yaml.safe_load(Path('config/journals.yml').read_text())['journals']['TE']
           session = requests.Session()
-          session.headers.update({'User-Agent': USER_AGENT, 'Accept': 'text/html,application/xhtml+xml'})
+          session.headers.update({'User-Agent': USER_AGENT, 'Accept': 'application/json'})
           serial_url = _repec_serial_url(cfg['repec_series_code'])
-          serial = session.get(serial_url, timeout=60)
+          serial = session.get(serial_url, timeout=60, headers={'Accept':'text/html,application/xhtml+xml'})
           serial.raise_for_status()
           parsed = _parse_repec_serial_issues(serial.content, serial_url)
           target = next(r for r in parsed if str(r['volume']) == '18' and str(r['issue']) == '1')
           rows = []
           for entry in target['items'][:3]:
-              response = session.get(entry['detail_url'], timeout=60)
-              response.raise_for_status()
-              soup = BeautifulSoup(response.content, 'html.parser')
-              candidates = []
-              for node in soup.find_all(True):
-                  for attr in ('href','content','value'):
-                      raw = str(node.get(attr) or '')
-                      doi = _extract_doi(raw)
-                      if doi and doi not in candidates:
-                          candidates.append(doi)
-              text_doi = _extract_doi(soup.get_text(' ', strip=True))
-              raw_matches = sorted(set(m.lower() for m in re.findall(r'10\.3982/[A-Za-z0-9._;()/:-]+', response.text, flags=re.I)))
+              match = re.search(r'/([0-9]+)\.html(?:$|\?)', entry['detail_url'])
+              paper_id = match.group(1) if match else ''
+              candidate = str(cfg['doi_template']).format(id=paper_id) if paper_id else ''
+              response = session.get('https://api.crossref.org/works/' + quote(candidate, safe=''), timeout=60) if candidate else None
+              status = response.status_code if response is not None else 0
+              metadata_title = ''
+              if response is not None and response.ok:
+                  message = response.json().get('message') or {}
+                  titles = message.get('title') or []
+                  metadata_title = str(titles[0]) if titles else ''
+              similarity = SequenceMatcher(None, norm(entry['title']), norm(metadata_title)).ratio() if metadata_title else 0.0
               rows.append({
-                  'title': entry['title'],
+                  'repec_title': entry['title'],
                   'detail_url': entry['detail_url'],
-                  'detail_url_doi': entry.get('doi',''),
-                  'text_doi': text_doi,
-                  'attribute_dois': candidates,
-                  'raw_10_3982_matches': raw_matches,
+                  'paper_id': paper_id,
+                  'candidate_doi': candidate,
+                  'crossref_status': status,
+                  'crossref_title': metadata_title,
+                  'title_similarity': round(similarity, 4),
               })
           report = {'issue_id':'te-18-1','rows':rows}
-          Path('repec-doi-evidence.json').write_text(json.dumps(report, indent=2) + '\n')
+          Path('te-doi-template-qualification.json').write_text(json.dumps(report, indent=2) + '\n')
           print(json.dumps(report, indent=2))
           PY
 
       - uses: actions/upload-artifact@v4
         with:
-          name: r3-repec-doi-evidence
-          path: repec-doi-evidence.json
+          name: r3-te-doi-template-qualification
+          path: te-doi-template-qualification.json
           if-no-files-found: error
