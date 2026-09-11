@@ -1,4 +1,4 @@
-name: R3 RePEc archive qualification
+name: R3 RePEc target-year DOI qualification
 
 on:
   push:
@@ -19,58 +19,58 @@ jobs:
           cache: pip
       - run: python -m pip install -r requirements.txt
 
-      - name: Build one representative TE archive without translation or publication
+      - name: Compare default and target-year Crossref coverage for TE 18/1
         shell: bash
         run: |
           set -euo pipefail
           python - <<'PY'
           import json
           from pathlib import Path
+          import requests
           import yaml
 
-          from collectors.metadata_fallback import fetch_repec_history_issue
-          from scripts.update_journals import (
-              normalize_issue_content,
-              stamp_issue_readiness,
-              validate_issue,
-              issue_content_status,
-              issue_source_status,
-              issue_publication_state,
+          from collectors.metadata_fallback import (
+              USER_AGENT,
+              _crossref_items,
+              _parse_repec_serial_issues,
+              _repec_serial_url,
           )
 
           cfg = yaml.safe_load(Path('config/journals.yml').read_text())['journals']['TE']
-          issue = fetch_repec_history_issue(
-              journal_id=cfg['id'],
-              journal_name=cfg['name'],
-              issn=str(cfg['issn']),
-              volume='18',
-              issue='1',
-              repec_series_code=cfg['repec_series_code'],
-          )
-          issue = normalize_issue_content(issue)
-          validate_issue(issue)
-          stamp_issue_readiness(issue)
-          articles = issue.get('articles') or []
+          session = requests.Session()
+          session.headers.update({'User-Agent': USER_AGENT, 'Accept': 'application/json'})
+          serial_url = _repec_serial_url(cfg['repec_series_code'])
+          serial = session.get(serial_url, timeout=60)
+          serial.raise_for_status()
+          parsed = _parse_repec_serial_issues(serial.content, serial_url)
+          target = next(r for r in parsed if str(r['volume']) == '18' and str(r['issue']) == '1')
+
+          default_items = _crossref_items(str(cfg['issn']), session=session, timeout=60)
+          historical_items = _crossref_items(str(cfg['issn']), session=session, timeout=60, start_year=int(target['year']) - 1)
+          def issue_rows(items):
+              return [
+                  item for item in items
+                  if str(item.get('volume','')).strip() == '18'
+                  and str(item.get('issue','')).strip() == '1'
+                  and str(item.get('DOI','')).strip()
+              ]
+          default_matches = issue_rows(default_items)
+          historical_matches = issue_rows(historical_items)
           report = {
-              'issue_id': issue.get('issue_id'),
-              'volume': issue.get('volume'),
-              'issue': issue.get('issue'),
-              'publication_date': issue.get('publication_date'),
-              'article_count': len(articles),
-              'doi_complete': sum(bool(a.get('doi')) for a in articles),
-              'authors_complete': sum(bool(a.get('authors')) for a in articles),
-              'abstract_complete': sum(bool(a.get('abstract_en')) or a.get('article_type') == 'comment' for a in articles),
-              'content_status': issue_content_status(issue),
-              'source_status': issue_source_status(issue),
-              'publication_state': issue_publication_state(issue),
-              'quality': issue.get('quality') or {},
+              'target_year': target['year'],
+              'roster_item_count': len(target.get('items') or []),
+              'default_crossref_total': len(default_items),
+              'default_issue_matches': len(default_matches),
+              'historical_crossref_total': len(historical_items),
+              'historical_issue_matches': len(historical_matches),
+              'historical_dois': sorted(str(item.get('DOI','')).lower() for item in historical_matches),
           }
-          Path('repec-archive-qualification.json').write_text(json.dumps(report, indent=2) + '\n')
+          Path('repec-doi-window-qualification.json').write_text(json.dumps(report, indent=2) + '\n')
           print(json.dumps(report, indent=2))
           PY
 
       - uses: actions/upload-artifact@v4
         with:
-          name: r3-repec-archive-qualification
-          path: repec-archive-qualification.json
+          name: r3-repec-doi-window-qualification
+          path: repec-doi-window-qualification.json
           if-no-files-found: error
