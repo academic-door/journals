@@ -87,11 +87,13 @@ def reconcile_state_file(
     journals: dict[str, Any],
     api_root: Path,
     dry_run: bool = False,
+    issue_ids: set[str] | None = None,
 ) -> dict[str, Any]:
     """Reconcile stale operational state rows from matching archive/index truth.
 
     Identity/routing fields, discovery snapshots, and attempt diagnostics are
-    preserved. Missing or disagreeing canonical evidence is skipped.
+    preserved. Missing or disagreeing canonical evidence is skipped. When
+    ``issue_ids`` is provided, only those exact issue ids may be updated.
     """
 
     payload = json.loads(state_path.read_text(encoding="utf-8"))
@@ -105,6 +107,8 @@ def reconcile_state_file(
     changes: list[dict[str, Any]] = []
 
     for issue_id, entry in issues.items():
+        if issue_ids is not None and str(issue_id) not in issue_ids:
+            continue
         if not isinstance(entry, dict):
             continue
         journal = str(entry.get("journal", "")).strip()
@@ -186,15 +190,27 @@ def main() -> int:
     parser.add_argument(
         "--journals-config", default=str(ROOT / "config" / "journals.yml")
     )
+    parser.add_argument(
+        "--issue-ids",
+        default="",
+        help="comma-separated exact issue ids to reconcile; default is all rows",
+    )
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--report-json", default="")
     args = parser.parse_args()
 
     journals = _load_journals(Path(args.journals_config))
     api_root = Path(args.api_root)
+    issue_ids = {
+        value.strip() for value in str(args.issue_ids).split(",") if value.strip()
+    }
     results = [
         reconcile_state_file(
-            Path(state), journals=journals, api_root=api_root, dry_run=args.dry_run
+            Path(state),
+            journals=journals,
+            api_root=api_root,
+            dry_run=args.dry_run,
+            issue_ids=issue_ids or None,
         )
         for state in args.state
     ]
