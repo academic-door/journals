@@ -1,0 +1,28 @@
+name: R3 dispatch canonical Pages deploy
+
+on:
+  push:
+    branches:
+      - ops/r3-te-recovery-v4-20260911
+    paths:
+      - .github/workflows/r3-dispatch-pages.yml
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch canonical main Pages workflow
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          gh api \
+            --method POST \
+            "repos/$GH_REPO/actions/workflows/deploy.yml/dispatches" \
+            -f ref=main
+          echo 'Dispatched deploy.yml on canonical main.'
