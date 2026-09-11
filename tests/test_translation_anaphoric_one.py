@@ -38,35 +38,48 @@ class TranslationAnaphoricOneTests(unittest.TestCase):
         self.assertEqual(0, translated_q["1"])
         validate_translation(article, translated)
 
-    def test_true_almost_one_quantity_still_requires_one(self) -> None:
-        from scripts.translate_issue import TranslationError, validate_translation
+    def test_unit_bearing_one_remains_a_required_numeric_quantity(self) -> None:
+        from scripts.translate_issue import (
+            TranslationError,
+            resolve_semantic_quantities,
+            validate_translation,
+        )
 
         article = {
             "article_type": "research-article",
-            "title_en": "A probability limit",
+            "title_en": "A persistent treatment effect",
             "abstract_en": (
-                "The normalized probability is almost one under the limiting model, "
-                "and the estimate remains stable across repeated simulations and "
-                "alternative specifications."
+                "Under the limiting model, the policy effect persists for one year after "
+                "treatment and remains stable across repeated simulations and alternative "
+                "specifications."
             ),
         }
         translated_missing = {
-            "title_cn": "概率极限",
+            "title_cn": "持续的处理效应",
             "abstract_cn": (
-                "在极限模型下，归一化概率已接近其上界，而且该估计在重复模拟和"
-                "不同模型设定中保持稳定。"
+                "在极限模型下，政策效应在处理后持续存在，并且在重复模拟和不同"
+                "模型设定中保持稳定。"
             ),
         }
+        translated_ok = {
+            "title_cn": "持续的处理效应",
+            "abstract_cn": (
+                "在极限模型下，政策效应在处理后持续一年，并且在重复模拟和不同"
+                "模型设定中保持稳定。"
+            ),
+        }
+
+        source_q, missing_q = resolve_semantic_quantities(
+            article["abstract_en"], translated_missing["abstract_cn"]
+        )
+        _, ok_q = resolve_semantic_quantities(
+            article["abstract_en"], translated_ok["abstract_cn"]
+        )
+        self.assertEqual(1, source_q["1"])
+        self.assertEqual(0, missing_q["1"])
+        self.assertEqual(1, ok_q["1"])
         with self.assertRaises(TranslationError):
             validate_translation(article, translated_missing)
-
-        translated_ok = {
-            "title_cn": "概率极限",
-            "abstract_cn": (
-                "在极限模型下，归一化概率接近1，而且该估计在重复模拟和不同模型"
-                "设定中保持稳定。"
-            ),
-        }
         validate_translation(article, translated_ok)
 
 
