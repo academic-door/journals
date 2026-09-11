@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v7
         with:
           ref: ops/r3-anaphoric-one-numeric-gate-20260911
-          fetch-depth: 0
+          fetch-depth: 1
           persist-credentials: true
 
       - uses: actions/setup-python@v7
@@ -38,7 +38,7 @@ jobs:
           text = path.read_bytes().decode('utf-8')
 
           helper_pattern = re.compile(
-              r'(?P<ret>    return source_q, translated_q(?P<nl>\r?\n))'
+              r'(?P<ret>    return source_q, translated_q\r?\n)'
               r'(?P<gap>\r?\n)'
               r'(?=def _semantic_numbers\(value: str\) -> list\[str\]:)'
           )
@@ -46,7 +46,6 @@ jobs:
           if len(helper_matches) != 1:
               raise SystemExit(f'expected one semantic helper anchor, found {len(helper_matches)}')
           m = helper_matches[0]
-          nl = m.group('nl')
           helper_lines = [
               '',
               'def _is_parallel_anaphoric_one(value: str, match: re.Match[str]) -> bool:',
@@ -72,7 +71,7 @@ jobs:
               '    ) is not None',
               '',
           ]
-          helper = nl.join(helper_lines)
+          helper = '\n'.join(helper_lines)
           text = text[:m.end('ret')] + helper + text[m.end('ret'):]
 
           loop_pattern = re.compile(
@@ -81,17 +80,16 @@ jobs:
               r'        if overlaps\(span\):\r?\n'
               r'            continue\r?\n'
               r'        if _is_english_century_ordinal\(value, match\):\r?\n'
-              r'            continue(?P<nl>\r?\n))'
+              r'            continue\r?\n)'
               r'(?=        base = _en_cardinal_value\(match\.group\("num"\)\))'
           )
           loop_matches = list(loop_pattern.finditer(text))
           if len(loop_matches) != 1:
               raise SystemExit(f'expected one semantic loop anchor, found {len(loop_matches)}')
           m = loop_matches[0]
-          nl = m.group('nl')
           guard = (
-              '        if _is_parallel_anaphoric_one(value, match):' + nl
-              + '            continue' + nl
+              '        if _is_parallel_anaphoric_one(value, match):\n'
+              '            continue\n'
           )
           text = text[:m.end('head')] + guard + text[m.end('head'):]
           path.write_bytes(text.encode('utf-8'))
