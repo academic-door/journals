@@ -1,6 +1,6 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-11T14:22:14+00:00
+Generated: 2026-09-11T14:28:19+00:00
 
 ## Summary
 
@@ -344,7 +344,7 @@ Generated: 2026-09-11T14:22:14+00:00
 | ENERGY | energy-145-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | ENERGY | energy-146-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | ENERGY | energy-147-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
-| ENERGY | energy-148-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
+| ENERGY | energy-148-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | ENERGY | energy-149-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | ENERGY | energy-150-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | ENERGY | energy-151-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
