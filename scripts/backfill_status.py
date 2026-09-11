@@ -1,7 +1,7 @@
 """Render truthful historical coverage from discovery, state and archives.
 
 Schema 1.2 keeps the legacy ``summary``, ``journals``, ``periods`` and
-``years`` fields.  Coverage fields are derived from persisted discovery
+``years`` fields. Coverage fields are derived from persisted discovery
 snapshots and archive read-back, never from the number of registered state
 entries.
 """
@@ -23,6 +23,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from scripts.backfill_history import inspect_archive
+from scripts.state_precedence import choose_issue_expectation
 
 
 DEFAULT_API_ROOT = ROOT / "public" / "api" / "v1"
@@ -160,37 +161,68 @@ def discovery_expectations(
     states: Iterable[dict[str, Any]],
     merged_issues: dict[str, Any],
 ) -> dict[str, dict[str, Any]]:
-    """Union per-period discovery snapshots into issue-level expectations."""
+    """Union overlapping discovery snapshots with deterministic precedence.
 
+    ``merged_issues`` remains the caller-owned operational view. Discovery may
+    overlay routing identity from the winning authoritative observation, but it
+    must not rewrite lifecycle fields such as publication/content/source state.
+    """
+
+    state_list = list(states)
     expected: dict[str, dict[str, Any]] = {}
-    for state in states:
+    for state in state_list:
         discovery = state.get("discovery", {})
+        local_issues = state.get("issues", {})
         if not isinstance(discovery, dict):
             continue
+        if not isinstance(local_issues, dict):
+            local_issues = {}
         for journal, snapshot in discovery.items():
             if not isinstance(snapshot, dict):
                 continue
             issue_years = snapshot.get("issue_years", {}) or {}
             issue_refs = snapshot.get("issue_refs", {}) or {}
-            for issue_id in snapshot.get("issue_ids", []):
-                issue_id = str(issue_id)
-                entry = merged_issues.get(issue_id, {})
+            if not isinstance(issue_years, dict):
+                issue_years = {}
+            if not isinstance(issue_refs, dict):
+                issue_refs = {}
+            issue_ids = snapshot.get("issue_ids", [])
+            if not isinstance(issue_ids, list):
+                continue
+            for raw_issue_id in issue_ids:
+                issue_id = str(raw_issue_id)
+                local_entry = local_issues.get(issue_id, {})
+                if not isinstance(local_entry, dict):
+                    local_entry = {}
+                entry = local_entry or merged_issues.get(issue_id, {})
+                if not isinstance(entry, dict):
+                    entry = {}
                 reference = issue_refs.get(issue_id, {})
                 if not isinstance(reference, dict):
                     reference = {}
-                year = issue_years.get(issue_id) or entry.get("year")
-                expected[issue_id] = {
+                candidate = {
                     "issue_id": issue_id,
                     "journal": str(journal),
-                    "year": year,
+                    "year": issue_years.get(issue_id) or reference.get("year") or entry.get("year"),
                     "volume": reference.get("volume") or entry.get("volume", ""),
                     "issue": reference.get("issue") or entry.get("issue", ""),
-                    "official_url": reference.get("official_url")
-                    or entry.get("official_url", ""),
+                    "official_url": reference.get("official_url") or entry.get("official_url", ""),
                     "authority": str(snapshot.get("authority", "")),
                     "refreshed_at": str(snapshot.get("refreshed_at", "")),
                     "collector_revision": str(snapshot.get("collector_revision", "")),
                 }
+                expected[issue_id] = choose_issue_expectation(
+                    expected.get(issue_id), candidate
+                )
+
+    for issue_id, expectation in expected.items():
+        entry = merged_issues.get(issue_id)
+        if not isinstance(entry, dict):
+            continue
+        for field in ("journal", "year", "volume", "issue", "official_url"):
+            value = expectation.get(field)
+            if value is not None and str(value) != "":
+                entry[field] = value
     return expected
 
 
@@ -249,9 +281,7 @@ def build_coverage(
             "publisher_verified",
         }
         publication_ready = integrity.get("publication_state") == "ready"
-        source_pending = (
-            archive_exists and integrity.get("source_status") == "source_pending"
-        )
+        source_pending = archive_exists and integrity.get("source_status") == "source_pending"
         blocked = archive_exists and integrity.get("publication_state") == "blocked"
         record = {
             "discovered": 1,
@@ -266,19 +296,13 @@ def build_coverage(
             "blocked_issue": issue_id if blocked else "",
         }
         _add_coverage(overall, record)
-        journal_bucket = by_journal.setdefault(
-            journal, {**_empty_coverage(), "years": {}}
-        )
+        journal_bucket = by_journal.setdefault(journal, {**_empty_coverage(), "years": {}})
         _add_coverage(journal_bucket, record)
         journal_year = journal_bucket["years"].setdefault(year, _empty_coverage())
         _add_coverage(journal_year, record)
-        year_bucket = by_year.setdefault(
-            year, {**_empty_coverage(), "by_journal": {}}
-        )
+        year_bucket = by_year.setdefault(year, {**_empty_coverage(), "by_journal": {}})
         _add_coverage(year_bucket, record)
-        year_journal = year_bucket["by_journal"].setdefault(
-            journal, _empty_coverage()
-        )
+        year_journal = year_bucket["by_journal"].setdefault(journal, _empty_coverage())
         _add_coverage(year_journal, record)
     for bucket in [overall, *by_journal.values(), *by_year.values()]:
         for key in ("missing_issue_ids", "source_pending_issue_ids", "blocked_issue_ids"):
@@ -350,8 +374,9 @@ def build_payload(
         issues = state.get("issues", {}) if isinstance(state.get("issues"), dict) else {}
         raw_periods.append((period_label(state_path), state))
         merged_issues.update(issues)
+
+    expected = discovery_expectations(states, merged_issues)
     reconciled = reconcile_entries(merged_issues, journals, api_root)
-    expected = discovery_expectations(states, reconciled)
     coverage, journal_coverage, year_coverage = build_coverage(
         expected, reconciled, journals, api_root
     )
@@ -364,7 +389,7 @@ def build_payload(
             for issue_id in issue_ids
             if issue_id in reconciled
         }
-        period_expected = discovery_expectations([state], reconciled)
+        period_expected = discovery_expectations([state], dict(reconciled))
         period_coverage, _, _ = build_coverage(
             period_expected, reconciled, journals, api_root
         )
@@ -383,15 +408,11 @@ def build_payload(
     years: dict[str, dict[str, Any]] = {}
     for year in sorted(set(year_entries) | set(year_coverage)):
         bucket = year_entries.get(year, {})
-        coverage_bucket = year_coverage.get(
-            year, {**_empty_coverage(), "by_journal": {}}
-        )
+        coverage_bucket = year_coverage.get(year, {**_empty_coverage(), "by_journal": {}})
         years[year] = {
             "summary": summarize(bucket),
             "issue_count": len(bucket),
-            "journals": sorted(
-                {str(entry.get("journal", "?")) for entry in bucket.values()}
-            ),
+            "journals": sorted({str(entry.get("journal", "?")) for entry in bucket.values()}),
             "coverage": {
                 key: value
                 for key, value in coverage_bucket.items()
