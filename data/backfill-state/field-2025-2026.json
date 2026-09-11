@@ -3777,15 +3777,15 @@
       "volume": "20",
       "issue": "1",
       "official_url": "https://onlinelibrary.wiley.com/toc/15567568/20/1",
-      "status": "blocked",
-      "last_error": "archive_content_gate_failed",
-      "retry_class": "manual",
+      "status": "source_pending",
+      "last_error": "",
+      "retry_class": "source",
       "attempt_count": 1,
       "last_attempt_at": "2026-08-27T12:53:17+00:00",
       "last_error_code": "archive_content_gate_failed",
-      "content_status": "blocked",
-      "source_status": "publisher_verified",
-      "publication_state": "blocked"
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "te-20-2": {
       "journal": "TE",
@@ -3793,15 +3793,15 @@
       "volume": "20",
       "issue": "2",
       "official_url": "https://onlinelibrary.wiley.com/toc/15567568/20/2",
-      "status": "blocked",
-      "last_error": "archive_content_gate_failed",
-      "retry_class": "manual",
+      "status": "source_pending",
+      "last_error": "",
+      "retry_class": "source",
       "attempt_count": 1,
       "last_attempt_at": "2026-08-27T12:53:18+00:00",
       "last_error_code": "archive_content_gate_failed",
-      "content_status": "blocked",
-      "source_status": "publisher_verified",
-      "publication_state": "blocked"
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "te-20-3": {
       "journal": "TE",
@@ -3809,15 +3809,15 @@
       "volume": "20",
       "issue": "3",
       "official_url": "https://onlinelibrary.wiley.com/toc/15567568/20/3",
-      "status": "blocked",
-      "last_error": "archive_content_gate_failed",
-      "retry_class": "manual",
+      "status": "source_pending",
+      "last_error": "",
+      "retry_class": "source",
       "attempt_count": 1,
       "last_attempt_at": "2026-08-27T12:53:18+00:00",
       "last_error_code": "archive_content_gate_failed",
-      "content_status": "blocked",
-      "source_status": "publisher_verified",
-      "publication_state": "blocked"
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "te-20-4": {
       "journal": "TE",
@@ -3825,15 +3825,15 @@
       "volume": "20",
       "issue": "4",
       "official_url": "https://onlinelibrary.wiley.com/toc/15567568/20/4",
-      "status": "blocked",
-      "last_error": "archive_content_gate_failed",
-      "retry_class": "manual",
+      "status": "source_pending",
+      "last_error": "",
+      "retry_class": "source",
       "attempt_count": 1,
       "last_attempt_at": "2026-08-27T12:53:19+00:00",
       "last_error_code": "archive_content_gate_failed",
-      "content_status": "blocked",
-      "source_status": "publisher_verified",
-      "publication_state": "blocked"
+      "content_status": "complete",
+      "source_status": "source_pending",
+      "publication_state": "source_pending"
     },
     "te-21-1": {
       "journal": "TE",
@@ -6337,12 +6337,12 @@
       "volume": "107",
       "issue": "1",
       "official_url": "https://direct.mit.edu/rest/issue/107/1",
-      "status": "blocked",
-      "last_error": "possible_incomplete_volume: 10 articles collected vs current issue 21; needs official page or browser-authorized capture",
-      "retry_class": "manual",
-      "content_status": "blocked",
+      "status": "source_pending",
+      "last_error": "",
+      "retry_class": "source",
+      "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "blocked"
+      "publication_state": "source_pending"
     },
     "restat-107-2": {
       "journal": "RESTAT",
@@ -6628,15 +6628,15 @@
       "volume": "262",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/journal-of-public-economics/vol/262/suppl/C",
-      "status": "blocked",
-      "last_error": "MetadataFallbackError: Crossref returned no usable issue 262/",
+      "status": "ready",
+      "last_error": "",
       "retry_class": "manual",
       "attempt_count": 1,
       "last_attempt_at": "2026-08-27T10:24:50+00:00",
       "last_error_code": "MetadataFallbackError",
-      "content_status": "blocked",
-      "source_status": "source_pending",
-      "publication_state": "blocked"
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "lup-170-c": {
       "journal": "LUP",
@@ -6676,15 +6676,15 @@
       "volume": "184",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/184/suppl/C",
-      "status": "blocked",
-      "last_error": "MetadataFallbackError: Crossref returned no usable issue 184/",
+      "status": "ready",
+      "last_error": "",
       "retry_class": "manual",
       "attempt_count": 1,
       "last_attempt_at": "2026-08-27T10:24:29+00:00",
       "last_error_code": "MetadataFallbackError",
-      "content_status": "blocked",
-      "source_status": "source_pending",
-      "publication_state": "blocked"
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "jie-164-c": {
       "journal": "JIE",
@@ -6773,12 +6773,12 @@
       "volume": "60",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/60/suppl/C",
-      "status": "blocked",
-      "last_error": "possible_incomplete_volume: 4 articles collected vs current issue 12; needs official page or browser-authorized capture",
-      "retry_class": "manual",
-      "content_status": "blocked",
+      "status": "source_pending",
+      "last_error": "",
+      "retry_class": "source",
+      "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "blocked"
+      "publication_state": "source_pending"
     },
     "red-61-c": {
       "journal": "RED",
@@ -6994,15 +6994,15 @@
       "volume": "102",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/labour-economics/vol/102/suppl/C",
-      "status": "blocked",
-      "last_error": "MetadataFallbackError: Crossref returned no usable issue 102/",
+      "status": "ready",
+      "last_error": "",
       "retry_class": "manual",
       "attempt_count": 1,
       "last_attempt_at": "2026-08-27T10:23:01+00:00",
       "last_error_code": "MetadataFallbackError",
-      "content_status": "blocked",
-      "source_status": "source_pending",
-      "publication_state": "blocked"
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "jhe-99-c": {
       "journal": "JHE",
@@ -7426,15 +7426,15 @@
       "volume": "191",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/journal-of-economic-dynamics-and-control/vol/191/suppl/C",
-      "status": "blocked",
-      "last_error": "MetadataFallbackError: Crossref returned no usable issue 191/",
+      "status": "ready",
+      "last_error": "",
       "retry_class": "manual",
       "attempt_count": 1,
       "last_attempt_at": "2026-08-27T10:26:58+00:00",
       "last_error_code": "MetadataFallbackError",
-      "content_status": "blocked",
-      "source_status": "source_pending",
-      "publication_state": "blocked"
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "cer-89-c": {
       "journal": "CER",
@@ -8286,15 +8286,15 @@
       "volume": "237",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/journal-of-economic-theory/vol/237/suppl/C",
-      "status": "blocked",
-      "last_error": "MetadataFallbackError: Crossref returned no usable issue 237/",
+      "status": "ready",
+      "last_error": "",
       "retry_class": "manual",
       "attempt_count": 1,
       "last_attempt_at": "2026-08-27T10:24:39+00:00",
       "last_error_code": "MetadataFallbackError",
-      "content_status": "blocked",
-      "source_status": "source_pending",
-      "publication_state": "blocked"
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "jebo-250-c": {
       "journal": "JEBO",
@@ -8302,15 +8302,15 @@
       "volume": "250",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/journal-of-economic-behavior-and-organization/vol/250/suppl/C",
-      "status": "blocked",
-      "last_error": "MetadataFallbackError: Crossref returned no usable issue 250/",
+      "status": "ready",
+      "last_error": "",
       "retry_class": "manual",
       "attempt_count": 1,
       "last_attempt_at": "2026-08-27T10:27:09+00:00",
       "last_error_code": "MetadataFallbackError",
-      "content_status": "blocked",
-      "source_status": "source_pending",
-      "publication_state": "blocked"
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "jue-156-c": {
       "journal": "JUE",
@@ -8334,15 +8334,15 @@
       "volume": "162",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/energy-economics/vol/162/suppl/C",
-      "status": "blocked",
-      "last_error": "MetadataFallbackError: Crossref returned no usable issue 162/",
+      "status": "ready",
+      "last_error": "",
       "retry_class": "manual",
       "attempt_count": 1,
       "last_attempt_at": "2026-08-27T10:26:48+00:00",
       "last_error_code": "MetadataFallbackError",
-      "content_status": "blocked",
-      "source_status": "source_pending",
-      "publication_state": "blocked"
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "jpe-134-8": {
       "journal": "JPE",
@@ -8409,7 +8409,7 @@
       "publication_state": "ready"
     }
   },
-  "updated_at": "2026-09-11T01:23:32+00:00",
+  "updated_at": "2026-09-11T14:49:58+00:00",
   "discovery": {
     "EER": {
       "issue_ids": [
