@@ -23,7 +23,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from scripts.backfill_history import inspect_archive
-from scripts.state_precedence import choose_issue_entry, choose_issue_expectation
+from scripts.state_precedence import choose_issue_expectation
 
 
 DEFAULT_API_ROOT = ROOT / "public" / "api" / "v1"
@@ -161,29 +161,14 @@ def discovery_expectations(
     states: Iterable[dict[str, Any]],
     merged_issues: dict[str, Any],
 ) -> dict[str, dict[str, Any]]:
-    """Union overlapping snapshots with deterministic evidence precedence.
+    """Union overlapping discovery snapshots with deterministic precedence.
 
-    ``merged_issues`` is normalized in place for legacy multi-state consumers:
-    operational state is selected by readiness/attempt evidence, then routing
-    identity is overlaid from the winning issue-level discovery observation.
-    This prevents a stale state URL from masking a stronger discovery route.
+    ``merged_issues`` remains the caller-owned operational view. Discovery may
+    overlay routing identity from the winning authoritative observation, but it
+    must not rewrite lifecycle fields such as publication/content/source state.
     """
 
     state_list = list(states)
-
-    selected_issues: dict[str, Any] = {}
-    for state in state_list:
-        issues = state.get("issues", {})
-        if not isinstance(issues, dict):
-            continue
-        for issue_id, entry in issues.items():
-            issue_id = str(issue_id)
-            selected_issues[issue_id] = choose_issue_entry(
-                selected_issues.get(issue_id), entry
-            )
-    merged_issues.clear()
-    merged_issues.update(selected_issues)
-
     expected: dict[str, dict[str, Any]] = {}
     for state in state_list:
         discovery = state.get("discovery", {})
