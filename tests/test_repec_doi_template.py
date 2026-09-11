@@ -23,6 +23,9 @@ class Response:
 
 
 class TemplateRepecSession:
+    def __init__(self, stray_detail_doi: bool = False) -> None:
+        self.stray_detail_doi = stray_detail_doi
+
     def get(self, url: str, **kwargs) -> Response:
         if "api.crossref.org" in url:
             return Response({"message": {"items": []}})
@@ -38,13 +41,15 @@ class TemplateRepecSession:
                 """
             )
         if "/a/the/publsh/3501.html" in url:
+            stray = b"<p>Related DOI: 10.1086/668836</p>" if self.stray_detail_doi else b""
             return Response(
-                content=b"""
-                <html><body>
-                  <h2>Author</h2><ul><li>Ada Lovelace</li></ul>
-                  <h2>Abstract</h2><p>A complete publisher-supplied abstract.</p>
-                </body></html>
-                """
+                content=(
+                    b"<html><body>"
+                    b"<h2>Author</h2><ul><li>Ada Lovelace</li></ul>"
+                    b"<h2>Abstract</h2><p>A complete publisher-supplied abstract.</p>"
+                    + stray
+                    + b"</body></html>"
+                )
             )
         return Response({"authorships": []})
 
@@ -103,6 +108,23 @@ class RepecDoiTemplateTests(unittest.TestCase):
         self.assertEqual("10.3982/te3501", article["doi"])
         self.assertEqual("doi:10.3982/te3501", article["paper_id"])
         self.assertEqual("https://doi.org/10.3982/te3501", article["source_url"])
+
+    def test_configured_template_outranks_unscoped_doi_found_on_detail_page(self) -> None:
+        with patch(
+            "collectors.metadata_fallback._openalex_metadata",
+            return_value=([], "", ""),
+        ):
+            issue = fetch_repec_history_issue(
+                journal_id="te",
+                journal_name="Theoretical Economics",
+                issn="1555-7561",
+                volume="18",
+                issue="1",
+                repec_series_code="the/publsh",
+                doi_template="10.3982/TE{id}",
+                session=TemplateRepecSession(stray_detail_doi=True),
+            )
+        self.assertEqual("10.3982/te3501", issue["articles"][0]["doi"])
 
     def test_repec_backfill_passes_only_explicit_configured_template(self) -> None:
         config = {
