@@ -1,0 +1,52 @@
+name: R3 RePEc template-first fix
+
+on:
+  push:
+    branches:
+      - ops/r3-repec-doi-template-20260911
+    paths:
+      - .github/workflows/r3-repec-template-first-fix.yml
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ops/r3-repec-doi-template-20260911
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Apply template-first identity patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('collectors/metadata_fallback.py')
+          text = path.read_text()
+          old = '''        if not doi:\n            doi = _configured_repec_doi(entry.get("detail_url", ""), doi_template)\n        crossref = crossref_by_doi.get(doi, {})\n'''
+          new = '''        configured_doi = _configured_repec_doi(entry.get("detail_url", ""), doi_template)\n        if configured_doi:\n            doi = configured_doi\n        crossref = crossref_by_doi.get(doi, {})\n'''
+          if text.count(old) != 1:
+              raise SystemExit(f'unexpected DOI precedence anchor count: {text.count(old)}')
+          path.write_text(text.replace(old, new, 1))
+          PY
+          git diff --check
+          git diff -- collectors/metadata_fallback.py
+      - name: Verify focused regression contract
+        run: python -m unittest tests.test_repec_doi_template -v
+      - name: Commit fix
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'academic-door-bot'
+          git config user.email 'academic-door-bot@users.noreply.github.com'
+          git add collectors/metadata_fallback.py
+          git commit -m 'fix(history): prefer configured RePEc DOI identity'
+          git push origin HEAD:ops/r3-repec-doi-template-20260911
