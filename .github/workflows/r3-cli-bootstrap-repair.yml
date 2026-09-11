@@ -1,0 +1,51 @@
+name: R3 CLI bootstrap repair
+
+on:
+  push:
+    branches:
+      - ops/r3-state-precedence-20260910
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ops/r3-state-precedence-20260910
+          fetch-depth: 0
+      - name: Insert repo-root bootstrap if missing
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("scripts/publish_data_delta.py")
+          text = path.read_text(encoding="utf-8")
+          marker = "ROOT = Path(__file__).resolve().parents[1]"
+          if marker not in text:
+              needle = "from pathlib import Path, PurePosixPath\n\n"
+              replacement = (
+                  "from pathlib import Path, PurePosixPath\n\n"
+                  "ROOT = Path(__file__).resolve().parents[1]\n"
+                  "if str(ROOT) not in sys.path:\n"
+                  "    sys.path.insert(0, str(ROOT))\n\n"
+              )
+              if needle not in text:
+                  raise SystemExit("expected import anchor not found")
+              text = text.replace(needle, replacement, 1)
+              path.write_text(text, encoding="utf-8")
+          PY
+          if git diff --quiet -- scripts/publish_data_delta.py; then
+            echo "Bootstrap already present; no commit needed."
+            exit 0
+          fi
+          git diff --check
+          git config user.name "academic-door-bot"
+          git config user.email "academic-door-bot@users.noreply.github.com"
+          git add scripts/publish_data_delta.py
+          git commit -m "fix: bootstrap publish delta direct CLI imports"
+          git push origin HEAD:ops/r3-state-precedence-20260910
