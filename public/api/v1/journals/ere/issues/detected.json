@@ -8,9 +8,9 @@
   "issue_label": "Vol. 89 · No. 9",
   "publication_date": "September 2026",
   "source_url": "https://link.springer.com/journal/10640/volumes-and-issues",
-  "retrieved_at": "2026-09-11T11:24:35+00:00",
-  "expected_article_count": 5,
-  "research_article_count": 5,
+  "retrieved_at": "2026-09-11T17:41:55+00:00",
+  "expected_article_count": 7,
+  "research_article_count": 7,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
@@ -54,9 +54,90 @@
       }
     },
     {
-      "paper_id": "doi:10.1007/s10640-026-01113-1",
+      "paper_id": "doi:10.1007/s10640-026-01115-z",
       "sequence": 2,
       "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Saving or Investing for the Future? Methodology Matters in Inclusive Wealth Accounting",
+      "title_cn": "为未来储蓄还是投资？包容性财富核算中的方法论至关重要",
+      "authors": [
+        "Luke McGrath",
+        "Eoin McLaughlin",
+        "Nick Hanley"
+      ],
+      "abstract_en": "At the 57th session of the UN Statistical Commission, methodological guidelines for wealth accounting were identified as a priority for the Beyond GDP agenda. Our paper contributes directly to this need. Genuine Savings (GS), a leading sustainable development indicator in environmental and resource economics, measures changes in inclusive wealth by adjusting national savings for natural capital depletion, physical capital depreciation, and human capital investment. An unappreciated issue is that the distinction between savings-based (GS) and investment-based (GI) measures is treated as semantic. In theory, both are identical given the savings-investment identity underpinning the national accounts. In practice, this identity does not always hold, due to statistical discrepancies and accounting revisions, with the savings side particularly susceptible. This paper is the first to examine how savings-investment discrepancies in the national accounts affect practical wealth accounting. Using data for thirty-three countries and two datasets (World Bank and AMECO), we show that GS and GI disagree, within and across datasets, by more than double the natural capital adjustment itself, enough to generate conflicting sustainability signals in both level and direction of change. These issues are persistent in the World Bank data, the primary global dataset for wealth accounting, while AMECO is largely internally consistent after 1995. Structural break analysis suggests supply and use balancing under the ESA95 revisions, together with reconciliation of the current account balance, reduces the disagreement. We provide practical guidance, including a formal GS-GI distinction, routine savings-investment consistency checks, a more central role for national statistics offices, and an uncertainty band of 3 percentage points of GNI to replace the binary zero threshold.",
+      "abstract_cn": "在联合国统计委员会第57届会议上，财富核算的方法论指南被确定为“超越GDP”议程的优先事项。我们的论文直接服务于这一需求。真实储蓄（GS）是环境与资源经济学中领先的可持续发展指标，它通过调整国民储蓄以考虑自然资本耗竭、物质资本折旧和人力资本投资，来衡量包容性财富的变化。一个未被充分认识的问题是，基于储蓄（GS）和基于投资（GI）的测度之间的区别被视为语义上的。理论上，鉴于支撑国民账户的储蓄-投资恒等式，两者是相同的。在实践中，由于统计差异和核算修订，这一恒等式并不总是成立，储蓄方尤其容易受到影响。本文首次考察国民账户中的储蓄-投资差异如何影响实际财富核算。利用三十三个国家和两个数据集（世界银行和AMECO）的数据，我们表明GS和GI在数据集内部和数据集之间不一致，其差异超过自然资本调整本身的两倍，足以在变化水平和方向上产生相互矛盾的可持续性信号。这些问题在世界银行数据——财富核算的主要全球数据集——中持续存在，而AMECO在1995之后基本内部一致。结构性断点分析表明，ESA95修订下的供给和使用平衡，连同经常账户余额的调节，减少了这种不一致。我们提供实用指导，包括正式的GS-GI区分、常规的储蓄-投资一致性检查、国家统计机构更核心的作用，以及用占GNI的3个百分点的不确定性区间来取代二元零阈值。",
+      "doi": "10.1007/s10640-026-01115-z",
+      "source_url": "https://ideas.repec.org/a/kap/enreec/v89y2026i9d10.1007_s10640-026-01115-z.html",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://link.springer.com/journal/10640/volumes-and-issues",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/kap/enreec/v89y2026i9d10.1007_s10640-026-01115-z.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-09-11T17:41:57+00:00",
+        "source_hash": "5c0ea3bb6d3f343649a910a5533eb079d29ec5481f9c8f3571a3e8c853fb5788"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1007/s10640-026-01098-x",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Synergies and Welfare Effects of Combining Carbon Pricing and Renewable-Energy Policies: A Meta-Analysis",
+      "title_cn": "碳定价与可再生能源政策相结合的协同效应与福利效应：一项元分析",
+      "authors": [
+        "Catarina Midões",
+        "Jeroen van den Bergh",
+        "Ivan Savin",
+        "Gregorio de Alessandri"
+      ],
+      "abstract_en": "Many countries combine carbon pricing with renewable-energy policies. Microeconomic theory predicts this combination yields no additional emissions reductions under cap-and-trade and only potentially under carbon taxation, but at a social welfare loss. We undertook a systematic literature review of emissions-reduction synergy, identifying many ex-ante but only one ex-post study – explained by the lack of policy counterfactuals. In 72% of ex-ante 127 estimates from 80 studies, combining instruments reduces emissions more than either instrument alone. Additional reductions are more common under carbon taxation, as theory predicts, but also occur under cap-and-trade. Across 85 exact synergy estimates, the policy combination yields about 22% greater emissions reductions on average. Regarding welfare effects, 74 of 119 ex-ante estimates from 79 papers indicate some benefit from adding a second instrument. Deviations from theory reflect model assumptions, such as incomplete emissions coverage, implementation constraints, social welfare metrics limited to consumer utility, and market or government failures including fossil fuel subsidies. While ex-post estimates are less likely to detect non-zero synergy, the single ex-post study broadly supports our findings.",
+      "abstract_cn": "许多国家将碳定价与可再生能源政策相结合。微观经济理论预测，在总量管制与交易下，这种结合不会带来额外的减排，只有在碳税下才可能带来额外减排，但会伴随社会福利损失。我们对减排协同效应进行了系统性文献综述，识别出许多事前研究，但仅有一项事后研究——这可由缺乏政策反事实来解释。在来自80项研究的127个事前估计中，有72%个表明，组合使用政策工具比单独使用任一工具减排更多。正如理论所预测，额外减排在碳税下更为常见，但在总量管制与交易下也会出现。在85个精确协同效应估计中，政策组合平均带来约22%的额外减排。关于福利效应，来自79篇论文的119个事前估计中有74个表明，增加第二种工具带来了一定收益。与理论的偏离反映了模型假设，例如排放覆盖不完整、实施约束、仅限于消费者效用的社会福利指标，以及包括化石燃料补贴在内的市场或政府失灵。虽然事后估计更不可能检测到非零协同效应，但唯一一项事后研究广泛支持了我们的发现。",
+      "doi": "10.1007/s10640-026-01098-x",
+      "source_url": "https://ideas.repec.org/a/kap/enreec/v89y2026i9d10.1007_s10640-026-01098-x.html",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://link.springer.com/journal/10640/volumes-and-issues",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/kap/enreec/v89y2026i9d10.1007_s10640-026-01098-x.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-09-11T17:41:59+00:00",
+        "source_hash": "6ff7bf6cbb113a07485da1e32c76da3d43b0a6f50c26520a13efc8a811b43225"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1007/s10640-026-01113-1",
+      "sequence": 4,
+      "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Cleaner Domestic Growth from a Globalization-Oriented Big Push: Evidence from China’s Belt and Road Initiative",
       "title_cn": "全球化导向的大推动带来的更清洁国内增长：来自中国“一带一路”倡议的证据",
@@ -98,8 +179,8 @@
     },
     {
       "paper_id": "doi:10.1007/s10640-026-01107-z",
-      "sequence": 3,
-      "source_sequence": 3,
+      "sequence": 5,
+      "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "From Willingness to Engage to Demand: A Behavioral Experiment on Green Consumer Information in a Digital Product Passport",
       "title_cn": "从参与意愿到需求：数字产品护照中绿色消费者信息的行为实验",
@@ -140,8 +221,8 @@
     },
     {
       "paper_id": "doi:10.1007/s10640-026-01114-0",
-      "sequence": 4,
-      "source_sequence": 4,
+      "sequence": 6,
+      "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "Humid Heat, Health, and Behavioral Adaptation: Evidence from China",
       "title_cn": "湿热、健康与行为适应：来自中国的证据",
@@ -181,8 +262,8 @@
     },
     {
       "paper_id": "doi:10.1007/s10640-026-01108-y",
-      "sequence": 5,
-      "source_sequence": 5,
+      "sequence": 7,
+      "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "The Effectiveness of Carbon Pricing: A Global Evaluation",
       "title_cn": "碳定价的有效性：一项全球评估",
@@ -224,13 +305,13 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "official_item_count": 5,
+    "official_item_count": 7,
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 5,
-    "authors_complete": 5,
-    "abstract_en_complete": 5,
-    "translation_complete": 5,
+    "doi_complete": 7,
+    "authors_complete": 7,
+    "abstract_en_complete": 7,
+    "translation_complete": 7,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_repec_fallback",
@@ -238,33 +319,33 @@
       "official_order_unverified"
     ],
     "official_issue_fetch_error": "",
-    "publishable_item_count": 5,
+    "publishable_item_count": 7,
     "content_counts": {
-      "official_items": 5,
-      "observed_items": 5,
-      "publishable_items": 5,
-      "research_articles": 5,
+      "official_items": 7,
+      "observed_items": 7,
+      "publishable_items": 7,
+      "research_articles": 7,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 5
+      "catalog_content_items": 7
     }
   },
   "content_counts": {
-    "official_items": 5,
-    "observed_items": 5,
-    "publishable_items": 5,
-    "research_articles": 5,
+    "official_items": 7,
+    "observed_items": 7,
+    "publishable_items": 7,
+    "research_articles": 7,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 5
+    "catalog_content_items": 7
   },
   "content_status": "complete",
   "source_status": "source_pending",
