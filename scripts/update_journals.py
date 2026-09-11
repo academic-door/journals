@@ -366,7 +366,12 @@ def apply_translation_cache(
     return issue
 
 
-def collector_for(config: dict[str, Any]) -> Callable[[], dict[str, Any]]:
+def collector_for(
+    config: dict[str, Any],
+    *,
+    expected_volume: str = "",
+    expected_issue: str = "",
+) -> Callable[[], dict[str, Any]]:
     collector = config["collector"]
     current_url = config["current_issue_url"]
     if collector == "aea":
@@ -411,6 +416,8 @@ def collector_for(config: dict[str, Any]) -> Callable[[], dict[str, Any]]:
             rss_url=rss_url,
             publication_lead_months=int(config.get("publication_lead_months", 1)),
             doi_template=config.get("doi_template", ""),
+            expected_volume=expected_volume,
+            expected_issue=expected_issue,
         )
     if collector == "crossref":
         from collectors.metadata_fallback import fetch_crossref_current_issue
@@ -1291,7 +1298,11 @@ def collect_one(
         else:
             primary_error = ""
             try:
-                issue = collector_for(config)()
+                issue = collector_for(
+                    config,
+                    expected_volume=expected_volume,
+                    expected_issue=expected_issue,
+                )()
                 if re_enrich_elsevier:
                     issue = refresh_elsevier_abstracts(issue, config)
                 if not is_detected_snapshot(issue):
