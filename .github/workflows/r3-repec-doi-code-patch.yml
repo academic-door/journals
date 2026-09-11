@@ -4,13 +4,14 @@ on:
   push:
     branches:
       - ops/r3-repec-doi-template-20260911
+    paths:
+      - .github/workflows/r3-repec-doi-code-patch.yml
 
 permissions:
   contents: write
 
 jobs:
   patch:
-    if: github.event.head_commit.message == 'ci: apply RePEc DOI template patch'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -38,38 +39,60 @@ jobs:
           anchor = '\ndef _repec_detail_metadata(\n'
           if text.count(anchor) != 1:
               raise SystemExit(f'unexpected metadata helper anchor count: {text.count(anchor)}')
-          helper = r'''
-
-def _configured_repec_doi(detail_url: str, doi_template: str) -> str:
-    """Derive a DOI only from an explicitly configured template and numeric RePEc handle."""
-
-    template = str(doi_template or "").strip()
-    url = str(detail_url or "").strip()
-    if not template or "{id}" not in template:
-        return ""
-    match = re.fullmatch(
-        r"https?://ideas\.repec\.org/a/(?:[^/?#]+/)+([0-9]+)\.html(?:[?#].*)?",
-        url,
-        flags=re.IGNORECASE,
-    )
-    if not match:
-        return ""
-    try:
-        rendered = template.format(id=match.group(1))
-    except (IndexError, KeyError, ValueError):
-        return ""
-    return _extract_doi(rendered)
-'''
+          helper = (
+              '\n\ndef _configured_repec_doi(detail_url: str, doi_template: str) -> str:\n'
+              '    """Derive a DOI only from an explicitly configured template and numeric RePEc handle."""\n\n'
+              '    template = str(doi_template or "").strip()\n'
+              '    url = str(detail_url or "").strip()\n'
+              '    if not template or "{id}" not in template:\n'
+              '        return ""\n'
+              '    match = re.fullmatch(\n'
+              '        r"https?://ideas\\.repec\\.org/a/(?:[^/?#]+/)+([0-9]+)\\.html(?:[?#].*)?",\n'
+              '        url,\n'
+              '        flags=re.IGNORECASE,\n'
+              '    )\n'
+              '    if not match:\n'
+              '        return ""\n'
+              '    try:\n'
+              '        rendered = template.format(id=match.group(1))\n'
+              '    except (IndexError, KeyError, ValueError):\n'
+              '        return ""\n'
+              '    return _extract_doi(rendered)\n'
+          )
           text = text.replace(anchor, helper + anchor, 1)
 
-          old_signature = '''    repec_series_code: str = "ucp/jpolec",\n    session: requests.Session | None = None,\n'''
-          new_signature = '''    repec_series_code: str = "ucp/jpolec",\n    doi_template: str = "",\n    session: requests.Session | None = None,\n'''
+          old_signature = '    repec_series_code: str = "ucp/jpolec",\n    session: requests.Session | None = None,\n'
+          new_signature = '    repec_series_code: str = "ucp/jpolec",\n    doi_template: str = "",\n    session: requests.Session | None = None,\n'
           if text.count(old_signature) != 1:
               raise SystemExit(f'unexpected fetch signature anchor count: {text.count(old_signature)}')
           text = text.replace(old_signature, new_signature, 1)
 
-          old_article = '''        if entry.get("detail_url") and not doi:\n            try:\n                doi, detail_authors, detail_abstract = _repec_detail_metadata(\n                    client,\n                    entry["detail_url"],\n                    timeout=timeout,\n                )\n            except requests.RequestException:\n                doi = ""\n        crossref = crossref_by_doi.get(doi, {})\n'''
-          new_article = '''        if entry.get("detail_url") and not doi:\n            try:\n                doi, detail_authors, detail_abstract = _repec_detail_metadata(\n                    client,\n                    entry["detail_url"],\n                    timeout=timeout,\n                )\n            except requests.RequestException:\n                doi = ""\n        if not doi:\n            doi = _configured_repec_doi(entry.get("detail_url", ""), doi_template)\n        crossref = crossref_by_doi.get(doi, {})\n'''
+          old_article = (
+              '        if entry.get("detail_url") and not doi:\n'
+              '            try:\n'
+              '                doi, detail_authors, detail_abstract = _repec_detail_metadata(\n'
+              '                    client,\n'
+              '                    entry["detail_url"],\n'
+              '                    timeout=timeout,\n'
+              '                )\n'
+              '            except requests.RequestException:\n'
+              '                doi = ""\n'
+              '        crossref = crossref_by_doi.get(doi, {})\n'
+          )
+          new_article = (
+              '        if entry.get("detail_url") and not doi:\n'
+              '            try:\n'
+              '                doi, detail_authors, detail_abstract = _repec_detail_metadata(\n'
+              '                    client,\n'
+              '                    entry["detail_url"],\n'
+              '                    timeout=timeout,\n'
+              '                )\n'
+              '            except requests.RequestException:\n'
+              '                doi = ""\n'
+              '        if not doi:\n'
+              '            doi = _configured_repec_doi(entry.get("detail_url", ""), doi_template)\n'
+              '        crossref = crossref_by_doi.get(doi, {})\n'
+          )
           if text.count(old_article) != 1:
               raise SystemExit(f'unexpected article anchor count: {text.count(old_article)}')
           text = text.replace(old_article, new_article, 1)
@@ -77,8 +100,31 @@ def _configured_repec_doi(detail_url: str, doi_template: str) -> str:
 
           backfill_path = Path('scripts/backfill_history.py')
           backfill = backfill_path.read_text()
-          old_call = '''                    return fetch_repec_history_issue(\n                        journal_id=journal_config["id"],\n                        journal_name=journal_config["name"],\n                        issn=str(journal_config["issn"]),\n                        volume=issue_ref.volume,\n                        issue=issue_ref.issue,\n                        repec_series_code=journal_config["repec_series_code"],\n                    )\n'''
-          new_call = '''                    repec_kwargs: dict[str, Any] = {}\n                    doi_template = str(journal_config.get("doi_template", "")).strip()\n                    if doi_template:\n                        repec_kwargs["doi_template"] = doi_template\n                    return fetch_repec_history_issue(\n                        journal_id=journal_config["id"],\n                        journal_name=journal_config["name"],\n                        issn=str(journal_config["issn"]),\n                        volume=issue_ref.volume,\n                        issue=issue_ref.issue,\n                        repec_series_code=journal_config["repec_series_code"],\n                        **repec_kwargs,\n                    )\n'''
+          old_call = (
+              '                    return fetch_repec_history_issue(\n'
+              '                        journal_id=journal_config["id"],\n'
+              '                        journal_name=journal_config["name"],\n'
+              '                        issn=str(journal_config["issn"]),\n'
+              '                        volume=issue_ref.volume,\n'
+              '                        issue=issue_ref.issue,\n'
+              '                        repec_series_code=journal_config["repec_series_code"],\n'
+              '                    )\n'
+          )
+          new_call = (
+              '                    repec_kwargs: dict[str, Any] = {}\n'
+              '                    doi_template = str(journal_config.get("doi_template", "")).strip()\n'
+              '                    if doi_template:\n'
+              '                        repec_kwargs["doi_template"] = doi_template\n'
+              '                    return fetch_repec_history_issue(\n'
+              '                        journal_id=journal_config["id"],\n'
+              '                        journal_name=journal_config["name"],\n'
+              '                        issn=str(journal_config["issn"]),\n'
+              '                        volume=issue_ref.volume,\n'
+              '                        issue=issue_ref.issue,\n'
+              '                        repec_series_code=journal_config["repec_series_code"],\n'
+              '                        **repec_kwargs,\n'
+              '                    )\n'
+          )
           if backfill.count(old_call) != 1:
               raise SystemExit(f'unexpected backfill call anchor count: {backfill.count(old_call)}')
           backfill = backfill.replace(old_call, new_call, 1)
