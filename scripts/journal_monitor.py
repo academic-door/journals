@@ -637,6 +637,7 @@ def _is_awaiting_upstream(error_text: str) -> bool:
             "abstract_en_incomplete",
             "missing abstracts",
             "source authority is not publication-ready",
+            "RePEc candidate is outside the configured publication horizon",
         )
     )
 
