@@ -1,6 +1,6 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-12T00:24:18+00:00
+Generated: 2026-09-12T07:09:11+00:00
 
 ## Summary
 
@@ -456,8 +456,8 @@ Generated: 2026-09-12T00:24:18+00:00
 | GEB | geb-158-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | GEB | geb-159-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | IER | ier-64-1 | 2023 | recoverable | blocked | source_pending | archive_missing |
-| IER | ier-64-2 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| IER | ier-64-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| IER | ier-64-2 | 2023 | source_pending | complete | source_pending | MetadataFallbackError: RePEc serial page has no issue 64/2 |
+| IER | ier-64-3 | 2023 | source_pending | complete | source_pending | MetadataFallbackError: RePEc serial page has no issue 64/3 |
 | IER | ier-64-4 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | IER | ier-65-1 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | IER | ier-65-2 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
