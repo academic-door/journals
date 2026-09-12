@@ -2,11 +2,29 @@
   "schema_version": "1.0",
   "journal": "TE",
   "authority": "official_publisher_archive",
-  "transport": "chatgpt_web_official_page_observation",
-  "observed_at": "2026-09-11T20:35:00+00:00",
+  "transport": "composite_official_publisher_observation",
+  "observed_at": "2026-09-12T07:14:46+00:00",
   "sources": [
-    {"url": "https://onlinelibrary.wiley.com/toc/15557561/2025/20/4", "year": 2025},
-    {"url": "https://onlinelibrary.wiley.com/loi/15557561/year/2026", "year": 2026}
+    {"url": "https://onlinelibrary.wiley.com/toc/15557561/2025/20/4", "year": 2025, "role": "baseline_archive_observation"},
+    {"url": "https://onlinelibrary.wiley.com/loi/15557561", "year": 2026, "role": "fresh_latest_issue_attestation"}
+  ],
+  "observation_chain": [
+    {
+      "observed_at": "2026-09-11T20:35:00+00:00",
+      "transport": "chatgpt_web_official_page_observation",
+      "scope": "official Wiley 2025 archive plus 2026 Volume 21 Issues 1 through 3"
+    },
+    {
+      "observed_at": "2026-09-12T07:14:46+00:00",
+      "transport": "chatgpt_web_official_page_observation",
+      "scope": "fresh Wiley list-of-issues attestation; 2026 expected set unchanged",
+      "latest_issue": {
+        "year": 2026,
+        "volume": "21",
+        "issue": "3",
+        "official_url": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3"
+      }
+    }
   ],
   "issues": [
     {"year": 2025, "volume": "20", "issue": "1", "official_url": "https://onlinelibrary.wiley.com/toc/15557561/2025/20/1"},
