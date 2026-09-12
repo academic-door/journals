@@ -1,0 +1,94 @@
+name: R2 Wiley read-only completeness qualification
+
+on:
+  push:
+    branches:
+      - qual/r2-wiley-readonly-20260912
+    paths:
+      - .github/workflows/r2-wiley-readonly-qualify.yml
+
+permissions:
+  contents: read
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: qual/r2-wiley-readonly-20260912
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: python -m pip install -r requirements.txt
+
+      - name: Restore execution-time canonical data read-only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          echo "DATA_SHA=$(git rev-parse origin/data)"
+          rm -rf public/api data/backfill-state
+          git archive origin/data public/api data/backfill-state | tar -x
+
+      - name: Simulate exact Wiley discovery refresh on a temporary state copy
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp data/backfill-state/field-2025-2026.json "$RUNNER_TEMP/field-2025-2026-after.json"
+          python scripts/backfill_history.py \
+            --config config/field-history.yml \
+            --state "$RUNNER_TEMP/field-2025-2026-after.json" \
+            --journals AJAE,ECTA,IER,TE,RAND,JF \
+            --from-year 2025 \
+            --to-year 2026 \
+            --refresh-discovery-only
+
+      - name: Build before and simulated-after release completeness ledgers
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/build_completeness_ledger.py \
+            --state data/backfill-state/field-2023-2024.json \
+            --state data/backfill-state/field-2025-2026.json \
+            --api-root public/api/v1 \
+            --journals-config config/journals.yml \
+            --window-start 2026-01-01 \
+            --window-end 2026-09-12 \
+            --out-json "$RUNNER_TEMP/before.json"
+          python scripts/build_completeness_ledger.py \
+            --state data/backfill-state/field-2023-2024.json \
+            --state "$RUNNER_TEMP/field-2025-2026-after.json" \
+            --api-root public/api/v1 \
+            --journals-config config/journals.yml \
+            --window-start 2026-01-01 \
+            --window-end 2026-09-12 \
+            --out-json "$RUNNER_TEMP/after.json"
+          BEFORE="$RUNNER_TEMP/before.json" AFTER="$RUNNER_TEMP/after.json" python - <<'PY'
+          import json, os
+          before=json.load(open(os.environ['BEFORE'], encoding='utf-8'))
+          after=json.load(open(os.environ['AFTER'], encoding='utf-8'))
+          keys={'AJAE','ECTA','IER','TE','RAND','JF'}
+          print('BEFORE_RECONCILIATION', json.dumps(before['reconciliation'], sort_keys=True))
+          print('AFTER_RECONCILIATION', json.dumps(after['reconciliation'], sort_keys=True))
+          for label,payload in [('BEFORE',before),('AFTER',after)]:
+              rows=[]
+              for r in payload['journals']:
+                  if r['journalKey'] in keys:
+                      rows.append({k:r[k] for k in (
+                          'journalKey','status','authority','measuredThrough','freshnessStatus',
+                          'expectedIssueCount','archivedIssueCount','publicationReadyIssueCount',
+                          'missingIssueCount','sourceBlockedIssueCount','effectiveExpectedIssues',
+                          'publicationReadyIssues','sourceBlockedIssues')})
+              print(label+'_WILEY', json.dumps(rows, sort_keys=True))
+          PY
+
+      - name: Verify qualification did not mutate repository or data
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -z "$(git status --porcelain)" || { git status --short; exit 1; }
