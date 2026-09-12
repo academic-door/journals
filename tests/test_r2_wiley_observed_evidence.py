@@ -84,6 +84,17 @@ class R2WileyObservedEvidenceTests(unittest.TestCase):
                 for item in observed:
                     self.assertEqual("onlinelibrary.wiley.com", urlparse(item.official_url).hostname)
 
+    def test_configured_wiley_issue_url_templates_use_observed_product_ids(self) -> None:
+        for journal, years in EXPECTED.items():
+            with self.subTest(journal=journal):
+                product_ids = {row[2] for row in years.values()}
+                self.assertEqual(1, len(product_ids))
+                product_id = next(iter(product_ids))
+                self.assertIn(
+                    f"/toc/{product_id}/",
+                    self.config[journal]["issue_url_template"],
+                )
+
     def test_observation_does_not_infer_unpublished_2026_issues_from_cadence(self) -> None:
         expected_2026_counts = {
             "AJAE": 4,
