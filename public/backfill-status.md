@@ -1,16 +1,13 @@
 # Field journal history backfill status
 
-Updated: 2026-09-12T00:24:01+00:00
+Updated: 2026-09-12T00:38:15+00:00
 
 Discovery coverage: 1326 discovered · 1272 archived · 1176 publication ready · 54 missing · 96 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
 | 2023-2024 | 616 | 0 | 38 | 54 |
-| 2023-2026 | 289 | 0 | 6 | 5 |
-| 2024-2024 | 12 | 0 | 0 | 0 |
-| 2025-2026 | 1 | 0 | 0 | 0 |
-| 2026-2026 | 10 | 0 | 0 | 0 |
+| 2025-2026 | 569 | 0 | 17 | 42 |
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -458,8 +455,8 @@ Discovery coverage: 1326 discovered · 1272 archived · 1176 publication ready �
 | GEB | geb-158-c | 2026 | ready |  |
 | GEB | geb-159-c | 2026 | ready |  |
 | IER | ier-64-1 | 2023 | blocked | MetadataFallbackError: RePEc serial page has no issue 64/1 |
-| IER | ier-64-2 | 2023 | source_pending |  |
-| IER | ier-64-3 | 2023 | source_pending |  |
+| IER | ier-64-2 | 2023 | source_pending | MetadataFallbackError: RePEc serial page has no issue 64/2 |
+| IER | ier-64-3 | 2023 | source_pending | MetadataFallbackError: RePEc serial page has no issue 64/3 |
 | IER | ier-64-4 | 2023 | ready |  |
 | IER | ier-65-1 | 2024 | ready |  |
 | IER | ier-65-2 | 2024 | ready |  |
