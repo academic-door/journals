@@ -30,6 +30,14 @@ class AwaitingUpstreamClassificationTests(unittest.TestCase):
             _is_awaiting_upstream("provisional Crossref roster requires official confirmation")
         )
 
+    def test_future_repec_candidate_outside_publication_horizon_is_awaiting(self) -> None:
+        self.assertTrue(
+            _is_awaiting_upstream(
+                "ElsevierCollectorError: RePEc candidate is outside the configured publication horizon: "
+                "Vol. 171 (December 2026)"
+            )
+        )
+
     def test_empty_error_is_not_awaiting(self) -> None:
         self.assertFalse(_is_awaiting_upstream(""))
 
