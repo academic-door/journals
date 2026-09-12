@@ -31,7 +31,7 @@ EXPECTED = {
     },
     "RAND": {
         2025: ("56", ("1", "2", "3", "4"), "17562171"),
-        2026: ("57", ("1", "2"), "17562171"),
+        2026: ("57", ("1", "2", "3"), "17562171"),
     },
     "JF": {
         2025: ("80", ("1", "2", "3", "4", "5", "6"), "15406261"),
@@ -55,11 +55,17 @@ class R2WileyObservedEvidenceTests(unittest.TestCase):
                 payload = json.loads(evidence_path.read_text(encoding="utf-8"))
                 self.assertEqual(journal, payload["journal"])
                 self.assertEqual("official_publisher_archive", payload["authority"])
+                self.assertEqual("composite_official_publisher_observation", payload["transport"])
+                self.assertTrue(payload["observed_at"].endswith("+00:00"))
+                self.assertGreaterEqual(len(payload["observation_chain"]), 2)
+                self.assertEqual(
+                    payload["observed_at"],
+                    payload["observation_chain"][-1]["observed_at"],
+                )
                 self.assertEqual(
                     "chatgpt_web_official_page_observation",
-                    payload["transport"],
+                    payload["observation_chain"][-1]["transport"],
                 )
-                self.assertTrue(payload["observed_at"].endswith("+00:00"))
                 self.assertEqual({2025, 2026}, {int(source["year"]) for source in payload["sources"]})
 
                 observed = discover_official_issues(journal, definition, years=range(2025, 2027))
@@ -101,7 +107,7 @@ class R2WileyObservedEvidenceTests(unittest.TestCase):
             "ECTA": 4,
             "IER": 3,
             "TE": 3,
-            "RAND": 2,
+            "RAND": 3,
             "JF": 4,
         }
         for journal, expected_count in expected_2026_counts.items():
