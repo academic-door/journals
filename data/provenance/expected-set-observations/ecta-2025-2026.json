@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "journal": "ECTA",
+  "authority": "official_publisher_archive",
+  "transport": "composite_official_publisher_observation",
+  "observed_at": "2026-09-12T07:14:46+00:00",
+  "sources": [
+    {"url": "https://onlinelibrary.wiley.com/loi/14680262/year/2025", "year": 2025, "role": "baseline_archive_observation"},
+    {"url": "https://onlinelibrary.wiley.com/loi/14680262", "year": 2026, "role": "fresh_latest_issue_attestation"}
+  ],
+  "observation_chain": [
+    {
+      "observed_at": "2026-09-11T20:35:00+00:00",
+      "transport": "chatgpt_web_official_page_observation",
+      "scope": "official Wiley 2025 archive plus 2026 Volume 94 Issues 1 through 4"
+    },
+    {
+      "observed_at": "2026-09-12T07:14:46+00:00",
+      "transport": "chatgpt_web_official_page_observation",
+      "scope": "fresh Wiley list-of-issues attestation; 2026 expected set unchanged",
+      "latest_issue": {
+        "year": 2026,
+        "volume": "94",
+        "issue": "4",
+        "official_url": "https://onlinelibrary.wiley.com/toc/14680262/2026/94/4"
+      }
+    }
+  ],
+  "issues": [
+    {"year": 2025, "volume": "93", "issue": "1", "official_url": "https://onlinelibrary.wiley.com/toc/14680262/2025/93/1"},
+    {"year": 2025, "volume": "93", "issue": "2", "official_url": "https://onlinelibrary.wiley.com/toc/14680262/2025/93/2"},
+    {"year": 2025, "volume": "93", "issue": "3", "official_url": "https://onlinelibrary.wiley.com/toc/14680262/2025/93/3"},
+    {"year": 2025, "volume": "93", "issue": "4", "official_url": "https://onlinelibrary.wiley.com/toc/14680262/2025/93/4"},
+    {"year": 2025, "volume": "93", "issue": "5", "official_url": "https://onlinelibrary.wiley.com/toc/14680262/2025/93/5"},
+    {"year": 2025, "volume": "93", "issue": "6", "official_url": "https://onlinelibrary.wiley.com/toc/14680262/2025/93/6"},
+    {"year": 2026, "volume": "94", "issue": "1", "official_url": "https://onlinelibrary.wiley.com/toc/14680262/2026/94/1"},
+    {"year": 2026, "volume": "94", "issue": "2", "official_url": "https://onlinelibrary.wiley.com/toc/14680262/2026/94/2"},
+    {"year": 2026, "volume": "94", "issue": "3", "official_url": "https://onlinelibrary.wiley.com/toc/14680262/2026/94/3"},
+    {"year": 2026, "volume": "94", "issue": "4", "official_url": "https://onlinelibrary.wiley.com/toc/14680262/2026/94/4"}
+  ]
+}

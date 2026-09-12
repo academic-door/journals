@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "journal": "IER",
+  "authority": "official_publisher_archive",
+  "transport": "composite_official_publisher_observation",
+  "observed_at": "2026-09-12T07:14:46+00:00",
+  "sources": [
+    {"url": "https://onlinelibrary.wiley.com/loi/14682354/year/2025", "year": 2025, "role": "baseline_archive_observation"},
+    {"url": "https://onlinelibrary.wiley.com/loi/14682354", "year": 2026, "role": "fresh_latest_issue_attestation"}
+  ],
+  "observation_chain": [
+    {
+      "observed_at": "2026-09-11T20:35:00+00:00",
+      "transport": "chatgpt_web_official_page_observation",
+      "scope": "official Wiley 2025 archive plus 2026 Volume 67 Issues 1 through 3"
+    },
+    {
+      "observed_at": "2026-09-12T07:14:46+00:00",
+      "transport": "chatgpt_web_official_page_observation",
+      "scope": "fresh Wiley list-of-issues attestation; 2026 expected set unchanged",
+      "latest_issue": {
+        "year": 2026,
+        "volume": "67",
+        "issue": "3",
+        "official_url": "https://onlinelibrary.wiley.com/toc/14682354/2026/67/3"
+      }
+    }
+  ],
+  "issues": [
+    {"year": 2025, "volume": "66", "issue": "1", "official_url": "https://onlinelibrary.wiley.com/toc/14682354/2025/66/1"},
+    {"year": 2025, "volume": "66", "issue": "2", "official_url": "https://onlinelibrary.wiley.com/toc/14682354/2025/66/2"},
+    {"year": 2025, "volume": "66", "issue": "3", "official_url": "https://onlinelibrary.wiley.com/toc/14682354/2025/66/3"},
+    {"year": 2025, "volume": "66", "issue": "4", "official_url": "https://onlinelibrary.wiley.com/toc/14682354/2025/66/4"},
+    {"year": 2025, "volume": "66", "issue": "5", "official_url": "https://onlinelibrary.wiley.com/toc/14682354/2025/66/5"},
+    {"year": 2026, "volume": "67", "issue": "1", "official_url": "https://onlinelibrary.wiley.com/toc/14682354/2026/67/1"},
+    {"year": 2026, "volume": "67", "issue": "2", "official_url": "https://onlinelibrary.wiley.com/toc/14682354/2026/67/2"},
+    {"year": 2026, "volume": "67", "issue": "3", "official_url": "https://onlinelibrary.wiley.com/toc/14682354/2026/67/3"}
+  ]
+}

@@ -68,6 +68,8 @@ journals:
   IER:
     platform: crossref
     issn: 0020-6598
+    observed_evidence_path: data/provenance/expected-set-observations/ier-2025-2026.json
+    allowed_host: onlinelibrary.wiley.com
     issue_url_template: https://onlinelibrary.wiley.com/toc/14682354/{volume}
   EJ:
     platform: oup
@@ -156,10 +158,14 @@ journals:
   ECTA:
     platform: crossref
     issn: 0012-9682
+    observed_evidence_path: data/provenance/expected-set-observations/ecta-2025-2026.json
+    allowed_host: onlinelibrary.wiley.com
     issue_url_template: https://onlinelibrary.wiley.com/toc/14680262/{year}/{volume}/{issue}
   AJAE:
     platform: crossref
     issn: 0002-9092
+    observed_evidence_path: data/provenance/expected-set-observations/ajae-2025-2026.json
+    allowed_host: onlinelibrary.wiley.com
     issue_url_template: https://onlinelibrary.wiley.com/toc/14678276/{year}/{volume}/{issue}
   JEP:
     platform: aea
@@ -170,10 +176,14 @@ journals:
   TE:
     platform: crossref
     issn: 1933-6837
-    issue_url_template: https://onlinelibrary.wiley.com/toc/15567568/{volume}/{issue}
+    observed_evidence_path: data/provenance/expected-set-observations/te-2025-2026.json
+    allowed_host: onlinelibrary.wiley.com
+    issue_url_template: https://onlinelibrary.wiley.com/toc/15557561/{volume}/{issue}
   RAND:
     platform: crossref
     issn: 0741-6261
+    observed_evidence_path: data/provenance/expected-set-observations/rand-2025-2026.json
+    allowed_host: onlinelibrary.wiley.com
     issue_url_template: https://onlinelibrary.wiley.com/toc/17562171/{year}/{volume}/{issue}
   JEH:
     platform: cambridge
@@ -184,6 +194,8 @@ journals:
   JF:
     platform: crossref
     issn: 0022-1082
+    observed_evidence_path: data/provenance/expected-set-observations/jf-2025-2026.json
+    allowed_host: onlinelibrary.wiley.com
     issue_url_template: https://onlinelibrary.wiley.com/toc/15406261/{year}/{volume}/{issue}
   RFS:
     platform: oup
