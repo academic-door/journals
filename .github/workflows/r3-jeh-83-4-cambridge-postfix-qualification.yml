@@ -1,0 +1,110 @@
+name: R3 JEH 83-4 Cambridge postfix qualification
+
+on:
+  push:
+    branches:
+      - qual/r3-jeh-83-4-cambridge-postfix-20260913
+    paths:
+      - .github/workflows/r3-jeh-83-4-cambridge-postfix-qualification.yml
+
+permissions:
+  contents: read
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: qual/r3-jeh-83-4-cambridge-postfix-20260913
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: python -m pip install -r requirements.txt
+
+      - name: Restore execution-time canonical inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main data
+          echo "MAIN_SHA=$(git rev-parse origin/main)"
+          echo "DATA_SHA=$(git rev-parse origin/data)"
+          test "$(git rev-parse origin/main)" = "0599836308bb45f6e962de5a3e0c88bc581946e6"
+          rm -rf public/api data/backfill-state data/translation-cache
+          mkdir -p public data
+          git archive origin/data public/api/v1/journals/jeh data/backfill-state data/translation-cache | tar -x
+          git show origin/data:public/api/v1/gap-manifest.json > "$RUNNER_TEMP/gap-manifest.json"
+          GAP="$RUNNER_TEMP/gap-manifest.json" OUT="$RUNNER_TEMP/jeh-83-4-gap.json" python - <<'PY'
+          import json, os
+          payload=json.load(open(os.environ['GAP'], encoding='utf-8'))
+          rows=[r for r in payload.get('records', []) if str(r.get('issue_id','')).lower()=='jeh-83-4']
+          if len(rows)!=1:
+              raise SystemExit(f'expected exactly one jeh-83-4 gap row, got {len(rows)}')
+          row=rows[0]
+          if row.get('category')!='source_pending' or row.get('source_status')!='source_pending':
+              raise SystemExit(f'unexpected current gap state: {row}')
+          if 'www.cambridge.org' not in str(row.get('official_url','')):
+              raise SystemExit(f'not Cambridge official URL: {row.get("official_url")}')
+          json.dump({'schema_version':'1.0','generated_at':payload.get('generated_at',''),'records':[row]}, open(os.environ['OUT'],'w',encoding='utf-8'), ensure_ascii=False, indent=2)
+          print('QUAL_GAP_ROW', json.dumps(row, ensure_ascii=False, sort_keys=True))
+          PY
+
+      - name: Capture official Cambridge roster
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/evidence" "$RUNNER_TEMP/diagnostics"
+          python scripts/capture_cambridge_roster_evidence.py \
+            --gap-manifest "$RUNNER_TEMP/jeh-83-4-gap.json" \
+            --output-root "$RUNNER_TEMP/evidence" \
+            --diagnostics-root "$RUNNER_TEMP/diagnostics" \
+            | tee "$RUNNER_TEMP/capture.json"
+          test -f "$RUNNER_TEMP/evidence/jeh-83-4.json"
+          CAPTURE="$RUNNER_TEMP/capture.json" EVIDENCE="$RUNNER_TEMP/evidence/jeh-83-4.json" python - <<'PY'
+          import json, os
+          payload=json.load(open(os.environ['CAPTURE'],encoding='utf-8'))
+          evidence=json.load(open(os.environ['EVIDENCE'],encoding='utf-8'))
+          if payload.get('captured')!=['jeh-83-4'] or payload.get('failures'):
+              raise SystemExit(f'capture gate failed: {payload}')
+          print('QUAL_EVIDENCE', json.dumps({
+              'official_url': evidence.get('official_url'),
+              'official_items': len(evidence.get('items',[])),
+              'excluded_items': len(evidence.get('excluded_items',[])),
+              'excluded': evidence.get('excluded_items',[]),
+              'dois': [item.get('doi') for item in evidence.get('items',[])],
+          }, ensure_ascii=False, sort_keys=True))
+          PY
+
+      - name: Dry-run official roster promotion against current archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/import_official_roster_evidence.py \
+            "$RUNNER_TEMP/evidence/jeh-83-4.json" \
+            --api-root public/api/v1 \
+            --output "$RUNNER_TEMP/jeh-83-4.candidate.json" \
+            --translation-cache-root data/translation-cache \
+            | tee "$RUNNER_TEMP/import.json"
+          EVIDENCE="$RUNNER_TEMP/evidence/jeh-83-4.json" CANDIDATE="$RUNNER_TEMP/jeh-83-4.candidate.json" python - <<'PY'
+          import json, os
+          e=json.load(open(os.environ['EVIDENCE'],encoding='utf-8'))
+          c=json.load(open(os.environ['CANDIDATE'],encoding='utf-8'))
+          summary={
+            'official_items':len(e.get('items',[])),
+            'excluded_items':len(e.get('excluded_items',[])),
+            'candidate_articles':len(c.get('articles',[])),
+            'source_status':c.get('source_status'),
+            'publication_state':c.get('publication_state'),
+            'quality_flags':c.get('quality_flags',[]),
+            'roster_source':c.get('roster_source'),
+            'dois':[a.get('doi') for a in c.get('articles',[])],
+          }
+          print('QUAL_CANDIDATE', json.dumps(summary, ensure_ascii=False, sort_keys=True))
+          if len(e.get('items',[])) != len(c.get('articles',[])):
+              raise SystemExit('official roster/article count mismatch after dry-run')
+          if c.get('source_status')!='complete' or c.get('publication_state')!='ready':
+              raise SystemExit(f'candidate did not reach ready: {summary}')
+          PY
