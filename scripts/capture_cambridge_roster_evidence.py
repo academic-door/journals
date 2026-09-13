@@ -37,7 +37,7 @@ NON_RESEARCH_RE = re.compile(
     re.IGNORECASE,
 )
 NON_RESEARCH_SUFFIX_RE = re.compile(
-    r"(?:[-–—]\s*)?(?:correction|erratum|corrigendum|retraction|"
+    r"[-–—]\s*(?:correction|erratum|corrigendum|retraction|"
     r"expression\s+of\s+concern)\s*$",
     re.IGNORECASE,
 )
