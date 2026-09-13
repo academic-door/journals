@@ -52,6 +52,12 @@ ISSUE_HTML = """
 CORRIGENDUM_SUFFIX_HTML = """
 <html><body>
 <div class="product-listing-with-inputs-content">
+  <a class="part-link" href="/core/journals/journal-of-economic-history/article/research/GGG">A Research Article</a>
+  <div class="author"><a class="more-by-this-author">Author One</a></div>
+  <div class="altmetric-embed" data-doi="10.1017/S000000000000006"></div>
+  <div id="abstractS000000000000006">Official research abstract.</div>
+</div>
+<div class="product-listing-with-inputs-content">
   <a class="part-link" href="/core/journals/journal-of-economic-history/article/corrigendum/FFF">Internal Borders and Population Geography in the Unification of Italy – CORRIGENDUM</a>
   <div class="author"><a class="more-by-this-author">Valeria Rueda</a></div>
   <div class="altmetric-embed" data-doi="10.1017/S0022050723000451"></div>
@@ -98,7 +104,8 @@ class CambridgeRosterCaptureTests(unittest.TestCase):
             CORRIGENDUM_SUFFIX_HTML,
             base_url="https://www.cambridge.org/core/journals/journal-of-economic-history/issue/ABC",
         )
-        self.assertEqual([], items)
+        self.assertEqual(1, len(items))
+        self.assertEqual("10.1017/s000000000000006", items[0]["doi"])
         self.assertEqual(1, len(excluded))
         self.assertEqual("10.1017/s0022050723000451", excluded[0]["doi"])
         self.assertEqual("non-research-title", excluded[0]["reason"])
