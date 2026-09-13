@@ -1,0 +1,96 @@
+name: R3 current recovery queue qualification
+
+on:
+  push:
+    branches:
+      - qual/r3-current-recovery-queue-20260913
+    paths:
+      - .github/workflows/r3-current-recovery-queue-qualification.yml
+
+permissions:
+  contents: read
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: qual/r3-current-recovery-queue-20260913
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: python -m pip install pyyaml
+
+      - name: Restore execution-time current gap manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main data
+          echo "MAIN_SHA=$(git rev-parse origin/main)"
+          echo "DATA_SHA=$(git rev-parse origin/data)"
+          test "$(git rev-parse origin/main)" = "704ab3e74a55eca92e49d99913e90ed6b2dde9e9"
+          git show origin/data:public/api/v1/gap-manifest.json > "$RUNNER_TEMP/gap-manifest.json"
+
+      - name: Build deterministic recovery queue
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/queue"
+          python scripts/build_recovery_queue.py \
+            --gap-manifest "$RUNNER_TEMP/gap-manifest.json" \
+            --journals-config config/journals.yml \
+            --chunk-size 12 \
+            --output-dir "$RUNNER_TEMP/queue" \
+            --plan-json "$RUNNER_TEMP/plan.json" > "$RUNNER_TEMP/matrix.json"
+
+      - name: Emit current queue qualification
+        shell: bash
+        run: |
+          set -euo pipefail
+          GAP="$RUNNER_TEMP/gap-manifest.json" QUEUE="$RUNNER_TEMP/queue" PLAN="$RUNNER_TEMP/plan.json" python - <<'PY'
+          import json, os
+          from collections import Counter, defaultdict
+          from pathlib import Path
+
+          gap = json.load(open(os.environ['GAP'], encoding='utf-8'))
+          plan = json.load(open(os.environ['PLAN'], encoding='utf-8'))
+          shards = [json.load(open(path, encoding='utf-8')) for path in sorted(Path(os.environ['QUEUE']).glob('*.json'))]
+          records = [r for shard in shards for r in shard.get('records', [])]
+
+          def dump(label, value):
+              print(label, json.dumps(value, ensure_ascii=False, sort_keys=True))
+
+          print('GAP_GENERATED_AT', gap.get('generated_at', ''))
+          dump('GAP_TOP_SUMMARY', gap.get('summary', {}))
+          dump('QUEUE_FORECAST', plan)
+          dump('QUEUE_BY_CATEGORY', dict(sorted(Counter(str(r.get('category','')) for r in records).items())))
+          dump('QUEUE_BY_ACTION', dict(sorted(Counter(str(r.get('action','')) for r in records).items())))
+          dump('QUEUE_BY_COLLECTOR', dict(sorted(Counter(str(r.get('collector','')) for r in records).items())))
+          dump('QUEUE_BY_JOURNAL', dict(sorted(Counter(str(r.get('journal','')) for r in records).items())))
+
+          action_journal = Counter((str(r.get('action','')), str(r.get('journal',''))) for r in records)
+          dump('QUEUE_BY_ACTION_JOURNAL', {f'{a}|{j}': n for (a,j),n in sorted(action_journal.items())})
+
+          for shard in shards:
+              dump('SHARD', {
+                  'shard': shard.get('shard'),
+                  'action': shard.get('action'),
+                  'summary': shard.get('summary', {}),
+                  'issue_ids': shard.get('issue_ids', []),
+              })
+
+          known_hold = {'ier-64-1', 'te-21-2', 'te-21-3', 'lup-171-c'}
+          held = []
+          for r in records:
+              if str(r.get('issue_id','')).lower() in known_hold:
+                  held.append({
+                      'issue_id': r.get('issue_id'), 'journal': r.get('journal'),
+                      'category': r.get('category'), 'action': r.get('action'),
+                      'reason': r.get('reason'), 'official_url': r.get('official_url'),
+                  })
+          dump('KNOWN_FAIL_CLOSED_OR_FUTURE', held)
+          PY
