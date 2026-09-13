@@ -65,6 +65,17 @@ CORRIGENDUM_SUFFIX_HTML = """
 </body></html>
 """
 
+BIAS_CORRECTION_HTML = """
+<html><body>
+<div class="product-listing-with-inputs-content">
+  <a class="part-link" href="/core/journals/journal-of-economic-history/article/bias/HHH">Finite-Sample Bias Correction</a>
+  <div class="author"><a class="more-by-this-author">Author Four</a></div>
+  <div class="altmetric-embed" data-doi="10.1017/S000000000000007"></div>
+  <div id="abstractS000000000000007">A complete official research abstract.</div>
+</div>
+</body></html>
+"""
+
 
 class CambridgeRosterCaptureTests(unittest.TestCase):
     def test_all_issues_maps_year_and_issue(self) -> None:
@@ -109,6 +120,16 @@ class CambridgeRosterCaptureTests(unittest.TestCase):
         self.assertEqual(1, len(excluded))
         self.assertEqual("10.1017/s0022050723000451", excluded[0]["doi"])
         self.assertEqual("non-research-title", excluded[0]["reason"])
+
+    def test_issue_parser_keeps_research_title_ending_in_correction(self) -> None:
+        items, excluded = parse_cambridge_issue(
+            BIAS_CORRECTION_HTML,
+            base_url="https://www.cambridge.org/core/journals/journal-of-economic-history/issue/ABC",
+        )
+        self.assertEqual([], excluded)
+        self.assertEqual(1, len(items))
+        self.assertEqual("Finite-Sample Bias Correction", items[0]["title_en"])
+        self.assertEqual("10.1017/s000000000000007", items[0]["doi"])
 
     def test_source_pending_selection_uses_cambridge_host(self) -> None:
         manifest = {
