@@ -36,6 +36,11 @@ NON_RESEARCH_RE = re.compile(
     r"corrigendum|retraction|expression\s+of\s+concern)\b",
     re.IGNORECASE,
 )
+NON_RESEARCH_SUFFIX_RE = re.compile(
+    r"[-–—]\s*(?:correction|erratum|corrigendum|retraction|"
+    r"expression\s+of\s+concern)\s*$",
+    re.IGNORECASE,
+)
 BOOK_REVIEW_RE = re.compile(r"\bPp\.\s*\d+|\(Orgs?\.\)|\s+By\s+[A-Z]", re.IGNORECASE)
 ADDENDUM_RE = re.compile(r"(?:[-–—]\s*)?ADDENDUM\s*$", re.IGNORECASE)
 
@@ -111,7 +116,7 @@ def cambridge_issue_url(
 
 
 def _non_research_reason(title: str, authors: list[str], abstract: str) -> str:
-    if NON_RESEARCH_RE.search(title):
+    if NON_RESEARCH_RE.search(title) or NON_RESEARCH_SUFFIX_RE.search(title):
         return "non-research-title"
     if ADDENDUM_RE.search(title):
         return "addendum"
@@ -316,4 +321,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
