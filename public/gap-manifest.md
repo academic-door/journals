@@ -1,11 +1,11 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-13T22:29:08+00:00
+Generated: 2026-09-14T05:02:51+00:00
 
 ## Summary
 
 - browser_required: 2
-- ready: 1176
+- ready: 1159
 - recoverable: 52
 - source_pending: 96
 
@@ -285,23 +285,6 @@ Generated: 2026-09-13T22:29:08+00:00
 | EER | eer-187-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | EER | eer-188-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | EER | eer-189-c | 2026 | ready | complete | official_verified | content and official source gates passed |
-| EJ | ej-133-650 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| EJ | ej-133-651 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| EJ | ej-133-652 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| EJ | ej-133-653 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| EJ | ej-133-654 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| EJ | ej-133-655 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| EJ | ej-133-656 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| EJ | ej-134-657 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| EJ | ej-134-658 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| EJ | ej-134-659 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| EJ | ej-134-660 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| EJ | ej-134-661 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| EJ | ej-134-662 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| EJ | ej-134-663 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| EJ | ej-134-664 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| EJ | ej-135-665 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| EJ | ej-135-666 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | EJ | ej-135-667 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | EJ | ej-135-668 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | EJ | ej-135-669 | 2025 | ready | complete | official_verified | content and official source gates passed |
