@@ -151,20 +151,39 @@ def _official_article_url(pii: str, fallback: str) -> str:
     return f"https://www.sciencedirect.com/science/article/pii/{pii}" if pii else fallback
 
 
-def _parse_repec_inventory(content: bytes, series_url: str) -> dict[str, Any]:
+def _parse_repec_inventory(
+    content: bytes,
+    series_url: str,
+    *,
+    expected_volume: str = "",
+    expected_issue: str = "",
+) -> dict[str, Any]:
     soup = BeautifulSoup(content, "html.parser")
-    heading = next(
-        (
-            node
-            for node in soup.find_all("h3")
-            if ISSUE_HEADING.search(node.get_text(" ", strip=True))
-        ),
-        None,
-    )
-    if heading is None:
+    headings: list[tuple[Any, re.Match[str]]] = []
+    for node in soup.find_all("h3"):
+        match = ISSUE_HEADING.search(node.get_text(" ", strip=True))
+        if match is not None:
+            headings.append((node, match))
+    if not headings:
         raise ElsevierCollectorError("RePEc serial page has no usable volume heading")
-    match = ISSUE_HEADING.search(heading.get_text(" ", strip=True))
-    assert match is not None
+
+    heading, match = headings[0]
+    if expected_volume:
+        wanted_issue = expected_issue.casefold()
+        exact = next(
+            (
+                (node, candidate)
+                for node, candidate in headings
+                if candidate.group("volume") == expected_volume
+                and (
+                    not wanted_issue
+                    or candidate.group("issue").casefold() == wanted_issue
+                )
+            ),
+            None,
+        )
+        if exact is not None:
+            heading, match = exact
     container = heading.find_next_sibling("div")
     if container is None:
         raise ElsevierCollectorError("RePEc serial page has no issue article container")
@@ -647,6 +666,8 @@ def fetch_current_issue(
     rss_url: str = "",
     publication_lead_months: int = 1,
     doi_template: str = "",
+    expected_volume: str = "",
+    expected_issue: str = "",
     max_workers: int = DETAIL_WORKERS,
 ) -> dict[str, Any]:
     session = _session()
@@ -654,6 +675,8 @@ def fetch_current_issue(
         inventory = _parse_repec_inventory(
             _get(session, repec_series_url).content,
             repec_series_url,
+            expected_volume=expected_volume,
+            expected_issue=expected_issue,
         )
     except ElsevierCollectorError:
         if not rss_url:
