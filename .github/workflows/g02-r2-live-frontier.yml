@@ -1,0 +1,60 @@
+name: G02 R2 live frontier
+
+on:
+  push:
+    branches:
+      - ops/g02-jeh-83-4-production-acceptance-20260915
+
+permissions:
+  contents: read
+
+jobs:
+  measure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Read public completeness frontier
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import urllib.request
+
+          url = "https://academic-door.github.io/journals/api/v1/completeness/2026.json"
+          with urllib.request.urlopen(url, timeout=30) as response:
+              print(f"http_status={response.status}")
+              payload = json.load(response)
+
+          print(f"top_keys={sorted(payload.keys()) if isinstance(payload, dict) else type(payload).__name__}")
+          if isinstance(payload, dict):
+              for key, value in payload.items():
+                  if isinstance(value, dict):
+                      print(f"dict:{key}:keys={sorted(value.keys())}")
+                  elif isinstance(value, list):
+                      print(f"list:{key}:len={len(value)}")
+                  else:
+                      print(f"scalar:{key}={value}")
+
+          candidates = []
+          def visit(node, path="root"):
+              if isinstance(node, list) and 1 <= len(node) <= 100 and all(isinstance(x, dict) for x in node):
+                  score = sum(any(k in x for k in ("journal", "journal_id", "slug", "code", "status", "completeness_status")) for x in node)
+                  if score:
+                      candidates.append((score, path, node))
+              if isinstance(node, dict):
+                  for k, v in node.items():
+                      if isinstance(v, (dict, list)):
+                          visit(v, f"{path}.{k}")
+          visit(payload)
+          if not candidates:
+              raise SystemExit("no journal-row candidate list found")
+          _, path, rows = max(candidates, key=lambda item: (item[0], len(item[2])))
+          print(f"rows_path={path}")
+          print(f"rows_count={len(rows)}")
+
+          interesting_terms = ("journal", "slug", "code", "status", "complete", "authority", "fresh", "expected", "archive", "publication", "ready", "missing", "blocked", "measured", "audit")
+          for row in rows:
+              compact = {k: v for k, v in row.items() if any(term in k.lower() for term in interesting_terms)}
+              print("ROW " + json.dumps(compact, sort_keys=True, ensure_ascii=False))
+          PY
