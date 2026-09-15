@@ -1,0 +1,68 @@
+name: G02 #259 email delivery diagnostic
+
+on:
+  push:
+    branches:
+      - ops/g02-259-email-delivery-diagnostic-20260915
+
+permissions:
+  contents: read
+
+concurrency:
+  group: g02-259-email-delivery-diagnostic
+  cancel-in-progress: false
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Restore current audited journal data
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          rm -rf public/api
+          git archive origin/data public/api public/project-manifest.json | tar -x
+
+      - name: Verify designated recipient binding without disclosure
+        env:
+          NOTIFICATION_EMAIL_TO: ${{ secrets.NOTIFICATION_EMAIL_TO }}
+          EXPECTED_RECIPIENT_SHA256: d7f866b3b2daaae8a77e0ac3bbdab39c257d6f7416a43ac0854335df6c3ffcf4
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib
+          import os
+          import re
+
+          values = [
+              value.strip().lower()
+              for value in re.split(r"[,;]", os.environ.get("NOTIFICATION_EMAIL_TO", ""))
+              if value.strip()
+          ]
+          hashes = {hashlib.sha256(value.encode("utf-8")).hexdigest() for value in values}
+          expected = os.environ["EXPECTED_RECIPIENT_SHA256"]
+          print(f"recipient_configured={bool(values)}")
+          print(f"recipient_count={len(values)}")
+          print(f"designated_recipient_present={expected in hashes}")
+          if expected not in hashes:
+              raise SystemExit("configured NOTIFICATION_EMAIL_TO does not include the designated mailbox")
+          PY
+
+      - name: Send bounded journal READY test email
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_SECURITY: ${{ secrets.SMTP_SECURITY }}
+          SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          SMTP_FROM: ${{ secrets.SMTP_FROM }}
+          NOTIFICATION_EMAIL_TO: ${{ secrets.NOTIFICATION_EMAIL_TO }}
+        run: python scripts/email_notifications.py --test-email --test-journal aer
