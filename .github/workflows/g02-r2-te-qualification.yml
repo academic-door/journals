@@ -1,0 +1,54 @@
+name: G02 R2 TE qualification
+
+on:
+  push:
+    branches:
+      - ops/g02-r2-te-qualification-20260915
+
+permissions:
+  contents: read
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements.txt
+      - name: Parse exact official Wiley issue inventories
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from collectors.wiley import _get, _parse_issue_inventory, _session
+
+          urls = [
+              "https://onlinelibrary.wiley.com/toc/15557561/2026/21/2",
+              "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+          ]
+          for url in urls:
+              response = _get(_session(), url, attempts=2)
+              volume, issue, publication_date, inventory = _parse_issue_inventory(response.content, url)
+              research = [item for item in inventory if item.is_research_article]
+              excluded = [item for item in inventory if not item.is_research_article]
+              print(f"issue={volume}-{issue}")
+              print(f"http_status={response.status_code}")
+              print(f"publication_date={publication_date}")
+              print(f"inventory_count={len(inventory)}")
+              print(f"research_count={len(research)}")
+              print(f"excluded_count={len(excluded)}")
+              for item in excluded:
+                  print(f"excluded={item.title!r}|reason={item.exclusion_reason}")
+              doi_count = sum(bool(item.doi) for item in research)
+              source_url_count = sum(bool(item.source_url) for item in research)
+              print(f"research_doi_count={doi_count}")
+              print(f"research_source_url_count={source_url_count}")
+              if str(volume) != '21' or str(issue) not in {'2','3'}:
+                  raise SystemExit("official Wiley issue identity mismatch")
+              if not research or doi_count != len(research) or source_url_count != len(research):
+                  raise SystemExit("official Wiley roster is not complete enough for evidence import")
+          print("te_wiley_qualification=passed")
+          PY
