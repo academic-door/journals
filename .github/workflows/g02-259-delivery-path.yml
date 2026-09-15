@@ -111,3 +111,5 @@ jobs:
                   raise SystemExit("SMTP server did not accept message DATA")
           print("smtp_transaction=accepted")
           PY
+
+# rerun after repository-level NOTIFICATION_EMAIL_TO override removal
