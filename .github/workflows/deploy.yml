@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - ops/g02-deploy-jeh-83-4-20260914
   workflow_run:
     workflows:
       - Auto-approve PR
