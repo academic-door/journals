@@ -20,72 +20,85 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install -r requirements.txt
-      - name: Restore execution-time canonical data snapshot
-        shell: bash
-        run: |
-          set -euo pipefail
-          git fetch origin data --depth=1
-          git checkout origin/data -- public/api data/backfill-state data/translation-cache || true
-          echo "data_head=$(git rev-parse origin/data)"
-      - name: Run exact TE 21(2)/(3) provisional collection without publish
-        shell: bash
-        run: |
-          set -euo pipefail
-          rm -rf data/backfill-staging/TE data/backfill-staging/te
-          python scripts/backfill_history.py \
-            --config config/field-history.yml \
-            --state data/backfill-state/field-2023-2026.json \
-            --journal TE \
-            --from-year 2026 \
-            --to-year 2026 \
-            --issue-ids te-21-2,te-21-3 \
-            --force-retry \
-            --max-issues 2 \
-            --max-minutes 8 \
-            --skip-global-indexes || true
-      - name: Compare provisional staging to browser-authorized official roster
+      - name: Qualify publisher-supplied RePEc metadata against official Wiley roster
         shell: bash
         run: |
           set -euo pipefail
           python - <<'PY'
-          import json
-          from pathlib import Path
+          import re
+          import unicodedata
+          import requests
+          from bs4 import BeautifulSoup
+          from collectors.metadata_fallback import _repec_detail_metadata
+          from collectors.article_types import evidence_roster_article_type, is_publishable_type
 
-          expected = {
+          official = {
               'te-21-2': [
-                  '10.3982/te6625','10.3982/te5478','10.3982/te6410','10.3982/te6021',
-                  '10.3982/te5977','10.3982/te5350','10.3982/te6446','10.3982/te5600',
-                  '10.3982/te6220','10.3982/te5834','10.3982/te6066',
+                  ('10.3982/te6625', 'Correction to “Can intergenerational equity be operationalized?”'),
+                  ('10.3982/te5478', 'A continuum model as a limit of large finite matching markets'),
+                  ('10.3982/te6410', 'Coarse revealed preference'),
+                  ('10.3982/te6021', 'Marginal stochastic choice'),
+                  ('10.3982/te5977', 'Optimally stubborn. How long to hold and who will fold?'),
+                  ('10.3982/te5350', 'How to segment a search market: Information design and directed search'),
+                  ('10.3982/te6446', 'Strategic disclosure in networks'),
+                  ('10.3982/te5600', 'Simple incentives and diverse beliefs'),
+                  ('10.3982/te6220', 'Asymptotic value of monitoring structures in stochastic games'),
+                  ('10.3982/te5834', 'Time consistency, temporal resolution indifference, and the separation of time and risk'),
+                  ('10.3982/te6066', 'Regret in durable-good monopoly'),
               ],
               'te-21-3': [
-                  '10.3982/te6816','10.3982/te6479','10.3982/te6224','10.3982/te6187',
-                  '10.3982/te6338','10.3982/te6786','10.3982/te6567','10.3982/te6439',
-                  '10.3982/te6424','10.3982/te6575','10.3982/te6170',
+                  ('10.3982/te6816', 'Coalitional manipulability in school choice'),
+                  ('10.3982/te6479', 'Physical versus digital currency A difference that makes a difference'),
+                  ('10.3982/te6224', 'Ruth, Anthony, and Clarence'),
+                  ('10.3982/te6187', 'When autarky trumps free and costless trade'),
+                  ('10.3982/te6338', 'Ratings design and barriers to entry'),
+                  ('10.3982/te6786', 'Efficient investment, search, and sorting in matching markets'),
+                  ('10.3982/te6567', 'Engagement maximization'),
+                  ('10.3982/te6439', 'Improving robust decisions with data'),
+                  ('10.3982/te6424', 'News media as suppliers of narratives (and information)'),
+                  ('10.3982/te6575', 'A general theory of inverse welfare functions'),
+                  ('10.3982/te6170', 'Benefits and challenges of ambiguous product information'),
               ],
           }
-          state = json.loads(Path('data/backfill-state/field-2023-2026.json').read_text())
-          for issue_id, official_dois in expected.items():
-              entry = state.get('issues', {}).get(issue_id, {})
-              print(f"{issue_id}:state_status={entry.get('status')}")
-              print(f"{issue_id}:state_error={entry.get('error','')}")
-              candidates = [
-                  Path('data/backfill-staging') / 'TE' / f'{issue_id}.json',
-                  Path('data/backfill-staging') / 'te' / f'{issue_id}.json',
-                  Path('public/api/journals/te/issues') / f'{issue_id}.json',
-              ]
-              path = next((p for p in candidates if p.exists()), None)
-              print(f"{issue_id}:artifact_path={path or 'NONE'}")
-              if not path:
-                  continue
-              payload = json.loads(path.read_text())
-              articles = payload.get('articles') or []
-              dois = [str(a.get('doi') or '').lower() for a in articles]
-              print(f"{issue_id}:article_count={len(articles)}")
-              print(f"{issue_id}:source_status={payload.get('source_status')}")
-              print(f"{issue_id}:publication_state={payload.get('publication_state')}")
-              print(f"{issue_id}:content_status={payload.get('content_status')}")
-              print(f"{issue_id}:official_exact_order_match={dois == official_dois}")
-              print(f"{issue_id}:official_subset={all(doi in official_dois for doi in dois)}")
-              print(f"{issue_id}:missing_official_dois={[doi for doi in official_dois if doi not in dois]}")
-              print(f"{issue_id}:extra_dois={[doi for doi in dois if doi not in official_dois]}")
+
+          def norm(value):
+              text = unicodedata.normalize('NFKC', value)
+              text = re.sub(r"(?<=\w)['’](?=\w)", '', text)
+              text = re.sub(r'[“”‘’\"†‡]', '', text)
+              text = re.sub(r'[^\w]+', ' ', text, flags=re.UNICODE)
+              return ' '.join(text.casefold().split())
+
+          session = requests.Session()
+          session.headers.update({'User-Agent':'AcademicDoorJournals/0.1 (non-profit academic metadata service; https://academic-door.github.io/)'})
+          failures = []
+          for issue_id, rows in official.items():
+              publishable = 0
+              excluded = 0
+              for sequence, (doi, official_title) in enumerate(rows, start=1):
+                  suffix = doi.rsplit('te', 1)[-1]
+                  detail_url = f'https://ideas.repec.org/a/the/publsh/{suffix}.html'
+                  response = session.get(detail_url, timeout=30)
+                  print(f'{issue_id}:{sequence}:http={response.status_code}')
+                  response.raise_for_status()
+                  soup = BeautifulSoup(response.content, 'html.parser')
+                  page_title = soup.find('h1').get_text(' ', strip=True) if soup.find('h1') else ''
+                  _doi, authors, abstract = _repec_detail_metadata(session, detail_url, timeout=30)
+                  title_match = norm(page_title) == norm(official_title)
+                  atype = evidence_roster_article_type(official_title)
+                  pub = is_publishable_type(atype)
+                  print(f'{issue_id}:{sequence}:doi={doi}:title_match={title_match}:type={atype}:authors={len(authors)}:abstract={bool(abstract)}')
+                  if not title_match:
+                      failures.append(f'{doi}: title mismatch: {page_title!r}')
+                  if pub:
+                      publishable += 1
+                      if not authors or not abstract:
+                          failures.append(f'{doi}: publisher-supplied metadata incomplete')
+                  else:
+                      excluded += 1
+              print(f'{issue_id}:official_rows={len(rows)}:publishable={publishable}:excluded={excluded}')
+          if failures:
+              raise SystemExit('\n'.join(failures))
+          if evidence_roster_article_type(official['te-21-2'][0][1]) != 'correction':
+              raise SystemExit('TE 21(2) correction classification drifted')
+          print('te_browser_roster_repec_metadata_qualification=passed')
           PY
