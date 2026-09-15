@@ -1,0 +1,92 @@
+name: G02 #259 bounded implementation
+
+on:
+  push:
+    branches:
+      - fix/259-smtp-acceptance-semantics
+
+permissions:
+  contents: write
+
+concurrency:
+  group: g02-259-implementation
+  cancel-in-progress: false
+
+jobs:
+  implement:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: fix/259-smtp-acceptance-semantics
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Apply exact SMTP acceptance semantics patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("scripts/email_notifications.py")
+          text = path.read_text(encoding="utf-8")
+
+          old = """        else:\n            sent_at = now_iso()\n            for event in detection_events:\n"""
+          new = """        else:\n            sent_at = now_iso()\n            smtp_accepted_at = sent_at\n            for event in detection_events:\n"""
+          if old in text:
+              text = text.replace(old, new, 1)
+          elif "smtp_accepted_at = sent_at" not in text:
+              raise SystemExit("sent timestamp anchor changed")
+
+          old_record = '                    "sent_at": sent_at,\n'
+          new_record = (
+              '                    "sent_at": sent_at,\n'
+              '                    "smtp_accepted_at": smtp_accepted_at,\n'
+              '                    "delivery_status": "smtp_accepted",\n'
+          )
+          count = text.count(old_record)
+          if count == 2:
+              text = text.replace(old_record, new_record)
+          elif text.count('"delivery_status": "smtp_accepted"') < 2:
+              raise SystemExit(f"expected exactly two sent ledger records, found {count}")
+
+          old_outcome = '                    "status": "sent",\n                    "queued":'
+          new_outcome = (
+              '                    "status": "sent",\n'
+              '                    "delivery_status": "smtp_accepted",\n'
+              '                    "queued":'
+          )
+          if old_outcome in text:
+              text = text.replace(old_outcome, new_outcome, 1)
+          elif '"delivery_status": "smtp_accepted"' not in text:
+              raise SystemExit("outcome status anchor changed")
+
+          old_test = '        print(json.dumps({"status": "sent"}))\n'
+          new_test = '        print(json.dumps({"status": "smtp_accepted"}))\n'
+          if old_test in text:
+              text = text.replace(old_test, new_test, 1)
+          elif new_test not in text:
+              raise SystemExit("test-email status anchor changed")
+
+          path.write_text(text, encoding="utf-8")
+          PY
+
+      - name: Verify targeted delivery semantics regression
+        run: python -m unittest tests/test_email_delivery_semantics.py -v
+
+      - name: Commit bounded implementation when needed
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- scripts/email_notifications.py; then
+            echo "bounded implementation already present"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/email_notifications.py
+          git commit -m "fix(email): record SMTP acceptance explicitly"
+          git push origin HEAD:fix/259-smtp-acceptance-semantics
