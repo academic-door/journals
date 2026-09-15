@@ -1,11 +1,11 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-15T00:00:21+00:00
+Generated: 2026-09-15T05:00:14+00:00
 
 ## Summary
 
 - browser_required: 2
-- ready: 1160
+- ready: 1129
 - recoverable: 52
 - source_pending: 95
 
@@ -610,18 +610,6 @@ Generated: 2026-09-15T00:00:21+00:00
 | JEDC | jedc-189-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JEDC | jedc-190-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JEDC | jedc-191-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
-| JEEA | jeea-21-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| JEEA | jeea-21-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| JEEA | jeea-21-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| JEEA | jeea-21-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| JEEA | jeea-21-5 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| JEEA | jeea-21-6 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| JEEA | jeea-22-1 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| JEEA | jeea-22-2 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| JEEA | jeea-22-3 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| JEEA | jeea-22-4 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| JEEA | jeea-22-5 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| JEEA | jeea-22-6 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | JEEA | jeea-23-1 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JEEA | jeea-23-2 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JEEA | jeea-23-3 | 2025 | ready | complete | official_verified | content and official source gates passed |
@@ -1125,13 +1113,6 @@ Generated: 2026-09-15T00:00:21+00:00
 | QE | qe-17-1 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | QE | qe-17-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | QE | qe-17-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
-| QJE | qje-138-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| QJE | qje-138-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| QJE | qje-138-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| QJE | qje-139-1 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| QJE | qje-139-2 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| QJE | qje-139-3 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| QJE | qje-139-4 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | QJE | qje-140-1 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | QJE | qje-140-2 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | QJE | qje-140-3 | 2025 | ready | complete | official_verified | content and official source gates passed |
@@ -1170,18 +1151,6 @@ Generated: 2026-09-15T00:00:21+00:00
 | RED | red-60-c | 2026 | source_pending | complete | source_pending | official source verification pending |
 | RED | red-61-c | 2026 | source_pending | complete | source_pending | official source verification pending |
 | RED | red-62-c | 2026 | recoverable | blocked | source_pending | archive_missing |
-| RES | res-90-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| RES | res-90-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| RES | res-90-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| RES | res-90-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| RES | res-90-5 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| RES | res-90-6 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| RES | res-91-1 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| RES | res-91-2 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| RES | res-91-3 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| RES | res-91-4 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| RES | res-91-5 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| RES | res-91-6 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | RES | res-92-1 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | RES | res-92-2 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | RES | res-92-3 | 2025 | ready | complete | official_verified | content and official source gates passed |
