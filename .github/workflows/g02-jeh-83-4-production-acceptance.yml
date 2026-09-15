@@ -1,0 +1,63 @@
+name: G02 JEH 83(4) production acceptance
+
+on:
+  push:
+    branches:
+      - ops/g02-jeh-83-4-production-acceptance-20260915
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Verify public JEH 83(4) API
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import urllib.request
+
+          url = "https://academic-door.github.io/journals/api/v1/journals/jeh/issues/jeh-83-4.json"
+          with urllib.request.urlopen(url, timeout=30) as response:
+              print(f"http_status={response.status}")
+              payload = json.load(response)
+
+          issue_id = payload.get("issue_id")
+          source_status = payload.get("source_status")
+          publication_state = payload.get("publication_state")
+          expected = payload.get("expected_article_count")
+          research = payload.get("research_article_count")
+          articles = payload.get("articles") or []
+          article_count = len(articles)
+          offending = "10.1017/s0022050723000451"
+
+          def doi_of(item):
+              return str(item.get("doi") or "").strip().lower()
+
+          offending_present = any(doi_of(item) == offending for item in articles if isinstance(item, dict))
+
+          print(f"issue_id={issue_id}")
+          print(f"source_status={source_status}")
+          print(f"publication_state={publication_state}")
+          print(f"expected_article_count={expected}")
+          print(f"research_article_count={research}")
+          print(f"article_count={article_count}")
+          print(f"offending_corrigendum_present={offending_present}")
+
+          required = [
+              issue_id == "jeh-83-4",
+              source_status == "official_verified",
+              publication_state == "ready",
+              expected == 8,
+              research == 8,
+              article_count == 8,
+              offending_present is False,
+          ]
+          if not all(required):
+              raise SystemExit("JEH 83(4) live production acceptance failed")
+          print("jeh_83_4_production_acceptance=passed")
+          PY
