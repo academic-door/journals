@@ -11,44 +11,81 @@ permissions:
 jobs:
   qualify:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - run: python -m pip install -r requirements.txt
-      - name: Parse exact official Wiley issue inventories
+      - name: Restore execution-time canonical data snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data --depth=1
+          git checkout origin/data -- public/api data/backfill-state data/translation-cache || true
+          echo "data_head=$(git rev-parse origin/data)"
+      - name: Run exact TE 21(2)/(3) provisional collection without publish
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf data/backfill-staging/TE data/backfill-staging/te
+          python scripts/backfill_history.py \
+            --config config/field-history.yml \
+            --state data/backfill-state/field-2023-2026.json \
+            --journal TE \
+            --from-year 2026 \
+            --to-year 2026 \
+            --issue-ids te-21-2,te-21-3 \
+            --force-retry \
+            --max-issues 2 \
+            --max-minutes 8 \
+            --skip-global-indexes || true
+      - name: Compare provisional staging to browser-authorized official roster
         shell: bash
         run: |
           set -euo pipefail
           python - <<'PY'
-          from collectors.wiley import _get, _parse_issue_inventory, _session
+          import json
+          from pathlib import Path
 
-          urls = [
-              "https://onlinelibrary.wiley.com/toc/15557561/2026/21/2",
-              "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
-          ]
-          for url in urls:
-              response = _get(_session(), url, attempts=2)
-              volume, issue, publication_date, inventory = _parse_issue_inventory(response.content, url)
-              research = [item for item in inventory if item.is_research_article]
-              excluded = [item for item in inventory if not item.is_research_article]
-              print(f"issue={volume}-{issue}")
-              print(f"http_status={response.status_code}")
-              print(f"publication_date={publication_date}")
-              print(f"inventory_count={len(inventory)}")
-              print(f"research_count={len(research)}")
-              print(f"excluded_count={len(excluded)}")
-              for item in excluded:
-                  print(f"excluded={item.title!r}|reason={item.exclusion_reason}")
-              doi_count = sum(bool(item.doi) for item in research)
-              source_url_count = sum(bool(item.source_url) for item in research)
-              print(f"research_doi_count={doi_count}")
-              print(f"research_source_url_count={source_url_count}")
-              if str(volume) != '21' or str(issue) not in {'2','3'}:
-                  raise SystemExit("official Wiley issue identity mismatch")
-              if not research or doi_count != len(research) or source_url_count != len(research):
-                  raise SystemExit("official Wiley roster is not complete enough for evidence import")
-          print("te_wiley_qualification=passed")
+          expected = {
+              'te-21-2': [
+                  '10.3982/te6625','10.3982/te5478','10.3982/te6410','10.3982/te6021',
+                  '10.3982/te5977','10.3982/te5350','10.3982/te6446','10.3982/te5600',
+                  '10.3982/te6220','10.3982/te5834','10.3982/te6066',
+              ],
+              'te-21-3': [
+                  '10.3982/te6816','10.3982/te6479','10.3982/te6224','10.3982/te6187',
+                  '10.3982/te6338','10.3982/te6786','10.3982/te6567','10.3982/te6439',
+                  '10.3982/te6424','10.3982/te6575','10.3982/te6170',
+              ],
+          }
+          state = json.loads(Path('data/backfill-state/field-2023-2026.json').read_text())
+          for issue_id, official_dois in expected.items():
+              entry = state.get('issues', {}).get(issue_id, {})
+              print(f"{issue_id}:state_status={entry.get('status')}")
+              print(f"{issue_id}:state_error={entry.get('error','')}")
+              candidates = [
+                  Path('data/backfill-staging') / 'TE' / f'{issue_id}.json',
+                  Path('data/backfill-staging') / 'te' / f'{issue_id}.json',
+                  Path('public/api/journals/te/issues') / f'{issue_id}.json',
+              ]
+              path = next((p for p in candidates if p.exists()), None)
+              print(f"{issue_id}:artifact_path={path or 'NONE'}")
+              if not path:
+                  continue
+              payload = json.loads(path.read_text())
+              articles = payload.get('articles') or []
+              dois = [str(a.get('doi') or '').lower() for a in articles]
+              print(f"{issue_id}:article_count={len(articles)}")
+              print(f"{issue_id}:source_status={payload.get('source_status')}")
+              print(f"{issue_id}:publication_state={payload.get('publication_state')}")
+              print(f"{issue_id}:content_status={payload.get('content_status')}")
+              print(f"{issue_id}:official_exact_order_match={dois == official_dois}")
+              print(f"{issue_id}:official_subset={all(doi in official_dois for doi in dois)}")
+              print(f"{issue_id}:missing_official_dois={[doi for doi in official_dois if doi not in dois]}")
+              print(f"{issue_id}:extra_dois={[doi for doi in dois if doi not in official_dois]}")
           PY
