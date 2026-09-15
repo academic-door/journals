@@ -457,11 +457,14 @@ def synchronize(
             outcome["error_type"] = type(error).__name__
         else:
             sent_at = now_iso()
+            smtp_accepted_at = sent_at
             for event in detection_events:
                 sent_detected[event["journal_id"]] = {
                     "issue_id": event["issue_id"],
                     "fingerprint": event["fingerprint"],
                     "sent_at": sent_at,
+                    "smtp_accepted_at": smtp_accepted_at,
+                    "delivery_status": "smtp_accepted",
                 }
                 pending_detected.pop(event["journal_id"], None)
             for event in ready_events:
@@ -469,11 +472,14 @@ def synchronize(
                     "issue_id": event["issue_id"],
                     "fingerprint": event["fingerprint"],
                     "sent_at": sent_at,
+                    "smtp_accepted_at": smtp_accepted_at,
+                    "delivery_status": "smtp_accepted",
                 }
                 pending_ready.pop(event["journal_id"], None)
             outcome.update(
                 {
                     "status": "sent",
+                    "delivery_status": "smtp_accepted",
                     "queued": len(pending_detected) + len(pending_ready),
                     "sent": len(deliverable),
                     "journals": sorted(
@@ -544,7 +550,7 @@ def main() -> int:
                 )
             )
             return 1
-        print(json.dumps({"status": "sent"}))
+        print(json.dumps({"status": "smtp_accepted"}))
         return 0
     outcome = synchronize(
         public_root=args.public_root,
