@@ -1,0 +1,111 @@
+name: G02 #259 delivery-path diagnostic
+
+on:
+  push:
+    branches:
+      - ops/g02-259-delivery-path-20260915
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      SMTP_HOST: ${{ secrets.SMTP_HOST }}
+      SMTP_PORT: ${{ secrets.SMTP_PORT }}
+      SMTP_SECURITY: ${{ secrets.SMTP_SECURITY }}
+      SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+      SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+      SMTP_FROM: ${{ secrets.SMTP_FROM }}
+      NOTIFICATION_EMAIL_TO: ${{ secrets.NOTIFICATION_EMAIL_TO }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Validate privacy-safe runtime binding
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import os
+          from scripts.email_notifications import SMTPSettings
+
+          settings = SMTPSettings.from_environment()
+          print(f"smtp_settings_valid={settings is not None}")
+          if settings is None:
+              raise SystemExit("SMTP settings are incomplete or invalid")
+
+          recipients = tuple(value.strip().lower() for value in settings.recipients)
+          username = settings.username.strip().lower()
+          sender = settings.sender.strip().lower()
+          recipient_domains = [value.rsplit("@", 1)[-1] if "@" in value else "" for value in recipients]
+          print(f"recipient_count={len(recipients)}")
+          print(f"recipient_all_163={bool(recipients) and all(domain == '163.com' for domain in recipient_domains)}")
+          print(f"smtp_auth_configured={bool(settings.username and settings.password)}")
+          print(f"smtp_from_configured={bool(os.environ.get('SMTP_FROM', '').strip())}")
+          print(f"auth_user_is_163={username.endswith('@163.com')}")
+          print(f"sender_is_163={sender.endswith('@163.com')}")
+          print(f"auth_user_matches_recipient={len(recipients) == 1 and username == recipients[0]}")
+          print(f"sender_matches_recipient={len(recipients) == 1 and sender == recipients[0]}")
+          if len(recipients) != 1 or recipient_domains != ['163.com']:
+              raise SystemExit("runtime recipient binding is not the single intended 163.com project mailbox class")
+          PY
+      - name: Send state-free SMTP transaction probe
+        shell: bash
+        env:
+          AD259_TOKEN: AD259-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib
+          import os
+          import smtplib
+          from email.message import EmailMessage
+          from scripts.email_notifications import SMTPSettings
+
+          settings = SMTPSettings.from_environment()
+          if settings is None:
+              raise SystemExit("SMTP settings unavailable")
+          token = os.environ["AD259_TOKEN"]
+          message = EmailMessage()
+          message["Subject"] = f"[Academic Door] #259 delivery-path diagnostic {token}"
+          message["From"] = settings.sender
+          message["To"] = ", ".join(settings.recipients)
+          message.set_content(
+              "Academic Door #259 state-free delivery-path diagnostic. "
+              "This message does not mutate journal notification state."
+          )
+
+          smtp_class = smtplib.SMTP_SSL if settings.security == "ssl" else smtplib.SMTP
+          with smtp_class(settings.host, settings.port, timeout=30) as client:
+              ehlo_code, _ = client.ehlo()
+              print(f"ehlo_code={ehlo_code}")
+              if settings.security == "starttls":
+                  tls_code, _ = client.starttls()
+                  print(f"starttls_code={tls_code}")
+                  ehlo2_code, _ = client.ehlo()
+                  print(f"post_tls_ehlo_code={ehlo2_code}")
+              if settings.username:
+                  login_code, _ = client.login(settings.username, settings.password)
+                  print(f"login_code={login_code}")
+              mail_code, _ = client.mail(settings.sender)
+              print(f"mail_from_code={mail_code}")
+              rcpt_codes = []
+              for recipient in settings.recipients:
+                  rcpt_code, _ = client.rcpt(recipient)
+                  rcpt_codes.append(rcpt_code)
+              print(f"rcpt_codes={rcpt_codes}")
+              if not rcpt_codes or any(code < 200 or code >= 300 for code in rcpt_codes):
+                  raise SystemExit("SMTP server did not accept every recipient")
+              data_code, data_response = client.data(message.as_bytes())
+              response_bytes = data_response if isinstance(data_response, bytes) else str(data_response).encode("utf-8", errors="replace")
+              print(f"data_code={data_code}")
+              print(f"data_response_sha256={hashlib.sha256(response_bytes).hexdigest()}")
+              print(f"diagnostic_token={token}")
+              if data_code < 200 or data_code >= 300:
+                  raise SystemExit("SMTP server did not accept message DATA")
+          print("smtp_transaction=accepted")
+          PY
