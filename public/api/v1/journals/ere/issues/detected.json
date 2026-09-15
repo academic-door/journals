@@ -8,9 +8,9 @@
   "issue_label": "Vol. 89 · No. 9",
   "publication_date": "September 2026",
   "source_url": "https://link.springer.com/journal/10640/volumes-and-issues",
-  "retrieved_at": "2026-09-15T11:40:01+00:00",
-  "expected_article_count": 7,
-  "research_article_count": 7,
+  "retrieved_at": "2026-09-15T21:24:46+00:00",
+  "expected_article_count": 8,
+  "research_article_count": 8,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
@@ -135,9 +135,51 @@
       }
     },
     {
-      "paper_id": "doi:10.1007/s10640-026-01113-1",
+      "paper_id": "doi:10.1007/s10640-026-01117-x",
       "sequence": 4,
       "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "The Blast Effect: Impact of Chemical Explosions on Land Markets in China",
+      "title_cn": "爆炸效应：化学爆炸对中国土地市场的影响",
+      "authors": [
+        "Xiaofang Dong",
+        "Jieyun Chen",
+        "Zenghe Huang"
+      ],
+      "abstract_en": "This study examines the impact of industrial chemical explosion on China’s land markets. By employing a spatial difference in difference method and semi-parametric regression to delineate the treatment and control groups, we found that land prices within a 3.5-kilometer radius of chemical industrial parks fell by 18% within 180 days and 13.4% within 360 days after the Tianjin Explosion, in contrast to areas 3.5 to 7 km away. The decrease was more significant for non-real estate developers near the central business district and in areas with frequent prior explosions. Additionally, cities lacking chemical industry policies and experiencing increased media activity post-explosion saw larger price reductions, emphasizing the role of changed risk perceptions on land values after environmental disasters. Our research provides some of the first evidence of how an adverse environmental event affects land markets.",
+      "abstract_cn": "本研究考察工业化学爆炸对中国土地市场的影响。通过采用空间双重差分法和半参数回归来划定处理组和对照组，我们发现，在天津爆炸发生后，化学工业园区3.5公里半径内的土地价格在180天内下降了18%，在360天内下降了13.4%，而3.5至7公里外的地区则不然。对于中央商务区附近的非房地产开发商以及此前爆炸频发的地区，价格下降更为显著。此外，缺乏化学工业政策且在爆炸后媒体活动增加的城市，价格下降幅度更大，强调了环境灾难后风险认知变化对土地价值的作用。我们的研究提供了一些关于不利环境事件如何影响土地市场的首批证据。",
+      "doi": "10.1007/s10640-026-01117-x",
+      "source_url": "https://ideas.repec.org/a/kap/enreec/v89y2026i9d10.1007_s10640-026-01117-x.html",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://link.springer.com/journal/10640/volumes-and-issues",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/kap/enreec/v89y2026i9d10.1007_s10640-026-01117-x.html",
+        "abstract_en": "official-sciencedirect-issue"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-09-15T21:24:48+00:00",
+        "source_hash": "1b4cf2ba8cebd11958eb86b0814f05490994f19b96d8cb74beb6017f63f3f8ff"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1007/s10640-026-01113-1",
+      "sequence": 5,
+      "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "Cleaner Domestic Growth from a Globalization-Oriented Big Push: Evidence from China’s Belt and Road Initiative",
       "title_cn": "全球化导向的大推动带来的更清洁国内增长：来自中国“一带一路”倡议的证据",
@@ -179,8 +221,8 @@
     },
     {
       "paper_id": "doi:10.1007/s10640-026-01107-z",
-      "sequence": 5,
-      "source_sequence": 5,
+      "sequence": 6,
+      "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "From Willingness to Engage to Demand: A Behavioral Experiment on Green Consumer Information in a Digital Product Passport",
       "title_cn": "从参与意愿到需求：数字产品护照中绿色消费者信息的行为实验",
@@ -221,8 +263,8 @@
     },
     {
       "paper_id": "doi:10.1007/s10640-026-01114-0",
-      "sequence": 6,
-      "source_sequence": 6,
+      "sequence": 7,
+      "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "Humid Heat, Health, and Behavioral Adaptation: Evidence from China",
       "title_cn": "湿热、健康与行为适应：来自中国的证据",
@@ -262,8 +304,8 @@
     },
     {
       "paper_id": "doi:10.1007/s10640-026-01108-y",
-      "sequence": 7,
-      "source_sequence": 7,
+      "sequence": 8,
+      "source_sequence": 8,
       "article_type": "research-article",
       "title_en": "The Effectiveness of Carbon Pricing: A Global Evaluation",
       "title_cn": "碳定价的有效性：一项全球评估",
@@ -305,13 +347,13 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "official_item_count": 7,
+    "official_item_count": 8,
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 7,
-    "authors_complete": 7,
-    "abstract_en_complete": 7,
-    "translation_complete": 7,
+    "doi_complete": 8,
+    "authors_complete": 8,
+    "abstract_en_complete": 8,
+    "translation_complete": 8,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_repec_fallback",
@@ -319,33 +361,33 @@
       "official_order_unverified"
     ],
     "official_issue_fetch_error": "",
-    "publishable_item_count": 7,
+    "publishable_item_count": 8,
     "content_counts": {
-      "official_items": 7,
-      "observed_items": 7,
-      "publishable_items": 7,
-      "research_articles": 7,
+      "official_items": 8,
+      "observed_items": 8,
+      "publishable_items": 8,
+      "research_articles": 8,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 7
+      "catalog_content_items": 8
     }
   },
   "content_counts": {
-    "official_items": 7,
-    "observed_items": 7,
-    "publishable_items": 7,
-    "research_articles": 7,
+    "official_items": 8,
+    "observed_items": 8,
+    "publishable_items": 8,
+    "research_articles": 8,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 7
+    "catalog_content_items": 8
   },
   "content_status": "complete",
   "source_status": "source_pending",
