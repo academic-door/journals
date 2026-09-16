@@ -1,0 +1,395 @@
+name: G03 JAERE first-party current executor
+
+on:
+  push:
+    branches:
+      - feat/g03-jaere-first-party-current-20260916
+
+permissions:
+  contents: write
+
+jobs:
+  red-green-and-verify:
+    if: "${{ github.event.head_commit.message == 'chore: execute G03 JAERE first-party current tranche' }}"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: feat/g03-jaere-first-party-current-20260916
+          fetch-depth: 1
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements.txt
+
+      - name: Verify clean focused baseline
+        run: |
+          python -m py_compile collectors/chicago.py scripts/journal_monitor.py
+          python -m unittest tests.test_association_announcements tests.test_econometric_society_signal -v
+
+      - name: Probe official Chicago transport from GitHub runner
+        run: |
+          python - <<'PY'
+          import requests
+          url = 'https://www.journals.uchicago.edu/toc/jaere/current'
+          response = requests.get(
+              url,
+              headers={'User-Agent': 'AcademicDoorJournals/0.1 (non-profit academic metadata service; https://academic-door.github.io/)'},
+              timeout=30,
+          )
+          print('status=', response.status_code, 'bytes=', len(response.content), 'url=', response.url)
+          response.raise_for_status()
+          if 'jaere' not in response.text.casefold() and 'environmental and resource economists' not in response.text.casefold():
+              raise SystemExit('official Chicago response did not identify JAERE')
+          PY
+
+      - name: Write RED regression tests
+        shell: bash
+        run: |
+          cat > tests/test_chicago_current_announcements.py <<'PY'
+          from __future__ import annotations
+
+          import unittest
+          from unittest.mock import patch
+
+          from scripts.journal_monitor import detect_all, fetch_official_issue_signal
+
+
+          BASELINE = {
+              'issue_id': 'jaere-13-4',
+              'journal_id': 'jaere',
+              'volume': '13',
+              'issue': '4',
+              'publication_date': '2026-07-01',
+              'articles': [{'doi': '10.1086/old', 'abstract_en': 'A', 'authors': ['A']}],
+          }
+
+
+          def crossref_item(issue: str = '5') -> dict:
+              return {
+                  'DOI': '10.1086/new',
+                  'title': ['New paper'],
+                  'type': 'journal-article',
+                  'volume': '13',
+                  'issue': issue,
+                  'published': {'date-parts': [[2026, 9, 1]]},
+              }
+
+
+          CHICAGO_CURRENT = b'''\
+          <html><head><title>Journal of the Association of Environmental and Resource Economists</title></head>
+          <body>
+            <main>
+              <h1>Volume 13, Number 6</h1>
+              <h2>November 2026</h2>
+            </main>
+          </body></html>
+          '''
+
+
+          class _Response:
+              content = CHICAGO_CURRENT
+
+              def raise_for_status(self) -> None:
+                  return None
+
+
+          class _Session:
+              def __init__(self) -> None:
+                  self.headers: dict[str, str] = {}
+
+              def get(self, _url: str, *, params=None, timeout=None):
+                  return _Response()
+
+
+          class ChicagoCurrentAnnouncementTests(unittest.TestCase):
+              def setUp(self) -> None:
+                  self.config = {
+                      'id': 'jaere',
+                      'enabled': True,
+                      'issn': '2333-5955',
+                      'announcement_source': 'chicago_current_issue',
+                      'announcement_url': 'https://www.journals.uchicago.edu/toc/jaere/current',
+                  }
+
+              def test_chicago_current_source_yields_first_party_issue_identity(self) -> None:
+                  signal = fetch_official_issue_signal(self.config, session=_Session())
+                  self.assertIsNotNone(signal)
+                  assert signal is not None
+                  self.assertEqual('13', signal['volume'])
+                  self.assertEqual('6', signal['issue'])
+                  self.assertEqual('2026-11', signal['publication_date'])
+                  self.assertEqual('official_current', signal['source_kind'])
+                  self.assertEqual(self.config['announcement_url'], signal['source_url'])
+
+              def test_newer_first_party_signal_survives_older_crossref_candidate(self) -> None:
+                  signal = {
+                      'volume': '13',
+                      'issue': '6',
+                      'publication_date': '2026-11',
+                      'source_kind': 'official_current',
+                      'source_url': self.config['announcement_url'],
+                  }
+                  with patch('scripts.journal_monitor.read_json', return_value=BASELINE):
+                      state, _result = detect_all(
+                          {'JAERE': self.config},
+                          {'journals': {}},
+                          crossref_fetcher=lambda _config, _baseline: [crossref_item('5')],
+                          issue_signal_fetcher=lambda _config: signal,
+                      )
+
+                  entry = state['journals']['JAERE']
+                  self.assertEqual('13:5', entry['candidate']['issue_key'])
+                  announcement = entry.get('announcement')
+                  self.assertIsNotNone(announcement)
+                  assert announcement is not None
+                  self.assertEqual('jaere-13-6', announcement['issue_id'])
+                  self.assertEqual('official_current', announcement['source_kind'])
+                  self.assertIn('official_current', entry['evidence'])
+
+              def test_exact_official_current_signal_confirms_candidate(self) -> None:
+                  signal = {
+                      'volume': '13',
+                      'issue': '5',
+                      'publication_date': '2026-09',
+                      'source_kind': 'official_current',
+                      'source_url': self.config['announcement_url'],
+                  }
+                  with patch('scripts.journal_monitor.read_json', return_value=BASELINE):
+                      state, result = detect_all(
+                          {'JAERE': self.config},
+                          {'journals': {}},
+                          crossref_fetcher=lambda _config, _baseline: [crossref_item('5')],
+                          issue_signal_fetcher=lambda _config: signal,
+                      )
+
+                  self.assertEqual(['JAERE'], result['confirmed_journals'])
+                  self.assertIn('official_current', state['journals']['JAERE']['evidence'])
+
+              def test_untrusted_official_current_host_fails_closed(self) -> None:
+                  signal = {
+                      'volume': '13',
+                      'issue': '6',
+                      'publication_date': '2026-11',
+                      'source_kind': 'official_current',
+                      'source_url': 'https://example.com/toc/jaere/current',
+                  }
+                  with patch('scripts.journal_monitor.read_json', return_value=BASELINE):
+                      state, _result = detect_all(
+                          {'JAERE': self.config},
+                          {'journals': {}},
+                          crossref_fetcher=lambda _config, _baseline: [crossref_item('5')],
+                          issue_signal_fetcher=lambda _config: signal,
+                      )
+                  self.assertNotIn('announcement', state['journals']['JAERE'])
+                  self.assertNotIn('official_current', state['journals']['JAERE']['evidence'])
+
+
+          if __name__ == '__main__':
+              unittest.main()
+          PY
+
+          set +e
+          python -m unittest tests.test_chicago_current_announcements -v > /tmp/red.log 2>&1
+          status=$?
+          set -e
+          cat /tmp/red.log
+          if [ "$status" -eq 0 ]; then
+            echo 'RED unexpectedly passed; refusing implementation'
+            exit 1
+          fi
+          grep -Eq 'FAILED \(failures=[1-9]|FAILED \(failures=[1-9].*errors=' /tmp/red.log || {
+            echo 'RED did not fail by assertion as expected'
+            exit 1
+          }
+
+      - name: Apply minimal GREEN implementation
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import textwrap
+
+          def replace_once(text: str, old: str, new: str, label: str) -> str:
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f'{label}: expected exactly one anchor, found {count}')
+              return text.replace(old, new, 1)
+
+          chicago_path = Path('collectors/chicago.py')
+          chicago = chicago_path.read_text(encoding='utf-8')
+          marker = '\n\ndef _json_ld_people(soup: BeautifulSoup) -> list[str]:\n'
+          signal_parser = textwrap.dedent('''
+
+          def parse_latest_issue_signal(
+              content: bytes | str,
+              source_url: str,
+          ) -> dict[str, str]:
+              """Parse issue identity from an official Chicago current-issue page only."""
+
+              from urllib.parse import urlparse
+
+              parsed_url = urlparse(source_url)
+              if (
+                  parsed_url.scheme != "https"
+                  or (parsed_url.hostname or "").casefold() != "www.journals.uchicago.edu"
+                  or not parsed_url.path.startswith("/toc/")
+              ):
+                  raise ValueError("Chicago issue signals require the official HTTPS TOC host")
+
+              parsed = _parse_issue_page(content, source_url)
+              volume = str(parsed.get("volume", "")).strip()
+              issue = str(parsed.get("issue", "")).strip()
+              publication_date = str(parsed.get("publication_date", "")).strip()
+              if not volume or not issue or not publication_date:
+                  raise ValueError("Chicago current page exposed no auditable issue identity")
+              return {
+                  "volume": volume,
+                  "issue": issue,
+                  "publication_date": publication_date,
+                  "source_kind": "official_current",
+                  "source_url": source_url,
+              }
+          ''')
+          chicago = replace_once(chicago, marker, signal_parser + marker, 'Chicago parser insertion')
+          chicago_path.write_text(chicago, encoding='utf-8')
+
+          monitor_path = Path('scripts/journal_monitor.py')
+          monitor = monitor_path.read_text(encoding='utf-8')
+          monitor = replace_once(
+              monitor,
+              'from collectors.econometric_society import parse_latest_econometrica_issue_signal\n',
+              'from collectors.chicago import parse_latest_issue_signal as parse_latest_chicago_issue_signal\nfrom collectors.econometric_society import parse_latest_econometrica_issue_signal\n',
+              'Chicago signal import',
+          )
+          monitor = replace_once(
+              monitor,
+              '    if source_type not in {"wiley_recent_issues", "econometric_society_volume"}:\n',
+              '    if source_type not in {\n        "wiley_recent_issues",\n        "econometric_society_volume",\n        "chicago_current_issue",\n    }:\n',
+              'source type allowlist',
+          )
+          monitor = replace_once(
+              monitor,
+              '    if source_type == "wiley_recent_issues":\n        return parse_latest_issue_signal(response.content, source_url)\n    return parse_latest_econometrica_issue_signal(response.content, source_url)\n',
+              '    if source_type == "wiley_recent_issues":\n        return parse_latest_issue_signal(response.content, source_url)\n    if source_type == "chicago_current_issue":\n        return parse_latest_chicago_issue_signal(response.content, source_url)\n    return parse_latest_econometrica_issue_signal(response.content, source_url)\n',
+              'source parser dispatch',
+          )
+          monitor = replace_once(
+              monitor,
+              '    if source_kind == "official_archive":\n        return source_url.startswith("https://onlinelibrary.wiley.com/")\n    if source_kind == "association_announcement":\n',
+              '    if source_kind == "official_archive":\n        return source_url.startswith("https://onlinelibrary.wiley.com/")\n    if source_kind == "official_current":\n        return source_url.startswith("https://www.journals.uchicago.edu/toc/")\n    if source_kind == "association_announcement":\n',
+              'trusted Chicago source',
+          )
+          monitor = replace_once(
+              monitor,
+              '    official_issue_match: bool = False,\n    association_issue_match: bool = False,\n',
+              '    official_issue_match: bool = False,\n    official_current_match: bool = False,\n    association_issue_match: bool = False,\n',
+              'evaluate signature',
+          )
+          monitor = replace_once(
+              monitor,
+              '    if official_issue_match:\n        evidence.append("official_archive")\n    if association_issue_match:\n',
+              '    if official_issue_match:\n        evidence.append("official_archive")\n    if official_current_match:\n        evidence.append("official_current")\n    if association_issue_match:\n',
+              'official current evidence',
+          )
+          monitor = replace_once(
+              monitor,
+              '        "official_rss" in evidence\n        or "official_archive" in evidence\n        or "association_announcement" in evidence\n',
+              '        "official_rss" in evidence\n        or "official_archive" in evidence\n        or "official_current" in evidence\n        or "association_announcement" in evidence\n',
+              'official current confirmation',
+          )
+          monitor = replace_once(
+              monitor,
+              '                official_issue_match = False\n                association_issue_match = False\n',
+              '                official_issue_match = False\n                official_current_match = False\n                association_issue_match = False\n',
+              'detect match vars',
+          )
+          monitor = replace_once(
+              monitor,
+              '                            official_issue_match = (\n                                issue_signal_matches and signal_kind == "official_archive"\n                            )\n                            association_issue_match = (\n',
+              '                            official_issue_match = (\n                                issue_signal_matches and signal_kind == "official_archive"\n                            )\n                            official_current_match = (\n                                issue_signal_matches and signal_kind == "official_current"\n                            )\n                            association_issue_match = (\n',
+              'detect current match',
+          )
+          monitor = replace_once(
+              monitor,
+              '                        official_issue_match = False\n                        association_issue_match = False\n',
+              '                        official_issue_match = False\n                        official_current_match = False\n                        association_issue_match = False\n',
+              'detect exception reset',
+          )
+          monitor = replace_once(
+              monitor,
+              '                    official_issue_match=official_issue_match,\n                    association_issue_match=association_issue_match,\n',
+              '                    official_issue_match=official_issue_match,\n                    official_current_match=official_current_match,\n                    association_issue_match=association_issue_match,\n',
+              'evaluate call',
+          )
+          old_independent = textwrap.indent(textwrap.dedent('''
+          independent_announcement = None
+          if candidate is None:
+              independent_announcement = _independent_issue_signal_announcement(
+                  config["id"], baseline, issue_signal, checked_at
+              )
+              if independent_announcement:
+                  signal_kind = str(independent_announcement["source_kind"])
+                  if signal_kind not in observation["evidence"]:
+                      observation["evidence"].append(signal_kind)
+          ''').lstrip(), '                ')
+          new_independent = textwrap.indent(textwrap.dedent('''
+          independent_announcement = _independent_issue_signal_announcement(
+              config["id"], baseline, issue_signal, checked_at
+          )
+          if independent_announcement:
+              signal_kind = str(independent_announcement["source_kind"])
+              if signal_kind not in observation["evidence"]:
+                  observation["evidence"].append(signal_kind)
+          ''').lstrip(), '                ')
+          monitor = replace_once(
+              monitor,
+              old_independent,
+              new_independent,
+              'candidate-independent first-party announcement',
+          )
+          monitor_path.write_text(monitor, encoding='utf-8')
+
+          config_path = Path('config/journals.yml')
+          config = config_path.read_text(encoding='utf-8')
+          config = replace_once(
+              config,
+              '    current_issue_url: https://www.journals.uchicago.edu/toc/jaere/current\n    enabled: true\n',
+              '    current_issue_url: https://www.journals.uchicago.edu/toc/jaere/current\n    announcement_source: chicago_current_issue\n    announcement_url: https://www.journals.uchicago.edu/toc/jaere/current\n    enabled: true\n',
+              'JAERE source config',
+          )
+          config_path.write_text(config, encoding='utf-8')
+          PY
+
+          python -m py_compile collectors/chicago.py scripts/journal_monitor.py
+
+      - name: Verify GREEN and live parser
+        shell: bash
+        run: |
+          python -m unittest tests.test_chicago_current_announcements tests.test_association_announcements tests.test_econometric_society_signal tests.test_monitor_announcements -v
+          python - <<'PY'
+          import requests
+          from collectors.chicago import parse_latest_issue_signal
+
+          url = 'https://www.journals.uchicago.edu/toc/jaere/current'
+          response = requests.get(
+              url,
+              headers={'User-Agent': 'AcademicDoorJournals/0.1 (non-profit academic metadata service; https://academic-door.github.io/)'},
+              timeout=30,
+          )
+          response.raise_for_status()
+          signal = parse_latest_issue_signal(response.content, url)
+          print('live_signal=', signal)
+          if signal.get('source_kind') != 'official_current':
+              raise SystemExit('live Chicago parser did not yield official_current')
+          PY
+
+      - name: Commit verified implementation and remove executor
+        shell: bash
+        run: |
+          rm .github/workflows/g03-jaere-first-party-current-executor.yml
+          git config user.name academic-door-bot
+          git config user.email academic-door-bot@users.noreply.github.com
+          git add collectors/chicago.py scripts/journal_monitor.py config/journals.yml tests/test_chicago_current_announcements.py .github/workflows/g03-jaere-first-party-current-executor.yml
+          git commit -m 'feat(freshness): honor Chicago first-party current issue signals'
+          git push origin HEAD:feat/g03-jaere-first-party-current-20260916
