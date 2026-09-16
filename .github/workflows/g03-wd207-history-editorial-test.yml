@@ -1,4 +1,4 @@
-name: G03 WD207 history editorial RED
+name: G03 WD207 history editorial GREEN
 
 on:
   push:
@@ -6,20 +6,89 @@ on:
       - fix/g03-wd207-history-editorial-20260916
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  red:
+  green:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          ref: fix/g03-wd207-history-editorial-20260916
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
+      - name: Patch history fallback publisher type propagation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("collectors/elsevier.py")
+          text = path.read_text(encoding="utf-8")
+          marker = 'publisher_article_type = "editorial"'
+          if marker not in text:
+              old = '''        abstract_source = (
+              "repec-publisher-supplied" if abstract else ""
+          )
+          from collectors.metadata_fallback import _is_elsevier_identifier
+
+          if not abstract and _is_elsevier_identifier(pii, doi):
+              from collectors.metadata_fallback import _elsevier_lookup
+
+              lookup = _elsevier_lookup(client, pii, doi=doi, timeout=timeout)
+              fetched = str(lookup.get("abstract", "")).strip()
+          '''
+              new = '''        abstract_source = (
+              "repec-publisher-supplied" if abstract else ""
+          )
+          publisher_article_type = ""
+          from collectors.metadata_fallback import _is_elsevier_identifier
+
+          if not abstract and _is_elsevier_identifier(pii, doi):
+              from collectors.metadata_fallback import _elsevier_lookup
+
+              lookup = _elsevier_lookup(client, pii, doi=doi, timeout=timeout)
+              if str(lookup.get("article_type", "")).strip().casefold() == "editorial":
+                  publisher_article_type = "editorial"
+              fetched = str(lookup.get("abstract", "")).strip()
+          '''
+              if text.count(old) != 1:
+                  raise SystemExit(f"history lookup anchor count={text.count(old)}")
+              text = text.replace(old, new, 1)
+
+              old_type = '''            "article_type": (
+                  "comment" if no_abstract else _article_type(detail.get("title_en", entry["title_en"]))
+              ),
+          '''
+              new_type = '''            "article_type": publisher_article_type or (
+                  "comment" if no_abstract else _article_type(detail.get("title_en", entry["title_en"]))
+              ),
+          '''
+              if text.count(old_type) != 1:
+                  raise SystemExit(f"history article_type anchor count={text.count(old_type)}")
+              text = text.replace(old_type, new_type, 1)
+              path.write_text(text, encoding="utf-8")
+          PY
       - run: python -m pip install -r requirements.txt
       - name: Run focused history publisher-type regressions
         run: |
           set -euo pipefail
           python -m unittest tests.test_elsevier_history_publisher_type -v
           python -m unittest tests.test_elsevier_publisher_type -v
+          python -m unittest tests.test_elsevier_collector -v
           git diff --check
+      - name: Commit permanent GREEN
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- collectors/elsevier.py; then
+            echo "source already patched"
+            exit 0
+          fi
+          git config user.name "academic-door-bot"
+          git config user.email "academic-door-bot@users.noreply.github.com"
+          git add collectors/elsevier.py
+          git commit -m "fix(history): honor publisher-declared editorials"
+          git push origin HEAD:fix/g03-wd207-history-editorial-20260916
