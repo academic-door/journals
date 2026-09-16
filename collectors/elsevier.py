@@ -759,6 +759,8 @@ def fetch_current_issue(
     except ElsevierCollectorError as error:
         official_error = str(error)
 
+    from collectors.metadata_fallback import _elsevier_lookup, _is_elsevier_identifier
+
     source_rows = official_rows or details
     order_override_applied = False
     if not official_rows:
@@ -792,8 +794,45 @@ def fetch_current_issue(
             )
             continue
         doi = enriched.get("doi", "")
+        pii = enriched.get("pii", "")
         authors = enriched.get("authors", [])
-        abstract = enriched.get("abstract_en", "")
+        abstract = str(enriched.get("abstract_en", "")).strip()
+        article_type = str(enriched.get("article_type", "research-article"))
+        abstract_source = (
+            "official-sciencedirect-issue"
+            if official_rows and abstract
+            else "repec-publisher-supplied"
+            if abstract
+            else ""
+        )
+
+        # RePEc can preserve the publisher roster while omitting both document
+        # subtype and abstract. Only those incomplete fallback rows get this
+        # bounded metadata lookup. An explicit publisher Editorial subtype is
+        # exclusion evidence; unknown types remain research and fail closed on
+        # the normal abstract gate. Roster and ordering authority do not change.
+        if (
+            not official_rows
+            and not abstract
+            and article_type != "comment"
+            and _is_elsevier_identifier(str(pii), str(doi))
+        ):
+            lookup = _elsevier_lookup(session, str(pii), doi=str(doi), timeout=45)
+            if str(lookup.get("article_type", "")).casefold() == "editorial":
+                excluded.append(
+                    {
+                        "title_en": enriched.get("title_en", ""),
+                        "reason": "editorial_material",
+                        "doi": str(doi),
+                        "article_type": "editorial",
+                    }
+                )
+                continue
+            fetched_abstract = str(lookup.get("abstract", "")).strip()
+            if fetched_abstract:
+                abstract = fetched_abstract
+                abstract_source = str(lookup.get("source", "elsevier-api"))
+
         flags: list[str] = []
         if not doi:
             flags.append("doi_missing")
@@ -808,7 +847,7 @@ def fetch_current_issue(
                 "paper_id": f"doi:{doi}" if doi else f"pii:{enriched.get('pii', sequence)}",
                 "sequence": sequence,
                 "source_sequence": source_sequence,
-                "article_type": enriched.get("article_type", "research-article"),
+                "article_type": article_type,
                 "title_en": enriched.get("title_en", ""),
                 "title_cn": "",
                 "authors": authors,
@@ -821,7 +860,7 @@ def fetch_current_issue(
                     "issue": official_issue_url,
                     "roster": "official-sciencedirect-issue" if official_rows else "repec-publisher-supplied",
                     "metadata": enriched.get("detail_url", "") or "official-sciencedirect-issue",
-                    "abstract_en": "official-sciencedirect-issue" if raw.get("abstract_en") else "repec-publisher-supplied",
+                    "abstract_en": abstract_source,
                 },
                 "translation": {
                     "status": "pending",
