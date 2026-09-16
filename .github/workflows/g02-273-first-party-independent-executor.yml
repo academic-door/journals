@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v7
         with:
           ref: feat/g02-first-party-signal-without-crossref-20260916
-          fetch-depth: 0
+          fetch-depth: 1
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
@@ -30,29 +30,12 @@ jobs:
           path = Path('scripts/journal_monitor.py')
           text = path.read_text(encoding='utf-8')
 
-          old_match = '''def _issue_signal_matches_candidate(
-              candidate: Candidate | None,
-              signal: dict[str, Any] | None,
-          ) -> bool:
-              if not candidate or not signal:
-                  return False
-              source_kind = str(signal.get("source_kind", "")).strip()
-              source_url = str(signal.get("source_url", "")).strip()
-              if source_kind == "official_archive":
-                  trusted_source = source_url.startswith("https://onlinelibrary.wiley.com/")
-              elif source_kind == "association_announcement":
-                  trusted_source = source_url.startswith(
-                      "https://www.econometricsociety.org/publications/econometrica"
-                  )
-              else:
-                  trusted_source = False
-              return (
-                  candidate.volume.strip() == str(signal.get("volume", "")).strip()
-                  and candidate.issue.strip() == str(signal.get("issue", "")).strip()
-                  and trusted_source
-              )
-          '''
-          new_match = '''def _trusted_issue_signal(signal: dict[str, Any] | None) -> bool:
+          def replace_between(source: str, start_marker: str, end_marker: str, replacement: str) -> str:
+              start = source.index(start_marker)
+              end = source.index(end_marker, start)
+              return source[:start] + replacement + source[end:]
+
+          signal_helpers = '''def _trusted_issue_signal(signal: dict[str, Any] | None) -> bool:
               if not signal:
                   return False
               source_kind = str(signal.get("source_kind", "")).strip()
@@ -131,30 +114,17 @@ jobs:
                   "source_url": str(signal["source_url"]),
                   "observed_at": observed_at,
               }
-          '''
-          if text.count(old_match) != 1:
-              raise SystemExit('issue signal match block not found exactly once')
-          text = text.replace(old_match, new_match)
 
-          old_fetch = '''                if candidate and config.get("announcement_source"):
-                      try:
-                          issue_signal = issue_signal_fetcher(config)
-                          issue_signal_matches = _issue_signal_matches_candidate(candidate, issue_signal)
-                          signal_kind = str((issue_signal or {}).get("source_kind", ""))
-                          official_issue_match = (
-                              issue_signal_matches and signal_kind == "official_archive"
-                          )
-                          association_issue_match = (
-                              issue_signal_matches and signal_kind == "association_announcement"
-                          )
-                      except Exception:
-                          # First-party signals are additive only; source blocking
-                          # must not break metadata detection or manufacture authority.
-                          issue_signal = None
-                          official_issue_match = False
-                          association_issue_match = False
+
           '''
-          new_fetch = '''                if config.get("announcement_source"):
+          text = replace_between(
+              text,
+              'def _issue_signal_matches_candidate(',
+              'def _official_issue_signal_announcement(',
+              signal_helpers,
+          )
+
+          signal_fetch = '''                if config.get("announcement_source"):
                       try:
                           issue_signal = issue_signal_fetcher(config)
                           if candidate:
@@ -176,29 +146,17 @@ jobs:
                           official_issue_match = False
                           association_issue_match = False
           '''
-          if text.count(old_fetch) != 1:
-              raise SystemExit('announcement fetch block not found exactly once')
-          text = text.replace(old_fetch, new_fetch)
+          text = replace_between(
+              text,
+              '                if candidate and config.get("announcement_source"):',
+              '                status, observation = evaluate_observation(',
+              signal_fetch,
+          )
 
-          old_observation = '''                status, observation = evaluate_observation(
-                      candidate,
-                      baseline,
-                      previous,
-                      rss_dois=rss_dois,
-                      official_issue_match=official_issue_match,
-                      association_issue_match=association_issue_match,
-                  )
-                  previous_candidate = previous.get("candidate") or {}
-          '''
-          new_observation = '''                status, observation = evaluate_observation(
-                      candidate,
-                      baseline,
-                      previous,
-                      rss_dois=rss_dois,
-                      official_issue_match=official_issue_match,
-                      association_issue_match=association_issue_match,
-                  )
-                  independent_announcement = None
+          previous_marker = '                previous_candidate = previous.get("candidate") or {}\n'
+          if text.count(previous_marker) != 1:
+              raise SystemExit('previous candidate anchor is not unique')
+          independent_block = '''                independent_announcement = None
                   if candidate is None:
                       independent_announcement = _independent_issue_signal_announcement(
                           config["id"], baseline, issue_signal, checked_at
@@ -207,23 +165,16 @@ jobs:
                           signal_kind = str(independent_announcement["source_kind"])
                           if signal_kind not in observation["evidence"]:
                               observation["evidence"].append(signal_kind)
-                  previous_candidate = previous.get("candidate") or {}
           '''
-          if text.count(old_observation) != 1:
-              raise SystemExit('observation block not found exactly once')
-          text = text.replace(old_observation, new_observation)
+          text = text.replace(previous_marker, independent_block + previous_marker)
 
-          old_announcement = '''                if "official_rss" in observation.get("evidence", []):
-                      announcement = _official_rss_announcement(
-          '''
-          new_announcement = '''                if independent_announcement:
+          rss_marker = '                if "official_rss" in observation.get("evidence", []):\n'
+          if text.count(rss_marker) != 1:
+              raise SystemExit('official RSS announcement anchor is not unique')
+          independent_write = '''                if independent_announcement:
                       entry["announcement"] = independent_announcement
-                  if "official_rss" in observation.get("evidence", []):
-                      announcement = _official_rss_announcement(
           '''
-          if text.count(old_announcement) != 1:
-              raise SystemExit('announcement write block not found exactly once')
-          text = text.replace(old_announcement, new_announcement)
+          text = text.replace(rss_marker, independent_write + rss_marker)
 
           path.write_text(text, encoding='utf-8')
           PY
