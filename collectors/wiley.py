@@ -650,6 +650,103 @@ def _parse_issue_inventory(
     return volume, issue, publication_date, items
 
 
+
+def parse_latest_issue_signal(content: bytes, source_url: str) -> dict[str, str]:
+    """Parse Wiley's first-party Recent issues block as issue-existence evidence."""
+
+    if not _is_official_wiley_url(source_url):
+        raise ValueError("Wiley issue signals require an official HTTPS Wiley URL")
+
+    soup = BeautifulSoup(content, "html.parser")
+    recent_heading = next(
+        (
+            node
+            for node in soup.find_all(["h2", "h3", "h4"])
+            if _normalise_section(_text(node)) == "recent issues"
+        ),
+        None,
+    )
+    if not isinstance(recent_heading, Tag):
+        raise ValueError("Wiley Recent issues block is missing")
+
+    scope = recent_heading.find_parent(["section", "article"])
+    links: list[Tag] = []
+    if isinstance(scope, Tag):
+        links = [
+            link for link in scope.select("a[href*='/toc/']") if isinstance(link, Tag)
+        ]
+    else:
+        for sibling in recent_heading.next_siblings:
+            if isinstance(sibling, Tag) and sibling.name in {"h2", "h3", "h4"}:
+                break
+            if not isinstance(sibling, Tag):
+                continue
+            if sibling.name == "a" and "/toc/" in str(sibling.get("href", "")):
+                links.append(sibling)
+            links.extend(
+                link
+                for link in sibling.select("a[href*='/toc/']")
+                if isinstance(link, Tag)
+            )
+
+    period_pattern = re.compile(
+        r"\b(?:January|February|March|April|May|June|July|August|September|"
+        r"October|November|December|Winter|Spring|Summer|Fall|"
+        r"Autumn(?:\s+\(Fall\))?)\s+\d{4}\b",
+        re.IGNORECASE,
+    )
+    path_pattern = re.compile(
+        r"/toc/[^/]+/(?P<year>\d{4})/(?P<volume>[^/]+)/(?P<issue>[^/?#]+)$"
+    )
+    candidates: list[tuple[tuple[int, int, int], dict[str, str]]] = []
+    seen_urls: set[str] = set()
+    for link in links:
+        label = _text(link)
+        match = None
+        for pattern in VOLUME_ISSUE_PATTERNS:
+            match = pattern.search(label)
+            if match:
+                break
+        if not match:
+            continue
+        absolute = urljoin(source_url, str(link.get("href", ""))).split("#", 1)[0]
+        if absolute in seen_urls or not _is_official_wiley_url(absolute):
+            continue
+        seen_urls.add(absolute)
+        path_match = path_pattern.search(urlparse(absolute).path.rstrip("/"))
+        if not path_match:
+            continue
+        volume = match.group("volume").strip()
+        issue = match.group("issue").strip()
+        if volume != path_match.group("volume") or issue != path_match.group("issue"):
+            continue
+        context = link.find_parent(["li", "article"]) or link.parent
+        period_match = period_pattern.search(
+            _text(context) if isinstance(context, Tag) else label
+        )
+        publication_date = period_match.group(0) if period_match else ""
+        issue_number = re.search(r"\d+", issue)
+        candidates.append(
+            (
+                (
+                    int(path_match.group("year")),
+                    int(volume) if volume.isdigit() else -1,
+                    int(issue_number.group(0)) if issue_number else -1,
+                ),
+                {
+                    "volume": volume,
+                    "issue": issue,
+                    "publication_date": publication_date,
+                    "source_kind": "official_archive",
+                    "source_url": absolute,
+                },
+            )
+        )
+
+    if not candidates:
+        raise ValueError("Wiley Recent issues block exposed no auditable issue identity")
+    return max(candidates, key=lambda item: item[0])[1]
+
 def _parse_article_page(content: bytes, source_url: str) -> dict[str, Any]:
     soup = BeautifulSoup(content, "html.parser")
     title = _first_meta(soup, ("citation_title", "dc.title", "og:title"))
