@@ -19,6 +19,7 @@ from xml.etree import ElementTree
 import requests
 import yaml
 
+from collectors.econometric_society import parse_latest_econometrica_issue_signal
 from collectors.wiley import parse_latest_issue_signal
 
 
@@ -365,7 +366,8 @@ def fetch_official_issue_signal(
 ) -> dict[str, Any] | None:
     """Fetch configured first-party issue-existence evidence, fail closed."""
 
-    if config.get("announcement_source") != "wiley_recent_issues":
+    source_type = str(config.get("announcement_source", "")).strip()
+    if source_type not in {"wiley_recent_issues", "econometric_society_volume"}:
         return None
     source_url = str(config.get("announcement_url", "")).strip()
     if not source_url:
@@ -373,7 +375,9 @@ def fetch_official_issue_signal(
     client = session or requests.Session()
     client.headers.update({"User-Agent": USER_AGENT, "Accept": "text/html"})
     response = _request_with_retry(client, source_url, attempts=2, timeout=30)
-    return parse_latest_issue_signal(response.content, source_url)
+    if source_type == "wiley_recent_issues":
+        return parse_latest_issue_signal(response.content, source_url)
+    return parse_latest_econometrica_issue_signal(response.content, source_url)
 
 
 def _issue_signal_matches_candidate(
@@ -382,13 +386,20 @@ def _issue_signal_matches_candidate(
 ) -> bool:
     if not candidate or not signal:
         return False
+    source_kind = str(signal.get("source_kind", "")).strip()
+    source_url = str(signal.get("source_url", "")).strip()
+    if source_kind == "official_archive":
+        trusted_source = source_url.startswith("https://onlinelibrary.wiley.com/")
+    elif source_kind == "association_announcement":
+        trusted_source = source_url.startswith(
+            "https://www.econometricsociety.org/publications/econometrica"
+        )
+    else:
+        trusted_source = False
     return (
         candidate.volume.strip() == str(signal.get("volume", "")).strip()
         and candidate.issue.strip() == str(signal.get("issue", "")).strip()
-        and str(signal.get("source_kind", "")) == "official_archive"
-        and str(signal.get("source_url", "")).startswith(
-            "https://onlinelibrary.wiley.com/"
-        )
+        and trusted_source
     )
 
 
@@ -425,6 +436,43 @@ def _official_issue_signal_announcement(
         "source_url": str(signal["source_url"]),
         "observed_at": observed_at,
     }
+
+def _association_issue_signal_announcement(
+    journal_id: str,
+    candidate: Candidate | None,
+    signal: dict[str, Any] | None,
+    observed_at: str,
+) -> dict[str, Any] | None:
+    if not _issue_signal_matches_candidate(candidate, signal):
+        return None
+    if not signal or str(signal.get("source_kind", "")) != "association_announcement":
+        return None
+    assert candidate is not None
+    volume = candidate.volume.strip()
+    issue = candidate.issue.strip()
+    publication_date = str(signal.get("publication_date", "")).strip()
+    if not volume or not issue or not publication_date:
+        return None
+    token = lambda value: re.sub(r"[^a-z0-9]+", "-", value.casefold()).strip("-")
+    volume_token = token(volume)
+    issue_token = token(issue)
+    if not volume_token or not issue_token:
+        return None
+    return {
+        "schema_version": "1.0",
+        "journal_id": journal_id,
+        "issue_id": f"{journal_id}-{volume_token}-{issue_token}",
+        "volume": volume,
+        "issue": issue,
+        "issue_label": f"Vol. {volume} · No. {issue}",
+        "publication_date": publication_date,
+        "publication_state": "announced",
+        "source_authority": "first_party",
+        "source_kind": "association_announcement",
+        "source_url": str(signal["source_url"]),
+        "observed_at": observed_at,
+    }
+
 
 def _candidate_payload(candidate: Candidate) -> dict[str, Any]:
     return {
@@ -480,6 +528,7 @@ def evaluate_observation(
     *,
     rss_dois: set[str] | None = None,
     official_issue_match: bool = False,
+    association_issue_match: bool = False,
 ) -> tuple[str, dict[str, Any]]:
     if candidate is None:
         return "unchanged", {
@@ -498,6 +547,8 @@ def evaluate_observation(
         evidence.append("official_rss")
     if official_issue_match:
         evidence.append("official_archive")
+    if association_issue_match:
+        evidence.append("association_announcement")
 
     same_issue = candidate.issue_key == (
         f"{baseline.get('volume', '')}:{baseline.get('issue', '')}"
@@ -512,6 +563,7 @@ def evaluate_observation(
     confirmed = (
         "official_rss" in evidence
         or "official_archive" in evidence
+        or "association_announcement" in evidence
         or same_issue
         or clearly_new_issue
         or seen_count >= 2
@@ -618,23 +670,31 @@ def detect_all(
                         rss_dois = set()
                 issue_signal: dict[str, Any] | None = None
                 official_issue_match = False
+                association_issue_match = False
                 if candidate and config.get("announcement_source"):
                     try:
                         issue_signal = issue_signal_fetcher(config)
-                        official_issue_match = _issue_signal_matches_candidate(
-                            candidate, issue_signal
+                        issue_signal_matches = _issue_signal_matches_candidate(candidate, issue_signal)
+                        signal_kind = str((issue_signal or {}).get("source_kind", ""))
+                        official_issue_match = (
+                            issue_signal_matches and signal_kind == "official_archive"
+                        )
+                        association_issue_match = (
+                            issue_signal_matches and signal_kind == "association_announcement"
                         )
                     except Exception:
                         # First-party signals are additive only; source blocking
                         # must not break metadata detection or manufacture authority.
                         issue_signal = None
                         official_issue_match = False
+                        association_issue_match = False
                 status, observation = evaluate_observation(
                     candidate,
                     baseline,
                     previous,
                     rss_dois=rss_dois,
                     official_issue_match=official_issue_match,
+                    association_issue_match=association_issue_match,
                 )
                 previous_candidate = previous.get("candidate") or {}
                 observed_candidate = observation.get("candidate") or {}
@@ -679,6 +739,15 @@ def detect_all(
                         entry["announcement"] = announcement
                 if "official_archive" in observation.get("evidence", []):
                     announcement = _official_issue_signal_announcement(
+                        config["id"],
+                        candidate,
+                        issue_signal,
+                        checked_at,
+                    )
+                    if announcement:
+                        entry["announcement"] = announcement
+                if "association_announcement" in observation.get("evidence", []):
+                    announcement = _association_issue_signal_announcement(
                         config["id"],
                         candidate,
                         issue_signal,
