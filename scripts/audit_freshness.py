@@ -4,13 +4,17 @@ import argparse
 from collections import Counter
 import json
 from pathlib import Path
+import sys
 from typing import Any
 
 import yaml
 
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 from scripts.update_journals import issue_is_newer, select_display_issue
 
-ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_API_ROOT = ROOT / "public" / "api" / "v1"
 DEFAULT_STATE = ROOT / "data" / "monitoring" / "state.json"
 CONFIG_PATH = ROOT / "config" / "journals.yml"
