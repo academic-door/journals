@@ -1,4 +1,4 @@
-name: Diagnose publisher freshness transports
+name: Diagnose OUP freshness feeds
 
 on:
   push:
@@ -20,54 +20,45 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: python -m pip install -r requirements.txt
-      - name: Probe representative first-party sources
+      - name: Discover official OUP feed links
         shell: bash
         run: |
           python - <<'PY'
           import json
-          from urllib.parse import urlparse
+          from urllib.parse import urljoin, urlparse
           import requests
           from bs4 import BeautifulSoup
 
-          sources = {
-              "aea_aer_current": "https://www.aeaweb.org/journals/aer/current-issue",
-              "chicago_jpe_rss": "https://www.journals.uchicago.edu/action/showFeed?type=etoc&feed=rss&jc=jpe",
-              "oup_qje_rss": "https://academic.oup.com/rss/site_5504/3365.xml",
-              "wiley_rand_rss": "https://onlinelibrary.wiley.com/feed/17562171/most-recent",
-              "elsevier_jue_issues": "https://www.sciencedirect.com/journal/journal-of-urban-economics/issues",
-              "cambridge_jeh_latest": "https://www.cambridge.org/core/journals/journal-of-economic-history/latest-issue",
-              "mit_restat_issue": "https://direct.mit.edu/rest/issue",
-              "wisconsin_landecon_current": "https://le.uwpress.org/content/current",
-              "springer_ere_issues": "https://link.springer.com/journal/10640/volumes-and-issues",
+          pages = {
+              "EJ": "https://academic.oup.com/ej/issue",
+              "JEEA": "https://academic.oup.com/jeea/issue",
+              "RFS": "https://academic.oup.com/rfs/issue",
+              "QJE": "https://academic.oup.com/qje/issue",
+              "RES": "https://academic.oup.com/restud/issue",
           }
           headers = {
               "User-Agent": "AcademicDoorJournals/0.1 (non-profit academic metadata service; https://academic-door.github.io/)",
-              "Accept": "text/html,application/xhtml+xml,application/rss+xml,application/xml,text/xml,*/*",
+              "Accept": "text/html,application/xhtml+xml",
               "Accept-Language": "en-US,en;q=0.8",
           }
-          challenge_markers = (
-              "just a moment", "verify you are human", "enable javascript and cookies",
-              "access denied", "cf-chl-", "challenge-form",
-          )
           out = {}
-          for name, url in sources.items():
-              result = {"url": url}
-              try:
-                  r = requests.get(url, headers=headers, timeout=30, allow_redirects=True)
-                  sample = r.content[:30000].decode("utf-8", errors="ignore").casefold()
-                  soup = BeautifulSoup(r.content, "html.parser")
-                  result.update({
-                      "status": r.status_code,
-                      "resolved_host": urlparse(r.url).hostname,
-                      "resolved_path": urlparse(r.url).path,
-                      "content_type": r.headers.get("Content-Type", "")[:100],
-                      "content_length": len(r.content),
-                      "title": soup.title.get_text(" ", strip=True)[:120] if soup.title else "",
-                      "challenge": any(marker in sample for marker in challenge_markers),
-                      "doi_token_count": sample.count("10."),
-                  })
-              except Exception as exc:
-                  result["error"] = f"{type(exc).__name__}: {exc}"
-              out[name] = result
+          for journal, url in pages.items():
+              r = requests.get(url, headers=headers, timeout=30, allow_redirects=True)
+              soup = BeautifulSoup(r.content, "html.parser")
+              links = []
+              for node in soup.find_all(["a", "link"], href=True):
+                  href = str(node.get("href", ""))
+                  typ = str(node.get("type", ""))
+                  text = node.get_text(" ", strip=True)
+                  if "rss" in href.casefold() or "rss" in typ.casefold() or "rss" in text.casefold():
+                      absolute = urljoin(r.url, href)
+                      if urlparse(absolute).hostname == "academic.oup.com" and absolute not in links:
+                          links.append(absolute)
+              out[journal] = {
+                  "status": r.status_code,
+                  "resolved_url": r.url,
+                  "title": soup.title.get_text(" ", strip=True)[:120] if soup.title else "",
+                  "rss_links": links[:20],
+              }
           print(json.dumps(out, ensure_ascii=False, sort_keys=True))
           PY
