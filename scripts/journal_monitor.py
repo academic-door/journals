@@ -380,27 +380,85 @@ def fetch_official_issue_signal(
     return parse_latest_econometrica_issue_signal(response.content, source_url)
 
 
-def _issue_signal_matches_candidate(
-    candidate: Candidate | None,
-    signal: dict[str, Any] | None,
-) -> bool:
-    if not candidate or not signal:
+def _trusted_issue_signal(signal: dict[str, Any] | None) -> bool:
+    if not signal:
         return False
     source_kind = str(signal.get("source_kind", "")).strip()
     source_url = str(signal.get("source_url", "")).strip()
     if source_kind == "official_archive":
-        trusted_source = source_url.startswith("https://onlinelibrary.wiley.com/")
-    elif source_kind == "association_announcement":
-        trusted_source = source_url.startswith(
+        return source_url.startswith("https://onlinelibrary.wiley.com/")
+    if source_kind == "association_announcement":
+        return source_url.startswith(
             "https://www.econometricsociety.org/publications/econometrica"
         )
-    else:
-        trusted_source = False
+    return False
+
+
+def _issue_signal_matches_candidate(
+    candidate: Candidate | None,
+    signal: dict[str, Any] | None,
+) -> bool:
+    if not candidate or not _trusted_issue_signal(signal):
+        return False
+    assert signal is not None
     return (
         candidate.volume.strip() == str(signal.get("volume", "")).strip()
         and candidate.issue.strip() == str(signal.get("issue", "")).strip()
-        and trusted_source
     )
+
+
+def _issue_signal_is_newer_than_baseline(
+    signal: dict[str, Any] | None,
+    baseline: dict[str, Any],
+) -> bool:
+    if not _trusted_issue_signal(signal):
+        return False
+    assert signal is not None
+    if not str(signal.get("publication_date", "")).strip():
+        return False
+    signal_volume = _numeric(str(signal.get("volume", "")))
+    signal_issue = _numeric(str(signal.get("issue", "")))
+    baseline_volume = _numeric(str(baseline.get("volume", "")))
+    baseline_issue = _numeric(str(baseline.get("issue", "")))
+    if None in (signal_volume, signal_issue, baseline_volume, baseline_issue):
+        return False
+    if signal_volume != baseline_volume:
+        return signal_volume > baseline_volume
+    return signal_issue > baseline_issue
+
+
+def _independent_issue_signal_announcement(
+    journal_id: str,
+    baseline: dict[str, Any],
+    signal: dict[str, Any] | None,
+    observed_at: str,
+) -> dict[str, Any] | None:
+    if not _issue_signal_is_newer_than_baseline(signal, baseline):
+        return None
+    assert signal is not None
+    volume = str(signal.get("volume", "")).strip()
+    issue = str(signal.get("issue", "")).strip()
+    publication_date = str(signal.get("publication_date", "")).strip()
+    source_kind = str(signal.get("source_kind", "")).strip()
+    token = lambda value: re.sub(r"[^a-z0-9]+", "-", value.casefold()).strip("-")
+    volume_token = token(volume)
+    issue_token = token(issue)
+    if not volume_token or not issue_token:
+        return None
+    return {
+        "schema_version": "1.0",
+        "journal_id": journal_id,
+        "issue_id": f"{journal_id}-{volume_token}-{issue_token}",
+        "volume": volume,
+        "issue": issue,
+        "issue_label": f"Vol. {volume} · No. {issue}",
+        "publication_date": publication_date,
+        "publication_state": "announced",
+        "source_authority": "first_party",
+        "source_kind": source_kind,
+        "source_url": str(signal["source_url"]),
+        "observed_at": observed_at,
+    }
 
 
 def _official_issue_signal_announcement(
@@ -671,17 +729,21 @@ def detect_all(
                 issue_signal: dict[str, Any] | None = None
                 official_issue_match = False
                 association_issue_match = False
-                if candidate and config.get("announcement_source"):
+                if config.get("announcement_source"):
                     try:
                         issue_signal = issue_signal_fetcher(config)
-                        issue_signal_matches = _issue_signal_matches_candidate(candidate, issue_signal)
-                        signal_kind = str((issue_signal or {}).get("source_kind", ""))
-                        official_issue_match = (
-                            issue_signal_matches and signal_kind == "official_archive"
-                        )
-                        association_issue_match = (
-                            issue_signal_matches and signal_kind == "association_announcement"
-                        )
+                        if candidate:
+                            issue_signal_matches = _issue_signal_matches_candidate(
+                                candidate, issue_signal
+                            )
+                            signal_kind = str((issue_signal or {}).get("source_kind", ""))
+                            official_issue_match = (
+                                issue_signal_matches and signal_kind == "official_archive"
+                            )
+                            association_issue_match = (
+                                issue_signal_matches
+                                and signal_kind == "association_announcement"
+                            )
                     except Exception:
                         # First-party signals are additive only; source blocking
                         # must not break metadata detection or manufacture authority.
@@ -696,6 +758,15 @@ def detect_all(
                     official_issue_match=official_issue_match,
                     association_issue_match=association_issue_match,
                 )
+                independent_announcement = None
+                if candidate is None:
+                    independent_announcement = _independent_issue_signal_announcement(
+                        config["id"], baseline, issue_signal, checked_at
+                    )
+                    if independent_announcement:
+                        signal_kind = str(independent_announcement["source_kind"])
+                        if signal_kind not in observation["evidence"]:
+                            observation["evidence"].append(signal_kind)
                 previous_candidate = previous.get("candidate") or {}
                 observed_candidate = observation.get("candidate") or {}
                 same_deep_candidate = bool(
@@ -728,6 +799,8 @@ def detect_all(
                         else ""
                     ),
                 }
+                if independent_announcement:
+                    entry["announcement"] = independent_announcement
                 if "official_rss" in observation.get("evidence", []):
                     announcement = _official_rss_announcement(
                         config["id"],
