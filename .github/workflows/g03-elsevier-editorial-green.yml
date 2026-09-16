@@ -1,0 +1,271 @@
+name: G03 Elsevier editorial GREEN
+
+on:
+  push:
+    branches:
+      - fix/g03-elsevier-editorial-type-20260916
+
+permissions:
+  contents: write
+
+jobs:
+  green:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: fix/g03-elsevier-editorial-type-20260916
+          fetch-depth: 1
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Implement minimal publisher-type fallback
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          metadata = Path('collectors/metadata_fallback.py')
+          text = metadata.read_text(encoding='utf-8')
+
+          old_result = '''        "abstract": "",
+                  "teaser": "",
+                  "source_url": "",
+                  "source": "",
+                  "status": "unconfigured" if not api_key else "not_found",'''
+          new_result = '''        "abstract": "",
+                  "teaser": "",
+                  "source_url": "",
+                  "source": "",
+                  "article_type": "",
+                  "status": "unconfigured" if not api_key else "not_found",'''
+          if old_result not in text:
+              old_result = '''        "abstract": "",
+              "teaser": "",
+              "source_url": "",
+              "source": "",
+              "status": "unconfigured" if not api_key else "not_found",'''
+              new_result = '''        "abstract": "",
+              "teaser": "",
+              "source_url": "",
+              "source": "",
+              "article_type": "",
+              "status": "unconfigured" if not api_key else "not_found",'''
+          if old_result not in text:
+              raise SystemExit('metadata result anchor not found')
+          text = text.replace(old_result, new_result, 1)
+
+          lookup_anchor = '\ndef _elsevier_lookup(\n'
+          if lookup_anchor not in text:
+              raise SystemExit('lookup anchor not found')
+          helper = '''
+
+def _elsevier_publisher_article_type(root: ElementTree.Element) -> str:
+    """Return the narrow publisher document type needed by the shared taxonomy.
+
+    Elsevier represents editorial material as ``pubtype=edi`` in Article
+    Metadata and ``subtype=ed`` / ``subtypeDescription=Editorial`` in Scopus.
+    Unknown publisher types intentionally remain empty rather than being
+    guessed from metadata codes.
+    """
+
+    codes: set[str] = set()
+    descriptions: list[str] = []
+    for node in root.iter():
+        name = _local_name(node.tag).casefold()
+        if name not in {"pubtype", "subtype", "subtypedescription"}:
+            continue
+        value = _clean_markup(" ".join(node.itertext())).strip()
+        if not value:
+            continue
+        if name == "subtypedescription":
+            descriptions.append(value.casefold())
+        else:
+            codes.add(value.casefold())
+    if any("editorial" in value for value in descriptions) or codes.intersection({"edi", "ed"}):
+        return "editorial"
+    return ""
+'''
+          text = text.replace(lookup_anchor, helper + lookup_anchor, 1)
+
+          old_accept = '''        if root is None:
+              return ""
+          abstract = _elsevier_text(root, {"description", "abstract"})'''
+          if old_accept not in text:
+              old_accept = '''        if root is None:
+            return ""
+        abstract = _elsevier_text(root, {"description", "abstract"})'''
+              new_accept = '''        if root is None:
+            return ""
+        publisher_type = _elsevier_publisher_article_type(root)
+        if publisher_type and not result["article_type"]:
+            result["article_type"] = publisher_type
+        abstract = _elsevier_text(root, {"description", "abstract"})'''
+          else:
+              new_accept = '''        if root is None:
+              return ""
+          publisher_type = _elsevier_publisher_article_type(root)
+          if publisher_type and not result["article_type"]:
+              result["article_type"] = publisher_type
+          abstract = _elsevier_text(root, {"description", "abstract"})'''
+          if old_accept not in text:
+              raise SystemExit('accept payload anchor not found')
+          text = text.replace(old_accept, new_accept, 1)
+          metadata.write_text(text, encoding='utf-8')
+
+          elsevier = Path('collectors/elsevier.py')
+          text = elsevier.read_text(encoding='utf-8')
+          old_article_type = '''def _article_type(title: str, raw_type: str = "") -> str:
+              combined = f"{raw_type} {title}"
+              if re.search(r"\\bcomment\\b|\\breply\\b|\\bdiscussion\\b", combined, re.IGNORECASE):
+                  return "comment"
+              return "research-article"
+'''
+          if old_article_type not in text:
+              old_article_type = '''def _article_type(title: str, raw_type: str = "") -> str:
+    combined = f"{raw_type} {title}"
+    if re.search(r"\\bcomment\\b|\\breply\\b|\\bdiscussion\\b", combined, re.IGNORECASE):
+        return "comment"
+    return "research-article"
+'''
+          new_article_type = '''def _article_type(title: str, raw_type: str = "") -> str:
+    from collectors.article_types import canonical_article_type
+
+    return canonical_article_type(title, raw_type=raw_type)
+'''
+          if old_article_type not in text:
+              raise SystemExit('article type anchor not found')
+          text = text.replace(old_article_type, new_article_type, 1)
+
+          start = text.index('    articles: list[dict[str, Any]] = []\n', text.index('def fetch_current_issue('))
+          end = text.index('    count = len(articles)\n', start)
+          replacement = '''    from collectors.article_types import (
+        canonical_article_type,
+        exclusion_reason,
+        is_publishable_type,
+        requires_abstract,
+    )
+    from collectors.metadata_fallback import _elsevier_lookup, _is_elsevier_identifier
+
+    articles: list[dict[str, Any]] = []
+    excluded: list[dict[str, str]] = []
+    for source_sequence, raw in enumerate(source_rows, start=1):
+        enriched = {**detail_by_pii.get(raw.get("pii", ""), {}), **raw}
+        title = str(enriched.get("title_en", ""))
+        doi = str(enriched.get("doi", ""))
+        pii = str(enriched.get("pii", ""))
+        authors = enriched.get("authors", [])
+        abstract = str(enriched.get("abstract_en", "")).strip()
+        article_type = canonical_article_type(
+            title,
+            str(enriched.get("article_type", "")),
+        )
+        abstract_source = (
+            "official-sciencedirect-issue"
+            if official_rows and abstract
+            else "repec-publisher-supplied"
+            if abstract
+            else ""
+        )
+
+        # RePEc mirrors publisher rosters but can omit publisher document type
+        # and abstracts. Only incomplete fallback rows need the bounded Elsevier
+        # metadata lookup; it may recover a real research abstract or identify
+        # publisher-declared editorial material. Neither result changes roster
+        # or ordering authority.
+        if (
+            not official_rows
+            and not abstract
+            and _is_elsevier_identifier(pii, doi)
+        ):
+            lookup = _elsevier_lookup(session, pii, doi=doi, timeout=45)
+            publisher_type = str(lookup.get("article_type", ""))
+            if publisher_type:
+                article_type = canonical_article_type(title, publisher_type)
+            fetched_abstract = str(lookup.get("abstract", "")).strip()
+            if fetched_abstract:
+                abstract = fetched_abstract
+                abstract_source = str(lookup.get("source", "elsevier-api"))
+
+        # Apply the shared taxonomy to title evidence too, then exclude any
+        # publisher-confirmed non-publishable material before completeness
+        # counts are computed.
+        article_type = canonical_article_type(title, article_type)
+        if not is_publishable_type(article_type):
+            excluded.append(
+                {
+                    "title_en": title,
+                    "reason": exclusion_reason(article_type),
+                    "doi": doi,
+                    "article_type": article_type,
+                }
+            )
+            continue
+
+        flags: list[str] = []
+        if not doi:
+            flags.append("doi_missing")
+        if not authors:
+            flags.append("authors_missing")
+        if not abstract and requires_abstract(article_type):
+            flags.append("abstract_en_missing")
+        flags.extend(["title_cn_missing", "abstract_cn_missing"])
+        sequence = len(articles) + 1
+        articles.append(
+            {
+                "paper_id": f"doi:{doi}" if doi else f"pii:{pii or sequence}",
+                "sequence": sequence,
+                "source_sequence": source_sequence,
+                "article_type": article_type,
+                "title_en": title,
+                "title_cn": "",
+                "authors": authors,
+                "abstract_en": abstract,
+                "abstract_cn": "",
+                "doi": doi,
+                "source_url": enriched.get("source_url") or _official_article_url(pii, enriched.get("detail_url", "")),
+                "publication_date": inventory["year"],
+                "sources": {
+                    "issue": official_issue_url,
+                    "roster": "official-sciencedirect-issue" if official_rows else "repec-publisher-supplied",
+                    "metadata": enriched.get("detail_url", "") or "official-sciencedirect-issue",
+                    "abstract_en": abstract_source,
+                },
+                "translation": {
+                    "status": "pending",
+                    "provider": "",
+                    "prompt_version": "",
+                    "glossary_version": "1",
+                },
+                "quality_flags": flags,
+            }
+        )
+
+'''
+          text = text[:start] + replacement + text[end:]
+          old_required = '''    required_abstract_count = sum(
+        article["article_type"] != "comment" for article in articles
+    )'''
+          new_required = '''    required_abstract_count = sum(
+        requires_abstract(str(article.get("article_type", "")))
+        for article in articles
+    )'''
+          if old_required not in text:
+              raise SystemExit('required abstract anchor not found')
+          text = text.replace(old_required, new_required, 1)
+          elsevier.write_text(text, encoding='utf-8')
+          PY
+      - name: Verify GREEN and focused regressions
+        run: |
+          python -m unittest tests.test_elsevier_publisher_type -v
+          python -m unittest tests.test_elsevier_collector tests.test_metadata_fallback tests.test_update_journals -v
+          git diff --check
+      - name: Commit permanent fix and retire executor
+        run: |
+          git config user.name academic-door-bot
+          git config user.email academic-door-bot@users.noreply.github.com
+          git rm .github/workflows/g03-elsevier-editorial-green.yml
+          git add collectors/metadata_fallback.py collectors/elsevier.py tests/test_elsevier_publisher_type.py
+          git commit -m 'fix(elsevier): honor publisher editorial subtype'
+          git push origin HEAD:fix/g03-elsevier-editorial-type-20260916
