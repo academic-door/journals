@@ -1,0 +1,59 @@
+name: G03 history evidence-only GREEN
+on:
+  push:
+    branches:
+      - fix/g03-history-sprint-evidence-only-20260916
+permissions:
+  contents: write
+jobs:
+  green:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: fix/g03-history-sprint-evidence-only-20260916
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Patch evidence-only routing
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('.github/workflows/history-sprint.yml')
+          text = path.read_text(encoding='utf-8')
+
+          old = "    if: always() && (inputs.source_run_id != '' || needs.collect.result != 'skipped')\n"
+          new = "    if: always() && (inputs.evidence_issue_ids != '' || inputs.source_run_id != '' || needs.collect.result != 'skipped')\n"
+          if text.count(old) != 1:
+              raise SystemExit(f'publish guard anchor count={text.count(old)}')
+          text = text.replace(old, new, 1)
+
+          shard_guard = "inputs.source_run_id != '' || needs.collect.result != 'skipped'"
+          replacements = {
+              "      - name: Download all isolated shards\n        uses: actions/download-artifact@v4\n":
+                  f"      - name: Download all isolated shards\n        if: {shard_guard}\n        uses: actions/download-artifact@v4\n",
+              "      - name: Exclude prior final reports from shard merge\n        run: rm -rf shards/history-sprint-final-reports\n":
+                  f"      - name: Exclude prior final reports from shard merge\n        if: {shard_guard}\n        run: rm -rf shards/history-sprint-final-reports\n",
+              "      - name: Merge shard changes into the latest data baseline\n        run: python scripts/merge_history_shards.py --root . --shards-root shards\n":
+                  f"      - name: Merge shard changes into the latest data baseline\n        if: {shard_guard}\n        run: python scripts/merge_history_shards.py --root . --shards-root shards\n",
+          }
+          for before, after in replacements.items():
+              if text.count(before) != 1:
+                  raise SystemExit(f'shard step anchor count={text.count(before)} for {before.splitlines()[0]}')
+              text = text.replace(before, after, 1)
+
+          path.write_text(text, encoding='utf-8')
+          PY
+      - name: Verify focused contract
+        run: |
+          python -m unittest discover -s tests -p 'test_history_sprint_workflow.py' -v
+          git diff --check
+      - name: Commit permanent GREEN and retire runner
+        run: |
+          git config user.name "academic-door-bot"
+          git config user.email "academic-door-bot@users.noreply.github.com"
+          git rm .github/workflows/g03-history-evidence-only-green.yml
+          git add .github/workflows/history-sprint.yml tests/test_history_sprint_workflow.py
+          git commit -m "fix(history): allow evidence-only sprint publication"
+          git push origin HEAD:fix/g03-history-sprint-evidence-only-20260916
