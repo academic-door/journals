@@ -1,4 +1,4 @@
-name: Verify OUP freshness feeds
+name: Probe Econometric Society freshness source
 
 on:
   push:
@@ -18,55 +18,47 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-          cache: pip
       - run: python -m pip install -r requirements.txt
-      - name: Verify exact official OUP RSS endpoints
+      - name: Probe official Econometric Society pages
         shell: bash
         run: |
           python - <<'PY'
           import json
-          import re
           from urllib.parse import urlparse
           import requests
+          from bs4 import BeautifulSoup
 
-          feeds = {
-              "EJ": "https://academic.oup.com/rss/site_6182/4014.xml",
-              "JEEA": "https://academic.oup.com/rss/site_5571/3427.xml",
-              "RFS": "https://academic.oup.com/rss/site_5511/3372.xml",
-              "QJE_CONTROL": "https://academic.oup.com/rss/site_5504/3365.xml",
-              "RES_CONTROL": "https://academic.oup.com/rss/site_5508/3369.xml",
+          urls = {
+              "ecta_home": "https://www.econometricsociety.org/publications/econometrica",
+              "ecta_2026": "https://www.econometricsociety.org/publications/econometrica/volume/2026",
           }
           headers = {
               "User-Agent": "AcademicDoorJournals/0.1 (non-profit academic metadata service; https://academic-door.github.io/)",
-              "Accept": "application/rss+xml,application/xml,text/xml,*/*",
+              "Accept": "text/html,application/xhtml+xml",
               "Accept-Language": "en-US,en;q=0.8",
           }
-          doi_re = re.compile(r"10\.1093/[A-Za-z0-9._;()/:-]+", re.I)
           out = {}
-          failures = []
-          for journal, url in feeds.items():
+          for label, url in urls.items():
               result = {"url": url}
               try:
                   r = requests.get(url, headers=headers, timeout=30, allow_redirects=True)
-                  text = r.text
-                  dois = sorted({m.group(0).rstrip(".,;</") for m in doi_re.finditer(text)})
+                  text = " ".join(BeautifulSoup(r.content, "html.parser").stripped_strings)
+                  low = text.casefold()
                   result.update({
                       "status": r.status_code,
                       "resolved_host": urlparse(r.url).hostname,
                       "resolved_path": urlparse(r.url).path,
                       "content_type": r.headers.get("Content-Type", "")[:100],
                       "content_length": len(r.content),
-                      "doi_count": len(dois),
-                      "doi_sample": dois[:3],
-                      "has_rss_or_feed": any(token in text.casefold() for token in ("<rss", "<feed", "<rdf:rdf")),
+                      "title": BeautifulSoup(r.content, "html.parser").title.get_text(" ", strip=True)[:160] if BeautifulSoup(r.content, "html.parser").title else "",
+                      "has_volume_94": "volume 94" in low,
+                      "has_issue_5": "issue 5" in low,
+                      "has_september_2026": "september 2026" in low or "sep, 2026" in low or "sep 2026" in low,
+                      "has_ecta_2026_94_5_identity": "volume 94" in low and "issue 5" in low,
+                      "text_sample": text[:500],
                   })
-                  if r.status_code != 200 or urlparse(r.url).hostname != "academic.oup.com" or not result["has_rss_or_feed"] or not dois:
-                      failures.append(journal)
               except Exception as exc:
                   result["error"] = f"{type(exc).__name__}: {exc}"
-                  failures.append(journal)
-              out[journal] = result
+              out[label] = result
           print(json.dumps(out, ensure_ascii=False, sort_keys=True))
-          if failures:
-              raise SystemExit(f"OUP feed verification failed: {failures}")
           PY
