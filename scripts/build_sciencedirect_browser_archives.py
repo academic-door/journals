@@ -162,20 +162,32 @@ def fetch_issue_metadata(
         worker_session = requests.Session()
         response = None
         for attempt in range(3):
-            response = worker_session.get(
-                f"{ELSEVIER_ARTICLE_API}/pii/{pii}",
-                params={"view": "META_ABS", "httpAccept": "application/xml"},
-                headers=headers,
-                timeout=min(timeout, 30),
-            )
-            if response.status_code != 429:
-                break
-            retry_after = response.headers.get("Retry-After", "5")
             try:
-                delay = min(30, max(2, int(retry_after)))
-            except ValueError:
-                delay = 5
-            time.sleep(min(20, delay * (attempt + 1)))
+                response = worker_session.get(
+                    f"{ELSEVIER_ARTICLE_API}/pii/{pii}",
+                    params={"view": "META_ABS", "httpAccept": "application/xml"},
+                    headers=headers,
+                    timeout=min(timeout, 30),
+                )
+            except (requests.Timeout, requests.ConnectionError):
+                if attempt == 2:
+                    raise
+                time.sleep(min(10, 2 ** (attempt + 1)))
+                continue
+            retryable_status = response.status_code == 429 or 500 <= response.status_code < 600
+            if not retryable_status:
+                break
+            if attempt == 2:
+                break
+            if response.status_code == 429:
+                retry_after = response.headers.get("Retry-After", "5")
+                try:
+                    delay = min(30, max(2, int(retry_after)))
+                except ValueError:
+                    delay = 5
+                time.sleep(min(20, delay * (attempt + 1)))
+            else:
+                time.sleep(min(10, 2 ** (attempt + 1)))
         assert response is not None
         response.raise_for_status()
         root = ElementTree.fromstring(response.content)
