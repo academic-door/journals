@@ -1,0 +1,240 @@
+name: G02 PR273 first-party independent executor
+
+on:
+  push:
+    branches:
+      - feat/g02-first-party-signal-without-crossref-20260916
+
+permissions:
+  contents: write
+
+jobs:
+  patch-and-verify:
+    if: ${{ github.event.head_commit.message == 'chore: execute PR273 GREEN implementation' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: feat/g02-first-party-signal-without-crossref-20260916
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements.txt
+      - name: Apply bounded implementation
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('scripts/journal_monitor.py')
+          text = path.read_text(encoding='utf-8')
+
+          old_match = '''def _issue_signal_matches_candidate(
+              candidate: Candidate | None,
+              signal: dict[str, Any] | None,
+          ) -> bool:
+              if not candidate or not signal:
+                  return False
+              source_kind = str(signal.get("source_kind", "")).strip()
+              source_url = str(signal.get("source_url", "")).strip()
+              if source_kind == "official_archive":
+                  trusted_source = source_url.startswith("https://onlinelibrary.wiley.com/")
+              elif source_kind == "association_announcement":
+                  trusted_source = source_url.startswith(
+                      "https://www.econometricsociety.org/publications/econometrica"
+                  )
+              else:
+                  trusted_source = False
+              return (
+                  candidate.volume.strip() == str(signal.get("volume", "")).strip()
+                  and candidate.issue.strip() == str(signal.get("issue", "")).strip()
+                  and trusted_source
+              )
+          '''
+          new_match = '''def _trusted_issue_signal(signal: dict[str, Any] | None) -> bool:
+              if not signal:
+                  return False
+              source_kind = str(signal.get("source_kind", "")).strip()
+              source_url = str(signal.get("source_url", "")).strip()
+              if source_kind == "official_archive":
+                  return source_url.startswith("https://onlinelibrary.wiley.com/")
+              if source_kind == "association_announcement":
+                  return source_url.startswith(
+                      "https://www.econometricsociety.org/publications/econometrica"
+                  )
+              return False
+
+
+          def _issue_signal_matches_candidate(
+              candidate: Candidate | None,
+              signal: dict[str, Any] | None,
+          ) -> bool:
+              if not candidate or not _trusted_issue_signal(signal):
+                  return False
+              assert signal is not None
+              return (
+                  candidate.volume.strip() == str(signal.get("volume", "")).strip()
+                  and candidate.issue.strip() == str(signal.get("issue", "")).strip()
+              )
+
+
+          def _issue_signal_is_newer_than_baseline(
+              signal: dict[str, Any] | None,
+              baseline: dict[str, Any],
+          ) -> bool:
+              if not _trusted_issue_signal(signal):
+                  return False
+              assert signal is not None
+              if not str(signal.get("publication_date", "")).strip():
+                  return False
+              signal_volume = _numeric(str(signal.get("volume", "")))
+              signal_issue = _numeric(str(signal.get("issue", "")))
+              baseline_volume = _numeric(str(baseline.get("volume", "")))
+              baseline_issue = _numeric(str(baseline.get("issue", "")))
+              if None in (signal_volume, signal_issue, baseline_volume, baseline_issue):
+                  return False
+              if signal_volume != baseline_volume:
+                  return signal_volume > baseline_volume
+              return signal_issue > baseline_issue
+
+
+          def _independent_issue_signal_announcement(
+              journal_id: str,
+              baseline: dict[str, Any],
+              signal: dict[str, Any] | None,
+              observed_at: str,
+          ) -> dict[str, Any] | None:
+              if not _issue_signal_is_newer_than_baseline(signal, baseline):
+                  return None
+              assert signal is not None
+              volume = str(signal.get("volume", "")).strip()
+              issue = str(signal.get("issue", "")).strip()
+              publication_date = str(signal.get("publication_date", "")).strip()
+              source_kind = str(signal.get("source_kind", "")).strip()
+              token = lambda value: re.sub(r"[^a-z0-9]+", "-", value.casefold()).strip("-")
+              volume_token = token(volume)
+              issue_token = token(issue)
+              if not volume_token or not issue_token:
+                  return None
+              return {
+                  "schema_version": "1.0",
+                  "journal_id": journal_id,
+                  "issue_id": f"{journal_id}-{volume_token}-{issue_token}",
+                  "volume": volume,
+                  "issue": issue,
+                  "issue_label": f"Vol. {volume} · No. {issue}",
+                  "publication_date": publication_date,
+                  "publication_state": "announced",
+                  "source_authority": "first_party",
+                  "source_kind": source_kind,
+                  "source_url": str(signal["source_url"]),
+                  "observed_at": observed_at,
+              }
+          '''
+          if text.count(old_match) != 1:
+              raise SystemExit('issue signal match block not found exactly once')
+          text = text.replace(old_match, new_match)
+
+          old_fetch = '''                if candidate and config.get("announcement_source"):
+                      try:
+                          issue_signal = issue_signal_fetcher(config)
+                          issue_signal_matches = _issue_signal_matches_candidate(candidate, issue_signal)
+                          signal_kind = str((issue_signal or {}).get("source_kind", ""))
+                          official_issue_match = (
+                              issue_signal_matches and signal_kind == "official_archive"
+                          )
+                          association_issue_match = (
+                              issue_signal_matches and signal_kind == "association_announcement"
+                          )
+                      except Exception:
+                          # First-party signals are additive only; source blocking
+                          # must not break metadata detection or manufacture authority.
+                          issue_signal = None
+                          official_issue_match = False
+                          association_issue_match = False
+          '''
+          new_fetch = '''                if config.get("announcement_source"):
+                      try:
+                          issue_signal = issue_signal_fetcher(config)
+                          if candidate:
+                              issue_signal_matches = _issue_signal_matches_candidate(
+                                  candidate, issue_signal
+                              )
+                              signal_kind = str((issue_signal or {}).get("source_kind", ""))
+                              official_issue_match = (
+                                  issue_signal_matches and signal_kind == "official_archive"
+                              )
+                              association_issue_match = (
+                                  issue_signal_matches
+                                  and signal_kind == "association_announcement"
+                              )
+                      except Exception:
+                          # First-party signals are additive only; source blocking
+                          # must not break metadata detection or manufacture authority.
+                          issue_signal = None
+                          official_issue_match = False
+                          association_issue_match = False
+          '''
+          if text.count(old_fetch) != 1:
+              raise SystemExit('announcement fetch block not found exactly once')
+          text = text.replace(old_fetch, new_fetch)
+
+          old_observation = '''                status, observation = evaluate_observation(
+                      candidate,
+                      baseline,
+                      previous,
+                      rss_dois=rss_dois,
+                      official_issue_match=official_issue_match,
+                      association_issue_match=association_issue_match,
+                  )
+                  previous_candidate = previous.get("candidate") or {}
+          '''
+          new_observation = '''                status, observation = evaluate_observation(
+                      candidate,
+                      baseline,
+                      previous,
+                      rss_dois=rss_dois,
+                      official_issue_match=official_issue_match,
+                      association_issue_match=association_issue_match,
+                  )
+                  independent_announcement = None
+                  if candidate is None:
+                      independent_announcement = _independent_issue_signal_announcement(
+                          config["id"], baseline, issue_signal, checked_at
+                      )
+                      if independent_announcement:
+                          signal_kind = str(independent_announcement["source_kind"])
+                          if signal_kind not in observation["evidence"]:
+                              observation["evidence"].append(signal_kind)
+                  previous_candidate = previous.get("candidate") or {}
+          '''
+          if text.count(old_observation) != 1:
+              raise SystemExit('observation block not found exactly once')
+          text = text.replace(old_observation, new_observation)
+
+          old_announcement = '''                if "official_rss" in observation.get("evidence", []):
+                      announcement = _official_rss_announcement(
+          '''
+          new_announcement = '''                if independent_announcement:
+                      entry["announcement"] = independent_announcement
+                  if "official_rss" in observation.get("evidence", []):
+                      announcement = _official_rss_announcement(
+          '''
+          if text.count(old_announcement) != 1:
+              raise SystemExit('announcement write block not found exactly once')
+          text = text.replace(old_announcement, new_announcement)
+
+          path.write_text(text, encoding='utf-8')
+          PY
+          python -m py_compile scripts/journal_monitor.py
+          python -m unittest tests.test_association_announcements tests.test_monitor_announcements -v
+      - name: Commit GREEN implementation and remove executor
+        shell: bash
+        run: |
+          rm .github/workflows/g02-273-first-party-independent-executor.yml
+          git config user.name academic-door-bot
+          git config user.email academic-door-bot@users.noreply.github.com
+          git add scripts/journal_monitor.py .github/workflows/g02-273-first-party-independent-executor.yml
+          git commit -m 'feat(freshness): probe first-party signals without Crossref candidates'
+          git push origin HEAD:feat/g02-first-party-signal-without-crossref-20260916
