@@ -82,12 +82,12 @@ text = text[:semantic_pos] + semantic_block + text[semantic_pos:]
 Path("scripts/translate_issue.py").write_bytes(text.encode("utf-8"))
 
 numstat = subprocess.check_output(
-    ["git", "diff", "--numstat", "--", "scripts/translate_issue.py"],
+    ["git", "diff", "--numstat", "FETCH_HEAD", "--", "scripts/translate_issue.py"],
     text=True,
 ).strip()
 if not numstat:
     raise SystemExit("expected translate_issue.py diff")
 added, deleted, _path = numstat.split("\t", 2)
 if int(added) > 100 or int(deleted) > 5:
-    raise SystemExit(f"unexpected diff size: +{added}/-{deleted}")
-print(f"translate_issue.py diff guard: +{added}/-{deleted}")
+    raise SystemExit(f"unexpected diff size vs main: +{added}/-{deleted}")
+print(f"translate_issue.py diff vs main: +{added}/-{deleted}")
