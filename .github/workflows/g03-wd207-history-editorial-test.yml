@@ -29,47 +29,42 @@ jobs:
           text = path.read_text(encoding="utf-8")
           marker = 'publisher_article_type = "editorial"'
           if marker not in text:
-              old = '''        abstract_source = (
-              "repec-publisher-supplied" if abstract else ""
-          )
-          from collectors.metadata_fallback import _is_elsevier_identifier
+              start = text.index("def fetch_elsevier_repec_history_issue(")
+              end = text.find("\ndef ", start + 1)
+              if end == -1:
+                  end = len(text)
+              segment = text[start:end]
 
-          if not abstract and _is_elsevier_identifier(pii, doi):
-              from collectors.metadata_fallback import _elsevier_lookup
+              import_anchor = "        from collectors.metadata_fallback import _is_elsevier_identifier\n"
+              if segment.count(import_anchor) != 1:
+                  raise SystemExit(f"history identifier import count={segment.count(import_anchor)}")
+              segment = segment.replace(
+                  import_anchor,
+                  '        publisher_article_type = ""\n' + import_anchor,
+                  1,
+              )
 
-              lookup = _elsevier_lookup(client, pii, doi=doi, timeout=timeout)
-              fetched = str(lookup.get("abstract", "")).strip()
-          '''
-              new = '''        abstract_source = (
-              "repec-publisher-supplied" if abstract else ""
-          )
-          publisher_article_type = ""
-          from collectors.metadata_fallback import _is_elsevier_identifier
+              lookup_anchor = "            lookup = _elsevier_lookup(client, pii, doi=doi, timeout=timeout)\n"
+              if segment.count(lookup_anchor) != 1:
+                  raise SystemExit(f"history lookup call count={segment.count(lookup_anchor)}")
+              segment = segment.replace(
+                  lookup_anchor,
+                  lookup_anchor
+                  + '            if str(lookup.get("article_type", "")).strip().casefold() == "editorial":\n'
+                  + '                publisher_article_type = "editorial"\n',
+                  1,
+              )
 
-          if not abstract and _is_elsevier_identifier(pii, doi):
-              from collectors.metadata_fallback import _elsevier_lookup
+              type_anchor = '            "article_type": (\n'
+              if segment.count(type_anchor) != 1:
+                  raise SystemExit(f"history article_type field count={segment.count(type_anchor)}")
+              segment = segment.replace(
+                  type_anchor,
+                  '            "article_type": publisher_article_type or (\n',
+                  1,
+              )
 
-              lookup = _elsevier_lookup(client, pii, doi=doi, timeout=timeout)
-              if str(lookup.get("article_type", "")).strip().casefold() == "editorial":
-                  publisher_article_type = "editorial"
-              fetched = str(lookup.get("abstract", "")).strip()
-          '''
-              if text.count(old) != 1:
-                  raise SystemExit(f"history lookup anchor count={text.count(old)}")
-              text = text.replace(old, new, 1)
-
-              old_type = '''            "article_type": (
-                  "comment" if no_abstract else _article_type(detail.get("title_en", entry["title_en"]))
-              ),
-          '''
-              new_type = '''            "article_type": publisher_article_type or (
-                  "comment" if no_abstract else _article_type(detail.get("title_en", entry["title_en"]))
-              ),
-          '''
-              if text.count(old_type) != 1:
-                  raise SystemExit(f"history article_type anchor count={text.count(old_type)}")
-              text = text.replace(old_type, new_type, 1)
-              path.write_text(text, encoding="utf-8")
+              path.write_text(text[:start] + segment + text[end:], encoding="utf-8")
           PY
       - run: python -m pip install -r requirements.txt
       - name: Run focused history publisher-type regressions
