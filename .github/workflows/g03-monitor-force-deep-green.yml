@@ -162,13 +162,11 @@ jobs:
           python -m unittest tests.test_monitor_force_deep -v
           python -m unittest tests.test_journal_monitor tests.test_update_journals -v
           git diff --check
-      - name: Commit permanent implementation and retire executors
+      - name: Commit code-only implementation
         shell: bash
         run: |
           git config user.name academic-door-bot
           git config user.email academic-door-bot@users.noreply.github.com
-          git rm .github/workflows/g03-monitor-force-deep-red.yml
-          git rm .github/workflows/g03-monitor-force-deep-green.yml
-          git add scripts/journal_monitor.py .github/workflows/monitor-journals.yml tests/test_monitor_force_deep.py
-          git commit -m 'feat(monitor): allow scoped manual deep retry'
+          git add scripts/journal_monitor.py
+          git commit -m 'feat(monitor): support scoped deep-retry bypass'
           git push origin HEAD:feat/g03-monitor-scoped-force-deep-20260916
