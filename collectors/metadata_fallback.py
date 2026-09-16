@@ -577,6 +577,33 @@ def _elsevier_abstract_link(root: ElementTree.Element) -> str:
     return ""
 
 
+
+def _elsevier_publisher_article_type(root: ElementTree.Element) -> str:
+    """Return the narrow publisher document type needed by the shared taxonomy.
+
+    Elsevier represents editorial material as ``pubtype=edi`` in Article
+    Metadata and ``subtype=ed`` / ``subtypeDescription=Editorial`` in Scopus.
+    Unknown publisher types intentionally remain empty rather than being
+    guessed from metadata codes.
+    """
+
+    codes: set[str] = set()
+    descriptions: list[str] = []
+    for node in root.iter():
+        name = _local_name(node.tag).casefold()
+        if name not in {"pubtype", "subtype", "subtypedescription"}:
+            continue
+        value = _clean_markup(" ".join(node.itertext())).strip()
+        if not value:
+            continue
+        if name == "subtypedescription":
+            descriptions.append(value.casefold())
+        else:
+            codes.add(value.casefold())
+    if any("editorial" in value for value in descriptions) or codes.intersection({"edi", "ed"}):
+        return "editorial"
+    return ""
+
 def _elsevier_lookup(
     session: requests.Session,
     pii: str,
@@ -602,6 +629,7 @@ def _elsevier_lookup(
         "teaser": "",
         "source_url": "",
         "source": "",
+        "article_type": "",
         "status": "unconfigured" if not api_key else "not_found",
         "attempts": [],
         "rate_limit": None,
@@ -673,6 +701,9 @@ def _elsevier_lookup(
     ) -> str:
         if root is None:
             return ""
+        publisher_type = _elsevier_publisher_article_type(root)
+        if publisher_type and not result["article_type"]:
+            result["article_type"] = publisher_type
         abstract = _elsevier_text(root, {"description", "abstract"})
         teaser = _elsevier_text(root, {"teaser"})
         if teaser and not result["teaser"]:
