@@ -1,0 +1,212 @@
+name: G03 first-party signal precedence executor
+
+on:
+  push:
+    branches:
+      - feat/g03-first-party-signal-precedence-20260916
+
+permissions:
+  contents: write
+
+jobs:
+  red-green:
+    if: "${{ github.event.head_commit.message == 'chore: execute G03 first-party signal precedence TDD' }}"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: feat/g03-first-party-signal-precedence-20260916
+          fetch-depth: 1
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements.txt
+
+      - name: Verify clean baseline
+        run: |
+          python -m py_compile scripts/journal_monitor.py
+          python -m unittest tests.test_association_announcements -v
+
+      - name: Write RED precedence regressions
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import textwrap
+
+          path = Path('tests/test_association_announcements.py')
+          text = path.read_text(encoding='utf-8')
+          marker = '\n\nif __name__ == "__main__":\n'
+          if text.count(marker) != 1:
+              raise SystemExit('test insertion anchor is not unique')
+          addition = textwrap.indent(textwrap.dedent('''
+          def test_newer_first_party_signal_announces_ahead_of_older_crossref_candidate(self) -> None:
+              signal = self.association_signal(issue="6", publication_date="November 2026")
+              with patch("scripts.journal_monitor.read_json", return_value=BASELINE):
+                  state, _result = detect_all(
+                      self.config,
+                      {"journals": {}},
+                      crossref_fetcher=lambda _config, _baseline: [crossref_item(issue="5")],
+                      issue_signal_fetcher=lambda _config: signal,
+                  )
+
+              entry = state["journals"]["ECTA"]
+              self.assertEqual("5", entry["candidate"]["issue"])
+              self.assertIn("association_announcement", entry["evidence"])
+              announcement = entry.get("announcement")
+              self.assertIsNotNone(announcement)
+              assert announcement is not None
+              self.assertEqual("ecta-94-6", announcement["issue_id"])
+              self.assertEqual("November 2026", announcement["publication_date"])
+
+          def test_older_first_party_signal_does_not_override_newer_crossref_candidate(self) -> None:
+              signal = self.association_signal(issue="5", publication_date="September 2026")
+              with patch("scripts.journal_monitor.read_json", return_value=BASELINE):
+                  state, _result = detect_all(
+                      self.config,
+                      {"journals": {}},
+                      crossref_fetcher=lambda _config, _baseline: [crossref_item(issue="6")],
+                      issue_signal_fetcher=lambda _config: signal,
+                  )
+
+              entry = state["journals"]["ECTA"]
+              self.assertEqual("6", entry["candidate"]["issue"])
+              self.assertNotIn("association_announcement", entry["evidence"])
+              self.assertNotIn("announcement", entry)
+          ''').strip('\n'), '    ')
+          path.write_text(text.replace(marker, '\n\n' + addition + marker, 1), encoding='utf-8')
+          PY
+
+          set +e
+          python -m unittest tests.test_association_announcements -v > /tmp/red.log 2>&1
+          status=$?
+          set -e
+          cat /tmp/red.log
+          if [ "$status" -eq 0 ]; then
+            echo 'RED unexpectedly passed; refusing implementation'
+            exit 1
+          fi
+          grep -Eq 'test_newer_first_party_signal_announces_ahead_of_older_crossref_candidate.*FAIL|FAIL: test_newer_first_party_signal_announces_ahead_of_older_crossref_candidate' /tmp/red.log || {
+            echo 'RED did not fail on the intended precedence regression'
+            exit 1
+          }
+
+      - name: Apply minimal GREEN precedence logic
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import textwrap
+
+          path = Path('scripts/journal_monitor.py')
+          text = path.read_text(encoding='utf-8')
+
+          def replace_once(source: str, old: str, new: str, label: str) -> str:
+              count = source.count(old)
+              if count != 1:
+                  raise SystemExit(f'{label}: expected exactly one anchor, found {count}')
+              return source.replace(old, new, 1)
+
+          independent_marker = '\n\ndef _independent_issue_signal_announcement(\n'
+          candidate_helper = textwrap.dedent('''
+
+          def _issue_signal_is_newer_than_candidate(
+              signal: dict[str, Any] | None,
+              candidate: Candidate | None,
+          ) -> bool:
+              if candidate is None:
+                  return True
+              if not _trusted_issue_signal(signal):
+                  return False
+              assert signal is not None
+              signal_volume = _numeric(str(signal.get("volume", "")))
+              signal_issue = _numeric(str(signal.get("issue", "")))
+              candidate_volume = _numeric(candidate.volume)
+              candidate_issue = _numeric(candidate.issue)
+              if None in (
+                  signal_volume,
+                  signal_issue,
+                  candidate_volume,
+                  candidate_issue,
+              ):
+                  return False
+              if signal_volume != candidate_volume:
+                  return signal_volume > candidate_volume
+              return signal_issue > candidate_issue
+          ''')
+          text = replace_once(
+              text,
+              independent_marker,
+              candidate_helper + independent_marker,
+              'candidate precedence helper',
+          )
+
+          old_signature = textwrap.dedent('''
+          def _independent_issue_signal_announcement(
+              journal_id: str,
+              baseline: dict[str, Any],
+              signal: dict[str, Any] | None,
+              observed_at: str,
+          ) -> dict[str, Any] | None:
+              if not _issue_signal_is_newer_than_baseline(signal, baseline):
+                  return None
+          ''')
+          new_signature = textwrap.dedent('''
+          def _independent_issue_signal_announcement(
+              journal_id: str,
+              baseline: dict[str, Any],
+              candidate: Candidate | None,
+              signal: dict[str, Any] | None,
+              observed_at: str,
+          ) -> dict[str, Any] | None:
+              if not _issue_signal_is_newer_than_baseline(signal, baseline):
+                  return None
+              if not _issue_signal_is_newer_than_candidate(signal, candidate):
+                  return None
+          ''')
+          text = replace_once(text, old_signature, new_signature, 'independent announcement signature')
+
+          old_block = textwrap.indent(textwrap.dedent('''
+          independent_announcement = None
+          if candidate is None:
+              independent_announcement = _independent_issue_signal_announcement(
+                  config["id"], baseline, issue_signal, checked_at
+              )
+              if independent_announcement:
+                  signal_kind = str(independent_announcement["source_kind"])
+                  if signal_kind not in observation["evidence"]:
+                      observation["evidence"].append(signal_kind)
+          ''').lstrip(), '                ')
+          new_block = textwrap.indent(textwrap.dedent('''
+          independent_announcement = _independent_issue_signal_announcement(
+              config["id"], baseline, candidate, issue_signal, checked_at
+          )
+          if independent_announcement:
+              signal_kind = str(independent_announcement["source_kind"])
+              if signal_kind not in observation["evidence"]:
+                  observation["evidence"].append(signal_kind)
+          ''').lstrip(), '                ')
+          text = replace_once(text, old_block, new_block, 'candidate-independent signal probe')
+
+          path.write_text(text, encoding='utf-8')
+          PY
+
+          python -m py_compile scripts/journal_monitor.py
+
+      - name: Verify GREEN focused suite
+        run: |
+          python -m unittest \
+            tests.test_association_announcements \
+            tests.test_econometric_society_signal \
+            tests.test_monitor_announcements \
+            -v
+
+      - name: Commit verified change and retire executor
+        shell: bash
+        run: |
+          rm .github/workflows/g03-first-party-signal-precedence-executor.yml
+          git config user.name academic-door-bot
+          git config user.email academic-door-bot@users.noreply.github.com
+          git add scripts/journal_monitor.py tests/test_association_announcements.py .github/workflows/g03-first-party-signal-precedence-executor.yml
+          git commit -m 'fix(freshness): let newer first-party signals outrank stale Crossref candidates'
+          git push origin HEAD:feat/g03-first-party-signal-precedence-20260916
