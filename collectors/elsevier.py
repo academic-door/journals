@@ -371,12 +371,15 @@ def fetch_elsevier_repec_history_issue(
         abstract_source = (
             "repec-publisher-supplied" if abstract else ""
         )
+        publisher_article_type = ""
         from collectors.metadata_fallback import _is_elsevier_identifier
 
         if not abstract and _is_elsevier_identifier(pii, doi):
             from collectors.metadata_fallback import _elsevier_lookup
 
             lookup = _elsevier_lookup(client, pii, doi=doi, timeout=timeout)
+            if str(lookup.get("article_type", "")).strip().casefold() == "editorial":
+                publisher_article_type = "editorial"
             fetched = str(lookup.get("abstract", "")).strip()
             if fetched:
                 abstract = fetched
@@ -405,7 +408,7 @@ def fetch_elsevier_repec_history_issue(
             "paper_id": f"doi:{doi}" if doi else f"pii:{pii}",
             "sequence": 0,
             "source_sequence": 0,
-            "article_type": (
+            "article_type": publisher_article_type or (
                 "comment" if no_abstract else _article_type(detail.get("title_en", entry["title_en"]))
             ),
             "title_en": detail.get("title_en", entry["title_en"]),
