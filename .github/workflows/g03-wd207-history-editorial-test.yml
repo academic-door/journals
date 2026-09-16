@@ -1,0 +1,25 @@
+name: G03 WD207 history editorial RED
+
+on:
+  push:
+    branches:
+      - fix/g03-wd207-history-editorial-20260916
+
+permissions:
+  contents: read
+
+jobs:
+  red:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r requirements.txt
+      - name: Run focused history publisher-type regressions
+        run: |
+          set -euo pipefail
+          python -m unittest tests.test_elsevier_history_publisher_type -v
+          python -m unittest tests.test_elsevier_publisher_type -v
+          git diff --check
