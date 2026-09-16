@@ -205,6 +205,61 @@ class ElsevierPublisherTypeTests(unittest.TestCase):
         )
         self.assertNotIn("abstract_en_incomplete", issue["quality"]["flags"])
 
+    def test_research_report_title_is_not_reclassified_as_editorial(self) -> None:
+        inventory = {
+            "volume": "207",
+            "issue": "C",
+            "year": "2026",
+            "items": [
+                {
+                    "pii": "S0305750X26002032",
+                    "title_en": "A report on rural productivity and household welfare",
+                },
+            ],
+        }
+        detail = {
+            "pii": "S0305750X26002032",
+            "title_en": "A report on rural productivity and household welfare",
+            "authors": ["Ada Lovelace"],
+            "abstract_en": "This study reports evidence from a household panel.",
+            "doi": "10.1016/j.worlddev.2026.107514",
+            "source_url": "https://www.sciencedirect.com/science/article/pii/S0305750X26002032",
+            "detail_url": "https://ideas.repec.org/a/eee/wdevel/example-report.html",
+        }
+        with (
+            patch("collectors.elsevier._session", return_value=SimpleNamespace()),
+            patch(
+                "collectors.elsevier._get",
+                side_effect=[
+                    SimpleNamespace(content=b"serial"),
+                    ElsevierCollectorError("publisher html blocked"),
+                ],
+            ),
+            patch("collectors.elsevier._parse_repec_inventory", return_value=inventory),
+            patch("collectors.elsevier._parse_repec_detail", return_value=detail),
+            patch("collectors.elsevier._crossref_issue_date", return_value="November 2026"),
+            patch("collectors.elsevier._publication_date_within_horizon", return_value=True),
+            patch("collectors.metadata_fallback._elsevier_lookup") as lookup,
+        ):
+            issue = fetch_current_issue(
+                journal_id="wd",
+                journal_name="World Development",
+                issn="0305-750X",
+                repec_series_url="https://ideas.repec.org/s/eee/wdevel.html",
+                issue_url_template="https://www.sciencedirect.com/journal/world-development/vol/{volume}/suppl/{issue}",
+                publication_lead_months=2,
+                expected_volume="207",
+                max_workers=1,
+            )
+
+        self.assertEqual(1, issue["research_article_count"])
+        self.assertEqual(
+            "A report on rural productivity and household welfare",
+            issue["articles"][0]["title_en"],
+        )
+        self.assertEqual(0, issue["quality"]["excluded_item_count"])
+        lookup.assert_not_called()
+
 
 if __name__ == "__main__":
     unittest.main()
