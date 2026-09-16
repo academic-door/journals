@@ -30,81 +30,70 @@ jobs:
           from pathlib import Path
 
           path = Path('collectors/elsevier.py')
-          text = path.read_text(encoding='utf-8')
+          lines = path.read_text(encoding='utf-8').splitlines()
 
-          source_anchor = '    source_rows = official_rows or details\n'
-          source_replacement = (
-              '    from collectors.metadata_fallback import _elsevier_lookup, _is_elsevier_identifier\n\n'
-              '    source_rows = official_rows or details\n'
-          )
-          if text.count(source_anchor) != 1:
-              raise SystemExit('source_rows anchor mismatch')
-          text = text.replace(source_anchor, source_replacement, 1)
+          source_line = '    source_rows = official_rows or details'
+          source_idx = lines.index(source_line)
+          lines[source_idx:source_idx] = [
+              '    from collectors.metadata_fallback import _elsevier_lookup, _is_elsevier_identifier',
+              '',
+          ]
 
-          old = '''        doi = enriched.get("doi", "")
-          authors = enriched.get("authors", [])
-          abstract = enriched.get("abstract_en", "")
-          flags: list[str] = []
-          '''
-          new = '''        doi = enriched.get("doi", "")
-          pii = enriched.get("pii", "")
-          authors = enriched.get("authors", [])
-          abstract = str(enriched.get("abstract_en", "")).strip()
-          article_type = str(enriched.get("article_type", "research-article"))
-          abstract_source = (
-              "official-sciencedirect-issue"
-              if official_rows and abstract
-              else "repec-publisher-supplied"
-              if abstract
-              else ""
-          )
+          doi_idx = lines.index('        doi = enriched.get("doi", "")', source_idx)
+          flags_idx = lines.index('        flags: list[str] = []', doi_idx)
+          replacement = [
+              '        doi = enriched.get("doi", "")',
+              '        pii = enriched.get("pii", "")',
+              '        authors = enriched.get("authors", [])',
+              '        abstract = str(enriched.get("abstract_en", "")).strip()',
+              '        article_type = str(enriched.get("article_type", "research-article"))',
+              '        abstract_source = (',
+              '            "official-sciencedirect-issue"',
+              '            if official_rows and abstract',
+              '            else "repec-publisher-supplied"',
+              '            if abstract',
+              '            else ""',
+              '        )',
+              '',
+              '        # RePEc can preserve the publisher roster while omitting both document',
+              '        # subtype and abstract. Only those incomplete fallback rows get this',
+              '        # bounded metadata lookup. An explicit publisher Editorial subtype is',
+              '        # exclusion evidence; unknown types remain research and fail closed on',
+              '        # the normal abstract gate. Roster and ordering authority do not change.',
+              '        if (',
+              '            not official_rows',
+              '            and not abstract',
+              '            and article_type != "comment"',
+              '            and _is_elsevier_identifier(str(pii), str(doi))',
+              '        ):',
+              '            lookup = _elsevier_lookup(session, str(pii), doi=str(doi), timeout=45)',
+              '            if str(lookup.get("article_type", "")).casefold() == "editorial":',
+              '                excluded.append(',
+              '                    {',
+              '                        "title_en": enriched.get("title_en", ""),',
+              '                        "reason": "editorial_material",',
+              '                        "doi": str(doi),',
+              '                        "article_type": "editorial",',
+              '                    }',
+              '                )',
+              '                continue',
+              '            fetched_abstract = str(lookup.get("abstract", "")).strip()',
+              '            if fetched_abstract:',
+              '                abstract = fetched_abstract',
+              '                abstract_source = str(lookup.get("source", "elsevier-api"))',
+              '',
+          ]
+          lines[doi_idx:flags_idx] = replacement
 
-          # RePEc can preserve the publisher roster while omitting both document
-          # subtype and abstract. Only those incomplete fallback rows get this
-          # bounded metadata lookup. An explicit publisher Editorial subtype is
-          # exclusion evidence; unknown types remain research and fail closed on
-          # the normal abstract gate. Roster and ordering authority do not change.
-          if (
-              not official_rows
-              and not abstract
-              and article_type != "comment"
-              and _is_elsevier_identifier(str(pii), str(doi))
-          ):
-              lookup = _elsevier_lookup(session, str(pii), doi=str(doi), timeout=45)
-              if str(lookup.get("article_type", "")).casefold() == "editorial":
-                  excluded.append(
-                      {
-                          "title_en": enriched.get("title_en", ""),
-                          "reason": "editorial_material",
-                          "doi": str(doi),
-                          "article_type": "editorial",
-                      }
-                  )
-                  continue
-              fetched_abstract = str(lookup.get("abstract", "")).strip()
-              if fetched_abstract:
-                  abstract = fetched_abstract
-                  abstract_source = str(lookup.get("source", "elsevier-api"))
+          article_type_line = '                "article_type": enriched.get("article_type", "research-article"),'
+          article_type_idx = lines.index(article_type_line, doi_idx)
+          lines[article_type_idx] = '                "article_type": article_type,'
 
-          flags: list[str] = []
-          '''
-          if text.count(old) != 1:
-              raise SystemExit('article block anchor mismatch')
-          text = text.replace(old, new, 1)
+          abstract_source_line = '                    "abstract_en": "official-sciencedirect-issue" if raw.get("abstract_en") else "repec-publisher-supplied",'
+          abstract_source_idx = lines.index(abstract_source_line, article_type_idx)
+          lines[abstract_source_idx] = '                    "abstract_en": abstract_source,'
 
-          old_type = '                "article_type": enriched.get("article_type", "research-article"),\n'
-          new_type = '                "article_type": article_type,\n'
-          if text.count(old_type) != 1:
-              raise SystemExit('article_type output anchor mismatch')
-          text = text.replace(old_type, new_type, 1)
-
-          old_source = '                    "abstract_en": "official-sciencedirect-issue" if raw.get("abstract_en") else "repec-publisher-supplied",\n'
-          new_source = '                    "abstract_en": abstract_source,\n'
-          if text.count(old_source) != 1:
-              raise SystemExit('abstract source anchor mismatch')
-          text = text.replace(old_source, new_source, 1)
-
-          path.write_text(text, encoding='utf-8')
+          path.write_text('\n'.join(lines) + '\n', encoding='utf-8')
           PY
       - name: Verify narrowed GREEN and focused baselines
         run: |
