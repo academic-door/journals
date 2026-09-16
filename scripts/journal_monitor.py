@@ -367,6 +367,41 @@ def _candidate_payload(candidate: Candidate) -> dict[str, Any]:
     }
 
 
+def _official_rss_announcement(
+    journal_id: str,
+    candidate: Candidate | None,
+    source_url: str,
+    observed_at: str,
+) -> dict[str, Any] | None:
+    """Build issue-existence evidence only from first-party RSS corroboration."""
+
+    if not candidate or not source_url or not candidate.publication_date:
+        return None
+    volume = candidate.volume.strip()
+    issue = candidate.issue.strip()
+    if not volume or not issue:
+        return None
+    token = lambda value: re.sub(r"[^a-z0-9]+", "-", value.casefold()).strip("-")
+    volume_token = token(volume)
+    issue_token = token(issue)
+    if not volume_token or not issue_token:
+        return None
+    return {
+        "schema_version": "1.0",
+        "journal_id": journal_id,
+        "issue_id": f"{journal_id}-{volume_token}-{issue_token}",
+        "volume": volume,
+        "issue": issue,
+        "issue_label": f"Vol. {volume} · No. {issue}",
+        "publication_date": candidate.publication_date,
+        "publication_state": "announced",
+        "source_authority": "first_party",
+        "source_kind": "official_rss",
+        "source_url": source_url,
+        "observed_at": observed_at,
+    }
+
+
 def evaluate_observation(
     candidate: Candidate | None,
     baseline: dict[str, Any],
@@ -543,6 +578,15 @@ def detect_all(
                         else ""
                     ),
                 }
+                if "official_rss" in observation.get("evidence", []):
+                    announcement = _official_rss_announcement(
+                        config["id"],
+                        candidate,
+                        str(config.get("rss_url", "")),
+                        checked_at,
+                    )
+                    if announcement:
+                        entry["announcement"] = announcement
                 if _awaiting_status(previous, same_deep_candidate):
                     # A light probe re-confirming the same Crossref candidate
                     # does not change the fact that we are still waiting for
