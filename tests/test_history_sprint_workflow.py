@@ -55,6 +55,26 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         self.assertIn("Official evidence not found for", workflow)
         self.assertIn("ELSEVIER_API_KEY", workflow)
 
+    def test_evidence_only_dispatch_publishes_without_recovery_shards(self) -> None:
+        workflow = self.workflow()
+        publish = workflow.index("  publish:")
+        composer = workflow.index("  composer:", publish)
+        publish_block = workflow[publish:composer]
+        evidence_only = "inputs.evidence_issue_ids != ''"
+        shard_work = "inputs.source_run_id != '' || needs.collect.result != 'skipped'"
+        self.assertIn(
+            f"if: always() && ({evidence_only} || {shard_work})",
+            publish_block,
+        )
+        for step in (
+            "Download all isolated shards",
+            "Exclude prior final reports from shard merge",
+            "Merge shard changes into the latest data baseline",
+        ):
+            start = publish_block.index(f"- name: {step}")
+            window = publish_block[start : start + 260]
+            self.assertIn(f"if: {shard_work}", window)
+
     def test_uses_exact_short_shards_and_publishes_successful_partial_results(self) -> None:
         workflow = self.workflow()
         self.assertIn("python scripts/build_recovery_queue.py", workflow)
