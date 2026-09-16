@@ -974,13 +974,15 @@ def run_deep_updates(
     result: dict[str, Any],
     *,
     translate: bool,
+    force_journals: set[str] | None = None,
 ) -> int:
     update_results: list[dict[str, Any]] = []
     failure_total = 0
+    forced = force_journals or set()
     for key in confirmed:
         entry = state["journals"][key]
         next_retry_text = str(entry.get("next_deep_retry_at", ""))
-        if next_retry_text:
+        if next_retry_text and key not in forced:
             try:
                 next_retry = datetime.fromisoformat(next_retry_text)
             except ValueError:
@@ -1209,6 +1211,16 @@ def main() -> int:
     parser.add_argument("--run-updates", action="store_true")
     parser.add_argument("--translate", action="store_true")
     parser.add_argument(
+        "--force-deep-journal",
+        action="append",
+        default=[],
+        metavar="JOURNAL",
+        help=(
+            "Bypass the stored deep retry window for this journal key on an "
+            "explicit update run. Repeat for multiple journals."
+        ),
+    )
+    parser.add_argument(
         "--strict",
         action="store_true",
         help="Return a failing exit code when a deep update cannot replace the baseline.",
@@ -1216,6 +1228,19 @@ def main() -> int:
     args = parser.parse_args()
 
     config = yaml.safe_load(CONFIG_PATH.read_text(encoding="utf-8"))["journals"]
+    force_journals = {
+        str(key).strip().upper()
+        for key in args.force_deep_journal
+        if str(key).strip()
+    }
+    unknown_force_journals = sorted(force_journals - set(config))
+    if unknown_force_journals:
+        parser.error(
+            "unknown --force-deep-journal key(s): "
+            + ", ".join(unknown_force_journals)
+        )
+    if force_journals and not args.run_updates:
+        parser.error("--force-deep-journal requires --run-updates")
     state = read_json(args.state) or {
         "schema_version": "1.0",
         "journals": {},
@@ -1228,6 +1253,7 @@ def main() -> int:
             next_state,
             result,
             translate=args.translate,
+            force_journals=force_journals,
         )
     write_json(args.state, next_state)
     write_json(args.result, result)
