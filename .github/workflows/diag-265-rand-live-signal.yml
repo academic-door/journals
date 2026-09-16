@@ -1,4 +1,4 @@
-name: Diagnose RAND Wiley live signal
+name: Diagnose publisher freshness transports
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: python -m pip install -r requirements.txt
-      - name: Inspect bounded first-party signals
+      - name: Probe representative first-party sources
         shell: bash
         run: |
           python - <<'PY'
@@ -28,62 +28,46 @@ jobs:
           from urllib.parse import urlparse
           import requests
           from bs4 import BeautifulSoup
-          from collectors.wiley import parse_latest_issue_signal
-          from scripts.journal_monitor import fetch_official_issue_signal, fetch_rss_dois
 
-          landing = "https://onlinelibrary.wiley.com/journal/17562171"
-          feed = "https://onlinelibrary.wiley.com/feed/17562171/most-recent"
+          sources = {
+              "aea_aer_current": "https://www.aeaweb.org/journals/aer/current-issue",
+              "chicago_jpe_rss": "https://www.journals.uchicago.edu/action/showFeed?type=etoc&feed=rss&jc=jpe",
+              "oup_qje_rss": "https://academic.oup.com/rss/site_5504/3365.xml",
+              "wiley_rand_rss": "https://onlinelibrary.wiley.com/feed/17562171/most-recent",
+              "elsevier_jue_issues": "https://www.sciencedirect.com/journal/journal-of-urban-economics/issues",
+              "cambridge_jeh_latest": "https://www.cambridge.org/core/journals/journal-of-economic-history/latest-issue",
+              "mit_restat_issue": "https://direct.mit.edu/rest/issue",
+              "wisconsin_landecon_current": "https://le.uwpress.org/content/current",
+              "springer_ere_issues": "https://link.springer.com/journal/10640/volumes-and-issues",
+          }
           headers = {
               "User-Agent": "AcademicDoorJournals/0.1 (non-profit academic metadata service; https://academic-door.github.io/)",
+              "Accept": "text/html,application/xhtml+xml,application/rss+xml,application/xml,text/xml,*/*",
               "Accept-Language": "en-US,en;q=0.8",
           }
-          out = {"landing_url": landing, "feed_url": feed}
-
-          for label, url, accept in (
-              ("landing", landing, "text/html,application/xhtml+xml"),
-              ("feed", feed, "application/rss+xml,application/xml,text/xml,*/*"),
-          ):
+          challenge_markers = (
+              "just a moment", "verify you are human", "enable javascript and cookies",
+              "access denied", "cf-chl-", "challenge-form",
+          )
+          out = {}
+          for name, url in sources.items():
+              result = {"url": url}
               try:
-                  response = requests.get(
-                      url,
-                      headers={**headers, "Accept": accept},
-                      timeout=30,
-                      allow_redirects=True,
-                  )
-                  out[f"{label}_status"] = response.status_code
-                  out[f"{label}_resolved_host"] = urlparse(response.url).hostname
-                  out[f"{label}_resolved_path"] = urlparse(response.url).path
-                  out[f"{label}_content_length"] = len(response.content)
-                  out[f"{label}_content_type"] = response.headers.get("Content-Type", "")[:120]
-                  soup = BeautifulSoup(response.content, "html.parser")
-                  out[f"{label}_title"] = soup.title.get_text(" ", strip=True)[:160] if soup.title else ""
-                  if label == "landing":
-                      headings = [h.get_text(" ", strip=True) for h in soup.find_all(["h2", "h3", "h4"])]
-                      out["landing_recent_issue_heading_count"] = sum(1 for h in headings if "recent issues" in h.casefold())
-                      out["landing_toc_link_count"] = len(soup.select("a[href*='/toc/']"))
-                      try:
-                          out["landing_direct_parse"] = parse_latest_issue_signal(response.content, landing)
-                      except Exception as exc:
-                          out["landing_direct_parse_error"] = f"{type(exc).__name__}: {exc}"
+                  r = requests.get(url, headers=headers, timeout=30, allow_redirects=True)
+                  sample = r.content[:30000].decode("utf-8", errors="ignore").casefold()
+                  soup = BeautifulSoup(r.content, "html.parser")
+                  result.update({
+                      "status": r.status_code,
+                      "resolved_host": urlparse(r.url).hostname,
+                      "resolved_path": urlparse(r.url).path,
+                      "content_type": r.headers.get("Content-Type", "")[:100],
+                      "content_length": len(r.content),
+                      "title": soup.title.get_text(" ", strip=True)[:120] if soup.title else "",
+                      "challenge": any(marker in sample for marker in challenge_markers),
+                      "doi_token_count": sample.count("10."),
+                  })
               except Exception as exc:
-                  out[f"{label}_request_error"] = f"{type(exc).__name__}: {exc}"
-
-          try:
-              out["production_landing_fetch"] = fetch_official_issue_signal({
-                  "id": "rand",
-                  "announcement_source": "wiley_recent_issues",
-                  "announcement_url": landing,
-              })
-          except Exception as exc:
-              out["production_landing_fetch_error"] = f"{type(exc).__name__}: {exc}"
-
-          try:
-              dois = sorted(fetch_rss_dois(feed))
-              out["production_feed_doi_count"] = len(dois)
-              out["production_feed_doi_sample"] = dois[:5]
-              out["production_feed_has_rand_57_3"] = any(doi.startswith("10.1111/1756-2171.700") for doi in dois)
-          except Exception as exc:
-              out["production_feed_error"] = f"{type(exc).__name__}: {exc}"
-
+                  result["error"] = f"{type(exc).__name__}: {exc}"
+              out[name] = result
           print(json.dumps(out, ensure_ascii=False, sort_keys=True))
           PY
