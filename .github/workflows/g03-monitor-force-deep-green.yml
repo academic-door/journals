@@ -119,41 +119,43 @@ jobs:
           monitor.write_text(text, encoding='utf-8')
 
           workflow = Path('.github/workflows/monitor-journals.yml')
-          text = workflow.read_text(encoding='utf-8')
-          old = '''  workflow_dispatch:
-          '''
-          new = '''  workflow_dispatch:
-              inputs:
-                force_deep_journals:
-                  description: "Comma-separated journal keys whose stored deep retry windows should be bypassed"
-                  required: false
-                  default: ""
-                  type: string
-          '''
-          if old not in text:
-              raise SystemExit('workflow dispatch anchor not found')
-          text = text.replace(old, new, 1)
-          old = '''          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-                run: |
-                  python scripts/journal_monitor.py --run-updates --translate
-          '''
-          new = '''          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-                  FORCE_DEEP_JOURNALS: ${{ inputs.force_deep_journals }}
-                run: |
-                  args=(--run-updates --translate)
-                  IFS=',' read -ra forced <<< "${FORCE_DEEP_JOURNALS:-}"
-                  for journal in "${forced[@]}"; do
-                    journal="$(printf '%s' "$journal" | tr -d '[:space:]')"
-                    if [ -n "$journal" ]; then
-                      args+=(--force-deep-journal "$journal")
-                    fi
-                  done
-                  python scripts/journal_monitor.py "${args[@]}"
-          '''
-          if old not in text:
-              raise SystemExit('workflow run anchor not found')
-          text = text.replace(old, new, 1)
-          workflow.write_text(text, encoding='utf-8')
+          lines = workflow.read_text(encoding='utf-8').splitlines()
+          dispatch_idx = lines.index('  workflow_dispatch:')
+          lines[dispatch_idx:dispatch_idx + 1] = [
+              '  workflow_dispatch:',
+              '    inputs:',
+              '      force_deep_journals:',
+              '        description: "Comma-separated journal keys whose stored deep retry windows should be bypassed"',
+              '        required: false',
+              '        default: ""',
+              '        type: string',
+          ]
+          detect_idx = lines.index('      - name: Detect changes and update confirmed journals')
+          deepseek_idx = next(
+              i for i in range(detect_idx, len(lines))
+              if lines[i].startswith('          DEEPSEEK_API_KEY:')
+          )
+          lines.insert(
+              deepseek_idx + 1,
+              '          FORCE_DEEP_JOURNALS: $' + '{{ inputs.force_deep_journals }}',
+          )
+          run_idx = lines.index('        run: |', deepseek_idx)
+          command_idx = lines.index(
+              '          python scripts/journal_monitor.py --run-updates --translate',
+              run_idx,
+          )
+          lines[command_idx:command_idx + 1] = [
+              '          args=(--run-updates --translate)',
+              '          IFS=\',\' read -ra forced <<< "${FORCE_DEEP_JOURNALS:-}"',
+              '          for journal in "${forced[@]}"; do',
+              '            journal="$(printf \'%s\' "$journal" | tr -d \'[:space:]\')"',
+              '            if [ -n "$journal" ]; then',
+              '              args+=(--force-deep-journal "$journal")',
+              '            fi',
+              '          done',
+              '          python scripts/journal_monitor.py "${args[@]}"',
+          ]
+          workflow.write_text('\n'.join(lines) + '\n', encoding='utf-8')
           PY
       - name: Verify GREEN and focused monitor regressions
         run: |
