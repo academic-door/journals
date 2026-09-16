@@ -1,4 +1,4 @@
-name: Diagnose OUP freshness feeds
+name: Verify OUP freshness feeds
 
 on:
   push:
@@ -20,45 +20,53 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: python -m pip install -r requirements.txt
-      - name: Discover official OUP feed links
+      - name: Verify exact official OUP RSS endpoints
         shell: bash
         run: |
           python - <<'PY'
           import json
-          from urllib.parse import urljoin, urlparse
+          import re
+          from urllib.parse import urlparse
           import requests
-          from bs4 import BeautifulSoup
 
-          pages = {
-              "EJ": "https://academic.oup.com/ej/issue",
-              "JEEA": "https://academic.oup.com/jeea/issue",
-              "RFS": "https://academic.oup.com/rfs/issue",
-              "QJE": "https://academic.oup.com/qje/issue",
-              "RES": "https://academic.oup.com/restud/issue",
+          feeds = {
+              "EJ": "https://academic.oup.com/rss/site_6182/4014.xml",
+              "JEEA": "https://academic.oup.com/rss/site_5571/3427.xml",
+              "RFS": "https://academic.oup.com/rss/site_5511/3372.xml",
+              "QJE_CONTROL": "https://academic.oup.com/rss/site_5504/3365.xml",
+              "RES_CONTROL": "https://academic.oup.com/rss/site_5508/3369.xml",
           }
           headers = {
               "User-Agent": "AcademicDoorJournals/0.1 (non-profit academic metadata service; https://academic-door.github.io/)",
-              "Accept": "text/html,application/xhtml+xml",
+              "Accept": "application/rss+xml,application/xml,text/xml,*/*",
               "Accept-Language": "en-US,en;q=0.8",
           }
+          doi_re = re.compile(r"10\.1093/[A-Za-z0-9._;()/:-]+", re.I)
           out = {}
-          for journal, url in pages.items():
-              r = requests.get(url, headers=headers, timeout=30, allow_redirects=True)
-              soup = BeautifulSoup(r.content, "html.parser")
-              links = []
-              for node in soup.find_all(["a", "link"], href=True):
-                  href = str(node.get("href", ""))
-                  typ = str(node.get("type", ""))
-                  text = node.get_text(" ", strip=True)
-                  if "rss" in href.casefold() or "rss" in typ.casefold() or "rss" in text.casefold():
-                      absolute = urljoin(r.url, href)
-                      if urlparse(absolute).hostname == "academic.oup.com" and absolute not in links:
-                          links.append(absolute)
-              out[journal] = {
-                  "status": r.status_code,
-                  "resolved_url": r.url,
-                  "title": soup.title.get_text(" ", strip=True)[:120] if soup.title else "",
-                  "rss_links": links[:20],
-              }
+          failures = []
+          for journal, url in feeds.items():
+              result = {"url": url}
+              try:
+                  r = requests.get(url, headers=headers, timeout=30, allow_redirects=True)
+                  text = r.text
+                  dois = sorted({m.group(0).rstrip(".,;</") for m in doi_re.finditer(text)})
+                  result.update({
+                      "status": r.status_code,
+                      "resolved_host": urlparse(r.url).hostname,
+                      "resolved_path": urlparse(r.url).path,
+                      "content_type": r.headers.get("Content-Type", "")[:100],
+                      "content_length": len(r.content),
+                      "doi_count": len(dois),
+                      "doi_sample": dois[:3],
+                      "has_rss_or_feed": any(token in text.casefold() for token in ("<rss", "<feed", "<rdf:rdf")),
+                  })
+                  if r.status_code != 200 or urlparse(r.url).hostname != "academic.oup.com" or not result["has_rss_or_feed"] or not dois:
+                      failures.append(journal)
+              except Exception as exc:
+                  result["error"] = f"{type(exc).__name__}: {exc}"
+                  failures.append(journal)
+              out[journal] = result
           print(json.dumps(out, ensure_ascii=False, sort_keys=True))
+          if failures:
+              raise SystemExit(f"OUP feed verification failed: {failures}")
           PY
