@@ -1,17 +1,23 @@
 from pathlib import Path
 import subprocess
 
-subprocess.run(
-    ["git", "fetch", "origin", "main", "--depth=1"],
-    check=True,
-)
-base = subprocess.check_output(
-    ["git", "show", "FETCH_HEAD:scripts/translate_issue.py"]
-)
-nl = "\r\n" if b"\r\n" in base else "\n"
+subprocess.run(["git", "fetch", "origin", "main", "--depth=1"], check=True)
+base = subprocess.check_output(["git", "show", "FETCH_HEAD:scripts/translate_issue.py"])
 text = base.decode("utf-8")
 
+
+def local_newline(position: int) -> str:
+    before = text.rfind("\n", 0, position)
+    if before > 0 and text[before - 1] == "\r":
+        return "\r\n"
+    after = text.find("\n", position)
+    if after > 0 and text[after - 1] == "\r":
+        return "\r\n"
+    return "\n"
+
+
 insertion_point = text.index("_EN_NUMBER_UNIT_RE = re.compile(")
+nl1 = local_newline(insertion_point)
 block = '''_EN_ORDINAL_BASE_VALUES = {
     "first": 1, "second": 2, "third": 3, "fourth": 4, "fifth": 5,
     "sixth": 6, "seventh": 7, "eighth": 8, "ninth": 9, "tenth": 10,
@@ -54,13 +60,12 @@ def _english_temporal_ordinal_value(word: str) -> int | None:
     return None
 
 
-'''.replace("\n", nl)
+'''.replace("\n", nl1)
 text = text[:insertion_point] + block + text[insertion_point:]
 
-semantic_marker = (
-    '    # Mathematical "unity" denotes numeric 1 only in explicit comparator/relation contexts.'
-    + nl
-)
+semantic_anchor = '    # Mathematical "unity" denotes numeric 1 only in explicit comparator/relation contexts.'
+semantic_pos = text.index(semantic_anchor)
+nl2 = local_newline(semantic_pos)
 semantic_block = '''    # Temporal ordinals are quantitative horizons. Canonicalize only when an
     # English ordinal directly modifies an explicit time unit, so a natural Chinese
     # rendering such as "第30年" remains numerically auditable rather than exempt.
@@ -72,8 +77,17 @@ semantic_block = '''    # Temporal ordinals are quantitative horizons. Canonical
         if ordinal_value is not None:
             record(_quantity_token(ordinal_value), span)
 
-'''.replace("\n", nl)
-if text.count(semantic_marker) != 1:
-    raise SystemExit("semantic insertion marker mismatch")
-text = text.replace(semantic_marker, semantic_block + semantic_marker, 1)
+'''.replace("\n", nl2)
+text = text[:semantic_pos] + semantic_block + text[semantic_pos:]
 Path("scripts/translate_issue.py").write_bytes(text.encode("utf-8"))
+
+numstat = subprocess.check_output(
+    ["git", "diff", "--numstat", "--", "scripts/translate_issue.py"],
+    text=True,
+).strip()
+if not numstat:
+    raise SystemExit("expected translate_issue.py diff")
+added, deleted, _path = numstat.split("\t", 2)
+if int(added) > 100 or int(deleted) > 5:
+    raise SystemExit(f"unexpected diff size: +{added}/-{deleted}")
+print(f"translate_issue.py diff guard: +{added}/-{deleted}")
