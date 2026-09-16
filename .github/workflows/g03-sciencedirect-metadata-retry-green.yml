@@ -1,0 +1,94 @@
+name: G03 ScienceDirect metadata retry GREEN
+
+on:
+  push:
+    branches:
+      - fix/g03-sciencedirect-metadata-retry-20260916
+
+permissions:
+  contents: write
+
+jobs:
+  green:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: fix/g03-sciencedirect-metadata-retry-20260916
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Patch bounded transient retries
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("scripts/build_sciencedirect_browser_archives.py")
+          text = path.read_text(encoding="utf-8")
+          old = '''        for attempt in range(3):
+              response = worker_session.get(
+                  f"{ELSEVIER_ARTICLE_API}/pii/{pii}",
+                  params={"view": "META_ABS", "httpAccept": "application/xml"},
+                  headers=headers,
+                  timeout=min(timeout, 30),
+              )
+              if response.status_code != 429:
+                  break
+              retry_after = response.headers.get("Retry-After", "5")
+              try:
+                  delay = min(30, max(2, int(retry_after)))
+              except ValueError:
+                  delay = 5
+              time.sleep(min(20, delay * (attempt + 1)))
+          '''
+          new = '''        for attempt in range(3):
+              try:
+                  response = worker_session.get(
+                      f"{ELSEVIER_ARTICLE_API}/pii/{pii}",
+                      params={"view": "META_ABS", "httpAccept": "application/xml"},
+                      headers=headers,
+                      timeout=min(timeout, 30),
+                  )
+              except (requests.Timeout, requests.ConnectionError):
+                  if attempt == 2:
+                      raise
+                  time.sleep(min(10, 2 ** (attempt + 1)))
+                  continue
+              retryable_status = response.status_code == 429 or 500 <= response.status_code < 600
+              if not retryable_status:
+                  break
+              if attempt == 2:
+                  break
+              if response.status_code == 429:
+                  retry_after = response.headers.get("Retry-After", "5")
+                  try:
+                      delay = min(30, max(2, int(retry_after)))
+                  except ValueError:
+                      delay = 5
+                  time.sleep(min(20, delay * (attempt + 1)))
+              else:
+                  time.sleep(min(10, 2 ** (attempt + 1)))
+          '''
+          if text.count(old) != 1:
+              raise SystemExit(f"retry loop anchor count={text.count(old)}")
+          path.write_text(text.replace(old, new, 1), encoding="utf-8")
+          PY
+      - name: Verify focused retry contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install -r requirements.txt
+          python -m unittest discover -s tests -p 'test_sciencedirect_browser_archive_metadata.py' -v
+          python -m unittest discover -s tests -p 'test_sciencedirect_archive_titles.py' -v
+          git diff --check
+      - name: Commit permanent GREEN
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "academic-door-bot"
+          git config user.email "academic-door-bot@users.noreply.github.com"
+          git add scripts/build_sciencedirect_browser_archives.py
+          git commit -m "fix(history): retry transient Elsevier metadata failures"
+          git push origin HEAD:fix/g03-sciencedirect-metadata-retry-20260916
