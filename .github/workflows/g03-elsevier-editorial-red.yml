@@ -1,0 +1,50 @@
+name: G03 Elsevier editorial RED
+
+on:
+  push:
+    branches:
+      - fix/g03-elsevier-editorial-type-20260916
+
+permissions:
+  contents: write
+
+jobs:
+  red:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: fix/g03-elsevier-editorial-type-20260916
+          fetch-depth: 1
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Verify new regressions fail for the intended missing behavior
+        shell: bash
+        run: |
+          set +e
+          python -m unittest tests.test_elsevier_publisher_type -v 2>&1 | tee /tmp/red.log
+          status=${PIPESTATUS[0]}
+          set -e
+          if [ "$status" -eq 0 ]; then
+            echo "Expected RED failure, but regression suite passed."
+            exit 1
+          fi
+          grep -q "test_elsevier_lookup_exposes_publisher_editorial_type" /tmp/red.log
+          grep -q "test_repec_fallback_excludes_publisher_classified_editorial" /tmp/red.log
+          grep -q "test_repec_fallback_uses_publisher_abstract_when_available" /tmp/red.log
+          if grep -Eq "ImportError|ModuleNotFoundError|SyntaxError" /tmp/red.log; then
+            echo "RED failed for test infrastructure rather than missing behavior."
+            exit 1
+          fi
+          echo "Expected RED confirmed."
+      - name: Retire temporary RED workflow
+        if: always()
+        run: |
+          git config user.name academic-door-bot
+          git config user.email academic-door-bot@users.noreply.github.com
+          git rm .github/workflows/g03-elsevier-editorial-red.yml
+          git commit -m 'chore: retire G03 Elsevier editorial RED'
+          git push origin HEAD:fix/g03-elsevier-editorial-type-20260916
