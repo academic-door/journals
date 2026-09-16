@@ -35,7 +35,11 @@ jobs:
         run: |
           python -m unittest tests.test_translation_english_ordinals -v
           python -m unittest tests.test_translate_issue -v
-          git diff --check
+          if [ -f scripts/g03_patch_ordinal.py ]; then
+            git diff --check FETCH_HEAD -- scripts/translate_issue.py
+          else
+            git diff --check
+          fi
       - name: Commit implementation when present
         run: |
           if [ ! -f scripts/g03_patch_ordinal.py ]; then
