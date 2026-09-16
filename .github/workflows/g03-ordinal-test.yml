@@ -22,6 +22,15 @@ jobs:
           if [ -f scripts/g03_patch_ordinal.py ]; then
             python scripts/g03_patch_ordinal.py
           fi
+      - name: Diagnose ordinal parsing
+        run: |
+          python - <<'PY'
+          from scripts.translate_issue import _EN_TEMPORAL_ORDINAL_RE, resolve_semantic_quantities
+          source = "Adoption accelerates after the tenth year and differs by the thirtieth year (24% of farms)."
+          translated = "采用率在第10年后加速，并在第30年呈现差异（24%的农场）。"
+          print("ordinal_matches=", [m.group("ordinal") for m in _EN_TEMPORAL_ORDINAL_RE.finditer(source)])
+          print("resolved=", resolve_semantic_quantities(source, translated))
+          PY
       - name: Verify regressions
         run: |
           python -m unittest tests.test_translation_english_ordinals -v
