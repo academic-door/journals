@@ -131,9 +131,10 @@ def _normalize_authors(value: str) -> list[str]:
 
 
 def _article_type(title: str, raw_type: str = "") -> str:
-    from collectors.article_types import canonical_article_type
-
-    return canonical_article_type(title, raw_type=raw_type)
+    combined = f"{raw_type} {title}"
+    if re.search(r"\bcomment\b|\breply\b|\bdiscussion\b", combined, re.IGNORECASE):
+        return "comment"
+    return "research-article"
 
 
 def _source_pii(value: str) -> str:
@@ -758,6 +759,8 @@ def fetch_current_issue(
     except ElsevierCollectorError as error:
         official_error = str(error)
 
+    from collectors.metadata_fallback import _elsevier_lookup, _is_elsevier_identifier
+
     source_rows = official_rows or details
     order_override_applied = False
     if not official_rows:
@@ -777,27 +780,24 @@ def fetch_current_issue(
                     key=lambda row: rank.get(row.get("pii", "").upper(), len(rank) + details.index(row)),
                 )
                 order_override_applied = True
-    from collectors.article_types import (
-        canonical_article_type,
-        exclusion_reason,
-        is_publishable_type,
-        requires_abstract,
-    )
-    from collectors.metadata_fallback import _elsevier_lookup, _is_elsevier_identifier
-
     articles: list[dict[str, Any]] = []
     excluded: list[dict[str, str]] = []
     for source_sequence, raw in enumerate(source_rows, start=1):
         enriched = {**detail_by_pii.get(raw.get("pii", ""), {}), **raw}
-        title = str(enriched.get("title_en", ""))
-        doi = str(enriched.get("doi", ""))
-        pii = str(enriched.get("pii", ""))
+        if NON_RESEARCH_PATTERN.search(enriched.get("title_en", "")):
+            excluded.append(
+                {
+                    "title_en": enriched.get("title_en", ""),
+                    "reason": "non_research_title",
+                    "doi": enriched.get("doi", ""),
+                }
+            )
+            continue
+        doi = enriched.get("doi", "")
+        pii = enriched.get("pii", "")
         authors = enriched.get("authors", [])
         abstract = str(enriched.get("abstract_en", "")).strip()
-        article_type = canonical_article_type(
-            title,
-            str(enriched.get("article_type", "")),
-        )
+        article_type = str(enriched.get("article_type", "research-article"))
         abstract_source = (
             "official-sciencedirect-issue"
             if official_rows and abstract
@@ -806,73 +806,60 @@ def fetch_current_issue(
             else ""
         )
 
-        # RePEc mirrors publisher rosters but can omit publisher document type
-        # and abstracts. Only incomplete fallback rows need the bounded Elsevier
-        # metadata lookup; it may recover a real research abstract or identify
-        # publisher-declared editorial material. Neither result changes roster
-        # or ordering authority.
+        # RePEc can preserve the publisher roster while omitting both document
+        # subtype and abstract. Only those incomplete fallback rows get this
+        # bounded metadata lookup. An explicit publisher Editorial subtype is
+        # exclusion evidence; unknown types remain research and fail closed on
+        # the normal abstract gate. Roster and ordering authority do not change.
         if (
             not official_rows
             and not abstract
-            and _is_elsevier_identifier(pii, doi)
+            and article_type != "comment"
+            and _is_elsevier_identifier(str(pii), str(doi))
         ):
-            lookup = _elsevier_lookup(session, pii, doi=doi, timeout=45)
-            publisher_type = str(lookup.get("article_type", ""))
-            if publisher_type:
-                article_type = canonical_article_type(title, publisher_type)
+            lookup = _elsevier_lookup(session, str(pii), doi=str(doi), timeout=45)
+            if str(lookup.get("article_type", "")).casefold() == "editorial":
+                excluded.append(
+                    {
+                        "title_en": enriched.get("title_en", ""),
+                        "reason": "editorial_material",
+                        "doi": str(doi),
+                        "article_type": "editorial",
+                    }
+                )
+                continue
             fetched_abstract = str(lookup.get("abstract", "")).strip()
             if fetched_abstract:
                 abstract = fetched_abstract
                 abstract_source = str(lookup.get("source", "elsevier-api"))
-
-        # Apply the shared taxonomy to title evidence too, then exclude any
-        # publisher-confirmed non-publishable material before completeness
-        # counts are computed.
-        article_type = canonical_article_type(title, article_type)
-        if not is_publishable_type(article_type):
-            excluded.append(
-                {
-                    "title_en": title,
-                    "reason": exclusion_reason(article_type),
-                    "doi": doi,
-                    "article_type": article_type,
-                }
-            )
-            continue
 
         flags: list[str] = []
         if not doi:
             flags.append("doi_missing")
         if not authors:
             flags.append("authors_missing")
-        if not abstract and requires_abstract(article_type):
+        if not abstract:
             flags.append("abstract_en_missing")
         flags.extend(["title_cn_missing", "abstract_cn_missing"])
         sequence = len(articles) + 1
         articles.append(
             {
-                "paper_id": f"doi:{doi}" if doi else f"pii:{pii or sequence}",
+                "paper_id": f"doi:{doi}" if doi else f"pii:{enriched.get('pii', sequence)}",
                 "sequence": sequence,
                 "source_sequence": source_sequence,
                 "article_type": article_type,
-                "title_en": title,
+                "title_en": enriched.get("title_en", ""),
                 "title_cn": "",
                 "authors": authors,
                 "abstract_en": abstract,
                 "abstract_cn": "",
                 "doi": doi,
-                "source_url": enriched.get("source_url")
-                or _official_article_url(pii, enriched.get("detail_url", "")),
+                "source_url": enriched.get("source_url") or _official_article_url(enriched.get("pii", ""), enriched.get("detail_url", "")),
                 "publication_date": inventory["year"],
                 "sources": {
                     "issue": official_issue_url,
-                    "roster": (
-                        "official-sciencedirect-issue"
-                        if official_rows
-                        else "repec-publisher-supplied"
-                    ),
-                    "metadata": enriched.get("detail_url", "")
-                    or "official-sciencedirect-issue",
+                    "roster": "official-sciencedirect-issue" if official_rows else "repec-publisher-supplied",
+                    "metadata": enriched.get("detail_url", "") or "official-sciencedirect-issue",
                     "abstract_en": abstract_source,
                 },
                 "translation": {
@@ -900,8 +887,7 @@ def fetch_current_issue(
         else:
             quality_flags.append("official_order_unverified")
     required_abstract_count = sum(
-        requires_abstract(str(article.get("article_type", "")))
-        for article in articles
+        article["article_type"] != "comment" for article in articles
     )
     if (
         sum(bool(article["abstract_en"]) for article in articles)
