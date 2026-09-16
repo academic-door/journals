@@ -1,4 +1,4 @@
-name: G03 title numeric suffix RED
+name: G03 title numeric suffix GREEN
 
 on:
   push:
@@ -6,21 +6,78 @@ on:
       - fix/g03-sciencedirect-title-cosmetic-20260916
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  red:
+  green:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          ref: fix/g03-sciencedirect-title-cosmetic-20260916
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-      - run: python -m pip install -r requirements.txt
+      - name: Patch metadata title marker cleanup
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("scripts/build_sciencedirect_browser_archives.py")
+          text = path.read_text(encoding="utf-8")
+          old = '''    text = re.split(
+              r"\\b(?:funding information|acknowledg(?:e)?ments?|declaration of interest|"
+              r"credit authorship contribution statement)\\s*:",
+              text,
+              maxsplit=1,
+              flags=re.IGNORECASE,
+          )[0]
+          # Some Article API responses place a standalone affiliation/reference
+          # marker between the title and the metadata note (for example ``1``
+          # before ``Funding information``).  It is presentation metadata, not
+          # part of the article title.  Restrict this to trailing digit-only
+          # lines so legitimate numeric titles remain unchanged.
+          text = re.sub(r"(?:\\s+\\d+)+\\s*$", "", text)
+          return text
+          '''
+          new = '''    parts = re.split(
+              r"\\b(?:funding information|acknowledg(?:e)?ments?|declaration of interest|"
+              r"credit authorship contribution statement)\\s*:",
+              text,
+              maxsplit=1,
+              flags=re.IGNORECASE,
+          )
+          text = parts[0]
+          # Some Article API responses place a standalone affiliation/reference
+          # marker between the title and a metadata note (for example ``1`` on
+          # its own line before ``Funding information``).  Only remove such
+          # digit-only lines when a recognized metadata note was actually split;
+          # a legitimate numeric title suffix such as a year must be preserved.
+          if len(parts) > 1:
+              text = re.sub(r"(?:\\r?\\n[ \\t]*\\d+[ \\t]*)+\\s*$", "", text).rstrip()
+          return text
+          '''
+          if text.count(old) != 1:
+              raise SystemExit(f"metadata title cleanup anchor count={text.count(old)}")
+          path.write_text(text.replace(old, new, 1), encoding="utf-8")
+          PY
       - name: Run focused title regressions
         shell: bash
         run: |
           set -euo pipefail
+          python -m pip install -r requirements.txt
           python -m unittest tests.test_sciencedirect_title_numeric_suffix -v
           python -m unittest tests.test_sciencedirect_archive_titles -v
+          python -m unittest tests.test_sciencedirect_browser_archive_metadata -v
           git diff --check
+      - name: Commit permanent GREEN
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "academic-door-bot"
+          git config user.email "academic-door-bot@users.noreply.github.com"
+          git add scripts/build_sciencedirect_browser_archives.py
+          git commit -m "fix(history): preserve numeric title suffixes"
+          git push origin HEAD:fix/g03-sciencedirect-title-cosmetic-20260916
