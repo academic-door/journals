@@ -540,6 +540,28 @@ def issue_is_newer(candidate: dict[str, Any], baseline: dict[str, Any]) -> bool:
     return candidate_issue > baseline_issue
 
 
+def select_display_issue(
+    detected: dict[str, Any] | None,
+    ready: dict[str, Any] | None,
+) -> str:
+    """Choose the reader-facing snapshot without allowing detected regressions.
+
+    Ready is canonical for the same issue identity. A detected snapshot may lead
+    only when it is genuinely newer than the last ready issue. Raw detected
+    data remains available for diagnostics and enrichment.
+    """
+
+    if detected is None and ready is None:
+        return ""
+    if ready is None:
+        return "detected"
+    if detected is None:
+        return "ready"
+    if str(detected.get("issue_id", "")) == str(ready.get("issue_id", "")):
+        return "ready"
+    return "detected" if issue_is_newer(detected, ready) else "ready"
+
+
 def is_detected_snapshot(issue: dict[str, Any]) -> bool:
     """Accept a confirmed issue roster even while abstracts are enriching."""
 
@@ -1733,6 +1755,32 @@ def update_indexes(
             )
         else:
             checks[f"{config['id']}_available"] = False
+        display_source = select_display_issue(
+            detected if detected and is_detected_snapshot(detected) else None,
+            issue if issue and is_publishable_snapshot(issue) else None,
+        )
+        if display_source == "detected":
+            entry.update(
+                {
+                    "latest_display_issue_id": entry.get("latest_detected_issue_id", ""),
+                    "latest_display_issue_url": entry.get("latest_detected_issue_url", ""),
+                    "latest_display_issue_label": entry.get("latest_detected_issue_label", ""),
+                    "latest_display_publication_date": entry.get("latest_detected_publication_date", ""),
+                    "latest_display_publication_state": entry.get("latest_detected_publication_state", ""),
+                    "latest_display_source": "detected",
+                }
+            )
+        elif display_source == "ready":
+            entry.update(
+                {
+                    "latest_display_issue_id": entry.get("latest_ready_issue_id", entry.get("latest_issue_id", "")),
+                    "latest_display_issue_url": entry.get("latest_ready_issue_url", entry.get("latest_issue_url", "")),
+                    "latest_display_issue_label": entry.get("latest_issue_label", ""),
+                    "latest_display_publication_date": entry.get("publication_date", ""),
+                    "latest_display_publication_state": entry.get("publication_state", "ready"),
+                    "latest_display_source": "ready",
+                }
+            )
         journal_entries[key] = entry
         if issue and archive_current:
             archive_issue(issue)

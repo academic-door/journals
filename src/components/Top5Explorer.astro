@@ -12,6 +12,7 @@ interface JournalSummary {
   journal_id: string;
   latest_issue_url?: string;
   latest_detected_issue_url?: string;
+  latest_display_issue_url?: string;
   [key: string]: unknown;
 }
 
@@ -29,10 +30,10 @@ const initialCollection = JSON.parse(
   readFileSync(new URL(`collections/${collectionId}.json`, publicApi), "utf8"),
 ) as { journals: JournalSummary[]; [key: string]: unknown };
 const initialJournal = initialCollection.journals.find(
-  (journal) => journal.latest_detected_issue_url || journal.latest_issue_url,
+  (journal) => journal.latest_display_issue_url || journal.latest_detected_issue_url || journal.latest_issue_url,
 );
 const initialIssueUrl =
-  initialJournal?.latest_detected_issue_url || initialJournal?.latest_issue_url || "";
+  initialJournal?.latest_display_issue_url || initialJournal?.latest_detected_issue_url || initialJournal?.latest_issue_url || "";
 const initialIssuePath = initialIssueUrl.replace(/^.*\/api\/v1\//, "");
 const initialIssue = initialIssuePath
   ? JSON.parse(
@@ -107,7 +108,7 @@ const initialIssue = initialIssuePath
 
 <script is:inline define:vars={{ base, collectionId, initialCollection, initialIssue }}>
   const displayIssueUrl = (journal) =>
-    journal?.latest_detected_issue_url || journal?.latest_issue_url || "";
+    journal?.latest_display_issue_url || journal?.latest_detected_issue_url || journal?.latest_issue_url || "";
   const initialJournal = initialCollection.journals.find(
     (journal) => displayIssueUrl(journal)
   );
@@ -481,27 +482,31 @@ const initialIssue = initialIssuePath
     if (!select || !state.activeJournal) return;
     const index = state.issueIndex;
     const entries = [...(index?.issues || [])].sort((left, right) => issueSortKey(right) - issueSortKey(left));
-    const detectedId = state.activeJournal.latest_detected_issue_id
+    const displayId = state.activeJournal.latest_display_issue_id
+      || state.activeJournal.latest_detected_issue_id
       || state.activeJournal.latest_issue_id;
     const readyId = state.activeJournal.latest_ready_issue_id
       || state.activeJournal.latest_issue_id;
     const options = [
       {
-        issue_id: detectedId,
-        issue_label: state.activeJournal.latest_detected_issue_label
+        issue_id: displayId,
+        issue_label: state.activeJournal.latest_display_issue_label
+          || state.activeJournal.latest_detected_issue_label
           || state.activeJournal.latest_issue_label
           || "最新卷期",
-        publication_date: state.activeJournal.latest_detected_publication_date
+        publication_date: state.activeJournal.latest_display_publication_date
+          || state.activeJournal.latest_detected_publication_date
           || state.activeJournal.publication_date
           || "",
         url: displayIssueUrl(state.activeJournal),
         latest: true,
-        ready: detectedId === readyId,
-        publication_state: state.activeJournal.latest_detected_publication_state
+        ready: displayId === readyId,
+        publication_state: state.activeJournal.latest_display_publication_state
+          || state.activeJournal.latest_detected_publication_state
           || state.activeJournal.publication_state
-          || (detectedId === readyId ? "ready" : "unknown"),
+          || (displayId === readyId ? "ready" : "unknown"),
       },
-      ...(readyId && readyId !== detectedId && state.activeJournal.latest_issue_url ? [{
+      ...(readyId && readyId !== displayId && state.activeJournal.latest_issue_url ? [{
         issue_id: readyId,
         issue_label: state.activeJournal.latest_issue_label || "最近可发布卷期",
         publication_date: state.activeJournal.publication_date || "",
@@ -513,7 +518,7 @@ const initialIssue = initialIssuePath
           || "ready",
       }] : []),
       ...entries
-        .filter((entry) => entry.issue_id !== detectedId && entry.issue_id !== readyId)
+        .filter((entry) => entry.issue_id !== displayId && entry.issue_id !== readyId)
         .map((entry) => ({ ...entry, latest: false, ready: true })),
     ];
     select.innerHTML = options.map((entry) => `
