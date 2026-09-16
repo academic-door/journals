@@ -295,7 +295,7 @@ jobs:
   publish:
     name: Merge, audit and publish one data delta
     needs: [prepare, collect]
-    if: always() && (inputs.source_run_id != '' || needs.collect.result != 'skipped')
+    if: always() && (inputs.evidence_issue_ids != '' || inputs.source_run_id != '' || needs.collect.result != 'skipped')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -347,6 +347,7 @@ jobs:
             --exclude 'public/api/v1/journals/*/issues/index.json'
 
       - name: Download all isolated shards
+        if: inputs.source_run_id != '' || needs.collect.result != 'skipped'
         uses: actions/download-artifact@v4
         with:
           pattern: history-sprint-*
@@ -356,9 +357,11 @@ jobs:
           github-token: ${{ github.token }}
 
       - name: Exclude prior final reports from shard merge
+        if: inputs.source_run_id != '' || needs.collect.result != 'skipped'
         run: rm -rf shards/history-sprint-final-reports
 
       - name: Merge shard changes into the latest data baseline
+        if: inputs.source_run_id != '' || needs.collect.result != 'skipped'
         run: python scripts/merge_history_shards.py --root . --shards-root shards
 
       - name: Build historical archives from ScienceDirect browser snapshots
