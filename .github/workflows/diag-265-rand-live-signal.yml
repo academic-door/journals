@@ -1,0 +1,76 @@
+name: Diagnose RAND Wiley live signal
+
+on:
+  push:
+    branches:
+      - diag/265-rand-live-signal
+    paths:
+      - .github/workflows/diag-265-rand-live-signal.yml
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Inspect bounded first-party signal
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from urllib.parse import urlparse
+          import requests
+          from bs4 import BeautifulSoup
+          from collectors.wiley import parse_latest_issue_signal
+          from scripts.journal_monitor import fetch_official_issue_signal
+
+          url = "https://onlinelibrary.wiley.com/journal/17562171"
+          out = {"url": url}
+          try:
+              response = requests.get(
+                  url,
+                  headers={
+                      "User-Agent": "AcademicDoorJournals/0.1 (non-profit academic metadata service; https://academic-door.github.io/)",
+                      "Accept": "text/html,application/xhtml+xml",
+                      "Accept-Language": "en-US,en;q=0.8",
+                  },
+                  timeout=30,
+                  allow_redirects=True,
+              )
+              out.update({
+                  "status": response.status_code,
+                  "resolved_host": urlparse(response.url).hostname,
+                  "resolved_path": urlparse(response.url).path,
+                  "content_length": len(response.content),
+              })
+              soup = BeautifulSoup(response.content, "html.parser")
+              out["title"] = soup.title.get_text(" ", strip=True)[:160] if soup.title else ""
+              headings = [h.get_text(" ", strip=True) for h in soup.find_all(["h2", "h3", "h4"])]
+              out["recent_issue_heading_count"] = sum(1 for h in headings if "recent issues" in h.casefold())
+              out["toc_link_count"] = len(soup.select("a[href*='/toc/']"))
+              try:
+                  out["direct_parse"] = parse_latest_issue_signal(response.content, url)
+              except Exception as exc:
+                  out["direct_parse_error"] = f"{type(exc).__name__}: {exc}"
+          except Exception as exc:
+              out["request_error"] = f"{type(exc).__name__}: {exc}"
+
+          config = {
+              "id": "rand",
+              "announcement_source": "wiley_recent_issues",
+              "announcement_url": url,
+          }
+          try:
+              out["production_fetch"] = fetch_official_issue_signal(config)
+          except Exception as exc:
+              out["production_fetch_error"] = f"{type(exc).__name__}: {exc}"
+
+          print(json.dumps(out, ensure_ascii=False, sort_keys=True))
+          PY
