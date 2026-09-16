@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-16T17:25:00+00:00",
+  "updated_at": "2026-09-16T17:33:45+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 49,
@@ -2651,7 +2651,7 @@
         "status": "fallback_verified",
         "issue_id": "lup-170-c",
         "publication_date": "November 2026",
-        "publication_state": "translation_partial",
+        "publication_state": "source_pending",
         "source_url": "https://www.sciencedirect.com/journal/land-use-policy/vol/170/suppl/C",
         "roster_authority": "official-issue-page",
         "roster_transport": "official-issue-page",
@@ -2670,11 +2670,10 @@
           "catalog_content_items": 54
         },
         "abstracts_complete": 53,
-        "translations_complete": 52,
+        "translations_complete": 53,
         "errors": [],
         "warnings": [
-          "official_order_unverified",
-          "translation_incomplete"
+          "official_order_unverified"
         ]
       }
     },
