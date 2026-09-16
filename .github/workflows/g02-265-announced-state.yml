@@ -1,0 +1,100 @@
+name: G02 265 announced-state implementation
+
+on:
+  push:
+    branches:
+      - feat/265-announced-state
+
+permissions:
+  contents: write
+
+jobs:
+  implement:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: feat/265-announced-state
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Apply announced-state integration
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('scripts/update_journals.py')
+          text = path.read_text(encoding='utf-8')
+          import_anchor = 'from scripts.china_relevance import annotate_issue, classify_china_relevance\n'
+          import_line = 'from scripts.freshness_announcements import announcement_entry_fields\n'
+          if import_line not in text:
+              if import_anchor not in text:
+                  raise SystemExit('update import anchor not found')
+              text = text.replace(import_anchor, import_anchor + import_line, 1)
+
+          const_anchor = 'ARTICLE_TYPE_OVERRIDES_PATH = ROOT / "data" / "article-type-overrides.json"\n'
+          const_line = 'MONITOR_STATE_PATH = ROOT / "data" / "monitoring" / "state.json"\n'
+          if const_line not in text:
+              if const_anchor not in text:
+                  raise SystemExit('monitor state constant anchor not found')
+              text = text.replace(const_anchor, const_anchor + const_line, 1)
+
+          setup_anchor = '''    translated_articles = 0\n    total_articles = 0\n\n    for key, config in journal_configs.items():\n'''
+          setup_new = '''    translated_articles = 0\n    total_articles = 0\n    monitor_state = read_json(MONITOR_STATE_PATH) or {}\n    monitor_entries = monitor_state.get("journals", {})\n\n    for key, config in journal_configs.items():\n'''
+          if 'monitor_entries = monitor_state.get("journals", {})' not in text:
+              if setup_anchor not in text:
+                  raise SystemExit('update index setup anchor not found')
+              text = text.replace(setup_anchor, setup_new, 1)
+
+          entry_anchor = '''        journal_entries[key] = entry\n        if issue and archive_current:\n'''
+          entry_new = '''        monitor_entry = (\n            monitor_entries.get(key)\n            or monitor_entries.get(config["id"])\n            or {}\n        )\n        entry.update(\n            announcement_entry_fields(\n                config["id"],\n                monitor_entry.get("announcement"),\n                ready=(\n                    issue\n                    if issue and is_publishable_snapshot(issue)\n                    else None\n                ),\n                detected=(\n                    detected\n                    if detected and is_detected_snapshot(detected)\n                    else None\n                ),\n            )\n        )\n        journal_entries[key] = entry\n        if issue and archive_current:\n'''
+          if 'monitor_entry.get("announcement")' not in text:
+              if entry_anchor not in text:
+                  raise SystemExit('journal entry anchor not found')
+              text = text.replace(entry_anchor, entry_new, 1)
+          path.write_text(text, encoding='utf-8')
+
+          path = Path('src/components/Top5Explorer.astro')
+          text = path.read_text(encoding='utf-8')
+          type_anchor = '  latest_display_issue_url?: string;\n'
+          type_fields = '''  latest_display_issue_url?: string;\n  latest_announced_issue_id?: string;\n  latest_announced_issue_label?: string;\n  latest_announced_publication_date?: string;\n  latest_announced_source_url?: string;\n  latest_announced_is_newer?: boolean;\n'''
+          if 'latest_announced_issue_id?: string;' not in text:
+              if type_anchor not in text:
+                  raise SystemExit('frontend type anchor not found')
+              text = text.replace(type_anchor, type_fields, 1)
+
+          render_anchor = '''    const publicationDate = formatDate(issue.publication_date);\n    composerLink.href = `${base}composer/?journal=${encodeURIComponent(issue.journal_id)}&issue=${encodeURIComponent(issue.issue_id)}`;\n\n    summary.innerHTML = `\n'''
+          render_new = '''    const publicationDate = formatDate(issue.publication_date);\n    composerLink.href = `${base}composer/?journal=${encodeURIComponent(issue.journal_id)}&issue=${encodeURIComponent(issue.issue_id)}`;\n    const journal = state.activeJournal || {};\n    const announcementNotice = journal.latest_announced_is_newer ? `\n      <div class="issue-note announced-issue-notice">\n        <strong>新一期已发布</strong>\n        · ${escapeHtml(journal.latest_announced_issue_label || journal.latest_announced_issue_id || "")}\n        ${journal.latest_announced_publication_date ? ` · ${escapeHtml(formatDate(journal.latest_announced_publication_date))}` : ""}\n        · 内容整理中\n        ${journal.latest_announced_source_url ? ` · <a href="${escapeHtml(journal.latest_announced_source_url)}" target="_blank" rel="noreferrer">官方发布来源</a>` : ""}\n        <small>下方为最近完整可读卷期</small>\n      </div>` : "";\n\n    summary.innerHTML = `\n      ${announcementNotice}\n'''
+          if 'announced-issue-notice' not in text:
+              if render_anchor not in text:
+                  raise SystemExit('frontend render anchor not found')
+              text = text.replace(render_anchor, render_new, 1)
+          path.write_text(text, encoding='utf-8')
+          PY
+      - run: python -m pip install -r requirements.txt
+      - run: python -m unittest tests.test_announced_issue_state -v
+      - run: python -m unittest discover -s tests -v
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 11
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run build
+      - name: Commit implementation
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name academic-door-bot
+          git config user.email academic-door-bot@users.noreply.github.com
+          git add scripts/update_journals.py scripts/freshness_announcements.py src/components/Top5Explorer.astro tests/test_announced_issue_state.py
+          if git diff --cached --quiet; then
+            echo 'No implementation delta to commit.'
+            exit 0
+          fi
+          git commit -m 'feat(freshness): surface first-party announced issues'
+          git push origin HEAD:feat/265-announced-state
