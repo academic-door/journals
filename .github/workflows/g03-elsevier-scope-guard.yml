@@ -21,38 +21,102 @@ jobs:
           python-version: '3.12'
           cache: pip
       - run: python -m pip install -r requirements.txt
-      - name: Confirm over-broad title classification RED
+      - name: Restore current-main Elsevier baseline and apply narrow fix
         shell: bash
         run: |
-          set +e
-          python -m unittest tests.test_elsevier_publisher_type.ElsevierPublisherTypeTests.test_research_report_title_is_not_reclassified_as_editorial -v 2>&1 | tee /tmp/scope-red.log
-          status=${PIPESTATUS[0]}
-          set -e
-          if [ "$status" -eq 0 ]; then
-            echo "Expected scope regression to fail before narrowing."
-            exit 1
-          fi
-          grep -q "test_research_report_title_is_not_reclassified_as_editorial" /tmp/scope-red.log
-          if grep -Eq "ImportError|ModuleNotFoundError|SyntaxError" /tmp/scope-red.log; then
-            echo "Scope RED failed for infrastructure, not behavior."
-            exit 1
-          fi
-          echo "Expected scope RED confirmed."
-      - name: Narrow implementation to explicit publisher subtype only
-        shell: bash
-        run: |
-          echo 'ZnJvbSBwYXRobGliIGltcG9ydCBQYXRoCgpwYXRoID0gUGF0aCgiY29sbGVjdG9ycy9lbHNldmllci5weSIpCnRleHQgPSBwYXRoLnJlYWRfdGV4dChlbmNvZGluZz0idXRmLTgiKQoKIyBSZXN0b3JlIHRoZSBwcmUtZXhpc3RpbmcgbmFycm93IEVsc2V2aWVyIHRpdGxlIGNsYXNzaWZpZXIuIFB1Ymxpc2hlciBzdWJ0eXBlCiMgZXZpZGVuY2UgaXMgY29uc3VtZWQgc2VwYXJhdGVseSBiZWxvdzsgZG8gbm90IGJyb2FkZW4gdGl0bGUgaGV1cmlzdGljcy4Kc3RhcnQgPSB0ZXh0LmluZGV4KCJkZWYgX2FydGljbGVfdHlwZSgiKQplbmQgPSB0ZXh0LmluZGV4KCJcblxuZGVmIF9zb3VyY2VfcGlpKCIsIHN0YXJ0KQphcnRpY2xlX3R5cGUgPSAnJydkZWYgX2FydGljbGVfdHlwZSh0aXRsZTogc3RyLCByYXdfdHlwZTogc3RyID0gIiIpIC0+IHN0cjoKICAgIGNvbWJpbmVkID0gZiJ7cmF3X3R5cGV9IHt0aXRsZX0iCiAgICBpZiByZS5zZWFyY2gociJcYmNvbW1lbnRcYnxcYnJlcGx5XGJ8XGJkaXNjdXNzaW9uXGIiLCBjb21iaW5lZCwgcmUuSUdOT1JFQ0FTRSk6CiAgICAgICAgcmV0dXJuICJjb21tZW50IgogICAgcmV0dXJuICJyZXNlYXJjaC1hcnRpY2xlIgonJycKdGV4dCA9IHRleHRbOnN0YXJ0XSArIGFydGljbGVfdHlwZSArIHRleHRbZW5kOl0KCmZldGNoX3N0YXJ0ID0gdGV4dC5pbmRleCgiZGVmIGZldGNoX2N1cnJlbnRfaXNzdWUoIikKYmxvY2tfc3RhcnQgPSB0ZXh0LmluZGV4KCIgICAgZnJvbSBjb2xsZWN0b3JzLmFydGljbGVfdHlwZXMgaW1wb3J0ICgiLCBmZXRjaF9zdGFydCkKYmxvY2tfZW5kID0gdGV4dC5pbmRleCgiICAgIGNvdW50ID0gbGVuKGFydGljbGVzKVxuIiwgYmxvY2tfc3RhcnQpCnJlcGxhY2VtZW50ID0gJycnICAgIGZyb20gY29sbGVjdG9ycy5hcnRpY2xlX3R5cGVzIGltcG9ydCBleGNsdXNpb25fcmVhc29uCiAgICBmcm9tIGNvbGxlY3RvcnMubWV0YWRhdGFfZmFsbGJhY2sgaW1wb3J0IF9lbHNldmllcl9sb29rdXAsIF9pc19lbHNldmllcl9pZGVudGlmaWVyCgogICAgYXJ0aWNsZXM6IGxpc3RbZGljdFtzdHIsIEFueV1dID0gW10KICAgIGV4Y2x1ZGVkOiBsaXN0W2RpY3Rbc3RyLCBzdHJdXSA9IFtdCiAgICBmb3Igc291cmNlX3NlcXVlbmNlLCByYXcgaW4gZW51bWVyYXRlKHNvdXJjZV9yb3dzLCBzdGFydD0xKToKICAgICAgICBlbnJpY2hlZCA9IHsqKmRldGFpbF9ieV9waWkuZ2V0KHJhdy5nZXQoInBpaSIsICIiKSwge30pLCAqKnJhd30KICAgICAgICBpZiBOT05fUkVTRUFSQ0hfUEFUVEVSTi5zZWFyY2goZW5yaWNoZWQuZ2V0KCJ0aXRsZV9lbiIsICIiKSk6CiAgICAgICAgICAgIGV4Y2x1ZGVkLmFwcGVuZCgKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAidGl0bGVfZW4iOiBlbnJpY2hlZC5nZXQoInRpdGxlX2VuIiwgIiIpLAogICAgICAgICAgICAgICAgICAgICJyZWFzb24iOiAibm9uX3Jlc2VhcmNoX3RpdGxlIiwKICAgICAgICAgICAgICAgICAgICAiZG9pIjogZW5yaWNoZWQuZ2V0KCJkb2kiLCAiIiksCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICkKICAgICAgICAgICAgY29udGludWUKICAgICAgICBkb2kgPSBlbnJpY2hlZC5nZXQoImRvaSIsICIiKQogICAgICAgIHBpaSA9IGVucmljaGVkLmdldCgicGlpIiwgIiIpCiAgICAgICAgYXV0aG9ycyA9IGVucmljaGVkLmdldCgiYXV0aG9ycyIsIFtdKQogICAgICAgIGFic3RyYWN0ID0gc3RyKGVucmljaGVkLmdldCgiYWJzdHJhY3RfZW4iLCAiIikpLnN0cmlwKCkKICAgICAgICBhYnN0cmFjdF9zb3VyY2UgPSAoCiAgICAgICAgICAgICJvZmZpY2lhbC1zY2llbmNlZGlyZWN0LWlzc3VlIgogICAgICAgICAgICBpZiBvZmZpY2lhbF9yb3dzIGFuZCBhYnN0cmFjdAogICAgICAgICAgICBlbHNlICJyZXBlYy1wdWJsaXNoZXItc3VwcGxpZWQiCiAgICAgICAgICAgIGlmIGFic3RyYWN0CiAgICAgICAgICAgIGVsc2UgIiIKICAgICAgICApCgogICAgICAgICMgV2hlbiBwdWJsaXNoZXIgSFRNTCBpcyBibG9ja2VkLCBSZVBFYyBjYW4gcHJlc2VydmUgYSBwdWJsaXNoZXIgcm9zdGVyCiAgICAgICAgIyB3aGlsZSBvbWl0dGluZyBkb2N1bWVudCBzdWJ0eXBlIGFuZCBhYnN0cmFjdHMuIE9ubHkgYSBtaXNzaW5nLWFic3RyYWN0CiAgICAgICAgIyBmYWxsYmFjayByb3cgZ2V0cyB0aGlzIGJvdW5kZWQgcHVibGlzaGVyIG1ldGFkYXRhIGxvb2t1cC4gQW4gZXhwbGljaXQKICAgICAgICAjIHB1Ymxpc2hlciBFZGl0b3JpYWwgc3VidHlwZSBpcyBleGNsdXNpb24gZXZpZGVuY2U7IHVua25vd24gdHlwZXMgc3RheQogICAgICAgICMgZmFpbC1jbG9zZWQgYXMgcmVzZWFyY2ggYW5kIG11c3Qgc3RpbGwgc2F0aXNmeSB0aGUgYWJzdHJhY3QgZ2F0ZS4KICAgICAgICBpZiAoCiAgICAgICAgICAgIG5vdCBvZmZpY2lhbF9yb3dzCiAgICAgICAgICAgIGFuZCBub3QgYWJzdHJhY3QKICAgICAgICAgICAgYW5kIF9pc19lbHNldmllcl9pZGVudGlmaWVyKHN0cihwaWkpLCBzdHIoZG9pKSkKICAgICAgICApOgogICAgICAgICAgICBsb29rdXAgPSBfZWxzZXZpZXJfbG9va3VwKHNlc3Npb24sIHN0cihwaWkpLCBkb2k9c3RyKGRvaSksIHRpbWVvdXQ9NDUpCiAgICAgICAgICAgIGlmIHN0cihsb29rdXAuZ2V0KCJhcnRpY2xlX3R5cGUiLCAiIikpLmNhc2Vmb2xkKCkgPT0gImVkaXRvcmlhbCI6CiAgICAgICAgICAgICAgICBleGNsdWRlZC5hcHBlbmQoCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgICAidGl0bGVfZW4iOiBlbnJpY2hlZC5nZXQoInRpdGxlX2VuIiwgIiIpLAogICAgICAgICAgICAgICAgICAgICAgICAicmVhc29uIjogZXhjbHVzaW9uX3JlYXNvbig iZWRpdG9yaWFsIiksCiAgICAgICAgICAgICAgICAgICAgICAgICJkb2kiOiBzdHIoZG9pKSwKICAgICAgICAgICAgICAgICAgICAgICAgImFydGljbGVfdHlwZSI6ICJlZGl0b3JpYWwiLAogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICkKICAgICAgICAgICAgICAgIGNvbnRpbnVlCiAgICAgICAgICAgIGZldGNoZWRfYWJzdHJhY3QgPSBzdHIobG9va3VwLmdldCgiYWJzdHJhY3QiLCAiIikpLnN0cmlwKCkKICAgICAgICAgICAgaWYgZmV0Y2hlZF9hYnN0cmFjdDoKICAgICAgICAgICAgICAgIGFic3RyYWN0ID0gZmV0Y2hlZF9hYnN0cmFjdAogICAgICAgICAgICAgICAgYWJzdHJhY3Rfc291cmNlID0gc3RyKGxvb2t1cC5nZXQoInNvdXJjZSIsICJlbHNldmllci1hcGkiKSkKCiAgICAgICAgZmxhZ3M6IGxpc3Rbc3RyXSA9IFtdCiAgICAgICAgaWYgbm90IGRvaToKICAgICAgICAgICAgZmxhZ3MuYXBwZW5kKCJkb2lfbWlzc2luZyIpCiAgICAgICAgaWYgbm90IGF1dGhvcnM6CiAgICAgICAgICAgIGZsYWdzLmFwcGVuZCgiYXV0aG9yc19taXNzaW5nIikKICAgICAgICBpZiBub3QgYWJzdHJhY3Q6CiAgICAgICAgICAgIGZsYWdzLmFwcGVuZCgiYWJzdHJhY3RfZW5fbWlzc2luZyIpCiAgICAgICAgZmxhZ3MuZXh0ZW5kKFsidGl0bGVfY25fbWlzc2luZyIsICJhYnN0cmFjdF9jbl9taXNzaW5nIl0pCiAgICAgICAgc2VxdWVuY2UgPSBsZW4oYXJ0aWNsZXMpICsgMQogICAgICAgIGFydGljbGVzLmFwcGVuZCgKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgInBhcGVyX2lkIjogZiJkb2k6e2RvaX0iIGlmIGRvaSBlbHNlIGYicGlpOntwaWkgb3Igc2VxdWVuY2V9IiwKICAgICAgICAgICAgICAgICJzZXF1ZW5jZSI6IHNlcXVlbmNlLAogICAgICAgICAgICAgICAgInNvdXJjZV9zZXF1ZW5jZSI6IHNvdXJjZV9zZXF1ZW5jZSwKICAgICAgICAgICAgICAgICJhcnRpY2xlX3R5cGUiOiBlbnJpY2hlZC5nZXQoImFydGljbGVfdHlwZSIsICJyZXNlYXJjaC1hcnRpY2xlIiksCiAgICAgICAgICAgICAgICAidGl0bGVfZW4iOiBlbnJpY2hlZC5nZXQoInRpdGxlX2VuIiwgIiIpLAogICAgICAgICAgICAgICAgInRpdGxlX2NuIjogIiIsCiAgICAgICAgICAgICAgICAiYXV0aG9ycyI6IGF1dGhvcnMsCiAgICAgICAgICAgICAgICAiYWJzdHJhY3RfZW4iOiBhYnN0cmFjdCwKICAgICAgICAgICAgICAgICJhYnN0cmFjdF9jbiI6ICIiLAogICAgICAgICAgICAgICAgImRvaSI6IGRvaSwKICAgICAgICAgICAgICAgICJzb3VyY2VfdXJsIjogZW5yaWNoZWQuZ2V0KCJzb3VyY2VfdXJsIikKICAgICAgICAgICAgICAgIG9yIF9vZmZpY2lhbF9hcnRpY2xlX3VybChzdHIocGlpKSwgZW5yaWNoZWQuZ2V0KCJkZXRhaWxfdXJsIiwgIiIpKSwKICAgICAgICAgICAgICAgICJwdWJsaWNhdGlvbl9kYXRlIjogaW52ZW50b3J5WyJ5ZWFyIl0sCiAgICAgICAgICAgICAgICAic291cmNlcyI6IHsKICAgICAgICAgICAgICAgICAgICAiaXNzdWUiOiBvZmZpY2lhbF9pc3N1ZV91cmwsCiAgICAgICAgICAgICAgICAgICAgInJvc3RlciI6ICgKICAgICAgICAgICAgICAgICAgICAgICAgIm9mZmljaWFsLXNjaWVuY2VkaXJlY3QtaXNzdWUiCiAgICAgICAgICAgICAgICAgICAgICAgIGlmIG9mZmljaWFsX3Jvd3MKICAgICAgICAgICAgICAgICAgICAgICAgZWxzZSAicmVwZWMtcHVibGlzaGVyLXN1cHBsaWVkIgogICAgICAgICAgICAgICAgICAgICksCiAgICAgICAgICAgICAgICAgICAgIm1ldGFkYXRhIjogZW5yaWNoZWQuZ2V0KCJkZXRhaWxfdXJsIiwgIiIpCiAgICAgICAgICAgICAgICAgICAgb3IgIm9mZmljaWFsLXNjaWVuY2VkaXJlY3QtaXNzdWUiLAogICAgICAgICAgICAgICAgICAgICJhYnN0cmFjdF9lbiI6IGFic3RyYWN0X3NvdXJjZSwKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAidHJhbnNsYXRpb24iOiB7CiAgICAgICAgICAgICAgICAgICAgInN0YXR1cyI6ICJwZW5kaW5nIiwKICAgICAgICAgICAgICAgICAgICAicHJvdmlkZXIiOiAiIiwKICAgICAgICAgICAgICAgICAgICAicHJvbXB0X3ZlcnNpb24iOiAiIiwKICAgICAgICAgICAgICAgICAgICAiZ2xvc3NhcnlfdmVyc2lvbiI6ICIxIiwKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAicXVhbGl0eV9mbGFncyI6IGZsYWdzLAogICAgICAgICAgICB9CiAgICAgICAgKQoKJycnCnRleHQgPSB0ZXh0WzpibG9ja19zdGFydF0gKyByZXBsYWNlbWVudCArIHRleHRbYmxvY2tfZW5kOl0KCm9sZCA9ICcnJyAgICByZXF1aXJlZF9hYnN0cmFjdF9jb3VudCA9IHN1bSgKICAgICAgICByZXF1aXJlc19hYnN0cmFjdChzdHIoYXJ0aWNsZS5nZXQoImFydGljbGVfdHlwZSIsICIiKSkpCiAgICAgICAgZm9yIGFydGljbGUgaW4gYXJ0aWNsZXMKICAgICApJycnCm5ldyA9ICcnJyAgICByZXF1aXJlZF9hYnN0cmFjdF9jb3VudCA9IHN1bSgKICAgICAgICBhcnRpY2xlWyJhcnRpY2xlX3R5cGUiXSAhPSAiY29tbWVudCIgZm9yIGFydGljbGUgaW4gYXJ0aWNsZXMKICAgICApJycnCmlmIG9sZCBub3QgaW4gdGV4dDoKICAgIHJhaXNlIFN5c3RlbUV4aXQoInJlcXVpcmVkIGFic3RyYWN0IGNvdW50IGFuY2hvciBub3QgZm91bmQiKQp0ZXh0ID0gdGV4dC5yZXBsYWNlKG9sZCwgbmV3LCAxKQoKcGF0aC53cml0ZV90ZXh0KHRleHQsIGVuY29kaW5nPSJ1dGYtOCIpCg==' | tr -d ' ' | base64 -d > /tmp/narrow_elsevier.py
-          python /tmp/narrow_elsevier.py
+          git fetch origin main --depth=1
+          git show FETCH_HEAD:collectors/elsevier.py > collectors/elsevier.py
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('collectors/elsevier.py')
+          text = path.read_text(encoding='utf-8')
+
+          source_anchor = '    source_rows = official_rows or details\n'
+          source_replacement = (
+              '    from collectors.metadata_fallback import _elsevier_lookup, _is_elsevier_identifier\n\n'
+              '    source_rows = official_rows or details\n'
+          )
+          if text.count(source_anchor) != 1:
+              raise SystemExit('source_rows anchor mismatch')
+          text = text.replace(source_anchor, source_replacement, 1)
+
+          old = '''        doi = enriched.get("doi", "")
+          authors = enriched.get("authors", [])
+          abstract = enriched.get("abstract_en", "")
+          flags: list[str] = []
+          '''
+          new = '''        doi = enriched.get("doi", "")
+          pii = enriched.get("pii", "")
+          authors = enriched.get("authors", [])
+          abstract = str(enriched.get("abstract_en", "")).strip()
+          article_type = str(enriched.get("article_type", "research-article"))
+          abstract_source = (
+              "official-sciencedirect-issue"
+              if official_rows and abstract
+              else "repec-publisher-supplied"
+              if abstract
+              else ""
+          )
+
+          # RePEc can preserve the publisher roster while omitting both document
+          # subtype and abstract. Only those incomplete fallback rows get this
+          # bounded metadata lookup. An explicit publisher Editorial subtype is
+          # exclusion evidence; unknown types remain research and fail closed on
+          # the normal abstract gate. Roster and ordering authority do not change.
+          if (
+              not official_rows
+              and not abstract
+              and article_type != "comment"
+              and _is_elsevier_identifier(str(pii), str(doi))
+          ):
+              lookup = _elsevier_lookup(session, str(pii), doi=str(doi), timeout=45)
+              if str(lookup.get("article_type", "")).casefold() == "editorial":
+                  excluded.append(
+                      {
+                          "title_en": enriched.get("title_en", ""),
+                          "reason": "editorial_material",
+                          "doi": str(doi),
+                          "article_type": "editorial",
+                      }
+                  )
+                  continue
+              fetched_abstract = str(lookup.get("abstract", "")).strip()
+              if fetched_abstract:
+                  abstract = fetched_abstract
+                  abstract_source = str(lookup.get("source", "elsevier-api"))
+
+          flags: list[str] = []
+          '''
+          if text.count(old) != 1:
+              raise SystemExit('article block anchor mismatch')
+          text = text.replace(old, new, 1)
+
+          old_type = '                "article_type": enriched.get("article_type", "research-article"),\n'
+          new_type = '                "article_type": article_type,\n'
+          if text.count(old_type) != 1:
+              raise SystemExit('article_type output anchor mismatch')
+          text = text.replace(old_type, new_type, 1)
+
+          old_source = '                    "abstract_en": "official-sciencedirect-issue" if raw.get("abstract_en") else "repec-publisher-supplied",\n'
+          new_source = '                    "abstract_en": abstract_source,\n'
+          if text.count(old_source) != 1:
+              raise SystemExit('abstract source anchor mismatch')
+          text = text.replace(old_source, new_source, 1)
+
+          path.write_text(text, encoding='utf-8')
+          PY
       - name: Verify narrowed GREEN and focused baselines
         run: |
           python -m unittest tests.test_elsevier_publisher_type -v
           python -m unittest tests.test_elsevier_collector tests.test_metadata_fallback tests.test_update_journals -v
           git diff --check
-      - name: Commit scope-safe implementation and retire workflow
+      - name: Commit scope-safe implementation and retire executor
+        shell: bash
         run: |
           git config user.name academic-door-bot
           git config user.email academic-door-bot@users.noreply.github.com
           git rm .github/workflows/g03-elsevier-scope-guard.yml
-          git add collectors/elsevier.py tests/test_elsevier_publisher_type.py
-          git commit -m 'fix(elsevier): narrow editorial subtype exclusion'
+          git add collectors/elsevier.py collectors/metadata_fallback.py tests/test_elsevier_publisher_type.py
+          git commit -m 'fix(elsevier): exclude publisher-declared editorials'
           git push origin HEAD:fix/g03-elsevier-editorial-type-20260916
