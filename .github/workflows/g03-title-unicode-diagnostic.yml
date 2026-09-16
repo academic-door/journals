@@ -1,0 +1,63 @@
+name: G03 title Unicode diagnostic
+
+on:
+  push:
+    branches:
+      - fix/g03-sciencedirect-title-cosmetic-20260916
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r requirements.txt
+      - name: Diagnose exact title codepoints
+        env:
+          ELSEVIER_API_KEY: ${{ secrets.ELSEVIER_API_KEY }}
+          ELSEVIER_INST_TOKEN: ${{ secrets.ELSEVIER_INST_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import difflib
+          import json
+          import unicodedata
+          from pathlib import Path
+          import requests
+
+          from scripts.build_sciencedirect_browser_archives import (
+              comparable_title,
+              fetch_issue_metadata,
+              loose_comparable_title,
+          )
+
+          pii = "S0264837726003066"
+          roster = json.loads(Path("data/provenance/browser-snapshots/sciencedirect/lup-170-c.json").read_text(encoding="utf-8"))
+          browser = next(item["title"] for item in roster["items"] if pii.lower() in item["href"].lower())
+          api = fetch_issue_metadata(requests.Session(), [pii], timeout=90)[pii]["title_en"]
+
+          print("browser_ascii=", ascii(browser))
+          print("api_ascii=", ascii(api))
+          print("browser_len=", len(browser), "api_len=", len(api))
+          print("browser_nfkc_ascii=", ascii(unicodedata.normalize("NFKC", browser)))
+          print("api_nfkc_ascii=", ascii(unicodedata.normalize("NFKC", api)))
+          print("comparable_browser=", ascii(comparable_title(browser)))
+          print("comparable_api=", ascii(comparable_title(api)))
+          print("loose_browser=", ascii(loose_comparable_title(browser)))
+          print("loose_api=", ascii(loose_comparable_title(api)))
+
+          matcher = difflib.SequenceMatcher(None, browser, api)
+          for tag, i1, i2, j1, j2 in matcher.get_opcodes():
+              if tag == "equal":
+                  continue
+              print("opcode=", tag, i1, i2, j1, j2)
+              for side, text, start, end in (("browser", browser, i1, i2), ("api", api, j1, j2)):
+                  for offset, char in enumerate(text[start:end], start=start):
+                      print(side, offset, ascii(char), f"U+{ord(char):04X}", unicodedata.name(char, "<unnamed>"), unicodedata.category(char))
+          PY
