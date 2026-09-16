@@ -1,0 +1,22 @@
+name: G03 LUP 170 evidence dispatch
+on:
+  push:
+    branches:
+      - ops/g03-lup-170-evidence-dispatch-20260916
+permissions:
+  actions: write
+  contents: read
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch canonical history sprint for LUP 170 evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          curl --fail-with-body -sS -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/history-sprint.yml/dispatches" \
+            -d '{"ref":"main","inputs":{"max_issues":"1","max_translations":"120","categories":"browser","source_run_id":"","state_source_run_id":"","strict_final":"false","evidence_issue_ids":"lup-170-c","capture_wiley_evidence":"false"}}'
