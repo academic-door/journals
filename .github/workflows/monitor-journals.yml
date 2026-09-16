@@ -2,6 +2,12 @@ name: Monitor journal updates
 
 on:
   workflow_dispatch:
+    inputs:
+      force_deep_journals:
+        description: "Comma-separated journal keys whose stored deep retry windows should be bypassed"
+        required: false
+        default: ""
+        type: string
   workflow_run:
     workflows:
       - Auto-approve PR
@@ -103,8 +109,17 @@ jobs:
           ELSEVIER_API_KEY: ${{ secrets.ELSEVIER_API_KEY }}
           ELSEVIER_INST_TOKEN: ${{ secrets.ELSEVIER_INST_TOKEN }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          FORCE_DEEP_JOURNALS: ${{ inputs.force_deep_journals }}
         run: |
-          python scripts/journal_monitor.py --run-updates --translate
+          args=(--run-updates --translate)
+          IFS=',' read -ra forced <<< "${FORCE_DEEP_JOURNALS:-}"
+          for journal in "${forced[@]}"; do
+            journal="$(printf '%s' "$journal" | tr -d '[:space:]')"
+            if [ -n "$journal" ]; then
+              args+=(--force-deep-journal "$journal")
+            fi
+          done
+          python scripts/journal_monitor.py "${args[@]}"
 
       - name: Check whether any issue was updated
         id: changed
