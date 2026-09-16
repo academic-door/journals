@@ -427,13 +427,41 @@ def _issue_signal_is_newer_than_baseline(
     return signal_issue > baseline_issue
 
 
+def _issue_signal_is_newer_than_candidate(
+    signal: dict[str, Any] | None,
+    candidate: Candidate | None,
+) -> bool:
+    if candidate is None:
+        return True
+    if not _trusted_issue_signal(signal):
+        return False
+    assert signal is not None
+    signal_volume = _numeric(str(signal.get("volume", "")))
+    signal_issue = _numeric(str(signal.get("issue", "")))
+    candidate_volume = _numeric(candidate.volume)
+    candidate_issue = _numeric(candidate.issue)
+    if None in (
+        signal_volume,
+        signal_issue,
+        candidate_volume,
+        candidate_issue,
+    ):
+        return False
+    if signal_volume != candidate_volume:
+        return signal_volume > candidate_volume
+    return signal_issue > candidate_issue
+
+
 def _independent_issue_signal_announcement(
     journal_id: str,
     baseline: dict[str, Any],
+    candidate: Candidate | None,
     signal: dict[str, Any] | None,
     observed_at: str,
 ) -> dict[str, Any] | None:
     if not _issue_signal_is_newer_than_baseline(signal, baseline):
+        return None
+    if not _issue_signal_is_newer_than_candidate(signal, candidate):
         return None
     assert signal is not None
     volume = str(signal.get("volume", "")).strip()
@@ -758,15 +786,13 @@ def detect_all(
                     official_issue_match=official_issue_match,
                     association_issue_match=association_issue_match,
                 )
-                independent_announcement = None
-                if candidate is None:
-                    independent_announcement = _independent_issue_signal_announcement(
-                        config["id"], baseline, issue_signal, checked_at
-                    )
-                    if independent_announcement:
-                        signal_kind = str(independent_announcement["source_kind"])
-                        if signal_kind not in observation["evidence"]:
-                            observation["evidence"].append(signal_kind)
+                independent_announcement = _independent_issue_signal_announcement(
+                    config["id"], baseline, candidate, issue_signal, checked_at
+                )
+                if independent_announcement:
+                    signal_kind = str(independent_announcement["source_kind"])
+                    if signal_kind not in observation["evidence"]:
+                        observation["evidence"].append(signal_kind)
                 previous_candidate = previous.get("candidate") or {}
                 observed_candidate = observation.get("candidate") or {}
                 same_deep_candidate = bool(

@@ -161,5 +161,39 @@ class AssociationAnnouncementTests(unittest.TestCase):
         self.assertNotIn("announcement", entry)
 
 
+    def test_newer_first_party_signal_announces_ahead_of_older_crossref_candidate(self) -> None:
+        signal = self.association_signal(issue="6", publication_date="November 2026")
+        with patch("scripts.journal_monitor.read_json", return_value=BASELINE):
+            state, _result = detect_all(
+                self.config,
+                {"journals": {}},
+                crossref_fetcher=lambda _config, _baseline: [crossref_item(issue="5")],
+                issue_signal_fetcher=lambda _config: signal,
+            )
+
+        entry = state["journals"]["ECTA"]
+        self.assertEqual("5", entry["candidate"]["issue"])
+        self.assertIn("association_announcement", entry["evidence"])
+        announcement = entry.get("announcement")
+        self.assertIsNotNone(announcement)
+        assert announcement is not None
+        self.assertEqual("ecta-94-6", announcement["issue_id"])
+        self.assertEqual("November 2026", announcement["publication_date"])
+
+    def test_older_first_party_signal_does_not_override_newer_crossref_candidate(self) -> None:
+        signal = self.association_signal(issue="5", publication_date="September 2026")
+        with patch("scripts.journal_monitor.read_json", return_value=BASELINE):
+            state, _result = detect_all(
+                self.config,
+                {"journals": {}},
+                crossref_fetcher=lambda _config, _baseline: [crossref_item(issue="6")],
+                issue_signal_fetcher=lambda _config: signal,
+            )
+
+        entry = state["journals"]["ECTA"]
+        self.assertEqual("6", entry["candidate"]["issue"])
+        self.assertNotIn("association_announcement", entry["evidence"])
+        self.assertNotIn("announcement", entry)
+
 if __name__ == "__main__":
     unittest.main()
