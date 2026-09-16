@@ -1,0 +1,298 @@
+name: Temporary implement ECTA association freshness
+
+on:
+  push:
+    branches:
+      - feat/265-ecta-association-announcement
+    paths:
+      - .github/workflows/impl-265-ecta-association.yml
+
+permissions:
+  contents: write
+
+jobs:
+  implement:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: feat/265-ecta-association-announcement
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Apply bounded ECTA association announcement wiring
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          monitor_path = Path("scripts/journal_monitor.py")
+          monitor = monitor_path.read_text(encoding="utf-8")
+
+          yaml_import = "import yaml\n\nfrom collectors.wiley import parse_latest_issue_signal\n"
+          if "from collectors.econometric_society import parse_latest_econometrica_issue_signal" not in monitor:
+              if yaml_import not in monitor:
+                  raise SystemExit("monitor collector import marker missing")
+              monitor = monitor.replace(
+                  yaml_import,
+                  "import yaml\n\nfrom collectors.econometric_society import parse_latest_econometrica_issue_signal\nfrom collectors.wiley import parse_latest_issue_signal\n",
+                  1,
+              )
+
+          old_fetch = '''    if config.get("announcement_source") != "wiley_recent_issues":
+        return None
+    source_url = str(config.get("announcement_url", "")).strip()
+    if not source_url:
+        return None
+    client = session or requests.Session()
+    client.headers.update({"User-Agent": USER_AGENT, "Accept": "text/html"})
+    response = _request_with_retry(client, source_url, attempts=2, timeout=30)
+    return parse_latest_issue_signal(response.content, source_url)
+'''
+          new_fetch = '''    source_type = str(config.get("announcement_source", "")).strip()
+    if source_type not in {"wiley_recent_issues", "econometric_society_volume"}:
+        return None
+    source_url = str(config.get("announcement_url", "")).strip()
+    if not source_url:
+        return None
+    client = session or requests.Session()
+    client.headers.update({"User-Agent": USER_AGENT, "Accept": "text/html"})
+    response = _request_with_retry(client, source_url, attempts=2, timeout=30)
+    if source_type == "wiley_recent_issues":
+        return parse_latest_issue_signal(response.content, source_url)
+    return parse_latest_econometrica_issue_signal(response.content, source_url)
+'''
+          if old_fetch in monitor:
+              monitor = monitor.replace(old_fetch, new_fetch, 1)
+
+          old_match = '''    return (
+        candidate.volume.strip() == str(signal.get("volume", "")).strip()
+        and candidate.issue.strip() == str(signal.get("issue", "")).strip()
+        and str(signal.get("source_kind", "")) == "official_archive"
+        and str(signal.get("source_url", "")).startswith(
+            "https://onlinelibrary.wiley.com/"
+        )
+    )
+'''
+          new_match = '''    source_kind = str(signal.get("source_kind", "")).strip()
+    source_url = str(signal.get("source_url", "")).strip()
+    if source_kind == "official_archive":
+        trusted_source = source_url.startswith("https://onlinelibrary.wiley.com/")
+    elif source_kind == "association_announcement":
+        trusted_source = source_url.startswith(
+            "https://www.econometricsociety.org/publications/econometrica"
+        )
+    else:
+        trusted_source = False
+    return (
+        candidate.volume.strip() == str(signal.get("volume", "")).strip()
+        and candidate.issue.strip() == str(signal.get("issue", "")).strip()
+        and trusted_source
+    )
+'''
+          if old_match in monitor:
+              monitor = monitor.replace(old_match, new_match, 1)
+
+          marker = '''def _candidate_payload(candidate: Candidate) -> dict[str, Any]:
+'''
+          if "def _association_issue_signal_announcement(" not in monitor:
+              if marker not in monitor:
+                  raise SystemExit("association builder insertion marker missing")
+              builder = '''def _association_issue_signal_announcement(
+    journal_id: str,
+    candidate: Candidate | None,
+    signal: dict[str, Any] | None,
+    observed_at: str,
+) -> dict[str, Any] | None:
+    if not _issue_signal_matches_candidate(candidate, signal):
+        return None
+    if not signal or str(signal.get("source_kind", "")) != "association_announcement":
+        return None
+    assert candidate is not None
+    volume = candidate.volume.strip()
+    issue = candidate.issue.strip()
+    publication_date = str(signal.get("publication_date", "")).strip()
+    if not volume or not issue or not publication_date:
+        return None
+    token = lambda value: re.sub(r"[^a-z0-9]+", "-", value.casefold()).strip("-")
+    volume_token = token(volume)
+    issue_token = token(issue)
+    if not volume_token or not issue_token:
+        return None
+    return {
+        "schema_version": "1.0",
+        "journal_id": journal_id,
+        "issue_id": f"{journal_id}-{volume_token}-{issue_token}",
+        "volume": volume,
+        "issue": issue,
+        "issue_label": f"Vol. {volume} · No. {issue}",
+        "publication_date": publication_date,
+        "publication_state": "announced",
+        "source_authority": "first_party",
+        "source_kind": "association_announcement",
+        "source_url": str(signal["source_url"]),
+        "observed_at": observed_at,
+    }
+
+
+'''
+              monitor = monitor.replace(marker, builder + marker, 1)
+
+          old_eval_sig = '''    *,
+    rss_dois: set[str] | None = None,
+    official_issue_match: bool = False,
+) -> tuple[str, dict[str, Any]]:
+'''
+          new_eval_sig = '''    *,
+    rss_dois: set[str] | None = None,
+    official_issue_match: bool = False,
+    association_issue_match: bool = False,
+) -> tuple[str, dict[str, Any]]:
+'''
+          if old_eval_sig in monitor:
+              monitor = monitor.replace(old_eval_sig, new_eval_sig, 1)
+
+          old_evidence = '''    if official_issue_match:
+        evidence.append("official_archive")
+'''
+          new_evidence = '''    if official_issue_match:
+        evidence.append("official_archive")
+    if association_issue_match:
+        evidence.append("association_announcement")
+'''
+          if old_evidence in monitor:
+              monitor = monitor.replace(old_evidence, new_evidence, 1)
+
+          old_confirm = '''        "official_rss" in evidence
+        or "official_archive" in evidence
+        or same_issue
+'''
+          new_confirm = '''        "official_rss" in evidence
+        or "official_archive" in evidence
+        or "association_announcement" in evidence
+        or same_issue
+'''
+          if old_confirm in monitor:
+              monitor = monitor.replace(old_confirm, new_confirm, 1)
+
+          old_signal_block = '''                issue_signal: dict[str, Any] | None = None
+                official_issue_match = False
+                if candidate and config.get("announcement_source"):
+                    try:
+                        issue_signal = issue_signal_fetcher(config)
+                        official_issue_match = _issue_signal_matches_candidate(
+                            candidate, issue_signal
+                        )
+                    except Exception:
+                        # First-party signals are additive only; source blocking
+                        # must not break metadata detection or manufacture authority.
+                        issue_signal = None
+                        official_issue_match = False
+'''
+          new_signal_block = '''                issue_signal: dict[str, Any] | None = None
+                official_issue_match = False
+                association_issue_match = False
+                if candidate and config.get("announcement_source"):
+                    try:
+                        issue_signal = issue_signal_fetcher(config)
+                        issue_signal_matches = _issue_signal_matches_candidate(
+                            candidate, issue_signal
+                        )
+                        signal_kind = str((issue_signal or {}).get("source_kind", ""))
+                        official_issue_match = (
+                            issue_signal_matches and signal_kind == "official_archive"
+                        )
+                        association_issue_match = (
+                            issue_signal_matches and signal_kind == "association_announcement"
+                        )
+                    except Exception:
+                        # First-party signals are additive only; source blocking
+                        # must not break metadata detection or manufacture authority.
+                        issue_signal = None
+                        official_issue_match = False
+                        association_issue_match = False
+'''
+          if old_signal_block in monitor:
+              monitor = monitor.replace(old_signal_block, new_signal_block, 1)
+
+          old_eval_call = '''                    rss_dois=rss_dois,
+                    official_issue_match=official_issue_match,
+                )
+'''
+          new_eval_call = '''                    rss_dois=rss_dois,
+                    official_issue_match=official_issue_match,
+                    association_issue_match=association_issue_match,
+                )
+'''
+          if old_eval_call in monitor:
+              monitor = monitor.replace(old_eval_call, new_eval_call, 1)
+
+          old_builder_call = '''                if "official_archive" in observation.get("evidence", []):
+                    announcement = _official_issue_signal_announcement(
+                        config["id"],
+                        candidate,
+                        issue_signal,
+                        checked_at,
+                    )
+                    if announcement:
+                        entry["announcement"] = announcement
+'''
+          new_builder_call = old_builder_call + '''                if "association_announcement" in observation.get("evidence", []):
+                    announcement = _association_issue_signal_announcement(
+                        config["id"],
+                        candidate,
+                        issue_signal,
+                        checked_at,
+                    )
+                    if announcement:
+                        entry["announcement"] = announcement
+'''
+          if old_builder_call in monitor and "if \"association_announcement\" in observation.get" not in monitor:
+              monitor = monitor.replace(old_builder_call, new_builder_call, 1)
+
+          required = [
+              "parse_latest_econometrica_issue_signal",
+              '"econometric_society_volume"',
+              'evidence.append("association_announcement")',
+              "association_issue_match: bool = False",
+              "def _association_issue_signal_announcement(",
+          ]
+          missing = [token for token in required if token not in monitor]
+          if missing:
+              raise SystemExit(f"monitor patch incomplete: {missing}")
+          monitor_path.write_text(monitor, encoding="utf-8")
+
+          config_path = Path("config/journals.yml")
+          config = config_path.read_text(encoding="utf-8")
+          start = config.index("  ECTA:\n")
+          end = config.index("\n  JDE:\n", start)
+          block = config[start:end]
+          marker = "    current_issue_url: https://onlinelibrary.wiley.com/toc/14680262/current\n"
+          replacement = (
+              marker
+              + "    announcement_source: econometric_society_volume\n"
+              + "    announcement_url: https://www.econometricsociety.org/publications/econometrica/volume/2026\n"
+          )
+          if "announcement_source: econometric_society_volume" not in block:
+              if marker not in block:
+                  raise SystemExit("ECTA current issue marker missing")
+              block = block.replace(marker, replacement, 1)
+              config = config[:start] + block + config[end:]
+              config_path.write_text(config, encoding="utf-8")
+          PY
+      - name: Verify targeted contracts
+        run: python -m unittest tests.test_econometric_society_signal tests.test_association_announcements tests.test_monitor_announcements -v
+      - name: Verify full Python suite
+        run: python -m unittest discover -s tests -v
+      - name: Commit GREEN implementation
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "academic-door-bot"
+          git config user.email "academic-door-bot@users.noreply.github.com"
+          git add collectors/econometric_society.py scripts/journal_monitor.py config/journals.yml
+          git diff --cached --check
+          git commit -m "feat(freshness): announce ECTA from Econometric Society"
+          git push origin HEAD:feat/265-ecta-association-announcement
