@@ -19,6 +19,8 @@ from xml.etree import ElementTree
 import requests
 import yaml
 
+from collectors.wiley import parse_latest_issue_signal
+
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "config" / "journals.yml"
@@ -355,6 +357,75 @@ def fetch_rss_dois(
     return {normalize_doi(match.group(0)) for match in DOI_PATTERN.finditer(text)}
 
 
+
+def fetch_official_issue_signal(
+    config: dict[str, Any],
+    *,
+    session: requests.Session | None = None,
+) -> dict[str, Any] | None:
+    """Fetch configured first-party issue-existence evidence, fail closed."""
+
+    if config.get("announcement_source") != "wiley_recent_issues":
+        return None
+    source_url = str(config.get("announcement_url", "")).strip()
+    if not source_url:
+        return None
+    client = session or requests.Session()
+    client.headers.update({"User-Agent": USER_AGENT, "Accept": "text/html"})
+    response = _request_with_retry(client, source_url, attempts=2, timeout=30)
+    return parse_latest_issue_signal(response.content, source_url)
+
+
+def _issue_signal_matches_candidate(
+    candidate: Candidate | None,
+    signal: dict[str, Any] | None,
+) -> bool:
+    if not candidate or not signal:
+        return False
+    return (
+        candidate.volume.strip() == str(signal.get("volume", "")).strip()
+        and candidate.issue.strip() == str(signal.get("issue", "")).strip()
+        and str(signal.get("source_kind", "")) == "official_archive"
+        and str(signal.get("source_url", "")).startswith(
+            "https://onlinelibrary.wiley.com/"
+        )
+    )
+
+
+def _official_issue_signal_announcement(
+    journal_id: str,
+    candidate: Candidate | None,
+    signal: dict[str, Any] | None,
+    observed_at: str,
+) -> dict[str, Any] | None:
+    if not _issue_signal_matches_candidate(candidate, signal):
+        return None
+    assert candidate is not None and signal is not None
+    volume = candidate.volume.strip()
+    issue = candidate.issue.strip()
+    publication_date = str(signal.get("publication_date", "")).strip()
+    if not volume or not issue or not publication_date:
+        return None
+    token = lambda value: re.sub(r"[^a-z0-9]+", "-", value.casefold()).strip("-")
+    volume_token = token(volume)
+    issue_token = token(issue)
+    if not volume_token or not issue_token:
+        return None
+    return {
+        "schema_version": "1.0",
+        "journal_id": journal_id,
+        "issue_id": f"{journal_id}-{volume_token}-{issue_token}",
+        "volume": volume,
+        "issue": issue,
+        "issue_label": f"Vol. {volume} · No. {issue}",
+        "publication_date": publication_date,
+        "publication_state": "announced",
+        "source_authority": "first_party",
+        "source_kind": "official_archive",
+        "source_url": str(signal["source_url"]),
+        "observed_at": observed_at,
+    }
+
 def _candidate_payload(candidate: Candidate) -> dict[str, Any]:
     return {
         "issue_key": candidate.issue_key,
@@ -408,6 +479,7 @@ def evaluate_observation(
     previous_entry: dict[str, Any],
     *,
     rss_dois: set[str] | None = None,
+    official_issue_match: bool = False,
 ) -> tuple[str, dict[str, Any]]:
     if candidate is None:
         return "unchanged", {
@@ -424,6 +496,8 @@ def evaluate_observation(
     evidence = ["crossref"]
     if rss_dois and set(candidate.unseen_dois) & rss_dois:
         evidence.append("official_rss")
+    if official_issue_match:
+        evidence.append("official_archive")
 
     same_issue = candidate.issue_key == (
         f"{baseline.get('volume', '')}:{baseline.get('issue', '')}"
@@ -437,6 +511,7 @@ def evaluate_observation(
     )
     confirmed = (
         "official_rss" in evidence
+        or "official_archive" in evidence
         or same_issue
         or clearly_new_issue
         or seen_count >= 2
@@ -458,6 +533,7 @@ def detect_all(
     *,
     crossref_fetcher: Callable[[dict[str, Any], dict[str, Any]], list[dict[str, Any]]] = fetch_crossref_items,
     rss_fetcher: Callable[[str], set[str]] = fetch_rss_dois,
+    issue_signal_fetcher: Callable[[dict[str, Any]], dict[str, Any] | None] = fetch_official_issue_signal,
 ) -> tuple[dict[str, Any], dict[str, Any]]:
     previous_entries = state.get("journals", {})
     next_entries: dict[str, Any] = {}
@@ -540,11 +616,25 @@ def detect_all(
                     except Exception:
                         # RSS is corroborating evidence only; Crossref detection continues.
                         rss_dois = set()
+                issue_signal: dict[str, Any] | None = None
+                official_issue_match = False
+                if candidate and config.get("announcement_source"):
+                    try:
+                        issue_signal = issue_signal_fetcher(config)
+                        official_issue_match = _issue_signal_matches_candidate(
+                            candidate, issue_signal
+                        )
+                    except Exception:
+                        # First-party signals are additive only; source blocking
+                        # must not break metadata detection or manufacture authority.
+                        issue_signal = None
+                        official_issue_match = False
                 status, observation = evaluate_observation(
                     candidate,
                     baseline,
                     previous,
                     rss_dois=rss_dois,
+                    official_issue_match=official_issue_match,
                 )
                 previous_candidate = previous.get("candidate") or {}
                 observed_candidate = observation.get("candidate") or {}
@@ -583,6 +673,15 @@ def detect_all(
                         config["id"],
                         candidate,
                         str(config.get("rss_url", "")),
+                        checked_at,
+                    )
+                    if announcement:
+                        entry["announcement"] = announcement
+                if "official_archive" in observation.get("evidence", []):
+                    announcement = _official_issue_signal_announcement(
+                        config["id"],
+                        candidate,
+                        issue_signal,
                         checked_at,
                     )
                     if announcement:
