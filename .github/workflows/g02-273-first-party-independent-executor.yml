@@ -26,6 +26,7 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
+          import textwrap
 
           path = Path('scripts/journal_monitor.py')
           text = path.read_text(encoding='utf-8')
@@ -35,7 +36,8 @@ jobs:
               end = source.index(end_marker, start)
               return source[:start] + replacement + source[end:]
 
-          signal_helpers = '''def _trusted_issue_signal(signal: dict[str, Any] | None) -> bool:
+          signal_helpers = textwrap.dedent('''
+          def _trusted_issue_signal(signal: dict[str, Any] | None) -> bool:
               if not signal:
                   return False
               source_kind = str(signal.get("source_kind", "")).strip()
@@ -116,7 +118,7 @@ jobs:
               }
 
 
-          '''
+          ''').lstrip()
           text = replace_between(
               text,
               'def _issue_signal_matches_candidate(',
@@ -124,28 +126,29 @@ jobs:
               signal_helpers,
           )
 
-          signal_fetch = '''                if config.get("announcement_source"):
-                      try:
-                          issue_signal = issue_signal_fetcher(config)
-                          if candidate:
-                              issue_signal_matches = _issue_signal_matches_candidate(
-                                  candidate, issue_signal
-                              )
-                              signal_kind = str((issue_signal or {}).get("source_kind", ""))
-                              official_issue_match = (
-                                  issue_signal_matches and signal_kind == "official_archive"
-                              )
-                              association_issue_match = (
-                                  issue_signal_matches
-                                  and signal_kind == "association_announcement"
-                              )
-                      except Exception:
-                          # First-party signals are additive only; source blocking
-                          # must not break metadata detection or manufacture authority.
-                          issue_signal = None
-                          official_issue_match = False
-                          association_issue_match = False
-          '''
+          signal_fetch = textwrap.indent(textwrap.dedent('''
+          if config.get("announcement_source"):
+              try:
+                  issue_signal = issue_signal_fetcher(config)
+                  if candidate:
+                      issue_signal_matches = _issue_signal_matches_candidate(
+                          candidate, issue_signal
+                      )
+                      signal_kind = str((issue_signal or {}).get("source_kind", ""))
+                      official_issue_match = (
+                          issue_signal_matches and signal_kind == "official_archive"
+                      )
+                      association_issue_match = (
+                          issue_signal_matches
+                          and signal_kind == "association_announcement"
+                      )
+              except Exception:
+                  # First-party signals are additive only; source blocking
+                  # must not break metadata detection or manufacture authority.
+                  issue_signal = None
+                  official_issue_match = False
+                  association_issue_match = False
+          ''').lstrip(), '                ')
           text = replace_between(
               text,
               '                if candidate and config.get("announcement_source"):',
@@ -156,24 +159,26 @@ jobs:
           previous_marker = '                previous_candidate = previous.get("candidate") or {}\n'
           if text.count(previous_marker) != 1:
               raise SystemExit('previous candidate anchor is not unique')
-          independent_block = '''                independent_announcement = None
-                  if candidate is None:
-                      independent_announcement = _independent_issue_signal_announcement(
-                          config["id"], baseline, issue_signal, checked_at
-                      )
-                      if independent_announcement:
-                          signal_kind = str(independent_announcement["source_kind"])
-                          if signal_kind not in observation["evidence"]:
-                              observation["evidence"].append(signal_kind)
-          '''
+          independent_block = textwrap.indent(textwrap.dedent('''
+          independent_announcement = None
+          if candidate is None:
+              independent_announcement = _independent_issue_signal_announcement(
+                  config["id"], baseline, issue_signal, checked_at
+              )
+              if independent_announcement:
+                  signal_kind = str(independent_announcement["source_kind"])
+                  if signal_kind not in observation["evidence"]:
+                      observation["evidence"].append(signal_kind)
+          ''').lstrip(), '                ')
           text = text.replace(previous_marker, independent_block + previous_marker)
 
           rss_marker = '                if "official_rss" in observation.get("evidence", []):\n'
           if text.count(rss_marker) != 1:
               raise SystemExit('official RSS announcement anchor is not unique')
-          independent_write = '''                if independent_announcement:
-                      entry["announcement"] = independent_announcement
-          '''
+          independent_write = textwrap.indent(textwrap.dedent('''
+          if independent_announcement:
+              entry["announcement"] = independent_announcement
+          ''').lstrip(), '                ')
           text = text.replace(rss_marker, independent_write + rss_marker)
 
           path.write_text(text, encoding='utf-8')
