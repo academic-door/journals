@@ -126,6 +126,24 @@ class AssociationAnnouncementTests(unittest.TestCase):
         self.assertNotIn("association_announcement", entry["evidence"])
         self.assertNotIn("announcement", entry)
 
+    def test_older_signal_without_crossref_candidate_fails_closed(self) -> None:
+        signal = self.association_signal(
+            volume="93",
+            issue="6",
+            publication_date="November 2025",
+        )
+        with patch("scripts.journal_monitor.read_json", return_value=BASELINE):
+            state, _result = detect_all(
+                self.config,
+                {"journals": {}},
+                crossref_fetcher=lambda _config, _baseline: [],
+                issue_signal_fetcher=lambda _config: signal,
+            )
+
+        entry = state["journals"]["ECTA"]
+        self.assertNotIn("association_announcement", entry["evidence"])
+        self.assertNotIn("announcement", entry)
+
     def test_untrusted_signal_without_crossref_candidate_fails_closed(self) -> None:
         signal = self.association_signal(
             source_url="https://example.com/publications/econometrica/volume/2026"
