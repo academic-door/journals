@@ -32,31 +32,29 @@ jobs:
           python - <<'PY'
           from pathlib import Path
 
+          def replace_function(text: str, name: str, next_name: str, replacement: str) -> str:
+              start = text.index(f"def {name}(")
+              end = text.index(f"def {next_name}(", start)
+              return text[:start] + replacement.rstrip() + "\n\n\n" + text[end:]
+
           monitor_path = Path("scripts/journal_monitor.py")
           monitor = monitor_path.read_text(encoding="utf-8")
 
-          old_import = "from collectors.wiley import parse_latest_issue_signal\n"
-          new_import = (
-              "from collectors.econometric_society import parse_latest_econometrica_issue_signal\n"
-              "from collectors.wiley import parse_latest_issue_signal\n"
-          )
-          if "from collectors.econometric_society import parse_latest_econometrica_issue_signal" not in monitor:
-              if old_import not in monitor:
+          import_line = "from collectors.wiley import parse_latest_issue_signal\n"
+          assoc_import = "from collectors.econometric_society import parse_latest_econometrica_issue_signal\n"
+          if assoc_import not in monitor:
+              if import_line not in monitor:
                   raise SystemExit("monitor import marker missing")
-              monitor = monitor.replace(old_import, new_import, 1)
+              monitor = monitor.replace(import_line, assoc_import + import_line, 1)
 
-          old_fetch = '''    if config.get("announcement_source") != "wiley_recent_issues":
-              return None
-          source_url = str(config.get("announcement_url", "")).strip()
-          if not source_url:
-              return None
-          client = session or requests.Session()
-          client.headers.update({"User-Agent": USER_AGENT, "Accept": "text/html"})
-          response = _request_with_retry(client, source_url, attempts=2, timeout=30)
-          return parse_latest_issue_signal(response.content, source_url)
-          '''
-          old_fetch = old_fetch.replace("          ", "")
-          new_fetch = '''    source_type = str(config.get("announcement_source", "")).strip()
+          fetch_fn = '''def fetch_official_issue_signal(
+              config: dict[str, Any],
+              *,
+              session: requests.Session | None = None,
+          ) -> dict[str, Any] | None:
+              """Fetch configured first-party issue-existence evidence, fail closed."""
+
+              source_type = str(config.get("announcement_source", "")).strip()
               if source_type not in {"wiley_recent_issues", "econometric_society_volume"}:
                   return None
               source_url = str(config.get("announcement_url", "")).strip()
@@ -69,23 +67,20 @@ jobs:
                   return parse_latest_issue_signal(response.content, source_url)
               return parse_latest_econometrica_issue_signal(response.content, source_url)
           '''
-          new_fetch = new_fetch.replace("          ", "")
-          if 'source_type not in {"wiley_recent_issues", "econometric_society_volume"}' not in monitor:
-              if old_fetch not in monitor:
-                  raise SystemExit("monitor fetch marker missing")
-              monitor = monitor.replace(old_fetch, new_fetch, 1)
-
-          old_match = '''    return (
-              candidate.volume.strip() == str(signal.get("volume", "")).strip()
-              and candidate.issue.strip() == str(signal.get("issue", "")).strip()
-              and str(signal.get("source_kind", "")) == "official_archive"
-              and str(signal.get("source_url", "")).startswith(
-                  "https://onlinelibrary.wiley.com/"
-              )
+          monitor = replace_function(
+              monitor,
+              "fetch_official_issue_signal",
+              "_issue_signal_matches_candidate",
+              fetch_fn,
           )
-          '''
-          old_match = old_match.replace("          ", "")
-          new_match = '''    source_kind = str(signal.get("source_kind", "")).strip()
+
+          match_fn = '''def _issue_signal_matches_candidate(
+              candidate: Candidate | None,
+              signal: dict[str, Any] | None,
+          ) -> bool:
+              if not candidate or not signal:
+                  return False
+              source_kind = str(signal.get("source_kind", "")).strip()
               source_url = str(signal.get("source_url", "")).strip()
               if source_kind == "official_archive":
                   trusted_source = source_url.startswith("https://onlinelibrary.wiley.com/")
@@ -101,17 +96,18 @@ jobs:
                   and trusted_source
               )
           '''
-          new_match = new_match.replace("          ", "")
-          if 'source_kind == "association_announcement"' not in monitor:
-              if old_match not in monitor:
-                  raise SystemExit("monitor match marker missing")
-              monitor = monitor.replace(old_match, new_match, 1)
+          monitor = replace_function(
+              monitor,
+              "_issue_signal_matches_candidate",
+              "_official_issue_signal_announcement",
+              match_fn,
+          )
 
-          marker = "def _candidate_payload(candidate: Candidate) -> dict[str, Any]:\n"
+          candidate_marker = "def _candidate_payload(candidate: Candidate) -> dict[str, Any]:\n"
           if "def _association_issue_signal_announcement(" not in monitor:
-              if marker not in monitor:
-                  raise SystemExit("association builder marker missing")
-              builder = '''def _association_issue_signal_announcement(
+              if candidate_marker not in monitor:
+                  raise SystemExit("candidate payload marker missing")
+              assoc_builder = '''def _association_issue_signal_announcement(
               journal_id: str,
               candidate: Candidate | None,
               signal: dict[str, Any] | None,
@@ -149,75 +145,79 @@ jobs:
 
 
           '''
-              builder = builder.replace("          ", "")
-              monitor = monitor.replace(marker, builder + marker, 1)
+              monitor = monitor.replace(candidate_marker, assoc_builder + candidate_marker, 1)
 
-          old_sig = '''    *,
-              rss_dois: set[str] | None = None,
-              official_issue_match: bool = False,
-          ) -> tuple[str, dict[str, Any]]:
-          '''.replace("          ", "")
-          new_sig = '''    *,
+          eval_fn = '''def evaluate_observation(
+              candidate: Candidate | None,
+              baseline: dict[str, Any],
+              previous_entry: dict[str, Any],
+              *,
               rss_dois: set[str] | None = None,
               official_issue_match: bool = False,
               association_issue_match: bool = False,
           ) -> tuple[str, dict[str, Any]]:
-          '''.replace("          ", "")
-          if "association_issue_match: bool = False" not in monitor:
-              if old_sig not in monitor:
-                  raise SystemExit("evaluate signature marker missing")
-              monitor = monitor.replace(old_sig, new_sig, 1)
-
-          old_evidence = '''    if official_issue_match:
-              evidence.append("official_archive")
-          '''.replace("          ", "")
-          new_evidence = '''    if official_issue_match:
-              evidence.append("official_archive")
+              if candidate is None:
+                  return "unchanged", {
+                      "candidate": None,
+                      "candidate_seen_count": 0,
+                      "evidence": ["crossref"],
+                  }
+              previous_candidate = previous_entry.get("candidate") or {}
+              seen_count = (
+                  int(previous_entry.get("candidate_seen_count", 0)) + 1
+                  if previous_candidate.get("fingerprint") == candidate.fingerprint
+                  else 1
+              )
+              evidence = ["crossref"]
+              if rss_dois and set(candidate.unseen_dois) & rss_dois:
+                  evidence.append("official_rss")
+              if official_issue_match:
+                  evidence.append("official_archive")
               if association_issue_match:
                   evidence.append("association_announcement")
-          '''.replace("          ", "")
-          if 'evidence.append("association_announcement")' not in monitor:
-              if old_evidence not in monitor:
-                  raise SystemExit("evidence marker missing")
-              monitor = monitor.replace(old_evidence, new_evidence, 1)
 
-          old_confirm = '''        "official_rss" in evidence
-              or "official_archive" in evidence
-              or same_issue
-          '''.replace("          ", "")
-          new_confirm = '''        "official_rss" in evidence
-              or "official_archive" in evidence
-              or "association_announcement" in evidence
-              or same_issue
-          '''.replace("          ", "")
-          if 'or "association_announcement" in evidence' not in monitor:
-              if old_confirm not in monitor:
-                  raise SystemExit("confirmation marker missing")
-              monitor = monitor.replace(old_confirm, new_confirm, 1)
+              same_issue = candidate.issue_key == (
+                  f"{baseline.get('volume', '')}:{baseline.get('issue', '')}"
+              )
+              baseline_volume = _numeric(str(baseline.get("volume", "")))
+              candidate_volume = _numeric(candidate.volume)
+              clearly_new_issue = bool(
+                  candidate_volume is not None
+                  and baseline_volume is not None
+                  and candidate_volume > baseline_volume
+              )
+              confirmed = (
+                  "official_rss" in evidence
+                  or "official_archive" in evidence
+                  or "association_announcement" in evidence
+                  or same_issue
+                  or clearly_new_issue
+                  or seen_count >= 2
+              )
+              return ("confirmed" if confirmed else "candidate"), {
+                  "candidate": _candidate_payload(candidate),
+                  "candidate_seen_count": seen_count,
+                  "evidence": evidence,
+              }
+          '''
+          monitor = replace_function(
+              monitor,
+              "evaluate_observation",
+              "_current_issue_path",
+              eval_fn,
+          )
 
-          old_signal = '''                issue_signal: dict[str, Any] | None = None
-              official_issue_match = False
-              if candidate and config.get("announcement_source"):
-                  try:
-                      issue_signal = issue_signal_fetcher(config)
-                      official_issue_match = _issue_signal_matches_candidate(
-                          candidate, issue_signal
-                      )
-                  except Exception:
-                      # First-party signals are additive only; source blocking
-                      # must not break metadata detection or manufacture authority.
-                      issue_signal = None
-                      official_issue_match = False
-          '''.replace("          ", "")
-          new_signal = '''                issue_signal: dict[str, Any] | None = None
+          signal_start_marker = "                issue_signal: dict[str, Any] | None = None\n"
+          signal_end_marker = "                status, observation = evaluate_observation(\n"
+          signal_start = monitor.index(signal_start_marker)
+          signal_end = monitor.index(signal_end_marker, signal_start)
+          signal_block = '''                issue_signal: dict[str, Any] | None = None
               official_issue_match = False
               association_issue_match = False
               if candidate and config.get("announcement_source"):
                   try:
                       issue_signal = issue_signal_fetcher(config)
-                      issue_signal_matches = _issue_signal_matches_candidate(
-                          candidate, issue_signal
-                      )
+                      issue_signal_matches = _issue_signal_matches_candidate(candidate, issue_signal)
                       signal_kind = str((issue_signal or {}).get("source_kind", ""))
                       official_issue_match = (
                           issue_signal_matches and signal_kind == "official_archive"
@@ -231,54 +231,39 @@ jobs:
                       issue_signal = None
                       official_issue_match = False
                       association_issue_match = False
-          '''.replace("          ", "")
-          if "association_issue_match = False" not in monitor:
-              if old_signal not in monitor:
-                  raise SystemExit("detect signal marker missing")
-              monitor = monitor.replace(old_signal, new_signal, 1)
+          '''
+          monitor = monitor[:signal_start] + signal_block + monitor[signal_end:]
 
-          old_call = '''                    rss_dois=rss_dois,
-              official_issue_match=official_issue_match,
-          )
-          '''.replace("          ", "")
-          new_call = '''                    rss_dois=rss_dois,
-              official_issue_match=official_issue_match,
-              association_issue_match=association_issue_match,
-          )
-          '''.replace("          ", "")
+          call_marker = "                    official_issue_match=official_issue_match,\n"
           if "association_issue_match=association_issue_match" not in monitor:
-              if old_call not in monitor:
-                  raise SystemExit("evaluate call marker missing")
-              monitor = monitor.replace(old_call, new_call, 1)
+              call_at = monitor.index(call_marker, signal_start)
+              monitor = (
+                  monitor[: call_at + len(call_marker)]
+                  + "                    association_issue_match=association_issue_match,\n"
+                  + monitor[call_at + len(call_marker) :]
+              )
 
-          old_builder = '''                if "official_archive" in observation.get("evidence", []):
-              announcement = _official_issue_signal_announcement(
-                  config["id"],
-                  candidate,
-                  issue_signal,
-                  checked_at,
-              )
-              if announcement:
-                  entry["announcement"] = announcement
-          '''.replace("          ", "")
-          new_builder = old_builder + '''                if "association_announcement" in observation.get("evidence", []):
-              announcement = _association_issue_signal_announcement(
-                  config["id"],
-                  candidate,
-                  issue_signal,
-                  checked_at,
-              )
-              if announcement:
-                  entry["announcement"] = announcement
-          '''.replace("          ", "")
-          if 'if "association_announcement" in observation.get' not in monitor:
-              if old_builder not in monitor:
-                  raise SystemExit("announcement builder call marker missing")
-              monitor = monitor.replace(old_builder, new_builder, 1)
+          archive_start_marker = '                if "official_archive" in observation.get("evidence", []):\n'
+          awaiting_marker = "                if _awaiting_status(previous, same_deep_candidate):\n"
+          archive_start = monitor.index(archive_start_marker, signal_start)
+          awaiting_at = monitor.index(awaiting_marker, archive_start)
+          existing_archive_block = monitor[archive_start:awaiting_at]
+          if 'if "association_announcement" in observation.get' not in existing_archive_block:
+              assoc_call = '''                if "association_announcement" in observation.get("evidence", []):
+                  announcement = _association_issue_signal_announcement(
+                      config["id"],
+                      candidate,
+                      issue_signal,
+                      checked_at,
+                  )
+                  if announcement:
+                      entry["announcement"] = announcement
+          '''
+              monitor = monitor[:awaiting_at] + assoc_call + monitor[awaiting_at:]
 
           required = [
               "parse_latest_econometrica_issue_signal",
-              '"econometric_society_volume"',
+              'source_type not in {"wiley_recent_issues", "econometric_society_volume"}',
               'evidence.append("association_announcement")',
               "association_issue_match: bool = False",
               "association_issue_match=association_issue_match",
