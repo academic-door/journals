@@ -1,4 +1,4 @@
-name: G03 title concurrency diagnostic
+name: G03 title numeric suffix RED
 
 on:
   push:
@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 jobs:
-  diagnose:
+  red:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -17,57 +17,10 @@ jobs:
         with:
           python-version: "3.12"
       - run: python -m pip install -r requirements.txt
-      - name: Reproduce full-issue metadata fetch and inspect target title
-        env:
-          ELSEVIER_API_KEY: ${{ secrets.ELSEVIER_API_KEY }}
-          ELSEVIER_INST_TOKEN: ${{ secrets.ELSEVIER_INST_TOKEN }}
+      - name: Run focused title regressions
         shell: bash
         run: |
           set -euo pipefail
-          python - <<'PY'
-          import difflib
-          import json
-          import unicodedata
-          from pathlib import Path
-          import requests
-
-          from scripts.build_sciencedirect_browser_archives import (
-              PUBLISHABLE_RE,
-              comparable_title,
-              fetch_issue_metadata,
-              loose_comparable_title,
-              metadata_title_for_compare,
-              pii_from_href,
-          )
-
-          target = "S0264837726003066"
-          roster = json.loads(Path("data/provenance/browser-snapshots/sciencedirect/lup-170-c.json").read_text(encoding="utf-8"))
-          research = [item for item in roster["items"] if PUBLISHABLE_RE.search(str(item.get("box_text", "")))]
-          piis = [pii_from_href(item.get("href")) for item in research]
-          browser = next(item["title"] for item in research if pii_from_href(item.get("href")) == target)
-          metadata = fetch_issue_metadata(requests.Session(), piis, timeout=90)
-          api = metadata[target]["title_en"]
-          api_compare = metadata_title_for_compare(api)
-
-          print("pii_count=", len(piis))
-          print("browser_ascii=", ascii(browser))
-          print("api_ascii=", ascii(api))
-          print("api_compare_ascii=", ascii(api_compare))
-          print("raw_equal=", browser == api)
-          print("browser_len=", len(browser), "api_len=", len(api))
-          print("comparable_browser=", ascii(comparable_title(browser)))
-          print("comparable_api=", ascii(comparable_title(api_compare)))
-          print("comparable_equal=", comparable_title(browser) == comparable_title(api_compare))
-          print("loose_browser=", ascii(loose_comparable_title(browser)))
-          print("loose_api=", ascii(loose_comparable_title(api_compare)))
-          print("loose_equal=", loose_comparable_title(browser) == loose_comparable_title(api_compare))
-
-          matcher = difflib.SequenceMatcher(None, browser, api)
-          for tag, i1, i2, j1, j2 in matcher.get_opcodes():
-              if tag == "equal":
-                  continue
-              print("opcode=", tag, i1, i2, j1, j2)
-              for side, text, start, end in (("browser", browser, i1, i2), ("api", api, j1, j2)):
-                  for offset, char in enumerate(text[start:end], start=start):
-                      print(side, offset, ascii(char), f"U+{ord(char):04X}", unicodedata.name(char, "<unnamed>"), unicodedata.category(char))
-          PY
+          python -m unittest tests.test_sciencedirect_title_numeric_suffix -v
+          python -m unittest tests.test_sciencedirect_archive_titles -v
+          git diff --check
