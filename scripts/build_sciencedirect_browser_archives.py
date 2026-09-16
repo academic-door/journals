@@ -79,19 +79,21 @@ def metadata_title_for_compare(value: object) -> str:
     """Remove known Elsevier metadata notes appended to article titles."""
 
     text = str(value or "")
-    text = re.split(
+    parts = re.split(
         r"\b(?:funding information|acknowledg(?:e)?ments?|declaration of interest|"
         r"credit authorship contribution statement)\s*:",
         text,
         maxsplit=1,
         flags=re.IGNORECASE,
-    )[0]
+    )
+    text = parts[0]
     # Some Article API responses place a standalone affiliation/reference
-    # marker between the title and the metadata note (for example ``1``
-    # before ``Funding information``).  It is presentation metadata, not
-    # part of the article title.  Restrict this to trailing digit-only
-    # lines so legitimate numeric titles remain unchanged.
-    text = re.sub(r"(?:\s+\d+)+\s*$", "", text)
+    # marker between the title and a metadata note (for example ``1`` on
+    # its own line before ``Funding information``).  Only remove such
+    # digit-only lines when a recognized metadata note was actually split;
+    # a legitimate numeric title suffix such as a year must be preserved.
+    if len(parts) > 1:
+        text = re.sub(r"(?:\r?\n[ \t]*\d+[ \t]*)+\s*$", "", text).rstrip()
     return text
 
 
