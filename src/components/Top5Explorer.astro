@@ -13,6 +13,11 @@ interface JournalSummary {
   latest_issue_url?: string;
   latest_detected_issue_url?: string;
   latest_display_issue_url?: string;
+  latest_announced_issue_id?: string;
+  latest_announced_issue_label?: string;
+  latest_announced_publication_date?: string;
+  latest_announced_source_url?: string;
+  latest_announced_is_newer?: boolean;
   [key: string]: unknown;
 }
 
@@ -370,8 +375,19 @@ const initialIssue = initialIssuePath
     const sourcePending = publicationState === "source_pending";
     const publicationDate = formatDate(issue.publication_date);
     composerLink.href = `${base}composer/?journal=${encodeURIComponent(issue.journal_id)}&issue=${encodeURIComponent(issue.issue_id)}`;
+    const journal = state.activeJournal || {};
+    const announcementNotice = journal.latest_announced_is_newer ? `
+      <div class="issue-note announced-issue-notice">
+        <strong>新一期已发布</strong>
+        · ${escapeHtml(journal.latest_announced_issue_label || journal.latest_announced_issue_id || "")}
+        ${journal.latest_announced_publication_date ? ` · ${escapeHtml(formatDate(journal.latest_announced_publication_date))}` : ""}
+        · 内容整理中
+        ${journal.latest_announced_source_url ? ` · <a href="${escapeHtml(journal.latest_announced_source_url)}" target="_blank" rel="noreferrer">官方发布来源</a>` : ""}
+        <small>下方为最近完整可读卷期</small>
+      </div>` : "";
 
     summary.innerHTML = `
+      ${announcementNotice}
       <div class="issue-identity">
         <p class="section-kicker">${escapeHtml(issue.journal_id.toUpperCase())}</p>
         <h2>${escapeHtml(issue.journal_name)}</h2>

@@ -25,6 +25,7 @@ from collectors.article_types import (
     translation_is_complete,
 )
 from scripts.china_relevance import annotate_issue, classify_china_relevance
+from scripts.freshness_announcements import announcement_entry_fields
 from scripts.translate_issue import (
     TranslationError,
     _source_hash,
@@ -38,6 +39,7 @@ SCHEMA_PATH = ROOT / "schemas" / "issue.schema.json"
 JOURNALS_PATH = ROOT / "config" / "journals.yml"
 TRANSLATION_CACHE = ROOT / "data" / "translation-cache"
 ARTICLE_TYPE_OVERRIDES_PATH = ROOT / "data" / "article-type-overrides.json"
+MONITOR_STATE_PATH = ROOT / "data" / "monitoring" / "state.json"
 COMMENT_TITLE_OVERRIDES = {
     "10.1086/740225": "国家起源：土地生产率还是可攫取性？——评论",
 }
@@ -1607,6 +1609,8 @@ def update_indexes(
     usable_count = 0
     translated_articles = 0
     total_articles = 0
+    monitor_state = read_json(MONITOR_STATE_PATH) or {}
+    monitor_entries = monitor_state.get("journals", {})
 
     for key, config in journal_configs.items():
         if not config.get("enabled"):
@@ -1781,6 +1785,27 @@ def update_indexes(
                     "latest_display_source": "ready",
                 }
             )
+        monitor_entry = (
+            monitor_entries.get(key)
+            or monitor_entries.get(config["id"])
+            or {}
+        )
+        entry.update(
+            announcement_entry_fields(
+                config["id"],
+                monitor_entry.get("announcement"),
+                ready=(
+                    issue
+                    if issue and is_publishable_snapshot(issue)
+                    else None
+                ),
+                detected=(
+                    detected
+                    if detected and is_detected_snapshot(detected)
+                    else None
+                ),
+            )
+        )
         journal_entries[key] = entry
         if issue and archive_current:
             archive_issue(issue)
