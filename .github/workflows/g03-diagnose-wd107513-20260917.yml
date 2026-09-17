@@ -1,0 +1,45 @@
+name: G03 diagnose WD 107513 once
+
+on:
+  push:
+    branches:
+      - ops/g03-diagnose-wd107513-20260917
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r requirements.txt
+      - name: Query existing Elsevier fallback for WD 107513
+        env:
+          ELSEVIER_API_KEY: ${{ secrets.ELSEVIER_API_KEY }}
+          ELSEVIER_INST_TOKEN: ${{ secrets.ELSEVIER_INST_TOKEN }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import requests
+          from collectors.metadata_fallback import _elsevier_lookup
+
+          result = _elsevier_lookup(
+              requests.Session(),
+              "S0305750X26002032",
+              doi="10.1016/j.worlddev.2026.107513",
+              timeout=45,
+          )
+          abstract = str(result.get("abstract", "") or "").strip()
+          print(json.dumps({
+              "article_type": str(result.get("article_type", "") or ""),
+              "abstract_present": bool(abstract),
+              "abstract_length": len(abstract),
+              "teaser_present": bool(str(result.get("teaser", "") or "").strip()),
+              "source_url": str(result.get("source_url", "") or ""),
+          }, ensure_ascii=False, sort_keys=True))
+          PY
