@@ -27,6 +27,14 @@ class HistoryEvidenceRevalidationTests(unittest.TestCase):
         self.assertFalse(result["ok"])
         self.assertIn("wave produced no measurable progress", result["errors"])
 
+    def test_revalidation_mode_still_rejects_ready_regression(self) -> None:
+        before = {"records": [record("wd-207-c", "ready")]}
+        after = {"records": [record("wd-207-c", "source_pending")]}
+        result = evaluate_progress(before, after, allow_no_progress=True)
+        self.assertFalse(result["ok"])
+        self.assertIn("ready issues regressed", result["errors"])
+        self.assertIn("unresolved issue count increased", result["errors"])
+
     def test_only_complete_named_evidence_marker_enables_revalidation_mode(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             marker = Path(tmp) / "sciencedirect-evidence-deferred.txt"
