@@ -1,6 +1,6 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-09-17T18:20:05+00:00",
+  "updated_at": "2026-09-17T21:31:43+00:00",
   "known_detected": {
     "aejapp": {
       "journal_id": "aejapp",
@@ -804,13 +804,13 @@
       "issue_id": "ere-89-9",
       "issue_label": "Vol. 89 · No. 9",
       "publication_date": "September 2026",
-      "article_count": 2,
-      "abstract_count": 2,
-      "translation_count": 2,
-      "china_related_count": 0,
-      "fingerprint": "79e01ac35650207230644ead7896d29fadac5deea4bf6b7176a227fe8a944837",
+      "article_count": 8,
+      "abstract_count": 8,
+      "translation_count": 8,
+      "china_related_count": 3,
+      "fingerprint": "ddb3380b81321815fe5baf8b6bb049445bc6d086595b68cd895045e4727dff11",
       "directory_url": "https://academic-door.github.io/journals/fields/?journal=ere",
-      "composer_url": "https://academic-door.github.io/journals/composer/?journal=ere&issue=ere-89-9"
+      "composer_url": "https://academic-door-composer.academic-door.workers.dev/?journal=ere&issue=ere-89-9"
     },
     "foodpolicy": {
       "journal_id": "foodpolicy",
@@ -1332,44 +1332,7 @@
     }
   },
   "pending_detected": {},
-  "pending_ready": {
-    "lup": {
-      "journal_id": "lup",
-      "journal_name": "Land Use Policy",
-      "issue_id": "lup-170-c",
-      "issue_label": "Vol. 170",
-      "publication_date": "November 2026",
-      "article_count": 53,
-      "abstract_count": 53,
-      "translation_count": 53,
-      "china_related_count": 9,
-      "fingerprint": "2f14165c6b2cc7828ea29c2dbb2119bab2bd64ee4c1e0fd13716e452a5482518",
-      "directory_url": "https://academic-door.github.io/journals/fields/?journal=lup",
-      "composer_url": "https://academic-door-composer.academic-door.workers.dev/?journal=lup&issue=lup-170-c",
-      "event_type": "new_issue",
-      "notification_stage": "ready",
-      "detected_at": "2026-09-16T20:07:59+00:00",
-      "composer_ready": false
-    },
-    "wd": {
-      "journal_id": "wd",
-      "journal_name": "World Development",
-      "issue_id": "wd-207-c",
-      "issue_label": "Vol. 207",
-      "publication_date": "November 2026",
-      "article_count": 26,
-      "abstract_count": 26,
-      "translation_count": 26,
-      "china_related_count": 5,
-      "fingerprint": "ff013536855266181b88aa6012b80a9d1a56279fe3bf4def7fe01e3d5c30f9e5",
-      "directory_url": "https://academic-door.github.io/journals/fields/?journal=wd",
-      "composer_url": "https://academic-door-composer.academic-door.workers.dev/?journal=wd&issue=wd-207-c",
-      "event_type": "new_issue",
-      "notification_stage": "ready",
-      "detected_at": "2026-09-17T14:32:11+00:00",
-      "composer_ready": false
-    }
-  },
+  "pending_ready": {},
   "sent_detected": {
     "eer": {
       "issue_id": "eer-189-c",
@@ -1506,8 +1469,10 @@
     },
     "ere": {
       "issue_id": "ere-89-9",
-      "fingerprint": "79e01ac35650207230644ead7896d29fadac5deea4bf6b7176a227fe8a944837",
-      "sent_at": "2026-09-01T05:21:25+00:00"
+      "fingerprint": "ddb3380b81321815fe5baf8b6bb049445bc6d086595b68cd895045e4727dff11",
+      "sent_at": "2026-09-17T21:31:43+00:00",
+      "smtp_accepted_at": "2026-09-17T21:31:43+00:00",
+      "delivery_status": "smtp_accepted"
     },
     "aejpol": {
       "issue_id": "aejpol-18-3",
@@ -1625,9 +1590,11 @@
       "sent_at": "2026-08-07T06:08:26+00:00"
     },
     "wd": {
-      "issue_id": "wd-206-c",
-      "fingerprint": "80e2717cd01a08439a2ea4ba7b1d528fe459fc9884e09ef29e3a9c100ee3a2d7",
-      "sent_at": "2026-08-07T08:02:28+00:00"
+      "issue_id": "wd-207-c",
+      "fingerprint": "ff013536855266181b88aa6012b80a9d1a56279fe3bf4def7fe01e3d5c30f9e5",
+      "sent_at": "2026-09-17T21:31:43+00:00",
+      "smtp_accepted_at": "2026-09-17T21:31:43+00:00",
+      "delivery_status": "smtp_accepted"
     },
     "cer": {
       "issue_id": "cer-101-c",
@@ -1688,6 +1655,13 @@
       "issue_id": "res-93-5",
       "fingerprint": "0cb118baab04654fcb472433fda59fbada3c3ba88c505d6bc5f6e55a21f30c41",
       "sent_at": "2026-09-09T00:25:10+00:00"
+    },
+    "lup": {
+      "issue_id": "lup-170-c",
+      "fingerprint": "2f14165c6b2cc7828ea29c2dbb2119bab2bd64ee4c1e0fd13716e452a5482518",
+      "sent_at": "2026-09-17T21:31:43+00:00",
+      "smtp_accepted_at": "2026-09-17T21:31:43+00:00",
+      "delivery_status": "smtp_accepted"
     }
   }
 }
