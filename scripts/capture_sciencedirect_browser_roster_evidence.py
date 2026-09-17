@@ -69,9 +69,14 @@ def _spaced_box_text(value: str) -> str:
 
 def _archive_maps(
     issue: dict[str, Any],
-) -> tuple[dict[str, dict[str, Any]], dict[str, dict[str, Any]]]:
+) -> tuple[
+    dict[str, dict[str, Any]],
+    dict[str, dict[str, Any]],
+    dict[str, list[dict[str, Any]]],
+]:
     by_pii: dict[str, dict[str, Any]] = {}
     by_doi: dict[str, dict[str, Any]] = {}
+    by_title: dict[str, list[dict[str, Any]]] = {}
     for article in issue.get("articles", []):
         pii = _pii(article.get("source_url"))
         doi = str(article.get("doi", "")).strip().casefold()
@@ -84,7 +89,10 @@ def _archive_maps(
             raise ValueError(f"duplicate archive PII: {pii}")
         if pii:
             by_pii[pii] = article
-    return by_pii, by_doi
+        title = _normalized_title(article.get("title_en"))
+        if title:
+            by_title.setdefault(title, []).append(article)
+    return by_pii, by_doi, by_title
 
 
 def _article_type(browser_item: dict[str, Any]) -> str:
@@ -99,6 +107,25 @@ def _article_type(browser_item: dict[str, Any]) -> str:
     if PUBLISHABLE_RE.search(box_text):
         return "research-article"
     return ""
+
+
+def _match_archive_article(
+    *,
+    pii: str,
+    browser_doi: str,
+    title: str,
+    by_pii: dict[str, dict[str, Any]],
+    by_doi: dict[str, dict[str, Any]],
+    by_title: dict[str, list[dict[str, Any]]],
+) -> dict[str, Any] | None:
+    article = by_pii.get(pii) or by_doi.get(browser_doi)
+    if article is not None:
+        return article
+    normalized_title = _normalized_title(title)
+    matches = by_title.get(normalized_title, []) if normalized_title else []
+    if len(matches) > 1:
+        raise ValueError(f"ambiguous archive title: {title}")
+    return matches[0] if matches else None
 
 
 def build_evidence(
@@ -116,7 +143,7 @@ def build_evidence(
     if str(snapshot.get("issue_id", "")) != str(issue.get("issue_id", "")):
         raise ValueError("snapshot issue_id does not match archive")
 
-    archive_by_pii, archive_by_doi = _archive_maps(issue)
+    archive_by_pii, archive_by_doi, archive_by_title = _archive_maps(issue)
     items: list[dict[str, Any]] = []
     excluded: list[dict[str, Any]] = []
     seen: set[str] = set()
@@ -132,7 +159,14 @@ def build_evidence(
         if pii in seen:
             raise ValueError(f"duplicate official browser PII: {pii}")
         seen.add(pii)
-        article = archive_by_pii.get(pii) or archive_by_doi.get(browser_doi)
+        article = _match_archive_article(
+            pii=pii,
+            browser_doi=browser_doi,
+            title=title,
+            by_pii=archive_by_pii,
+            by_doi=archive_by_doi,
+            by_title=archive_by_title,
+        )
         if article is not None:
             matched_archive_dois.add(str(article["doi"]).strip().casefold())
         if article_type == "research-article":
@@ -221,6 +255,11 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("snapshots", nargs="+", type=Path)
     parser.add_argument("--api-root", type=Path, required=True)
+    parser.add_argument(
+        "--staging-root",
+        type=Path,
+        default=Path("data/backfill-staging"),
+    )
     parser.add_argument("--output-root", type=Path, required=True)
     parser.add_argument("--excluded-doi", action="append", default=[])
     args = parser.parse_args()
@@ -233,15 +272,20 @@ def main() -> int:
         archive_path = (
             args.api_root / "journals" / journal_id / "issues" / f"{issue_id}.json"
         )
-        if not archive_path.exists():
-            print(
-                f"[evidence] archive not ready for {issue_id}; defer official evidence",
-                file=sys.stderr,
-            )
-            continue
+        issue_path = archive_path
+        if not issue_path.exists():
+            staging_path = args.staging_root / journal_id / f"{issue_id}.json"
+            if staging_path.exists():
+                issue_path = staging_path
+            else:
+                print(
+                    f"[evidence] archive/staging not ready for {issue_id}; defer official evidence",
+                    file=sys.stderr,
+                )
+                continue
         evidence = build_evidence(
             snapshot,
-            _read_json(archive_path),
+            _read_json(issue_path),
             excluded_dois=excluded_dois,
         )
         output = args.output_root / f"{issue_id}.json"
