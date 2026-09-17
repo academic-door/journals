@@ -21,9 +21,11 @@ EVIDENCE_REVALIDATION_MARKER = Path("sciencedirect-evidence-deferred.txt")
 def evidence_revalidation_requested(
     marker: Path = EVIDENCE_REVALIDATION_MARKER,
 ) -> bool:
-    """Return true only for the named-evidence path that creates this marker."""
+    """Return true only when named evidence ran without any deferred issue."""
 
-    return marker.is_file()
+    if not marker.is_file():
+        return False
+    return not marker.read_text(encoding="utf-8").strip()
 
 
 def evaluate_progress(
@@ -104,18 +106,11 @@ def main() -> int:
     parser.add_argument("--before", type=Path, required=True)
     parser.add_argument("--after", type=Path, required=True)
     parser.add_argument("--report", type=Path, required=True)
-    parser.add_argument(
-        "--allow-no-progress",
-        action="store_true",
-        help="allow an idempotent evidence revalidation while preserving regression checks",
-    )
     args = parser.parse_args()
     report = evaluate_progress(
         json.loads(args.before.read_text(encoding="utf-8")),
         json.loads(args.after.read_text(encoding="utf-8")),
-        allow_no_progress=(
-            args.allow_no_progress or evidence_revalidation_requested()
-        ),
+        allow_no_progress=evidence_revalidation_requested(),
     )
     args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
