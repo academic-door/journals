@@ -1,0 +1,51 @@
+mailbox_announcements:
+  JPE:
+    journal_id: jpe
+    sender_domains:
+      - journals.uchicago.edu
+      - uchicago.edu
+    subject_patterns:
+      - "Journal of Political Economy"
+    official_link_hosts:
+      - journals.uchicago.edu
+
+  ECTA:
+    journal_id: ecta
+    sender_domains:
+      - wiley.com
+      - econometricsociety.org
+    subject_patterns:
+      - "Econometrica"
+    official_link_hosts:
+      - onlinelibrary.wiley.com
+      - econometricsociety.org
+
+  RAND:
+    journal_id: rand
+    sender_domains:
+      - wiley.com
+    subject_patterns:
+      - "RAND Journal of Economics"
+    official_link_hosts:
+      - onlinelibrary.wiley.com
+
+  JAERE:
+    journal_id: jaere
+    sender_domains:
+      - journals.uchicago.edu
+      - uchicago.edu
+    subject_patterns:
+      - "Journal of the Association of Environmental and Resource Economists"
+      - "JAERE"
+    official_link_hosts:
+      - journals.uchicago.edu
+
+  ERE:
+    journal_id: ere
+    sender_domains:
+      - springer.com
+      - springernature.com
+    subject_patterns:
+      - "Environmental and Resource Economics"
+    official_link_hosts:
+      - link.springer.com
