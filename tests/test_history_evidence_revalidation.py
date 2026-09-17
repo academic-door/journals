@@ -27,9 +27,11 @@ class HistoryEvidenceRevalidationTests(unittest.TestCase):
         self.assertFalse(result["ok"])
         self.assertIn("wave produced no measurable progress", result["errors"])
 
-    def test_only_existing_named_evidence_marker_enables_revalidation_mode(self) -> None:
+    def test_only_complete_named_evidence_marker_enables_revalidation_mode(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             marker = Path(tmp) / "sciencedirect-evidence-deferred.txt"
+            self.assertFalse(evidence_revalidation_requested(marker))
+            marker.write_text("wd-missing-c\n", encoding="utf-8")
             self.assertFalse(evidence_revalidation_requested(marker))
             marker.write_text("", encoding="utf-8")
             self.assertTrue(evidence_revalidation_requested(marker))
