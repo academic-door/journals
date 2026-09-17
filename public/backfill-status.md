@@ -1,16 +1,13 @@
 # Field journal history backfill status
 
-Updated: 2026-09-17T00:37:52+00:00
+Updated: 2026-09-17T00:56:37+00:00
 
-Discovery coverage: 1278 discovered · 1227 archived · 1132 publication ready · 51 missing · 95 source pending
+Discovery coverage: 1255 discovered · 1204 archived · 1109 publication ready · 51 missing · 95 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 619 | 1 | 35 | 53 |
-| 2023-2026 | 291 | 0 | 5 | 4 |
-| 2024-2024 | 12 | 0 | 0 | 0 |
-| 2025-2026 | 1 | 0 | 0 | 0 |
-| 2026-2026 | 10 | 0 | 0 | 0 |
+| 2023-2024 | 619 | 0 | 36 | 53 |
+| 2025-2026 | 570 | 1 | 15 | 42 |
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -157,7 +154,7 @@ Discovery coverage: 1278 discovered · 1227 archived · 1132 publication ready �
 | CER | cer-77-c | 2023 | ready |  |
 | CER | cer-78-c | 2023 | ready |  |
 | CER | cer-79-c | 2023 | ready |  |
-| CER | cer-80-c | 2023 | source_pending |  |
+| CER | cer-80-c | 2023 | source_pending | source authority pending official verification |
 | CER | cer-81-c | 2023 | ready |  |
 | CER | cer-82-c | 2023 | ready |  |
 | CER | cer-83-c | 2024 | ready |  |
@@ -408,7 +405,7 @@ Discovery coverage: 1278 discovered · 1227 archived · 1132 publication ready �
 | FOODPOLICY | foodpolicy-115-c | 2023 | ready |  |
 | FOODPOLICY | foodpolicy-116-c | 2023 | ready |  |
 | FOODPOLICY | foodpolicy-117-c | 2023 | ready |  |
-| FOODPOLICY | foodpolicy-118-c | 2023 | translation_partial |  |
+| FOODPOLICY | foodpolicy-118-c | 2023 | blocked | archive_missing |
 | FOODPOLICY | foodpolicy-119-c | 2023 | ready |  |
 | FOODPOLICY | foodpolicy-120-c | 2023 | ready |  |
 | FOODPOLICY | foodpolicy-121-c | 2023 | ready |  |
@@ -551,7 +548,7 @@ Discovery coverage: 1278 discovered · 1227 archived · 1132 publication ready �
 | JEBO | jebo-217-c | 2024 | ready |  |
 | JEBO | jebo-218-c | 2024 | ready |  |
 | JEBO | jebo-219-c | 2024 | ready |  |
-| JEBO | jebo-220-c | 2024 | ready | archive_missing |
+| JEBO | jebo-220-c | 2024 | ready |  |
 | JEBO | jebo-221-c | 2024 | ready |  |
 | JEBO | jebo-222-c | 2024 | ready |  |
 | JEBO | jebo-223-c | 2024 | ready |  |

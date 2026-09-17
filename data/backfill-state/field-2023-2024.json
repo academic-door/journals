@@ -740,14 +740,15 @@
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
       "status": "source_pending",
-      "last_error": "",
+      "last_error": "source authority pending official verification",
       "retry_class": "source",
-      "attempt_count": 3,
-      "last_attempt_at": "2026-09-05T00:22:04+00:00",
+      "attempt_count": 4,
+      "last_attempt_at": "2026-09-17T00:53:37+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending"
+      "publication_state": "source_pending",
+      "next_retry_at": "2026-09-18T00:53:40+00:00"
     },
     "cer-81-c": {
       "journal": "CER",
@@ -1259,16 +1260,15 @@
       "volume": "118",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/food-policy/vol/118/suppl/C",
-      "status": "translation_partial",
-      "last_error": "",
-      "retry_class": "translation",
+      "status": "blocked",
+      "last_error": "archive_missing",
+      "retry_class": "transient",
       "attempt_count": 1,
       "last_attempt_at": "2026-09-16T19:25:47+00:00",
       "last_error_code": "",
-      "content_status": "translation_partial",
+      "content_status": "blocked",
       "source_status": "source_pending",
-      "publication_state": "translation_partial",
-      "next_retry_at": "2026-09-17T01:27:06+00:00"
+      "publication_state": "blocked"
     },
     "foodpolicy-119-c": {
       "journal": "FOODPOLICY",
@@ -4188,16 +4188,15 @@
       "volume": "106",
       "issue": "2",
       "official_url": "https://onlinelibrary.wiley.com/toc/14678276/2024/106/2",
-      "status": "translation_partial",
+      "status": "source_pending",
       "last_error": "",
-      "retry_class": "translation",
+      "retry_class": "source",
       "attempt_count": 1,
       "last_attempt_at": "2026-09-16T19:27:21+00:00",
       "last_error_code": "",
-      "content_status": "translation_partial",
+      "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "translation_partial",
-      "next_retry_at": "2026-09-17T01:28:42+00:00"
+      "publication_state": "source_pending"
     },
     "ajae-106-3": {
       "journal": "AJAE",
@@ -7653,16 +7652,15 @@
       "volume": "235",
       "issue": "2",
       "official_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/235/suppl/2",
-      "status": "translation_partial",
-      "last_error": "",
-      "retry_class": "translation",
+      "status": "blocked",
+      "last_error": "archive_missing",
+      "retry_class": "transient",
       "attempt_count": 1,
       "last_attempt_at": "2026-09-16T19:26:57+00:00",
       "last_error_code": "",
-      "content_status": "translation_partial",
-      "source_status": "publisher_verified",
-      "publication_state": "translation_partial",
-      "next_retry_at": "2026-09-17T01:28:34+00:00"
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "joe-236-1": {
       "journal": "JOE",
@@ -9727,7 +9725,7 @@
       "AEJPOL": "2026-08-24T07:52:53+00:00",
       "AERI": "2026-08-24T07:46:41+00:00",
       "AJAE": "2026-09-05T00:23:18+00:00",
-      "CER": "2026-09-05T00:22:04+00:00",
+      "CER": "2026-09-17T00:53:40+00:00",
       "ECOLECON": "2026-08-24T14:23:58+00:00",
       "ECTA": "2026-09-06T00:14:35+00:00",
       "EER": "2026-08-24T14:11:50+00:00",
@@ -9772,7 +9770,7 @@
       "LANDECON": "2026-08-24T14:00:30+00:00"
     }
   },
-  "updated_at": "2026-09-16T00:46:42+00:00",
+  "updated_at": "2026-09-17T00:53:40+00:00",
   "discovery": {
     "AER": {
       "issue_ids": [
@@ -10328,7 +10326,7 @@
         }
       },
       "authority": "crossref_candidate",
-      "refreshed_at": "2026-09-01T01:23:46+00:00",
+      "refreshed_at": "2026-09-17T00:53:06+00:00",
       "collector_revision": "history-integrity-2026-08-11"
     },
     "EER": {
@@ -11804,7 +11802,7 @@
         }
       },
       "authority": "crossref_candidate",
-      "refreshed_at": "2026-09-03T00:35:28+00:00",
+      "refreshed_at": "2026-09-17T00:53:12+00:00",
       "collector_revision": "history-integrity-2026-08-11"
     },
     "JOE": {
@@ -14058,221 +14056,11 @@
       "collector_revision": "history-integrity-2026-08-11"
     },
     "RFS": {
-      "issue_ids": [
-        "rfs-36-2",
-        "rfs-36-3",
-        "rfs-36-4",
-        "rfs-36-5",
-        "rfs-36-6",
-        "rfs-36-7",
-        "rfs-36-8",
-        "rfs-36-9",
-        "rfs-36-10",
-        "rfs-36-11",
-        "rfs-36-12",
-        "rfs-37-1",
-        "rfs-37-2",
-        "rfs-37-3",
-        "rfs-37-4",
-        "rfs-37-5",
-        "rfs-37-6",
-        "rfs-37-7",
-        "rfs-37-8",
-        "rfs-37-9",
-        "rfs-37-10",
-        "rfs-37-11",
-        "rfs-37-12"
-      ],
-      "issue_years": {
-        "rfs-36-2": 2023,
-        "rfs-36-3": 2023,
-        "rfs-36-4": 2023,
-        "rfs-36-5": 2023,
-        "rfs-36-6": 2023,
-        "rfs-36-7": 2023,
-        "rfs-36-8": 2023,
-        "rfs-36-9": 2023,
-        "rfs-36-10": 2023,
-        "rfs-36-11": 2023,
-        "rfs-36-12": 2023,
-        "rfs-37-1": 2023,
-        "rfs-37-2": 2024,
-        "rfs-37-3": 2024,
-        "rfs-37-4": 2024,
-        "rfs-37-5": 2024,
-        "rfs-37-6": 2024,
-        "rfs-37-7": 2024,
-        "rfs-37-8": 2024,
-        "rfs-37-9": 2024,
-        "rfs-37-10": 2024,
-        "rfs-37-11": 2024,
-        "rfs-37-12": 2024
-      },
-      "issue_refs": {
-        "rfs-36-2": {
-          "journal": "RFS",
-          "year": 2023,
-          "volume": "36",
-          "issue": "2",
-          "official_url": "https://academic.oup.com/rfs/issue/36/2"
-        },
-        "rfs-36-3": {
-          "journal": "RFS",
-          "year": 2023,
-          "volume": "36",
-          "issue": "3",
-          "official_url": "https://academic.oup.com/rfs/issue/36/3"
-        },
-        "rfs-36-4": {
-          "journal": "RFS",
-          "year": 2023,
-          "volume": "36",
-          "issue": "4",
-          "official_url": "https://academic.oup.com/rfs/issue/36/4"
-        },
-        "rfs-36-5": {
-          "journal": "RFS",
-          "year": 2023,
-          "volume": "36",
-          "issue": "5",
-          "official_url": "https://academic.oup.com/rfs/issue/36/5"
-        },
-        "rfs-36-6": {
-          "journal": "RFS",
-          "year": 2023,
-          "volume": "36",
-          "issue": "6",
-          "official_url": "https://academic.oup.com/rfs/issue/36/6"
-        },
-        "rfs-36-7": {
-          "journal": "RFS",
-          "year": 2023,
-          "volume": "36",
-          "issue": "7",
-          "official_url": "https://academic.oup.com/rfs/issue/36/7"
-        },
-        "rfs-36-8": {
-          "journal": "RFS",
-          "year": 2023,
-          "volume": "36",
-          "issue": "8",
-          "official_url": "https://academic.oup.com/rfs/issue/36/8"
-        },
-        "rfs-36-9": {
-          "journal": "RFS",
-          "year": 2023,
-          "volume": "36",
-          "issue": "9",
-          "official_url": "https://academic.oup.com/rfs/issue/36/9"
-        },
-        "rfs-36-10": {
-          "journal": "RFS",
-          "year": 2023,
-          "volume": "36",
-          "issue": "10",
-          "official_url": "https://academic.oup.com/rfs/issue/36/10"
-        },
-        "rfs-36-11": {
-          "journal": "RFS",
-          "year": 2023,
-          "volume": "36",
-          "issue": "11",
-          "official_url": "https://academic.oup.com/rfs/issue/36/11"
-        },
-        "rfs-36-12": {
-          "journal": "RFS",
-          "year": 2023,
-          "volume": "36",
-          "issue": "12",
-          "official_url": "https://academic.oup.com/rfs/issue/36/12"
-        },
-        "rfs-37-1": {
-          "journal": "RFS",
-          "year": 2023,
-          "volume": "37",
-          "issue": "1",
-          "official_url": "https://academic.oup.com/rfs/issue/37/1"
-        },
-        "rfs-37-2": {
-          "journal": "RFS",
-          "year": 2024,
-          "volume": "37",
-          "issue": "2",
-          "official_url": "https://academic.oup.com/rfs/issue/37/2"
-        },
-        "rfs-37-3": {
-          "journal": "RFS",
-          "year": 2024,
-          "volume": "37",
-          "issue": "3",
-          "official_url": "https://academic.oup.com/rfs/issue/37/3"
-        },
-        "rfs-37-4": {
-          "journal": "RFS",
-          "year": 2024,
-          "volume": "37",
-          "issue": "4",
-          "official_url": "https://academic.oup.com/rfs/issue/37/4"
-        },
-        "rfs-37-5": {
-          "journal": "RFS",
-          "year": 2024,
-          "volume": "37",
-          "issue": "5",
-          "official_url": "https://academic.oup.com/rfs/issue/37/5"
-        },
-        "rfs-37-6": {
-          "journal": "RFS",
-          "year": 2024,
-          "volume": "37",
-          "issue": "6",
-          "official_url": "https://academic.oup.com/rfs/issue/37/6"
-        },
-        "rfs-37-7": {
-          "journal": "RFS",
-          "year": 2024,
-          "volume": "37",
-          "issue": "7",
-          "official_url": "https://academic.oup.com/rfs/issue/37/7"
-        },
-        "rfs-37-8": {
-          "journal": "RFS",
-          "year": 2024,
-          "volume": "37",
-          "issue": "8",
-          "official_url": "https://academic.oup.com/rfs/issue/37/8"
-        },
-        "rfs-37-9": {
-          "journal": "RFS",
-          "year": 2024,
-          "volume": "37",
-          "issue": "9",
-          "official_url": "https://academic.oup.com/rfs/issue/37/9"
-        },
-        "rfs-37-10": {
-          "journal": "RFS",
-          "year": 2024,
-          "volume": "37",
-          "issue": "10",
-          "official_url": "https://academic.oup.com/rfs/issue/37/10"
-        },
-        "rfs-37-11": {
-          "journal": "RFS",
-          "year": 2024,
-          "volume": "37",
-          "issue": "11",
-          "official_url": "https://academic.oup.com/rfs/issue/37/11"
-        },
-        "rfs-37-12": {
-          "journal": "RFS",
-          "year": 2024,
-          "volume": "37",
-          "issue": "12",
-          "official_url": "https://academic.oup.com/rfs/issue/37/12"
-        }
-      },
-      "authority": "crossref_candidate",
-      "refreshed_at": "2026-09-03T00:35:29+00:00",
+      "issue_ids": [],
+      "issue_years": {},
+      "issue_refs": {},
+      "authority": "official_archive_snapshot",
+      "refreshed_at": "2026-09-09T14:18:10+00:00",
       "collector_revision": "history-integrity-2026-08-11"
     },
     "RESTAT": {
@@ -15271,7 +15059,7 @@
         }
       },
       "authority": "crossref_candidate",
-      "refreshed_at": "2026-09-05T00:21:33+00:00",
+      "refreshed_at": "2026-09-17T00:53:15+00:00",
       "collector_revision": "history-integrity-2026-08-11"
     },
     "ENERGY": {
