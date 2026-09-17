@@ -65,7 +65,8 @@ class ScienceDirectBrowserRosterEvidenceTests(unittest.TestCase):
 
     def test_build_evidence_uses_unique_exact_title_when_staging_has_no_pii(self) -> None:
         issue = self._staging_issue()
-        evidence = capture.build_evidence(self._snapshot(), issue, excluded_dois={})
+        with patch.object(capture, "apply_evidence"):
+            evidence = capture.build_evidence(self._snapshot(), issue, excluded_dois={})
 
         self.assertEqual(
             ["10.1016/j.worlddev.2026.107507"],
@@ -99,7 +100,7 @@ class ScienceDirectBrowserRosterEvidenceTests(unittest.TestCase):
                 "--output-root",
                 str(output_root),
             ]
-            with patch("sys.argv", argv):
+            with patch("sys.argv", argv), patch.object(capture, "apply_evidence"):
                 self.assertEqual(0, capture.main())
 
             self.assertTrue((output_root / "wd-207-c.json").exists())
