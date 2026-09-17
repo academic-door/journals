@@ -921,6 +921,12 @@ def fetch_current_issue(
         "quality": {
             "roster_match": True,
             "order_preserved": True,
+            "roster_authority": (
+                "official-issue-page" if official_rows else "repec-publisher-supplied"
+            ),
+            "roster_transport": (
+                "official-issue-page" if official_rows else "repec-serial-page"
+            ),
             "official_item_count": len(source_rows),
             "excluded_item_count": len(excluded),
             "excluded_items": excluded,
