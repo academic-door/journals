@@ -1,0 +1,24 @@
+name: G03 force WD once
+
+on:
+  push:
+    branches:
+      - ops/g03-force-wd-20260917
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch canonical WD deep retry
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh api --method POST \
+            repos/${{ github.repository }}/actions/workflows/monitor-journals.yml/dispatches \
+            -f ref=main \
+            -f 'inputs[force_deep_journals]=WD'
