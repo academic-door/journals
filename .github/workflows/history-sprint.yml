@@ -43,6 +43,40 @@ on:
         required: false
         default: false
         type: boolean
+  workflow_call:
+    inputs:
+      max_issues:
+        required: false
+        default: "10"
+        type: string
+      max_translations:
+        required: false
+        default: "120"
+        type: string
+      categories:
+        required: false
+        default: recoverable,translation_required
+        type: string
+      source_run_id:
+        required: false
+        default: ""
+        type: string
+      state_source_run_id:
+        required: false
+        default: "32734420419"
+        type: string
+      strict_final:
+        required: false
+        default: false
+        type: boolean
+      evidence_issue_ids:
+        required: false
+        default: ""
+        type: string
+      capture_wiley_evidence:
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   actions: read

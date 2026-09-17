@@ -1,0 +1,48 @@
+name: Controlled history evidence dispatch
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  validate:
+    if: >-
+      github.event.issue.number == 265 &&
+      github.event.issue.pull_request == null &&
+      github.event.comment.user.login == 'SIMON-WORLD' &&
+      startsWith(github.event.comment.body, '/history-evidence')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      issue_id: ${{ steps.validate.outputs.issue_id }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - name: Validate bounded history-evidence request
+        id: validate
+        shell: bash
+        run: >-
+          python scripts/validate_history_evidence_dispatch.py
+          "$GITHUB_EVENT_PATH"
+          --repo-root "$GITHUB_WORKSPACE"
+          --github-output "$GITHUB_OUTPUT"
+
+  history:
+    needs: validate
+    uses: ./.github/workflows/history-sprint.yml
+    permissions:
+      actions: read
+      contents: write
+      models: read
+    with:
+      max_issues: "1"
+      max_translations: "120"
+      categories: browser
+      source_run_id: ""
+      state_source_run_id: "32734420419"
+      strict_final: false
+      evidence_issue_ids: ${{ needs.validate.outputs.issue_id }}
+      capture_wiley_evidence: false
+    secrets: inherit
