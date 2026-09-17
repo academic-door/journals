@@ -95,7 +95,13 @@ class MailboxWorkflowContractTests(unittest.TestCase):
         text = READER.read_text(encoding="utf-8")
         self.assertIn('select("INBOX", readonly=True)', text)
         self.assertIn('"(BODY.PEEK[])"', text)
-        for forbidden in (".store(", ".expunge(", ".delete(", ".rename(", ".append("):
+        for forbidden in (
+            "client.store(",
+            "client.expunge(",
+            "client.delete(",
+            "client.rename(",
+            "client.append(",
+        ):
             self.assertNotIn(forbidden, text)
 
 
