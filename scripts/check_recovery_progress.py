@@ -15,9 +15,23 @@ UNRESOLVED = {
     "browser_required",
     "blocked",
 }
+EVIDENCE_REVALIDATION_MARKER = Path("sciencedirect-evidence-deferred.txt")
 
 
-def evaluate_progress(before: dict[str, Any], after: dict[str, Any]) -> dict[str, Any]:
+def evidence_revalidation_requested(
+    marker: Path = EVIDENCE_REVALIDATION_MARKER,
+) -> bool:
+    """Return true only for the named-evidence path that creates this marker."""
+
+    return marker.is_file()
+
+
+def evaluate_progress(
+    before: dict[str, Any],
+    after: dict[str, Any],
+    *,
+    allow_no_progress: bool = False,
+) -> dict[str, Any]:
     before_records = {
         str(item.get("issue_id", "")): item
         for item in before.get("records", [])
@@ -62,7 +76,12 @@ def evaluate_progress(before: dict[str, Any], after: dict[str, Any]) -> dict[str
         )
     if unresolved_after > unresolved_before:
         errors.append("unresolved issue count increased")
-    if not improved_ids and ready_after == ready_before and unresolved_after == unresolved_before:
+    if (
+        not allow_no_progress
+        and not improved_ids
+        and ready_after == ready_before
+        and unresolved_after == unresolved_before
+    ):
         errors.append("wave produced no measurable progress")
     return {
         "ok": not errors,
@@ -85,10 +104,18 @@ def main() -> int:
     parser.add_argument("--before", type=Path, required=True)
     parser.add_argument("--after", type=Path, required=True)
     parser.add_argument("--report", type=Path, required=True)
+    parser.add_argument(
+        "--allow-no-progress",
+        action="store_true",
+        help="allow an idempotent evidence revalidation while preserving regression checks",
+    )
     args = parser.parse_args()
     report = evaluate_progress(
         json.loads(args.before.read_text(encoding="utf-8")),
         json.loads(args.after.read_text(encoding="utf-8")),
+        allow_no_progress=(
+            args.allow_no_progress or evidence_revalidation_requested()
+        ),
     )
     args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
