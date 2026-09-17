@@ -1,14 +1,14 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-17T13:08:18+00:00
+Generated: 2026-09-17T13:23:05+00:00
 
 ## Summary
 
 - browser_required: 2
 - ready: 1133
-- recoverable: 46
-- source_pending: 94
-- translation_required: 3
+- recoverable: 47
+- source_pending: 95
+- translation_required: 1
 
 ## Issue queue
 
@@ -140,20 +140,20 @@ Generated: 2026-09-17T13:08:18+00:00
 | AJAE | ajae-105-4 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | AJAE | ajae-105-5 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | AJAE | ajae-106-1 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| AJAE | ajae-106-2 | 2024 | translation_required | complete | source_pending | translation incomplete |
-| AJAE | ajae-106-3 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| AJAE | ajae-106-4 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| AJAE | ajae-106-5 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| AJAE | ajae-107-1 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AJAE | ajae-107-2 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AJAE | ajae-107-3 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AJAE | ajae-107-4 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AJAE | ajae-107-5 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| AJAE | ajae-108-1 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| AJAE | ajae-108-2 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| AJAE | ajae-108-3 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| AJAE | ajae-108-4 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| CER | cer-100-c | 2026 | source_pending | complete | source_pending | source authority pending official verification |
+| AJAE | ajae-106-2 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-106-3 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-106-4 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-106-5 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-107-1 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-107-2 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-107-3 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-107-4 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-107-5 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-108-1 | 2026 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-108-2 | 2026 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-108-3 | 2026 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-108-4 | 2026 | source_pending | complete | source_pending | official source verification pending |
+| CER | cer-100-c | 2026 | source_pending | complete | source_pending | official source verification pending |
 | CER | cer-77-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-78-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-79-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
@@ -171,7 +171,7 @@ Generated: 2026-09-17T13:08:18+00:00
 | CER | cer-91-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-92-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-93-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
-| CER | cer-94-c | 2025 | source_pending | complete | source_pending | source authority pending official verification |
+| CER | cer-94-c | 2025 | source_pending | complete | source_pending | official source verification pending |
 | CER | cer-95-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-96-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-97-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
@@ -391,7 +391,7 @@ Generated: 2026-09-17T13:08:18+00:00
 | FOODPOLICY | foodpolicy-115-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-116-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-117-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
-| FOODPOLICY | foodpolicy-118-c | 2023 | translation_required | blocked | source_pending | archive_missing |
+| FOODPOLICY | foodpolicy-118-c | 2023 | recoverable | blocked | source_pending | archive_missing |
 | FOODPOLICY | foodpolicy-119-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-120-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-121-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
@@ -714,19 +714,19 @@ Generated: 2026-09-17T13:08:18+00:00
 | JF | jf-79-1 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | JF | jf-79-2 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | JF | jf-79-3 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| JF | jf-79-4 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| JF | jf-79-5 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| JF | jf-79-6 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| JF | jf-80-1 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| JF | jf-80-2 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| JF | jf-80-3 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| JF | jf-80-4 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| JF | jf-80-5 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| JF | jf-80-6 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| JF | jf-81-1 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| JF | jf-81-2 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| JF | jf-81-3 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| JF | jf-81-4 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
+| JF | jf-79-4 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| JF | jf-79-5 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| JF | jf-79-6 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| JF | jf-80-1 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| JF | jf-80-2 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| JF | jf-80-3 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| JF | jf-80-4 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| JF | jf-80-5 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| JF | jf-80-6 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| JF | jf-81-1 | 2026 | source_pending | complete | source_pending | official source verification pending |
+| JF | jf-81-2 | 2026 | source_pending | complete | source_pending | official source verification pending |
+| JF | jf-81-3 | 2026 | source_pending | complete | source_pending | official source verification pending |
+| JF | jf-81-4 | 2026 | source_pending | complete | source_pending | official source verification pending |
 | JFE | jfe-147-1 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JFE | jfe-147-2 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JFE | jfe-147-3 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
@@ -1142,15 +1142,15 @@ Generated: 2026-09-17T13:08:18+00:00
 | RED | red-50-c | 2023 | source_pending | complete | source_pending | official source verification pending |
 | RED | red-51-c | 2023 | source_pending | complete | source_pending | official source verification pending |
 | RED | red-52-c | 2024 | source_pending | complete | source_pending | official source verification pending |
-| RED | red-53-c | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| RED | red-54-c | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| RED | red-55-c | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RED | red-56-c | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RED | red-57-c | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RED | red-58-c | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RED | red-59-c | 2026 | source_pending | complete | source_pending | source authority pending official verification |
+| RED | red-53-c | 2024 | source_pending | complete | source_pending | official source verification pending |
+| RED | red-54-c | 2024 | source_pending | complete | source_pending | official source verification pending |
+| RED | red-55-c | 2025 | source_pending | complete | source_pending | official source verification pending |
+| RED | red-56-c | 2025 | source_pending | complete | source_pending | official source verification pending |
+| RED | red-57-c | 2025 | source_pending | complete | source_pending | official source verification pending |
+| RED | red-58-c | 2025 | source_pending | complete | source_pending | official source verification pending |
+| RED | red-59-c | 2026 | source_pending | complete | source_pending | official source verification pending |
 | RED | red-60-c | 2026 | source_pending | complete | source_pending | official source verification pending |
-| RED | red-61-c | 2026 | source_pending | complete | source_pending | source authority pending official verification |
+| RED | red-61-c | 2026 | source_pending | complete | source_pending | official source verification pending |
 | RED | red-62-c | 2026 | recoverable | blocked | source_pending | archive_missing |
 | RES | res-92-1 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | RES | res-92-2 | 2025 | ready | complete | official_verified | content and official source gates passed |
@@ -1176,15 +1176,15 @@ Generated: 2026-09-17T13:08:18+00:00
 | RESTAT | restat-106-5 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | RESTAT | restat-106-6 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | RESTAT | restat-107-1 | 2025 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-107-2 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RESTAT | restat-107-3 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RESTAT | restat-107-4 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RESTAT | restat-107-5 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RESTAT | restat-107-6 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RESTAT | restat-108-1 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| RESTAT | restat-108-2 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| RESTAT | restat-108-3 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
-| RESTAT | restat-108-4 | 2026 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-107-2 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| RESTAT | restat-107-3 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| RESTAT | restat-107-4 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| RESTAT | restat-107-5 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| RESTAT | restat-107-6 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| RESTAT | restat-108-1 | 2026 | source_pending | complete | source_pending | official source verification pending |
+| RESTAT | restat-108-2 | 2026 | source_pending | complete | source_pending | official source verification pending |
+| RESTAT | restat-108-3 | 2026 | source_pending | complete | source_pending | official source verification pending |
+| RESTAT | restat-108-4 | 2026 | source_pending | complete | source_pending | official source verification pending |
 | RFS | rfs-36-10 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-36-11 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-36-12 | 2023 | ready | complete | official_verified | content and official source gates passed |
