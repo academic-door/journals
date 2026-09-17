@@ -1,14 +1,14 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-17T00:38:10+00:00
+Generated: 2026-09-17T06:04:04+00:00
 
 ## Summary
 
 - browser_required: 2
 - ready: 1132
-- recoverable: 47
-- source_pending: 94
-- translation_required: 3
+- recoverable: 48
+- source_pending: 95
+- translation_required: 1
 
 ## Issue queue
 
@@ -140,7 +140,7 @@ Generated: 2026-09-17T00:38:10+00:00
 | AJAE | ajae-105-4 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | AJAE | ajae-105-5 | 2023 | source_pending | complete | source_pending | official source verification pending |
 | AJAE | ajae-106-1 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| AJAE | ajae-106-2 | 2024 | translation_required | complete | source_pending | translation incomplete |
+| AJAE | ajae-106-2 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | AJAE | ajae-106-3 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | AJAE | ajae-106-4 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | AJAE | ajae-106-5 | 2024 | source_pending | complete | source_pending | official source verification pending |
@@ -157,7 +157,7 @@ Generated: 2026-09-17T00:38:10+00:00
 | CER | cer-77-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-78-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-79-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
-| CER | cer-80-c | 2023 | source_pending | complete | source_pending | official source verification pending |
+| CER | cer-80-c | 2023 | source_pending | complete | source_pending | source authority pending official verification |
 | CER | cer-81-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-82-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-83-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
@@ -391,7 +391,7 @@ Generated: 2026-09-17T00:38:10+00:00
 | FOODPOLICY | foodpolicy-115-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-116-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-117-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
-| FOODPOLICY | foodpolicy-118-c | 2023 | translation_required | blocked | source_pending | archive_missing |
+| FOODPOLICY | foodpolicy-118-c | 2023 | recoverable | blocked | source_pending | archive_missing |
 | FOODPOLICY | foodpolicy-119-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-120-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-121-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
