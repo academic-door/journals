@@ -27,21 +27,21 @@ jobs:
           path = Path('collectors/elsevier.py')
           text = path.read_text(encoding='utf-8')
           needle = '''        "quality": {
-            "roster_match": True,
-            "order_preserved": True,
-            "official_item_count": len(source_rows),
-'''
+              "roster_match": True,
+              "order_preserved": True,
+              "official_item_count": len(source_rows),
+          '''
           replacement = '''        "quality": {
-            "roster_match": True,
-            "order_preserved": True,
-            "roster_authority": (
-                "official-issue-page" if official_rows else "repec-publisher-supplied"
-            ),
-            "roster_transport": (
-                "official-issue-page" if official_rows else "repec-serial-page"
-            ),
-            "official_item_count": len(source_rows),
-'''
+              "roster_match": True,
+              "order_preserved": True,
+              "roster_authority": (
+                  "official-issue-page" if official_rows else "repec-publisher-supplied"
+              ),
+              "roster_transport": (
+                  "official-issue-page" if official_rows else "repec-serial-page"
+              ),
+              "official_item_count": len(source_rows),
+          '''
           if needle in text:
               text = text.replace(needle, replacement, 1)
               path.write_text(text, encoding='utf-8')
