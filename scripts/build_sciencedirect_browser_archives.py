@@ -109,7 +109,25 @@ def pii_from_href(value: object) -> str:
     return match.group(1).upper() if match else ""
 
 
-def raw_type(box_text: str) -> str:
+def normalized_item_type(item: dict[str, Any]) -> str:
+    return str(item.get("type", "")).strip().casefold()
+
+
+def is_publishable_item(item: dict[str, Any]) -> bool:
+    explicit = normalized_item_type(item)
+    if explicit in {"research-article", "editorial", "erratum"}:
+        return explicit == "research-article"
+    return bool(PUBLISHABLE_RE.search(str(item.get("box_text", ""))))
+
+
+def raw_type(box_text: str, item_type: object = "") -> str:
+    explicit = str(item_type or "").strip().casefold()
+    if explicit == "research-article":
+        return "Research article"
+    if explicit == "editorial":
+        return "Editorial"
+    if explicit == "erratum":
+        return "Erratum"
     match = re.search(
         r"(Research article|Review article|Short communication|Full length article|"
         r"Data article|Discussion|Editorial|Erratum|Corrigendum|Correction)",
@@ -277,12 +295,10 @@ def build_rich_snapshot(
     all_roster_items = list(roster.get("items", []))
     # Publisher front matter and corrections are retained in the original
     # browser roster for later exclusion evidence, but their PIIs are not
-    # searchable as research metadata in the Elsevier API.
-    roster_items = [
-        item
-        for item in all_roster_items
-        if PUBLISHABLE_RE.search(str(item.get("box_text", "")))
-    ]
+    # searchable as research metadata in the Elsevier API. Structured browser
+    # types are authoritative when recognized; older snapshots fall back to
+    # the display-text badge classifier.
+    roster_items = [item for item in all_roster_items if is_publishable_item(item)]
     piis = [pii_from_href(item.get("href")) for item in roster_items]
     by_pii = fetch_issue_metadata(session, piis, timeout=90)
 
@@ -317,7 +333,9 @@ def build_rich_snapshot(
                 "pii": pii,
                 "doi": str(metadata.get("doi", "")).strip().lower(),
                 "title_en": title,
-                "raw_type": raw_type(str(item.get("box_text", ""))),
+                "raw_type": raw_type(
+                    str(item.get("box_text", "")), item.get("type", "")
+                ),
                 "authors": list(metadata.get("authors", [])),
                 "abstract_en": str(metadata.get("abstract_en", "")).strip(),
                 "source_url": f"https://www.sciencedirect.com/science/article/pii/{pii}",
