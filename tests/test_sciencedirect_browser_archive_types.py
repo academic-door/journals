@@ -62,6 +62,7 @@ class ScienceDirectBrowserArchiveTypeTests(unittest.TestCase):
         self.assertEqual([research_pii], fetch.call_args.args[1])
         self.assertEqual(1, len(snapshot["items"]))
         self.assertEqual(research_pii, snapshot["items"][0]["pii"])
+        self.assertEqual("Research article", snapshot["items"][0]["raw_type"])
 
 
 if __name__ == "__main__":
