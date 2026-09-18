@@ -1,10 +1,10 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-18T07:59:13+00:00
+Generated: 2026-09-18T08:13:00+00:00
 
 ## Summary
 
-- ready: 1130
+- ready: 1131
 - recoverable: 45
 - source_pending: 79
 - translation_required: 2
@@ -142,6 +142,7 @@ Generated: 2026-09-18T07:59:13+00:00
 | AJAE | ajae-108-2 | 2026 | source_pending | complete | source_pending | official source verification pending |
 | AJAE | ajae-108-3 | 2026 | source_pending | complete | source_pending | official source verification pending |
 | AJAE | ajae-108-4 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| AJAE | ajae-108-5 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | CER | cer-100-c | 2026 | source_pending | complete | source_pending | official source verification pending |
 | CER | cer-77-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-78-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
