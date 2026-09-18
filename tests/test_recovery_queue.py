@@ -1,11 +1,25 @@
 from __future__ import annotations
 
+import subprocess
+import sys
 import unittest
+from pathlib import Path
 
 from scripts.build_recovery_queue import build_forecast, build_queue
 
 
 class RecoveryQueueTests(unittest.TestCase):
+    def test_direct_cli_execution_can_import_repo_modules(self) -> None:
+        root = Path(__file__).resolve().parents[1]
+        result = subprocess.run(
+            [sys.executable, str(root / "scripts" / "build_recovery_queue.py"), "--help"],
+            cwd=root,
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+        self.assertEqual(0, result.returncode, result.stderr)
+
     def test_forecast_counts_known_translation_work_without_calling_model(self) -> None:
         forecast = build_forecast(
             [
