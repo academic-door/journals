@@ -66,7 +66,6 @@ def _requires_browser(reason: str, authority: str, entry: dict[str, Any]) -> boo
         str(value)
         for value in (
             reason,
-            authority,
             entry.get("last_error", ""),
             entry.get("retry_class", ""),
         )

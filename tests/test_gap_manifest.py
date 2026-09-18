@@ -54,6 +54,25 @@ class GapManifestTests(unittest.TestCase):
         )
         self.assertEqual("browser_required", category)
 
+    def test_authoritative_missing_archive_is_recoverable_for_supported_collector(self):
+        category, reason = classify_gap(
+            archive={
+                "archive_exists": False,
+                "content_status": "blocked",
+                "source_status": "source_pending",
+                "publication_state": "blocked",
+                "reason": "archive_missing",
+            },
+            entry={
+                "last_error": "MetadataFallbackError: Crossref returned no usable recent issue",
+                "retry_class": "manual",
+            },
+            authority="official_archive_snapshot",
+            collector="repec",
+        )
+        self.assertEqual("recoverable", category)
+        self.assertEqual("archive_missing", reason)
+
     def test_complete_content_without_source_is_not_ready(self):
         category, reason = classify_gap(
             archive={
