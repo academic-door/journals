@@ -1,0 +1,29 @@
+name: Backfill field journal history
+
+on:
+  push:
+    branches:
+      - ops/g05-ajae-108-5-discovery-refresh
+    paths:
+      - .github/workflows/g05-ajae-108-5-discovery-refresh.yml
+
+permissions:
+  contents: write
+  models: read
+
+jobs:
+  refresh:
+    uses: ./.github/workflows/backfill-field-history.yml
+    permissions:
+      contents: write
+      models: read
+    with:
+      journal: AJAE
+      from_year: "2025"
+      to_year: "2026"
+      max_issues: "1"
+      max_translations: "0"
+      max_journals: "1"
+      translation_model: deepseek-chat
+      refresh_discovery_only: true
+    secrets: inherit
