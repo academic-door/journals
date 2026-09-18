@@ -1,0 +1,54 @@
+name: Backfill field journal history
+
+on:
+  push:
+    branches:
+      - ops/g05-jf-81-2-release-verify-20260918
+    paths:
+      - .github/workflows/g05-jf-81-2-release-verify-v2.yml
+
+permissions:
+  contents: read
+
+jobs:
+  verify-release-input:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+      - name: Verify canonical Wiley readiness input
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          test "$(git rev-parse origin/data)" = "2a67b4301b28e1735252e775189e81b72cf39c37"
+          python - <<'PY'
+          import json, subprocess
+
+          def load(path):
+              raw=subprocess.check_output(["git","show",f"origin/data:{path}"], text=True)
+              return json.loads(raw)
+
+          targets=[
+              *(f"public/api/v1/journals/ajae/issues/ajae-108-{i}.json" for i in range(1,6)),
+              *(f"public/api/v1/journals/jf/issues/jf-81-{i}.json" for i in range(1,5)),
+          ]
+          for path in targets:
+              issue=load(path)
+              if issue.get("publication_state")!="ready" or issue.get("source_status")!="official_verified":
+                  raise SystemExit(f"{path}: not READY/official_verified")
+              q=issue.get("quality") or {}
+              if q.get("roster_authority")!="official-issue-page" or q.get("roster_transport")!="browser-authorized":
+                  raise SystemExit(f"{path}: roster authority regression")
+
+          jf2=load("public/api/v1/journals/jf/issues/jf-81-2.json")
+          if jf2.get("quality",{}).get("translation_complete") != 13:
+              raise SystemExit("JF 81(2): translation_complete != 13")
+
+          state=load("data/backfill-state/field-2025-2026.json")
+          snap=(state.get("discovery") or {}).get("AJAE") or {}
+          if snap.get("authority")!="official_archive_snapshot" or "ajae-108-5" not in (snap.get("issue_ids") or []):
+              raise SystemExit("AJAE 108(5) expected-set authority regression")
+          print(json.dumps({"data_head":"2a67b4301b28e1735252e775189e81b72cf39c37","ready_targets":len(targets),"jf_81_2_translation_complete":13,"ajae_expected_108_5":True},sort_keys=True))
+          PY
