@@ -1538,16 +1538,37 @@ def collect_one(
         return previous, report
 
 
+def issue_translation_semantics_valid(issue: dict[str, Any]) -> bool:
+    """Return whether a snapshot still satisfies the current translation gate."""
+    for article in issue.get("articles", []):
+        if not translation_is_complete(article):
+            return False
+        if not article.get("abstract_en"):
+            continue
+        try:
+            validate_translation(
+                article,
+                {
+                    "title_cn": article.get("title_cn", ""),
+                    "abstract_cn": article.get("abstract_cn", ""),
+                },
+            )
+        except TranslationError:
+            return False
+    return True
+
+
 def prefer_ready_archive(
     current: dict[str, Any],
     archived: dict[str, Any] | None,
 ) -> dict[str, Any]:
-    """Keep a same-issue READY archive as the minimum provenance/readiness floor."""
+    """Keep a semantically valid same-issue READY archive as the readiness floor."""
     if not archived or current.get("issue_id") != archived.get("issue_id"):
         return current
     if (
         issue_publication_state(current) != "ready"
         and issue_publication_state(archived) == "ready"
+        and issue_translation_semantics_valid(archived)
     ):
         return archived
     return current
