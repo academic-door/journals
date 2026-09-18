@@ -1,0 +1,66 @@
+name: G05 AJAE 108(5) archive build qualification
+
+on:
+  push:
+    branches:
+      - brain/g05-ajae-108-5-browser-evidence
+    paths:
+      - .github/workflows/g05-ajae-108-5-build-qualify.yml
+
+permissions:
+  contents: read
+  models: read
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Restore latest canonical data without publishing
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          rm -rf public/api data/backfill-state data/backfill-staging data/translation-cache
+          mkdir -p public data
+          git archive origin/data public/api data/backfill-state data/backfill-staging data/translation-cache | tar -x
+      - name: Build exact candidate from browser-authorized roster
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+          GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || github.token }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DEEPSEEK_MODEL: deepseek-chat
+          SEMANTIC_SCHOLAR_API_KEY: ${{ secrets.SEMANTIC_SCHOLAR_API_KEY }}
+          TRANSLATION_RETRIES: "5"
+          TRANSLATION_WORKERS: "4"
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/build_archives_from_roster_evidence.py             --evidence-root data/provenance/official-rosters/wiley             --api-root public/api/v1             --state-root data/backfill-state             --staging-root data/backfill-staging             --translation-cache-root data/translation-cache             --issue-ids ajae-108-5             --max-translations 60             --report-json output/ajae-108-5-build.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          report=json.loads(Path("output/ajae-108-5-build.json").read_text(encoding="utf-8"))
+          row=next(item for item in report["results"] if item.get("issue_id")=="ajae-108-5")
+          print(json.dumps(row, ensure_ascii=False, sort_keys=True))
+          path=Path("public/api/v1/journals/ajae/issues/ajae-108-5.json")
+          if not path.exists():
+              raise SystemExit("candidate archive missing")
+          issue=json.loads(path.read_text(encoding="utf-8"))
+          assert issue["issue_id"]=="ajae-108-5"
+          assert issue["publication_state"]=="ready"
+          assert issue["source_status"]=="official_verified"
+          assert issue["expected_article_count"]==10
+          assert issue["research_article_count"]==10
+          assert len(issue["articles"])==10
+          assert issue["quality"]["roster_authority"]=="official-issue-page"
+          assert issue["quality"]["roster_transport"]=="browser-authorized"
+          assert issue["quality"]["excluded_item_count"]==2
+          assert all(a.get("translation",{}).get("status")=="complete" for a in issue["articles"])
+          PY
