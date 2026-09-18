@@ -25,8 +25,8 @@ class ElsevierBrowserExpectedSetTests(unittest.TestCase):
         cls.state = build_state(cls.evidence, cls.config)
 
     def test_observation_builds_authoritative_2026_only_shard(self) -> None:
-        self.assertEqual(20, len(self.state["discovery"]))
-        self.assertEqual("2026-09-18T15:37:00+00:00", self.state["updated_at"])
+        self.assertEqual(23, len(self.state["discovery"]))
+        self.assertEqual("2026-09-18T17:27:00+00:00", self.state["updated_at"])
         for journal, snapshot in self.state["discovery"].items():
             with self.subTest(journal=journal):
                 self.assertEqual("official_archive_snapshot", snapshot["authority"])
@@ -39,6 +39,19 @@ class ElsevierBrowserExpectedSetTests(unittest.TestCase):
                 self.assertEqual(
                     {2026},
                     {int(year) for year in snapshot["issue_years"].values()},
+                )
+
+    def test_full_elsevier_tranche_is_exact_and_future_bounded(self) -> None:
+        self.assertEqual(
+            182,
+            sum(len(snapshot["issue_ids"]) for snapshot in self.state["discovery"].values()),
+        )
+        self.assertEqual(30, len(self.state["expected_issue_exclusions"]))
+        for journal in ("WD", "LUP", "ECOLECON"):
+            with self.subTest(journal=journal):
+                self.assertEqual(
+                    "2026-09-18T17:27:00+00:00",
+                    self.state["discovery"][journal]["refreshed_at"],
                 )
 
     def test_range_headers_never_synthesize_jue_155(self) -> None:
