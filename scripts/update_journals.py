@@ -1538,6 +1538,21 @@ def collect_one(
         return previous, report
 
 
+def prefer_ready_archive(
+    current: dict[str, Any],
+    archived: dict[str, Any] | None,
+) -> dict[str, Any]:
+    """Keep a same-issue READY archive as the minimum provenance/readiness floor."""
+    if not archived or current.get("issue_id") != archived.get("issue_id"):
+        return current
+    if (
+        issue_publication_state(current) != "ready"
+        and issue_publication_state(archived) == "ready"
+    ):
+        return archived
+    return current
+
+
 def load_available_issues(
     journal_configs: dict[str, dict[str, Any]],
     refreshed: dict[str, dict[str, Any] | None],
@@ -1562,6 +1577,7 @@ def load_available_issues(
             # publisher "current" detection can lag behind; the site's
             # "latest" label must not point at an older issue than the list.
             newest_archived = _newest_publishable_archived(config["id"])
+            issue = prefer_ready_archive(issue, newest_archived)
             current_sort_key = archive_publication_sort_key(issue)
             if (
                 newest_archived
