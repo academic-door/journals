@@ -21,6 +21,8 @@ def issue(issue_id: str, *, source_status: str, publication_state: str) -> dict:
                 "title_en": "Test article",
                 "authors": ["Author"],
                 "abstract_en": "A complete abstract for the readiness fixture.",
+                "title_cn": "测试文章",
+                "abstract_cn": "这是一个完整的测试摘要，用于验证通过当前语义数值检查的归档版本可以安全作为当前快照。",
                 "article_type": "research-article",
             }
         ],
@@ -72,6 +74,19 @@ class ReadyArchiveFloorTests(unittest.TestCase):
             "repec-publisher-supplied",
             chosen["quality"]["roster_authority"],
         )
+
+    def test_same_issue_ready_archive_with_invalid_translation_is_not_promoted(self) -> None:
+        current = issue("landecon-102-3", source_status="source_pending", publication_state="source_pending")
+        current["marker"] = "current"
+        archive = issue("landecon-102-3", source_status="official_verified", publication_state="ready")
+        article = archive["articles"][0]
+        article["abstract_en"] = "The annual welfare benefit is $3.45 million from the disclosed advisory."
+        article["abstract_cn"] = "研究结果显示，披露该建议带来的年度福利收益为3.45万美元，这一数值用于检验旧归档中的数量级错误不会被提升为当前快照。"
+
+        chosen = update_journals.prefer_ready_archive(current, archive)
+
+        self.assertEqual("current", chosen["marker"])
+        self.assertEqual("source_pending", chosen["publication_state"])
 
     def test_same_issue_ready_current_is_not_replaced(self) -> None:
         current = issue(
