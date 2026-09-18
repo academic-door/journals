@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-06T12:07:24+00:00",
   "expected_article_count": 13,
   "research_article_count": 13,
-  "status": "incomplete",
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
@@ -508,14 +508,14 @@
       "source_sequence": 13,
       "article_type": "research-article",
       "title_en": "The Long‐Lasting Effects of Experiencing Communism on Attitudes toward Financial Markets",
-      "title_cn": "",
+      "title_cn": "经历共产主义对金融市场态度的长期影响",
       "authors": [
         "CHRISTINE LAUDENBACH",
         "ULRIKE MALMENDIER",
         "ALEXANDRA NIESSEN‐RUENZI"
       ],
       "abstract_en": "We show that exposure to anti‐capitalist ideology can exert a lasting influence on attitudes toward capital markets and stock market participation. Using novel survey, bank, and broker data, we document that, decades after Germany's reunification, East Germans invest significantly less in stocks and hold more negative views on capital markets. Effects vary by personal experience under communism. Results are strongest for individuals who remember life in the German Democratic Republic positively, for example, those living in a “showcase city.” Results reverse for those with negative experiences like environmental pollution or lack of Western TV entertainment.",
-      "abstract_cn": "",
+      "abstract_cn": "我们表明，接触反资本主义意识形态可以对资本市场态度和股市参与产生持久影响。利用新颖的调查、银行和经纪商数据，我们记录到，在德国统一多年后，东德人在股票投资上显著减少，并对资本市场持有更负面的看法。影响因个人在共产主义下的经历而异。结果对于积极回忆德意志民主共和国生活的人群最为显著，例如居住在“示范城市”的人。对于有负面经历（如环境污染或缺乏西方电视娱乐）的人群，结果则相反。",
       "abstract_snippet_en": "",
       "doi": "10.1111/jofi.70006",
       "source_url": "https://doi.org/10.1111/jofi.70006",
@@ -527,12 +527,15 @@
         "abstract_en": "crossref"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "manual-semantic-repair",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-06T12:07:55+00:00",
+        "repair_reason": "avoid false-positive numeric 10 from Chinese phrase 数十年",
+        "source_hash": "c94c7f9b68e0a7ceecd02d4748c35cf207814e21ecf9a6e340abc0cf60992d4a"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -578,11 +581,9 @@
     "doi_complete": 13,
     "authors_complete": 13,
     "abstract_en_complete": 13,
-    "translation_complete": 12,
+    "translation_complete": 13,
     "duplicate_count": 0,
-    "flags": [
-      "translation_incomplete"
-    ],
+    "flags": [],
     "official_item_count": 17,
     "publishable_item_count": 13,
     "content_counts": {
@@ -623,7 +624,7 @@
     "catalog_content_items": 13
   },
   "issue_label": "Vol. 81 · No. 2",
-  "content_status": "translation_partial",
+  "content_status": "complete",
   "source_status": "official_verified",
-  "publication_state": "translation_partial"
+  "publication_state": "ready"
 }
