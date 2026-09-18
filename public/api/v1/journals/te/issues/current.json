@@ -1,49 +1,49 @@
 {
   "schema_version": "1.0",
-  "issue_id": "te-21-1",
+  "issue_id": "te-21-3",
   "journal_id": "te",
   "journal_name": "Theoretical Economics",
   "volume": "21",
-  "issue": "1",
-  "issue_label": "Vol. 21 · No. 1",
-  "publication_date": "January 2026",
-  "source_url": "https://onlinelibrary.wiley.com/toc/15557561/current",
-  "retrieved_at": "2026-08-11T22:18:44+00:00",
-  "expected_article_count": 10,
-  "research_article_count": 10,
-  "status": "incomplete",
+  "issue": "3",
+  "issue_label": "Vol. 21 · No. 3",
+  "publication_date": "July 2026",
+  "source_url": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+  "retrieved_at": "2026-09-18T06:22:58+00:00",
+  "expected_article_count": 11,
+  "research_article_count": 11,
+  "status": "ready",
+  "publication_state": "ready",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.3982/te5315",
+      "paper_id": "doi:10.3982/te6816",
       "sequence": 1,
       "source_sequence": 1,
       "article_type": "research-article",
-      "title_en": "Naive calibration",
-      "title_cn": "天真的校准",
+      "title_en": "Coalitional manipulability in school choice",
+      "title_cn": "择校中的联盟可操纵性",
       "authors": [
-        "Yair Antler",
-        "Benjamin Bachi"
+        "Emma Moreno-García",
+        "Juan Pablo Torres-Martínez"
       ],
-      "abstract_en": "We develop a model of non-Bayesian decision-making in which an agent obtains an estimate of the state of a relevant economic fundamental but does not know the joint distribution of the two. To make use of the estimate, she relies on an endogenously generated dataset that consists of previous estimates and state realizations. She attributes a systematic difference between the estimates and state realizations in her dataset to a systematic bias in the estimate and naively calibrates it. Her subsequent action affects the probability with which the estimate and the corresponding state realization will be recorded in the dataset that will be used in future decisions. We investigate the steady state of the naive calibration procedure and show that it results in a seemingly pessimistic behavior that is exacerbated by feedback loops. We apply our model to project selection problems and second-price IPV auctions.",
-      "abstract_cn": "我们构建了一个非贝叶斯决策模型，其中代理人获得了相关经济基本面状态的估计值，但不知道估计值与状态的联合分布。为了利用该估计值，代理人依赖一个内生生成的数据集，该数据集由先前的估计值和状态实现组成。她将数据集中估计值与状态实现之间的系统性差异归因于估计值的系统性偏差，并天真地对其进行校准。其后续行为会影响估计值及相应状态实现被记录进未来决策所用数据集的概率。我们研究了天真校准程序的稳态，发现其导致一种表面上悲观的行为，并且该行为因反馈循环而加剧。我们将模型应用于项目选择问题和价格IPV拍卖。",
-      "doi": "10.3982/te5315",
-      "source_url": "https://ideas.repec.org/a/the/publsh/5315.html",
-      "publication_date": "2026",
+      "abstract_en": "We compare the degree of coalitional manipulability across stable school‐choice mechanisms. Although no stable mechanism is group strategy‐proof for all school choice contexts, we show that the student‐optimal stable mechanism is the least manipulable by coalitions, whereas the school‐optimal stable mechanism is the most coalitionally manipulable. These results still hold when students can only report truncated preferences, when the set of coalitions is limited, or when schools cannot be declared unacceptable as long as there are more available seats than students. In contrast, if there is a shortage of seats and students have no outside options, the school‐optimal stable mechanism can be less manipulable by coalitions than the student‐optimal stable mechanism.",
+      "abstract_cn": "我们比较了稳定择校机制之间的联盟可操纵程度。尽管没有一种稳定机制在所有择校情境下都是群体策略防篡改的，但我们表明，学生最优稳定机制是最不易被联盟操纵的，而学校最优稳定机制则是最易被联盟操纵的。当学生只能报告截断偏好、当联盟集合受限，或当只要可用席位多于学生时学校不能被声明为不可接受时，这些结果仍然成立。相反，如果席位短缺且学生没有外部选项，学校最优稳定机制可能比学生最优稳定机制更不易被联盟操纵。",
+      "doi": "10.3982/te6816",
+      "source_url": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+      "publication_date": "July 2026",
       "sources": {
-        "issue": "https://onlinelibrary.wiley.com/toc/15557561/current",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/the/publsh/5315.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+        "roster": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+        "metadata": "https://doi.org/10.3982/te6816",
+        "abstract_en": "crossref-or-semantic-scholar"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:44:55+00:00",
-        "source_hash": "9b4d05fdf3152d488410c0da44cb47040ccd54d68e4211b06d7de23e984aee97"
+        "translated_at": "2026-09-18T06:46:40+00:00",
+        "source_hash": "7de079760228e12482e3bb66008ddb7bad75cf2105d16af230f44f3e6f4e4101"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -54,35 +54,35 @@
       }
     },
     {
-      "paper_id": "doi:10.3982/te5372",
+      "paper_id": "doi:10.3982/te6479",
       "sequence": 2,
       "source_sequence": 2,
       "article_type": "research-article",
-      "title_en": "Markovian persuasion",
-      "title_cn": "马尔可夫说服",
+      "title_en": "Physical versus digital currency A difference that makes a difference",
+      "title_cn": "实物货币与数字货币：一种产生差异的差异",
       "authors": [
-        "Ehud Lehrer",
-        "Dimitry Shaiderman"
+        "Nicola Amendola",
+        "Luis Araujo",
+        "Leo Ferraris"
       ],
-      "abstract_en": "In the classical Bayesian persuasion model, an informed player and an uninformed one engage in a static interaction. This work extends this classical model to a dynamic setting where the state of nature evolves according to a Markovian law, allowing for a more realistic representation of real-world situations where the state of nature evolves over time. In this repeated persuasion model, an optimal disclosure strategy of the sender must balance between obtaining a high-stage payoff and disclosing information that may have negative implications on future payoffs. We discuss optimal strategies under different discount factors and characterize when the asymptotic value achieves the maximal possible value.",
-      "abstract_cn": "在经典的贝叶斯说服模型中，一名知情玩家与一名不知情玩家进行静态互动。本文将该经典模型扩展到动态情境，其中自然状态按照马尔可夫规律演变，从而更真实地反映自然状态随时间变化的现实情况。在该重复说服模型中，发送者的最优信息披露策略必须在获得高阶段收益与披露可能对未来收益产生负面影响的信息之间取得平衡。我们讨论了不同贴现因子下的最优策略，并刻画了渐近价值何时达到最大可能值。",
-      "doi": "10.3982/te5372",
-      "source_url": "https://ideas.repec.org/a/the/publsh/5372.html",
-      "publication_date": "2026",
+      "abstract_en": "This paper compares digital and physical currency, focusing on a single intrinsic difference: digital, unlike physical currency, allows the monetary authority to trace the monetary flows in and out of the accounts. We show that this technological advance in recordkeeping can be used by the monetary authority to improve upon physical currency and achieve efficiency in a wide range of circumstances.",
+      "abstract_cn": "本文比较了数字货币与实物货币，聚焦于一个内在差异：与实物货币不同，数字货币允许货币当局追踪账户中货币的流入和流出。我们表明，这种记账技术的进步可以被货币当局用来改进实物货币，并在广泛的情形中实现效率。",
+      "doi": "10.3982/te6479",
+      "source_url": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+      "publication_date": "July 2026",
       "sources": {
-        "issue": "https://onlinelibrary.wiley.com/toc/15557561/current",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/the/publsh/5372.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+        "roster": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+        "metadata": "https://doi.org/10.3982/te6479",
+        "abstract_en": "crossref-or-semantic-scholar"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:45:03+00:00",
-        "source_hash": "f10a119b034327849611141dd895b2e2db80aae5f253af0e9fed91989ae582fd"
+        "translated_at": "2026-09-18T06:46:39+00:00",
+        "source_hash": "aa0cbd7198d20c2fba4d00d2b73047c1a01bf0190fc6c2cbbc888bac9bd10ca3"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -93,34 +93,33 @@
       }
     },
     {
-      "paper_id": "doi:10.3982/te5492",
+      "paper_id": "doi:10.3982/te6224",
       "sequence": 3,
       "source_sequence": 3,
       "article_type": "research-article",
-      "title_en": "Transparent matching mechanisms",
-      "title_cn": "透明匹配机制",
+      "title_en": "Ruth, Anthony, and Clarence",
+      "title_cn": "露丝、安东尼和克拉伦斯",
       "authors": [
-        "Markus Möller"
+        "Jeffrey C. Ely"
       ],
-      "abstract_en": "In the standard one-to-one agent-object matching model, I consider a central matching authority that publicly announces a strategy-proof mechanism and then initiates a matching. Following Akbarpour and Li (2020), the authority's commitment to the announced mechanism is limited to mechanisms rendering participants' observations indistinguishable from it. I call an announced mechanism transparent. if any deviation from it would be detected. The main findings identify trade-offs regarding transparency and other desirable properties: under stability or efficiency, strategy-proof mechanisms are transparent if and only if they are dictatorial. At the same time, the agent-proposing Deferred Acceptance (DA) mechanism is equivalent to committing to stability, while efficient mechanisms often fail to commit to efficiency. This transparency trade-off between stability and efficiency persists when strategy-proofness is guaranteed.",
-      "abstract_cn": "在标准的一到一的代理-对象匹配模型中，我考虑一个中央匹配机构，该机构公开宣布一个策略无关机制，然后启动匹配。继Akbarpour和Li（2020）之后，机构对所宣布机制的承诺仅限于使参与者的观察无法与之区分的机制。我称所宣布的机制为透明机制，如果任何偏离该机制的行为都会被检测到。主要发现识别了关于透明性和其他期望属性的权衡：在稳定性或效率条件下，策略无关机制当且仅当是独裁机制时才是透明的。与此同时，代理提出的延迟接受（DA）机制等同于承诺稳定性，而高效机制往往无法承诺效率。当保证策略无关性时，这种稳定性与效率之间的透明性权衡依然存在。",
-      "doi": "10.3982/te5492",
-      "source_url": "https://ideas.repec.org/a/the/publsh/5492.html",
-      "publication_date": "2026",
+      "abstract_en": "Nonpartisan voters can become polarized not because of ideology but because it is optimal for them to remain uninformed and cancel out the votes of uninformed voters on “the other side.” Indeed, when stuck in such a state of polarization, it is socially optimal to do so. Dynamics can lead an otherwise well‐functioning assembly into irreversible polarization. Reputation effects might only make things worse.",
+      "abstract_cn": "无党派选民可能变得两极分化，不是因为意识形态，而是因为对他们来说，保持不知情并抵消“另一方”不知情选民的选票是最优的。事实上，当陷入这种两极分化状态时，这样做在社会层面是最优的。动态过程可能导致一个原本运作良好的议会陷入不可逆的两极分化。声誉效应可能只会让情况变得更糟。",
+      "doi": "10.3982/te6224",
+      "source_url": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+      "publication_date": "July 2026",
       "sources": {
-        "issue": "https://onlinelibrary.wiley.com/toc/15557561/current",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/the/publsh/5492.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+        "roster": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+        "metadata": "https://doi.org/10.3982/te6224",
+        "abstract_en": "crossref-or-semantic-scholar"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:45:10+00:00",
-        "source_hash": "412e7247c10b6a271955b1e92fe699192972a4ccdd17197c9ec83d75f12444b5"
+        "translated_at": "2026-09-18T06:46:39+00:00",
+        "source_hash": "73afda9d499ade72796f48117a5f294c7512d8da41247a1bd5808b4eeaaceecd"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -131,34 +130,35 @@
       }
     },
     {
-      "paper_id": "doi:10.3982/te5853",
+      "paper_id": "doi:10.3982/te6187",
       "sequence": 4,
       "source_sequence": 4,
       "article_type": "research-article",
-      "title_en": "Chaos and unpredictability with time inconsistent policy makers",
-      "title_cn": "具有时间不一致政策制定者的混沌与不可预测性",
+      "title_en": "When autarky trumps free and costless trade",
+      "title_cn": "当自给自足胜过自由且无成本的贸易时",
       "authors": [
-        "Marco Battaglini"
+        "John Morgan",
+        "Justin Tumlinson",
+        "Felix Várdy"
       ],
-      "abstract_en": "We analyze the existence of equilibria with complex dynamics in a policy framework with time-inconsistency. We consider an economy where, in each period, the policy maker in power determines the level of a durable public good (or bad) that creates strategic linkages across policy periods. When the decision-making process is time-consistent---such as when a benevolent planner sets policy in every period---the economy exhibits a unique equilibrium where the state converges to a deterministic steady state. When the identity of the decision-maker changes probabilistically over time as in a political equilibrium, the decision-making process becomes time-inconsistent. In this scenario, we identify conditions under which equilibria with cycles of more than two periods and chaotic dynamics can emerge. Depending on the economy's fundamental parameters, these equilibria may produce ergodic distributions in which the state variable either persistently overshoots the planner's steady state or fluctuates around it. The extent of chaotic behavior is influenced by the degree of time inconsistency: as the degree of time inconsistency approaches zero, the size of the support of the ergodic distribution converges to zero as well.",
-      "abstract_cn": "我们分析了在时间不一致政策框架下具有复杂动态的均衡存在性。我们考虑一个经济体，其中每一时期，掌权的政策制定者决定耐用公共物品（或公共坏物）的水平，该物品在政策时期之间产生战略联系。当决策过程是时间一致的——例如当一个仁慈的规划者在每个时期设定政策时——经济表现出唯一均衡，状态收敛到确定性的稳态。当决策者的身份随时间以概率方式变化，如政治均衡中所示，决策过程变为时间不一致。在这种情形下，我们确定了均衡可能出现周期超过二时期及混沌动态的条件。根据经济的基本参数，这些均衡可能产生遍历分布，其中状态变量要么持续超越规划者的稳态，要么围绕其波动。混沌行为的程度受时间不一致程度的影响：随着时间不一致程度接近零，遍历分布的支撑大小也收敛到零。",
-      "doi": "10.3982/te5853",
-      "source_url": "https://ideas.repec.org/a/the/publsh/5853.html",
-      "publication_date": "2026",
+      "abstract_en": "In the context of Krugman's (1979) canonical new trade model, we demonstrate that a country is better off in autarky than in free and costless trade when the productivity of its trading partner is sufficiently low.",
+      "abstract_cn": "在Krugman（1979）的经典新贸易模型背景下，我们证明，当其贸易伙伴的生产率足够低时，一个国家在自给自足状态下比在自由且无成本的贸易中境况更好。",
+      "doi": "10.3982/te6187",
+      "source_url": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+      "publication_date": "July 2026",
       "sources": {
-        "issue": "https://onlinelibrary.wiley.com/toc/15557561/current",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/the/publsh/5853.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+        "roster": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+        "metadata": "https://doi.org/10.3982/te6187",
+        "abstract_en": "crossref-or-semantic-scholar"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:45:17+00:00",
-        "source_hash": "dbfc02d644d93450d4f3f2437f65d66aad79f2142bb97b988608e5e35261dc52"
+        "translated_at": "2026-09-18T06:46:39+00:00",
+        "source_hash": "9413881b6f8385ad1e6e0f9f68e2955848a60609c4391d6417a48bd042bd002c"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -169,35 +169,33 @@
       }
     },
     {
-      "paper_id": "doi:10.3982/te5938",
+      "paper_id": "doi:10.3982/te6338",
       "sequence": 5,
       "source_sequence": 5,
       "article_type": "research-article",
-      "title_en": "Coordination with sequential information acquisition",
-      "title_cn": "具有顺序信息获取的协调",
+      "title_en": "Ratings design and barriers to entry",
+      "title_cn": "评级设计与进入壁垒",
       "authors": [
-        "Xiaoye Liao",
-        "Michal Szkup"
+        "Nikhil Vellodi"
       ],
-      "abstract_en": "We investigate how differences in initial beliefs and sequential information choices affect the likelihood of coordination failure. To do so, we embed interim information acquisition (i.e., information acquisition after observing initial private information) into a standard global game mode with a normal information structure and improper prior. We find that the likelihood of coordination on welfare-inferior equilibrium is invariant to precision, cost, and availability of information. We show that agents’ information choices feature two-sided inefficiency where too many agents with high posteriors and too few agents with low posteriors acquire information. Instead, under efficient information choices, the likelihood of coordination failure vanishes as the number of signals that agents can acquire tends to infinity. Unfortunately, efficient information choices are not implementable unless policymakers can observe agents’ private information.",
-      "abstract_cn": "我们研究了初始信念差异和顺序信息选择如何影响协调失败的可能性。为此，我们将中期信息获取（即在观察初始私人信息后获取信息）嵌入到具有正态信息结构和不当先验的标准全球博弈模型中。我们发现，协调于福利较差均衡的可能性对信息的精确度、成本和可用性保持不变。我们表明，代理人的信息选择表现出二单边低效性，即后验较高的代理人获取信息过多，而后验较低的代理人获取信息过少。相反，在有效的信息选择下，随着代理人可获取信号数量趋于无穷，协调失败的可能性消失。不幸的是，除非政策制定者能够观察代理人的私人信息，否则有效的信息选择无法实现。",
-      "doi": "10.3982/te5938",
-      "source_url": "https://ideas.repec.org/a/the/publsh/5938.html",
-      "publication_date": "2026",
+      "abstract_en": "I study the impact of consumer reviews on the incentives for firms to participate in the market. I develop a model of endogenous entry in which firms produce goods of heterogeneous, unknown quality. Consumers engage in directed search, and prices are exogenously fixed. A rater uses consumer reviews to construct firm‐specific ratings that are informative of quality and help consumers direct their search. The main insight of the paper is that suppressing the reviews of highly‐rated firms strengthens entry incentives and improves consumer welfare.",
+      "abstract_cn": "我研究消费者评论对企业参与市场激励的影响。我构建了一个内生进入模型，其中企业生产质量异质且未知的商品。消费者进行定向搜索，价格外生固定。评级者利用消费者评论构建企业特定评级，这些评级能提供关于质量的信息并帮助消费者进行定向搜索。本文的主要洞见是，压制高评级企业的评论会增强进入激励并改善消费者福利。",
+      "doi": "10.3982/te6338",
+      "source_url": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+      "publication_date": "July 2026",
       "sources": {
-        "issue": "https://onlinelibrary.wiley.com/toc/15557561/current",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/the/publsh/5938.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+        "roster": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+        "metadata": "https://doi.org/10.3982/te6338",
+        "abstract_en": "crossref-or-semantic-scholar"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:45:25+00:00",
-        "source_hash": "5ede12d4faa52c0ce741ebb30515678edb817e4a3e86a4be3ab94ebf2aef0fd5"
+        "translated_at": "2026-09-18T06:46:41+00:00",
+        "source_hash": "b8ace4f30e6a8529c244d8c2073a67b45a1061cf8fe33158249728784c35fe89"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -208,36 +206,35 @@
       }
     },
     {
-      "paper_id": "doi:10.3982/te5974",
+      "paper_id": "doi:10.3982/te6786",
       "sequence": 6,
       "source_sequence": 6,
       "article_type": "research-article",
-      "title_en": "Mechanism design for acquisition of/stochastic evidence",
-      "title_cn": "获取/随机证据的机制设计",
+      "title_en": "Efficient investment, search, and sorting in matching markets",
+      "title_cn": "匹配市场中的有效投资、搜索与排序",
       "authors": [
-        "Elchanan Ben-Porath",
-        "Eddie Dekel",
-        "Barton L. Lipman"
+        "Alp Atakan",
+        "Michael Richter",
+        "Matan Tsur"
       ],
-      "abstract_en": "We explore two interrelated models of ``hard information.'' In the evidence--acquisition model, an agent with private information searches for evidence to show the principal about her type. In the signal--choice model, a privately informed agent chooses an action generating a random signal whose realization may be correlated with her type. The signal--choice model is a special case and, as we show, under certain conditions, a reduced form of the evidence--acquisition model. We develop tools for characterizing optimal mechanisms for these models by giving conditions under which some aspects of the principal's optimal choices can be identified only from the information structure, without regard to the utility functions or the principal's priors.",
-      "abstract_cn": "我们探讨了二相互关联的“硬信息”模型。在证据获取模型中，具有私人信息的代理人搜索证据以向委托人展示其类型。在信号选择模型中，私人知情的代理人选择一个动作，该动作生成一个随机信号，其实现可能与代理人的类型相关。信号选择模型是证据获取模型的一个特例，并且如我们所示，在某些条件下，是证据获取模型的简化形式。我们开发了用于刻画这些模型最优机制的工具，给出了在何种条件下委托人最优选择的某些方面仅能从信息结构中识别，而无需考虑效用函数或委托人的先验。",
-      "doi": "10.3982/te5974",
-      "source_url": "https://ideas.repec.org/a/the/publsh/5974.html",
-      "publication_date": "2026",
+      "abstract_en": "We study markets where heterogeneous agents first make investment decisions and then engage in a costly search to form productive matches. The trading process is a random search and bargaining with explicit search costs. Despite potential hold‐up and matching problems, we prove that the constrained efficient allocation is an equilibrium: the agents' private incentives to invest and to accept/reject potential partners as they search are perfectly aligned with the social benefit. Furthermore, we establish a new sorting result for two‐sided markets, equilibrium existence, and conditions for uniqueness.",
+      "abstract_cn": "我们研究异质性代理人首先做出投资决策，然后进行有成本的搜索以形成生产性匹配的市场。交易过程是带有显性搜索成本的随机搜索与议价。尽管存在潜在的套牢和匹配问题，我们证明约束有效配置是一个均衡：代理人在搜索过程中投资以及接受/拒绝潜在伙伴的私人激励与社会收益完全一致。此外，我们为双边市场建立了一个新的排序结果、均衡存在性以及唯一性的条件。",
+      "doi": "10.3982/te6786",
+      "source_url": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+      "publication_date": "July 2026",
       "sources": {
-        "issue": "https://onlinelibrary.wiley.com/toc/15557561/current",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/the/publsh/5974.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+        "roster": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+        "metadata": "https://doi.org/10.3982/te6786",
+        "abstract_en": "crossref-or-semantic-scholar"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:45:32+00:00",
-        "source_hash": "3af2124587660d5a8936fc680ab6ab5905471632a2baa9953957c66a91bb5847"
+        "translated_at": "2026-09-18T06:46:41+00:00",
+        "source_hash": "7935e83847e3e78a295c33a7edea28dfbc635264316ee352a4f016484f63fde6"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -248,34 +245,34 @@
       }
     },
     {
-      "paper_id": "doi:10.3982/te6111",
+      "paper_id": "doi:10.3982/te6567",
       "sequence": 7,
       "source_sequence": 7,
       "article_type": "research-article",
-      "title_en": "Strategic exits in stochastic partnerships: the curse of profitability",
-      "title_cn": "随机合伙中的战略退出：盈利的诅咒",
+      "title_en": "Engagement maximization",
+      "title_cn": "参与度最大化",
       "authors": [
-        "Boli Xu"
+        "Benjamin Hébert",
+        "Weijie Zhong"
       ],
-      "abstract_en": "We study dynamic partnerships where the output evolves stochastically, each player can exit at any time, and players who have exited continue to accrue some benefits if the remaining players keep contributing to the partnership. Players can strategically exit to free-ride on their partners' contributions, knowing that it may trigger subsequent exits of their partners. We characterize the unique Pareto-optimal equilibrium. When players have sufficiently large free-riding incentives and a medium level of mutual reliance, this equilibrium exhibits a curse of profitability: An increase in the partnership's output may strictly harm all the players. Another main finding is that Pareto-improvement can be achieved if any player commits not to exit first.",
-      "abstract_cn": "我们研究动态合伙关系，其中产出随机演变，每个参与者可以随时退出，且已退出的参与者如果剩余参与者继续为合伙贡献，仍能获得部分收益。参与者可以战略性地退出以搭便车利用合伙伙伴的贡献，且他们知道这可能引发伙伴的后续退出。我们刻画了唯一的帕累托最优均衡。当参与者具有足够大的搭便车激励和中等水平的相互依赖时，该均衡表现出盈利的诅咒：合伙产出的增加可能严格损害所有参与者。另一个主要发现是，如果任何参与者承诺不退出，帕累托改进是可以实现的。",
-      "doi": "10.3982/te6111",
-      "source_url": "https://ideas.repec.org/a/the/publsh/6111.html",
-      "publication_date": "2026",
+      "abstract_en": "We investigate the management of information provision to maximize user engagement. A principal sequentially reveals signals to an agent who has a limited amount of information processing capacity and can choose to exit at any time. We identify a “dilution” strategy—sending rare but highly informative signals—that maximizes user engagement. The platform's engagement metric shapes the direction and magnitude of biases in provided information relative to a user‐optimal benchmark. Even without intertemporal commitment, the platform replicates full‐commitment revenue by inducing the user's belief to remain “as uncertain as” the prior until the rare, decisive signal arrives and induces stopping. We apply our results to two contexts: an ad‐supported internet media platform and a teacher attempting to engage test‐motivated students.",
+      "abstract_cn": "我们研究信息提供管理以最大化用户参与度。一个委托方依次向一个信息处理能力有限且可随时选择退出的代理人揭示信号。我们识别出一种“稀释”策略——发送罕见但信息量极高的信号——能够最大化用户参与度。平台的参与度指标塑造了所提供信息相对于用户最优基准的偏差方向和幅度。即使没有跨期承诺，平台也能通过诱导用户的信念在罕见的决定性信号到来并引发停止之前保持“与”先验“一样不确定”，从而复制完全承诺下的收益。我们将结果应用于两个情境：一个广告支持的互联网媒体平台，以及一位试图吸引应试动机学生的教师。",
+      "doi": "10.3982/te6567",
+      "source_url": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+      "publication_date": "July 2026",
       "sources": {
-        "issue": "https://onlinelibrary.wiley.com/toc/15557561/current",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/the/publsh/6111.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+        "roster": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+        "metadata": "https://doi.org/10.3982/te6567",
+        "abstract_en": "crossref-or-semantic-scholar"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:45:37+00:00",
-        "source_hash": "78f4dd2b367ad8b7c4a60a0309f5de865957b464c50980cc71f1b69890c0f441"
+        "translated_at": "2026-09-18T06:46:41+00:00",
+        "source_hash": "c9f522c9158afe1b4c8085f232b06ff41840ea9804df75f182a6644245793f51"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -286,35 +283,33 @@
       }
     },
     {
-      "paper_id": "doi:10.3982/te6451",
+      "paper_id": "doi:10.3982/te6439",
       "sequence": 8,
       "source_sequence": 8,
       "article_type": "research-article",
-      "title_en": "Lemonade from lemons: information design and adverse selection",
-      "title_cn": "以柠檬做柠檬水：信息设计与逆向选择",
+      "title_en": "Improving robust decisions with data",
+      "title_cn": "利用数据改进稳健决策",
       "authors": [
-        "Navin Kartik",
-        "Weijie Zhong"
+        "Xiaoyu Cheng"
       ],
-      "abstract_en": "A seller posts a price for a single object. The seller's and buyer's values may be interdependent. We characterize the set of payoff vectors across all information structures. Simple feasibility and individual-rationality constraints identify the payoff set. The buyer can obtain the entire surplus; often, non-informational mechanisms cannot enlarge the payoff set. We also study payoffs when the buyer is more informed than the seller, and when the buyer is fully informed. All three payoff sets coincide (only) in notable special cases-in particular, when there is complete breakdown in a \"lemons market\" with an uninformed seller and fully-informed buyer.",
-      "abstract_cn": "卖方为单一物品公布价格。卖方和买方的价值可能相互依赖。我们刻画了所有信息结构下的收益向量集合。简单的可行性和个体理性约束确定了收益集合。买方可以获得全部剩余；通常，非信息机制无法扩大收益集合。我们还研究了买方比卖方更知情以及买方完全知情时的收益。所有三收益集合仅在显著特殊情况下重合——特别是在“柠檬市场”中，卖方不知情而买方完全知情时，市场完全崩溃。",
-      "doi": "10.3982/te6451",
-      "source_url": "https://ideas.repec.org/a/the/publsh/6451.html",
-      "publication_date": "2026",
+      "abstract_en": "A decision‐maker faces uncertainty governed by a data‐generating process (DGP), which is only known to belong to a set of sequences of independent but possibly non‐identical distributions. A robust decision maximizes the expected payoff against the worst possible DGP in this set. This paper characterizes when and how such robust decisions can be objectively improved with data; that is, can yield higher expected payoffs under the true DGP regardless of which DGP is the truth. It further develops simple and novel inference procedures that achieve such improvement, while common methods (e.g., maximum likelihood) may fail to do so.",
+      "abstract_cn": "决策者面临由数据生成过程（DGP）所支配的不确定性，而该过程仅已知属于一组独立但可能非同分布的分布序列。稳健决策最大化在此集合中最不利的可能DGP下的期望收益。本文刻画了此类稳健决策何时以及如何能够借助数据得到客观改进；即在真实DGP下，无论哪个DGP为真，都能产生更高的期望收益。本文进一步提出了简单且新颖的推断程序以实现这种改进，而常见方法（例如最大似然）可能无法做到这一点。",
+      "doi": "10.3982/te6439",
+      "source_url": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+      "publication_date": "July 2026",
       "sources": {
-        "issue": "https://onlinelibrary.wiley.com/toc/15557561/current",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/the/publsh/6451.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+        "roster": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+        "metadata": "https://doi.org/10.3982/te6439",
+        "abstract_en": "crossref-or-semantic-scholar"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:45:45+00:00",
-        "source_hash": "b04583f24086e87eecb7ef39bc6a457aa77a481733f2d8ed48b27a95818b8e67"
+        "translated_at": "2026-09-18T06:46:41+00:00",
+        "source_hash": "f1d071980d62df2e04fe255aaef6838a685f1b694c9289c6fd816b6f4d6cd961"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -325,36 +320,34 @@
       }
     },
     {
-      "paper_id": "doi:10.3982/te6461",
+      "paper_id": "doi:10.3982/te6424",
       "sequence": 9,
       "source_sequence": 9,
       "article_type": "research-article",
-      "title_en": "Bayesian games with nested information",
-      "title_cn": "具有嵌套信息的贝叶斯博弈",
+      "title_en": "News media as suppliers of narratives (and information)",
+      "title_cn": "新闻媒体作为叙事（和信息）的提供者",
       "authors": [
-        "Royi Jacobovic",
-        "Yehuda John Levy",
-        "Eilon Solan"
+        "Kfir Eliaz",
+        "Ran Spiegler"
       ],
-      "abstract_en": "A Bayesian game is said to have nested information if the players are ordered, and each player knows the types of all players that follow her in that order. We prove that all multiplayer Bayesian games with finite actions spaces, bounded payoffs, Polish type spaces, and nested information admit a Bayesian equilibrium.",
-      "abstract_cn": "如果玩家有序排列，且每个玩家知道在该顺序中所有排在其之后的玩家的类型，则称贝叶斯博弈具有嵌套信息。我们证明了所有具有有限行动空间、有界收益、波兰类型空间和嵌套信息的多玩家贝叶斯博弈均存在贝叶斯均衡。",
-      "doi": "10.3982/te6461",
-      "source_url": "https://ideas.repec.org/a/the/publsh/6461.html",
-      "publication_date": "2026",
+      "abstract_en": "We present a model in which news media shape beliefs by providing information (signals about an exogenous state) and narratives (models of what determines outcomes). To amplify consumers' engagement, the media maximize their anticipatory utility. We characterize the optimal monopolistic media strategy, highlighting the synergy between false narratives and biased information. Consumer heterogeneity gives rise to a novel menu‐design problem due to an “equilibrium data externality” among consumers. The optimal menu includes false narratives, and can generate polarized beliefs and choices without any information transmission. False narratives and polarization also feature in a competitive version of our model, albeit coupled with complete information. Nevertheless, competition can make some consumers objectively worse off.",
+      "abstract_cn": "我们提出了一个模型，其中新闻媒体通过提供信息（关于外生状态的信号）和叙事（关于结果决定因素的模型）来塑造信念。为了放大消费者的参与度，媒体最大化其预期效用。我们刻画了最优垄断媒体策略，强调了虚假叙事与有偏信息之间的协同作用。消费者异质性由于消费者之间的“均衡数据外部性”而引发了一个新颖的菜单设计问题。最优菜单包括虚假叙事，并且可以在没有任何信息传递的情况下产生极化的信念和选择。虚假叙事和极化在我们的模型的竞争版本中也存在，尽管伴随着完全信息。然而，竞争可能使一些消费者的客观状况变得更糟。",
+      "doi": "10.3982/te6424",
+      "source_url": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+      "publication_date": "July 2026",
       "sources": {
-        "issue": "https://onlinelibrary.wiley.com/toc/15557561/current",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/the/publsh/6461.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+        "roster": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+        "metadata": "https://doi.org/10.3982/te6424",
+        "abstract_en": "crossref-or-semantic-scholar"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:45:52+00:00",
-        "source_hash": "c9b30c6425363da74954a2b554fd1ed73c91cd968adc63067ed23ca93089f8d5"
+        "translated_at": "2026-09-18T06:46:42+00:00",
+        "source_hash": "63388b180a926bce429c09098a3de29cb7051a96cf246086baf75e9831a4b756"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -365,35 +358,72 @@
       }
     },
     {
-      "paper_id": "doi:10.3982/te6468",
+      "paper_id": "doi:10.3982/te6575",
       "sequence": 10,
       "source_sequence": 10,
       "article_type": "research-article",
-      "title_en": "Choice or competition: does integration benefit everyone?",
-      "title_cn": "选择还是竞争：整合是否惠及所有人？",
+      "title_en": "A general theory of inverse welfare functions",
+      "title_cn": "逆福利函数的一般理论",
       "authors": [
-        "Yuichiro Kamada",
-        "Fuhito Kojima"
+        "Katy Bergstrom",
+        "William Dodds"
       ],
-      "abstract_en": "Matching markets are often fragmented, organized at a small local level. While integration of matching markets may lead to welfare gains by expanding choice, it may also harm some market participants by increasing competition for the same resources. We show that every \"good\" mechanism fails the monotonicity requirement that no individuals be hurt by integration. Then we provide characterization results that identify conditions under which monotonicity becomes compatible with other desirable properties of matching mechanisms.",
-      "abstract_cn": "匹配市场通常是分散的，在较小的地方层面组织。虽然匹配市场的整合可能通过扩大选择带来福利增益，但也可能因增加对相同资源的竞争而损害部分市场参与者。我们证明了每一种“良好”机制都未能满足单调性要求，即整合不应伤害任何个体。随后，我们提供了表征结果，识别出单调性与匹配机制其他理想属性兼容的条件。",
-      "doi": "10.3982/te6468",
-      "source_url": "https://ideas.repec.org/a/the/publsh/6468.html",
-      "publication_date": "2026",
+      "abstract_en": "This paper develops a general theory to recover the inverse welfare function that rationalizes a given tax schedule as optimal. Our theory allows for complex environments including the presence of multidimensional tax schedules, bunching/jumping behavior, optimization frictions, general equilibrium effects, and externalities. We show that inverse welfare functions can be used to test for Pareto efficiency, construct Pareto improving reforms, and characterize the set of welfare improving local reforms, thereby extending previous results to more general environments. We show numerically that allowing for such generalities can have meaningful impacts on inverse welfare functions.",
+      "abstract_cn": "本文发展了一种一般理论，以恢复使给定税收schedule作为最优的逆福利函数。我们的理论允许复杂环境，包括存在多维税收schedule、聚集/跳跃行为、优化摩擦、一般均衡效应和外部性。我们表明，逆福利函数可用于检验帕累托效率、构建帕累托改进改革，并刻画福利改进的局部改革集合，从而将先前结果扩展到更一般的环境。我们通过数值方法表明，允许此类一般性可能对逆福利函数产生有意义的影响。",
+      "doi": "10.3982/te6575",
+      "source_url": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+      "publication_date": "July 2026",
       "sources": {
-        "issue": "https://onlinelibrary.wiley.com/toc/15557561/current",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/the/publsh/6468.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+        "roster": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+        "metadata": "https://doi.org/10.3982/te6575",
+        "abstract_en": "crossref-or-semantic-scholar"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:45:57+00:00",
-        "source_hash": "185d5e0cf9e9b32e81bc2cf5fde25b8a517f25db5b648e34491484b72315a349"
+        "translated_at": "2026-09-18T06:46:43+00:00",
+        "source_hash": "1e900143b422fd1aee2d4abebbf07b51fca03a59ea9386cc0f58b684e4a2f6f9"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.3982/te6170",
+      "sequence": 11,
+      "source_sequence": 11,
+      "article_type": "research-article",
+      "title_en": "Benefits and challenges of ambiguous product information",
+      "title_cn": "模糊产品信息的益处与挑战",
+      "authors": [
+        "Matthias Lang",
+        "Cédric Wasser"
+      ],
+      "abstract_en": "We study the welfare effects of ambiguous product information for a buyer with α ‐max‐min preferences and a price‐setting seller. The buyer privately receives information about her valuation. We show that both the seller and the buyer can benefit when this information is ambiguous, and we characterize all possible combinations of producer and consumer surplus, as evaluated under ambiguity‐sensitive preferences. Ambiguity concerning the valuation perceived by the buyer when making the purchase decision can induce the seller to change the price. Before receiving information, ambiguity concerning the purchase decision can make the buyer optimistic about buying only for high valuations, which relaxes the participation constraint.",
+      "abstract_cn": "我们研究具有α-max-min偏好的买方与设定价格的卖方在模糊产品信息下的福利效应。买方私下收到关于其估值的信号。我们表明，当该信息模糊时，卖方和买方均可受益，并且我们刻画了在模糊敏感偏好下评估的生产者剩余与消费者剩余的所有可能组合。买方在做出购买决策时感知到的关于估值的模糊性可以促使卖方改变价格。在收到信息之前，关于购买决策的模糊性可以使买方仅对高估值持乐观购买态度，从而放松参与约束。",
+      "doi": "10.3982/te6170",
+      "source_url": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+      "publication_date": "July 2026",
+      "sources": {
+        "issue": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+        "roster": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+        "metadata": "https://doi.org/10.3982/te6170",
+        "abstract_en": "crossref-or-semantic-scholar"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-18T06:46:42+00:00",
+        "source_hash": "bf30f1f838933196b62853145cb300a4f517fa6c78b7c5a323d69b159ed1f2ba"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -407,49 +437,55 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "official_item_count": 10,
-    "excluded_item_count": 0,
+    "roster_authority": "official-issue-page",
+    "roster_transport": "browser-authorized",
+    "official_item_count": 11,
     "excluded_items": [],
-    "doi_complete": 10,
-    "authors_complete": 10,
-    "abstract_en_complete": 10,
-    "translation_complete": 10,
+    "doi_complete": 11,
+    "authors_complete": 11,
+    "abstract_en_complete": 11,
+    "translation_complete": 11,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_repec_fallback",
-      "repec_publisher_supplied_roster",
-      "official_order_unverified"
-    ],
-    "official_issue_fetch_error": "request failed for https://onlinelibrary.wiley.com/toc/15557561/current: 403 Client Error: Forbidden for url: https://onlinelibrary.wiley.com/toc/15557561/current",
-    "publishable_item_count": 10,
+    "flags": [],
+    "publishable_item_count": 11,
+    "excluded_item_count": 0,
     "content_counts": {
-      "official_items": 10,
-      "observed_items": 10,
-      "publishable_items": 10,
-      "research_articles": 10,
+      "official_items": 11,
+      "observed_items": 11,
+      "publishable_items": 11,
+      "research_articles": 11,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 10
+      "catalog_content_items": 11
+    },
+    "official_roster_evidence": {
+      "captured_at": "2026-09-18T06:22:58+00:00",
+      "official_url": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
+      "method": "browser-authorized",
+      "item_count": 11,
+      "excluded_item_count": 0,
+      "archive_reordered": false,
+      "sequence_sha256": "9b5c22b0c50261b51d42a54961c8004abf93cc1f220246f414d1c6f01368ac11",
+      "privacy_fields_stored": false
     }
   },
   "content_counts": {
-    "official_items": 10,
-    "observed_items": 10,
-    "publishable_items": 10,
-    "research_articles": 10,
+    "official_items": 11,
+    "observed_items": 11,
+    "publishable_items": 11,
+    "research_articles": 11,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 10
+    "catalog_content_items": 11
   },
-  "publication_state": "ready",
   "content_status": "complete",
   "source_status": "official_verified"
 }

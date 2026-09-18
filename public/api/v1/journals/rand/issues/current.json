@@ -1,48 +1,51 @@
 {
   "schema_version": "1.0",
-  "issue_id": "rand-57-2",
+  "issue_id": "rand-57-3",
   "journal_id": "rand",
   "journal_name": "The RAND Journal of Economics",
   "volume": "57",
-  "issue": "2",
-  "issue_label": "Vol. 57 · No. 2",
-  "publication_date": "September 2026",
-  "source_url": "https://onlinelibrary.wiley.com/toc/17562171/current",
-  "retrieved_at": "2026-08-11T22:19:00+00:00",
-  "expected_article_count": 11,
-  "research_article_count": 11,
-  "status": "incomplete",
+  "issue": "3",
+  "publication_date": "Fall 2026",
+  "source_url": "https://ideas.repec.org/s/bla/randje.html",
+  "retrieved_at": "2026-08-24T15:53:33+00:00",
+  "expected_article_count": 15,
+  "research_article_count": 15,
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1111/1756-2171.70012",
+      "paper_id": "doi:10.1111/1756-2171.70056",
       "sequence": 1,
       "source_sequence": 1,
       "article_type": "research-article",
-      "title_en": "Strategic Influencers and the Shaping of Beliefs",
-      "title_cn": "战略性影响者与信念塑造",
+      "title_en": "Preemptive Entry and Technology Diffusion: The Market for Drive‐In Theaters",
+      "title_cn": "先发进入与技术扩散：汽车影院市场",
       "authors": [
-        "Akhil Vohra"
+        "Ricard Gil",
+        "Jean‐François Houde",
+        "Shilong Sun",
+        "Yuya Takahashi"
       ],
-      "abstract_en": "Influencers, from propagandists to sellers, expend vast resources targeting agents who amplify their message through word‐of‐mouth communication. While agents differ in network position, they also differ in their bias: Agents may naturally read articles with a particular slant or buy products from a certain seller. Absent competition, an influencer prefers targeting central agents and those biased against it. If agents are unbiased, competition leads to influencers targeting more central agents. However, when agents have heterogeneous biases and competition is intense, the incentive to deter one's rival dominates. Influencers protect their base, targeting those with similar beliefs in equilibrium.",
-      "abstract_cn": "影响者，从宣传者到销售者，投入大量资源针对通过口碑传播放大其信息的代理人。尽管代理人在网络位置上存在差异，但他们在偏见上也存在差异：代理人可能自然倾向于阅读带有特定倾向的文章或购买某个卖家的产品。在缺乏竞争的情况下，影响者倾向于针对网络中心的代理人以及那些对其持有偏见的代理人。如果代理人是无偏的，竞争会导致影响者更多地针对更中心的代理人。然而，当代理人具有异质偏见且竞争激烈时，阻止竞争对手的动机占主导地位。影响者在均衡中保护其基础，针对持有相似信念的代理人。",
-      "doi": "10.1111/1756-2171.70012",
-      "source_url": "https://ideas.repec.org/a/bla/randje/v57y2026i2p271-284.html",
+      "abstract_en": "This article studies entry preemption in new industries. We first test a key prediction of dynamic entry games: Entry preemption is most relevant in intermediate‐sized markets, where firms face highest uncertainty about future entry. Using US drive‐in theater market (1945–1957) data, we find robust evidence for this non‐monotonic relationship between market size and early entry probability. We then estimate a dynamic entry game, and quantify preemption effects through counterfactual analysis. Preemptive motives increase early entry by up to 40% in mid‐size markets, raising entry costs by 5% and reducing firms' expected value by 1%.",
+      "abstract_cn": "本文研究新行业中的进入先占行为。我们首先检验动态进入博弈的一个关键预测：进入先占在中等规模市场中最为相关，因为企业面临未来进入的不确定性最高。利用美国汽车影院市场（1945-1957年）的数据，我们发现了市场规模与早期进入概率之间这种非单调关系的稳健证据。然后，我们估计了一个动态进入博弈，并通过反事实分析量化先占效应。先占动机使中等规模市场的早期进入增加高达40%，使进入成本提高5%，并使企业预期价值降低1%。",
+      "doi": "10.1111/1756-2171.70056",
+      "source_url": "https://doi.org/10.1111/1756-2171.70056",
       "publication_date": "2026",
       "sources": {
-        "issue": "https://onlinelibrary.wiley.com/toc/17562171/current",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/bla/randje/v57y2026i2p271-284.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://ideas.repec.org/s/bla/randje.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "crossref",
+        "repec": "https://ideas.repec.org/a/bla/randje/v57y2026i3p471-494.html"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:53:01+00:00",
-        "source_hash": "81672450987ef12d7653b4ed8fcd417b307e4f6ab9fd9f139289a3d0a2540a0f"
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T15:40:17+00:00",
+        "source_hash": "6fb4ddd09a859c734a72ee97a14d2b2505cf9ac0e69392815573551c656cd375"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -53,35 +56,35 @@
       }
     },
     {
-      "paper_id": "doi:10.1111/1756-2171.70014",
+      "paper_id": "doi:10.1111/1756-2171.70070",
       "sequence": 2,
       "source_sequence": 2,
       "article_type": "research-article",
-      "title_en": "Buyer‐Optimal Platform Design",
-      "title_cn": "买方最优平台设计",
+      "title_en": "Mergers in the Presence of Adverse Selection",
+      "title_cn": "存在逆向选择时的并购",
       "authors": [
-        "Daniele Condorelli",
-        "Balazs Szentes"
+        "Conor Ryan"
       ],
-      "abstract_en": "A platform matches a unit mass of sellers, each owning a single product of heterogeneous quality, to a unit mass of buyers with differing valuations for unit‐quality. After matching, sellers make take‐it‐or‐leave‐it price‐offers to buyers. Initially, valuations of buyers are only known to them and the platform, but sellers make inferences from the matching algorithm. The efficient matching is positive assortative, but buyer‐optimal matchings are stochastically negative assortative when there are few low‐value buyers (i.e., compared to lower‐quality sellers, high‐quality ones are matched to buyers with lower expected valuation). Although everyone trades, generating rents for the side lacking bargaining power results in inefficient matching.",
-      "abstract_cn": "一个平台将单位质量的卖家（每个卖家拥有单一异质质量的产品）与单位质量的买家（对单位质量的估值不同）进行匹配。匹配后，卖家向买家提出“要么接受要么放弃”的价格报价。最初，买家的估值仅为买家和平台所知，但卖家通过匹配算法进行推断。有效匹配是正向配对的，但当低价值买家较少时，买方最优匹配呈现随机负向配对（即与低质量卖家相比，高质量卖家匹配到预期估值较低的买家）。尽管所有人都进行了交易，但由于为缺乏议价能力一方产生租金，导致匹配效率低下。",
-      "doi": "10.1111/1756-2171.70014",
-      "source_url": "https://ideas.repec.org/a/bla/randje/v57y2026i2p285-299.html",
+      "abstract_en": "In the presence of adverse selection, mergers can increase welfare through a reduction in inefficient sorting. I characterize the sorting externality internalized between merging firms in a tractable discrete choice model. Mergers benefit consumers when the firms are small, willingness to pay is moderately increasing in cost, and consumer costs are skewed. Applying the model to the non‐group health insurance market, 13% of potential mergers would improve consumer surplus. In markets where the sorting distortion exceeds $5 per person, nearly one‐third of mergers improve consumer surplus, highlighting the importance of considering adverse selection in merger evaluation.",
+      "abstract_cn": "在存在逆向选择的情况下，并购可以通过减少低效的分类来提高福利。我在一个易于处理的离散选择模型中刻画了并购企业之间内化的分类外部性。当企业规模较小、支付意愿随成本适度增加且消费者成本偏斜时，并购使消费者受益。将该模型应用于非团体健康保险市场，13%的潜在并购将改善消费者剩余。在分类扭曲超过每人5美元的市场中，近三分之一的并购改善了消费者剩余，这凸显了在并购评估中考虑逆向选择的重要性。",
+      "doi": "10.1111/1756-2171.70070",
+      "source_url": "https://doi.org/10.1111/1756-2171.70070",
       "publication_date": "2026",
       "sources": {
-        "issue": "https://onlinelibrary.wiley.com/toc/17562171/current",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/bla/randje/v57y2026i2p285-299.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://ideas.repec.org/s/bla/randje.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "crossref",
+        "repec": "https://ideas.repec.org/a/bla/randje/v57y2026i3p495-514.html"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:53:07+00:00",
-        "source_hash": "060154029ba4975dfa9448ca7e4c283854f7751e2c85ae8a51f5a3d5e41a67cf"
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T15:40:19+00:00",
+        "source_hash": "34521ab15a6bda647633d1ab7fd882c96ec1ccdc890ca6a8c9f6de79483b1b1a"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -92,35 +95,35 @@
       }
     },
     {
-      "paper_id": "doi:10.1111/1756-2171.70013",
+      "paper_id": "doi:10.1111/1756-2171.70064",
       "sequence": 3,
       "source_sequence": 3,
       "article_type": "research-article",
-      "title_en": "On the Optimality of Full Disclosure",
-      "title_cn": "关于完全披露的最优性",
+      "title_en": "Cleaner but Volatile Energy? The Effect of Coal Plant Retirement on Market Competition in the Wholesale Electricity Market",
+      "title_cn": "更清洁但更波动的能源？煤电厂退役对电力批发市场竞争的影响",
       "authors": [
-        "Emiliano Catonini",
-        "Sergey Stepanov"
+        "Harim Kim"
       ],
-      "abstract_en": "A privately informed sender can commit to any disclosure policy toward a receiver, whose actions affect the utility of the sender. We show that full disclosure is optimal under a sufficient condition with some desirable properties. First, it speaks directly to the parties' utility functions, as opposed to the sender's indirect utility function; this makes it easily interpretable and verifiable. Second, it does not require the sender's payoff to be a function of the posterior mean state. Third, it is weaker than the conditions obtained in the literature for some specific settings.",
-      "abstract_cn": "一个拥有私人信息的发送者可以承诺对接收者采取任何披露政策，而接收者的行为会影响发送者的效用。我们证明了在一个具有某些理想性质的充分条件下，完全披露是最优的。首先，该条件直接针对各方的效用函数，而非发送者的间接效用函数；这使其易于解释和验证。其次，该条件不要求发送者的收益是后验均值状态的函数。最后，该条件比文献中针对某些特定情形得到的条件更弱。",
-      "doi": "10.1111/1756-2171.70013",
-      "source_url": "https://ideas.repec.org/a/bla/randje/v57y2026i2p300-314.html",
+      "abstract_en": "The energy transition from coal to gas is reshaping the power sector to rely more on gas generation, which is cleaner but has more variable input costs. Using counterfactual analysis, I study the competitive effects of this transition, by considering several transition paths that differ in the types of firms involved in retiring coal plants and investing in gas plants. I show that the variable nature of the marginal cost of gas generation creates an environment in which market power could increase after the transition. However, the transition's impact on competition depends on the characteristics of the firms investing in new gas generation; the adverse impact is mitigated under a well‐planned transition that leads to a more competitive industry structure.",
+      "abstract_cn": "从煤炭向天然气的能源转型正在重塑电力行业，使其更加依赖天然气发电，这更清洁但投入成本波动更大。通过反事实分析，我研究了这一转型的竞争效应，考虑了若干条不同的转型路径，这些路径在退役煤电厂和投资天然气电厂的企业类型上有所不同。我表明，天然气发电边际成本的波动性创造了一种环境，在这种环境中，转型后市场势力可能增强。然而，转型对竞争的影响取决于投资新建天然气发电企业的特征；在精心规划的转型下，不利影响会得到缓解，这种转型会带来更具竞争性的行业结构。",
+      "doi": "10.1111/1756-2171.70064",
+      "source_url": "https://doi.org/10.1111/1756-2171.70064",
       "publication_date": "2026",
       "sources": {
-        "issue": "https://onlinelibrary.wiley.com/toc/17562171/current",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/bla/randje/v57y2026i2p300-314.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://ideas.repec.org/s/bla/randje.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "crossref",
+        "repec": "https://ideas.repec.org/a/bla/randje/v57y2026i3p515-544.html"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:53:13+00:00",
-        "source_hash": "70f293eea8c88bf20f661707ce830e3e95ac42de275e2b9a46d5b3792953bb72"
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T15:40:21+00:00",
+        "source_hash": "662475dfd55059129491c64def83437849d6cdaffe1f100c79ec438b3145569e"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -131,36 +134,35 @@
       }
     },
     {
-      "paper_id": "doi:10.1111/1756-2171.70017",
+      "paper_id": "doi:10.1111/1756-2171.70071",
       "sequence": 4,
       "source_sequence": 4,
       "article_type": "research-article",
-      "title_en": "The Political Economy of Patent Buyouts",
-      "title_cn": "专利回购的政治经济学",
+      "title_en": "The Incidence of Coarse Certification: Evidence From the ENERGY STAR Program",
+      "title_cn": "粗略认证的影响：来自能源之星计划的证据",
       "authors": [
-        "Amal Ahmad",
-        "Dominik Naeher",
-        "Sebastian Vollmer"
+        "Sébastien Houde"
       ],
-      "abstract_en": "Incentivizing innovation through buyouts may alleviate the social costs associated with patent power, but the political economy and feasibility of this potentially important financing mechanism have been understudied. We study an international setting of countries with different innovation and financing capabilities, and where financing governments rely on taxes to fund buyouts and care about the electoral popularity of their decisions. Subsequent distributional conflict arises between countries as some may benefit from the now‐public knowledge without contributing equally to financing, whereas taxpayers within a country may disagree over the desired extent of tax financing for buyouts. We show that these conflicts reduce the feasibility of buyouts relative to patents, identify the conditions under which this harms global welfare, and discuss possibilities for overcoming these constraints. The international public good and public financing dimensions of buyouts emerge as essential for understanding their potential to supplant patents and to improve social welfare.",
-      "abstract_cn": "通过回购激励创新可能缓解与专利权力相关的社会成本，但这一潜在重要融资机制的政治经济学及可行性尚未得到充分研究。我们研究了一个国际环境，其中各国创新和融资能力不同，且融资政府依赖税收为回购提供资金，并关心其决策的选举支持率。随后，各国之间产生分配冲突，因为一些国家可能在未等额贡献融资的情况下受益于现已公开的知识，而同一国家内的纳税人则可能对回购的税收融资程度存在分歧。我们表明，这些冲突降低了回购相较于专利的可行性，确定了在何种条件下这会损害全球福利，并讨论了克服这些限制的可能途径。回购的国际公共物品属性和公共融资维度成为理解其取代专利并改善社会福利潜力的关键。",
-      "doi": "10.1111/1756-2171.70017",
-      "source_url": "https://ideas.repec.org/a/bla/randje/v57y2026i2p315-333.html",
+      "abstract_en": "A coarse certification provides simple but incomplete information. Its rationale is to help consumers trade off dimensions of quality that are complex and lack salience. In imperfectly competitive markets, it may induce excess bunching at the certification requirement, crowd out quality, and facilitate price discrimination. Who will ultimately benefit from a coarse certification thus depends on the degree of market power firms can exercise as well as on consumers' sophistication in responding to such information. I use a structural econometric model of the U.S. appliance market to illustrate these insights using the ENERGY STAR certification as a case study.",
+      "abstract_cn": "粗略认证提供简单但不完整的信息。其基本原理是帮助消费者在复杂且缺乏显著性的质量维度之间进行权衡。在不完全竞争市场中，它可能导致在认证要求处出现过度聚集，挤出质量，并促进价格歧视。因此，谁最终将从粗略认证中受益，取决于企业能够行使的市场力量程度以及消费者对此类信息反应的成熟度。我使用美国家电市场的结构计量经济学模型，以能源之星认证为案例研究来说明这些见解。",
+      "doi": "10.1111/1756-2171.70071",
+      "source_url": "https://doi.org/10.1111/1756-2171.70071",
       "publication_date": "2026",
       "sources": {
-        "issue": "https://onlinelibrary.wiley.com/toc/17562171/current",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/bla/randje/v57y2026i2p315-333.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://ideas.repec.org/s/bla/randje.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "crossref",
+        "repec": "https://ideas.repec.org/a/bla/randje/v57y2026i3p545-585.html"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:53:28+00:00",
-        "source_hash": "14926dcbd6f03f23ae7e915953a2943bb6577c609550b66f792e8e33c72e8e90"
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T15:40:22+00:00",
+        "source_hash": "8b962ce79ff48140c5fd5118bf1618eabb74d36551cbe99e24661bff3a390938"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -171,35 +173,35 @@
       }
     },
     {
-      "paper_id": "doi:10.1111/1756-2171.70015",
+      "paper_id": "doi:10.1111/1756-2171.70057",
       "sequence": 5,
       "source_sequence": 5,
       "article_type": "research-article",
-      "title_en": "Storage games",
-      "title_cn": "储存博弈",
+      "title_en": "Consumer Search, Firm Heterogeneity, and Platform Design",
+      "title_cn": "消费者搜索、企业异质性与平台设计",
       "authors": [
-        "Sergei Balakin",
-        "Guillaume Roger"
+        "Wenzhang Zhang"
       ],
-      "abstract_en": "We study a long‐horizon, oligopolistic market with random shocks to demand that can be arbitraged by two storage operators with finite capacity. This problem applies to any storable commodity—that is, most commodities. Because the arbitrage spread is so sensitive to market power, storage operators face strong incentives to restrain quantities by tacitly colluding. This cooperation takes new forms thanks to the multiplicity of actions they must take: selling, buying, or both. We construct payoff‐maximizing equilibria of this stochastic game, and uncover a new form of Partial Cooperation that trades off quantities and delay. While collusive, Partial Cooperation delivers higher consumer surplus thanks to the market power effect. Head‐on competition is not always an equilibrium of the long‐horizon game when market power becomes large enough. We draw implications for policy and suggest poorly competitive storage is a negative externality to the development of the underlying commodity—for example, renewable energy.",
-      "abstract_cn": "我们研究了一个长期视角的寡头市场，该市场中需求存在随机冲击，且可由具有有限容量的储存运营商进行套利。该问题适用于任何可储存商品——即大多数商品。由于套利价差对市场力量极为敏感，储存运营商面临通过默契合谋限制数量的强烈激励。由于他们必须采取多种行动：卖出、买入或两者兼有，这种合作呈现出新的形式。我们构建了该随机博弈的收益最大化均衡，并发现了一种新的部分合作形式，该形式在数量和延迟之间进行权衡。尽管具有合谋性质，部分合作由于市场力量效应带来了更高的消费者剩余。当市场力量足够大时，正面竞争并不总是长期博弈的均衡。我们提出了政策启示，并指出竞争不足的储存对基础商品的发展构成负外部性——例如，可再生能源。",
-      "doi": "10.1111/1756-2171.70015",
-      "source_url": "https://ideas.repec.org/a/bla/randje/v57y2026i2p334-348.html",
+      "abstract_en": "We study the optimal design of a monopoly platform that interacts with heterogeneous firms and consumers who face uncertainty about product values and prices. Consumers search randomly among firms recommended by the platform. The platform designs a menu of contracts tailored to different firm types and allocates consumer visits across these firms. We show that the optimal platform design creates a “superstar effect,” whereby high‐type firms capture a disproportionately large market share, and improves consumer welfare relative to the no‐design benchmark.",
+      "abstract_cn": "我们研究了一个垄断平台的最优设计，该平台与异质性企业以及面临产品价值和价格不确定性的消费者互动。消费者在平台推荐的企业中进行随机搜索。平台设计了一套针对不同企业类型的合同菜单，并在这些企业之间分配消费者的访问。我们表明，最优平台设计会产生一种“超级明星效应”，即高类型企业占据不成比例的巨大市场份额，并且相对于无设计基准，改善了消费者福利。",
+      "doi": "10.1111/1756-2171.70057",
+      "source_url": "https://doi.org/10.1111/1756-2171.70057",
       "publication_date": "2026",
       "sources": {
-        "issue": "https://onlinelibrary.wiley.com/toc/17562171/current",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/bla/randje/v57y2026i2p334-348.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://ideas.repec.org/s/bla/randje.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "crossref",
+        "repec": "https://ideas.repec.org/a/bla/randje/v57y2026i3p586-600.html"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:53:38+00:00",
-        "source_hash": "c6a53f505efb6ac68f8281bb51a3c2d3fe02d85065ea7757e19b6d589d9aa76d"
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T15:40:24+00:00",
+        "source_hash": "67f209b33af103cc955ecbd5c75d8abd56a5cc47472b7d979f58189f7b8e7fbd"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -210,35 +212,36 @@
       }
     },
     {
-      "paper_id": "doi:10.1111/1756-2171.70016",
+      "paper_id": "doi:10.1111/1756-2171.70069",
       "sequence": 6,
       "source_sequence": 6,
       "article_type": "research-article",
-      "title_en": "Dynamic Pricing With Recommendation and Consumer Feedback",
-      "title_cn": "结合推荐与消费者反馈的动态定价",
+      "title_en": "What Causes Geographic Variation in Drug Prescribing? Evidence from Physician Migration",
+      "title_cn": "什么导致药物处方的地理差异？来自医生迁移的证据",
       "authors": [
-        "Wenji Xu",
-        "Shuoguang Yang"
+        "David Beheshti",
+        "Seth Neller"
       ],
-      "abstract_en": "A long‐lived seller sells a new product of unknown value by offering prices and recommendations to short‐lived consumers in continuous time. The seller receives consumer feedback about the product at a rate that increases with the instantaneous sales volume. The optimal selling mechanism features episodes of price discounts, during which the seller discontinuously lowers the price and offers unwarranted recommendations to consumers. The optimal pricing strategy depends on the nature of consumer feedback and may involve early or late discounts, dynamic price backtracking, and below‐cost pricing.",
-      "abstract_cn": "一位长期存在的卖家通过向短期存在的消费者提供价格和推荐，在连续时间内销售一款价值未知的新产品。卖家以与即时销售量成正比的速率接收关于该产品的消费者反馈。最优销售机制包含价格折扣阶段，在此期间卖家会不连续地降低价格并向消费者提供无根据的推荐。最优定价策略取决于消费者反馈的性质，可能涉及早期或晚期折扣、动态价格回溯以及低于成本的定价。",
-      "doi": "10.1111/1756-2171.70016",
-      "source_url": "https://ideas.repec.org/a/bla/randje/v57y2026i2p349-367.html",
+      "abstract_en": "In this article, we examine the importance of individual physicians in explaining the significant variation in prescription drug spending in Medicare Part D. By tracking prescribing behavior before and after physician relocations, we find that movers' prescribing converges toward the average of their new location. However, this convergence is far from complete, highlighting the importance of idiosyncratic physician‐specific factors. Overall, these physician‐specific factors explain about 60 to 70 percent of the cross‐sectional variation in prescription drug spending, suggesting that physicians are one of the most important supply‐side determinants of this variation. We investigate several potential mechanisms behind this partial convergence.",
+      "abstract_cn": "在本文中，我们考察了在Medicare D部分处方药支出显著差异中，个体医生的重要性。通过追踪医生迁移前后的处方行为，我们发现迁移者的处方行为向其新所在地的平均水平收敛。然而，这种收敛远非完全，凸显了医生特有因素的独特重要性。总体而言，这些医生特有因素解释了处方药支出横截面差异的约60至70%，表明医生是这一差异最重要的供给侧决定因素之一。我们调查了这种部分收敛背后的几种潜在机制。",
+      "doi": "10.1111/1756-2171.70069",
+      "source_url": "https://doi.org/10.1111/1756-2171.70069",
       "publication_date": "2026",
       "sources": {
-        "issue": "https://onlinelibrary.wiley.com/toc/17562171/current",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/bla/randje/v57y2026i2p349-367.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://ideas.repec.org/s/bla/randje.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "crossref",
+        "repec": "https://ideas.repec.org/a/bla/randje/v57y2026i3p601-626.html"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:53:41+00:00",
-        "source_hash": "4b931ca2ccd570ede127555f8b87822319a5f250137df0562d1512f1fc760611"
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T15:40:26+00:00",
+        "source_hash": "19d68655035b0f0b5ec8cdc130fb6697a0c30b2bb90d38c7820aacc317a16650"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -249,35 +252,37 @@
       }
     },
     {
-      "paper_id": "doi:10.1111/1756-2171.70036",
+      "paper_id": "doi:10.1111/1756-2171.70068",
       "sequence": 7,
       "source_sequence": 7,
       "article_type": "research-article",
-      "title_en": "Inflated Recommendations",
-      "title_cn": "虚高推荐",
+      "title_en": "Pulp Friction: The Value of Quantity Contracts in Decentralized Markets",
+      "title_cn": "纸浆摩擦：分散市场中数量合同的价值",
       "authors": [
-        "Martin Peitz",
-        "Anton Sobolev"
+        "Olivier Darmouni",
+        "Simon Essig Aberg",
+        "Juha Tolvanen"
       ],
-      "abstract_en": "Biased recommendations arise naturally in markets with heterogeneous consumers. We study a model in which a monopolist offers an experience good to a population of consumers with heterogeneous tastes and makes personalized purchase recommendations. We provide conditions under which a firm makes welfare‐reducing purchase recommendations with positive probability, resulting in inflated recommendations. We extend this insight to a setting in which an intermediary makes the recommendations, whereas a seller sets the retail price. Regulatory interventions that forbid inflated recommendations may lead to higher social welfare or may backfire.",
-      "abstract_cn": "在具有异质消费者的市场中，存在偏向性推荐是自然而然的现象。我们研究了一个模型，其中垄断者向具有异质偏好的消费者群体提供体验型商品，并做出个性化购买推荐。我们给出了企业以正概率做出降低福利的购买推荐（即虚高推荐）的条件。我们将这一见解扩展到一个中介做出推荐而卖方设定零售价格的情形。禁止虚高推荐的监管干预可能提高社会福利，也可能适得其反。",
-      "doi": "10.1111/1756-2171.70036",
-      "source_url": "https://ideas.repec.org/a/bla/randje/v57y2026i2p368-385.html",
+      "abstract_en": "Firms in decentralized markets often trade using quantity contracts, agreements specifying quantity prior to the point of sale. These contracts are valuable because they provide quantity assurance, as trading frictions could prevent a buyer and seller from matching in the spot market. However, quantity contracts prevent sellers from optimally allocating production across buyers after market conditions realize. Using proprietary invoice data, we estimate a model of quantity contracts in the pulp and paper industry. The average value of a quantity contract is 10% of profits, but would be 55% larger if sellers could optimally allocate production after market conditions realize.",
+      "abstract_cn": "分散市场中的企业经常使用数量合同进行交易，即在销售点之前规定数量的协议。这些合同之所以有价值，是因为它们提供了数量保证，因为交易摩擦可能阻止买方和卖方在现货市场匹配。然而，数量合同阻止卖方在市场条件实现后最优地在买方之间分配生产。利用专有的发票数据，我们估计了纸浆和造纸行业中数量合同的模型。数量合同的平均价值为利润的10%，但如果卖方能够在市场条件实现后最优地分配生产，这一价值将增加55%。",
+      "doi": "10.1111/1756-2171.70068",
+      "source_url": "https://doi.org/10.1111/1756-2171.70068",
       "publication_date": "2026",
       "sources": {
-        "issue": "https://onlinelibrary.wiley.com/toc/17562171/current",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/bla/randje/v57y2026i2p368-385.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://ideas.repec.org/s/bla/randje.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "crossref",
+        "repec": "https://ideas.repec.org/a/bla/randje/v57y2026i3p627-647.html"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:53:49+00:00",
-        "source_hash": "bb65f0e74822975e0dfe0dd0c719eaa1b8eab33e4ea851d2f76e9592c6dfaf99"
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T15:40:28+00:00",
+        "source_hash": "eadba20b6b29251c517a614c9e980d009131f25dbaced8e7c1aaebc3792fbdfe"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -288,35 +293,38 @@
       }
     },
     {
-      "paper_id": "doi:10.1111/1756-2171.70038",
+      "paper_id": "doi:10.1111/1756-2171.70067",
       "sequence": 8,
       "source_sequence": 8,
       "article_type": "research-article",
-      "title_en": "Acquisitions, Innovation and the Entrenchment of Monopoly",
-      "title_cn": "收购、创新与垄断的巩固",
+      "title_en": "Peer Learning, Enforcement, and Reputation",
+      "title_cn": "同行学习、执法与声誉",
       "authors": [
-        "Vincenzo Denicolò",
-        "Michele Polo"
+        "Yi Chen",
+        "Kai Du",
+        "Phillip Stocken",
+        "Zhe Wang"
       ],
-      "abstract_en": "We analyze a dynamic model of repeated innovation where inventors may either be acquired by an incumbent or else resist takeover and challenge for leadership. In the short run, acquisitions always spur innovation because of the invention‐for‐buyout effect. In the longer run, however, they may stifle it because of a countervailing effect, the entrenchment of monopoly. The latter occurs when the incumbent's dominance depends on past levels of activity and is therefore reinforced by recurrent acquisitions. We show that if the entrenchment effect is sufficiently strong, forward‐looking policymakers should prohibit acquisitions in anticipation of the long‐run negative impact on innovation. This argument sets out a new theory of harm that can be used to block acquisitions that could otherwise go unchallenged.",
-      "abstract_cn": "我们分析了一个重复创新的动态模型，其中发明者可能被现有企业收购，或者抵制收购并挑战领导地位。短期内，收购总是促进创新，因为存在发明以换取收购的效应。然而，从长期来看，收购可能抑制创新，原因是存在一个相反的效应，即垄断的巩固。当现有企业的主导地位依赖于过去的活动水平，并因此被反复的收购所强化时，就会出现这种情况。我们表明，如果垄断巩固效应足够强烈，具有前瞻性的政策制定者应禁止收购，以预防其对创新的长期负面影响。该论点提出了一种新的损害理论，可用于阻止那些本可能不受挑战的收购行为。",
-      "doi": "10.1111/1756-2171.70038",
-      "source_url": "https://ideas.repec.org/a/bla/randje/v57y2026i2p386-401.html",
+      "abstract_en": "We study a two‐period learning model where a sequentially rational regulator builds a reputation for strict enforcement and self‐interested firms test the regulator's enforcement propensity through their misconduct. In the transparent setting, where misconduct and enforcement are observable between the firms, the regulator's reputation concern endogenously creates positive or negative enforcement externalities between the firms. When the reputation concern is strong, the enforcement externalities are negative and dominate the information externalities, encouraging misconduct. Otherwise, both externalities are positive and deter misconduct. Although a strong reputation always benefits the regulator in the opaque setting, it often backfires in a transparent setting.",
+      "abstract_cn": "我们研究了一个两期学习模型，其中具有序贯理性的监管者建立严格执法的声誉，而自利的企业通过其不当行为来测试监管者的执法倾向。在透明环境中，企业之间的不当行为和执法是可观察的，监管者的声誉关切内生地产生了企业之间的正或负执法外部性。当声誉关切强烈时，执法外部性为负并主导信息外部性，鼓励不当行为。否则，两种外部性均为正并阻止不当行为。尽管在非透明环境中强大的声誉总是有利于监管者，但在透明环境中它常常适得其反。",
+      "doi": "10.1111/1756-2171.70067",
+      "source_url": "https://doi.org/10.1111/1756-2171.70067",
       "publication_date": "2026",
       "sources": {
-        "issue": "https://onlinelibrary.wiley.com/toc/17562171/current",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/bla/randje/v57y2026i2p386-401.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://ideas.repec.org/s/bla/randje.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "crossref",
+        "repec": "https://ideas.repec.org/a/bla/randje/v57y2026i3p648-662.html"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:53:58+00:00",
-        "source_hash": "f0662d7c7406ae3a0fd419b76336131b0a4502fba52602507947117afea5f661"
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T15:40:30+00:00",
+        "source_hash": "6eaf69dae53e55ef9b31ad25326fe7b13627c5b85f6dcf8eb3f296b7639cd60e"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -327,35 +335,37 @@
       }
     },
     {
-      "paper_id": "doi:10.1111/1756-2171.70039",
+      "paper_id": "doi:10.1111/1756-2171.70061",
       "sequence": 9,
       "source_sequence": 9,
       "article_type": "research-article",
-      "title_en": "Why Is Exclusivity in Broadcasting Rights Prevalent and Why Does Simple Regulation Fail?",
-      "title_cn": "为什么广播权的排他性普遍存在且简单监管为何失败？",
+      "title_en": "Nonlinear Pricing in Oligopoly: How Brand Preferences Shape Market Outcomes",
+      "title_cn": "寡头市场中的非线性定价：品牌偏好如何塑造市场结果",
       "authors": [
-        "David Martimort",
-        "Jerome Pouyet"
+        "Renato Gomes",
+        "Jean‐Marie Lozachmeur",
+        "Lucas Maestri"
       ],
-      "abstract_en": "Pay‐TV firms compete both downstream to attract viewers and upstream to acquire broadcasting rights. Because profits inherited from downstream competition satisfy a convexity property, allocating rights to the dominant firm maximizes the industry profit. Such an exclusive allocation of rights emerges as a robust equilibrium outcome but may fail to maximize welfare. We analyze whether a ban on resale and a ban on package bidding may improve welfare. These corrective policies have no impact on the final allocation but lead to profit redistribution along the value chain.",
-      "abstract_cn": "付费电视公司在下游争夺观众的同时，在上游争夺广播权。由于下游竞争所继承的利润满足凸性特性，将权利分配给主导企业能够最大化行业利润。这样的排他性权利分配作为稳健的均衡结果出现，但可能无法最大化福利。我们分析禁止转售和禁止套餐竞标是否能够改善福利。这些纠正性政策对最终分配没有影响，但导致价值链上的利润重新分配。",
-      "doi": "10.1111/1756-2171.70039",
-      "source_url": "https://ideas.repec.org/a/bla/randje/v57y2026i2p402-419.html",
+      "abstract_en": "We study oligopolistic competition by firms practicing second‐degree price discrimination. In line with the literature on demand estimation, our theory allows consumers' propensity to switch brands to vary with tastes for product quality. If low‐type consumers are sufficiently more (respectively, less) prone to switch brands than are high types, (i) quality provision is inefficiently low at the bottom (respectively, high at the top) of the product line, and (ii) informational rents are positive (respectively, negative) for high types and negative (respectively, positive) for low types. Interestingly, we show that an increase in the number of competing firms may decrease welfare (by tightening incentive constraints), so much so that monopoly may be welfare superior to oligopoly. Pure‐strategy equilibria fail to exist, resulting in price‐quality dispersion across firms, whenever the propensity to switch brands is sufficiently different across consumers types.",
+      "abstract_cn": "我们研究实行二级价格歧视的企业的寡头竞争。与需求估计文献一致，我们的理论允许消费者转换品牌的倾向随其对产品质量的品味而变化。如果低类型消费者比高类型消费者更（或更不）倾向于转换品牌，那么（i）产品线底部的质量供给低效地低（或顶部的质量供给低效地高），并且（ii）高类型的信息租金为正（或负），低类型的信息租金为负（或正）。有趣的是，我们表明，竞争企业数量的增加可能降低福利（通过收紧激励约束），以至于垄断可能优于寡头。当消费者类型之间转换品牌的倾向差异足够大时，纯策略均衡不存在，导致企业间的价格-质量离散。",
+      "doi": "10.1111/1756-2171.70061",
+      "source_url": "https://doi.org/10.1111/1756-2171.70061",
       "publication_date": "2026",
       "sources": {
-        "issue": "https://onlinelibrary.wiley.com/toc/17562171/current",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/bla/randje/v57y2026i2p402-419.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://ideas.repec.org/s/bla/randje.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "crossref",
+        "repec": "https://ideas.repec.org/a/bla/randje/v57y2026i3p663-685.html"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:54:05+00:00",
-        "source_hash": "502b0015971e569d072d686f871536597e3aeba2d215673d41ebee259f45ccf1"
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T15:40:32+00:00",
+        "source_hash": "8948278ab641d3a9f65c3b70f06d067fb3ebf494f533122b6dffcb836b0aae04"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -366,35 +376,36 @@
       }
     },
     {
-      "paper_id": "doi:10.1111/1756-2171.70040",
+      "paper_id": "doi:10.1111/1756-2171.70062",
       "sequence": 10,
       "source_sequence": 10,
       "article_type": "research-article",
-      "title_en": "Strategic Trading and Blockholder Dynamics",
-      "title_cn": "战略交易与大股东动态",
+      "title_en": "Buyer's Hidden Search With Continuous Intensity: The Seller‐Optimal Mechanism and a Perverse Effect",
+      "title_cn": "买方连续强度下的隐藏搜索：卖方最优机制与一个反常效应",
       "authors": [
-        "Iván Marinovic",
-        "Felipe Varas"
+        "Dongri Liu",
+        "Jingfeng Lu"
       ],
-      "abstract_en": "We study strategic trading by a privately informed blockholder who monitors a company and trades its shares. Private information results in larger block sizes in good states, but by increasing the speed of the blockholder's selling, it can result in lower block sizes in bad states. Despite the heterogeneous impact on expected block size, we show that asymmetric information leads to Pareto improvements: it raises stock prices, benefits small uninformed shareholders, and benefits the block owner, despite the negative impact on liquidity.",
-      "abstract_cn": "我们研究了一个拥有私人信息的大股东的战略交易行为，该大股东监控一家公司并交易其股票。私人信息导致在良好状态下大股东持股比例更大，但通过加快大股东的卖出速度，可能导致在不良状态下持股比例更低。尽管对预期持股比例的影响存在异质性，我们证明了信息不对称带来了帕累托改进：它提高了股票价格，有利于小型无信息股东，并使大股东受益，尽管对流动性有负面影响。",
-      "doi": "10.1111/1756-2171.70040",
-      "source_url": "https://ideas.repec.org/a/bla/randje/v57y2026i2p420-450.html",
+      "abstract_en": "We adopt a dynamic mechanism design approach to study how a revenue‐maximizing seller should sell an indivisible object when a buyer with a private value can search for an outside option with continuous‐intensity choices. We find that lowering the buyer's search cost definitely reduces the seller's revenue when the buyer's search decision is binary, as in Armstrong and Zhou (2016). In contrast, with continuous search intensity, a counterintuitive effect may arise: lowering the buyer's search cost function can, under mild conditions, actually increase the seller's revenue.",
+      "abstract_cn": "我们采用动态机制设计方法，研究当具有私人价值的买方可以以连续强度选择搜索外部选项时，追求收入最大化的卖方应如何出售不可分割物品。我们发现，当买方的搜索决策是二元的，如Armstrong和Zhou（2016）所述，降低买方的搜索成本必然减少卖方的收入。相反，在连续搜索强度下，可能出现一个反直觉的效应：在温和条件下，降低买方的搜索成本函数实际上可能增加卖方的收入。",
+      "doi": "10.1111/1756-2171.70062",
+      "source_url": "https://doi.org/10.1111/1756-2171.70062",
       "publication_date": "2026",
       "sources": {
-        "issue": "https://onlinelibrary.wiley.com/toc/17562171/current",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/bla/randje/v57y2026i2p420-450.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://ideas.repec.org/s/bla/randje.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "crossref",
+        "repec": "https://ideas.repec.org/a/bla/randje/v57y2026i3p686-704.html"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:54:12+00:00",
-        "source_hash": "1ad118fe6c21b74b61d242f9d52302bd849bd8949f2ba6784c4b9699cb82a2d2"
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T15:40:34+00:00",
+        "source_hash": "73cec902ea8ab4cec3d4b10a1b5e74900c4b484f5510a316a835e115e89186c6"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -405,41 +416,204 @@
       }
     },
     {
-      "paper_id": "doi:10.1111/1756-2171.70041",
+      "paper_id": "doi:10.1111/1756-2171.70058",
       "sequence": 11,
       "source_sequence": 11,
       "article_type": "research-article",
-      "title_en": "Physicians as Persuaders: Evidence from Hospitals in China",
-      "title_cn": "医生作为说服者：中国医院的证据",
+      "title_en": "Price Discrimination With Manipulable Observables",
+      "title_cn": "可操纵可观测变量下的价格歧视",
       "authors": [
-        "Jia Xiang"
+        "Teck Yong Tan"
       ],
-      "abstract_en": "I estimate a Bayesian persuasion model to examine how financial incentives and asymmetric information shape physician–patient interactions. This approach offers new insights into the role of insurance. First, the model predicts that patients' coinsurance moderates physicians' responsiveness to increases in service fees. This prediction is supported by a difference‐in‐differences analysis using Chinese health insurance claims data with random variation in physicians' reimbursement and patients' coinsurance rates. Second, the model implies that lower coinsurance rates reduce both patient price elasticity and skepticism, increasing the likelihood of physicians misdirecting patients toward unnecessary treatments. Using structural model estimates, I show that for a diagnosis where surgical treatment is discretionary, nearly half of the patients who received surgery would not have done so were they fully informed. Such misdirection from physicians is greater when coinsurance rates decrease, highlighting a new inefficiency channel beyond moral hazard. I decompose the effect of lowering coinsurance into moral hazard and the novel greater misdirection effect. Counterfactual analysis shows that, while patients benefit from lower out‐of‐pocket costs, greater misdirection nearly offsets these welfare gains.",
-      "abstract_cn": "我估计了一个贝叶斯说服模型，以检验财务激励和信息不对称如何影响医患互动。该方法为保险的作用提供了新的见解。模型预测患者的共付比例调节医生对服务费用增加的响应性。该预测得到了利用中国健康保险理赔数据的双重差分分析的支持，该数据中医生报销和患者共付比例存在随机变异。模型还表明，较低的共付比例降低了患者的价格弹性和怀疑态度，增加了医生将患者误导至不必要治疗的可能性。利用结构模型估计，我展示了对于手术治疗属于自由裁量的诊断，近一半接受手术的患者如果信息充分，原本不会接受手术。医生的这种误导在共付比例降低时更为严重，凸显了超越道德风险的新型低效渠道。我将降低共付比例的效应分解为道德风险和新发现的更大误导效应。反事实分析显示，尽管患者因降低自付费用而受益，但更大的误导效应几乎抵消了这些福利增益。",
-      "doi": "10.1111/1756-2171.70041",
-      "source_url": "https://ideas.repec.org/a/bla/randje/v57y2026i2p451-468.html",
+      "abstract_en": "This article studies price discrimination by a seller who uses data on observables that buyers can control (or manipulate) at a cost. If the seller's discriminatory prices are offered covertly, equilibrium market segmentation is always coarse, resulting in limited price discrimination. In contrast, if prices must be transparently posted, every buyer pays a personalized price in equilibrium, though this does not always reduce buyer or social welfare. The analysis sheds new light on calls for transparency in how sellers utilize consumer data to customize prices and highlights potential issues with assessing welfare using (only) observed prices, pricing conduct, and market coverage.",
+      "abstract_cn": "本文研究了一个卖方利用买方可以以一定成本控制（或操纵）的可观测数据来实施价格歧视的情况。如果卖方的歧视性价格是隐蔽提供的，均衡市场细分总是粗糙的，导致有限的价格歧视。相反，如果价格必须透明公布，均衡中每个买方都支付个性化价格，尽管这并不总是降低买方或社会福利。该分析为要求卖方利用消费者数据定制价格时提高透明度的呼声提供了新的视角，并强调了仅使用（观察到的）价格、定价行为和市场覆盖率来评估福利的潜在问题。",
+      "doi": "10.1111/1756-2171.70058",
+      "source_url": "https://doi.org/10.1111/1756-2171.70058",
       "publication_date": "2026",
       "sources": {
-        "issue": "https://onlinelibrary.wiley.com/toc/17562171/current",
-        "roster": "repec-publisher-supplied",
-        "metadata": "https://ideas.repec.org/a/bla/randje/v57y2026i2p451-468.html",
-        "abstract_en": "official-sciencedirect-issue"
+        "issue": "https://ideas.repec.org/s/bla/randje.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "crossref",
+        "repec": "https://ideas.repec.org/a/bla/randje/v57y2026i3p705-723.html"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4.1-mini",
-        "translated_at": "2026-07-26T19:54:22+00:00",
-        "source_hash": "f4787d066480c6d5b3872d1aa8557c1990128daf01744fd4ddcf6d6baeae0433"
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T15:40:36+00:00",
+        "source_hash": "8e3e0fab45a112a594006384d095ae771e1c7fd277280cf17a2253bcc8c11ba7"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1111/1756-2171.70060",
+      "sequence": 12,
+      "source_sequence": 12,
+      "article_type": "research-article",
+      "title_en": "Market Effects of Brand Search Advertising",
+      "title_cn": "品牌搜索广告的市场效应",
+      "authors": [
+        "Massimo Motta",
+        "Antonio Penta"
+      ],
+      "abstract_en": "We study the market effects of sponsored search auctions for advertising space on searches for brands. In our model, firms simultaneously choose the price of their product and the bids for the advertising auctions triggered by their own and rivals' brand keywords search. In any symmetric equilibrium, each firm wins its own keyword auction, and relative to a no‐ads benchmark, online advertising raises the winning brand's marginal cost and ultimately market prices. Only in an environment with strong initial asymmetries do we find that brand advertising might be beneficial.",
+      "abstract_cn": "我们研究了品牌搜索中赞助搜索拍卖对广告空间的市场效应。在我们的模型中，企业同时选择其产品价格以及由其自身和竞争对手的品牌关键词搜索触发的广告拍卖的出价。在任何对称均衡中，每个企业赢得其自身的关键词拍卖，并且相对于无广告基准，在线广告提高了获胜品牌的边际成本，并最终提高了市场价格。只有在初始不对称性较强的环境中，我们才发现品牌广告可能是有益的。",
+      "doi": "10.1111/1756-2171.70060",
+      "source_url": "https://doi.org/10.1111/1756-2171.70060",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/bla/randje.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "crossref",
+        "repec": "https://ideas.repec.org/a/bla/randje/v57y2026i3p724-744.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T15:40:38+00:00",
+        "source_hash": "45839e7c3afae7a8ae4bb498f737339f444f78188c28d4130641ae12da593ea5"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1111/1756-2171.70073",
+      "sequence": 13,
+      "source_sequence": 13,
+      "article_type": "research-article",
+      "title_en": "Welfare Effects of Trade Associations: The Case of the Chilean Salmon Export Industry",
+      "title_cn": "行业协会的福利效应：以智利三文鱼出口产业为例",
+      "authors": [
+        "Thomas Eisenberg",
+        "Manuel Estay",
+        "Debi Prasad Mohapatra"
+      ],
+      "abstract_en": "This article examines the welfare consequences of a trade association in an exporting country on consumers in destination countries. We estimate a structural model of the Chilean Salmon exporting industry that endogenizes firms' pricing and export decisions. Our results show that the trade association has a positive effect on consumer utility and involves higher marginal costs of production, consistent with higher quality products. Reduced form analysis estimates price effects associated with trade association membership of 3 to 8 percent. Our counterfactual analysis reveals that eliminating the trade association would reduce consumer welfare by 1.7 billion USD in destination countries.",
+      "abstract_cn": "本文考察了出口国行业协会对目的地国家消费者的福利影响。我们估计了一个智利三文鱼出口产业的结构模型，该模型内生化了企业的定价和出口决策。我们的结果表明，行业协会对消费者效用有正向影响，并涉及更高的边际生产成本，这与更高质量的产品一致。简化形式分析估计了与行业协会会员资格相关的价格效应为3至8%。我们的反事实分析显示，取消行业协会将使目的地国家的消费者福利减少1.7十亿美元。",
+      "doi": "10.1111/1756-2171.70073",
+      "source_url": "https://doi.org/10.1111/1756-2171.70073",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/bla/randje.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "crossref",
+        "repec": "https://ideas.repec.org/a/bla/randje/v57y2026i3p745-763.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T15:40:39+00:00",
+        "source_hash": "daa21d83aef4e17487111c7669420200a6717a68b032c6d35e3ba624cebc8a84"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1111/1756-2171.70059",
+      "sequence": 14,
+      "source_sequence": 14,
+      "article_type": "research-article",
+      "title_en": "The Competitive Effects of Mergers with Cournot Competition",
+      "title_cn": "古诺竞争下并购的竞争效应",
+      "authors": [
+        "Markus Reisinger",
+        "Hans Zenger"
+      ],
+      "abstract_en": "This article provides a full characterization of the competitive effects of horizontal mergers in the Cournot model with heterogeneous firms and constant marginal costs. We show that price effects depend only on the smaller merging firm's market share and the number of firms but are independent of the distribution of market shares among other firms. Standard concentration measures, instead, are often misleading. We also provide simple—yet general—closed‐form solutions for merger effects based on pre‐merger parameters. Moreover, we extend the model to study the combination of output and input market power and relate our results to the Merger Guidelines.",
+      "abstract_cn": "本文全面刻画了在具有异质性企业和恒定边际成本的古诺模型中横向并购的竞争效应。我们表明，价格效应仅取决于较小的并购企业的市场份额和企业数量，而与其他企业市场份额的分布无关。相反，标准的集中度衡量指标往往具有误导性。我们还基于并购前参数，提供了简单但通用的并购效应闭式解。此外，我们扩展了模型以研究产出和投入市场势力的结合，并将我们的结果与《并购指南》相关联。",
+      "doi": "10.1111/1756-2171.70059",
+      "source_url": "https://doi.org/10.1111/1756-2171.70059",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/bla/randje.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "crossref",
+        "repec": "https://ideas.repec.org/a/bla/randje/v57y2026i3p764-783.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T15:40:41+00:00",
+        "source_hash": "68f8b71b7244abc7e03fb98d65538a5eb176bfb279e371aed25e3c1260be8972"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1111/1756-2171.70063",
+      "sequence": 15,
+      "source_sequence": 15,
+      "article_type": "research-article",
+      "title_en": "Output Quality, Productivity, and Demand: Evidence from the Chinese Steel Industry",
+      "title_cn": "产出质量、生产率与需求：来自中国钢铁行业的证据",
+      "authors": [
+        "Jing Li",
+        "Shengyu Li",
+        "Hongsong Zhang"
+      ],
+      "abstract_en": "Unobserved objective output quality complicates the analysis of firm productivity and demand because higher‐quality products entail higher costs but offer greater consumption benefits. Using a panel of firms with output quality data, we decompose quantity‐based productivity into fundamental productivity and the costs of quality, and separate the demand residual into fundamental demand and quality benefits. Fundamental demand accounts for most revenue variation, whereas quality's revenue‐enhancing benefits are largely offset by its costs. During the 2008 global financial crisis, shifts in quality diverged from changes in fundamental productivity and demand, highlighting the role of quality in assessing firm and industry performance.",
+      "abstract_cn": "未观测到的客观产出质量使企业生产率和需求的分析复杂化，因为更高质量的产品带来更高成本，但也提供更大的消费效益。利用具有产出质量数据的企业面板，我们将基于数量的生产率分解为基础生产率和质量成本，并将需求残差分解为基础需求和质量效益。基础需求解释了大部分收入变动，而质量带来的收入提升效益在很大程度上被其成本所抵消。在2008年全球金融危机期间，质量的变动与基础生产率和需求的变化出现分化，凸显了质量在评估企业和行业绩效中的作用。",
+      "doi": "10.1111/1756-2171.70063",
+      "source_url": "https://doi.org/10.1111/1756-2171.70063",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://ideas.repec.org/s/bla/randje.html",
+        "roster": "repec-serial-page",
+        "metadata": "crossref",
+        "abstract_en": "crossref",
+        "repec": "https://ideas.repec.org/a/bla/randje/v57y2026i3p784-807.html"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T15:40:43+00:00",
+        "source_hash": "177657b0a7050c75cb8a539c564182003e8754577a1be73f52712a49aea0fa4a"
       },
       "quality_flags": [],
       "china_relevance": {
         "status": "yes",
         "evidence": "title",
         "matched_terms": [
-          "China"
+          "Chinese"
         ],
         "source": "academic-door-rules-v1"
       }
@@ -448,49 +622,49 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "official_item_count": 11,
+    "roster_transport": "repec-serial-page",
+    "roster_authority": "repec-publisher-supplied",
+    "roster_match_scope": "repec-issue-section",
+    "publisher_page_status": "blocked",
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 11,
-    "authors_complete": 11,
-    "abstract_en_complete": 11,
-    "translation_complete": 11,
+    "doi_complete": 15,
+    "authors_complete": 15,
+    "abstract_en_complete": 15,
+    "translation_complete": 15,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_repec_fallback",
-      "repec_publisher_supplied_roster",
-      "official_order_unverified"
-    ],
-    "official_issue_fetch_error": "request failed for https://onlinelibrary.wiley.com/toc/17562171/current: 403 Client Error: Forbidden for url: https://onlinelibrary.wiley.com/toc/17562171/current",
-    "publishable_item_count": 11,
+    "flags": [],
+    "official_item_count": 15,
+    "publishable_item_count": 15,
     "content_counts": {
-      "official_items": 11,
-      "observed_items": 11,
-      "publishable_items": 11,
-      "research_articles": 11,
+      "official_items": 15,
+      "observed_items": 15,
+      "publishable_items": 15,
+      "research_articles": 15,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 11
+      "catalog_content_items": 15
     }
   },
   "content_counts": {
-    "official_items": 11,
-    "observed_items": 11,
-    "publishable_items": 11,
-    "research_articles": 11,
+    "official_items": 15,
+    "observed_items": 15,
+    "publishable_items": 15,
+    "research_articles": 15,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 11
+    "catalog_content_items": 15
   },
-  "publication_state": "ready",
+  "issue_label": "Vol. 57 · No. 3",
   "content_status": "complete",
-  "source_status": "official_verified"
+  "source_status": "publisher_verified",
+  "publication_state": "ready"
 }

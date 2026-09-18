@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-18T10:55:58+00:00",
+  "updated_at": "2026-09-18T12:02:47+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 49,
-    "official_page_verified": 13,
+    "official_page_verified": 14,
     "publisher_feed_verified": 19,
-    "fallback_verified": 17,
+    "fallback_verified": 16,
     "needs_attention": 0,
     "missing": 0,
     "invariant_errors": 0
@@ -594,36 +594,34 @@
       "name": "American Journal of Agricultural Economics",
       "publisher": "Wiley",
       "configured_source": "https://onlinelibrary.wiley.com/toc/14678276/current",
-      "status": "fallback_verified",
+      "status": "official_page_verified",
       "current": {
         "available": true,
-        "status": "fallback_verified",
-        "issue_id": "ajae-108-4",
-        "publication_date": "August 2026",
-        "publication_state": "source_pending",
-        "source_url": "https://onlinelibrary.wiley.com/toc/14678276/2026/108/4",
-        "roster_authority": "crossref-provisional",
-        "roster_transport": "crossref",
-        "order_verified": false,
+        "status": "official_page_verified",
+        "issue_id": "ajae-108-5",
+        "publication_date": "October 2026",
+        "publication_state": "ready",
+        "source_url": "https://onlinelibrary.wiley.com/toc/14678276/2026/108/5",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "browser-authorized",
+        "order_verified": true,
         "content_counts": {
-          "official_items": 11,
-          "observed_items": 11,
+          "official_items": 12,
+          "observed_items": 12,
           "publishable_items": 10,
           "research_articles": 10,
           "comments": 0,
           "short_communications": 0,
-          "corrections": 0,
+          "corrections": 1,
           "editorial_material": 0,
           "front_matter": 1,
           "other_excluded": 0,
-          "catalog_content_items": 10
+          "catalog_content_items": 11
         },
         "abstracts_complete": 10,
         "translations_complete": 10,
         "errors": [],
-        "warnings": [
-          "crossref_provisional_roster"
-        ]
+        "warnings": []
       },
       "detected": {
         "available": false,
@@ -1184,33 +1182,31 @@
       "status": "fallback_verified",
       "current": {
         "available": true,
-        "status": "fallback_verified",
-        "issue_id": "te-21-1",
-        "publication_date": "January 2026",
+        "status": "official_page_verified",
+        "issue_id": "te-21-3",
+        "publication_date": "July 2026",
         "publication_state": "ready",
-        "source_url": "https://onlinelibrary.wiley.com/toc/15557561/current",
+        "source_url": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/3",
         "roster_authority": "official-issue-page",
-        "roster_transport": "official-issue-page",
-        "order_verified": false,
+        "roster_transport": "browser-authorized",
+        "order_verified": true,
         "content_counts": {
-          "official_items": 10,
-          "observed_items": 10,
-          "publishable_items": 10,
-          "research_articles": 10,
+          "official_items": 11,
+          "observed_items": 11,
+          "publishable_items": 11,
+          "research_articles": 11,
           "comments": 0,
           "short_communications": 0,
           "corrections": 0,
           "editorial_material": 0,
           "front_matter": 0,
           "other_excluded": 0,
-          "catalog_content_items": 10
+          "catalog_content_items": 11
         },
-        "abstracts_complete": 10,
-        "translations_complete": 10,
+        "abstracts_complete": 11,
+        "translations_complete": 11,
         "errors": [],
-        "warnings": [
-          "official_order_unverified"
-        ]
+        "warnings": []
       },
       "detected": {
         "available": true,
@@ -1253,32 +1249,32 @@
       "status": "fallback_verified",
       "current": {
         "available": true,
-        "status": "fallback_verified",
-        "issue_id": "rand-57-2",
-        "publication_date": "September 2026",
+        "status": "official_page_verified",
+        "issue_id": "rand-57-3",
+        "publication_date": "Fall 2026",
         "publication_state": "ready",
-        "source_url": "https://onlinelibrary.wiley.com/toc/17562171/current",
-        "roster_authority": "official-issue-page",
-        "roster_transport": "official-issue-page",
-        "order_verified": false,
+        "source_url": "https://ideas.repec.org/s/bla/randje.html",
+        "roster_authority": "repec-publisher-supplied",
+        "roster_transport": "repec-serial-page",
+        "order_verified": true,
         "content_counts": {
-          "official_items": 11,
-          "observed_items": 11,
-          "publishable_items": 11,
-          "research_articles": 11,
+          "official_items": 15,
+          "observed_items": 15,
+          "publishable_items": 15,
+          "research_articles": 15,
           "comments": 0,
           "short_communications": 0,
           "corrections": 0,
           "editorial_material": 0,
           "front_matter": 0,
           "other_excluded": 0,
-          "catalog_content_items": 11
+          "catalog_content_items": 15
         },
-        "abstracts_complete": 11,
-        "translations_complete": 11,
+        "abstracts_complete": 15,
+        "translations_complete": 15,
         "errors": [],
         "warnings": [
-          "official_order_unverified"
+          "snapshot_uses_alternate_official_source"
         ]
       },
       "detected": {
@@ -1590,14 +1586,14 @@
       "status": "fallback_verified",
       "current": {
         "available": true,
-        "status": "fallback_verified",
+        "status": "official_page_verified",
         "issue_id": "jf-81-4",
         "publication_date": "August 2026",
-        "publication_state": "source_pending",
+        "publication_state": "ready",
         "source_url": "https://onlinelibrary.wiley.com/toc/15406261/2026/81/4",
-        "roster_authority": "crossref-provisional",
-        "roster_transport": "crossref",
-        "order_verified": false,
+        "roster_authority": "official-issue-page",
+        "roster_transport": "browser-authorized",
+        "order_verified": true,
         "content_counts": {
           "official_items": 17,
           "observed_items": 17,
@@ -1614,9 +1610,7 @@
         "abstracts_complete": 13,
         "translations_complete": 13,
         "errors": [],
-        "warnings": [
-          "crossref_provisional_roster"
-        ]
+        "warnings": []
       },
       "detected": {
         "available": true,
