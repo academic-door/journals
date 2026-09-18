@@ -10,6 +10,8 @@ from typing import Any
 
 import yaml
 
+from scripts.state_precedence import authority_rank
+
 
 DEFAULT_CATEGORIES = (
     "recoverable,translation_required,source_pending,browser_required"
@@ -26,6 +28,12 @@ def _adapter(record: dict[str, Any], collector: str) -> str:
         "source_pending",
     }:
         return "springer-evidence"
+    if (
+        "onlinelibrary.wiley.com" in official_url
+        and category in {"recoverable", "source_pending"}
+        and authority_rank(record.get("authority")) >= 2
+    ):
+        return "wiley-evidence"
     if "www.cambridge.org" in official_url and category == "source_pending":
         return "cambridge-evidence"
     if category == "translation_required":
