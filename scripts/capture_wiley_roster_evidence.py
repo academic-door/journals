@@ -36,6 +36,16 @@ def _url(config: dict[str, Any], record: dict[str, Any]) -> str:
     )
 
 
+def _eligible_record(record: dict[str, Any], config: dict[str, Any] | None) -> bool:
+    if not config:
+        return False
+    if record.get("category") not in {"source_pending", "recoverable"}:
+        return False
+    if str(config.get("publisher", "")).casefold() != "wiley":
+        return False
+    return authority_rank(record.get("authority")) >= 2
+
+
 def _capture(
     record: dict[str, Any],
     config: dict[str, Any],
@@ -101,11 +111,7 @@ def main() -> int:
     records = []
     for record in manifest.get("records", []):
         config = configs.get(str(record.get("journal", "")))
-        if record.get("category") not in {"source_pending", "recoverable"} or not config:
-            continue
-        if str(config.get("publisher", "")).casefold() != "wiley":
-            continue
-        if authority_rank(record.get("authority")) < 2:
+        if not _eligible_record(record, config):
             continue
         archive = (
             args.api_root
