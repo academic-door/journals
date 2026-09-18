@@ -89,6 +89,13 @@ def build_state(evidence: dict[str, Any], journals_config: dict[str, Any]) -> di
         if str(definition.get("publisher", "")) != "Elsevier":
             raise ValueError(f"{journal_key}: configured publisher is not Elsevier")
 
+        journal_observed_at = str(observed.get("observed_at", observed_at)).strip()
+        if not journal_observed_at:
+            raise ValueError(f"{journal_key}: observed_at is required")
+        _timezone_aware(journal_observed_at)
+        if journal_observed_at > str(state["updated_at"]):
+            state["updated_at"] = journal_observed_at
+
         journal_id = str(observed.get("journal_id", "")).strip()
         if journal_id != str(definition.get("id", "")).strip():
             raise ValueError(f"{journal_key}: journal_id mismatch")
@@ -183,7 +190,7 @@ def build_state(evidence: dict[str, Any], journals_config: dict[str, Any]) -> di
             "issue_years": issue_years,
             "issue_refs": issue_refs,
             "authority": AUTHORITY,
-            "refreshed_at": observed_at,
+            "refreshed_at": journal_observed_at,
             "collector_revision": COLLECTOR_REVISION,
             "evidence_ref": "data/provenance/expected-set-observations/elsevier-2026-browser.json",
             "source_url": source_url,
