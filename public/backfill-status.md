@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-09-18T18:49:22+00:00
+Updated: 2026-09-18T20:59:20+00:00
 
 Discovery coverage: 1272 discovered · 1217 archived · 1147 publication ready · 55 missing · 70 source pending
 
@@ -12,6 +12,7 @@ Discovery coverage: 1272 discovered · 1217 archived · 1147 publication ready �
 | 2025-2026 | 1 | 0 | 0 | 0 |
 | 2026-2026 | 10 | 0 | 0 | 0 |
 | elsevier-2026-browser | 0 | 0 | 0 | 0 |
+| final3-2026-browser | 0 | 0 | 0 | 0 |
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
