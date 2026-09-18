@@ -1,0 +1,101 @@
+name: G05 AJAE JF Wiley evidence qualification
+
+on:
+  push:
+    branches:
+      - brain/g05-ajae-jf-wiley-qualify
+    paths:
+      - .github/workflows/g05-ajae-jf-wiley-qualify.yml
+
+permissions:
+  contents: read
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Restore current canonical data
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          rm -rf public/api data/backfill-state
+          mkdir -p public data
+          git archive origin/data public/api/v1/journals data/backfill-state | tar -x
+      - name: Build exact current gap manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p output
+          state_args=()
+          for state in data/backfill-state/*.json; do
+            [ -f "$state" ] && state_args+=(--state "$state")
+          done
+          python scripts/build_gap_manifest.py             "${state_args[@]}"             --api-root public/api/v1             --out-json output/gaps.json
+      - name: Select only AJAE and JF 2026 targets
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          wanted = {
+              "ajae-108-1","ajae-108-2","ajae-108-3","ajae-108-4",
+              "jf-81-1","jf-81-2","jf-81-3","jf-81-4",
+          }
+          payload = json.loads(Path("output/gaps.json").read_text())
+          rows = [r for r in payload["records"] if r.get("issue_id") in wanted]
+          if {r["issue_id"] for r in rows} != wanted:
+              raise SystemExit("qualification target set mismatch")
+          for row in rows:
+              if row.get("authority") != "official_archive_snapshot":
+                  raise SystemExit(f"non-authoritative target: {row['issue_id']}")
+              if row.get("category") != "source_pending":
+                  raise SystemExit(f"unexpected category for {row['issue_id']}: {row.get('category')}")
+              if "onlinelibrary.wiley.com" not in str(row.get("official_url","")):
+                  raise SystemExit(f"non-Wiley official route: {row['issue_id']}")
+          Path("output/targets.json").write_text(json.dumps({
+              "schema_version":"1.0",
+              "generated_at":payload.get("generated_at",""),
+              "records":rows,
+          }, ensure_ascii=False, indent=2)+"\n")
+          print(json.dumps([{"issue_id":r["issue_id"],"official_url":r["official_url"]} for r in rows], indent=2))
+          PY
+      - name: Capture and roster-match official Wiley evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p output/wiley output/failures
+          python scripts/capture_wiley_roster_evidence.py             --gap-manifest output/targets.json             --api-root public/api/v1             --output-root output/wiley             --diagnostics-root output/failures             --workers 2 | tee output/capture.json
+      - name: Require all eight evidence records
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          wanted = {
+              "ajae-108-1","ajae-108-2","ajae-108-3","ajae-108-4",
+              "jf-81-1","jf-81-2","jf-81-3","jf-81-4",
+          }
+          found = {p.stem for p in Path("output/wiley").glob("*.json")}
+          capture = json.loads(Path("output/capture.json").read_text())
+          print(json.dumps(capture, indent=2))
+          if found != wanted:
+              raise SystemExit(f"qualification incomplete: found={sorted(found)}")
+          if capture.get("failed"):
+              raise SystemExit("qualification has capture failures")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: g05-ajae-jf-wiley-qualification
+          path: output
+          if-no-files-found: warn
