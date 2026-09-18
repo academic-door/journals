@@ -1,0 +1,55 @@
+name: G05 AJAE 108(5) browser evidence qualification
+
+on:
+  push:
+    branches:
+      - brain/g05-ajae-108-5-browser-evidence
+    paths:
+      - .github/workflows/g05-ajae-108-5-evidence-qualify.yml
+
+permissions:
+  contents: read
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Validate exact browser-authorized roster evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from scripts.import_official_roster_evidence import validate_evidence
+
+          path = Path("data/provenance/official-rosters/wiley/ajae-108-5.json")
+          evidence = json.loads(path.read_text(encoding="utf-8"))
+          validate_evidence(evidence)
+          assert evidence["method"] == "browser-authorized"
+          assert evidence["issue_id"] == "ajae-108-5"
+          assert evidence["official_url"] == "https://onlinelibrary.wiley.com/toc/14678276/2026/108/5"
+          assert evidence["publication_date"] == "October 2026"
+          assert len(evidence["items"]) == 10
+          assert evidence["excluded_item_count"] == 2
+          assert [item["sequence"] for item in evidence["items"]] == list(range(1, 11))
+          dois = [item["doi"].lower() for item in evidence["items"]]
+          assert len(dois) == len(set(dois)) == 10
+          assert {item["reason"] for item in evidence["excluded_items"]} == {
+              "section-not-original-articles",
+              "correction_notice",
+          }
+          print(json.dumps({
+              "issue_id": evidence["issue_id"],
+              "research_items": len(evidence["items"]),
+              "excluded_items": evidence["excluded_item_count"],
+              "method": evidence["method"],
+              "official_url": evidence["official_url"],
+          }, sort_keys=True))
+          PY
