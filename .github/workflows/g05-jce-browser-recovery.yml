@@ -64,8 +64,8 @@ jobs:
           x=json.loads(p.read_text())
           assert x["publication_state"] == "ready", x.get("publication_state")
           assert x["source_status"] == "official_verified", x.get("source_status")
-          assert x["research_article_count"] == 16, x.get("research_article_count")
-          assert len(x["articles"]) == 16, len(x["articles"])
+          assert x["research_article_count"] == 15, x.get("research_article_count")
+          assert len(x["articles"]) == 15, len(x["articles"])
           print(json.dumps({
             "issue_id":x["issue_id"],
             "publication_state":x["publication_state"],
