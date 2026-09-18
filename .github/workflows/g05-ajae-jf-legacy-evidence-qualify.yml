@@ -1,0 +1,62 @@
+name: G05 AJAE JF legacy browser evidence qualification
+
+on:
+  push:
+    branches:
+      - brain/g05-ajae-jf-legacy-browser-evidence
+    paths:
+      - .github/workflows/g05-ajae-jf-legacy-evidence-qualify.yml
+
+permissions:
+  contents: read
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Validate six exact browser-authorized rosters
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from scripts.import_official_roster_evidence import validate_evidence
+
+          expected = {
+              "ajae-108-1": ("ajae", "January 2026", 15, 1, "https://onlinelibrary.wiley.com/toc/14678276/2026/108/1"),
+              "ajae-108-2": ("ajae", "March 2026", 12, 10, "https://onlinelibrary.wiley.com/toc/14678276/2026/108/2"),
+              "ajae-108-3": ("ajae", "May 2026", 12, 1, "https://onlinelibrary.wiley.com/toc/14678276/2026/108/3"),
+              "jf-81-1": ("jf", "February 2026", 12, 3, "https://onlinelibrary.wiley.com/toc/15406261/2026/81/1"),
+              "jf-81-2": ("jf", "April 2026", 13, 4, "https://onlinelibrary.wiley.com/toc/15406261/2026/81/2"),
+              "jf-81-3": ("jf", "June 2026", 13, 3, "https://onlinelibrary.wiley.com/toc/15406261/2026/81/3"),
+          }
+          for issue_id, (journal_id, publication_date, item_count, excluded_count, official_url) in expected.items():
+              path = Path("data/provenance/official-rosters/wiley") / f"{issue_id}.json"
+              evidence = json.loads(path.read_text(encoding="utf-8"))
+              validate_evidence(evidence)
+              assert evidence["method"] == "browser-authorized"
+              assert evidence["journal_id"] == journal_id
+              assert evidence["issue_id"] == issue_id
+              assert evidence["publication_date"] == publication_date
+              assert evidence["official_url"] == official_url
+              assert len(evidence["items"]) == item_count
+              assert evidence["excluded_item_count"] == excluded_count
+              assert len(evidence["excluded_items"]) == excluded_count
+              assert [item["sequence"] for item in evidence["items"]] == list(range(1, item_count + 1))
+              dois = [item["doi"].lower() for item in evidence["items"]]
+              assert len(dois) == len(set(dois)) == item_count
+              assert all(item["reason"] == "section-not-original-articles" for item in evidence["excluded_items"])
+              print(json.dumps({
+                  "issue_id": issue_id,
+                  "research_items": item_count,
+                  "excluded_items": excluded_count,
+                  "official_url": official_url,
+              }, sort_keys=True))
+          PY
