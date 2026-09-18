@@ -16,28 +16,7 @@ class DeployCompletenessStateOverlayTests(unittest.TestCase):
             text,
         )
         self.assertIn(
-            "grep -E '^data/backfill-state/[^/]+\\.json,
-            text,
-        )
-        self.assertIn('for state in "${states[@]}"; do', text)
-        self.assertNotIn(
-            "data/backfill-state/field-2023-2024.json \\\n"
-            "              data/backfill-state/field-2025-2026.json",
-            text,
-        )
-
-    def test_release_ledger_consumes_every_loaded_state(self) -> None:
-        text = WORKFLOW.read_text(encoding="utf-8")
-        self.assertIn(
-            'for state in "$RUNNER_TEMP/data-state"/*.json; do',
-            text,
-        )
-        self.assertIn('state_args+=(--state "$state")', text)
-
-
-if __name__ == "__main__":
-    unittest.main()
-",
+            "grep -E '^data/backfill-state/[^/]+\\.json$'",
             text,
         )
         self.assertIn('for state in "${states[@]}"; do', text)
