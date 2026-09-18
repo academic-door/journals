@@ -1,0 +1,101 @@
+name: G05 JF 81(2) translation semantic repair qualification
+
+on:
+  push:
+    branches:
+      - brain/g05-jf-81-2-translation-repair
+    paths:
+      - .github/workflows/g05-jf-81-2-translation-qualify.yml
+
+permissions:
+  contents: read
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Validate bounded semantic repair on latest canonical data
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          rm -rf public/api data/translation-cache
+          mkdir -p public data
+          git archive origin/data public/api/v1/journals/jf/issues/jf-81-2.json data/translation-cache/jf.json | tar -x
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          from scripts.translate_issue import TranslationError, _source_hash, validate_translation
+          from scripts.update_journals import apply_translation_cache, normalize_issue_content, validate_issue
+
+          issue_path = Path("public/api/v1/journals/jf/issues/jf-81-2.json")
+          cache_path = Path("data/translation-cache/jf.json")
+          issue = json.loads(issue_path.read_text(encoding="utf-8"))
+          cache = json.loads(cache_path.read_text(encoding="utf-8"))
+          doi = "10.1111/jofi.70006"
+          article = next(a for a in issue["articles"] if a.get("doi","").lower() == doi)
+          existing = cache[doi]
+
+          assert article["translation"]["status"] == "missing"
+          assert existing["source_hash"] == _source_hash(article)
+          old_payload = {
+              "title_cn": existing["title_cn"],
+              "abstract_cn": existing["abstract_cn"],
+          }
+          try:
+              validate_translation(article, old_payload)
+          except TranslationError as exc:
+              old_error = str(exc)
+          else:
+              raise SystemExit("old cached translation unexpectedly passes current validator")
+          if "added 10" not in old_error:
+              raise SystemExit(f"unexpected old validation error: {old_error}")
+
+          repaired_abstract = existing["abstract_cn"].replace(
+              "在德国统一数十年后",
+              "在德国统一多年后",
+              1,
+          )
+          if repaired_abstract == existing["abstract_cn"]:
+              raise SystemExit("expected phrase not found in cached translation")
+          repaired = {
+              "title_cn": existing["title_cn"],
+              "abstract_cn": repaired_abstract,
+          }
+          validate_translation(article, repaired)
+
+          existing["abstract_cn"] = repaired_abstract
+          existing["translation"] = {
+              **existing.get("translation", {}),
+              "provider": "manual-semantic-repair",
+              "repair_reason": "avoid false-positive numeric 10 from Chinese phrase 数十年",
+          }
+          cache_path.write_text(json.dumps(cache, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          issue = apply_translation_cache(issue, cache_path=cache_path)
+          issue = normalize_issue_content(issue)
+          validate_issue(issue)
+
+          repaired_article = next(a for a in issue["articles"] if a.get("doi","").lower() == doi)
+          assert repaired_article["title_cn"] == existing["title_cn"]
+          assert "在德国统一多年后" in repaired_article["abstract_cn"]
+          assert repaired_article["translation"]["status"] == "complete"
+          assert issue["quality"]["translation_complete"] == 13
+          assert issue["content_status"] == "complete"
+          assert issue["source_status"] == "official_verified"
+          assert issue["publication_state"] == "ready"
+          print(json.dumps({
+              "issue_id": issue["issue_id"],
+              "doi": doi,
+              "old_error": old_error,
+              "translation_complete": issue["quality"]["translation_complete"],
+              "publication_state": issue["publication_state"],
+              "provider": repaired_article["translation"].get("provider"),
+          }, ensure_ascii=False, sort_keys=True))
+          PY
