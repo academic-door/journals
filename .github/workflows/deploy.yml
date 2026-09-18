@@ -51,12 +51,13 @@ jobs:
             fi
             state_root="$RUNNER_TEMP/data-state"
             mkdir -p "$state_root"
-            for state in \
-              data/backfill-state/field-2023-2024.json \
-              data/backfill-state/field-2025-2026.json; do
-              if git cat-file -e "origin/data:$state" 2>/dev/null; then
-                git show "origin/data:$state" > "$state_root/$(basename "$state")"
-              fi
+            mapfile -t states < <(
+              git ls-tree -r --name-only origin/data -- data/backfill-state \
+                | grep -E '^data/backfill-state/[^/]+\.json$' \
+                | sort
+            )
+            for state in "${states[@]}"; do
+              git show "origin/data:$state" > "$state_root/$(basename "$state")"
             done
           fi
 
