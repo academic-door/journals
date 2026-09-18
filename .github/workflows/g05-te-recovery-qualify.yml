@@ -1,0 +1,97 @@
+name: G05 TE recovery qualification
+
+on:
+  push:
+    branches:
+      - brain/g05-te-recovery-qualify
+    paths:
+      - .github/workflows/g05-te-recovery-qualify.yml
+
+permissions:
+  contents: read
+  models: read
+
+concurrency:
+  group: journal-data-update
+  cancel-in-progress: false
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Restore latest canonical data
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          rm -rf public/api data/backfill-state data/backfill-staging data/translation-cache
+          mkdir -p public data
+          git archive origin/data public/api data/backfill-state data/backfill-staging data/translation-cache | tar -x
+      - name: Retry exact TE 21(2)-21(3) without publishing
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+          GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || github.token }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DEEPSEEK_MODEL: deepseek-chat
+          TRANSLATION_RETRIES: "5"
+          TRANSLATION_WORKERS: "4"
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p output
+          python scripts/backfill_history.py \
+            --config config/field-history.yml \
+            --state data/backfill-state/field-2025-2026.json \
+            --journals TE \
+            --issue-ids te-21-2,te-21-3 \
+            --from-year 2025 \
+            --to-year 2026 \
+            --translate \
+            --max-issues 2 \
+            --max-translations 40 \
+            --max-minutes 15 \
+            --skip-global-indexes \
+            --report-json output/te-recovery.json
+      - name: Summarize qualification
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          report = json.loads(Path("output/te-recovery.json").read_text(encoding="utf-8"))
+          summary = {"report": report, "archives": {}}
+          for issue_id in ("te-21-2", "te-21-3"):
+              path = Path(f"public/api/v1/journals/te/issues/{issue_id}.json")
+              if path.exists():
+                  payload = json.loads(path.read_text(encoding="utf-8"))
+                  summary["archives"][issue_id] = {
+                      "exists": True,
+                      "publication_state": payload.get("publication_state"),
+                      "source_status": payload.get("source_status"),
+                      "article_count": len(payload.get("articles", [])),
+                      "roster_authority": (payload.get("quality") or {}).get("roster_authority"),
+                  }
+              else:
+                  summary["archives"][issue_id] = {"exists": False}
+          print(json.dumps(summary, ensure_ascii=False, indent=2))
+          if not all(row.get("exists") for row in summary["archives"].values()):
+              raise SystemExit("qualification failed: provisional archive missing")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: g05-te-recovery-qualification
+          if-no-files-found: warn
+          path: |
+            output/te-recovery.json
+            public/api/v1/journals/te/issues/te-21-2.json
+            public/api/v1/journals/te/issues/te-21-3.json
+            data/backfill-state/field-2025-2026.json
