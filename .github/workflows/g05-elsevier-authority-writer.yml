@@ -1,0 +1,118 @@
+name: Backfill field journal history
+
+on:
+  push:
+    branches:
+      - brain/g05-elsevier-authority-writer
+
+permissions:
+  contents: write
+
+concurrency:
+  group: journal-data-update
+  cancel-in-progress: false
+
+jobs:
+  publish-elsevier-authority:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: python -m pip install -r requirements.txt
+
+      - name: Build authoritative Elsevier 2026 state on latest data
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          data_tree="$RUNNER_TEMP/data-tree"
+          git worktree add "$data_tree" origin/data
+          git -C "$data_tree" switch -C data
+
+          python scripts/apply_elsevier_expected_set_observation.py \
+            --evidence data/provenance/expected-set-observations/elsevier-2026-browser.json \
+            --journals-config config/journals.yml \
+            --output "$data_tree/data/backfill-state/elsevier-2026-browser.json"
+
+          DATA_TREE="$data_tree" python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          path = Path(os.environ["DATA_TREE"]) / "data/backfill-state/elsevier-2026-browser.json"
+          state = json.loads(path.read_text(encoding="utf-8"))
+          journal_count = len(state["discovery"])
+          entry_count = sum(len(s["issue_ids"]) for s in state["discovery"].values())
+          excluded_count = len(state["expected_issue_exclusions"])
+          assert journal_count == 23, journal_count
+          assert entry_count == 182, entry_count
+          assert excluded_count == 30, excluded_count
+          assert all(s["authority"] == "official_archive_snapshot" for s in state["discovery"].values())
+          print(json.dumps({
+              "journal_count": journal_count,
+              "entry_count": entry_count,
+              "excluded_count": excluded_count,
+              "updated_at": state["updated_at"],
+          }, sort_keys=True))
+          PY
+
+          state_args=()
+          for state in "$data_tree"/data/backfill-state/*.json; do
+            [ ! -f "$state" ] || state_args+=(--state "$state")
+          done
+          python scripts/build_completeness_ledger.py \
+            "${state_args[@]}" \
+            --api-root "$data_tree/public/api/v1" \
+            --journals-config config/journals.yml \
+            --window-end 2026-09-18 \
+            --out-json "$RUNNER_TEMP/completeness-2026.json"
+
+          LEDGER="$RUNNER_TEMP/completeness-2026.json" python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          ledger = json.loads(Path(os.environ["LEDGER"]).read_text(encoding="utf-8"))
+          rec = ledger["reconciliation"]
+          assert rec["journal_count"] == 49, rec
+          assert rec["not_measured"] == 3, rec
+          assert rec["authoritative_expected_issues_total"] == 283, rec
+          assert rec["excluded_issues_total"] == 30, rec
+          assert rec["effective_expected_issues_total"] == 253, rec
+          print(json.dumps(rec, sort_keys=True))
+          for row in ledger["journals"]:
+              if row["journalKey"] in {
+                  "JDE","JPubE","JEEM","JUE","EER","GEB","JET","JEBO","JIE","JFE",
+                  "WD","JME","JOE","FOODPOLICY","LUP","JHE","JCE","CER","ENERGY",
+                  "ECOLECON","LABECO","RED","JEDC"
+              }:
+                  print(json.dumps({
+                      "journal": row["journalKey"],
+                      "status": row["status"],
+                      "expected": row["expectedIssueCount"],
+                      "ready": row["publicationReadyIssueCount"],
+                      "missing": row["missingIssueCount"],
+                      "blocked": row["sourceBlockedIssueCount"],
+                      "excluded": len(row["excludedIssues"]),
+                  }, sort_keys=True))
+          PY
+
+          python scripts/audit_history_coverage.py \
+            "${state_args[@]}" \
+            --api-root "$data_tree/public/api/v1" \
+            --report-json "$RUNNER_TEMP/history-coverage.json"
+
+          git -C "$data_tree" add data/backfill-state/elsevier-2026-browser.json
+          if git -C "$data_tree" diff --cached --quiet; then
+            echo "Elsevier authority shard already matches target; no data commit required."
+            exit 0
+          fi
+          git -C "$data_tree" config user.name "github-actions[bot]"
+          git -C "$data_tree" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C "$data_tree" commit -m "data(r2): bind Elsevier 2026 browser authority"
+          git -C "$data_tree" push origin data
