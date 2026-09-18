@@ -13,10 +13,28 @@ def issue(issue_id: str, *, source_status: str, publication_state: str) -> dict:
         "volume": "94",
         "issue": "4",
         "publication_date": "July 2026",
+        "expected_article_count": 1,
+        "research_article_count": 1,
+        "articles": [
+            {
+                "doi": "10.3982/ecta-test",
+                "title_en": "Test article",
+                "authors": ["Author"],
+                "abstract_en": "A complete abstract for the readiness fixture.",
+                "article_type": "research-article",
+            }
+        ],
         "content_status": "complete",
         "source_status": source_status,
         "publication_state": publication_state,
         "quality": {
+            "roster_match": True,
+            "order_preserved": True,
+            "doi_complete": 1,
+            "authors_complete": 1,
+            "abstract_en_complete": 1,
+            "translation_complete": 1,
+            "duplicate_count": 0,
             "roster_authority": (
                 "repec-publisher-supplied"
                 if publication_state == "ready"
