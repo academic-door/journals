@@ -1169,7 +1169,13 @@ class LatestIssuePreferenceTests(unittest.TestCase):
                     "issue": "2",
                     "publication_date": "September 2026",
                     "publication_state": "ready",
-                    "source_status": "official_verified",
+                    "source_status": "publisher_verified",
+                }
+            )
+            current["quality"].update(
+                {
+                    "roster_authority": "repec-publisher-supplied",
+                    "roster_transport": "repec-serial-page",
                 }
             )
             archived = copy.deepcopy(current)
