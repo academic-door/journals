@@ -17,7 +17,8 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from collectors.wiley import _get, _parse_issue_inventory, _session
-from scripts.import_official_roster_evidence import apply_evidence
+from scripts.import_official_roster_evidence import apply_evidence, validate_evidence
+from scripts.state_precedence import authority_rank
 
 
 def _write_json(path: Path, payload: dict[str, Any]) -> None:
@@ -35,7 +36,11 @@ def _url(config: dict[str, Any], record: dict[str, Any]) -> str:
     )
 
 
-def _capture(record: dict[str, Any], config: dict[str, Any], archive: Path) -> dict[str, Any]:
+def _capture(
+    record: dict[str, Any],
+    config: dict[str, Any],
+    archive: Path | None,
+) -> dict[str, Any]:
     official_url = _url(config, record)
     response = _get(_session(), official_url)
     volume, issue, publication_date, inventory = _parse_issue_inventory(
@@ -76,8 +81,10 @@ def _capture(record: dict[str, Any], config: dict[str, Any], archive: Path) -> d
         "excluded_items": excluded,
         "items": items,
     }
-    archive_payload = json.loads(archive.read_text(encoding="utf-8"))
-    apply_evidence(archive_payload, evidence)
+    validate_evidence(evidence)
+    if archive is not None and archive.exists():
+        archive_payload = json.loads(archive.read_text(encoding="utf-8"))
+        apply_evidence(archive_payload, evidence)
     return evidence
 
 
@@ -94,13 +101,20 @@ def main() -> int:
     records = []
     for record in manifest.get("records", []):
         config = configs.get(str(record.get("journal", "")))
-        if record.get("category") != "source_pending" or not config:
+        if record.get("category") not in {"source_pending", "recoverable"} or not config:
             continue
         if str(config.get("publisher", "")).casefold() != "wiley":
             continue
-        archive = args.api_root / "journals" / str(record["journal"]).casefold() / "issues" / f"{record['issue_id']}.json"
-        if archive.exists():
-            records.append((record, config, archive))
+        if authority_rank(record.get("authority")) < 2:
+            continue
+        archive = (
+            args.api_root
+            / "journals"
+            / str(record["journal"]).casefold()
+            / "issues"
+            / f"{record['issue_id']}.json"
+        )
+        records.append((record, config, archive if archive.exists() else None))
     captured: list[str] = []
     failures: list[dict[str, str]] = []
     with ThreadPoolExecutor(max_workers=max(1, args.workers)) as pool:
