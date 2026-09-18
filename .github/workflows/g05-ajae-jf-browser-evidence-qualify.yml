@@ -1,0 +1,93 @@
+name: G05 AJAE JF browser evidence qualification
+
+on:
+  push:
+    branches:
+      - brain/g05-ajae-jf-current-browser-evidence
+    paths:
+      - .github/workflows/g05-ajae-jf-browser-evidence-qualify.yml
+
+permissions:
+  contents: read
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Restore current canonical archives
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          rm -rf public/api/v1/journals
+          mkdir -p public/api/v1
+          git archive origin/data public/api/v1/journals | tar -x
+      - name: Apply browser evidence read-only
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p output
+          for issue_id in ajae-108-4 jf-81-4; do
+            journal="${issue_id%%-*}"
+            python scripts/import_official_roster_evidence.py               "data/provenance/official-rosters/wiley/${issue_id}.json"               --api-root public/api/v1               --output "output/${issue_id}.json"
+          done
+      - name: Require exact roster and readiness promotion
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          expected = {
+              "ajae-108-4": {"journal": "ajae", "count": 10, "excluded": 1},
+              "jf-81-4": {"journal": "jf", "count": 13, "excluded": 4},
+          }
+          summary = {}
+          for issue_id, spec in expected.items():
+              original = json.loads(
+                  Path(f"public/api/v1/journals/{spec['journal']}/issues/{issue_id}.json").read_text()
+              )
+              candidate = json.loads(Path(f"output/{issue_id}.json").read_text())
+              original_dois = [str(a.get("doi", "")).casefold() for a in original["articles"]]
+              candidate_dois = [str(a.get("doi", "")).casefold() for a in candidate["articles"]]
+              if candidate_dois != original_dois:
+                  raise SystemExit(f"{issue_id}: DOI roster/order changed")
+              if len(candidate_dois) != spec["count"]:
+                  raise SystemExit(f"{issue_id}: unexpected research count")
+              if candidate.get("source_status") != "official_verified":
+                  raise SystemExit(f"{issue_id}: source not official_verified")
+              if candidate.get("publication_state") != "ready":
+                  raise SystemExit(f"{issue_id}: candidate not ready")
+              quality = candidate.get("quality") or {}
+              if quality.get("roster_authority") != "official-issue-page":
+                  raise SystemExit(f"{issue_id}: wrong roster authority")
+              if quality.get("roster_transport") != "browser-authorized":
+                  raise SystemExit(f"{issue_id}: wrong roster transport")
+              if quality.get("roster_match") is not True or quality.get("order_preserved") is not True:
+                  raise SystemExit(f"{issue_id}: roster/order gate failed")
+              evidence = quality.get("official_roster_evidence") or {}
+              if int(evidence.get("excluded_item_count", -1)) != spec["excluded"]:
+                  raise SystemExit(f"{issue_id}: exclusion count mismatch")
+              summary[issue_id] = {
+                  "articles": len(candidate_dois),
+                  "source_status": candidate["source_status"],
+                  "publication_state": candidate["publication_state"],
+                  "excluded": evidence.get("excluded_item_count"),
+                  "transport": quality.get("roster_transport"),
+              }
+          print(json.dumps(summary, ensure_ascii=False, indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: g05-ajae-jf-browser-evidence-qualification
+          path: output
+          if-no-files-found: warn
