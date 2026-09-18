@@ -1,12 +1,12 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-18T06:48:45+00:00
+Generated: 2026-09-18T07:17:56+00:00
 
 ## Summary
 
-- ready: 1128
+- ready: 1130
 - recoverable: 45
-- source_pending: 81
+- source_pending: 79
 - translation_required: 2
 
 ## Issue queue
@@ -141,7 +141,7 @@ Generated: 2026-09-18T06:48:45+00:00
 | AJAE | ajae-108-1 | 2026 | source_pending | complete | source_pending | official source verification pending |
 | AJAE | ajae-108-2 | 2026 | source_pending | complete | source_pending | official source verification pending |
 | AJAE | ajae-108-3 | 2026 | source_pending | complete | source_pending | official source verification pending |
-| AJAE | ajae-108-4 | 2026 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-108-4 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | CER | cer-100-c | 2026 | source_pending | complete | source_pending | official source verification pending |
 | CER | cer-77-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-78-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
@@ -703,7 +703,7 @@ Generated: 2026-09-18T06:48:45+00:00
 | JF | jf-81-1 | 2026 | source_pending | complete | source_pending | official source verification pending |
 | JF | jf-81-2 | 2026 | source_pending | complete | source_pending | official source verification pending |
 | JF | jf-81-3 | 2026 | source_pending | complete | source_pending | official source verification pending |
-| JF | jf-81-4 | 2026 | source_pending | complete | source_pending | official source verification pending |
+| JF | jf-81-4 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JFE | jfe-147-1 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JFE | jfe-147-2 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JFE | jfe-147-3 | 2023 | ready | complete | publisher_verified | content and official source gates passed |

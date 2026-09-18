@@ -1,8 +1,8 @@
 # Field journal history backfill status
 
-Updated: 2026-09-18T06:48:28+00:00
+Updated: 2026-09-18T07:17:39+00:00
 
-Discovery coverage: 1256 discovered · 1210 archived · 1128 publication ready · 46 missing · 82 source pending
+Discovery coverage: 1256 discovered · 1210 archived · 1130 publication ready · 46 missing · 80 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
@@ -152,7 +152,7 @@ Discovery coverage: 1256 discovered · 1210 archived · 1128 publication ready �
 | AJAE | ajae-108-1 | 2026 | source_pending |  |
 | AJAE | ajae-108-2 | 2026 | source_pending |  |
 | AJAE | ajae-108-3 | 2026 | source_pending |  |
-| AJAE | ajae-108-4 | 2026 | source_pending |  |
+| AJAE | ajae-108-4 | 2026 | ready |  |
 | CER | cer-100-c | 2026 | source_pending |  |
 | CER | cer-77-c | 2023 | ready |  |
 | CER | cer-78-c | 2023 | ready |  |
@@ -755,7 +755,7 @@ Discovery coverage: 1256 discovered · 1210 archived · 1128 publication ready �
 | JF | jf-81-1 | 2026 | source_pending |  |
 | JF | jf-81-2 | 2026 | source_pending |  |
 | JF | jf-81-3 | 2026 | source_pending |  |
-| JF | jf-81-4 | 2026 | source_pending |  |
+| JF | jf-81-4 | 2026 | ready |  |
 | JFE | jfe-147-1 | 2023 | ready |  |
 | JFE | jfe-147-2 | 2023 | ready |  |
 | JFE | jfe-147-3 | 2023 | ready |  |
