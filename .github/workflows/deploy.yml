@@ -53,7 +53,7 @@ jobs:
             mkdir -p "$state_root"
             mapfile -t states < <(
               git ls-tree -r --name-only origin/data -- data/backfill-state \
-                | grep -E '^data/backfill-state/[^/]+\\.json$' \
+                | grep -E '^data/backfill-state/[^/]+\.json$' \
                 | sort
             )
             for state in "${states[@]}"; do
