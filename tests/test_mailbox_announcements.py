@@ -47,13 +47,21 @@ class FakeIMAP:
         self.fetch_specs: list[str] = []
         self.logged_in = False
         self.logged_out = False
+        self.commands: list[str] = []
+        self.id_status = "OK"
 
     def login(self, _username: str, _password: str):
         self.logged_in = True
+        self.commands.append("login")
         return "OK", [b"logged in"]
+
+    def xatom(self, name: str, *_args):
+        self.commands.append(name.upper())
+        return self.id_status, [b"ID completed"]
 
     def select(self, _mailbox: str, readonly: bool = False):
         self.readonly = readonly
+        self.commands.append("EXAMINE" if readonly else "SELECT")
         return "OK", [str(len(self.messages)).encode()]
 
     def search(self, _charset, *_criteria):
@@ -166,8 +174,29 @@ class MailboxAnnouncementTests(unittest.TestCase):
         self.assertTrue(fake.logged_in)
         self.assertTrue(fake.readonly)
         self.assertTrue(fake.logged_out)
+        self.assertEqual(fake.commands[:3], ["login", "ID", "EXAMINE"])
         self.assertTrue(fake.fetch_specs)
         self.assertTrue(all("BODY.PEEK[]" in spec for spec in fake.fetch_specs))
+
+    def test_imap_id_rejection_fails_before_mailbox_select(self):
+        module = self.module()
+        fake = FakeIMAP("imap.163.com", 993, [_message_bytes()])
+        fake.id_status = "NO"
+        settings = module.MailboxSettings(
+            host="imap.163.com",
+            port=993,
+            username="academic-door@163.com",
+            password="project-auth-code",
+        )
+        with self.assertRaises(RuntimeError):
+            module.scan_mailbox(
+                settings,
+                [JPE_RULE],
+                imap_factory=lambda host, port: fake,
+            )
+        self.assertEqual(fake.commands, ["login", "ID"])
+        self.assertIsNone(fake.readonly)
+        self.assertTrue(fake.logged_out)
 
     def test_apply_signal_updates_only_additive_announcement_state(self):
         module = self.module()

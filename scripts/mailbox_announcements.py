@@ -253,6 +253,12 @@ def scan_mailbox(
     client = imap_factory(settings.host, settings.port)
     try:
         client.login(settings.username, settings.password)
+        status, _ = client.xatom(
+            "ID",
+            '("name" "AcademicDoor" "version" "1.0" "vendor" "academic-door")',
+        )
+        if status != "OK":
+            raise RuntimeError("mailbox client identification failed")
         status, _ = client.select("INBOX", readonly=True)
         if status != "OK":
             raise RuntimeError("mailbox readonly select failed")
