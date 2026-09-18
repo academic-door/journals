@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-18T04:54:35+00:00",
+  "generated_at": "2026-09-18T06:41:19+00:00",
   "target_years": [
     2023,
     2024,
@@ -61,9 +61,8 @@
   ],
   "discovery_snapshot_missing_journals": [],
   "summary": {
-    "browser_required": 2,
     "ready": 1126,
-    "recoverable": 45,
+    "recoverable": 47,
     "source_pending": 81,
     "translation_required": 2
   },
@@ -36258,7 +36257,7 @@
       "authority": "official_archive_snapshot",
       "refreshed_at": "2026-09-12T07:14:46+00:00",
       "collector_revision": "history-integrity-2026-08-11",
-      "category": "browser_required",
+      "category": "recoverable",
       "reason": "archive_missing",
       "status": "blocked",
       "retry_class": "manual",
@@ -36276,7 +36275,7 @@
         "abstract_en": 0,
         "translation_cn": 0
       },
-      "next_action": "read exact official issue page in authorized browser"
+      "next_action": "run official collector and validate archive"
     },
     {
       "issue_id": "te-21-3",
@@ -36288,7 +36287,7 @@
       "authority": "official_archive_snapshot",
       "refreshed_at": "2026-09-12T07:14:46+00:00",
       "collector_revision": "history-integrity-2026-08-11",
-      "category": "browser_required",
+      "category": "recoverable",
       "reason": "archive_missing",
       "status": "blocked",
       "retry_class": "manual",
@@ -36306,7 +36305,7 @@
         "abstract_en": 0,
         "translation_cn": 0
       },
-      "next_action": "read exact official issue page in authorized browser"
+      "next_action": "run official collector and validate archive"
     },
     {
       "issue_id": "wd-161-c",
