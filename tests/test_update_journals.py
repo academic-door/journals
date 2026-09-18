@@ -623,6 +623,45 @@ class PublicationGateTests(unittest.TestCase):
             ["Vol. 94 · No. 4", "Vol. 94 · No. 3", "Vol. 93 · No. 6"],
             [item["issue_label"] for item in index["issues"]],
         )
+    def test_archive_index_sorts_seasonal_labels_with_issue_number_tiebreak(self) -> None:
+        import json
+        import tempfile
+        from pathlib import Path
+
+        fixtures = []
+        for issue_id, number, publication_date in (
+            ("demo-57-1", "1", "Spring 2026"),
+            ("demo-57-2", "2", "March 2026"),
+            ("demo-57-3", "3", "Fall 2026"),
+        ):
+            issue = archive_fixture(issue_id, "57")
+            issue["issue"] = number
+            issue["publication_date"] = publication_date
+            issue["publication_state"] = "ready"
+            issue["source_status"] = "official_verified"
+            fixtures.append(issue)
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for issue in fixtures:
+                archive_issue(issue, api_root=root)
+            write_archive_index(
+                "demo",
+                "Demo Journal",
+                updated_at="2026-09-18T00:00:00+00:00",
+                api_root=root,
+            )
+            index = json.loads(
+                (root / "journals" / "demo" / "issues" / "index.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+
+        self.assertEqual(
+            ["demo-57-3", "demo-57-2", "demo-57-1"],
+            [item["issue_id"] for item in index["issues"]],
+        )
+
     def test_archive_is_immutable_and_rejects_unsafe_ids(self) -> None:
         import json
         import tempfile
@@ -1110,6 +1149,65 @@ class LatestIssuePreferenceTests(unittest.TestCase):
             ):
                 available = load_available_issues(configs, {})
             self.assertEqual("jep-40-3", available["JEP"]["issue_id"])
+
+    def test_seasonal_newer_archive_replaces_stale_current(self) -> None:
+        import tempfile
+        from pathlib import Path
+
+        from scripts.update_journals import load_available_issues
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            issues_dir = root / "journals" / "rand" / "issues"
+            issues_dir.mkdir(parents=True)
+
+            current = archive_fixture("rand-57-2", "57")
+            current.update(
+                {
+                    "journal_id": "rand",
+                    "journal_name": "RAND Journal of Economics",
+                    "issue": "2",
+                    "publication_date": "September 2026",
+                    "publication_state": "ready",
+                    "source_status": "official_verified",
+                }
+            )
+            archived = copy.deepcopy(current)
+            archived.update(
+                {
+                    "issue_id": "rand-57-3",
+                    "issue": "3",
+                    "publication_date": "Fall 2026",
+                    "source_status": "publisher_verified",
+                }
+            )
+            (issues_dir / "current.json").write_text(
+                json.dumps(current, ensure_ascii=False), encoding="utf-8"
+            )
+            (issues_dir / "rand-57-3.json").write_text(
+                json.dumps(archived, ensure_ascii=False), encoding="utf-8"
+            )
+
+            configs = {
+                "RAND": {
+                    "id": "rand",
+                    "name": "RAND Journal of Economics",
+                    "enabled": True,
+                }
+            }
+            with (
+                mock.patch("scripts.update_journals.PUBLIC_API", root),
+                mock.patch("scripts.update_journals.normalize_issue_content", side_effect=lambda x: x),
+                mock.patch("scripts.update_journals.validate_issue", return_value=None),
+                mock.patch("scripts.update_journals.is_publishable_snapshot", return_value=True),
+            ):
+                available = load_available_issues(configs, {})
+
+            self.assertEqual("rand-57-3", available["RAND"]["issue_id"])
+            refreshed = json.loads(
+                (issues_dir / "current.json").read_text(encoding="utf-8")
+            )
+            self.assertEqual("rand-57-3", refreshed["issue_id"])
 
     def test_new_journal_without_current_uses_newest_archive(self) -> None:
         import tempfile
