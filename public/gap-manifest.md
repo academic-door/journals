@@ -1,13 +1,13 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-18T08:13:00+00:00
+Generated: 2026-09-18T10:43:29+00:00
 
 ## Summary
 
-- ready: 1131
+- ready: 1136
 - recoverable: 45
-- source_pending: 79
-- translation_required: 2
+- source_pending: 73
+- translation_required: 3
 
 ## Issue queue
 
@@ -138,9 +138,9 @@ Generated: 2026-09-18T08:13:00+00:00
 | AJAE | ajae-107-3 | 2025 | source_pending | complete | source_pending | official source verification pending |
 | AJAE | ajae-107-4 | 2025 | source_pending | complete | source_pending | official source verification pending |
 | AJAE | ajae-107-5 | 2025 | source_pending | complete | source_pending | official source verification pending |
-| AJAE | ajae-108-1 | 2026 | source_pending | complete | source_pending | official source verification pending |
-| AJAE | ajae-108-2 | 2026 | source_pending | complete | source_pending | official source verification pending |
-| AJAE | ajae-108-3 | 2026 | source_pending | complete | source_pending | official source verification pending |
+| AJAE | ajae-108-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| AJAE | ajae-108-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| AJAE | ajae-108-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AJAE | ajae-108-4 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AJAE | ajae-108-5 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | CER | cer-100-c | 2026 | source_pending | complete | source_pending | official source verification pending |
@@ -701,9 +701,9 @@ Generated: 2026-09-18T08:13:00+00:00
 | JF | jf-80-4 | 2025 | source_pending | complete | source_pending | official source verification pending |
 | JF | jf-80-5 | 2025 | source_pending | complete | source_pending | official source verification pending |
 | JF | jf-80-6 | 2025 | source_pending | complete | source_pending | official source verification pending |
-| JF | jf-81-1 | 2026 | source_pending | complete | source_pending | official source verification pending |
-| JF | jf-81-2 | 2026 | source_pending | complete | source_pending | official source verification pending |
-| JF | jf-81-3 | 2026 | source_pending | complete | source_pending | official source verification pending |
+| JF | jf-81-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| JF | jf-81-2 | 2026 | translation_required | translation_partial | official_verified | translation_incomplete |
+| JF | jf-81-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JF | jf-81-4 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JFE | jfe-147-1 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JFE | jfe-147-2 | 2023 | ready | complete | publisher_verified | content and official source gates passed |

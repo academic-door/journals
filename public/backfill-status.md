@@ -1,8 +1,8 @@
 # Field journal history backfill status
 
-Updated: 2026-09-18T08:12:42+00:00
+Updated: 2026-09-18T10:43:12+00:00
 
-Discovery coverage: 1257 discovered · 1211 archived · 1131 publication ready · 46 missing · 80 source pending
+Discovery coverage: 1257 discovered · 1211 archived · 1136 publication ready · 46 missing · 74 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
@@ -149,9 +149,9 @@ Discovery coverage: 1257 discovered · 1211 archived · 1131 publication ready �
 | AJAE | ajae-107-3 | 2025 | source_pending |  |
 | AJAE | ajae-107-4 | 2025 | source_pending |  |
 | AJAE | ajae-107-5 | 2025 | source_pending |  |
-| AJAE | ajae-108-1 | 2026 | source_pending |  |
-| AJAE | ajae-108-2 | 2026 | source_pending |  |
-| AJAE | ajae-108-3 | 2026 | source_pending |  |
+| AJAE | ajae-108-1 | 2026 | ready |  |
+| AJAE | ajae-108-2 | 2026 | ready |  |
+| AJAE | ajae-108-3 | 2026 | ready |  |
 | AJAE | ajae-108-4 | 2026 | ready |  |
 | CER | cer-100-c | 2026 | source_pending |  |
 | CER | cer-77-c | 2023 | ready |  |
@@ -752,9 +752,9 @@ Discovery coverage: 1257 discovered · 1211 archived · 1131 publication ready �
 | JF | jf-80-4 | 2025 | source_pending |  |
 | JF | jf-80-5 | 2025 | source_pending |  |
 | JF | jf-80-6 | 2025 | source_pending |  |
-| JF | jf-81-1 | 2026 | source_pending |  |
-| JF | jf-81-2 | 2026 | source_pending |  |
-| JF | jf-81-3 | 2026 | source_pending |  |
+| JF | jf-81-1 | 2026 | ready |  |
+| JF | jf-81-2 | 2026 | translation_partial | translation_incomplete |
+| JF | jf-81-3 | 2026 | ready |  |
 | JF | jf-81-4 | 2026 | ready |  |
 | JFE | jfe-147-1 | 2023 | ready |  |
 | JFE | jfe-147-2 | 2023 | ready |  |
