@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-18T03:00:32+00:00",
+  "updated_at": "2026-09-18T04:08:32+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 49,
-    "official_page_verified": 12,
+    "official_page_verified": 13,
     "publisher_feed_verified": 19,
-    "fallback_verified": 18,
+    "fallback_verified": 17,
     "needs_attention": 0,
     "missing": 0,
     "invariant_errors": 0
@@ -283,27 +283,27 @@
       "name": "Econometrica",
       "publisher": "Wiley",
       "configured_source": "https://onlinelibrary.wiley.com/toc/14680262/current",
-      "status": "fallback_verified",
+      "status": "official_page_verified",
       "current": {
         "available": true,
-        "status": "fallback_verified",
+        "status": "official_page_verified",
         "issue_id": "ecta-94-4",
         "publication_date": "July 2026",
-        "publication_state": "source_pending",
-        "source_url": "https://onlinelibrary.wiley.com/toc/14680262/current",
-        "roster_authority": "crossref-provisional",
-        "roster_transport": "crossref",
-        "order_verified": false,
+        "publication_state": "ready",
+        "source_url": "https://ideas.repec.org/s/wly/emetrp.html",
+        "roster_authority": "repec-publisher-supplied",
+        "roster_transport": "repec-serial-page",
+        "order_verified": true,
         "content_counts": {
-          "official_items": 15,
-          "observed_items": 15,
+          "official_items": 12,
+          "observed_items": 12,
           "publishable_items": 12,
           "research_articles": 12,
           "comments": 0,
           "short_communications": 0,
           "corrections": 0,
           "editorial_material": 0,
-          "front_matter": 3,
+          "front_matter": 0,
           "other_excluded": 0,
           "catalog_content_items": 12
         },
@@ -311,7 +311,7 @@
         "translations_complete": 12,
         "errors": [],
         "warnings": [
-          "crossref_provisional_roster"
+          "snapshot_uses_alternate_official_source"
         ]
       },
       "detected": {
@@ -711,14 +711,14 @@
       "status": "fallback_verified",
       "current": {
         "available": true,
-        "status": "fallback_verified",
+        "status": "official_page_verified",
         "issue_id": "jeea-24-4",
         "publication_date": "August 2026",
-        "publication_state": "source_pending",
+        "publication_state": "ready",
         "source_url": "https://academic.oup.com/jeea/issue/24/4",
-        "roster_authority": "crossref-provisional",
-        "roster_transport": "crossref",
-        "order_verified": false,
+        "roster_authority": "official-issue-page",
+        "roster_transport": "browser-authorized",
+        "order_verified": true,
         "content_counts": {
           "official_items": 10,
           "observed_items": 10,
@@ -735,9 +735,7 @@
         "abstracts_complete": 10,
         "translations_complete": 10,
         "errors": [],
-        "warnings": [
-          "crossref_provisional_roster"
-        ]
+        "warnings": []
       },
       "detected": {
         "available": true,
@@ -1458,14 +1456,14 @@
       "status": "fallback_verified",
       "current": {
         "available": true,
-        "status": "fallback_verified",
+        "status": "official_page_verified",
         "issue_id": "jeh-86-2",
         "publication_date": "June 2026",
-        "publication_state": "source_pending",
-        "source_url": "https://www.cambridge.org/core/journals/journal-of-economic-history/latest-issue",
-        "roster_authority": "crossref-provisional",
-        "roster_transport": "crossref",
-        "order_verified": false,
+        "publication_state": "ready",
+        "source_url": "https://www.cambridge.org/core/journals/journal-of-economic-history/issue/0E726D7DE1CC1721DB663EF8EAEABC57",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-page-read",
+        "order_verified": true,
         "content_counts": {
           "official_items": 19,
           "observed_items": 19,
@@ -1482,9 +1480,7 @@
         "abstracts_complete": 7,
         "translations_complete": 7,
         "errors": [],
-        "warnings": [
-          "crossref_provisional_roster"
-        ]
+        "warnings": []
       },
       "detected": {
         "available": true,
@@ -2271,14 +2267,14 @@
       "status": "fallback_verified",
       "current": {
         "available": true,
-        "status": "fallback_verified",
+        "status": "official_page_verified",
         "issue_id": "jle-44-3",
         "publication_date": "July 2026",
-        "publication_state": "source_pending",
-        "source_url": "https://www.journals.uchicago.edu/toc/jole/current",
-        "roster_authority": "crossref-provisional",
-        "roster_transport": "crossref",
-        "order_verified": false,
+        "publication_state": "ready",
+        "source_url": "https://journals.uchicago.edu/toc/jle/2026/44/3",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "browser-authorized",
+        "order_verified": true,
         "content_counts": {
           "official_items": 11,
           "observed_items": 11,
@@ -2296,7 +2292,7 @@
         "translations_complete": 10,
         "errors": [],
         "warnings": [
-          "crossref_provisional_roster"
+          "snapshot_uses_alternate_official_source"
         ]
       },
       "detected": {
@@ -2478,14 +2474,14 @@
       "status": "fallback_verified",
       "current": {
         "available": true,
-        "status": "fallback_verified",
+        "status": "official_page_verified",
         "issue_id": "jaere-13-4",
         "publication_date": "July 2026",
-        "publication_state": "source_pending",
-        "source_url": "https://www.journals.uchicago.edu/toc/jaere/current",
-        "roster_authority": "crossref-provisional",
-        "roster_transport": "crossref",
-        "order_verified": false,
+        "publication_state": "ready",
+        "source_url": "https://journals.uchicago.edu/toc/jaere/2026/13/4",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "browser-authorized",
+        "order_verified": true,
         "content_counts": {
           "official_items": 10,
           "observed_items": 10,
@@ -2503,7 +2499,7 @@
         "translations_complete": 8,
         "errors": [],
         "warnings": [
-          "crossref_provisional_roster"
+          "snapshot_uses_alternate_official_source"
         ]
       },
       "detected": {
