@@ -1,16 +1,13 @@
 # Field journal history backfill status
 
-Updated: 2026-09-18T07:58:56+00:00
+Updated: 2026-09-18T08:05:03+00:00
 
-Discovery coverage: 1256 discovered · 1210 archived · 1130 publication ready · 46 missing · 80 source pending
+Discovery coverage: 1234 discovered · 1187 archived · 1107 publication ready · 47 missing · 80 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 619 | 0 | 36 | 53 |
-| 2023-2026 | 293 | 0 | 3 | 4 |
-| 2024-2024 | 12 | 0 | 0 | 0 |
-| 2025-2026 | 1 | 0 | 0 | 0 |
-| 2026-2026 | 10 | 0 | 0 | 0 |
+| 2023-2024 | 619 | 1 | 35 | 53 |
+| 2025-2026 | 575 | 1 | 12 | 40 |
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -551,7 +548,7 @@ Discovery coverage: 1256 discovered · 1210 archived · 1130 publication ready �
 | JEBO | jebo-217-c | 2024 | ready |  |
 | JEBO | jebo-218-c | 2024 | ready |  |
 | JEBO | jebo-219-c | 2024 | ready |  |
-| JEBO | jebo-220-c | 2024 | ready | archive_missing |
+| JEBO | jebo-220-c | 2024 | ready |  |
 | JEBO | jebo-221-c | 2024 | ready |  |
 | JEBO | jebo-222-c | 2024 | ready |  |
 | JEBO | jebo-223-c | 2024 | ready |  |
@@ -906,7 +903,7 @@ Discovery coverage: 1256 discovered · 1210 archived · 1130 publication ready �
 | JOE | joe-234-2 | 2023 | ready |  |
 | JOE | joe-234-c | 2023 | blocked | archive_content_gate_failed |
 | JOE | joe-235-1 | 2023 | ready |  |
-| JOE | joe-235-2 | 2023 | blocked | archive_missing |
+| JOE | joe-235-2 | 2023 | translation_partial |  |
 | JOE | joe-236-1 | 2023 | ready |  |
 | JOE | joe-236-2 | 2023 | ready |  |
 | JOE | joe-237-1 | 2023 | blocked | archive_content_gate_failed |
