@@ -112,6 +112,46 @@ class RecoveryQueueTests(unittest.TestCase):
         )
         self.assertEqual("collect-oup", shards[0]["action"])
 
+    def test_routes_authoritative_wiley_recoverable_issue_to_wiley_evidence(self) -> None:
+        _, shards = build_queue(
+            {
+                "records": [
+                    {
+                        "issue_id": "te-21-2",
+                        "journal": "TE",
+                        "year": 2026,
+                        "category": "recoverable",
+                        "authority": "official_archive_snapshot",
+                        "official_url": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/2",
+                    }
+                ]
+            },
+            {"TE": {"collector": "repec"}},
+            categories={"recoverable"},
+            chunk_size=10,
+        )
+        self.assertEqual("wiley-evidence", shards[0]["action"])
+
+    def test_candidate_wiley_route_does_not_gain_authoritative_evidence_adapter(self) -> None:
+        _, shards = build_queue(
+            {
+                "records": [
+                    {
+                        "issue_id": "te-21-2",
+                        "journal": "TE",
+                        "year": 2026,
+                        "category": "recoverable",
+                        "authority": "crossref_candidate",
+                        "official_url": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/2",
+                    }
+                ]
+            },
+            {"TE": {"collector": "repec"}},
+            categories={"recoverable"},
+            chunk_size=10,
+        )
+        self.assertEqual("collect-repec", shards[0]["action"])
+
     def test_routes_springer_recoverable_issue_to_official_evidence(self) -> None:
         _, shards = build_queue(
             {
