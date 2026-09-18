@@ -1,0 +1,151 @@
+name: G05 TE official evidence qualification
+
+on:
+  push:
+    branches:
+      - brain/g05-te-official-evidence-qualify
+    paths:
+      - .github/workflows/g05-te-official-evidence-qualify.yml
+
+permissions:
+  contents: read
+  models: read
+
+concurrency:
+  group: journal-data-update
+  cancel-in-progress: false
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Restore latest canonical data
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          rm -rf public/api data/backfill-state data/backfill-staging data/translation-cache data/provenance/official-rosters
+          mkdir -p public data/provenance/official-rosters
+          git archive origin/data public/api data/backfill-state data/backfill-staging data/translation-cache | tar -x
+          if git ls-tree -r --name-only origin/data -- data/provenance/official-rosters | grep -q .; then
+            git archive origin/data data/provenance/official-rosters | tar -x
+          fi
+      - name: Build corrected bounded gap manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          state_args=()
+          for state in data/backfill-state/*.json; do
+            [ -f "$state" ] && state_args+=(--state "$state")
+          done
+          python scripts/build_gap_manifest.py \
+            "${state_args[@]}" \
+            --api-root public/api/v1 \
+            --out-json output/gap-all.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          wanted={"te-21-2","te-21-3"}
+          payload=json.loads(Path("output/gap-all.json").read_text(encoding="utf-8"))
+          rows=[row for row in payload.get("records",[]) if row.get("issue_id") in wanted]
+          if {row.get("issue_id") for row in rows} != wanted:
+              raise SystemExit("bounded TE records missing from gap manifest")
+          for row in rows:
+              if row.get("authority") != "official_archive_snapshot":
+                  raise SystemExit(f"unexpected authority: {row}")
+              if "15557561" not in str(row.get("official_url","")):
+                  raise SystemExit(f"stale TE route: {row}")
+          bounded={**payload,"records":rows,"summary":{}}
+          Path("output/gap-te.json").write_text(json.dumps(bounded,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          print(json.dumps(rows,ensure_ascii=False,indent=2))
+          PY
+      - name: Capture exact Wiley official rosters
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/capture_wiley_roster_evidence.py \
+            --gap-manifest output/gap-te.json \
+            --api-root public/api/v1 \
+            --output-root data/provenance/official-rosters/wiley \
+            --diagnostics-root output/wiley-failures \
+            --workers 2 | tee output/wiley-capture.json
+          test -f data/provenance/official-rosters/wiley/te-21-2.json
+          test -f data/provenance/official-rosters/wiley/te-21-3.json
+      - name: Build missing TE archives from official rosters
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || github.token }}
+          SEMANTIC_SCHOLAR_API_KEY: ${{ secrets.SEMANTIC_SCHOLAR_API_KEY }}
+          DEEPSEEK_MODEL: deepseek-chat
+          TRANSLATION_RETRIES: "5"
+          TRANSLATION_WORKERS: "4"
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/build_archives_from_roster_evidence.py \
+            --evidence-root data/provenance/official-rosters/wiley \
+            --api-root public/api/v1 \
+            --state-root data/backfill-state \
+            --staging-root data/backfill-staging \
+            --translation-cache-root data/translation-cache \
+            --issue-ids te-21-2,te-21-3 \
+            --max-translations 60 \
+            --report-json output/te-builder.json
+      - name: Rebuild local indexes and enforce acceptance
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/rebuild_public_snapshot.py
+          python scripts/publish_data_delta.py rebuild-archive-indexes --root .
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for issue_id, expected_date in (("te-21-2","May 2026"),("te-21-3","July 2026")):
+              path=Path(f"public/api/v1/journals/te/issues/{issue_id}.json")
+              if not path.is_file():
+                  raise SystemExit(f"missing archive {issue_id}")
+              issue=json.loads(path.read_text(encoding="utf-8"))
+              if issue.get("publication_state") != "ready":
+                  raise SystemExit(f"{issue_id} not ready: {issue.get('publication_state')}")
+              if issue.get("source_status") != "official_verified":
+                  raise SystemExit(f"{issue_id} not official_verified")
+              if (issue.get("quality") or {}).get("roster_authority") != "official-issue-page":
+                  raise SystemExit(f"{issue_id} roster authority mismatch")
+              if issue.get("publication_date") != expected_date:
+                  raise SystemExit(f"{issue_id} date mismatch: {issue.get('publication_date')}")
+              print(json.dumps({
+                  "issue_id":issue_id,
+                  "articles":len(issue.get("articles",[])),
+                  "publication_state":issue.get("publication_state"),
+                  "source_status":issue.get("source_status"),
+                  "publication_date":issue.get("publication_date"),
+                  "roster_authority":(issue.get("quality") or {}).get("roster_authority"),
+                  "roster_transport":(issue.get("quality") or {}).get("roster_transport"),
+              },ensure_ascii=False))
+          PY
+          python scripts/audit_public_data.py --strict-provenance
+          python scripts/audit_source_alignment.py --strict
+          python scripts/audit_privacy.py
+          python scripts/rebuild_public_snapshot.py --check
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: g05-te-official-evidence-qualification
+          if-no-files-found: warn
+          path: |
+            output
+            data/provenance/official-rosters/wiley/te-21-2.json
+            data/provenance/official-rosters/wiley/te-21-3.json
+            public/api/v1/journals/te/issues/te-21-2.json
+            public/api/v1/journals/te/issues/te-21-3.json
+            data/backfill-state
+            data/translation-cache/te.json
