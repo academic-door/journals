@@ -1,3 +1,5 @@
+> **Historical snapshot.** This decision record is dated 2026-08-03 and its 41-journal inventory is not the current freshness topology. For the current 49-journal publisher-family discovery/authority matrix, see [freshness-source-matrix.md](freshness-source-matrix.md). Runtime truth remains in `config/journals.yml` and `config/mailbox-announcements.yml`.
+
 # Non-official source policy and decision record
 
 Status date: 2026-08-03 (data snapshot 581/581 complete, translations 100%)

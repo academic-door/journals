@@ -4,6 +4,10 @@
 
 Academic Door 每两小时检查 49 本期刊是否出现新卷期或当前卷期新增文章。普通检查只读取低成本元数据，不反复访问出版商网页；确认有变化后，才启动对应期刊的完整采集、翻译和质量门。
 
+## 当前来源矩阵
+
+当前 49 本期刊的 publisher-family discovery / announcement / roster authority 路由见 [freshness-source-matrix.md](freshness-source-matrix.md)。`config/journals.yml` 与 `config/mailbox-announcements.yml` 仍是运行时真值；矩阵文档只解释 authority 与 routing，不是第二套配置。
+
 ## 分层来源
 
 1. **轻量发现：** Crossref DOI 注册元数据；配置了官方 RSS 的期刊同时读取 RSS。Elsevier 期刊以 ScienceDirect 官方 RSS 确认已公开卷期，最多提前识别下一个自然月，避免把更晚的预登记卷期误当成当前卷期。
