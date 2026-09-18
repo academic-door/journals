@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-18T17:46:03+00:00",
+  "generated_at": "2026-09-18T18:49:40+00:00",
   "target_years": [
     2023,
     2024,
@@ -61,9 +61,9 @@
   ],
   "discovery_snapshot_missing_journals": [],
   "summary": {
-    "ready": 1138,
-    "recoverable": 58,
-    "source_pending": 74,
+    "ready": 1147,
+    "recoverable": 54,
+    "source_pending": 69,
     "translation_required": 2
   },
   "records": [
@@ -3977,10 +3977,10 @@
       "authority": "official_archive_snapshot",
       "refreshed_at": "2026-09-18T15:37:00+00:00",
       "collector_revision": "elsevier-browser-authority-v1",
-      "category": "source_pending",
-      "reason": "official source verification pending",
-      "status": "source_pending",
-      "retry_class": "source",
+      "category": "ready",
+      "reason": "content and official source gates passed",
+      "status": "ready",
+      "retry_class": "manual",
       "collector": "elsevier",
       "attempt_count": 0,
       "last_attempt_at": "",
@@ -3988,14 +3988,14 @@
       "next_retry_at": "",
       "archive_exists": true,
       "content_status": "complete",
-      "source_status": "source_pending",
-      "publication_state": "source_pending",
+      "source_status": "official_verified",
+      "publication_state": "ready",
       "counts": {
-        "articles": 4,
-        "abstract_en": 4,
-        "translation_cn": 4
+        "articles": 5,
+        "abstract_en": 5,
+        "translation_cn": 5
       },
-      "next_action": "attach official roster/source evidence; do not publish"
+      "next_action": "no action"
     },
     {
       "issue_id": "cer-101-c",
@@ -13997,8 +13997,8 @@
       "authority": "official_archive_snapshot",
       "refreshed_at": "2026-09-18T15:37:00+00:00",
       "collector_revision": "elsevier-browser-authority-v1",
-      "category": "recoverable",
-      "reason": "archive_missing",
+      "category": "ready",
+      "reason": "content and official source gates passed",
       "status": "",
       "retry_class": "",
       "collector": "elsevier",
@@ -14006,16 +14006,16 @@
       "last_attempt_at": "",
       "last_error_code": "",
       "next_retry_at": "",
-      "archive_exists": false,
-      "content_status": "blocked",
-      "source_status": "source_pending",
-      "publication_state": "blocked",
+      "archive_exists": true,
+      "content_status": "complete",
+      "source_status": "official_verified",
+      "publication_state": "ready",
       "counts": {
-        "articles": 0,
-        "abstract_en": 0,
-        "translation_cn": 0
+        "articles": 15,
+        "abstract_en": 15,
+        "translation_cn": 15
       },
-      "next_action": "run official collector and validate archive"
+      "next_action": "no action"
     },
     {
       "issue_id": "jde-160-c",
@@ -26447,8 +26447,8 @@
       "authority": "official_archive_snapshot",
       "refreshed_at": "2026-09-18T15:37:00+00:00",
       "collector_revision": "elsevier-browser-authority-v1",
-      "category": "recoverable",
-      "reason": "archive_missing",
+      "category": "ready",
+      "reason": "content and official source gates passed",
       "status": "",
       "retry_class": "",
       "collector": "elsevier",
@@ -26456,16 +26456,16 @@
       "last_attempt_at": "",
       "last_error_code": "",
       "next_retry_at": "",
-      "archive_exists": false,
-      "content_status": "blocked",
-      "source_status": "source_pending",
-      "publication_state": "blocked",
+      "archive_exists": true,
+      "content_status": "complete",
+      "source_status": "official_verified",
+      "publication_state": "ready",
       "counts": {
-        "articles": 0,
-        "abstract_en": 0,
-        "translation_cn": 0
+        "articles": 14,
+        "abstract_en": 14,
+        "translation_cn": 14
       },
-      "next_action": "run official collector and validate archive"
+      "next_action": "no action"
     },
     {
       "issue_id": "joe-254-pb",
@@ -26477,8 +26477,8 @@
       "authority": "official_archive_snapshot",
       "refreshed_at": "2026-09-18T15:37:00+00:00",
       "collector_revision": "elsevier-browser-authority-v1",
-      "category": "recoverable",
-      "reason": "archive_missing",
+      "category": "ready",
+      "reason": "content and official source gates passed",
       "status": "",
       "retry_class": "",
       "collector": "elsevier",
@@ -26486,16 +26486,16 @@
       "last_attempt_at": "",
       "last_error_code": "",
       "next_retry_at": "",
-      "archive_exists": false,
-      "content_status": "blocked",
-      "source_status": "source_pending",
-      "publication_state": "blocked",
+      "archive_exists": true,
+      "content_status": "complete",
+      "source_status": "official_verified",
+      "publication_state": "ready",
       "counts": {
-        "articles": 0,
-        "abstract_en": 0,
-        "translation_cn": 0
+        "articles": 13,
+        "abstract_en": 13,
+        "translation_cn": 13
       },
-      "next_action": "run official collector and validate archive"
+      "next_action": "no action"
     },
     {
       "issue_id": "joe-255-c",
@@ -26567,8 +26567,8 @@
       "authority": "official_archive_snapshot",
       "refreshed_at": "2026-09-18T15:37:00+00:00",
       "collector_revision": "elsevier-browser-authority-v1",
-      "category": "recoverable",
-      "reason": "archive_missing",
+      "category": "ready",
+      "reason": "content and official source gates passed",
       "status": "",
       "retry_class": "",
       "collector": "elsevier",
@@ -26576,16 +26576,16 @@
       "last_attempt_at": "",
       "last_error_code": "",
       "next_retry_at": "",
-      "archive_exists": false,
-      "content_status": "blocked",
-      "source_status": "source_pending",
-      "publication_state": "blocked",
+      "archive_exists": true,
+      "content_status": "complete",
+      "source_status": "official_verified",
+      "publication_state": "ready",
       "counts": {
-        "articles": 0,
-        "abstract_en": 0,
-        "translation_cn": 0
+        "articles": 12,
+        "abstract_en": 12,
+        "translation_cn": 12
       },
-      "next_action": "run official collector and validate archive"
+      "next_action": "no action"
     },
     {
       "issue_id": "joe-256-pb",
@@ -26597,8 +26597,8 @@
       "authority": "official_archive_snapshot",
       "refreshed_at": "2026-09-18T15:37:00+00:00",
       "collector_revision": "elsevier-browser-authority-v1",
-      "category": "source_pending",
-      "reason": "official source verification pending",
+      "category": "ready",
+      "reason": "content and official source gates passed",
       "status": "",
       "retry_class": "",
       "collector": "elsevier",
@@ -26608,14 +26608,14 @@
       "next_retry_at": "",
       "archive_exists": true,
       "content_status": "complete",
-      "source_status": "source_pending",
-      "publication_state": "source_pending",
+      "source_status": "official_verified",
+      "publication_state": "ready",
       "counts": {
-        "articles": 22,
-        "abstract_en": 22,
-        "translation_cn": 22
+        "articles": 21,
+        "abstract_en": 21,
+        "translation_cn": 21
       },
-      "next_action": "attach official roster/source evidence; do not publish"
+      "next_action": "no action"
     },
     {
       "issue_id": "joe-257-c",
@@ -33917,10 +33917,10 @@
       "authority": "official_archive_snapshot",
       "refreshed_at": "2026-09-18T15:37:00+00:00",
       "collector_revision": "elsevier-browser-authority-v1",
-      "category": "source_pending",
-      "reason": "official source verification pending",
-      "status": "source_pending",
-      "retry_class": "source",
+      "category": "ready",
+      "reason": "content and official source gates passed",
+      "status": "ready",
+      "retry_class": "manual",
       "collector": "elsevier",
       "attempt_count": 0,
       "last_attempt_at": "",
@@ -33928,14 +33928,14 @@
       "next_retry_at": "",
       "archive_exists": true,
       "content_status": "complete",
-      "source_status": "source_pending",
-      "publication_state": "source_pending",
+      "source_status": "official_verified",
+      "publication_state": "ready",
       "counts": {
         "articles": 6,
         "abstract_en": 6,
         "translation_cn": 6
       },
-      "next_action": "attach official roster/source evidence; do not publish"
+      "next_action": "no action"
     },
     {
       "issue_id": "red-60-c",
@@ -33947,10 +33947,10 @@
       "authority": "official_archive_snapshot",
       "refreshed_at": "2026-09-18T15:37:00+00:00",
       "collector_revision": "elsevier-browser-authority-v1",
-      "category": "source_pending",
-      "reason": "official source verification pending",
-      "status": "source_pending",
-      "retry_class": "source",
+      "category": "ready",
+      "reason": "content and official source gates passed",
+      "status": "ready",
+      "retry_class": "manual",
       "collector": "elsevier",
       "attempt_count": 0,
       "last_attempt_at": "",
@@ -33958,14 +33958,14 @@
       "next_retry_at": "",
       "archive_exists": true,
       "content_status": "complete",
-      "source_status": "source_pending",
-      "publication_state": "source_pending",
+      "source_status": "official_verified",
+      "publication_state": "ready",
       "counts": {
         "articles": 4,
         "abstract_en": 4,
         "translation_cn": 4
       },
-      "next_action": "attach official roster/source evidence; do not publish"
+      "next_action": "no action"
     },
     {
       "issue_id": "red-61-c",
@@ -33977,10 +33977,10 @@
       "authority": "official_archive_snapshot",
       "refreshed_at": "2026-09-18T15:37:00+00:00",
       "collector_revision": "elsevier-browser-authority-v1",
-      "category": "source_pending",
-      "reason": "official source verification pending",
-      "status": "source_pending",
-      "retry_class": "source",
+      "category": "ready",
+      "reason": "content and official source gates passed",
+      "status": "ready",
+      "retry_class": "manual",
       "collector": "elsevier",
       "attempt_count": 0,
       "last_attempt_at": "",
@@ -33988,14 +33988,14 @@
       "next_retry_at": "",
       "archive_exists": true,
       "content_status": "complete",
-      "source_status": "source_pending",
-      "publication_state": "source_pending",
+      "source_status": "official_verified",
+      "publication_state": "ready",
       "counts": {
         "articles": 12,
         "abstract_en": 12,
         "translation_cn": 12
       },
-      "next_action": "attach official roster/source evidence; do not publish"
+      "next_action": "no action"
     },
     {
       "issue_id": "red-62-c",

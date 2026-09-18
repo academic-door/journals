@@ -1,12 +1,12 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-18T17:46:03+00:00
+Generated: 2026-09-18T18:49:40+00:00
 
 ## Summary
 
-- ready: 1138
-- recoverable: 58
-- source_pending: 74
+- ready: 1147
+- recoverable: 54
+- source_pending: 69
 - translation_required: 2
 
 ## Issue queue
@@ -143,7 +143,7 @@ Generated: 2026-09-18T17:46:03+00:00
 | AJAE | ajae-108-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AJAE | ajae-108-4 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AJAE | ajae-108-5 | 2026 | ready | complete | official_verified | content and official source gates passed |
-| CER | cer-100-c | 2026 | source_pending | complete | source_pending | official source verification pending |
+| CER | cer-100-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | CER | cer-101-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-77-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-78-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
@@ -477,7 +477,7 @@ Generated: 2026-09-18T17:46:03+00:00
 | JCE | jce-53-4 | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | JCE | jce-54-1 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JCE | jce-54-2 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
-| JCE | jce-54-3 | 2026 | recoverable | blocked | source_pending | archive_missing |
+| JCE | jce-54-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JDE | jde-160-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JDE | jde-161-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JDE | jde-162-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
@@ -892,12 +892,12 @@ Generated: 2026-09-18T17:46:03+00:00
 | JOE | joe-252-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | JOE | joe-253-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JOE | joe-254-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
-| JOE | joe-254-pa | 2026 | recoverable | blocked | source_pending | archive_missing |
-| JOE | joe-254-pb | 2026 | recoverable | blocked | source_pending | archive_missing |
+| JOE | joe-254-pa | 2026 | ready | complete | official_verified | content and official source gates passed |
+| JOE | joe-254-pb | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JOE | joe-255-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JOE | joe-256-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
-| JOE | joe-256-pa | 2026 | recoverable | blocked | source_pending | archive_missing |
-| JOE | joe-256-pb | 2026 | source_pending | complete | source_pending | official source verification pending |
+| JOE | joe-256-pa | 2026 | ready | complete | official_verified | content and official source gates passed |
+| JOE | joe-256-pb | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JOE | joe-257-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JOE | joe-258-c | 2026 | recoverable | blocked | source_pending | archive_missing |
 | JPE | jpe-131-1 | 2023 | source_pending | complete | source_pending | official source verification pending |
@@ -1141,9 +1141,9 @@ Generated: 2026-09-18T17:46:03+00:00
 | RED | red-56-c | 2025 | source_pending | complete | source_pending | official source verification pending |
 | RED | red-57-c | 2025 | source_pending | complete | source_pending | official source verification pending |
 | RED | red-58-c | 2025 | source_pending | complete | source_pending | official source verification pending |
-| RED | red-59-c | 2026 | source_pending | complete | source_pending | official source verification pending |
-| RED | red-60-c | 2026 | source_pending | complete | source_pending | official source verification pending |
-| RED | red-61-c | 2026 | source_pending | complete | source_pending | official source verification pending |
+| RED | red-59-c | 2026 | ready | complete | official_verified | content and official source gates passed |
+| RED | red-60-c | 2026 | ready | complete | official_verified | content and official source gates passed |
+| RED | red-61-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RED | red-62-c | 2026 | recoverable | blocked | source_pending | archive_missing |
 | RES | res-92-1 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | RES | res-92-2 | 2025 | ready | complete | official_verified | content and official source gates passed |

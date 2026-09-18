@@ -1,8 +1,8 @@
 # Field journal history backfill status
 
-Updated: 2026-09-18T17:45:52+00:00
+Updated: 2026-09-18T18:49:22+00:00
 
-Discovery coverage: 1272 discovered · 1213 archived · 1138 publication ready · 59 missing · 75 source pending
+Discovery coverage: 1272 discovered · 1217 archived · 1147 publication ready · 55 missing · 70 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
@@ -154,7 +154,7 @@ Discovery coverage: 1272 discovered · 1213 archived · 1138 publication ready �
 | AJAE | ajae-108-2 | 2026 | ready |  |
 | AJAE | ajae-108-3 | 2026 | ready |  |
 | AJAE | ajae-108-4 | 2026 | ready |  |
-| CER | cer-100-c | 2026 | source_pending |  |
+| CER | cer-100-c | 2026 | ready |  |
 | CER | cer-77-c | 2023 | ready |  |
 | CER | cer-78-c | 2023 | ready |  |
 | CER | cer-79-c | 2023 | ready |  |
@@ -1194,9 +1194,9 @@ Discovery coverage: 1272 discovered · 1213 archived · 1138 publication ready �
 | RED | red-56-c | 2025 | source_pending |  |
 | RED | red-57-c | 2025 | source_pending |  |
 | RED | red-58-c | 2025 | source_pending |  |
-| RED | red-59-c | 2026 | source_pending |  |
-| RED | red-60-c | 2026 | source_pending |  |
-| RED | red-61-c | 2026 | source_pending |  |
+| RED | red-59-c | 2026 | ready |  |
+| RED | red-60-c | 2026 | ready |  |
+| RED | red-61-c | 2026 | ready |  |
 | RED | red-62-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 62/ |
 | RES | res-90-1 | 2023 | ready |  |
 | RES | res-90-2 | 2023 | ready |  |
