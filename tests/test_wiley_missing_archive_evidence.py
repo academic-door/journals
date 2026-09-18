@@ -68,6 +68,7 @@ class WileyMissingArchiveEvidenceTests(unittest.TestCase):
             evidence["official_url"],
         )
         self.assertEqual("10.3982/te1234", evidence["items"][0]["doi"])
+        self.assertNotIn("source_url", evidence["items"][0])
 
     def test_existing_archive_still_runs_roster_match_gate(self) -> None:
         record = {
