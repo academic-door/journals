@@ -28,6 +28,7 @@ from scripts.backfill_status import (
     load_state,
 )
 from scripts.backfill_history import inspect_archive
+from scripts.state_precedence import authority_rank, official_url_specificity
 
 
 TARGET_YEARS = {2023, 2024, 2025, 2026}
@@ -137,6 +138,21 @@ def _archive_path(api_root: Path, journals: dict[str, Any], journal: str, issue_
     )
 
 
+def recovery_official_url(
+    entry: dict[str, Any],
+    expectation: dict[str, Any],
+) -> str:
+    """Choose a recovery route without letting stale lifecycle state override authority."""
+
+    discovered = str(expectation.get("official_url", "")).strip()
+    if (
+        authority_rank(expectation.get("authority")) >= 2
+        and official_url_specificity(discovered) == 2
+    ):
+        return discovered
+    return str(entry.get("official_url") or discovered)
+
+
 def _counts(archive: dict[str, Any]) -> dict[str, int]:
     issue = archive.get("issue") or {}
     articles = issue.get("articles") or []
@@ -199,8 +215,7 @@ def build_manifest(
                 "year": year,
                 "volume": entry.get("volume") or expectation.get("volume", ""),
                 "issue": entry.get("issue") or expectation.get("issue", ""),
-                "official_url": entry.get("official_url")
-                or expectation.get("official_url", ""),
+                "official_url": recovery_official_url(entry, expectation),
                 "authority": expectation.get("authority", ""),
                 "refreshed_at": expectation.get("refreshed_at", ""),
                 "collector_revision": expectation.get("collector_revision", ""),

@@ -1,9 +1,32 @@
 import unittest
 
-from scripts.build_gap_manifest import classify_gap
+from scripts.build_gap_manifest import classify_gap, recovery_official_url
 
 
 class GapManifestTests(unittest.TestCase):
+    def test_authoritative_discovery_route_overrides_stale_checkpoint_route(self):
+        selected = recovery_official_url(
+            {"official_url": "https://onlinelibrary.wiley.com/toc/15567568/21/2"},
+            {
+                "authority": "official_archive_snapshot",
+                "official_url": "https://onlinelibrary.wiley.com/toc/15557561/2026/21/2",
+            },
+        )
+        self.assertEqual(
+            "https://onlinelibrary.wiley.com/toc/15557561/2026/21/2",
+            selected,
+        )
+
+    def test_candidate_discovery_does_not_override_existing_operational_route(self):
+        selected = recovery_official_url(
+            {"official_url": "https://publisher.example/issue/21/2"},
+            {
+                "authority": "crossref_candidate",
+                "official_url": "https://api.crossref.org/works",
+            },
+        )
+        self.assertEqual("https://publisher.example/issue/21/2", selected)
+
     def test_ready_issue_is_not_queued(self):
         category, reason = classify_gap(
             archive={
