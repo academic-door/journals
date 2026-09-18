@@ -1,13 +1,13 @@
 # Field journal history backfill status
 
-Updated: 2026-09-18T06:41:02+00:00
+Updated: 2026-09-18T06:48:28+00:00
 
-Discovery coverage: 1256 discovered · 1208 archived · 1126 publication ready · 48 missing · 82 source pending
+Discovery coverage: 1256 discovered · 1210 archived · 1128 publication ready · 46 missing · 82 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
 | 2023-2024 | 619 | 0 | 36 | 53 |
-| 2023-2026 | 291 | 0 | 5 | 4 |
+| 2023-2026 | 293 | 0 | 3 | 4 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
 | 2026-2026 | 10 | 0 | 0 | 0 |
@@ -1299,8 +1299,8 @@ Discovery coverage: 1256 discovered · 1208 archived · 1126 publication ready �
 | TE | te-20-3 | 2025 | source_pending |  |
 | TE | te-20-4 | 2025 | source_pending |  |
 | TE | te-21-1 | 2026 | ready |  |
-| TE | te-21-2 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
-| TE | te-21-3 | 2026 | blocked | MetadataFallbackError: Crossref returned no usable recent issue |
+| TE | te-21-2 | 2026 | ready |  |
+| TE | te-21-3 | 2026 | ready |  |
 | WD | wd-161-c | 2023 | ready |  |
 | WD | wd-162-c | 2023 | ready |  |
 | WD | wd-163-c | 2023 | ready |  |

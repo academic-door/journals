@@ -1,11 +1,11 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-18T06:41:19+00:00
+Generated: 2026-09-18T06:48:45+00:00
 
 ## Summary
 
-- ready: 1126
-- recoverable: 47
+- ready: 1128
+- recoverable: 45
 - source_pending: 81
 - translation_required: 2
 
@@ -1219,8 +1219,8 @@ Generated: 2026-09-18T06:41:19+00:00
 | TE | te-20-3 | 2025 | source_pending | complete | source_pending | official source verification pending |
 | TE | te-20-4 | 2025 | source_pending | complete | source_pending | official source verification pending |
 | TE | te-21-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
-| TE | te-21-2 | 2026 | recoverable | blocked | source_pending | archive_missing |
-| TE | te-21-3 | 2026 | recoverable | blocked | source_pending | archive_missing |
+| TE | te-21-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| TE | te-21-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | WD | wd-161-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | WD | wd-162-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | WD | wd-163-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
