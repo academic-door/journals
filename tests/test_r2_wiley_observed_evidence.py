@@ -15,7 +15,7 @@ CONFIG_PATH = ROOT / "config" / "field-history.yml"
 EXPECTED = {
     "AJAE": {
         2025: ("107", ("1", "2", "3", "4", "5"), "14678276"),
-        2026: ("108", ("1", "2", "3", "4"), "14678276"),
+        2026: ("108", ("1", "2", "3", "4", "5"), "14678276"),
     },
     "ECTA": {
         2025: ("93", ("1", "2", "3", "4", "5", "6"), "14680262"),
@@ -103,7 +103,7 @@ class R2WileyObservedEvidenceTests(unittest.TestCase):
 
     def test_observation_does_not_infer_unpublished_2026_issues_from_cadence(self) -> None:
         expected_2026_counts = {
-            "AJAE": 4,
+            "AJAE": 5,
             "ECTA": 4,
             "IER": 3,
             "TE": 3,
