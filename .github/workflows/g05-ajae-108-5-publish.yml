@@ -1,0 +1,31 @@
+name: Backfill field journal history
+
+on:
+  push:
+    branches:
+      - brain/g05-ajae-108-5-browser-evidence
+    paths:
+      - .github/workflows/g05-ajae-108-5-publish.yml
+
+permissions:
+  actions: read
+  contents: write
+  models: read
+
+jobs:
+  publish:
+    uses: ./.github/workflows/history-sprint.yml
+    permissions:
+      actions: read
+      contents: write
+      models: read
+    with:
+      max_issues: "1"
+      max_translations: "60"
+      categories: "__evidence_only__"
+      source_run_id: ""
+      state_source_run_id: ""
+      strict_final: false
+      evidence_issue_ids: "ajae-108-5"
+      capture_wiley_evidence: false
+    secrets: inherit
