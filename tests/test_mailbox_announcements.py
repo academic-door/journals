@@ -47,13 +47,20 @@ class FakeIMAP:
         self.fetch_specs: list[str] = []
         self.logged_in = False
         self.logged_out = False
+        self.commands: list[str] = []
 
     def login(self, _username: str, _password: str):
         self.logged_in = True
+        self.commands.append("login")
         return "OK", [b"logged in"]
+
+    def xatom(self, name: str, *_args):
+        self.commands.append(name.upper())
+        return "OK", [b"ID completed"]
 
     def select(self, _mailbox: str, readonly: bool = False):
         self.readonly = readonly
+        self.commands.append("EXAMINE" if readonly else "SELECT")
         return "OK", [str(len(self.messages)).encode()]
 
     def search(self, _charset, *_criteria):
@@ -166,6 +173,7 @@ class MailboxAnnouncementTests(unittest.TestCase):
         self.assertTrue(fake.logged_in)
         self.assertTrue(fake.readonly)
         self.assertTrue(fake.logged_out)
+        self.assertEqual(fake.commands[:3], ["login", "ID", "EXAMINE"])
         self.assertTrue(fake.fetch_specs)
         self.assertTrue(all("BODY.PEEK[]" in spec for spec in fake.fetch_specs))
 
