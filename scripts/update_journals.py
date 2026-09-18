@@ -701,6 +701,21 @@ def archive_publication_sort_key(issue: dict[str, Any]) -> tuple[int, int, int, 
         except ValueError:
             continue
     if parsed is None:
+        seasonal = re.fullmatch(
+            r"(Spring|Summer|Fall|Autumn|Winter)\s+(20\d{2})",
+            raw,
+            flags=re.IGNORECASE,
+        )
+        if seasonal:
+            month = {
+                "spring": 3,
+                "summer": 6,
+                "fall": 9,
+                "autumn": 9,
+                "winter": 12,
+            }[seasonal.group(1).casefold()]
+            parsed = datetime(int(seasonal.group(2)), month, 1)
+    if parsed is None:
         chinese = re.fullmatch(r"(\d{4})\s*年\s*(\d{1,2})\s*月", raw)
         if chinese:
             parsed = datetime(int(chinese.group(1)), int(chinese.group(2)), 1)
