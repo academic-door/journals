@@ -26,6 +26,9 @@ def _write_json(path: Path, payload: dict[str, Any]) -> None:
 
 
 def _url(config: dict[str, Any], record: dict[str, Any]) -> str:
+    discovered = str(record.get("official_url", "")).strip()
+    if discovered:
+        return discovered
     return (
         f"https://onlinelibrary.wiley.com/toc/{config['issn']}/"
         f"{record['year']}/{record['volume']}/{record['issue']}"
