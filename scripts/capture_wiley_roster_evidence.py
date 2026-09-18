@@ -65,7 +65,6 @@ def _capture(
             "sequence": len(items) + 1,
             "doi": item.doi,
             "title_en": item.title,
-            "source_url": item.source_url,
         }
         if item.is_research_article:
             items.append(payload)
