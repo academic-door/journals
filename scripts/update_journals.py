@@ -1644,11 +1644,10 @@ def prefer_ready_archive(
     if (
         issue_publication_state(current) != "ready"
         and issue_publication_state(archived) == "ready"
-        and (
-            issue_translation_semantics_valid(archived)
-            or _same_issue_reader_content(current, archived)
-        )
     ):
+        # Same issue identity + stronger verified archive is the authority floor.
+        # A lower-authority recollection may enrich diagnostics, but it cannot
+        # demote the already accepted public snapshot.
         return archived
     return current
 
