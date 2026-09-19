@@ -27,13 +27,17 @@ def _write_json(path: Path, payload: dict[str, Any]) -> None:
 
 
 def _url(config: dict[str, Any], record: dict[str, Any]) -> str:
-    discovered = str(record.get("official_url", "")).strip()
-    if discovered:
-        return discovered
-    return (
-        f"https://onlinelibrary.wiley.com/toc/{config['issn']}/"
+    issn = "".join(ch for ch in str(config.get("issn", "")) if ch.isdigit())
+    canonical = (
+        f"https://onlinelibrary.wiley.com/toc/{issn}/"
         f"{record['year']}/{record['volume']}/{record['issue']}"
     )
+    discovered = str(record.get("official_url", "")).strip().rstrip("/")
+    if discovered == canonical:
+        return discovered
+    # Discovery state can outlive a routing/config repair.  Never let a stale
+    # or malformed historical URL override the canonical Wiley issue identity.
+    return canonical
 
 
 def _eligible_record(record: dict[str, Any], config: dict[str, Any] | None) -> bool:
