@@ -1606,17 +1606,48 @@ def issue_translation_semantics_valid(issue: dict[str, Any]) -> bool:
     return True
 
 
+def _same_issue_reader_content(
+    left: dict[str, Any],
+    right: dict[str, Any],
+) -> bool:
+    """Return whether two snapshots expose identical reader-visible article content."""
+
+    left_articles = left.get("articles", [])
+    right_articles = right.get("articles", [])
+    if len(left_articles) != len(right_articles) or not left_articles:
+        return False
+    fields = ("doi", "title_en", "abstract_en", "title_cn", "abstract_cn")
+    for left_article, right_article in zip(left_articles, right_articles):
+        if any(
+            str(left_article.get(field, "")).strip()
+            != str(right_article.get(field, "")).strip()
+            for field in fields
+        ):
+            return False
+    return True
+
+
 def prefer_ready_archive(
     current: dict[str, Any],
     archived: dict[str, Any] | None,
 ) -> dict[str, Any]:
-    """Keep a semantically valid same-issue READY archive as the readiness floor."""
+    """Keep a stronger same-issue READY archive as the public authority floor.
+
+    A low-authority recollection must never downgrade an already verified issue.
+    Normally the archived snapshot must also pass today's translation semantics.
+    If the recollection and archive expose byte-equivalent reader content, the
+    archive remains safe even when a newer translation validator would flag
+    both copies identically: the only material difference is source authority.
+    """
     if not archived or current.get("issue_id") != archived.get("issue_id"):
         return current
     if (
         issue_publication_state(current) != "ready"
         and issue_publication_state(archived) == "ready"
-        and issue_translation_semantics_valid(archived)
+        and (
+            issue_translation_semantics_valid(archived)
+            or _same_issue_reader_content(current, archived)
+        )
     ):
         return archived
     return current
