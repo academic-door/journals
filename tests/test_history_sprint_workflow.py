@@ -109,6 +109,17 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         self.assertIn("EVIDENCE_ISSUE_IDS: ${{ inputs.evidence_issue_ids }}", workflow)
         self.assertIn('evidence_args+=(--issue-ids "$EVIDENCE_ISSUE_IDS")', workflow)
 
+    def test_publish_evidence_is_bounded_to_current_recovery_queue(self) -> None:
+        workflow = self.workflow()
+        self.assertIn("Scope official evidence to this recovery run", workflow)
+        self.assertIn("python scripts/recovery_evidence_scope.py", workflow)
+        self.assertIn('--github-env "$GITHUB_ENV"', workflow)
+        self.assertIn('--issue-ids "$RECOVERY_EVIDENCE_ISSUE_IDS"', workflow)
+        self.assertNotIn(
+            "find data/provenance/official-rosters -type f -name '*.json' -print0",
+            workflow,
+        )
+
     def test_passes_shared_semantic_scholar_key_without_exposing_it(self) -> None:
         workflow = self.workflow()
         self.assertIn(
