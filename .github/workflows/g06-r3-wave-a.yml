@@ -1,0 +1,25 @@
+name: G06 R3 wave A source verification
+
+on:
+  push:
+    branches:
+      - g06-r3-wave-a
+
+permissions:
+  actions: read
+  contents: write
+  models: read
+
+jobs:
+  recover:
+    uses: ./.github/workflows/history-sprint.yml
+    with:
+      max_issues: "12"
+      max_translations: "120"
+      categories: "source_pending,translation_required"
+      source_run_id: ""
+      state_source_run_id: ""
+      strict_final: false
+      evidence_issue_ids: ""
+      capture_wiley_evidence: false
+    secrets: inherit
