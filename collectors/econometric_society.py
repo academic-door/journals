@@ -302,10 +302,13 @@ def fetch_latest_econometrica_issue(
     client.headers.update(
         {
             "User-Agent": "AcademicDoorJournals/1.0 (https://academic-door.github.io/)",
-            "Accept": "text/html,application/xhtml+xml",
         }
     )
-    response = client.get(source_url, timeout=timeout)
+    response = client.get(
+        source_url,
+        timeout=timeout,
+        headers={"Accept": "text/html,application/xhtml+xml"},
+    )
     response.raise_for_status()
     roster = parse_latest_econometrica_roster(response.content, source_url)
 
