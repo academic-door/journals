@@ -177,6 +177,32 @@ class CandidateSelectionTests(unittest.TestCase):
         ]
         self.assertIsNone(select_candidate(items, baseline, today=date(2026, 7, 28)))
 
+    def test_journal_announcements_are_not_new_paper_candidates(self) -> None:
+        items = [
+            crossref_item("10.1234/a"),
+            crossref_item("10.1234/b"),
+            {
+                **crossref_item("10.1234/announcement"),
+                "title": ["Announcing new journal editors and subtitle"],
+            },
+        ]
+        self.assertIsNone(select_candidate(items, BASELINE, today=date(2026, 7, 28)))
+
+    def test_turnaround_and_referee_lists_are_not_new_paper_candidates(self) -> None:
+        items = [
+            crossref_item("10.1234/a"),
+            crossref_item("10.1234/b"),
+            {
+                **crossref_item("10.1234/turnaround"),
+                "title": ["JPE Turnaround Times"],
+            },
+            {
+                **crossref_item("10.1234/referees"),
+                "title": ["Recent Referees"],
+            },
+        ]
+        self.assertIsNone(select_candidate(items, BASELINE, today=date(2026, 7, 28)))
+
     def test_online_first_items_without_issue_assignment_are_ignored(self) -> None:
         item = crossref_item("10.1234/online-first")
         item["volume"] = ""
