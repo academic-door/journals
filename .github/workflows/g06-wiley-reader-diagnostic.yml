@@ -1,0 +1,49 @@
+name: G06 Wiley reader diagnostic
+
+on:
+  push:
+    branches:
+      - g06-wiley-reader-diagnostic
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Probe Jina Reader against Wiley TOCs
+        env:
+          JINA_API_KEY: ${{ secrets.JINA_API_KEY }}
+        shell: bash
+        run: |
+          python - <<'PY'
+          import os, re, requests
+          urls = [
+              "https://onlinelibrary.wiley.com/toc/14678276/2025/107/2",
+              "https://onlinelibrary.wiley.com/toc/15557561/2025/20/1",
+          ]
+          headers = {
+              "Accept": "text/plain",
+              "X-Return-Format": "text",
+          }
+          key = os.environ.get("JINA_API_KEY", "")
+          if key:
+              headers["Authorization"] = f"Bearer {key}"
+          for url in urls:
+              target = "https://r.jina.ai/" + url
+              r = requests.get(target, headers=headers, timeout=90)
+              print("URL", url, "status", r.status_code, "len", len(r.text))
+              r.raise_for_status()
+              dois = []
+              for m in re.finditer(r"10\.\d{4,9}/[^\s\]\)<>]+", r.text, flags=re.I):
+                  doi = m.group(0).rstrip(".,;:").lower()
+                  if doi not in dois:
+                      dois.append(doi)
+              print("DOIS", dois)
+              print("HEAD", r.text[:4000])
+          PY
