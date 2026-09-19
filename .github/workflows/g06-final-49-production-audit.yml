@@ -31,6 +31,8 @@ jobs:
           git archive origin/data public/api public/project-manifest.json data/monitoring | tar -x
 
       - name: Re-run live 49-journal detector without publishing
+        env:
+          PYTHONPATH: ${{ github.workspace }}
         shell: bash
         run: |
           set -euo pipefail
