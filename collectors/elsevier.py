@@ -26,7 +26,8 @@ DETAIL_WORKERS = 6
 ROOT = Path(__file__).resolve().parents[1]
 ORDER_OVERRIDES = ROOT / "data" / "order-overrides"
 ISSUE_HEADING = re.compile(
-    r"(?P<year>\d{4}),\s*Volume\s+(?P<volume>[A-Za-z0-9.-]+),\s*Issue\s+(?P<issue>[A-Za-z0-9.-]+)",
+    r"(?P<year>\d{4}),\s*Volume\s+(?P<volume>[A-Za-z0-9.-]+)"
+    r"(?:,\s*Issue\s+(?P<issue>[A-Za-z0-9.-]+))?",
     re.IGNORECASE,
 )
 DOI_PATTERN = re.compile(r"10\.\d{4,9}/[^\s\"'<>?&#]+", re.IGNORECASE)
@@ -177,7 +178,7 @@ def _parse_repec_inventory(
                 if candidate.group("volume") == expected_volume
                 and (
                     not wanted_issue
-                    or candidate.group("issue").casefold() == wanted_issue
+                    or (candidate.group("issue") or "C").casefold() == wanted_issue
                 )
             ),
             None,
@@ -203,7 +204,7 @@ def _parse_repec_inventory(
     return {
         "year": match.group("year"),
         "volume": match.group("volume"),
-        "issue": match.group("issue"),
+        "issue": (match.group("issue") or "C"),
         "items": items,
     }
 
@@ -304,7 +305,7 @@ def _parse_repec_volume_sections(
             # so sections are keyed by volume|issue instead of volume alone.
             found[f"{volume}|{match.group('issue').lower()}"] = {
                 "year": match.group("year"),
-                "issue": match.group("issue"),
+                "issue": (match.group("issue") or "C"),
                 "items": items,
             }
     return found
