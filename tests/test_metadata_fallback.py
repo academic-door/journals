@@ -1377,5 +1377,63 @@ class ElsevierQuotaTest(unittest.TestCase):
         self.assertEqual(abstract, _strip_abstract_footnotes(abstract))
 
 
+    def test_repec_history_paginates_until_target_issue(self) -> None:
+        class PagedRepecSession:
+            def __init__(self) -> None:
+                self.urls: list[str] = []
+
+            def get(self, url: str, **kwargs) -> Response:
+                self.urls.append(url)
+                if "api.crossref.org" in url:
+                    return Response({"message": {"items": []}})
+                if url.endswith("/s/tpr/restat.html"):
+                    return Response(
+                        {},
+                        b"""<html><body>
+                        <h3>2026, Volume 108, Issue 1</h3>
+                        <div><a href="/a/tpr/restat/v108y2026i1p1-10.html">New issue paper</a></div>
+                        </body></html>""",
+                    )
+                if url.endswith("/s/tpr/restat2.html"):
+                    return Response(
+                        {},
+                        b"""<html><body>
+                        <h3>2025, Volume 107, Issue 6</h3>
+                        <div><a href="/a/tpr/restat/v107y2025i6p1-10.html">Target paper</a></div>
+                        </body></html>""",
+                    )
+                if "/a/tpr/restat/v107y2025i6p1-10.html" in url:
+                    return Response(
+                        {},
+                        b"""<html><body>
+                        <h2>Author</h2><ul><li>Ada Lovelace</li></ul>
+                        <h2>Abstract</h2><p>A publisher-supplied abstract.</p>
+                        <p>DOI: 10.1162/rest_a_test</p>
+                        </body></html>""",
+                    )
+                return Response({}, b"", status_code=404)
+
+        session = PagedRepecSession()
+        with patch(
+            "collectors.metadata_fallback._openalex_metadata",
+            return_value=([], "", ""),
+        ):
+            issue = fetch_repec_history_issue(
+                journal_id="restat",
+                journal_name="The Review of Economics and Statistics",
+                issn="0034-6535",
+                volume="107",
+                issue="6",
+                repec_series_code="tpr/restat",
+                session=session,
+            )
+        self.assertEqual("restat-107-6", issue["issue_id"])
+        self.assertEqual("10.1162/rest_a_test", issue["articles"][0]["doi"])
+        self.assertIn(
+            "https://ideas.repec.org/s/tpr/restat2.html",
+            session.urls,
+        )
+
+
 if __name__ == "__main__":
     unittest.main()
