@@ -4,7 +4,11 @@ import unittest
 from types import SimpleNamespace
 from unittest.mock import patch
 
-from collectors.elsevier import ElsevierCollectorError, fetch_current_issue
+from collectors.elsevier import (
+    ElsevierCollectorError,
+    _parse_repec_volume_sections,
+    fetch_current_issue,
+)
 from scripts.update_journals import issue_source_status
 
 
@@ -85,6 +89,19 @@ class ElsevierRepecSourceAuthorityTests(unittest.TestCase):
             issue["quality"]["roster_transport"],
         )
         self.assertEqual("publisher_verified", issue_source_status(issue))
+
+
+    def test_continuous_repec_volume_without_issue_token_is_issue_c(self) -> None:
+        sections = _parse_repec_volume_sections(
+            b"""<html><body>
+            <h3>November 2026, Volume 62</h3>
+            <div><a href="/a/red/issued/example.html">Research paper</a></div>
+            </body></html>""",
+            "https://ideas.repec.org/s/red/issued.html",
+        )
+        self.assertIn("62|c", sections)
+        self.assertEqual("C", sections["62|c"]["issue"])
+        self.assertEqual(1, len(sections["62|c"]["items"]))
 
 
 if __name__ == "__main__":
