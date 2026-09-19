@@ -79,12 +79,12 @@ def parse_latest_econometrica_issue_signal(
 
 
 ARTICLE_PATH_PATTERN = re.compile(
-    r"^/publications/econometrica/(?P<year>20\\d{2})/(?P<month>\\d{2})/(?P<day>\\d{2})/(?P<slug>[^/?#]+)$",
+    r"^/publications/econometrica/(?P<year>20\d{2})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[^/?#]+)$",
     re.IGNORECASE,
 )
 STRUCTURAL_ITEM_PATTERN = re.compile(
-    r"front\\s*matter|frontmatter|back\\s*matter|backmatter|"
-    r"submission\\s+of\\s+manuscripts|table\\s+of\\s+contents",
+    r"front\s*matter|frontmatter|back\s*matter|backmatter|"
+    r"submission\s+of\s+manuscripts|table\s+of\s+contents",
     re.IGNORECASE,
 )
 
@@ -93,8 +93,11 @@ def _normalise_doi(value: str) -> str:
     return str(value or "").strip().lower().removeprefix("https://doi.org/").rstrip(".,;:)]}")
 
 
-def _doi_from_auth_link(href: str) -> str:
+def _doi_from_auth_link(href: str, source_url: str) -> str:
     parsed = urlparse(href or "")
+    if not parsed.netloc:
+        base = urlparse(source_url)
+        parsed = parsed._replace(scheme=base.scheme, netloc=base.netloc)
     if (parsed.hostname or "").casefold() != HOST:
         return ""
     if not parsed.path.startswith("/member-authentication/"):
@@ -170,7 +173,7 @@ def parse_latest_econometrica_roster(
             }
             raw_items.append(current)
             continue
-        doi = _doi_from_auth_link(href)
+        doi = _doi_from_auth_link(href, source_url)
         if doi and current and not current.get("doi"):
             current["doi"] = doi
 
