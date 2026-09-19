@@ -101,7 +101,7 @@ def audit_journal_freshness(
                     _finding(
                         journal_id,
                         "same_issue_period_divergence",
-                        "warning",
+                        "info",
                         issue_id=ready_id,
                         ready_publication_date=str(ready.get("publication_date", "")),
                         detected_publication_date=str(
@@ -123,7 +123,7 @@ def audit_journal_freshness(
                     _finding(
                         journal_id,
                         "same_issue_detected_quality_regression",
-                        "warning",
+                        "info",
                         issue_id=ready_id,
                         ready_publication_state=str(
                             ready.get("publication_state", "")
@@ -142,7 +142,7 @@ def audit_journal_freshness(
                 _finding(
                     journal_id,
                     "detected_older_than_ready",
-                    "warning",
+                    "info",
                     ready_issue_id=ready_id,
                     detected_issue_id=detected_id,
                     ready_publication_date=str(ready.get("publication_date", "")),
