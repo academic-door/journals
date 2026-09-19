@@ -24,10 +24,26 @@ DEFAULT_CATEGORIES = (
 MAX_CHUNK_SIZE = 12
 
 
-def _adapter(record: dict[str, Any], collector: str) -> str:
+def _adapter(
+    record: dict[str, Any],
+    collector: str,
+    journal_config: dict[str, Any] | None = None,
+) -> str:
     category = str(record.get("category", ""))
     journal = str(record.get("journal", "")).upper()
     official_url = str(record.get("official_url", ""))
+    journal_config = journal_config or {}
+    if (
+        category in {"recoverable", "source_pending"}
+        and str(journal_config.get("repec_series_code", "")).strip()
+    ):
+        return "collect-repec"
+    if (
+        category in {"recoverable", "source_pending"}
+        and collector == "elsevier"
+        and str(journal_config.get("repec_series_url", "")).strip()
+    ):
+        return "collect-elsevier"
     if "link.springer.com" in official_url and category in {
         "recoverable",
         "source_pending",
@@ -81,10 +97,11 @@ def build_queue(
         journal = str(raw.get("journal", "")).strip()
         if not issue_id or category not in categories or not journal:
             continue
-        collector = str((journals.get(journal) or {}).get("collector", "other"))
+        journal_config = journals.get(journal) or {}
+        collector = str(journal_config.get("collector", "other"))
         record = dict(raw)
         record["collector"] = collector
-        record["action"] = _adapter(record, collector)
+        record["action"] = _adapter(record, collector, journal_config)
         grouped[record["action"]].append(record)
 
     include: list[dict[str, Any]] = []
