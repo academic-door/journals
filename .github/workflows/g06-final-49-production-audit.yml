@@ -33,6 +33,9 @@ jobs:
       - name: Re-run live 49-journal detector without publishing
         env:
           PYTHONPATH: ${{ github.workspace }}
+          ELSEVIER_API_KEY: ${{ secrets.ELSEVIER_API_KEY }}
+          ELSEVIER_INST_TOKEN: ${{ secrets.ELSEVIER_INST_TOKEN }}
+          JINA_API_KEY: ${{ secrets.JINA_API_KEY }}
         shell: bash
         run: |
           set -euo pipefail
