@@ -125,8 +125,34 @@ def collector_for_issue(
         return candidate
 
     if collector == "crossref":
-        # Crossref is discovery/metadata support only.  It can be archived for
-        # review, but the explicit provisional markers prevent promotion.
+        # Crossref remains provisional. When a journal explicitly configures a
+        # publisher-supplied RePEc serial, use that historical roster first.
+        if isinstance(issue_ref, HistoricalIssue) and journal_config.get(
+            "repec_series_code"
+        ):
+            from collectors.metadata_fallback import fetch_repec_history_issue
+
+            def _collect_crossref_history() -> dict[str, Any]:
+                try:
+                    repec_kwargs: dict[str, Any] = {}
+                    doi_template = str(journal_config.get("doi_template", "")).strip()
+                    if doi_template:
+                        repec_kwargs["doi_template"] = doi_template
+                    return fetch_repec_history_issue(
+                        journal_id=journal_config["id"],
+                        journal_name=journal_config["name"],
+                        issn=str(journal_config["issn"]),
+                        volume=issue_ref.volume,
+                        issue=issue_ref.issue,
+                        repec_series_code=journal_config["repec_series_code"],
+                        **repec_kwargs,
+                    )
+                except Exception:
+                    return _crossref()
+
+            return _collect_crossref_history
+        # Crossref is discovery/metadata support only. It can be archived for
+        # review, but explicit provisional markers prevent promotion.
         return _crossref
 
     if collector == "aea":
