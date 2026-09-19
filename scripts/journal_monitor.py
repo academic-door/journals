@@ -37,7 +37,8 @@ USER_AGENT = (
 DOI_PATTERN = re.compile(r"10\.\d{4,9}/[-._;()/:A-Z0-9]+", re.IGNORECASE)
 STRUCTURAL_TITLE = re.compile(
     r"front\s*matter|back\s*matter|editorial\s*board|table\s*of\s*contents|"
-    r"issue\s+information|^correction\b|^erratum\b",
+    r"issue\s+information|turnaround\s+times|recent\s+referees|"
+    r"^announc(?:e|ement|ing)|^correction\b|^erratum\b",
     re.IGNORECASE,
 )
 ALERT_THRESHOLD = 3
@@ -665,6 +666,59 @@ def _current_issue_path(config: dict[str, Any]) -> Path:
     return CURRENT_ISSUE_ROOT / config["id"] / "issues" / "current.json"
 
 
+def _baseline_with_same_issue_exclusions(
+    config: dict[str, Any],
+    baseline: dict[str, Any],
+) -> dict[str, Any]:
+    """Carry publisher-confirmed non-research exclusions into light detection.
+
+    A ready snapshot can come from a metadata transport that omits front matter,
+    referee lists, announcements, and similar official issue items. When a
+    same-volume/same-issue detected snapshot has already classified those items,
+    Crossref must not keep retriggering them as "new papers".
+    """
+
+    detected = read_json(
+        CURRENT_ISSUE_ROOT / config["id"] / "issues" / "detected.json"
+    )
+    if not detected:
+        return baseline
+    if (
+        str(detected.get("volume", "")).casefold()
+        != str(baseline.get("volume", "")).casefold()
+        or str(detected.get("issue", "")).casefold()
+        != str(baseline.get("issue", "")).casefold()
+    ):
+        return baseline
+    detected_excluded = detected.get("quality", {}).get("excluded_items", [])
+    if not detected_excluded:
+        return baseline
+
+    augmented = json.loads(json.dumps(baseline))
+    quality = augmented.setdefault("quality", {})
+    existing = list(quality.get("excluded_items", []))
+    seen = {
+        (
+            normalize_doi(str(item.get("doi", ""))),
+            " ".join(str(item.get("title_en", "")).casefold().split()),
+        )
+        for item in existing
+        if isinstance(item, dict)
+    }
+    for item in detected_excluded:
+        if not isinstance(item, dict):
+            continue
+        identity = (
+            normalize_doi(str(item.get("doi", ""))),
+            " ".join(str(item.get("title_en", "")).casefold().split()),
+        )
+        if identity not in seen:
+            existing.append(item)
+            seen.add(identity)
+    quality["excluded_items"] = existing
+    return augmented
+
+
 def detect_all(
     journal_configs: dict[str, dict[str, Any]],
     state: dict[str, Any],
@@ -691,6 +745,8 @@ def detect_all(
             continue
         previous = previous_entries.get(key, {})
         baseline = read_json(_current_issue_path(config))
+        if baseline is not None:
+            baseline = _baseline_with_same_issue_exclusions(config, baseline)
         prepared.append((key, config, previous, baseline))
 
     probe_results: dict[str, tuple[list[dict[str, Any]] | None, Exception | None]] = {}
