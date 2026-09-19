@@ -187,5 +187,49 @@ class RecoveryQueueTests(unittest.TestCase):
         self.assertEqual("springer-evidence", shards[0]["action"])
 
 
+    def test_routes_configured_publisher_repec_before_wiley_or_browser(self) -> None:
+        manifest = {
+            "records": [
+                {
+                    "issue_id": "ajae-107-1",
+                    "journal": "AJAE",
+                    "year": 2025,
+                    "category": "source_pending",
+                    "official_url": "https://onlinelibrary.wiley.com/toc/14678276/2025/107/1",
+                    "authority": "official_archive_snapshot",
+                },
+                {
+                    "issue_id": "restat-107-1",
+                    "journal": "RESTAT",
+                    "year": 2025,
+                    "category": "source_pending",
+                    "official_url": "https://direct.mit.edu/rest/issue/107/1",
+                },
+                {
+                    "issue_id": "red-57-c",
+                    "journal": "RED",
+                    "year": 2025,
+                    "category": "source_pending",
+                    "official_url": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/57/suppl/C",
+                },
+            ]
+        }
+        _, shards = build_queue(
+            manifest,
+            {
+                "AJAE": {"collector": "wiley", "repec_series_code": "wly/ajagec"},
+                "RESTAT": {"collector": "crossref", "repec_series_code": "tpr/restat"},
+                "RED": {
+                    "collector": "elsevier",
+                    "repec_series_url": "https://ideas.repec.org/s/red/issued.html",
+                },
+            },
+            categories={"source_pending"},
+            chunk_size=10,
+        )
+        actions = {item["action"] for item in shards}
+        self.assertEqual({"collect-repec", "collect-elsevier"}, actions)
+
+
 if __name__ == "__main__":
     unittest.main()
