@@ -1,0 +1,150 @@
+name: G06 final R2 diagnostic
+
+on:
+  push:
+    branches:
+      - g06-r2-diagnostic
+
+permissions:
+  contents: read
+  models: read
+
+concurrency:
+  group: g06-r2-diagnostic
+  cancel-in-progress: false
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: python -m pip install -r requirements.txt
+
+      - name: Restore canonical data
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          for path in public/api data/translation-cache data/backfill-state data/backfill-staging; do
+            if git cat-file -e "origin/data:$path" 2>/dev/null; then
+              rm -rf "$path"
+              git archive origin/data "$path" | tar -x
+            fi
+          done
+
+      - name: Diagnose JAERE 13(5)
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+          GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || github.token }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DEEPSEEK_MODEL: deepseek-chat
+          SEMANTIC_SCHOLAR_API_KEY: ${{ secrets.SEMANTIC_SCHOLAR_API_KEY }}
+          TRANSLATION_RETRIES: "5"
+          TRANSLATION_WORKERS: "1"
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/build_archives_from_roster_evidence.py             --evidence-root data/provenance/official-rosters/jaere             --issue-ids jaere-13-5             --api-root public/api/v1             --state-root data/backfill-state             --staging-root data/backfill-staging             --translation-cache-root data/translation-cache             --max-translations 20             --start-year 2026             --report-json "$RUNNER_TEMP/jaere-diagnostic.json"
+          cat "$RUNNER_TEMP/jaere-diagnostic.json"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path("data/backfill-staging/jaere/jaere-13-5.json")
+          payload = json.loads(p.read_text(encoding="utf-8"))
+          print("JAERE_STAGING_SUMMARY", json.dumps({
+              "publication_state": payload.get("publication_state"),
+              "content_status": payload.get("content_status"),
+              "source_status": payload.get("source_status"),
+              "research_article_count": payload.get("research_article_count"),
+              "quality": payload.get("quality"),
+          }, ensure_ascii=False, sort_keys=True))
+          for a in payload.get("articles", []):
+              if not str(a.get("abstract_en") or "").strip():
+                  print("JAERE_MISSING_ABSTRACT", json.dumps({
+                      "doi": a.get("doi"),
+                      "title_en": a.get("title_en"),
+                      "source_url": a.get("source_url"),
+                      "authors": a.get("authors"),
+                  }, ensure_ascii=False, sort_keys=True))
+          PY
+
+      - name: Diagnose RESTAT 108(4)
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+          GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || github.token }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DEEPSEEK_MODEL: deepseek-chat
+          TRANSLATION_RETRIES: "5"
+          TRANSLATION_WORKERS: "1"
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          from scripts.import_official_roster_evidence import apply_evidence
+          from scripts.translate_issue import translate_missing, _source_hash
+          from scripts.update_journals import (
+              apply_translation_cache,
+              normalize_issue_content,
+              stamp_issue_readiness,
+              validate_issue,
+          )
+
+          issue = json.loads(Path("public/api/v1/journals/restat/issues/restat-108-4.json").read_text(encoding="utf-8"))
+          evidence = json.loads(Path("data/provenance/official-rosters/restat/restat-108-4.json").read_text(encoding="utf-8"))
+          cache_path = Path("data/translation-cache/restat.json")
+          cache = json.loads(cache_path.read_text(encoding="utf-8"))
+
+          candidate = apply_evidence(issue, evidence)
+          for a in candidate.get("articles", []):
+              doi = str(a.get("doi") or "")
+              cached = cache.get(doi, {})
+              current_hash = _source_hash(a)
+              if cached and cached.get("source_hash") != current_hash:
+                  print("RESTAT_STALE_CACHE", json.dumps({
+                      "doi": doi,
+                      "title_en": a.get("title_en"),
+                      "cache_hash": cached.get("source_hash"),
+                      "current_hash": current_hash,
+                      "cache_has_title": bool(cached.get("title_cn")),
+                      "cache_has_abstract": bool(cached.get("abstract_cn")),
+                  }, ensure_ascii=False, sort_keys=True))
+
+          report = translate_missing(candidate, cache_path, max_translations=20)
+          print("RESTAT_TRANSLATE_REPORT", json.dumps(report, ensure_ascii=False, sort_keys=True))
+          candidate = apply_translation_cache(candidate, cache_path=cache_path)
+          candidate = normalize_issue_content(candidate)
+          stamp_issue_readiness(candidate)
+          validate_issue(candidate)
+          print("RESTAT_CANDIDATE_SUMMARY", json.dumps({
+              "publication_state": candidate.get("publication_state"),
+              "content_status": candidate.get("content_status"),
+              "source_status": candidate.get("source_status"),
+              "research_article_count": candidate.get("research_article_count"),
+              "quality": candidate.get("quality"),
+          }, ensure_ascii=False, sort_keys=True))
+          for a in candidate.get("articles", []):
+              missing = []
+              if not str(a.get("title_cn") or "").strip():
+                  missing.append("title_cn")
+              if str(a.get("abstract_en") or "").strip() and not str(a.get("abstract_cn") or "").strip():
+                  missing.append("abstract_cn")
+              if a.get("translation", {}).get("status") != "complete":
+                  missing.append("translation_status")
+              if missing:
+                  print("RESTAT_TRANSLATION_INCOMPLETE", json.dumps({
+                      "doi": a.get("doi"),
+                      "title_en": a.get("title_en"),
+                      "missing": missing,
+                      "quality_flags": a.get("quality_flags"),
+                      "translation": a.get("translation"),
+                  }, ensure_ascii=False, sort_keys=True))
+          PY
