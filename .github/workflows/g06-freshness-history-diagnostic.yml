@@ -47,8 +47,14 @@ jobs:
               "landecon_archive": [issue_source_status(archive), issue_publication_state(archive)],
               "landecon_chosen": [issue_source_status(chosen), issue_publication_state(chosen)],
           }, indent=2))
-          assert chosen is archive
           assert issue_publication_state(chosen) == "ready"
+          assert issue_source_status(chosen) == "official_verified"
+          assert [a.get("doi") for a in chosen.get("articles", [])] == [
+              a.get("doi") for a in current.get("articles", [])
+          ]
+          assert [a.get("abstract_cn") for a in chosen.get("articles", [])] == [
+              a.get("abstract_cn") for a in current.get("articles", [])
+          ]
 
           rand_ready = json.loads(Path("public/api/v1/journals/rand/issues/current.json").read_text())
           rand_detected = json.loads(Path("public/api/v1/journals/rand/issues/detected.json").read_text())
