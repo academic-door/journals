@@ -1,0 +1,65 @@
+name: G06 JAERE canonical collector diagnostic
+
+on:
+  push:
+    branches:
+      - g06-r2-diagnostic
+
+permissions:
+  contents: read
+  models: read
+
+concurrency:
+  group: g06-jaere-collector-diagnostic
+  cancel-in-progress: false
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Restore canonical data
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          rm -rf public/api data/backfill-state data/backfill-staging data/translation-cache
+          git archive origin/data public/api data/backfill-state data/backfill-staging data/translation-cache | tar -x
+      - name: Run exact JAERE recovery through canonical Chicago collector
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+          GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || github.token }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DEEPSEEK_MODEL: deepseek-chat
+          TRANSLATION_RETRIES: "5"
+          TRANSLATION_WORKERS: "1"
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p output
+          python scripts/backfill_history.py             --config config/field-history.yml             --state data/backfill-state/field-2025-2026.json             --journals JAERE             --issue-ids jaere-13-5             --from-year 2025             --to-year 2026             --translate             --max-issues 1             --max-translations 20             --max-minutes 10             --skip-global-indexes             --report-json output/g06-jaere-report.json
+          cat output/g06-jaere-report.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for path in [
+              Path("public/api/v1/journals/jaere/issues/jaere-13-5.json"),
+              Path("data/backfill-staging/jaere/jaere-13-5.json"),
+          ]:
+              if not path.exists():
+                  continue
+              issue=json.loads(path.read_text(encoding="utf-8"))
+              print("G06_JAERE_RESULT", json.dumps({
+                  "path": str(path),
+                  "publication_state": issue.get("publication_state"),
+                  "content_status": issue.get("content_status"),
+                  "source_status": issue.get("source_status"),
+                  "research_article_count": issue.get("research_article_count"),
+                  "quality": issue.get("quality"),
+              }, ensure_ascii=False, sort_keys=True))
+          PY
