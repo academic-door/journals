@@ -41,6 +41,12 @@ class HistoryAndSearchUiTests(unittest.TestCase):
         self.assertIn("显示更多结果", script)
         self.assertIn('class="search-result skeleton"', script)
 
+    def test_status_only_counts_newer_detected_snapshot_as_enriching(self) -> None:
+        status_page = (ROOT / "src" / "pages" / "status" / "index.astro").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn('journal.latest_display_source !== "detected"', status_page)
+
     def test_reader_surfaces_do_not_expose_non_ready_history(self) -> None:
         explorer = (ROOT / "src" / "components" / "Top5Explorer.astro").read_text(
             encoding="utf-8"
