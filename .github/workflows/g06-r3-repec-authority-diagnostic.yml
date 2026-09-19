@@ -1,0 +1,110 @@
+name: G06 R3 RePEc authority diagnostic
+
+on:
+  push:
+    branches:
+      - g06-r3-repec-authority-diagnostic
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Restore current archives
+        run: |
+          git fetch origin data
+          rm -rf public/api
+          git archive origin/data public/api/v1/journals | tar -x
+      - name: Compare publisher-supplied RePEc rosters with current archives
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from collectors.metadata_fallback import fetch_repec_history_issue
+
+          specs = {
+            "AJAE": {
+              "id":"ajae","name":"American Journal of Agricultural Economics","issn":"1467-8276",
+              "series":"wly/ajagec","issues":[("107",str(i)) for i in range(1,6)]
+            },
+            "JF": {
+              "id":"jf","name":"The Journal of Finance","issn":"0022-1082",
+              "series":"bla/jfinan","issues":[("80",str(i)) for i in range(1,7)]
+            },
+            "TE": {
+              "id":"te","name":"Theoretical Economics","issn":"1555-7561",
+              "series":"the/publsh","doi_template":"10.3982/TE{id}",
+              "issues":[("20",str(i)) for i in range(1,5)]
+            },
+            "RESTAT": {
+              "id":"restat","name":"The Review of Economics and Statistics","issn":"0034-6535",
+              "series":"tpr/restat",
+              "issues":[("105","5"),("105","6"),("106","1"),("106","2"),("106","4"),("106","5"),("106","6"),
+                        ("107","1"),("107","2"),("107","3"),("107","4"),("107","5"),("107","6")]
+            },
+          }
+
+          def load(jid, issue_id):
+              return json.loads(Path(f"public/api/v1/journals/{jid}/issues/{issue_id}.json").read_text())
+
+          def dois(x):
+              return [str(a.get("doi","")).strip().casefold() for a in x.get("articles",[]) if str(a.get("doi","")).strip()]
+
+          results=[]
+          for key,spec in specs.items():
+              for volume,number in spec["issues"]:
+                  issue_id=f"{spec['id']}-{volume}-{number}"
+                  row={"journal":key,"issue_id":issue_id}
+                  try:
+                      candidate=fetch_repec_history_issue(
+                          journal_id=spec["id"],journal_name=spec["name"],issn=spec["issn"],
+                          volume=volume,issue=number,repec_series_code=spec["series"],
+                          doi_template=spec.get("doi_template",""),
+                      )
+                      old=load(spec["id"],issue_id)
+                      cd,od=dois(candidate),dois(old)
+                      row.update({
+                          "candidate_count":candidate["research_article_count"],
+                          "archive_count":old["research_article_count"],
+                          "exact_ordered_doi":cd==od,
+                          "same_doi_set":set(cd)==set(od),
+                          "candidate_doi_complete":candidate["quality"]["doi_complete"],
+                          "candidate_authors_complete":candidate["quality"]["authors_complete"],
+                          "candidate_abstracts_complete":candidate["quality"]["abstract_en_complete"],
+                          "authority":candidate["quality"]["roster_authority"],
+                          "transport":candidate["quality"]["roster_transport"],
+                          "candidate_dois":cd,
+                          "archive_dois":od,
+                      })
+                  except Exception as exc:
+                      row["error"]=f"{type(exc).__name__}: {exc}"
+                  results.append(row)
+
+          print(json.dumps(results, indent=2))
+          for key in specs:
+              rows=[r for r in results if r["journal"]==key]
+              print("JOURNAL_SUMMARY", key, json.dumps({
+                  "total":len(rows),
+                  "errors":sum("error" in r for r in rows),
+                  "exact":sum(r.get("exact_ordered_doi") is True for r in rows),
+                  "same_set":sum(r.get("same_doi_set") is True for r in rows),
+                  "complete":sum(
+                      r.get("candidate_count")
+                      and r.get("candidate_doi_complete")==r.get("candidate_count")
+                      and r.get("candidate_authors_complete")==r.get("candidate_count")
+                      and r.get("candidate_abstracts_complete")==r.get("candidate_count")
+                      for r in rows
+                  ),
+              }))
+          PY
