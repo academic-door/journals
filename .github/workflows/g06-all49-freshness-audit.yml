@@ -40,6 +40,7 @@ jobs:
               collector_for,
               fallback_collector_for,
               issue_is_newer,
+              is_detected_snapshot,
               issue_publication_state,
               issue_source_status,
               read_json,
@@ -93,6 +94,12 @@ jobs:
                               "newer": issue_is_newer(observed, current),
                           }
                       )
+                      if not is_detected_snapshot(observed):
+                          errors.append(
+                              f"{label}:untrusted_or_incomplete_roster:"
+                              f"{observed.get('issue_id', '')}"
+                          )
+                          continue
                       if (
                           issue_source_status(observed)
                           in {"official_verified", "publisher_verified"}
