@@ -741,6 +741,11 @@ class PublicationGateTests(unittest.TestCase):
             (new_issue, "New Study"),
         ):
             issue["publication_date"] = f"202{issue['volume']}-01"
+            issue["quality"].update(
+                roster_authority="official-issue-page",
+                roster_transport="official-issue-page",
+                flags=[],
+            )
             issue["articles"][0].update(
                 {
                     "paper_id": f"paper-{issue['volume']}",
@@ -787,8 +792,8 @@ class PublicationGateTests(unittest.TestCase):
         self.assertEqual("1", old_record["issue"])
         self.assertTrue(old_record["china_related"])
         self.assertEqual("complete", old_record["content_status"])
-        self.assertEqual("source_pending", old_record["source_status"])
-        self.assertEqual("source_pending", old_record["publication_state"])
+        self.assertEqual("official_verified", old_record["source_status"])
+        self.assertEqual("ready", old_record["publication_state"])
         self.assertEqual(1, china["record_count"])
         self.assertEqual("demo-2-1", china["records"][0]["issue_id"])
         self.assertEqual(1, year_2021["record_count"])
