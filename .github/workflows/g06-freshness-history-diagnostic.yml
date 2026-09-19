@@ -1,0 +1,79 @@
+name: G06 freshness history diagnostic
+
+on:
+  push:
+    branches:
+      - g06-freshness-history-fix
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r requirements.txt
+      - name: Unit tests
+        run: |
+          python -m unittest tests.test_econometric_society_signal tests.test_history_search_ui
+          python -m unittest discover -s tests
+      - name: Live Econometric Society roster diagnostic
+        run: |
+          python - <<'PY'
+          import json
+          import requests
+          from collectors.econometric_society import parse_latest_econometrica_roster
+
+          url = "https://www.econometricsociety.org/publications/econometrica/volume/2026"
+          response = requests.get(url, timeout=60)
+          response.raise_for_status()
+          roster = parse_latest_econometrica_roster(response.content, url)
+          print(json.dumps({
+              "volume": roster["volume"],
+              "issue": roster["issue"],
+              "publication_date": roster["publication_date"],
+              "research_article_count": roster["research_article_count"],
+              "dois": [item["doi"] for item in roster["articles"]],
+              "excluded": roster["excluded_items"],
+          }, indent=2))
+          assert roster["volume"] == "94"
+          assert roster["issue"] == "5"
+          assert roster["publication_date"] == "September 2026"
+          assert roster["research_article_count"] == 12
+          PY
+      - name: Live ECTA first-party qualification diagnostic
+        env:
+          JINA_API_KEY: ${{ secrets.JINA_API_KEY }}
+        run: |
+          python - <<'PY'
+          import json
+          from collectors.econometric_society import fetch_latest_econometrica_issue
+
+          issue = fetch_latest_econometrica_issue(
+              source_url="https://www.econometricsociety.org/publications/econometrica/volume/2026",
+              journal_id="ecta",
+              journal_name="Econometrica",
+              issn="0012-9682",
+              current_issue_url="https://onlinelibrary.wiley.com/toc/14680262/current",
+              repec_series_code="wly/emetrp",
+          )
+          q = issue["quality"]
+          print(json.dumps({
+              "issue_id": issue["issue_id"],
+              "articles": issue["research_article_count"],
+              "abstracts": q["abstract_en_complete"],
+              "authors": q["authors_complete"],
+              "authority": q["roster_authority"],
+              "transport": q["roster_transport"],
+              "flags": q["flags"],
+          }, indent=2))
+          assert issue["issue_id"] == "ecta-94-5"
+          assert issue["research_article_count"] == 12
+          assert q["roster_authority"] == "official-issue-page"
+          assert "crossref_provisional_roster" not in q["flags"]
+          PY
