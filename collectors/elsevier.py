@@ -301,11 +301,13 @@ def _parse_repec_volume_sections(
             )
         if items:
             # Journals with real issue numbers (e.g. Journal of Comparative
-            # Economics Volume 53, Issue 2) publish several issues per volume,
-            # so sections are keyed by volume|issue instead of volume alone.
-            found[f"{volume}|{match.group('issue').lower()}"] = {
+            # Economics Volume 53, Issue 2) publish several issues per volume.
+            # Continuous-volume journals omit the Issue token; treat those
+            # publisher-supplied RePEc sections as Issue C.
+            issue_value = str(match.group("issue") or "C")
+            found[f"{volume}|{issue_value.casefold()}"] = {
                 "year": match.group("year"),
-                "issue": (match.group("issue") or "C"),
+                "issue": issue_value,
                 "items": items,
             }
     return found
