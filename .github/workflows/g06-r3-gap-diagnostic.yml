@@ -1,0 +1,81 @@
+name: G06 R3 gap diagnostic
+
+on:
+  push:
+    branches:
+      - g06-r3-gap-diagnostic
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+
+      - name: Restore current history truth
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          rm -rf public/api data/backfill-state
+          git archive origin/data public/api/v1/journals data/backfill-state | tar -x
+
+      - name: Build exact gap manifest and recovery plan
+        shell: bash
+        run: |
+          set -euo pipefail
+          state_args=()
+          for state in data/backfill-state/*.json; do
+            [ -f "$state" ] && state_args+=(--state "$state")
+          done
+          python scripts/build_gap_manifest.py             "${state_args[@]}"             --api-root public/api/v1             --out-json "$RUNNER_TEMP/gap.json"
+          python scripts/build_recovery_queue.py             --gap-manifest "$RUNNER_TEMP/gap.json"             --categories "recoverable,translation_required,source_pending,browser_required,blocked"             --chunk-size 12             --output-dir "$RUNNER_TEMP/shards"             --plan-json "$RUNNER_TEMP/plan.json"
+
+          GAP="$RUNNER_TEMP/gap.json" PLAN="$RUNNER_TEMP/plan.json" SHARDS="$RUNNER_TEMP/shards" python - <<'PY'
+          import json, os
+          from collections import Counter, defaultdict
+          from pathlib import Path
+
+          gap=json.loads(Path(os.environ["GAP"]).read_text())
+          plan=json.loads(Path(os.environ["PLAN"]).read_text())
+          records=gap["records"]
+          actionable=[r for r in records if r["category"] not in {"ready","excluded_with_official_evidence"}]
+          by_journal=Counter(r["journal"] for r in actionable)
+          by_cat=Counter(r["category"] for r in actionable)
+          by_collector=Counter(r.get("collector","") for r in actionable)
+          by_reason=Counter((r["category"],r.get("reason","")) for r in actionable)
+
+          shard_items=[]
+          for p in sorted(Path(os.environ["SHARDS"]).glob("*.json")):
+              s=json.loads(p.read_text())
+              shard_items.append({
+                  "shard":s["shard"],
+                  "action":s["action"],
+                  "count":len(s["issue_ids"]),
+                  "issues":s["issue_ids"],
+              })
+
+          print("=== GAP SUMMARY ===")
+          print(json.dumps(gap["summary"], indent=2))
+          print("=== ACTIONABLE BY JOURNAL ===")
+          print(json.dumps(dict(by_journal.most_common()), indent=2))
+          print("=== ACTIONABLE BY CATEGORY ===")
+          print(json.dumps(dict(by_cat), indent=2))
+          print("=== RECOVERY PLAN ===")
+          print(json.dumps(plan, indent=2))
+          print("=== SHARDS ===")
+          print(json.dumps(shard_items, indent=2))
+          print("=== TOP REASONS ===")
+          print(json.dumps([
+              {"category":k[0],"reason":k[1],"count":v}
+              for k,v in by_reason.most_common(30)
+          ], indent=2))
+          PY
