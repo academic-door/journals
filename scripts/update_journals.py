@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import copy
 import argparse
 import json
 import re
