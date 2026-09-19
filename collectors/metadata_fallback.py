@@ -1000,6 +1000,18 @@ def _repec_serial_url(series_code: str = "ucp/jpolec") -> str:
     return f"https://ideas.repec.org/s/{series_code.strip('/')}.html"
 
 
+def _repec_serial_page_url(serial_url: str, page: int) -> str:
+    """IDEAS serial pagination uses stem.html, stem2.html, stem3.html, ..."""
+
+    if page <= 1:
+        return serial_url
+    parsed = urlparse(serial_url)
+    path = parsed.path
+    if not path.endswith(".html"):
+        return serial_url
+    return urljoin(serial_url, f"{Path(path).stem}{page}.html")
+
+
 def _extract_doi(value: str) -> str:
     decoded = html.unescape(value or "")
     match = DOI_PATTERN.search(decoded.replace("-", "/", 1) if decoded.startswith("doi10.") else decoded)
@@ -1193,26 +1205,37 @@ def fetch_repec_history_issue(
     doi_template: str = "",
     session: requests.Session | None = None,
     timeout: int = 60,
+    max_pages: int = 40,
 ) -> dict[str, Any]:
-    """Build one historical JPE issue from the public RePEc serial page."""
+    """Build one historical issue from a publisher-supplied RePEc serial."""
 
     client = session or _session()
     serial_url = _repec_serial_url(repec_series_code)
-    response = client.get(
-        serial_url,
-        timeout=timeout,
-        headers={"Accept": "text/html,application/xhtml+xml"},
-    )
-    response.raise_for_status()
-    issues = _parse_repec_serial_issues(response.content, serial_url)
-    target = next(
-        (
-            record
-            for record in issues
-            if str(record["volume"]) == str(volume) and str(record["issue"]) == str(issue)
-        ),
-        None,
-    )
+    target: dict[str, Any] | None = None
+    for page in range(1, max_pages + 1):
+        page_url = _repec_serial_page_url(serial_url, page)
+        response = client.get(
+            page_url,
+            timeout=timeout,
+            headers={"Accept": "text/html,application/xhtml+xml"},
+        )
+        if page > 1 and getattr(response, "status_code", 200) == 404:
+            break
+        response.raise_for_status()
+        issues = _parse_repec_serial_issues(response.content, serial_url)
+        target = next(
+            (
+                record
+                for record in issues
+                if str(record["volume"]) == str(volume)
+                and str(record["issue"]).casefold() == str(issue).casefold()
+            ),
+            None,
+        )
+        if target is not None:
+            break
+        if page > 1 and not issues:
+            break
     if target is None:
         raise MetadataFallbackError(
             f"RePEc serial page has no issue {volume}/{issue}"
