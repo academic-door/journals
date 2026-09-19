@@ -1239,5 +1239,29 @@ class MetadataEnrichmentTests(unittest.TestCase):
 
 
 
+    def test_crossref_history_prefers_configured_publisher_repec(self) -> None:
+        config = {
+            "id": "restat",
+            "name": "The Review of Economics and Statistics",
+            "collector": "crossref",
+            "issn": "0034-6535",
+            "repec_series_code": "tpr/restat",
+        }
+        ref = HistoricalIssue(
+            "RESTAT",
+            2025,
+            "107",
+            "6",
+            "https://direct.mit.edu/rest/issue/107/6",
+        )
+        with patch(
+            "collectors.metadata_fallback.fetch_repec_history_issue",
+            return_value={"issue_id": "restat-107-6"},
+        ) as fetch:
+            result = collector_for_issue(config, ref)()
+        self.assertEqual("restat-107-6", result["issue_id"])
+        self.assertEqual("tpr/restat", fetch.call_args.kwargs["repec_series_code"])
+
+
 if __name__ == "__main__":
     unittest.main()
