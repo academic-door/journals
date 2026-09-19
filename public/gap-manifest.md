@@ -1,12 +1,12 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-19T00:26:23+00:00
+Generated: 2026-09-19T06:20:57+00:00
 
 ## Summary
 
-- ready: 1147
-- recoverable: 54
-- source_pending: 69
+- ready: 1144
+- recoverable: 53
+- source_pending: 61
 - translation_required: 2
 
 ## Issue queue
@@ -371,7 +371,7 @@ Generated: 2026-09-19T00:26:23+00:00
 | FOODPOLICY | foodpolicy-115-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-116-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-117-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
-| FOODPOLICY | foodpolicy-118-c | 2023 | recoverable | blocked | source_pending | archive_missing |
+| FOODPOLICY | foodpolicy-118-c | 2023 | translation_required | blocked | source_pending | archive_missing |
 | FOODPOLICY | foodpolicy-119-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-120-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-121-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
@@ -689,18 +689,6 @@ Generated: 2026-09-19T00:26:23+00:00
 | JET | jet-235-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JET | jet-236-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JET | jet-237-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
-| JF | jf-78-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| JF | jf-78-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| JF | jf-78-3 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| JF | jf-78-4 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| JF | jf-78-5 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| JF | jf-78-6 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| JF | jf-79-1 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| JF | jf-79-2 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| JF | jf-79-3 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| JF | jf-79-4 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| JF | jf-79-5 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| JF | jf-79-6 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | JF | jf-80-1 | 2025 | source_pending | complete | source_pending | official source verification pending |
 | JF | jf-80-2 | 2025 | source_pending | complete | source_pending | official source verification pending |
 | JF | jf-80-3 | 2025 | source_pending | complete | source_pending | official source verification pending |
@@ -1129,12 +1117,12 @@ Generated: 2026-09-19T00:26:23+00:00
 | RAND | rand-57-1 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | RAND | rand-57-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RAND | rand-57-3 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
-| RED | red-47-c | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| RED | red-48-c | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| RED | red-49-c | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| RED | red-50-c | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| RED | red-51-c | 2023 | translation_required | complete | source_pending | translation incomplete |
-| RED | red-52-c | 2024 | source_pending | complete | source_pending | source authority pending official verification |
+| RED | red-47-c | 2023 | source_pending | complete | source_pending | official source verification pending |
+| RED | red-48-c | 2023 | source_pending | complete | source_pending | official source verification pending |
+| RED | red-49-c | 2023 | source_pending | complete | source_pending | official source verification pending |
+| RED | red-50-c | 2023 | source_pending | complete | source_pending | official source verification pending |
+| RED | red-51-c | 2023 | source_pending | complete | source_pending | official source verification pending |
+| RED | red-52-c | 2024 | source_pending | complete | source_pending | official source verification pending |
 | RED | red-53-c | 2024 | source_pending | complete | source_pending | official source verification pending |
 | RED | red-54-c | 2024 | source_pending | complete | source_pending | official source verification pending |
 | RED | red-55-c | 2025 | source_pending | complete | source_pending | official source verification pending |
@@ -1160,13 +1148,13 @@ Generated: 2026-09-19T00:26:23+00:00
 | RESTAT | restat-105-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RESTAT | restat-105-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RESTAT | restat-105-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| RESTAT | restat-105-5 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-105-6 | 2023 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-106-1 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-106-2 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| RESTAT | restat-105-5 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-105-6 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-106-1 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-106-2 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
 | RESTAT | restat-106-3 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| RESTAT | restat-106-4 | 2024 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-106-5 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| RESTAT | restat-106-4 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-106-5 | 2024 | source_pending | complete | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs official page or browser-authorized capture |
 | RESTAT | restat-106-6 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | RESTAT | restat-107-1 | 2025 | source_pending | complete | source_pending | official source verification pending |
 | RESTAT | restat-107-2 | 2025 | source_pending | complete | source_pending | official source verification pending |

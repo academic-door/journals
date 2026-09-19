@@ -1,13 +1,18 @@
 # Field journal history backfill status
 
-Updated: 2026-09-19T01:31:10+00:00
+Updated: 2026-09-19T06:20:45+00:00
 
-Discovery coverage: 1222 discovered · 1176 archived · 1115 publication ready · 46 missing · 61 source pending
+Discovery coverage: 1260 discovered · 1205 archived · 1144 publication ready · 55 missing · 61 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
 | 2023-2024 | 619 | 1 | 35 | 53 |
-| 2025-2026 | 585 | 1 | 12 | 30 |
+| 2023-2026 | 293 | 0 | 3 | 4 |
+| 2024-2024 | 12 | 0 | 0 | 0 |
+| 2025-2026 | 1 | 0 | 0 | 0 |
+| 2026-2026 | 10 | 0 | 0 | 0 |
+| elsevier-2026-browser | 0 | 0 | 0 | 0 |
+| final3-2026-browser | 0 | 0 | 0 | 0 |
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -548,7 +553,7 @@ Discovery coverage: 1222 discovered · 1176 archived · 1115 publication ready �
 | JEBO | jebo-217-c | 2024 | ready |  |
 | JEBO | jebo-218-c | 2024 | ready |  |
 | JEBO | jebo-219-c | 2024 | ready |  |
-| JEBO | jebo-220-c | 2024 | ready |  |
+| JEBO | jebo-220-c | 2024 | ready | archive_missing |
 | JEBO | jebo-221-c | 2024 | ready |  |
 | JEBO | jebo-222-c | 2024 | ready |  |
 | JEBO | jebo-223-c | 2024 | ready |  |
