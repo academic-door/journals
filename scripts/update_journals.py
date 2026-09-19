@@ -534,6 +534,20 @@ def _issue_date_key(issue: dict[str, Any]) -> tuple[int, int]:
         except ValueError:
             continue
         return parsed.year, parsed.month
+    seasonal = re.fullmatch(
+        r"(Spring|Summer|Fall|Autumn|Winter)\s+(20\d{2})",
+        value,
+        flags=re.IGNORECASE,
+    )
+    if seasonal:
+        month = {
+            "spring": 3,
+            "summer": 6,
+            "fall": 9,
+            "autumn": 9,
+            "winter": 12,
+        }[seasonal.group(1).casefold()]
+        return int(seasonal.group(2)), month
     match = re.search(r"(20\d{2})[^0-9]+(1[0-2]|0?[1-9])", value)
     if match:
         return int(match.group(1)), int(match.group(2))
