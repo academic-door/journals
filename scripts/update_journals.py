@@ -449,6 +449,19 @@ def collector_for(
 def fallback_collector_for(config: dict[str, Any]) -> Callable[[], dict[str, Any]] | None:
     fallback = config.get("fallback", "")
     collectors: list[Callable[[], dict[str, Any]]] = []
+    if config.get("announcement_source") == "econometric_society_volume":
+        from collectors.econometric_society import fetch_latest_econometrica_issue
+
+        collectors.append(
+            lambda: fetch_latest_econometrica_issue(
+                source_url=str(config.get("announcement_url", "")),
+                journal_id=config["id"],
+                journal_name=config["name"],
+                issn=str(config["issn"]),
+                current_issue_url=config["current_issue_url"],
+                repec_series_code=str(config.get("repec_series_code", "")),
+            )
+        )
     if config.get("rss_url"):
         from collectors.metadata_fallback import fetch_official_rss_issue
 
@@ -844,10 +857,16 @@ def write_search_indexes(
 
         by_issue_id: dict[str, dict[str, Any]] = {}
         for archived in archived_issues(config["id"], api_root=api_root):
-            if is_publishable_snapshot(archived):
+            stamp_issue_readiness(archived)
+            if (
+                is_publishable_snapshot(archived)
+                and issue_publication_state(archived) == "ready"
+            ):
                 by_issue_id[archived["issue_id"]] = archived
         if current and is_publishable_snapshot(current):
-            by_issue_id[current["issue_id"]] = current
+            stamp_issue_readiness(current)
+            if issue_publication_state(current) == "ready":
+                by_issue_id[current["issue_id"]] = current
         issue_count += len(by_issue_id)
         for issue in by_issue_id.values():
             history_records.extend(
