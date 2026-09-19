@@ -22,6 +22,8 @@ from scripts.update_journals import (
     issue_source_status,
     merge_issue_audit_metadata,
     order_verification_status,
+    prefer_ready_archive,
+    select_display_issue,
     write_archive_index,
     write_search_indexes,
 )
@@ -176,6 +178,40 @@ class PublicationGateTests(unittest.TestCase):
         older["publication_date"] = "July 2026"
         self.assertTrue(issue_is_newer(newer, older))
         self.assertFalse(issue_is_newer(older, newer))
+    def test_seasonal_ready_issue_wins_over_lower_same_month_detected_issue(self) -> None:
+        ready = archive_fixture("rand-57-3", "57")
+        ready["issue"] = "3"
+        ready["publication_date"] = "Fall 2026"
+        detected = archive_fixture("rand-57-2", "57")
+        detected["issue"] = "2"
+        detected["publication_date"] = "September 2026"
+        self.assertFalse(issue_is_newer(detected, ready))
+        self.assertEqual("ready", select_display_issue(detected, ready))
+
+    def test_same_issue_ready_archive_is_authority_floor(self) -> None:
+        current = archive_fixture("landecon-102-3", "102")
+        current["issue"] = "3"
+        current["quality"].update(
+            roster_authority="crossref-provisional",
+            roster_transport="crossref",
+            flags=["crossref_provisional_roster"],
+        )
+        current["articles"][0].update(
+            title_en="A complete paper",
+            title_cn="完整论文",
+            abstract_cn="这是一个完整且语义一致的中文摘要，用于验证同一期的权威来源不得被低权威刷新降级。",
+            translation={"status": "complete"},
+        )
+        archived = copy.deepcopy(current)
+        archived["quality"].update(
+            roster_authority="official-issue-page",
+            roster_transport="official-page-read",
+            flags=[],
+        )
+        self.assertEqual("source_pending", issue_publication_state(current))
+        self.assertEqual("ready", issue_publication_state(archived))
+        self.assertIs(archived, prefer_ready_archive(current, archived))
+
     def test_official_issue_collector_precedes_rss_metadata_fallback(self) -> None:
         from unittest.mock import patch
 
