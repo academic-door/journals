@@ -1606,51 +1606,80 @@ def issue_translation_semantics_valid(issue: dict[str, Any]) -> bool:
     return True
 
 
-def _same_issue_reader_content(
-    left: dict[str, Any],
-    right: dict[str, Any],
-) -> bool:
-    """Return whether two snapshots expose identical reader-visible article content."""
+def _ordered_issue_dois(issue: dict[str, Any]) -> tuple[str, ...]:
+    return tuple(
+        str(article.get("doi", "")).strip().casefold()
+        for article in issue.get("articles", [])
+        if str(article.get("doi", "")).strip()
+    )
 
-    left_articles = left.get("articles", [])
-    right_articles = right.get("articles", [])
-    if len(left_articles) != len(right_articles) or not left_articles:
-        return False
-    fields = ("doi", "title_en", "abstract_en", "title_cn", "abstract_cn")
-    for left_article, right_article in zip(left_articles, right_articles):
-        if any(
-            str(left_article.get(field, "")).strip()
-            != str(right_article.get(field, "")).strip()
-            for field in fields
-        ):
-            return False
-    return True
+
+_SOURCE_ONLY_FLAGS = {
+    "crossref_provisional_roster",
+    "publisher_html_blocked_crossref_fallback",
+    "publisher_rss_lag_crossref_fallback",
+    "official_order_unverified",
+}
+
+
+def _lift_verified_same_roster_authority(
+    current: dict[str, Any],
+    archived: dict[str, Any],
+) -> dict[str, Any] | None:
+    """Keep current content while restoring stronger verified membership/order evidence.
+
+    Source authority describes issue membership/order; it must not force older
+    metadata or translations back onto readers.  Promotion is allowed only for
+    the exact same issue identity and exact ordered DOI roster.
+    """
+
+    current_dois = _ordered_issue_dois(current)
+    archived_dois = _ordered_issue_dois(archived)
+    if not current_dois or current_dois != archived_dois:
+        return None
+    if issue_publication_state(archived) != "ready":
+        return None
+
+    merged = copy.deepcopy(current)
+    merged_quality = merged.setdefault("quality", {})
+    archived_quality = archived.get("quality", {})
+    for key in (
+        "roster_authority",
+        "roster_transport",
+        "roster_match_scope",
+        "official_roster_evidence",
+        "browser_capture",
+        "browser_order_verification",
+        "rss_url",
+    ):
+        if key in archived_quality:
+            merged_quality[key] = copy.deepcopy(archived_quality[key])
+    merged_quality["roster_match"] = True
+    merged_quality["order_preserved"] = True
+    merged_quality["flags"] = [
+        flag
+        for flag in merged_quality.get("flags", [])
+        if str(flag) not in _SOURCE_ONLY_FLAGS
+    ]
+    if archived.get("source_url"):
+        merged["source_url"] = archived["source_url"]
+    return stamp_issue_readiness(merged)
 
 
 def prefer_ready_archive(
     current: dict[str, Any],
     archived: dict[str, Any] | None,
 ) -> dict[str, Any]:
-    """Keep a stronger same-issue READY archive as the public authority floor.
+    """Use verified same-issue authority without regressing current content."""
 
-    A low-authority recollection must never downgrade an already verified issue.
-    Normally the archived snapshot must also pass today's translation semantics.
-    If the recollection and archive expose byte-equivalent reader content, the
-    archive remains safe even when a newer translation validator would flag
-    both copies identically: the only material difference is source authority.
-    """
     if not archived or current.get("issue_id") != archived.get("issue_id"):
         return current
-    if (
-        issue_publication_state(current) != "ready"
-        and issue_publication_state(archived) == "ready"
-    ):
-        # Same issue identity + stronger verified archive is the authority floor.
-        # A lower-authority recollection may enrich diagnostics, but it cannot
-        # demote the already accepted public snapshot.
-        return archived
+    if issue_publication_state(current) == "ready":
+        return current
+    lifted = _lift_verified_same_roster_authority(current, archived)
+    if lifted is not None:
+        return lifted
     return current
-
 
 def load_available_issues(
     journal_configs: dict[str, dict[str, Any]],
