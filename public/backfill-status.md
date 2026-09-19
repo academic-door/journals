@@ -1,8 +1,8 @@
 # Field journal history backfill status
 
-Updated: 2026-09-19T07:25:26+00:00
+Updated: 2026-09-19T12:35:34+00:00
 
-Discovery coverage: 1260 discovered · 1205 archived · 1144 publication ready · 55 missing · 61 source pending
+Discovery coverage: 1260 discovered · 1206 archived · 1149 publication ready · 54 missing · 57 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
@@ -498,7 +498,7 @@ Discovery coverage: 1260 discovered · 1205 archived · 1144 publication ready �
 | JAERE | jaere-13-2 | 2026 | ready |  |
 | JAERE | jaere-13-3 | 2026 | ready |  |
 | JAERE | jaere-13-4 | 2026 | ready |  |
-| JAERE | jaere-13-5 | 2026 | blocked | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.ed |
+| JAERE | jaere-13-5 | 2026 | ready |  |
 | JAERE | jaere-13-6 | 2026 | blocked | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.ed |
 | JCE | jce-51-1 | 2023 | ready |  |
 | JCE | jce-51-2 | 2023 | ready |  |
@@ -1240,10 +1240,10 @@ Discovery coverage: 1260 discovered · 1205 archived · 1144 publication ready �
 | RESTAT | restat-107-4 | 2025 | source_pending |  |
 | RESTAT | restat-107-5 | 2025 | source_pending |  |
 | RESTAT | restat-107-6 | 2025 | source_pending |  |
-| RESTAT | restat-108-1 | 2026 | source_pending |  |
-| RESTAT | restat-108-2 | 2026 | source_pending |  |
-| RESTAT | restat-108-3 | 2026 | source_pending |  |
-| RESTAT | restat-108-4 | 2026 | source_pending |  |
+| RESTAT | restat-108-1 | 2026 | ready |  |
+| RESTAT | restat-108-2 | 2026 | ready |  |
+| RESTAT | restat-108-3 | 2026 | ready |  |
+| RESTAT | restat-108-4 | 2026 | ready |  |
 | RFS | rfs-36-10 | 2023 | ready |  |
 | RFS | rfs-36-11 | 2023 | ready |  |
 | RFS | rfs-36-12 | 2023 | ready |  |

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-19T07:25:43+00:00",
+  "updated_at": "2026-09-19T12:35:52+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 49,
@@ -1859,14 +1859,14 @@
       "status": "fallback_verified",
       "current": {
         "available": true,
-        "status": "fallback_verified",
+        "status": "official_page_verified",
         "issue_id": "restat-108-4",
         "publication_date": "July 2026",
-        "publication_state": "source_pending",
-        "source_url": "https://direct.mit.edu/rest/issue",
-        "roster_authority": "crossref-provisional",
-        "roster_transport": "crossref",
-        "order_verified": false,
+        "publication_state": "ready",
+        "source_url": "https://direct.mit.edu/rest/issue/108/4",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "browser-authorized",
+        "order_verified": true,
         "content_counts": {
           "official_items": 22,
           "observed_items": 22,
@@ -1883,9 +1883,7 @@
         "abstracts_complete": 21,
         "translations_complete": 21,
         "errors": [],
-        "warnings": [
-          "crossref_provisional_roster"
-        ]
+        "warnings": []
       },
       "detected": {
         "available": true,
@@ -2469,16 +2467,16 @@
       "current": {
         "available": true,
         "status": "official_page_verified",
-        "issue_id": "jaere-13-4",
-        "publication_date": "July 2026",
+        "issue_id": "jaere-13-5",
+        "publication_date": "September 2026",
         "publication_state": "ready",
-        "source_url": "https://journals.uchicago.edu/toc/jaere/2026/13/4",
+        "source_url": "https://journals.uchicago.edu/toc/jaere/2026/13/5",
         "roster_authority": "official-issue-page",
         "roster_transport": "browser-authorized",
         "order_verified": true,
         "content_counts": {
-          "official_items": 10,
-          "observed_items": 10,
+          "official_items": 9,
+          "observed_items": 9,
           "publishable_items": 8,
           "research_articles": 8,
           "comments": 0,
@@ -2486,7 +2484,7 @@
           "corrections": 0,
           "editorial_material": 0,
           "front_matter": 1,
-          "other_excluded": 1,
+          "other_excluded": 0,
           "catalog_content_items": 8
         },
         "abstracts_complete": 8,

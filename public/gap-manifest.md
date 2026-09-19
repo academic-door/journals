@@ -1,12 +1,12 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-19T07:25:43+00:00
+Generated: 2026-09-19T12:35:51+00:00
 
 ## Summary
 
-- ready: 1144
-- recoverable: 53
-- source_pending: 61
+- ready: 1149
+- recoverable: 52
+- source_pending: 57
 - translation_required: 2
 
 ## Issue queue
@@ -461,7 +461,7 @@ Generated: 2026-09-19T07:25:43+00:00
 | JAERE | jaere-13-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JAERE | jaere-13-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JAERE | jaere-13-4 | 2026 | ready | complete | official_verified | content and official source gates passed |
-| JAERE | jaere-13-5 | 2026 | recoverable | blocked | source_pending | archive_missing |
+| JAERE | jaere-13-5 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JAERE | jaere-13-6 | 2026 | recoverable | blocked | source_pending | archive_missing |
 | JCE | jce-51-1 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JCE | jce-51-2 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
@@ -1162,10 +1162,10 @@ Generated: 2026-09-19T07:25:43+00:00
 | RESTAT | restat-107-4 | 2025 | source_pending | complete | source_pending | official source verification pending |
 | RESTAT | restat-107-5 | 2025 | source_pending | complete | source_pending | official source verification pending |
 | RESTAT | restat-107-6 | 2025 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-108-1 | 2026 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-108-2 | 2026 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-108-3 | 2026 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-108-4 | 2026 | source_pending | complete | source_pending | official source verification pending |
+| RESTAT | restat-108-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| RESTAT | restat-108-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| RESTAT | restat-108-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| RESTAT | restat-108-4 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-36-10 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-36-11 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RFS | rfs-36-12 | 2023 | ready | complete | official_verified | content and official source gates passed |

@@ -1,48 +1,49 @@
 {
   "schema_version": "1.0",
-  "issue_id": "jaere-13-4",
+  "issue_id": "jaere-13-5",
   "journal_id": "jaere",
   "journal_name": "Journal of the Association of Environmental and Resource Economists",
   "volume": "13",
-  "issue": "4",
-  "publication_date": "July 2026",
-  "source_url": "https://journals.uchicago.edu/toc/jaere/2026/13/4",
-  "retrieved_at": "2026-07-28T05:38:42+00:00",
+  "issue": "5",
+  "issue_label": "Vol. 13 · No. 5",
+  "publication_date": "September 2026",
+  "source_url": "https://journals.uchicago.edu/toc/jaere/2026/13/5",
+  "retrieved_at": "2026-09-19T05:55:00+00:00",
   "expected_article_count": 8,
   "research_article_count": 8,
-  "status": "incomplete",
+  "status": "ready",
+  "publication_state": "ready",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1086/740568",
+      "paper_id": "doi:10.1086/741704",
       "sequence": 1,
       "source_sequence": 1,
       "article_type": "research-article",
-      "title_en": "Are We Doing More Harm than Good? Using Hypothetical Bias Reduction Techniques in Consequential Decision Settings",
-      "title_cn": "我们是在造成更多伤害还是带来更多益处？在有结果导向的决策环境中使用假设偏差降低技术",
+      "title_en": "Random Forests for Benefit Transfer",
+      "title_cn": "随机森林用于效益转移",
       "authors": [
-        "Vasudha Chopra",
-        "Christian A. Vossler"
+        "Robert J. Johnston",
+        "Klaus Moeltner"
       ],
-      "abstract_en": "Researchers deploying stated preference surveys to value public goods commonly use techniques designed to reduce bias in hypothetical choice settings. This practice is at odds with evidence that most survey respondents perceive that their decisions are not hypothetical but instead have economic consequences. We examine three bias reduction procedures in both hypothetical and incentive-compatible, real payment settings: cheap talk, solemn oath, and certainty adjustment. We confirm that adjusting hypothetical choices based on response certainty or using a solemn oath can reduce hypothetical bias. In the incentive-compatible decision setting, the oath increases willingness to pay (WTP), and certainty adjustment can lead to serious distortions in demand estimates. Cheap talk does not alter mean WTP but leads to a stark difference in WTP across sexes. To minimize unintended consequences, our results suggest that survey researchers should deploy screening questions to better target these hypothetical bias reduction techniques.",
-      "abstract_cn": "研究人员在利用陈述偏好调查对公共产品进行价值评估时，通常采用旨在减少假设选择环境中偏差的技术。这一做法与证据相悖，后者表明大多数调查受访者认为其决策并非假设性，而是具有经济后果。我们在假设性和激励兼容的真实支付环境中检验了三偏差降低程序：廉价谈话、庄严誓言和确定性调整。我们确认，基于回应确定性调整假设性选择或使用庄严誓言可以减少假设偏差。在激励兼容的决策环境中，誓言提高了支付意愿（WTP），而确定性调整可能导致需求估计出现严重扭曲。廉价谈话不改变平均支付意愿，但在性别之间导致支付意愿的显著差异。为了最大限度减少意外后果，我们的结果建议调查研究者应采用筛查问题，以更好地针对这些假设偏差降低技术。",
-      "doi": "10.1086/740568",
-      "source_url": "https://doi.org/10.1086/740568",
-      "publication_date": "2026",
+      "abstract_en": "Benefit transfer (BT) has evolved as the dominant valuation method for environmental benefit-cost analyses, including those required of US federal agencies. Yet even best-practice approaches for BT based on meta-regression models (MRMs) typically exhibit poor predictive fit and out-of-sample precision. This article introduces random forests (RFs) for nonparametric estimation of MRMs and construction of BT predictions. We compare the performance of different RF models to current best-practice approaches for BT. We find that forest-based models substantially improve the out-of-sample accuracy of welfare predictions and tighten confidence intervals of predicted benefits for stipulated policy scenarios. The best performers reside within the family of local linear forests (LLFs), a hybrid approach that combines elements of RFs and locally weighted regression. Results suggest that this new approach has the potential to substantially improve BT accuracy for environmental policymaking without sacrificing theoretical properties, while simultaneously reducing econometric and computational difficulties relative to leading alternatives.",
+      "abstract_cn": "效益转移（BT）已发展成为环境效益-成本分析（包括美国联邦机构所要求的分析）中的主导估值方法。然而，即便是基于元回归模型（MRMs）的最佳实践BT方法，通常也表现出较差的预测拟合度和样本外精度。本文引入随机森林（RFs）用于MRMs的非参数估计和BT预测的构建。我们将不同RF模型的性能与当前BT的最佳实践方法进行比较。我们发现，基于森林的模型大幅提高了福利预测的样本外准确性，并收紧了指定政策情景下预测效益的置信区间。表现最佳的模型属于局部线性森林（LLFs）家族，这是一种结合了RFs和局部加权回归元素的混合方法。结果表明，这种新方法有潜力在不牺牲理论性质的情况下大幅提高环境政策制定的BT准确性，同时相对于领先的替代方法减少计量经济学和计算上的困难。",
+      "doi": "10.1086/741704",
+      "source_url": "https://journals.uchicago.edu/toc/jaere/2026/13/5",
+      "publication_date": "September 2026",
       "sources": {
-        "issue": "https://www.journals.uchicago.edu/toc/jaere/current",
-        "roster": "https://journals.uchicago.edu/toc/jaere/2026/13/4",
-        "metadata": "crossref",
-        "abstract_en": "repec-publisher-supplied",
-        "repec": "https://ideas.repec.org/a/ucp/jaerec/doi10.1086-740568.html"
+        "issue": "https://journals.uchicago.edu/toc/jaere/2026/13/5",
+        "roster": "https://journals.uchicago.edu/toc/jaere/2026/13/5",
+        "metadata": "https://doi.org/10.1086/741704",
+        "abstract_en": "crossref-or-semantic-scholar"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:50:37+00:00"
+        "translated_at": "2026-09-19T08:27:34+00:00",
+        "source_hash": "b33257d523569629848cccf222ad12073d998bfd2148bf15a781add11a0fd50b"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -53,35 +54,36 @@
       }
     },
     {
-      "paper_id": "doi:10.1086/740839",
+      "paper_id": "doi:10.1086/741829",
       "sequence": 2,
       "source_sequence": 2,
       "article_type": "research-article",
-      "title_en": "Shock Avoidance: High Bill Alert Programs and Energy Consumption",
-      "title_cn": "避免冲击：高账单预警项目与能源消费",
+      "title_en": "Public Economic Benefits of Agricultural Conservation: Evidence from Housing Markets",
+      "title_cn": "农业保护措施的公共经济效益：来自住房市场的证据",
       "authors": [
-        "Grant D. Jacobsen",
-        "James I. Stewart"
+        "Wei Zhang",
+        "Yanggu Li",
+        "Pengfei Liu"
       ],
-      "abstract_en": "Utilities have invested billions of dollars in advanced metering infrastructure (AMI) but proceeded slowly to deploy AMI-enabled programs that benefit consumers. High bill alert (HBA) programs, which inform consumers of unusually high usage patterns, offer an avenue for tapping AMI-enabled benefits. We evaluate an HBA program and find that the program reduced mean electricity and natural gas consumption by about 0.5%. The effects were largest at the top of the usage distribution, especially when normalized by preprogram usage, indicating that households experienced fewer expenditure shocks. Estimates of the program’s benefits and costs illustrate the importance of considering the forgone value of conserved energy when evaluating demand-side management programs in the energy sector.",
-      "abstract_cn": "公用事业公司在先进计量基础设施（AMI）方面投资了数十亿美元，但在部署有利于消费者的AMI支持项目方面进展缓慢。高账单预警（HBA）项目，向消费者通报异常高的用量模式，为利用AMI支持的利益提供了途径。我们评估了一个HBA项目，发现该项目使平均用电和天然气消费分别减少了0.5%。效果在用量分布的顶部最为显著，特别是在用量归一化到项目前用量的情况下，表明家庭经历的支出冲击较少。对该项目的收益和成本的估算显示，在评估能源行业需求侧管理项目时，考虑节约能源的放弃价值具有重要意义。",
-      "doi": "10.1086/740839",
-      "source_url": "https://doi.org/10.1086/740839",
-      "publication_date": "2026",
+      "abstract_en": "Conservation on working agricultural lands provides many ecosystem services, and public funding for conservation programs has increased substantially over the past two decades. This study estimates the public economic benefits of agricultural conservation through its capitalization in US housing markets. We spatially link USDA Environmental Quality Incentives Program (EQIP) data with individual property transactions to estimate residents’ valuation of environmental amenities provided by conservation practices. Using a repeat-sales model, we find that agricultural conservation increases local housing prices, with benefits capitalized up to 20 miles. In addition, we show that conservation payments made two years ago have larger impacts than those made in the previous year, suggesting the importance of accounting for the temporal dynamics of conservation impacts. We also examine the heterogeneous impacts across practices targeting different resource concerns or with different design lifespans. Our results highlight the positive impact of agricultural conservation on nearby communities.",
+      "abstract_cn": "在耕作农业用地上开展的保护措施提供了许多生态系统服务，过去20年间，保护项目的公共资金投入大幅增加。本研究通过农业保护措施在美国住房市场中的资本化来估计其公共经济效益。我们将美国农业部环境质量激励项目（EQIP）数据与个人房产交易数据进行空间关联，以估计居民对保护措施所提供的环境便利设施的估值。使用重复销售模型，我们发现农业保护措施提高了当地住房价格，其效益资本化范围可达20英里。此外，我们表明两年前进行的保护支付比前一年进行的支付影响更大，这表明考虑保护影响的时间动态的重要性。我们还考察了针对不同资源关注点或具有不同设计寿命的各类措施之间的异质性影响。我们的结果凸显了农业保护措施对附近社区的积极影响。",
+      "doi": "10.1086/741829",
+      "source_url": "https://journals.uchicago.edu/toc/jaere/2026/13/5",
+      "publication_date": "September 2026",
       "sources": {
-        "issue": "https://www.journals.uchicago.edu/toc/jaere/current",
-        "roster": "https://journals.uchicago.edu/toc/jaere/2026/13/4",
-        "metadata": "crossref",
+        "issue": "https://journals.uchicago.edu/toc/jaere/2026/13/5",
+        "roster": "https://journals.uchicago.edu/toc/jaere/2026/13/5",
+        "metadata": "https://doi.org/10.1086/741829",
         "abstract_en": "repec-publisher-supplied",
-        "repec": "https://ideas.repec.org/a/ucp/jaerec/doi10.1086-740839.html"
+        "repec": "https://ideas.repec.org/a/ucp/jaerec/doi10.1086-741829.html"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:50:42+00:00"
+        "translated_at": "2026-09-19T08:27:36+00:00",
+        "source_hash": "79a6a6353d2d2ab86acb2d09354efe378e13dcf6cceacd1cc2bd282fbc28163a"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -92,34 +94,36 @@
       }
     },
     {
-      "paper_id": "doi:10.1086/741141",
+      "paper_id": "doi:10.1086/741559",
       "sequence": 3,
       "source_sequence": 3,
       "article_type": "research-article",
-      "title_en": "Irrigation and Climate Change: Long-Run Adaptation and Its Externalities",
-      "title_cn": "灌溉与气候变化：长期适应及其外部性",
+      "title_en": "Young Local Politicians and Deforestation in the Brazilian Amazon",
+      "title_cn": "年轻的本地政治家与巴西亚马逊地区的森林砍伐",
       "authors": [
-        "Charles A. Taylor"
+        "Ricardo Dahis",
+        "Ivan de las Heras",
+        "Santiago Saavedra"
       ],
-      "abstract_en": "As the largest user of water, irrigated agriculture accounts for 20% of global cropland and over 40% of food production. Irrigation is also a potential adaptive response to climate change. This study examines the extent to which the current global irrigation footprint reflects climate change over the last 50 years. Utilizing variation in local climate, I find that increasing drought conditions over time are associated with irrigation expansion in areas with groundwater potential. The results hold both globally and in the United States. GRACE satellite data suggest that this expansion of irrigation can contribute to aquifer stress and increased soil salinity, which represent potential negative externalities of climate adaptation and a threat to future food security.",
-      "abstract_cn": "作为最大的用水部门，灌溉农业占全球耕地的20%和粮食产量的40%以上。灌溉也是应对气候变化的潜在适应性措施。本研究考察了当前全球灌溉分布在多大程度上反映了过去50年的气候变化。利用局部气候的变异性，我发现随着时间推移，干旱条件的加剧与地下水潜力地区的灌溉扩张相关。这一结果在全球和美国均成立。GRACE卫星数据表明，灌溉的扩张可能导致含水层压力增加和土壤盐碱化加剧，这代表了气候适应的潜在负外部性，并对未来粮食安全构成威胁。",
-      "doi": "10.1086/741141",
-      "source_url": "https://doi.org/10.1086/741141",
-      "publication_date": "2026",
+      "abstract_en": "While deforestation may yield short-term economic gains, it has lasting impacts on climate change, biodiversity, and water systems. The age of political leaders is a key determinant of how these trade-offs are managed. We study closely contested elections in Brazil and show that when a young politician is in power there is less deforestation (p-value .000), lower greenhouse gas emissions (p-value .061), but higher local income (p-value .023). Results are partly explained by young mayors turning over the bureaucracy with younger public servants (p-value .043).",
+      "abstract_cn": "虽然森林砍伐可能带来短期经济收益，但它对气候变化、生物多样性和水系具有持久影响。政治领导人的年龄是管理这些权衡取舍的关键决定因素。我们研究了巴西竞争激烈的选举，并表明当一位年轻政治家掌权时，森林砍伐更少（p值 .000），温室气体排放更低（p值 .061），但本地收入更高（p值 .023）。结果部分可由年轻市长用更年轻的公务员替换官僚体系来解释（p值 .043）。",
+      "doi": "10.1086/741559",
+      "source_url": "https://journals.uchicago.edu/toc/jaere/2026/13/5",
+      "publication_date": "September 2026",
       "sources": {
-        "issue": "https://www.journals.uchicago.edu/toc/jaere/current",
-        "roster": "https://journals.uchicago.edu/toc/jaere/2026/13/4",
-        "metadata": "crossref",
+        "issue": "https://journals.uchicago.edu/toc/jaere/2026/13/5",
+        "roster": "https://journals.uchicago.edu/toc/jaere/2026/13/5",
+        "metadata": "https://doi.org/10.1086/741559",
         "abstract_en": "repec-publisher-supplied",
-        "repec": "https://ideas.repec.org/a/ucp/jaerec/doi10.1086-741141.html"
+        "repec": "https://ideas.repec.org/a/ucp/jaerec/doi10.1086-741559.html"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "mistral-ai/mistral-medium-2505",
-        "translated_at": "2026-07-26T20:25:27+00:00"
+        "translated_at": "2026-09-19T08:27:38+00:00",
+        "source_hash": "7d46ab53ad48dd0a3442509704949d841e6dd61ab61705fed7b68d29f3d8db97"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -130,35 +134,35 @@
       }
     },
     {
-      "paper_id": "doi:10.1086/740567",
+      "paper_id": "doi:10.1086/741689",
       "sequence": 4,
       "source_sequence": 4,
       "article_type": "research-article",
-      "title_en": "Droughts and Economic Activity: Do Dams and Groundwater Mediate the Impact?",
-      "title_cn": "干旱与经济活动：水坝和地下水是否调节影响？",
+      "title_en": "Risky (Natural) Assets: Stochasticity, Nonconvexity, and the Value of Natural Capital",
+      "title_cn": "风险性（自然）资产：随机性、非凸性与自然资本的价值",
       "authors": [
-        "Sheila M. Olmstead",
-        "Hilary Sigman"
+        "Joshua K. Abbott",
+        "Eli P. Fenichel",
+        "Seong D. Yun"
       ],
-      "abstract_en": "This study examines the effects of droughts on economic activity, proxied by nighttime lights. Using two different indices of drought severity, one remotely sensed and one from ground-sensed meteorological data, we provide some of the first global estimates of the economic effects of drought, as opposed to temperature and precipitation. Economic impacts depend on drought severity, with moderate-or-worse droughts reducing luminosity by about 2%. Water storage in the form of accessible groundwater mitigates drought impacts. Dams moderate the effects of all but the most extreme droughts. For moderate or worse droughts, negative effects are fully offset by the presence of dams, unless some dams are hydroelectric. Upstream dams do not appear to create harmful spillovers for drought resilience downstream. Results are robust to allowing separate mediating impacts from irrigation and suggest that the resilience benefits of dams and groundwater extend beyond agriculture.",
-      "abstract_cn": "本研究考察干旱对经济活动的影响，以夜间灯光作为代理变量。利用不同的干旱严重程度指数，包括遥感的一和地面观测的一，我们提供了部分关于干旱对经济影响的全球估计，特别是相对于温度和降水的影响。经济影响依赖于干旱的严重程度，中度或更严重的干旱会使光度降低大约2%。可利用的地下水水储存缓解了干旱的影响。水坝可以缓和除极端干旱之外的所有干旱影响。对于中度或更严重的干旱，除非水坝为水电站，否则水坝的负面影响会被完全抵消。上游水坝似乎不会对下游的抗旱能力产生有害的溢出效应。结果对允许灌溉带来的调节影响的分开考虑具有稳健性，并且表明水坝和地下水的抗旱韧性益处超越了农业领域。",
-      "doi": "10.1086/740567",
-      "source_url": "https://doi.org/10.1086/740567",
-      "publication_date": "2026",
+      "abstract_en": "There is renewed interest in valuing the natural assets that sustain human welfare and economic prosperity. The science associated with many renewable natural asset stocks often highlights risk, uncertainty, and tipping points (nonconvexities). However, there is little guidance in the literature concerning how to incorporate risk or tipping points within capital dynamics into the valuation of nonmarket assets. We extend and demonstrate the theory of natural capital valuation for smooth stochasticity (diffusions) with convex and nonconvex drift terms and for “stochastic nonconvexities,” whereby a stock is subject to endogenous risk of collapse. We highlight pathways for risk to influence capital valuations, demonstrating conditions where diffusions with convex dynamics have negligible effects on shadow prices. However, we find that risk has large stock-dependent effects in the context of nonconvexities. Our findings suggest that efforts to incorporate risk into natural capital valuation should prioritize settings where nonconvex capital dynamics are likely.",
+      "abstract_cn": "人们重新关注对维持人类福祉和经济繁荣的自然资产进行估值。与许多可再生自然资产存量相关的科学往往强调风险、不确定性和临界点（非凸性）。然而，关于如何在非市场资产估值中将风险或资本动态中的临界点纳入其中，文献中几乎没有指导。我们扩展并展示了自然资本估值理论，适用于具有凸性和非凸性漂移项的平滑随机性（扩散）以及“随机非凸性”，即存量面临内生崩溃风险。我们强调了风险影响资本估值的路径，展示了具有凸动态的扩散对影子价格影响可忽略的条件。然而，我们发现风险在非凸性背景下具有巨大的存量依赖效应。我们的发现表明，将风险纳入自然资本估值的努力应优先考虑非凸资本动态可能出现的场景。",
+      "doi": "10.1086/741689",
+      "source_url": "https://journals.uchicago.edu/toc/jaere/2026/13/5",
+      "publication_date": "September 2026",
       "sources": {
-        "issue": "https://www.journals.uchicago.edu/toc/jaere/current",
-        "roster": "https://journals.uchicago.edu/toc/jaere/2026/13/4",
-        "metadata": "crossref",
-        "abstract_en": "repec-publisher-supplied",
-        "repec": "https://ideas.repec.org/a/ucp/jaerec/doi10.1086-740567.html"
+        "issue": "https://journals.uchicago.edu/toc/jaere/2026/13/5",
+        "roster": "https://journals.uchicago.edu/toc/jaere/2026/13/5",
+        "metadata": "https://doi.org/10.1086/741689",
+        "abstract_en": "crossref-or-semantic-scholar"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:51:19+00:00"
+        "translated_at": "2026-09-19T08:27:40+00:00",
+        "source_hash": "28d7d47aca6454ac9cb9cee2c5b89c560fac4eafe4aed0893b0423279609683d"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -169,35 +173,34 @@
       }
     },
     {
-      "paper_id": "doi:10.1086/740879",
+      "paper_id": "doi:10.1086/741830",
       "sequence": 5,
       "source_sequence": 5,
       "article_type": "research-article",
-      "title_en": "A Hedge Fund in Your Garage: Automobile Purchases Under Gasoline Price Uncertainty",
-      "title_cn": "车库中的对冲基金：汽油价格不确定性下的汽车购买",
+      "title_en": "The Effects of Competition in the Retail Gasoline Industry",
+      "title_cn": "零售汽油行业竞争的影响",
       "authors": [
-        "James Archsmith",
-        "Simon Levin"
+        "Reid Taylor",
+        "Erich Muehlegger"
       ],
-      "abstract_en": "College education, homeownership, and automobiles are all examples of purchases where consumers sink a large up-front investment expecting to enjoy a stream of future net benefits. Often those benefits are uncertain at the time of purchase. We consider how uncertainty in future operating costs impacts the choice of vehicle fuel economy. Using measures of future gasoline price uncertainty from real options theory and comprehensive data on sales of automobiles in the United States, we find that future gasoline price uncertainty has economically meaningful impacts on vehicle demand, with a one standard deviation increase in the variance of the future price distribution increasing willingness to pay for fuel economy by 6.7%, slightly improving mean fuel economy but substantially reducing short-run vehicle sales. This new finding has implications for transportation policies that may introduce new uncertainties in future vehicle operating costs.",
-      "abstract_cn": "高校教育、房屋所有权和汽车都是消费者在预期未来净收益流中投入大量前期资金的购买例子。这些未来收益在购买时往往具有不确定性。我们考虑未来运营成本不确定性如何影响车辆燃油经济性的选择。利用来自期权理论的未来汽油价格不确定性指标以及美国汽车销售的全面数据，我们发现未来汽油价格不确定性对车辆需求具有具有经济意义的影响，未来价格分布方差每增加一个标准差，消费者愿意为燃油经济性支付的意愿增加6.7%，略微改善平均燃油经济性，但在短期内显著减少车辆销售。这一新发现对可能引入未来车辆运营成本新不确定性的交通政策具有启示意义。",
-      "doi": "10.1086/740879",
-      "source_url": "https://doi.org/10.1086/740879",
-      "publication_date": "2026",
+      "abstract_en": "We estimate the effect of competition on incumbent firm pricing by using high frequency price data and the precise geographic location for all gas stations in California. Using an event study design, we find that the entry of a new station is associated with a 2.5 cent decrease in prices at incumbent stores, which equates to a 7% reduction in estimated retail markups. The effects are immediate, persistent, and show no sign of deterrence or limit pricing behavior. In contrast, nearby exit results in precisely estimated null effects on prices with no evidence of predatory pricing in the lead up to the station departure. The results are consistent across all fuel blends and dissipate with station distance. Finally, we explore the asymmetric effects, showing that the difference cannot be attributed to difference in branding, proximity to highway, or data quality idiosyncrasies, although we find suggestive evidence that exit tends to happen in more competitive markets and amongst less heavily trafficked stations.",
+      "abstract_cn": "我们利用高频价格数据和加利福尼亚州所有加油站的精确地理位置，估计竞争对现有企业定价的影响。采用事件研究设计，我们发现新加油站的进入与现有加油站价格下降2.5美分相关，这相当于估计零售加价减少了7%。这些影响是即时的、持久的，并且没有显示出威慑或限制性定价行为的迹象。相比之下，附近的退出导致价格精确估计的零效应，没有证据表明在加油站退出之前存在掠夺性定价。结果在所有燃料混合品种中一致，并随加油站距离而消散。最后，我们探讨了不对称效应，表明这种差异不能归因于品牌、靠近高速公路或数据质量特异性的差异，尽管我们发现了暗示性证据表明退出往往发生在竞争更激烈的市场和交通流量较少的加油站中。",
+      "doi": "10.1086/741830",
+      "source_url": "https://journals.uchicago.edu/toc/jaere/2026/13/5",
+      "publication_date": "September 2026",
       "sources": {
-        "issue": "https://www.journals.uchicago.edu/toc/jaere/current",
-        "roster": "https://journals.uchicago.edu/toc/jaere/2026/13/4",
-        "metadata": "crossref",
-        "abstract_en": "repec-publisher-supplied",
-        "repec": "https://ideas.repec.org/a/ucp/jaerec/doi10.1086-740879.html"
+        "issue": "https://journals.uchicago.edu/toc/jaere/2026/13/5",
+        "roster": "https://journals.uchicago.edu/toc/jaere/2026/13/5",
+        "metadata": "https://doi.org/10.1086/741830",
+        "abstract_en": "crossref-or-semantic-scholar"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:51:25+00:00"
+        "translated_at": "2026-09-19T08:27:42+00:00",
+        "source_hash": "eccdddce4574933e21f1d9de7b03bcd1c5f834223df03598bc0baa460840a51e"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -208,35 +211,35 @@
       }
     },
     {
-      "paper_id": "doi:10.1086/741509",
+      "paper_id": "doi:10.1086/742108",
       "sequence": 6,
       "source_sequence": 6,
       "article_type": "research-article",
-      "title_en": "Causal Inference, High-Frequency Data, and the Recreational Value of Water Quality",
-      "title_cn": "因果推断、高频数据与水质休闲价值",
+      "title_en": "Political Ideology and US Electric Vehicle Adoption",
+      "title_cn": "政治意识形态与美国电动汽车采用",
       "authors": [
-        "Andrew Earle",
-        "Hyunjung Kim"
+        "Lucas W. Davis",
+        "Jing Li",
+        "Katalin Springel"
       ],
-      "abstract_en": "Emerging datasets capture rich temporal variation in recreation behavior, but recreation demand analyses have traditionally used variation across sites, rather than across time, to value environmental amenities. We introduce a model and estimation procedure designed to exploit panel variation in recreation demand analyses by embedding panel data causal inference techniques within a travel cost random utility model. To demonstrate the method, we use “structural synthetic controls” to value the welfare losses caused by water-quality-induced beach closures in southeast Michigan. Losses tend to be larger on weekends and hotter days, and our results suggest that a stigma effect reduces visitation even after the beach reopens. Our method is particularly useful for valuing the recreational impacts of resource shocks, like harmful algal blooms or wildfires, and it can be applied broadly given the increasing availability of high-frequency recreation data.",
-      "abstract_cn": "新兴数据集捕捉了休闲行为中的丰富时间变异，但休闲需求分析传统上利用不同地点之间的变异，而非时间上的变异，来评估环境设施的价值。我们引入一种模型和估计程序，旨在通过将面板数据因果推断技术嵌入旅游成本随机效用模型中，利用面板变异进行休闲需求分析。为展示该方法，我们采用“结构合成控制”方法，评估由水质引起的海滩关闭在东南密歇根地区造成的福利损失。损失在周末和天气较热的日子更为显著，我们的结果表明，即使海滩重新开放后，污名效应仍会降低访客数量。我们的方法对于评估资源冲击（如有害藻华或野火）引起的休闲影响特别有用，并且随着高频休闲数据的日益丰富，该方法具有广泛的应用潜力。",
-      "doi": "10.1086/741509",
-      "source_url": "https://doi.org/10.1086/741509",
-      "publication_date": "2026",
+      "abstract_en": "The prospect for electric vehicles (EVs) as a climate change solution hinges on their widespread adoption across political lines. This study uses county-level data to show that from 2012 to 2023 about half of all new EV registrations in the United States went to the 10% most Democratic counties, and about one-third went to the top 5%. This correlation is largely stable over time and remains after controlling for household income, gasoline prices, and other observables. EV trucks are a small share of the EV market but show a lower correlation than other EV types. We also conducted a survey, finding little difference in the ability of Democrats and Republicans to answer questions about EVs.",
+      "abstract_cn": "电动汽车（EV）作为气候变化解决方案的前景取决于其能否跨越政治界限被广泛采用。本研究使用县级数据表明，从2012到2023，美国所有新电动汽车注册中约有一半流向了10%个最民主的县，约三分之一流向了前5%个。这种相关性随时间基本稳定，并且在控制了家庭收入、汽油价格和其他可观测变量后仍然存在。电动卡车在电动汽车市场中占比较小，但与其他电动汽车类型相比显示出较低的相关性。我们还进行了一项调查，发现民主党和共和党在回答有关电动汽车的问题的能力上几乎没有差异。",
+      "doi": "10.1086/742108",
+      "source_url": "https://journals.uchicago.edu/toc/jaere/2026/13/5",
+      "publication_date": "September 2026",
       "sources": {
-        "issue": "https://www.journals.uchicago.edu/toc/jaere/current",
-        "roster": "https://journals.uchicago.edu/toc/jaere/2026/13/4",
-        "metadata": "crossref",
-        "abstract_en": "repec-publisher-supplied",
-        "repec": "https://ideas.repec.org/a/ucp/jaerec/doi10.1086-741509.html"
+        "issue": "https://journals.uchicago.edu/toc/jaere/2026/13/5",
+        "roster": "https://journals.uchicago.edu/toc/jaere/2026/13/5",
+        "metadata": "https://doi.org/10.1086/742108",
+        "abstract_en": "crossref-or-semantic-scholar"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:51:33+00:00"
+        "translated_at": "2026-09-19T08:27:43+00:00",
+        "source_hash": "ed07a0d1b2d501e2f1633f0f2a97dc93bce7c341610919d3f12ce2238ea0e74f"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -247,36 +250,35 @@
       }
     },
     {
-      "paper_id": "doi:10.1086/740185",
+      "paper_id": "doi:10.1086/741557",
       "sequence": 7,
       "source_sequence": 7,
       "article_type": "research-article",
-      "title_en": "The Urban Equilibrium Effects of Electric Vehicle Tax Credits",
-      "title_cn": "电动车税收抵免的城市均衡效应",
+      "title_en": "Satisfaction, Willingness to Pay, and Ridership When Buses Are Electrified",
+      "title_cn": "公交车电动化后的满意度、支付意愿与客流量",
       "authors": [
-        "Weihua Zhao",
-        "William Larson",
-        "Becka Brolinson"
+        "Alberto Salvo",
+        "Timothy Wong"
       ],
-      "abstract_en": "This study extends the monocentric city model to incorporate endogenous household automobile fuel choice and dwelling energy consumption. Electric vehicle (EV) tax credits lower direct energy consumption and emissions via commuting but also cause important urban general equilibrium effects, including sprawl. This creates a substantial emissions rebound effect via larger homes, longer commutes, and greater consumption of the numeraire good. Nevertheless, EV tax credits are welfare enhancing unless electricity production is heavily tilted toward coal, with total household energy consumption and carbon emissions falling substantially.",
-      "abstract_cn": "本研究将单中心城市模型扩展到考虑家庭汽车燃料选择和居住能源消费的内生性。电动车（EV）税收抵免通过通勤降低直接能源消耗和排放，但也引发重要的城市一般均衡效应，包括城市蔓延。这导致通过更大的住房、更长的通勤距离和更高的名义商品消费产生显著的排放反弹效应。尽管如此，除非电力生产严重偏向煤炭，否则电动车税收抵免有助于提高福利，总体家庭能源消耗和碳排放也会大幅下降。",
-      "doi": "10.1086/740185",
-      "source_url": "https://doi.org/10.1086/740185",
-      "publication_date": "2026",
+      "abstract_en": "Do citizens value the electrification of public transport? Cleaner and quieter services should increase consumer welfare. Yet this response has not been tested, despite the vast investment planned by governments worldwide. We provide a three-pronged empirical analysis of the demand response to bus electrification. First, commuters alighting from electric buses report higher satisfaction regarding noise, fumes, and smell compared with a diesel bus control. Second, residents of a neighborhood exposed to electric buses for over one year are willing to pay US$0.085 for an electric relative to a diesel bus ride, which amounts to US$20 per resident per year. Consumer welfare gains are US$250,000 per electric bus procured—a neglected demand-side cobenefit in public transit’s energy transition that is similar in size to the carbon savings. Third, ridership is higher on electrified bus lines. This effect increases with the timing, duration, and intensity of a bus line’s electrification.",
+      "abstract_cn": "公民是否重视公共交通的电动化？更清洁、更安静的服务应能提高消费者福利。然而，尽管世界各国政府计划进行巨额投资，这种反应尚未得到检验。我们对公交车电动化的需求反应进行了三方面的实证分析。第一，与柴油公交车对照组相比，从电动公交车下车的通勤者在噪音、废气和气味方面报告了更高的满意度。第二，暴露于电动公交车超过一年的社区居民，相对于柴油公交车出行，愿意为电动公交车出行支付US$0.085，这相当于每位居民每年US$20。每采购一辆电动公交车带来的消费者福利收益为US$250,000——这是公共交通能源转型中被忽视的需求侧协同效益，其规模与碳节约相似。第三，电动化公交线路的客流量更高。这一效应随着公交线路电动化的时机、持续时间和强度而增加。",
+      "doi": "10.1086/741557",
+      "source_url": "https://journals.uchicago.edu/toc/jaere/2026/13/5",
+      "publication_date": "September 2026",
       "sources": {
-        "issue": "https://www.journals.uchicago.edu/toc/jaere/current",
-        "roster": "https://journals.uchicago.edu/toc/jaere/2026/13/4",
-        "metadata": "crossref",
+        "issue": "https://journals.uchicago.edu/toc/jaere/2026/13/5",
+        "roster": "https://journals.uchicago.edu/toc/jaere/2026/13/5",
+        "metadata": "https://doi.org/10.1086/741557",
         "abstract_en": "repec-publisher-supplied",
-        "repec": "https://ideas.repec.org/a/ucp/jaerec/doi10.1086-740185.html"
+        "repec": "https://ideas.repec.org/a/ucp/jaerec/doi10.1086-741557.html"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:51:40+00:00"
+        "translated_at": "2026-09-19T08:27:45+00:00",
+        "source_hash": "ae6ce97fd5c4312a73d16d6553814b04d433e1b3f99da6f0b49a02f70065baf0"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -287,35 +289,36 @@
       }
     },
     {
-      "paper_id": "doi:10.1086/740953",
+      "paper_id": "doi:10.1086/741602",
       "sequence": 8,
       "source_sequence": 8,
       "article_type": "research-article",
-      "title_en": "Environmental Liability, Insurance, and Market Structure in Coal Mining",
-      "title_cn": "环境责任、保险与煤炭开采市场结构",
+      "title_en": "Correcting Consumer Misperceptions about CO2 Emissions",
+      "title_cn": "纠正消费者对CO2排放的误解",
       "authors": [
-        "Tom Eisenberg",
-        "Joshua Macey"
+        "Taisuke Imai",
+        "Davide D. Pace",
+        "Peter Schwardmann",
+        "Joël J. van der Weele"
       ],
-      "abstract_en": "This study examines a Pennsylvania policy reform that increased bonded liability for coal mines with reclamation obligations. A 2001 change for surface mines was largely priced into existing reclamation insurance mechanisms, which exist to prevent mines from shirking their liabilities. We find that the changes increased mine-level insured liability and idling (≈15% for median mines), led to declines in production, and did not change environmental performance directly for treated mines. However, we do find that these effects were driven largely by higher polluting mines. Major results are robust to both comparing bituminous and anthracite mines within Pennsylvania as well as bituminous mines between Pennsylvania and Virginia.",
-      "abstract_cn": "本研究考察了宾夕法尼亚州一项政策改革，该改革增加了具有复垦义务的煤矿的保证责任。表面矿的2001变动在很大程度上已被现有的复垦保险机制所反映，该机制旨在防止矿山逃避其责任。我们发现，这些变化增加了矿山层面的保险责任和停产（约为15%的中位数矿山），导致产量下降，并未直接改变受影响矿山的环境表现。然而，我们也发现，这些影响主要由污染较重的矿山驱动。主要结果在将宾夕法尼亚州的褐煤矿与无烟煤矿进行比较，以及在宾夕法尼亚州与弗吉尼亚州的褐煤矿之间的比较中均具有稳健性。",
-      "doi": "10.1086/740953",
-      "source_url": "https://doi.org/10.1086/740953",
-      "publication_date": "2026",
+      "abstract_en": "Policymakers frequently champion information provision about carbon impact on the premise that consumers are willing to mitigate their emissions but are poorly informed about how to do so. We empirically test this argument and reject it. We collect an extensive new dataset and find both large misperceptions of the carbon impact of different consumption behaviors and clear preferences for mitigation. Yet, in two separate experiments, we show that correcting beliefs has no effect on consumption in large representative samples. Our null results are well powered and informative, as we target information for maximal impact. These results call into question the potential of correcting carbon footprint misperceptions as a tool to fight climate change.",
+      "abstract_cn": "政策制定者经常倡导提供关于碳影响的信息，其前提是消费者愿意减少排放，但对如何减少排放知之甚少。我们实证检验了这一论点并予以否定。我们收集了一个广泛的新数据集，发现对不同消费行为的碳影响存在严重误解，同时也发现了明确的减排偏好。然而，在两个独立的实验中，我们表明在大规模代表性样本中纠正信念对消费没有影响。我们的零结果具有足够的统计功效且信息丰富，因为我们针对信息以实现最大影响。这些结果对将纠正碳足迹误解作为应对气候变化的工具的可能性提出了质疑。",
+      "doi": "10.1086/741602",
+      "source_url": "https://journals.uchicago.edu/toc/jaere/2026/13/5",
+      "publication_date": "September 2026",
       "sources": {
-        "issue": "https://www.journals.uchicago.edu/toc/jaere/current",
-        "roster": "https://journals.uchicago.edu/toc/jaere/2026/13/4",
-        "metadata": "crossref",
-        "abstract_en": "repec-publisher-supplied",
-        "repec": "https://ideas.repec.org/a/ucp/jaerec/doi10.1086-740953.html"
+        "issue": "https://journals.uchicago.edu/toc/jaere/2026/13/5",
+        "roster": "https://journals.uchicago.edu/toc/jaere/2026/13/5",
+        "metadata": "https://doi.org/10.1086/741602",
+        "abstract_en": "crossref-or-semantic-scholar"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:51:47+00:00"
+        "translated_at": "2026-09-19T08:27:46+00:00",
+        "source_hash": "ceb3f56f05979aa8183131267119a87017c05649242f86ff48b34e743b0b860f"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -329,22 +332,14 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "browser-authorized",
     "roster_authority": "official-issue-page",
-    "roster_match_scope": "crossref-issue-group",
-    "publisher_page_status": "blocked",
-    "excluded_item_count": 2,
+    "roster_transport": "browser-authorized",
+    "official_item_count": 9,
     "excluded_items": [
       {
-        "title_en": "Wallace E. Oates Outstanding Doctoral Dissertation Award",
-        "reason": "non_publishable_item",
-        "doi": "10.1086/742463",
-        "article_type": "research-article"
-      },
-      {
         "title_en": "Front Matter",
-        "reason": "front_matter",
-        "doi": "10.1086/742835",
+        "doi": "10.1086/743613",
+        "reason": "front-matter",
         "article_type": "front-matter"
       }
     ],
@@ -354,11 +349,11 @@
     "translation_complete": 8,
     "duplicate_count": 0,
     "flags": [],
-    "official_item_count": 10,
     "publishable_item_count": 8,
+    "excluded_item_count": 1,
     "content_counts": {
-      "official_items": 10,
-      "observed_items": 10,
+      "official_items": 9,
+      "observed_items": 9,
       "publishable_items": 8,
       "research_articles": 8,
       "comments": 0,
@@ -366,23 +361,13 @@
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 1,
-      "other_excluded": 1,
+      "other_excluded": 0,
       "catalog_content_items": 8
-    },
-    "official_roster_evidence": {
-      "captured_at": "2026-08-30T14:03:05Z",
-      "official_url": "https://journals.uchicago.edu/toc/jaere/2026/13/4",
-      "method": "browser-authorized",
-      "item_count": 8,
-      "excluded_item_count": 0,
-      "archive_reordered": false,
-      "sequence_sha256": "4d330bd2082952fd77a33ce2b53774dba7f8b32b7b3f276fffbf2a6b720b7962",
-      "privacy_fields_stored": false
     }
   },
   "content_counts": {
-    "official_items": 10,
-    "observed_items": 10,
+    "official_items": 9,
+    "observed_items": 9,
     "publishable_items": 8,
     "research_articles": 8,
     "comments": 0,
@@ -390,11 +375,9 @@
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 1,
-    "other_excluded": 1,
+    "other_excluded": 0,
     "catalog_content_items": 8
   },
-  "issue_label": "Vol. 13 · No. 4",
   "content_status": "complete",
-  "source_status": "official_verified",
-  "publication_state": "ready"
+  "source_status": "official_verified"
 }

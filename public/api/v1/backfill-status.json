@@ -1,21 +1,21 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-09-19T07:25:26+00:00",
+  "updated_at": "2026-09-19T12:35:34+00:00",
   "summary": {
-    "complete": 1203,
+    "complete": 1208,
     "translation_partial": 2,
-    "blocked": 47,
+    "blocked": 46,
     "collected": 0,
-    "pending": 83
+    "pending": 79
   },
   "coverage": {
     "discovered": 1260,
-    "archived": 1205,
-    "content_ready": 1205,
-    "source_verified": 1144,
-    "publication_ready": 1144,
-    "missing": 55,
-    "source_pending": 61,
+    "archived": 1206,
+    "content_ready": 1206,
+    "source_verified": 1149,
+    "publication_ready": 1149,
+    "missing": 54,
+    "source_pending": 57,
     "missing_issue_ids": [
       "ecolecon-224-c",
       "ecolecon-225-c",
@@ -39,7 +39,6 @@
       "jaere-11-5",
       "jaere-11-6",
       "jaere-11-S1",
-      "jaere-13-5",
       "jaere-13-6",
       "jedc-192-c",
       "jeem-118-c",
@@ -127,10 +126,6 @@
       "restat-107-4",
       "restat-107-5",
       "restat-107-6",
-      "restat-108-1",
-      "restat-108-2",
-      "restat-108-3",
-      "restat-108-4",
       "te-20-1",
       "te-20-2",
       "te-20-3",
@@ -1823,10 +1818,10 @@
       "discovered": 22,
       "archived": 22,
       "content_ready": 22,
-      "source_verified": 5,
-      "publication_ready": 5,
+      "source_verified": 9,
+      "publication_ready": 9,
       "missing": 0,
-      "source_pending": 17,
+      "source_pending": 13,
       "missing_issue_ids": [],
       "source_pending_issue_ids": [
         "restat-105-5",
@@ -1841,11 +1836,7 @@
         "restat-107-3",
         "restat-107-4",
         "restat-107-5",
-        "restat-107-6",
-        "restat-108-1",
-        "restat-108-2",
-        "restat-108-3",
-        "restat-108-4"
+        "restat-107-6"
       ],
       "blocked_issue_ids": [],
       "years": {
@@ -1905,17 +1896,12 @@
           "discovered": 4,
           "archived": 4,
           "content_ready": 4,
-          "source_verified": 0,
-          "publication_ready": 0,
+          "source_verified": 4,
+          "publication_ready": 4,
           "missing": 0,
-          "source_pending": 4,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "restat-108-1",
-            "restat-108-2",
-            "restat-108-3",
-            "restat-108-4"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         }
       }
@@ -2447,11 +2433,11 @@
     },
     "JAERE": {
       "discovered": 25,
-      "archived": 10,
-      "content_ready": 10,
-      "source_verified": 10,
-      "publication_ready": 10,
-      "missing": 15,
+      "archived": 11,
+      "content_ready": 11,
+      "source_verified": 11,
+      "publication_ready": 11,
+      "missing": 14,
       "source_pending": 0,
       "missing_issue_ids": [
         "jaere-10-1",
@@ -2467,7 +2453,6 @@
         "jaere-11-5",
         "jaere-11-6",
         "jaere-11-S1",
-        "jaere-13-5",
         "jaere-13-6"
       ],
       "source_pending_issue_ids": [],
@@ -2526,14 +2511,13 @@
         },
         "2026": {
           "discovered": 6,
-          "archived": 4,
-          "content_ready": 4,
-          "source_verified": 4,
-          "publication_ready": 4,
-          "missing": 2,
+          "archived": 5,
+          "content_ready": 5,
+          "source_verified": 5,
+          "publication_ready": 5,
+          "missing": 1,
           "source_pending": 0,
           "missing_issue_ids": [
-            "jaere-13-5",
             "jaere-13-6"
           ],
           "source_pending_issue_ids": [],
@@ -9116,11 +9100,11 @@
         "year": 2026,
         "volume": "13",
         "issue": "5",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2026/13/5",
+        "status": "ready",
+        "content_status": "complete",
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -18076,48 +18060,48 @@
         "year": 2026,
         "volume": "108",
         "issue": "1",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
+        "source_status": "official_verified",
+        "publication_state": "ready",
         "last_error": "",
-        "retry_class": "source"
+        "retry_class": "manual"
       },
       {
         "issue_id": "restat-108-2",
         "year": 2026,
         "volume": "108",
         "issue": "2",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
+        "source_status": "official_verified",
+        "publication_state": "ready",
         "last_error": "",
-        "retry_class": "source"
+        "retry_class": "manual"
       },
       {
         "issue_id": "restat-108-3",
         "year": 2026,
         "volume": "108",
         "issue": "3",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
+        "source_status": "official_verified",
+        "publication_state": "ready",
         "last_error": "",
-        "retry_class": "source"
+        "retry_class": "manual"
       },
       {
         "issue_id": "restat-108-4",
         "year": 2026,
         "volume": "108",
         "issue": "4",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
+        "source_status": "official_verified",
+        "publication_state": "ready",
         "last_error": "",
-        "retry_class": "source"
+        "retry_class": "manual"
       }
     ],
     "RFS": [
@@ -19655,22 +19639,16 @@
       "updated_at": "2026-09-18T18:40:00+00:00",
       "coverage": {
         "discovered": 13,
-        "archived": 11,
-        "content_ready": 11,
-        "source_verified": 7,
-        "publication_ready": 7,
-        "missing": 2,
-        "source_pending": 4,
+        "archived": 12,
+        "content_ready": 12,
+        "source_verified": 12,
+        "publication_ready": 12,
+        "missing": 1,
+        "source_pending": 0,
         "missing_issue_ids": [
-          "jaere-13-5",
           "jaere-13-6"
         ],
-        "source_pending_issue_ids": [
-          "restat-108-1",
-          "restat-108-2",
-          "restat-108-3",
-          "restat-108-4"
-        ],
+        "source_pending_issue_ids": [],
         "blocked_issue_ids": []
       }
     }
@@ -21703,11 +21681,11 @@
     },
     "2026": {
       "summary": {
-        "complete": 271,
+        "complete": 276,
         "translation_partial": 1,
-        "blocked": 7,
+        "blocked": 6,
         "collected": 0,
-        "pending": 4
+        "pending": 0
       },
       "issue_count": 283,
       "journals": [
@@ -21763,17 +21741,16 @@
       ],
       "coverage": {
         "discovered": 298,
-        "archived": 282,
-        "content_ready": 282,
-        "source_verified": 278,
-        "publication_ready": 278,
-        "missing": 16,
-        "source_pending": 4,
+        "archived": 283,
+        "content_ready": 283,
+        "source_verified": 283,
+        "publication_ready": 283,
+        "missing": 15,
+        "source_pending": 0,
         "missing_issue_ids": [
           "eer-190-c",
           "foodpolicy-144-c",
           "geb-160-c",
-          "jaere-13-5",
           "jaere-13-6",
           "jedc-192-c",
           "jfe-185-c",
@@ -21787,12 +21764,7 @@
           "red-62-c",
           "wd-208-c"
         ],
-        "source_pending_issue_ids": [
-          "restat-108-1",
-          "restat-108-2",
-          "restat-108-3",
-          "restat-108-4"
-        ],
+        "source_pending_issue_ids": [],
         "blocked_issue_ids": []
       },
       "by_journal": {
@@ -22008,14 +21980,13 @@
         },
         "JAERE": {
           "discovered": 6,
-          "archived": 4,
-          "content_ready": 4,
-          "source_verified": 4,
-          "publication_ready": 4,
-          "missing": 2,
+          "archived": 5,
+          "content_ready": 5,
+          "source_verified": 5,
+          "publication_ready": 5,
+          "missing": 1,
           "source_pending": 0,
           "missing_issue_ids": [
-            "jaere-13-5",
             "jaere-13-6"
           ],
           "source_pending_issue_ids": [],
@@ -22369,17 +22340,12 @@
           "discovered": 4,
           "archived": 4,
           "content_ready": 4,
-          "source_verified": 0,
-          "publication_ready": 0,
+          "source_verified": 4,
+          "publication_ready": 4,
           "missing": 0,
-          "source_pending": 4,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "restat-108-1",
-            "restat-108-2",
-            "restat-108-3",
-            "restat-108-4"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "RFS": {
