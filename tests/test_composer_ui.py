@@ -7,14 +7,6 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class ComposerUiTest(unittest.TestCase):
     @classmethod
-
-    def test_historical_picker_exposes_ready_archives_only(self) -> None:
-        page = (ROOT / "src" / "pages" / "composer" / "index.astro").read_text(
-            encoding="utf-8"
-        )
-        self.assertIn('issue.publication_state === "ready"', page)
-        self.assertNotIn(' · 待来源核验', page)
-
     def setUpClass(cls):
         cls.page = (ROOT / "src/pages/composer/index.astro").read_text(encoding="utf-8")
         cls.css = (ROOT / "src/styles/global.css").read_text(encoding="utf-8")
@@ -24,6 +16,10 @@ class ComposerUiTest(unittest.TestCase):
         cls.explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(
             encoding="utf-8"
         )
+
+    def test_historical_picker_exposes_ready_archives_only(self) -> None:
+        self.assertIn('issue.publication_state === "ready"', self.page)
+        self.assertNotIn(' · 待来源核验', self.page)
 
     def test_compact_classic_theme_is_default(self):
         self.assertIn('fontSize: "14"', self.page)
