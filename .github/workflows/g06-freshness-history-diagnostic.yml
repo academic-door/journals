@@ -22,6 +22,39 @@ jobs:
         run: |
           python -m unittest tests.test_econometric_society_signal tests.test_history_search_ui
           python -m unittest discover -s tests
+      - name: Production data authority-floor and display diagnostics
+        run: |
+          git fetch origin data
+          rm -rf public/api data/monitoring
+          git archive origin/data public/api data/monitoring | tar -x
+          python - <<'PY'
+          import json
+          import yaml
+          from pathlib import Path
+          from scripts.update_journals import (
+              archived_issues,
+              issue_publication_state,
+              issue_source_status,
+              prefer_ready_archive,
+              select_display_issue,
+          )
+
+          current = json.loads(Path("public/api/v1/journals/landecon/issues/current.json").read_text())
+          archive = json.loads(Path("public/api/v1/journals/landecon/issues/landecon-102-3.json").read_text())
+          chosen = prefer_ready_archive(current, archive)
+          print(json.dumps({
+              "landecon_current": [issue_source_status(current), issue_publication_state(current)],
+              "landecon_archive": [issue_source_status(archive), issue_publication_state(archive)],
+              "landecon_chosen": [issue_source_status(chosen), issue_publication_state(chosen)],
+          }, indent=2))
+          assert chosen is archive
+          assert issue_publication_state(chosen) == "ready"
+
+          rand_ready = json.loads(Path("public/api/v1/journals/rand/issues/current.json").read_text())
+          rand_detected = json.loads(Path("public/api/v1/journals/rand/issues/detected.json").read_text())
+          print("RAND display:", select_display_issue(rand_detected, rand_ready))
+          assert select_display_issue(rand_detected, rand_ready) == "ready"
+          PY
       - name: Live Econometric Society roster diagnostic
         run: |
           python - <<'PY'
