@@ -1,0 +1,135 @@
+name: G06 all-49 freshness audit
+
+on:
+  push:
+    branches:
+      - g06-freshness-history-fix
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r requirements.txt
+      - name: Restore current production data
+        run: |
+          git fetch origin data
+          rm -rf public/api data/monitoring
+          git archive origin/data public/api data/monitoring | tar -x
+      - name: Compare current READY issues with live accepted collectors
+        env:
+          ELSEVIER_API_KEY: ${{ secrets.ELSEVIER_API_KEY }}
+          ELSEVIER_INST_TOKEN: ${{ secrets.ELSEVIER_INST_TOKEN }}
+          JINA_API_KEY: ${{ secrets.JINA_API_KEY }}
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          import yaml
+
+          from scripts.update_journals import (
+              collector_for,
+              fallback_collector_for,
+              issue_is_newer,
+              issue_publication_state,
+              issue_source_status,
+              read_json,
+              stamp_issue_readiness,
+          )
+
+          config = yaml.safe_load(Path("config/journals.yml").read_text())["journals"]
+          results = []
+          stale = []
+          nonready = []
+          for key, journal in config.items():
+              if not journal.get("enabled"):
+                  continue
+              current_path = (
+                  Path("public/api/v1/journals")
+                  / journal["id"]
+                  / "issues"
+                  / "current.json"
+              )
+              current = read_json(current_path)
+              if not current:
+                  results.append({"journal": key, "status": "missing_current"})
+                  nonready.append(key)
+                  continue
+              stamp_issue_readiness(current)
+              current_state = issue_publication_state(current)
+              if current_state != "ready":
+                  nonready.append(key)
+
+              observations = []
+              errors = []
+              for label, factory in (
+                  ("primary", lambda: collector_for(journal)),
+                  ("fallback", lambda: fallback_collector_for(journal)),
+              ):
+                  try:
+                      fn = factory()
+                      if fn is None:
+                          continue
+                      observed = fn()
+                      stamp_issue_readiness(observed)
+                      observations.append(
+                          {
+                              "label": label,
+                              "issue": observed.get("issue_id", ""),
+                              "volume": observed.get("volume", ""),
+                              "number": observed.get("issue", ""),
+                              "date": observed.get("publication_date", ""),
+                              "source": issue_source_status(observed),
+                              "state": issue_publication_state(observed),
+                              "newer": issue_is_newer(observed, current),
+                          }
+                      )
+                      if (
+                          issue_source_status(observed)
+                          in {"official_verified", "publisher_verified"}
+                          and issue_is_newer(observed, current)
+                      ):
+                          stale.append(
+                              {
+                                  "journal": key,
+                                  "current": current.get("issue_id", ""),
+                                  "observed": observed.get("issue_id", ""),
+                                  "transport": label,
+                                  "source": issue_source_status(observed),
+                              }
+                          )
+                      if label == "primary":
+                          break
+                  except Exception as exc:
+                      errors.append(f"{label}:{type(exc).__name__}:{exc}")
+
+              results.append(
+                  {
+                      "journal": key,
+                      "current": current.get("issue_id", ""),
+                      "current_date": current.get("publication_date", ""),
+                      "current_source": issue_source_status(current),
+                      "current_state": current_state,
+                      "observations": observations,
+                      "errors": errors,
+                  }
+              )
+
+          print(json.dumps(results, ensure_ascii=False, indent=2))
+          print("NONREADY_CURRENT", json.dumps(nonready))
+          print("AUTHORITATIVE_NEWER", json.dumps(stale, ensure_ascii=False))
+          assert len(results) == 49, len(results)
+          if nonready:
+              raise AssertionError(f"non-ready current issues: {nonready}")
+          if stale:
+              raise AssertionError(f"authoritative collectors found newer issues: {stale}")
+          PY
