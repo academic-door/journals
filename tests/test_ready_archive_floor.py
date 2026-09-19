@@ -75,13 +75,45 @@ class ReadyArchiveFloorTests(unittest.TestCase):
             chosen["quality"]["roster_authority"],
         )
 
-    def test_same_issue_ready_archive_with_invalid_translation_is_not_promoted(self) -> None:
+    def test_same_issue_authority_lift_does_not_restore_bad_archive_translation(self) -> None:
+        current = issue("landecon-102-3", source_status="source_pending", publication_state="source_pending")
+        current["marker"] = "current"
+        current["articles"][0]["abstract_cn"] = (
+            "研究结果显示，披露该建议带来的年度福利收益为345万美元，"
+            "当前修正版内容必须保留。"
+        )
+        archive = issue("landecon-102-3", source_status="official_verified", publication_state="ready")
+        archive["quality"]["roster_authority"] = "official-issue-page"
+        archive["quality"]["roster_transport"] = "official-page-read"
+        archive["quality"]["official_roster_evidence"] = {
+            "official_url": "https://example.org/official/102/3",
+            "item_count": 1,
+        }
+        article = archive["articles"][0]
+        article["abstract_en"] = "The annual welfare benefit is $3.45 million from the disclosed advisory."
+        article["abstract_cn"] = (
+            "研究结果显示，披露该建议带来的年度福利收益为3.45万美元，"
+            "这一旧归档数量级错误不得覆盖当前内容。"
+        )
+
+        chosen = update_journals.prefer_ready_archive(current, archive)
+
+        self.assertEqual("current", chosen["marker"])
+        self.assertEqual(
+            current["articles"][0]["abstract_cn"],
+            chosen["articles"][0]["abstract_cn"],
+        )
+        self.assertEqual("official_verified", chosen["source_status"])
+        self.assertEqual("ready", chosen["publication_state"])
+        self.assertEqual(
+            "official-issue-page", chosen["quality"]["roster_authority"]
+        )
+
+    def test_same_issue_authority_is_not_lifted_when_ordered_doi_roster_differs(self) -> None:
         current = issue("landecon-102-3", source_status="source_pending", publication_state="source_pending")
         current["marker"] = "current"
         archive = issue("landecon-102-3", source_status="official_verified", publication_state="ready")
-        article = archive["articles"][0]
-        article["abstract_en"] = "The annual welfare benefit is $3.45 million from the disclosed advisory."
-        article["abstract_cn"] = "研究结果显示，披露该建议带来的年度福利收益为3.45万美元，这一数值用于检验旧归档中的数量级错误不会被提升为当前快照。"
+        archive["articles"][0]["doi"] = "10.3982/different"
 
         chosen = update_journals.prefer_ready_archive(current, archive)
 

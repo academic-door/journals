@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import copy
 import argparse
 import json
 import re
@@ -449,6 +450,19 @@ def collector_for(
 def fallback_collector_for(config: dict[str, Any]) -> Callable[[], dict[str, Any]] | None:
     fallback = config.get("fallback", "")
     collectors: list[Callable[[], dict[str, Any]]] = []
+    if config.get("announcement_source") == "econometric_society_volume":
+        from collectors.econometric_society import fetch_latest_econometrica_issue
+
+        collectors.append(
+            lambda: fetch_latest_econometrica_issue(
+                source_url=str(config.get("announcement_url", "")),
+                journal_id=config["id"],
+                journal_name=config["name"],
+                issn=str(config["issn"]),
+                current_issue_url=config["current_issue_url"],
+                repec_series_code=str(config.get("repec_series_code", "")),
+            )
+        )
     if config.get("rss_url"):
         from collectors.metadata_fallback import fetch_official_rss_issue
 
@@ -521,6 +535,20 @@ def _issue_date_key(issue: dict[str, Any]) -> tuple[int, int]:
         except ValueError:
             continue
         return parsed.year, parsed.month
+    seasonal = re.fullmatch(
+        r"(Spring|Summer|Fall|Autumn|Winter)\s+(20\d{2})",
+        value,
+        flags=re.IGNORECASE,
+    )
+    if seasonal:
+        month = {
+            "spring": 3,
+            "summer": 6,
+            "fall": 9,
+            "autumn": 9,
+            "winter": 12,
+        }[seasonal.group(1).casefold()]
+        return int(seasonal.group(2)), month
     match = re.search(r"(20\d{2})[^0-9]+(1[0-2]|0?[1-9])", value)
     if match:
         return int(match.group(1)), int(match.group(2))
@@ -844,10 +872,16 @@ def write_search_indexes(
 
         by_issue_id: dict[str, dict[str, Any]] = {}
         for archived in archived_issues(config["id"], api_root=api_root):
-            if is_publishable_snapshot(archived):
+            stamp_issue_readiness(archived)
+            if (
+                is_publishable_snapshot(archived)
+                and issue_publication_state(archived) == "ready"
+            ):
                 by_issue_id[archived["issue_id"]] = archived
         if current and is_publishable_snapshot(current):
-            by_issue_id[current["issue_id"]] = current
+            stamp_issue_readiness(current)
+            if issue_publication_state(current) == "ready":
+                by_issue_id[current["issue_id"]] = current
         issue_count += len(by_issue_id)
         for issue in by_issue_id.values():
             history_records.extend(
@@ -1573,21 +1607,80 @@ def issue_translation_semantics_valid(issue: dict[str, Any]) -> bool:
     return True
 
 
+def _ordered_issue_dois(issue: dict[str, Any]) -> tuple[str, ...]:
+    return tuple(
+        str(article.get("doi", "")).strip().casefold()
+        for article in issue.get("articles", [])
+        if str(article.get("doi", "")).strip()
+    )
+
+
+_SOURCE_ONLY_FLAGS = {
+    "crossref_provisional_roster",
+    "publisher_html_blocked_crossref_fallback",
+    "publisher_rss_lag_crossref_fallback",
+    "official_order_unverified",
+}
+
+
+def _lift_verified_same_roster_authority(
+    current: dict[str, Any],
+    archived: dict[str, Any],
+) -> dict[str, Any] | None:
+    """Keep current content while restoring stronger verified membership/order evidence.
+
+    Source authority describes issue membership/order; it must not force older
+    metadata or translations back onto readers.  Promotion is allowed only for
+    the exact same issue identity and exact ordered DOI roster.
+    """
+
+    current_dois = _ordered_issue_dois(current)
+    archived_dois = _ordered_issue_dois(archived)
+    if not current_dois or current_dois != archived_dois:
+        return None
+    if issue_publication_state(archived) != "ready":
+        return None
+
+    merged = copy.deepcopy(current)
+    merged_quality = merged.setdefault("quality", {})
+    archived_quality = archived.get("quality", {})
+    for key in (
+        "roster_authority",
+        "roster_transport",
+        "roster_match_scope",
+        "official_roster_evidence",
+        "browser_capture",
+        "browser_order_verification",
+        "rss_url",
+    ):
+        if key in archived_quality:
+            merged_quality[key] = copy.deepcopy(archived_quality[key])
+    merged_quality["roster_match"] = True
+    merged_quality["order_preserved"] = True
+    merged_quality["flags"] = [
+        flag
+        for flag in merged_quality.get("flags", [])
+        if str(flag) not in _SOURCE_ONLY_FLAGS
+    ]
+    if archived.get("source_url"):
+        merged["source_url"] = archived["source_url"]
+    return stamp_issue_readiness(merged)
+
+
 def prefer_ready_archive(
     current: dict[str, Any],
     archived: dict[str, Any] | None,
 ) -> dict[str, Any]:
-    """Keep a semantically valid same-issue READY archive as the readiness floor."""
+    """Use verified same-issue authority without regressing current content."""
+
     if not archived or current.get("issue_id") != archived.get("issue_id"):
         return current
-    if (
-        issue_publication_state(current) != "ready"
-        and issue_publication_state(archived) == "ready"
-        and issue_translation_semantics_valid(archived)
-    ):
-        return archived
+    if issue_publication_state(current) == "ready":
+        return current
+    lifted = _lift_verified_same_roster_authority(current, archived)
+    if lifted is not None:
+        return lifted
     return current
-
 
 def load_available_issues(
     journal_configs: dict[str, dict[str, Any]],

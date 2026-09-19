@@ -41,14 +41,25 @@ class HistoryAndSearchUiTests(unittest.TestCase):
         self.assertIn("显示更多结果", script)
         self.assertIn('class="search-result skeleton"', script)
 
-    def test_search_results_disclose_source_pending_records(self) -> None:
-        script = (ROOT / "public" / "search.js").read_text(encoding="utf-8")
-        styles = (ROOT / "src" / "styles" / "global.css").read_text(
+    def test_status_only_counts_newer_detected_snapshot_as_enriching(self) -> None:
+        status_page = (ROOT / "src" / "pages" / "status" / "index.astro").read_text(
             encoding="utf-8"
         )
-        self.assertIn('record.publication_state === "source_pending"', script)
-        self.assertIn("内容已齐，待来源核验", script)
-        self.assertIn(".source-pending-tag", styles)
+        self.assertIn('journal.latest_display_source !== "detected"', status_page)
+
+    def test_reader_surfaces_do_not_expose_non_ready_history(self) -> None:
+        explorer = (ROOT / "src" / "components" / "Top5Explorer.astro").read_text(
+            encoding="utf-8"
+        )
+        script = (ROOT / "public" / "search.js").read_text(encoding="utf-8")
+        generator = (ROOT / "scripts" / "update_journals.py").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn('entry.publication_state === "ready"', explorer)
+        self.assertNotIn(' · 待来源核验', explorer)
+        self.assertNotIn('record.publication_state === "source_pending"', script)
+        self.assertNotIn("内容已齐，待来源核验", script)
+        self.assertIn('issue_publication_state(archived) == "ready"', generator)
 
     def test_main_navigation_links_to_search(self) -> None:
         source = (ROOT / "src" / "layouts" / "Layout.astro").read_text(

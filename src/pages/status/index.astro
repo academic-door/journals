@@ -153,6 +153,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       return journalContentReady(journal) ? "source_pending" : "translation_partial";
     };
     const detectedEnrichmentNeeded = (journal) => {
+      // An alternate/older detected transport is diagnostic evidence, not a
+      // reader-facing update. Only a detected snapshot selected as newer than
+      // the READY snapshot should count as "更新补全中".
+      if (journal.latest_display_source !== "detected") return false;
       const total = Number(
         journal.latest_detected_article_count ?? journal.article_count ?? 0
       );

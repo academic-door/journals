@@ -17,6 +17,10 @@ class ComposerUiTest(unittest.TestCase):
             encoding="utf-8"
         )
 
+    def test_historical_picker_exposes_ready_archives_only(self) -> None:
+        self.assertIn('issue.publication_state === "ready"', self.page)
+        self.assertNotIn(' · 待来源核验', self.page)
+
     def test_compact_classic_theme_is_default(self):
         self.assertIn('fontSize: "14"', self.page)
         self.assertIn("--composer-body-size, 14px", self.css)
