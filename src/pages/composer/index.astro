@@ -785,7 +785,10 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       const immediate = immediateIssueOptionsFor(journal);
       const history = await fetchIssueHistory(journal);
       const excludedIds = new Set(immediate.map((issue) => issue.id).filter(Boolean));
-      const archived = history.filter((issue) => !excludedIds.has(issue.issue_id)).map((issue, index) => ({
+      const archived = history.filter((issue) =>
+        !excludedIds.has(issue.issue_id)
+        && issue.publication_state === "ready"
+      ).map((issue, index) => ({
         id: issue.issue_id || `issue-${index}`,
         url: issue.url,
         label: [
@@ -809,7 +812,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         return;
       }
       issueSelect.innerHTML = issues.map((issue) =>
-        `<option value="${escapeHtml(issue.url)}" data-issue-id="${escapeHtml(issue.id)}" data-status="${escapeHtml(issue.status)}" data-publication-state="${escapeHtml(issue.publicationState)}">${issue.latest ? "最新 · " : ""}${escapeHtml(issue.label)}${issue.publicationState === "source_pending" ? " · 待来源核验" : ""}</option>`
+        `<option value="${escapeHtml(issue.url)}" data-issue-id="${escapeHtml(issue.id)}" data-status="${escapeHtml(issue.status)}" data-publication-state="${escapeHtml(issue.publicationState)}">${issue.latest ? "最新 · " : ""}${escapeHtml(issue.label)}</option>`
       ).join("");
       if (preferredUrl && issues.some((issue) => issue.url === preferredUrl)) {
         issueSelect.value = preferredUrl;
