@@ -47,12 +47,15 @@ class FreshnessAuditTests(unittest.TestCase):
         findings = audit_journal_freshness("jpe", ready, detected, {})
         self.assertIn("same_issue_period_divergence", self.codes(findings))
         self.assertIn("same_issue_detected_quality_regression", self.codes(findings))
+        self.assertTrue(all(item["severity"] == "info" for item in findings))
 
     def test_older_detected_snapshot_is_flagged(self) -> None:
         ready = issue("jie-163-c", "163", "c", "October 2026")
         detected = issue("jie-162-c", "162", "c", "August 2026")
         findings = audit_journal_freshness("jie", ready, detected, {})
         self.assertIn("detected_older_than_ready", self.codes(findings))
+        finding = next(item for item in findings if item["code"] == "detected_older_than_ready")
+        self.assertEqual(finding["severity"], "info")
 
     def test_genuinely_newer_detected_is_not_a_regression(self) -> None:
         ready = issue("wd-206-c", "206", "c", "October 2026")

@@ -23,6 +23,21 @@ class WileyRosterCaptureRoutingTests(unittest.TestCase):
             selected,
         )
 
+    def test_stale_manifest_route_is_rebuilt_from_current_config(self) -> None:
+        selected = _url(
+            {"issn": "1555-7561"},
+            {
+                "year": 2025,
+                "volume": "20",
+                "issue": "1",
+                "official_url": "https://onlinelibrary.wiley.com/toc/15567568/20/1",
+            },
+        )
+        self.assertEqual(
+            "https://onlinelibrary.wiley.com/toc/15557561/2025/20/1",
+            selected,
+        )
+
     def test_legacy_record_without_route_keeps_existing_fallback_shape(self) -> None:
         selected = _url(
             {"issn": "15406261"},
