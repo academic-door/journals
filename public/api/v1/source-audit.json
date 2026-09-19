@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-19T13:45:56+00:00",
+  "updated_at": "2026-09-19T14:31:02+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 49,
@@ -287,23 +287,23 @@
       "current": {
         "available": true,
         "status": "official_page_verified",
-        "issue_id": "ecta-94-4",
-        "publication_date": "July 2026",
+        "issue_id": "ecta-94-5",
+        "publication_date": "September 2026",
         "publication_state": "ready",
-        "source_url": "https://ideas.repec.org/s/wly/emetrp.html",
-        "roster_authority": "repec-publisher-supplied",
-        "roster_transport": "repec-serial-page",
+        "source_url": "https://www.econometricsociety.org/publications/econometrica/volume/2026",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "econometric-society-page",
         "order_verified": true,
         "content_counts": {
-          "official_items": 12,
-          "observed_items": 12,
+          "official_items": 14,
+          "observed_items": 14,
           "publishable_items": 12,
           "research_articles": 12,
           "comments": 0,
           "short_communications": 0,
           "corrections": 0,
           "editorial_material": 0,
-          "front_matter": 0,
+          "front_matter": 2,
           "other_excluded": 0,
           "catalog_content_items": 12
         },
@@ -315,12 +315,34 @@
         ]
       },
       "detected": {
-        "available": false,
-        "status": "missing",
-        "errors": [
-          "snapshot_missing"
-        ],
-        "warnings": []
+        "available": true,
+        "status": "official_page_verified",
+        "issue_id": "ecta-94-5",
+        "publication_date": "September 2026",
+        "publication_state": "ready",
+        "source_url": "https://www.econometricsociety.org/publications/econometrica/volume/2026",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "econometric-society-page",
+        "order_verified": true,
+        "content_counts": {
+          "official_items": 14,
+          "observed_items": 14,
+          "publishable_items": 12,
+          "research_articles": 12,
+          "comments": 0,
+          "short_communications": 0,
+          "corrections": 0,
+          "editorial_material": 0,
+          "front_matter": 2,
+          "other_excluded": 0,
+          "catalog_content_items": 12
+        },
+        "abstracts_complete": 12,
+        "translations_complete": 12,
+        "errors": [],
+        "warnings": [
+          "snapshot_uses_alternate_official_source"
+        ]
       }
     },
     {
