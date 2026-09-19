@@ -210,7 +210,15 @@ class PublicationGateTests(unittest.TestCase):
         )
         self.assertEqual("source_pending", issue_publication_state(current))
         self.assertEqual("ready", issue_publication_state(archived))
-        self.assertIs(archived, prefer_ready_archive(current, archived))
+        chosen = prefer_ready_archive(current, archived)
+        self.assertEqual("ready", chosen["publication_state"])
+        self.assertEqual(
+            "official-issue-page", chosen["quality"]["roster_authority"]
+        )
+        self.assertEqual(
+            current["articles"][0]["abstract_cn"],
+            chosen["articles"][0]["abstract_cn"],
+        )
 
     def test_same_content_ready_archive_survives_stricter_translation_semantics(self) -> None:
         current = archive_fixture("landecon-102-3", "102")
@@ -236,7 +244,12 @@ class PublicationGateTests(unittest.TestCase):
             "scripts.update_journals.issue_translation_semantics_valid",
             return_value=False,
         ):
-            self.assertIs(archived, prefer_ready_archive(current, archived))
+            chosen = prefer_ready_archive(current, archived)
+            self.assertEqual("ready", chosen["publication_state"])
+            self.assertEqual(
+                current["articles"][0]["abstract_cn"],
+                chosen["articles"][0]["abstract_cn"],
+            )
 
     def test_official_issue_collector_precedes_rss_metadata_fallback(self) -> None:
         from unittest.mock import patch
