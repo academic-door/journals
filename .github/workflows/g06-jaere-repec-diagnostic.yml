@@ -1,0 +1,59 @@
+name: G06 JAERE RePEc metadata diagnostic
+
+on:
+  push:
+    branches:
+      - g06-r2-diagnostic
+
+permissions:
+  contents: read
+
+concurrency:
+  group: g06-jaere-repec-diagnostic
+  cancel-in-progress: false
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Probe existing RePEc metadata path
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from collectors.metadata_fallback import fetch_repec_history_issue
+
+          issue = fetch_repec_history_issue(
+              journal_id="jaere",
+              journal_name="Journal of the Association of Environmental and Resource Economists",
+              issn="2333-5955",
+              volume="13",
+              issue="5",
+              repec_series_code="ucp/jaerec",
+              timeout=60,
+          )
+          wanted = {"10.1086/741829", "10.1086/741559", "10.1086/741557"}
+          rows = []
+          for a in issue.get("articles", []):
+              doi = str(a.get("doi") or "").casefold()
+              if doi in wanted:
+                  rows.append({
+                      "doi": doi,
+                      "title_en": a.get("title_en"),
+                      "authors": len(a.get("authors") or []),
+                      "abstract_len": len(str(a.get("abstract_en") or "")),
+                      "abstract_source": a.get("sources", {}).get("abstract_en", ""),
+                  })
+          print("G06_JAERE_REPEC", json.dumps({
+              "research_article_count": issue.get("research_article_count"),
+              "quality": issue.get("quality"),
+              "targets": rows,
+          }, sort_keys=True))
+          PY
