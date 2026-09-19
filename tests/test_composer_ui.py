@@ -317,23 +317,9 @@ class ComposerUiTest(unittest.TestCase):
         self.assertGreaterEqual(self.page.count("requirePublicationReady()"), 4)
 
     def test_crossref_provisional_evidence_is_conservatively_blocked(self):
-        import json
-
-        provisional = []
-        for current in sorted((ROOT / "public/api/v1/journals").glob("*/issues/current.json")):
-            issue = json.loads(current.read_text(encoding="utf-8"))
-            quality = issue.get("quality", {})
-            flags = set(quality.get("flags", []))
-            authority = str(quality.get("roster_authority", ""))
-            transport = str(quality.get("roster_transport", ""))
-            if (
-                "crossref_provisional_roster" in flags
-                or "crossref" in authority.lower()
-                or "crossref" in transport.lower()
-            ):
-                provisional.append(issue["journal_id"])
-
-        self.assertTrue(provisional, "expected at least one current Crossref-provisional snapshot")
+        # The guard is a product contract, not a requirement that production
+        # must always contain a provisional current snapshot. A fully repaired
+        # production dataset may legitimately contain zero such examples.
         for source in (self.page, self.explorer):
             self.assertIn('flags.has("crossref_provisional_roster")', source)
             self.assertIn("/crossref/i.test(authority)", source)
