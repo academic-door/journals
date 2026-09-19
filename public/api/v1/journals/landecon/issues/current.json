@@ -6,7 +6,7 @@
   "volume": "102",
   "issue": "3",
   "publication_date": "July 2026",
-  "source_url": "https://le.uwpress.org/content/current",
+  "source_url": "https://le.uwpress.org/content/102/3",
   "retrieved_at": "2026-08-01T05:36:15+00:00",
   "expected_article_count": 9,
   "research_article_count": 9,
@@ -628,8 +628,8 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "crossref",
-    "roster_authority": "crossref-provisional",
+    "roster_transport": "official-page-read",
+    "roster_authority": "official-issue-page",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
     "excluded_item_count": 1,
@@ -646,10 +646,7 @@
     "abstract_en_complete": 9,
     "translation_complete": 9,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
-    ],
+    "flags": [],
     "official_item_count": 10,
     "publishable_item_count": 9,
     "content_counts": {
@@ -664,6 +661,16 @@
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 9
+    },
+    "official_roster_evidence": {
+      "captured_at": "2026-08-24T10:49:02+00:00",
+      "official_url": "https://le.uwpress.org/content/102/3",
+      "method": "official-page-read",
+      "item_count": 9,
+      "excluded_item_count": 1,
+      "archive_reordered": false,
+      "sequence_sha256": "daf588407adb38d64b1e767505be3420a19510312107d1dba2017b7b17b83c55",
+      "privacy_fields_stored": false
     }
   },
   "content_counts": {
@@ -679,8 +686,8 @@
     "other_excluded": 0,
     "catalog_content_items": 9
   },
-  "publication_state": "source_pending",
+  "publication_state": "ready",
   "issue_label": "Vol. 102 · No. 3",
   "content_status": "complete",
-  "source_status": "source_pending"
+  "source_status": "official_verified"
 }

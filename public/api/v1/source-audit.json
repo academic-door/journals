@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-19T14:40:42+00:00",
+  "updated_at": "2026-09-19T14:47:52+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 49,
@@ -2557,14 +2557,14 @@
       "status": "fallback_verified",
       "current": {
         "available": true,
-        "status": "fallback_verified",
+        "status": "official_page_verified",
         "issue_id": "landecon-102-3",
         "publication_date": "July 2026",
-        "publication_state": "source_pending",
-        "source_url": "https://le.uwpress.org/content/current",
-        "roster_authority": "crossref-provisional",
-        "roster_transport": "crossref",
-        "order_verified": false,
+        "publication_state": "ready",
+        "source_url": "https://le.uwpress.org/content/102/3",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-page-read",
+        "order_verified": true,
         "content_counts": {
           "official_items": 10,
           "observed_items": 10,
@@ -2581,9 +2581,7 @@
         "abstracts_complete": 9,
         "translations_complete": 9,
         "errors": [],
-        "warnings": [
-          "crossref_provisional_roster"
-        ]
+        "warnings": []
       },
       "detected": {
         "available": true,
