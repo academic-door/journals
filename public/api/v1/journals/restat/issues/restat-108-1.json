@@ -8,15 +8,52 @@
   "publication_date": "January 2026",
   "source_url": "https://direct.mit.edu/rest/issue/108/1",
   "retrieved_at": "2026-08-06T12:07:47+00:00",
-  "expected_article_count": 15,
-  "research_article_count": 15,
-  "status": "incomplete",
+  "expected_article_count": 19,
+  "research_article_count": 19,
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1162/rest_a_01364",
+      "paper_id": "doi:10.1162/rest_a_01413",
       "sequence": 1,
-      "source_sequence": 16,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "The Decline in Intergenerational Mobility after 1980",
+      "title_cn": "1980年后代际流动性的下降",
+      "authors": [
+        "Jonathan M. V. Davis",
+        "Bhashkar Mazumder"
+      ],
+      "abstract_en": "Relative intergenerational mobility declined for cohorts born around 1960 compared to those born around 1950. The former entered the labor market after the rise in inequality around 1980, while the latter entered the labor market earlier. We show that the rank-rank slope rose from 0.25 to 0.36 and the intergenerational elasticity increased from 0.28 to 0.45. These increases are more pronounced for men than for women. Increases in returns to schooling and in the gradient in the likelihood of marriage by parent income are contributors to increased intergenerational persistence.",
+      "abstract_cn": "相对于出生于1950年左右的人群，出生于1960年左右的人群的相对代际流动性有所下降。前者在1980年左右不平等加剧后进入劳动力市场，而后者则更早进入劳动力市场。我们显示，排名-排名斜率从0.25上升到0.36，代际弹性从0.28增加到0.45。这些增加在男性中比在女性中更为明显。教育回报率的增加以及按父母收入划分的婚姻可能性梯度的增加是代际持续性增强的贡献因素。",
+      "doi": "10.1162/rest_a_01413",
+      "source_url": "https://direct.mit.edu/rest/article/108/1/1/119490/The-Decline-in-Intergenerational-Mobility-after",
+      "sources": {
+        "roster": "https://direct.mit.edu/rest/issue/108/1",
+        "metadata": "https://direct.mit.edu/rest/article/108/1/1/119490/The-Decline-in-Intergenerational-Mobility-after",
+        "abstract_en": "https://direct.mit.edu/rest/article/108/1/1/119490/The-Decline-in-Intergenerational-Mobility-after"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-24T14:28:23+00:00",
+        "source_hash": "d1631d7af325257c7d890c25483fde9541215b93c088c07f9d9ac9dd102a647a"
+      },
+      "quality_flags": [],
+      "publication_date": "January 2026",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1162/rest_a_01364",
+      "sequence": 2,
+      "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Inequality, Relative Deprivation, and Financial Distress: Evidence from Swedish Register Data",
       "title_cn": "不平等、相对剥夺与财务困境：来自瑞典登记数据的证据",
@@ -31,7 +68,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/108/1",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/108/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -54,8 +91,8 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01395",
-      "sequence": 2,
-      "source_sequence": 30,
+      "sequence": 3,
+      "source_sequence": 3,
       "article_type": "research-article",
       "title_en": "Access to Guns in the Heat of the Moment: More Restrictive Gun Laws Mitigate the Effect of Temperature on Violence",
       "title_cn": "冲动时刻的枪支获取：更严格的枪支法律缓解温度对暴力的影响",
@@ -71,7 +108,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/108/1",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/108/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -94,8 +131,8 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01372",
-      "sequence": 3,
-      "source_sequence": 44,
+      "sequence": 4,
+      "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Crime and Mismeasured Punishment: Marginal Treatment Effect with Misclassification",
       "title_cn": "犯罪与误测惩罚：带有误分类的边际处理效应",
@@ -110,7 +147,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/108/1",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/108/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -133,8 +170,8 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01377",
-      "sequence": 4,
-      "source_sequence": 57,
+      "sequence": 5,
+      "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "The Effect of Police Oversight on Crime and Misconduct Allegations: Evidence from Chicago",
       "title_cn": "警察监督对犯罪和不当行为指控的影响：来自芝加哥的证据",
@@ -150,7 +187,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/108/1",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/108/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -173,8 +210,8 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01365",
-      "sequence": 5,
-      "source_sequence": 75,
+      "sequence": 6,
+      "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "Demand Shocks, Procurement Policies, and the Nature of Medical Innovation: Evidence from Wartime Prosthetic Device Patents",
       "title_cn": "需求冲击、采购政策与医疗创新的性质：来自战时假肢设备专利的证据",
@@ -190,7 +227,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/108/1",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/108/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -213,8 +250,8 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01368",
-      "sequence": 6,
-      "source_sequence": 90,
+      "sequence": 7,
+      "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "Road End Points and City Sizes",
       "title_cn": "铁路终点与城市规模",
@@ -229,7 +266,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/108/1",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/108/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -252,11 +289,11 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01430",
-      "sequence": 7,
-      "source_sequence": 110,
+      "sequence": 8,
+      "source_sequence": 8,
       "article_type": "research-article",
       "title_en": "The Health Care Cost of Air Pollution: Evidence from the World’s Largest Payment Network",
-      "title_cn": "空气污染的健康医疗成本：来自全球最大支付网络的证据",
+      "title_cn": "空气污染的医疗成本：来自全球最大支付网络的证据",
       "authors": [
         "Panle Jia Barwick",
         "Shanjun Li",
@@ -264,24 +301,23 @@
         "Nahim Bin Zahur"
       ],
       "abstract_en": "This paper exploits the universe of credit- and debit-card transactions in China during 2013–2015 and provides the first nationwide analysis of the health care cost of PM2.5 for a developing country. We leverage spatial spillovers of PM2.5 from long-range transport to generate exogenous variation in local pollution, and we employ a flexible distributed lag model to capture semiparametrically the dynamic response of pollution exposure. We find significant impacts of PM2.5 on health care spending in both the short and medium terms. A 10 μg/m3 decrease in PM2.5 would reduce annual health care spending by over $9.2 billion, about 1.5% of China’s annual health care expenditure.",
-      "abstract_cn": "本文利用中国2013-2015年间信用卡和借记卡交易的全样本数据，首次对发展中国家PM2.5的健康医疗成本进行了全国性分析。我们利用远距离传输中PM2.5的空间溢出效应来产生当地污染的外生变异，并采用灵活的分布滞后模型半参数地捕捉污染暴露的动态响应。我们发现PM2.5对短期和中期健康医疗支出均有显著影响。PM2.10每降低5微克/立方米，年度健康医疗支出将减少超过9.2亿美元，约占中国年度健康医疗支出的1.5%。",
+      "abstract_cn": "本文利用中国在2013-2015期间的信用卡和借记卡交易全量数据，首次对发展中国家的PM2.5医疗成本进行了全国性分析。我们利用PM2.5远距离传输的空间溢出效应来生成当地污染的外生变异，并采用灵活的分布滞后模型以半参数方式捕捉污染暴露的动态响应。我们发现PM2.5在短期和中期对医疗支出均有显著影响。PM2.5每下降10 μg/m3，年度医疗支出将减少超过$9.2 billion，约占中国年度医疗支出的1.5%。",
       "abstract_snippet_en": "",
       "doi": "10.1162/rest_a_01430",
       "source_url": "https://doi.org/10.1162/rest_a_01430",
       "publication_date": "2026",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/108/1",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/108/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
         "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
         "model": "deepseek-chat",
-        "translated_at": "2026-08-06T12:08:01+00:00",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-19T08:27:49+00:00",
         "source_hash": "4d4b4e6d2eab5a72f99c02093d59c0b60fcf733987b6a0c7b75261eceff9544d"
       },
       "quality_flags": [],
@@ -295,9 +331,46 @@
       }
     },
     {
+      "paper_id": "doi:10.1162/rest_a_01399",
+      "sequence": 9,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "’Til Dowry Do Us Part: Bargaining and Violence in Indian Families",
+      "title_cn": "直到嫁妆将我们分开：印度家庭中的讨价还价与暴力",
+      "authors": [
+        "Rossella Calvi",
+        "Ajinkya Keskar"
+      ],
+      "abstract_en": "We develop a noncooperative bargaining model with incomplete information linking dowry payments, domestic violence, resource allocation between a husband and a wife, and separation. Our model generates several predictions, which we test empirically using amendments to the Indian antidowry law as a natural experiment. We document a decline in women’s bargaining power and separations and a surge in domestic violence following the amendments. These unintended effects are attenuated when social stigma against separation is low and, in some circumstances, when gains from marriage are high. Whenever possible, parents increase investment in their daughters’ human capital to compensate for lower dowries.",
+      "abstract_cn": "我们开发了一个具有不完全信息的非合作讨价还价模型，将嫁妆支付、家庭暴力、夫妻之间的资源分配以及分居联系起来。我们的模型产生了几个预测，我们利用印度反嫁妆法的修正作为自然实验进行了实证检验。我们记录了在修正案之后，女性议价能力和分居的下降以及家庭暴力的激增。当针对分居的社会污名较低时，这些意外效应会减弱，在某些情况下，当婚姻收益较高时也会减弱。只要可能，父母会增加对女儿人力资本的投资，以补偿较低的嫁妆。",
+      "doi": "10.1162/rest_a_01399",
+      "source_url": "https://direct.mit.edu/rest/article/108/1/129/118339/Til-Dowry-Do-Us-Part-Bargaining-and-Violence-in",
+      "sources": {
+        "roster": "https://direct.mit.edu/rest/issue/108/1",
+        "metadata": "https://direct.mit.edu/rest/article/108/1/129/118339/Til-Dowry-Do-Us-Part-Bargaining-and-Violence-in",
+        "abstract_en": "https://direct.mit.edu/rest/article/108/1/129/118339/Til-Dowry-Do-Us-Part-Bargaining-and-Violence-in"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-24T14:28:25+00:00",
+        "source_hash": "bc6d7d84bb442ed04dd47c262fc28a2e3ae6b8c1859d2c35fce120c9361afafd"
+      },
+      "quality_flags": [],
+      "publication_date": "January 2026",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1162/rest_a_01373",
-      "sequence": 8,
-      "source_sequence": 145,
+      "sequence": 10,
+      "source_sequence": 10,
       "article_type": "research-article",
       "title_en": "The Political Costs of Austerity",
       "title_cn": "紧缩政策的政治成本",
@@ -314,7 +387,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/108/1",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/108/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -337,8 +410,8 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01435",
-      "sequence": 9,
-      "source_sequence": 162,
+      "sequence": 11,
+      "source_sequence": 11,
       "article_type": "research-article",
       "title_en": "Inferring Expectations from Observables: Evidence from the Housing Market",
       "title_cn": "从可观测变量推断预期：来自住房市场的证据",
@@ -355,7 +428,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/108/1",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/108/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -378,8 +451,8 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01396",
-      "sequence": 10,
-      "source_sequence": 179,
+      "sequence": 12,
+      "source_sequence": 12,
       "article_type": "research-article",
       "title_en": "Relationship Stickiness, International Trade, and Economic Uncertainty",
       "title_cn": "关系粘性、国际贸易与经济不确定性",
@@ -396,7 +469,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/108/1",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/108/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -419,8 +492,8 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01401",
-      "sequence": 11,
-      "source_sequence": 194,
+      "sequence": 13,
+      "source_sequence": 13,
       "article_type": "research-article",
       "title_en": "How Flexible Is that Functional Form? Quantifying the Restrictiveness of Theories",
       "title_cn": "函数形式有多灵活？量化理论的限制性",
@@ -437,7 +510,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/108/1",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/108/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -460,8 +533,8 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01382",
-      "sequence": 12,
-      "source_sequence": 210,
+      "sequence": 14,
+      "source_sequence": 14,
       "article_type": "research-article",
       "title_en": "International Technology Licensing, Intellectual Property Rights, and Tax Havens",
       "title_cn": "国际技术许可、知识产权与避税天堂",
@@ -476,7 +549,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/108/1",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/108/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -499,8 +572,8 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01389",
-      "sequence": 13,
-      "source_sequence": 225,
+      "sequence": 15,
+      "source_sequence": 15,
       "article_type": "research-article",
       "title_en": "Efficient Consignment Auctions",
       "title_cn": "高效委托拍卖",
@@ -517,7 +590,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/108/1",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/108/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -540,8 +613,8 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01369",
-      "sequence": 14,
-      "source_sequence": 241,
+      "sequence": 16,
+      "source_sequence": 16,
       "article_type": "research-article",
       "title_en": "Poor Substitutes? Counterfactual Methods in Industrial Organization and Trade Compared",
       "title_cn": "劣质替代？产业组织与贸易中的反事实方法比较",
@@ -557,7 +630,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/108/1",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/108/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -580,8 +653,8 @@
     },
     {
       "paper_id": "doi:10.1162/rest_a_01337",
-      "sequence": 15,
-      "source_sequence": 257,
+      "sequence": 17,
+      "source_sequence": 17,
       "article_type": "research-article",
       "title_en": "Five-Year Impacts of Group-Based Financial Education and Savings Promotion for Ugandan Youth",
       "title_cn": "乌干达青年群体金融教育与储蓄促进的五年影响",
@@ -599,7 +672,7 @@
       "publication_date": "2026",
       "sources": {
         "issue": "https://direct.mit.edu/rest/issue/108/1",
-        "roster": "crossref:issn:0034-6535",
+        "roster": "https://direct.mit.edu/rest/issue/108/1",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
@@ -619,57 +692,140 @@
         "matched_terms": [],
         "source": "academic-door-rules-v1"
       }
+    },
+    {
+      "paper_id": "doi:10.1162/rest_a_01384",
+      "sequence": 18,
+      "source_sequence": 18,
+      "article_type": "research-article",
+      "title_en": "The Anatomy of a Hospital System Merger: The Patient Did Not Respond Well to Treatment",
+      "title_cn": "医院系统合并的解剖：患者对治疗反应不佳",
+      "authors": [
+        "Martin Gaynor",
+        "Adam Sacarny",
+        "Raffaella Sadun",
+        "Chad Syverson",
+        "Shruthi Venkatesh"
+      ],
+      "abstract_en": "Despite the continuing U.S. hospital merger wave, it remains unclear how mergers change, or fail to change, hospital behavior and performance. We open the black box of hospital practices through a megamerger between two for-profit chains. Benchmarking the merger's effects against the acquirer's stated aims, we show they achieved some of their goals, harmonizing electronic medical records and sending managers to target hospitals. Postacquisition managerial processes were similar across the merged chain. However, these interventions failed to drive detectable gains in performance. Our findings demonstrate the importance of organizations for merger research in health care and the economy more generally.",
+      "abstract_cn": "尽管美国医院合并浪潮持续不断，但合并如何改变或未能改变医院行为和绩效仍不清楚。我们通过两家营利性连锁医院之间的超级合并打开了医院实践的黑箱。以收购方声明的目标为基准衡量合并效应，我们显示他们实现了一些目标，统一了电子病历并将管理人员派往目标医院。收购后的管理流程在合并后的连锁医院中相似。然而，这些干预措施未能带来可检测的绩效提升。我们的发现证明了组织对医疗保健及更广泛经济中合并研究的重要性。",
+      "doi": "10.1162/rest_a_01384",
+      "source_url": "https://direct.mit.edu/rest/article/108/1/272/117900/The-Anatomy-of-a-Hospital-System-Merger-The",
+      "sources": {
+        "roster": "https://direct.mit.edu/rest/issue/108/1",
+        "metadata": "https://direct.mit.edu/rest/article/108/1/272/117900/The-Anatomy-of-a-Hospital-System-Merger-The",
+        "abstract_en": "https://direct.mit.edu/rest/article/108/1/272/117900/The-Anatomy-of-a-Hospital-System-Merger-The"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-24T14:28:27+00:00",
+        "source_hash": "06e47fba66bc13b210d48fd24601c6297536801c99f82dc930466ec8f971b415"
+      },
+      "quality_flags": [],
+      "publication_date": "January 2026",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1162/rest_a_01371",
+      "sequence": 19,
+      "source_sequence": 19,
+      "article_type": "research-article",
+      "title_en": "What Triggers Mortgage Default? New Evidence from Linked Administrative and Survey Data",
+      "title_cn": "什么触发抵押贷款违约？来自关联行政与调查数据的新证据",
+      "authors": [
+        "David Low"
+      ],
+      "abstract_en": "Why do homeowners default on mortgages? This paper studies the question using a survey specifically designed for the purpose, with a sample drawn from (and matched to) rich administrative data. I find that a wide variety of typically unobserved liquidity shocks together trigger nearly all defaults, so “strategic” default with no liquidity trigger is much less common than it usually appears. Conversely, even in this uniquely rich data, I find that many foreclosures are not triggered by negative home equity, contrary to the predictions of almost every model in the literature.",
+      "abstract_cn": "为什么房主会拖欠抵押贷款？本文使用专门为此目的设计的调查来研究这个问题，样本取自（并匹配到）丰富的行政数据。我发现，各种通常未被观察到的流动性冲击共同触发了几乎所有违约，因此没有流动性触发因素的“战略性”违约比通常看起来的要少得多。相反，即使在这份独特丰富的数据中，我也发现许多止赎并非由负房屋净值触发，这与文献中几乎所有模型的预测相反。",
+      "doi": "10.1162/rest_a_01371",
+      "source_url": "https://direct.mit.edu/rest/article/108/1/282/117712/What-Triggers-Mortgage-Default-New-Evidence-from",
+      "sources": {
+        "roster": "https://direct.mit.edu/rest/issue/108/1",
+        "metadata": "https://direct.mit.edu/rest/article/108/1/282/117712/What-Triggers-Mortgage-Default-New-Evidence-from",
+        "abstract_en": "https://direct.mit.edu/rest/article/108/1/282/117712/What-Triggers-Mortgage-Default-New-Evidence-from"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-24T14:28:29+00:00",
+        "source_hash": "c3e611d8fc55d635590a491655e6eb8944b77d98d11799732e3ce28398c11c4a"
+      },
+      "quality_flags": [],
+      "publication_date": "January 2026",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     }
   ],
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "crossref",
-    "roster_authority": "crossref-provisional",
+    "roster_transport": "browser-authorized",
+    "roster_authority": "official-issue-page",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 15,
-    "authors_complete": 15,
-    "abstract_en_complete": 15,
-    "translation_complete": 15,
+    "doi_complete": 19,
+    "authors_complete": 19,
+    "abstract_en_complete": 19,
+    "translation_complete": 19,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
-    ],
-    "official_item_count": 15,
-    "publishable_item_count": 15,
+    "flags": [],
+    "official_item_count": 19,
+    "publishable_item_count": 19,
     "content_counts": {
-      "official_items": 15,
-      "observed_items": 15,
-      "publishable_items": 15,
-      "research_articles": 15,
+      "official_items": 19,
+      "observed_items": 19,
+      "publishable_items": 19,
+      "research_articles": 19,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 15
+      "catalog_content_items": 19
+    },
+    "official_roster_evidence": {
+      "captured_at": "2026-09-19T05:55:00+00:00",
+      "official_url": "https://direct.mit.edu/rest/issue/108/1",
+      "method": "browser-authorized",
+      "item_count": 19,
+      "excluded_item_count": 0,
+      "archive_reordered": false,
+      "sequence_sha256": "83e0339f6bcd48bd53b3af3e457662b0dedca2ec237832df77b1969e0980fcc8",
+      "privacy_fields_stored": false
     }
   },
   "content_counts": {
-    "official_items": 15,
-    "observed_items": 15,
-    "publishable_items": 15,
-    "research_articles": 15,
+    "official_items": 19,
+    "observed_items": 19,
+    "publishable_items": 19,
+    "research_articles": 19,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 15
+    "catalog_content_items": 19
   },
   "issue_label": "Vol. 108 · No. 1",
   "content_status": "complete",
-  "source_status": "source_pending",
-  "publication_state": "source_pending"
+  "source_status": "official_verified",
+  "publication_state": "ready"
 }
