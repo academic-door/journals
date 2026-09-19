@@ -534,7 +534,11 @@ const initialIssue = initialIssuePath
           || "ready",
       }] : []),
       ...entries
-        .filter((entry) => entry.issue_id !== displayId && entry.issue_id !== readyId)
+        .filter((entry) =>
+          entry.issue_id !== displayId
+          && entry.issue_id !== readyId
+          && entry.publication_state === "ready"
+        )
         .map((entry) => ({ ...entry, latest: false, ready: true })),
     ];
     select.innerHTML = options.map((entry) => `
@@ -544,7 +548,6 @@ const initialIssue = initialIssuePath
       >
         ${entry.latest ? "最新 · " : ""}${escapeHtml(entry.issue_label)}
         ${entry.publication_date ? ` · ${escapeHtml(formatDate(entry.publication_date))}` : ""}
-        ${entry.publication_state === "source_pending" ? " · 待来源核验" : ""}
       </option>
     `).join("");
     select.disabled = options.length === 0;
