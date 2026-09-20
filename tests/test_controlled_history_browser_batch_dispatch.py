@@ -184,7 +184,7 @@ class ControlledHistoryBrowserBatchDispatchTests(unittest.TestCase):
             "evidence_issue_ids: ${{ needs.validate_browser_batch.outputs.issue_ids }}",
             workflow,
         )
-        self.assertIn('max_issues: "20"', workflow)
+        self.assertIn('max_issues: "12"', workflow)
 
 
 if __name__ == "__main__":
