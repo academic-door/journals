@@ -1,11 +1,17 @@
 from __future__ import annotations
 
+import json
+import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import patch
 
 import requests
 
-from scripts.build_sciencedirect_browser_archives import fetch_issue_metadata
+from scripts.build_sciencedirect_browser_archives import (
+    _apply_repec_publisher_abstract_fallbacks,
+    fetch_issue_metadata,
+)
 
 
 PII = "S0264837726002917"
@@ -90,6 +96,70 @@ class ScienceDirectBrowserArchiveMetadataRetryTests(unittest.TestCase):
                 fetch_issue_metadata(requests.Session(), [PII], timeout=90)
         self.assertEqual(fake.calls, 3)
 
+    def test_repec_publisher_supplied_abstract_fallback_requires_exact_identity(self) -> None:
+        roster = {"journal_id": "ecolecon", "issue_id": "ecolecon-225-c"}
+        by_pii = {
+            "S0921800924002209": {
+                "doi": "10.1016/j.ecolecon.2024.108323",
+                "abstract_en": "",
+            }
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            path = root / "ecolecon" / "ecolecon-225-c.json"
+            path.parent.mkdir(parents=True)
+            path.write_text(
+                json.dumps(
+                    {
+                        "articles": [
+                            {
+                                "doi": "10.1016/j.ecolecon.2024.108323",
+                                "source_url": "https://www.sciencedirect.com/science/article/pii/S0921800924002209",
+                                "abstract_en": "Publisher supplied abstract.",
+                                "sources": {
+                                    "abstract_en": "repec-publisher-supplied",
+                                    "repec": "https://ideas.repec.org/a/eee/ecolec/example.html",
+                                },
+                            }
+                        ]
+                    }
+                ),
+                encoding="utf-8",
+            )
+            _apply_repec_publisher_abstract_fallbacks(roster, by_pii, staging_root=root)
+        self.assertEqual("Publisher supplied abstract.", by_pii["S0921800924002209"]["abstract_en"])
+        self.assertEqual("repec-publisher-supplied", by_pii["S0921800924002209"]["abstract_source"])
+
+        mismatch = {
+            "S0921800924002209": {
+                "doi": "10.1016/j.ecolecon.2024.WRONG",
+                "abstract_en": "",
+            }
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            path = root / "ecolecon" / "ecolecon-225-c.json"
+            path.parent.mkdir(parents=True)
+            path.write_text(
+                json.dumps(
+                    {
+                        "articles": [
+                            {
+                                "doi": "10.1016/j.ecolecon.2024.108323",
+                                "source_url": "https://www.sciencedirect.com/science/article/pii/S0921800924002209",
+                                "abstract_en": "Must not cross identity.",
+                                "sources": {
+                                    "abstract_en": "repec-publisher-supplied",
+                                    "repec": "https://ideas.repec.org/a/eee/ecolec/example.html",
+                                },
+                            }
+                        ]
+                    }
+                ),
+                encoding="utf-8",
+            )
+            _apply_repec_publisher_abstract_fallbacks(roster, mismatch, staging_root=root)
+        self.assertEqual("", mismatch["S0921800924002209"]["abstract_en"])
 
 if __name__ == "__main__":
     unittest.main()
