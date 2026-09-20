@@ -160,6 +160,24 @@ class ScienceDirectBrowserRosterEvidenceTests(unittest.TestCase):
                 "type": "publisher-note",
             },
         )
+        snapshot["items"].insert(
+            4,
+            {
+                "href": "https://www.sciencedirect.com/science/article/pii/S0000000000000005",
+                "title": "Publisher News",
+                "box_text": "News\nPublisher News",
+                "type": "news",
+            },
+        )
+        snapshot["items"].insert(
+            5,
+            {
+                "href": "https://www.sciencedirect.com/science/article/pii/S0000000000000006",
+                "title": "Obituary: Another Scholar",
+                "box_text": "Announcement\nObituary: Another Scholar",
+                "type": "announcement",
+            },
+        )
         with patch.object(capture, "apply_evidence"):
             evidence = capture.build_evidence(snapshot, issue, excluded_dois={})
 
