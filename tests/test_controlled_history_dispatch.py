@@ -174,5 +174,16 @@ class ControlledHistoryDispatchTests(unittest.TestCase):
         self.assertIn("repair_content_only: true", workflow)
 
 
+    def test_control_issue_can_trigger_chicago_evidence_tranche(self) -> None:
+        workflow = TRIGGER_WORKFLOW.read_text(encoding="utf-8")
+        self.assertIn("github.event.comment.body == '/history-chicago-evidence'", workflow)
+        self.assertIn("categories: __chicago_evidence_only__", workflow)
+        self.assertIn("jaere-10-1,jaere-10-2", workflow)
+        self.assertIn("jaere-11-S1,", workflow)
+        self.assertIn("jle-42-S1,jle-43-S1", workflow)
+        self.assertIn("repair_dates_only: false", workflow)
+        self.assertIn("repair_content_only: false", workflow)
+
+
 if __name__ == "__main__":
     unittest.main()

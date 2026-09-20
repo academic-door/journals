@@ -139,3 +139,32 @@ jobs:
       repair_dates_only: false
       repair_content_only: true
     secrets: inherit
+
+  chicago_evidence:
+    if: >-
+      github.event.issue.number == 205 &&
+      github.event.issue.pull_request == null &&
+      github.event.comment.user.login == 'SIMON-WORLD' &&
+      github.event.comment.body == '/history-chicago-evidence'
+    uses: ./.github/workflows/history-sprint.yml
+    permissions:
+      actions: read
+      contents: write
+      models: read
+    with:
+      max_issues: "1"
+      max_translations: "120"
+      categories: __chicago_evidence_only__
+      source_run_id: ""
+      state_source_run_id: "32734420419"
+      strict_final: false
+      evidence_issue_ids: >-
+        jaere-10-1,jaere-10-2,jaere-10-3,jaere-10-4,jaere-10-5,jaere-10-6,
+        jaere-11-1,jaere-11-2,jaere-11-3,jaere-11-4,jaere-11-5,jaere-11-6,jaere-11-S1,
+        jle-41-1,jle-41-2,jle-41-3,jle-41-4,jle-41-S1,
+        jle-42-1,jle-42-2,jle-42-3,jle-42-4,jle-42-S1,jle-43-S1
+      capture_wiley_evidence: false
+      repair_dates_only: false
+      repair_content_only: false
+    secrets: inherit
+
