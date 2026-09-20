@@ -169,6 +169,15 @@ class ScienceDirectBrowserRosterEvidenceTests(unittest.TestCase):
         self.assertIn("official-publisher-note", reasons)
         self.assertIn("official-news", reasons)
 
+    def test_mini_review_is_publishable(self) -> None:
+        issue = self._staging_issue()
+        snapshot = self._snapshot()
+        snapshot["items"][1]["box_text"] = "Mini review\n" + snapshot["items"][1]["title"]
+        snapshot["items"][1].pop("type", None)
+        with patch.object(capture, "apply_evidence"):
+            evidence = capture.build_evidence(snapshot, issue, excluded_dois={})
+        self.assertEqual(issue["articles"][0]["doi"], evidence["items"][0]["doi"])
+
 
 if __name__ == "__main__":
     unittest.main()
