@@ -49,5 +49,41 @@ class HistoryPeriodAuditTest(unittest.TestCase):
         self.assertIn("precedes ere-89-7", findings[0])
 
 
+
+    def test_rejects_three_consecutive_continuous_volumes_same_month(self) -> None:
+        findings = audit_history_periods(
+            "eer",
+            [
+                {"issue_id": "eer-161-c", "volume": "161", "issue": "C", "publication_date": "February 2024"},
+                {"issue_id": "eer-162-c", "volume": "162", "issue": "C", "publication_date": "February 2024"},
+                {"issue_id": "eer-163-c", "volume": "163", "issue": "C", "publication_date": "February 2024"},
+            ],
+        )
+        self.assertEqual(1, len(findings))
+        self.assertIn("3 consecutive volumes share publication date February 2024", findings[0])
+
+    def test_rejects_three_numbered_issues_same_month(self) -> None:
+        findings = audit_history_periods(
+            "jce",
+            [
+                {"issue_id": "jce-51-1", "volume": "51", "issue": "1", "publication_date": "February 2023"},
+                {"issue_id": "jce-51-2", "volume": "51", "issue": "2", "publication_date": "February 2023"},
+                {"issue_id": "jce-51-3", "volume": "51", "issue": "3", "publication_date": "February 2023"},
+            ],
+        )
+        self.assertEqual(1, len(findings))
+        self.assertIn("3 consecutive issues share publication date February 2023", findings[0])
+
+    def test_allows_two_consecutive_entries_same_month(self) -> None:
+        findings = audit_history_periods(
+            "example",
+            [
+                {"issue_id": "example-1-c", "volume": "1", "issue": "C", "publication_date": "January 2024"},
+                {"issue_id": "example-2-c", "volume": "2", "issue": "C", "publication_date": "January 2024"},
+            ],
+        )
+        self.assertEqual([], findings)
+
+
 if __name__ == "__main__":
     unittest.main()
