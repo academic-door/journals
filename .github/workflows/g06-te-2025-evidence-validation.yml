@@ -1,0 +1,59 @@
+name: G06 TE 2025 evidence validation
+
+on:
+  push:
+    branches:
+      - g06-te-2025-evidence
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+
+      - name: Restore canonical TE archives
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          rm -rf public/api data/backfill-state
+          git archive origin/data public/api/v1/journals/te data/backfill-state | tar -x
+
+      - name: Dry-run exact official roster promotion
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/candidates"
+          for id in te-20-1 te-20-2 te-20-3 te-20-4; do
+            python scripts/import_official_roster_evidence.py               "data/provenance/official-rosters/wiley/$id.json"               --api-root public/api/v1               --output "$RUNNER_TEMP/candidates/$id.json"
+          done
+
+          RUNNER_TEMP="$RUNNER_TEMP" python - <<'PY'
+          import json, os
+          from pathlib import Path
+          root=Path(os.environ["RUNNER_TEMP"])
+          for issue_id in ("te-20-1","te-20-2","te-20-3","te-20-4"):
+              before=json.loads(Path(f"public/api/v1/journals/te/issues/{issue_id}.json").read_text())
+              after=json.loads((root/"candidates"/f"{issue_id}.json").read_text())
+              assert after["publication_state"] == "ready", (issue_id, after["publication_state"])
+              assert after["source_status"] == "official_verified", (issue_id, after["source_status"])
+              assert after["quality"]["roster_authority"] == "official-issue-page"
+              assert after["quality"]["roster_transport"] == "official-page-read"
+              assert [a["doi"] for a in after["articles"]] == [a["doi"] for a in before["articles"]]
+              assert [a.get("title_cn","") for a in after["articles"]] == [a.get("title_cn","") for a in before["articles"]]
+              assert [a.get("abstract_cn","") for a in after["articles"]] == [a.get("abstract_cn","") for a in before["articles"]]
+              assert after["quality"]["translation_complete"] == before["quality"]["translation_complete"]
+              print(issue_id, "ready", len(after["articles"]))
+          PY
+
+      - name: Run evidence and routing tests
+        run: |
+          python -m unittest             tests.test_wiley_roster_capture_routing             tests.test_official_roster_evidence
