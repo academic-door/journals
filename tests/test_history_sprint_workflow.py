@@ -144,6 +144,22 @@ class HistorySprintWorkflowTests(unittest.TestCase):
 
 
 
+    def test_date_repair_skips_only_recovery_count_progress_gate(self) -> None:
+        workflow = self.workflow()
+        progress = workflow.index("python scripts/check_recovery_progress.py")
+        strict_audit = workflow.index(
+            "python scripts/audit_public_data.py --strict-provenance --strict-history-period-duplicates"
+        )
+        window = workflow[progress - 220 : strict_audit]
+        self.assertIn('inputs.repair_dates_only', window)
+        self.assertIn('!= "true"', window)
+        self.assertIn(
+            "Date-repair-only run: recovery-count progress gate is not applicable.",
+            window,
+        )
+        self.assertLess(progress, strict_audit)
+
+
     def test_date_repair_enables_duplicate_period_gate(self) -> None:
         workflow = self.workflow()
         self.assertIn(
