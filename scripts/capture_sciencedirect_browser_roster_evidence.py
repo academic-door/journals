@@ -22,7 +22,7 @@ from scripts.import_official_roster_evidence import (  # noqa: E402
 
 
 PII_RE = re.compile(r"/pii/([A-Z0-9]+)", re.IGNORECASE)
-ALLOWED_EXCLUDED_TYPES = {"editorial", "erratum", "book-review", "obituary", "publisher-note", "news"}
+ALLOWED_EXCLUDED_TYPES = {"editorial", "erratum", "book-review", "obituary", "publisher-note", "news", "announcement"}
 NON_RESEARCH_RE = re.compile(
     r"\bEditorial(?:\s+Board)?\b|\bErratum\b|\bCorrigendum\b|"
     r"\bCorrection\b|\bRetraction\b|\bFront\s+matter\b|"
