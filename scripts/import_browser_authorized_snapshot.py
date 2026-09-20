@@ -186,6 +186,18 @@ def build_candidate(snapshot: dict[str, Any]) -> dict[str, Any]:
         if not is_publishable_type(article_type):
             excluded.append({**record, "reason": exclusion_reason(article_type)})
             continue
+        abstract_source = str(
+            item.get("abstract_source") or "official-sciencedirect-issue-preview"
+        ).strip()
+        source_map = {
+            "issue": source_url,
+            "roster": "official-sciencedirect-browser",
+            "metadata": str(item["source_url"]),
+            "abstract_en": abstract_source,
+        }
+        abstract_source_url = str(item.get("abstract_source_url", "")).strip()
+        if abstract_source_url:
+            source_map["abstract_en_url"] = abstract_source_url
         articles.append(
             {
                 "paper_id": f"doi:{doi}",
@@ -200,12 +212,7 @@ def build_candidate(snapshot: dict[str, Any]) -> dict[str, Any]:
                 "doi": doi,
                 "source_url": str(item["source_url"]),
                 "publication_date": str(snapshot["publication_date"]),
-                "sources": {
-                    "issue": source_url,
-                    "roster": "official-sciencedirect-browser",
-                    "metadata": str(item["source_url"]),
-                    "abstract_en": "official-sciencedirect-issue-preview",
-                },
+                "sources": source_map,
                 "translation": {"status": "missing"},
                 "quality_flags": ["title_cn_missing", "abstract_cn_missing"],
             }
