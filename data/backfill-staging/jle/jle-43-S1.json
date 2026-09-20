@@ -106,8 +106,8 @@
         "Gizem Koşar",
         "Wilbert van der Klaauw"
       ],
-      "abstract_en": "In addition to realized earnings and employment shocks, forward-looking individuals are presumed to condition their consumption and labor supply decisions on their subjective beliefs about future labor market risks. This paper analyzes these perceptions of earnings and employment risks using rich monthly panel data. It documents considerable individual heterogeneity in expected earnings growth and earnings growth uncertainty and in the perceived likelihood of a voluntary and involuntary job exit. We examine how these expectations evolve over the working life and the business cycle, and how they co-vary with expectations about the macro economy. Our analysis provides novel evidence on the perceived persistence in earnings growth shocks and on the association between future earnings and spending growth.",
-      "abstract_cn": "除了已实现的收入和就业冲击外，前瞻性个体被假定会根据其对未来劳动力市场风险的主观信念来调整消费和劳动供给决策。本文使用丰富的月度面板数据分析了这些对收入和就业风险的感知。文章记录了在预期收入增长和收入增长不确定性以及自愿和非自愿离职的感知可能性方面存在相当大的个体异质性。我们考察了这些预期在职业生涯和商业周期中如何演变，以及它们如何与对宏观经济的预期共同变化。我们的分析提供了关于收入增长冲击的感知持续性和未来收入与支出增长之间关联的新证据。",
+      "abstract_en": "In addition to realized earnings and employment shocks, forward-looking individuals are presumed to condition their consumption and labor supply decisions on their subjective beliefs about future labor market risks. This paper uses rich panel data to document considerable individual heterogeneity in earnings growth expectations and in the perceived likelihood of voluntary and involuntary job exits. We examine how expectations evolve over the working life and business cycle and how they covary with macroeconomic expectations and personal experiences. While largely consistent with patterns in realized outcomes, our findings highlight the unanticipated nature of the pandemic recession and the ensuing resignation wave.",
+      "abstract_cn": "除了已实现的收入和就业冲击外，前瞻性个体被假定会依据其对未来劳动力市场风险的主观信念来调整消费和劳动供给决策。本文使用丰富的面板数据，记录了收入增长预期以及对自愿和非自愿离职感知可能性的显著个体异质性。我们考察这些预期在职业生涯和商业周期中如何演变，以及它们如何与宏观经济预期和个人经历共同变化。虽然总体上与已实现结果中的模式一致，但我们的发现凸显了疫情衰退和随之而来的辞职潮的意外性质。",
       "doi": "10.1086/734088",
       "source_url": "https://journals.uchicago.edu/toc/jole/2025/43/S1",
       "publication_date": "April 2025",
@@ -122,8 +122,8 @@
         "provider": "deepseek",
         "model": "deepseek-chat",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "translated_at": "2026-09-20T09:28:06+00:00",
-        "source_hash": "1e0441e70b7a03e700aa241469f1f558302f5d718a913025add17a96faf54d47"
+        "translated_at": "2026-09-20T14:02:33+00:00",
+        "source_hash": "46ea1bdd467f6378d13ba13a5d52dda91092a35d297be7f12ab0a69b2d2b76e3"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -217,13 +217,13 @@
       "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "Robust Inference for the Frisch Labor Supply Elasticity",
-      "title_cn": "",
+      "title_cn": "弗里施劳动供给弹性的稳健推断",
       "authors": [
         "Michael Keane",
         "Timothy Neal"
       ],
-      "abstract_en": ",",
-      "abstract_cn": "",
+      "abstract_en": "Many studies estimate the Frisch elasticity via two-stage least squares (2SLS) regression of hours changes on wage changes. However, 2SLS suffers from a power asymmetry problem that makes estimates far away from ordinary least squares appear spuriously imprecise. Hence, it is difficult for t-tests to detect a positive Frisch elasticity. We illustrate the problem using NLSY97 data. We estimate an elasticity of 0.60 for young men, but the t-test indicates that it is insignificant. The Anderson-Rubin (AR) test, which avoids the power asymmetry problem, indicates that it is highly significant. We argue that the AR test should be widely adopted in lieu of the t-test in instrumental variable applications.",
+      "abstract_cn": "许多研究通过两阶段最小二乘（2SLS）回归小时变化对工资变化来估计弗里施弹性。然而，2SLS存在功效不对称问题，使得远离普通最小二乘的估计显得虚假地不精确。因此，t检验难以检测到正的弗里施弹性。我们使用NLSY97数据说明了这一问题。我们估计年轻男性的弹性为0.60，但t检验表明其不显著。Anderson-Rubin（AR）检验避免了功效不对称问题，表明其高度显著。我们认为，在工具变量应用中，应广泛采用AR检验替代t检验。",
       "doi": "10.1086/732771",
       "source_url": "https://journals.uchicago.edu/toc/jole/2025/43/S1",
       "publication_date": "April 2025",
@@ -234,12 +234,14 @@
         "abstract_en": "crossref-or-semantic-scholar"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-06T12:40:29+00:00",
+        "source_hash": "33b379f7e94248d40c5e58bb968b412d0e08a2f96ebc46df484f605e61f820af"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -371,8 +373,8 @@
       "authors": [
         "Charles F. Manski"
       ],
-      "abstract_en": "Incomplete observability of data generates an identification problem. There is no panacea for missing data. What one can learn about a population parameter depends on the assumptions one finds credible to maintain. The credibility of assumptions varies with the empirical setting. No specific assumptions can provide a realistic general solution to the problem of inference with missing data. Yet Rubin has promoted random multiple imputation (RMI) as a general way to deal with missing values in public-use data. This recommendation has been influential to empirical researchers who seek a simple fix to the nuisance of missing data. This paper adds to my earlier critiques of imputation. It provides a transparent assessment of the mix of Bayesian and frequentist thinking used by Rubin to argue for RMI. It evaluates random imputation to replace missing outcome or covariate data when the objective is to learn a conditional expectation. It considers steps that might help combat the allure of making stuff up.",
-      "abstract_cn": "数据的不完全可观测性产生了识别问题。缺失数据没有万能药。人们能了解到关于总体参数的什么，取决于其认为可信以维持的假设。假设的可信度随经验设定而变化。没有具体的假设能为缺失数据的推断问题提供现实的通用解决方案。然而，Rubin 提倡随机多重插补（RMI）作为处理公共使用数据中缺失值的一般方法。这一建议对寻求简单解决缺失数据麻烦的经验研究者产生了影响。本文补充了我早先对插补的批评。它对 Rubin 用来支持 RMI 的贝叶斯与频率派思想混合进行了透明的评估。当目标是了解条件期望时，它评估了用于替代缺失结果或协变量数据的随机插补。它考虑了可能有助于对抗编造数据诱惑的步骤。",
+      "abstract_en": "Incomplete observability of data generates an identification problem. What one can learn about a population parameter depends on the assumptions one finds credible. Rubin has promoted random multiple imputation (RMI) as a general way to deal with missing values. The recommendation has been influential to researchers who seek a simple fix to the nuisance of missing data. This paper provides a transparent assessment of the mix of Bayesian and frequentist thinking used by Rubin to argue for RMI. It evaluates random imputation to replace missing outcome or covariate data when the objective is to learn a conditional expectation.",
+      "abstract_cn": "数据的不完全可观测性产生了识别问题。人们能够了解一个总体参数的多少取决于其认为可信的假设。Rubin 提倡随机多重插补（RMI）作为处理缺失值的一般方法。这一建议对那些寻求简单解决缺失数据困扰的研究者产生了影响。本文对 Rubin 为支持 RMI 而使用的贝叶斯与频率派思想混合进行了透明的评估。当目标是了解一个条件期望时，本文评估了用随机插补替代缺失结果或协变量数据的方法。",
       "doi": "10.1086/732521",
       "source_url": "https://journals.uchicago.edu/toc/jole/2025/43/S1",
       "publication_date": "April 2025",
@@ -387,8 +389,8 @@
         "provider": "deepseek",
         "model": "deepseek-chat",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "translated_at": "2026-09-20T09:28:07+00:00",
-        "source_hash": "7e4215a9c5c93adff66b0fd70c7b9040a550086c47891bdde5ea6d5a01fe9e1e"
+        "translated_at": "2026-09-20T14:02:33+00:00",
+        "source_hash": "34ced22a2fbdab8f1eddedf54601eb2147433a5e9f63d1e551e06db0ec795fce"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -410,8 +412,8 @@
         "Christopher J. Flinn",
         "Joseph Mullins"
       ],
-      "abstract_en": "In order to assess the child welfare impact of policies governing divorced parenting, such as child support orders, child custody and placement regulations, and marital dissolution standards, one must consider their influence not only on the divorce rate but also on spouses' fertility choices and child investments. We develop a model of marriage, fertility and parenting, with the main goal being the investigation of how policies toward divorce influence outcomes for husbands, wives and children. Estimates of preferences and the technology of child development are disciplined by data on parental time inputs, and simulations based on the model explore the effects of changes in custody allocations and child support standards on outcomes for intact and divided families. Simulations indicate that, while a small decrease in the divorce rate may be induced by a significant child support hike, the major effect of child support levels for both intact and divided households is on the distribution of welfare between parents. Simulated divorce, fertility, test scores and parental welfare all increase with a move toward shared physical placement. Finally, the simulations indicate that children's interests are not necessarily best served by minimizing divorced parenting.",
-      "abstract_cn": "为了评估规范离婚后育儿政策的儿童福利影响，例如子女抚养令、子女监护和安置规定以及婚姻解除标准，必须考虑这些政策不仅对离婚率的影响，还要考虑其对配偶生育选择和子女投资的影响。我们构建了一个婚姻、生育和育儿模型，主要目标是研究离婚政策如何影响丈夫、妻子和子女的结果。偏好估计和儿童发展技术由父母时间投入的数据进行校准，基于模型的模拟探讨了监护分配和子女抚养标准变化对完整家庭和分裂家庭结果的影响。模拟表明，虽然大幅提高子女抚养费可能导致离婚率小幅下降，但子女抚养水平对完整家庭和分裂家庭的主要影响在于父母之间的福利分配。模拟的离婚、生育、测试分数和父母福利均随着向共享实际安置的转变而增加。最后，模拟表明，儿童的利益不一定通过最小化离婚后育儿来得到最佳服务。",
+      "abstract_en": "To assess the child welfare impact of policies governing divorced parenting, such as child support orders, child custody assignments, and marital dissolution standards, one must consider their influence not only on the divorce rate but also on spouses’ fertility choices and child investments. We develop a model of fertility, parenting, and divorce, from which we derive estimates of parental preferences and a child cognitive ability production function, using data on parental time allocation, children’s cognitive attainment, and realized fertility and divorce. Family policies that reduce divorce are simulated to have significant negative impacts on both fertility and child development.",
+      "abstract_cn": "为了评估规范离婚后育儿政策的儿童福利影响，例如子女抚养令、子女监护权分配和婚姻解除标准，必须考虑这些政策不仅对离婚率的影响，还要考虑其对配偶生育选择和子女投资的影响。我们建立了一个关于生育、育儿和离婚的模型，并从中得出了父母偏好和儿童认知能力生产函数的估计，使用了父母时间分配、儿童认知成就以及实际生育和离婚的数据。模拟显示，减少离婚的家庭政策对生育和儿童发展都有显著的负面影响。",
       "doi": "10.1086/734568",
       "source_url": "https://journals.uchicago.edu/toc/jole/2025/43/S1",
       "publication_date": "April 2025",
@@ -426,8 +428,8 @@
         "provider": "deepseek",
         "model": "deepseek-chat",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "translated_at": "2026-09-20T09:28:08+00:00",
-        "source_hash": "51a43f71f4e54e17d0ffce1d0f0b6a0ed0eaa595d6df645622ab68a927d5bf2c"
+        "translated_at": "2026-09-20T14:02:34+00:00",
+        "source_hash": "1eb1705abec97656ccaea10128d976d152695c39c4d9e8909c33414b476125c4"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -499,7 +501,7 @@
     "doi_complete": 12,
     "authors_complete": 12,
     "abstract_en_complete": 12,
-    "translation_complete": 10,
+    "translation_complete": 11,
     "duplicate_count": 0,
     "flags": [
       "translation_incomplete"

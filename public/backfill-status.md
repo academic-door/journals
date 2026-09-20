@@ -1,12 +1,12 @@
 # Field journal history backfill status
 
-Updated: 2026-09-20T13:18:18+00:00
+Updated: 2026-09-20T14:05:10+00:00
 
-Discovery coverage: 1205 discovered · 1180 archived · 1147 publication ready · 25 missing · 29 source pending
+Discovery coverage: 1205 discovered · 1185 archived · 1152 publication ready · 20 missing · 29 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 633 | 1 | 21 | 53 |
+| 2023-2024 | 638 | 2 | 15 | 53 |
 | 2023-2026 | 296 | 1 | 3 | 0 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
@@ -477,16 +477,16 @@ Discovery coverage: 1205 discovered · 1180 archived · 1147 publication ready �
 | IER | ier-67-3 | 2026 | ready |  |
 | JAERE | jaere-10-1 | 2023 | ready |  |
 | JAERE | jaere-10-2 | 2023 | ready |  |
-| JAERE | jaere-10-3 | 2023 | blocked | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.ed |
+| JAERE | jaere-10-3 | 2023 | ready |  |
 | JAERE | jaere-10-4 | 2023 | ready |  |
-| JAERE | jaere-10-5 | 2023 | blocked | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.ed |
-| JAERE | jaere-10-6 | 2023 | blocked | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.ed |
-| JAERE | jaere-11-1 | 2024 | blocked | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.ed |
+| JAERE | jaere-10-5 | 2023 | ready |  |
+| JAERE | jaere-10-6 | 2023 | translation_partial |  |
+| JAERE | jaere-11-1 | 2024 | blocked | archive_content_gate_failed |
 | JAERE | jaere-11-2 | 2024 | ready |  |
 | JAERE | jaere-11-3 | 2024 | ready |  |
-| JAERE | jaere-11-4 | 2024 | blocked | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.ed |
+| JAERE | jaere-11-4 | 2024 | ready |  |
 | JAERE | jaere-11-5 | 2024 | ready |  |
-| JAERE | jaere-11-6 | 2024 | blocked | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.ed |
+| JAERE | jaere-11-6 | 2024 | blocked | archive_content_gate_failed |
 | JAERE | jaere-11-S1 | 2024 | ready |  |
 | JAERE | jaere-12-1 | 2025 | ready |  |
 | JAERE | jaere-12-2 | 2025 | ready |  |
@@ -852,21 +852,21 @@ Discovery coverage: 1205 discovered · 1180 archived · 1147 publication ready �
 | JIE | jie-162-c | 2026 | ready |  |
 | JIE | jie-163-c | 2026 | ready |  |
 | JIE | jie-164-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 164/ |
-| JLE | jle-41-1 | 2023 | blocked | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.ed |
+| JLE | jle-41-1 | 2023 | blocked | archive_content_gate_failed |
 | JLE | jle-41-2 | 2023 | ready |  |
 | JLE | jle-41-3 | 2023 | ready |  |
-| JLE | jle-41-4 | 2023 | blocked | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.ed |
+| JLE | jle-41-4 | 2023 | ready |  |
 | JLE | jle-41-S1 | 2023 | ready |  |
 | JLE | jle-42-1 | 2024 | ready |  |
-| JLE | jle-42-2 | 2024 | blocked | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.ed |
+| JLE | jle-42-2 | 2024 | ready |  |
 | JLE | jle-42-3 | 2024 | ready |  |
-| JLE | jle-42-4 | 2024 | blocked | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.ed |
+| JLE | jle-42-4 | 2024 | blocked | archive_content_gate_failed |
 | JLE | jle-42-S1 | 2024 | ready |  |
 | JLE | jle-43-1 | 2025 | ready |  |
 | JLE | jle-43-2 | 2025 | ready |  |
 | JLE | jle-43-3 | 2025 | ready |  |
 | JLE | jle-43-4 | 2025 | ready |  |
-| JLE | jle-43-S1 | 2025 | blocked | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.ed |
+| JLE | jle-43-S1 | 2025 | translation_partial |  |
 | JLE | jle-44-1 | 2026 | ready |  |
 | JLE | jle-44-2 | 2026 | ready |  |
 | JLE | jle-44-3 | 2026 | ready |  |

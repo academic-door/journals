@@ -1,13 +1,13 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-20T13:18:34+00:00
+Generated: 2026-09-20T14:05:27+00:00
 
 ## Summary
 
-- ready: 1147
-- recoverable: 24
+- ready: 1152
+- recoverable: 17
 - source_pending: 29
-- translation_required: 5
+- translation_required: 7
 
 ## Issue queue
 
@@ -432,14 +432,14 @@ Generated: 2026-09-20T13:18:34+00:00
 | IER | ier-67-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JAERE | jaere-10-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | JAERE | jaere-10-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| JAERE | jaere-10-3 | 2023 | recoverable | blocked | source_pending | archive_missing |
+| JAERE | jaere-10-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | JAERE | jaere-10-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| JAERE | jaere-10-5 | 2023 | recoverable | blocked | source_pending | archive_missing |
-| JAERE | jaere-10-6 | 2023 | recoverable | blocked | source_pending | archive_missing |
+| JAERE | jaere-10-5 | 2023 | ready | complete | official_verified | content and official source gates passed |
+| JAERE | jaere-10-6 | 2023 | translation_required | blocked | source_pending | archive_missing |
 | JAERE | jaere-11-1 | 2024 | recoverable | blocked | source_pending | archive_missing |
 | JAERE | jaere-11-2 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | JAERE | jaere-11-3 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| JAERE | jaere-11-4 | 2024 | recoverable | blocked | source_pending | archive_missing |
+| JAERE | jaere-11-4 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | JAERE | jaere-11-5 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | JAERE | jaere-11-6 | 2024 | recoverable | blocked | source_pending | archive_missing |
 | JAERE | jaere-11-S1 | 2024 | ready | complete | official_verified | content and official source gates passed |
@@ -780,10 +780,10 @@ Generated: 2026-09-20T13:18:34+00:00
 | JLE | jle-41-1 | 2023 | recoverable | blocked | source_pending | archive_missing |
 | JLE | jle-41-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-41-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| JLE | jle-41-4 | 2023 | recoverable | blocked | source_pending | archive_missing |
+| JLE | jle-41-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-41-S1 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-42-1 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| JLE | jle-42-2 | 2024 | recoverable | blocked | source_pending | archive_missing |
+| JLE | jle-42-2 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-42-3 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-42-4 | 2024 | recoverable | blocked | source_pending | archive_missing |
 | JLE | jle-42-S1 | 2024 | ready | complete | official_verified | content and official source gates passed |
@@ -791,7 +791,7 @@ Generated: 2026-09-20T13:18:34+00:00
 | JLE | jle-43-2 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-43-3 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-43-4 | 2025 | ready | complete | official_verified | content and official source gates passed |
-| JLE | jle-43-S1 | 2025 | recoverable | blocked | source_pending | archive_missing |
+| JLE | jle-43-S1 | 2025 | translation_required | blocked | source_pending | archive_missing |
 | JLE | jle-44-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-44-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-44-3 | 2026 | ready | complete | official_verified | content and official source gates passed |

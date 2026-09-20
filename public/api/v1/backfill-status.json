@@ -1,20 +1,20 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-09-20T13:18:18+00:00",
+  "updated_at": "2026-09-20T14:05:10+00:00",
   "summary": {
-    "complete": 1234,
-    "translation_partial": 5,
-    "blocked": 32,
+    "complete": 1239,
+    "translation_partial": 7,
+    "blocked": 25,
     "collected": 0,
     "pending": 64
   },
   "coverage": {
     "discovered": 1205,
-    "archived": 1180,
-    "content_ready": 1176,
-    "source_verified": 1151,
-    "publication_ready": 1147,
-    "missing": 25,
+    "archived": 1185,
+    "content_ready": 1181,
+    "source_verified": 1156,
+    "publication_ready": 1152,
+    "missing": 20,
     "source_pending": 29,
     "missing_issue_ids": [
       "ecolecon-224-c",
@@ -23,16 +23,11 @@
       "foodpolicy-134-c",
       "foodpolicy-137-c",
       "ier-64-1",
-      "jaere-10-3",
-      "jaere-10-5",
       "jaere-10-6",
       "jaere-11-1",
-      "jaere-11-4",
       "jaere-11-6",
       "jeem-118-c",
       "jle-41-1",
-      "jle-41-4",
-      "jle-42-2",
       "jle-42-4",
       "jle-43-S1",
       "joe-234-c",
@@ -2026,16 +2021,14 @@
     },
     "JLE": {
       "discovered": 18,
-      "archived": 13,
-      "content_ready": 13,
-      "source_verified": 13,
-      "publication_ready": 13,
-      "missing": 5,
+      "archived": 15,
+      "content_ready": 15,
+      "source_verified": 15,
+      "publication_ready": 15,
+      "missing": 3,
       "source_pending": 0,
       "missing_issue_ids": [
         "jle-41-1",
-        "jle-41-4",
-        "jle-42-2",
         "jle-42-4",
         "jle-43-S1"
       ],
@@ -2044,29 +2037,27 @@
       "years": {
         "2023": {
           "discovered": 5,
-          "archived": 3,
-          "content_ready": 3,
-          "source_verified": 3,
-          "publication_ready": 3,
-          "missing": 2,
+          "archived": 4,
+          "content_ready": 4,
+          "source_verified": 4,
+          "publication_ready": 4,
+          "missing": 1,
           "source_pending": 0,
           "missing_issue_ids": [
-            "jle-41-1",
-            "jle-41-4"
+            "jle-41-1"
           ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "2024": {
           "discovered": 5,
-          "archived": 3,
-          "content_ready": 3,
-          "source_verified": 3,
-          "publication_ready": 3,
-          "missing": 2,
+          "archived": 4,
+          "content_ready": 4,
+          "source_verified": 4,
+          "publication_ready": 4,
+          "missing": 1,
           "source_pending": 0,
           "missing_issue_ids": [
-            "jle-42-2",
             "jle-42-4"
           ],
           "source_pending_issue_ids": [],
@@ -2243,18 +2234,15 @@
     },
     "JAERE": {
       "discovered": 24,
-      "archived": 18,
-      "content_ready": 18,
-      "source_verified": 18,
-      "publication_ready": 18,
-      "missing": 6,
+      "archived": 21,
+      "content_ready": 21,
+      "source_verified": 21,
+      "publication_ready": 21,
+      "missing": 3,
       "source_pending": 0,
       "missing_issue_ids": [
-        "jaere-10-3",
-        "jaere-10-5",
         "jaere-10-6",
         "jaere-11-1",
-        "jaere-11-4",
         "jaere-11-6"
       ],
       "source_pending_issue_ids": [],
@@ -2262,15 +2250,13 @@
       "years": {
         "2023": {
           "discovered": 6,
-          "archived": 3,
-          "content_ready": 3,
-          "source_verified": 3,
-          "publication_ready": 3,
-          "missing": 3,
+          "archived": 5,
+          "content_ready": 5,
+          "source_verified": 5,
+          "publication_ready": 5,
+          "missing": 1,
           "source_pending": 0,
           "missing_issue_ids": [
-            "jaere-10-3",
-            "jaere-10-5",
             "jaere-10-6"
           ],
           "source_pending_issue_ids": [],
@@ -2278,15 +2264,14 @@
         },
         "2024": {
           "discovered": 7,
-          "archived": 4,
-          "content_ready": 4,
-          "source_verified": 4,
-          "publication_ready": 4,
-          "missing": 3,
+          "archived": 5,
+          "content_ready": 5,
+          "source_verified": 5,
+          "publication_ready": 5,
+          "missing": 2,
           "source_pending": 0,
           "missing_issue_ids": [
             "jaere-11-1",
-            "jaere-11-4",
             "jaere-11-6"
           ],
           "source_pending_issue_ids": [],
@@ -8619,11 +8604,11 @@
         "year": 2023,
         "volume": "10",
         "issue": "3",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2023/10/3",
+        "status": "ready",
+        "content_status": "complete",
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -8643,11 +8628,11 @@
         "year": 2023,
         "volume": "10",
         "issue": "5",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2023/10/5",
+        "status": "ready",
+        "content_status": "complete",
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -8655,12 +8640,12 @@
         "year": 2023,
         "volume": "10",
         "issue": "6",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2023/10/6",
-        "retry_class": "manual"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "official_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "jaere-11-1",
@@ -8669,9 +8654,9 @@
         "issue": "1",
         "status": "blocked",
         "content_status": "blocked",
-        "source_status": "source_pending",
+        "source_status": "official_verified",
         "publication_state": "blocked",
-        "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2024/11/1",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -8703,11 +8688,11 @@
         "year": 2024,
         "volume": "11",
         "issue": "4",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2024/11/4",
+        "status": "ready",
+        "content_status": "complete",
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -8729,9 +8714,9 @@
         "issue": "6",
         "status": "blocked",
         "content_status": "blocked",
-        "source_status": "source_pending",
+        "source_status": "official_verified",
         "publication_state": "blocked",
-        "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jaere/2024/11/6",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -13149,9 +13134,9 @@
         "issue": "1",
         "status": "blocked",
         "content_status": "blocked",
-        "source_status": "source_pending",
+        "source_status": "official_verified",
         "publication_state": "blocked",
-        "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jole/2023/41/1",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -13183,11 +13168,11 @@
         "year": 2023,
         "volume": "41",
         "issue": "4",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jole/2023/41/4",
+        "status": "ready",
+        "content_status": "complete",
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -13219,11 +13204,11 @@
         "year": 2024,
         "volume": "42",
         "issue": "2",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jole/2024/42/2",
+        "status": "ready",
+        "content_status": "complete",
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -13245,9 +13230,9 @@
         "issue": "4",
         "status": "blocked",
         "content_status": "blocked",
-        "source_status": "source_pending",
+        "source_status": "official_verified",
         "publication_state": "blocked",
-        "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jole/2024/42/4",
+        "last_error": "archive_content_gate_failed",
         "retry_class": "manual"
       },
       {
@@ -13315,12 +13300,12 @@
         "year": 2025,
         "volume": "43",
         "issue": "S1",
-        "status": "blocked",
-        "content_status": "blocked",
-        "source_status": "source_pending",
-        "publication_state": "blocked",
-        "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.edu/toc/jole/2025/43/S1",
-        "retry_class": "manual"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "official_verified",
+        "publication_state": "translation_partial",
+        "last_error": "",
+        "retry_class": "translation"
       },
       {
         "issue_id": "jle-44-1",
@@ -19192,37 +19177,32 @@
     },
     "2023-2024": {
       "summary": {
-        "complete": 633,
-        "translation_partial": 1,
-        "blocked": 21,
+        "complete": 638,
+        "translation_partial": 2,
+        "blocked": 15,
         "collected": 0,
         "pending": 53
       },
       "issue_count": 708,
-      "updated_at": "2026-08-24T14:00:30+00:00",
+      "updated_at": "2026-09-20T14:03:05+00:00",
       "coverage": {
         "discovered": 571,
-        "archived": 551,
-        "content_ready": 551,
-        "source_verified": 533,
-        "publication_ready": 533,
-        "missing": 20,
+        "archived": 556,
+        "content_ready": 556,
+        "source_verified": 538,
+        "publication_ready": 538,
+        "missing": 15,
         "source_pending": 18,
         "missing_issue_ids": [
           "ecolecon-224-c",
           "ecolecon-225-c",
           "foodpolicy-118-c",
           "ier-64-1",
-          "jaere-10-3",
-          "jaere-10-5",
           "jaere-10-6",
           "jaere-11-1",
-          "jaere-11-4",
           "jaere-11-6",
           "jeem-118-c",
           "jle-41-1",
-          "jle-41-4",
-          "jle-42-2",
           "jle-42-4",
           "joe-234-c",
           "joe-235-2",
@@ -19378,9 +19358,9 @@
   "years": {
     "2023": {
       "summary": {
-        "complete": 307,
-        "translation_partial": 1,
-        "blocked": 13,
+        "complete": 310,
+        "translation_partial": 2,
+        "blocked": 9,
         "collected": 0,
         "pending": 31
       },
@@ -19438,21 +19418,18 @@
       ],
       "coverage": {
         "discovered": 297,
-        "archived": 285,
-        "content_ready": 285,
-        "source_verified": 275,
-        "publication_ready": 275,
-        "missing": 12,
+        "archived": 288,
+        "content_ready": 288,
+        "source_verified": 278,
+        "publication_ready": 278,
+        "missing": 9,
         "source_pending": 10,
         "missing_issue_ids": [
           "foodpolicy-118-c",
           "ier-64-1",
-          "jaere-10-3",
-          "jaere-10-5",
           "jaere-10-6",
           "jeem-118-c",
           "jle-41-1",
-          "jle-41-4",
           "joe-234-c",
           "joe-235-2",
           "joe-237-1",
@@ -19652,15 +19629,13 @@
         },
         "JAERE": {
           "discovered": 6,
-          "archived": 3,
-          "content_ready": 3,
-          "source_verified": 3,
-          "publication_ready": 3,
-          "missing": 3,
+          "archived": 5,
+          "content_ready": 5,
+          "source_verified": 5,
+          "publication_ready": 5,
+          "missing": 1,
           "source_pending": 0,
           "missing_issue_ids": [
-            "jaere-10-3",
-            "jaere-10-5",
             "jaere-10-6"
           ],
           "source_pending_issue_ids": [],
@@ -19802,15 +19777,14 @@
         },
         "JLE": {
           "discovered": 5,
-          "archived": 3,
-          "content_ready": 3,
-          "source_verified": 3,
-          "publication_ready": 3,
-          "missing": 2,
+          "archived": 4,
+          "content_ready": 4,
+          "source_verified": 4,
+          "publication_ready": 4,
+          "missing": 1,
           "source_pending": 0,
           "missing_issue_ids": [
-            "jle-41-1",
-            "jle-41-4"
+            "jle-41-1"
           ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
@@ -19990,9 +19964,9 @@
     },
     "2024": {
       "summary": {
-        "complete": 325,
+        "complete": 327,
         "translation_partial": 0,
-        "blocked": 8,
+        "blocked": 6,
         "collected": 0,
         "pending": 22
       },
@@ -20050,19 +20024,17 @@
       ],
       "coverage": {
         "discovered": 297,
-        "archived": 289,
-        "content_ready": 289,
-        "source_verified": 281,
-        "publication_ready": 281,
-        "missing": 8,
+        "archived": 291,
+        "content_ready": 291,
+        "source_verified": 283,
+        "publication_ready": 283,
+        "missing": 6,
         "source_pending": 8,
         "missing_issue_ids": [
           "ecolecon-224-c",
           "ecolecon-225-c",
           "jaere-11-1",
-          "jaere-11-4",
           "jaere-11-6",
-          "jle-42-2",
           "jle-42-4",
           "jue-144-c"
         ],
@@ -20252,15 +20224,14 @@
         },
         "JAERE": {
           "discovered": 7,
-          "archived": 4,
-          "content_ready": 4,
-          "source_verified": 4,
-          "publication_ready": 4,
-          "missing": 3,
+          "archived": 5,
+          "content_ready": 5,
+          "source_verified": 5,
+          "publication_ready": 5,
+          "missing": 2,
           "source_pending": 0,
           "missing_issue_ids": [
             "jaere-11-1",
-            "jaere-11-4",
             "jaere-11-6"
           ],
           "source_pending_issue_ids": [],
@@ -20400,14 +20371,13 @@
         },
         "JLE": {
           "discovered": 5,
-          "archived": 3,
-          "content_ready": 3,
-          "source_verified": 3,
-          "publication_ready": 3,
-          "missing": 2,
+          "archived": 4,
+          "content_ready": 4,
+          "source_verified": 4,
+          "publication_ready": 4,
+          "missing": 1,
           "source_pending": 0,
           "missing_issue_ids": [
-            "jle-42-2",
             "jle-42-4"
           ],
           "source_pending_issue_ids": [],
@@ -20586,8 +20556,8 @@
     "2025": {
       "summary": {
         "complete": 325,
-        "translation_partial": 4,
-        "blocked": 5,
+        "translation_partial": 5,
+        "blocked": 4,
         "collected": 0,
         "pending": 11
       },
