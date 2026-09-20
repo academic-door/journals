@@ -65,7 +65,7 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         evidence_only = "inputs.evidence_issue_ids != ''"
         shard_work = "inputs.source_run_id != '' || needs.collect.result != 'skipped'"
         self.assertIn(
-            f"if: always() && ({evidence_only} || {shard_work} || inputs.repair_dates_only)",
+            f"if: always() && ({evidence_only} || {shard_work} || inputs.repair_dates_only || inputs.repair_content_only)",
             publish_block,
         )
         for step in (
@@ -154,7 +154,7 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         self.assertIn('inputs.repair_dates_only', window)
         self.assertIn('!= "true"', window)
         self.assertIn(
-            "Date-repair-only run: recovery-count progress gate is not applicable.",
+            "Repair-only run: recovery-count progress gate is not applicable.",
             window,
         )
         self.assertLess(progress, strict_audit)
@@ -180,10 +180,24 @@ class HistorySprintWorkflowTests(unittest.TestCase):
     def test_supports_date_repair_only_without_recovery_or_composer_sync(self) -> None:
         workflow = self.workflow()
         self.assertIn("repair_dates_only:", workflow)
-        self.assertIn("|| inputs.repair_dates_only)", workflow)
+        self.assertIn("|| inputs.repair_dates_only || inputs.repair_content_only)", workflow)
         self.assertIn("inputs.repair_dates_only == false", workflow)
         self.assertIn(
             "needs.publish.result == 'success' && inputs.repair_dates_only == false",
+            workflow,
+        )
+
+
+
+    def test_content_repair_is_bounded_and_requires_composer_success(self) -> None:
+        workflow = self.workflow()
+        self.assertIn("repair_content_only:", workflow)
+        self.assertIn("python scripts/repair_no_abstract_comments.py", workflow)
+        self.assertIn("python scripts/repair_no_abstract_comments.py --check", workflow)
+        self.assertIn("inputs.repair_content_only == false", workflow)
+        self.assertIn("|| inputs.repair_content_only)", workflow)
+        self.assertIn(
+            "continue-on-error: ${{ inputs.repair_content_only == false }}",
             workflow,
         )
 

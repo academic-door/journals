@@ -230,6 +230,47 @@ def abstract_is_complete(article: dict[str, Any]) -> bool:
     )
 
 
+def normalize_no_abstract_comment(article: dict[str, Any]) -> bool:
+    """Normalize a publishable comment with no source abstract.
+
+    The shared journal contract allows title-only comments when the source
+    genuinely provides no abstract. Such records must not retain a translated
+    placeholder abstract; the missing English source body is explicit instead.
+    """
+
+    if canonical_article_type(
+        str(article.get("title_en", "")),
+        str(article.get("article_type", "")),
+    ) != "comment":
+        return False
+    if str(article.get("abstract_en", "")).strip():
+        return False
+
+    changed = False
+    if str(article.get("abstract_cn", "")).strip():
+        article["abstract_cn"] = ""
+        changed = True
+
+    flags = [str(flag) for flag in article.get("quality_flags", [])]
+    if "abstract_en_missing" not in flags:
+        flags.append("abstract_en_missing")
+        changed = True
+    if "abstract_cn_missing" in flags:
+        flags = [flag for flag in flags if flag != "abstract_cn_missing"]
+        changed = True
+    article["quality_flags"] = list(dict.fromkeys(flags))
+
+    translation = article.setdefault("translation", {})
+    if str(article.get("title_cn", "")).strip():
+        if translation.get("status") != "complete":
+            translation["status"] = "complete"
+            changed = True
+    elif translation.get("status") == "complete":
+        translation["status"] = "partial"
+        changed = True
+    return changed
+
+
 def translation_is_complete(article: dict[str, Any]) -> bool:
     if not str(article.get("title_cn", "")).strip():
         return False

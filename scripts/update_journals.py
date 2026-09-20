@@ -23,6 +23,7 @@ from collectors.article_types import (
     canonical_issue_label,
     has_official_no_abstract_exception,
     normalize_issue_taxonomy,
+    normalize_no_abstract_comment,
     translation_is_complete,
 )
 from scripts.china_relevance import annotate_issue, classify_china_relevance
@@ -348,6 +349,7 @@ def apply_translation_cache(
             article["translation"]["source_hash"] = translated.get(
                 "source_hash", _source_hash(article)
             )
+        normalize_no_abstract_comment(article)
         if article["title_cn"] and article["abstract_cn"]:
             article["translation"]["status"] = "complete"
         elif abstract_without_body_is_allowed(article) and article["title_cn"]:
@@ -1144,6 +1146,7 @@ def preserve_existing_content(
             if article.get(field):
                 flags.discard(flag)
         article["quality_flags"] = list(flags)
+        normalize_no_abstract_comment(article)
 
     quality = issue.get("quality", {})
     quality["authors_complete"] = sum(bool(article.get("authors")) for article in issue.get("articles", []))
