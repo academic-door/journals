@@ -144,6 +144,13 @@ class HistorySprintWorkflowTests(unittest.TestCase):
 
 
 
+    def test_date_repair_enables_duplicate_period_gate(self) -> None:
+        workflow = self.workflow()
+        self.assertIn(
+            "python scripts/audit_public_data.py --strict-provenance --strict-history-period-duplicates",
+            workflow,
+        )
+
     def test_repairs_duplicate_month_elsevier_history_before_audit(self) -> None:
         workflow = self.workflow()
         repair = workflow.index("python scripts/repair_history_dates.py")
