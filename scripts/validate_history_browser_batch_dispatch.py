@@ -69,15 +69,18 @@ def _validate_snapshot(
     path: Path,
     *,
     issue_id: str,
-    journal_id: str,
+    journal_ids: set[str],
     transport: str,
 ) -> None:
     snapshot = _read_json(path, f"snapshot {issue_id}")
     errors = _forbidden_keys(snapshot)
     if snapshot.get("issue_id") != issue_id:
         errors.append("snapshot issue_id mismatch")
-    if snapshot.get("journal_id") != journal_id:
+    snapshot_journal_id = str(snapshot.get("journal_id") or "").strip()
+    if snapshot_journal_id not in journal_ids:
         errors.append("snapshot journal_id mismatch")
+    if snapshot_journal_id and not issue_id.startswith(snapshot_journal_id + "-"):
+        errors.append("snapshot journal_id does not match issue_id prefix")
     if snapshot.get("capture_mode") not in {None, transport}:
         errors.append("snapshot capture_mode mismatch")
     official_url = str(snapshot.get("official_url") or "")
@@ -125,8 +128,22 @@ def validate_event(event: dict[str, object], *, repo_root: Path) -> tuple[str, l
     if manifest.get("policy_decision") != "0018":
         errors.append("policy_decision must be 0018")
     journal_id = str(manifest.get("journal_id") or "").strip()
-    if not journal_id:
-        errors.append("journal_id missing")
+    raw_journal_ids = manifest.get("journal_ids")
+    journal_ids: set[str] = set()
+    if journal_id and raw_journal_ids is not None:
+        errors.append("use journal_id or journal_ids, not both")
+    elif journal_id:
+        journal_ids = {journal_id}
+    elif isinstance(raw_journal_ids, list) and raw_journal_ids:
+        normalized_journal_ids = [str(value).strip() for value in raw_journal_ids]
+        if any(not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", value) for value in normalized_journal_ids):
+            errors.append("journal_ids contains invalid journal id")
+        elif len(set(normalized_journal_ids)) != len(normalized_journal_ids):
+            errors.append("journal_ids must be unique")
+        else:
+            journal_ids = set(normalized_journal_ids)
+    else:
+        errors.append("journal_id or journal_ids missing")
     issue_ids = manifest.get("issue_ids")
     snapshot_paths = manifest.get("snapshot_paths")
     if not isinstance(issue_ids, list) or not issue_ids or len(issue_ids) > 50:
@@ -165,7 +182,7 @@ def validate_event(event: dict[str, object], *, repo_root: Path) -> tuple[str, l
         _validate_snapshot(
             path,
             issue_id=issue_id,
-            journal_id=journal_id,
+            journal_ids=journal_ids,
             transport="browser-authorized",
         )
         normalized_ids.append(issue_id)
