@@ -145,5 +145,17 @@ class ControlledHistoryDispatchTests(unittest.TestCase):
         self.assertIn("group: journal-data-update", workflow)
 
 
+
+    def test_control_issue_can_trigger_bounded_date_repair_and_wave_a(self) -> None:
+        workflow = TRIGGER_WORKFLOW.read_text(encoding="utf-8")
+        self.assertIn("github.event.issue.number == 205", workflow)
+        self.assertIn("github.event.comment.body == '/history-date-repair'", workflow)
+        self.assertIn("github.event.comment.body == '/history-wave-a'", workflow)
+        self.assertIn("categories: __date_repair_only__", workflow)
+        self.assertIn("repair_dates_only: true", workflow)
+        self.assertIn("categories: source_pending,translation_required", workflow)
+        self.assertIn("repair_dates_only: false", workflow)
+
+
 if __name__ == "__main__":
     unittest.main()
