@@ -30,7 +30,7 @@ NON_RESEARCH_RE = re.compile(
     re.IGNORECASE,
 )
 PUBLISHABLE_RE = re.compile(
-    r"Research article|Review article|Short communication|"
+    r"Research article|Review article|Mini review|Short communication|"
     r"Full length article|Data article|Discussion",
     re.IGNORECASE,
 )
