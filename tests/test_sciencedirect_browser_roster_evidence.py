@@ -167,6 +167,7 @@ class ScienceDirectBrowserRosterEvidenceTests(unittest.TestCase):
         self.assertIn("official-book-review", reasons)
         self.assertIn("official-obituary", reasons)
         self.assertIn("official-publisher-note", reasons)
+        self.assertIn("official-news", reasons)
 
 
 if __name__ == "__main__":
