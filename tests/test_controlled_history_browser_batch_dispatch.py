@@ -171,6 +171,74 @@ class ControlledHistoryBrowserBatchDispatchTests(unittest.TestCase):
             )
             self.assertNotEqual(result.returncode, 0)
 
+    def test_multi_journal_publisher_family_batch_is_accepted(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            paths = [
+                Path("data/provenance/browser-snapshots/sciencedirect/red-47-c.json"),
+                Path("data/provenance/browser-snapshots/sciencedirect/wd-192-c.json"),
+            ]
+            manifest = root / "data/provenance/browser-batches/elsevier-family.json"
+            manifest.parent.mkdir(parents=True, exist_ok=True)
+            manifest.write_text(
+                json.dumps(
+                    {
+                        "schema_version": "1.0",
+                        "batch_id": "elsevier-family",
+                        "publisher_family": "elsevier-sciencedirect",
+                        "journal_ids": ["red", "wd"],
+                        "transport": "browser-authorized",
+                        "policy_decision": "0018",
+                        "finalized": True,
+                        "issue_ids": ["red-47-c", "wd-192-c"],
+                        "snapshot_paths": [str(path) for path in paths],
+                    }
+                ),
+                encoding="utf-8",
+            )
+            for path, journal_id, issue_id in zip(
+                paths, ["red", "wd"], ["red-47-c", "wd-192-c"], strict=True
+            ):
+                full = root / path
+                full.parent.mkdir(parents=True, exist_ok=True)
+                full.write_text(
+                    json.dumps(
+                        {
+                            "schema_version": "1.0",
+                            "journal_id": journal_id,
+                            "issue_id": issue_id,
+                            "official_url": "https://www.sciencedirect.com/journal/example/vol/1/suppl/C",
+                            "capture_mode": "browser-authorized",
+                            "items": [{"title": "Example", "href": "https://www.sciencedirect.com/science/article/pii/S0000000000000000"}],
+                        }
+                    ),
+                    encoding="utf-8",
+                )
+            event_path = root / "event.json"
+            output_path = root / "github-output.txt"
+            event_path.write_text(
+                json.dumps(self._event(body="/history-browser-batch elsevier-family")),
+                encoding="utf-8",
+            )
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(SCRIPT),
+                    str(event_path),
+                    "--repo-root",
+                    str(root),
+                    "--github-output",
+                    str(output_path),
+                ],
+                cwd=root,
+                text=True,
+                capture_output=True,
+                check=False,
+            )
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertIn("issue_ids=red-47-c,wd-192-c", output_path.read_text(encoding="utf-8"))
+
+
     def test_workflow_has_bounded_batch_route(self) -> None:
         workflow = TRIGGER_WORKFLOW.read_text(encoding="utf-8")
         self.assertIn("validate_browser_batch:", workflow)

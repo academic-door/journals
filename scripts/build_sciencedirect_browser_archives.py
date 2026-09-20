@@ -45,7 +45,7 @@ from scripts.update_journals import (
 
 PII_RE = re.compile(r"/pii/([A-Z0-9]+)", re.IGNORECASE)
 PUBLISHABLE_RE = re.compile(
-    r"Research article|Review article|Short communication|"
+    r"Research article|Review article|Mini review|Short communication|"
     r"Full length article|Data article|Discussion",
     re.IGNORECASE,
 )
