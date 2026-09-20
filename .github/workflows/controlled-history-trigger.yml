@@ -92,3 +92,26 @@ jobs:
       capture_wiley_evidence: false
       repair_dates_only: false
     secrets: inherit
+
+  wave_b:
+    if: >-
+      github.event.issue.number == 205 &&
+      github.event.issue.pull_request == null &&
+      github.event.comment.user.login == 'SIMON-WORLD' &&
+      github.event.comment.body == '/history-wave-b'
+    uses: ./.github/workflows/history-sprint.yml
+    permissions:
+      actions: read
+      contents: write
+      models: read
+    with:
+      max_issues: "10"
+      max_translations: "120"
+      categories: recoverable
+      source_run_id: ""
+      state_source_run_id: "32734420419"
+      strict_final: false
+      evidence_issue_ids: ""
+      capture_wiley_evidence: false
+      repair_dates_only: false
+    secrets: inherit
