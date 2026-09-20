@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "red-2023-2025",
+  "publisher_family": "elsevier-sciencedirect",
+  "journal_id": "red",
+  "transport": "browser-authorized",
+  "policy_decision": "0018",
+  "finalized": true,
+  "captured_at": "2026-09-20T15:50:00Z",
+  "purpose": "r3-source-authority-reconciliation",
+  "issue_ids": [
+    "red-48-c",
+    "red-52-c",
+    "red-53-c",
+    "red-54-c",
+    "red-55-c",
+    "red-56-c",
+    "red-57-c"
+  ],
+  "snapshot_paths": [
+    "data/provenance/browser-snapshots/sciencedirect/red-48-c.json",
+    "data/provenance/browser-snapshots/sciencedirect/red-52-c.json",
+    "data/provenance/browser-snapshots/sciencedirect/red-53-c.json",
+    "data/provenance/browser-snapshots/sciencedirect/red-54-c.json",
+    "data/provenance/browser-snapshots/sciencedirect/red-55-c.json",
+    "data/provenance/browser-snapshots/sciencedirect/red-56-c.json",
+    "data/provenance/browser-snapshots/sciencedirect/red-57-c.json"
+  ],
+  "notes": [
+    "Batch contains only issue rosters hard-matched against current canonical archive research titles/counts.",
+    "RED 47/49/50/51 remain outside this batch due browser modal interruption during durable capture.",
+    "RED 58 remains outside this batch due official-title versus archive-title mismatch requiring separate owner-local reconciliation."
+  ]
+}
