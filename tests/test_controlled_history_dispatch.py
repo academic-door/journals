@@ -185,5 +185,15 @@ class ControlledHistoryDispatchTests(unittest.TestCase):
         self.assertIn("repair_content_only: false", workflow)
 
 
+    def test_control_issue_can_trigger_authenticated_wiley_evidence_tranche(self) -> None:
+        workflow = TRIGGER_WORKFLOW.read_text(encoding="utf-8")
+        self.assertIn("github.event.comment.body == '/history-wiley-evidence'", workflow)
+        self.assertIn("categories: __wiley_evidence_only__", workflow)
+        self.assertIn("ajae-107-1,ajae-107-2", workflow)
+        self.assertIn("jf-80-5,jf-80-6", workflow)
+        self.assertIn("repair_dates_only: false", workflow)
+        self.assertIn("repair_content_only: false", workflow)
+
+
 if __name__ == "__main__":
     unittest.main()
