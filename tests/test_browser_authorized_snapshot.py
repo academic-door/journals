@@ -68,6 +68,20 @@ class BrowserAuthorizedSnapshotTests(unittest.TestCase):
         self.assertEqual("browser-authorized-local", candidate["quality"]["roster_transport"])
         self.assertIn("translation_incomplete", candidate["quality"]["flags"])
 
+    def test_preserves_field_level_abstract_provenance(self) -> None:
+        snapshot = snapshot_fixture()
+        snapshot["items"][1]["abstract_source"] = "repec-publisher-supplied"
+        snapshot["items"][1]["abstract_source_url"] = (
+            "https://ideas.repec.org/a/eee/deveco/example.html"
+        )
+        candidate = build_candidate(snapshot)
+        article = candidate["articles"][0]
+        self.assertEqual("repec-publisher-supplied", article["sources"]["abstract_en"])
+        self.assertEqual(
+            "https://ideas.repec.org/a/eee/deveco/example.html",
+            article["sources"]["abstract_en_url"],
+        )
+
     def test_rejects_private_session_fields(self) -> None:
         snapshot = snapshot_fixture()
         snapshot["cookie_header"] = "private"
