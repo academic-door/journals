@@ -6,29 +6,39 @@
   "transport": "browser-authorized",
   "policy_decision": "0018",
   "finalized": true,
-  "captured_at": "2026-09-20T15:50:00Z",
+  "captured_at": "2026-09-20T16:20:00Z",
   "purpose": "r3-source-authority-reconciliation",
   "issue_ids": [
+    "red-47-c",
     "red-48-c",
+    "red-49-c",
+    "red-50-c",
+    "red-51-c",
     "red-52-c",
     "red-53-c",
     "red-54-c",
     "red-55-c",
     "red-56-c",
-    "red-57-c"
+    "red-57-c",
+    "red-58-c"
   ],
   "snapshot_paths": [
+    "data/provenance/browser-snapshots/sciencedirect/red-47-c.json",
     "data/provenance/browser-snapshots/sciencedirect/red-48-c.json",
+    "data/provenance/browser-snapshots/sciencedirect/red-49-c.json",
+    "data/provenance/browser-snapshots/sciencedirect/red-50-c.json",
+    "data/provenance/browser-snapshots/sciencedirect/red-51-c.json",
     "data/provenance/browser-snapshots/sciencedirect/red-52-c.json",
     "data/provenance/browser-snapshots/sciencedirect/red-53-c.json",
     "data/provenance/browser-snapshots/sciencedirect/red-54-c.json",
     "data/provenance/browser-snapshots/sciencedirect/red-55-c.json",
     "data/provenance/browser-snapshots/sciencedirect/red-56-c.json",
-    "data/provenance/browser-snapshots/sciencedirect/red-57-c.json"
+    "data/provenance/browser-snapshots/sciencedirect/red-57-c.json",
+    "data/provenance/browser-snapshots/sciencedirect/red-58-c.json"
   ],
   "notes": [
-    "Batch contains only issue rosters hard-matched against current canonical archive research titles/counts.",
-    "RED 47/49/50/51 remain outside this batch due browser modal interruption during durable capture.",
-    "RED 58 remains outside this batch due official-title versus archive-title mismatch requiring separate owner-local reconciliation."
+    "Complete RED 2023-2025 publisher-family browser evidence batch under Decision 0018.",
+    "All 12 official ScienceDirect rosters were reconciled against current canonical archive research counts and titles before dispatch.",
+    "RED 58 preserves the publisher-expanded display title in the raw snapshot; DOI identity plus a narrow main-title+colon-subtitle compatibility rule preserves the canonical title gate."
   ]
 }
