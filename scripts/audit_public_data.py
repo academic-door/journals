@@ -78,6 +78,48 @@ def issue_period_ordinal(value: str) -> int | None:
     return None
 
 
+def _repeated_consecutive_period_findings(
+    journal_id: str,
+    items: list[tuple[dict[str, Any], int]],
+    *,
+    sequence_field: str,
+) -> list[str]:
+    findings: list[str] = []
+    run: list[tuple[dict[str, Any], int]] = []
+
+    def flush() -> None:
+        if len(run) < 3:
+            return
+        first = run[0][0]
+        last = run[-1][0]
+        findings.append(
+            f"{journal_id}:{first.get('issue_id')}..{last.get('issue_id')}: "
+            f"{len(run)} consecutive {sequence_field}s share publication date "
+            f"{first.get('publication_date')}"
+        )
+
+    for item in items:
+        issue, ordinal = item
+        if not run:
+            run = [item]
+            continue
+        previous, previous_ordinal = run[-1]
+        try:
+            consecutive = (
+                int(issue.get(sequence_field, -1))
+                == int(previous.get(sequence_field, -1)) + 1
+            )
+        except (TypeError, ValueError):
+            consecutive = False
+        if consecutive and ordinal == previous_ordinal:
+            run.append(item)
+        else:
+            flush()
+            run = [item]
+    flush()
+    return findings
+
+
 def audit_history_periods(journal_id: str, issues: list[dict[str, Any]]) -> list[str]:
     findings: list[str] = []
     dated: list[tuple[dict[str, Any], int]] = []
@@ -108,6 +150,13 @@ def audit_history_periods(journal_id: str, issues: list[dict[str, Any]]) -> list
                 f"{current.get('publication_date')} precedes "
                 f"{previous.get('issue_id')} ({previous.get('publication_date')})"
             )
+    findings.extend(
+        _repeated_consecutive_period_findings(
+            journal_id,
+            continuous,
+            sequence_field="volume",
+        )
+    )
 
     numbered_by_volume: dict[int, list[tuple[dict[str, Any], int]]] = {}
     for issue, ordinal in dated:
@@ -127,6 +176,13 @@ def audit_history_periods(journal_id: str, issues: list[dict[str, Any]]) -> list
                     f"{current.get('publication_date')} precedes "
                     f"{previous.get('issue_id')} ({previous.get('publication_date')})"
                 )
+        findings.extend(
+            _repeated_consecutive_period_findings(
+                journal_id,
+                volume_issues,
+                sequence_field="issue",
+            )
+        )
     return findings
 
 
