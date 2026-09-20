@@ -6,10 +6,81 @@ import unittest
 from pathlib import Path
 
 from scripts.backfill_history import COLLECTOR_REVISION
-from scripts.backfill_status import build_payload, period_label, summarize
+from scripts.backfill_status import (
+    build_payload,
+    discovery_expectations,
+    period_label,
+    summarize,
+)
 
 
 class BackfillStatusTests(unittest.TestCase):
+    def test_expected_exclusion_suppresses_older_overlapping_discovery(self) -> None:
+        states = [
+            {
+                "discovery": {
+                    "JIE": {
+                        "issue_ids": ["jie-164-c"],
+                        "issue_years": {"jie-164-c": 2026},
+                        "issue_refs": {
+                            "jie-164-c": {
+                                "journal": "JIE",
+                                "year": 2026,
+                                "volume": "164",
+                                "issue": "c",
+                                "official_url": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+                            }
+                        },
+                        "authority": "crossref_candidate",
+                        "refreshed_at": "2026-08-24T14:11:06+00:00",
+                    }
+                }
+            },
+            {
+                "expected_issue_exclusions": {
+                    "jie-164-c": {
+                        "status": "not_yet_published",
+                        "recorded_at": "2026-09-18",
+                        "rediscover": True,
+                    }
+                }
+            },
+        ]
+        self.assertNotIn("jie-164-c", discovery_expectations(states, {}))
+
+    def test_newer_rediscovery_can_supersede_expected_exclusion(self) -> None:
+        states = [
+            {
+                "expected_issue_exclusions": {
+                    "jie-164-c": {
+                        "status": "not_yet_published",
+                        "recorded_at": "2026-09-18",
+                        "rediscover": True,
+                    }
+                }
+            },
+            {
+                "discovery": {
+                    "JIE": {
+                        "issue_ids": ["jie-164-c"],
+                        "issue_years": {"jie-164-c": 2026},
+                        "issue_refs": {
+                            "jie-164-c": {
+                                "journal": "JIE",
+                                "year": 2026,
+                                "volume": "164",
+                                "issue": "c",
+                                "official_url": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+                            }
+                        },
+                        "authority": "official_archive_snapshot",
+                        "refreshed_at": "2026-12-01T10:00:00+00:00",
+                    }
+                }
+            },
+        ]
+        self.assertIn("jie-164-c", discovery_expectations(states, {}))
+
     def test_period_label_derives_year_range_from_filename(self) -> None:
         self.assertEqual(
             "2023-2024",
