@@ -166,5 +166,13 @@ class ControlledHistoryDispatchTests(unittest.TestCase):
         self.assertIn("repair_dates_only: false", workflow)
 
 
+
+    def test_control_issue_can_trigger_content_repair(self) -> None:
+        workflow = TRIGGER_WORKFLOW.read_text(encoding="utf-8")
+        self.assertIn("github.event.comment.body == '/history-content-repair'", workflow)
+        self.assertIn("categories: __content_repair_only__", workflow)
+        self.assertIn("repair_content_only: true", workflow)
+
+
 if __name__ == "__main__":
     unittest.main()
