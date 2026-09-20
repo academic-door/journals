@@ -95,6 +95,19 @@ def _archive_maps(
     return by_pii, by_doi, by_title
 
 
+def _publisher_expanded_subtitle_match(archive_title: object, official_title: object) -> bool:
+    """Accept only an exact DOI-matched publisher subtitle expansion.
+
+    Some ScienceDirect cards expand a deposited main title with a colon subtitle.
+    This compatibility is intentionally narrow: the official display title must
+    begin with the exact archived title followed immediately by a colon.
+    """
+
+    archive = str(archive_title or "").strip()
+    official = str(official_title or "").strip()
+    return bool(archive and official and official.startswith(archive + ":"))
+
+
 def _article_type(browser_item: dict[str, Any]) -> str:
     explicit = str(browser_item.get("type", "")).strip().casefold()
     if explicit in ALLOWED_EXCLUDED_TYPES or explicit == "research-article":
@@ -180,15 +193,21 @@ def build_evidence(
                     raise ValueError(
                         f"missing official research item lacks DOI/authors: {pii}"
                     )
+            evidence_title = title
             if article is not None and _normalized_title(title) != _normalized_title(
                 article.get("title_en")
             ):
-                raise ValueError(f"official title mismatch for {pii}")
+                if _publisher_expanded_subtitle_match(article.get("title_en"), title):
+                    evidence_title = str(article.get("title_en", "")).strip()
+                else:
+                    raise ValueError(f"official title mismatch for {pii}")
             evidence_item: dict[str, Any] = {
                 "sequence": len(items) + 1,
                 "doi": doi,
-                "title_en": title,
+                "title_en": evidence_title,
             }
+            if evidence_title != title:
+                evidence_item["official_display_title_en"] = title
             if article is None:
                 evidence_item.update(
                     source_id=f"pii:{pii}",
