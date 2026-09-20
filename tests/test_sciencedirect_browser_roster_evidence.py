@@ -117,6 +117,19 @@ class ScienceDirectBrowserRosterEvidenceTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "ambiguous archive title"):
             capture.build_evidence(self._snapshot(), issue, excluded_dois={})
 
+    def test_doi_matched_publisher_subtitle_expansion_is_narrowly_accepted(self) -> None:
+        issue = self._staging_issue()
+        snapshot = self._snapshot()
+        official = issue["articles"][0]["title_en"] + ": Publisher subtitle"
+        snapshot["items"][1]["title"] = official
+        snapshot["items"][1]["box_text"] = "Research article\\n" + official
+        snapshot["items"][1]["doi"] = issue["articles"][0]["doi"]
+        with patch.object(capture, "apply_evidence"):
+            evidence = capture.build_evidence(snapshot, issue, excluded_dois={})
+
+        self.assertEqual(issue["articles"][0]["title_en"], evidence["items"][0]["title_en"])
+        self.assertEqual(official, evidence["items"][0]["official_display_title_en"])
+
 
 if __name__ == "__main__":
     unittest.main()
