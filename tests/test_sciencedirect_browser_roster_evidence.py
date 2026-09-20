@@ -168,6 +168,7 @@ class ScienceDirectBrowserRosterEvidenceTests(unittest.TestCase):
         self.assertIn("official-obituary", reasons)
         self.assertIn("official-publisher-note", reasons)
         self.assertIn("official-news", reasons)
+        self.assertIn("official-announcement", reasons)
 
     def test_mini_review_is_publishable(self) -> None:
         issue = self._staging_issue()
