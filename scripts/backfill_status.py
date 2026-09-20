@@ -157,6 +157,16 @@ def group_by_journal(issues: dict[str, Any]) -> dict[str, list[dict[str, Any]]]:
     return by_journal
 
 
+def _observation_day(value: object):
+    text = str(value or "").strip()
+    if not text:
+        return None
+    try:
+        return datetime.fromisoformat(text.replace("Z", "+00:00")).date()
+    except ValueError:
+        return None
+
+
 def discovery_expectations(
     states: Iterable[dict[str, Any]],
     merged_issues: dict[str, Any],
@@ -170,6 +180,28 @@ def discovery_expectations(
 
     state_list = list(states)
     expected: dict[str, dict[str, Any]] = {}
+
+    # A later explicit not-yet-published/exclusion observation must suppress
+    # older overlapping discovery snapshots. This is common when a legacy
+    # Crossref candidate state overlaps a newer browser-authorized publisher
+    # archive observation. A genuinely newer rediscovery may re-enter the
+    # expected set, which preserves the rediscover=True lifecycle.
+    exclusion_days: dict[str, object] = {}
+    for state in state_list:
+        exclusions = state.get("expected_issue_exclusions", {})
+        if not isinstance(exclusions, dict):
+            continue
+        for raw_issue_id, raw_exclusion in exclusions.items():
+            issue_id = str(raw_issue_id)
+            exclusion = raw_exclusion if isinstance(raw_exclusion, dict) else {}
+            day = _observation_day(exclusion.get("recorded_at"))
+            if issue_id not in exclusion_days:
+                exclusion_days[issue_id] = day
+            elif exclusion_days[issue_id] is None:
+                continue
+            elif day is None or day > exclusion_days[issue_id]:
+                exclusion_days[issue_id] = day
+
     for state in state_list:
         discovery = state.get("discovery", {})
         local_issues = state.get("issues", {})
@@ -191,6 +223,17 @@ def discovery_expectations(
                 continue
             for raw_issue_id in issue_ids:
                 issue_id = str(raw_issue_id)
+                if issue_id in exclusion_days:
+                    exclusion_day = exclusion_days[issue_id]
+                    discovery_day = _observation_day(
+                        snapshot.get("refreshed_at") or snapshot.get("updated_at")
+                    )
+                    if (
+                        exclusion_day is None
+                        or discovery_day is None
+                        or discovery_day <= exclusion_day
+                    ):
+                        continue
                 local_entry = local_issues.get(issue_id, {})
                 if not isinstance(local_entry, dict):
                     local_entry = {}
