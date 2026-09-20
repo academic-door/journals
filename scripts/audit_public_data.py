@@ -120,7 +120,12 @@ def _repeated_consecutive_period_findings(
     return findings
 
 
-def audit_history_periods(journal_id: str, issues: list[dict[str, Any]]) -> list[str]:
+def audit_history_periods(
+    journal_id: str,
+    issues: list[dict[str, Any]],
+    *,
+    check_repeated_periods: bool = True,
+) -> list[str]:
     findings: list[str] = []
     dated: list[tuple[dict[str, Any], int]] = []
     for issue in issues:
@@ -150,13 +155,14 @@ def audit_history_periods(journal_id: str, issues: list[dict[str, Any]]) -> list
                 f"{current.get('publication_date')} precedes "
                 f"{previous.get('issue_id')} ({previous.get('publication_date')})"
             )
-    findings.extend(
-        _repeated_consecutive_period_findings(
-            journal_id,
-            continuous,
-            sequence_field="volume",
+    if check_repeated_periods:
+        findings.extend(
+            _repeated_consecutive_period_findings(
+                journal_id,
+                continuous,
+                sequence_field="volume",
+            )
         )
-    )
 
     numbered_by_volume: dict[int, list[tuple[dict[str, Any], int]]] = {}
     for issue, ordinal in dated:
@@ -176,13 +182,14 @@ def audit_history_periods(journal_id: str, issues: list[dict[str, Any]]) -> list
                     f"{current.get('publication_date')} precedes "
                     f"{previous.get('issue_id')} ({previous.get('publication_date')})"
                 )
-        findings.extend(
-            _repeated_consecutive_period_findings(
-                journal_id,
-                volume_issues,
-                sequence_field="issue",
+        if check_repeated_periods:
+            findings.extend(
+                _repeated_consecutive_period_findings(
+                    journal_id,
+                    volume_issues,
+                    sequence_field="issue",
+                )
             )
-        )
     return findings
 
 
@@ -193,7 +200,10 @@ def read_json(path: Path) -> dict[str, Any]:
     return data
 
 
-def main(strict_provenance: bool = False) -> int:
+def main(
+    strict_provenance: bool = False,
+    strict_history_period_duplicates: bool = False,
+) -> int:
     config = yaml.safe_load(
         (ROOT / "config" / "journals.yml").read_text(encoding="utf-8")
     )
@@ -322,6 +332,7 @@ def main(strict_provenance: bool = False) -> int:
                 audit_history_periods(
                     journal["id"],
                     list(history.get("issues", [])),
+                    check_repeated_periods=strict_history_period_duplicates,
                 )
             )
         try:
@@ -477,4 +488,18 @@ if __name__ == "__main__":
             "failure instead of a warning. Enable once the ledger is populated."
         ),
     )
-    raise SystemExit(main(parser.parse_args().strict_provenance))
+    parser.add_argument(
+        "--strict-history-period-duplicates",
+        action="store_true",
+        help=(
+            "Fail when three or more consecutive historical volumes/issues "
+            "share one publication period. Enable after the repair step."
+        ),
+    )
+    args = parser.parse_args()
+    raise SystemExit(
+        main(
+            args.strict_provenance,
+            args.strict_history_period_duplicates,
+        )
+    )
