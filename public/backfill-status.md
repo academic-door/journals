@@ -1,18 +1,13 @@
 # Field journal history backfill status
 
-Updated: 2026-09-20T00:14:18+00:00
+Updated: 2026-09-20T00:27:01+00:00
 
-Discovery coverage: 1260 discovered · 1206 archived · 1149 publication ready · 54 missing · 57 source pending
+Discovery coverage: 1198 discovered · 1153 archived · 1109 publication ready · 45 missing · 44 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 619 | 1 | 35 | 53 |
-| 2023-2026 | 293 | 0 | 3 | 4 |
-| 2024-2024 | 12 | 0 | 0 | 0 |
-| 2025-2026 | 1 | 0 | 0 | 0 |
-| 2026-2026 | 10 | 0 | 0 | 0 |
-| elsevier-2026-browser | 0 | 0 | 0 | 0 |
-| final3-2026-browser | 0 | 0 | 0 | 0 |
+| 2023-2024 | 619 | 0 | 36 | 53 |
+| 2025-2026 | 590 | 1 | 11 | 26 |
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -159,7 +154,7 @@ Discovery coverage: 1260 discovered · 1206 archived · 1149 publication ready �
 | CER | cer-77-c | 2023 | ready |  |
 | CER | cer-78-c | 2023 | ready |  |
 | CER | cer-79-c | 2023 | ready |  |
-| CER | cer-80-c | 2023 | source_pending |  |
+| CER | cer-80-c | 2023 | source_pending | source authority pending official verification |
 | CER | cer-81-c | 2023 | ready |  |
 | CER | cer-82-c | 2023 | ready |  |
 | CER | cer-83-c | 2024 | ready |  |
@@ -410,7 +405,7 @@ Discovery coverage: 1260 discovered · 1206 archived · 1149 publication ready �
 | FOODPOLICY | foodpolicy-115-c | 2023 | ready |  |
 | FOODPOLICY | foodpolicy-116-c | 2023 | ready |  |
 | FOODPOLICY | foodpolicy-117-c | 2023 | ready |  |
-| FOODPOLICY | foodpolicy-118-c | 2023 | translation_partial |  |
+| FOODPOLICY | foodpolicy-118-c | 2023 | blocked | archive_missing |
 | FOODPOLICY | foodpolicy-119-c | 2023 | ready |  |
 | FOODPOLICY | foodpolicy-120-c | 2023 | ready |  |
 | FOODPOLICY | foodpolicy-121-c | 2023 | ready |  |
@@ -553,7 +548,7 @@ Discovery coverage: 1260 discovered · 1206 archived · 1149 publication ready �
 | JEBO | jebo-217-c | 2024 | ready |  |
 | JEBO | jebo-218-c | 2024 | ready |  |
 | JEBO | jebo-219-c | 2024 | ready |  |
-| JEBO | jebo-220-c | 2024 | ready | archive_missing |
+| JEBO | jebo-220-c | 2024 | ready |  |
 | JEBO | jebo-221-c | 2024 | ready |  |
 | JEBO | jebo-222-c | 2024 | ready |  |
 | JEBO | jebo-223-c | 2024 | ready |  |
@@ -1183,12 +1178,12 @@ Discovery coverage: 1260 discovered · 1206 archived · 1149 publication ready �
 | RAND | rand-57-1 | 2026 | ready |  |
 | RAND | rand-57-2 | 2026 | ready |  |
 | RAND | rand-57-3 | 2026 | ready |  |
-| RED | red-47-c | 2023 | source_pending |  |
-| RED | red-48-c | 2023 | source_pending |  |
-| RED | red-49-c | 2023 | source_pending |  |
-| RED | red-50-c | 2023 | source_pending |  |
-| RED | red-51-c | 2023 | source_pending |  |
-| RED | red-52-c | 2024 | source_pending |  |
+| RED | red-47-c | 2023 | source_pending | source authority pending official verification |
+| RED | red-48-c | 2023 | source_pending | source authority pending official verification |
+| RED | red-49-c | 2023 | source_pending | source authority pending official verification |
+| RED | red-50-c | 2023 | source_pending | source authority pending official verification |
+| RED | red-51-c | 2023 | source_pending | source authority pending official verification |
+| RED | red-52-c | 2024 | source_pending | source authority pending official verification |
 | RED | red-53-c | 2024 | source_pending |  |
 | RED | red-54-c | 2024 | source_pending |  |
 | RED | red-55-c | 2025 | source_pending |  |
@@ -1226,12 +1221,12 @@ Discovery coverage: 1260 discovered · 1206 archived · 1149 publication ready �
 | RESTAT | restat-105-2 | 2023 | ready |  |
 | RESTAT | restat-105-3 | 2023 | ready |  |
 | RESTAT | restat-105-4 | 2023 | ready |  |
-| RESTAT | restat-105-5 | 2023 | source_pending | source authority pending official verification |
-| RESTAT | restat-105-6 | 2023 | source_pending | source authority pending official verification |
-| RESTAT | restat-106-1 | 2024 | source_pending | source authority pending official verification |
-| RESTAT | restat-106-2 | 2024 | source_pending | source authority pending official verification |
+| RESTAT | restat-105-5 | 2023 | source_pending |  |
+| RESTAT | restat-105-6 | 2023 | source_pending |  |
+| RESTAT | restat-106-1 | 2024 | source_pending |  |
+| RESTAT | restat-106-2 | 2024 | source_pending |  |
 | RESTAT | restat-106-3 | 2024 | ready |  |
-| RESTAT | restat-106-4 | 2024 | source_pending | source authority pending official verification |
+| RESTAT | restat-106-4 | 2024 | source_pending |  |
 | RESTAT | restat-106-5 | 2024 | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs off |
 | RESTAT | restat-106-6 | 2024 | source_pending |  |
 | RESTAT | restat-107-1 | 2025 | source_pending |  |
