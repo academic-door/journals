@@ -1,6 +1,6 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-09-20T01:30:59+00:00",
+  "updated_at": "2026-09-20T04:59:01+00:00",
   "summary": {
     "complete": 1208,
     "translation_partial": 1,
@@ -9,19 +9,22 @@
     "pending": 79
   },
   "coverage": {
-    "discovered": 1198,
-    "archived": 1153,
-    "content_ready": 1153,
-    "source_verified": 1109,
-    "publication_ready": 1109,
-    "missing": 45,
+    "discovered": 1236,
+    "archived": 1182,
+    "content_ready": 1182,
+    "source_verified": 1138,
+    "publication_ready": 1138,
+    "missing": 54,
     "source_pending": 44,
     "missing_issue_ids": [
       "ecolecon-224-c",
       "ecolecon-225-c",
+      "eer-190-c",
       "foodpolicy-118-c",
       "foodpolicy-134-c",
       "foodpolicy-137-c",
+      "foodpolicy-144-c",
+      "geb-160-c",
       "ier-64-1",
       "jaere-10-1",
       "jaere-10-2",
@@ -37,7 +40,10 @@
       "jaere-11-6",
       "jaere-11-S1",
       "jaere-13-6",
+      "jedc-192-c",
       "jeem-118-c",
+      "jfe-185-c",
+      "jhe-110-c",
       "jie-164-c",
       "jle-41-1",
       "jle-41-2",
@@ -50,12 +56,15 @@
       "jle-42-4",
       "jle-42-S1",
       "jle-43-S1",
+      "jme-163-c",
       "joe-234-c",
       "joe-235-2",
       "joe-237-1",
+      "joe-258-c",
       "jue-133-c",
       "jue-144-c",
       "jue-156-c",
+      "labeco-103-c",
       "lup-146-c",
       "lup-153-c",
       "lup-171-c",
@@ -715,14 +724,16 @@
       }
     },
     "EER": {
-      "discovered": 39,
+      "discovered": 40,
       "archived": 39,
       "content_ready": 39,
       "source_verified": 39,
       "publication_ready": 39,
-      "missing": 0,
+      "missing": 1,
       "source_pending": 0,
-      "missing_issue_ids": [],
+      "missing_issue_ids": [
+        "eer-190-c"
+      ],
       "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
       "years": {
@@ -763,14 +774,16 @@
           "blocked_issue_ids": []
         },
         "2026": {
-          "discovered": 9,
+          "discovered": 10,
           "archived": 9,
           "content_ready": 9,
           "source_verified": 9,
           "publication_ready": 9,
-          "missing": 0,
+          "missing": 1,
           "source_pending": 0,
-          "missing_issue_ids": [],
+          "missing_issue_ids": [
+            "eer-190-c"
+          ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         }
@@ -973,14 +986,16 @@
       }
     },
     "GEB": {
-      "discovered": 23,
+      "discovered": 24,
       "archived": 23,
       "content_ready": 23,
       "source_verified": 23,
       "publication_ready": 23,
-      "missing": 0,
+      "missing": 1,
       "source_pending": 0,
-      "missing_issue_ids": [],
+      "missing_issue_ids": [
+        "geb-160-c"
+      ],
       "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
       "years": {
@@ -1021,14 +1036,16 @@
           "blocked_issue_ids": []
         },
         "2026": {
-          "discovered": 5,
+          "discovered": 6,
           "archived": 5,
           "content_ready": 5,
           "source_verified": 5,
           "publication_ready": 5,
-          "missing": 0,
+          "missing": 1,
           "source_pending": 0,
-          "missing_issue_ids": [],
+          "missing_issue_ids": [
+            "geb-160-c"
+          ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         }
@@ -1535,14 +1552,16 @@
       }
     },
     "JFE": {
-      "discovered": 46,
+      "discovered": 47,
       "archived": 46,
       "content_ready": 46,
       "source_verified": 46,
       "publication_ready": 46,
-      "missing": 0,
+      "missing": 1,
       "source_pending": 0,
-      "missing_issue_ids": [],
+      "missing_issue_ids": [
+        "jfe-185-c"
+      ],
       "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
       "years": {
@@ -1583,31 +1602,57 @@
           "blocked_issue_ids": []
         },
         "2026": {
-          "discovered": 10,
+          "discovered": 11,
           "archived": 10,
           "content_ready": 10,
           "source_verified": 10,
           "publication_ready": 10,
-          "missing": 0,
+          "missing": 1,
           "source_pending": 0,
-          "missing_issue_ids": [],
+          "missing_issue_ids": [
+            "jfe-185-c"
+          ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         }
       }
     },
     "RFS": {
-      "discovered": 21,
-      "archived": 21,
-      "content_ready": 21,
-      "source_verified": 21,
-      "publication_ready": 21,
+      "discovered": 44,
+      "archived": 44,
+      "content_ready": 44,
+      "source_verified": 44,
+      "publication_ready": 44,
       "missing": 0,
       "source_pending": 0,
       "missing_issue_ids": [],
       "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
       "years": {
+        "2023": {
+          "discovered": 12,
+          "archived": 12,
+          "content_ready": 12,
+          "source_verified": 12,
+          "publication_ready": 12,
+          "missing": 0,
+          "source_pending": 0,
+          "missing_issue_ids": [],
+          "source_pending_issue_ids": [],
+          "blocked_issue_ids": []
+        },
+        "2024": {
+          "discovered": 11,
+          "archived": 11,
+          "content_ready": 11,
+          "source_verified": 11,
+          "publication_ready": 11,
+          "missing": 0,
+          "source_pending": 0,
+          "missing_issue_ids": [],
+          "source_pending_issue_ids": [],
+          "blocked_issue_ids": []
+        },
         "2025": {
           "discovered": 12,
           "archived": 12,
@@ -1958,14 +2003,16 @@
       }
     },
     "JME": {
-      "discovered": 30,
+      "discovered": 31,
       "archived": 30,
       "content_ready": 30,
       "source_verified": 30,
       "publication_ready": 30,
-      "missing": 0,
+      "missing": 1,
       "source_pending": 0,
-      "missing_issue_ids": [],
+      "missing_issue_ids": [
+        "jme-163-c"
+      ],
       "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
       "years": {
@@ -2006,14 +2053,16 @@
           "blocked_issue_ids": []
         },
         "2026": {
-          "discovered": 6,
+          "discovered": 7,
           "archived": 6,
           "content_ready": 6,
           "source_verified": 6,
           "publication_ready": 6,
-          "missing": 0,
+          "missing": 1,
           "source_pending": 0,
-          "missing_issue_ids": [],
+          "missing_issue_ids": [
+            "jme-163-c"
+          ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         }
@@ -2170,17 +2219,18 @@
       }
     },
     "JOE": {
-      "discovered": 39,
-      "archived": 36,
-      "content_ready": 36,
-      "source_verified": 36,
-      "publication_ready": 36,
-      "missing": 3,
+      "discovered": 44,
+      "archived": 40,
+      "content_ready": 40,
+      "source_verified": 40,
+      "publication_ready": 40,
+      "missing": 4,
       "source_pending": 0,
       "missing_issue_ids": [
         "joe-234-c",
         "joe-235-2",
-        "joe-237-1"
+        "joe-237-1",
+        "joe-258-c"
       ],
       "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
@@ -2226,31 +2276,34 @@
           "blocked_issue_ids": []
         },
         "2026": {
-          "discovered": 5,
-          "archived": 5,
-          "content_ready": 5,
-          "source_verified": 5,
-          "publication_ready": 5,
-          "missing": 0,
+          "discovered": 10,
+          "archived": 9,
+          "content_ready": 9,
+          "source_verified": 9,
+          "publication_ready": 9,
+          "missing": 1,
           "source_pending": 0,
-          "missing_issue_ids": [],
+          "missing_issue_ids": [
+            "joe-258-c"
+          ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         }
       }
     },
     "FOODPOLICY": {
-      "discovered": 30,
+      "discovered": 31,
       "archived": 27,
       "content_ready": 27,
       "source_verified": 27,
       "publication_ready": 27,
-      "missing": 3,
+      "missing": 4,
       "source_pending": 0,
       "missing_issue_ids": [
         "foodpolicy-118-c",
         "foodpolicy-134-c",
-        "foodpolicy-137-c"
+        "foodpolicy-137-c",
+        "foodpolicy-144-c"
       ],
       "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
@@ -2297,14 +2350,16 @@
           "blocked_issue_ids": []
         },
         "2026": {
-          "discovered": 6,
+          "discovered": 7,
           "archived": 6,
           "content_ready": 6,
           "source_verified": 6,
           "publication_ready": 6,
-          "missing": 0,
+          "missing": 1,
           "source_pending": 0,
-          "missing_issue_ids": [],
+          "missing_issue_ids": [
+            "foodpolicy-144-c"
+          ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         }
@@ -2601,14 +2656,16 @@
       }
     },
     "JHE": {
-      "discovered": 23,
+      "discovered": 24,
       "archived": 23,
       "content_ready": 23,
       "source_verified": 23,
       "publication_ready": 23,
-      "missing": 0,
+      "missing": 1,
       "source_pending": 0,
-      "missing_issue_ids": [],
+      "missing_issue_ids": [
+        "jhe-110-c"
+      ],
       "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
       "years": {
@@ -2625,14 +2682,16 @@
           "blocked_issue_ids": []
         },
         "2026": {
-          "discovered": 5,
+          "discovered": 6,
           "archived": 5,
           "content_ready": 5,
           "source_verified": 5,
           "publication_ready": 5,
-          "missing": 0,
+          "missing": 1,
           "source_pending": 0,
-          "missing_issue_ids": [],
+          "missing_issue_ids": [
+            "jhe-110-c"
+          ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
@@ -2663,11 +2722,11 @@
       }
     },
     "JCE": {
-      "discovered": 14,
-      "archived": 14,
-      "content_ready": 14,
-      "source_verified": 14,
-      "publication_ready": 14,
+      "discovered": 15,
+      "archived": 15,
+      "content_ready": 15,
+      "source_verified": 15,
+      "publication_ready": 15,
       "missing": 0,
       "source_pending": 0,
       "missing_issue_ids": [],
@@ -2711,11 +2770,11 @@
           "blocked_issue_ids": []
         },
         "2026": {
-          "discovered": 2,
-          "archived": 2,
-          "content_ready": 2,
-          "source_verified": 2,
-          "publication_ready": 2,
+          "discovered": 3,
+          "archived": 3,
+          "content_ready": 3,
+          "source_verified": 3,
+          "publication_ready": 3,
           "missing": 0,
           "source_pending": 0,
           "missing_issue_ids": [],
@@ -2725,11 +2784,11 @@
       }
     },
     "CER": {
-      "discovered": 24,
-      "archived": 24,
-      "content_ready": 24,
-      "source_verified": 22,
-      "publication_ready": 22,
+      "discovered": 25,
+      "archived": 25,
+      "content_ready": 25,
+      "source_verified": 23,
+      "publication_ready": 23,
       "missing": 0,
       "source_pending": 2,
       "missing_issue_ids": [],
@@ -2740,11 +2799,11 @@
       "blocked_issue_ids": [],
       "years": {
         "2026": {
-          "discovered": 6,
-          "archived": 6,
-          "content_ready": 6,
-          "source_verified": 6,
-          "publication_ready": 6,
+          "discovered": 7,
+          "archived": 7,
+          "content_ready": 7,
+          "source_verified": 7,
+          "publication_ready": 7,
           "missing": 0,
           "source_pending": 0,
           "missing_issue_ids": [],
@@ -2924,26 +2983,30 @@
       }
     },
     "LABECO": {
-      "discovered": 23,
+      "discovered": 24,
       "archived": 23,
       "content_ready": 23,
       "source_verified": 23,
       "publication_ready": 23,
-      "missing": 0,
+      "missing": 1,
       "source_pending": 0,
-      "missing_issue_ids": [],
+      "missing_issue_ids": [
+        "labeco-103-c"
+      ],
       "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
       "years": {
         "2026": {
-          "discovered": 5,
+          "discovered": 6,
           "archived": 5,
           "content_ready": 5,
           "source_verified": 5,
           "publication_ready": 5,
-          "missing": 0,
+          "missing": 1,
           "source_pending": 0,
-          "missing_issue_ids": [],
+          "missing_issue_ids": [
+            "labeco-103-c"
+          ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
@@ -3080,14 +3143,16 @@
       }
     },
     "JEDC": {
-      "discovered": 46,
+      "discovered": 47,
       "archived": 46,
       "content_ready": 46,
       "source_verified": 46,
       "publication_ready": 46,
-      "missing": 0,
+      "missing": 1,
       "source_pending": 0,
-      "missing_issue_ids": [],
+      "missing_issue_ids": [
+        "jedc-192-c"
+      ],
       "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
       "years": {
@@ -3128,14 +3193,16 @@
           "blocked_issue_ids": []
         },
         "2026": {
-          "discovered": 10,
+          "discovered": 11,
           "archived": 10,
           "content_ready": 10,
           "source_verified": 10,
           "publication_ready": 10,
-          "missing": 0,
+          "missing": 1,
           "source_pending": 0,
-          "missing_issue_ids": [],
+          "missing_issue_ids": [
+            "jedc-192-c"
+          ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         }
@@ -9637,8 +9704,8 @@
         "content_status": "complete",
         "source_status": "publisher_verified",
         "publication_state": "ready",
-        "last_error": "",
-        "retry_class": "manual"
+        "last_error": "archive_missing",
+        "retry_class": "transient"
       },
       {
         "issue_id": "jebo-221-c",
@@ -19263,6 +19330,44 @@
     ]
   },
   "periods": {
+    "elsevier-2026-browser": {
+      "summary": {
+        "complete": 0,
+        "translation_partial": 0,
+        "blocked": 0,
+        "collected": 0,
+        "pending": 0
+      },
+      "issue_count": 0,
+      "updated_at": "2026-09-18T17:27:00+00:00",
+      "coverage": {
+        "discovered": 182,
+        "archived": 168,
+        "content_ready": 168,
+        "source_verified": 168,
+        "publication_ready": 168,
+        "missing": 14,
+        "source_pending": 0,
+        "missing_issue_ids": [
+          "eer-190-c",
+          "foodpolicy-144-c",
+          "geb-160-c",
+          "jedc-192-c",
+          "jfe-185-c",
+          "jhe-110-c",
+          "jie-164-c",
+          "jme-163-c",
+          "joe-258-c",
+          "jue-156-c",
+          "labeco-103-c",
+          "lup-171-c",
+          "red-62-c",
+          "wd-208-c"
+        ],
+        "source_pending_issue_ids": [],
+        "blocked_issue_ids": []
+      }
+    },
     "2023-2024": {
       "summary": {
         "complete": 619,
@@ -19340,65 +19445,131 @@
         "blocked_issue_ids": []
       }
     },
-    "2025-2026": {
+    "2023-2026": {
       "summary": {
-        "complete": 590,
-        "translation_partial": 1,
-        "blocked": 11,
+        "complete": 293,
+        "translation_partial": 0,
+        "blocked": 3,
         "collected": 0,
-        "pending": 26
+        "pending": 4
       },
-      "issue_count": 628,
-      "updated_at": "2026-09-20T01:28:43+00:00",
+      "issue_count": 300,
+      "updated_at": "2026-09-18T06:46:44+00:00",
       "coverage": {
-        "discovered": 628,
-        "archived": 617,
-        "content_ready": 617,
-        "source_verified": 591,
-        "publication_ready": 591,
-        "missing": 11,
-        "source_pending": 26,
+        "discovered": 428,
+        "archived": 423,
+        "content_ready": 423,
+        "source_verified": 419,
+        "publication_ready": 419,
+        "missing": 5,
+        "source_pending": 4,
         "missing_issue_ids": [
-          "foodpolicy-134-c",
-          "foodpolicy-137-c",
-          "jaere-13-6",
-          "jie-164-c",
-          "jle-43-S1",
-          "jue-156-c",
-          "lup-153-c",
-          "lup-171-c",
-          "red-62-c",
-          "wd-192-c",
-          "wd-208-c"
+          "ecolecon-224-c",
+          "ecolecon-225-c",
+          "joe-234-c",
+          "joe-235-2",
+          "joe-237-1"
         ],
         "source_pending_issue_ids": [
-          "ajae-107-1",
-          "ajae-107-2",
-          "ajae-107-3",
-          "ajae-107-4",
-          "ajae-107-5",
-          "cer-94-c",
-          "jf-80-1",
-          "jf-80-2",
-          "jf-80-3",
-          "jf-80-4",
-          "jf-80-5",
-          "jf-80-6",
-          "red-55-c",
-          "red-56-c",
-          "red-57-c",
-          "red-58-c",
-          "restat-107-1",
-          "restat-107-2",
-          "restat-107-3",
-          "restat-107-4",
-          "restat-107-5",
-          "restat-107-6",
           "te-20-1",
           "te-20-2",
           "te-20-3",
           "te-20-4"
         ],
+        "blocked_issue_ids": []
+      }
+    },
+    "2024-2024": {
+      "summary": {
+        "complete": 12,
+        "translation_partial": 0,
+        "blocked": 0,
+        "collected": 0,
+        "pending": 0
+      },
+      "issue_count": 12,
+      "updated_at": "2026-08-14T05:08:38+00:00",
+      "coverage": {
+        "discovered": 12,
+        "archived": 12,
+        "content_ready": 12,
+        "source_verified": 12,
+        "publication_ready": 12,
+        "missing": 0,
+        "source_pending": 0,
+        "missing_issue_ids": [],
+        "source_pending_issue_ids": [],
+        "blocked_issue_ids": []
+      }
+    },
+    "2025-2026": {
+      "summary": {
+        "complete": 1,
+        "translation_partial": 0,
+        "blocked": 0,
+        "collected": 0,
+        "pending": 0
+      },
+      "issue_count": 1,
+      "updated_at": "2026-08-12T23:33:10+00:00",
+      "coverage": {
+        "discovered": 0,
+        "archived": 0,
+        "content_ready": 0,
+        "source_verified": 0,
+        "publication_ready": 0,
+        "missing": 0,
+        "source_pending": 0,
+        "missing_issue_ids": [],
+        "source_pending_issue_ids": [],
+        "blocked_issue_ids": []
+      }
+    },
+    "2026-2026": {
+      "summary": {
+        "complete": 10,
+        "translation_partial": 0,
+        "blocked": 0,
+        "collected": 0,
+        "pending": 0
+      },
+      "issue_count": 10,
+      "updated_at": "2026-09-08T14:14:07+00:00",
+      "coverage": {
+        "discovered": 13,
+        "archived": 13,
+        "content_ready": 13,
+        "source_verified": 13,
+        "publication_ready": 13,
+        "missing": 0,
+        "source_pending": 0,
+        "missing_issue_ids": [],
+        "source_pending_issue_ids": [],
+        "blocked_issue_ids": []
+      }
+    },
+    "final3-2026-browser": {
+      "summary": {
+        "complete": 0,
+        "translation_partial": 0,
+        "blocked": 0,
+        "collected": 0,
+        "pending": 0
+      },
+      "issue_count": 0,
+      "updated_at": "2026-09-18T18:40:00+00:00",
+      "coverage": {
+        "discovered": 13,
+        "archived": 12,
+        "content_ready": 12,
+        "source_verified": 12,
+        "publication_ready": 12,
+        "missing": 1,
+        "source_pending": 0,
+        "missing_issue_ids": [
+          "jaere-13-6"
+        ],
+        "source_pending_issue_ids": [],
         "blocked_issue_ids": []
       }
     }
@@ -19465,11 +19636,11 @@
         "WD"
       ],
       "coverage": {
-        "discovered": 285,
-        "archived": 267,
-        "content_ready": 267,
-        "source_verified": 257,
-        "publication_ready": 257,
+        "discovered": 297,
+        "archived": 279,
+        "content_ready": 279,
+        "source_verified": 269,
+        "publication_ready": 269,
         "missing": 18,
         "source_pending": 10,
         "missing_issue_ids": [
@@ -19990,6 +20161,18 @@
           ],
           "blocked_issue_ids": []
         },
+        "RFS": {
+          "discovered": 12,
+          "archived": 12,
+          "content_ready": 12,
+          "source_verified": 12,
+          "publication_ready": 12,
+          "missing": 0,
+          "source_pending": 0,
+          "missing_issue_ids": [],
+          "source_pending_issue_ids": [],
+          "blocked_issue_ids": []
+        },
         "TE": {
           "discovered": 4,
           "archived": 4,
@@ -20077,11 +20260,11 @@
         "WD"
       ],
       "coverage": {
-        "discovered": 286,
-        "archived": 270,
-        "content_ready": 270,
-        "source_verified": 262,
-        "publication_ready": 262,
+        "discovered": 297,
+        "archived": 281,
+        "content_ready": 281,
+        "source_verified": 273,
+        "publication_ready": 273,
         "missing": 16,
         "source_pending": 8,
         "missing_issue_ids": [
@@ -20588,6 +20771,18 @@
             "restat-106-5",
             "restat-106-6"
           ],
+          "blocked_issue_ids": []
+        },
+        "RFS": {
+          "discovered": 11,
+          "archived": 11,
+          "content_ready": 11,
+          "source_verified": 11,
+          "publication_ready": 11,
+          "missing": 0,
+          "source_pending": 0,
+          "missing_issue_ids": [],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "TE": {
@@ -21414,17 +21609,26 @@
         "WD"
       ],
       "coverage": {
-        "discovered": 283,
-        "archived": 277,
-        "content_ready": 277,
-        "source_verified": 277,
-        "publication_ready": 277,
-        "missing": 6,
+        "discovered": 298,
+        "archived": 283,
+        "content_ready": 283,
+        "source_verified": 283,
+        "publication_ready": 283,
+        "missing": 15,
         "source_pending": 0,
         "missing_issue_ids": [
+          "eer-190-c",
+          "foodpolicy-144-c",
+          "geb-160-c",
           "jaere-13-6",
+          "jedc-192-c",
+          "jfe-185-c",
+          "jhe-110-c",
           "jie-164-c",
+          "jme-163-c",
+          "joe-258-c",
           "jue-156-c",
+          "labeco-103-c",
           "lup-171-c",
           "red-62-c",
           "wd-208-c"
@@ -21518,11 +21722,11 @@
           "blocked_issue_ids": []
         },
         "CER": {
-          "discovered": 6,
-          "archived": 6,
-          "content_ready": 6,
-          "source_verified": 6,
-          "publication_ready": 6,
+          "discovered": 7,
+          "archived": 7,
+          "content_ready": 7,
+          "source_verified": 7,
+          "publication_ready": 7,
           "missing": 0,
           "source_pending": 0,
           "missing_issue_ids": [],
@@ -21554,14 +21758,16 @@
           "blocked_issue_ids": []
         },
         "EER": {
-          "discovered": 9,
+          "discovered": 10,
           "archived": 9,
           "content_ready": 9,
           "source_verified": 9,
           "publication_ready": 9,
-          "missing": 0,
+          "missing": 1,
           "source_pending": 0,
-          "missing_issue_ids": [],
+          "missing_issue_ids": [
+            "eer-190-c"
+          ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
@@ -21602,26 +21808,30 @@
           "blocked_issue_ids": []
         },
         "FOODPOLICY": {
-          "discovered": 6,
+          "discovered": 7,
           "archived": 6,
           "content_ready": 6,
           "source_verified": 6,
           "publication_ready": 6,
-          "missing": 0,
+          "missing": 1,
           "source_pending": 0,
-          "missing_issue_ids": [],
+          "missing_issue_ids": [
+            "foodpolicy-144-c"
+          ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "GEB": {
-          "discovered": 5,
+          "discovered": 6,
           "archived": 5,
           "content_ready": 5,
           "source_verified": 5,
           "publication_ready": 5,
-          "missing": 0,
+          "missing": 1,
           "source_pending": 0,
-          "missing_issue_ids": [],
+          "missing_issue_ids": [
+            "geb-160-c"
+          ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
@@ -21652,11 +21862,11 @@
           "blocked_issue_ids": []
         },
         "JCE": {
-          "discovered": 2,
-          "archived": 2,
-          "content_ready": 2,
-          "source_verified": 2,
-          "publication_ready": 2,
+          "discovered": 3,
+          "archived": 3,
+          "content_ready": 3,
+          "source_verified": 3,
+          "publication_ready": 3,
           "missing": 0,
           "source_pending": 0,
           "missing_issue_ids": [],
@@ -21688,14 +21898,16 @@
           "blocked_issue_ids": []
         },
         "JEDC": {
-          "discovered": 10,
+          "discovered": 11,
           "archived": 10,
           "content_ready": 10,
           "source_verified": 10,
           "publication_ready": 10,
-          "missing": 0,
+          "missing": 1,
           "source_pending": 0,
-          "missing_issue_ids": [],
+          "missing_issue_ids": [
+            "jedc-192-c"
+          ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
@@ -21772,26 +21984,30 @@
           "blocked_issue_ids": []
         },
         "JFE": {
-          "discovered": 10,
+          "discovered": 11,
           "archived": 10,
           "content_ready": 10,
           "source_verified": 10,
           "publication_ready": 10,
-          "missing": 0,
+          "missing": 1,
           "source_pending": 0,
-          "missing_issue_ids": [],
+          "missing_issue_ids": [
+            "jfe-185-c"
+          ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "JHE": {
-          "discovered": 5,
+          "discovered": 6,
           "archived": 5,
           "content_ready": 5,
           "source_verified": 5,
           "publication_ready": 5,
-          "missing": 0,
+          "missing": 1,
           "source_pending": 0,
-          "missing_issue_ids": [],
+          "missing_issue_ids": [
+            "jhe-110-c"
+          ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
@@ -21822,26 +22038,30 @@
           "blocked_issue_ids": []
         },
         "JME": {
-          "discovered": 6,
+          "discovered": 7,
           "archived": 6,
           "content_ready": 6,
           "source_verified": 6,
           "publication_ready": 6,
-          "missing": 0,
+          "missing": 1,
           "source_pending": 0,
-          "missing_issue_ids": [],
+          "missing_issue_ids": [
+            "jme-163-c"
+          ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "JOE": {
-          "discovered": 5,
-          "archived": 5,
-          "content_ready": 5,
-          "source_verified": 5,
-          "publication_ready": 5,
-          "missing": 0,
+          "discovered": 10,
+          "archived": 9,
+          "content_ready": 9,
+          "source_verified": 9,
+          "publication_ready": 9,
+          "missing": 1,
           "source_pending": 0,
-          "missing_issue_ids": [],
+          "missing_issue_ids": [
+            "joe-258-c"
+          ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
@@ -21884,14 +22104,16 @@
           "blocked_issue_ids": []
         },
         "LABECO": {
-          "discovered": 5,
+          "discovered": 6,
           "archived": 5,
           "content_ready": 5,
           "source_verified": 5,
           "publication_ready": 5,
-          "missing": 0,
+          "missing": 1,
           "source_pending": 0,
-          "missing_issue_ids": [],
+          "missing_issue_ids": [
+            "labeco-103-c"
+          ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
