@@ -286,6 +286,57 @@ def fetch_issue_metadata(
     return output
 
 
+def _apply_repec_publisher_abstract_fallbacks(
+    roster: dict[str, Any],
+    by_pii: dict[str, dict[str, Any]],
+    *,
+    staging_root: Path = ROOT / "data" / "backfill-staging",
+) -> None:
+    """Fill only missing abstracts from exact publisher-supplied RePEc staging rows.
+
+    ScienceDirect remains authoritative for issue roster/order and PII identity.
+    This fallback is field-scoped: it requires exact PII + DOI agreement and an
+    existing staging provenance label of repec-publisher-supplied.
+    """
+
+    journal_id = str(roster.get("journal_id", "")).strip()
+    issue_id = str(roster.get("issue_id", "")).strip()
+    if not journal_id or not issue_id:
+        return
+    path = staging_root / journal_id / f"{issue_id}.json"
+    if not path.is_file():
+        return
+    staging = read_json(path)
+    fallbacks: dict[str, dict[str, str]] = {}
+    for article in staging.get("articles", []):
+        sources = article.get("sources", {})
+        if str(sources.get("abstract_en", "")).strip() != "repec-publisher-supplied":
+            continue
+        abstract = str(article.get("abstract_en", "")).strip()
+        doi = str(article.get("doi", "")).strip().lower()
+        pii = pii_from_href(article.get("source_url"))
+        repec_url = str(sources.get("repec", "")).strip()
+        if abstract and doi and pii and repec_url.startswith("https://ideas.repec.org/"):
+            fallbacks[pii] = {
+                "doi": doi,
+                "abstract_en": abstract,
+                "source_url": repec_url,
+            }
+
+    for pii, metadata in by_pii.items():
+        if str(metadata.get("abstract_en", "")).strip():
+            metadata.setdefault("abstract_source", "official-elsevier-metadata")
+            continue
+        fallback = fallbacks.get(pii)
+        if fallback is None:
+            continue
+        doi = str(metadata.get("doi", "")).strip().lower()
+        if not doi or doi != fallback["doi"]:
+            continue
+        metadata["abstract_en"] = fallback["abstract_en"]
+        metadata["abstract_source"] = "repec-publisher-supplied"
+        metadata["abstract_source_url"] = fallback["source_url"]
+
 def build_rich_snapshot(
     roster: dict[str, Any],
     *,
@@ -301,6 +352,7 @@ def build_rich_snapshot(
     roster_items = [item for item in all_roster_items if is_publishable_item(item)]
     piis = [pii_from_href(item.get("href")) for item in roster_items]
     by_pii = fetch_issue_metadata(session, piis, timeout=90)
+    _apply_repec_publisher_abstract_fallbacks(roster, by_pii)
 
     items: list[dict[str, Any]] = []
     missing: list[str] = []
@@ -327,20 +379,25 @@ def build_rich_snapshot(
             and not hamming_match
         ):
             raise ValueError(f"official title mismatch for {pii}: {title!r} != {api_title!r}")
-        items.append(
-            {
-                "official_order": order,
-                "pii": pii,
-                "doi": str(metadata.get("doi", "")).strip().lower(),
-                "title_en": title,
-                "raw_type": raw_type(
-                    str(item.get("box_text", "")), item.get("type", "")
-                ),
-                "authors": list(metadata.get("authors", [])),
-                "abstract_en": str(metadata.get("abstract_en", "")).strip(),
-                "source_url": f"https://www.sciencedirect.com/science/article/pii/{pii}",
-            }
-        )
+        rich_item = {
+            "official_order": order,
+            "pii": pii,
+            "doi": str(metadata.get("doi", "")).strip().lower(),
+            "title_en": title,
+            "raw_type": raw_type(
+                str(item.get("box_text", "")), item.get("type", "")
+            ),
+            "authors": list(metadata.get("authors", [])),
+            "abstract_en": str(metadata.get("abstract_en", "")).strip(),
+            "source_url": f"https://www.sciencedirect.com/science/article/pii/{pii}",
+        }
+        abstract_source = str(metadata.get("abstract_source", "")).strip()
+        abstract_source_url = str(metadata.get("abstract_source_url", "")).strip()
+        if abstract_source:
+            rich_item["abstract_source"] = abstract_source
+        if abstract_source_url:
+            rich_item["abstract_source_url"] = abstract_source_url
+        items.append(rich_item)
     if missing:
         raise ValueError(f"Elsevier metadata missing roster PIIs: {missing}")
     if len(items) != len(roster_items):
