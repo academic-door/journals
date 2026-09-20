@@ -33,6 +33,26 @@ from scripts.update_journals import (
 DEFAULT_JOURNALS = ("JHE", "JCE", "ENERGY", "ECOLECON")
 
 
+def _align_repec_article_dates(
+    issue: dict[str, Any],
+    *,
+    current: str,
+    repaired: str,
+) -> int:
+    changed = 0
+    for article in issue.get("articles", []):
+        if not isinstance(article, dict):
+            continue
+        sources = article.get("sources", {})
+        if not isinstance(sources, dict) or sources.get("roster") != "repec-serial-page":
+            continue
+        if str(article.get("publication_date", "")).strip() != current:
+            continue
+        article["publication_date"] = repaired
+        changed += 1
+    return changed
+
+
 def repair_journal(
     key: str,
     config: dict[str, Any],
@@ -92,6 +112,11 @@ def repair_journal(
         changes.append(f"{issue.get('issue_id', path.stem)}: {current} -> {repaired}")
         if not check:
             issue["publication_date"] = repaired
+            _align_repec_article_dates(
+                issue,
+                current=current,
+                repaired=repaired,
+            )
             issue.setdefault("quality", {})[
                 "date_source"
             ] = date_source

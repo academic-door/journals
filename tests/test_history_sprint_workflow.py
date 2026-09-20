@@ -65,7 +65,7 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         evidence_only = "inputs.evidence_issue_ids != ''"
         shard_work = "inputs.source_run_id != '' || needs.collect.result != 'skipped'"
         self.assertIn(
-            f"if: always() && ({evidence_only} || {shard_work})",
+            f"if: always() && ({evidence_only} || {shard_work} || inputs.repair_dates_only)",
             publish_block,
         )
         for step in (
@@ -141,6 +141,35 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         self.assertIn("--translation-cache-root data/translation-cache", workflow[build:evidence])
         self.assertIn("--translate", workflow[build:evidence])
         self.assertIn("ELSEVIER_API_KEY", workflow)
+
+
+
+    def test_date_repair_enables_duplicate_period_gate(self) -> None:
+        workflow = self.workflow()
+        self.assertIn(
+            "python scripts/audit_public_data.py --strict-provenance --strict-history-period-duplicates",
+            workflow,
+        )
+
+    def test_repairs_duplicate_month_elsevier_history_before_audit(self) -> None:
+        workflow = self.workflow()
+        repair = workflow.index("python scripts/repair_history_dates.py")
+        audit = workflow.index("python scripts/audit_public_data.py --strict-provenance")
+        for journal in (
+            "EER", "FOODPOLICY", "GEB", "JCE", "JDE", "JEBO", "JEEM",
+            "JHE", "JIE", "JME", "LABECO", "LUP", "WD",
+        ):
+            self.assertIn(f"--journal {journal}", workflow[repair:audit])
+
+    def test_supports_date_repair_only_without_recovery_or_composer_sync(self) -> None:
+        workflow = self.workflow()
+        self.assertIn("repair_dates_only:", workflow)
+        self.assertIn("|| inputs.repair_dates_only)", workflow)
+        self.assertIn("inputs.repair_dates_only == false", workflow)
+        self.assertIn(
+            "needs.publish.result == 'success' && inputs.repair_dates_only == false",
+            workflow,
+        )
 
 
 if __name__ == "__main__":

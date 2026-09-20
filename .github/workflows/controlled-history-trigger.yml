@@ -46,3 +46,49 @@ jobs:
       evidence_issue_ids: ${{ needs.validate.outputs.issue_id }}
       capture_wiley_evidence: false
     secrets: inherit
+  
+  date_repair:
+    if: >-
+      github.event.issue.number == 205 &&
+      github.event.issue.pull_request == null &&
+      github.event.comment.user.login == 'SIMON-WORLD' &&
+      github.event.comment.body == '/history-date-repair'
+    uses: ./.github/workflows/history-sprint.yml
+    permissions:
+      actions: read
+      contents: write
+      models: read
+    with:
+      max_issues: "1"
+      max_translations: "1"
+      categories: __date_repair_only__
+      source_run_id: ""
+      state_source_run_id: ""
+      strict_final: false
+      evidence_issue_ids: ""
+      capture_wiley_evidence: false
+      repair_dates_only: true
+    secrets: inherit
+
+  wave_a:
+    if: >-
+      github.event.issue.number == 205 &&
+      github.event.issue.pull_request == null &&
+      github.event.comment.user.login == 'SIMON-WORLD' &&
+      github.event.comment.body == '/history-wave-a'
+    uses: ./.github/workflows/history-sprint.yml
+    permissions:
+      actions: read
+      contents: write
+      models: read
+    with:
+      max_issues: "10"
+      max_translations: "120"
+      categories: source_pending,translation_required
+      source_run_id: ""
+      state_source_run_id: "32734420419"
+      strict_final: false
+      evidence_issue_ids: ""
+      capture_wiley_evidence: false
+      repair_dates_only: false
+    secrets: inherit

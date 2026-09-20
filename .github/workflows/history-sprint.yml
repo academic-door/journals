@@ -43,6 +43,11 @@ on:
         required: false
         default: false
         type: boolean
+      repair_dates_only:
+        description: Repair audited historical issue dates without running recovery shards
+        required: false
+        default: false
+        type: boolean
   workflow_call:
     inputs:
       max_issues:
@@ -74,6 +79,10 @@ on:
         default: ""
         type: string
       capture_wiley_evidence:
+        required: false
+        default: false
+        type: boolean
+      repair_dates_only:
         required: false
         default: false
         type: boolean
@@ -163,7 +172,7 @@ jobs:
   collect:
     name: Recover ${{ matrix.shard }}
     needs: prepare
-    if: inputs.source_run_id == '' && needs.prepare.outputs.has_work == 'true'
+    if: inputs.source_run_id == '' && needs.prepare.outputs.has_work == 'true' && inputs.repair_dates_only == false
     runs-on: ubuntu-latest
     timeout-minutes: 20
     strategy:
@@ -329,7 +338,7 @@ jobs:
   publish:
     name: Merge, audit and publish one data delta
     needs: [prepare, collect]
-    if: always() && (inputs.evidence_issue_ids != '' || inputs.source_run_id != '' || needs.collect.result != 'skipped')
+    if: always() && (inputs.evidence_issue_ids != '' || inputs.source_run_id != '' || needs.collect.result != 'skipped' || inputs.repair_dates_only)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -574,7 +583,10 @@ jobs:
           python scripts/repair_history_dates.py \
             --journal IER --journal CER --journal JPubE --journal ENERGY \
             --journal ECOLECON --journal JUE --journal JET --journal JEDC \
-            --journal JPubE --journal JOE --journal JFE \
+            --journal JOE --journal JFE \
+            --journal EER --journal FOODPOLICY --journal GEB --journal JCE \
+            --journal JDE --journal JEBO --journal JEEM --journal JHE \
+            --journal JIE --journal JME --journal LABECO --journal LUP --journal WD \
             --start-year 2023
           python scripts/publish_data_delta.py rebuild-archive-indexes --root .
           state_args=()
@@ -595,7 +607,7 @@ jobs:
             --before "$RUNNER_TEMP/gap-before.json" \
             --after public/api/v1/gap-manifest.json \
             --report "$RUNNER_TEMP/recovery-progress.json"
-          python scripts/audit_public_data.py --strict-provenance
+          python scripts/audit_public_data.py --strict-provenance --strict-history-period-duplicates
           python scripts/audit_source_alignment.py --strict
           history_args=()
           if [ "${{ inputs.strict_final }}" = "true" ]; then
@@ -675,7 +687,7 @@ jobs:
   composer:
     name: Sync only audited ready issues to Composer
     needs: publish
-    if: always() && needs.publish.result == 'success'
+    if: always() && needs.publish.result == 'success' && inputs.repair_dates_only == false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
