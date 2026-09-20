@@ -120,9 +120,9 @@ class ControlledHistoryBrowserBatchDispatchTests(unittest.TestCase):
     def test_valid_batch_outputs_exact_issue_set(self) -> None:
         result, output = self._run()
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertIn("batch_id=red-2023-2025\\n", output)
-        self.assertIn("issue_ids=red-47-c\\n", output)
-        self.assertIn("issue_count=1\\n", output)
+        self.assertIn("batch_id=red-2023-2025\n", output)
+        self.assertIn("issue_ids=red-47-c\n", output)
+        self.assertIn("issue_count=1\n", output)
 
     def test_wrong_issue_actor_and_extended_command_are_rejected(self) -> None:
         cases = [
