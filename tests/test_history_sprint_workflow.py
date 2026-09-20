@@ -188,5 +188,19 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         )
 
 
+
+    def test_content_repair_is_bounded_and_requires_composer_success(self) -> None:
+        workflow = self.workflow()
+        self.assertIn("repair_content_only:", workflow)
+        self.assertIn("python scripts/repair_no_abstract_comments.py", workflow)
+        self.assertIn("python scripts/repair_no_abstract_comments.py --check", workflow)
+        self.assertIn("inputs.repair_content_only == false", workflow)
+        self.assertIn("|| inputs.repair_content_only)", workflow)
+        self.assertIn(
+            "continue-on-error: ${{ inputs.repair_content_only == false }}",
+            workflow,
+        )
+
+
 if __name__ == "__main__":
     unittest.main()
