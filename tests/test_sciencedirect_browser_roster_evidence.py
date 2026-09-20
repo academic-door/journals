@@ -130,6 +130,44 @@ class ScienceDirectBrowserRosterEvidenceTests(unittest.TestCase):
         self.assertEqual(issue["articles"][0]["title_en"], evidence["items"][0]["title_en"])
         self.assertEqual(official, evidence["items"][0]["official_display_title_en"])
 
+    def test_explicit_nonresearch_types_are_excluded(self) -> None:
+        issue = self._staging_issue()
+        snapshot = self._snapshot()
+        snapshot["items"].insert(
+            1,
+            {
+                "href": "https://www.sciencedirect.com/science/article/pii/S0000000000000002",
+                "title": "A Book Review",
+                "box_text": "Book review\nA Book Review",
+                "type": "book-review",
+            },
+        )
+        snapshot["items"].insert(
+            2,
+            {
+                "href": "https://www.sciencedirect.com/science/article/pii/S0000000000000003",
+                "title": "Obituary: Example Scholar",
+                "box_text": "Obituary\nObituary: Example Scholar",
+                "type": "obituary",
+            },
+        )
+        snapshot["items"].insert(
+            3,
+            {
+                "href": "https://www.sciencedirect.com/science/article/pii/S0000000000000004",
+                "title": "Publisher's Note",
+                "box_text": "Publisher's Note",
+                "type": "publisher-note",
+            },
+        )
+        with patch.object(capture, "apply_evidence"):
+            evidence = capture.build_evidence(snapshot, issue, excluded_dois={})
+
+        reasons = {item["reason"] for item in evidence["excluded_items"]}
+        self.assertIn("official-book-review", reasons)
+        self.assertIn("official-obituary", reasons)
+        self.assertIn("official-publisher-note", reasons)
+
 
 if __name__ == "__main__":
     unittest.main()
