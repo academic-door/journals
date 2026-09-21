@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-06T12:05:05+00:00",
   "expected_article_count": 10,
   "research_article_count": 10,
-  "status": "incomplete",
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
@@ -141,14 +141,14 @@
       "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Impacts of an increase in federal assistance for cover cropping: Evidence from the Environmental Quality Incentives Program",
-      "title_cn": "",
+      "title_cn": "联邦覆盖作物援助增加的影响：来自环境质量激励计划的证据",
       "authors": [
         "Andrew B. Rosenberg",
         "Bryan Pratt",
         "Daniel Szmurlo"
       ],
       "abstract_en": "Financial assistance for cover cropping through the U.S. Department of Agriculture's Environmental Quality Incentives Program (EQIP) has increased more than twentyfold in the past decade and a half. Available support for cover cropping increased further due to the Inflation Reduction Act, which provides significant funding for climate smart practices. In this study, we examine whether increases in available financial assistance lead to significant increases in producer participation in EQIP for cover cropping and whether these increases are additional on the landscape. We focus on the impacts of the National Water Quality Initiative (NWQI), which provides funding for cover crops and several other practices to producers in targeted watersheds on top of normal EQIP levels. We first estimate the impacts of NWQI on enrollment in EQIP using a watershed‐level panel of acres enrolled in EQIP for cover crops. We find that NWQI more than triples EQIP cover crop acreage compared to similar control watersheds. Driving the increase in enrolled acreage is a small increase in the share of applications receiving a contract, as well as a significant increase in the total number of applications received. We then utilize field‐level administrative data on cover cropping to estimate the impact of NWQI on cover crop adoption overall. We find evidence that the impacts of NWQI on cover cropping are largely additional.",
-      "abstract_cn": "",
+      "abstract_cn": "通过美国农业部环境质量激励计划（EQIP）对覆盖作物的财政援助在过去十五年间增长了二十多倍。由于《通货膨胀削减法案》为气候智能实践提供了大量资金，覆盖作物的可用支持进一步增加。在本研究中，我们考察了可用财政援助的增加是否会导致生产者参与EQIP覆盖作物项目的显著增加，以及这些增加是否在景观上具有额外性。我们重点关注国家水质倡议（NWQI）的影响，该倡议在正常EQIP水平之上，为目标流域的生产者提供覆盖作物及其他几种实践的资助。我们首先使用流域层面的EQIP覆盖作物注册面积面板数据，估计NWQI对EQIP注册的影响。我们发现，与类似的对照流域相比，NWQI使EQIP覆盖作物面积增加了两倍以上。推动注册面积增加的是获得合同申请比例的微小增加，以及收到的申请总数显著增加。然后，我们利用覆盖作物的田间层面行政数据来估计NWQI对覆盖作物采用的整体影响。我们发现证据表明，NWQI对覆盖作物的影响在很大程度上是额外的。",
       "abstract_snippet_en": "",
       "doi": "10.1111/ajae.12502",
       "source_url": "https://doi.org/10.1111/ajae.12502",
@@ -160,12 +160,14 @@
         "abstract_en": "crossref"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-06T12:05:32+00:00",
+        "source_hash": "18fa814214e68470c6d6d0ebb93cce3939280b9ee8dcbd7ffa5aafa20098435c"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -438,11 +440,9 @@
     "doi_complete": 10,
     "authors_complete": 10,
     "abstract_en_complete": 10,
-    "translation_complete": 9,
+    "translation_complete": 10,
     "duplicate_count": 0,
-    "flags": [
-      "translation_incomplete"
-    ],
+    "flags": [],
     "official_item_count": 11,
     "publishable_item_count": 10,
     "content_counts": {
@@ -483,7 +483,7 @@
     "catalog_content_items": 10
   },
   "issue_label": "Vol. 107 · No. 3",
-  "content_status": "translation_partial",
+  "content_status": "complete",
   "source_status": "official_verified",
-  "publication_state": "translation_partial"
+  "publication_state": "ready"
 }

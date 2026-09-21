@@ -11,8 +11,8 @@
   "retrieved_at": "2026-09-20",
   "expected_article_count": 8,
   "research_article_count": 8,
-  "status": "incomplete",
-  "publication_state": "translation_partial",
+  "status": "ready",
+  "publication_state": "ready",
   "development_sample": false,
   "articles": [
     {
@@ -295,14 +295,14 @@
       "source_sequence": 8,
       "article_type": "research-article",
       "title_en": "Endogenous Risk and Habitat Loss from Climate Change: An Application to Seal Management after the November Rain",
-      "title_cn": "",
+      "title_cn": "气候变化导致的内生风险与栖息地丧失：应用于十一月雨后的海豹管理",
       "authors": [
         "Richard D. Horan",
         "Charles Sims",
         "David Finnoff"
       ],
       "abstract_en": "The role of climate change on stochastic resource growth has yet to be analyzed in a bioeconomic setting, which is important given that increased weather variability is a key climate change feature. We construct a bioeconomic analysis in which mean and variance impacts of climate change produce multiple elements—population stochasticity, mean habitat loss, and greater habitat variability—impacting the riskiness of resource management. Our results show that change in the variance of weather events is an important consideration for managing at-risk species and may create countervailing conservation incentives relative to considering only mean impacts. We apply our analysis to North Atlantic harp seals, which are uniquely susceptible to climate change, as they require sea ice to breed and raise their pups. Harp seal conservation incentives and negative economic impacts of habitat loss are tempered when accounting for both reduced mean sea ice levels and increased sea ice variability.",
-      "abstract_cn": "",
+      "abstract_cn": "气候变化对随机资源增长的作用尚未在生物经济背景下进行分析，而鉴于天气变异性增加是气候变化的一个关键特征，这一点很重要。我们构建了一个生物经济分析，其中气候变化的均值与方差影响产生多个要素——种群随机性、平均栖息地丧失以及更大的栖息地变异性——影响资源管理的风险性。我们的结果表明，天气事件方差的变化是管理濒危物种的一个重要考虑因素，并且相对于仅考虑均值影响，可能产生相互抵消的保护激励。我们将我们的分析应用于北大西洋格陵兰海豹，它们特别容易受到气候变化的影响，因为它们需要海冰来繁殖和养育幼崽。当同时考虑平均海冰水平下降和海冰变异性增加时，格陵兰海豹的保护激励和栖息地丧失的负面经济影响会被削弱。",
       "doi": "10.1086/725153",
       "source_url": "https://journals.uchicago.edu/toc/jaere/2023/10/6",
       "publication_date": "November 2023",
@@ -313,12 +313,14 @@
         "abstract_en": "crossref-or-semantic-scholar"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-21T10:18:28+00:00",
+        "source_hash": "2a43f27f801395d4c2ebf9c542e6b4f2c9960a2ea505e495f1c059f25137dfec"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -344,11 +346,9 @@
     "doi_complete": 8,
     "authors_complete": 8,
     "abstract_en_complete": 8,
-    "translation_complete": 7,
+    "translation_complete": 8,
     "duplicate_count": 0,
-    "flags": [
-      "translation_incomplete"
-    ],
+    "flags": [],
     "publishable_item_count": 8,
     "excluded_item_count": 1,
     "content_counts": {
@@ -378,6 +378,6 @@
     "other_excluded": 0,
     "catalog_content_items": 8
   },
-  "content_status": "translation_partial",
+  "content_status": "complete",
   "source_status": "official_verified"
 }

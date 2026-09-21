@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-06T12:04:00+00:00",
   "expected_article_count": 12,
   "research_article_count": 12,
-  "status": "incomplete",
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
@@ -180,14 +180,14 @@
       "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "Social Security and Trends in Wealth Inequality",
-      "title_cn": "",
+      "title_cn": "社会保障与财富不平等趋势",
       "authors": [
         "SYLVAIN CATHERINE",
         "MAX MILLER",
         "NATASHA SARIN"
       ],
       "abstract_en": "Recent influential work finds large increases in inequality in the United States based on measures of wealth concentration that notably exclude the value of social insurance programs. This paper shows that top wealth shares have not changed much over the last three decades when Social Security is properly accounted for. This is because Social Security wealth increased substantially from $7.2 trillion in 1989 to $40.6 trillion in 2019 and now represents nearly 50% of the wealth of the bottom 90% of the wealth distribution. This finding is robust to potential changes to taxes and benefits in response to system financing concerns.",
-      "abstract_cn": "",
+      "abstract_cn": "近期有影响力的研究发现，基于财富集中度的衡量指标，美国的财富不平等显著加剧，但这些指标明显排除了社会保险项目的价值。本文表明，当适当计入社会保障时，顶层财富份额在过去三十年间变化不大。这是因为社会保障财富从1989年的7.2万亿美元大幅增加至2019年的40.6万亿美元，目前约占财富分布底层90%人群财富的近50%。这一发现对于因应系统融资问题而可能发生的税收和福利变化具有稳健性。",
       "abstract_snippet_en": "",
       "doi": "10.1111/jofi.13440",
       "source_url": "https://doi.org/10.1111/jofi.13440",
@@ -199,12 +199,14 @@
         "abstract_en": "crossref"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-06T12:04:15+00:00",
+        "source_hash": "50a08d76d6d701b9bb487c10f2dc91c53daba80120bc762c3f414501e773dd0d"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -529,11 +531,9 @@
     "doi_complete": 12,
     "authors_complete": 12,
     "abstract_en_complete": 12,
-    "translation_complete": 11,
+    "translation_complete": 12,
     "duplicate_count": 0,
-    "flags": [
-      "translation_incomplete"
-    ],
+    "flags": [],
     "official_item_count": 16,
     "publishable_item_count": 12,
     "content_counts": {
@@ -574,7 +574,7 @@
     "catalog_content_items": 12
   },
   "issue_label": "Vol. 80 · No. 3",
-  "content_status": "translation_partial",
+  "content_status": "complete",
   "source_status": "official_verified",
-  "publication_state": "translation_partial"
+  "publication_state": "ready"
 }

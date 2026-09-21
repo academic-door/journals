@@ -1,13 +1,13 @@
 # Field journal history backfill status
 
-Updated: 2026-09-21T10:11:18+00:00
+Updated: 2026-09-21T10:25:37+00:00
 
-Discovery coverage: 1205 discovered · 1187 archived · 1166 publication ready · 18 missing · 17 source pending
+Discovery coverage: 1205 discovered · 1190 archived · 1172 publication ready · 15 missing · 18 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 647 | 2 | 14 | 45 |
-| 2023-2026 | 296 | 1 | 3 | 0 |
+| 2023-2024 | 648 | 0 | 14 | 46 |
+| 2023-2026 | 297 | 0 | 3 | 0 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
 | 2026-2026 | 10 | 0 | 0 | 0 |
@@ -143,12 +143,12 @@ Discovery coverage: 1205 discovered · 1187 archived · 1166 publication ready �
 | AJAE | ajae-105-5 | 2023 | source_pending |  |
 | AJAE | ajae-106-1 | 2024 | source_pending |  |
 | AJAE | ajae-106-2 | 2024 | source_pending |  |
-| AJAE | ajae-106-3 | 2024 | source_pending |  |
-| AJAE | ajae-106-4 | 2024 | source_pending |  |
-| AJAE | ajae-106-5 | 2024 | source_pending |  |
+| AJAE | ajae-106-3 | 2024 | source_pending | source authority pending official verification |
+| AJAE | ajae-106-4 | 2024 | source_pending | source authority pending official verification |
+| AJAE | ajae-106-5 | 2024 | source_pending | source authority pending official verification |
 | AJAE | ajae-107-1 | 2025 | ready |  |
-| AJAE | ajae-107-2 | 2025 | translation_partial | translation_incomplete |
-| AJAE | ajae-107-3 | 2025 | translation_partial | translation_incomplete |
+| AJAE | ajae-107-2 | 2025 | ready |  |
+| AJAE | ajae-107-3 | 2025 | ready |  |
 | AJAE | ajae-107-4 | 2025 | ready |  |
 | AJAE | ajae-107-5 | 2025 | ready |  |
 | AJAE | ajae-108-1 | 2026 | ready |  |
@@ -173,7 +173,7 @@ Discovery coverage: 1205 discovered · 1187 archived · 1166 publication ready �
 | CER | cer-91-c | 2025 | ready |  |
 | CER | cer-92-c | 2025 | ready |  |
 | CER | cer-93-c | 2025 | ready |  |
-| CER | cer-94-c | 2025 | source_pending |  |
+| CER | cer-94-c | 2025 | source_pending | source authority pending official verification |
 | CER | cer-95-c | 2026 | ready |  |
 | CER | cer-96-c | 2026 | ready |  |
 | CER | cer-97-c | 2026 | ready |  |
@@ -410,7 +410,7 @@ Discovery coverage: 1205 discovered · 1187 archived · 1166 publication ready �
 | FOODPOLICY | foodpolicy-115-c | 2023 | ready |  |
 | FOODPOLICY | foodpolicy-116-c | 2023 | ready |  |
 | FOODPOLICY | foodpolicy-117-c | 2023 | ready |  |
-| FOODPOLICY | foodpolicy-118-c | 2023 | translation_partial |  |
+| FOODPOLICY | foodpolicy-118-c | 2023 | source_pending |  |
 | FOODPOLICY | foodpolicy-119-c | 2023 | ready |  |
 | FOODPOLICY | foodpolicy-120-c | 2023 | ready |  |
 | FOODPOLICY | foodpolicy-121-c | 2023 | ready |  |
@@ -480,7 +480,7 @@ Discovery coverage: 1205 discovered · 1187 archived · 1166 publication ready �
 | JAERE | jaere-10-3 | 2023 | ready |  |
 | JAERE | jaere-10-4 | 2023 | ready |  |
 | JAERE | jaere-10-5 | 2023 | ready |  |
-| JAERE | jaere-10-6 | 2023 | translation_partial |  |
+| JAERE | jaere-10-6 | 2023 | ready |  |
 | JAERE | jaere-11-1 | 2024 | blocked | archive_content_gate_failed |
 | JAERE | jaere-11-2 | 2024 | ready |  |
 | JAERE | jaere-11-3 | 2024 | ready |  |
@@ -745,12 +745,12 @@ Discovery coverage: 1205 discovered · 1187 archived · 1166 publication ready �
 | JF | jf-79-1 | 2024 | ready |  |
 | JF | jf-79-2 | 2024 | source_pending |  |
 | JF | jf-79-3 | 2024 | source_pending |  |
-| JF | jf-79-4 | 2024 | source_pending |  |
-| JF | jf-79-5 | 2024 | source_pending |  |
-| JF | jf-79-6 | 2024 | source_pending |  |
+| JF | jf-79-4 | 2024 | source_pending | source authority pending official verification |
+| JF | jf-79-5 | 2024 | source_pending | source authority pending official verification |
+| JF | jf-79-6 | 2024 | source_pending | source authority pending official verification |
 | JF | jf-80-1 | 2025 | ready |  |
 | JF | jf-80-2 | 2025 | ready |  |
-| JF | jf-80-3 | 2025 | translation_partial | translation_incomplete |
+| JF | jf-80-3 | 2025 | ready |  |
 | JF | jf-80-4 | 2025 | ready |  |
 | JF | jf-80-5 | 2025 | ready |  |
 | JF | jf-80-6 | 2025 | ready |  |
@@ -866,7 +866,7 @@ Discovery coverage: 1205 discovered · 1187 archived · 1166 publication ready �
 | JLE | jle-43-2 | 2025 | ready |  |
 | JLE | jle-43-3 | 2025 | ready |  |
 | JLE | jle-43-4 | 2025 | ready |  |
-| JLE | jle-43-S1 | 2025 | translation_partial |  |
+| JLE | jle-43-S1 | 2025 | ready |  |
 | JLE | jle-44-1 | 2026 | ready |  |
 | JLE | jle-44-2 | 2026 | ready |  |
 | JLE | jle-44-3 | 2026 | ready |  |
@@ -1235,11 +1235,11 @@ Discovery coverage: 1205 discovered · 1187 archived · 1166 publication ready �
 | RESTAT | restat-106-5 | 2024 | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs off |
 | RESTAT | restat-106-6 | 2024 | source_pending | source authority pending official verification |
 | RESTAT | restat-107-1 | 2025 | source_pending |  |
-| RESTAT | restat-107-2 | 2025 | source_pending |  |
-| RESTAT | restat-107-3 | 2025 | source_pending |  |
-| RESTAT | restat-107-4 | 2025 | source_pending |  |
-| RESTAT | restat-107-5 | 2025 | source_pending |  |
-| RESTAT | restat-107-6 | 2025 | source_pending |  |
+| RESTAT | restat-107-2 | 2025 | source_pending | source authority pending official verification |
+| RESTAT | restat-107-3 | 2025 | source_pending | source authority pending official verification |
+| RESTAT | restat-107-4 | 2025 | source_pending | source authority pending official verification |
+| RESTAT | restat-107-5 | 2025 | source_pending | source authority pending official verification |
+| RESTAT | restat-107-6 | 2025 | source_pending | source authority pending official verification |
 | RESTAT | restat-108-1 | 2026 | ready |  |
 | RESTAT | restat-108-2 | 2026 | ready |  |
 | RESTAT | restat-108-3 | 2026 | ready |  |
@@ -1298,7 +1298,7 @@ Discovery coverage: 1205 discovered · 1187 archived · 1166 publication ready �
 | TE | te-19-4 | 2024 | ready |  |
 | TE | te-20-1 | 2025 | ready |  |
 | TE | te-20-2 | 2025 | ready |  |
-| TE | te-20-3 | 2025 | translation_partial | translation_incomplete |
+| TE | te-20-3 | 2025 | ready |  |
 | TE | te-20-4 | 2025 | ready |  |
 | TE | te-21-1 | 2026 | ready |  |
 | TE | te-21-2 | 2026 | ready |  |

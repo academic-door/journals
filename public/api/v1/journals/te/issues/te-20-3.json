@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-07T03:31:19+00:00",
   "expected_article_count": 10,
   "research_article_count": 10,
-  "status": "incomplete",
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
@@ -139,12 +139,12 @@
       "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Forward‐looking experimentation of correlated alternatives",
-      "title_cn": "",
+      "title_cn": "相关备选方案的前瞻性实验",
       "authors": [
         "Yu Fu Wong"
       ],
       "abstract_en": "This paper studies how a forward‐looking decision maker experiments on unknown alternatives of correlated utilities. The utilities are modeled by a Brownian motion such that similar alternatives yield similar utilities. Experimentation trades off between the continuation value of exploration and the opportunity cost of exploitation. The optimal strategy is to continuously explore unknown alternatives and then exploit the best known alternative when the one being explored is found to be sufficiently worse than the best one. The decision maker explores unknown alternatives more quickly as they prove to be worse than the best known one. Applied to firm experimentation, my model predicts a conditional version of Gibrat's law and a linear relation between firm size and profitability.",
-      "abstract_cn": "",
+      "abstract_cn": "本文研究一个前瞻性决策者如何对效用相关的未知选项进行实验。效用通过布朗运动建模，使得相似的选项产生相似的效用。实验在探索的连续价值与利用的机会成本之间进行权衡。最优策略是持续探索未知选项，当被探索的选项被发现明显劣于已知最佳选项时，转而利用已知最佳选项。决策者随着未知选项被证明比已知最佳选项更差而更快地探索它们。将模型应用于企业实验，本文模型预测了吉布拉特定律的条件版本以及企业规模与盈利能力之间的线性关系。",
       "abstract_snippet_en": "",
       "doi": "10.3982/te4960",
       "source_url": "https://doi.org/10.3982/te4960",
@@ -156,12 +156,14 @@
         "abstract_en": "crossref"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-reasoner",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-07T03:47:14+00:00",
+        "source_hash": "8359c007bb7141a9cb252bdcb747ac1894e75ef68c30421015426d32b8fd4f77"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -438,11 +440,9 @@
     "doi_complete": 10,
     "authors_complete": 10,
     "abstract_en_complete": 10,
-    "translation_complete": 9,
+    "translation_complete": 10,
     "duplicate_count": 0,
-    "flags": [
-      "translation_incomplete"
-    ],
+    "flags": [],
     "official_item_count": 12,
     "publishable_item_count": 10,
     "content_counts": {
@@ -484,7 +484,7 @@
     "catalog_content_items": 10
   },
   "issue_label": "Vol. 20 · No. 3",
-  "content_status": "translation_partial",
+  "content_status": "complete",
   "source_status": "official_verified",
-  "publication_state": "translation_partial"
+  "publication_state": "ready"
 }

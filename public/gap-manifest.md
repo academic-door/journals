@@ -1,13 +1,13 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-21T10:11:35+00:00
+Generated: 2026-09-21T10:25:53+00:00
 
 ## Summary
 
-- ready: 1166
+- ready: 1172
 - recoverable: 15
 - source_pending: 17
-- translation_required: 7
+- translation_required: 1
 
 ## Issue queue
 
@@ -134,8 +134,8 @@ Generated: 2026-09-21T10:11:35+00:00
 | AERI | aeri-8-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AERI | aeri-8-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AJAE | ajae-107-1 | 2025 | ready | complete | official_verified | content and official source gates passed |
-| AJAE | ajae-107-2 | 2025 | translation_required | translation_partial | official_verified | translation_incomplete |
-| AJAE | ajae-107-3 | 2025 | translation_required | translation_partial | official_verified | translation_incomplete |
+| AJAE | ajae-107-2 | 2025 | ready | complete | official_verified | content and official source gates passed |
+| AJAE | ajae-107-3 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | AJAE | ajae-107-4 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | AJAE | ajae-107-5 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | AJAE | ajae-108-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
@@ -161,7 +161,7 @@ Generated: 2026-09-21T10:11:35+00:00
 | CER | cer-91-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-92-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-93-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
-| CER | cer-94-c | 2025 | source_pending | complete | source_pending | official source verification pending |
+| CER | cer-94-c | 2025 | source_pending | complete | source_pending | source authority pending official verification |
 | CER | cer-95-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-96-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-97-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
@@ -365,7 +365,7 @@ Generated: 2026-09-21T10:11:35+00:00
 | FOODPOLICY | foodpolicy-115-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-116-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-117-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
-| FOODPOLICY | foodpolicy-118-c | 2023 | translation_required | blocked | source_pending | archive_missing |
+| FOODPOLICY | foodpolicy-118-c | 2023 | translation_required | complete | source_pending | translation incomplete |
 | FOODPOLICY | foodpolicy-119-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-120-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-121-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
@@ -435,7 +435,7 @@ Generated: 2026-09-21T10:11:35+00:00
 | JAERE | jaere-10-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | JAERE | jaere-10-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | JAERE | jaere-10-5 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| JAERE | jaere-10-6 | 2023 | translation_required | blocked | source_pending | archive_missing |
+| JAERE | jaere-10-6 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | JAERE | jaere-11-1 | 2024 | recoverable | blocked | source_pending | archive_missing |
 | JAERE | jaere-11-2 | 2024 | ready | complete | official_verified | content and official source gates passed |
 | JAERE | jaere-11-3 | 2024 | ready | complete | official_verified | content and official source gates passed |
@@ -678,7 +678,7 @@ Generated: 2026-09-21T10:11:35+00:00
 | JET | jet-236-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JF | jf-80-1 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JF | jf-80-2 | 2025 | ready | complete | official_verified | content and official source gates passed |
-| JF | jf-80-3 | 2025 | translation_required | translation_partial | official_verified | translation_incomplete |
+| JF | jf-80-3 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JF | jf-80-4 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JF | jf-80-5 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JF | jf-80-6 | 2025 | ready | complete | official_verified | content and official source gates passed |
@@ -791,7 +791,7 @@ Generated: 2026-09-21T10:11:35+00:00
 | JLE | jle-43-2 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-43-3 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-43-4 | 2025 | ready | complete | official_verified | content and official source gates passed |
-| JLE | jle-43-S1 | 2025 | translation_required | blocked | source_pending | archive_missing |
+| JLE | jle-43-S1 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-44-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-44-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JLE | jle-44-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
@@ -1105,11 +1105,11 @@ Generated: 2026-09-21T10:11:35+00:00
 | RESTAT | restat-106-5 | 2024 | source_pending | complete | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs official page or browser-authorized capture |
 | RESTAT | restat-106-6 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
 | RESTAT | restat-107-1 | 2025 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-107-2 | 2025 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-107-3 | 2025 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-107-4 | 2025 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-107-5 | 2025 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-107-6 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| RESTAT | restat-107-2 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-107-3 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-107-4 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-107-5 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-107-6 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
 | RESTAT | restat-108-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RESTAT | restat-108-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RESTAT | restat-108-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
@@ -1168,7 +1168,7 @@ Generated: 2026-09-21T10:11:35+00:00
 | TE | te-19-4 | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | TE | te-20-1 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | TE | te-20-2 | 2025 | ready | complete | official_verified | content and official source gates passed |
-| TE | te-20-3 | 2025 | translation_required | translation_partial | official_verified | translation_incomplete |
+| TE | te-20-3 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | TE | te-20-4 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | TE | te-21-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | TE | te-21-2 | 2026 | ready | complete | official_verified | content and official source gates passed |

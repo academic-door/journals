@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-06T12:03:40+00:00",
   "expected_article_count": 14,
   "research_article_count": 14,
-  "status": "incomplete",
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
@@ -342,13 +342,13 @@
       "source_sequence": 9,
       "article_type": "research-article",
       "title_en": "Evaluating the impact of the fourth round of China's poverty alleviation program",
-      "title_cn": "",
+      "title_cn": "评估中国第四轮扶贫开发项目的影响",
       "authors": [
         "Kaixing Huang",
         "Yaxuan You"
       ],
       "abstract_en": "This study evaluates the impact of China's fourth round of the poverty alleviation program, which targeted 14 contiguous destitute areas containing 680 counties and a population of 240 million. From 2012 to 2019, China allocated a total of 813.6 billion yuan (US$126.1 billion), primarily to economic development programs within these 14 areas. Using county‐level data from 2006 to 2019, our difference‐in‐differences and difference‐in‐discontinuities estimates suggest that the program increased GDP per capita in the 14 areas by over 45% from 2012 to 2019, with substantial gains observed in both the agricultural and nonagricultural sectors. Our preferred estimates suggest that the rate of return to the program ranged from 155.8% to 165.8%. Using data from over 14,500 rural households from 2006 to 2015, we find that the program significantly elevated rural income and reduced rural poverty. Although the income growth of extremely poor households was driven more by agricultural income growth, the income growth of relatively poor households primarily resulted from nonagricultural sources.",
-      "abstract_cn": "",
+      "abstract_cn": "本研究评估了中国第四轮扶贫开发项目的影响，该项目针对14个集中连片特困地区，包含680个县和240百万人口。从2012年到2019年，中国共投入813.6十亿元（126.1十亿美元），主要用于这些14个区域内的经济发展项目。使用2006年至2019年的县级数据，我们的双重差分和断点回归估计表明，该项目使14个地区的人均GDP从2012年到2019年增加了超过45%，在农业和非农业部门均观察到显著收益。我们首选的估计表明，该项目的回报率在155.8%到165.8%之间。使用来自2006年至2015年超过14,500个农村家庭的数据，我们发现该项目显著提高了农村收入并减少了农村贫困。尽管极端贫困家庭的收入增长更多由农业收入增长驱动，但相对贫困家庭的收入增长主要来自非农业来源。",
       "abstract_snippet_en": "",
       "doi": "10.1111/ajae.12495",
       "source_url": "https://doi.org/10.1111/ajae.12495",
@@ -360,12 +360,14 @@
         "abstract_en": "crossref"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-21T10:19:30+00:00",
+        "source_hash": "4da263b3d1204961fc2fcd4fc3a9096f27dce60404803b9b3460f4f5063f1424"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "yes",
         "evidence": "title",
@@ -657,11 +659,9 @@
     "doi_complete": 14,
     "authors_complete": 14,
     "abstract_en_complete": 14,
-    "translation_complete": 13,
+    "translation_complete": 14,
     "duplicate_count": 0,
-    "flags": [
-      "translation_incomplete"
-    ],
+    "flags": [],
     "official_item_count": 24,
     "publishable_item_count": 14,
     "content_counts": {
@@ -702,7 +702,7 @@
     "catalog_content_items": 14
   },
   "issue_label": "Vol. 107 · No. 2",
-  "content_status": "translation_partial",
+  "content_status": "complete",
   "source_status": "official_verified",
-  "publication_state": "translation_partial"
+  "publication_state": "ready"
 }
