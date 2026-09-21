@@ -1,21 +1,21 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-09-21T12:53:36+00:00",
+  "updated_at": "2026-09-21T14:28:44+00:00",
   "summary": {
-    "complete": 1259,
+    "complete": 1260,
     "translation_partial": 0,
     "blocked": 23,
     "collected": 0,
-    "pending": 53
+    "pending": 52
   },
   "coverage": {
     "discovered": 1205,
     "archived": 1190,
     "content_ready": 1190,
-    "source_verified": 1172,
-    "publication_ready": 1172,
+    "source_verified": 1173,
+    "publication_ready": 1173,
     "missing": 15,
-    "source_pending": 18,
+    "source_pending": 17,
     "missing_issue_ids": [
       "ecolecon-224-c",
       "foodpolicy-134-c",
@@ -36,7 +36,6 @@
     "source_pending_issue_ids": [
       "cer-80-c",
       "cer-94-c",
-      "foodpolicy-118-c",
       "ier-64-2",
       "ier-64-3",
       "restat-105-5",
@@ -2146,31 +2145,27 @@
       "discovered": 30,
       "archived": 28,
       "content_ready": 28,
-      "source_verified": 27,
-      "publication_ready": 27,
+      "source_verified": 28,
+      "publication_ready": 28,
       "missing": 2,
-      "source_pending": 1,
+      "source_pending": 0,
       "missing_issue_ids": [
         "foodpolicy-134-c",
         "foodpolicy-137-c"
       ],
-      "source_pending_issue_ids": [
-        "foodpolicy-118-c"
-      ],
+      "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
       "years": {
         "2023": {
           "discovered": 8,
           "archived": 8,
           "content_ready": 8,
-          "source_verified": 7,
-          "publication_ready": 7,
+          "source_verified": 8,
+          "publication_ready": 8,
           "missing": 0,
-          "source_pending": 1,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "foodpolicy-118-c"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "2024": {
@@ -4512,7 +4507,7 @@
         "source_status": "source_pending",
         "publication_state": "source_pending",
         "last_error": "",
-        "retry_class": "source"
+        "retry_class": "translation"
       },
       {
         "issue_id": "ajae-106-3",
@@ -4523,7 +4518,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -4535,7 +4530,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -4547,7 +4542,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -4885,7 +4880,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -7739,12 +7734,12 @@
         "year": 2023,
         "volume": "118",
         "issue": "c",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
+        "source_status": "official_verified",
+        "publication_state": "ready",
         "last_error": "",
-        "retry_class": "translation"
+        "retry_class": "manual"
       },
       {
         "issue_id": "foodpolicy-119-c",
@@ -11789,7 +11784,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -11801,7 +11796,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -11813,7 +11808,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -17705,7 +17700,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -17717,7 +17712,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -17729,7 +17724,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -17741,7 +17736,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -17753,7 +17748,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -19122,22 +19117,22 @@
     },
     "2023-2024": {
       "summary": {
-        "complete": 648,
+        "complete": 649,
         "translation_partial": 0,
         "blocked": 14,
         "collected": 0,
-        "pending": 46
+        "pending": 45
       },
       "issue_count": 708,
-      "updated_at": "2026-09-21T00:35:44+00:00",
+      "updated_at": "2026-09-21T14:26:15+00:00",
       "coverage": {
         "discovered": 571,
         "archived": 559,
         "content_ready": 559,
-        "source_verified": 548,
-        "publication_ready": 548,
+        "source_verified": 549,
+        "publication_ready": 549,
         "missing": 12,
-        "source_pending": 11,
+        "source_pending": 10,
         "missing_issue_ids": [
           "ecolecon-224-c",
           "ier-64-1",
@@ -19154,7 +19149,6 @@
         ],
         "source_pending_issue_ids": [
           "cer-80-c",
-          "foodpolicy-118-c",
           "ier-64-2",
           "ier-64-3",
           "restat-105-5",
@@ -19177,7 +19171,7 @@
         "pending": 0
       },
       "issue_count": 300,
-      "updated_at": "2026-09-18T06:46:44+00:00",
+      "updated_at": "2026-08-24T13:07:44+00:00",
       "coverage": {
         "discovered": 428,
         "archived": 424,
@@ -19251,7 +19245,7 @@
         "pending": 0
       },
       "issue_count": 10,
-      "updated_at": "2026-09-08T14:14:07+00:00",
+      "updated_at": "2026-08-14T08:16:38+00:00",
       "coverage": {
         "discovered": 13,
         "archived": 13,
@@ -19292,11 +19286,11 @@
   "years": {
     "2023": {
       "summary": {
-        "complete": 316,
+        "complete": 317,
         "translation_partial": 0,
         "blocked": 9,
         "collected": 0,
-        "pending": 27
+        "pending": 26
       },
       "issue_count": 352,
       "journals": [
@@ -19354,10 +19348,10 @@
         "discovered": 297,
         "archived": 290,
         "content_ready": 290,
-        "source_verified": 284,
-        "publication_ready": 284,
+        "source_verified": 285,
+        "publication_ready": 285,
         "missing": 7,
-        "source_pending": 6,
+        "source_pending": 5,
         "missing_issue_ids": [
           "ier-64-1",
           "jeem-118-c",
@@ -19369,7 +19363,6 @@
         ],
         "source_pending_issue_ids": [
           "cer-80-c",
-          "foodpolicy-118-c",
           "ier-64-2",
           "ier-64-3",
           "restat-105-5",
@@ -19516,14 +19509,12 @@
           "discovered": 8,
           "archived": 8,
           "content_ready": 8,
-          "source_verified": 7,
-          "publication_ready": 7,
+          "source_verified": 8,
+          "publication_ready": 8,
           "missing": 0,
-          "source_pending": 1,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "foodpolicy-118-c"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "GEB": {
