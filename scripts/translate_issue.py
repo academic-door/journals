@@ -169,7 +169,22 @@ def _month_numbers(value: str) -> list[str]:
                 numbers.append(str(index))
     for index, month_cn in enumerate(MONTH_WORDS_ZH.values(), start=1):
         for _match in CHINESE_MONTH_PATTERN.finditer(value):
-            if _match.group(0) == month_cn:
+            if _match.group(0) != month_cn:
+                continue
+            # A bare Chinese month word can be lexical ("十一月雨"/"November Rain")
+            # rather than a reported date. Count it only in a bounded temporal
+            # context, mirroring the English month rules above.
+            prefix = value[max(0, _match.start() - 24) : _match.start()]
+            suffix = value[_match.end() : _match.end() + 16]
+            has_year_context = bool(
+                re.search(r"(?:19|20)\d{2}年?\s*$", prefix)
+                or re.match(r"\s*(?:19|20)\d{2}年?", suffix)
+            )
+            has_temporal_prep = bool(
+                re.search(r"(?:^|[，。；、\s])(?:在|从|自|至|到|截至|直到|期间)\s*$", prefix)
+            )
+            has_day_context = bool(re.match(r"\s*\d{1,2}[日号]", suffix))
+            if has_year_context or has_temporal_prep or has_day_context:
                 numbers.append(str(index))
     month_period_pattern = re.compile(
         r"\b(\d{4})M(0?[1-9]|1[0-2])\b",
@@ -646,6 +661,16 @@ _EN_FOLD_RE = re.compile(
     r"(?![A-Za-z])"
 )
 # English "percentage points" ("by 5.1 percentage points"):
+_EN_WRITTEN_PERCENTAGE_POINTS_RE = re.compile(
+    r"(?i)(?<![A-Za-z])"
+    r"(?P<amount>" + _EN_CARD_PATTERN + r")"
+    r"[-\s]*(?:percentage[-\s]*points?|points?|pp|p\.p\.|pct)\.?\b"
+)
+
+_EN_DECADE_AND_HALF_RE = re.compile(
+    r"(?i)(?<![A-Za-z])(?:a|one)\s+decade\s+and\s+a\s+half\b"
+)
+
 _EN_PERCENTAGE_POINTS_RE = re.compile(
     r"(?i)(?<![A-Za-z0-9])"
     r"(?P<amount>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
@@ -1011,20 +1036,38 @@ def resolve_semantic_quantities(
     return source_q, translated_q
 
 def _is_parallel_anaphoric_one(value: str, match: re.Match[str]) -> bool:
-    """True only for a bounded parallel pro-form such as ``an environment ... nor ... one ...``.
+    """Return True for a bounded bare one pro-form, never a measured one.
 
-    Bare ``one`` is normally a numeric quantity.  Exempt it only when the
-    same clause contains an explicit singular antecedent in a ``neither ...
-    nor ...`` parallel construction and the pro-form is followed by ``with``.
-    Unit-bearing quantities such as ``one year`` never reach this exemption.
+    Unit/scale-bearing forms such as one year and one percent remain numeric.
+    This only exempts pronoun uses such as the one being explored, the best
+    known one, or the historical neither/nor parallel form.
     """
     if match.group("num").strip().lower() != "one":
         return False
     if match.group("scale") or match.group("unit"):
         return False
-    if re.match(r"\s+with\b", value[match.end():], re.IGNORECASE) is None:
+
+    prefix = value[: match.start()].rstrip()
+    suffix = value[match.end() :]
+
+    proform_prefix = re.search(
+        r"\b(?:the|this|that|other|another|best|worst|better|worse|"
+        r"best\s+known|known)\s*$",
+        prefix,
+        re.IGNORECASE,
+    )
+    proform_suffix = re.match(
+        r"\s*(?:$|[.,;:!?]|being\b|that\b|which\b|who\b|with\b|without\b|"
+        r"among\b|of\b|in\b|from\b|to\b|when\b|where\b|used\b|"
+        r"considered\b|explored\b|known\b)",
+        suffix,
+        re.IGNORECASE,
+    )
+    if proform_prefix is not None and proform_suffix is not None:
+        return True
+
+    if re.match(r"\s+with\b", suffix, re.IGNORECASE) is None:
         return False
-    prefix = value[: match.start()]
     return re.search(
         r"\bneither\s+almost\s+an?\s+[A-Za-z][A-Za-z-]*\s+with\b"
         r"[^.;:!?]{0,160}\bnor\s+almost\s*$",
@@ -1091,14 +1134,40 @@ def _semantic_numbers(value: str) -> list[str]:
             continue
         record("1", span)
 
+    # A decade and a half is a precise 15-year horizon.
+    for match in _EN_DECADE_AND_HALF_RE.finditer(value):
+        span = match.span()
+        if overlaps(span):
+            continue
+        record("15", span)
+
+    # Written-cardinal percentage points ("one pp") are percentages, not a
+    # bare entity count.
+    for match in _EN_WRITTEN_PERCENTAGE_POINTS_RE.finditer(value):
+        span = match.span()
+        if overlaps(span):
+            continue
+        card = _en_cardinal_value(match.group("amount"))
+        if card is not None:
+            record(_quantity_token(card) + "%", span)
+
     # 0. Shared-scale ranges: "585.9 to 598.4 billion", "849至867亿美元",
     #    "$0.79-$11.91 million", "2.3-3.5 kt".  The trailing scale applies to BOTH.
     for match in _EN_RANGE_SCALED_RE.finditer(value):
         span=match.span()
         if overlaps(span): continue
+        # A calendar year followed by a currency amount is not a shared-scale
+        # range (for example: "in 1989 to $40.6 trillion").
+        a_raw = match.group("a")
+        if (
+            match.group("cur_a") is None
+            and match.group("cur_b") is not None
+            and re.fullmatch(r"(?:19|20)\d{2}", a_raw)
+        ):
+            continue
         sw=match.group("scale").lower()
         scale = 1000 if sw in ("kt","kilotonne","kilotonnes") else _ENG_SCALE_WORDS[sw]
-        record(_scaled_token(match.group("a"), scale), span)
+        record(_scaled_token(a_raw, scale), span)
         record(_scaled_token(match.group("b"), scale), span)
     for match in _CN_RANGE_SCALED_RE.finditer(value):
         span=match.span()
@@ -1934,6 +2003,8 @@ def _prompt(article: dict[str, Any]) -> list[dict[str, str]]:
                 "源摘要中的每一个阿拉伯数字必须原样保留，包括千位逗号、小数点、百分号和年份；"
                 "如果源文本包含 ⟦ADNUM_...⟧ 占位符，必须逐字保留每个占位符，不得翻译、删除或改写；"
                 "不得把数字改写成中文数字、万、亿或年代简称。"
+                "数量级必须严格等值：million=百万，billion=十亿，trillion=万亿；"
+                "例如813.6 billion不能译成813.6亿。"
                 "英文拼写的数字应翻译为中文文字，不得因此新增阿拉伯数字；"
                 "译文不得添加源标题和摘要中不存在的阿拉伯数字。"
                 "只返回严格 JSON，字段固定为 title_cn 和 abstract_cn，不使用 Markdown。"
