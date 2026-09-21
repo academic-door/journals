@@ -11,6 +11,7 @@ import requests
 from scripts.build_sciencedirect_browser_archives import (
     _apply_repec_publisher_abstract_fallbacks,
     fetch_issue_metadata,
+    issue_from_roster,
     process_batch,
 )
 
@@ -57,6 +58,33 @@ class ScienceDirectBrowserArchiveMetadataRetryTests(unittest.TestCase):
         ):
             result = fetch_issue_metadata(requests.Session(), [PII], timeout=90)
         return fake, result
+
+    def test_issue_identity_uses_issue_specific_url_and_issue_id(self) -> None:
+        roster = {
+            "journal_id": "joe",
+            "issue_id": "joe-235-2",
+            "official_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/235/issue/2",
+        }
+        self.assertEqual("2", issue_from_roster(roster))
+
+    def test_issue_identity_uses_supplement_url(self) -> None:
+        roster = {
+            "journal_id": "red",
+            "issue_id": "red-47-c",
+            "official_url": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/47/suppl/C",
+        }
+        self.assertEqual("C", issue_from_roster(roster))
+
+    def test_issue_identity_mismatch_fails_closed(self) -> None:
+        roster = {
+            "journal_id": "joe",
+            "issue_id": "joe-235-2",
+            "issue": "C",
+            "official_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/235/issue/2",
+        }
+        with self.assertRaisesRegex(ValueError, "issue identity mismatch"):
+            issue_from_roster(roster)
+
 
     def test_retries_transient_read_timeout_then_succeeds(self) -> None:
         fake, result = self.fetch(
