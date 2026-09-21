@@ -117,7 +117,7 @@ class ScienceDirectBrowserArchiveMetadataRetryTests(unittest.TestCase):
                                 "title_en": "Exact English title",
                                 "abstract_en": "The sample contains 20 observations.",
                                 "title_cn": "完全一致的中文标题",
-                                "abstract_cn": "样本包含20个观测值。",
+                                "abstract_cn": "本文研究一个包含20个观测值的样本，并系统说明识别策略、估计方法与主要经验结果，同时讨论这些结果对于相关经济机制和政策分析的含义。",
                                 "translation": {
                                     "status": "complete",
                                     "provider": "deepseek",
