@@ -219,7 +219,8 @@ class ControlledHistoryDispatchTests(unittest.TestCase):
         self.assertIn("github.event.comment.body == '/history-wiley-evidence'", workflow)
         self.assertIn("categories: __wiley_evidence_only__", workflow)
         self.assertIn("ajae-107-1,ajae-107-2", workflow)
-        self.assertIn("jf-80-5,jf-80-6", workflow)
+        self.assertIn("jf-80-5,jf-80-6,", workflow)
+        self.assertIn("ier-64-1,ier-64-2,ier-64-3", workflow)
         self.assertIn("repair_dates_only: false", workflow)
         self.assertIn("repair_content_only: false", workflow)
 
