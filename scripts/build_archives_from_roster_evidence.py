@@ -70,6 +70,39 @@ DEFAULT_API_ROOT = ROOT / "public" / "api" / "v1"
 DEFAULT_STATE_ROOT = ROOT / "data" / "backfill-state"
 DEFAULT_STAGING_ROOT = ROOT / "data" / "backfill-staging"
 
+_ABSTRACT_PAGE_CHROME_MARKERS = (
+    "previous articlenext article",
+    "pdfpdf plus",
+    "add to favorites",
+    "download citation",
+    "track citations",
+    "permissionsreprints",
+    "share onfacebook",
+    "total views on this site",
+    "crossref reports no articles citing this article",
+)
+
+
+def _usable_metadata_abstract(value: Any) -> str:
+    """Return a metadata abstract only when it is not obvious page chrome.
+
+    Some metadata aggregators occasionally return publisher landing-page text
+    instead of the article abstract.  Fail closed only on a high-confidence
+    combination of multiple independent chrome markers; ordinary prose that
+    happens to contain one word such as "permissions" remains untouched.
+    """
+
+    abstract = _clean_markup(re.sub(r"<[^>]+>", " ", str(value or ""))).strip()
+    if not abstract:
+        return ""
+    normalized = re.sub(r"\s+", " ", abstract).casefold()
+    marker_hits = sum(
+        1 for marker in _ABSTRACT_PAGE_CHROME_MARKERS if marker in normalized
+    )
+    if marker_hits >= 2:
+        return ""
+    return abstract
+
 
 def _split_volume_issue(issue_id: str, journal_id: str) -> tuple[str, str]:
     prefix = f"{journal_id}-"
@@ -81,10 +114,7 @@ def _split_volume_issue(issue_id: str, journal_id: str) -> tuple[str, str]:
 
 
 def _abstract_from_crossref(item: dict[str, Any]) -> str:
-    abstract = str(item.get("abstract", "") or "")
-    if not abstract:
-        return ""
-    return _clean_markup(re.sub(r"<[^>]+>", " ", abstract)).strip()
+    return _usable_metadata_abstract(item.get("abstract", ""))
 
 
 def _published_parts(item: dict[str, Any]) -> tuple[int, int]:
@@ -179,7 +209,8 @@ def _metadata_for_dois(
     metadata: dict[str, dict[str, Any]] = {}
     missing: list[str] = []
     for doi in dois:
-        entry = crossref.get(doi, {})
+        entry = dict(crossref.get(doi, {}))
+        entry["abstract"] = _usable_metadata_abstract(entry.get("abstract", ""))
         metadata[doi] = entry
         if not entry.get("abstract") or not entry.get("authors"):
             missing.append(doi)
@@ -192,8 +223,9 @@ def _metadata_for_dois(
                 current = metadata[doi]
                 if not current.get("authors") and direct.get("authors"):
                     current["authors"] = list(direct["authors"])
-                if not current.get("abstract") and direct.get("abstract"):
-                    current["abstract"] = str(direct["abstract"])
+                direct_abstract = _usable_metadata_abstract(direct.get("abstract", ""))
+                if not current.get("abstract") and direct_abstract:
+                    current["abstract"] = direct_abstract
                 if not current.get("title") and direct.get("title"):
                     current["title"] = str(direct["title"])
                 if not current.get("year") and direct.get("year"):
@@ -215,8 +247,9 @@ def _metadata_for_dois(
             current = metadata.setdefault(doi, {})
             if not current.get("authors") and entry.get("authors"):
                 current["authors"] = list(entry["authors"])
-            if not current.get("abstract") and entry.get("abstract"):
-                current["abstract"] = str(entry["abstract"])
+            semantic_abstract = _usable_metadata_abstract(entry.get("abstract", ""))
+            if not current.get("abstract") and semantic_abstract:
+                current["abstract"] = semantic_abstract
             if not current.get("title") and entry.get("title"):
                 current["title"] = str(entry["title"])
             if not current.get("published") and entry.get("published"):
@@ -238,8 +271,9 @@ def _metadata_for_dois(
             current = metadata.setdefault(doi, {})
             if not current.get("authors") and authors:
                 current["authors"] = list(authors)
-            if not current.get("abstract") and abstract:
-                current["abstract"] = str(abstract)
+            openalex_abstract = _usable_metadata_abstract(abstract)
+            if not current.get("abstract") and openalex_abstract:
+                current["abstract"] = openalex_abstract
     return metadata
 
 
