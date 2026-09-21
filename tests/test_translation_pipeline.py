@@ -16,10 +16,12 @@ from scripts.translate_issue import (
     _normalize_written_number_translations,
     _numbers,
     _protect_numbers,
+    _prompt,
     _repair_google_artifacts,
     _restore_numbers,
     request_deepseek_translation,
     request_translation,
+    resolve_semantic_quantities,
     translate_missing,
     validate_translation,
 )
@@ -496,7 +498,7 @@ class TranslationPipelineTests(unittest.TestCase):
         self.assertEqual(_numbers(normalized), ["2019", "2020"])
 
     def test_plural_studies_and_billion_amounts_are_normalized(self) -> None:
-        self.assertEqual(_numbers("explained by profile personalisation (Studies 2 and 3)"), ["3"])
+        self.assertEqual(_numbers("explained by profile personalisation (Studies 2 and 3)"), [])
         source = "caused $20bn of deadweight loss in 2022 and 2023"
         translated = "在2022年和2023年造成了200亿美元的净损失"
         normalized = _normalize_written_number_translations(source, translated)
@@ -523,6 +525,73 @@ class TranslationPipelineTests(unittest.TestCase):
         normalized = _normalize_written_number_translations(source, translated)
         self.assertIn("10%", normalized)
         self.assertEqual(_numbers(normalized), ["10%"])
+
+    def test_real_translation_debt_semantic_quantity_regressions(self) -> None:
+        cases = [
+            (
+                "An Application to Seal Management after the November Rain",
+                "十一月雨后的海豹管理应用",
+            ),
+            (
+                "On average a one pp increase in coverage raises exports.",
+                "平均而言，覆盖率提高一个百分点会增加出口。",
+            ),
+            (
+                "The indicator differentiates cases in Phases 4 and 5.",
+                "该指标能够区分两个最严重阶段的案例。",
+            ),
+            (
+                "The decision maker exploits the best one when the one being explored "
+                "is worse than the best known one.",
+                "当正在探索的选项更差时，决策者会利用已知最佳选项。",
+            ),
+            (
+                "Support increased more than twentyfold in the past decade and a half.",
+                "在过去十五年间，支持力度增长了二十多倍。",
+            ),
+        ]
+        for source, translated in cases:
+            with self.subTest(source=source):
+                source_q, translated_q = resolve_semantic_quantities(source, translated)
+                self.assertEqual(source_q, translated_q)
+
+    def test_year_to_currency_amount_is_not_a_shared_scale_range(self) -> None:
+        source = (
+            "Social Security wealth increased from $7.2 trillion in 1989 "
+            "to $40.6 trillion in 2019."
+        )
+        translated = (
+            "社会保障财富从1989年的7.2万亿美元增加到2019年的40.6万亿美元。"
+        )
+        source_q, translated_q = resolve_semantic_quantities(source, translated)
+        self.assertEqual(source_q, translated_q)
+
+    def test_billion_to_yi_scale_error_stays_fail_closed(self) -> None:
+        article = {
+            "doi": "10.1111/ajae.12495",
+            "title_en": "Evaluating the impact of the fourth round of China's poverty alleviation program",
+            "abstract_en": (
+                "China allocated 813.6 billion yuan (US$126.1 billion) "
+                "to 14 areas with a population of 240 million."
+            ),
+        }
+        translated = {
+            "title_cn": "评估中国第四轮扶贫计划的影响",
+            "abstract_cn": (
+                "中国向14个地区投入813.6亿元人民币（126.1亿美元），"
+                "涉及240百万人口。"
+            ),
+        }
+        with self.assertRaisesRegex(
+            TranslationError, "semantic numeric quantities"
+        ):
+            validate_translation(article, translated)
+
+    def test_prompt_states_exact_scale_word_semantics(self) -> None:
+        system = _prompt(ARTICLE)[0]["content"]
+        self.assertIn("million、billion、trillion", system)
+        self.assertIn("百万、十亿、万亿", system)
+        self.assertIn("不得把 billion 直接写成 亿", system)
 
     def test_writes_translation_cache_with_provenance(self) -> None:
         issue = {"journal_id": "test", "articles": [ARTICLE]}
