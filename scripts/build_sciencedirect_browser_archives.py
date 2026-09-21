@@ -307,6 +307,11 @@ def _apply_repec_publisher_abstract_fallbacks(
     if not path.is_file():
         return
     staging = read_json(path)
+    official_titles = {
+        pii_from_href(item.get("href")): str(item.get("title", "")).strip()
+        for item in roster.get("items", [])
+        if pii_from_href(item.get("href"))
+    }
     fallbacks: dict[str, dict[str, str]] = {}
     for article in staging.get("articles", []):
         sources = article.get("sources", {})
@@ -319,6 +324,7 @@ def _apply_repec_publisher_abstract_fallbacks(
         if abstract and doi and pii and repec_url.startswith("https://ideas.repec.org/"):
             fallbacks[pii] = {
                 "doi": doi,
+                "title_en": str(article.get("title_en", "")).strip(),
                 "abstract_en": abstract,
                 "source_url": repec_url,
             }
@@ -331,8 +337,22 @@ def _apply_repec_publisher_abstract_fallbacks(
         if fallback is None:
             continue
         doi = str(metadata.get("doi", "")).strip().lower()
-        if not doi or doi != fallback["doi"]:
+        if doi and doi != fallback["doi"]:
             continue
+        if not doi:
+            official_title = official_titles.get(pii, "")
+            api_title = str(metadata.get("title_en", "")).strip()
+            fallback_title = fallback["title_en"]
+            if (
+                not official_title
+                or not api_title
+                or comparable_title(official_title) != comparable_title(fallback_title)
+                or comparable_title(api_title) != comparable_title(fallback_title)
+            ):
+                continue
+            metadata["doi"] = fallback["doi"]
+            metadata["doi_source"] = "repec-publisher-supplied"
+            metadata["doi_source_url"] = fallback["source_url"]
         metadata["abstract_en"] = fallback["abstract_en"]
         metadata["abstract_source"] = "repec-publisher-supplied"
         metadata["abstract_source_url"] = fallback["source_url"]
@@ -397,6 +417,12 @@ def build_rich_snapshot(
             rich_item["abstract_source"] = abstract_source
         if abstract_source_url:
             rich_item["abstract_source_url"] = abstract_source_url
+        doi_source = str(metadata.get("doi_source", "")).strip()
+        doi_source_url = str(metadata.get("doi_source_url", "")).strip()
+        if doi_source:
+            rich_item["doi_source"] = doi_source
+        if doi_source_url:
+            rich_item["doi_source_url"] = doi_source_url
         items.append(rich_item)
     if missing:
         raise ValueError(f"Elsevier metadata missing roster PIIs: {missing}")
