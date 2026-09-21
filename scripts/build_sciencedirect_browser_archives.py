@@ -35,6 +35,7 @@ from scripts.import_browser_authorized_snapshot import (
     write_json,
 )
 from scripts.import_official_roster_evidence import reconcile_state_files
+from scripts.translate_issue import TranslationError, _source_hash, validate_translation
 from scripts.update_journals import (
     TRANSLATION_CACHE,
     archive_issue,
@@ -510,6 +511,74 @@ def load_journal(journal_id: str) -> dict[str, Any]:
     raise KeyError(f"journal not configured: {journal_id}")
 
 
+def seed_translation_cache_from_exact_staging(
+    candidate: dict[str, Any],
+    cache_path: Path,
+    *,
+    staging_root: Path = ROOT / "data" / "backfill-staging",
+) -> int:
+    """Reuse only already-valid translations whose English source is identical.
+
+    This avoids re-paying/re-running translation for archive reconstruction while
+    preserving the current translation validator and source-hash contract.
+    """
+
+    issue_id = str(candidate.get("issue_id", "")).strip()
+    journal_id = str(candidate.get("journal_id", "")).strip()
+    path = staging_root / journal_id / f"{issue_id}.json"
+    if not path.is_file():
+        return 0
+
+    staging = read_json(path)
+    by_doi = {
+        str(article.get("doi", "")).strip().casefold(): article
+        for article in staging.get("articles", [])
+        if str(article.get("doi", "")).strip()
+    }
+    cache = read_json(cache_path) if cache_path.is_file() else {}
+    reused = 0
+    for article in candidate.get("articles", []):
+        doi = str(article.get("doi", "")).strip().casefold()
+        staged = by_doi.get(doi)
+        if staged is None:
+            continue
+        if str(article.get("title_en", "")).strip() != str(staged.get("title_en", "")).strip():
+            continue
+        if str(article.get("abstract_en", "")).strip() != str(staged.get("abstract_en", "")).strip():
+            continue
+        translation = dict(staged.get("translation") or {})
+        if str(translation.get("status", "")).strip() != "complete":
+            continue
+        title_cn = str(staged.get("title_cn", "")).strip()
+        abstract_cn = str(staged.get("abstract_cn", "")).strip()
+        if not title_cn or (article.get("abstract_en") and not abstract_cn):
+            continue
+        source_hash = _source_hash(article)
+        staged_hash = str(translation.get("source_hash", "")).strip()
+        if staged_hash and staged_hash != source_hash:
+            continue
+        payload = {
+            "title_cn": title_cn,
+            "abstract_cn": abstract_cn,
+            "source_hash": source_hash,
+            "translation": {
+                key: value
+                for key, value in translation.items()
+                if key not in {"status", "source_hash"}
+            },
+        }
+        try:
+            validate_translation(article, payload)
+        except TranslationError:
+            continue
+        cache[doi] = payload
+        reused += 1
+
+    if reused:
+        write_json(cache_path, cache)
+    return reused
+
+
 def process(path: Path, *, state_root: Path, cache_root: Path, translate: bool) -> dict[str, Any]:
     roster = read_json(path)
     journal = load_journal(str(roster["journal_id"]))
@@ -518,11 +587,17 @@ def process(path: Path, *, state_root: Path, cache_root: Path, translate: bool) 
     candidate = build_candidate(snapshot)
     translation_report: dict[str, Any] = {}
     if translate:
+        cache_path = cache_root / f"{candidate['journal_id']}.json"
+        staging_reused = seed_translation_cache_from_exact_staging(
+            candidate,
+            cache_path,
+        )
         candidate, translation_report = translate_candidate(
             candidate,
-            cache_root / f"{candidate['journal_id']}.json",
+            cache_path,
             session=session,
         )
+        translation_report["staging_reused"] = staging_reused
     validate_issue(candidate)
     target = ""
     if candidate.get("publication_state") == "ready":
