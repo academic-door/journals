@@ -270,6 +270,88 @@ def _parse_excluded_dois(values: list[str]) -> dict[str, str]:
     return parsed
 
 
+def convert_batch(
+    snapshot_paths: list[Path],
+    *,
+    api_root: Path,
+    staging_root: Path,
+    output_root: Path,
+    excluded_dois: dict[str, str],
+) -> tuple[list[str], list[dict[str, str]]]:
+    """Convert ScienceDirect snapshots independently.
+
+    A source-integrity failure in one issue must not discard evidence already
+    proven for sibling issues in the same publisher-family batch. Expected
+    ValueErrors are recorded as issue-level deferrals; unexpected exceptions
+    remain fatal.
+    """
+
+    written: list[str] = []
+    deferred: list[dict[str, str]] = []
+    for snapshot_path in snapshot_paths:
+        snapshot = _read_json(snapshot_path)
+        issue_id = str(snapshot["issue_id"])
+        journal_id = str(snapshot["journal_id"])
+        archive_path = (
+            api_root / "journals" / journal_id / "issues" / f"{issue_id}.json"
+        )
+        issue_path = archive_path
+        if not issue_path.exists():
+            staging_path = staging_root / journal_id / f"{issue_id}.json"
+            if staging_path.exists():
+                issue_path = staging_path
+            else:
+                message = "archive/staging not ready"
+                deferred.append(
+                    {
+                        "issue_id": issue_id,
+                        "snapshot": str(snapshot_path),
+                        "error": message,
+                    }
+                )
+                print(
+                    f"[evidence] {message} for {issue_id}; deferred",
+                    file=sys.stderr,
+                )
+                continue
+        try:
+            evidence = build_evidence(
+                snapshot,
+                _read_json(issue_path),
+                excluded_dois=excluded_dois,
+            )
+        except ValueError as exc:
+            deferred.append(
+                {
+                    "issue_id": issue_id,
+                    "snapshot": str(snapshot_path),
+                    "error": str(exc),
+                }
+            )
+            print(
+                json.dumps(
+                    {
+                        "browser_evidence_deferred": {
+                            "issue_id": issue_id,
+                            "snapshot": str(snapshot_path),
+                            "error": str(exc),
+                        }
+                    },
+                    ensure_ascii=False,
+                ),
+                file=sys.stderr,
+            )
+            continue
+        output = output_root / f"{issue_id}.json"
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(
+            json.dumps(evidence, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        written.append(issue_id)
+    return written, deferred
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("snapshots", nargs="+", type=Path)
@@ -282,40 +364,21 @@ def main() -> int:
     parser.add_argument("--output-root", type=Path, required=True)
     parser.add_argument("--excluded-doi", action="append", default=[])
     args = parser.parse_args()
-    excluded_dois = _parse_excluded_dois(args.excluded_doi)
-    written: list[str] = []
-    for snapshot_path in args.snapshots:
-        snapshot = _read_json(snapshot_path)
-        issue_id = str(snapshot["issue_id"])
-        journal_id = str(snapshot["journal_id"])
-        archive_path = (
-            args.api_root / "journals" / journal_id / "issues" / f"{issue_id}.json"
+    written, deferred = convert_batch(
+        list(args.snapshots),
+        api_root=args.api_root,
+        staging_root=args.staging_root,
+        output_root=args.output_root,
+        excluded_dois=_parse_excluded_dois(args.excluded_doi),
+    )
+    print(
+        json.dumps(
+            {"written": written, "deferred": deferred},
+            ensure_ascii=False,
+            indent=2,
         )
-        issue_path = archive_path
-        if not issue_path.exists():
-            staging_path = args.staging_root / journal_id / f"{issue_id}.json"
-            if staging_path.exists():
-                issue_path = staging_path
-            else:
-                print(
-                    f"[evidence] archive/staging not ready for {issue_id}; defer official evidence",
-                    file=sys.stderr,
-                )
-                continue
-        evidence = build_evidence(
-            snapshot,
-            _read_json(issue_path),
-            excluded_dois=excluded_dois,
-        )
-        output = args.output_root / f"{issue_id}.json"
-        output.parent.mkdir(parents=True, exist_ok=True)
-        output.write_text(
-            json.dumps(evidence, ensure_ascii=False, indent=2) + "\n",
-            encoding="utf-8",
-        )
-        written.append(issue_id)
-    print(json.dumps({"written": written}, ensure_ascii=False, indent=2))
-    return 0
+    )
+    return 0 if written else (2 if deferred else 0)
 
 
 if __name__ == "__main__":
