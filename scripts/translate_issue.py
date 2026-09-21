@@ -148,7 +148,8 @@ def _month_numbers(value: str) -> list[str]:
             flags=re.IGNORECASE,
         )
         month_after_preposition = re.compile(
-            rf"\b(?:in|from|through|until|between|during|as of|to)\s+(?P<month>{name})\b",
+            rf"\b(?:in|from|through|until|between|during|as of|to|after|before|since|by)"
+            rf"\s+(?:the\s+)?(?P<month>{name})\b",
             flags=re.IGNORECASE,
         )
         seen_spans: set[tuple[int, int]] = set()
@@ -292,10 +293,18 @@ def _extract_json(content: str) -> dict[str, Any]:
 IDENTIFIER_EN = re.compile(
     r"(?i)(?<![A-Za-z])"
     r"(?:study|experiment|figure|table|model|section|appendix|equation|"
-    r"hypothesis|column|row|part|step|panel|scenario|test|trial|wave|round|stage|phase|studies|"
+    r"hypothesis|column|row|part|step|panel|scenario|test|trial|wave|round|stage|phase|phases|studies|"
     r"cohort|group|sample|survey|task|condition|session|block|version|"
     r"chapter|bill|article|act|title|clause|provision|rule|law|regulation|"
     r"specification)\s*$"
+)
+IDENTIFIER_EN_LIST = re.compile(
+    r"(?i)(?<![A-Za-z])"
+    r"(?:studies|experiments|figures|tables|models|sections|appendices|equations|"
+    r"hypotheses|panels|scenarios|tests|trials|waves|rounds|stages|phases|"
+    r"chapters|clauses|rules|regulations|specifications)"
+    r"\s+\d{1,3}(?:(?:\s*,\s*|\s+(?:and|or)\s+)\d{1,3})*"
+    r"(?:\s*,?\s*(?:and|or)\s*)$"
 )
 # Chinese label nouns that fuse with ordinals ("实验2" = Experiment 2,
 # "第2轮" = Round 2). Longer words are matched first; single-character labels
@@ -363,6 +372,8 @@ def _is_identifier_number(value: str, match: re.Match[str]) -> bool:
     if IDENTIFIER_EN.search(prefix):
         return True
     digits = re.sub(r"[^0-9]", "", str(match.group("number")))
+    if len(digits) <= 3 and IDENTIFIER_EN_LIST.search(prefix):
+        return True
     if _cjk_identifier_label(prefix) is not None:
         # Chinese label nouns fuse with the ordinal ("研究2" = Study 2), but
         # the same noun is also a verb before years ("研究1959古巴革命" =
@@ -651,6 +662,14 @@ _EN_PERCENTAGE_POINTS_RE = re.compile(
     r"(?P<amount>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
     r"[-\s]*(?:percentage[-\s]*points?|points?|pp|p\.p\.|pct)\.?\b"
 )
+_EN_WRITTEN_PERCENTAGE_POINTS_RE = re.compile(
+    r"(?i)(?<![A-Za-z])"
+    r"(?P<amount>" + _EN_CARD_PATTERN + r")"
+    r"\s*(?:percentage[-\s]*points?|pp|p\.p\.|pct)\.?\b"
+)
+_EN_DECADE_AND_HALF_RE = re.compile(
+    r"(?i)(?<![A-Za-z])(?:a\s+|one\s+)?decade\s+and\s+a\s+half\b"
+)
 
 # English "percentage points" range ("3.6-6.9 percentage points"):
 _EN_PERCENTAGE_POINTS_RANGE_RE = re.compile(
@@ -789,6 +808,19 @@ def _is_english_century_ordinal(value: str, match: "re.Match[str]") -> bool:
     scale = (match.group("scale") or "").strip().lower()
     if unit or scale:
         return False
+    num = match.group("num").strip().lower()
+    prefix = value[: match.start()].rstrip()
+    if num == "one" and re.search(
+        r"\b(?:the|best|known|best\s+known|same|other|another)\s*$",
+        prefix,
+        re.IGNORECASE,
+    ):
+        if re.match(
+            r"(?:\b(?:being|that|which|who|is|was|has|had|will|would|when)\b|[.,;:!?) ]|$)",
+            rest,
+            re.IGNORECASE,
+        ):
+            return True
     # Pronoun / partitive "one's rival", "one of the ..." and non-count method
     # compounds "one-step", "two-way", "three-fold", "one-to-one",
     # "two-quantile-regression".
@@ -1096,6 +1128,12 @@ def _semantic_numbers(value: str) -> list[str]:
     for match in _EN_RANGE_SCALED_RE.finditer(value):
         span=match.span()
         if overlaps(span): continue
+        if (
+            match.group("cur_b")
+            and not match.group("cur_a")
+            and re.fullmatch(r"(?:19|20)\d{2}", match.group("a"))
+        ):
+            continue
         sw=match.group("scale").lower()
         scale = 1000 if sw in ("kt","kilotonne","kilotonnes") else _ENG_SCALE_WORDS[sw]
         record(_scaled_token(match.group("a"), scale), span)
@@ -1203,6 +1241,18 @@ def _semantic_numbers(value: str) -> list[str]:
         span=match.span()
         if overlaps(span): continue
         record(_quantity_token(Decimal(_canonical_number(match.group("amount"))))+"%", span)
+    for match in _EN_WRITTEN_PERCENTAGE_POINTS_RE.finditer(value):
+        span = match.span()
+        if overlaps(span):
+            continue
+        amount = _en_cardinal_value(match.group("amount"))
+        if amount is not None:
+            record(_quantity_token(amount) + "%", span)
+    for match in _EN_DECADE_AND_HALF_RE.finditer(value):
+        span = match.span()
+        if overlaps(span):
+            continue
+        record("15", span)
 
 
 
@@ -1935,6 +1985,8 @@ def _prompt(article: dict[str, Any]) -> list[dict[str, str]]:
                 "如果源文本包含 ⟦ADNUM_...⟧ 占位符，必须逐字保留每个占位符，不得翻译、删除或改写；"
                 "不得把数字改写成中文数字、万、亿或年代简称。"
                 "英文拼写的数字应翻译为中文文字，不得因此新增阿拉伯数字；"
+                "英文数量级词 million、billion、trillion 分别对应百万、十亿、万亿；"
+                "若保留原阿拉伯系数，必须使用这些等值单位，尤其不得把 billion 直接写成 亿而保持系数不变。"
                 "译文不得添加源标题和摘要中不存在的阿拉伯数字。"
                 "只返回严格 JSON，字段固定为 title_cn 和 abstract_cn，不使用 Markdown。"
                 '输出格式示例：{"title_cn":"中文标题","abstract_cn":"中文摘要"}。'
