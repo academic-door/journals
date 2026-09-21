@@ -111,6 +111,15 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         self.assertIn('if [[ -z "${RECOVERY_EVIDENCE_ISSUE_IDS:-}" ]]', workflow)
         self.assertIn('--issue-ids "$RECOVERY_EVIDENCE_ISSUE_IDS"', workflow)
 
+    def test_cambridge_capture_runs_before_generic_roster_build(self) -> None:
+        workflow = self.workflow()
+        capture = workflow.index("Capture official Cambridge roster evidence")
+        generic = workflow.index("Build archives from generic official roster evidence")
+        self.assertLess(capture, generic)
+        self.assertIn("if: inputs.capture_cambridge_evidence", workflow)
+        self.assertIn("scripts/capture_cambridge_roster_evidence.py", workflow)
+        self.assertIn("--diagnostics-root", workflow)
+
     def test_publish_evidence_is_bounded_to_current_recovery_queue(self) -> None:
         workflow = self.workflow()
         self.assertIn("Scope official evidence to this recovery run", workflow)
