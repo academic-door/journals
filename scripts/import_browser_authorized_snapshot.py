@@ -198,6 +198,12 @@ def build_candidate(snapshot: dict[str, Any]) -> dict[str, Any]:
         abstract_source_url = str(item.get("abstract_source_url", "")).strip()
         if abstract_source_url:
             source_map["abstract_en_url"] = abstract_source_url
+        doi_source = str(item.get("doi_source", "")).strip()
+        doi_source_url = str(item.get("doi_source_url", "")).strip()
+        if doi_source:
+            source_map["doi"] = doi_source
+        if doi_source_url:
+            source_map["doi_url"] = doi_source_url
         articles.append(
             {
                 "paper_id": f"doi:{doi}",
