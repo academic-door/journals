@@ -178,6 +178,16 @@ class ControlledHistoryDispatchTests(unittest.TestCase):
 
 
 
+
+    def test_control_issue_can_trigger_ready_contract_repair(self) -> None:
+        workflow = TRIGGER_WORKFLOW.read_text(encoding="utf-8")
+        self.assertIn("github.event.comment.body == '/history-ready-contract-repair'", workflow)
+        self.assertIn("categories: __ready_contract_repair_only__", workflow)
+        self.assertIn("repair_ready_contract_only: true", workflow)
+        history = HISTORY_WORKFLOW.read_text(encoding="utf-8")
+        self.assertIn("repair_ready_contract_only", history)
+        self.assertIn("scripts/repair_ready_payload_contract.py", history)
+
     def test_control_issue_can_trigger_content_repair(self) -> None:
         workflow = TRIGGER_WORKFLOW.read_text(encoding="utf-8")
         self.assertIn("github.event.comment.body == '/history-content-repair'", workflow)
