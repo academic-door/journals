@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from collections import Counter
 import tempfile
 import unittest
 from pathlib import Path
@@ -20,6 +21,8 @@ from scripts.translate_issue import (
     _restore_numbers,
     request_deepseek_translation,
     request_translation,
+    resolve_semantic_quantities,
+    _prompt,
     translate_missing,
     validate_translation,
 )
@@ -523,6 +526,54 @@ class TranslationPipelineTests(unittest.TestCase):
         normalized = _normalize_written_number_translations(source, translated)
         self.assertIn("10%", normalized)
         self.assertEqual(_numbers(normalized), ["10%"])
+
+    def test_real_translation_edge_cases_remain_fail_closed_but_semantically_aligned(self) -> None:
+        te_source = (
+            "The optimal strategy is to continuously explore unknown alternatives and then "
+            "exploit the best known alternative when the one being explored is found to be "
+            "sufficiently worse than the best one."
+        )
+        te_cn = (
+            "最优策略是持续探索未知选项，当被探索的选项被发现明显劣于已知最佳选项时，"
+            "转而利用已知最佳选项。"
+        )
+        self.assertEqual(
+            resolve_semantic_quantities(te_source, te_cn),
+            (Counter(), Counter()),
+        )
+
+        self.assertEqual(
+            resolve_semantic_quantities("after the November Rain", "在《十一月雨》之后"),
+            (Counter(), Counter()),
+        )
+
+        source_q, translated_q = resolve_semantic_quantities(
+            "a one pp increase in coverage",
+            "覆盖率提高一个百分点",
+        )
+        self.assertEqual(source_q, translated_q)
+        self.assertEqual(source_q["1%"], 1)
+
+        source_q, translated_q = resolve_semantic_quantities(
+            "over the past decade and a half",
+            "在过去十五年间",
+        )
+        self.assertEqual(source_q, translated_q)
+        self.assertEqual(source_q["15"], 1)
+
+        source_q, translated_q = resolve_semantic_quantities(
+            "wealth rose from $7.2 trillion in 1989 to $40.6 trillion in 2019",
+            "财富从1989年的7.2万亿美元增至2019年的40.6万亿美元",
+        )
+        self.assertEqual(source_q, translated_q)
+        self.assertNotIn("1989000000000000", source_q)
+
+    def test_prompt_locks_english_scale_semantics(self) -> None:
+        prompt_text = " ".join(message["content"] for message in _prompt(ARTICLE))
+        self.assertIn("million=百万", prompt_text)
+        self.assertIn("billion=十亿", prompt_text)
+        self.assertIn("trillion=万亿", prompt_text)
+        self.assertIn("813.6 billion不能译成813.6亿", prompt_text)
 
     def test_writes_translation_cache_with_provenance(self) -> None:
         issue = {"journal_id": "test", "articles": [ARTICLE]}
