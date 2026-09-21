@@ -1,18 +1,13 @@
 # Field journal history backfill status
 
-Updated: 2026-09-20T22:29:38+00:00
+Updated: 2026-09-21T00:38:43+00:00
 
-Discovery coverage: 1205 discovered · 1185 archived · 1164 publication ready · 20 missing · 17 source pending
+Discovery coverage: 1198 discovered · 1173 archived · 1152 publication ready · 25 missing · 17 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 646 | 2 | 15 | 45 |
-| 2023-2026 | 296 | 1 | 3 | 0 |
-| 2024-2024 | 12 | 0 | 0 | 0 |
-| 2025-2026 | 1 | 0 | 0 | 0 |
-| 2026-2026 | 10 | 0 | 0 | 0 |
-| elsevier-2026-browser | 0 | 0 | 0 | 0 |
-| final3-2026-browser | 0 | 0 | 0 | 0 |
+| 2023-2024 | 646 | 3 | 14 | 45 |
+| 2025-2026 | 606 | 5 | 10 | 7 |
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -159,7 +154,7 @@ Discovery coverage: 1205 discovered · 1185 archived · 1164 publication ready �
 | CER | cer-77-c | 2023 | ready |  |
 | CER | cer-78-c | 2023 | ready |  |
 | CER | cer-79-c | 2023 | ready |  |
-| CER | cer-80-c | 2023 | source_pending | source authority pending official verification |
+| CER | cer-80-c | 2023 | source_pending |  |
 | CER | cer-81-c | 2023 | ready |  |
 | CER | cer-82-c | 2023 | ready |  |
 | CER | cer-83-c | 2024 | ready |  |
@@ -553,7 +548,7 @@ Discovery coverage: 1205 discovered · 1185 archived · 1164 publication ready �
 | JEBO | jebo-217-c | 2024 | ready |  |
 | JEBO | jebo-218-c | 2024 | ready |  |
 | JEBO | jebo-219-c | 2024 | ready |  |
-| JEBO | jebo-220-c | 2024 | ready | archive_missing |
+| JEBO | jebo-220-c | 2024 | ready |  |
 | JEBO | jebo-221-c | 2024 | ready |  |
 | JEBO | jebo-222-c | 2024 | ready |  |
 | JEBO | jebo-223-c | 2024 | ready |  |
@@ -908,7 +903,7 @@ Discovery coverage: 1205 discovered · 1185 archived · 1164 publication ready �
 | JOE | joe-234-2 | 2023 | ready |  |
 | JOE | joe-234-c | 2023 | blocked | archive_content_gate_failed |
 | JOE | joe-235-1 | 2023 | ready |  |
-| JOE | joe-235-2 | 2023 | blocked | archive_missing |
+| JOE | joe-235-2 | 2023 | translation_partial |  |
 | JOE | joe-236-1 | 2023 | ready |  |
 | JOE | joe-236-2 | 2023 | ready |  |
 | JOE | joe-237-1 | 2023 | blocked | archive_content_gate_failed |
@@ -1226,14 +1221,14 @@ Discovery coverage: 1205 discovered · 1185 archived · 1164 publication ready �
 | RESTAT | restat-105-2 | 2023 | ready |  |
 | RESTAT | restat-105-3 | 2023 | ready |  |
 | RESTAT | restat-105-4 | 2023 | ready |  |
-| RESTAT | restat-105-5 | 2023 | source_pending |  |
-| RESTAT | restat-105-6 | 2023 | source_pending |  |
-| RESTAT | restat-106-1 | 2024 | source_pending |  |
-| RESTAT | restat-106-2 | 2024 | source_pending |  |
+| RESTAT | restat-105-5 | 2023 | source_pending | source authority pending official verification |
+| RESTAT | restat-105-6 | 2023 | source_pending | source authority pending official verification |
+| RESTAT | restat-106-1 | 2024 | source_pending | source authority pending official verification |
+| RESTAT | restat-106-2 | 2024 | source_pending | source authority pending official verification |
 | RESTAT | restat-106-3 | 2024 | ready |  |
-| RESTAT | restat-106-4 | 2024 | source_pending |  |
+| RESTAT | restat-106-4 | 2024 | source_pending | source authority pending official verification |
 | RESTAT | restat-106-5 | 2024 | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs off |
-| RESTAT | restat-106-6 | 2024 | source_pending |  |
+| RESTAT | restat-106-6 | 2024 | source_pending | source authority pending official verification |
 | RESTAT | restat-107-1 | 2025 | source_pending |  |
 | RESTAT | restat-107-2 | 2025 | source_pending |  |
 | RESTAT | restat-107-3 | 2025 | source_pending |  |

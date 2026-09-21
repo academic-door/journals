@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-20T22:29:47+00:00",
+  "updated_at": "2026-09-21T00:38:44+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 49,
@@ -2625,30 +2625,32 @@
       "current": {
         "available": true,
         "status": "official_page_verified",
-        "issue_id": "lup-170-c",
-        "publication_date": "November 2026",
+        "issue_id": "lup-171-c",
+        "publication_date": "December 2026",
         "publication_state": "ready",
-        "source_url": "https://www.sciencedirect.com/journal/land-use-policy/vol/170/suppl/C",
-        "roster_authority": "official-issue-page",
-        "roster_transport": "browser-authorized",
+        "source_url": "https://ideas.repec.org/s/eee/lauspo.html",
+        "roster_authority": "repec-publisher-supplied",
+        "roster_transport": "repec-serial-page",
         "order_verified": true,
         "content_counts": {
-          "official_items": 56,
-          "observed_items": 53,
-          "publishable_items": 53,
-          "research_articles": 53,
+          "official_items": 51,
+          "observed_items": 51,
+          "publishable_items": 51,
+          "research_articles": 51,
           "comments": 0,
           "short_communications": 0,
           "corrections": 0,
           "editorial_material": 0,
           "front_matter": 0,
           "other_excluded": 0,
-          "catalog_content_items": 53
+          "catalog_content_items": 51
         },
-        "abstracts_complete": 53,
-        "translations_complete": 53,
+        "abstracts_complete": 51,
+        "translations_complete": 51,
         "errors": [],
-        "warnings": []
+        "warnings": [
+          "snapshot_uses_alternate_official_source"
+        ]
       },
       "detected": {
         "available": true,
