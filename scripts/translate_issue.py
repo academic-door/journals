@@ -1243,19 +1243,19 @@ def _semantic_numbers(value: str) -> list[str]:
         if _is_parallel_anaphoric_one(value, match):
             continue
         base = _en_cardinal_value(match.group("num"))
-        if base is None:
+        if base is None:
 
-            continue
+            continue
 
-        scale_word = match.group("scale")
+        scale_word = match.group("scale")
 
-        if match.group("num").lower() in ("a", "an") and not scale_word:
+        if match.group("num").lower() in ("a", "an") and not scale_word:
 
-            # Indefinite article ("a paper") is not a quantity; only "a million".
+            # Indefinite article ("a paper") is not a quantity; only "a million".
 
-            continue
+            continue
 
-        if scale_word:
+        if scale_word:
 
             base *= _ENG_SCALE_WORDS[scale_word.strip().lower()]
         unit = (match.group("unit") or "").strip().lower()
