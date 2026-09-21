@@ -206,13 +206,10 @@ class ControlledHistoryDispatchTests(unittest.TestCase):
         self.assertIn("repair_content_only: false", workflow)
 
 
-    def test_control_issue_can_trigger_cambridge_evidence_tranche(self) -> None:
+    def test_cer_is_not_routed_through_cambridge_dispatch(self) -> None:
         workflow = TRIGGER_WORKFLOW.read_text(encoding="utf-8")
-        self.assertIn("github.event.comment.body == '/history-cambridge-evidence'", workflow)
-        self.assertIn("categories: __cambridge_evidence_only__", workflow)
-        self.assertIn('evidence_issue_ids: "cer-80-c,cer-94-c"', workflow)
-        self.assertIn("capture_cambridge_evidence: true", workflow)
-        self.assertIn("capture_wiley_evidence: false", workflow)
+        self.assertNotIn("github.event.comment.body == '/history-cambridge-evidence'", workflow)
+        self.assertNotIn('evidence_issue_ids: "cer-80-c,cer-94-c"', workflow)
 
     def test_control_issue_can_trigger_authenticated_wiley_evidence_tranche(self) -> None:
         workflow = TRIGGER_WORKFLOW.read_text(encoding="utf-8")
