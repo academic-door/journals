@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "elsevier-r3-remaining",
+  "publisher_family": "elsevier-sciencedirect",
+  "journal_ids": [
+    "ecolecon",
+    "foodpolicy",
+    "jeem",
+    "joe",
+    "jue",
+    "wd"
+  ],
+  "transport": "browser-authorized",
+  "policy_decision": "0018",
+  "finalized": true,
+  "captured_at": "2026-09-20T17:30:00Z",
+  "purpose": "r3-publisher-family-remaining-recovery",
+  "issue_ids": [
+    "ecolecon-224-c",
+    "foodpolicy-118-c",
+    "foodpolicy-134-c",
+    "foodpolicy-137-c",
+    "jeem-118-c",
+    "joe-234-c",
+    "joe-235-2",
+    "joe-237-1",
+    "jue-133-c",
+    "jue-144-c",
+    "wd-192-c"
+  ],
+  "snapshot_paths": [
+    "data/provenance/browser-snapshots/sciencedirect/ecolecon-224-c.json",
+    "data/provenance/browser-snapshots/sciencedirect/foodpolicy-118-c.json",
+    "data/provenance/browser-snapshots/sciencedirect/foodpolicy-134-c.json",
+    "data/provenance/browser-snapshots/sciencedirect/foodpolicy-137-c.json",
+    "data/provenance/browser-snapshots/sciencedirect/jeem-118-c.json",
+    "data/provenance/browser-snapshots/sciencedirect/joe-234-c.json",
+    "data/provenance/browser-snapshots/sciencedirect/joe-235-2.json",
+    "data/provenance/browser-snapshots/sciencedirect/joe-237-1.json",
+    "data/provenance/browser-snapshots/sciencedirect/jue-133-c.json",
+    "data/provenance/browser-snapshots/sciencedirect/jue-144-c.json",
+    "data/provenance/browser-snapshots/sciencedirect/wd-192-c.json"
+  ],
+  "notes": [
+    "Remaining unresolved Elsevier issues after accepted Batch A; already-ready ECOLECON 225 and LUP 153 are intentionally excluded.",
+    "Reuses the durable publisher-family browser snapshots already captured under Decision 0018; no new browser session or paid crawler is required.",
+    "Runs under the current issue-identity, composite-source, per-issue isolation, and exact staging-translation-reuse contracts.",
+    "Any issue still lacking authoritative English abstract or other source fields remains deferred fail-closed while successful siblings may publish."
+  ]
+}
