@@ -568,6 +568,14 @@ class TranslationPipelineTests(unittest.TestCase):
         self.assertEqual(source_q, translated_q)
         self.assertNotIn("1989000000000000", source_q)
 
+    def test_written_point_scale_is_not_percentage_point(self) -> None:
+        source_q, translated_q = resolve_semantic_quantities(
+            "an online dictator game with a four-point scale",
+            "使用四点量表的在线独裁者博弈",
+        )
+        self.assertNotIn("4%", source_q)
+        self.assertEqual(source_q, translated_q)
+
     def test_prompt_locks_english_scale_semantics(self) -> None:
         prompt_text = " ".join(message["content"] for message in _prompt(ARTICLE))
         self.assertIn("million=百万", prompt_text)
