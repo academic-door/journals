@@ -665,7 +665,7 @@ _EN_FOLD_RE = re.compile(
 _EN_WRITTEN_PERCENTAGE_POINTS_RE = re.compile(
     r"(?i)(?<![A-Za-z])"
     r"(?P<amount>" + _EN_CARD_PATTERN + r")"
-    r"[-\s]*(?:percentage[-\s]*points?|points?|pp|p\.p\.|pct)\.?\b"
+    r"[-\s]*(?:percentage[-\s]*points?|pp|p\.p\.|pct)\.?\b"
 )
 
 _EN_DECADE_AND_HALF_RE = re.compile(
