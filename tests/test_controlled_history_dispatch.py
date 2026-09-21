@@ -157,6 +157,17 @@ class ControlledHistoryDispatchTests(unittest.TestCase):
         self.assertIn("repair_dates_only: false", workflow)
 
 
+    def test_control_issue_can_trigger_translation_only_wave(self) -> None:
+        workflow = TRIGGER_WORKFLOW.read_text(encoding="utf-8")
+        self.assertIn("github.event.comment.body == '/history-translation-only'", workflow)
+        self.assertIn("categories: translation_required", workflow)
+        self.assertIn('max_issues: "10"', workflow)
+        self.assertIn('max_translations: "120"', workflow)
+        self.assertIn('state_source_run_id: "32734420419"', workflow)
+        self.assertIn("repair_dates_only: false", workflow)
+        self.assertIn("repair_content_only: false", workflow)
+
+
     def test_control_issue_can_trigger_recoverable_wave_b(self) -> None:
         workflow = TRIGGER_WORKFLOW.read_text(encoding="utf-8")
         self.assertIn("github.event.comment.body == '/history-wave-b'", workflow)
