@@ -74,12 +74,21 @@ class BrowserAuthorizedSnapshotTests(unittest.TestCase):
         snapshot["items"][1]["abstract_source_url"] = (
             "https://ideas.repec.org/a/eee/deveco/example.html"
         )
+        snapshot["items"][1]["doi_source"] = "repec-publisher-supplied"
+        snapshot["items"][1]["doi_source_url"] = (
+            "https://ideas.repec.org/a/eee/deveco/example.html"
+        )
         candidate = build_candidate(snapshot)
         article = candidate["articles"][0]
         self.assertEqual("repec-publisher-supplied", article["sources"]["abstract_en"])
         self.assertEqual(
             "https://ideas.repec.org/a/eee/deveco/example.html",
             article["sources"]["abstract_en_url"],
+        )
+        self.assertEqual("repec-publisher-supplied", article["sources"]["doi"])
+        self.assertEqual(
+            "https://ideas.repec.org/a/eee/deveco/example.html",
+            article["sources"]["doi_url"],
         )
 
     def test_rejects_private_session_fields(self) -> None:
