@@ -13,6 +13,7 @@ from scripts.build_sciencedirect_browser_archives import (
     fetch_issue_metadata,
     issue_from_roster,
     process_batch,
+    seed_translation_cache_from_exact_staging,
 )
 
 
@@ -84,6 +85,106 @@ class ScienceDirectBrowserArchiveMetadataRetryTests(unittest.TestCase):
         }
         with self.assertRaisesRegex(ValueError, "issue identity mismatch"):
             issue_from_roster(roster)
+
+
+    def test_exact_staging_translation_seeds_cache_without_model_call(self) -> None:
+        candidate = {
+            "journal_id": "ecolecon",
+            "issue_id": "ecolecon-224-c",
+            "articles": [
+                {
+                    "doi": "10.1016/j.ecolecon.2024.108180",
+                    "title_en": "Exact English title",
+                    "abstract_en": "The sample contains 20 observations.",
+                }
+            ],
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            staging_root = root / "staging"
+            cache_path = root / "cache" / "ecolecon.json"
+            issue_path = staging_root / "ecolecon" / "ecolecon-224-c.json"
+            issue_path.parent.mkdir(parents=True)
+            source_hash = __import__("scripts.translate_issue", fromlist=["_source_hash"])._source_hash(
+                candidate["articles"][0]
+            )
+            issue_path.write_text(
+                json.dumps(
+                    {
+                        "articles": [
+                            {
+                                "doi": "10.1016/j.ecolecon.2024.108180",
+                                "title_en": "Exact English title",
+                                "abstract_en": "The sample contains 20 observations.",
+                                "title_cn": "完全一致的中文标题",
+                                "abstract_cn": "本文研究一个包含20个观测值的样本，并系统说明识别策略、估计方法与主要经验结果，同时讨论这些结果对于相关经济机制和政策分析的含义。",
+                                "translation": {
+                                    "status": "complete",
+                                    "provider": "deepseek",
+                                    "model": "deepseek-chat",
+                                    "prompt_version": "academic-door-abstract-zh-v2",
+                                    "source_hash": source_hash,
+                                },
+                            }
+                        ]
+                    }
+                ),
+                encoding="utf-8",
+            )
+            reused = seed_translation_cache_from_exact_staging(
+                candidate,
+                cache_path,
+                staging_root=staging_root,
+            )
+            cache = json.loads(cache_path.read_text(encoding="utf-8"))
+
+        self.assertEqual(1, reused)
+        self.assertEqual("完全一致的中文标题", cache["10.1016/j.ecolecon.2024.108180"]["title_cn"])
+        self.assertEqual(source_hash, cache["10.1016/j.ecolecon.2024.108180"]["source_hash"])
+
+    def test_staging_translation_reuse_rejects_changed_english_source(self) -> None:
+        candidate = {
+            "journal_id": "ecolecon",
+            "issue_id": "ecolecon-224-c",
+            "articles": [
+                {
+                    "doi": "10.1016/j.ecolecon.2024.108180",
+                    "title_en": "Current title",
+                    "abstract_en": "Current abstract.",
+                }
+            ],
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            staging_root = root / "staging"
+            cache_path = root / "cache" / "ecolecon.json"
+            issue_path = staging_root / "ecolecon" / "ecolecon-224-c.json"
+            issue_path.parent.mkdir(parents=True)
+            issue_path.write_text(
+                json.dumps(
+                    {
+                        "articles": [
+                            {
+                                "doi": "10.1016/j.ecolecon.2024.108180",
+                                "title_en": "Old title",
+                                "abstract_en": "Old abstract.",
+                                "title_cn": "旧标题",
+                                "abstract_cn": "旧摘要。",
+                                "translation": {"status": "complete"},
+                            }
+                        ]
+                    }
+                ),
+                encoding="utf-8",
+            )
+            reused = seed_translation_cache_from_exact_staging(
+                candidate,
+                cache_path,
+                staging_root=staging_root,
+            )
+
+        self.assertEqual(0, reused)
+        self.assertFalse(cache_path.exists())
 
 
     def test_retries_transient_read_timeout_then_succeeds(self) -> None:
