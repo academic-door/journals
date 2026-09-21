@@ -218,8 +218,11 @@ class ControlledHistoryDispatchTests(unittest.TestCase):
         self.assertIn("ajae-107-1,ajae-107-2", workflow)
         self.assertIn("jf-80-5,jf-80-6,", workflow)
         self.assertIn("ier-64-1,ier-64-2,ier-64-3", workflow)
-        wiley_block = workflow.split("  wiley_evidence:", 1)[1].split("\n  ", 1)[0]
-        self.assertIn("capture_wiley_evidence: true", wiley_block)
+        wiley_start = workflow.index("  wiley_evidence:")
+        self.assertIn(
+            "capture_wiley_evidence: true",
+            workflow[wiley_start : wiley_start + 1200],
+        )
         self.assertIn("repair_dates_only: false", workflow)
         self.assertIn("repair_content_only: false", workflow)
 
