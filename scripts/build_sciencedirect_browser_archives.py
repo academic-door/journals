@@ -50,6 +50,8 @@ PUBLISHABLE_RE = re.compile(
     re.IGNORECASE,
 )
 VOLUME_RE = re.compile(r"/vol/([^/]+)", re.IGNORECASE)
+ISSUE_RE = re.compile(r"/issue/([^/?#]+)", re.IGNORECASE)
+SUPPL_RE = re.compile(r"/suppl/([^/?#]+)", re.IGNORECASE)
 
 
 def comparable_title(value: object) -> str:
@@ -151,6 +153,42 @@ def volume_from_roster(roster: dict[str, Any]) -> str:
     if len(parts) >= 3 and parts[-2]:
         return parts[-2]
     raise ValueError(f"cannot determine volume for {issue_id}")
+
+
+def issue_from_roster(roster: dict[str, Any]) -> str:
+    """Resolve the issue token from explicit data, official URL, and issue_id.
+
+    All available identity surfaces must agree. This prevents an issue-specific
+    URL such as /vol/235/issue/2 from silently defaulting to supplement C.
+    """
+
+    candidates: list[tuple[str, str]] = []
+    explicit = str(roster.get("issue", "")).strip()
+    if explicit:
+        candidates.append(("explicit", explicit))
+
+    official_url = str(roster.get("official_url", ""))
+    match = ISSUE_RE.search(official_url) or SUPPL_RE.search(official_url)
+    if match:
+        candidates.append(("official_url", match.group(1)))
+
+    journal_id = str(roster.get("journal_id", "")).strip()
+    issue_id = str(roster.get("issue_id", "")).strip()
+    volume = volume_from_roster(roster)
+    prefix = f"{journal_id}-{volume}-"
+    if journal_id and issue_id.startswith(prefix):
+        suffix = issue_id[len(prefix):].strip()
+        if suffix:
+            candidates.append(("issue_id", suffix))
+
+    if not candidates:
+        raise ValueError(f"cannot determine issue token for {issue_id}")
+
+    normalized = {value.casefold() for _, value in candidates}
+    if len(normalized) != 1:
+        rendered = ", ".join(f"{source}={value}" for source, value in candidates)
+        raise ValueError(f"ScienceDirect issue identity mismatch: {rendered}")
+    return candidates[0][1]
 
 
 def fetch_issue_metadata(
@@ -433,7 +471,7 @@ def build_rich_snapshot(
         "journal_id": str(roster["journal_id"]),
         "journal_name": str(journal["name"]),
         "volume": volume_from_roster(roster),
-        "issue": str(roster.get("issue", "c")),
+        "issue": issue_from_roster(roster),
         "publication_date": str(roster["publication_date"]),
         "source_url": str(roster["official_url"]),
         "captured_at": str(roster.get("captured_at") or now_iso()),
