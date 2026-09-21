@@ -43,6 +43,11 @@ on:
         required: false
         default: false
         type: boolean
+      capture_cambridge_evidence:
+        description: Refresh official Cambridge rosters for source-pending archives before promotion
+        required: false
+        default: false
+        type: boolean
       repair_dates_only:
         description: Repair audited historical issue dates without running recovery shards
         required: false
@@ -89,6 +94,10 @@ on:
         default: ""
         type: string
       capture_wiley_evidence:
+        required: false
+        default: false
+        type: boolean
+      capture_cambridge_evidence:
         required: false
         default: false
         type: boolean
@@ -526,6 +535,30 @@ jobs:
             --api-root public/api/v1 \
             --output-root data/provenance/official-rosters/wiley \
             --diagnostics-root "$RUNNER_TEMP/wiley-evidence-failures"
+
+      - name: Capture official Cambridge roster evidence
+        if: inputs.capture_cambridge_evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          state_args=()
+          for state in data/backfill-state/*.json; do
+            [ -f "$state" ] && state_args+=(--state "$state")
+          done
+          python scripts/backfill_status.py \
+            "${state_args[@]}" \
+            --api-root public/api/v1 \
+            --out-json public/api/v1/backfill-status.json \
+            --out-md public/backfill-status.md
+          python scripts/build_gap_manifest.py \
+            "${state_args[@]}" \
+            --api-root public/api/v1 \
+            --out-json public/api/v1/gap-manifest.json \
+            --out-md public/gap-manifest.md
+          python scripts/capture_cambridge_roster_evidence.py \
+            --gap-manifest public/api/v1/gap-manifest.json \
+            --output-root data/provenance/official-rosters/cambridge \
+            --diagnostics-root "$RUNNER_TEMP/cambridge-evidence-failures"
 
       - name: Build archives from generic official roster evidence
         env:
