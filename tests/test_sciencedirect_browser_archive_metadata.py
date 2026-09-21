@@ -162,6 +162,101 @@ class ScienceDirectBrowserArchiveMetadataRetryTests(unittest.TestCase):
             _apply_repec_publisher_abstract_fallbacks(roster, mismatch, staging_root=root)
         self.assertEqual("", mismatch["S0921800924002209"]["abstract_en"])
 
+    def test_repec_fallback_can_restore_missing_api_doi_with_exact_title_identity(self) -> None:
+        roster = {
+            "journal_id": "ecolecon",
+            "issue_id": "ecolecon-225-c",
+            "items": [
+                {
+                    "title": "Navigating sustainable futures: The role of terminal and instrumental values",
+                    "href": "https://www.sciencedirect.com/science/article/pii/S0921800924002222",
+                }
+            ],
+        }
+        by_pii = {
+            "S0921800924002222": {
+                "doi": "",
+                "title_en": "Navigating sustainable futures: The role of terminal and instrumental values",
+                "abstract_en": "",
+            }
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            path = root / "ecolecon" / "ecolecon-225-c.json"
+            path.parent.mkdir(parents=True)
+            path.write_text(
+                json.dumps(
+                    {
+                        "articles": [
+                            {
+                                "doi": "10.1016/j.ecolecon.2024.108325",
+                                "title_en": "Navigating sustainable futures: The role of terminal and instrumental values",
+                                "source_url": "https://www.sciencedirect.com/science/article/pii/S0921800924002222",
+                                "abstract_en": "Publisher supplied abstract.",
+                                "sources": {
+                                    "abstract_en": "repec-publisher-supplied",
+                                    "repec": "https://ideas.repec.org/a/eee/ecolec/example.html",
+                                },
+                            }
+                        ]
+                    }
+                ),
+                encoding="utf-8",
+            )
+            _apply_repec_publisher_abstract_fallbacks(roster, by_pii, staging_root=root)
+
+        item = by_pii["S0921800924002222"]
+        self.assertEqual("10.1016/j.ecolecon.2024.108325", item["doi"])
+        self.assertEqual("Publisher supplied abstract.", item["abstract_en"])
+        self.assertEqual("repec-publisher-supplied", item["doi_source"])
+        self.assertEqual("repec-publisher-supplied", item["abstract_source"])
+
+    def test_missing_api_doi_fallback_rejects_title_mismatch(self) -> None:
+        roster = {
+            "journal_id": "ecolecon",
+            "issue_id": "ecolecon-225-c",
+            "items": [
+                {
+                    "title": "Official title",
+                    "href": "https://www.sciencedirect.com/science/article/pii/S0921800924002222",
+                }
+            ],
+        }
+        by_pii = {
+            "S0921800924002222": {
+                "doi": "",
+                "title_en": "Different API title",
+                "abstract_en": "",
+            }
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            path = root / "ecolecon" / "ecolecon-225-c.json"
+            path.parent.mkdir(parents=True)
+            path.write_text(
+                json.dumps(
+                    {
+                        "articles": [
+                            {
+                                "doi": "10.1016/j.ecolecon.2024.108325",
+                                "title_en": "Official title",
+                                "source_url": "https://www.sciencedirect.com/science/article/pii/S0921800924002222",
+                                "abstract_en": "Must stay unused.",
+                                "sources": {
+                                    "abstract_en": "repec-publisher-supplied",
+                                    "repec": "https://ideas.repec.org/a/eee/ecolec/example.html",
+                                },
+                            }
+                        ]
+                    }
+                ),
+                encoding="utf-8",
+            )
+            _apply_repec_publisher_abstract_fallbacks(roster, by_pii, staging_root=root)
+        self.assertEqual("", by_pii["S0921800924002222"]["doi"])
+        self.assertEqual("", by_pii["S0921800924002222"]["abstract_en"])
+
+
     def test_process_batch_defers_one_issue_and_continues(self) -> None:
         blocked = Path("blocked.json")
         accepted = Path("accepted.json")
