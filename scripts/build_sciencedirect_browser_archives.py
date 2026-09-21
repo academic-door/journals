@@ -473,6 +473,60 @@ def process(path: Path, *, state_root: Path, cache_root: Path, translate: bool) 
     }
 
 
+def process_batch(
+    paths: list[Path],
+    *,
+    state_root: Path,
+    cache_root: Path,
+    translate: bool,
+) -> tuple[list[dict[str, Any]], list[dict[str, str]]]:
+    """Process browser snapshots independently so one blocked issue cannot poison a family batch.
+
+    Each issue keeps the same fail-closed source/publication gates. Expected
+    data-level ValueErrors are recorded as per-issue deferrals; unexpected
+    exceptions still fail the run. If every issue defers, main returns nonzero.
+    """
+
+    results: list[dict[str, Any]] = []
+    deferred: list[dict[str, str]] = []
+    for path in paths:
+        try:
+            results.append(
+                process(
+                    path,
+                    state_root=state_root,
+                    cache_root=cache_root,
+                    translate=translate,
+                )
+            )
+        except ValueError as exc:
+            try:
+                issue_id = str(read_json(path).get("issue_id", path.stem))
+            except (OSError, ValueError, json.JSONDecodeError):
+                issue_id = path.stem
+            deferred.append(
+                {
+                    "issue_id": issue_id,
+                    "snapshot": str(path),
+                    "error": str(exc),
+                }
+            )
+            print(
+                json.dumps(
+                    {
+                        "browser_archive_deferred": {
+                            "issue_id": issue_id,
+                            "snapshot": str(path),
+                            "error": str(exc),
+                        }
+                    },
+                    ensure_ascii=False,
+                ),
+                file=sys.stderr,
+            )
+    return results, deferred
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("snapshots", nargs="+", type=Path)
@@ -480,17 +534,19 @@ def main() -> int:
     parser.add_argument("--translation-cache-root", type=Path, default=TRANSLATION_CACHE)
     parser.add_argument("--translate", action="store_true")
     args = parser.parse_args()
-    results = [
-        process(
-            path,
-            state_root=args.state_root,
-            cache_root=args.translation_cache_root,
-            translate=args.translate,
+    results, deferred = process_batch(
+        list(args.snapshots),
+        state_root=args.state_root,
+        cache_root=args.translation_cache_root,
+        translate=args.translate,
+    )
+    print(
+        json.dumps(
+            {"results": results, "deferred": deferred},
+            ensure_ascii=False,
         )
-        for path in args.snapshots
-    ]
-    print(json.dumps({"results": results}, ensure_ascii=False))
-    return 0
+    )
+    return 0 if results else 2
 
 
 if __name__ == "__main__":
