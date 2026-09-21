@@ -197,6 +197,46 @@ class ScienceDirectBrowserRosterEvidenceTests(unittest.TestCase):
             evidence = capture.build_evidence(snapshot, issue, excluded_dois={})
         self.assertEqual(issue["articles"][0]["doi"], evidence["items"][0]["doi"])
 
+    def test_convert_batch_defers_one_issue_and_writes_sibling(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            api_root = root / "api"
+            staging_root = root / "staging"
+            output_root = root / "evidence"
+            snapshots = []
+            for issue_id in ("wd-207-c", "wd-208-c"):
+                snapshot_path = root / f"{issue_id}.json"
+                payload = self._snapshot()
+                payload["issue_id"] = issue_id
+                snapshot_path.write_text(json.dumps(payload), encoding="utf-8")
+                snapshots.append(snapshot_path)
+                issue_path = staging_root / "wd" / f"{issue_id}.json"
+                issue_path.parent.mkdir(parents=True, exist_ok=True)
+                issue_payload = self._staging_issue()
+                issue_payload["issue_id"] = issue_id
+                issue_path.write_text(json.dumps(issue_payload), encoding="utf-8")
+
+            with patch.object(
+                capture,
+                "build_evidence",
+                side_effect=[
+                    ValueError("missing official research item lacks DOI/authors"),
+                    {"issue_id": "wd-208-c", "items": []},
+                ],
+            ):
+                written, deferred = capture.convert_batch(
+                    snapshots,
+                    api_root=api_root,
+                    staging_root=staging_root,
+                    output_root=output_root,
+                    excluded_dois={},
+                )
+
+            self.assertEqual(["wd-208-c"], written)
+            self.assertEqual("wd-207-c", deferred[0]["issue_id"])
+            self.assertTrue((output_root / "wd-208-c.json").exists())
+            self.assertFalse((output_root / "wd-207-c.json").exists())
+
 
 if __name__ == "__main__":
     unittest.main()
