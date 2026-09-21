@@ -181,7 +181,8 @@ def _month_numbers(value: str) -> list[str]:
                 or re.match(r"\s*(?:19|20)\d{2}年?", suffix)
             )
             has_temporal_prep = bool(
-                re.search(r"(?:^|[，。；、\s])(?:在|从|自|至|到|截至|直到|期间)\s*$", prefix)
+                prefix.endswith(("至", "到"))
+                or re.search(r"(?:^|[，。；、\s])(?:在|从|自|至|到|截至|直到|期间)\s*$", prefix)
             )
             has_day_context = bool(re.match(r"\s*\d{1,2}[日号]", suffix))
             if has_year_context or has_temporal_prep or has_day_context:
@@ -668,7 +669,7 @@ _EN_WRITTEN_PERCENTAGE_POINTS_RE = re.compile(
 )
 
 _EN_DECADE_AND_HALF_RE = re.compile(
-    r"(?i)(?<![A-Za-z])(?:a|one)\s+decade\s+and\s+a\s+half\b"
+    r"(?i)(?<![A-Za-z])(?:(?:a|one)\s+)?decade\s+and\s+a\s+half\b"
 )
 
 _EN_PERCENTAGE_POINTS_RE = re.compile(
