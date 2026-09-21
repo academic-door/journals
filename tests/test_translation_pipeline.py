@@ -526,13 +526,17 @@ class TranslationPipelineTests(unittest.TestCase):
 
     def test_writes_translation_cache_with_provenance(self) -> None:
         issue = {"journal_id": "test", "articles": [ARTICLE]}
-        with patch.dict("os.environ", {"DEEPSEEK_API_KEY": ""}, clear=False):
+        with patch.dict(
+            "os.environ",
+            {"DEEPSEEK_API_KEY": "test-deepseek-key", "DEEPSEEK_MODEL": ""},
+            clear=False,
+        ):
             with tempfile.TemporaryDirectory() as directory:
                 cache_path = Path(directory) / "test.json"
                 result = translate_missing(
                     issue,
                     cache_path,
-                    token="test-token",
+                    token="unused",
                     model="test/model",
                     session=FakeSession(),
                 )
@@ -541,7 +545,7 @@ class TranslationPipelineTests(unittest.TestCase):
         self.assertEqual(cache[ARTICLE["doi"]]["title_cn"], "政策检验")
         self.assertEqual(
             cache[ARTICLE["doi"]]["translation"]["provider"],
-            "github-models",
+            "deepseek",
         )
         self.assertRegex(cache[ARTICLE["doi"]]["source_hash"], r"^[0-9a-f]{64}$")
 
@@ -700,7 +704,11 @@ class TranslationPipelineTests(unittest.TestCase):
                 "abstract_cn": "本文省略数字但保留了其余研究背景与经验结论。" * 5,
             }
         }
-        with tempfile.TemporaryDirectory() as directory:
+        with tempfile.TemporaryDirectory() as directory, patch.dict(
+            "os.environ",
+            {"DEEPSEEK_API_KEY": "test-deepseek-key", "DEEPSEEK_MODEL": ""},
+            clear=False,
+        ):
             cache_path = Path(directory) / "test.json"
             cache_path.write_text(
                 json.dumps(invalid_cache, ensure_ascii=False),
@@ -709,7 +717,7 @@ class TranslationPipelineTests(unittest.TestCase):
             result = translate_missing(
                 issue,
                 cache_path,
-                token="test-token",
+                token="unused",
                 model="test/model",
                 session=FakeSession(),
             )
