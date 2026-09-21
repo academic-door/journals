@@ -2635,4 +2635,3 @@ def translate_missing(
         "prompt_version": PROMPT_VERSION,
     }
 
-
