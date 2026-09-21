@@ -1,11 +1,11 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-21T05:21:35+00:00
+Generated: 2026-09-21T06:01:39+00:00
 
 ## Summary
 
-- ready: 1164
-- recoverable: 17
+- ready: 1166
+- recoverable: 15
 - source_pending: 17
 - translation_required: 7
 
@@ -161,7 +161,7 @@ Generated: 2026-09-21T05:21:35+00:00
 | CER | cer-91-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-92-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-93-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
-| CER | cer-94-c | 2025 | source_pending | complete | source_pending | official source verification pending |
+| CER | cer-94-c | 2025 | source_pending | complete | source_pending | source authority pending official verification |
 | CER | cer-95-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-96-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-97-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
@@ -189,7 +189,7 @@ Generated: 2026-09-21T05:21:35+00:00
 | ECOLECON | ecolecon-222-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | ECOLECON | ecolecon-223-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | ECOLECON | ecolecon-224-c | 2024 | recoverable | blocked | source_pending | archive_missing |
-| ECOLECON | ecolecon-225-c | 2024 | recoverable | blocked | source_pending | archive_missing |
+| ECOLECON | ecolecon-225-c | 2024 | ready | complete | official_verified | content and official source gates passed |
 | ECOLECON | ecolecon-226-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
 | ECOLECON | ecolecon-227-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | ECOLECON | ecolecon-228-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
@@ -1021,7 +1021,7 @@ Generated: 2026-09-21T05:21:35+00:00
 | LUP | lup-150-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | LUP | lup-151-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | LUP | lup-152-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
-| LUP | lup-153-c | 2025 | recoverable | blocked | source_pending | archive_missing |
+| LUP | lup-153-c | 2025 | ready | complete | official_verified | content and official source gates passed |
 | LUP | lup-154-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | LUP | lup-155-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | LUP | lup-156-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
@@ -1105,11 +1105,11 @@ Generated: 2026-09-21T05:21:35+00:00
 | RESTAT | restat-106-5 | 2024 | source_pending | complete | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs official page or browser-authorized capture |
 | RESTAT | restat-106-6 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
 | RESTAT | restat-107-1 | 2025 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-107-2 | 2025 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-107-3 | 2025 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-107-4 | 2025 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-107-5 | 2025 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-107-6 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| RESTAT | restat-107-2 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-107-3 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-107-4 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-107-5 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-107-6 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
 | RESTAT | restat-108-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RESTAT | restat-108-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RESTAT | restat-108-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
