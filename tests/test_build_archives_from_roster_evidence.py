@@ -9,6 +9,7 @@ from unittest.mock import patch
 from scripts.build_archives_from_roster_evidence import (
     _metadata_for_dois,
     _split_volume_issue,
+    _usable_metadata_abstract,
     build_candidate_from_evidence,
     process_evidence,
 )
@@ -259,6 +260,63 @@ class BuildArchivesFromRosterEvidenceTests(unittest.TestCase):
             metadata["10.1111/demo.10002"]["abstract"],
         )
         crossref_direct.assert_called_once()
+
+    def test_page_chrome_abstract_is_rejected_and_falls_through_to_openalex(self) -> None:
+        import requests
+
+        doi = "10.1086/732677"
+        chrome = (
+            "Previous articleNext article Open Access PDFPDF PLUS Add to favorites "
+            "Download Citation Track Citations PermissionsReprints Share onFacebook "
+            "Views: 12 Total views on this site Crossref reports no articles citing this article."
+        )
+        self.assertEqual("", _usable_metadata_abstract(chrome))
+        self.assertEqual(
+            "A clean empirical abstract.",
+            _usable_metadata_abstract("A clean empirical abstract."),
+        )
+
+        with (
+            patch(
+                "scripts.build_archives_from_roster_evidence._crossref_direct",
+                return_value={
+                    "authors": ["Sadegh Eshaghnia", "James J. Heckman", "Rasmus Landersø"],
+                    "abstract": "",
+                    "title": "The Impact of the Level and Timing of Parental Resources",
+                    "year": "2025",
+                },
+            ),
+            patch(
+                "scripts.build_archives_from_roster_evidence._semantic_scholar_metadata_batch",
+                return_value={
+                    doi: {
+                        "authors": ["Sadegh Eshaghnia", "James J. Heckman", "Rasmus Landersø"],
+                        "abstract": chrome,
+                        "title": "The Impact of the Level and Timing of Parental Resources",
+                    }
+                },
+            ),
+            patch(
+                "scripts.build_archives_from_roster_evidence._openalex_metadata",
+                return_value=(
+                    ["Sadegh Eshaghnia", "James J. Heckman", "Rasmus Landersø"],
+                    "This study explores relationships between parental resource trajectories and child development.",
+                    "",
+                ),
+            ) as openalex,
+        ):
+            metadata = _metadata_for_dois(
+                requests.Session(),
+                [doi],
+                {},
+                timeout=10,
+            )
+
+        self.assertEqual(
+            "This study explores relationships between parental resource trajectories and child development.",
+            metadata[doi]["abstract"],
+        )
+        openalex.assert_called_once()
 
     def test_publication_date_falls_back_to_metadata_month(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
