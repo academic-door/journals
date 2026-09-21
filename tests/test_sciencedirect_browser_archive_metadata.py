@@ -11,6 +11,7 @@ import requests
 from scripts.build_sciencedirect_browser_archives import (
     _apply_repec_publisher_abstract_fallbacks,
     fetch_issue_metadata,
+    process_batch,
 )
 
 
@@ -160,6 +161,54 @@ class ScienceDirectBrowserArchiveMetadataRetryTests(unittest.TestCase):
             )
             _apply_repec_publisher_abstract_fallbacks(roster, mismatch, staging_root=root)
         self.assertEqual("", mismatch["S0921800924002209"]["abstract_en"])
+
+    def test_process_batch_defers_one_issue_and_continues(self) -> None:
+        blocked = Path("blocked.json")
+        accepted = Path("accepted.json")
+        with (
+            patch(
+                "scripts.build_sciencedirect_browser_archives.process",
+                side_effect=[
+                    ValueError("snapshot source-integrity gate failed: missing abstract"),
+                    {"issue_id": "accepted", "publication_state": "ready"},
+                ],
+            ),
+            patch(
+                "scripts.build_sciencedirect_browser_archives.read_json",
+                return_value={"issue_id": "blocked"},
+            ),
+        ):
+            results, deferred = process_batch(
+                [blocked, accepted],
+                state_root=Path("state"),
+                cache_root=Path("cache"),
+                translate=True,
+            )
+
+        self.assertEqual(["accepted"], [item["issue_id"] for item in results])
+        self.assertEqual("blocked", deferred[0]["issue_id"])
+        self.assertIn("missing abstract", deferred[0]["error"])
+
+    def test_process_batch_reports_all_deferred_without_accepting_any(self) -> None:
+        with (
+            patch(
+                "scripts.build_sciencedirect_browser_archives.process",
+                side_effect=ValueError("blocked"),
+            ),
+            patch(
+                "scripts.build_sciencedirect_browser_archives.read_json",
+                return_value={"issue_id": "blocked"},
+            ),
+        ):
+            results, deferred = process_batch(
+                [Path("one.json"), Path("two.json")],
+                state_root=Path("state"),
+                cache_root=Path("cache"),
+                translate=False,
+            )
+        self.assertEqual([], results)
+        self.assertEqual(2, len(deferred))
+
 
 if __name__ == "__main__":
     unittest.main()
