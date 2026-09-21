@@ -8,10 +8,10 @@
   "issue_label": "Vol. 257",
   "publication_date": "September 2026",
   "source_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/257/suppl/C",
-  "retrieved_at": "2026-08-02T22:39:33+00:00",
-  "expected_article_count": 14,
-  "research_article_count": 14,
-  "status": "ready",
+  "retrieved_at": "2026-08-11T22:21:15+00:00",
+  "expected_article_count": 18,
+  "research_article_count": 18,
+  "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
@@ -27,7 +27,7 @@
       ],
       "abstract_en": "We introduce general estimation and inference methods for threshold spatial panel regression with two-way fixed effects in a diminishing-threshold-effects framework. A valid objective function is obtained through a simple adjustment on the concentrated quasi loglikelihood with fixed effects being concentrated out, which leads to a consistent estimation of all common parameters. We show that the estimation of threshold parameter has a negligible effect on the asymptotic distribution of the main parameter estimators and thereby regular inference methods apply, though a bias correction may be necessary. The limiting distribution of the threshold parameter estimator is shown to be non-regular and infeasible, and for inference, a likelihood ratio test procedure is proposed. The test for the non-existence of threshold effects faces an identification issue at the null. To overcome this difficulty, we propose a sup-Wald test and a bootstrap method for its critical values. Monte Carlo results show that the proposed methods perform well in finite samples. An empirical application is presented on age-of-leader effects on political competitions across Chinese cities.",
       "abstract_cn": "本文在阈值效应随样本量增加而减弱（diminishing-threshold-effects）的框架下，针对具有双向固定效应的阈值空间面板回归模型，提出了一套通用的估计与推断方法。通过对剔除固定效应后的集中拟对数似然函数进行简单调整，我们构建了一个有效的目标函数，从而实现了对所有公共参数的一致估计。研究表明，阈值参数的估计对主要参数估计量的渐近分布影响微乎其微，因此标准的推断方法依然适用，尽管可能需要进行偏差校正。阈值参数估计量的极限分布被证明是非正则的且不可直接用于推断，为此我们提出了一种基于似然比检验的推断程序。关于是否存在阈值效应的检验在原假设下存在识别问题；为克服这一困难，我们提出了一种上确界Wald检验（sup-Wald test），并给出了确定其临界值的自助法（bootstrap method）。蒙特卡洛模拟结果显示，所提方法在有限样本下表现良好。最后，本文展示了一个关于领导人年龄对中国城市间政治竞争影响的实证应用。",
-      "abstract_snippet_en": "",
+      "abstract_snippet_en": "We introduce general estimation and inference methods for threshold spatial panel regression with two-way fixed effects in a diminishing-threshold-effects framework. A valid objective function is obtained...",
       "doi": "10.1016/j.jeconom.2026.106271",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626000928?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -35,42 +35,31 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/257/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "official-sciencedirect-issue-preview",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "insufficient_entitlement_missing_insttoken",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 647,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 647,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (647/20000 remaining)"
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2026.106271",
         "semantic_scholar": "https://www.semanticscholar.org/paper/94fe61bbbff78b18e2689159141c62e589be1f10"
       },
@@ -91,11 +80,6 @@
           "Chinese cities"
         ],
         "source": "academic-door-rules-v1"
-      },
-      "abstract_lookup": {
-        "status": "browser_authorized_official_complete",
-        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626000928",
-        "captured_at": "2026-08-02T08:20:23.307Z"
       }
     },
     {
@@ -112,7 +96,7 @@
       ],
       "abstract_en": "This paper considers the estimation of a censored partial linear quantile regression model with endogeneity. Our method extends those for partial linear quantile regression (Lee, 2003, Qu et al. 2024), nonparametric quantile regression (Qu and Yoon, 2015, Belloni et al., 2019), and censored linear quantile regression with endogeneity (Chen, 2018). Our estimation method involves a tractable sequential-multiple-step procedure. We establish the uniform consistency, the uniform representation and the asymptotic normality for the proposed estimators. We further extend our analysis to allow for sample selection. A set of Monte Carlo experiments show that our estimators have a good finite sample performance and an empirical application is given to show the usefulness of our estimators.",
       "abstract_cn": "本文探讨了具有内生性的截断（或称“受限”）部分线性分位数回归模型的估计问题。我们的方法扩展了针对部分线性分位数回归（Lee, 2003; Qu 等, 2024）、非参数分位数回归（Qu 和 Yoon, 2015; Belloni 等, 2019）以及具有内生性的截断线性分位数回归（Chen, 2018）的现有方法。我们采用了一种易于操作的序贯多步估计程序，并证明了所提估计量具有一致性（一致收敛性）、一致表示性质及渐近正态性。此外，我们将分析范围进行了扩展，以涵盖样本选择问题。蒙特卡洛模拟实验结果表明，该估计量在有限样本下表现良好；本文还提供了一个实证应用案例，以展示该估计量的实用价值。",
-      "abstract_snippet_en": "",
+      "abstract_snippet_en": "This paper considers the estimation of a censored partial linear quantile regression model with endogeneity. Our method extends those for partial linear quantile regression (Lee, 2003, Qu et al. 2024),...",
       "doi": "10.1016/j.jeconom.2026.106273",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626000941?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -120,42 +104,31 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/257/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "official-sciencedirect-issue-preview",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "insufficient_entitlement_missing_insttoken",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 646,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 646,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (646/20000 remaining)"
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2026.106273",
         "semantic_scholar": "https://www.semanticscholar.org/paper/dabcab25a82f4017e0c6ae4f46eba460600b75f8"
       },
@@ -174,11 +147,6 @@
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
-      },
-      "abstract_lookup": {
-        "status": "browser_authorized_official_complete",
-        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626000941",
-        "captured_at": "2026-08-02T08:20:23.307Z"
       }
     },
     {
@@ -194,7 +162,7 @@
       ],
       "abstract_en": "The modal factor model represents a novel statistical framework for dimension reduction in high dimensional panel data analysis. It is specifically designed to capture modal factors which exert a significant influence on the conditional mode of the distribution of the observables. Statistical inference for this model is developed based on a newly proposed modal component analysis, where modal factors and their corresponding loadings are estimated through maximizing a kernel-type objective function. Two computationally efficient and easy-to-implement algorithms—minorization-maximization and alternating maximization—are devised for the numerical computation of these estimators. Furthermore, two model selection criteria are proposed to determine the optimal number of modal factors. Under mild regularity conditions that accommodate both cross-sectional and time-series dependence, the asymptotic properties of the proposed estimators are established. Additionally, the limiting distributions of parameter estimators and forecasts derived from factor-augmented regressions incorporating estimated modal factors are rigorously derived. Simulation studies demonstrate that the proposed estimators exhibit favorable finite-sample performance, even in the presence of heavy-tailed, skewed, multimodal, and heteroskedastic error distributions. Finally, an application to inflation and industrial production index forecasting validates the practical merits and superior predictive power of modal factors in real-world macroeconomic scenarios.",
       "abstract_cn": "模态因子模型为高维面板数据分析中的降维提供了一种新颖的统计框架。该模型专门用于捕捉那些对可观测变量分布的条件众数（conditional mode）具有显著影响的模态因子。针对该模型的统计推断基于新提出的模态成分分析方法，通过最大化核型目标函数来估计模态因子及其相应的因子载荷。为实现这些估计量的数值计算，文中设计了两种计算高效且易于实现的算法：小化-最大化（MM）算法和交替最大化算法。此外，还提出了两种模型选择准则，用于确定模态因子的最优数量。在涵盖截面相关性和时间序列相关性的温和正则条件下，确立了所提估计量的渐近性质。同时，严格推导了参数估计量以及基于估计模态因子的因子增强回归预测值的极限分布。模拟研究表明，即使在误差分布呈现重尾、偏态、多峰或异方差特征的情况下，所提估计量仍表现出良好的有限样本性能。最后，针对通货膨胀和工业生产指数的预测应用，验证了模态因子在实际宏观经济场景中的实用价值与卓越预测能力。",
-      "abstract_snippet_en": "",
+      "abstract_snippet_en": "The modal factor model represents a novel statistical framework for dimension reduction in high dimensional panel data analysis. It is specifically designed to capture modal factors which exert a significant...",
       "doi": "10.1016/j.jeconom.2026.106274",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626000953?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -202,42 +170,31 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/257/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "official-sciencedirect-issue-preview",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "insufficient_entitlement_missing_insttoken",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 645,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 645,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (645/20000 remaining)"
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2026.106274",
         "semantic_scholar": "https://www.semanticscholar.org/paper/de38bd32415075611ce6a0918e632be9fad07c47"
       },
@@ -256,11 +213,6 @@
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
-      },
-      "abstract_lookup": {
-        "status": "browser_authorized_official_complete",
-        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626000953",
-        "captured_at": "2026-08-02T08:20:23.307Z"
       }
     },
     {
@@ -276,9 +228,9 @@
         "Long Feng",
         "Chih-Ling Tsai"
       ],
-      "abstract_en": "The stochastic block model (SBM) has been widely used to analyze network data. Various goodness-of-fit tests have been proposed to assess the adequacy of model structures. To the best of our knowledge, however, none of the existing approaches are applicable for sparse networks in which the connection probability of any two communities is of order log(n)/n, and the number of communities is divergent. To fill this gap, we propose a novel goodness-of-fit test for the stochastic block model. The key idea is to construct statistics by sampling the maximum entry-deviations of the adjacency matrix that the negative impacts of network sparsity are alleviated by the sampling process. We demonstrate theoretically that the proposed test statistic converges to the Type-I extreme value distribution under the null hypothesis regardless of the network structure. Accordingly, it can be applied to both dense and sparse networks. In addition, we obtain the asymptotic power against alternatives. Moreover, we introduce a bootstrap-corrected test statistic to improve the finite sample performance, recommend an augmented test statistic to increase the power, and extend the proposed test to the degree-corrected SBM. Simulation studies and two empirical examples with both dense and sparse networks indicate that the proposed method performs well.",
-      "abstract_cn": "随机块模型（SBM）已广泛用于分析网络数据。已经提出了各种拟合优度检验来评估模型结构的充分性。然而，据我们所知，现有的方法都不适用于稀疏网络，其中任何二社区的连接概率为log(n)/n，并且社区数量发散。为了填补这一空白，我们提出了一种新颖的随机块模型拟合优度检验。其关键思想是通过对邻接矩阵的最大条目偏差进行采样来构建统计数据，从而通过采样过程减轻网络稀疏性的负面影响。我们从理论上证明，无论网络结构如何，所提出的检验统计量都会在原假设下收敛到 I 型极值分布。因此，它可以应用于密集和稀疏网络。此外，我们还获得了针对替代方案的渐近幂。此外，我们引入了引导校正检验统计量来提高有限样本性能，推荐增强检验统计量来提高功效，并将所提出的检验扩展到度数校正的 SBM。密集网络和稀疏网络的仿真研究和二经验示例表明，所提出的方法表现良好。",
-      "abstract_snippet_en": "",
+      "abstract_en": "The stochastic block model (SBM) has been widely used to analyze network data. Various goodness-of-fit tests have been proposed to assess the adequacy of model structures. To the best of our knowledge, however, none of the existing approaches are applicable for sparse networks in which the connection probability of any two communities is of order n−1logn, and the number of communities is divergent. To fill this gap, we propose a novel goodness-of-fit test for the stochastic block model. The key idea is to construct a maximal statistic from subsampled entry-wise deviations of the adjacency matrix, using the sampling process to alleviate the negative effects of network sparsity. We demonstrate theoretically that the proposed test statistic converges to the Type-I extreme value distribution under the null hypothesis regardless of the network structure. Accordingly, it can be applied to both dense and sparse networks. In addition, we obtain the asymptotic power against alternatives. Moreover, we introduce a bootstrap-corrected test statistic to improve the finite sample performance, recommend an augmented test statistic to increase the power, and extend the proposed test to the degree-corrected SBM. Simulation studies and two empirical examples with both dense and sparse networks indicate that the proposed method performs well.",
+      "abstract_cn": "随机块模型（SBM）已广泛用于分析网络数据。已经提出了各种拟合优度检验来评估模型结构的充分性。然而，据我们所知，现有的方法都不适用于稀疏网络，其中任何两个社区的连接概率为 n−1logn 量级，并且社区数量不同。为了填补这一空白，我们提出了一种新颖的随机块模型拟合优度检验。关键思想是根据邻接矩阵的子采样条目偏差构建最大统计量，使用采样过程来减轻网络稀疏性的负面影响。我们从理论上证明，无论网络结构如何，所提出的检验统计量都会在原假设下收敛到 I 型极值分布。因此，它可以应用于密集网络和稀疏网络。此外，我们还获得了针对替代方案的渐近幂。此外，我们引入了引导校正检验统计量来提高有限样本性能，推荐增强检验统计量来提高功效，并将所提出的检验扩展到度数校正的 SBM。仿真研究和密集网络和稀疏网络的两个实证例子表明，所提出的方法表现良好。",
+      "abstract_snippet_en": "The stochastic block model (SBM) has been widely used to analyze network data. Various goodness-of-fit tests have been proposed to assess the adequacy of model structures. To the best of our knowledge,...",
       "doi": "10.1016/j.jeconom.2026.106276",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626000977?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -286,42 +238,31 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/257/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "semantic-scholar",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "insufficient_entitlement_missing_insttoken",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 644,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 644,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (644/20000 remaining)"
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2026.106276",
         "semantic_scholar": "https://www.semanticscholar.org/paper/aa82d2b1448cb7dabef42460300c1dcbb0b63772"
       },
@@ -331,8 +272,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-01T03:57:57+00:00",
-        "source_hash": "9b909a6a8d79def60235c566d32bcf11a5cabd40e7fdac5a98443adef21f391e"
+        "translated_at": "2026-08-03T11:29:51+00:00",
+        "source_hash": "217c83d7974f68128bba10dcac19df000424c9928be01f1e46a068b00280b570"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -355,7 +296,7 @@
       ],
       "abstract_en": "We propose an approach to estimate how individuals’ expectations influence their responses to a counterfactual change. The approach relies on average partial effects, which recover counterfactual impacts under conditions that we specify. We propose a three-step estimation method that relies on panel data on subjective expectations. We illustrate our approach in a model of consumption and saving, focusing on the impact of an income tax that not only changes current income but also affects beliefs about future income. Applying our approach to Italian survey data, we find that individuals’ beliefs matter for evaluating the impact of tax policies on consumption decisions.",
       "abstract_cn": "我们提出了一种估算方法，用于评估个人预期如何影响其对反事实变动的反应。该方法基于平均偏效应（average partial effects），能够在我们设定的条件下还原反事实影响。我们提出了一种利用主观预期面板数据的三步估算方法，并通过一个消费与储蓄模型展示了该方法的应用；该模型重点考察了所得税的影响，这种税收不仅改变当前收入，还会影响个人对未来收入的预期。通过将该方法应用于意大利的调查数据，我们发现，在评估税收政策对消费决策的影响时，个人的预期起着重要作用。",
-      "abstract_snippet_en": "",
+      "abstract_snippet_en": "We propose an approach to estimate how individuals’ expectations influence their responses to a counterfactual change. The approach relies on average partial effects, which recover counterfactual impacts...",
       "doi": "10.1016/j.jeconom.2026.106275",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626000965?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -363,42 +304,31 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/257/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "official-sciencedirect-issue-preview",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "insufficient_entitlement_missing_insttoken",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 643,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 643,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (643/20000 remaining)"
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2026.106275",
         "semantic_scholar": "https://www.semanticscholar.org/paper/42ca11bfde026057232564f6fe51c97f9f6d146c"
       },
@@ -417,11 +347,6 @@
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
-      },
-      "abstract_lookup": {
-        "status": "browser_authorized_official_complete",
-        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626000965",
-        "captured_at": "2026-08-02T08:20:23.307Z"
       }
     },
     {
@@ -437,7 +362,7 @@
       ],
       "abstract_en": "This paper studies the introduction of causal conditional heteroskedasticity in noncausal autoregressive (AR) models. We demonstrate that, in this framework, large shocks to the innovation process driving the GARCH error term of a noncausal AR model result in heightened volatility immediately before and after a bubble crash. The non-coincidence of the σ-fields generated by past observations and past values of the GARCH process makes statistical inference nonstandard. In particular, the full quasi-maximum likelihood estimator (QMLE) is generally inconsistent. We investigate the asymptotic properties of three-step weighted least squares estimators of the AR coefficient and the QMLE of the volatility parameters. Our findings are illustrated by Monte Carlo experiments and an empirical application to financial data.",
       "abstract_cn": "本文研究了在非因果自回归（AR）模型中引入因果条件异方差性的问题。我们证明，在此框架下，驱动非因果 AR 模型 GARCH 误差项的新息过程若遭受剧烈冲击，会导致泡沫破裂前后出现波动率加剧的现象。由历史观测值生成的 $\\sigma$-域与由 GARCH 过程历史值生成的 $\\sigma$-域并不重合，这使得统计推断变得非标准；特别是，完全准极大似然估计量（QMLE）通常不具备一致性。我们考察了 AR 系数的三步加权最小二乘估计量以及波动率参数 QMLE 的渐近性质，并通过蒙特卡洛实验及金融数据实证分析验证了相关结论。",
-      "abstract_snippet_en": "",
+      "abstract_snippet_en": "This paper studies the introduction of causal conditional heteroskedasticity in noncausal autoregressive (AR) models. We demonstrate that, in this framework, large shocks to the innovation process driving...",
       "doi": "10.1016/j.jeconom.2026.106297",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626001181?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -445,42 +370,31 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/257/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "official-sciencedirect-issue-preview",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "insufficient_entitlement_missing_insttoken",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 642,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 642,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (642/20000 remaining)"
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2026.106297",
         "semantic_scholar": "https://www.semanticscholar.org/paper/0eeee9590861a355f375f407986b8870ae8e1412"
       },
@@ -499,11 +413,6 @@
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
-      },
-      "abstract_lookup": {
-        "status": "browser_authorized_official_complete",
-        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626001181",
-        "captured_at": "2026-08-02T08:20:23.307Z"
       }
     },
     {
@@ -521,7 +430,7 @@
       ],
       "abstract_en": "Measuring systemic risk has been an important topic in recent research on risk management. Adrian and Brunnermeier (2016) pioneered the CoVaR measure for systemic risk, which is defined as the conditional quantile of system loss given some state predictors and one stress event of an individual loss at a certain risk level. They proposed to estimate CoVaR by a two-quantile-regression approach, which is simple and easy to implement in practice, but without stating or developing the necessary asymptotic theory. In this paper, we develop tests to reveal that using the classical regularity condition in quantile regressions for the two-quantile-regression model may be unrealistic by revisiting the datasets in Adrian and Brunnermeier (2016). Under the proposed weaker conditions, we further develop the asymptotic theory of the CoVaR inference and introduce a random weighted bootstrap method to quantify the inference uncertainty. We examine the finite sample performance of the proposed tests in terms of size and power, as well as the coverage probabilities of confidence intervals for CoVaR. Finally, we demonstrate the CoVaR inference across financial institutions and time.",
       "abstract_cn": "系统性风险的度量一直是近期风险管理研究中的重要课题。Adrian 和 Brunnermeier (2016) 开创性地提出了用于度量系统性风险的 CoVaR 指标；该指标定义为在给定状态预测变量以及个体损失在特定风险水平下发生压力事件的条件下，系统损失的条件分位数。他们提出利用“双重分位数回归”方法来估计 CoVaR，该方法简单且易于实际操作，但未阐述或推导相关的渐近理论。本文通过重新分析 Adrian 和 Brunnermeier (2016) 使用的数据集，通过构建检验发现，将分位数回归中的经典正则性条件应用于双重分位数回归模型可能并不切合实际。在本文提出的较弱条件下，我们进一步推导了 CoVaR 推断的渐近理论，并引入随机加权自助法（random weighted bootstrap）来量化推断的不确定性。我们考察了所提检验在检验规模（size）和功效（power）方面的有限样本表现，以及 CoVaR 置信区间的覆盖概率。最后，我们展示了针对不同金融机构及不同时间段的 CoVaR 推断结果。",
-      "abstract_snippet_en": "",
+      "abstract_snippet_en": "Measuring systemic risk has been an important topic in recent research on risk management. Adrian and Brunnermeier (2016) pioneered the CoVaR measure for systemic risk, which is defined as the conditional...",
       "doi": "10.1016/j.jeconom.2026.106301",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626001223?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -529,42 +438,31 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/257/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "official-sciencedirect-issue-preview",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "insufficient_entitlement_missing_insttoken",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 641,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 641,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (641/20000 remaining)"
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2026.106301",
         "semantic_scholar": "https://www.semanticscholar.org/paper/1407c8108e3f2a5df820a2c4b9a87721dbbff6a5"
       },
@@ -583,11 +481,6 @@
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
-      },
-      "abstract_lookup": {
-        "status": "browser_authorized_official_complete",
-        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626001223",
-        "captured_at": "2026-08-02T08:20:23.307Z"
       }
     },
     {
@@ -600,9 +493,9 @@
       "authors": [
         "Yukun Ma"
       ],
-      "abstract_en": "This paper investigates the local average treatment effect (LATE) with high-dimensional covariates, irrespective of the strength of identification. We propose a novel test statistic for the high-dimensional LATE and demonstrate that our test has uniformly correct asymptotic size. By employing the double/debiased machine learning method for nuisance parameter estimation, we develop easy-to-implement algorithms for inference and confidence interval calculation of the high-dimensional LATE. Simulations indicate that our test is robust against both weak identification and high dimensionality concerning size control and power performance, outperforming other conventional tests. Applying the proposed method to railroad and population data to study the effect of railroad access on urban population growth, we observe that our methodology yields point estimates for the railroad access coefficients that are smaller in magnitude and confidence intervals that are by 49% to 92% shorter depending on specifications, when compared to the conventional results.",
-      "abstract_cn": "本文研究了高维协变量的局部平均治疗效果（LATE），无论识别的强度如何。我们提出了一种新的高维 LATE 检验统计量，并证明我们的检验具有一致正确的渐近大小。通过采用双/去偏机器学习方法进行干扰参数估计，我们开发了易于实现的算法，用于高维 LATE 的推理和置信区间计算。模拟表明，我们的测试在尺寸控制和功率性能方面对于弱识别和高维都具有鲁棒性，优于其他传统测试。将所提出的方法应用于铁路和人口数据，以研究铁路通达对城市人口增长的影响，我们观察到，与传统结果相比，我们的方法产生的铁路通达系数的点估计值较小，并且根据规格的置信区间较短 49% 至 92%。",
-      "abstract_snippet_en": "",
+      "abstract_en": "This paper presents an inference method for the local average treatment effect (LATE) in the presence of high-dimensional covariates, regardless of the strength of identification. We propose an orthogonalized Anderson-Rubin test statistic that maintains uniformly valid asymptotic size. We provide an easy-to-implement algorithm for inferring the high-dimensional LATE by inverting our test statistic and employing the double/debiased machine learning method. Simulation results show that our test achieves better size control under both weak identification and high dimensionality, outperforming conventional alternatives. Applying the proposed method to railroad and population data to study the effect of railroad access on urban population growth, we observe wider confidence intervals than those obtained using conventional methods.",
+      "abstract_cn": "本文提出了一种在存在高维协变量的情况下推断局部平均治疗效果（LATE）的方法，无论识别的强度如何。我们提出了一种正交的 Anderson-Rubin 检验统计量，它保持一致有效的渐近大小。我们提供了一种易于实现的算法，通过反转我们的测试统计量并采用双/去偏机器学习方法来推断高维 LATE。仿真结果表明，我们的测试在弱识别和高维下都实现了更好的尺寸控制，优于传统的替代方案。将所提出的方法应用于铁路和人口数据来研究铁路通达对城市人口增长的影响，我们观察到比使用传统方法获得的置信区间更宽。",
+      "abstract_snippet_en": "This paper presents an inference method for the local average treatment effect (LATE) in the presence of high-dimensional covariates, regardless of the strength of identification. We propose an orthogonalized...",
       "doi": "10.1016/j.jeconom.2026.106302",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626001235?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -610,42 +503,31 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/257/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "semantic-scholar",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "insufficient_entitlement_missing_insttoken",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 640,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 640,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (640/20000 remaining)"
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2026.106302",
         "semantic_scholar": "https://www.semanticscholar.org/paper/4b4fc9db9e094c89ca54d14ce94dd470a9441479"
       },
@@ -655,8 +537,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-01T03:57:59+00:00",
-        "source_hash": "b3bc6091cbe3c70447f35a567f9d323b4b7d7ddfc9f929f28ce0eeacf46e459a"
+        "translated_at": "2026-08-03T11:29:53+00:00",
+        "source_hash": "7e09f2701d0366bd991c419ba8fd4310aaad1bd5a47b69dbd9bfde2c5ba625ea"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -678,9 +560,9 @@
         "Tomasz Olma",
         "Christoph Rothe"
       ],
-      "abstract_en": "Empirical regression discontinuity (RD) studies often include covariates in their specifications to increase the precision of their estimates. In this paper, we propose a novel class of estimators that use such covariate information more efficiently than existing methods and can accommodate many covariates. Our estimators are simple to implement and involve running a standard RD analysis after subtracting a function of the covariates from the original outcome variable. We characterize the function of the covariates that minimizes the asymptotic variance of these estimators. We also show that the conventional RD framework gives rise to a special robustness property which implies that the optimal adjustment function can be estimated flexibly via modern machine learning techniques without affecting the first-order properties of the final RD estimator. We demonstrate our methods' scope for efficiency improvements by reanalyzing data from a large number of recently published empirical studies.",
-      "abstract_cn": "经验回归不连续性 (RD) 研究通常在其规范中包含协变量，以提高估计的精度。在本文中，我们提出了一类新颖的估计器，它比现有方法更有效地使用此类协变量信息，并且可以容纳许多协变量。我们的估计器很容易实现，并且需要在从原始结果变量中减去协变量函数后运行标准 RD 分析。我们描述了最小化这些估计量的渐近方差的协变量函数。我们还表明，传统的 RD 框架产生了一种特殊的鲁棒性属性，这意味着可以通过现代机器学习技术灵活地估计最优调整函数，而不影响最终 RD 估计器的 第一 阶属性。我们通过重新分析大量最近发表的实证研究的数据来证明我们的方法提高效率的范围。",
-      "abstract_snippet_en": "",
+      "abstract_en": "Empirical regression discontinuity (RD) studies often include covariates in their specifications to increase the precision of their estimates. In this paper, we propose a novel class of estimators that use such covariate information more efficiently than existing methods and can accommodate many covariates. Our estimators are simple to implement and involve running a standard RD analysis after subtracting a function of the covariates from the original outcome variable. We characterize the function of the covariates that minimizes the asymptotic variance of these estimators. We also show that the conventional RD framework gives rise to a special robustness property which implies that the optimal adjustment function can be estimated flexibly via modern machine learning techniques without affecting the first-order properties of the final RD estimator. We demonstrate our methods’ scope for efficiency improvements by reanalyzing data from a large number of recently published empirical studies.",
+      "abstract_cn": "经验回归不连续性 (RD) 研究通常在其规范中包含协变量，以提高估计的精度。在本文中，我们提出了一类新颖的估计器，它比现有方法更有效地使用此类协变量信息，并且可以容纳许多协变量。我们的估计器很容易实现，并且需要在从原始结果变量中减去协变量函数后运行标准 RD 分析。我们描述了最小化这些估计量的渐近方差的协变量函数。我们还表明，传统的 RD 框架产生了一种特殊的鲁棒性特性，这意味着可以通过现代机器学习技术灵活地估计最优调整函数，而不会影响最终 RD 估计器的一阶特性。我们通过重新分析最近发表的大量实证研究的数据来证明我们的方法提高效率的范围。",
+      "abstract_snippet_en": "Empirical regression discontinuity (RD) studies often include covariates in their specifications to increase the precision of their estimates. In this paper, we propose a novel class of estimators that...",
       "doi": "10.1016/j.jeconom.2026.106298",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626001193?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -688,42 +570,31 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/257/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "openalex",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "insufficient_entitlement_missing_insttoken",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 639,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 639,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (639/20000 remaining)"
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2026.106298"
       },
       "translation": {
@@ -732,8 +603,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-01T03:58:02+00:00",
-        "source_hash": "eed68de7ba8046a00fadd9ebfd0474f7ad45a65683f415b9161502130907a101"
+        "translated_at": "2026-08-03T11:29:55+00:00",
+        "source_hash": "83f035d58ebaefa0a531039ed197324d1eb7ca25b0de2487e39b92105cde7c13"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -755,7 +626,7 @@
       ],
       "abstract_en": "In semi-logarithmic regressions, treatment coefficients are often interpreted as approximations of an average treatment effect (ATE) in percentage points. This paper highlights the overlooked bias of this approximation under treatment effect heterogeneity, arising from Jensen’s inequality. The issue is particularly relevant for difference-in-differences designs with log-transformed outcomes and staggered treatment adoption, where treatment effects may vary across groups and periods. This paper proposes new estimation and inference methods for an estimand that accounts for heterogeneity across observable subgroups and can improve upon conventional measures. The estimand provides a lower bound on the ATE in percentage points for the relevant target (sub)population, and coincides with it in the absence of within-group heterogeneity. I establish the methods’ large-sample properties and study their finite-sample performance through Monte Carlo experiments, which reveal substantial discrepancies between conventional and proposed measures when systematic heterogeneity is large. Two empirical applications further underscore the practical importance of these methods.",
       "abstract_cn": "在半对数回归中，处理效应系数常被解读为以百分点表示的平均处理效应（ATE）的近似值。本文指出，当存在处理效应异质性时，这种近似方法会产生一种常被忽视的偏差，而该偏差源于延森不等式（Jensen’s inequality）。这一问题在采用对数变换结果变量和交错式处理实施（staggered treatment adoption）的双重差分设计中尤为突出，因为在这类设计中，处理效应可能随群体和时期而变化。本文针对一个能够考量可观测子群体间异质性的待估量（estimand），提出了一套新的估计与推断方法，这些方法优于传统度量指标。该待估量为相关目标（子）群体的以百分点表示的 ATE 提供了下界，且在不存在组内异质性的情况下，该下界与 ATE 相等。本文确立了这些方法的大样本性质，并通过蒙特卡洛实验考察了其有限样本表现；结果显示，当系统性异质性较大时，传统度量指标与本文提出的度量指标之间存在显著差异。两项实证应用进一步凸显了这些方法的实际重要性。",
-      "abstract_snippet_en": "",
+      "abstract_snippet_en": "In semi-logarithmic regressions, treatment coefficients are often interpreted as approximations of an average treatment effect (ATE) in percentage points. This paper highlights the overlooked bias of...",
       "doi": "10.1016/j.jeconom.2026.106303",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626001247?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -763,42 +634,31 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/257/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "official-sciencedirect-issue-preview",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "insufficient_entitlement_missing_insttoken",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 638,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 638,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (638/20000 remaining)"
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2026.106303",
         "semantic_scholar": "https://www.semanticscholar.org/paper/879354aba25a534cb97c6fbd17f8513eacda040e"
       },
@@ -817,11 +677,6 @@
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
-      },
-      "abstract_lookup": {
-        "status": "browser_authorized_official_complete",
-        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626001247",
-        "captured_at": "2026-08-02T08:20:23.307Z"
       }
     },
     {
@@ -834,9 +689,9 @@
       "authors": [
         "Ruonan Xu"
       ],
-      "abstract_en": "In many scenarios, such as the evaluation of place-based policies, potential outcomes are not only dependent upon the unit's own treatment but also its neighbors' treatment. Despite this,\"difference-in-differences\"(DID) type estimators typically ignore such interference among neighbors. I show in this paper that the canonical DID estimators generally fail to identify interesting causal effects in the presence of neighborhood interference. To incorporate interference structure into DID estimation, I propose doubly robust estimators for the direct average treatment effect on the treated as well as the average spillover effects under a modified parallel trends assumption. I later relax common restrictions in the literature, such as immediate neighborhood interference and correctly specified spillover functions. Moreover, robust inference is discussed based on the asymptotic distribution of the proposed estimators.",
-      "abstract_cn": "在许多情况下，例如对基于地方的政策的评估，潜在的结果不仅取决于单位本身的待遇，还取决于其邻居的待遇。尽管如此，“双重差分”(DID)型估计器通常忽略邻居之间的这种干扰。我在本文中表明，在存在邻域干扰的情况下，规范的 DID 估计器通常无法识别有趣的因果效应。为了将干扰结构纳入 DID 估计中，我提出了双稳健估计器，用于对处理对象的直接平均处理效果以及修改后的平行趋势假设下的平均溢出效应。后来我放宽了文献中的常见限制，例如直接邻域干扰和正确指定的溢出函数。此外，基于所提出的估计量的渐近分布讨论了鲁棒推理。",
-      "abstract_snippet_en": "",
+      "abstract_en": "In many scenarios, such as the evaluation of place-based policies, potential outcomes depend not only on the unit’s own treatment but also on its neighbors’ treatments. Despite this, “difference-in-differences” (DID) type estimators typically ignore such interference among neighbors. I show in this paper that the canonical DID estimators generally fail to identify interesting causal effects in the presence of neighborhood interference. To incorporate interference structure into DID estimation, I propose doubly robust estimators for the direct average treatment effect on the treated under a modified parallel trends assumption. I allow spatially correlated assignments, and later relax common restrictions in the literature, such as immediate neighborhood interference and correctly specified spillover functions. Moreover, this paper focuses on a finite-population conditional-inference framework. Robust inference is discussed based on the asymptotic distribution of the proposed estimators.",
+      "abstract_cn": "在许多情况下，例如对基于地方的政策的评估，潜在的结果不仅取决于单位本身的待遇，还取决于其邻居的待遇。尽管如此，“双重差分”（DID）类型的估计器通常会忽略邻居之间的这种干扰。我在本文中表明，在存在邻域干扰的情况下，规范的 DID 估计器通常无法识别有趣的因果效应。为了将干扰结构纳入 DID 估计中，我提出了在修改后的平行趋势假设下对治疗对象的直接平均治疗效果的双稳健估计器。我允许空间相关的分配，然后放宽文献中的常见限制，例如直接邻域干扰和正确指定的溢出函数。此外，本文重点关注有限总体条件推理框架。基于所提出的估计量的渐近分布讨论了鲁棒推理。",
+      "abstract_snippet_en": "In many scenarios, such as the evaluation of place-based policies, potential outcomes depend not only on the unit’s own treatment but also on its neighbors’ treatments. Despite this, “difference-in-differences”...",
       "doi": "10.1016/j.jeconom.2026.106304",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626001259?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -844,42 +699,31 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/257/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "semantic-scholar",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "insufficient_entitlement_missing_insttoken",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 637,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 637,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (637/20000 remaining)"
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2026.106304",
         "semantic_scholar": "https://www.semanticscholar.org/paper/c3a95ca22a6b34c09f61e05ebb7ee1e5b08cd2a1"
       },
@@ -889,8 +733,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-01T03:58:04+00:00",
-        "source_hash": "604d34e249c3fcc17461e62d6f0602fc75d167838fb2d4a29ecb5211aa4732a3"
+        "translated_at": "2026-08-03T11:29:57+00:00",
+        "source_hash": "e1fa32785f56aa874b9c9b33c57ce98890a095f7291407db2352e13e3dd46324"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -914,7 +758,7 @@
       ],
       "abstract_en": "Accurately estimating the Phillips curve remains a significant methodological challenge. Recent panel data approaches reveal substantial cross-sectional heterogeneity, raising doubts about pooled estimates. This paper develops a novel group-based approach that systematically accounts for unobserved heterogeneity in the regional Phillips curve. We identify two distinct groups of U.S. states: one with a steep, significant Phillips curve, and another with a flat, insignificant relationship. Our results show that regional heterogeneity persists across regimes, with parameter nonlinearity emerging during recessions. Much of the flattening of the Phillips curve is region-specific, indicating the importance of both heterogeneity and nonlinearity in Phillips curve dynamics.",
       "abstract_cn": "准确估计菲利普斯曲线在方法论上仍是一项重大挑战。近期的面板数据研究揭示了显著的截面异质性，这使得基于混合数据的估计结果受到质疑。本文提出了一种新颖的基于分组的方法，能够系统地考量区域菲利普斯曲线中存在的不可观测异质性。研究识别出美国各州构成的两类截然不同的群体：一类呈现出陡峭且显著的菲利普斯曲线特征，另一类则表现为平坦且不显著的关系。结果表明，区域异质性在不同经济状态下持续存在，且在衰退期出现了参数非线性特征。菲利普斯曲线的平坦化在很大程度上具有区域特异性，这凸显了异质性和非线性在菲利普斯曲线动态演变中的重要作用。",
-      "abstract_snippet_en": "",
+      "abstract_snippet_en": "Accurately estimating the Phillips curve remains a significant methodological challenge. Recent panel data approaches reveal substantial cross-sectional heterogeneity, raising doubts about pooled estimates....",
       "doi": "10.1016/j.jeconom.2026.106306",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626001272?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -922,42 +766,31 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/257/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "official-sciencedirect-issue-preview",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "insufficient_entitlement_missing_insttoken",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 636,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 636,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (636/20000 remaining)"
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2026.106306",
         "semantic_scholar": "https://www.semanticscholar.org/paper/414580f4de93c81b885aa1417913cd14133c24bd"
       },
@@ -976,11 +809,6 @@
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
-      },
-      "abstract_lookup": {
-        "status": "browser_authorized_official_complete",
-        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626001272",
-        "captured_at": "2026-08-02T08:20:23.307Z"
       }
     },
     {
@@ -995,9 +823,9 @@
         "Yukitoshi Matsushita",
         "Taisuke Otsu"
       ],
-      "abstract_en": "This paper investigates estimation and inference for average treatment effects in completely randomized experiments when researchers observe potentially many covariates. Within Neyman's (1923) design-based framework, allowing the number of covariates to grow more slowly than the sample size, we demonstrate that a cross-fitted regression adjustment estimator--adapted from Aronow and Middleton (2013)--exhibits more favorable asymptotic properties than existing alternatives, such as Lin's (2013) regression adjustment estimator and the bias-corrected estimator of Lei and Ding (2021). For inference, we derive the first- and second-order terms in the stochastic expansions of regression-adjusted estimators, analyze the higher-order behavior of existing inference procedures, and introduce a modified version of the HC3 standard error. The proposed methods extend naturally to stratified experiments with large strata. Simulation studies show that the cross-fitted estimator, in combination with the modified HC3, provides accurate point estimates and reliable size control across a wide range of data-generating processes.",
-      "abstract_cn": "本文研究了当研究人员观察到潜在的许多协变量时，在完全随机的实验中对平均治疗效果的估计和推断。在 Neyman（1923）基于设计的框架内，允许协变量数量的增长速度比样本大小更慢，我们证明了交叉拟合回归调整估计量（改编自 Aronow 和 Middleton（2013））比现有替代方案（例如 Lin（2013）回归调整估计量和偏差校正）表现出更有利的渐近特性。 Lei 和 Ding 的估计量（2021）。为了进行推理，我们推导了回归调整估计量的随机展开式中的 第一 和 第二 阶项，分析了现有推理过程的高阶行为，并引入了 HC3 标准误差的修改版本。所提出的方法自然地扩展到大地层的分层实验。仿真研究表明，交叉拟合估计器与修改后的 HC3 相结合，可以在各种数据生成过程中提供准确的点估计和可靠的大小控制。",
-      "abstract_snippet_en": "",
+      "abstract_en": "This paper investigates estimation and inference for average treatment effects in completely randomized experiments when researchers observe potentially many covariates. Within Neyman’s (1923) design-based framework, allowing the number of covariates to grow more slowly than the sample size, we demonstrate that a cross-fitted regression adjustment estimator–adapted from Aronow and Middleton (2013)–exhibits more favorable asymptotic properties than existing alternatives, such as Lin’s (2013) regression adjustment estimator and the bias-corrected estimator of Lei and Ding (2021). For inference, we derive the first- and second-order terms in the stochastic expansions of regression-adjusted estimators, analyze the higher-order behavior of existing inference procedures, and introduce a modified version of the HC3 standard error. The proposed methods extend naturally to stratified experiments with large strata. Simulation studies show that the cross-fitted estimator, in combination with the modified HC3, provides accurate point estimates and reliable size control across a wide range of data-generating processes.",
+      "abstract_cn": "本文研究了当研究人员观察到潜在的许多协变量时，在完全随机的实验中对平均治疗效果的估计和推断。在 Neyman（1923）基于设计的框架内，允许协变量数量的增长速度比样本大小更慢，我们证明了交叉拟合回归调整估计量（改编自 Aronow 和 Middleton（2013））比现有替代方案（例如 Lin（2013）回归调整估计量和偏差校正估计量）表现出更有利的渐近特性。雷和丁（2021）。为了进行推理，我们推导回归调整估计量的随机展开中的一阶和二阶项，分析现有推理过程的高阶行为，并引入 HC3 标准误差的修改版本。所提出的方法自然地扩展到大地层的分层实验。仿真研究表明，交叉拟合估计器与修改后的 HC3 相结合，可以在各种数据生成过程中提供准确的点估计和可靠的大小控制。",
+      "abstract_snippet_en": "This paper investigates estimation and inference for average treatment effects in completely randomized experiments when researchers observe potentially many covariates. Within Neyman’s (1923) design-based...",
       "doi": "10.1016/j.jeconom.2026.106307",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626001284?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -1005,42 +833,31 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/257/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "semantic-scholar",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "insufficient_entitlement_missing_insttoken",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 635,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 635,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (635/20000 remaining)"
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2026.106307",
         "semantic_scholar": "https://www.semanticscholar.org/paper/8e46fd03270b3eaf8a85471783192689cb0632a3"
       },
@@ -1050,8 +867,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-01T03:58:05+00:00",
-        "source_hash": "be8f684d896b777acfed00e3394665624fbd0ff844c02c6bfcec5e90f5dfc74b"
+        "translated_at": "2026-08-03T11:29:59+00:00",
+        "source_hash": "804cc26208277365eef6d2a270e70553c8bc7497a44d2422342e3fe5b572bfb6"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -1075,7 +892,7 @@
       ],
       "abstract_en": "Instrumental variable models with repeated endogenous treatments are popular in empirical research using pooled cross-sectional or short panel datasets. This paper proposes a novel semi-parametric approach that explicitly considers 1) path dependency in the contemporaneous treatment effect and 2) a direct carryover effect from past treatments. We demonstrate that when either of these new features is present, the standard two-stage least squares estimator is generally invalid. We apply the proposed semi-parametric estimation and inference approach to revisit the seminal work of Acemoglu et al. (2016). Using industry-level data, we find that the magnitude of contemporaneous impacts of increased Chinese import competition on US manufacturing employment depends on an industry’s past import exposure. In particular, industries with larger trade shocks in the 1990s tend to experience stronger impacts from contemporaneous trade shocks in the 2000s.",
       "abstract_cn": "在利用混合截面数据或短面板数据进行的实证研究中，涉及重复内生处理（repeated endogenous treatments）的工具变量模型应用广泛。本文提出了一种新颖的半参数方法，该方法明确考虑了：1) 当期处理效应中的路径依赖性；以及 二) 既往处理产生的直接滞后效应（carryover effect）。我们证明，当存在上述任一特征时，标准的二阶段最小二乘（2SLS）估计量通常不再有效。我们利用所提出的半参数估计与推断方法，重新考察了 Acemoglu 等人（2）的开创性研究。基于行业层面数据的分析发现，中国进口竞争加剧对美国制造业就业产生的当期影响程度，取决于该行业既往所受的进口冲击暴露情况。具体而言，在 2016 世纪 1990 年代遭受较大贸易冲击的行业，往往会在 2000 世纪头十年受到当期贸易冲击的更强烈影响。",
-      "abstract_snippet_en": "",
+      "abstract_snippet_en": "Instrumental variable models with repeated endogenous treatments are popular in empirical research using pooled cross-sectional or short panel datasets. This paper proposes a novel semi-parametric approach...",
       "doi": "10.1016/j.jeconom.2026.106305",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626001260?dgcid=rss_sd_all",
       "publication_date": "September 2026",
@@ -1083,42 +900,31 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/257/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/03044076",
         "metadata": "crossref",
-        "abstract_en": "official-sciencedirect-issue-preview",
+        "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
-          "status": "insufficient_entitlement_missing_insttoken",
+          "status": "success_full_abstract",
           "attempts": [
             {
               "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-pii",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            },
-            {
-              "source": "elsevier-article-pii",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 634,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
             }
-          ]
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 634,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (634/20000 remaining)"
         },
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
         "openalex": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2026.106305",
         "semantic_scholar": "https://www.semanticscholar.org/paper/f24d6aa3e713553d6153f9581a81a763edce9354"
       },
@@ -1139,76 +945,316 @@
           "Chinese import"
         ],
         "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2026.106310",
+      "sequence": 15,
+      "source_sequence": 15,
+      "article_type": "research-article",
+      "title_en": "A design-based approach to spatial correlation",
+      "title_cn": "基于设计的空间相关性方法",
+      "authors": [
+        "Ruonan Xu",
+        "Jeffrey M. Wooldridge"
+      ],
+      "abstract_en": "When observing spatial data, what standard errors should we report? Within a finite population framework, we identify three channels of possible spatial correlation: sampling scheme, assignment design, and model specification. The Eicker-Huber-White standard error, cluster-robust standard error, and spatial-correlation robust inference are compared under different combinations of the three channels. We prove a finite population central limit theorem for weakly dependent random fields that bridges the gap between superpopulation and finite population inference in our unified framework. These limit theorems are then applied to derive the asymptotic distribution of M-estimators and functions of M-estimators. Based on the decomposition of the finite population variance-covariance matrix of M-estimators, standard errors should be adjusted for spatial correlation when effective assignment variables are spatially correlated and/or spillover effects are specified in the model. In the special case where the sampling probabilities approach zero in the limit, the Eicker-Huber-White and cluster-robust standard errors would be close to the spatial-correlation robust standard errors regardless of the spatial correlation among assignment variables.",
+      "abstract_cn": "观察空间数据时，我们应该报告哪些标准误差？在有限总体框架内，我们确定了可能的空间相关性的三个通道：抽样方案、分配设计和模型规范。在三个通道的不同组合下比较了 Eicker-Huber-White 标准误差、聚类鲁棒标准误差和空间相关鲁棒推理。我们证明了弱相关随机场的有限总体中心极限定理，该定理弥补了我们统一框架中超总体和有限总体推理之间的差距。然后应用这些极限定理来导出 M 估计量的渐近分布和 M 估计量的函数。基于 M 估计量的有限总体方差-协方差矩阵的分解，当模型中指定有效分配变量空间相关和/或溢出效应时，应针对空间相关性调整标准误差。在采样概率极限接近零的特殊情况下，无论分配变量之间的空间相关性如何，Eicker-Huber-White 和聚类鲁棒标准误差将接近空间相关鲁棒标准误差。",
+      "abstract_snippet_en": "When observing spatial data, what standard errors should we report? Within a finite population framework, we identify three channels of possible spatial correlation: sampling scheme, assignment design,...",
+      "doi": "10.1016/j.jeconom.2026.106310",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626001314?dgcid=rss_sd_all",
+      "publication_date": "September 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/257/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/03044076",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 633,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 633,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (633/20000 remaining)"
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
       },
-      "abstract_lookup": {
-        "status": "browser_authorized_official_complete",
-        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626001260",
-        "captured_at": "2026-08-02T08:20:23.307Z"
+      "translation": {
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-04T11:36:42+00:00",
+        "source_hash": "c1ec97626590f682dbecf6aa3fd306349f60a2115c3dbbe63d8463679e5ec64a"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2026.106308",
+      "sequence": 16,
+      "source_sequence": 16,
+      "article_type": "research-article",
+      "title_en": "Model averaging for time–varying vector autoregressions",
+      "title_cn": "时变向量自回归的模型平均",
+      "authors": [
+        "Yuying Sun",
+        "Feng Chen",
+        "Jiti Gao"
+      ],
+      "abstract_en": "This paper proposes a novel time-varying model averaging (TVMA) approach to enhancing forecast accuracy for multivariate time series subject to structural changes. The TVMA method averages predictions from a set of time-varying vector autoregressive models using optimal time-varying combination weights selected by minimizing a penalized local criterion. This allows the relative importance of different models to adaptively evolve over time in response to structural shifts. We establish an asymptotic optimality for the proposed TVMA approach in achieving the lowest possible quadratic forecast errors. The convergence rate of the selected time-varying weights to the optimal weights minimizing expected quadratic errors is derived. Moreover, we show that when one or more correctly specified models exist, our method consistently assigns full weight to them, and an asymptotic normality for the TVMA estimators under some regularity conditions can be established. Furthermore, the proposed approach encompasses special cases including time-varying VAR models with exogenous predictors, as well as time-varying factor augmented VAR (FAVAR) models. Simulations and empirical applications illustrate the proposed TVMA method outperforms some commonly used model averaging and selection methods in the presence of structural changes.",
+      "abstract_cn": "本文提出了一种新颖的时变模型平均（TVMA）方法，以提高面临结构变化的多变量时间序列的预测准确性。TVMA方法通过最小化惩罚局部准则选择最优时变组合权重，对一组时变向量自回归模型的预测进行平均。这使得不同模型的相对重要性能够随着时间推移，响应结构变化而自适应地演变。我们为所提出的TVMA方法建立了渐近最优性，以实现最低可能的二次预测误差。推导了所选时变权重收敛到最小化期望二次误差的最优权重的收敛速率。此外，我们表明，当存在一个或多个正确设定的模型时，我们的方法一致地将全部权重分配给它们，并且在某些正则条件下，可以建立TVMA估计量的渐近正态性。进一步地，所提出的方法涵盖了特殊情况，包括带有外生预测因子的时变VAR模型，以及时变因子增广VAR（FAVAR）模型。模拟和实证应用表明，在存在结构变化的情况下，所提出的TVMA方法优于一些常用的模型平均和选择方法。",
+      "abstract_snippet_en": "This paper proposes a novel time-varying model averaging (TVMA) approach to enhancing forecast accuracy for multivariate time series subject to structural changes. The TVMA method averages predictions...",
+      "doi": "10.1016/j.jeconom.2026.106308",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626001296?dgcid=rss_sd_all",
+      "publication_date": "September 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/257/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/03044076",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 632,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 632,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (632/20000 remaining)"
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-06T11:50:33+00:00",
+        "source_hash": "c98d5195835234a0e286d1c8c622b7fb53092c0046568dc306a6a4fbacb05f5c"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2026.106300",
+      "sequence": 17,
+      "source_sequence": 17,
+      "article_type": "research-article",
+      "title_en": "Heterogeneous predictability on mutual fund alphas: A sparse clustering GMM approach",
+      "title_cn": "共同基金阿尔法的异质性可预测性：一种稀疏聚类GMM方法",
+      "authors": [
+        "Liyuan Cui",
+        "Guanhao Feng",
+        "Jiangshan Yang"
+      ],
+      "abstract_en": "Mutual fund managers’ skills, measured by risk-adjusted alphas, are predictable using fund characteristics identified by machine learning (e.g., Kaniel et al., 2023, JFE; DeMiguel et al., 2023, JFE). However, alpha’s predictive power varies across funds and periods, with most funds exhibiting negligible alphas. To model this heterogeneous predictability, this paper introduces Sparse Clustering GMM, a nonparametric approach for identifying latent fund groups. SCGMM clusters funds using estimated alphas and identifies group-specific parameters tied to market predictors. The method accounts for heterogeneity in cross-sectional grouping and time-varying mechanisms across predictors, without requiring prior cluster information or time-varying specifications. We establish consistency for group recovery and time-varying parameter estimation. Empirically, using monthly U.S. mutual fund data, we find that predictable alpha is concentrated in a small subset of funds, with the majority of funds exhibiting near-zero, weakly predictable alphas. The skilled clusters also exhibit lower benchmark R2, moderate expense ratios, and longer manager tenure.",
+      "abstract_cn": "共同基金经理的技能，以风险调整后的阿尔法衡量，可以通过机器学习识别的基金特征进行预测（例如，Kaniel等，2023，JFE；DeMiguel等，2023，JFE）。然而，阿尔法的预测能力因基金和时期而异，大多数基金的阿尔法可忽略不计。为了模拟这种异质性可预测性，本文引入了稀疏聚类GMM，一种用于识别潜在基金组的非参数方法。SCGMM使用估计的阿尔法对基金进行聚类，并识别与市场预测因子相关的组特定参数。该方法考虑了横截面分组中的异质性和跨预测因子的时变机制，无需先验聚类信息或时变设定。我们建立了组恢复和时变参数估计的一致性。实证上，使用美国月度共同基金数据，我们发现可预测的阿尔法集中在一小部分基金中，大多数基金的阿尔法接近零，可预测性较弱。技能较高的聚类还表现出较低的基准R2、适中的费用比率和更长的经理任期。",
+      "abstract_snippet_en": "Mutual fund managers’ skills, measured by risk-adjusted alphas, are predictable using fund characteristics identified by machine learning (e.g., Kaniel et al., 2023, JFE; DeMiguel et al., 2023, JFE)....",
+      "doi": "10.1016/j.jeconom.2026.106300",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626001211?dgcid=rss_sd_all",
+      "publication_date": "September 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/257/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/03044076",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 631,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 631,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (631/20000 remaining)"
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-08-09T22:05:44+00:00",
+        "source_hash": "dd1ffda9f2505800c8103fbfe24685bd11e9e2572a1b5f559bf63d09bf11c81e"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jeconom.2026.106309",
+      "sequence": 18,
+      "source_sequence": 18,
+      "article_type": "research-article",
+      "title_en": "Testing coefficient stability in spatial regression",
+      "title_cn": "空间回归中系数稳定性的检验",
+      "authors": [
+        "Ulrich K. Müller",
+        "Mark W. Watson"
+      ],
+      "abstract_en": "This paper develops a test for coefficient variability in spatial regressions. The test is designed to have good power for a wide range of persistent patterns of coefficient variation, be applicable in a wide range of spatial designs, and accommodate spatial correlation in regressors and regression errors. The test approximates the locally best invariant test for coefficient stability in a Gaussian regression model with martingale-like coefficient variation under the alternative, and is thus a spatial generalization of the Nyblom (1989) test of coefficient stability in time series regressions.",
+      "abstract_cn": "本文开发了一种检验空间回归中系数变异性的方法。该检验旨在对广泛的持续性系数变化模式具有良好的功效，适用于广泛的空间设计，并能容纳回归变量和回归误差中的空间相关性。该检验近似于高斯回归模型中系数稳定性检验的局部最优不变检验，其中备择假设下系数变化具有类似鞅的性质，因此是Nyblom（1989）时间序列回归中系数稳定性检验的空间推广。",
+      "abstract_snippet_en": "This paper develops a test for coefficient variability in spatial regressions. The test is designed to have good power for a wide range of persistent patterns of coefficient variation, be applicable...",
+      "doi": "10.1016/j.jeconom.2026.106309",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407626001302?dgcid=rss_sd_all",
+      "publication_date": "September 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/257/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/03044076",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 630,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 630,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (630/20000 remaining)"
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-08-09T22:05:46+00:00",
+        "source_hash": "02d40d3890f945b12133590bedaf78283a1cc8704263f0aa58d70a2ba6e0b1f2"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
       }
     }
   ],
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "official-issue-page+browser-authorized",
-    "roster_authority": "official-issue-page",
+    "roster_transport": "sciencedirect-rss",
+    "roster_authority": "publisher-rss",
     "roster_match_scope": "rss-volume-items",
     "rss_url": "https://rss.sciencedirect.com/publication/science/03044076",
-    "official_item_count": 14,
-    "publishable_item_count": 14,
+    "official_item_count": 18,
+    "publishable_item_count": 18,
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 14,
-    "authors_complete": 14,
-    "abstract_en_complete": 14,
-    "translation_complete": 14,
+    "doi_complete": 18,
+    "authors_complete": 18,
+    "abstract_en_complete": 18,
+    "translation_complete": 18,
     "duplicate_count": 0,
-    "flags": [],
+    "flags": [
+      "publisher_html_blocked_sciencedirect_rss_fallback",
+      "publisher_rss_reverse_order_normalized",
+      "official_order_unverified"
+    ],
     "content_counts": {
-      "official_items": 14,
-      "observed_items": 14,
-      "publishable_items": 14,
-      "research_articles": 14,
+      "official_items": 18,
+      "observed_items": 18,
+      "publishable_items": 18,
+      "research_articles": 18,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 14
-    },
-    "order_verification": "official_verified",
-    "browser_order_verification": {
-      "verified_at": "2026-08-03T01:44:08+00:00",
-      "source_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/257/suppl/C",
-      "captured_at": "2026-08-03T01:38:57.887Z",
-      "page_item_count": 14,
-      "article_count": 14,
-      "pii_sequence_matched": true,
-      "titles_matched": true,
-      "excluded_items_present": true
-    },
-    "browser_authorized_abstracts": {
-      "captured_at": "2026-08-02T08:20:31.841Z",
-      "institutional_access_confirmed": true,
-      "privacy_fields_stored": false,
-      "applied_count": 9
+      "catalog_content_items": 18
     }
   },
   "content_counts": {
-    "official_items": 14,
-    "observed_items": 14,
-    "publishable_items": 14,
-    "research_articles": 14,
+    "official_items": 18,
+    "observed_items": 18,
+    "publishable_items": 18,
+    "research_articles": 18,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 14
+    "catalog_content_items": 18
   },
   "publication_state": "ready",
   "content_status": "complete",
-  "source_status": "official_verified"
+  "source_status": "publisher_verified"
 }

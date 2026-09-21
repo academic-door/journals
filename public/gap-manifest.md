@@ -1,6 +1,6 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-21T07:52:04+00:00
+Generated: 2026-09-21T08:54:06+00:00
 
 ## Summary
 
@@ -260,7 +260,7 @@ Generated: 2026-09-21T07:52:04+00:00
 | EER | eer-186-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | EER | eer-187-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | EER | eer-188-c | 2026 | ready | complete | official_verified | content and official source gates passed |
-| EER | eer-189-c | 2026 | ready | complete | official_verified | content and official source gates passed |
+| EER | eer-189-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | EJ | ej-135-667 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | EJ | ej-135-668 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | EJ | ej-135-669 | 2025 | ready | complete | official_verified | content and official source gates passed |
@@ -390,7 +390,7 @@ Generated: 2026-09-21T07:52:04+00:00
 | FOODPOLICY | foodpolicy-140-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-141-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | FOODPOLICY | foodpolicy-142-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
-| FOODPOLICY | foodpolicy-143-c | 2026 | ready | complete | official_verified | content and official source gates passed |
+| FOODPOLICY | foodpolicy-143-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | GEB | geb-137-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | GEB | geb-138-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | GEB | geb-139-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
@@ -616,7 +616,7 @@ Generated: 2026-09-21T07:52:04+00:00
 | JEEM | jeem-137-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JEEM | jeem-138-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JEEM | jeem-139-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
-| JEEM | jeem-140-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
+| JEEM | jeem-140-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JEH | jeh-83-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | JEH | jeh-83-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | JEH | jeh-83-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
@@ -824,7 +824,7 @@ Generated: 2026-09-21T07:52:04+00:00
 | JME | jme-159-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JME | jme-160-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JME | jme-161-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
-| JME | jme-162-c | 2026 | ready | complete | official_verified | content and official source gates passed |
+| JME | jme-162-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JOE | joe-232-1 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JOE | joe-232-2 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JOE | joe-233-1 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
@@ -867,7 +867,7 @@ Generated: 2026-09-21T07:52:04+00:00
 | JOE | joe-256-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JOE | joe-256-pa | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JOE | joe-256-pb | 2026 | ready | complete | official_verified | content and official source gates passed |
-| JOE | joe-257-c | 2026 | ready | complete | official_verified | content and official source gates passed |
+| JOE | joe-257-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JPE | jpe-133-1 | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | JPE | jpe-133-10 | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | JPE | jpe-133-11 | 2025 | ready | complete | publisher_verified | content and official source gates passed |
@@ -1080,7 +1080,7 @@ Generated: 2026-09-21T07:52:04+00:00
 | RED | red-58-c | 2025 | ready | complete | official_verified | content and official source gates passed |
 | RED | red-59-c | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RED | red-60-c | 2026 | ready | complete | official_verified | content and official source gates passed |
-| RED | red-61-c | 2026 | ready | complete | official_verified | content and official source gates passed |
+| RED | red-61-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | RES | res-92-1 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | RES | res-92-2 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | RES | res-92-3 | 2025 | ready | complete | official_verified | content and official source gates passed |

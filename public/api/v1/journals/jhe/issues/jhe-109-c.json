@@ -8,9 +8,9 @@
   "issue_label": "Vol. 109",
   "publication_date": "September 2026",
   "source_url": "https://www.sciencedirect.com/journal/journal-of-health-economics/vol/109/suppl/C",
-  "retrieved_at": "2026-08-08T11:17:10+00:00",
-  "expected_article_count": 2,
-  "research_article_count": 2,
+  "retrieved_at": "2026-08-11T22:22:02+00:00",
+  "expected_article_count": 4,
+  "research_article_count": 4,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
@@ -49,7 +49,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 3925,
+                "remaining": 620,
                 "resets_at": "2026-08-12T02:35:01+00:00",
                 "els_status": "OK"
               }
@@ -57,10 +57,11 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 3925,
+            "remaining": 620,
             "resets_at": "2026-08-12T02:35:01+00:00",
             "els_status": "OK"
-          }
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (620/20000 remaining)"
         },
         "elsevier": "https://api.elsevier.com/content/metadata/article"
       },
@@ -111,7 +112,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 3924,
+                "remaining": 619,
                 "resets_at": "2026-08-12T02:35:01+00:00",
                 "els_status": "OK"
               }
@@ -119,10 +120,11 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 3924,
+            "remaining": 619,
             "resets_at": "2026-08-12T02:35:01+00:00",
             "els_status": "OK"
-          }
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (619/20000 remaining)"
         },
         "elsevier": "https://api.elsevier.com/content/metadata/article"
       },
@@ -142,6 +144,136 @@
         "matched_terms": [],
         "source": "academic-door-rules-v1"
       }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jhealeco.2026.103174",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Consolidation of Local Health Authorities and mortality in the Italian NHS",
+      "title_cn": "地方卫生当局的整合和意大利 NHS 的死亡率",
+      "authors": [
+        "Silvia Balia",
+        "Rinaldo Brau",
+        "Sara Pau"
+      ],
+      "abstract_en": "This paper studies the health consequences of administrative centralization in healthcare, focusing on the consolidation of Local Health Authorities (LHAs) within the Italian National Health Service. This type of reform fits within a broader set of cost-containment efforts aimed at reducing administrative expenditures and exploiting economies of scale. In the Italian case, the reform centralized governance and expanded the scale of health administration, creating authorities with substantially larger catchment areas and shifting decision-making to more heterogeneous jurisdictions. Such changes may affect the responsiveness of healthcare provision to local needs, the coordination of service delivery, and access to care. Using an event-study Difference-in-Differences design, we estimate the policy’s impact on municipal mortality rates, accounting for heterogeneous treatment effects and co-occurring fiscal adjustment policies. We find a significant increase in mortality starting four years after implementation, with an average treatment effect on the treated of 2.1%. The effects are concentrated in municipalities belonging to absorbed LHAs and in those exposed to mergers involving relatively large pre-reform LHAs and substantial post-merger expansions in catchment areas; they are also unevenly distributed, creating new vulnerable areas. Welfare estimates based on life-years lost indicate that the monetary costs of increased mortality exceed plausible administrative savings by roughly an order of magnitude.",
+      "abstract_cn": "本文研究了医疗保健行政集中化对健康的影响，重点关注意大利国家卫生服务体系内地方卫生当局 (LHA) 的整合。此类改革适合旨在减少行政支出和利用规模经济的更广泛的成本控制努力。以意大利为例，改革集中了治理并扩大了卫生管理规模，建立了管辖范围更大的当局，并将决策权转移到更加多元化的司法管辖区。这些变化可能会影响医疗保健服务对当地需求的响应、服务提供的协调以及获得护理的机会。使用事件研究双重差分法设计，我们估计了该政策对城市死亡率的影响，并考虑了异质性治疗效果和同时发生的财政调整政策。我们发现实施四年后死亡率显着增加，平均治疗效果为2.1%。影响集中在属于被吸收的地方行政区的城市，以及那些受到涉及改革前相对较大的地方行政区合并以及合并后集水区大幅扩张的影响的城市；它们的分布也不均匀，造成了新的脆弱地区。基于生命损失年数的福利估计表明，死亡率增加的货币成本超出了合理的行政节省大约一个数量级。",
+      "abstract_snippet_en": "This paper studies the health consequences of administrative centralization in healthcare, focusing on the consolidation of Local Health Authorities (LHAs) within the Italian National Health Service....",
+      "doi": "10.1016/j.jhealeco.2026.103174",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S016762962600072X?dgcid=rss_sd_all",
+      "publication_date": "September 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-health-economics/vol/109/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/01676296",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 618,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 618,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (618/20000 remaining)"
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-08-08T18:17:48+00:00",
+        "source_hash": "3c963cabad9d3b58e5e353da95a06b0446b7dc7d8e96e84911d91907622ed34a"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jhealeco.2026.103173",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Hospital Billing Regulations and Financial Well-being: Evidence from California’s Fair Pricing Law",
+      "title_cn": "医院账单规定与财务福祉：来自加州公平定价法的证据",
+      "authors": [
+        "Yaa Akosa Antwi",
+        "Marion Aouad",
+        "Nathan Blascak"
+      ],
+      "abstract_en": "We examine the financial consequences of the 2007 California Fair Pricing Law, which places a price ceiling on hospital bills for financially vulnerable individuals. Using cross-sectional variation in exposure to the law, proxied by county-level uninsured rates, we estimate its impact on individual financial outcomes. We find that the law reduces the likelihood of incurring non-medical debt in collections and the number of non-medical accounts in collections. In addition, we find evidence that credit scores increased and suggestive evidence that the number of delinquent accounts decreased for individuals in more exposed counties. Our results suggest hospital billing regulations can improve targeted individuals’ financial outcomes.",
+      "abstract_cn": "我们研究了2007年加州公平定价法的财务后果，该法对财务脆弱人群的医院账单设定了价格上限。利用法律暴露程度的横截面差异，以县级未保险率作为代理，我们估计了其对个人财务结果的影响。我们发现，该法降低了产生非医疗催收债务的可能性以及非医疗催收账户的数量。此外，我们发现证据表明，在暴露程度更高的县，个人信用评分有所提高，并且有提示性证据表明拖欠账户数量有所减少。我们的结果表明，医院账单规定可以改善目标人群的财务结果。",
+      "abstract_snippet_en": "We examine the financial consequences of the 2007 California Fair Pricing Law, which places a price ceiling on hospital bills for financially vulnerable individuals. Using cross-sectional variation...",
+      "doi": "10.1016/j.jhealeco.2026.103173",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0167629626000718?dgcid=rss_sd_all",
+      "publication_date": "September 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-health-economics/vol/109/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/01676296",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 617,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 617,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (617/20000 remaining)"
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-08-09T22:06:36+00:00",
+        "source_hash": "eeb868b55680b4e317db54ddb9ace71126bae314619d652ee8c94f768ef4554b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
     }
   ],
   "quality": {
@@ -151,14 +283,14 @@
     "roster_authority": "publisher-rss",
     "roster_match_scope": "rss-volume-items",
     "rss_url": "https://rss.sciencedirect.com/publication/science/01676296",
-    "official_item_count": 2,
-    "publishable_item_count": 2,
+    "official_item_count": 4,
+    "publishable_item_count": 4,
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 2,
-    "authors_complete": 2,
-    "abstract_en_complete": 2,
-    "translation_complete": 2,
+    "doi_complete": 4,
+    "authors_complete": 4,
+    "abstract_en_complete": 4,
+    "translation_complete": 4,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_sciencedirect_rss_fallback",
@@ -166,31 +298,31 @@
       "official_order_unverified"
     ],
     "content_counts": {
-      "official_items": 2,
-      "observed_items": 2,
-      "publishable_items": 2,
-      "research_articles": 2,
+      "official_items": 4,
+      "observed_items": 4,
+      "publishable_items": 4,
+      "research_articles": 4,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 2
+      "catalog_content_items": 4
     }
   },
   "content_counts": {
-    "official_items": 2,
-    "observed_items": 2,
-    "publishable_items": 2,
-    "research_articles": 2,
+    "official_items": 4,
+    "observed_items": 4,
+    "publishable_items": 4,
+    "research_articles": 4,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 2
+    "catalog_content_items": 4
   },
   "publication_state": "ready",
   "content_status": "complete",
