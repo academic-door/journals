@@ -2044,19 +2044,28 @@ def request_translation(
             }
         except (requests.RequestException, KeyError, IndexError, TranslationError) as error:
             last_error = error
-            if protect_numbers and isinstance(error, TranslationError) and attempt + 1 < retries:
-                # A deterministic retry repeats the same numeric drift. Give
-                # the model an explicit audit correction while keeping the
-                # final validation unchanged.
+            if isinstance(error, TranslationError) and attempt + 1 < retries:
+                # Temperature=0 makes an unmodified retry repeat the same
+                # deterministic numeric drift. Feed the exact audit failure
+                # back to the model while keeping validate_translation as the
+                # unchanged final authority.
+                if protect_numbers:
+                    correction = (
+                        "上一次输出未通过数字审计。请重新输出严格 JSON；"
+                        "逐字保留所有 ⟦ADNUM_...⟧ 占位符，不得删除、翻译或改写；"
+                        "除占位符恢复出的原始数字外，不得新增任何阿拉伯数字。"
+                    )
+                else:
+                    correction = (
+                        "上一次输出未通过数字语义审计。请重新翻译并输出严格 JSON；"
+                        "逐项核对源文中的数量、年份、比例、百分比和金额。"
+                        "所有源文阿拉伯数字必须原样保留；英文拼写数字只能译为中文文字，"
+                        "不得新增阿拉伯数字；不得改变数量级、单位含义或重复次数。"
+                    )
                 payload["messages"] = _prompt(prompt_article) + [
                     {
                         "role": "user",
-                        "content": (
-                            "上一次输出未通过数字审计。请重新输出严格 JSON；"
-                            "逐字保留所有 ⟦ADNUM_...⟧ 占位符，不得删除、翻译或改写；"
-                            "除占位符恢复出的原始数字外，不得新增任何阿拉伯数字。"
-                            f"审计错误：{error}"
-                        ),
+                        "content": correction + f"审计错误：{error}",
                     }
                 ]
             status_code = (
@@ -2302,21 +2311,8 @@ def _translate_one_parallel(
         primary_error = TranslationError("deepseek key not configured")
 
     if primary_error is not None:
-        provider = "github-models"
-        try:
-            translated = request_translation(
-                article,
-                token=token,
-                model=model,
-                endpoint=endpoint,
-                session=session,
-            )
-        except (ProviderUnavailableError, TranslationError) as error:
-            primary_error = error
-        else:
-            primary_error = None
-
-    if primary_error is not None:
+        # GitHub Models inference was fully retired on 2026-07-30. Do not
+        # spend a network round trip on a permanently unavailable fallback.
         provider = "google-translate"
         try:
             translated = request_google_translation(
@@ -2572,29 +2568,8 @@ def translate_missing(
                     or "deepseek key not configured"
                 )
             if primary_error is not None:
-                # GitHub Models fallback.
-                provider = "github-models"
-                if provider_availability.get("github-models"):
-                    primary_error = TranslationError(
-                        provider_availability["github-models"]
-                    )
-                else:
-                    try:
-                        translated = request_translation(
-                            article,
-                            token=auth_token,
-                            model=selected_model,
-                            endpoint=endpoint,
-                            session=session,
-                        )
-                    except ProviderUnavailableError as error:
-                        provider_availability["github-models"] = str(error)
-                        primary_error = error
-                    except TranslationError as error:
-                        primary_error = error
-                    else:
-                        primary_error = None
-            if primary_error is not None:
+                # GitHub Models inference was fully retired on 2026-07-30.
+                # DeepSeek remains primary; Google is the bounded fallback.
                 if provider_availability.get("google-translate"):
                     raise TranslationError(
                         f"Primary provider failed: {primary_error}; "

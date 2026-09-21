@@ -526,13 +526,17 @@ class TranslationPipelineTests(unittest.TestCase):
 
     def test_writes_translation_cache_with_provenance(self) -> None:
         issue = {"journal_id": "test", "articles": [ARTICLE]}
-        with patch.dict("os.environ", {"DEEPSEEK_API_KEY": ""}, clear=False):
+        with patch.dict(
+            "os.environ",
+            {"DEEPSEEK_API_KEY": "test-deepseek-key", "DEEPSEEK_MODEL": ""},
+            clear=False,
+        ):
             with tempfile.TemporaryDirectory() as directory:
                 cache_path = Path(directory) / "test.json"
                 result = translate_missing(
                     issue,
                     cache_path,
-                    token="test-token",
+                    token="unused",
                     model="test/model",
                     session=FakeSession(),
                 )
@@ -541,7 +545,7 @@ class TranslationPipelineTests(unittest.TestCase):
         self.assertEqual(cache[ARTICLE["doi"]]["title_cn"], "政策检验")
         self.assertEqual(
             cache[ARTICLE["doi"]]["translation"]["provider"],
-            "github-models",
+            "deepseek",
         )
         self.assertRegex(cache[ARTICLE["doi"]]["source_hash"], r"^[0-9a-f]{64}$")
 
@@ -645,6 +649,53 @@ class TranslationPipelineTests(unittest.TestCase):
         self.assertIn("96", translated["abstract_cn"])
         self.assertIn("12.5%", translated["abstract_cn"])
 
+    def test_visible_number_retry_receives_numeric_audit_feedback(self) -> None:
+        class CorrectingSession:
+            def __init__(self) -> None:
+                self.calls = 0
+                self.audit_feedback_seen = False
+
+            def post(self, *args, **kwargs) -> FakeResponse:
+                self.calls += 1
+                messages = kwargs["json"]["messages"]
+                self.audit_feedback_seen = any(
+                    "审计错误" in str(message.get("content", ""))
+                    for message in messages
+                )
+                if self.audit_feedback_seen:
+                    return FakeResponse()
+
+                class BadResponse(FakeResponse):
+                    def json(self) -> dict:
+                        return {
+                            "choices": [{"message": {"content": json.dumps({
+                                "title_cn": "政策检验",
+                                "abstract_cn": (
+                                    "本文研究96项政策，发现排放下降11%，同时福利提高。"
+                                    "估计过程完整保留研究设计和经验结论。"
+                                ),
+                            }, ensure_ascii=False)}}]
+                        }
+
+                return BadResponse()
+
+        session = CorrectingSession()
+        result = request_translation(
+            ARTICLE,
+            token="deepseek-token",
+            model="deepseek-v4-flash",
+            endpoint="https://api.deepseek.com/chat/completions",
+            session=session,
+            provider_name="deepseek",
+            protect_numbers=False,
+            retries=2,
+            json_output=True,
+            disable_thinking=True,
+        )
+        self.assertEqual(session.calls, 2)
+        self.assertTrue(session.audit_feedback_seen)
+        self.assertIn("12.5%", result["abstract_cn"])
+
     def test_retranslates_invalid_cached_entry(self) -> None:
         issue = {"journal_id": "test", "articles": [ARTICLE]}
         invalid_cache = {
@@ -653,7 +704,11 @@ class TranslationPipelineTests(unittest.TestCase):
                 "abstract_cn": "本文省略数字但保留了其余研究背景与经验结论。" * 5,
             }
         }
-        with tempfile.TemporaryDirectory() as directory:
+        with tempfile.TemporaryDirectory() as directory, patch.dict(
+            "os.environ",
+            {"DEEPSEEK_API_KEY": "test-deepseek-key", "DEEPSEEK_MODEL": ""},
+            clear=False,
+        ):
             cache_path = Path(directory) / "test.json"
             cache_path.write_text(
                 json.dumps(invalid_cache, ensure_ascii=False),
@@ -662,7 +717,7 @@ class TranslationPipelineTests(unittest.TestCase):
             result = translate_missing(
                 issue,
                 cache_path,
-                token="test-token",
+                token="unused",
                 model="test/model",
                 session=FakeSession(),
             )
@@ -696,7 +751,7 @@ class TranslationPipelineTests(unittest.TestCase):
         self.assertEqual(result["upgraded_cache_entries"], 1)
         self.assertRegex(cache[ARTICLE["doi"]]["source_hash"], r"^[0-9a-f]{64}$")
 
-    def test_falls_back_when_github_models_is_forbidden(self) -> None:
+    def test_falls_back_to_google_when_deepseek_is_unavailable(self) -> None:
         issue = {"journal_id": "test", "articles": [ARTICLE]}
         with patch.dict("os.environ", {"DEEPSEEK_API_KEY": ""}, clear=False):
             with tempfile.TemporaryDirectory() as directory:
@@ -744,9 +799,9 @@ class TranslationPipelineTests(unittest.TestCase):
 
         self.assertEqual(len(first_result["failed"]), 1)
         self.assertEqual(len(second_result["failed"]), 1)
-        self.assertEqual(session.github_requests, 1)
+        self.assertEqual(session.github_requests, 0)
         self.assertEqual(session.google_requests, 6)
-        self.assertIn("github-models", provider_state)
+        self.assertNotIn("github-models", provider_state)
         self.assertNotIn("google-translate", provider_state)
         self.assertEqual(second_result["provider_state"], provider_state)
 
