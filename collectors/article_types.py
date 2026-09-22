@@ -72,6 +72,54 @@ OFFICIAL_NO_ABSTRACT_EXCEPTIONS: dict[tuple[str, str], dict[str, str]] = {
         "abstract_note": "ScienceDirect 官方文章页标注 Research article，但未提供独立 Abstract。",
         "source_url": "https://www.sciencedirect.com/science/article/pii/S030440762300235X",
     },
+    (
+        "jeem-118-c",
+        "10.1016/j.jeem.2022.102781",
+    ): {
+        "title_cn": "在福利转移中纳入收入不平等：支付意愿收入弹性的重要性",
+        "abstract_note": "ScienceDirect 官方文章页未提供独立 Abstract，正文从 Introduction 开始。",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0095069622001346",
+    },
+    (
+        "jue-133-c",
+        "10.1016/j.jue.2022.103531",
+    ): {
+        "title_cn": "纪念 Edwin S. Mills（1928–2021）",
+        "abstract_note": "Elsevier 提供的 RePEc 文章记录明确标注 No abstract is available for this item，即未提供独立 Abstract。",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0094119022001073",
+    },
+    (
+        "jue-144-c",
+        "10.1016/j.jue.2024.103710",
+    ): {
+        "title_cn": "《城市经济学杂志》50 周年特刊前言",
+        "abstract_note": "Elsevier 提供的 RePEc 文章记录明确标注 No abstract is available for this item，即未提供独立 Abstract。",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0094119024000809",
+    },
+    (
+        "jue-144-c",
+        "10.1016/j.jue.2024.103712",
+    ): {
+        "title_cn": "《城市经济学杂志》，1991–2007",
+        "abstract_note": "Elsevier 提供的 RePEc 文章记录明确标注 No abstract is available for this item，即未提供独立 Abstract。",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0094119024000822",
+    },
+    (
+        "jue-144-c",
+        "10.1016/j.jue.2024.103713",
+    ): {
+        "title_cn": "JUE 2007–2023：影响力提升",
+        "abstract_note": "ScienceDirect 官方文章页未提供独立 Abstract，正文从 Introduction 开始。",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0094119024000834",
+    },
+    (
+        "wd-192-c",
+        "10.1016/j.worlddev.2025.107006",
+    ): {
+        "title_cn": "“黄金标准”的裂痕：发展经济学中采矿研究的欧洲中心主义",
+        "abstract_note": "ScienceDirect 官方文章页未提供独立 Abstract，正文从 Introduction 开始。",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0305750X25000919",
+    },
 }
 CORRECTION_PATTERN = re.compile(
     r"^\s*(?:corrigendum|erratum|correction|addendum)(?:\s+to\b|:|\s*$)|"
