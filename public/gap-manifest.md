@@ -1,6 +1,6 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-21T23:23:11+00:00
+Generated: 2026-09-22T05:01:00+00:00
 
 ## Summary
 
@@ -1095,14 +1095,14 @@ Generated: 2026-09-21T23:23:11+00:00
 | RESTAT | restat-105-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RESTAT | restat-105-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | RESTAT | restat-105-4 | 2023 | ready | complete | official_verified | content and official source gates passed |
-| RESTAT | restat-105-5 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| RESTAT | restat-105-6 | 2023 | source_pending | complete | source_pending | source authority pending official verification |
-| RESTAT | restat-106-1 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
-| RESTAT | restat-106-2 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-105-5 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| RESTAT | restat-105-6 | 2023 | source_pending | complete | source_pending | official source verification pending |
+| RESTAT | restat-106-1 | 2024 | source_pending | complete | source_pending | official source verification pending |
+| RESTAT | restat-106-2 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | RESTAT | restat-106-3 | 2024 | ready | complete | official_verified | content and official source gates passed |
-| RESTAT | restat-106-4 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-106-4 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | RESTAT | restat-106-5 | 2024 | source_pending | complete | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs official page or browser-authorized capture |
-| RESTAT | restat-106-6 | 2024 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-106-6 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | RESTAT | restat-107-1 | 2025 | source_pending | complete | source_pending | official source verification pending |
 | RESTAT | restat-107-2 | 2025 | source_pending | complete | source_pending | official source verification pending |
 | RESTAT | restat-107-3 | 2025 | source_pending | complete | source_pending | official source verification pending |
