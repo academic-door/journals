@@ -14,6 +14,7 @@ import re
 import sys
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlparse
 
 import requests
 import yaml
@@ -46,6 +47,21 @@ DEFAULT_API_ROOT = ROOT / "public" / "api" / "v1"
 DEFAULT_STATE_ROOT = ROOT / "data" / "backfill-state"
 DEFAULT_STAGING_ROOT = ROOT / "data" / "backfill-staging"
 ISSUE_ID = re.compile(r"^[A-Za-z0-9-]+$")
+
+
+def configured_repec_series_code(journal: dict[str, Any]) -> str:
+    """Return the configured RePEc series code without granting roster authority."""
+
+    raw = str(journal.get("repec_series_url", "")).strip()
+    if not raw:
+        return ""
+    parsed = urlparse(raw)
+    if parsed.scheme != "https" or parsed.hostname != "ideas.repec.org":
+        return ""
+    path = parsed.path.strip("/")
+    if not path.startswith("s/") or not path.endswith(".html"):
+        return ""
+    return path[len("s/") : -len(".html")]
 
 
 def trusted_elsevier_staging(
@@ -93,7 +109,7 @@ def enrich_missing_elsevier_abstracts(
 
     Official Elsevier article metadata remains first choice. When it has no
     usable abstract, reuse the repository's established DOI metadata fallback
-    chain (Crossref -> Semantic Scholar -> OpenAlex). Only abstract_en and
+    chain (Crossref -> Semantic Scholar -> OpenAlex -> configured RePEc). Only abstract_en and
     its field-level provenance may change; roster/order, authors, title and
     issue source authority remain untouched.
     """
@@ -147,6 +163,7 @@ def enrich_missing_elsevier_abstracts(
         list(dict.fromkeys(doi for _article, doi in unresolved)),
         {},
         timeout=timeout,
+        repec_series_code=configured_repec_series_code(journal),
     )
     for article, doi in unresolved:
         metadata = fallback.get(doi, {})
