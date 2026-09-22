@@ -485,6 +485,9 @@ jobs:
 
       - name: Convert ScienceDirect browser snapshots to official evidence
         if: inputs.evidence_issue_ids != '' && inputs.categories != '__elsevier_staging_only__'
+        env:
+          ELSEVIER_API_KEY: ${{ secrets.ELSEVIER_API_KEY }}
+          ELSEVIER_INST_TOKEN: ${{ secrets.ELSEVIER_INST_TOKEN }}
         shell: bash
         run: |
           set -euo pipefail
