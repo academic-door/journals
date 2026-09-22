@@ -807,6 +807,16 @@ def _is_english_century_ordinal(value: str, match: "re.Match[str]") -> bool:
     rest = value[match.end():].lstrip()
     if rest.startswith("century") or rest.startswith("centuries"):
         return True
+    # A compound ordinal such as "twenty-first century" is a calendar-era
+    # descriptor, not a reported quantity. The cardinal matcher sees only
+    # "twenty"; exempt it when the remainder is the ordinal suffix + century.
+    if re.match(
+        r"(?:-\s*)?(?:first|second|third|fourth|fifth|sixth|seventh|eighth|ninth)"
+        r"\s+centur(?:y|ies)\b",
+        rest,
+        re.IGNORECASE,
+    ):
+        return True
     if re.match(
         r"(?:[-\s])?(?:quarters?|halves?|half|thirds?|fourths?|fifths?|"
         r"sixths?|sevenths?|eighths?|ninth|tenths?|hundredths?|thousandths?)",
@@ -1032,6 +1042,64 @@ def _reconcile_missing_enumeration_counts(
         source_q[token] -= 1
         enum_available[token] -= 1
 
+
+_EN_EVERY_CURRENCY_RE = re.compile(
+    r"(?i)\bevery\s+(?P<currency>dollars?|euros?|pounds?|yuan|renminbi|yen|rupees?|baht)\b"
+)
+_CN_EVERY_EXPLICIT_ONE_CURRENCY_RE = re.compile(
+    r"每(?:(?:持有|拥有|持仓|投资|投入)\s*)?1\s*"
+    r"(?P<currency>美元|欧元|英镑|人民币|日元|卢比|泰铢|元)"
+)
+_EN_CURRENCY_CANONICAL = {
+    "dollar": "USD", "dollars": "USD",
+    "euro": "EUR", "euros": "EUR",
+    "pound": "GBP", "pounds": "GBP",
+    "yuan": "CNY", "renminbi": "CNY",
+    "yen": "JPY",
+    "rupee": "INR", "rupees": "INR",
+    "baht": "THB",
+}
+_CN_CURRENCY_CANONICAL = {
+    "美元": "USD", "欧元": "EUR", "英镑": "GBP",
+    "人民币": "CNY", "元": "CNY", "日元": "JPY",
+    "卢比": "INR", "泰铢": "THB",
+}
+
+
+def _reconcile_explicit_one_for_every_currency(
+    source_text: str,
+    translated_text: str,
+    source_q: "Counter[str]",
+    translated_q: "Counter[str]",
+) -> None:
+    """Allow an explicit Chinese "1 currency" for English "every currency".
+
+    "For every dollar" semantically denotes a unit denominator but English
+    carries no surface numeral. Chinese may faithfully render it as
+    "每持有1美元". Reconcile only the *extra* translated 1, only when the same
+    currency is present in a bounded "每...1<currency>" phrase. Any unrelated
+    added 1 remains and still fails the numeric gate.
+    """
+
+    extra_ones = translated_q["1"] - source_q["1"]
+    if extra_ones <= 0:
+        return
+    source_units: Counter[str] = Counter()
+    for match in _EN_EVERY_CURRENCY_RE.finditer(source_text):
+        source_units[_EN_CURRENCY_CANONICAL[match.group("currency").lower()]] += 1
+    if not source_units:
+        return
+    translated_units: Counter[str] = Counter()
+    for match in _CN_EVERY_EXPLICIT_ONE_CURRENCY_RE.finditer(translated_text):
+        translated_units[_CN_CURRENCY_CANONICAL[match.group("currency")]] += 1
+    equivalents = sum(
+        min(count, translated_units.get(currency, 0))
+        for currency, count in source_units.items()
+    )
+    if equivalents:
+        translated_q["1"] -= min(extra_ones, equivalents)
+
+
 def resolve_semantic_quantities(
     source_text: str,
     translated_text: str,
@@ -1047,6 +1115,9 @@ def resolve_semantic_quantities(
     translated_q = Counter(_semantic_numbers(translated_text) + _month_numbers(translated_text))
     _reconcile_single_cn_digits(translated_text, source_q, translated_q)
     _reconcile_missing_enumeration_counts(source_text, translated_text, source_q, translated_q)
+    _reconcile_explicit_one_for_every_currency(
+        source_text, translated_text, source_q, translated_q
+    )
     for identifier_number in _identifier_numbers(source_text):
         if translated_q[identifier_number] > source_q[identifier_number]:
             translated_q[identifier_number] -= 1

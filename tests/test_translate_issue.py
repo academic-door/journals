@@ -287,6 +287,44 @@ class ChineseNumeralCanonicalizationTests(unittest.TestCase):
 
 
 
+
+class ResidualSemanticNumericSymmetryTests(unittest.TestCase):
+    def test_compound_century_descriptor_does_not_emit_tens_quantity(self) -> None:
+        from scripts.translate_issue import resolve_semantic_quantities
+
+        source, translated = resolve_semantic_quantities(
+            "Economic measurement must be fit for purpose in the twenty-first century.",
+            "经济活动的衡量方式必须适应二十一世纪的需要。",
+        )
+        self.assertEqual(source, translated)
+        self.assertEqual(0, source["20"])
+        self.assertEqual(0, translated["20"])
+
+    def test_every_dollar_may_be_rendered_as_explicit_one_dollar(self) -> None:
+        from scripts.translate_issue import resolve_semantic_quantities
+
+        source, translated = resolve_semantic_quantities(
+            "Using data from the ten largest European banks, for every dollar "
+            "of equity holding, 26 cents are potentially exposed.",
+            "使用欧洲十大银行的数据，每持有1美元股权，就有26美分可能面临风险。",
+        )
+        self.assertEqual(source, translated)
+        self.assertEqual(0, translated["1"])
+        self.assertEqual(1, translated["26"])
+
+    def test_every_currency_reconciliation_does_not_hide_unrelated_added_one(self) -> None:
+        from scripts.translate_issue import resolve_semantic_quantities
+
+        source, translated = resolve_semantic_quantities(
+            "For every dollar of equity holding, 26 cents are potentially exposed.",
+            "每持有1美元股权，就有26美分可能面临风险，并额外增加1个指标。",
+        )
+        self.assertEqual(source["1"] + 1, translated["1"])
+        self.assertEqual(source["26"], translated["26"])
+
+
+
+
 class DeepSeekModelResolutionTests(unittest.TestCase):
     def test_default_model_is_deepseek_v4_flash(self) -> None:
         from scripts.translate_issue import _deepseek_model
