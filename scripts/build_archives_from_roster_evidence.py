@@ -333,7 +333,6 @@ def build_candidate_from_evidence(
         ] or list(meta.get("authors", []))
         abstract = str(item.get("abstract_en", "") or meta.get("abstract", "")).strip()
         source_url = str(item.get("source_url", "") or official_url).strip()
-        metadata_source = str(meta.get("abstract_url", "") or f"https://doi.org/{doi}")
         abstract_source = (
             source_url
             if item.get("abstract_en")
@@ -360,7 +359,7 @@ def build_candidate_from_evidence(
             "sources": {
                 "issue": official_url,
                 "roster": official_url,
-                "metadata": source_url if item.get("source_url") else metadata_source,
+                "metadata": source_url if item.get("source_url") else f"https://doi.org/{doi}",
                 "abstract_en": abstract_source,
             },
             "translation": {"status": "missing"},
