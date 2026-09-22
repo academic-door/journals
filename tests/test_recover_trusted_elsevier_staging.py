@@ -6,6 +6,7 @@ from unittest.mock import ANY, patch
 import requests
 
 from scripts.recover_trusted_elsevier_staging import (
+    apply_official_no_abstract_exceptions,
     enrich_missing_elsevier_abstracts,
     trusted_elsevier_staging,
 )
@@ -113,6 +114,42 @@ class RecoverTrustedElsevierStagingTests(unittest.TestCase):
             doi="10.1016/j.foodpol.2025.102890",
             timeout=10,
         )
+
+
+    def test_exact_official_no_abstract_exception_preserves_roster(self) -> None:
+        candidate = self.candidate()
+        article = candidate["articles"][0]
+        article["quality_flags"] = [
+            "title_cn_missing",
+            "abstract_en_missing",
+            "abstract_cn_missing",
+        ]
+        original_authority = candidate["quality"]["roster_authority"]
+        original_transport = candidate["quality"]["roster_transport"]
+
+        applied = apply_official_no_abstract_exceptions(candidate)
+
+        self.assertEqual(1, applied)
+        self.assertEqual("official_not_provided", article["abstract_status"])
+        self.assertEqual("最大残留限量分析的政策相关性", article["title_cn"])
+        self.assertEqual("", article["abstract_en"])
+        self.assertEqual("", article["abstract_cn"])
+        self.assertEqual(
+            "publisher-page-no-standalone-abstract",
+            article["sources"]["abstract_en"],
+        )
+        self.assertEqual(article["source_url"], article["sources"]["abstract_en_url"])
+        self.assertEqual("complete", article["translation"]["status"])
+        self.assertIn("official_abstract_unavailable", article["quality_flags"])
+        self.assertNotIn("abstract_en_missing", article["quality_flags"])
+        self.assertEqual(original_authority, candidate["quality"]["roster_authority"])
+        self.assertEqual(original_transport, candidate["quality"]["roster_transport"])
+
+    def test_no_abstract_exception_does_not_generalize(self) -> None:
+        candidate = self.candidate()
+        candidate["issue_id"] = "foodpolicy-999-c"
+        self.assertEqual(0, apply_official_no_abstract_exceptions(candidate))
+        self.assertNotIn("abstract_status", candidate["articles"][0])
 
     def test_metadata_fallback_fills_only_abstract_and_preserves_roster(self) -> None:
         candidate = self.candidate()
