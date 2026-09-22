@@ -522,6 +522,16 @@ _CN_SCALED_RE = re.compile(
     r"\s*(?P<scale>万亿|十亿|千万|百万|亿|千|万)"
     r"(?![0-9])"
 )
+# A bare singular scale word directly modifying an explicit currency noun is
+# still an exact quantity. This covers proper names such as "Million Baht
+# Village Fund" without treating indefinite plurals such as "millions of
+# people" as exactly 1,000,000.
+_EN_BARE_CURRENCY_SCALE_RE = re.compile(
+    r"(?i)(?<![A-Za-z])"
+    r"(?P<scale>million|billion|trillion)"
+    r"\s+(?:baht|dollars?|euros?|pounds?|yuan|renminbi|yen|rupees?)\b"
+)
+
 # English cardinal number words and a unified written-number phrase matcher.
 _EN_CARD_VALUES = {
     "zero": 0, "one": 1, "two": 2, "three": 3, "four": 4, "five": 5,
@@ -1280,6 +1290,17 @@ def _semantic_numbers(value: str) -> list[str]:
         if overlaps(span):
             continue
         record(_scaled_token(match.group("amount"), 1000), match.span())
+
+    # 2c. Bare singular scale + explicit currency noun
+    #     ("Million Baht Village Fund" -> 1000000).
+    for match in _EN_BARE_CURRENCY_SCALE_RE.finditer(value):
+        span = match.span()
+        if overlaps(span):
+            continue
+        record(
+            _quantity_token(_ENG_SCALE_WORDS[match.group("scale").lower()]),
+            span,
+        )
 
     # 3+4. English written cardinal + optional scale + optional measure/percent
     #       ("thirty-five percent", "one hundred years", "two decades",
