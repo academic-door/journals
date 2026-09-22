@@ -17,11 +17,10 @@ ARTICLE_TYPES = {
 PUBLISHABLE_TYPES = {"research-article", "comment", "short-communication"}
 OFFICIAL_NO_ABSTRACT_STATUS = "official_not_provided"
 
-# These two Nobel Lectures are the only approved no-abstract exceptions in
-# the monitored 2023-2026 history.  The publisher provides full text that
-# starts with an Introduction, but no standalone Abstract.  Keep the
-# exception DOI- and issue-scoped so a generic missing-abstract article can
-# never inherit the waiver.
+# Approved publisher-verified no-abstract exceptions in the monitored
+# 2023-2026 history. Keep every exception DOI- and issue-scoped so a generic
+# missing-abstract article can never inherit the waiver. Each entry is backed
+# by a durable official-page evidence record in the owner repository.
 OFFICIAL_NO_ABSTRACT_EXCEPTIONS: dict[tuple[str, str], dict[str, str]] = {
     (
         "jpe-131-10",
@@ -40,6 +39,38 @@ OFFICIAL_NO_ABSTRACT_EXCEPTIONS: dict[tuple[str, str], dict[str, str]] = {
         "abstract_note": (
             "JPE 官方页面提供完整正文，但未提供独立 Abstract；正文从 Introduction 开始。"
         ),
+    },
+    (
+        "foodpolicy-134-c",
+        "10.1016/j.foodpol.2025.102890",
+    ): {
+        "title_cn": "最大残留限量分析的政策相关性",
+        "abstract_note": "ScienceDirect 官方文章页标注 Full-length article，但未提供独立 Abstract。",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0306919225000958",
+    },
+    (
+        "foodpolicy-137-c",
+        "10.1016/j.foodpol.2025.102911",
+    ): {
+        "title_cn": "推广无农药、非有机谷物生产的证据",
+        "abstract_note": "ScienceDirect 官方文章页标注 Short communication，但未提供独立 Abstract。",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0306919225001162",
+    },
+    (
+        "joe-237-1",
+        "10.1016/j.jeconom.2023.105516",
+    ): {
+        "title_cn": "什么是标准误？",
+        "abstract_note": "ScienceDirect 官方文章页标注 Research article，但未提供独立 Abstract。",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623002324",
+    },
+    (
+        "joe-237-1",
+        "10.1016/j.jeconom.2023.105519",
+    ): {
+        "title_cn": "当今数据科学实践中的不确定性是什么？",
+        "abstract_note": "ScienceDirect 官方文章页标注 Research article，但未提供独立 Abstract。",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S030440762300235X",
     },
 }
 CORRECTION_PATTERN = re.compile(
