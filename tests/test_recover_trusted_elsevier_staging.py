@@ -113,6 +113,79 @@ class RecoverTrustedElsevierStagingTests(unittest.TestCase):
             timeout=10,
         )
 
+    def test_metadata_fallback_fills_only_abstract_and_preserves_roster(self) -> None:
+        candidate = self.candidate()
+        doi = candidate["articles"][0]["doi"]
+        original_authors = list(candidate["articles"][0]["authors"])
+        original_title = candidate["articles"][0]["title_en"]
+        original_roster_authority = candidate["quality"]["roster_authority"]
+        original_roster_transport = candidate["quality"]["roster_transport"]
+        fallback_url = "https://www.semanticscholar.org/paper/example"
+        with (
+            patch(
+                "scripts.recover_trusted_elsevier_staging._elsevier_lookup",
+                return_value={"abstract": "", "source_url": ""},
+            ),
+            patch(
+                "scripts.recover_trusted_elsevier_staging._metadata_for_dois",
+                return_value={
+                    doi: {
+                        "abstract": "Public metadata abstract.",
+                        "abstract_source": "semantic-scholar",
+                        "abstract_url": fallback_url,
+                    }
+                },
+            ) as metadata_fallback,
+        ):
+            filled = enrich_missing_elsevier_abstracts(
+                candidate,
+                self.journal(),
+                session=requests.Session(),
+                timeout=10,
+            )
+
+        self.assertEqual(1, filled)
+        article = candidate["articles"][0]
+        self.assertEqual("Public metadata abstract.", article["abstract_en"])
+        self.assertEqual(fallback_url, article["sources"]["abstract_en"])
+        self.assertEqual(fallback_url, article["sources"]["abstract_en_url"])
+        self.assertEqual(original_authors, article["authors"])
+        self.assertEqual(original_title, article["title_en"])
+        self.assertEqual(original_roster_authority, candidate["quality"]["roster_authority"])
+        self.assertEqual(original_roster_transport, candidate["quality"]["roster_transport"])
+        metadata_fallback.assert_called_once_with(
+            ANY,
+            [doi],
+            {},
+            timeout=10,
+        )
+
+    def test_empty_metadata_fallback_leaves_missing_abstract_blocked(self) -> None:
+        candidate = self.candidate()
+        with (
+            patch(
+                "scripts.recover_trusted_elsevier_staging._elsevier_lookup",
+                return_value={"abstract": ""},
+            ),
+            patch(
+                "scripts.recover_trusted_elsevier_staging._metadata_for_dois",
+                return_value={},
+            ),
+        ):
+            filled = enrich_missing_elsevier_abstracts(
+                candidate,
+                self.journal(),
+                session=requests.Session(),
+                timeout=10,
+            )
+
+        self.assertEqual(0, filled)
+        self.assertEqual("", candidate["articles"][0]["abstract_en"])
+        self.assertEqual(
+            "repec-publisher-supplied",
+            candidate["quality"]["roster_authority"],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
