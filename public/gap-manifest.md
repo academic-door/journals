@@ -1,11 +1,11 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-22T09:58:52+00:00
+Generated: 2026-09-22T10:30:47+00:00
 
 ## Summary
 
-- ready: 1177
-- recoverable: 11
+- ready: 1178
+- recoverable: 10
 - source_pending: 17
 
 ## Issue queue
@@ -160,7 +160,7 @@ Generated: 2026-09-22T09:58:52+00:00
 | CER | cer-91-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-92-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-93-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
-| CER | cer-94-c | 2025 | source_pending | complete | source_pending | official source verification pending |
+| CER | cer-94-c | 2025 | source_pending | complete | source_pending | source authority pending official verification |
 | CER | cer-95-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-96-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-97-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
@@ -832,7 +832,7 @@ Generated: 2026-09-22T09:58:52+00:00
 | JOE | joe-234-2 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JOE | joe-234-c | 2023 | recoverable | blocked | source_pending | archive_missing |
 | JOE | joe-235-1 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
-| JOE | joe-235-2 | 2023 | recoverable | blocked | source_pending | archive_missing |
+| JOE | joe-235-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | JOE | joe-236-1 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JOE | joe-236-2 | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JOE | joe-237-1 | 2023 | recoverable | blocked | source_pending | archive_missing |
@@ -1104,11 +1104,11 @@ Generated: 2026-09-22T09:58:52+00:00
 | RESTAT | restat-106-5 | 2024 | source_pending | complete | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs official page or browser-authorized capture |
 | RESTAT | restat-106-6 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | RESTAT | restat-107-1 | 2025 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-107-2 | 2025 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-107-3 | 2025 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-107-4 | 2025 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-107-5 | 2025 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-107-6 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| RESTAT | restat-107-2 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-107-3 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-107-4 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-107-5 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-107-6 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
 | RESTAT | restat-108-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RESTAT | restat-108-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RESTAT | restat-108-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
