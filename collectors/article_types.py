@@ -85,7 +85,7 @@ OFFICIAL_NO_ABSTRACT_EXCEPTIONS: dict[tuple[str, str], dict[str, str]] = {
         "10.1016/j.jue.2022.103531",
     ): {
         "title_cn": "纪念 Edwin S. Mills（1928–2021）",
-        "abstract_note": "Elsevier 提供的 RePEc 文章记录明确标注 No abstract is available for this item。",
+        "abstract_note": "Elsevier 提供的 RePEc 文章记录明确标注 No abstract is available for this item，即未提供独立 Abstract。",
         "source_url": "https://www.sciencedirect.com/science/article/pii/S0094119022001073",
     },
     (
@@ -93,7 +93,7 @@ OFFICIAL_NO_ABSTRACT_EXCEPTIONS: dict[tuple[str, str], dict[str, str]] = {
         "10.1016/j.jue.2024.103710",
     ): {
         "title_cn": "《城市经济学杂志》50 周年特刊前言",
-        "abstract_note": "Elsevier 提供的 RePEc 文章记录明确标注 No abstract is available for this item。",
+        "abstract_note": "Elsevier 提供的 RePEc 文章记录明确标注 No abstract is available for this item，即未提供独立 Abstract。",
         "source_url": "https://www.sciencedirect.com/science/article/pii/S0094119024000809",
     },
     (
@@ -101,7 +101,7 @@ OFFICIAL_NO_ABSTRACT_EXCEPTIONS: dict[tuple[str, str], dict[str, str]] = {
         "10.1016/j.jue.2024.103712",
     ): {
         "title_cn": "《城市经济学杂志》，1991–2007",
-        "abstract_note": "Elsevier 提供的 RePEc 文章记录明确标注 No abstract is available for this item。",
+        "abstract_note": "Elsevier 提供的 RePEc 文章记录明确标注 No abstract is available for this item，即未提供独立 Abstract。",
         "source_url": "https://www.sciencedirect.com/science/article/pii/S0094119024000822",
     },
     (
