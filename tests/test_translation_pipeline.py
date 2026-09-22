@@ -555,6 +555,38 @@ class TranslationPipelineTests(unittest.TestCase):
                 source_q, translated_q = resolve_semantic_quantities(source, translated)
                 self.assertEqual(source_q, translated_q)
 
+    def test_bare_currency_scale_in_proper_name_matches_chinese_quantity(self) -> None:
+        source = (
+            "We evaluate the Million Baht Village Fund Program in Thailand "
+            "and a carbon emission trading scheme in China."
+        )
+        translated = (
+            "我们评估泰国的百万泰铢村庄基金计划以及中国的碳排放交易计划。"
+        )
+        source_q, translated_q = resolve_semantic_quantities(source, translated)
+        self.assertEqual(source_q, translated_q)
+        self.assertEqual(1, source_q["1000000"])
+
+        article = {
+            "doi": "10.1016/j.jeconom.2022.03.012",
+            "title_en": "Testing for time stochastic dominance",
+            "abstract_en": source,
+        }
+        validate_translation(
+            article,
+            {
+                "title_cn": "时间随机占优检验",
+                "abstract_cn": translated,
+            },
+        )
+
+    def test_indefinite_plural_scale_is_not_forced_to_exact_million(self) -> None:
+        source = "Millions of people benefited from the program."
+        translated = "数百万人从该项目中受益。"
+        source_q, translated_q = resolve_semantic_quantities(source, translated)
+        self.assertEqual(source_q, translated_q)
+        self.assertEqual(0, source_q["1000000"])
+
     def test_year_to_currency_amount_is_not_a_shared_scale_range(self) -> None:
         source = (
             "Social Security wealth increased from $7.2 trillion in 1989 "
