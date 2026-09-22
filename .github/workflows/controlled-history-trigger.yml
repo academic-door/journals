@@ -93,6 +93,57 @@ jobs:
       repair_content_only: false
     secrets: inherit
 
+
+  elsevier_staging_repec:
+    if: >-
+      github.event.issue.number == 205 &&
+      github.event.issue.pull_request == null &&
+      github.event.comment.user.login == 'SIMON-WORLD' &&
+      github.event.comment.body == '/history-elsevier-staging-repec'
+    uses: ./.github/workflows/history-sprint.yml
+    permissions:
+      actions: read
+      contents: write
+      models: read
+    with:
+      max_issues: "3"
+      max_translations: "120"
+      categories: __elsevier_staging_only__
+      source_run_id: ""
+      state_source_run_id: "32734420419"
+      strict_final: false
+      evidence_issue_ids: >-
+        foodpolicy-134-c,foodpolicy-137-c,joe-237-1
+      capture_wiley_evidence: false
+      repair_dates_only: false
+      repair_content_only: false
+    secrets: inherit
+
+  elsevier_staging_browser:
+    if: >-
+      github.event.issue.number == 205 &&
+      github.event.issue.pull_request == null &&
+      github.event.comment.user.login == 'SIMON-WORLD' &&
+      github.event.comment.body == '/history-elsevier-staging-browser'
+    uses: ./.github/workflows/history-sprint.yml
+    permissions:
+      actions: read
+      contents: write
+      models: read
+    with:
+      max_issues: "5"
+      max_translations: "120"
+      categories: __elsevier_staging_only__
+      source_run_id: ""
+      state_source_run_id: "32734420419"
+      strict_final: false
+      evidence_issue_ids: >-
+        ecolecon-224-c,jeem-118-c,jue-133-c,jue-144-c,wd-192-c
+      capture_wiley_evidence: false
+      repair_dates_only: false
+      repair_content_only: false
+    secrets: inherit
+
   date_repair:
     if: >-
       github.event.issue.number == 205 &&
