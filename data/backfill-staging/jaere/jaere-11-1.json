@@ -11,8 +11,8 @@
   "retrieved_at": "2026-09-20",
   "expected_article_count": 7,
   "research_article_count": 7,
-  "status": "incomplete",
-  "publication_state": "blocked",
+  "status": "ready",
+  "publication_state": "ready",
   "development_sample": false,
   "articles": [
     {
@@ -177,12 +177,12 @@
       "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "California’s GHG Cap-and-Trade Program and the Equity of Air Toxic Releases",
-      "title_cn": "",
+      "title_cn": "加利福尼亚州的温室气体总量控制与交易计划及空气有毒物质排放的公平性",
       "authors": [
         "Glenn Sheriff"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "Carbon trading faces pushback over concerns of increasing copollutant exposure for minorities. Combining federal and state data I evaluate three questions concerning the distribution of hazardous air pollutants after implementation of California’s greenhouse gas cap-and-trade program. Did air toxic releases from facilities covered by the GHG program upwind of minorities disproportionately increase? Did minority communities suffer a disproportionate increase in cumulative exposure from covered facilities? Did minorities overall suffer higher exposure to air toxics from all sources relative to a counterfactual no-cap-and-trade scenario? Results suggest that covered facilities upwind of minorities did not have higher releases, and minority communities experienced a relative reduction in cumulative exposure from them. Under all policy scenarios minorities have a less desirable exposure distribution than whites. However, both demographic groups have a better air toxic exposure distribution with the cap-and-trade program than in a counterfactual without.",
+      "abstract_cn": "碳交易因担心增加少数族裔的共污染物暴露而面临阻力。结合联邦和州数据，我评估了关于加利福尼亚州温室气体总量控制与交易计划实施后有害空气污染物分布的三个问题。温室气体计划覆盖设施中位于少数族裔上风方向的空气有毒物质排放是否不成比例地增加？少数族裔社区是否因覆盖设施的累积暴露不成比例地增加而受害？与没有总量控制与交易的反事实情景相比，少数族裔总体上是否从所有来源暴露于更高的空气有毒物质？结果表明，位于少数族裔上风方向的覆盖设施并未有更高的排放，且少数族裔社区从这些设施经历的累积暴露相对减少。在所有政策情景下，少数族裔的暴露分布都比白人更不理想。然而，与没有总量控制与交易的反事实情景相比，两个人口群体在总量控制与交易计划下的空气有毒物质暴露分布都更好。",
       "doi": "10.1086/725699",
       "source_url": "https://journals.uchicago.edu/toc/jaere/2024/11/1",
       "publication_date": "January 2024",
@@ -190,15 +190,18 @@
         "issue": "https://journals.uchicago.edu/toc/jaere/2024/11/1",
         "roster": "https://journals.uchicago.edu/toc/jaere/2024/11/1",
         "metadata": "https://doi.org/10.1086/725699",
-        "abstract_en": "crossref-or-semantic-scholar"
+        "abstract_en": "https://ideas.repec.org/a/ucp/jaerec/doi10.1086-725699.html",
+        "repec": "https://ideas.repec.org/a/ucp/jaerec/doi10.1086-725699.html"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-22T09:35:38+00:00",
+        "source_hash": "4e695041432e1fc1f4df1f3ce8b4409736702aac059a5f3e5f9478a092ef347f"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -306,13 +309,10 @@
     ],
     "doi_complete": 7,
     "authors_complete": 7,
-    "abstract_en_complete": 6,
-    "translation_complete": 6,
+    "abstract_en_complete": 7,
+    "translation_complete": 7,
     "duplicate_count": 0,
-    "flags": [
-      "abstract_en_incomplete",
-      "translation_incomplete"
-    ],
+    "flags": [],
     "publishable_item_count": 7,
     "excluded_item_count": 2,
     "content_counts": {
@@ -342,6 +342,6 @@
     "other_excluded": 1,
     "catalog_content_items": 7
   },
-  "content_status": "blocked",
+  "content_status": "complete",
   "source_status": "official_verified"
 }

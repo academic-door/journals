@@ -11,8 +11,8 @@
   "retrieved_at": "2026-09-20",
   "expected_article_count": 8,
   "research_article_count": 8,
-  "status": "incomplete",
-  "publication_state": "blocked",
+  "status": "ready",
+  "publication_state": "ready",
   "development_sample": false,
   "articles": [
     {
@@ -62,13 +62,13 @@
       "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "Measuring Labor Market Power in Developing Countries: Evidence from Colombian Plants",
-      "title_cn": "",
+      "title_cn": "衡量发展中国家的劳动力市场势力：来自哥伦比亚工厂的证据",
       "authors": [
         "Francesco Amodio",
         "Nicolás de Roux"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "How much can employers in low- and middle-income countries suppress wages below marginal productivity? Using plant and customs data from Colombia, we exploit predetermined variation across plants in sales export destinations combined with variation in exchange rates to generate plant-specific shocks to marginal revenue productivity and labor demand. We estimate a firm-level labor supply elasticity of around 2.5, implying that workers produce about 40% more than their wage level. This result is driven by plants that account for a large share of local employment, consistent with an oligopsonistic labor market model.",
+      "abstract_cn": "中低收入国家的雇主能在多大程度上将工资压低至边际生产率以下？利用哥伦比亚的工厂和海关数据，我们结合各工厂销售出口目的地的预定差异与汇率变动，生成对边际收入生产率和劳动力需求的工厂特定冲击。我们估计企业层面的劳动力供给弹性约为2.5，这意味着工人生产的产品比其工资水平高出约40%。这一结果由占当地就业很大份额的工厂所驱动，与寡头买方垄断劳动力市场模型一致。",
       "doi": "10.1086/725248",
       "source_url": "https://journals.uchicago.edu/toc/jole/2024/42/4",
       "publication_date": "October 2024",
@@ -76,15 +76,18 @@
         "issue": "https://journals.uchicago.edu/toc/jole/2024/42/4",
         "roster": "https://journals.uchicago.edu/toc/jole/2024/42/4",
         "metadata": "https://doi.org/10.1086/725248",
-        "abstract_en": "crossref-or-semantic-scholar"
+        "abstract_en": "https://ideas.repec.org/a/ucp/jlabec/doi10.1086-725248.html",
+        "repec": "https://ideas.repec.org/a/ucp/jlabec/doi10.1086-725248.html"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-22T09:35:48+00:00",
+        "source_hash": "c84ca3e57c2a14dd8267666c3d0c8bd70f6fd9e8d008694903898f0592c337e6"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -137,12 +140,12 @@
       "source_sequence": 4,
       "article_type": "research-article",
       "title_en": "Do Less Informative College Admission Exams Reduce Earnings Inequality? Evidence from Colombia",
-      "title_cn": "",
+      "title_cn": "信息量更少的大学入学考试会减少收入不平等吗？来自哥伦比亚的证据",
       "authors": [
         "Evan Riehl"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "This paper asks whether reducing the informativeness of college admission exams reduces inequality in postcollege earnings. I examine a 2000 reform of the Colombian college admission exam that sought to reduce bias in scores. The reform reduced test score gaps between high- and low-income students by nearly 50% in some subjects, but it also decreased the exam’s predictive power for abilities that matter in college. I find that the reform caused students to attend colleges where they were more likely to drop out, which reduced earnings for both high- and low-income students.",
+      "abstract_cn": "本文探讨降低大学入学考试的信息量是否会减少大学毕业后收入的差距。我考察了哥伦比亚大学入学考试的一项2000改革，该改革旨在减少分数中的偏差。该改革使高收入和低收入学生之间的考试成绩差距在某些科目上缩小了近50%，但同时也降低了考试对大学中重要能力的预测力。我发现，该改革导致学生进入他们更有可能辍学的大学，从而降低了高收入和低收入学生的收入。",
       "doi": "10.1086/725167",
       "source_url": "https://journals.uchicago.edu/toc/jole/2024/42/4",
       "publication_date": "October 2024",
@@ -150,15 +153,18 @@
         "issue": "https://journals.uchicago.edu/toc/jole/2024/42/4",
         "roster": "https://journals.uchicago.edu/toc/jole/2024/42/4",
         "metadata": "https://doi.org/10.1086/725167",
-        "abstract_en": "crossref-or-semantic-scholar"
+        "abstract_en": "https://ideas.repec.org/a/ucp/jlabec/doi10.1086-725167.html",
+        "repec": "https://ideas.repec.org/a/ucp/jlabec/doi10.1086-725167.html"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-22T09:35:48+00:00",
+        "source_hash": "c37354541e031168e9be1b6565ce3d2af4a4ce9f01567a36a550ffc2734dfd48"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -213,15 +219,15 @@
       "source_sequence": 6,
       "article_type": "research-article",
       "title_en": "The Impact of Selection into the Labor Force on the Gender Wage Gap",
-      "title_cn": "",
+      "title_cn": "劳动力市场选择对性别工资差距的影响",
       "authors": [
         "Francine D. Blau",
         "Lawrence M. Kahn",
         "Nikolai Boboshko",
         "Matthew Comey"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "Using Michigan Panel Study of Income Dynamics data, we study selection bias and the gender wage gap. Employing several methods, we find large declines in the total and unexplained gender gaps in wage offers between 1981 and 2015. Under our preferred selection correction method, the median total and unexplained gaps fell by 0.378 and 0.204 log points, respectively. These are larger declines than if we had not corrected for selection and simply measured convergence in observed wage gaps. However, substantial selectivity-corrected median gender wage gaps remain in 2015: 0.242 log points (total gap) and 0.206 log points (unexplained gap).",
+      "abstract_cn": "利用密歇根收入动态面板研究数据，我们研究了选择偏差与性别工资差距。采用几种方法，我们发现工资报价中的总性别差距和未解释性别差距在1981至2015年间大幅下降。在我们偏好的选择校正方法下，中位总差距和未解释差距分别下降了0.378和0.204个对数点。这些下降幅度大于我们未对选择进行校正而仅测量观察到的工资差距收敛时的下降幅度。然而，在2015年，经选择性校正的中位性别工资差距仍然很大：0.242个对数点（总差距）和0.206个对数点（未解释差距）。",
       "doi": "10.1086/725032",
       "source_url": "https://journals.uchicago.edu/toc/jole/2024/42/4",
       "publication_date": "October 2024",
@@ -229,15 +235,18 @@
         "issue": "https://journals.uchicago.edu/toc/jole/2024/42/4",
         "roster": "https://journals.uchicago.edu/toc/jole/2024/42/4",
         "metadata": "https://doi.org/10.1086/725032",
-        "abstract_en": "crossref-or-semantic-scholar"
+        "abstract_en": "https://ideas.repec.org/a/ucp/jlabec/doi10.1086-725032.html",
+        "repec": "https://ideas.repec.org/a/ucp/jlabec/doi10.1086-725032.html"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-22T09:35:48+00:00",
+        "source_hash": "2bfa8e1acf4d9720f460a648cb6cfe013b6899f492c30cd3d15737ef983c7956"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -366,13 +375,10 @@
     ],
     "doi_complete": 8,
     "authors_complete": 8,
-    "abstract_en_complete": 5,
-    "translation_complete": 5,
+    "abstract_en_complete": 8,
+    "translation_complete": 8,
     "duplicate_count": 0,
-    "flags": [
-      "abstract_en_incomplete",
-      "translation_incomplete"
-    ],
+    "flags": [],
     "publishable_item_count": 8,
     "excluded_item_count": 5,
     "content_counts": {
@@ -402,6 +408,6 @@
     "other_excluded": 4,
     "catalog_content_items": 8
   },
-  "content_status": "blocked",
+  "content_status": "complete",
   "source_status": "official_verified"
 }
