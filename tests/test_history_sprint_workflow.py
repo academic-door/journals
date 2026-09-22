@@ -153,6 +153,23 @@ class HistorySprintWorkflowTests(unittest.TestCase):
 
 
 
+    def test_trusted_elsevier_staging_lane_skips_browser_reconstruction(self) -> None:
+        workflow = self.workflow()
+        guard = "if: inputs.evidence_issue_ids != '' && inputs.categories != '__elsevier_staging_only__'"
+        for step in (
+            "Build historical archives from ScienceDirect browser snapshots",
+            "Convert ScienceDirect browser snapshots to official evidence",
+        ):
+            start = workflow.index(f"- name: {step}")
+            window = workflow[start : start + 260]
+            self.assertIn(guard, window)
+
+        helper = workflow.index("Recover trusted Elsevier staging metadata")
+        helper_window = workflow[helper : helper + 220]
+        self.assertIn("if: inputs.evidence_issue_ids != ''", helper_window)
+        self.assertNotIn("__elsevier_staging_only__", helper_window)
+
+
     def test_date_repair_skips_only_recovery_count_progress_gate(self) -> None:
         workflow = self.workflow()
         progress = workflow.index("python scripts/check_recovery_progress.py")
