@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import unittest
-from unittest.mock import patch
+from unittest.mock import ANY, patch
 
 import requests
 
@@ -107,7 +107,7 @@ class RecoverTrustedElsevierStagingTests(unittest.TestCase):
             candidate["quality"]["roster_transport"],
         )
         lookup.assert_called_once_with(
-            unittest.mock.ANY,
+            ANY,
             "S0306919225000958",
             doi="10.1016/j.foodpol.2025.102890",
             timeout=10,
