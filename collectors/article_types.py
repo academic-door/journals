@@ -72,7 +72,6 @@ OFFICIAL_NO_ABSTRACT_EXCEPTIONS: dict[tuple[str, str], dict[str, str]] = {
         "abstract_note": "ScienceDirect 官方文章页标注 Research article，但未提供独立 Abstract。",
         "source_url": "https://www.sciencedirect.com/science/article/pii/S030440762300235X",
     },
-,
     (
         "jeem-118-c",
         "10.1016/j.jeem.2022.102781",
