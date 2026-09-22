@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "elsevier-r3-joe234",
+  "publisher_family": "elsevier-sciencedirect",
+  "journal_id": "joe",
+  "transport": "browser-authorized",
+  "policy_decision": "0018",
+  "finalized": true,
+  "captured_at": "2026-09-20T17:30:00Z",
+  "purpose": "r3-single-issue-official-roster-recovery",
+  "issue_ids": [
+    "joe-234-c"
+  ],
+  "snapshot_paths": [
+    "data/provenance/browser-snapshots/sciencedirect/joe-234-c.json"
+  ],
+  "notes": [
+    "Reuses the existing durable publisher-family browser snapshot; no new browser capture is performed.",
+    "Bounded to JOE 234 Supplement S so already-ready sibling issues in the older family batch are not reprocessed.",
+    "The snapshot retains its existing publisher/source authority; this batch does not upgrade or relax source evidence.",
+    "Current main may enrich snapshot-only roster items from official Elsevier metadata, while roster membership/order remain browser-authorized."
+  ]
+}
