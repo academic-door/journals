@@ -305,7 +305,7 @@ class BuildArchivesFromRosterEvidenceTests(unittest.TestCase):
         self.assertEqual("repec-publisher-supplied", metadata[doi]["abstract_source"])
         self.assertEqual(repec_url, metadata[doi]["abstract_url"])
         repec.assert_called_once_with(
-            unittest.mock.ANY,
+            ANY,
             doi,
             timeout=10,
             series_code="ucp/jaerec",
@@ -340,7 +340,7 @@ class BuildArchivesFromRosterEvidenceTests(unittest.TestCase):
         self.assertEqual("browser-authorized", issue["quality"]["roster_transport"])
         self.assertEqual(official_url, article["source_url"])
         self.assertEqual(official_url, article["sources"]["roster"])
-        self.assertEqual(repec_url, article["sources"]["metadata"])
+        self.assertEqual(f"https://doi.org/{doi}", article["sources"]["metadata"])
         self.assertEqual(repec_url, article["sources"]["abstract_en"])
 
     def test_page_chrome_abstract_is_rejected_and_falls_through_to_openalex(self) -> None:
