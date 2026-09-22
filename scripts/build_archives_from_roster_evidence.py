@@ -47,6 +47,7 @@ from collectors.metadata_fallback import (  # noqa: E402
     _get_json,
     _openalex_metadata,
     _publication_date,
+    _repec_abstract,
     _semantic_scholar_metadata_batch,
 )
 from scripts.import_official_roster_evidence import (  # noqa: E402
@@ -200,11 +201,15 @@ def _metadata_for_dois(
     crossref: dict[str, dict[str, Any]],
     *,
     timeout: int,
+    repec_series_code: str = "",
 ) -> dict[str, dict[str, Any]]:
     """Return authors/abstract/title per DOI.
 
     Backfill order: direct Crossref lookup (complete even when the journal
     dump is truncated), Semantic Scholar batch, then OpenAlex per-DOI.
+    When an explicitly configured RePEc series exists, use its
+    publisher-supplied abstract only as the final metadata fallback. RePEc
+    never supplies roster membership or ordering here.
     """
     metadata: dict[str, dict[str, Any]] = {}
     missing: list[str] = []
@@ -274,6 +279,27 @@ def _metadata_for_dois(
             openalex_abstract = _usable_metadata_abstract(abstract)
             if not current.get("abstract") and openalex_abstract:
                 current["abstract"] = openalex_abstract
+
+    series_code = str(repec_series_code or "").strip()
+    if series_code:
+        for doi in dois:
+            current = metadata.setdefault(doi, {})
+            if current.get("abstract"):
+                continue
+            try:
+                abstract, repec_url = _repec_abstract(
+                    session,
+                    doi,
+                    timeout=timeout,
+                    series_code=series_code,
+                )
+            except Exception:
+                continue
+            repec_abstract = _usable_metadata_abstract(abstract)
+            if repec_abstract:
+                current["abstract"] = repec_abstract
+                current["abstract_source"] = "repec-publisher-supplied"
+                current["abstract_url"] = repec_url
     return metadata
 
 
@@ -307,8 +333,11 @@ def build_candidate_from_evidence(
         ] or list(meta.get("authors", []))
         abstract = str(item.get("abstract_en", "") or meta.get("abstract", "")).strip()
         source_url = str(item.get("source_url", "") or official_url).strip()
+        metadata_source = str(meta.get("abstract_url", "") or f"https://doi.org/{doi}")
         abstract_source = (
-            source_url if item.get("abstract_en") else "crossref-or-semantic-scholar"
+            source_url
+            if item.get("abstract_en")
+            else str(meta.get("abstract_url", "") or "crossref-or-semantic-scholar")
         )
         article_type = evidence_roster_article_type(title)
         if article_type in PUBLISHABLE_TYPES and not authors:
@@ -331,7 +360,7 @@ def build_candidate_from_evidence(
             "sources": {
                 "issue": official_url,
                 "roster": official_url,
-                "metadata": source_url if item.get("source_url") else f"https://doi.org/{doi}",
+                "metadata": source_url if item.get("source_url") else metadata_source,
                 "abstract_en": abstract_source,
             },
             "translation": {"status": "missing"},
@@ -448,7 +477,13 @@ def process_evidence(
         for item in evidence.get("items", [])
         if item.get("doi")
     ]
-    metadata = _metadata_for_dois(session, dois, crossref, timeout=timeout)
+    metadata = _metadata_for_dois(
+        session,
+        dois,
+        crossref,
+        timeout=timeout,
+        repec_series_code=str(journal.get("repec_series_code", "")),
+    )
 
     items = list(crossref.values()) if crossref else []
     issn = str(journal.get("issn", ""))
