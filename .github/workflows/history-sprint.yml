@@ -444,7 +444,7 @@ jobs:
             --github-env "$GITHUB_ENV"
 
       - name: Build historical archives from ScienceDirect browser snapshots
-        if: inputs.evidence_issue_ids != ''
+        if: inputs.evidence_issue_ids != '' && inputs.categories != '__elsevier_staging_only__'
         env:
           GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || github.token }}
 
@@ -484,7 +484,7 @@ jobs:
           cp "$deferred" "$GITHUB_WORKSPACE/sciencedirect-evidence-deferred.txt"
 
       - name: Convert ScienceDirect browser snapshots to official evidence
-        if: inputs.evidence_issue_ids != ''
+        if: inputs.evidence_issue_ids != '' && inputs.categories != '__elsevier_staging_only__'
         shell: bash
         run: |
           set -euo pipefail
