@@ -10,6 +10,7 @@ from collectors.article_types import (
     evidence_roster_article_type,
     has_official_no_abstract_exception,
     normalize_issue_taxonomy,
+    official_no_abstract_exception,
     translation_is_complete,
 )
 
@@ -197,6 +198,42 @@ class ArticleTypeTests(unittest.TestCase):
         self.assertEqual(
             "front_matter",
             normalized["quality"]["excluded_items"][0]["reason"],
+        )
+
+
+    def test_elsevier_no_abstract_allowlist_is_exact_and_source_bound(self) -> None:
+        cases = {
+            ("foodpolicy-134-c", "10.1016/j.foodpol.2025.102890"):
+                "https://www.sciencedirect.com/science/article/pii/S0306919225000958",
+            ("foodpolicy-137-c", "10.1016/j.foodpol.2025.102911"):
+                "https://www.sciencedirect.com/science/article/pii/S0306919225001162",
+            ("joe-237-1", "10.1016/j.jeconom.2023.105516"):
+                "https://www.sciencedirect.com/science/article/pii/S0304407623002324",
+            ("joe-237-1", "10.1016/j.jeconom.2023.105519"):
+                "https://www.sciencedirect.com/science/article/pii/S030440762300235X",
+        }
+        for (issue_id, doi), source_url in cases.items():
+            with self.subTest(issue_id=issue_id, doi=doi):
+                exception = official_no_abstract_exception(issue_id, doi)
+                self.assertIsNotNone(exception)
+                self.assertEqual(source_url, exception["source_url"])
+                self.assertTrue(exception["title_cn"])
+                self.assertIn("未提供独立 Abstract", exception["abstract_note"])
+                self.assertIsNone(
+                    official_no_abstract_exception(issue_id, doi + "-different")
+                )
+
+    def test_foodpolicy_short_communication_override_matches_official_label(self) -> None:
+        import json
+        from pathlib import Path
+
+        root = Path(__file__).resolve().parents[1]
+        overrides = json.loads(
+            (root / "data" / "article-type-overrides.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            "short-communication",
+            overrides["10.1016/j.foodpol.2025.102911"],
         )
 
     def test_official_no_abstract_exception_is_explicit_and_complete(self) -> None:
