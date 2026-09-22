@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-06T10:05:07+00:00",
   "expected_article_count": 26,
   "research_article_count": 26,
-  "status": "incomplete",
+  "status": "ready",
   "articles": [
     {
       "paper_id": "doi:10.1016/j.foodpol.2025.102833",
@@ -442,7 +442,7 @@
       "source_sequence": 11,
       "article_type": "research-article",
       "title_en": "The policy relevance of maximum residue limits analyses",
-      "title_cn": "",
+      "title_cn": "最大残留限量分析的政策相关性",
       "authors": [
         "Akinbode Okunola",
         "Elliott Dennis",
@@ -457,26 +457,26 @@
         "issue": "https://ideas.repec.org/s/eee/jfpoli.html",
         "roster": "repec-serial-page",
         "metadata": "repec-publisher-supplied",
-        "abstract_en": "",
-        "repec": "https://ideas.repec.org/a/eee/jfpoli/v134y2025ics0306919225000958.html"
+        "abstract_en": "publisher-page-no-standalone-abstract",
+        "repec": "https://ideas.repec.org/a/eee/jfpoli/v134y2025ics0306919225000958.html",
+        "abstract_en_url": "https://www.sciencedirect.com/science/article/pii/S0306919225000958"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "manual-official-title",
+        "prompt_version": "official-no-abstract-v1"
       },
       "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing",
-        "abstract_en_missing"
+        "official_abstract_unavailable"
       ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
-      }
+      },
+      "abstract_status": "official_not_provided",
+      "abstract_note": "ScienceDirect 官方文章页标注 Full-length article，但未提供独立 Abstract。"
     },
     {
       "paper_id": "doi:10.1016/j.foodpol.2025.102893",
@@ -484,14 +484,14 @@
       "source_sequence": 12,
       "article_type": "research-article",
       "title_en": "Economic impacts of the Indian ban on non-Basmati rice exports",
-      "title_cn": "印度禁止非巴斯马蒂大米出口的经济影响",
+      "title_cn": "印度非巴斯马蒂大米出口禁令的经济影响",
       "authors": [
         "Kjersti Nes",
         "K. Aleks Schaefer",
         "Jisang Yu"
       ],
       "abstract_en": "In July 2023, India — the world’s largest rice exporter — imposed a ban on non-Basmati rice exports. This policy resulted in significant price increases in global rice markets, with prices rising by up to 32% in key rice-exporting countries. As a consequence, rice-consuming countries, particularly those in Asia and Africa, experienced increased food expenditures, leading to an estimated annual consumer surplus loss of $315 million. Our analysis suggests that the export ban disproportionately impacts low-income consumers in countries heavily dependent on rice imports.",
-      "abstract_cn": "2023年七月，全球最大的大米出口国印度对非巴斯马蒂大米出口实施了禁令。这一政策导致全球大米市场价格显著上涨，主要大米出口国的价格上涨高达32%。因此，大米消费国，尤其是亚洲和非洲的国家，食品支出增加，估计年度消费者剩余损失达315亿美元。我们的分析表明，该出口禁令对严重依赖大米进口国家的低收入消费者影响尤为严重。",
+      "abstract_cn": "在2023年七月，全球最大的大米出口国印度对非巴斯马蒂大米出口实施了禁令。该政策导致全球大米市场价格显著上涨，主要大米出口国的价格上涨幅度高达32%。因此，大米消费国，尤其是亚洲和非洲的国家，食品支出增加，估计每年消费者剩余损失达315百万美元。我们的分析表明，出口禁令对严重依赖大米进口国家的低收入消费者影响尤为严重。",
       "doi": "10.1016/j.foodpol.2025.102893",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0306919225000983",
       "publication_date": "February 2025",
@@ -505,10 +505,9 @@
       "translation": {
         "status": "complete",
         "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
         "model": "deepseek-chat",
-        "translated_at": "2026-08-04T19:20:50+00:00",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-22T15:04:39+00:00",
         "source_hash": "1f0020339fa715ee482e0d3fe425188406ed1c4feeb7f16348375204e1fe80ec"
       },
       "quality_flags": [],
@@ -1150,14 +1149,11 @@
     ],
     "doi_complete": 26,
     "authors_complete": 26,
-    "abstract_en_complete": 25,
-    "translation_complete": 25,
+    "abstract_en_complete": 26,
+    "translation_complete": 26,
     "duplicate_count": 0,
     "repec_item_count": 29,
-    "flags": [
-      "abstract_en_incomplete",
-      "translation_incomplete"
-    ],
+    "flags": [],
     "official_item_count": 29,
     "publishable_item_count": 26,
     "content_counts": {
@@ -1187,5 +1183,8 @@
     "other_excluded": 0,
     "catalog_content_items": 29
   },
-  "issue_label": "Vol. 134"
+  "issue_label": "Vol. 134",
+  "content_status": "complete",
+  "source_status": "publisher_verified",
+  "publication_state": "ready"
 }

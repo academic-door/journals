@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-06T10:05:18+00:00",
   "expected_article_count": 21,
   "research_article_count": 21,
-  "status": "incomplete",
+  "status": "ready",
   "articles": [
     {
       "paper_id": "doi:10.1016/j.foodpol.2025.102908",
@@ -106,9 +106,9 @@
       "paper_id": "doi:10.1016/j.foodpol.2025.102911",
       "sequence": 3,
       "source_sequence": 3,
-      "article_type": "research-article",
+      "article_type": "short-communication",
       "title_en": "Evidence for promoting pesticide-free, non-organic cereal production",
-      "title_cn": "",
+      "title_cn": "推广无农药、非有机谷物生产的证据",
       "authors": [
         "Robert Finger",
         "Niklas Möhring"
@@ -122,26 +122,26 @@
         "issue": "https://ideas.repec.org/s/eee/jfpoli.html",
         "roster": "repec-serial-page",
         "metadata": "repec-publisher-supplied",
-        "abstract_en": "",
-        "repec": "https://ideas.repec.org/a/eee/jfpoli/v137y2025ics0306919225001162.html"
+        "abstract_en": "publisher-page-no-standalone-abstract",
+        "repec": "https://ideas.repec.org/a/eee/jfpoli/v137y2025ics0306919225001162.html",
+        "abstract_en_url": "https://www.sciencedirect.com/science/article/pii/S0306919225001162"
       },
       "translation": {
-        "status": "blocked",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "manual-official-title",
+        "prompt_version": "official-no-abstract-v1"
       },
       "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing",
-        "abstract_en_missing"
+        "official_abstract_unavailable"
       ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
         "matched_terms": [],
         "source": "academic-door-rules-v1"
-      }
+      },
+      "abstract_status": "official_not_provided",
+      "abstract_note": "ScienceDirect 官方文章页标注 Short communication，但未提供独立 Abstract。"
     },
     {
       "paper_id": "doi:10.1016/j.foodpol.2025.102913",
@@ -926,23 +926,20 @@
     ],
     "doi_complete": 21,
     "authors_complete": 21,
-    "abstract_en_complete": 20,
-    "translation_complete": 20,
+    "abstract_en_complete": 21,
+    "translation_complete": 21,
     "duplicate_count": 0,
     "repec_item_count": 22,
-    "flags": [
-      "abstract_en_incomplete",
-      "translation_incomplete"
-    ],
+    "flags": [],
     "official_item_count": 22,
     "publishable_item_count": 21,
     "content_counts": {
       "official_items": 22,
       "observed_items": 22,
       "publishable_items": 21,
-      "research_articles": 20,
+      "research_articles": 19,
       "comments": 1,
-      "short_communications": 0,
+      "short_communications": 1,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
@@ -954,14 +951,17 @@
     "official_items": 22,
     "observed_items": 22,
     "publishable_items": 21,
-    "research_articles": 20,
+    "research_articles": 19,
     "comments": 1,
-    "short_communications": 0,
+    "short_communications": 1,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 1,
     "catalog_content_items": 21
   },
-  "issue_label": "Vol. 137"
+  "issue_label": "Vol. 137",
+  "content_status": "complete",
+  "source_status": "publisher_verified",
+  "publication_state": "ready"
 }

@@ -1,29 +1,26 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-09-22T14:58:40+00:00",
+  "updated_at": "2026-09-22T15:07:14+00:00",
   "summary": {
-    "complete": 1265,
+    "complete": 1268,
     "translation_partial": 0,
-    "blocked": 18,
+    "blocked": 15,
     "collected": 0,
     "pending": 52
   },
   "coverage": {
     "discovered": 1205,
-    "archived": 1195,
-    "content_ready": 1195,
-    "source_verified": 1178,
-    "publication_ready": 1178,
-    "missing": 10,
+    "archived": 1198,
+    "content_ready": 1198,
+    "source_verified": 1181,
+    "publication_ready": 1181,
+    "missing": 7,
     "source_pending": 17,
     "missing_issue_ids": [
       "ecolecon-224-c",
-      "foodpolicy-134-c",
-      "foodpolicy-137-c",
       "ier-64-1",
       "jeem-118-c",
       "joe-234-c",
-      "joe-237-1",
       "jue-133-c",
       "jue-144-c",
       "wd-192-c"
@@ -2061,30 +2058,28 @@
     },
     "JOE": {
       "discovered": 43,
-      "archived": 41,
-      "content_ready": 41,
-      "source_verified": 41,
-      "publication_ready": 41,
-      "missing": 2,
+      "archived": 42,
+      "content_ready": 42,
+      "source_verified": 42,
+      "publication_ready": 42,
+      "missing": 1,
       "source_pending": 0,
       "missing_issue_ids": [
-        "joe-234-c",
-        "joe-237-1"
+        "joe-234-c"
       ],
       "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
       "years": {
         "2023": {
           "discovered": 13,
-          "archived": 11,
-          "content_ready": 11,
-          "source_verified": 11,
-          "publication_ready": 11,
-          "missing": 2,
+          "archived": 12,
+          "content_ready": 12,
+          "source_verified": 12,
+          "publication_ready": 12,
+          "missing": 1,
           "source_pending": 0,
           "missing_issue_ids": [
-            "joe-234-c",
-            "joe-237-1"
+            "joe-234-c"
           ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
@@ -2129,16 +2124,13 @@
     },
     "FOODPOLICY": {
       "discovered": 30,
-      "archived": 28,
-      "content_ready": 28,
-      "source_verified": 28,
-      "publication_ready": 28,
-      "missing": 2,
+      "archived": 30,
+      "content_ready": 30,
+      "source_verified": 30,
+      "publication_ready": 30,
+      "missing": 0,
       "source_pending": 0,
-      "missing_issue_ids": [
-        "foodpolicy-134-c",
-        "foodpolicy-137-c"
-      ],
+      "missing_issue_ids": [],
       "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
       "years": {
@@ -2168,16 +2160,13 @@
         },
         "2025": {
           "discovered": 8,
-          "archived": 6,
-          "content_ready": 6,
-          "source_verified": 6,
-          "publication_ready": 6,
-          "missing": 2,
+          "archived": 8,
+          "content_ready": 8,
+          "source_verified": 8,
+          "publication_ready": 8,
+          "missing": 0,
           "source_pending": 0,
-          "missing_issue_ids": [
-            "foodpolicy-134-c",
-            "foodpolicy-137-c"
-          ],
+          "missing_issue_ids": [],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
@@ -4487,7 +4476,7 @@
         "source_status": "source_pending",
         "publication_state": "source_pending",
         "last_error": "",
-        "retry_class": "source"
+        "retry_class": "translation"
       },
       {
         "issue_id": "ajae-106-3",
@@ -4498,7 +4487,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -4510,7 +4499,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -4522,7 +4511,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -4860,7 +4849,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -7906,11 +7895,11 @@
         "year": 2025,
         "volume": "134",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
+        "status": "ready",
+        "content_status": "complete",
         "source_status": "publisher_verified",
-        "publication_state": "blocked",
-        "last_error": "archive_content_gate_failed",
+        "publication_state": "ready",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -7942,11 +7931,11 @@
         "year": 2025,
         "volume": "137",
         "issue": "c",
-        "status": "blocked",
-        "content_status": "blocked",
+        "status": "ready",
+        "content_status": "complete",
         "source_status": "publisher_verified",
-        "publication_state": "blocked",
-        "last_error": "archive_content_gate_failed",
+        "publication_state": "ready",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -11764,7 +11753,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -11776,7 +11765,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -11788,7 +11777,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -13764,11 +13753,11 @@
         "year": 2023,
         "volume": "237",
         "issue": "1",
-        "status": "blocked",
-        "content_status": "blocked",
+        "status": "ready",
+        "content_status": "complete",
         "source_status": "publisher_verified",
-        "publication_state": "blocked",
-        "last_error": "archive_content_gate_failed",
+        "publication_state": "ready",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -17680,7 +17669,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -17692,7 +17681,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -17704,7 +17693,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -17716,7 +17705,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -17728,7 +17717,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -19097,28 +19086,27 @@
     },
     "2023-2024": {
       "summary": {
-        "complete": 654,
+        "complete": 655,
         "translation_partial": 0,
-        "blocked": 9,
+        "blocked": 8,
         "collected": 0,
         "pending": 45
       },
       "issue_count": 708,
-      "updated_at": "2026-09-07T10:34:06+00:00",
+      "updated_at": "2026-09-22T15:04:51+00:00",
       "coverage": {
         "discovered": 563,
-        "archived": 556,
-        "content_ready": 556,
-        "source_verified": 546,
-        "publication_ready": 546,
-        "missing": 7,
+        "archived": 557,
+        "content_ready": 557,
+        "source_verified": 547,
+        "publication_ready": 547,
+        "missing": 6,
         "source_pending": 10,
         "missing_issue_ids": [
           "ecolecon-224-c",
           "ier-64-1",
           "jeem-118-c",
           "joe-234-c",
-          "joe-237-1",
           "jue-133-c",
           "jue-144-c"
         ],
@@ -19139,26 +19127,25 @@
     },
     "2023-2026": {
       "summary": {
-        "complete": 298,
+        "complete": 299,
         "translation_partial": 0,
-        "blocked": 2,
+        "blocked": 1,
         "collected": 0,
         "pending": 0
       },
       "issue_count": 300,
-      "updated_at": "2026-09-18T06:46:44+00:00",
+      "updated_at": "2026-09-22T15:04:51+00:00",
       "coverage": {
         "discovered": 428,
-        "archived": 425,
-        "content_ready": 425,
-        "source_verified": 425,
-        "publication_ready": 425,
-        "missing": 3,
+        "archived": 426,
+        "content_ready": 426,
+        "source_verified": 426,
+        "publication_ready": 426,
+        "missing": 2,
         "source_pending": 0,
         "missing_issue_ids": [
           "ecolecon-224-c",
-          "joe-234-c",
-          "joe-237-1"
+          "joe-234-c"
         ],
         "source_pending_issue_ids": [],
         "blocked_issue_ids": []
@@ -19219,7 +19206,7 @@
         "pending": 0
       },
       "issue_count": 10,
-      "updated_at": "2026-09-08T14:14:07+00:00",
+      "updated_at": "2026-08-14T08:16:38+00:00",
       "coverage": {
         "discovered": 13,
         "archived": 13,
@@ -19260,9 +19247,9 @@
   "years": {
     "2023": {
       "summary": {
-        "complete": 319,
+        "complete": 320,
         "translation_partial": 0,
-        "blocked": 7,
+        "blocked": 6,
         "collected": 0,
         "pending": 26
       },
@@ -19320,17 +19307,16 @@
       ],
       "coverage": {
         "discovered": 297,
-        "archived": 292,
-        "content_ready": 292,
-        "source_verified": 287,
-        "publication_ready": 287,
-        "missing": 5,
+        "archived": 293,
+        "content_ready": 293,
+        "source_verified": 288,
+        "publication_ready": 288,
+        "missing": 4,
         "source_pending": 5,
         "missing_issue_ids": [
           "ier-64-1",
           "jeem-118-c",
           "joe-234-c",
-          "joe-237-1",
           "jue-133-c"
         ],
         "source_pending_issue_ids": [
@@ -19690,15 +19676,14 @@
         },
         "JOE": {
           "discovered": 13,
-          "archived": 11,
-          "content_ready": 11,
-          "source_verified": 11,
-          "publication_ready": 11,
-          "missing": 2,
+          "archived": 12,
+          "content_ready": 12,
+          "source_verified": 12,
+          "publication_ready": 12,
+          "missing": 1,
           "source_pending": 0,
           "missing_issue_ids": [
-            "joe-234-c",
-            "joe-237-1"
+            "joe-234-c"
           ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
@@ -20418,9 +20403,9 @@
     },
     "2025": {
       "summary": {
-        "complete": 335,
+        "complete": 337,
         "translation_partial": 0,
-        "blocked": 3,
+        "blocked": 1,
         "collected": 0,
         "pending": 7
       },
@@ -20478,15 +20463,13 @@
       ],
       "coverage": {
         "discovered": 344,
-        "archived": 341,
-        "content_ready": 341,
-        "source_verified": 334,
-        "publication_ready": 334,
-        "missing": 3,
+        "archived": 343,
+        "content_ready": 343,
+        "source_verified": 336,
+        "publication_ready": 336,
+        "missing": 1,
         "source_pending": 7,
         "missing_issue_ids": [
-          "foodpolicy-134-c",
-          "foodpolicy-137-c",
           "wd-192-c"
         ],
         "source_pending_issue_ids": [
@@ -20673,16 +20656,13 @@
         },
         "FOODPOLICY": {
           "discovered": 8,
-          "archived": 6,
-          "content_ready": 6,
-          "source_verified": 6,
-          "publication_ready": 6,
-          "missing": 2,
+          "archived": 8,
+          "content_ready": 8,
+          "source_verified": 8,
+          "publication_ready": 8,
+          "missing": 0,
           "source_pending": 0,
-          "missing_issue_ids": [
-            "foodpolicy-134-c",
-            "foodpolicy-137-c"
-          ],
+          "missing_issue_ids": [],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
