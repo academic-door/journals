@@ -16,6 +16,7 @@ class RecoverTrustedElsevierStagingTests(unittest.TestCase):
         return {
             "id": "foodpolicy",
             "publisher": "Elsevier",
+            "repec_series_url": "https://ideas.repec.org/s/eee/jfpoli.html",
         }
 
     def candidate(self) -> dict:
@@ -158,6 +159,53 @@ class RecoverTrustedElsevierStagingTests(unittest.TestCase):
             [doi],
             {},
             timeout=10,
+            repec_series_code="eee/jfpoli",
+        )
+
+
+    def test_configured_repec_final_fallback_keeps_field_scope(self) -> None:
+        candidate = self.candidate()
+        doi = candidate["articles"][0]["doi"]
+        repec_url = "https://ideas.repec.org/a/eee/jfpoli/v134y2025ics0306919225000958.html"
+        with (
+            patch(
+                "scripts.recover_trusted_elsevier_staging._elsevier_lookup",
+                return_value={"abstract": ""},
+            ),
+            patch(
+                "scripts.recover_trusted_elsevier_staging._metadata_for_dois",
+                return_value={
+                    doi: {
+                        "abstract": "Publisher-supplied RePEc abstract.",
+                        "abstract_source": "repec-publisher-supplied",
+                        "abstract_url": repec_url,
+                    }
+                },
+            ) as metadata_fallback,
+        ):
+            filled = enrich_missing_elsevier_abstracts(
+                candidate,
+                self.journal(),
+                session=requests.Session(),
+                timeout=10,
+            )
+
+        self.assertEqual(1, filled)
+        article = candidate["articles"][0]
+        self.assertEqual("Publisher-supplied RePEc abstract.", article["abstract_en"])
+        self.assertEqual(repec_url, article["sources"]["abstract_en"])
+        self.assertEqual(repec_url, article["sources"]["abstract_en_url"])
+        self.assertEqual(
+            "repec-publisher-supplied",
+            candidate["quality"]["roster_authority"],
+        )
+        self.assertEqual("repec-serial-page", candidate["quality"]["roster_transport"])
+        metadata_fallback.assert_called_once_with(
+            ANY,
+            [doi],
+            {},
+            timeout=10,
+            repec_series_code="eee/jfpoli",
         )
 
     def test_empty_metadata_fallback_leaves_missing_abstract_blocked(self) -> None:
