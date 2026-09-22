@@ -260,6 +260,40 @@ class BuildArchivesFromRosterEvidenceTests(unittest.TestCase):
             metadata["10.1111/demo.10002"]["abstract"],
         )
         crossref_direct.assert_called_once()
+    def test_crossref_fallback_records_precise_abstract_provenance(self) -> None:
+        import requests
+
+        doi = "10.1016/j.demo.2026.100001"
+        with (
+            patch(
+                "scripts.build_archives_from_roster_evidence._crossref_direct",
+                return_value={
+                    "authors": ["Alice Smith"],
+                    "abstract": "Crossref abstract.",
+                    "title": "Demo paper",
+                    "year": "2026",
+                },
+            ),
+            patch(
+                "scripts.build_archives_from_roster_evidence._semantic_scholar_metadata_batch",
+                return_value={},
+            ) as semantic,
+        ):
+            metadata = _metadata_for_dois(
+                requests.Session(),
+                [doi],
+                {},
+                timeout=10,
+            )
+
+        self.assertEqual("Crossref abstract.", metadata[doi]["abstract"])
+        self.assertEqual("crossref", metadata[doi]["abstract_source"])
+        self.assertEqual(
+            f"https://api.crossref.org/works/{doi}",
+            metadata[doi]["abstract_url"],
+        )
+        semantic.assert_not_called()
+
 
     def test_repec_publisher_abstract_is_final_metadata_fallback_without_roster_authority(self) -> None:
         import requests
