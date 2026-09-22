@@ -4066,15 +4066,14 @@
       "issue": "5",
       "official_url": "https://direct.mit.edu/rest/issue/105/5",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "attempt_count": 5,
       "last_attempt_at": "2026-09-21T00:31:06+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-09-22T00:31:06+00:00"
+      "publication_state": "source_pending"
     },
     "restat-105-6": {
       "journal": "RESTAT",
@@ -4083,15 +4082,14 @@
       "issue": "6",
       "official_url": "https://direct.mit.edu/rest/issue/105/6",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "attempt_count": 5,
       "last_attempt_at": "2026-09-21T00:31:09+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-09-22T00:31:10+00:00"
+      "publication_state": "source_pending"
     },
     "restat-106-1": {
       "journal": "RESTAT",
@@ -4100,15 +4098,14 @@
       "issue": "1",
       "official_url": "https://direct.mit.edu/rest/issue/106/1",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "attempt_count": 5,
       "last_attempt_at": "2026-09-21T00:31:14+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-09-22T00:31:14+00:00"
+      "publication_state": "source_pending"
     },
     "restat-106-2": {
       "journal": "RESTAT",
@@ -4117,15 +4114,14 @@
       "issue": "2",
       "official_url": "https://direct.mit.edu/rest/issue/106/2",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "attempt_count": 5,
       "last_attempt_at": "2026-09-21T00:31:16+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-09-22T00:31:17+00:00"
+      "publication_state": "source_pending"
     },
     "restat-106-3": {
       "journal": "RESTAT",
@@ -4147,15 +4143,14 @@
       "issue": "4",
       "official_url": "https://direct.mit.edu/rest/issue/106/4",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "attempt_count": 4,
       "last_attempt_at": "2026-09-21T00:31:19+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-09-22T00:31:20+00:00"
+      "publication_state": "source_pending"
     },
     "restat-106-5": {
       "journal": "RESTAT",
@@ -4180,15 +4175,14 @@
       "issue": "6",
       "official_url": "https://direct.mit.edu/rest/issue/106/6",
       "status": "source_pending",
-      "last_error": "source authority pending official verification",
+      "last_error": "",
       "retry_class": "source",
       "attempt_count": 3,
       "last_attempt_at": "2026-09-21T00:31:23+00:00",
       "last_error_code": "source authority pending official verification",
       "content_status": "complete",
       "source_status": "source_pending",
-      "publication_state": "source_pending",
-      "next_retry_at": "2026-09-22T00:31:25+00:00"
+      "publication_state": "source_pending"
     },
     "ajae-106-2": {
       "journal": "AJAE",
@@ -7660,16 +7654,15 @@
       "volume": "235",
       "issue": "2",
       "official_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/235/suppl/2",
-      "status": "translation_partial",
-      "last_error": "",
-      "retry_class": "translation",
+      "status": "blocked",
+      "last_error": "archive_missing",
+      "retry_class": "transient",
       "attempt_count": 3,
       "last_attempt_at": "2026-09-21T00:34:29+00:00",
       "last_error_code": "",
-      "content_status": "translation_partial",
-      "source_status": "publisher_verified",
-      "publication_state": "translation_partial",
-      "next_retry_at": "2026-09-21T06:35:44+00:00"
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked"
     },
     "joe-236-1": {
       "journal": "JOE",
@@ -9779,7 +9772,7 @@
       "LANDECON": "2026-08-24T14:00:30+00:00"
     }
   },
-  "updated_at": "2026-09-21T00:35:44+00:00",
+  "updated_at": "2026-09-07T10:34:06+00:00",
   "discovery": {
     "AER": {
       "issue_ids": [
@@ -13357,86 +13350,11 @@
       "collector_revision": "history-integrity-2026-08-11"
     },
     "RAND": {
-      "issue_ids": [
-        "rand-54-1",
-        "rand-54-2",
-        "rand-54-3",
-        "rand-54-4",
-        "rand-55-1",
-        "rand-55-2",
-        "rand-55-3",
-        "rand-55-4"
-      ],
-      "issue_years": {
-        "rand-54-1": 2023,
-        "rand-54-2": 2023,
-        "rand-54-3": 2023,
-        "rand-54-4": 2023,
-        "rand-55-1": 2024,
-        "rand-55-2": 2024,
-        "rand-55-3": 2024,
-        "rand-55-4": 2024
-      },
-      "issue_refs": {
-        "rand-54-1": {
-          "journal": "RAND",
-          "year": 2023,
-          "volume": "54",
-          "issue": "1",
-          "official_url": "https://onlinelibrary.wiley.com/toc/17562171/2023/54/1"
-        },
-        "rand-54-2": {
-          "journal": "RAND",
-          "year": 2023,
-          "volume": "54",
-          "issue": "2",
-          "official_url": "https://onlinelibrary.wiley.com/toc/17562171/2023/54/2"
-        },
-        "rand-54-3": {
-          "journal": "RAND",
-          "year": 2023,
-          "volume": "54",
-          "issue": "3",
-          "official_url": "https://onlinelibrary.wiley.com/toc/17562171/2023/54/3"
-        },
-        "rand-54-4": {
-          "journal": "RAND",
-          "year": 2023,
-          "volume": "54",
-          "issue": "4",
-          "official_url": "https://onlinelibrary.wiley.com/toc/17562171/2023/54/4"
-        },
-        "rand-55-1": {
-          "journal": "RAND",
-          "year": 2024,
-          "volume": "55",
-          "issue": "1",
-          "official_url": "https://onlinelibrary.wiley.com/toc/17562171/2024/55/1"
-        },
-        "rand-55-2": {
-          "journal": "RAND",
-          "year": 2024,
-          "volume": "55",
-          "issue": "2",
-          "official_url": "https://onlinelibrary.wiley.com/toc/17562171/2024/55/2"
-        },
-        "rand-55-3": {
-          "journal": "RAND",
-          "year": 2024,
-          "volume": "55",
-          "issue": "3",
-          "official_url": "https://onlinelibrary.wiley.com/toc/17562171/2024/55/3"
-        },
-        "rand-55-4": {
-          "journal": "RAND",
-          "year": 2024,
-          "volume": "55",
-          "issue": "4",
-          "official_url": "https://onlinelibrary.wiley.com/toc/17562171/2024/55/4"
-        }
-      },
-      "authority": "crossref_candidate",
-      "refreshed_at": "2026-09-08T00:40:12+00:00",
+      "issue_ids": [],
+      "issue_years": {},
+      "issue_refs": {},
+      "authority": "official_archive_snapshot",
+      "refreshed_at": "2026-09-12T07:14:46+00:00",
       "collector_revision": "history-integrity-2026-08-11"
     },
     "JEH": {
@@ -14415,7 +14333,7 @@
         }
       },
       "authority": "crossref_candidate",
-      "refreshed_at": "2026-09-08T00:40:11+00:00",
+      "refreshed_at": "2026-09-22T01:06:58+00:00",
       "collector_revision": "history-integrity-2026-08-11"
     },
     "CER": {
