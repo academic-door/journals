@@ -178,6 +178,86 @@ class ScienceDirectBrowserRosterCaptureTests(unittest.TestCase):
             evidence["excluded_items"][0]["source_id"],
         )
 
+
+    def test_missing_official_article_can_use_elsevier_metadata_fields(self) -> None:
+        snapshot = {
+            "issue_id": "demo-1-c",
+            "journal_id": "demo",
+            "official_url": "https://www.sciencedirect.com/journal/demo/vol/1/suppl/C",
+            "captured_at": "2026-08-24T00:00:00+00:00",
+            "items": [
+                {
+                    "href": "/science/article/pii/S0000000000000001",
+                    "title": "Paper 1",
+                    "type": "research-article",
+                },
+                {
+                    "href": "/science/article/pii/S0000000000000003",
+                    "title": "New Official Paper",
+                    "type": "research-article",
+                },
+                {
+                    "href": "/science/article/pii/S0000000000000002",
+                    "title": "Paper 2",
+                    "type": "research-article",
+                },
+            ],
+        }
+        evidence = build_evidence(
+            snapshot,
+            self.issue(),
+            excluded_dois={},
+            metadata_by_pii={
+                "S0000000000000003": {
+                    "doi": "10.1016/j.demo.2026.3",
+                    "title_en": "New Official Paper",
+                    "authors": ["New Author"],
+                }
+            },
+        )
+        added = evidence["items"][1]
+        self.assertEqual("10.1016/j.demo.2026.3", added["doi"])
+        self.assertEqual(["New Author"], added["official_authors"])
+        self.assertEqual("pii:S0000000000000003", added["source_id"])
+
+    def test_elsevier_metadata_title_mismatch_fails_closed(self) -> None:
+        snapshot = {
+            "issue_id": "demo-1-c",
+            "journal_id": "demo",
+            "official_url": "https://www.sciencedirect.com/journal/demo/vol/1/suppl/C",
+            "captured_at": "2026-08-24T00:00:00+00:00",
+            "items": [
+                {
+                    "href": "/science/article/pii/S0000000000000001",
+                    "title": "Paper 1",
+                    "type": "research-article",
+                },
+                {
+                    "href": "/science/article/pii/S0000000000000003",
+                    "title": "New Official Paper",
+                    "type": "research-article",
+                },
+                {
+                    "href": "/science/article/pii/S0000000000000002",
+                    "title": "Paper 2",
+                    "type": "research-article",
+                },
+            ],
+        }
+        with self.assertRaisesRegex(ValueError, "metadata title mismatch"):
+            build_evidence(
+                snapshot,
+                self.issue(),
+                excluded_dois={},
+                metadata_by_pii={
+                    "S0000000000000003": {
+                        "doi": "10.1016/j.demo.2026.3",
+                        "title_en": "Different Article",
+                        "authors": ["New Author"],
+                    }
+                },
+            )
+
     def test_special_issue_introduction_is_officially_excluded(self) -> None:
         snapshot = {
             "issue_id": "demo-1-c",

@@ -8,12 +8,15 @@ import re
 import sys
 from pathlib import Path
 from typing import Any
+
+import requests
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+from scripts.build_sciencedirect_browser_archives import fetch_issue_metadata  # noqa: E402
 from scripts.import_official_roster_evidence import (  # noqa: E402
     _normalized_title,
     apply_evidence,
@@ -146,6 +149,7 @@ def build_evidence(
     issue: dict[str, Any],
     *,
     excluded_dois: dict[str, str],
+    metadata_by_pii: dict[str, dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     official_url = str(snapshot.get("official_url", ""))
     parsed = urlparse(official_url)
@@ -187,9 +191,19 @@ def build_evidence(
                 doi = str(article["doi"]).strip().casefold()
             else:
                 missing_official_count += 1
-                doi = browser_doi
+                metadata = dict((metadata_by_pii or {}).get(pii) or {})
+                metadata_title = str(metadata.get("title_en", "")).strip()
+                if metadata_title and _normalized_title(metadata_title) != _normalized_title(title):
+                    if not _publisher_expanded_subtitle_match(metadata_title, title):
+                        raise ValueError(
+                            f"official metadata title mismatch for {pii}: "
+                            f"{metadata_title!r} != {title!r}"
+                        )
+                doi = browser_doi or str(metadata.get("doi", "")).strip().casefold()
                 authors = browser_item.get("authors")
-                if not doi or not isinstance(authors, list) or not authors:
+                if not isinstance(authors, list) or not authors:
+                    authors = list(metadata.get("authors") or [])
+                if not doi or not authors:
                     raise ValueError(
                         f"missing official research item lacks DOI/authors: {pii}"
                     )
@@ -260,6 +274,44 @@ def build_evidence(
     return evidence
 
 
+def _missing_research_piis(
+    snapshot: dict[str, Any],
+    issue: dict[str, Any],
+) -> list[str]:
+    """Return snapshot research PIIs that need publisher metadata enrichment.
+
+    The browser snapshot remains authoritative for roster membership/order.
+    This helper only identifies roster items absent from the current archive or
+    staging row and lacking inline DOI/authors.
+    """
+
+    by_pii, by_doi, by_title = _archive_maps(issue)
+    missing: list[str] = []
+    for browser_item in snapshot.get("items", []):
+        if _article_type(browser_item) != "research-article":
+            continue
+        pii = _pii(browser_item.get("href"))
+        title = str(browser_item.get("title", "")).strip()
+        browser_doi = str(browser_item.get("doi", "")).strip().casefold()
+        if not pii or not title:
+            raise ValueError("browser roster item is missing PII or title")
+        article = _match_archive_article(
+            pii=pii,
+            browser_doi=browser_doi,
+            title=title,
+            by_pii=by_pii,
+            by_doi=by_doi,
+            by_title=by_title,
+        )
+        if article is not None:
+            continue
+        authors = browser_item.get("authors")
+        if browser_doi and isinstance(authors, list) and authors:
+            continue
+        missing.append(pii)
+    return list(dict.fromkeys(missing))
+
+
 def _parse_excluded_dois(values: list[str]) -> dict[str, str]:
     parsed: dict[str, str] = {}
     for value in values:
@@ -315,10 +367,20 @@ def convert_batch(
                 )
                 continue
         try:
+            issue = _read_json(issue_path)
+            metadata_by_pii: dict[str, dict[str, Any]] = {}
+            missing_piis = _missing_research_piis(snapshot, issue)
+            if missing_piis:
+                metadata_by_pii = fetch_issue_metadata(
+                    requests.Session(),
+                    missing_piis,
+                    timeout=90,
+                )
             evidence = build_evidence(
                 snapshot,
-                _read_json(issue_path),
+                issue,
                 excluded_dois=excluded_dois,
+                metadata_by_pii=metadata_by_pii,
             )
         except ValueError as exc:
             deferred.append(

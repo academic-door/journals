@@ -153,6 +153,16 @@ class HistorySprintWorkflowTests(unittest.TestCase):
 
 
 
+
+    def test_sciencedirect_roster_converter_receives_elsevier_metadata_credentials(self) -> None:
+        workflow = self.workflow()
+        start = workflow.index("Convert ScienceDirect browser snapshots to official evidence")
+        end = workflow.index("Capture official Wiley roster evidence", start)
+        window = workflow[start:end]
+        self.assertIn("ELSEVIER_API_KEY: ${{ secrets.ELSEVIER_API_KEY }}", window)
+        self.assertIn("ELSEVIER_INST_TOKEN: ${{ secrets.ELSEVIER_INST_TOKEN }}", window)
+        self.assertIn("capture_sciencedirect_browser_roster_evidence.py", window)
+
     def test_trusted_elsevier_staging_lane_skips_browser_reconstruction(self) -> None:
         workflow = self.workflow()
         guard = "if: inputs.evidence_issue_ids != '' && inputs.categories != '__elsevier_staging_only__'"
