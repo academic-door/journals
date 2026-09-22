@@ -23,7 +23,12 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from collectors.article_types import is_publishable_type, requires_abstract  # noqa: E402
+from collectors.article_types import (  # noqa: E402
+    OFFICIAL_NO_ABSTRACT_STATUS,
+    is_publishable_type,
+    official_no_abstract_exception,
+    requires_abstract,
+)
 from collectors.metadata_fallback import _elsevier_lookup  # noqa: E402
 from scripts.build_archives_from_roster_evidence import (  # noqa: E402
     _metadata_for_dois,
@@ -180,6 +185,46 @@ def enrich_missing_elsevier_abstracts(
         filled += 1
     return filled
 
+
+def apply_official_no_abstract_exceptions(candidate: dict[str, Any]) -> int:
+    """Apply only issue+DOI allowlisted publisher no-abstract exceptions."""
+
+    issue_id = str(candidate.get("issue_id", "")).strip()
+    applied = 0
+    for article in candidate.get("articles", []):
+        if str(article.get("abstract_en", "")).strip():
+            continue
+        doi = str(article.get("doi", "")).strip().casefold()
+        exception = official_no_abstract_exception(issue_id, doi)
+        if not exception:
+            continue
+
+        article["title_cn"] = str(exception["title_cn"])
+        article["abstract_en"] = ""
+        article["abstract_cn"] = ""
+        article["abstract_status"] = OFFICIAL_NO_ABSTRACT_STATUS
+        article["abstract_note"] = str(exception["abstract_note"])
+        sources = article.setdefault("sources", {})
+        sources["abstract_en"] = "publisher-page-no-standalone-abstract"
+        source_url = str(exception.get("source_url", "") or article.get("source_url", "")).strip()
+        if source_url:
+            sources["abstract_en_url"] = source_url
+        article["translation"] = {
+            "status": "complete",
+            "provider": "manual-official-title",
+            "prompt_version": "official-no-abstract-v1",
+        }
+        article["quality_flags"] = [
+            flag
+            for flag in article.get("quality_flags", [])
+            if flag not in {"title_cn_missing", "abstract_en_missing", "abstract_cn_missing"}
+        ]
+        article["quality_flags"].append("official_abstract_unavailable")
+        article["quality_flags"] = list(dict.fromkeys(article["quality_flags"]))
+        applied += 1
+    return applied
+
+
 def recover_one(
     staging_path: Path,
     journal: dict[str, Any],
@@ -212,6 +257,7 @@ def recover_one(
         session=session,
         timeout=timeout,
     )
+    no_abstract_applied = apply_official_no_abstract_exceptions(candidate)
     candidate = normalize_issue_content(candidate)
     cache_path = translation_cache_root / f"{journal_id}.json"
     report = translate_missing(
@@ -232,6 +278,7 @@ def recover_one(
             "issue_id": issue_id,
             "result": candidate.get("publication_state", "blocked"),
             "elsevier_abstracts_filled": filled,
+            "official_no_abstract_exceptions_applied": no_abstract_applied,
             "translation_report": report,
         }
 
@@ -241,6 +288,7 @@ def recover_one(
             "issue_id": issue_id,
             "result": "archive-gate-failed",
             "elsevier_abstracts_filled": filled,
+            "official_no_abstract_exceptions_applied": no_abstract_applied,
             "translation_report": report,
         }
     reconcile_state_files(candidate, state_root)
@@ -248,6 +296,7 @@ def recover_one(
         "issue_id": issue_id,
         "result": "ready",
         "elsevier_abstracts_filled": filled,
+        "official_no_abstract_exceptions_applied": no_abstract_applied,
         "translated": int(candidate["quality"].get("translation_complete", 0)),
         "translation_report": report,
     }
