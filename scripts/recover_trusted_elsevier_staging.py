@@ -24,7 +24,10 @@ if str(ROOT) not in sys.path:
 
 from collectors.article_types import is_publishable_type, requires_abstract  # noqa: E402
 from collectors.metadata_fallback import _elsevier_lookup  # noqa: E402
-from scripts.build_archives_from_roster_evidence import _usable_metadata_abstract  # noqa: E402
+from scripts.build_archives_from_roster_evidence import (  # noqa: E402
+    _metadata_for_dois,
+    _usable_metadata_abstract,
+)
 from scripts.build_sciencedirect_browser_archives import pii_from_href  # noqa: E402
 from scripts.import_official_roster_evidence import reconcile_state_files  # noqa: E402
 from scripts.translate_issue import translate_missing  # noqa: E402
@@ -86,6 +89,15 @@ def enrich_missing_elsevier_abstracts(
     session: requests.Session,
     timeout: int,
 ) -> int:
+    """Fill only missing abstracts while preserving the accepted issue roster.
+
+    Official Elsevier article metadata remains first choice. When it has no
+    usable abstract, reuse the repository's established DOI metadata fallback
+    chain (Crossref -> Semantic Scholar -> OpenAlex). Only abstract_en and
+    its field-level provenance may change; roster/order, authors, title and
+    issue source authority remain untouched.
+    """
+
     if not trusted_elsevier_staging(candidate, journal):
         return 0
     if any(
@@ -96,6 +108,7 @@ def enrich_missing_elsevier_abstracts(
         return 0
 
     filled = 0
+    unresolved: list[tuple[dict[str, Any], str]] = []
     for article in candidate.get("articles", []):
         if not requires_abstract(str(article.get("article_type", ""))):
             continue
@@ -113,19 +126,42 @@ def enrich_missing_elsevier_abstracts(
                 timeout=timeout,
             )
         except Exception:
-            continue
+            lookup = {}
         abstract = _usable_metadata_abstract(lookup.get("abstract", ""))
+        if abstract:
+            article["abstract_en"] = abstract
+            sources = article.setdefault("sources", {})
+            sources["abstract_en"] = "official-elsevier-metadata"
+            source_url = str(lookup.get("source_url", "")).strip()
+            if source_url:
+                sources["abstract_en_url"] = source_url
+            filled += 1
+            continue
+        unresolved.append((article, doi))
+
+    if not unresolved:
+        return filled
+
+    fallback = _metadata_for_dois(
+        session,
+        list(dict.fromkeys(doi for _article, doi in unresolved)),
+        {},
+        timeout=timeout,
+    )
+    for article, doi in unresolved:
+        metadata = fallback.get(doi, {})
+        abstract = _usable_metadata_abstract(metadata.get("abstract", ""))
         if not abstract:
             continue
         article["abstract_en"] = abstract
         sources = article.setdefault("sources", {})
-        sources["abstract_en"] = "official-elsevier-metadata"
-        source_url = str(lookup.get("source_url", "")).strip()
+        source_name = str(metadata.get("abstract_source", "")).strip()
+        source_url = str(metadata.get("abstract_url", "")).strip()
+        sources["abstract_en"] = source_url or source_name or "crossref-or-semantic-scholar"
         if source_url:
             sources["abstract_en_url"] = source_url
         filled += 1
     return filled
-
 
 def recover_one(
     staging_path: Path,
