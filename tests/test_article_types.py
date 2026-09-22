@@ -211,6 +211,18 @@ class ArticleTypeTests(unittest.TestCase):
                 "https://www.sciencedirect.com/science/article/pii/S0304407623002324",
             ("joe-237-1", "10.1016/j.jeconom.2023.105519"):
                 "https://www.sciencedirect.com/science/article/pii/S030440762300235X",
+            ("jeem-118-c", "10.1016/j.jeem.2022.102781"):
+                "https://www.sciencedirect.com/science/article/pii/S0095069622001346",
+            ("jue-133-c", "10.1016/j.jue.2022.103531"):
+                "https://www.sciencedirect.com/science/article/pii/S0094119022001073",
+            ("jue-144-c", "10.1016/j.jue.2024.103710"):
+                "https://www.sciencedirect.com/science/article/pii/S0094119024000809",
+            ("jue-144-c", "10.1016/j.jue.2024.103712"):
+                "https://www.sciencedirect.com/science/article/pii/S0094119024000822",
+            ("jue-144-c", "10.1016/j.jue.2024.103713"):
+                "https://www.sciencedirect.com/science/article/pii/S0094119024000834",
+            ("wd-192-c", "10.1016/j.worlddev.2025.107006"):
+                "https://www.sciencedirect.com/science/article/pii/S0305750X25000919",
         }
         for (issue_id, doi), source_url in cases.items():
             with self.subTest(issue_id=issue_id, doi=doi):
@@ -222,6 +234,43 @@ class ArticleTypeTests(unittest.TestCase):
                 self.assertIsNone(
                     official_no_abstract_exception(issue_id, doi + "-different")
                 )
+
+
+    def test_residual_no_abstract_evidence_is_article_scoped_and_exact(self) -> None:
+        import json
+        from pathlib import Path
+
+        root = Path(__file__).resolve().parents[1]
+        evidence = json.loads(
+            (
+                root
+                / "data"
+                / "provenance"
+                / "browser-article-evidence"
+                / "elsevier-r3-residual-no-abstract-2026-09-22.json"
+            ).read_text(encoding="utf-8")
+        )
+        self.assertTrue(evidence["finalized"])
+        self.assertIn("does not establish issue roster/order", evidence["scope"])
+        items = {(item["issue_id"], item["doi"]): item for item in evidence["items"]}
+        expected = {
+            ("jeem-118-c", "10.1016/j.jeem.2022.102781"),
+            ("jue-133-c", "10.1016/j.jue.2022.103531"),
+            ("jue-144-c", "10.1016/j.jue.2024.103710"),
+            ("jue-144-c", "10.1016/j.jue.2024.103712"),
+            ("jue-144-c", "10.1016/j.jue.2024.103713"),
+            ("wd-192-c", "10.1016/j.worlddev.2025.107006"),
+        }
+        self.assertEqual(expected, set(items))
+        for key, item in items.items():
+            self.assertFalse(item["standalone_abstract_present"])
+            self.assertTrue(item["url"].startswith("https://www.sciencedirect.com/science/article/pii/"))
+            self.assertIn(
+                item["evidence_kind"],
+                {"official-sciencedirect-page", "publisher-supplied-repec-record"},
+            )
+            exception = official_no_abstract_exception(*key)
+            self.assertEqual(item["url"], exception["source_url"])
 
     def test_foodpolicy_short_communication_override_matches_official_label(self) -> None:
         import json
