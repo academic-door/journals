@@ -216,6 +216,9 @@ def _metadata_for_dois(
     for doi in dois:
         entry = dict(crossref.get(doi, {}))
         entry["abstract"] = _usable_metadata_abstract(entry.get("abstract", ""))
+        if entry.get("abstract"):
+            entry.setdefault("abstract_source", "crossref")
+            entry.setdefault("abstract_url", f"https://doi.org/{doi}")
         metadata[doi] = entry
         if not entry.get("abstract") or not entry.get("authors"):
             missing.append(doi)
@@ -231,6 +234,8 @@ def _metadata_for_dois(
                 direct_abstract = _usable_metadata_abstract(direct.get("abstract", ""))
                 if not current.get("abstract") and direct_abstract:
                     current["abstract"] = direct_abstract
+                    current["abstract_source"] = "crossref"
+                    current["abstract_url"] = f"{CROSSREF_API}/works/{doi}"
                 if not current.get("title") and direct.get("title"):
                     current["title"] = str(direct["title"])
                 if not current.get("year") and direct.get("year"):
@@ -255,6 +260,8 @@ def _metadata_for_dois(
             semantic_abstract = _usable_metadata_abstract(entry.get("abstract", ""))
             if not current.get("abstract") and semantic_abstract:
                 current["abstract"] = semantic_abstract
+                current["abstract_source"] = "semantic-scholar"
+                current["abstract_url"] = str(entry.get("url", "")).strip()
             if not current.get("title") and entry.get("title"):
                 current["title"] = str(entry["title"])
             if not current.get("published") and entry.get("published"):
@@ -268,7 +275,7 @@ def _metadata_for_dois(
     if missing:
         for doi in missing:
             try:
-                authors, abstract, _url = _openalex_metadata(
+                authors, abstract, openalex_url = _openalex_metadata(
                     session, doi, timeout=timeout
                 )
             except Exception:
@@ -279,6 +286,8 @@ def _metadata_for_dois(
             openalex_abstract = _usable_metadata_abstract(abstract)
             if not current.get("abstract") and openalex_abstract:
                 current["abstract"] = openalex_abstract
+                current["abstract_source"] = "openalex"
+                current["abstract_url"] = str(openalex_url).strip()
 
     series_code = str(repec_series_code or "").strip()
     if series_code:
