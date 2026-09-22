@@ -4,7 +4,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import ANY, patch
 
 from scripts.build_archives_from_roster_evidence import (
     _metadata_for_dois,
@@ -260,6 +260,88 @@ class BuildArchivesFromRosterEvidenceTests(unittest.TestCase):
             metadata["10.1111/demo.10002"]["abstract"],
         )
         crossref_direct.assert_called_once()
+
+    def test_repec_publisher_abstract_is_final_metadata_fallback_without_roster_authority(self) -> None:
+        import requests
+
+        doi = "10.1086/725699"
+        official_url = "https://journals.uchicago.edu/toc/jaere/2024/11/1"
+        repec_url = "https://ideas.repec.org/a/ucp/jaerec/doi_10.1086_725699.html"
+        with (
+            patch(
+                "scripts.build_archives_from_roster_evidence._crossref_direct",
+                return_value={
+                    "authors": ["Glenn Sheriff"],
+                    "abstract": "",
+                    "title": "California’s GHG Cap-and-Trade Program and the Equity of Air Toxic Releases",
+                    "year": "2024",
+                },
+            ),
+            patch(
+                "scripts.build_archives_from_roster_evidence._semantic_scholar_metadata_batch",
+                return_value={},
+            ),
+            patch(
+                "scripts.build_archives_from_roster_evidence._openalex_metadata",
+                return_value=(["Glenn Sheriff"], "", ""),
+            ),
+            patch(
+                "scripts.build_archives_from_roster_evidence._repec_abstract",
+                return_value=(
+                    "Publisher-supplied RePEc abstract.",
+                    repec_url,
+                ),
+            ) as repec,
+        ):
+            metadata = _metadata_for_dois(
+                requests.Session(),
+                [doi],
+                {},
+                timeout=10,
+                repec_series_code="ucp/jaerec",
+            )
+
+        self.assertEqual("Publisher-supplied RePEc abstract.", metadata[doi]["abstract"])
+        self.assertEqual("repec-publisher-supplied", metadata[doi]["abstract_source"])
+        self.assertEqual(repec_url, metadata[doi]["abstract_url"])
+        repec.assert_called_once_with(
+            ANY,
+            doi,
+            timeout=10,
+            series_code="ucp/jaerec",
+        )
+
+        evidence = {
+            "schema_version": "1.0",
+            "capture_mode": "official-roster-evidence",
+            "method": "browser-authorized",
+            "captured_at": "2026-09-22T00:00:00+00:00",
+            "finalized": True,
+            "journal_id": "jaere",
+            "issue_id": "jaere-11-1",
+            "official_url": official_url,
+            "excluded_item_count": 0,
+            "items": [
+                {
+                    "sequence": 1,
+                    "doi": doi,
+                    "title_en": "California’s GHG Cap-and-Trade Program and the Equity of Air Toxic Releases",
+                }
+            ],
+        }
+        issue = build_candidate_from_evidence(
+            evidence,
+            {"name": "Journal of the Association of Environmental and Resource Economists"},
+            metadata,
+            publication_date="January 2024",
+        )
+        article = issue["articles"][0]
+        self.assertEqual("official-issue-page", issue["quality"]["roster_authority"])
+        self.assertEqual("browser-authorized", issue["quality"]["roster_transport"])
+        self.assertEqual(official_url, article["source_url"])
+        self.assertEqual(official_url, article["sources"]["roster"])
+        self.assertEqual(f"https://doi.org/{doi}", article["sources"]["metadata"])
+        self.assertEqual(repec_url, article["sources"]["abstract_en"])
 
     def test_page_chrome_abstract_is_rejected_and_falls_through_to_openalex(self) -> None:
         import requests
