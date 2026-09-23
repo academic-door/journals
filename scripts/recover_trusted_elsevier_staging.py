@@ -51,6 +51,7 @@ from scripts.update_journals import (  # noqa: E402
 DEFAULT_API_ROOT = ROOT / "public" / "api" / "v1"
 DEFAULT_STATE_ROOT = ROOT / "data" / "backfill-state"
 DEFAULT_STAGING_ROOT = ROOT / "data" / "backfill-staging"
+DEFAULT_BROWSER_SNAPSHOT_ROOT = ROOT / "data" / "provenance" / "browser-snapshots"
 ISSUE_ID = re.compile(r"^[A-Za-z0-9-]+$")
 
 
@@ -103,12 +104,78 @@ def trusted_elsevier_staging(
     )
 
 
+
+def _normalized_title(value: Any) -> str:
+    return re.sub(r"\s+", " ", str(value or "").strip()).casefold()
+
+
+def browser_snapshot_pii_by_title(
+    candidate: dict[str, Any],
+    *,
+    snapshot_root: Path = DEFAULT_BROWSER_SNAPSHOT_ROOT,
+) -> dict[str, str]:
+    """Return unique exact-title PII identities from the same browser issue snapshot.
+
+    The mapping is used only for article-level Elsevier metadata lookup.  It
+    does not establish or modify issue membership/order authority.
+    """
+
+    quality = candidate.get("quality", {})
+    if (
+        str(quality.get("roster_authority", "")).strip() != "official-issue-page"
+        or str(quality.get("roster_transport", "")).strip() != "browser-authorized"
+    ):
+        return {}
+
+    issue_id = str(candidate.get("issue_id", "")).strip()
+    journal_id = str(candidate.get("journal_id", "")).strip().casefold()
+    if not issue_id or not journal_id:
+        return {}
+
+    candidates = [
+        snapshot_root / "sciencedirect" / f"{issue_id}.json",
+        snapshot_root / f"{issue_id}.json",
+    ]
+    snapshot_path = next((path for path in candidates if path.is_file()), None)
+    if snapshot_path is None:
+        return {}
+    try:
+        snapshot = json.loads(snapshot_path.read_text(encoding="utf-8"))
+    except (OSError, ValueError, json.JSONDecodeError):
+        return {}
+
+    if (
+        str(snapshot.get("issue_id", "")).strip() != issue_id
+        or str(snapshot.get("journal_id", "")).strip().casefold() != journal_id
+        or str(snapshot.get("capture_mode", "")).strip() != "browser-authorized"
+        or str(snapshot.get("official_url", "")).strip()
+        != str(candidate.get("source_url", "")).strip()
+    ):
+        return {}
+
+    by_title: dict[str, str] = {}
+    duplicate_titles: set[str] = set()
+    for item in snapshot.get("items", []):
+        title = _normalized_title(item.get("title") or item.get("title_en"))
+        pii = pii_from_href(item.get("href") or item.get("source_url"))
+        if not title or not pii:
+            continue
+        if title in by_title:
+            duplicate_titles.add(title)
+            continue
+        by_title[title] = pii
+    for title in duplicate_titles:
+        by_title.pop(title, None)
+    return by_title
+
+
 def enrich_missing_elsevier_abstracts(
     candidate: dict[str, Any],
     journal: dict[str, Any],
     *,
     session: requests.Session,
     timeout: int,
+    snapshot_root: Path = DEFAULT_BROWSER_SNAPSHOT_ROOT,
 ) -> int:
     """Fill only missing abstracts while preserving the accepted issue roster.
 
@@ -128,6 +195,7 @@ def enrich_missing_elsevier_abstracts(
     ):
         return 0
 
+    pii_by_title = browser_snapshot_pii_by_title(candidate, snapshot_root=snapshot_root)
     filled = 0
     unresolved: list[tuple[dict[str, Any], str]] = []
     for article in candidate.get("articles", []):
@@ -138,7 +206,9 @@ def enrich_missing_elsevier_abstracts(
         doi = str(article.get("doi", "")).strip().casefold()
         if not doi:
             continue
-        pii = pii_from_href(article.get("source_url"))
+        pii = pii_from_href(article.get("source_url")) or pii_by_title.get(
+            _normalized_title(article.get("title_en")), ""
+        )
         try:
             lookup = _elsevier_lookup(
                 session,
