@@ -220,6 +220,36 @@ class OfficialRosterEvidenceTests(unittest.TestCase):
         validate_evidence(official)
 
     @patch("collectors.metadata_fallback._elsevier_lookup")
+    def test_excluded_elsevier_editorial_does_not_require_abstract_metadata(
+        self, lookup
+    ) -> None:
+        official = evidence()
+        official["items"].append(
+            {
+                "sequence": 3,
+                "doi": "10.1016/j.jeconom.2023.01.017",
+                "title_en": "Five decades of the Journal of Econometrics: An activity report",
+                "source_id": "pii:S0304407623000404",
+                "official_authors": ["Serena Ng", "Elie Tamer"],
+                "official_article_url": (
+                    "https://www.sciencedirect.com/science/article/pii/"
+                    "S0304407623000404"
+                ),
+            }
+        )
+
+        enriched = enrich_missing_elsevier(official, provisional_issue())
+
+        lookup.assert_not_called()
+        candidate = apply_evidence(provisional_issue(), enriched)
+        self.assertEqual(2, candidate["research_article_count"])
+        excluded = candidate["quality"]["excluded_items"]
+        self.assertIn(
+            "10.1016/j.jeconom.2023.01.017",
+            [str(item.get("doi", "")).strip().lower() for item in excluded],
+        )
+
+    @patch("collectors.metadata_fallback._elsevier_lookup")
     def test_missing_elsevier_metadata_is_enriched_without_changing_roster(
         self, lookup
     ) -> None:
