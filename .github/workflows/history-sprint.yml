@@ -473,11 +473,17 @@ jobs:
             snapshot_args+=("$snapshot")
           done
           if ((${#snapshot_args[@]})); then
+            browser_archive_status=0
             python scripts/build_sciencedirect_browser_archives.py \
               "${snapshot_args[@]}" \
               --state-root data/backfill-state \
               --translation-cache-root data/translation-cache \
-              --translate
+              --translate || browser_archive_status=$?
+            if [[ "$browser_archive_status" -eq 2 ]]; then
+              echo "All browser archive builds deferred; continue to official roster evidence conversion."
+            elif [[ "$browser_archive_status" -ne 0 ]]; then
+              exit "$browser_archive_status"
+            fi
           else
             echo "No browser-authorized ScienceDirect snapshots available; all requested issues deferred."
           fi
