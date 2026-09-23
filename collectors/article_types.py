@@ -113,6 +113,54 @@ OFFICIAL_NO_ABSTRACT_EXCEPTIONS: dict[tuple[str, str], dict[str, str]] = {
         "source_url": "https://www.sciencedirect.com/science/article/pii/S0094119024000834",
     },
     (
+        "joe-234-c",
+        "10.1016/j.jeconom.2023.03.006",
+    ): {
+        "title_cn": "《计量经济学杂志》的前20年",
+        "abstract_note": "Elsevier 官方文章元数据链在精确 PII+DOI 查询后仍未提供独立 Abstract。",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623001033",
+    },
+    (
+        "joe-234-c",
+        "10.1016/j.jeconom.2023.01.014",
+    ): {
+        "title_cn": "我在《计量经济学杂志》1991—2013年的工作经历",
+        "abstract_note": "Elsevier 官方文章元数据链在精确 PII+DOI 查询后仍未提供独立 Abstract。",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623000374",
+    },
+    (
+        "joe-234-c",
+        "10.1016/j.jeconom.2023.01.016",
+    ): {
+        "title_cn": "担任联合编辑的经历：A. Ronald Gallant",
+        "abstract_note": "ScienceDirect 将该条目标为 Discussion；官方文章元数据链未提供独立 Abstract。",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623000398",
+    },
+    (
+        "joe-234-c",
+        "10.1016/j.jeconom.2023.01.013",
+    ): {
+        "title_cn": "对《计量经济学杂志》的回顾",
+        "abstract_note": "ScienceDirect 将该条目标为 Discussion；官方文章元数据链未提供独立 Abstract。",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623000362",
+    },
+    (
+        "joe-234-c",
+        "10.1016/j.jeconom.2023.01.018",
+    ): {
+        "title_cn": "《计量经济学杂志》2012—2018",
+        "abstract_note": "ScienceDirect 将该条目标为 Discussion；官方文章元数据链未提供独立 Abstract。",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623000416",
+    },
+    (
+        "joe-234-c",
+        "10.1016/j.jeconom.2023.01.019",
+    ): {
+        "title_cn": "Aigner、Lovell 与 Schmidt（1977）的起源及随机前沿分析的发展",
+        "abstract_note": "ScienceDirect 将该条目标为 Discussion；官方文章元数据链未提供独立 Abstract。",
+        "source_url": "https://www.sciencedirect.com/science/article/pii/S0304407623000428",
+    },
+    (
         "wd-192-c",
         "10.1016/j.worlddev.2025.107006",
     ): {
