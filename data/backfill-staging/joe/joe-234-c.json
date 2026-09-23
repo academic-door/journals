@@ -197,14 +197,14 @@
       "source_sequence": 7,
       "article_type": "research-article",
       "title_en": "Reprint of: Formulation and estimation of stochastic frontier production function models",
-      "title_cn": "",
+      "title_cn": "重印：随机前沿生产函数模型的设定与估计",
       "authors": [
         "Dennis Aigner",
         "C.A. Knox Lovell",
         "Peter Schmidt"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "Previous studies of the so-called frontier production function have not utilized an adequate characterization of the disturbance term for such a model. In this paper we provide an appropriate specification, by defining the disturbance term as the sum of symmetric normal and (negative) half-normal random variables. Various aspects of maximum-likelihood estimation for the coefficients of a production function with an additive disturbance term of this sort are then considered.",
+      "abstract_cn": "以往关于所谓前沿生产函数的研究并未对此类模型的扰动项进行充分刻画。本文通过将扰动项定义为对称正态随机变量与（负）半正态随机变量之和，提供了适当的设定。随后，我们考虑了具有此类加性扰动项的生产函数系数极大似然估计的各个方面。",
       "doi": "10.1016/j.jeconom.2023.01.023",
       "source_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
       "publication_date": "March 2023",
@@ -212,15 +212,18 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
         "roster": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
         "metadata": "https://doi.org/10.1016/j.jeconom.2023.01.023",
-        "abstract_en": "crossref-or-semantic-scholar"
+        "abstract_en": "official-elsevier-metadata",
+        "abstract_en_url": "https://api.elsevier.com/content/metadata/article"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-24T17:46:25+00:00",
+        "source_hash": "d711770691b20e48fc8bb86dfa3bcf1829769061e60bfcd91dddaa5482364d52"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -234,12 +237,12 @@
       "source_sequence": 8,
       "article_type": "research-article",
       "title_en": "Reprint of: Generalized Autoregressive Conditional Heteroskedasticity",
-      "title_cn": "",
+      "title_cn": "重印：广义自回归条件异方差性",
       "authors": [
         "Tim Bollerslev"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "A natural generalization of the ARCH (Autoregressive Conditional Heteroskedastic) process introduced in Engle (1982) to allow for past conditional variances in the current conditional variance equation is proposed. Stationarity conditions and autocorrelation structure for this new class of parametric models are derived. Maximum likelihood estimation and testing are also considered. Finally an empirical example relating to the uncertainty of the inflation rate is presented.",
+      "abstract_cn": "本文提出了对Engle（1982）引入的ARCH（自回归条件异方差）过程的一种自然推广，允许过去的条件方差进入当前的条件方差方程。推导了这类新参数模型的平稳性条件和自相关结构。同时考虑了极大似然估计和检验。最后，给出了一个关于通货膨胀率不确定性的实证例子。",
       "doi": "10.1016/j.jeconom.2023.02.001",
       "source_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
       "publication_date": "March 2023",
@@ -247,15 +250,18 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
         "roster": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
         "metadata": "https://doi.org/10.1016/j.jeconom.2023.02.001",
-        "abstract_en": "crossref-or-semantic-scholar"
+        "abstract_en": "official-elsevier-metadata",
+        "abstract_en_url": "https://api.elsevier.com/content/metadata/article"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-08-18T18:57:55+00:00",
+        "source_hash": "0803771b98a4deaa0b43aa418a5a1f82a3b7bf421e591bc7541bc8656a85a046"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -269,13 +275,13 @@
       "source_sequence": 9,
       "article_type": "research-article",
       "title_en": "Reprint of: Initial conditions and moment restrictions in dynamic panel data models",
-      "title_cn": "",
+      "title_cn": "重印：动态面板数据模型中的初始条件与矩限制",
       "authors": [
         "Richard Blundell",
         "Stephen Bond"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "Estimation of the dynamic error components model is considered using two alternative linear estimators that are designed to improve the properties of the standard first-differenced GMM estimator. Both estimators require restrictions on the initial conditions process. Asymptotic efficiency comparisons and Monte Carlo simulations for the simple AR(1) model demonstrate the dramatic improvement in performance of the proposed estimators compared to the usual first-differenced GMM estimator, and compared to non-linear GMM. The importance of these results is illustrated in an application to the estimation of a labour demand model using company panel data.",
+      "abstract_cn": "本文考虑使用两种替代的线性估计量来估计动态误差成分模型，这两种估计量旨在改进标准一阶差分GMM估计量的性质。两种估计量都需要对初始条件过程施加限制。针对简单AR(1)模型的渐近效率比较和蒙特卡洛模拟表明，与通常的一阶差分GMM估计量以及非线性GMM相比，所提出的估计量在性能上有显著改进。这些结果的重要性通过一个使用公司面板数据估计劳动力需求模型的应用得到了说明。",
       "doi": "10.1016/j.jeconom.2023.03.001",
       "source_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
       "publication_date": "March 2023",
@@ -283,15 +289,18 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
         "roster": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
         "metadata": "https://doi.org/10.1016/j.jeconom.2023.03.001",
-        "abstract_en": "crossref-or-semantic-scholar"
+        "abstract_en": "official-elsevier-metadata",
+        "abstract_en_url": "https://api.elsevier.com/content/metadata/article"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-23T04:36:17+00:00",
+        "source_hash": "40c043075bde35b4d73a1fc3543264ce87709dd354d72178402b9f294b6b222f"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -305,14 +314,14 @@
       "source_sequence": 10,
       "article_type": "research-article",
       "title_en": "Reprint of: Testing for unit roots in heterogeneous panels",
-      "title_cn": "",
+      "title_cn": "转载：异质性面板中的单位根检验",
       "authors": [
         "Kyung So Im",
         "M. Hashem Pesaran",
         "Yongcheol Shin"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "This paper proposes unit root tests for dynamic heterogeneous panels based on the mean of individual unit root statistics. In particular it proposes a standardized t-bar test statistic based on the (augmented) Dickey–Fuller statistics averaged across the groups. Under a general setting this statistic is shown to converge in probability to a standard normal variate sequentially with T (the time series dimension) →∞, followed by N (the cross sectional dimension) →∞. A diagonal convergence result with T and N→∞ while N/T→k,k being a finite non-negative constant, is also conjectured. In the special case where errors in individual Dickey–Fuller (DF) regressions are serially uncorrelated a modified version of the standardized t-bar statistic is shown to be distributed as standard normal as N→∞ for a fixed T, so long as T ¿ 5 in the case of DF regressions with intercepts and T ¿ 6 in the case of DF regressions with intercepts and linear time trends. An exact fixed N and T test is also developed using the simple average of the DF statistics. Monte Carlo results show that if a large enough lag order is selected for the underlying ADF regressions, then the small sample performances of the t-bar test is reasonably satisfactory and generally better than the test proposed by Levin and Lin (1993).",
+      "abstract_cn": "本文提出了基于个体单位根统计量均值的动态异质性面板单位根检验。特别地，本文提出了一个基于跨组平均的（增广）Dickey–Fuller统计量的标准化t-bar检验统计量。在一般设定下，该统计量被证明依概率收敛于标准正态变量，其收敛顺序为T（时间序列维度）→∞，随后N（横截面维度）→∞。本文还推测了一个对角收敛结果，即T和N→∞，同时N/T→k，k为有限非负常数。在个体Dickey–Fuller（DF）回归误差序列不相关的特殊情况下，标准化t-bar统计量的一个修正版本被证明在N→∞、T固定时服从标准正态分布，只要在带截距的DF回归情形下T ¿ 5，在带截距和线性时间趋势的DF回归情形下T ¿ 6。本文还利用DF统计量的简单平均值开发了一个精确的固定N和T检验。蒙特卡洛结果表明，如果为 underlying ADF 回归选择足够大的滞后阶数，则t-bar检验的小样本表现相当令人满意，且通常优于Levin和Lin（1993）提出的检验。",
       "doi": "10.1016/j.jeconom.2023.03.002",
       "source_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
       "publication_date": "March 2023",
@@ -320,15 +329,18 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
         "roster": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
         "metadata": "https://doi.org/10.1016/j.jeconom.2023.03.002",
-        "abstract_en": "crossref-or-semantic-scholar"
+        "abstract_en": "official-elsevier-metadata",
+        "abstract_en_url": "https://api.elsevier.com/content/metadata/article"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-23T04:36:18+00:00",
+        "source_hash": "c71c136794554604e5ecca2b5acaed2dcdff30f984767a2738a1ad26e9cb06a1"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -342,13 +354,13 @@
       "source_sequence": 11,
       "article_type": "research-article",
       "title_en": "Reprint of: On the network topology of variance decompositions: Measuring the connectedness of financial firms",
-      "title_cn": "",
+      "title_cn": "重印：关于方差分解的网络拓扑结构：衡量金融机构的关联性",
       "authors": [
         "Francis X. Diebold",
         "Kamil Yılmaz"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "We propose several connectedness measures built from pieces of variance decompositions, and we argue that they provide natural and insightful measures of connectedness. We also show that variance decompositions define weighted, directed networks, so that our connectedness measures are intimately related to key measures of connectedness used in the network literature. Building on these insights, we track daily time-varying connectedness of major U.S. financial institutions’ stock return volatilities in recent years, with emphasis on the financial crisis of 2007–2008.",
+      "abstract_cn": "我们提出了若干基于方差分解各部分的关联性度量，并认为它们提供了自然且有洞察力的关联性度量。我们还表明，方差分解定义了加权有向网络，因此我们的关联性度量与网络文献中使用的关键关联性度量密切相关。基于这些见解，我们追踪了近年来美国主要金融机构股票收益波动率的每日时变关联性，重点关注2007-2008的金融危机。",
       "doi": "10.1016/j.jeconom.2023.03.003",
       "source_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
       "publication_date": "March 2023",
@@ -356,15 +368,18 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
         "roster": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
         "metadata": "https://doi.org/10.1016/j.jeconom.2023.03.003",
-        "abstract_en": "crossref-or-semantic-scholar"
+        "abstract_en": "official-elsevier-metadata",
+        "abstract_en_url": "https://api.elsevier.com/content/metadata/article"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-23T04:36:17+00:00",
+        "source_hash": "f7f67e4200e421fdbe72ecfb7ff017fb73bdf89dbfbd88021f6e5995b8341b8d"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -415,12 +430,12 @@
       "source_sequence": 13,
       "article_type": "research-article",
       "title_en": "The story of GARCH: A personal odyssey",
-      "title_cn": "",
+      "title_cn": "GARCH的故事：一段个人历程",
       "authors": [
         "Tim Bollerslev"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "I provide a brief history of the origins of the GARCH model and my 1986 paper published in the Journal , along with a discussion of how the GARCH model and applications thereof have ﬂourished since then. I also brieﬂy highlight connections to the more recent realized volatility literature.",
+      "abstract_cn": "我简要介绍了GARCH模型的起源以及我在《Journal》上发表的1986论文的历史，并讨论了GARCH模型及其应用自此以来的蓬勃发展。我还简要强调了与更近期已实现波动率文献的联系。",
       "doi": "10.1016/j.jeconom.2023.01.015",
       "source_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
       "publication_date": "March 2023",
@@ -428,15 +443,17 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
         "roster": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
         "metadata": "https://doi.org/10.1016/j.jeconom.2023.01.015",
-        "abstract_en": "crossref-or-semantic-scholar"
+        "abstract_en": "https://www.semanticscholar.org/paper/423ba5699f97eceb17d7f08db92fb8e537303404"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-23T06:07:53+00:00",
+        "source_hash": "64be25821cda77c69cb53c03c0306f88424b11fd69ccc62d1846d225eabf6267"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -450,13 +467,13 @@
       "source_sequence": 14,
       "article_type": "research-article",
       "title_en": "Initial conditions and Blundell–Bond estimators",
-      "title_cn": "初始条件与Blundell–Bond估计量",
+      "title_cn": "",
       "authors": [
         "Richard Blundell",
         "Steve Bond"
       ],
-      "abstract_en": "We place the Blundell–Bond paper in the context of the early development of panel data estimators that accounted for unobserved heterogeneity, dynamics and persistent economic series. The initial work focused on appropriate econometric methods to estimate dynamic models using unbalanced panel data with many firms and/or individuals but covering a small number of time periods. Eliminating the unobserved firm-specific ‘fixed’ effects by taking first-differences and using as instruments suitably lagged values of the dependent variable , and of endogenous or predetermined explanatory variables, led to the first-differenced GMM estimators popularised by Arellano and Bond (1991). This approach was less well suited to models which relate highly persistent series. Following Arellano and Bover (1995) we examined the use of suitably lagged first-differences as instruments for the equations in levels and derived the conditions, particularly on initial conditions, under which first-differences of the dependent variable would or would not be uncorrelated with individual-specific ‘fixed’ effects. An influential contribution was to illustrate the magnitude of the bias when the first-differenced GMM estimator is used to estimate autoregressive models for highly persistent series, and the potential to reduce that bias by using additional valid moment conditions for the equations in levels — thereby popularising the use of these extended or ‘System’ GMM estimators.",
-      "abstract_cn": "我们将Blundell–Bond一文置于面板数据估计量早期发展的背景下，这些估计量考虑了不可观测异质性、动态性和持续性的经济序列。早期工作聚焦于使用非平衡面板数据估计动态模型的适当计量经济学方法，这些数据包含许多企业和/或个人，但只覆盖少数几个时期。通过取一阶差分消除不可观测的企业特定‘固定’效应，并使用因变量以及内生或前定解释变量的适当滞后值作为工具变量，导致了由Arellano和Bond（1991）推广的一阶差分GMM估计量。这种方法不太适合涉及高度持续性序列的模型。继Arellano和Bover（1995）之后，我们考察了使用适当滞后的一阶差分作为水平方程工具变量的做法，并推导了因变量的一阶差分与个体特定‘固定’效应不相关或相关的条件，特别是关于初始条件的条件。一个有影响力的贡献是说明了当一阶差分GMM估计量被用于估计高度持续性序列的自回归模型时偏误的大小，以及通过使用水平方程的额外有效矩条件来减少该偏误的潜力——从而推广了这些扩展的或‘系统’GMM估计量的使用。",
+      "abstract_en": ",",
+      "abstract_cn": "",
       "doi": "10.1016/j.jeconom.2023.01.020",
       "source_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
       "publication_date": "March 2023",
@@ -464,17 +481,15 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
         "roster": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
         "metadata": "https://doi.org/10.1016/j.jeconom.2023.01.020",
-        "abstract_en": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2023.01.020"
+        "abstract_en": "https://www.semanticscholar.org/paper/cf94ddd9856b57ab718a9b209680f9b999a57669"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "model": "deepseek-chat",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "translated_at": "2026-09-23T04:36:50+00:00",
-        "source_hash": "bf141d2da81bf4f32221caa09deaf70207a5fab580f6ee1b7914a8cb9df61468"
+        "status": "missing"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -488,14 +503,14 @@
       "source_sequence": 15,
       "article_type": "research-article",
       "title_en": "Reflections on “Testing for unit roots in heterogeneous panels”",
-      "title_cn": "",
+      "title_cn": "对《异质性面板中单位根检验》的反思",
       "authors": [
         "Kyung So Im",
         "M. Hashem Pesaran",
         "Yongcheol Shin"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "© 2023 Elsevier B.V. This article is our personal perspective on the IPS test and the subsequent developments of unit root and cointegration tests in dynamic panels with and without cross-section dependence. In this note, we discuss the main idea behind the test and the publication process that led to Im et al. (2003).",
+      "abstract_cn": "© 2023 Elsevier B.V. 本文是我们对IPS检验以及随后在有和没有截面依赖的动态面板中单位根和协整检验发展的个人观点。在本注记中，我们讨论了该检验背后的主要思想以及导致Im等（2003）的发表过程。",
       "doi": "10.1016/j.jeconom.2023.01.022",
       "source_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
       "publication_date": "March 2023",
@@ -503,15 +518,18 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
         "roster": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
         "metadata": "https://doi.org/10.1016/j.jeconom.2023.01.022",
-        "abstract_en": "crossref-or-semantic-scholar"
+        "abstract_en": "official-elsevier-metadata",
+        "abstract_en_url": "https://api.elsevier.com/content/abstract/doi/10.1016/j.jeconom.2023.01.022"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-23T04:36:19+00:00",
+        "source_hash": "bcd953ebf628a67cb4e8010ca962a098fdb6c669f07c22af048acbf69c335d5e"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -525,13 +543,13 @@
       "source_sequence": 16,
       "article_type": "research-article",
       "title_en": "On the past, present, and future of the Diebold–Yilmaz approach to dynamic network connectedness",
-      "title_cn": "",
+      "title_cn": "论Diebold–Yilmaz动态网络关联性方法的过去、现在与未来",
       "authors": [
         "Francis X. Diebold",
         "Kamil Yilmaz"
       ],
-      "abstract_en": "",
-      "abstract_cn": "",
+      "abstract_en": "© 2023 Elsevier B.V. We offer retrospective and prospective assessments of the Diebold–Yilmaz connectedness research program, combined with personal recollections of its development. Its centerpiece in many respects is Diebold and Yilmaz (2014), around which our discussion is organized.",
+      "abstract_cn": "© 2023 Elsevier B.V. 我们对Diebold–Yilmaz关联性研究项目进行了回顾性和前瞻性评估，并结合了对其发展过程的个人回忆。其在许多方面的核心是Diebold和Yilmaz（2014），我们的讨论正是围绕这一点展开的。",
       "doi": "10.1016/j.jeconom.2023.01.021",
       "source_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
       "publication_date": "March 2023",
@@ -539,15 +557,18 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
         "roster": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
         "metadata": "https://doi.org/10.1016/j.jeconom.2023.01.021",
-        "abstract_en": "crossref-or-semantic-scholar"
+        "abstract_en": "official-elsevier-metadata",
+        "abstract_en_url": "https://api.elsevier.com/content/abstract/doi/10.1016/j.jeconom.2023.01.021"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-23T04:36:19+00:00",
+        "source_hash": "e9f4a35b3e8245018f49463364265eced1be46e9625adf0f5b899feebc889904"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -603,8 +624,8 @@
     ],
     "doi_complete": 15,
     "authors_complete": 15,
-    "abstract_en_complete": 1,
-    "translation_complete": 1,
+    "abstract_en_complete": 9,
+    "translation_complete": 8,
     "duplicate_count": 0,
     "flags": [
       "abstract_en_incomplete",
