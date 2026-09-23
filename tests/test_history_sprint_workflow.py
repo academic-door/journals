@@ -154,6 +154,19 @@ class HistorySprintWorkflowTests(unittest.TestCase):
 
 
 
+
+    def test_all_deferred_browser_archives_continue_only_on_exit_two(self) -> None:
+        workflow = self.workflow()
+        start = workflow.index("Build historical archives from ScienceDirect browser snapshots")
+        end = workflow.index("Convert ScienceDirect browser snapshots to official evidence", start)
+        window = workflow[start:end]
+        self.assertIn("browser_archive_status=0", window)
+        self.assertIn("--translate || browser_archive_status=$?", window)
+        self.assertIn('if [[ "$browser_archive_status" -eq 2 ]]; then', window)
+        self.assertIn("continue to official roster evidence conversion", window)
+        self.assertIn('elif [[ "$browser_archive_status" -ne 0 ]]; then', window)
+        self.assertIn('exit "$browser_archive_status"', window)
+
     def test_sciencedirect_roster_converter_receives_elsevier_metadata_credentials(self) -> None:
         workflow = self.workflow()
         start = workflow.index("Convert ScienceDirect browser snapshots to official evidence")
