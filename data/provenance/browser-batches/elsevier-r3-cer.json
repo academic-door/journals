@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "elsevier-r3-cer",
+  "publisher_family": "elsevier-sciencedirect",
+  "journal_id": "cer",
+  "transport": "browser-authorized",
+  "policy_decision": "0018",
+  "finalized": true,
+  "captured_at": "2026-09-23T12:13:00Z",
+  "purpose": "r3-source-authority-and-roster-reconstruction",
+  "issue_ids": [
+    "cer-80-c",
+    "cer-94-c"
+  ],
+  "snapshot_paths": [
+    "data/provenance/browser-snapshots/sciencedirect/cer-80-c.json",
+    "data/provenance/browser-snapshots/sciencedirect/cer-94-c.json"
+  ],
+  "notes": [
+    "Captured from the official ScienceDirect issue pages through the connected institutional browser session.",
+    "CER 80 official page exposes 27 cards: 26 research articles plus Editorial Board; current provisional staging had only 14 research articles.",
+    "CER 94 official page exposes 13 cards: 11 research articles plus Editorial Board and one Editorial; current provisional staging had 57 research articles.",
+    "Official browser roster owns membership/order/type. Existing provisional staging may supply article-level metadata only after exact identity checks."
+  ]
+}
