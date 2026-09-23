@@ -1,11 +1,12 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-23T11:22:41+00:00
+Generated: 2026-09-23T13:29:54+00:00
 
 ## Summary
 
-- ready: 1190
-- source_pending: 15
+- ready: 1191
+- source_pending: 13
+- translation_required: 1
 
 ## Issue queue
 
@@ -145,7 +146,7 @@ Generated: 2026-09-23T11:22:41+00:00
 | CER | cer-77-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-78-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-79-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
-| CER | cer-80-c | 2023 | source_pending | complete | source_pending | official source verification pending |
+| CER | cer-80-c | 2023 | translation_required | translation_partial | official_verified | translation_incomplete |
 | CER | cer-81-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-82-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-83-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
@@ -159,7 +160,7 @@ Generated: 2026-09-23T11:22:41+00:00
 | CER | cer-91-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-92-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-93-c | 2025 | ready | complete | publisher_verified | content and official source gates passed |
-| CER | cer-94-c | 2025 | source_pending | complete | source_pending | source authority pending official verification |
+| CER | cer-94-c | 2025 | ready | complete | official_verified | content and official source gates passed |
 | CER | cer-95-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-96-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-97-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |

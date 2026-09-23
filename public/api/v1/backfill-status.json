@@ -1,25 +1,23 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-09-23T11:22:24+00:00",
+  "updated_at": "2026-09-23T13:29:44+00:00",
   "summary": {
-    "complete": 1277,
-    "translation_partial": 0,
+    "complete": 1278,
+    "translation_partial": 1,
     "blocked": 8,
     "collected": 0,
-    "pending": 50
+    "pending": 48
   },
   "coverage": {
     "discovered": 1205,
     "archived": 1205,
-    "content_ready": 1205,
-    "source_verified": 1190,
-    "publication_ready": 1190,
+    "content_ready": 1204,
+    "source_verified": 1192,
+    "publication_ready": 1191,
     "missing": 0,
-    "source_pending": 15,
+    "source_pending": 13,
     "missing_issue_ids": [],
     "source_pending_issue_ids": [
-      "cer-80-c",
-      "cer-94-c",
       "restat-105-5",
       "restat-105-6",
       "restat-106-1",
@@ -2520,16 +2518,13 @@
     "CER": {
       "discovered": 24,
       "archived": 24,
-      "content_ready": 24,
-      "source_verified": 22,
-      "publication_ready": 22,
+      "content_ready": 23,
+      "source_verified": 24,
+      "publication_ready": 23,
       "missing": 0,
-      "source_pending": 2,
+      "source_pending": 0,
       "missing_issue_ids": [],
-      "source_pending_issue_ids": [
-        "cer-80-c",
-        "cer-94-c"
-      ],
+      "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
       "years": {
         "2026": {
@@ -2547,15 +2542,13 @@
         "2023": {
           "discovered": 6,
           "archived": 6,
-          "content_ready": 6,
-          "source_verified": 5,
+          "content_ready": 5,
+          "source_verified": 6,
           "publication_ready": 5,
           "missing": 0,
-          "source_pending": 1,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "cer-80-c"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "2024": {
@@ -2574,14 +2567,12 @@
           "discovered": 6,
           "archived": 6,
           "content_ready": 6,
-          "source_verified": 5,
-          "publication_ready": 5,
+          "source_verified": 6,
+          "publication_ready": 6,
           "missing": 0,
-          "source_pending": 1,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "cer-94-c"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         }
       }
@@ -4634,12 +4625,12 @@
         "year": 2023,
         "volume": "80",
         "issue": "c",
-        "status": "source_pending",
-        "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "",
-        "retry_class": "source"
+        "status": "translation_partial",
+        "content_status": "translation_partial",
+        "source_status": "official_verified",
+        "publication_state": "translation_partial",
+        "last_error": "translation_incomplete",
+        "retry_class": "translation"
       },
       {
         "issue_id": "cer-81-c",
@@ -4802,12 +4793,12 @@
         "year": 2025,
         "volume": "94",
         "issue": "c",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "source authority pending official verification",
-        "retry_class": "source"
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
+        "retry_class": "manual"
       },
       {
         "issue_id": "cer-95-c",
@@ -19044,24 +19035,23 @@
     "2023-2024": {
       "summary": {
         "complete": 663,
-        "translation_partial": 0,
+        "translation_partial": 1,
         "blocked": 2,
         "collected": 0,
-        "pending": 43
+        "pending": 42
       },
       "issue_count": 708,
-      "updated_at": "2026-09-23T11:19:40+00:00",
+      "updated_at": "2026-09-23T13:27:53+00:00",
       "coverage": {
         "discovered": 563,
         "archived": 563,
-        "content_ready": 563,
-        "source_verified": 555,
+        "content_ready": 562,
+        "source_verified": 556,
         "publication_ready": 555,
         "missing": 0,
-        "source_pending": 8,
+        "source_pending": 7,
         "missing_issue_ids": [],
         "source_pending_issue_ids": [
-          "cer-80-c",
           "restat-105-5",
           "restat-105-6",
           "restat-106-1",
@@ -19193,10 +19183,10 @@
     "2023": {
       "summary": {
         "complete": 326,
-        "translation_partial": 0,
+        "translation_partial": 1,
         "blocked": 2,
         "collected": 0,
-        "pending": 24
+        "pending": 23
       },
       "issue_count": 352,
       "journals": [
@@ -19253,14 +19243,13 @@
       "coverage": {
         "discovered": 297,
         "archived": 297,
-        "content_ready": 297,
-        "source_verified": 294,
+        "content_ready": 296,
+        "source_verified": 295,
         "publication_ready": 294,
         "missing": 0,
-        "source_pending": 3,
+        "source_pending": 2,
         "missing_issue_ids": [],
         "source_pending_issue_ids": [
-          "cer-80-c",
           "restat-105-5",
           "restat-105-6"
         ],
@@ -19342,15 +19331,13 @@
         "CER": {
           "discovered": 6,
           "archived": 6,
-          "content_ready": 6,
-          "source_verified": 5,
+          "content_ready": 5,
+          "source_verified": 6,
           "publication_ready": 5,
           "missing": 0,
-          "source_pending": 1,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "cer-80-c"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "ECOLECON": {
@@ -20323,11 +20310,11 @@
     },
     "2025": {
       "summary": {
-        "complete": 338,
+        "complete": 339,
         "translation_partial": 0,
         "blocked": 0,
         "collected": 0,
-        "pending": 7
+        "pending": 6
       },
       "issue_count": 345,
       "journals": [
@@ -20385,13 +20372,12 @@
         "discovered": 344,
         "archived": 344,
         "content_ready": 344,
-        "source_verified": 337,
-        "publication_ready": 337,
+        "source_verified": 338,
+        "publication_ready": 338,
         "missing": 0,
-        "source_pending": 7,
+        "source_pending": 6,
         "missing_issue_ids": [],
         "source_pending_issue_ids": [
-          "cer-94-c",
           "restat-107-1",
           "restat-107-2",
           "restat-107-3",
@@ -20490,14 +20476,12 @@
           "discovered": 6,
           "archived": 6,
           "content_ready": 6,
-          "source_verified": 5,
-          "publication_ready": 5,
+          "source_verified": 6,
+          "publication_ready": 6,
           "missing": 0,
-          "source_pending": 1,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "cer-94-c"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "ECOLECON": {

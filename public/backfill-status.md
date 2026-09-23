@@ -1,12 +1,12 @@
 # Field journal history backfill status
 
-Updated: 2026-09-23T11:22:24+00:00
+Updated: 2026-09-23T13:29:44+00:00
 
-Discovery coverage: 1205 discovered · 1205 archived · 1190 publication ready · 0 missing · 15 source pending
+Discovery coverage: 1205 discovered · 1205 archived · 1191 publication ready · 0 missing · 13 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
-| 2023-2024 | 663 | 0 | 2 | 43 |
+| 2023-2024 | 663 | 1 | 2 | 42 |
 | 2023-2026 | 300 | 0 | 0 | 0 |
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
@@ -159,7 +159,7 @@ Discovery coverage: 1205 discovered · 1205 archived · 1190 publication ready �
 | CER | cer-77-c | 2023 | ready |  |
 | CER | cer-78-c | 2023 | ready |  |
 | CER | cer-79-c | 2023 | ready |  |
-| CER | cer-80-c | 2023 | source_pending |  |
+| CER | cer-80-c | 2023 | translation_partial | translation_incomplete |
 | CER | cer-81-c | 2023 | ready |  |
 | CER | cer-82-c | 2023 | ready |  |
 | CER | cer-83-c | 2024 | ready |  |
@@ -173,7 +173,7 @@ Discovery coverage: 1205 discovered · 1205 archived · 1190 publication ready �
 | CER | cer-91-c | 2025 | ready |  |
 | CER | cer-92-c | 2025 | ready |  |
 | CER | cer-93-c | 2025 | ready |  |
-| CER | cer-94-c | 2025 | source_pending | source authority pending official verification |
+| CER | cer-94-c | 2025 | ready |  |
 | CER | cer-95-c | 2026 | ready |  |
 | CER | cer-96-c | 2026 | ready |  |
 | CER | cer-97-c | 2026 | ready |  |
