@@ -272,6 +272,43 @@ class ArticleTypeTests(unittest.TestCase):
             exception = official_no_abstract_exception(*key)
             self.assertEqual(item["url"], exception["source_url"])
 
+    def test_joe234_no_abstract_evidence_is_exact_and_durable(self) -> None:
+        import json
+        from pathlib import Path
+
+        root = Path(__file__).resolve().parents[1]
+        evidence = json.loads(
+            (
+                root
+                / "data"
+                / "provenance"
+                / "browser-article-evidence"
+                / "joe-234-no-abstract-2026-09-23.json"
+            ).read_text(encoding="utf-8")
+        )
+        self.assertTrue(evidence["finalized"])
+        self.assertIn("does not establish issue roster/order", evidence["scope"])
+        self.assertEqual(35824399653, evidence["workflow_run_id"])
+        items = {(item["issue_id"], item["doi"]): item for item in evidence["items"]}
+        expected = {
+            ("joe-234-c", "10.1016/j.jeconom.2023.03.006"),
+            ("joe-234-c", "10.1016/j.jeconom.2023.01.014"),
+            ("joe-234-c", "10.1016/j.jeconom.2023.01.016"),
+            ("joe-234-c", "10.1016/j.jeconom.2023.01.013"),
+            ("joe-234-c", "10.1016/j.jeconom.2023.01.018"),
+            ("joe-234-c", "10.1016/j.jeconom.2023.01.019"),
+        }
+        self.assertEqual(expected, set(items))
+        for key, item in items.items():
+            self.assertFalse(item["standalone_abstract_present"])
+            self.assertEqual("official-elsevier-metadata-api", item["evidence_kind"])
+            self.assertTrue(item["url"].startswith("https://www.sciencedirect.com/science/article/pii/"))
+            exception = official_no_abstract_exception(*key)
+            self.assertIsNotNone(exception)
+            self.assertEqual(item["url"], exception["source_url"])
+            self.assertTrue(exception["title_cn"])
+            self.assertIn("未提供独立 Abstract", exception["abstract_note"])
+
     def test_foodpolicy_short_communication_override_matches_official_label(self) -> None:
         import json
         from pathlib import Path
