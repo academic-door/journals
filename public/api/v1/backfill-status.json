@@ -1,27 +1,25 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-09-23T11:10:37+00:00",
+  "updated_at": "2026-09-23T11:22:24+00:00",
   "summary": {
-    "complete": 1275,
+    "complete": 1277,
     "translation_partial": 0,
     "blocked": 8,
     "collected": 0,
-    "pending": 52
+    "pending": 50
   },
   "coverage": {
     "discovered": 1205,
     "archived": 1205,
     "content_ready": 1205,
-    "source_verified": 1188,
-    "publication_ready": 1188,
+    "source_verified": 1190,
+    "publication_ready": 1190,
     "missing": 0,
-    "source_pending": 17,
+    "source_pending": 15,
     "missing_issue_ids": [],
     "source_pending_issue_ids": [
       "cer-80-c",
       "cer-94-c",
-      "ier-64-2",
-      "ier-64-3",
       "restat-105-5",
       "restat-105-6",
       "restat-106-1",
@@ -681,30 +679,24 @@
       "discovered": 16,
       "archived": 16,
       "content_ready": 16,
-      "source_verified": 14,
-      "publication_ready": 14,
+      "source_verified": 16,
+      "publication_ready": 16,
       "missing": 0,
-      "source_pending": 2,
+      "source_pending": 0,
       "missing_issue_ids": [],
-      "source_pending_issue_ids": [
-        "ier-64-2",
-        "ier-64-3"
-      ],
+      "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
       "years": {
         "2023": {
           "discovered": 4,
           "archived": 4,
           "content_ready": 4,
-          "source_verified": 2,
-          "publication_ready": 2,
+          "source_verified": 4,
+          "publication_ready": 4,
           "missing": 0,
-          "source_pending": 2,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "ier-64-2",
-            "ier-64-3"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "2024": {
@@ -4441,7 +4433,7 @@
         "source_status": "source_pending",
         "publication_state": "source_pending",
         "last_error": "",
-        "retry_class": "source"
+        "retry_class": "translation"
       },
       {
         "issue_id": "ajae-106-3",
@@ -4452,7 +4444,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -4464,7 +4456,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -4476,7 +4468,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -4814,7 +4806,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -8272,11 +8264,11 @@
         "year": 2023,
         "volume": "64",
         "issue": "2",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "MetadataFallbackError: RePEc serial page has no issue 64/2",
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -8284,11 +8276,11 @@
         "year": 2023,
         "volume": "64",
         "issue": "3",
-        "status": "source_pending",
+        "status": "ready",
         "content_status": "complete",
-        "source_status": "source_pending",
-        "publication_state": "source_pending",
-        "last_error": "MetadataFallbackError: RePEc serial page has no issue 64/3",
+        "source_status": "official_verified",
+        "publication_state": "ready",
+        "last_error": "",
         "retry_class": "manual"
       },
       {
@@ -11718,7 +11710,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -11730,7 +11722,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -11742,7 +11734,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -17634,7 +17626,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -17646,7 +17638,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -17658,7 +17650,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -17670,7 +17662,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -17682,7 +17674,7 @@
         "content_status": "complete",
         "source_status": "source_pending",
         "publication_state": "source_pending",
-        "last_error": "",
+        "last_error": "source authority pending official verification",
         "retry_class": "source"
       },
       {
@@ -19051,27 +19043,25 @@
     },
     "2023-2024": {
       "summary": {
-        "complete": 661,
+        "complete": 663,
         "translation_partial": 0,
         "blocked": 2,
         "collected": 0,
-        "pending": 45
+        "pending": 43
       },
       "issue_count": 708,
-      "updated_at": "2026-09-08T11:13:10+00:00",
+      "updated_at": "2026-09-23T11:19:40+00:00",
       "coverage": {
         "discovered": 563,
         "archived": 563,
         "content_ready": 563,
-        "source_verified": 553,
-        "publication_ready": 553,
+        "source_verified": 555,
+        "publication_ready": 555,
         "missing": 0,
-        "source_pending": 10,
+        "source_pending": 8,
         "missing_issue_ids": [],
         "source_pending_issue_ids": [
           "cer-80-c",
-          "ier-64-2",
-          "ier-64-3",
           "restat-105-5",
           "restat-105-6",
           "restat-106-1",
@@ -19092,7 +19082,7 @@
         "pending": 0
       },
       "issue_count": 300,
-      "updated_at": "2026-09-18T06:46:44+00:00",
+      "updated_at": "2026-08-24T13:07:44+00:00",
       "coverage": {
         "discovered": 428,
         "archived": 428,
@@ -19161,7 +19151,7 @@
         "pending": 0
       },
       "issue_count": 10,
-      "updated_at": "2026-09-08T14:14:07+00:00",
+      "updated_at": "2026-08-14T08:16:38+00:00",
       "coverage": {
         "discovered": 13,
         "archived": 13,
@@ -19202,11 +19192,11 @@
   "years": {
     "2023": {
       "summary": {
-        "complete": 324,
+        "complete": 326,
         "translation_partial": 0,
         "blocked": 2,
         "collected": 0,
-        "pending": 26
+        "pending": 24
       },
       "issue_count": 352,
       "journals": [
@@ -19264,15 +19254,13 @@
         "discovered": 297,
         "archived": 297,
         "content_ready": 297,
-        "source_verified": 292,
-        "publication_ready": 292,
+        "source_verified": 294,
+        "publication_ready": 294,
         "missing": 0,
-        "source_pending": 5,
+        "source_pending": 3,
         "missing_issue_ids": [],
         "source_pending_issue_ids": [
           "cer-80-c",
-          "ier-64-2",
-          "ier-64-3",
           "restat-105-5",
           "restat-105-6"
         ],
@@ -19441,15 +19429,12 @@
           "discovered": 4,
           "archived": 4,
           "content_ready": 4,
-          "source_verified": 2,
-          "publication_ready": 2,
+          "source_verified": 4,
+          "publication_ready": 4,
           "missing": 0,
-          "source_pending": 2,
+          "source_pending": 0,
           "missing_issue_ids": [],
-          "source_pending_issue_ids": [
-            "ier-64-2",
-            "ier-64-3"
-          ],
+          "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
         "JAERE": {
