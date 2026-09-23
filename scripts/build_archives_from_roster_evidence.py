@@ -469,6 +469,83 @@ def build_candidate_from_evidence(
     return candidate
 
 
+
+def reuse_exact_staging_abstracts(
+    candidate: dict[str, Any],
+    staging_path: Path,
+) -> int:
+    """Preserve richer article-level content from the exact staged issue.
+
+    The official evidence candidate remains authoritative for membership/order.
+    This helper only fills a *missing* English abstract after exact issue,
+    journal, DOI and normalized-title identity checks.  It never copies roster
+    authority or changes article membership.
+    """
+
+    if not staging_path.is_file():
+        return 0
+    try:
+        staged = json.loads(staging_path.read_text(encoding="utf-8"))
+    except (OSError, ValueError, json.JSONDecodeError):
+        return 0
+
+    if (
+        str(staged.get("issue_id", "")).strip()
+        != str(candidate.get("issue_id", "")).strip()
+        or str(staged.get("journal_id", "")).strip().casefold()
+        != str(candidate.get("journal_id", "")).strip().casefold()
+    ):
+        return 0
+
+    quality = staged.get("quality", {})
+    if quality.get("roster_match") is not True or quality.get("order_preserved") is not True:
+        return 0
+
+    def normalized_title(value: Any) -> str:
+        return re.sub(r"\s+", " ", str(value or "").strip()).casefold()
+
+    staged_by_doi: dict[str, dict[str, Any]] = {}
+    duplicate_dois: set[str] = set()
+    for article in staged.get("articles", []):
+        doi = str(article.get("doi", "")).strip().casefold()
+        if not doi:
+            continue
+        if doi in staged_by_doi:
+            duplicate_dois.add(doi)
+            continue
+        staged_by_doi[doi] = article
+    for doi in duplicate_dois:
+        staged_by_doi.pop(doi, None)
+
+    reused = 0
+    for article in candidate.get("articles", []):
+        if str(article.get("abstract_en", "")).strip():
+            continue
+        doi = str(article.get("doi", "")).strip().casefold()
+        staged_article = staged_by_doi.get(doi)
+        if staged_article is None:
+            continue
+        if normalized_title(article.get("title_en")) != normalized_title(
+            staged_article.get("title_en")
+        ):
+            continue
+        abstract = _usable_metadata_abstract(staged_article.get("abstract_en", ""))
+        if not abstract:
+            continue
+
+        article["abstract_en"] = abstract
+        staged_sources = staged_article.get("sources", {})
+        sources = article.setdefault("sources", {})
+        abstract_source = str(staged_sources.get("abstract_en", "")).strip()
+        abstract_url = str(staged_sources.get("abstract_en_url", "")).strip()
+        if abstract_source:
+            sources["abstract_en"] = abstract_source
+        if abstract_url:
+            sources["abstract_en_url"] = abstract_url
+        reused += 1
+    return reused
+
+
 def process_evidence(
     evidence_path: Path,
     journal: dict[str, Any],
@@ -544,6 +621,8 @@ def process_evidence(
         metadata,
         publication_date=publication_date,
     )
+    staging = staging_root / journal_id / f"{issue_id}.json"
+    staging_abstracts_reused = reuse_exact_staging_abstracts(candidate, staging)
     # Normalize publisher labels before translation so the source hash used
     # by the translator is identical to the hash checked when the cache is
     # applied.  Otherwise an ``Abstract:`` prefix can make a valid cache look
@@ -565,7 +644,6 @@ def process_evidence(
     validate_issue(candidate)
 
     if not is_archivable_snapshot(candidate):
-        staging = staging_root / journal_id / f"{issue_id}.json"
         staging.parent.mkdir(parents=True, exist_ok=True)
         staging.write_text(
             json.dumps(candidate, ensure_ascii=False, indent=2) + "\n",
@@ -586,6 +664,7 @@ def process_evidence(
                 candidate["quality"].get("translation_complete", 0)
             ),
             "translation_report": report,
+            "staging_abstracts_reused": staging_abstracts_reused,
             "staging": str(staging),
         }
 
@@ -608,6 +687,7 @@ def process_evidence(
         "archived": str(archived),
         "translated": int(candidate["quality"].get("translation_complete", 0)),
         "translation_report": report,
+        "staging_abstracts_reused": staging_abstracts_reused,
     }
 
 

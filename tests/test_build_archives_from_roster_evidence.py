@@ -13,11 +13,83 @@ from scripts.build_archives_from_roster_evidence import (
     build_candidate_from_evidence,
     configured_repec_series_code,
     process_evidence,
+    reuse_exact_staging_abstracts,
 )
 from scripts.translate_issue import _source_hash
 
 
 class BuildArchivesFromRosterEvidenceTests(unittest.TestCase):
+    def test_exact_staging_abstract_is_monotonic_and_does_not_replace_roster(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            staging = root / "joe" / "joe-234-c.json"
+            staging.parent.mkdir(parents=True, exist_ok=True)
+            staging.write_text(
+                json.dumps(
+                    {
+                        "issue_id": "joe-234-c",
+                        "journal_id": "joe",
+                        "quality": {
+                            "roster_match": True,
+                            "order_preserved": True,
+                            "roster_authority": "official-issue-page",
+                            "roster_transport": "browser-authorized",
+                        },
+                        "articles": [
+                            {
+                                "doi": "10.1016/j.jeconom.2023.03.006",
+                                "title_en": "Journal of econometrics: The first 20 years",
+                                "abstract_en": "A richer publisher-derived abstract.",
+                                "sources": {
+                                    "abstract_en": "official-elsevier-metadata",
+                                    "abstract_en_url": "https://api.elsevier.com/content/article/pii/S0304407623001033",
+                                },
+                            }
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+            candidate = {
+                "issue_id": "joe-234-c",
+                "journal_id": "joe",
+                "quality": {
+                    "roster_match": True,
+                    "order_preserved": True,
+                    "roster_authority": "official-issue-page",
+                    "roster_transport": "browser-authorized",
+                },
+                "articles": [
+                    {
+                        "doi": "10.1016/j.jeconom.2023.03.006",
+                        "title_en": "Journal of econometrics: The first 20 years",
+                        "abstract_en": "",
+                        "sources": {
+                            "roster": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
+                            "abstract_en": "crossref-or-semantic-scholar",
+                        },
+                    }
+                ],
+            }
+
+            reused = reuse_exact_staging_abstracts(candidate, staging)
+
+        self.assertEqual(1, reused)
+        article = candidate["articles"][0]
+        self.assertEqual("A richer publisher-derived abstract.", article["abstract_en"])
+        self.assertEqual(
+            "official-elsevier-metadata",
+            article["sources"]["abstract_en"],
+        )
+        self.assertEqual(
+            "https://api.elsevier.com/content/article/pii/S0304407623001033",
+            article["sources"]["abstract_en_url"],
+        )
+        self.assertEqual(
+            "official-issue-page",
+            candidate["quality"]["roster_authority"],
+        )
+
     def test_compound_issue_id_preserves_full_issue_label(self) -> None:
         self.assertEqual(("85", "3-4"), _split_volume_issue("ere-85-3-4", "ere"))
         self.assertEqual(("86", "1-2"), _split_volume_issue("ere-86-1-2", "ere"))
