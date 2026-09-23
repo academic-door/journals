@@ -295,6 +295,13 @@ def enrich_missing_elsevier(
             item.get(field) for field in ("authors", "abstract_en", "source_url")
         ):
             continue
+        # Exact official rosters may retain publisher editorial/front-matter
+        # rows in `items` so apply_evidence can preserve their ordered
+        # exclusion audit. Those rows are not publishable content and must not
+        # be forced through the research-article abstract gate.
+        article_type = evidence_roster_article_type(str(item.get("title_en", "")))
+        if not is_publishable_type(article_type):
+            continue
         source_id = str(item.get("source_id", "")).strip()
         pii = source_id.split(":", 1)[1] if PII_SOURCE_ID_RE.fullmatch(source_id) else ""
         authors = item.get("official_authors")
