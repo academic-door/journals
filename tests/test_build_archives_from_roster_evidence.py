@@ -11,6 +11,7 @@ from scripts.build_archives_from_roster_evidence import (
     _split_volume_issue,
     _usable_metadata_abstract,
     build_candidate_from_evidence,
+    configured_repec_series_code,
     process_evidence,
 )
 from scripts.translate_issue import _source_hash
@@ -21,6 +22,29 @@ class BuildArchivesFromRosterEvidenceTests(unittest.TestCase):
         self.assertEqual(("85", "3-4"), _split_volume_issue("ere-85-3-4", "ere"))
         self.assertEqual(("86", "1-2"), _split_volume_issue("ere-86-1-2", "ere"))
         self.assertEqual(("84", "1"), _split_volume_issue("ere-84-1", "ere"))
+
+    def test_repec_series_code_can_be_derived_from_trusted_config_url(self) -> None:
+        self.assertEqual(
+            "eee/econom",
+            configured_repec_series_code(
+                {"repec_series_url": "https://ideas.repec.org/s/eee/econom.html"}
+            ),
+        )
+        self.assertEqual(
+            "explicit/series",
+            configured_repec_series_code(
+                {
+                    "repec_series_code": "explicit/series",
+                    "repec_series_url": "https://ideas.repec.org/s/eee/econom.html",
+                }
+            ),
+        )
+        self.assertEqual(
+            "",
+            configured_repec_series_code(
+                {"repec_series_url": "https://example.com/s/eee/econom.html"}
+            ),
+        )
 
     def write(self, root: Path, relative: str, value: str) -> None:
         path = root / relative

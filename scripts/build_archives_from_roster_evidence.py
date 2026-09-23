@@ -18,6 +18,7 @@ import sys
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlparse
 from typing import Any
 
 import requests
@@ -70,6 +71,24 @@ DEFAULT_EVIDENCE_ROOT = ROOT / "data" / "provenance" / "official-rosters"
 DEFAULT_API_ROOT = ROOT / "public" / "api" / "v1"
 DEFAULT_STATE_ROOT = ROOT / "data" / "backfill-state"
 DEFAULT_STAGING_ROOT = ROOT / "data" / "backfill-staging"
+
+
+def configured_repec_series_code(journal: dict[str, Any]) -> str:
+    """Resolve configured RePEc series code without granting roster authority."""
+
+    explicit = str(journal.get("repec_series_code", "")).strip()
+    if explicit:
+        return explicit
+    raw = str(journal.get("repec_series_url", "")).strip()
+    if not raw:
+        return ""
+    parsed = urlparse(raw)
+    if parsed.scheme != "https" or parsed.hostname != "ideas.repec.org":
+        return ""
+    path = parsed.path.strip("/")
+    if not path.startswith("s/") or not path.endswith(".html"):
+        return ""
+    return path[len("s/") : -len(".html")]
 
 _ABSTRACT_PAGE_CHROME_MARKERS = (
     "previous articlenext article",
@@ -490,7 +509,7 @@ def process_evidence(
         dois,
         crossref,
         timeout=timeout,
-        repec_series_code=str(journal.get("repec_series_code", "")),
+        repec_series_code=configured_repec_series_code(journal),
     )
 
     items = list(crossref.values()) if crossref else []
