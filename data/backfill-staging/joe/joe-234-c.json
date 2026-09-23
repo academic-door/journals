@@ -415,12 +415,12 @@
       "source_sequence": 13,
       "article_type": "research-article",
       "title_en": "The story of GARCH: A personal odyssey",
-      "title_cn": "GARCH的故事：一段个人历程",
+      "title_cn": "",
       "authors": [
         "Tim Bollerslev"
       ],
-      "abstract_en": "I provide a brief history of the origins of the GARCH model and my 1986 paper published in the Journal , along with a discussion of how the GARCH model and applications thereof have ﬂourished since then. I also brieﬂy highlight connections to the more recent realized volatility literature.",
-      "abstract_cn": "我简要介绍了GARCH模型的起源以及我在《Journal》上发表的1986论文的历史，并讨论了GARCH模型及其应用自此以来的蓬勃发展。我还简要强调了与更近期已实现波动率文献的联系。",
+      "abstract_en": "",
+      "abstract_cn": "",
       "doi": "10.1016/j.jeconom.2023.01.015",
       "source_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
       "publication_date": "March 2023",
@@ -428,17 +428,15 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
         "roster": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
         "metadata": "https://doi.org/10.1016/j.jeconom.2023.01.015",
-        "abstract_en": "https://www.semanticscholar.org/paper/423ba5699f97eceb17d7f08db92fb8e537303404"
+        "abstract_en": "crossref-or-semantic-scholar"
       },
       "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "model": "deepseek-chat",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "translated_at": "2026-09-23T04:21:25+00:00",
-        "source_hash": "64be25821cda77c69cb53c03c0306f88424b11fd69ccc62d1846d225eabf6267"
+        "status": "missing"
       },
-      "quality_flags": [],
+      "quality_flags": [
+        "title_cn_missing",
+        "abstract_cn_missing"
+      ],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -452,13 +450,13 @@
       "source_sequence": 14,
       "article_type": "research-article",
       "title_en": "Initial conditions and Blundell–Bond estimators",
-      "title_cn": "",
+      "title_cn": "初始条件与Blundell–Bond估计量",
       "authors": [
         "Richard Blundell",
         "Steve Bond"
       ],
-      "abstract_en": ",",
-      "abstract_cn": "",
+      "abstract_en": "We place the Blundell–Bond paper in the context of the early development of panel data estimators that accounted for unobserved heterogeneity, dynamics and persistent economic series. The initial work focused on appropriate econometric methods to estimate dynamic models using unbalanced panel data with many firms and/or individuals but covering a small number of time periods. Eliminating the unobserved firm-specific ‘fixed’ effects by taking first-differences and using as instruments suitably lagged values of the dependent variable , and of endogenous or predetermined explanatory variables, led to the first-differenced GMM estimators popularised by Arellano and Bond (1991). This approach was less well suited to models which relate highly persistent series. Following Arellano and Bover (1995) we examined the use of suitably lagged first-differences as instruments for the equations in levels and derived the conditions, particularly on initial conditions, under which first-differences of the dependent variable would or would not be uncorrelated with individual-specific ‘fixed’ effects. An influential contribution was to illustrate the magnitude of the bias when the first-differenced GMM estimator is used to estimate autoregressive models for highly persistent series, and the potential to reduce that bias by using additional valid moment conditions for the equations in levels — thereby popularising the use of these extended or ‘System’ GMM estimators.",
+      "abstract_cn": "我们将Blundell–Bond一文置于面板数据估计量早期发展的背景下，这些估计量考虑了不可观测异质性、动态性和持续性的经济序列。早期工作聚焦于使用非平衡面板数据估计动态模型的适当计量经济学方法，这些数据包含许多企业和/或个人，但只覆盖少数几个时期。通过取一阶差分消除不可观测的企业特定‘固定’效应，并使用因变量以及内生或前定解释变量的适当滞后值作为工具变量，导致了由Arellano和Bond（1991）推广的一阶差分GMM估计量。这种方法不太适合涉及高度持续性序列的模型。继Arellano和Bover（1995）之后，我们考察了使用适当滞后的一阶差分作为水平方程工具变量的做法，并推导了因变量的一阶差分与个体特定‘固定’效应不相关或相关的条件，特别是关于初始条件的条件。一个有影响力的贡献是说明了当一阶差分GMM估计量被用于估计高度持续性序列的自回归模型时偏误的大小，以及通过使用水平方程的额外有效矩条件来减少该偏误的潜力——从而推广了这些扩展的或‘系统’GMM估计量的使用。",
       "doi": "10.1016/j.jeconom.2023.01.020",
       "source_url": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
       "publication_date": "March 2023",
@@ -466,15 +464,17 @@
         "issue": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
         "roster": "https://www.sciencedirect.com/journal/journal-of-econometrics/vol/234/suppl/C",
         "metadata": "https://doi.org/10.1016/j.jeconom.2023.01.020",
-        "abstract_en": "https://www.semanticscholar.org/paper/cf94ddd9856b57ab718a9b209680f9b999a57669"
+        "abstract_en": "https://api.openalex.org/works/https://doi.org/10.1016/j.jeconom.2023.01.020"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-23T04:36:50+00:00",
+        "source_hash": "bf141d2da81bf4f32221caa09deaf70207a5fab580f6ee1b7914a8cb9df61468"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -603,7 +603,7 @@
     ],
     "doi_complete": 15,
     "authors_complete": 15,
-    "abstract_en_complete": 2,
+    "abstract_en_complete": 1,
     "translation_complete": 1,
     "duplicate_count": 0,
     "flags": [
