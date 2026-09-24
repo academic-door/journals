@@ -830,6 +830,17 @@ def _is_english_century_ordinal(value: str, match: "re.Match[str]") -> bool:
         return False
     num = match.group("num").strip().lower()
     prefix = value[: match.start()].rstrip()
+    # "One-Child Policy" is a lexicalized policy name. Its standard Chinese
+    # rendering ("独生子女政策") preserves the concept without a literal numeric
+    # one, so treating the written cardinal as a measured quantity creates a
+    # false-positive semantic-number failure. Keep the exemption deliberately
+    # narrow: ordinary "one child" and other one-child compounds still count.
+    if num == "one" and re.match(
+        r"[-\u2011\u2013\u2014]child\s+polic(?:y|ies)\b",
+        rest,
+        re.IGNORECASE,
+    ):
+        return True
     if num == "one" and re.search(
         r"\b(?:the|best|known|best\s+known|same|other|another)\s*$",
         prefix,
