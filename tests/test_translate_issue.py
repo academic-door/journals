@@ -300,6 +300,28 @@ class ResidualSemanticNumericSymmetryTests(unittest.TestCase):
         self.assertEqual(0, source["20"])
         self.assertEqual(0, translated["20"])
 
+    def test_one_child_policy_is_lexicalized_not_numeric(self) -> None:
+        from scripts.translate_issue import resolve_semantic_quantities
+
+        source, translated = resolve_semantic_quantities(
+            "China's One-Child Policy changed household decisions, and the One-Child Policy later ended.",
+            "中国的独生子女政策改变了家庭决策，之后该独生子女政策终止。",
+        )
+        self.assertEqual(source, translated)
+        self.assertEqual(0, source["1"])
+        self.assertEqual(0, translated["1"])
+
+    def test_plain_one_child_remains_a_numeric_count(self) -> None:
+        from scripts.translate_issue import resolve_semantic_quantities
+
+        source, translated = resolve_semantic_quantities(
+            "One child received the treatment.",
+            "1名儿童接受了处理。",
+        )
+        self.assertEqual(source, translated)
+        self.assertEqual(1, source["1"])
+        self.assertEqual(1, translated["1"])
+
     def test_every_dollar_may_be_rendered_as_explicit_one_dollar(self) -> None:
         from scripts.translate_issue import resolve_semantic_quantities
 
