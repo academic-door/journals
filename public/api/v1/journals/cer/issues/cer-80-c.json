@@ -10,7 +10,7 @@
   "retrieved_at": "2026-08-09T23:13:45+00:00",
   "expected_article_count": 26,
   "research_article_count": 26,
-  "status": "incomplete",
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
@@ -659,14 +659,14 @@
       "source_sequence": 13,
       "article_type": "research-article",
       "title_en": "Little emperors in the workplace: Labor market consequences of China's one-child policy",
-      "title_cn": "",
+      "title_cn": "职场中的小皇帝：中国独生子女政策的劳动力市场后果",
       "authors": [
         "Chen, Yuyu",
         "Swee, Eik Leong",
         "Wang, Hui"
       ],
       "abstract_en": "What is the impact of China's One-Child Policy on the labor market outcomes of the only children that it engendered? This paper quantifies the wage income gap between only children and their peers (i.e. those with siblings), and uncovers the channels that underlie it. While only children receive higher wage income on average, we find that this only-child premium disappears completely once their superior schooling attainment and family background are accounted for. Moreover, we learn that the One-Child Policy resulted in a negative only-child effect on wage income, after conditioning on pre-determined characteristics; this may be due to only children lacking socio-emotional attributes that are valued in the labor market. Our results deliver important insights for China as only children continue to dominate its labor force at a rapid pace.",
-      "abstract_cn": "",
+      "abstract_cn": "中国的独生子女政策对其所催生的独生子女的劳动力市场结果有何影响？本文量化了独生子女与其同龄人（即那些有兄弟姐妹的人）之间的工资收入差距，并揭示了其背后的渠道。虽然独生子女平均获得更高的工资收入，但我们发现，一旦控制了其更高的受教育程度和家庭背景，这种独生子女溢价就完全消失了。此外，我们了解到，在控制预先决定的特征后，独生子女政策对工资收入产生了负面的独生子女效应；这可能是因为独生子女缺乏劳动力市场所看重的社会情感特质。我们的结果为独生子女继续以快速步伐主导其劳动力队伍的中国提供了重要启示。",
       "doi": "10.1016/j.chieco.2023.101985",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S1043951X23000706",
       "sources": {
@@ -675,12 +675,14 @@
         "abstract_en": "https://www.sciencedirect.com/science/article/pii/S1043951X23000706"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-24T02:54:53+00:00",
+        "source_hash": "f408247ab9a99b79c0212d35b43d00f05ab39facb238cdd942afb351f9d39354"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "publication_date": "August 2023",
       "china_relevance": {
         "status": "yes",
@@ -1463,11 +1465,9 @@
     "doi_complete": 26,
     "authors_complete": 26,
     "abstract_en_complete": 26,
-    "translation_complete": 25,
+    "translation_complete": 26,
     "duplicate_count": 0,
-    "flags": [
-      "translation_incomplete"
-    ],
+    "flags": [],
     "official_item_count": 27,
     "publishable_item_count": 26,
     "content_counts": {
@@ -1508,7 +1508,7 @@
     "catalog_content_items": 26
   },
   "issue_label": "Vol. 80",
-  "content_status": "translation_partial",
+  "content_status": "complete",
   "source_status": "official_verified",
-  "publication_state": "translation_partial"
+  "publication_state": "ready"
 }

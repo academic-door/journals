@@ -7,16 +7,589 @@
   "issue": "C",
   "publication_date": "August 2023",
   "source_url": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
-  "retrieved_at": "2026-09-20T00:24:03+00:00",
-  "expected_article_count": 14,
-  "research_article_count": 14,
-  "status": "incomplete",
+  "retrieved_at": "2026-08-09T23:13:45+00:00",
+  "expected_article_count": 26,
+  "research_article_count": 26,
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1016/j.chieco.2023.101988",
+      "paper_id": "doi:10.1016/j.chieco.2023.101986",
       "sequence": 1,
-      "source_sequence": 101988,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Family size, labor supply, and job prestige: Evidence from three decennial censuses in China",
+      "title_cn": "家庭规模、劳动供给与职业声望：来自中国三次人口普查的证据",
+      "authors": [
+        "Cheng Chen",
+        "Ying-Min Kuo",
+        "Wangyang Zhao"
+      ],
+      "abstract_en": "This study investigates the relationship between family size and parents’ labor market performance, measured by labor supply and occupational prestige scores, based on three census waves in 1990, 2000, and 2010. To address the endogeneity problem of family size, we use the indicator of twins at first birth as an instrumental variable. Our results suggest that in nuclear households, family size affects the labor market performance only of mothers, not of fathers, with the negative effects fading and gradually disappearing over time. More specifically, an increase in family size decreases female labor supply in the 1990 wave, leads to lower prestige scores among working mothers in the 2000 wave, and has no impact on labor supply or occupational prestige scores in the 2010 wave. Our subsample analysis indicates that the negative effects of family size are more severe for parents of households with all children under seven years old and for husbands or wives with lower education level than that of their partners. In addition, we find that the negative effects of family size on parental labor market outcomes are not observed in extended households, especially when no grandparents are aged 65 years or older.",
+      "abstract_cn": "本研究基于1990年、2000年和2010年的三次人口普查数据，考察了家庭规模与父母劳动力市场表现（以劳动供给和职业声望得分衡量）之间的关系。为解决家庭规模的内生性问题，我们使用头胎双胞胎作为工具变量。结果表明，在核心家庭中，家庭规模仅影响母亲的劳动力市场表现，而不影响父亲，且负面影响随时间逐渐减弱并最终消失。具体而言，家庭规模增加在1990年降低了女性劳动供给，在2000年导致在职母亲的职业声望得分降低，而在2010年对劳动供给或职业声望得分均无影响。我们的子样本分析表明，家庭规模的负面影响对于所有子女均在七岁以下的家庭中的父母，以及教育水平低于配偶的丈夫或妻子更为严重。此外，我们发现家庭规模对父母劳动力市场结果的负面影响在扩展家庭中并未观察到，尤其是在没有祖父母年龄达到65岁或以上的情况下。",
+      "abstract_snippet_en": "•Family size affects the labor market performance of mothers in nuclear households.•When possible, mothers switch to family-friendly jobs instead of quitting jobs.•Child penalty is fading and gradually...",
+      "doi": "10.1016/j.chieco.2023.101986",
+      "source_url": "https://doi.org/10.1016/j.chieco.2023.101986",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
+        "roster": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 1197,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 1197,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (1197/20000 remaining)"
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-09T23:13:51+00:00",
+        "source_hash": "b2de22c638bc287f5b3d476272f8fe604d7556e40e08dc2d54842f5a08ce473e"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.chieco.2023.101987",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Are female teachers more likely to practice grade inflation? Evidence from China",
+      "title_cn": "女教师更可能实施分数膨胀吗？来自中国的证据",
+      "authors": [
+        "Cheng, Yawen",
+        "Kong, Dongmin"
+      ],
+      "abstract_en": "Grade inflation has become a global phenomenon that raises concerns in the academia and the public. This study examines whether high grades accompanying with the growth of female teachers arise from student improvement or grade inflation. We use randomly assigned samples from the China Education Panel Survey and obtain the following results. (1) Students taught by female teachers obtain 1.57 grades point higher compared with those taught by male teachers. High grades do not result from student progress but from grade inflation. (2) Female teachers practice grade inflation for different students, and the effect is more pronounced among female students, low-ability students, and students in senior grades. (3) Female teachers may adopt a high-grades practice due to potential pressures under discrimination and uncertainty rather than for the sake of course or students. (4) Last, high grades brought by female teachers lead to less effort for students in the second year. This paper not only provides data support for understanding the increasing grade inflation, but also offers clear implications for the improvement of evaluation systems.",
+      "abstract_cn": "分数膨胀已成为一种全球现象，引发了学术界和公众的担忧。本研究考察伴随女教师增加而出现的高分是源于学生进步还是分数膨胀。我们使用来自中国教育追踪调查的随机分配样本，得到以下结果。（1）与男教师教授的学生相比，女教师教授的学生获得的分数高1.57分。高分并非源于学生进步，而是源于分数膨胀。（2）女教师对不同学生实施分数膨胀，且该效应在女学生、低能力学生和高年级学生中更为明显。（3）女教师可能由于歧视和不确定性下的潜在压力而采取给高分的做法，而非为了课程或学生。（4）最后，女教师带来的高分导致学生在第二年付出更少努力。本文不仅为理解不断加剧的分数膨胀提供了数据支持，也为评价体系的改进提供了明确的启示。",
+      "doi": "10.1016/j.chieco.2023.101987",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S1043951X2300072X",
+      "sources": {
+        "roster": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S1043951X2300072X",
+        "abstract_en": "https://www.sciencedirect.com/science/article/pii/S1043951X2300072X"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-23T13:26:39+00:00",
+        "source_hash": "3ae8a14a4e3f5da306d096d31ac37c85611ed8e13b300d91ba48692221af0b3a"
+      },
+      "quality_flags": [],
+      "publication_date": "August 2023",
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.chieco.2023.101999",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Does polycentric spatial structure narrow the urban-rural income gap? – Evidence from six urban clusters in China",
+      "title_cn": "多中心空间结构是否缩小了城乡收入差距？——来自中国六大城市群的证据",
+      "authors": [
+        "Dongyang Zhang",
+        "Qunxi Kong",
+        "Meng Shen"
+      ],
+      "abstract_en": "As urbanization and economic development continue to accelerate, social equity issues are becoming increasingly prominent and the urban–rural income gap is an important manifestation of this. This study uses the data of urban clusters from 2010 to 2019 and focuses on the relationship between the polycentric spatial structure of urban clusters and the urban–rural income gap. The findings show that the development of urban cluster polycentricity can reduce the urban–rural income gap, and the higher the degree of polycentricity in morphology, the smaller the gap. However, the relationship between polycentric spatial structure and the urban–rural income gap is “U” shaped, indicating the need for rational planning of urban polycentric development patterns rather than simple expansion. In addition, the polycentric spatial structure of urban clusters can reduce regional disparities by promoting factor mobility and industrial structure optimization. However, this depends on the level of industrial development and infrastructure. This study highlights the importance of a balanced approach to urban development that takes into account regional disparities and issues of social equity.",
+      "abstract_cn": "随着城市化和经济发展的不断加速，社会公平问题日益突出，城乡收入差距是这一问题的重要表现。本研究利用2010年至2019年城市群的数据，关注城市群多中心空间结构与城乡收入差距之间的关系。研究结果表明，城市群多中心性的发展可以缩小城乡收入差距，形态上的多中心程度越高，差距越小。然而，多中心空间结构与城乡收入差距之间的关系呈“U”形，表明需要合理规划城市多中心发展模式，而非简单扩张。此外，城市群的多中心空间结构可以通过促进要素流动和产业结构优化来缩小区域差异。然而，这取决于产业发展水平和基础设施状况。本研究强调了平衡城市发展方法的重要性，该方法需考虑区域差异和社会公平问题。",
+      "abstract_snippet_en": "As urbanization and economic development continue to accelerate, social equity issues are becoming increasingly prominent and the urban–rural income gap is an important manifestation of this. This study...",
+      "doi": "10.1016/j.chieco.2023.101999",
+      "source_url": "https://doi.org/10.1016/j.chieco.2023.101999",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
+        "roster": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 1193,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 1193,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (1193/20000 remaining)"
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-09T23:13:59+00:00",
+        "source_hash": "8567cb7369eef2491f443628754e4dfee787b315c4730878b62f9a46ec9000e6"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.chieco.2023.102011",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "FinTech adoption and the effects of economic uncertainty on household consumption",
+      "title_cn": "金融科技采用与经济不确定性对家庭消费的影响",
+      "authors": [
+        "Huang, Zhuo",
+        "Tan, Ying",
+        "Yang, Zi",
+        "Zhang, Xun"
+      ],
+      "abstract_en": "This paper examines how the adoption of FinTech affects household consumption in the presence of economic uncertainty. We use regional-level FinTech adoption and economic uncertainty measurement, along with representative household-level consumption data, to investigate this issue. Our empirical analysis shows that while high levels of economic uncertainty lead to a shift in household consumption from services to non-durable goods, widespread adoption of FinTech overcomes this negative effect and prevents the reduction in service spending. We use the distance of a household from Hangzhou and the economic uncertainty in the United States as proxies for exogenous variation in FinTech adoption and economic uncertainty in China, respectively, and find similar results. Focusing on the transmission channel, we find that FinTech helps alleviate credit constraints, contributes to entrepreneurship and employment opportunities, and thus mitigates the negative impact of economic uncertainty on household consumption.",
+      "abstract_cn": "本文考察了在经济不确定性存在的情况下，金融科技的采用如何影响家庭消费。我们使用区域层面的金融科技采用和经济不确定性度量，以及具有代表性的家庭层面消费数据来研究这一问题。我们的实证分析表明，虽然高经济不确定性导致家庭消费从服务转向非耐用品，但金融科技的广泛采用克服了这一负面影响，并防止了服务支出的减少。我们分别使用家庭到杭州的距离和美国的经济不确定性作为中国金融科技采用和经济不确定性的外生变异代理变量，并发现了类似的结果。聚焦于传导渠道，我们发现金融科技有助于缓解信贷约束，促进创业和就业机会，从而减轻经济不确定性对家庭消费的负面影响。",
+      "doi": "10.1016/j.chieco.2023.102011",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S1043951X23000962",
+      "sources": {
+        "roster": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S1043951X23000962",
+        "abstract_en": "https://www.sciencedirect.com/science/article/pii/S1043951X23000962"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-24T14:00:55+00:00",
+        "source_hash": "b55ccc0695c32d2b7b07d6a1aaa3b91e08948f5740d8ea84b4a11c3c276585b9"
+      },
+      "quality_flags": [],
+      "publication_date": "August 2023",
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "abstract",
+        "matched_terms": [
+          "in China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.chieco.2023.101998",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Buy now, pay later as liquidity insurance: Evidence from an early experiment in China",
+      "title_cn": "先买后付作为流动性保险：来自中国早期实验的证据",
+      "authors": [
+        "Yang Ji",
+        "Xue Wang",
+        "Yiping Huang",
+        "Shu Chen",
+        "Fang Wang"
+      ],
+      "abstract_en": "This study explores the liquidity insurance role of Buy Now, Pay Later (BNPL). As a complementary study to Bian et al. (2023), we provide institutional background and mechanism analysis of BNPL's consumption-boosting effects. Since a significant consumption boosting effect exists even for individuals who did not draw on the BNPL credit line, we argue that BNPL provides liquidity insurance by releasing preexisting precautionary liquidity reserves into consumption. We also explore several robustness checks and heterogeneity analyses.",
+      "abstract_cn": "本研究探讨了先买后付（BNPL）的流动性保险作用。作为对Bian等人（2023）的补充研究，我们提供了BNPL消费促进效应的制度背景和机制分析。由于即使对于未动用BNPL信用额度的个人也存在显著的消费促进效应，我们认为BNPL通过释放先前存在的预防性流动性储备进入消费来提供流动性保险。我们还进行了若干稳健性检验和异质性分析。",
+      "abstract_snippet_en": "This study explores the liquidity insurance role of Buy Now, Pay Later (BNPL). As a complementary study to Bian et al. (2023), we provide institutional background and mechanism analysis of BNPL's consumption-boosting...",
+      "doi": "10.1016/j.chieco.2023.101998",
+      "source_url": "https://doi.org/10.1016/j.chieco.2023.101998",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
+        "roster": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 1194,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 1194,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (1194/20000 remaining)"
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-09T23:13:57+00:00",
+        "source_hash": "a47876c203316688b226330efd49566e89865ca5b735fb3bf11525752eccb921"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.chieco.2023.102004",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "How is Fintech reshaping the traditional financial markets? New evidence from InsurTech and insurance sectors in China",
+      "title_cn": "金融科技如何重塑传统金融市场？来自中国保险科技与保险业的新证据",
+      "authors": [
+        "Wenlong Bian",
+        "Tingting Ge",
+        "Yang Ji",
+        "Xiangnan Wang"
+      ],
+      "abstract_en": "We examine the effect of Fintech on the market structure of traditional financial markets, and focus particularly on InsurTech and the insurance sector. We find that InsurTech has significantly reduced the non-life insurance sector's market concentration but plays a limited role in the life insurance sector's market structure. The results are not driven by potential reverse causality and remain unchanged when we employ an instrumental variables approach and use an alternative supply-side InsurTech index. We further explore the underlying mechanisms and find that, instead of competing directly with insurance companies, Fintech companies provide insurance technologies to traditional insurers and help them lower entry barriers and reduce operating costs. Our paper sheds light on how InsurTech is reshaping traditional insurance sectors, and the results are generalizable to Fintech and financial markets.",
+      "abstract_cn": "我们研究了金融科技对传统金融市场市场结构的影响，并特别关注保险科技与保险业。我们发现，保险科技显著降低了非寿险部门的集中度，但对寿险部门的市场结构作用有限。这些结果并非由潜在的反向因果驱动，并且在使用工具变量方法和替代的供给侧保险科技指数时保持不变。我们进一步探讨了潜在机制，发现金融科技公司并非直接与保险公司竞争，而是向传统保险公司提供保险技术，帮助其降低进入壁垒和运营成本。我们的论文揭示了保险科技如何重塑传统保险业，且结果可推广至金融科技与金融市场。",
+      "abstract_snippet_en": "We examine the effect of Fintech on the market structure of traditional financial markets, and focus particularly on InsurTech and the insurance sector. We find that InsurTech has significantly reduced...",
+      "doi": "10.1016/j.chieco.2023.102004",
+      "source_url": "https://doi.org/10.1016/j.chieco.2023.102004",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
+        "roster": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 1189,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 1189,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (1189/20000 remaining)"
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-09T23:14:34+00:00",
+        "source_hash": "4e15a6e33e43642d1548392d304eecc3d09580290caff17404234b0394652a6e"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.chieco.2023.101989",
+      "sequence": 7,
+      "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Information advantages, excessive risk-taking, and capital regulation for BigTechs in financial intermediation",
+      "title_cn": "金融中介中大型科技公司的信息优势、过度风险承担与资本监管",
+      "authors": [
+        "Li, Mei",
+        "Qiu, Junfeng"
+      ],
+      "abstract_en": "This paper establishes theoretical models to study capital regulation of BigTech firms (BigTechs hereafter) providing financial intermediation services. In our models, BigTechs borrow debts to invest between socially efficient prudent assets and socially inefficient risky assets. Limited liabilities imply that with a higher capital adequacy ratio, BigTechs are more risk averse and favor the prudent asset more. Then we examine how better information of BigTechs will affect BigTechs' incentive for excessive risk-taking, welfare, and capital regulation. The major results produced by our models are as follows: (1) Better information of BigTechs does not eliminate and could in some circumstances exacerbate their excessive risk-taking behavior. (2) Better information of BigTechs does not necessarily improve welfare. BigTechs could employ better information to more precisely identify the socially inefficient risky asset to invest in, causing more severe resource misallocation. (3) Capital regulation is an effective tool to curb BigTechs' excessive risk-taking and to ensure that better information of BigTechs will improve welfare.",
+      "abstract_cn": "本文建立理论模型，研究提供金融中介服务的大型科技公司（以下简称BigTechs）的资本监管。在我们的模型中，BigTechs借入债务，在 socially efficient prudent assets 和 socially inefficient risky assets 之间进行投资。有限责任意味着，资本充足率越高，BigTechs越厌恶风险，越偏好prudent asset。然后，我们考察BigTechs更好的信息将如何影响BigTechs过度风险承担的激励、福利和资本监管。我们的模型得出的主要结果如下：（1）BigTechs更好的信息不会消除其过度风险承担行为，并且在某些情况下可能加剧该行为。（2）BigTechs更好的信息不一定改善福利。BigTechs可能利用更好的信息更精确地识别 socially inefficient risky asset 进行投资，导致更严重的资源错配。（3）资本监管是遏制BigTechs过度风险承担并确保BigTechs更好的信息将改善福利的有效工具。",
+      "doi": "10.1016/j.chieco.2023.101989",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S1043951X23000743",
+      "sources": {
+        "roster": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S1043951X23000743",
+        "abstract_en": "https://www.sciencedirect.com/science/article/pii/S1043951X23000743"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-23T13:26:39+00:00",
+        "source_hash": "80242f5208e8ae8cf13e5f84a93df0b0ab6bd2ef52677138ca0dfdb54f0b3481"
+      },
+      "quality_flags": [],
+      "publication_date": "August 2023",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.chieco.2023.102014",
+      "sequence": 8,
+      "source_sequence": 8,
+      "article_type": "research-article",
+      "title_en": "Multi-province comparisons of digital financial inclusion performance in China: A group ranking method with preference analysis",
+      "title_cn": "中国数字普惠金融绩效的多省比较：一种带有偏好分析的群体排序方法",
+      "authors": [
+        "Yelin Fu",
+        "Zelong Yi"
+      ],
+      "abstract_en": "The Peking University Digital Financial Inclusion Index of China (PKU-DFIIC) measures the digital financial inclusion (DFI) performance in China from three dimensions: breadth of coverage, depth of use and level of digitalization. This paper extends the PKU-DFIIC to measure and compare the provincial DFI performance in terms of proposing a group ranking method with preference analysis. Specifically, we identify a panel of experts by comprehensively considering all possible importance orders of three dimensions, and formulate a preliminary group decision matrix. Then the preference analysis is carried out with respect to preferential difference and preferential priority. A revised group decision matrix is derived with the expert-specific ranking as the inputs. Finally, a group ranking method is given based on the half-quadratic theory, in conjunction with the consensus index and trust level denoting the level of agreement and reliability of the group ranking. An empirical study using the PKU-DFIIC data from 2016 to 2020 is conducted to demonstrate our method, along with the spatial-temporal analysis of the results and a set of policy implications to promote the DFI development in China.",
+      "abstract_cn": "北京大学数字普惠金融指数（PKU-DFIIC）从覆盖广度、使用深度和数字化程度三个维度衡量中国数字普惠金融（DFI）绩效。本文扩展了PKU-DFIIC，通过提出一种带有偏好分析的群体排序方法来衡量和比较省级DFI绩效。具体而言，我们通过综合考虑三个维度的所有可能重要性顺序来确定一组专家，并构建初步的群体决策矩阵。然后，针对偏好差异和偏好优先级进行偏好分析。以专家特定排序作为输入，得出修正后的群体决策矩阵。最后，基于半二次理论，结合共识指数和信任水平（表示群体排序的一致性和可靠性），给出一种群体排序方法。利用2016年至2020年的PKU-DFIIC数据进行实证研究，以展示我们的方法，并对结果进行时空分析，提出一系列促进中国DFI发展的政策启示。",
+      "abstract_snippet_en": "The Peking University Digital Financial Inclusion Index of China (PKU-DFIIC) measures the digital financial inclusion (DFI) performance in China from three dimensions: breadth of coverage, depth of...",
+      "doi": "10.1016/j.chieco.2023.102014",
+      "source_url": "https://doi.org/10.1016/j.chieco.2023.102014",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
+        "roster": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 1187,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 1187,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (1187/20000 remaining)"
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-09T23:15:03+00:00",
+        "source_hash": "182ffc55bf3b6b2b251d52f086d940aae9535884c63e34120bf5234d0e7b3f21"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.chieco.2023.102007",
+      "sequence": 9,
+      "source_sequence": 9,
+      "article_type": "research-article",
+      "title_en": "The impact of digital finance on women's bargaining power: Evidence from China",
+      "title_cn": "数字金融对女性议价能力的影响：来自中国的证据",
+      "authors": [
+        "Han, Xiao",
+        "Zhang, Haiyang",
+        "Zhu, Wen"
+      ],
+      "abstract_en": "This paper explores the effect of digital finance adoption on women's bargaining power within the family. Empirical analysis finds that higher digital finance adoption significantly improves women's bargaining power and thus alleviates intra-household inequality. We explain the underlying mechanism in terms of women's participation in both labor and financial market. The subsample regression results show that the impact differs among families with distinct characteristics in terms of regions, family living patterns and women's fertility status. This paper provides a new perspective for understanding the inclusive contribution of digital finance and forms a timely complement to the literature in related fields.",
+      "abstract_cn": "本文探讨了数字金融采用对家庭内部女性议价能力的影响。实证分析发现，数字金融采用程度越高，显著提升了女性的议价能力，从而缓解了家庭内部不平等。我们从女性参与劳动力市场和金融市场两个角度解释了其内在机制。子样本回归结果显示，该影响在不同地区、家庭居住模式和女性生育状况等特征各异的家庭之间存在差异。本文为理解数字金融的包容性贡献提供了新视角，并及时补充了相关领域的文献。",
+      "doi": "10.1016/j.chieco.2023.102007",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S1043951X23000925",
+      "sources": {
+        "roster": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S1043951X23000925",
+        "abstract_en": "https://www.sciencedirect.com/science/article/pii/S1043951X23000925"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-23T13:26:38+00:00",
+        "source_hash": "106fef82d880081a9a74f167143c38a58f99e76cf0292d70a12552b208706444"
+      },
+      "quality_flags": [],
+      "publication_date": "August 2023",
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.chieco.2023.102005",
+      "sequence": 10,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "Households' participation in energy transition and sustained use of clean energy: Evidence from China's clean heating program",
+      "title_cn": "家庭参与能源转型与清洁能源的持续使用：来自中国清洁取暖项目的证据",
+      "authors": [
+        "Wang, Manyu",
+        "Xie, Lunyu"
+      ],
+      "abstract_en": "Household energy transition is a critical tool for air pollution mitigation and energy inequality reduction. The effectiveness of the transition largely relies on not only households' decision to participate but also their sustained use of clean energy after participation. However, the sustained use of clean energy has not yet received sufficient attention in policy making and in literature. This study examines China's Household Clean Heating program, which has switched millions of households' heating energy sources from coal to electricity and gas. We focus on both households' adoption and coal substitution behavior in the program. Based on the large-scale household survey conducted in rural areas of Northern China, we find that both high subsidies and compulsory measures effectively increased the household adoption rate; however, the latter did not guarantee sustained use of clean energy. We also find that In-person and repeated dissemination of program information had a better effect on involvement than passive announcements. Moreover, lower-income households were less likely to participate. Our findings suggest effective implementation approaches and supplementary measures to promote household energy transition, with fewer negative consequences for participants, particularly for the participants with lower income.",
+      "abstract_cn": "家庭能源转型是减少空气污染和降低能源不平等的重要工具。转型的有效性在很大程度上不仅取决于家庭参与的决定，还取决于参与后对清洁能源的持续使用。然而，清洁能源的持续使用在政策制定和文献中尚未得到足够关注。本研究考察了中国家庭清洁取暖项目，该项目已将数百万家庭的取暖能源从煤炭转向电力和天然气。我们关注家庭在该项目中的采用行为和煤炭替代行为。基于在中国北方农村地区开展的大规模家庭调查，我们发现高补贴和强制措施均有效提高了家庭采用率；然而，后者并未保证清洁能源的持续使用。我们还发现，面对面和反复传播项目信息对参与的效果优于被动公告。此外，低收入家庭参与的可能性较低。我们的发现提出了促进家庭能源转型的有效实施方法和补充措施，以减少对参与者尤其是低收入参与者的负面影响。",
+      "doi": "10.1016/j.chieco.2023.102005",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S1043951X23000901",
+      "sources": {
+        "roster": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S1043951X23000901",
+        "abstract_en": "https://www.sciencedirect.com/science/article/pii/S1043951X23000901"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-23T13:26:39+00:00",
+        "source_hash": "2a6b7c6f4cab9b409c5558c476ad1a1a0639292731b27e2e8068c7be890733e1"
+      },
+      "quality_flags": [],
+      "publication_date": "August 2023",
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China's"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.chieco.2023.102012",
+      "sequence": 11,
+      "source_sequence": 11,
+      "article_type": "research-article",
+      "title_en": "China's urban poor – Comparing twice poverty between residents and migrants in 2013 and 2018",
+      "title_cn": "中国城市贫困——比较2013年和2018年居民与流动人口的双重贫困",
+      "authors": [
+        "Gustafsson, Björn",
+        "Sai, Ding"
+      ],
+      "abstract_en": "Using data from the China Household Income Project in 2013 and 2018, this paper studies relative poverty among rural hukou holders living in urban China and urban hukou holders. People living in households with an income below a fixed percent of the median per-capita income and wealth below the same fixed percent of the median per-capita wealth among urban residents are deemed as relative poor. Although migrants with rural hukou living in urban China were more prone to twice poverty than urban residents in 2013, this was not generally the case in 2018.A multivariate analysis shows several factors to be related to the probability of being twice relative poor. Even considering these factors, a rural hukou status increased the probability of being twice relative poor in 2013. In contrast, such an excess risk of being twice relative poor was much lesser outspoken in middle and low-ranking cities in 2018. However, rural to urban migrants living in high-ranking cities had a somewhat higher risk of being relative poor than urban residents with the same characteristics in 2018.",
+      "abstract_cn": "本文使用2013年和2018年中国家庭收入项目的数据，研究居住在中国城市的农村户口持有者和城市户口持有者之间的相对贫困。如果家庭收入低于城市居民人均收入中位数的某一固定百分比，且财富低于城市居民人均财富中位数的同一固定百分比，则被视为相对贫困。尽管在2013年，居住在中国城市的农村户口流动人口比城市居民更容易陷入双重贫困，但在2018年，这种情况并不普遍。多变量分析显示，若干因素与陷入双重相对贫困的概率相关。即使考虑这些因素，农村户口身份在2013年仍增加了陷入双重相对贫困的概率。相比之下，在2018年的中低等级城市中，这种陷入双重相对贫困的额外风险要小得多。然而，在2018年，居住在高等级城市的农村到城市流动人口比具有相同特征的城市居民陷入相对贫困的风险略高。",
+      "doi": "10.1016/j.chieco.2023.102012",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S1043951X23000974",
+      "sources": {
+        "roster": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S1043951X23000974",
+        "abstract_en": "https://www.sciencedirect.com/science/article/pii/S1043951X23000974"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-23T13:27:24+00:00",
+        "source_hash": "cccd894b1a33b0329fb17fd93fd2d4d0576dd130364b2b1af6b183bf1f44b83e"
+      },
+      "quality_flags": [],
+      "publication_date": "August 2023",
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China's"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.chieco.2023.101988",
+      "sequence": 12,
+      "source_sequence": 12,
       "article_type": "research-article",
       "title_en": "Imports of key capital goods and quality upgrading: Evidence from China's import subsidy policy",
       "title_cn": "关键资本品进口与质量升级：来自中国进口补贴政策的证据",
@@ -33,7 +606,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
-        "roster": "crossref:issn:1043-951X",
+        "roster": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
         "metadata": "crossref",
         "abstract_en": "elsevier-article-metadata",
         "elsevier": "https://api.elsevier.com/content/metadata/article",
@@ -46,18 +619,19 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 14813,
-                "resets_at": "2026-09-25T08:57:00+00:00",
+                "remaining": 1196,
+                "resets_at": "2026-08-12T02:35:01+00:00",
                 "els_status": "OK"
               }
             }
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 14813,
-            "resets_at": "2026-09-25T08:57:00+00:00",
+            "remaining": 1196,
+            "resets_at": "2026-08-12T02:35:01+00:00",
             "els_status": "OK"
-          }
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (1196/20000 remaining)"
         }
       },
       "translation": {
@@ -80,9 +654,49 @@
       }
     },
     {
+      "paper_id": "doi:10.1016/j.chieco.2023.101985",
+      "sequence": 13,
+      "source_sequence": 13,
+      "article_type": "research-article",
+      "title_en": "Little emperors in the workplace: Labor market consequences of China's one-child policy",
+      "title_cn": "职场中的小皇帝：中国独生子女政策的劳动力市场后果",
+      "authors": [
+        "Chen, Yuyu",
+        "Swee, Eik Leong",
+        "Wang, Hui"
+      ],
+      "abstract_en": "What is the impact of China's One-Child Policy on the labor market outcomes of the only children that it engendered? This paper quantifies the wage income gap between only children and their peers (i.e. those with siblings), and uncovers the channels that underlie it. While only children receive higher wage income on average, we find that this only-child premium disappears completely once their superior schooling attainment and family background are accounted for. Moreover, we learn that the One-Child Policy resulted in a negative only-child effect on wage income, after conditioning on pre-determined characteristics; this may be due to only children lacking socio-emotional attributes that are valued in the labor market. Our results deliver important insights for China as only children continue to dominate its labor force at a rapid pace.",
+      "abstract_cn": "中国的独生子女政策对其所催生的独生子女的劳动力市场结果有何影响？本文量化了独生子女与其同龄人（即那些有兄弟姐妹的人）之间的工资收入差距，并揭示了其背后的渠道。虽然独生子女平均获得更高的工资收入，但我们发现，一旦控制了其更高的受教育程度和家庭背景，这种独生子女溢价就完全消失了。此外，我们了解到，在控制预先决定的特征后，独生子女政策对工资收入产生了负面的独生子女效应；这可能是因为独生子女缺乏劳动力市场所看重的社会情感特质。我们的结果为独生子女继续以快速步伐主导其劳动力队伍的中国提供了重要启示。",
+      "doi": "10.1016/j.chieco.2023.101985",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S1043951X23000706",
+      "sources": {
+        "roster": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S1043951X23000706",
+        "abstract_en": "https://www.sciencedirect.com/science/article/pii/S1043951X23000706"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-24T02:54:53+00:00",
+        "source_hash": "f408247ab9a99b79c0212d35b43d00f05ab39facb238cdd942afb351f9d39354"
+      },
+      "quality_flags": [],
+      "publication_date": "August 2023",
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China's"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1016/j.chieco.2023.101990",
-      "sequence": 2,
-      "source_sequence": 101990,
+      "sequence": 14,
+      "source_sequence": 14,
       "article_type": "research-article",
       "title_en": "Multi-generational educational mobility in China in the twentieth century",
       "title_cn": "二十世纪中国多代教育流动性",
@@ -98,7 +712,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
-        "roster": "crossref:issn:1043-951X",
+        "roster": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
         "metadata": "crossref",
         "abstract_en": "elsevier-article-metadata",
         "elsevier": "https://api.elsevier.com/content/metadata/article",
@@ -111,18 +725,19 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 14812,
-                "resets_at": "2026-09-25T08:57:00+00:00",
+                "remaining": 1195,
+                "resets_at": "2026-08-12T02:35:01+00:00",
                 "els_status": "OK"
               }
             }
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 14812,
-            "resets_at": "2026-09-25T08:57:00+00:00",
+            "remaining": 1195,
+            "resets_at": "2026-08-12T02:35:01+00:00",
             "els_status": "OK"
-          }
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (1195/20000 remaining)"
         }
       },
       "translation": {
@@ -146,49 +761,23 @@
     },
     {
       "paper_id": "doi:10.1016/j.chieco.2023.101991",
-      "sequence": 3,
-      "source_sequence": 101991,
+      "sequence": 15,
+      "source_sequence": 15,
       "article_type": "research-article",
       "title_en": "The effects of exposure to high temperatures during pregnancy on adolescent mental health: Evidence from China",
       "title_cn": "孕期高温暴露对青少年心理健康的影响：来自中国的证据",
       "authors": [
-        "Hongshan Ai",
-        "Xiaoqing Tan"
+        "Ai, Hongshan",
+        "Tan, Xiaoqing"
       ],
       "abstract_en": "This paper provides the first study to explore the relationship between exposure to ambient temperatures during pregnancy and adolescent mental health in China. The results show that experiencing one more hot day relative to local historical contemporaneous average values during pregnancy significantly increases the likelihood of mental health disorders in adolescence. The impact is larger in the first and second trimesters. Individuals born in the northern region and whose mothers work in agriculture are more vulnerable to high temperatures. Prenatal exposure to hot days is more harmful to the mental health of older adolescents. Additionally, the adverse effects are similar for both men and women and individuals with rural and urban hukou. Biological effects, income effects, and human capital accumulation might be three operative channels of the impact. These findings add to the evidence on the lasting health effects of early life exposure to climatic shocks and call for policy interventions during pregnancy.",
       "abstract_cn": "本文首次探讨了中国孕期环境温度暴露与青少年心理健康之间的关系。结果表明，与当地历史同期平均水平相比，孕期每多经历一个高温日，会显著增加青少年时期心理健康障碍的可能性。这种影响在孕早期和孕中期更为显著。出生于北方地区且母亲从事农业劳动的个体更容易受到高温的影响。产前高温暴露对年龄较大的青少年心理健康的危害更大。此外，不利影响在男性和女性以及农村和城市户籍个体之间相似。生物学效应、收入效应和人力资本积累可能是这一影响的三个作用渠道。这些发现补充了关于生命早期暴露于气候冲击对健康产生持久影响的证据，并呼吁在孕期采取政策干预措施。",
-      "abstract_snippet_en": "This paper provides the first study to explore the relationship between exposure to ambient temperatures during pregnancy and adolescent mental health in China. The results show that experiencing one...",
       "doi": "10.1016/j.chieco.2023.101991",
-      "source_url": "https://doi.org/10.1016/j.chieco.2023.101991",
-      "publication_date": "2023",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S1043951X23000767",
       "sources": {
-        "issue": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
-        "roster": "crossref:issn:1043-951X",
-        "metadata": "crossref",
-        "abstract_en": "elsevier-article-metadata",
-        "elsevier": "https://api.elsevier.com/content/metadata/article",
-        "abstract_lookup": {
-          "status": "success_full_abstract",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 200,
-              "outcome": "success",
-              "rate_limit": {
-                "limit": 20000,
-                "remaining": 14811,
-                "resets_at": "2026-09-25T08:57:00+00:00",
-                "els_status": "OK"
-              }
-            }
-          ],
-          "rate_limit": {
-            "limit": 20000,
-            "remaining": 14811,
-            "resets_at": "2026-09-25T08:57:00+00:00",
-            "els_status": "OK"
-          }
-        }
+        "roster": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S1043951X23000767",
+        "abstract_en": "https://www.sciencedirect.com/science/article/pii/S1043951X23000767"
       },
       "translation": {
         "status": "complete",
@@ -200,74 +789,7 @@
         "source_hash": "e37e1539af795c92b1934e8c51429333e944853b3d602df5671bef684555d6d9"
       },
       "quality_flags": [],
-      "china_relevance": {
-        "status": "yes",
-        "evidence": "title",
-        "matched_terms": [
-          "China"
-        ],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.chieco.2023.101998",
-      "sequence": 4,
-      "source_sequence": 101998,
-      "article_type": "research-article",
-      "title_en": "Buy now, pay later as liquidity insurance: Evidence from an early experiment in China",
-      "title_cn": "先买后付作为流动性保险：来自中国早期实验的证据",
-      "authors": [
-        "Yang Ji",
-        "Xue Wang",
-        "Yiping Huang",
-        "Shu Chen",
-        "Fang Wang"
-      ],
-      "abstract_en": "This study explores the liquidity insurance role of Buy Now, Pay Later (BNPL). As a complementary study to Bian et al. (2023), we provide institutional background and mechanism analysis of BNPL's consumption-boosting effects. Since a significant consumption boosting effect exists even for individuals who did not draw on the BNPL credit line, we argue that BNPL provides liquidity insurance by releasing preexisting precautionary liquidity reserves into consumption. We also explore several robustness checks and heterogeneity analyses.",
-      "abstract_cn": "本研究探讨了先买后付（BNPL）的流动性保险作用。作为对Bian等人（2023）的补充研究，我们提供了BNPL消费促进效应的制度背景和机制分析。由于即使对于未动用BNPL信用额度的个人也存在显著的消费促进效应，我们认为BNPL通过释放先前存在的预防性流动性储备进入消费来提供流动性保险。我们还进行了若干稳健性检验和异质性分析。",
-      "abstract_snippet_en": "This study explores the liquidity insurance role of Buy Now, Pay Later (BNPL). As a complementary study to Bian et al. (2023), we provide institutional background and mechanism analysis of BNPL's consumption-boosting...",
-      "doi": "10.1016/j.chieco.2023.101998",
-      "source_url": "https://doi.org/10.1016/j.chieco.2023.101998",
-      "publication_date": "2023",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
-        "roster": "crossref:issn:1043-951X",
-        "metadata": "crossref",
-        "abstract_en": "elsevier-article-metadata",
-        "elsevier": "https://api.elsevier.com/content/metadata/article",
-        "abstract_lookup": {
-          "status": "success_full_abstract",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 200,
-              "outcome": "success",
-              "rate_limit": {
-                "limit": 20000,
-                "remaining": 14810,
-                "resets_at": "2026-09-25T08:57:00+00:00",
-                "els_status": "OK"
-              }
-            }
-          ],
-          "rate_limit": {
-            "limit": 20000,
-            "remaining": 14810,
-            "resets_at": "2026-09-25T08:57:00+00:00",
-            "els_status": "OK"
-          }
-        }
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-09T23:13:57+00:00",
-        "source_hash": "a47876c203316688b226330efd49566e89865ca5b735fb3bf11525752eccb921"
-      },
-      "quality_flags": [],
+      "publication_date": "August 2023",
       "china_relevance": {
         "status": "yes",
         "evidence": "title",
@@ -279,50 +801,24 @@
     },
     {
       "paper_id": "doi:10.1016/j.chieco.2023.102000",
-      "sequence": 5,
-      "source_sequence": 102000,
+      "sequence": 16,
+      "source_sequence": 16,
       "article_type": "research-article",
       "title_en": "How can China's power sector reform reduce carbon emissions? A long-term competition perspective",
       "title_cn": "中国电力部门改革如何减少碳排放？基于长期竞争视角",
       "authors": [
-        "Chenxi Xiang",
-        "Xinye Zheng",
-        "Lunyu Xie"
+        "Xiang, Chenxi",
+        "Zheng, Xinye",
+        "Xie, Lunyu"
       ],
       "abstract_en": "Challenges coexist with opportunities for achieving carbon neutrality through power sector reform. Based on the ongoing reform in China and generator-level data in 2019, we identify three channels through which the reform could affect carbon emissions. We analyze the theoretical mechanisms under a long-term average cost competition framework, evaluate the emission reduction potentials of the three channels, explore the obstacles in achieving these potentials, and propose corresponding solutions. We find the following: (1) By reshaping the generation competition between high-efficiency and low-efficiency coal-fired generators, the reform has the potential to reduce carbon emissions by 205.4 million tons. However, considering the high financial costs of high-efficiency generators, realizing the full potential is difficult. (2) Administrative promotion of renewable energy could reduce carbon emissions by 311 million tons, but with large implicit expenses, which makes the promotion unsustainable. (3) The price dividend induced by the reform could increase carbon emissions by 98.1 million tons. To achieve emission reduction potentials in the first two channels and offset the rebound effect in the third channel, we propose explicitly pricing carbon. Without other supporting measures, a carbon price of over 400 Chinese yuan per ton of carbon dioxide is essential for the reform to eliminate barriers to its implementation.",
       "abstract_cn": "通过电力部门改革实现碳中和，挑战与机遇并存。基于中国正在进行的改革以及2019年的发电机组层面数据，我们识别出改革可能影响碳排放的三条渠道。我们在长期平均成本竞争框架下分析理论机制，评估三条渠道的减排潜力，探讨实现这些潜力的障碍，并提出相应的解决方案。我们发现如下：（1）通过重塑高效与低效燃煤发电机组之间的发电竞争，改革有潜力减少碳排放205.4百万吨。然而，考虑到高效发电机组的较高财务成本，实现全部潜力较为困难。（2）行政推动可再生能源可减少碳排放311百万吨，但伴随较大的隐性支出，这使得该推动难以持续。（3）改革带来的价格红利可能增加碳排放98.1百万吨。为实现前两条渠道的减排潜力并抵消第三条渠道的反弹效应，我们提出对碳进行显性定价。若无其他配套措施，碳价需超过每吨二氧化碳400元人民币，改革才能消除其实施障碍。",
-      "abstract_snippet_en": "Challenges coexist with opportunities for achieving carbon neutrality through power sector reform. Based on the ongoing reform in China and generator-level data in 2019, we identify three channels through...",
       "doi": "10.1016/j.chieco.2023.102000",
-      "source_url": "https://doi.org/10.1016/j.chieco.2023.102000",
-      "publication_date": "2023",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S1043951X23000858",
       "sources": {
-        "issue": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
-        "roster": "crossref:issn:1043-951X",
-        "metadata": "crossref",
-        "abstract_en": "elsevier-article-metadata",
-        "elsevier": "https://api.elsevier.com/content/metadata/article",
-        "abstract_lookup": {
-          "status": "success_full_abstract",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 200,
-              "outcome": "success",
-              "rate_limit": {
-                "limit": 20000,
-                "remaining": 14809,
-                "resets_at": "2026-09-25T08:57:00+00:00",
-                "els_status": "OK"
-              }
-            }
-          ],
-          "rate_limit": {
-            "limit": 20000,
-            "remaining": 14809,
-            "resets_at": "2026-09-25T08:57:00+00:00",
-            "els_status": "OK"
-          }
-        }
+        "roster": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S1043951X23000858",
+        "abstract_en": "https://www.sciencedirect.com/science/article/pii/S1043951X23000858"
       },
       "translation": {
         "status": "complete",
@@ -334,6 +830,7 @@
         "source_hash": "18580d8f0eb8f1116adf58fb541895f5a82e86136ffd068129a474fed62ee89a"
       },
       "quality_flags": [],
+      "publication_date": "August 2023",
       "china_relevance": {
         "status": "yes",
         "evidence": "title",
@@ -345,8 +842,8 @@
     },
     {
       "paper_id": "doi:10.1016/j.chieco.2023.102002",
-      "sequence": 6,
-      "source_sequence": 102002,
+      "sequence": 17,
+      "source_sequence": 17,
       "article_type": "research-article",
       "title_en": "Rural centralized residences and the health of the acting heads of rural households: The case of China",
       "title_cn": "农村集中居住与农村户主健康：来自中国的证据",
@@ -362,7 +859,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
-        "roster": "crossref:issn:1043-951X",
+        "roster": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
         "metadata": "crossref",
         "abstract_en": "elsevier-article-metadata",
         "elsevier": "https://api.elsevier.com/content/metadata/article",
@@ -375,18 +872,19 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 14808,
-                "resets_at": "2026-09-25T08:57:00+00:00",
+                "remaining": 1191,
+                "resets_at": "2026-08-12T02:35:01+00:00",
                 "els_status": "OK"
               }
             }
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 14808,
-            "resets_at": "2026-09-25T08:57:00+00:00",
+            "remaining": 1191,
+            "resets_at": "2026-08-12T02:35:01+00:00",
             "els_status": "OK"
-          }
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (1191/20000 remaining)"
         }
       },
       "translation": {
@@ -409,9 +907,143 @@
       }
     },
     {
+      "paper_id": "doi:10.1016/j.chieco.2023.102001",
+      "sequence": 18,
+      "source_sequence": 18,
+      "article_type": "research-article",
+      "title_en": "Educational differences in parental time devoted to childcare in China",
+      "title_cn": "中国父母育儿时间投入的教育差异",
+      "authors": [
+        "Fenglian Du",
+        "Xiao-yuan Dong",
+        "Yinyu Zhang"
+      ],
+      "abstract_en": "The intergenerational transmission of education in China has drawn extensive public and academic attention. This paper explores the differences in the amount of time Chinese parents spend on childcare stratified by education level and investigates the factors driving these differences. The analysis shows that more educated parents devote more time to childcare than less-educated parents. The educational differences in parental childcare time are particularly pronounced among working parents, parents with school-age children, and parents in the provinces where educational institutions are relatively scarce. Much of the extra childcare time is directed to educational care and travel with children. Compared to households in which the mother has less than a junior high school education, households with university-educated mothers spend 74 min more per day on childcare, with 58% of the extra time devoted to children's learning and education.",
+      "abstract_cn": "中国教育的代际传递引起了公众和学术界的广泛关注。本文探讨了中国父母按教育水平分层的育儿时间投入差异，并研究了导致这些差异的因素。分析显示，受教育程度更高的父母比受教育程度较低的父母投入更多的育儿时间。父母育儿时间的教育差异在职父母、有学龄子女的父母以及教育机构相对稀缺省份的父母中尤为明显。额外育儿时间的大部分用于教育关怀和与子女同行。与母亲教育水平低于初中学历的家庭相比，母亲受过大学教育的家庭每天在育儿上多投入74分钟，其中58%的额外时间用于子女的学习和教育。",
+      "abstract_snippet_en": "The intergenerational transmission of education in China has drawn extensive public and academic attention. This paper explores the differences in the amount of time Chinese parents spend on childcare...",
+      "doi": "10.1016/j.chieco.2023.102001",
+      "source_url": "https://doi.org/10.1016/j.chieco.2023.102001",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
+        "roster": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 1192,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 1192,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (1192/20000 remaining)"
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-09T23:14:02+00:00",
+        "source_hash": "12db74cb061b33b67da34389456a87e3d6916fc10b1a9c446711c5a4d80b53b4"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.chieco.2023.101971",
+      "sequence": 19,
+      "source_sequence": 19,
+      "article_type": "research-article",
+      "title_en": "How does the development of digital finance affect small business tax compliance? Empirical evidence from China",
+      "title_cn": "数字金融发展如何影响小企业税收遵从？来自中国的经验证据",
+      "authors": [
+        "Jie Ouyang",
+        "Shiyuan Liu",
+        "Haoran Li"
+      ],
+      "abstract_en": "How will the development of digital finance affect corporate tax compliance? In the digital economic age, this is a crucial issue. Using the 2011–2015 national tax survey database (NTSD) and the Peking University digital finance index, this paper examines the causal relationship between digital finance and small business tax compliance. Our baseline results show that each standard deviation increase in the digital finance index reduces the level of tax noncompliance by 7.5% for small businesses. We exclude the interference of contemporaneous policies, utilize a specification design based on neighboring cities across provincial borders, and employ instrumental variable estimation methods to jointly alleviate concerns about endogeneity. Furthermore, mechanism analysis shows that digital finance impacts small business tax noncompliance by easing corporate financing constraints and capturing tax-related “digital information”. Finally, we analyze the heterogeneous effects of digital finance development. The effects on tax noncompliance are weaker for large firms (placebo group), small businesses supported by the government's industrial policy, and small businesses located in poor credit environment areas.",
+      "abstract_cn": "数字金融的发展将如何影响企业税收遵从？在数字经济时代，这是一个至关重要的问题。利用2011-2015年全国税收调查数据库（NTSD）和北京大学数字金融指数，本文考察了数字金融与小企业税收遵从之间的因果关系。我们的基准结果表明，数字金融指数每增加一个标准差，小企业的税收不遵从水平降低7.5%。我们排除了同期政策的干扰，利用基于省界相邻城市的规格设计，并采用工具变量估计方法，共同缓解了内生性问题。此外，机制分析表明，数字金融通过缓解企业融资约束和获取涉税“数字信息”来影响小企业的税收不遵从。最后，我们分析了数字金融发展的异质性效应。对于大企业（安慰剂组）、受政府产业政策支持的小企业以及位于信用环境较差地区的小企业，其对税收不遵从的影响较弱。",
+      "abstract_snippet_en": "How will the development of digital finance affect corporate tax compliance? In the digital economic age, this is a crucial issue. Using the 2011–2015 national tax survey database (NTSD) and the Peking...",
+      "doi": "10.1016/j.chieco.2023.101971",
+      "source_url": "https://doi.org/10.1016/j.chieco.2023.101971",
+      "publication_date": "2023",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
+        "roster": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "elsevier": "https://api.elsevier.com/content/metadata/article",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 1198,
+                "resets_at": "2026-08-12T02:35:01+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 1198,
+            "resets_at": "2026-08-12T02:35:01+00:00",
+            "els_status": "OK"
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (1198/20000 remaining)"
+        }
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-09T23:13:48+00:00",
+        "source_hash": "d7c42a369aef9af533e3241ee690b198a69950d4ecec76659f3930a2ae933573"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
       "paper_id": "doi:10.1016/j.chieco.2023.102003",
-      "sequence": 7,
-      "source_sequence": 102003,
+      "sequence": 20,
+      "source_sequence": 20,
       "article_type": "research-article",
       "title_en": "Efficiency or equity? The effect of an exogenous agricultural commercial shock: Evidence from Manchuria in the 1930s",
       "title_cn": "效率还是公平？外生农业商业冲击的影响：来自满洲的证据1930",
@@ -427,7 +1059,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
-        "roster": "crossref:issn:1043-951X",
+        "roster": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
         "metadata": "crossref",
         "abstract_en": "elsevier-article-metadata",
         "elsevier": "https://api.elsevier.com/content/metadata/article",
@@ -440,18 +1072,19 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 14807,
-                "resets_at": "2026-09-25T08:57:00+00:00",
+                "remaining": 1190,
+                "resets_at": "2026-08-12T02:35:01+00:00",
                 "els_status": "OK"
               }
             }
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 14807,
-            "resets_at": "2026-09-25T08:57:00+00:00",
+            "remaining": 1190,
+            "resets_at": "2026-08-12T02:35:01+00:00",
             "els_status": "OK"
-          }
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (1190/20000 remaining)"
         }
       },
       "translation": {
@@ -474,27 +1107,28 @@
       }
     },
     {
-      "paper_id": "doi:10.1016/j.chieco.2023.102004",
-      "sequence": 8,
-      "source_sequence": 102004,
+      "paper_id": "doi:10.1016/j.chieco.2023.102017",
+      "sequence": 21,
+      "source_sequence": 21,
       "article_type": "research-article",
-      "title_en": "How is Fintech reshaping the traditional financial markets? New evidence from InsurTech and insurance sectors in China",
-      "title_cn": "金融科技如何重塑传统金融市场？来自中国保险科技与保险业的新证据",
+      "title_en": "Carbon pricing, carbon equity, and the RCEP framework",
+      "title_cn": "碳定价、碳公平与RCEP框架",
       "authors": [
-        "Wenlong Bian",
-        "Tingting Ge",
-        "Yang Ji",
-        "Xiangnan Wang"
+        "Ying Fan",
+        "Xilong Yan",
+        "Lianbiao Cui",
+        "Luyang Zhang",
+        "Jiaxue Wang"
       ],
-      "abstract_en": "We examine the effect of Fintech on the market structure of traditional financial markets, and focus particularly on InsurTech and the insurance sector. We find that InsurTech has significantly reduced the non-life insurance sector's market concentration but plays a limited role in the life insurance sector's market structure. The results are not driven by potential reverse causality and remain unchanged when we employ an instrumental variables approach and use an alternative supply-side InsurTech index. We further explore the underlying mechanisms and find that, instead of competing directly with insurance companies, Fintech companies provide insurance technologies to traditional insurers and help them lower entry barriers and reduce operating costs. Our paper sheds light on how InsurTech is reshaping traditional insurance sectors, and the results are generalizable to Fintech and financial markets.",
-      "abstract_cn": "我们研究了金融科技对传统金融市场市场结构的影响，并特别关注保险科技与保险业。我们发现，保险科技显著降低了非寿险部门的集中度，但对寿险部门的市场结构作用有限。这些结果并非由潜在的反向因果驱动，并且在使用工具变量方法和替代的供给侧保险科技指数时保持不变。我们进一步探讨了潜在机制，发现金融科技公司并非直接与保险公司竞争，而是向传统保险公司提供保险技术，帮助其降低进入壁垒和运营成本。我们的论文揭示了保险科技如何重塑传统保险业，且结果可推广至金融科技与金融市场。",
-      "abstract_snippet_en": "We examine the effect of Fintech on the market structure of traditional financial markets, and focus particularly on InsurTech and the insurance sector. We find that InsurTech has significantly reduced...",
-      "doi": "10.1016/j.chieco.2023.102004",
-      "source_url": "https://doi.org/10.1016/j.chieco.2023.102004",
+      "abstract_en": "Trade liberalization in the Regional Comprehensive Economic Partnership (RCEP) not only contributes to regional economic growth but also leads to an increase in energy consumption and carbon emissions, which may exacerbate climate change risks. This study aims to explore the carbon pricing issue in the context of the RCEP framework. Additionally, for the sake of carbon equity, we introduce a differentiated carbon pricing scheme based on the cost fairness principle (CPCF), and the unified carbon pricing was used for a cost effectiveness analysis. The empirical analysis was conducted with a global multi-regional computable general equilibrium model. The results show that with the help of trade liberalization, the RCEP's GDP, energy consumption, and carbon emissions may increase by 0.639%, 1.962%, and 1.897%, respectively. The CPCF scheme, wherein developed countries assume the primary abatement burden, can be used to offset the increase in carbon emissions from trade liberalization while RCEP members maintain positive economic growth. The total abatement cost of the CPCF for carbon offsets in the RCEP can be reduced via unified carbon pricing, and the cost-saving effect approaches 24.24%. Unified carbon pricing may result in a carbon price of US $5.83 within the RCEP. As such, this study explores carbon pricing in the context of trade liberalization, and its findings will be valuable for the RCEP to achieve a win-win situation in terms of economic growth and climate change.",
+      "abstract_cn": "区域全面经济伙伴关系协定（RCEP）中的贸易自由化不仅促进了区域经济增长，也导致了能源消耗和碳排放的增加，这可能加剧气候变化风险。本研究旨在探讨RCEP框架下的碳定价问题。此外，为了碳公平，我们引入了基于成本公平原则的差异化碳定价方案（CPCF），并采用统一碳定价进行成本效益分析。实证分析采用全球多区域可计算一般均衡模型进行。结果表明，借助贸易自由化，RCEP的GDP、能源消耗和碳排放可能分别增加0.639%、1.962%和1.897%。CPCF方案中，发达国家承担主要减排负担，可用于抵消贸易自由化带来的碳排放增加，同时RCEP成员保持正经济增长。通过统一碳定价，可以降低RCEP中用于碳抵消的CPCF总减排成本，成本节约效应接近24.24%。统一碳定价可能导致RCEP内部碳价为US $5.83。因此，本研究探讨了贸易自由化背景下的碳定价问题，其发现将有助于RCEP实现经济增长与气候变化的双赢局面。",
+      "abstract_snippet_en": "Trade liberalization in the Regional Comprehensive Economic Partnership (RCEP) not only contributes to regional economic growth but also leads to an increase in energy consumption and carbon emissions,...",
+      "doi": "10.1016/j.chieco.2023.102017",
+      "source_url": "https://doi.org/10.1016/j.chieco.2023.102017",
       "publication_date": "2023",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
-        "roster": "crossref:issn:1043-951X",
+        "roster": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
         "metadata": "crossref",
         "abstract_en": "elsevier-article-metadata",
         "elsevier": "https://api.elsevier.com/content/metadata/article",
@@ -507,18 +1141,19 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 14806,
-                "resets_at": "2026-09-25T08:57:00+00:00",
+                "remaining": 1185,
+                "resets_at": "2026-08-12T02:35:01+00:00",
                 "els_status": "OK"
               }
             }
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 14806,
-            "resets_at": "2026-09-25T08:57:00+00:00",
+            "remaining": 1185,
+            "resets_at": "2026-08-12T02:35:01+00:00",
             "els_status": "OK"
-          }
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (1185/20000 remaining)"
         }
       },
       "translation": {
@@ -527,66 +1162,38 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "deepseek-chat",
-        "translated_at": "2026-08-09T23:14:34+00:00",
-        "source_hash": "4e15a6e33e43642d1548392d304eecc3d09580290caff17404234b0394652a6e"
+        "translated_at": "2026-08-09T23:15:08+00:00",
+        "source_hash": "fb751ad16a3b90235a0cf84cd8a5021b8f1c186d1228655313912215c30eae23"
       },
       "quality_flags": [],
       "china_relevance": {
-        "status": "yes",
-        "evidence": "title",
-        "matched_terms": [
-          "China"
-        ],
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
         "source": "academic-door-rules-v1"
       }
     },
     {
       "paper_id": "doi:10.1016/j.chieco.2023.102008",
-      "sequence": 9,
-      "source_sequence": 102008,
+      "sequence": 22,
+      "source_sequence": 22,
       "article_type": "research-article",
       "title_en": "Assessing inequality in the school closure response to COVID-19",
       "title_cn": "评估应对COVID-19的学校停课响应中的不平等",
       "authors": [
-        "Xiqian Cai",
-        "Jingcheng Fu",
-        "Mengna Luan",
-        "Xiangming Tang"
+        "Cai, Xiqian",
+        "Fu, Jingcheng",
+        "Luan, Mengna",
+        "Tang, Xiangming"
       ],
       "abstract_en": "The spread of coronavirus disease 2019 (COVID-19) has caused school closures in most countries, affecting over 90% of the world's student population. School closures can widen learning inequalities and disproportionately hurt vulnerable students. We collected data on the exam scores of university applicants in China before and after a two-month period of school closure. We observe that students from rural, lower-income households are more negatively affected by school closures compared to their urban, higher-income counterparts. The inequality effect remains sizable in the admission exam three months after schools reopen. To strengthen the causal interpretation of the results, we investigate the scores in the previous graduating cohorts who did not experience school closure, and find no evidence of the change in scores over the same calendar period. Our study points to the urgent need to address the educational inequality caused by school closures.",
       "abstract_cn": "冠状病毒病2019（COVID-19）的传播已导致大多数国家学校停课，影响了全球超过90%的学生群体。学校停课可能加剧学习不平等，并对弱势学生造成不成比例的伤害。我们收集了中国大学申请者在为期两个月的学校停课前后考试分数的数据。我们观察到，与城市、高收入家庭的学生相比，农村、低收入家庭的学生受学校停课的影响更为负面。在学校复课三个月后的入学考试中，这种不平等效应仍然显著。为了加强结果的因果解释，我们考察了未经历学校停课的上一届毕业 cohort 在同一日历时期的分数变化，未发现分数变化的证据。我们的研究指出，迫切需要解决由学校停课引起的教育不平等问题。",
-      "abstract_snippet_en": "The spread of coronavirus disease 2019 (COVID-19) has caused school closures in most countries, affecting over 90% of the world's student population. School closures can widen learning inequalities...",
       "doi": "10.1016/j.chieco.2023.102008",
-      "source_url": "https://doi.org/10.1016/j.chieco.2023.102008",
-      "publication_date": "2023",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S1043951X23000937",
       "sources": {
-        "issue": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
-        "roster": "crossref:issn:1043-951X",
-        "metadata": "crossref",
-        "abstract_en": "elsevier-article-metadata",
-        "elsevier": "https://api.elsevier.com/content/metadata/article",
-        "abstract_lookup": {
-          "status": "success_full_abstract",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 200,
-              "outcome": "success",
-              "rate_limit": {
-                "limit": 20000,
-                "remaining": 14805,
-                "resets_at": "2026-09-25T08:57:00+00:00",
-                "els_status": "OK"
-              }
-            }
-          ],
-          "rate_limit": {
-            "limit": 20000,
-            "remaining": 14805,
-            "resets_at": "2026-09-25T08:57:00+00:00",
-            "els_status": "OK"
-          }
-        }
+        "roster": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S1043951X23000937",
+        "abstract_en": "https://www.sciencedirect.com/science/article/pii/S1043951X23000937"
       },
       "translation": {
         "status": "complete",
@@ -598,6 +1205,7 @@
         "source_hash": "209e108cc3f61f5d9ebbceac09db6916cf3a2dff266cb15f283ecfe9edbc387b"
       },
       "quality_flags": [],
+      "publication_date": "August 2023",
       "china_relevance": {
         "status": "yes",
         "evidence": "abstract",
@@ -609,8 +1217,8 @@
     },
     {
       "paper_id": "doi:10.1016/j.chieco.2023.102009",
-      "sequence": 10,
-      "source_sequence": 102009,
+      "sequence": 23,
+      "source_sequence": 23,
       "article_type": "research-article",
       "title_en": "The backfiring effects of monetary and gift incentives on Covid-19 vaccination intentions",
       "title_cn": "货币和礼品激励对 Covid-19 疫苗接种意愿的适得其反的影响",
@@ -626,7 +1234,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
-        "roster": "crossref:issn:1043-951X",
+        "roster": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
         "metadata": "crossref",
         "abstract_en": "elsevier-article-metadata",
         "elsevier": "https://api.elsevier.com/content/metadata/article",
@@ -639,18 +1247,19 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 14804,
-                "resets_at": "2026-09-25T08:57:00+00:00",
+                "remaining": 1188,
+                "resets_at": "2026-08-12T02:35:01+00:00",
                 "els_status": "OK"
               }
             }
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 14804,
-            "resets_at": "2026-09-25T08:57:00+00:00",
+            "remaining": 1188,
+            "resets_at": "2026-08-12T02:35:01+00:00",
             "els_status": "OK"
-          }
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (1188/20000 remaining)"
         }
       },
       "translation": {
@@ -673,141 +1282,9 @@
       }
     },
     {
-      "paper_id": "doi:10.1016/j.chieco.2023.102011",
-      "sequence": 11,
-      "source_sequence": 102011,
-      "article_type": "research-article",
-      "title_en": "FinTech adoption and the effects of economic uncertainty on household consumption",
-      "title_cn": "金融科技采用与经济不确定性对家庭消费的影响",
-      "authors": [
-        "Zhuo Huang",
-        "Ying Tan",
-        "Zi Yang",
-        "Xun Zhang"
-      ],
-      "abstract_en": "This paper examines how the adoption of FinTech affects household consumption in the presence of economic uncertainty. We use regional-level FinTech adoption and economic uncertainty measurement, along with representative household-level consumption data, to investigate this issue. Our empirical analysis shows that while high levels of economic uncertainty lead to a shift in household consumption from services to non-durable goods, widespread adoption of FinTech overcomes this negative effect and prevents the reduction in service spending. We use the distance of a household from Hangzhou and the economic uncertainty in the United States as proxies for exogenous variation in FinTech adoption and economic uncertainty in China, respectively, and find similar results. Focusing on the transmission channel, we find that FinTech helps alleviate credit constraints, contributes to entrepreneurship and employment opportunities, and thus mitigates the negative impact of economic uncertainty on household consumption.",
-      "abstract_cn": "本文考察了在经济不确定性存在的情况下，金融科技的采用如何影响家庭消费。我们使用区域层面的金融科技采用和经济不确定性度量，以及具有代表性的家庭层面消费数据来研究这一问题。我们的实证分析表明，虽然高经济不确定性导致家庭消费从服务转向非耐用品，但金融科技的广泛采用克服了这一负面影响，并防止了服务支出的减少。我们分别使用家庭到杭州的距离和美国的经济不确定性作为中国金融科技采用和经济不确定性的外生变异代理变量，并发现了类似的结果。聚焦于传导渠道，我们发现金融科技有助于缓解信贷约束，促进创业和就业机会，从而减轻经济不确定性对家庭消费的负面影响。",
-      "abstract_snippet_en": "This paper examines how the adoption of FinTech affects household consumption in the presence of economic uncertainty. We use regional-level FinTech adoption and economic uncertainty measurement, along...",
-      "doi": "10.1016/j.chieco.2023.102011",
-      "source_url": "https://doi.org/10.1016/j.chieco.2023.102011",
-      "publication_date": "2023",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
-        "roster": "crossref:issn:1043-951X",
-        "metadata": "crossref",
-        "abstract_en": "elsevier-article-metadata",
-        "elsevier": "https://api.elsevier.com/content/metadata/article",
-        "abstract_lookup": {
-          "status": "success_full_abstract",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 200,
-              "outcome": "success",
-              "rate_limit": {
-                "limit": 20000,
-                "remaining": 14803,
-                "resets_at": "2026-09-25T08:57:00+00:00",
-                "els_status": "OK"
-              }
-            }
-          ],
-          "rate_limit": {
-            "limit": 20000,
-            "remaining": 14803,
-            "resets_at": "2026-09-25T08:57:00+00:00",
-            "els_status": "OK"
-          }
-        }
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-24T14:00:55+00:00",
-        "source_hash": "b55ccc0695c32d2b7b07d6a1aaa3b91e08948f5740d8ea84b4a11c3c276585b9"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "yes",
-        "evidence": "abstract",
-        "matched_terms": [
-          "in China"
-        ],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.chieco.2023.102012",
-      "sequence": 12,
-      "source_sequence": 102012,
-      "article_type": "research-article",
-      "title_en": "China's urban poor – Comparing twice poverty between residents and migrants in 2013 and 2018",
-      "title_cn": "中国城市贫困人口——比较2013年和2018年城市居民与流动人口的二次贫困",
-      "authors": [
-        "Björn Gustafsson",
-        "Ding Sai"
-      ],
-      "abstract_en": "Using data from the China Household Income Project in 2013 and 2018, this paper studies relative poverty among rural hukou holders living in urban China and urban hukou holders. People living in households with an income below a fixed percent of the median per-capita income and wealth below the same fixed percent of the median per-capita wealth among urban residents are deemed as relative poor. Although migrants with rural hukou living in urban China were more prone to twice poverty than urban residents in 2013, this was not generally the case in 2018.A multivariate analysis shows several factors to be related to the probability of being twice relative poor. Even considering these factors, a rural hukou status increased the probability of being twice relative poor in 2013. In contrast, such an excess risk of being twice relative poor was much lesser outspoken in middle and low-ranking cities in 2018. However, rural to urban migrants living in high-ranking cities had a somewhat higher risk of being relative poor than urban residents with the same characteristics in 2018.",
-      "abstract_cn": "利用2013年和2018年中国家庭收入调查数据，本文研究了居住在中国城市的农村户口持有者和城市户口持有者的相对贫困。家庭收入低于城市居民人均收入中位数固定百分比且财富低于城市居民人均财富中位数相同固定百分比的人被视为相对贫困。尽管2013年居住在中国城市的农村户口流动人口比城市居民更容易陷入二次贫困，但2018年情况并非普遍如此。多变量分析显示，多个因素与成为二次相对贫困的概率相关。即使考虑这些因素，2013年农村户口身份增加了成为二次相对贫困的概率。相比之下，2018年在中低等级城市中，这种过度风险不那么明显。然而，2018年居住在高等级城市的农村到城市流动人口比具有相同特征的城市居民面临略高的相对贫困风险。",
-      "abstract_snippet_en": "Using data from the China Household Income Project in 2013 and 2018, this paper studies relative poverty among rural hukou holders living in urban China and urban hukou holders. People living in households...",
-      "doi": "10.1016/j.chieco.2023.102012",
-      "source_url": "https://doi.org/10.1016/j.chieco.2023.102012",
-      "publication_date": "2023",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
-        "roster": "crossref:issn:1043-951X",
-        "metadata": "crossref",
-        "abstract_en": "elsevier-article-metadata",
-        "elsevier": "https://api.elsevier.com/content/metadata/article",
-        "abstract_lookup": {
-          "status": "success_full_abstract",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 200,
-              "outcome": "success",
-              "rate_limit": {
-                "limit": 20000,
-                "remaining": 14802,
-                "resets_at": "2026-09-25T08:57:00+00:00",
-                "els_status": "OK"
-              }
-            }
-          ],
-          "rate_limit": {
-            "limit": 20000,
-            "remaining": 14802,
-            "resets_at": "2026-09-25T08:57:00+00:00",
-            "els_status": "OK"
-          }
-        }
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-08-24T14:00:57+00:00",
-        "source_hash": "cccd894b1a33b0329fb17fd93fd2d4d0576dd130364b2b1af6b183bf1f44b83e"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "yes",
-        "evidence": "title",
-        "matched_terms": [
-          "China's"
-        ],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
       "paper_id": "doi:10.1016/j.chieco.2023.102015",
-      "sequence": 13,
-      "source_sequence": 102015,
+      "sequence": 24,
+      "source_sequence": 24,
       "article_type": "research-article",
       "title_en": "Health-seeking behavior and patient welfare: Evidence from China",
       "title_cn": "就医行为与患者福利：来自中国的证据",
@@ -823,7 +1300,7 @@
       "publication_date": "2023",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
-        "roster": "crossref:issn:1043-951X",
+        "roster": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
         "metadata": "crossref",
         "abstract_en": "elsevier-article-metadata",
         "elsevier": "https://api.elsevier.com/content/metadata/article",
@@ -836,18 +1313,19 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 14801,
-                "resets_at": "2026-09-25T08:57:00+00:00",
+                "remaining": 1186,
+                "resets_at": "2026-08-12T02:35:01+00:00",
                 "els_status": "OK"
               }
             }
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 14801,
-            "resets_at": "2026-09-25T08:57:00+00:00",
+            "remaining": 1186,
+            "resets_at": "2026-08-12T02:35:01+00:00",
             "els_status": "OK"
-          }
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (1186/20000 remaining)"
         }
       },
       "translation": {
@@ -870,28 +1348,64 @@
       }
     },
     {
-      "paper_id": "doi:10.1016/j.chieco.2023.102017",
-      "sequence": 14,
-      "source_sequence": 102017,
+      "paper_id": "doi:10.1016/j.chieco.2023.102019",
+      "sequence": 25,
+      "source_sequence": 25,
       "article_type": "research-article",
-      "title_en": "Carbon pricing, carbon equity, and the RCEP framework",
-      "title_cn": "碳定价、碳公平与RCEP框架",
+      "title_en": "The impact of commercial bank branch expansion on energy efficiency: Micro evidence from China",
+      "title_cn": "商业银行分支机构扩张对能源效率的影响：来自中国的微观证据",
       "authors": [
-        "Ying Fan",
-        "Xilong Yan",
-        "Lianbiao Cui",
-        "Luyang Zhang",
-        "Jiaxue Wang"
+        "Wang, En-Ze",
+        "Lee, Chien-Chiang"
       ],
-      "abstract_en": "Trade liberalization in the Regional Comprehensive Economic Partnership (RCEP) not only contributes to regional economic growth but also leads to an increase in energy consumption and carbon emissions, which may exacerbate climate change risks. This study aims to explore the carbon pricing issue in the context of the RCEP framework. Additionally, for the sake of carbon equity, we introduce a differentiated carbon pricing scheme based on the cost fairness principle (CPCF), and the unified carbon pricing was used for a cost effectiveness analysis. The empirical analysis was conducted with a global multi-regional computable general equilibrium model. The results show that with the help of trade liberalization, the RCEP's GDP, energy consumption, and carbon emissions may increase by 0.639%, 1.962%, and 1.897%, respectively. The CPCF scheme, wherein developed countries assume the primary abatement burden, can be used to offset the increase in carbon emissions from trade liberalization while RCEP members maintain positive economic growth. The total abatement cost of the CPCF for carbon offsets in the RCEP can be reduced via unified carbon pricing, and the cost-saving effect approaches 24.24%. Unified carbon pricing may result in a carbon price of US $5.83 within the RCEP. As such, this study explores carbon pricing in the context of trade liberalization, and its findings will be valuable for the RCEP to achieve a win-win situation in terms of economic growth and climate change.",
-      "abstract_cn": "区域全面经济伙伴关系协定（RCEP）中的贸易自由化不仅促进了区域经济增长，也导致了能源消耗和碳排放的增加，这可能加剧气候变化风险。本研究旨在探讨RCEP框架下的碳定价问题。此外，为了碳公平，我们引入了基于成本公平原则的差异化碳定价方案（CPCF），并采用统一碳定价进行成本效益分析。实证分析采用全球多区域可计算一般均衡模型进行。结果表明，借助贸易自由化，RCEP的GDP、能源消耗和碳排放可能分别增加0.639%、1.962%和1.897%。CPCF方案中，发达国家承担主要减排负担，可用于抵消贸易自由化带来的碳排放增加，同时RCEP成员保持正经济增长。通过统一碳定价，可以降低RCEP中用于碳抵消的CPCF总减排成本，成本节约效应接近24.24%。统一碳定价可能导致RCEP内部碳价为US $5.83。因此，本研究探讨了贸易自由化背景下的碳定价问题，其发现将有助于RCEP实现经济增长与气候变化的双赢局面。",
-      "abstract_snippet_en": "Trade liberalization in the Regional Comprehensive Economic Partnership (RCEP) not only contributes to regional economic growth but also leads to an increase in energy consumption and carbon emissions,...",
-      "doi": "10.1016/j.chieco.2023.102017",
-      "source_url": "https://doi.org/10.1016/j.chieco.2023.102017",
+      "abstract_en": "The debate has long prevailed as to whether the financial sectors can enhance energy efficiency. We attempt to provide new insight into this debate from the perspective of commercial bank branch expansion. This paper manually collects the longitude and latitude of commercial bank branches and manufacturing firms in China, and constructs multiple bank branch expansion variables at the firm level. Then, by utilizing Environmental Survey and Reporting database, Annual Survey of Industrial Firms, and firm-level patent application dataset from 1998 to 2009, this paper empirically examines the impact of commercial bank branch expansion on firms' energy efficiency for the first time and discusses the potential impact channels. We find that the expansion of commercial bank branches within a radius of 10 km of firms has improved the manufacturing firms' energy efficiency. Furthermore, we also confirm that there exist multiple heterogeneous nexuses between the bank branch expansion and energy efficiency. Finally, the financial availability caused by the bank branch expansion is not able to affect the energy efficiency, whereas the bank competition will increase the energy efficiency. Also, the bank branch expansion increases energy efficiency by promoting capital renewal instead of technological innovation.",
+      "abstract_cn": "关于金融部门能否提升能源效率的争论长期存在。我们试图从商业银行分支机构扩张的角度为这一争论提供新的见解。本文手工收集了中国商业银行分支机构和制造业企业的经纬度，并在企业层面构建了多个银行分支机构扩张变量。然后，利用环境调查与报告数据库、工业企业年度调查以及1998年至2009年的企业层面专利申请数据集，本文首次实证检验了商业银行分支机构扩张对企业能源效率的影响，并讨论了潜在的影响渠道。我们发现，企业半径10 km范围内的商业银行分支机构扩张提高了制造业企业的能源效率。此外，我们还证实，银行分支机构扩张与能源效率之间存在多种异质性关联。最后，银行分支机构扩张带来的金融可得性无法影响能源效率，而银行竞争会提高能源效率。同时，银行分支机构扩张通过促进资本更新而非技术创新来提高能源效率。",
+      "doi": "10.1016/j.chieco.2023.102019",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S1043951X23001049",
+      "sources": {
+        "roster": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
+        "metadata": "https://www.sciencedirect.com/science/article/pii/S1043951X23001049",
+        "abstract_en": "https://www.sciencedirect.com/science/article/pii/S1043951X23001049"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-09-23T13:26:40+00:00",
+        "source_hash": "b69b51c2ebffbda5aff98a21d810eb7c495b414ee473f2209f880e141735a1b6"
+      },
+      "quality_flags": [],
+      "publication_date": "August 2023",
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.chieco.2023.102018",
+      "sequence": 26,
+      "source_sequence": 26,
+      "article_type": "research-article",
+      "title_en": "Environmental consequences of fuel price shocks in China",
+      "title_cn": "中国燃油价格冲击的环境后果",
+      "authors": [
+        "Hongxun Liu",
+        "Jianglong Li"
+      ],
+      "abstract_en": "This study investigates the environmental consequences of fuel price shocks, using a rich dataset from the Chinese megacity of Hangzhou. Our identification strategy is mainly aided by instrumenting fuel price using exogenous global oil prices. We find that a 10% increase in fuel price leads to a 10.29%–11.45% decrease in driving demand, reflected by road congestion index, and a 17.6%–20.27% decrease in industrial activities, measured by electricity consumption. The decreases in driving demand and industrial activities are indeed correlated with air quality improvement and decline in major pollutant concentrations. While the findings shed light on the short-term environmental outcomes of price-based measures, the negative effects of fuel price increases on industrial activities may generate undesirable impacts on macroeconomy in the long-term perspective. Despite ample evidence demonstrating that drivers respond to fuel price changes, considerably fewer studies investigate their environmental and economic consequences. This study addresses this gap in the literature and contributes to a better understanding of the effects of fuel price shocks on air pollution and economic activities.",
+      "abstract_cn": "本研究利用中国大城市杭州的丰富数据集，探讨了燃油价格冲击的环境后果。我们的识别策略主要借助外生全球油价作为燃油价格的工具变量。我们发现，燃油价格每上涨10%，会导致出行需求下降10.29%–11.45%（以道路拥堵指数衡量），以及工业活动下降17.6%–20.27%（以电力消耗衡量）。出行需求和工业活动的减少确实与空气质量改善及主要污染物浓度下降相关。虽然这些发现揭示了基于价格措施的短期环境效果，但燃油价格上涨对工业活动的负面影响可能在长期视角下对宏观经济产生不良影响。尽管有充分证据表明驾驶员对燃油价格变化有反应，但研究其环境和经济后果的研究却少得多。本研究填补了这一文献空白，有助于更好地理解燃油价格冲击对空气污染和经济活动的影响。",
+      "abstract_snippet_en": "This study investigates the environmental consequences of fuel price shocks, using a rich dataset from the Chinese megacity of Hangzhou. Our identification strategy is mainly aided by instrumenting...",
+      "doi": "10.1016/j.chieco.2023.102018",
+      "source_url": "https://doi.org/10.1016/j.chieco.2023.102018",
       "publication_date": "2023",
       "sources": {
         "issue": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
-        "roster": "crossref:issn:1043-951X",
+        "roster": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
         "metadata": "crossref",
         "abstract_en": "elsevier-article-metadata",
         "elsevier": "https://api.elsevier.com/content/metadata/article",
@@ -904,18 +1418,19 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 14800,
-                "resets_at": "2026-09-25T08:57:00+00:00",
+                "remaining": 1184,
+                "resets_at": "2026-08-12T02:35:01+00:00",
                 "els_status": "OK"
               }
             }
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 14800,
-            "resets_at": "2026-09-25T08:57:00+00:00",
+            "remaining": 1184,
+            "resets_at": "2026-08-12T02:35:01+00:00",
             "els_status": "OK"
-          }
+          },
+          "quota_warning": "elsevier-article-metadata: Elsevier API quota nearly exhausted (1184/20000 remaining)"
         }
       },
       "translation": {
@@ -924,14 +1439,16 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "deepseek-chat",
-        "translated_at": "2026-08-09T23:15:08+00:00",
-        "source_hash": "fb751ad16a3b90235a0cf84cd8a5021b8f1c186d1228655313912215c30eae23"
+        "translated_at": "2026-08-09T23:15:11+00:00",
+        "source_hash": "a4c27124e7e4c64456639f89d3951bf2587e6667626c5c94516e9ac1f8724ff6"
       },
       "quality_flags": [],
       "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "China"
+        ],
         "source": "academic-door-rules-v1"
       }
     }
@@ -939,52 +1456,59 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "crossref",
-    "roster_authority": "crossref-provisional",
+    "roster_transport": "browser-authorized",
+    "roster_authority": "official-issue-page",
     "roster_match_scope": "crossref-issue-group",
     "publisher_page_status": "blocked",
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 14,
-    "authors_complete": 14,
-    "abstract_en_complete": 14,
-    "translation_complete": 14,
+    "doi_complete": 26,
+    "authors_complete": 26,
+    "abstract_en_complete": 26,
+    "translation_complete": 26,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
-    ],
-    "official_item_count": 14,
-    "publishable_item_count": 14,
+    "flags": [],
+    "official_item_count": 27,
+    "publishable_item_count": 26,
     "content_counts": {
-      "official_items": 14,
-      "observed_items": 14,
-      "publishable_items": 14,
-      "research_articles": 14,
+      "official_items": 27,
+      "observed_items": 26,
+      "publishable_items": 26,
+      "research_articles": 26,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 14
+      "catalog_content_items": 26
+    },
+    "official_roster_evidence": {
+      "captured_at": "2026-09-23T12:13:00Z",
+      "official_url": "https://www.sciencedirect.com/journal/china-economic-review/vol/80/suppl/C",
+      "method": "browser-authorized",
+      "item_count": 26,
+      "excluded_item_count": 1,
+      "archive_reordered": true,
+      "sequence_sha256": "b57fc42928b46d1795bbe30fae9dd528167d876a1f6d6ee07ec4a99f105aac1b",
+      "privacy_fields_stored": false
     }
   },
-  "source_status": "source_pending",
-  "publication_state": "source_pending",
   "content_counts": {
-    "official_items": 14,
-    "observed_items": 14,
-    "publishable_items": 14,
-    "research_articles": 14,
+    "official_items": 27,
+    "observed_items": 26,
+    "publishable_items": 26,
+    "research_articles": 26,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 14
+    "catalog_content_items": 26
   },
   "issue_label": "Vol. 80",
-  "content_status": "complete"
+  "content_status": "complete",
+  "source_status": "official_verified",
+  "publication_state": "ready"
 }

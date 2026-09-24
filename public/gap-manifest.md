@@ -1,12 +1,12 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-23T23:01:56+00:00
+Generated: 2026-09-24T03:00:01+00:00
 
 ## Summary
 
-- ready: 1191
+- ready: 1192
+- recoverable: 1
 - source_pending: 13
-- translation_required: 1
 
 ## Issue queue
 
@@ -146,7 +146,7 @@ Generated: 2026-09-23T23:01:56+00:00
 | CER | cer-77-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-78-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-79-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
-| CER | cer-80-c | 2023 | translation_required | translation_partial | official_verified | translation_incomplete |
+| CER | cer-80-c | 2023 | ready | complete | official_verified | content and official source gates passed |
 | CER | cer-81-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-82-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | CER | cer-83-c | 2024 | ready | complete | publisher_verified | content and official source gates passed |
@@ -352,6 +352,7 @@ Generated: 2026-09-23T23:01:56+00:00
 | ERE | ere-88-8 | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | ERE | ere-88-9 | 2025 | ready | complete | publisher_verified | content and official source gates passed |
 | ERE | ere-89-1 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
+| ERE | ere-89-10 | 2026 | recoverable | blocked | source_pending | archive_missing |
 | ERE | ere-89-2 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | ERE | ere-89-3 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | ERE | ere-89-4 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
@@ -1104,11 +1105,11 @@ Generated: 2026-09-23T23:01:56+00:00
 | RESTAT | restat-106-5 | 2024 | source_pending | complete | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs official page or browser-authorized capture |
 | RESTAT | restat-106-6 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | RESTAT | restat-107-1 | 2025 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-107-2 | 2025 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-107-3 | 2025 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-107-4 | 2025 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-107-5 | 2025 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-107-6 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| RESTAT | restat-107-2 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-107-3 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-107-4 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-107-5 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-107-6 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
 | RESTAT | restat-108-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RESTAT | restat-108-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RESTAT | restat-108-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
