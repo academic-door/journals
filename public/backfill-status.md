@@ -1,8 +1,8 @@
 # Field journal history backfill status
 
-Updated: 2026-09-24T11:51:23+00:00
+Updated: 2026-09-24T12:04:16+00:00
 
-Discovery coverage: 1206 discovered · 1205 archived · 1192 publication ready · 1 missing · 13 source pending
+Discovery coverage: 1206 discovered · 1206 archived · 1193 publication ready · 0 missing · 13 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
@@ -143,9 +143,9 @@ Discovery coverage: 1206 discovered · 1205 archived · 1192 publication ready �
 | AJAE | ajae-105-5 | 2023 | source_pending |  |
 | AJAE | ajae-106-1 | 2024 | source_pending |  |
 | AJAE | ajae-106-2 | 2024 | source_pending |  |
-| AJAE | ajae-106-3 | 2024 | source_pending |  |
-| AJAE | ajae-106-4 | 2024 | source_pending |  |
-| AJAE | ajae-106-5 | 2024 | source_pending |  |
+| AJAE | ajae-106-3 | 2024 | source_pending | source authority pending official verification |
+| AJAE | ajae-106-4 | 2024 | source_pending | source authority pending official verification |
+| AJAE | ajae-106-5 | 2024 | source_pending | source authority pending official verification |
 | AJAE | ajae-107-1 | 2025 | ready |  |
 | AJAE | ajae-107-2 | 2025 | ready |  |
 | AJAE | ajae-107-3 | 2025 | ready |  |
@@ -745,9 +745,9 @@ Discovery coverage: 1206 discovered · 1205 archived · 1192 publication ready �
 | JF | jf-79-1 | 2024 | ready |  |
 | JF | jf-79-2 | 2024 | source_pending |  |
 | JF | jf-79-3 | 2024 | source_pending |  |
-| JF | jf-79-4 | 2024 | source_pending |  |
-| JF | jf-79-5 | 2024 | source_pending |  |
-| JF | jf-79-6 | 2024 | source_pending |  |
+| JF | jf-79-4 | 2024 | source_pending | source authority pending official verification |
+| JF | jf-79-5 | 2024 | source_pending | source authority pending official verification |
+| JF | jf-79-6 | 2024 | source_pending | source authority pending official verification |
 | JF | jf-80-1 | 2025 | ready |  |
 | JF | jf-80-2 | 2025 | ready |  |
 | JF | jf-80-3 | 2025 | ready |  |
@@ -1235,11 +1235,11 @@ Discovery coverage: 1206 discovered · 1205 archived · 1192 publication ready �
 | RESTAT | restat-106-5 | 2024 | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs off |
 | RESTAT | restat-106-6 | 2024 | source_pending |  |
 | RESTAT | restat-107-1 | 2025 | source_pending |  |
-| RESTAT | restat-107-2 | 2025 | source_pending |  |
-| RESTAT | restat-107-3 | 2025 | source_pending |  |
-| RESTAT | restat-107-4 | 2025 | source_pending |  |
-| RESTAT | restat-107-5 | 2025 | source_pending |  |
-| RESTAT | restat-107-6 | 2025 | source_pending |  |
+| RESTAT | restat-107-2 | 2025 | source_pending | source authority pending official verification |
+| RESTAT | restat-107-3 | 2025 | source_pending | source authority pending official verification |
+| RESTAT | restat-107-4 | 2025 | source_pending | source authority pending official verification |
+| RESTAT | restat-107-5 | 2025 | source_pending | source authority pending official verification |
+| RESTAT | restat-107-6 | 2025 | source_pending | source authority pending official verification |
 | RESTAT | restat-108-1 | 2026 | ready |  |
 | RESTAT | restat-108-2 | 2026 | ready |  |
 | RESTAT | restat-108-3 | 2026 | ready |  |
