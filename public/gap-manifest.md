@@ -1,6 +1,6 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-24T03:00:01+00:00
+Generated: 2026-09-24T04:55:42+00:00
 
 ## Summary
 
@@ -1105,11 +1105,11 @@ Generated: 2026-09-24T03:00:01+00:00
 | RESTAT | restat-106-5 | 2024 | source_pending | complete | source_pending | possible_incomplete_volume: 10 articles collected vs current issue 21; needs official page or browser-authorized capture |
 | RESTAT | restat-106-6 | 2024 | source_pending | complete | source_pending | official source verification pending |
 | RESTAT | restat-107-1 | 2025 | source_pending | complete | source_pending | official source verification pending |
-| RESTAT | restat-107-2 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RESTAT | restat-107-3 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RESTAT | restat-107-4 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RESTAT | restat-107-5 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
-| RESTAT | restat-107-6 | 2025 | source_pending | complete | source_pending | source authority pending official verification |
+| RESTAT | restat-107-2 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| RESTAT | restat-107-3 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| RESTAT | restat-107-4 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| RESTAT | restat-107-5 | 2025 | source_pending | complete | source_pending | official source verification pending |
+| RESTAT | restat-107-6 | 2025 | source_pending | complete | source_pending | official source verification pending |
 | RESTAT | restat-108-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RESTAT | restat-108-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | RESTAT | restat-108-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
