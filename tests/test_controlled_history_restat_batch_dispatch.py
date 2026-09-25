@@ -38,8 +38,9 @@ class RestatBatchDispatchTests(unittest.TestCase):
                     "batch_id": "restat-r3-2023-2025",
                     "publisher_family": "mit-press-direct",
                     "journal_id": "restat",
-                    "method": "browser-authorized",
+                    "method": "official-page-read",
                     "finalized": True,
+                    "capture_reference": "parallel-search-extract:fixture",
                     "issue_ids": ["restat-105-5"],
                     "evidence_paths": [str(rel)],
                 }
@@ -54,9 +55,10 @@ class RestatBatchDispatchTests(unittest.TestCase):
                     {
                         "schema_version": "1.0",
                         "capture_mode": "official-roster-evidence",
-                        "method": "browser-authorized",
+                        "method": "official-page-read",
                         "captured_at": "2026-09-24T00:00:00Z",
                         "finalized": True,
+                        "capture_reference": "parallel-search-extract:fixture",
                         "journal_id": "restat",
                         "issue_id": "restat-105-5",
                         "official_url": "https://direct.mit.edu/rest/issue/105/5",
