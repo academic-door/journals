@@ -39,10 +39,12 @@ def _validate_evidence(path: Path, *, issue_id: str) -> None:
         errors.append("schema_version must be 1.0")
     if evidence.get("capture_mode") != "official-roster-evidence":
         errors.append("capture_mode must be official-roster-evidence")
-    if evidence.get("method") != "browser-authorized":
-        errors.append("method must be browser-authorized")
+    if evidence.get("method") != "official-page-read":
+        errors.append("method must be official-page-read")
     if evidence.get("finalized") is not True:
         errors.append("evidence must be finalized")
+    if not str(evidence.get("capture_reference") or "").startswith("parallel-search-extract:"):
+        errors.append("capture_reference must bind to Parallel Search extraction evidence")
     if evidence.get("journal_id") != "restat":
         errors.append("journal_id must be restat")
     if evidence.get("issue_id") != issue_id:
@@ -99,10 +101,12 @@ def validate_event(event: dict[str, object], *, repo_root: Path) -> tuple[str, l
         errors.append("publisher_family must be mit-press-direct")
     if manifest.get("journal_id") != "restat":
         errors.append("journal_id must be restat")
-    if manifest.get("method") != "browser-authorized":
-        errors.append("method must be browser-authorized")
+    if manifest.get("method") != "official-page-read":
+        errors.append("method must be official-page-read")
     if manifest.get("finalized") is not True:
         errors.append("batch must be finalized")
+    if not str(manifest.get("capture_reference") or "").startswith("parallel-search-extract:"):
+        errors.append("batch capture_reference must bind to Parallel Search extraction evidence")
     issue_ids = manifest.get("issue_ids")
     evidence_paths = manifest.get("evidence_paths")
     if not isinstance(issue_ids, list) or not issue_ids or len(issue_ids) > 20:
