@@ -93,6 +93,52 @@ jobs:
       repair_content_only: false
     secrets: inherit
 
+  validate_restat_batch:
+    if: >-
+      github.event.issue.number == 205 &&
+      github.event.issue.pull_request == null &&
+      github.event.comment.user.login == 'SIMON-WORLD' &&
+      startsWith(github.event.comment.body, '/history-restat-batch ')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      batch_id: ${{ steps.validate_restat_batch.outputs.batch_id }}
+      issue_ids: ${{ steps.validate_restat_batch.outputs.issue_ids }}
+      issue_count: ${{ steps.validate_restat_batch.outputs.issue_count }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - name: Validate bounded RESTAT MIT Press evidence batch
+        id: validate_restat_batch
+        shell: bash
+        run: >-
+          python scripts/validate_history_restat_batch_dispatch.py
+          "$GITHUB_EVENT_PATH"
+          --repo-root "$GITHUB_WORKSPACE"
+          --github-output "$GITHUB_OUTPUT"
+
+  restat_batch:
+    needs: validate_restat_batch
+    uses: ./.github/workflows/history-sprint.yml
+    permissions:
+      actions: read
+      contents: write
+      models: read
+    with:
+      max_issues: "12"
+      max_translations: "120"
+      categories: browser
+      source_run_id: ""
+      state_source_run_id: "32734420419"
+      strict_final: false
+      evidence_issue_ids: ${{ needs.validate_restat_batch.outputs.issue_ids }}
+      capture_wiley_evidence: false
+      repair_dates_only: false
+      repair_content_only: false
+    secrets: inherit
+
 
   elsevier_staging_repec:
     if: >-
