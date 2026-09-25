@@ -139,7 +139,7 @@ class RestatBatchDispatchTests(unittest.TestCase):
         self.assertIn("startsWith(github.event.comment.body, '/history-restat-batch ')", text)
         self.assertIn("restat_batch:", text)
         self.assertIn("needs: validate_restat_batch", text)
-        restat_block = text.split("  restat_batch:", 1)[1].split("\n  ", 1)[0]
+        restat_block = text.split("  restat_batch:", 1)[1].split("\n\n  elsevier_staging_repec:", 1)[0]
         self.assertIn('max_issues: "13"', restat_block)
         self.assertIn(
             "evidence_issue_ids: " + "$" + "{{ needs.validate_restat_batch.outputs.issue_ids }}",
