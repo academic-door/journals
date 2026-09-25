@@ -140,11 +140,18 @@ class RestatBatchDispatchTests(unittest.TestCase):
         self.assertIn("restat_batch:", text)
         self.assertIn("needs: validate_restat_batch", text)
         restat_block = text.split("  restat_batch:", 1)[1].split("\n\n  elsevier_staging_repec:", 1)[0]
-        self.assertIn('max_issues: "13"', restat_block)
+        self.assertIn('max_issues: "12"', restat_block)
         self.assertIn(
             "evidence_issue_ids: " + "$" + "{{ needs.validate_restat_batch.outputs.issue_ids }}",
             text,
         )
+        manifest = json.loads(
+            (
+                ROOT
+                / "data/provenance/official-evidence-batches/restat-r3-2023-2025.json"
+            ).read_text(encoding="utf-8")
+        )
+        self.assertEqual(13, len(manifest["issue_ids"]))
 
 
 if __name__ == "__main__":
