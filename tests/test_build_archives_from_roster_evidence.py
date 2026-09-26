@@ -1049,6 +1049,8 @@ class BuildArchivesFromRosterEvidenceTests(unittest.TestCase):
                     {
                         "issue_id": "demo-1-1",
                         "journal_id": "demo",
+                        "volume": "1",
+                        "issue": "1",
                         "publication_state": "source_pending",
                         "source_status": "source_pending",
                         "quality": {
