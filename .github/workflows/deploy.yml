@@ -84,6 +84,15 @@ jobs:
             --api-root public/api/v1 \
             --out-json public/api/v1/completeness/2026.json
 
+      - name: Build release-derived R4 SLO baseline
+        shell: bash
+        run: |
+          python scripts/build_slo_metrics.py \
+            --completeness public/api/v1/completeness/2026.json \
+            --monitoring public/api/v1/monitoring.json \
+            --backfill-status public/api/v1/backfill-status.json \
+            --out-json public/api/v1/slo.json
+
       - name: Audit overlaid release data
         env:
           PYTHONPATH: ${{ github.workspace }}
