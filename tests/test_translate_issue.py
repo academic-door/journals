@@ -346,6 +346,28 @@ class ResidualSemanticNumericSymmetryTests(unittest.TestCase):
 
 
 
+    def test_each_percentage_point_may_be_rendered_as_explicit_one_point(self) -> None:
+        from scripts.translate_issue import resolve_semantic_quantities
+
+        source, translated = resolve_semantic_quantities(
+            "Police spend 0.36% more time for each percentage point increase in Black residents.",
+            "黑人居民比例每增加一个百分点，警察停留时间就增加0.36%。",
+        )
+        self.assertEqual(source, translated)
+        self.assertEqual(0, translated["1%"])
+        self.assertEqual(1, translated["0.36%"])
+
+    def test_percentage_point_reconciliation_does_not_hide_unrelated_added_one_percent(self) -> None:
+        from scripts.translate_issue import resolve_semantic_quantities
+
+        source, translated = resolve_semantic_quantities(
+            "Police spend 0.36% more time for each percentage point increase in Black residents.",
+            "黑人居民比例每增加一个百分点，警察停留时间就增加0.36%，另有1%的额外变化。",
+        )
+        self.assertEqual(source["1%"] + 1, translated["1%"])
+        self.assertEqual(source["0.36%"], translated["0.36%"])
+
+
 
 class DeepSeekModelResolutionTests(unittest.TestCase):
     def test_default_model_is_deepseek_v4_flash(self) -> None:
