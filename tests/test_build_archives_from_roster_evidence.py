@@ -997,5 +997,231 @@ class BuildArchivesFromRosterEvidenceTests(unittest.TestCase):
             issue["articles"][1]["title_cn"],
         )
 
+
+    def test_existing_source_pending_archive_is_rebuilt_from_official_roster(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            evidence_root = root / "evidence"
+            api_root = root / "api"
+            state_root = root / "state"
+            staging_root = root / "staging"
+            cache_root = root / "cache"
+            for folder in (
+                evidence_root,
+                api_root,
+                state_root,
+                staging_root,
+                cache_root,
+            ):
+                folder.mkdir(parents=True, exist_ok=True)
+
+            evidence = {
+                "schema_version": "1.0",
+                "capture_mode": "official-roster-evidence",
+                "method": "official-page-read",
+                "captured_at": "2026-09-26T00:00:00+00:00",
+                "finalized": True,
+                "journal_id": "demo",
+                "issue_id": "demo-1-1",
+                "official_url": "https://onlinelibrary.wiley.com/toc/12345678/2024/1/1",
+                "excluded_item_count": 0,
+                "items": [
+                    {
+                        "sequence": 1,
+                        "doi": "10.1111/demo.10001",
+                        "title_en": "A Test of Policy",
+                    },
+                    {
+                        "sequence": 2,
+                        "doi": "10.1111/demo.10002",
+                        "title_en": "New Official Roster Item",
+                    },
+                ],
+            }
+            evidence_path = evidence_root / "demo" / "demo-1-1.json"
+            evidence_path.parent.mkdir(parents=True, exist_ok=True)
+            evidence_path.write_text(json.dumps(evidence), encoding="utf-8")
+
+            target = api_root / "journals" / "demo" / "issues" / "demo-1-1.json"
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(
+                json.dumps(
+                    {
+                        "issue_id": "demo-1-1",
+                        "journal_id": "demo",
+                        "volume": "1",
+                        "issue": "1",
+                        "publication_state": "source_pending",
+                        "source_status": "source_pending",
+                        "quality": {
+                            "roster_match": True,
+                            "order_preserved": True,
+                            "roster_authority": "crossref-provisional",
+                            "roster_transport": "crossref",
+                        },
+                        "articles": [
+                            {
+                                "doi": "10.1111/demo.10001",
+                                "title_en": "A Test of Policy",
+                                "abstract_en": "We study the policy effect.",
+                            }
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            crossref_items = [
+                {
+                    "DOI": "10.1111/demo.10001",
+                    "title": ["A Test of Policy"],
+                    "author": [{"given": "Alice", "family": "Smith"}],
+                    "abstract": "<jats:p>We study the policy effect.</jats:p>",
+                    "issued": {"date-parts": [[2024, 1]]},
+                },
+                {
+                    "DOI": "10.1111/demo.10002",
+                    "title": ["New Official Roster Item"],
+                    "author": [{"given": "Bob", "family": "Jones"}],
+                    "abstract": "<jats:p>We study the newly recovered official item.</jats:p>",
+                    "issued": {"date-parts": [[2024, 1]]},
+                },
+            ]
+            cache = {}
+            for article, title_cn, abstract_cn in (
+                (
+                    {
+                        "doi": "10.1111/demo.10001",
+                        "title_en": "A Test of Policy",
+                        "abstract_en": "We study the policy effect.",
+                    },
+                    "政策检验",
+                    "我们研究政策对经济行为的影响，并利用详细数据估计政策效应的大小与方向。",
+                ),
+                (
+                    {
+                        "doi": "10.1111/demo.10002",
+                        "title_en": "New Official Roster Item",
+                        "abstract_en": "We study the newly recovered official item.",
+                    },
+                    "新增官方目录条目",
+                    "我们利用新恢复的官方条目研究相关经济机制，并报告基于完整数据的主要实证结果与政策含义。",
+                ),
+            ):
+                cache[article["doi"]] = {
+                    "title_cn": title_cn,
+                    "abstract_cn": abstract_cn,
+                    "source_hash": _source_hash(article),
+                    "translation": {
+                        "provider": "deepseek",
+                        "model": "deepseek-chat",
+                        "prompt_version": "academic-door-abstract-zh-v2",
+                        "translated_at": "2026-09-26T00:00:00+00:00",
+                    },
+                }
+            self.write(cache_root, "demo.json", json.dumps(cache))
+
+            with (
+                patch(
+                    "scripts.build_archives_from_roster_evidence._crossref_items",
+                    return_value=crossref_items,
+                ),
+                patch(
+                    "scripts.build_archives_from_roster_evidence._semantic_scholar_metadata_batch",
+                    return_value={},
+                ),
+            ):
+                import requests
+
+                result = process_evidence(
+                    evidence_path,
+                    {"id": "demo", "name": "Demo Journal", "issn": "1234-5678"},
+                    session=requests.Session(),
+                    api_root=api_root,
+                    state_root=state_root,
+                    staging_root=staging_root,
+                    translation_cache_root=cache_root,
+                    max_translations=120,
+                    start_year=2022,
+                    timeout=10,
+                )
+
+            self.assertEqual("ready", result["result"], result)
+            archive = json.loads(target.read_text(encoding="utf-8"))
+            self.assertEqual(
+                ["10.1111/demo.10001", "10.1111/demo.10002"],
+                [article["doi"] for article in archive["articles"]],
+            )
+            self.assertEqual("official_verified", archive["source_status"])
+            self.assertEqual("ready", archive["publication_state"])
+            self.assertEqual(
+                "official-issue-page",
+                archive["quality"]["roster_authority"],
+            )
+            self.assertEqual(
+                "official-page-read",
+                archive["quality"]["roster_transport"],
+            )
+
+    def test_ready_official_archive_is_not_rebuilt(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            evidence_path = root / "evidence.json"
+            evidence_path.write_text(
+                json.dumps(
+                    {
+                        "schema_version": "1.0",
+                        "capture_mode": "official-roster-evidence",
+                        "method": "official-page-read",
+                        "captured_at": "2026-09-26T00:00:00+00:00",
+                        "finalized": True,
+                        "journal_id": "demo",
+                        "issue_id": "demo-1-1",
+                        "official_url": "https://onlinelibrary.wiley.com/toc/12345678/2024/1/1",
+                        "excluded_item_count": 0,
+                        "items": [
+                            {
+                                "sequence": 1,
+                                "doi": "10.1111/demo.10001",
+                                "title_en": "A Test of Policy",
+                            }
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+            api_root = root / "api"
+            target = api_root / "journals" / "demo" / "issues" / "demo-1-1.json"
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(
+                json.dumps(
+                    {
+                        "publication_state": "ready",
+                        "source_status": "official_verified",
+                    }
+                ),
+                encoding="utf-8",
+            )
+            with patch(
+                "scripts.build_archives_from_roster_evidence._crossref_items"
+            ) as crossref:
+                import requests
+
+                result = process_evidence(
+                    evidence_path,
+                    {"id": "demo", "name": "Demo Journal", "issn": "1234-5678"},
+                    session=requests.Session(),
+                    api_root=api_root,
+                    state_root=root / "state",
+                    staging_root=root / "staging",
+                    translation_cache_root=root / "cache",
+                    max_translations=120,
+                    start_year=2022,
+                    timeout=10,
+                )
+
+            self.assertEqual("already-archived", result["result"])
+            crossref.assert_not_called()
+
 if __name__ == "__main__":
     unittest.main()
