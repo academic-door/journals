@@ -380,16 +380,25 @@ class CachedTranslationArtifactRepairTests(unittest.TestCase):
             "article_type": "research-article",
             "title_en": "Smartphone Data Reveal Neighborhood-Level Racial Disparities in Police Presence",
             "abstract_en": (
-                "Police spend 0.36% more time in neighborhoods for each percentage "
-                "point increase in Black residents. Patterns of police presence "
-                "statistically explain 57% of the higher arrest rate."
+                "Research on policing has focused on documented actions such as stops and arrests—less "
+                "is known about patrols and presence. We map the neighborhood movement of nearly 10,000 "
+                "officers across 21 of America’s largest cities using anonymized smartphone data. Police "
+                "spend 0.36% more time in neighborhoods for each percentage point increase in Black "
+                "residents. This neighborhood-level disparity persists after controlling for density, "
+                "socioeconomic status, and crime-driven demand for policing, and may be lower in cities "
+                "with more Black police supervisors (but not officers). Patterns of police presence "
+                "statistically explain 57% of the higher arrest rate in more Black neighborhoods."
             ),
         }
         cached = {
             "title_cn": "智能手机数据揭示社区层面警察存在的种族差异",
             "abstract_cn": (
+                "关于警务的研究集中于已记录的行动，如拦截和逮捕——而对巡逻和存在的了解较少。"
+                "我们使用匿名智能手机数据，绘制了美国21个最大城市中近10,000名警官的社区移动情况。"
                 "黑人居民比例每增加一个百分点，警察在社区中花费的时间就增加0.36%%。"
-                "警察存在的模式在统计上解释了较高逮捕率的57%%。"
+                "在控制密度、社会经济状况和犯罪驱动的警务需求后，这种社区层面的差异仍然存在，"
+                "并且在黑人警察主管（而非普通警官）较多的城市中可能较低。"
+                "警察存在的模式在统计上解释了黑人较多社区中较高逮捕率的57%%。"
             ),
             "source_hash": _source_hash(article),
             "translation": {
