@@ -1094,7 +1094,7 @@ class BuildArchivesFromRosterEvidenceTests(unittest.TestCase):
                         "abstract_en": "We study the policy effect.",
                     },
                     "政策检验",
-                    "我们研究政策效应。",
+                    "我们研究政策对经济行为的影响，并利用详细数据估计政策效应的大小与方向。",
                 ),
                 (
                     {
@@ -1103,7 +1103,7 @@ class BuildArchivesFromRosterEvidenceTests(unittest.TestCase):
                         "abstract_en": "We study the newly recovered official item.",
                     },
                     "新增官方目录条目",
-                    "我们研究新恢复的官方条目。",
+                    "我们利用新恢复的官方条目研究相关经济机制，并报告基于完整数据的主要实证结果与政策含义。",
                 ),
             ):
                 cache[article["doi"]] = {
