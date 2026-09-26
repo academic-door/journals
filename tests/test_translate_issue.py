@@ -346,6 +346,28 @@ class ResidualSemanticNumericSymmetryTests(unittest.TestCase):
 
 
 
+    def test_each_percentage_point_may_be_rendered_as_explicit_one_point(self) -> None:
+        from scripts.translate_issue import resolve_semantic_quantities
+
+        source, translated = resolve_semantic_quantities(
+            "Police spend 0.36% more time for each percentage point increase in Black residents.",
+            "黑人居民比例每增加一个百分点，警察停留时间就增加0.36%。",
+        )
+        self.assertEqual(source, translated)
+        self.assertEqual(0, translated["1%"])
+        self.assertEqual(1, translated["0.36%"])
+
+    def test_percentage_point_reconciliation_does_not_hide_unrelated_added_one_percent(self) -> None:
+        from scripts.translate_issue import resolve_semantic_quantities
+
+        source, translated = resolve_semantic_quantities(
+            "Police spend 0.36% more time for each percentage point increase in Black residents.",
+            "黑人居民比例每增加一个百分点，警察停留时间就增加0.36%，另有1%的额外变化。",
+        )
+        self.assertEqual(source["1%"] + 1, translated["1%"])
+        self.assertEqual(source["0.36%"], translated["0.36%"])
+
+
 
 class DeepSeekModelResolutionTests(unittest.TestCase):
     def test_default_model_is_deepseek_v4_flash(self) -> None:
@@ -368,6 +390,72 @@ class DeepSeekModelResolutionTests(unittest.TestCase):
         with mock.patch.dict("os.environ", {"DEEPSEEK_MODEL": "   "}, clear=False):
             self.assertEqual("deepseek-v4-flash", _deepseek_model())
 
+
+
+class CachedTranslationArtifactRepairTests(unittest.TestCase):
+    def test_duplicate_percent_cache_is_repaired_before_parallel_provider_calls(self) -> None:
+        import json
+        from scripts.translate_issue import _source_hash, translate_missing
+
+        article = {
+            "doi": "10.1162/rest_a_01370",
+            "article_type": "research-article",
+            "title_en": "Smartphone Data Reveal Neighborhood-Level Racial Disparities in Police Presence",
+            "abstract_en": (
+                "Research on policing has focused on documented actions such as stops and arrests—less "
+                "is known about patrols and presence. We map the neighborhood movement of nearly 10,000 "
+                "officers across 21 of America’s largest cities using anonymized smartphone data. Police "
+                "spend 0.36% more time in neighborhoods for each percentage point increase in Black "
+                "residents. This neighborhood-level disparity persists after controlling for density, "
+                "socioeconomic status, and crime-driven demand for policing, and may be lower in cities "
+                "with more Black police supervisors (but not officers). Patterns of police presence "
+                "statistically explain 57% of the higher arrest rate in more Black neighborhoods."
+            ),
+        }
+        cached = {
+            "title_cn": "智能手机数据揭示社区层面警察存在的种族差异",
+            "abstract_cn": (
+                "关于警务的研究集中于已记录的行动，如拦截和逮捕——而对巡逻和存在的了解较少。"
+                "我们使用匿名智能手机数据，绘制了美国21个最大城市中近10,000名警官的社区移动情况。"
+                "黑人居民比例每增加一个百分点，警察在社区中花费的时间就增加0.36%%。"
+                "在控制密度、社会经济状况和犯罪驱动的警务需求后，这种社区层面的差异仍然存在，"
+                "并且在黑人警察主管（而非普通警官）较多的城市中可能较低。"
+                "警察存在的模式在统计上解释了黑人较多社区中较高逮捕率的57%%。"
+            ),
+            "source_hash": _source_hash(article),
+            "translation": {
+                "provider": "deepseek",
+                "model": "deepseek-chat",
+                "prompt_version": "academic-door-abstract-zh-v2",
+                "translated_at": "2026-08-06T12:07:39+00:00",
+            },
+        }
+        issue = {"journal_id": "restat", "articles": [article]}
+
+        with TemporaryDirectory() as temporary:
+            cache_path = Path(temporary) / "restat.json"
+            cache_path.write_text(
+                json.dumps({article["doi"]: cached}, ensure_ascii=False),
+                encoding="utf-8",
+            )
+            with (
+                mock.patch.dict("os.environ", {"TRANSLATION_WORKERS": "4"}, clear=False),
+                mock.patch("scripts.translate_issue.request_deepseek_translation") as deepseek,
+                mock.patch("scripts.translate_issue.request_google_translation") as google,
+            ):
+                report = translate_missing(issue, cache_path)
+
+            repaired = json.loads(cache_path.read_text(encoding="utf-8"))[article["doi"]]
+
+        self.assertEqual([], report["failed"])
+        self.assertEqual(0, report["translated"])
+        self.assertEqual(0, report["invalid_cache_entries"])
+        self.assertEqual(1, report["upgraded_cache_entries"])
+        self.assertNotIn("%%", repaired["abstract_cn"])
+        self.assertIn("0.36%", repaired["abstract_cn"])
+        self.assertIn("57%", repaired["abstract_cn"])
+        deepseek.assert_not_called()
+        google.assert_not_called()
 
 
 if __name__ == "__main__":
