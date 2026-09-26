@@ -370,5 +370,62 @@ class DeepSeekModelResolutionTests(unittest.TestCase):
 
 
 
+class CachedTranslationArtifactRepairTests(unittest.TestCase):
+    def test_duplicate_percent_cache_is_repaired_before_parallel_provider_calls(self) -> None:
+        import json
+        from scripts.translate_issue import _source_hash, translate_missing
+
+        article = {
+            "doi": "10.1162/rest_a_01370",
+            "article_type": "research-article",
+            "title_en": "Smartphone Data Reveal Neighborhood-Level Racial Disparities in Police Presence",
+            "abstract_en": (
+                "Police spend 0.36% more time in neighborhoods for each percentage "
+                "point increase in Black residents. Patterns of police presence "
+                "statistically explain 57% of the higher arrest rate."
+            ),
+        }
+        cached = {
+            "title_cn": "智能手机数据揭示社区层面警察存在的种族差异",
+            "abstract_cn": (
+                "黑人居民比例每增加一个百分点，警察在社区中花费的时间就增加0.36%%。"
+                "警察存在的模式在统计上解释了较高逮捕率的57%%。"
+            ),
+            "source_hash": _source_hash(article),
+            "translation": {
+                "provider": "deepseek",
+                "model": "deepseek-chat",
+                "prompt_version": "academic-door-abstract-zh-v2",
+                "translated_at": "2026-08-06T12:07:39+00:00",
+            },
+        }
+        issue = {"journal_id": "restat", "articles": [article]}
+
+        with TemporaryDirectory() as temporary:
+            cache_path = Path(temporary) / "restat.json"
+            cache_path.write_text(
+                json.dumps({article["doi"]: cached}, ensure_ascii=False),
+                encoding="utf-8",
+            )
+            with (
+                mock.patch.dict("os.environ", {"TRANSLATION_WORKERS": "4"}, clear=False),
+                mock.patch("scripts.translate_issue.request_deepseek_translation") as deepseek,
+                mock.patch("scripts.translate_issue.request_google_translation") as google,
+            ):
+                report = translate_missing(issue, cache_path)
+
+            repaired = json.loads(cache_path.read_text(encoding="utf-8"))[article["doi"]]
+
+        self.assertEqual([], report["failed"])
+        self.assertEqual(0, report["translated"])
+        self.assertEqual(0, report["invalid_cache_entries"])
+        self.assertEqual(1, report["upgraded_cache_entries"])
+        self.assertNotIn("%%", repaired["abstract_cn"])
+        self.assertIn("0.36%", repaired["abstract_cn"])
+        self.assertIn("57%", repaired["abstract_cn"])
+        deepseek.assert_not_called()
+        google.assert_not_called()
+
+
 if __name__ == "__main__":
     unittest.main()
