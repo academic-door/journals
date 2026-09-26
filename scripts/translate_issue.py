@@ -1077,6 +1077,14 @@ _CN_CURRENCY_CANONICAL = {
 }
 
 
+_EN_EACH_PERCENTAGE_POINT_RE = re.compile(
+    r"(?i)\b(?:each|every)\s+percentage[-\s]*point\b"
+)
+_CN_EACH_EXPLICIT_ONE_PERCENTAGE_POINT_RE = re.compile(
+    r"每[^，。；;:!?]{0,24}?(?:1|一)\s*个?\s*百分点"
+)
+
+
 def _reconcile_explicit_one_for_every_currency(
     source_text: str,
     translated_text: str,
@@ -1111,6 +1119,32 @@ def _reconcile_explicit_one_for_every_currency(
         translated_q["1"] -= min(extra_ones, equivalents)
 
 
+def _reconcile_explicit_one_for_each_percentage_point(
+    source_text: str,
+    translated_text: str,
+    source_q: "Counter[str]",
+    translated_q: "Counter[str]",
+) -> None:
+    """Allow explicit 1 percentage point for English each/every percentage point.
+
+    English can encode the unit denominator without a surface numeral, as in
+    "for each percentage point increase". Chinese commonly renders the same
+    meaning as "每增加一个百分点". Reconcile only the extra translated 1%
+    inside that bounded structure; unrelated added percentages remain gating.
+    """
+
+    extra = translated_q["1%"] - source_q["1%"]
+    if extra <= 0:
+        return
+    source_equivalents = len(_EN_EACH_PERCENTAGE_POINT_RE.findall(source_text))
+    translated_equivalents = len(
+        _CN_EACH_EXPLICIT_ONE_PERCENTAGE_POINT_RE.findall(translated_text)
+    )
+    equivalents = min(source_equivalents, translated_equivalents)
+    if equivalents:
+        translated_q["1%"] -= min(extra, equivalents)
+
+
 def resolve_semantic_quantities(
     source_text: str,
     translated_text: str,
@@ -1127,6 +1161,9 @@ def resolve_semantic_quantities(
     _reconcile_single_cn_digits(translated_text, source_q, translated_q)
     _reconcile_missing_enumeration_counts(source_text, translated_text, source_q, translated_q)
     _reconcile_explicit_one_for_every_currency(
+        source_text, translated_text, source_q, translated_q
+    )
+    _reconcile_explicit_one_for_each_percentage_point(
         source_text, translated_text, source_q, translated_q
     )
     for identifier_number in _identifier_numbers(source_text):
