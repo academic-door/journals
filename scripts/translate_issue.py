@@ -2362,6 +2362,27 @@ def request_google_translation(
     )
 
 
+def _normalize_cached_translation_artifacts(entry: dict[str, Any]) -> bool:
+    """Repair deterministic duplicate-percent artifacts before cache validation.
+
+    Only repeated percent markers in cached Chinese text are normalized.
+    The unchanged strict translation validator still decides acceptance,
+    so any other numeric mismatch continues to fail closed.
+    """
+
+    changed = False
+    for field in ("title_cn", "abstract_cn"):
+        value = entry.get(field)
+        if not isinstance(value, str) or "%%" not in value:
+            continue
+        normalized = value
+        while "%%" in normalized:
+            normalized = normalized.replace("%%", "%")
+        if normalized != value:
+            entry[field] = normalized
+            changed = True
+    return changed
+
 def _write_cache(cache_path: Path, cache: dict[str, Any]) -> None:
     cache_path.parent.mkdir(parents=True, exist_ok=True)
     temporary = cache_path.with_suffix(cache_path.suffix + ".tmp")
@@ -2534,6 +2555,7 @@ def _translate_missing_parallel(
             continue
         existing = cache.get(doi, {})
         source_hash = _source_hash(article)
+        cache_artifact_normalized = _normalize_cached_translation_artifacts(existing)
         if existing.get("title_cn") and (
             existing.get("abstract_cn")
             or comment_without_abstract
@@ -2545,6 +2567,8 @@ def _translate_missing_parallel(
                     raise TranslationError("Source title or abstract changed")
                 if not existing.get("source_hash"):
                     existing["source_hash"] = source_hash
+                    upgraded_cache_count += 1
+                if cache_artifact_normalized:
                     upgraded_cache_count += 1
                 continue
             except TranslationError:
@@ -2675,6 +2699,7 @@ def translate_missing(
             continue
         existing = cache.get(doi, {})
         source_hash = _source_hash(article)
+        cache_artifact_normalized = _normalize_cached_translation_artifacts(existing)
         if existing.get("title_cn") and (
             existing.get("abstract_cn")
             or comment_without_abstract
@@ -2689,6 +2714,8 @@ def translate_missing(
                     raise TranslationError("Source title or abstract changed")
                 if not existing.get("source_hash"):
                     existing["source_hash"] = source_hash
+                    upgraded_cache_count += 1
+                if cache_artifact_normalized:
                     upgraded_cache_count += 1
                 continue
             except TranslationError:
