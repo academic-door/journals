@@ -566,8 +566,20 @@ def process_evidence(
     target = (
         api_root / "journals" / journal_id / "issues" / f"{issue_id}.json"
     )
+    existing_archive: dict[str, Any] | None = None
     if target.exists():
-        return {"issue_id": issue_id, "result": "already-archived"}
+        try:
+            existing_archive = json.loads(target.read_text(encoding="utf-8"))
+        except (OSError, ValueError, json.JSONDecodeError):
+            existing_archive = None
+        if (
+            existing_archive
+            and str(existing_archive.get("publication_state", "")).strip()
+            == "ready"
+            and str(existing_archive.get("source_status", "")).strip()
+            == "official_verified"
+        ):
+            return {"issue_id": issue_id, "result": "already-archived"}
 
     volume, issue = _split_volume_issue(issue_id, journal_id)
     crossref = _crossref_map(
@@ -621,6 +633,11 @@ def process_evidence(
         metadata,
         publication_date=publication_date,
     )
+    archive_abstracts_reused = (
+        reuse_exact_staging_abstracts(candidate, target)
+        if existing_archive is not None
+        else 0
+    )
     staging = staging_root / journal_id / f"{issue_id}.json"
     staging_abstracts_reused = reuse_exact_staging_abstracts(candidate, staging)
     # Normalize publisher labels before translation so the source hash used
@@ -664,6 +681,7 @@ def process_evidence(
                 candidate["quality"].get("translation_complete", 0)
             ),
             "translation_report": report,
+            "archive_abstracts_reused": archive_abstracts_reused,
             "staging_abstracts_reused": staging_abstracts_reused,
             "staging": str(staging),
         }
@@ -687,6 +705,7 @@ def process_evidence(
         "archived": str(archived),
         "translated": int(candidate["quality"].get("translation_complete", 0)),
         "translation_report": report,
+        "archive_abstracts_reused": archive_abstracts_reused,
         "staging_abstracts_reused": staging_abstracts_reused,
     }
 
