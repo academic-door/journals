@@ -94,7 +94,8 @@ class HistoryAndSearchUiTests(unittest.TestCase):
         explorer = (ROOT / "src" / "components" / "Top5Explorer.astro").read_text(
             encoding="utf-8"
         )
-        self.assertIn('id="issue-panel" role="tabpanel"', explorer)
+        self.assertIn('role={collectionId === "top5" ? "tabpanel" : "region"}', explorer)
+        self.assertIn('aria-label={collectionId === "fields" ? "当前卷期" : undefined}', explorer)
         self.assertIn('aria-controls="issue-panel"', explorer)
         self.assertIn('id="journal-tab-' + "$" + '{escapeHtml(journal.journal_id)}"', explorer)
         self.assertIn('issuePanel.setAttribute("aria-labelledby", activeTab.id)', explorer)

@@ -105,7 +105,12 @@ const initialIssue = initialIssuePath
   <button id="china-filter" class="button" type="button">仅看中国相关</button>
 </section>
 
-<section id="issue-panel" role="tabpanel" tabindex="0">
+<section
+  id="issue-panel"
+  role={collectionId === "top5" ? "tabpanel" : "region"}
+  aria-label={collectionId === "fields" ? "当前卷期" : undefined}
+  tabindex="0"
+>
   <section id="issue-summary" class="issue-summary" aria-live="polite">
     <p class="loading-copy">正在载入最新卷期……</p>
   </section>
