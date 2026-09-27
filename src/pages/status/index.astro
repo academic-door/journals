@@ -178,9 +178,8 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       fetchJson(`${base}api/v1/source-audit.json`, { journals: [], summary: {} }, "来源审计"),
       fetchJson(`${base}api/v1/monitoring.json`, { failed_journals: [], warning_journals: [], awaiting_official_journals: [] }, "更新监控"),
       fetchJson(`${base}api/v1/backfill-status.json`, { periods: {}, years: {} }, "历史回填状态"),
-      fetchJson(`${base}api/v1/completeness/2026.json`, { journals: [], reconciliation: {} }, "权威完整性"),
       fetchJson(`${base}api/v1/slo.json`, { metrics: {} }, "R4 新鲜度"),
-    ]).then(([health, top5, fields, sourceAudit, monitoring, backfillStatus, completeness, slo]) => {
+    ]).then(([health, top5, fields, sourceAudit, monitoring, backfillStatus, slo]) => {
       const journals = [...(top5.journals || []), ...(fields.journals || [])];
       const auditById = new Map((sourceAudit.journals || []).map((item) => [item.journal_id, item]));
       const contentReadyCount = journals.filter(journalContentReady).length;
@@ -280,7 +279,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       const historyFreshness = document.querySelector("#history-freshness");
       if (historyFreshness) {
         const expected = slo.metrics?.expected_set_freshness || {};
-        const measured = Number(expected.measured_count ?? completeness.reconciliation?.journal_count ?? 0);
+        const measured = Number(expected.measured_count ?? 0);
         const current = Number(expected.current_to_audit_end_count ?? 0);
         const stale = Number(expected.stale_for_audit_end_count ?? Math.max(0, measured - current));
         const oldest = expected.oldest_measured_through || "";
