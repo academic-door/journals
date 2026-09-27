@@ -92,6 +92,65 @@ class SloMetricsBaselineTests(unittest.TestCase):
             payload["metrics"]["confirmed_missing_age"]["measurement_state"],
         )
 
+    def test_first_party_lifecycle_latency_is_measured_only_for_matching_issue(self) -> None:
+        completeness = {
+            "reconciliation": {
+                "journal_count": 2,
+                "complete": 2,
+                "partial": 0,
+                "not_measured": 0,
+                "source_blocked": 0,
+            },
+            "journals": [
+                {
+                    "journalKey": "AER",
+                    "status": "COMPLETE",
+                    "measuredThrough": "2026-09-27",
+                    "freshnessStatus": "CURRENT_FOR_AUDIT_END",
+                },
+                {
+                    "journalKey": "JPE",
+                    "status": "COMPLETE",
+                    "measuredThrough": "2026-09-27",
+                    "freshnessStatus": "CURRENT_FOR_AUDIT_END",
+                },
+            ],
+        }
+        monitoring = {
+            "summary": {"configured_journals": 2},
+            "last_successful_checks": {},
+            "lifecycle": {
+                "AER": {
+                    "authority_observed_issue_id": "aer-116-9",
+                    "authority_observed_at": "2026-09-27T08:00:00+00:00",
+                    "canonical_ready_issue_id": "aer-116-9",
+                    "canonical_ready_at": "2026-09-27T10:00:00+00:00",
+                },
+                "JPE": {
+                    "authority_observed_issue_id": "jpe-134-4",
+                    "authority_observed_at": "2026-09-27T09:00:00+00:00",
+                    "canonical_ready_issue_id": "jpe-134-3",
+                    "canonical_ready_at": "2026-09-27T09:30:00+00:00",
+                },
+            },
+        }
+        payload = build_slo_metrics(
+            completeness,
+            monitoring,
+            {"coverage": {"publication_ready": 2, "missing": 0, "source_pending": 0}},
+            generated_at="2026-09-27T11:00:00+00:00",
+        )
+
+        authority = payload["metrics"]["current_issue_authority_freshness"]
+        latency = payload["metrics"]["official_detection_to_canonical_ready_latency"]
+        self.assertEqual("direct", authority["measurement_state"])
+        self.assertEqual(2, authority["measured_count"])
+        self.assertEqual("partial", latency["measurement_state"])
+        self.assertEqual(2, latency["observed_transition_count"])
+        self.assertEqual(1, latency["ready_transition_count"])
+        self.assertEqual(7200, latency["min_latency_seconds"])
+        self.assertEqual(7200, latency["max_latency_seconds"])
+
     def test_candidate_or_missing_freshness_is_not_promoted(self) -> None:
         completeness = {
             "reconciliation": {
