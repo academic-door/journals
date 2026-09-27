@@ -1291,6 +1291,28 @@ def public_status(
             for key, entry in entries.items()
             if not entry.get("last_error")
         },
+        "lifecycle": {
+            key: {
+                field: entry.get(field, "")
+                for field in (
+                    "authority_observed_issue_id",
+                    "authority_observed_at",
+                    "canonical_ready_issue_id",
+                    "canonical_ready_at",
+                )
+                if entry.get(field)
+            }
+            for key, entry in entries.items()
+            if any(
+                entry.get(field)
+                for field in (
+                    "authority_observed_issue_id",
+                    "authority_observed_at",
+                    "canonical_ready_issue_id",
+                    "canonical_ready_at",
+                )
+            )
+        },
     }
 
 
