@@ -348,6 +348,38 @@ class MonitorStateTests(unittest.TestCase):
         reversed_issue["articles"].reverse()
         self.assertEqual(issue_fingerprint(BASELINE), issue_fingerprint(reversed_issue))
 
+    def test_successful_deep_update_stamps_ready_for_observed_issue(self) -> None:
+        state = {
+            "journals": {
+                "DEMO": {
+                    "candidate": {"volume": "11", "issue": "1"},
+                    "failure_count": 0,
+                    "authority_observed_issue_id": "demo-11-1",
+                    "authority_observed_at": "2026-09-27T10:00:00+00:00",
+                }
+            }
+        }
+        result = {"alerts": {"newly_alerting": [], "recovered": []}}
+        report = {"results": [{"result": "updated", "error": ""}]}
+        with (
+            patch(
+                "scripts.journal_monitor.subprocess.run",
+                return_value=SimpleNamespace(returncode=0),
+            ),
+            patch("scripts.journal_monitor.read_json", return_value=report),
+        ):
+            failures = run_deep_updates(
+                ["DEMO"],
+                state,
+                result,
+                translate=False,
+            )
+        entry = state["journals"]["DEMO"]
+        self.assertEqual(0, failures)
+        self.assertEqual("updated", entry["status"])
+        self.assertEqual("demo-11-1", entry["canonical_ready_issue_id"])
+        self.assertTrue(entry["canonical_ready_at"])
+
     def test_deep_update_respects_retry_window(self) -> None:
         state = {
             "journals": {
