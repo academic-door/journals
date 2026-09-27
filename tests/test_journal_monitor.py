@@ -12,6 +12,7 @@ from unittest.mock import patch
 
 from scripts.journal_monitor import (
     ALERT_THRESHOLD,
+    _stamp_authority_observation,
     Candidate,
     detect_all,
     evaluate_observation,
@@ -50,6 +51,41 @@ def crossref_item(
         "issue": issue,
         "published": {"date-parts": [list(published)]},
     }
+
+
+class LifecycleInstrumentationTests(unittest.TestCase):
+    def test_first_party_observation_is_monotonic_per_issue(self) -> None:
+        previous = {
+            "authority_observed_issue_id": "demo-11-1",
+            "authority_observed_at": "2026-09-26T10:00:00+00:00",
+        }
+        entry = {
+            "announcement": {
+                "issue_id": "demo-11-1",
+                "source_authority": "first_party",
+                "observed_at": "2026-09-27T10:00:00+00:00",
+            }
+        }
+        _stamp_authority_observation(entry, previous)
+        self.assertEqual("demo-11-1", entry["authority_observed_issue_id"])
+        self.assertEqual(
+            "2026-09-26T10:00:00+00:00",
+            entry["authority_observed_at"],
+        )
+
+        next_issue = {
+            "announcement": {
+                "issue_id": "demo-11-2",
+                "source_authority": "first_party",
+                "observed_at": "2026-09-27T11:00:00+00:00",
+            }
+        }
+        _stamp_authority_observation(next_issue, entry)
+        self.assertEqual("demo-11-2", next_issue["authority_observed_issue_id"])
+        self.assertEqual(
+            "2026-09-27T11:00:00+00:00",
+            next_issue["authority_observed_at"],
+        )
 
 
 class CandidateSelectionTests(unittest.TestCase):
@@ -311,6 +347,38 @@ class MonitorStateTests(unittest.TestCase):
         reversed_issue = copy.deepcopy(BASELINE)
         reversed_issue["articles"].reverse()
         self.assertEqual(issue_fingerprint(BASELINE), issue_fingerprint(reversed_issue))
+
+    def test_successful_deep_update_stamps_ready_for_observed_issue(self) -> None:
+        state = {
+            "journals": {
+                "DEMO": {
+                    "candidate": {"volume": "11", "issue": "1"},
+                    "failure_count": 0,
+                    "authority_observed_issue_id": "demo-11-1",
+                    "authority_observed_at": "2026-09-27T10:00:00+00:00",
+                }
+            }
+        }
+        result = {"alerts": {"newly_alerting": [], "recovered": []}}
+        report = {"results": [{"result": "updated", "error": ""}]}
+        with (
+            patch(
+                "scripts.journal_monitor.subprocess.run",
+                return_value=SimpleNamespace(returncode=0),
+            ),
+            patch("scripts.journal_monitor.read_json", return_value=report),
+        ):
+            failures = run_deep_updates(
+                ["DEMO"],
+                state,
+                result,
+                translate=False,
+            )
+        entry = state["journals"]["DEMO"]
+        self.assertEqual(0, failures)
+        self.assertEqual("updated", entry["status"])
+        self.assertEqual("demo-11-1", entry["canonical_ready_issue_id"])
+        self.assertTrue(entry["canonical_ready_at"])
 
     def test_deep_update_respects_retry_window(self) -> None:
         state = {

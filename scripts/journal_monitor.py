@@ -719,6 +719,36 @@ def _baseline_with_same_issue_exclusions(
     return augmented
 
 
+def _stamp_authority_observation(
+    entry: dict[str, Any],
+    previous: dict[str, Any],
+) -> None:
+    """Persist the first first-party observation for the current issue identity.
+
+    This timestamp is monotonic for one issue. Repeated monitoring refreshes do
+    not touch it, which makes future detection-to-ready latency measurable
+    without substituting probe/check/commit timestamps.
+    """
+
+    announcement = entry.get("announcement")
+    if not isinstance(announcement, dict):
+        return
+    if str(announcement.get("source_authority", "")) != "first_party":
+        return
+    issue_id = str(announcement.get("issue_id", "")).strip()
+    observed_at = str(announcement.get("observed_at", "")).strip()
+    if not issue_id or not observed_at:
+        return
+    previous_issue_id = str(previous.get("authority_observed_issue_id", "")).strip()
+    previous_observed_at = str(previous.get("authority_observed_at", "")).strip()
+    entry["authority_observed_issue_id"] = issue_id
+    entry["authority_observed_at"] = (
+        previous_observed_at
+        if previous_issue_id == issue_id and previous_observed_at
+        else observed_at
+    )
+
+
 def detect_all(
     journal_configs: dict[str, dict[str, Any]],
     state: dict[str, Any],
@@ -910,6 +940,7 @@ def detect_all(
                     )
                     if announcement:
                         entry["announcement"] = announcement
+                _stamp_authority_observation(entry, previous)
                 if _awaiting_status(previous, same_deep_candidate):
                     # A light probe re-confirming the same Crossref candidate
                     # does not change the fact that we are still waiting for
@@ -1076,6 +1107,14 @@ def run_deep_updates(
                 and key not in result["alerts"]["recovered"]
             ):
                 result["alerts"]["recovered"].append(key)
+            ready_issue_id = str(entry.get("authority_observed_issue_id", "")).strip()
+            if (
+                ready_issue_id
+                and str(entry.get("canonical_ready_issue_id", "")).strip()
+                != ready_issue_id
+            ):
+                entry["canonical_ready_issue_id"] = ready_issue_id
+                entry["canonical_ready_at"] = now_iso()
             entry.update(
                 {
                     "status": "updated",
@@ -1251,6 +1290,28 @@ def public_status(
             key: entry.get("last_checked_at", "")
             for key, entry in entries.items()
             if not entry.get("last_error")
+        },
+        "lifecycle": {
+            key: {
+                field: entry.get(field, "")
+                for field in (
+                    "authority_observed_issue_id",
+                    "authority_observed_at",
+                    "canonical_ready_issue_id",
+                    "canonical_ready_at",
+                )
+                if entry.get(field)
+            }
+            for key, entry in entries.items()
+            if any(
+                entry.get(field)
+                for field in (
+                    "authority_observed_issue_id",
+                    "authority_observed_at",
+                    "canonical_ready_issue_id",
+                    "canonical_ready_at",
+                )
+            )
         },
     }
 

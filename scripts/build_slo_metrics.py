@@ -100,6 +100,33 @@ def build_slo_metrics(
         if _parse_timestamp(value) is not None
     )
 
+    lifecycle = monitoring.get("lifecycle", {})
+    if not isinstance(lifecycle, dict):
+        lifecycle = {}
+    authority_observations: list[tuple[str, datetime]] = []
+    ready_latencies: list[int] = []
+    for journal_id, raw in lifecycle.items():
+        if not isinstance(raw, dict):
+            continue
+        observed_issue_id = str(raw.get("authority_observed_issue_id", "")).strip()
+        observed_at = _parse_timestamp(raw.get("authority_observed_at"))
+        if observed_issue_id and observed_at is not None:
+            authority_observations.append((str(journal_id), observed_at))
+        ready_issue_id = str(raw.get("canonical_ready_issue_id", "")).strip()
+        ready_at = _parse_timestamp(raw.get("canonical_ready_at"))
+        if (
+            observed_issue_id
+            and ready_issue_id == observed_issue_id
+            and observed_at is not None
+            and ready_at is not None
+            and ready_at >= observed_at
+        ):
+            ready_latencies.append(int((ready_at - observed_at).total_seconds()))
+    authority_observation_times = sorted(
+        stamp.isoformat() for _journal_id, stamp in authority_observations
+    )
+    ready_latencies.sort()
+
     coverage = backfill_status.get("coverage", {})
     if not isinstance(coverage, dict):
         coverage = {}
@@ -170,12 +197,27 @@ def build_slo_metrics(
                 "min_check_age_seconds": min(check_ages) if check_ages else None,
             },
             "current_issue_authority_freshness": {
-                "measurement_state": "partial",
-                "measured_count": 0,
+                "measurement_state": (
+                    "direct"
+                    if journals and len(authority_observations) == len(journals)
+                    else "partial"
+                ),
+                "measured_count": len(authority_observations),
                 "journal_count": len(journals),
+                "oldest_authority_observed_at": (
+                    authority_observation_times[0]
+                    if authority_observation_times
+                    else ""
+                ),
+                "newest_authority_observed_at": (
+                    authority_observation_times[-1]
+                    if authority_observation_times
+                    else ""
+                ),
                 "reason": (
-                    "current public contract does not persist a uniform immutable "
-                    "first-party authority-observed timestamp for every current issue"
+                    "future first-party observations are persisted monotonically; "
+                    "coverage remains partial until all tracked journals have a "
+                    "durable authority observation for the current lifecycle"
                 ),
                 "do_not_substitute": [
                     "retrieved_at",
@@ -188,10 +230,25 @@ def build_slo_metrics(
                 ],
             },
             "official_detection_to_canonical_ready_latency": {
-                "measurement_state": "not_yet_measurable",
+                "measurement_state": (
+                    "partial" if ready_latencies else "not_yet_measurable"
+                ),
+                "observed_transition_count": len(authority_observations),
+                "ready_transition_count": len(ready_latencies),
+                "min_latency_seconds": (
+                    ready_latencies[0] if ready_latencies else None
+                ),
+                "max_latency_seconds": (
+                    ready_latencies[-1] if ready_latencies else None
+                ),
+                "median_latency_seconds": (
+                    ready_latencies[len(ready_latencies) // 2]
+                    if ready_latencies
+                    else None
+                ),
                 "reason": (
-                    "no immutable per-issue first authoritative observation timestamp "
-                    "paired with a canonical-ready transition timestamp"
+                    "latency is reported only when immutable first-party observation "
+                    "and canonical-ready timestamps share the same issue identity"
                 ),
                 "required_instrumentation": [
                     "authority_observed_at",
@@ -204,10 +261,11 @@ def build_slo_metrics(
                 "open_count": source_pending_count,
                 "age_measurable": False,
                 "reason": (
-                    "historical state records current status/attempt times but do not "
-                    "persist source_pending_since as a monotonic transition timestamp"
+                    "historical lifecycle now persists future source_pending_since "
+                    "transitions, but the public coverage input does not yet expose "
+                    "per-issue timestamps for age aggregation"
                 ),
-                "required_instrumentation": ["status_since", "source_pending_since"],
+                "required_instrumentation": ["source_pending_since_public_rollup"],
             },
             "confirmed_missing_age": {
                 "measurement_state": "count_only",

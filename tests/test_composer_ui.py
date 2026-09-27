@@ -250,7 +250,7 @@ class ComposerUiTest(unittest.TestCase):
         self.assertIn("api/v1/source-audit.json", self.status_page)
         for label in (
             "监测期刊",
-            "检测更新补全中",
+            "目录顺序待官方复核",
             "最新卷期",
             "内容就绪",
             "来源核验",
@@ -258,9 +258,9 @@ class ComposerUiTest(unittest.TestCase):
         ):
             self.assertIn(label, self.status_page)
         self.assertIn("可发布卷期", self.status_page)
-        self.assertIn("官方目录核验", self.status_page)
+        self.assertIn("可发布来源核验", self.status_page)
         self.assertIn("PUBLICATION READINESS", self.status_page)
-        self.assertIn("SOURCE VERIFICATION", self.status_page)
+        self.assertIn("SOURCE ACCEPTANCE", self.status_page)
         self.assertIn('journal.order_verification === "official_verified"', self.status_page)
         self.assertIn("latest_detected_article_count", self.status_page)
         self.assertIn("journalContentReady", self.status_page)

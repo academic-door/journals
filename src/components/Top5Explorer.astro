@@ -105,11 +105,13 @@ const initialIssue = initialIssuePath
   <button id="china-filter" class="button" type="button">仅看中国相关</button>
 </section>
 
-<section id="issue-summary" class="issue-summary" aria-live="polite">
-  <p class="loading-copy">正在载入最新卷期……</p>
-</section>
+<section id="issue-panel" role="tabpanel" tabindex="0">
+  <section id="issue-summary" class="issue-summary" aria-live="polite">
+    <p class="loading-copy">正在载入最新卷期……</p>
+  </section>
 
-<section id="article-list" class="article-list" aria-live="polite"></section>
+  <section id="article-list" class="article-list"></section>
+</section>
 
 <script is:inline define:vars={{ base, collectionId, initialCollection, initialIssue }}>
   const displayIssueUrl = (journal) =>
@@ -239,10 +241,16 @@ const initialIssue = initialIssuePath
 
   const fetchIssueUrl = (url) => {
     if (!state.issueCache.has(url)) {
-      state.issueCache.set(url, fetch(url).then((response) => {
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        return response.json();
-      }));
+      const request = fetch(url)
+        .then((response) => {
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          return response.json();
+        })
+        .catch((error) => {
+          state.issueCache.delete(url);
+          throw error;
+        });
+      state.issueCache.set(url, request);
     }
     return state.issueCache.get(url);
   };
@@ -252,10 +260,16 @@ const initialIssue = initialIssuePath
   const fetchIssueIndex = (journal) => {
     const url = `${base}api/v1/journals/${encodeURIComponent(journal.journal_id)}/issues/index.json`;
     if (!state.issueIndexCache.has(url)) {
-      state.issueIndexCache.set(url, fetch(url).then((response) => {
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        return response.json();
-      }));
+      const request = fetch(url)
+        .then((response) => {
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          return response.json();
+        })
+        .catch((error) => {
+          state.issueIndexCache.delete(url);
+          throw error;
+        });
+      state.issueIndexCache.set(url, request);
     }
     return state.issueIndexCache.get(url);
   };
@@ -284,7 +298,12 @@ const initialIssue = initialIssuePath
         const journal = state.collection.journals.find(
           (item) => item.journal_id === select.value
         );
-        if (journal) loadIssue(journal);
+        if (journal) {
+          loadIssue(journal).catch((error) => {
+            document.querySelector("#issue-summary").innerHTML =
+              `<p class="error-message">卷期载入失败：${escapeHtml(error.message)}</p>`;
+          });
+        }
       };
       return;
     }
@@ -297,8 +316,9 @@ const initialIssue = initialIssuePath
           type="button"
           role="tab"
           data-journal="${escapeHtml(journal.journal_id)}"
+          id="journal-tab-${escapeHtml(journal.journal_id)}"
           aria-selected="${active}"
-          aria-controls="issue-summary"
+          aria-controls="issue-panel"
           tabindex="${active && enabled ? "0" : "-1"}"
           class="${active ? "active" : ""}"
           ${enabled ? "" : "disabled"}
@@ -307,6 +327,9 @@ const initialIssue = initialIssuePath
           ${enabled ? "" : "<small>接入中</small>"}
         </button>`;
     }).join("");
+    const activeTab = tabs.querySelector('button[aria-selected="true"]');
+    const issuePanel = document.querySelector("#issue-panel");
+    if (activeTab?.id && issuePanel) issuePanel.setAttribute("aria-labelledby", activeTab.id);
     tabs.querySelectorAll("button:not(:disabled)").forEach((button) => {
       const warmIssue = () => {
         const journal = state.collection.journals.find(
@@ -320,7 +343,12 @@ const initialIssue = initialIssuePath
         const journal = state.collection.journals.find(
           (item) => item.journal_id === button.dataset.journal
         );
-        if (journal) loadIssue(journal);
+        if (journal) {
+          loadIssue(journal).catch((error) => {
+            document.querySelector("#issue-summary").innerHTML =
+              `<p class="error-message">卷期载入失败：${escapeHtml(error.message)}</p>`;
+          });
+        }
       });
     });
     tabs.onkeydown = (event) => {

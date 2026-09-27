@@ -22,6 +22,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
           <p class="section-kicker">HISTORY COVERAGE</p>
           <h2 id="history-title">历史覆盖</h2>
           <p class="section-note">按年份与期刊核对发现卷期、缺失卷期、内容与来源状态；临时来源不会计入可发布。</p>
+          <p id="history-freshness" class="section-note"></p>
         </div>
         <p id="history-updated"></p>
       </div>
@@ -97,9 +98,11 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     };
     const snapshotFreshness = (value = "") => {
       const updated = Date.parse(value);
-      if (!Number.isFinite(updated)) return "更新时间未知";
+      if (!Number.isFinite(updated)) return "数据快照更新时间未知";
       const hours = Math.max(0, (Date.now() - updated) / 36e5);
-      return hours > 36 ? `数据快照已超过 ${Math.floor(hours)} 小时未更新` : "数据快照在正常更新窗口内";
+      return hours < 1
+        ? "数据快照在最近 1 小时内生成"
+        : `数据快照距今约 ${Math.floor(hours)} 小时`;
     };
     const journalContentReady = (journal) => {
       const total = Number(journal.article_count ?? 0);
@@ -175,7 +178,8 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       fetchJson(`${base}api/v1/source-audit.json`, { journals: [], summary: {} }, "来源审计"),
       fetchJson(`${base}api/v1/monitoring.json`, { failed_journals: [], warning_journals: [], awaiting_official_journals: [] }, "更新监控"),
       fetchJson(`${base}api/v1/backfill-status.json`, { periods: {}, years: {} }, "历史回填状态"),
-    ]).then(([health, top5, fields, sourceAudit, monitoring, backfillStatus]) => {
+      fetchJson(`${base}api/v1/slo.json`, { metrics: {} }, "R4 新鲜度"),
+    ]).then(([health, top5, fields, sourceAudit, monitoring, backfillStatus, slo]) => {
       const journals = [...(top5.journals || []), ...(fields.journals || [])];
       const auditById = new Map((sourceAudit.journals || []).map((item) => [item.journal_id, item]));
       const contentReadyCount = journals.filter(journalContentReady).length;
@@ -183,12 +187,13 @@ const base = import.meta.env.BASE_URL.endsWith("/")
         (journal) => journalPublicationState(journal) === "ready"
       ).length;
       const enrichingCount = journals.filter(detectedEnrichmentNeeded).length;
-      const officialOrderCount = journals.filter(
+      const sourceAcceptedCount = journals.filter(
         (journal) => ["official_verified", "publisher_verified"].includes(journalSourceStatus(journal))
       ).length;
-      const pendingOrderCount = journals.filter(
-        (journal) => journalSourceStatus(journal) === "source_pending"
+      const officialOrderCount = journals.filter(
+        (journal) => journal.order_verification === "official_verified"
       ).length;
+      const pendingOrderCount = journals.length - officialOrderCount;
       if (!journals.length) {
         document.querySelector("#status-summary").innerHTML = `
           <div class="status-empty"><strong>状态数据暂时不可用</strong><span>请刷新页面；若持续出现，请查看更新监控。</span></div>`;
@@ -201,13 +206,13 @@ const base = import.meta.env.BASE_URL.endsWith("/")
           <strong>${readyCount}<small> / ${journals.length}</small></strong>
         </article>
         <article class="trust-ledger source-ledger">
-          <div><p>SOURCE VERIFICATION</p><h2>官方目录核验</h2><span>当前可发布快照的目录与顺序是否已核对</span></div>
-          <strong>${officialOrderCount}<small> / ${journals.length}</small></strong>
+          <div><p>SOURCE ACCEPTANCE</p><h2>可发布来源核验</h2><span>来源达到当前发布契约；目录顺序核验单独计算</span></div>
+          <strong>${sourceAcceptedCount}<small> / ${journals.length}</small></strong>
         </article>
         <div class="status-operations">
           <span><b>${journals.length}</b> 监测期刊</span>
-          <span><b>${enrichingCount}</b> 检测更新补全中</span>
-          <span><b>${pendingOrderCount}</b> 等待官网确认</span>
+          <span><b>${officialOrderCount}</b> 目录顺序已官方核对</span>
+          <span><b>${pendingOrderCount}</b> 目录顺序待官方复核</span>
           <span><b>${(monitoring.failed_journals || []).length}</b> 更新受阻</span>
         </div>`;
       // 监测告警此前只存在于 monitoring.json 与 Actions 日志里，状态页看不到；
@@ -249,8 +254,9 @@ const base = import.meta.env.BASE_URL.endsWith("/")
           shorts ? `短文 ${shorts}` : "",
         ].filter(Boolean).join(" · ");
         const sourceStatus = journalSourceStatus(journal);
-        const orderVerified = ["official_verified", "publisher_verified"].includes(sourceStatus);
-        const order = orderVerified ? "目录与顺序已核对" : "临时来源，等待官网确认";
+        const sourceAccepted = ["official_verified", "publisher_verified"].includes(sourceStatus);
+        const orderVerified = journal.order_verification === "official_verified";
+        const order = orderVerified ? "目录与顺序已官方核对" : "目录顺序待官方复核";
         const publicationState = journalPublicationState(journal);
         const ready = publicationState === "ready";
         const publicationLabel = ready
@@ -264,12 +270,24 @@ const base = import.meta.env.BASE_URL.endsWith("/")
           <strong class="journal-code" role="cell"><b>${escapeHtml(journal.short_name)}</b><small>${escapeHtml(journal.name_cn || journal.name || "")}</small></strong>
           <span role="cell" data-label="最新卷期"><b>${escapeHtml(sanitizeIssueLabel(journal.latest_issue_label) || "等待最新卷期")}</b><small>${escapeHtml(journal.publication_date || "日期待确认")}</small></span>
           <span role="cell" data-label="内容就绪"><b>${total} 篇 · 英文 ${abstracts}/${total} · 中文 ${translations}/${total}</b>${extras ? `<small>${escapeHtml(extras)}</small>` : ""}${detectedPending ? `<small>检测更新：英文 ${detectedAbstracts}/${detectedTotal} · 中文 ${detectedTranslations}/${detectedTotal}</small>` : ""}</span>
-          <span role="cell" data-label="来源核验"><span class="source-state ${orderVerified ? "verified" : "pending"}">${escapeHtml(orderVerified ? "官方来源已核对" : "等待官网确认")}</span><small>${escapeHtml(sourceLabels[audit.status] || "来源已记录")} · ${escapeHtml(order)}</small></span>
+          <span role="cell" data-label="来源核验"><span class="source-state ${sourceAccepted ? "verified" : "pending"}">${escapeHtml(sourceAccepted ? "可发布来源已核验" : "等待来源核验")}</span><small>${escapeHtml(sourceLabels[audit.status] || "来源已记录")} · ${escapeHtml(order)}</small></span>
           <span role="cell" data-label="发布状态"><span class="state ${ready ? "ready" : "enriching"}">${escapeHtml(publicationLabel)}</span>${detectedPending ? "<small>新内容补全中</small>" : ""}</span>
         </div>`;
       }).join("");
       const historyRows = document.querySelector("#history-rows");
       const historyUpdated = document.querySelector("#history-updated");
+      const historyFreshness = document.querySelector("#history-freshness");
+      if (historyFreshness) {
+        const expected = slo.metrics?.expected_set_freshness || {};
+        const measured = Number(expected.measured_count ?? 0);
+        const current = Number(expected.current_to_audit_end_count ?? 0);
+        const stale = Number(expected.stale_for_audit_end_count ?? Math.max(0, measured - current));
+        const oldest = expected.oldest_measured_through || "";
+        const newest = expected.newest_measured_through || "";
+        historyFreshness.textContent = measured
+          ? `确认缺失只针对最近一次权威 expected set：${measured} 本已测量，其中 ${current} 本测量至当前审计日、${stale} 本测量时间较早${oldest && newest ? `（范围 ${oldest}—${newest}）` : ""}。`
+          : "权威 expected-set 新鲜度暂不可用；不把快照生成时间当作完整性新鲜度。";
+      }
       const years = backfillStatus.years || {};
       const yearKeys = Object.keys(years).sort((a, b) => b.localeCompare(a));
       const countOf = (coverage, key) => Math.max(0, Number(coverage?.[key] || 0));

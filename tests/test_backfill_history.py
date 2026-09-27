@@ -21,6 +21,7 @@ from scripts.backfill_history import (
     migrate_legacy_state,
     main as backfill_main,
     plan_from_discovery,
+    record_discovery,
     retry_class_for,
     rotate_journals,
     run_issue,
@@ -51,6 +52,70 @@ class BackfillHistoryTests(unittest.TestCase):
         self.assertEqual(1, entry["attempt_count"])
         self.assertTrue(entry["last_attempt_at"])
         self.assertEqual("MetadataFallbackError", entry["last_error_code"])
+
+    def test_state_persists_monotonic_lifecycle_timestamps(self) -> None:
+        import scripts.backfill_history as backfill_module
+
+        ref = HistoricalIssue("AER", 2024, "114", "1", "https://example.org/issue")
+        old_state_path = backfill_module.STATE_PATH
+        with tempfile.TemporaryDirectory() as directory:
+            backfill_module.STATE_PATH = Path(directory) / "state.json"
+            state = {"issues": {}}
+            try:
+                update_state(state, ref, status="source_pending")
+                first = dict(state["issues"][ref.issue_id])
+                update_state(state, ref, status="source_pending")
+                second = dict(state["issues"][ref.issue_id])
+                update_state(state, ref, status="ready")
+                ready = dict(state["issues"][ref.issue_id])
+            finally:
+                backfill_module.STATE_PATH = old_state_path
+
+        self.assertTrue(first["status_since"])
+        self.assertTrue(first["source_pending_since"])
+        self.assertEqual(first["status_since"], second["status_since"])
+        self.assertEqual(
+            first["source_pending_since"],
+            second["source_pending_since"],
+        )
+        self.assertEqual("ready", ready["publication_state"])
+        self.assertTrue(ready["canonical_ready_at"])
+        self.assertNotIn("source_pending_since", ready)
+
+    def test_authoritative_discovery_preserves_first_observed_at(self) -> None:
+        import scripts.backfill_history as backfill_module
+
+        ref = HistoricalIssue("AER", 2026, "116", "9", "https://example.org/issue")
+        old_state_path = backfill_module.STATE_PATH
+        with tempfile.TemporaryDirectory() as directory:
+            backfill_module.STATE_PATH = Path(directory) / "state.json"
+            state = {"issues": {}, "discovery": {}}
+            try:
+                record_discovery(
+                    state,
+                    "AER",
+                    [ref],
+                    {"observed_evidence_path": "evidence.json"},
+                    refreshed_at="2026-09-26T10:00:00+00:00",
+                )
+                first = state["discovery"]["AER"]["issue_refs"][ref.issue_id][
+                    "authority_observed_at"
+                ]
+                record_discovery(
+                    state,
+                    "AER",
+                    [ref],
+                    {"observed_evidence_path": "evidence.json"},
+                    refreshed_at="2026-09-27T10:00:00+00:00",
+                )
+                second = state["discovery"]["AER"]["issue_refs"][ref.issue_id][
+                    "authority_observed_at"
+                ]
+            finally:
+                backfill_module.STATE_PATH = old_state_path
+
+        self.assertEqual("2026-09-26T10:00:00+00:00", first)
+        self.assertEqual(first, second)
 
     def test_atomic_checkpoint_write_is_valid_json(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
