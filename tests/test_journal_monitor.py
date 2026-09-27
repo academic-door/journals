@@ -12,6 +12,7 @@ from unittest.mock import patch
 
 from scripts.journal_monitor import (
     ALERT_THRESHOLD,
+    _stamp_authority_observation,
     Candidate,
     detect_all,
     evaluate_observation,
@@ -50,6 +51,41 @@ def crossref_item(
         "issue": issue,
         "published": {"date-parts": [list(published)]},
     }
+
+
+class LifecycleInstrumentationTests(unittest.TestCase):
+    def test_first_party_observation_is_monotonic_per_issue(self) -> None:
+        previous = {
+            "authority_observed_issue_id": "demo-11-1",
+            "authority_observed_at": "2026-09-26T10:00:00+00:00",
+        }
+        entry = {
+            "announcement": {
+                "issue_id": "demo-11-1",
+                "source_authority": "first_party",
+                "observed_at": "2026-09-27T10:00:00+00:00",
+            }
+        }
+        _stamp_authority_observation(entry, previous)
+        self.assertEqual("demo-11-1", entry["authority_observed_issue_id"])
+        self.assertEqual(
+            "2026-09-26T10:00:00+00:00",
+            entry["authority_observed_at"],
+        )
+
+        next_issue = {
+            "announcement": {
+                "issue_id": "demo-11-2",
+                "source_authority": "first_party",
+                "observed_at": "2026-09-27T11:00:00+00:00",
+            }
+        }
+        _stamp_authority_observation(next_issue, entry)
+        self.assertEqual("demo-11-2", next_issue["authority_observed_issue_id"])
+        self.assertEqual(
+            "2026-09-27T11:00:00+00:00",
+            next_issue["authority_observed_at"],
+        )
 
 
 class CandidateSelectionTests(unittest.TestCase):
