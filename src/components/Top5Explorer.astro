@@ -298,7 +298,12 @@ const initialIssue = initialIssuePath
         const journal = state.collection.journals.find(
           (item) => item.journal_id === select.value
         );
-        if (journal) loadIssue(journal);
+        if (journal) {
+          loadIssue(journal).catch((error) => {
+            document.querySelector("#issue-summary").innerHTML =
+              `<p class="error-message">卷期载入失败：${escapeHtml(error.message)}</p>`;
+          });
+        }
       };
       return;
     }
@@ -338,7 +343,12 @@ const initialIssue = initialIssuePath
         const journal = state.collection.journals.find(
           (item) => item.journal_id === button.dataset.journal
         );
-        if (journal) loadIssue(journal);
+        if (journal) {
+          loadIssue(journal).catch((error) => {
+            document.querySelector("#issue-summary").innerHTML =
+              `<p class="error-message">卷期载入失败：${escapeHtml(error.message)}</p>`;
+          });
+        }
       });
     });
     tabs.onkeydown = (event) => {
