@@ -523,12 +523,20 @@ def update_state(
     integrity: dict[str, Any] | None = None,
 ) -> None:
     previous = state.setdefault("issues", {}).get(issue.issue_id, {})
+    previous_status = str(previous.get("status", "") or "")
     attempted = status == "collected" or (
         status == "blocked" and str(previous.get("status", "")) != "collected"
     )
     attempt_count = int(previous.get("attempt_count") or 0) + int(attempted)
     attempt_stamp = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     retry_class = retry_class_for(status, error)
+    readiness = _status_fields(status, integrity)
+    status_since = (
+        str(previous.get("status_since", "") or "")
+        if previous_status == status and previous.get("status_since")
+        else attempt_stamp
+    )
+    publication_state = str(readiness.get("publication_state", status))
     entry = {
         "journal": issue.journal,
         "year": issue.year,
@@ -536,6 +544,7 @@ def update_state(
         "issue": issue.issue,
         "official_url": issue.official_url,
         "status": status,
+        "status_since": status_since,
         "last_error": error,
         "retry_class": retry_class,
         "attempt_count": attempt_count,
@@ -543,8 +552,21 @@ def update_state(
         "last_error_code": (
             str(error).split(":", 1)[0].strip() if error else ""
         ),
-        **_status_fields(status, integrity),
+        **readiness,
     }
+    if publication_state == "source_pending":
+        entry["source_pending_since"] = (
+            str(previous.get("source_pending_since", "") or "")
+            if str(previous.get("publication_state", "")) == "source_pending"
+            and previous.get("source_pending_since")
+            else attempt_stamp
+        )
+    if publication_state == "ready":
+        entry["canonical_ready_at"] = (
+            str(previous.get("canonical_ready_at", "") or "")
+            if previous.get("canonical_ready_at")
+            else attempt_stamp
+        )
     next_at = next_retry_after(retry_class, datetime.now(timezone.utc))
     if next_at:
         entry["next_retry_at"] = next_at
@@ -621,22 +643,35 @@ def record_discovery(
 
     ordered = sorted(issues, key=historical_issue_sort_key)
     stamp = refreshed_at or datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    authority = discovery_authority(definition)
+    previous_snapshot = state.setdefault("discovery", {}).get(journal, {}) or {}
+    previous_refs = previous_snapshot.get("issue_refs", {}) or {}
+    authoritative = authority in {"official_archive", "official_archive_snapshot"}
+    issue_refs = {}
+    for issue in ordered:
+        ref = {
+            "journal": issue.journal,
+            "year": issue.year,
+            "volume": issue.volume,
+            "issue": issue.issue,
+            "official_url": issue.official_url,
+        }
+        if authoritative:
+            previous_observed = str(
+                (previous_refs.get(issue.issue_id) or {}).get(
+                    "authority_observed_at", ""
+                )
+                or ""
+            )
+            ref["authority_observed_at"] = previous_observed or stamp
+        issue_refs[issue.issue_id] = ref
     state["schema_version"] = STATE_SCHEMA_VERSION
     state["updated_at"] = stamp
-    state.setdefault("discovery", {})[journal] = {
+    state["discovery"][journal] = {
         "issue_ids": [issue.issue_id for issue in ordered],
         "issue_years": {issue.issue_id: issue.year for issue in ordered},
-        "issue_refs": {
-            issue.issue_id: {
-                "journal": issue.journal,
-                "year": issue.year,
-                "volume": issue.volume,
-                "issue": issue.issue,
-                "official_url": issue.official_url,
-            }
-            for issue in ordered
-        },
-        "authority": discovery_authority(definition),
+        "issue_refs": issue_refs,
+        "authority": authority,
         "refreshed_at": stamp,
         "collector_revision": COLLECTOR_REVISION,
     }
