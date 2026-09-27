@@ -21,7 +21,11 @@ const fetchJson = async (url) => {
 
 const loadRecords = async (endpoint) => {
   if (!cache.has(endpoint)) {
-    cache.set(endpoint, fetchJson(endpoint));
+    const request = fetchJson(endpoint).catch((error) => {
+      cache.delete(endpoint);
+      throw error;
+    });
+    cache.set(endpoint, request);
   }
   return cache.get(endpoint);
 };
@@ -76,7 +80,7 @@ const resultCard = (record) => `
       ${record.china_related ? '<span class="china-tag">中国相关</span>' : ""}
     </div>
     <h2>${escapeHtml(record.title_cn || record.title_en)}</h2>
-    <p class="paper-title-en">${escapeHtml(record.title_en)}</p>
+    ${record.title_cn && record.title_cn !== record.title_en ? `<p class="paper-title-en">${escapeHtml(record.title_en)}</p>` : ""}
     <p class="paper-authors">${escapeHtml((record.authors || []).join(", "))}</p>
     <div class="search-result-abstracts">
       <p>${escapeHtml(record.abstract_en || (record.abstract_status === "official_not_provided" ? "The publisher did not provide a standalone Abstract; refer to the official full text." : ""))}</p>
@@ -97,6 +101,9 @@ let loadMoreButton = null;
 let continueYearsButton = null;
 let yearQueue = [];
 let limitHintShown = false;
+let activeSearchGeneration = 0;
+
+const isCurrentSearch = (generation) => generation === activeSearchGeneration;
 
 const renderVisible = () => {
   const visible = filteredRecords.slice(0, renderedCount);
@@ -178,13 +185,15 @@ const collectFilters = () => ({
   history: document.querySelector("#global-search-history").checked,
 });
 
-const presentResults = (countLabel) => {
+const presentResults = (countLabel, generation = activeSearchGeneration) => {
+  if (!isCurrentSearch(generation)) return;
   renderedCount = Math.min(PAGE_SIZE, filteredRecords.length);
   statusElement.textContent = `找到 ${filteredRecords.length} 篇论文 · ${countLabel}`;
   renderVisible();
 };
 
-const loadNextYear = async (filters) => {
+const loadNextYear = async (filters, generation = activeSearchGeneration) => {
+  if (!isCurrentSearch(generation)) return;
   if (!yearQueue.length) {
     statusElement.textContent = `找到 ${filteredRecords.length} 篇论文 · 全部历史卷期`;
     renderVisible();
@@ -195,6 +204,7 @@ const loadNextYear = async (filters) => {
   statusElement.textContent = `正在载入 ${year} 年卷期索引……${remaining ? `（还有 ${remaining} 个年份）` : ""}`;
   try {
     const payload = await loadRecords(`${base}api/v1/search/years/${year}.json`);
+    if (!isCurrentSearch(generation)) return;
     const matched = (payload.records || []).filter((record) =>
       matchesFilters(record, filters)
     );
@@ -214,7 +224,7 @@ const loadNextYear = async (filters) => {
         continueYearsButton.id = "load-earlier-years";
         continueYearsButton.className = "button";
         continueYearsButton.textContent = "继续载入更早年份";
-        continueYearsButton.addEventListener("click", () => loadNextYear(filters));
+        continueYearsButton.addEventListener("click", () => loadNextYear(filters, generation));
       }
       renderVisible();
       results.insertAdjacentElement("beforeend", continueYearsButton);
@@ -223,6 +233,7 @@ const loadNextYear = async (filters) => {
       renderVisible();
     }
   } catch (error) {
+    if (!isCurrentSearch(generation)) return;
     results.insertAdjacentHTML(
       "beforeend",
       `<p class="error-message">${year} 年索引载入失败（${escapeHtml(error.message)}）。
@@ -230,17 +241,19 @@ const loadNextYear = async (filters) => {
     );
     document.querySelector("#retry-year")?.addEventListener("click", () => {
       document.querySelector("#retry-year")?.closest("p")?.remove();
-      loadNextYear(filters);
+      loadNextYear(filters, generation);
     });
   }
 };
 
 const runSearch = async () => {
+  const generation = ++activeSearchGeneration;
   const filters = collectFilters();
   resetPaging();
   let index = {};
   try {
     index = await loadRecords(`${base}api/v1/search/index.json`);
+    if (!isCurrentSearch(generation)) return;
   } catch {
     // Metadata is a convenience; every code path below falls back to the
     // legacy single-file indexes when the manifest is unavailable.
@@ -255,20 +268,23 @@ const runSearch = async () => {
       const payload = await loadRecords(
         index.china_latest_url || `${base}api/v1/search/china-latest.json`
       );
+      if (!isCurrentSearch(generation)) return;
       filteredRecords = (payload.records || []).filter((record) =>
         matchesFilters(record, filters)
       );
-      presentResults("中国相关 · 仅最新卷期");
+      presentResults("中国相关 · 仅最新卷期", generation);
     } catch (error) {
       // Transition fallback: older data branches may not publish the
       // dedicated China index yet; filter the regular latest index instead.
       try {
         const payload = await loadRecords(`${base}api/v1/search/latest.json`);
+        if (!isCurrentSearch(generation)) return;
         filteredRecords = (payload.records || []).filter((record) =>
           matchesFilters(record, filters)
         );
-        presentResults("中国相关 · 仅最新卷期（回退索引）");
+        presentResults("中国相关 · 仅最新卷期（回退索引）", generation);
       } catch (fallbackError) {
+        if (!isCurrentSearch(generation)) return;
         statusElement.textContent = "中国相关索引载入失败，请稍后重试。";
         results.innerHTML = `<p class="error-message">${escapeHtml(fallbackError.message)}</p>`;
       }
@@ -284,11 +300,13 @@ const runSearch = async () => {
       const payload = await loadRecords(
         `${base}api/v1/search/years/${filters.year}.json`
       );
+      if (!isCurrentSearch(generation)) return;
       filteredRecords = (payload.records || []).filter((record) =>
         matchesFilters(record, filters)
       );
-      presentResults(`${filters.year} 年${filters.history ? " · 历史卷期" : ""}`);
+      presentResults(`${filters.year} 年${filters.history ? " · 历史卷期" : ""}`, generation);
     } catch (error) {
+      if (!isCurrentSearch(generation)) return;
       statusElement.textContent = `${filters.year} 年索引载入失败，请稍后重试。`;
       results.innerHTML = `<p class="error-message">${escapeHtml(error.message)}</p>`;
     }
@@ -301,11 +319,13 @@ const runSearch = async () => {
     renderSkeleton();
     try {
       const payload = await loadRecords(`${base}api/v1/search/latest.json`);
+      if (!isCurrentSearch(generation)) return;
       filteredRecords = (payload.records || []).filter((record) =>
         matchesFilters(record, filters)
       );
-      presentResults("仅最新卷期");
+      presentResults("仅最新卷期", generation);
     } catch (error) {
+      if (!isCurrentSearch(generation)) return;
       statusElement.textContent = "检索索引载入失败，请稍后重试。";
       results.innerHTML = `<p class="error-message">${escapeHtml(error.message)}</p>`;
     }
@@ -321,17 +341,19 @@ const runSearch = async () => {
     renderSkeleton();
     try {
       const payload = await loadRecords(`${base}api/v1/search/all.json`);
+      if (!isCurrentSearch(generation)) return;
       filteredRecords = (payload.records || []).filter((record) =>
         matchesFilters(record, filters)
       );
-      presentResults("全部历史卷期（回退索引）");
+      presentResults("全部历史卷期（回退索引）", generation);
     } catch (error) {
+      if (!isCurrentSearch(generation)) return;
       statusElement.textContent = "检索索引载入失败，请稍后重试。";
       results.innerHTML = `<p class="error-message">${escapeHtml(error.message)}</p>`;
     }
     return;
   }
-  await loadNextYear(filters);
+  await loadNextYear(filters, generation);
 };
 
 form?.addEventListener("submit", (event) => {
