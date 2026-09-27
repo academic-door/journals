@@ -113,8 +113,8 @@ class HistoryAndSearchUiTests(unittest.TestCase):
         page = (ROOT / "src" / "pages" / "status" / "index.astro").read_text(
             encoding="utf-8"
         )
-        self.assertIn("api/v1/completeness/2026.json", page)
         self.assertIn("api/v1/slo.json", page)
+        self.assertNotIn("api/v1/completeness/2026.json", page)
         self.assertIn("确认缺失只针对最近一次权威 expected set", page)
 
     def test_reader_footer_discloses_ai_assisted_translation(self) -> None:
