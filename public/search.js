@@ -258,6 +258,7 @@ const runSearch = async () => {
     // Metadata is a convenience; every code path below falls back to the
     // legacy single-file indexes when the manifest is unavailable.
   }
+  if (!isCurrentSearch(generation)) return;
   const years = (index.years || []).map((entry) => entry.year).sort((a, b) => b - a);
 
   // A China-only latest search reads the dedicated small index directly.
