@@ -407,6 +407,8 @@ def build_payload(
     *,
     journals: dict[str, Any],
     api_root: Path,
+    previous_payload: dict[str, Any] | None = None,
+    observed_at: str | None = None,
 ) -> dict[str, Any]:
     states: list[dict[str, Any]] = []
     merged_issues: dict[str, Any] = {}
@@ -432,6 +434,28 @@ def build_payload(
         since = str(entry.get("source_pending_since", "") or "").strip()
         if since:
             source_pending_lifecycle[str(issue_id)] = {"since": since}
+
+    observation_stamp = (
+        observed_at
+        or datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    )
+    previous_lifecycle = (
+        previous_payload.get("lifecycle", {})
+        if isinstance(previous_payload, dict)
+        else {}
+    )
+    if not isinstance(previous_lifecycle, dict):
+        previous_lifecycle = {}
+    previous_missing = previous_lifecycle.get("confirmed_missing", {})
+    if not isinstance(previous_missing, dict):
+        previous_missing = {}
+    confirmed_missing_lifecycle: dict[str, dict[str, str]] = {}
+    for issue_id in coverage.get("missing_issue_ids", []):
+        prior = previous_missing.get(str(issue_id), {})
+        if not isinstance(prior, dict):
+            prior = {}
+        since = str(prior.get("since", "") or "").strip() or observation_stamp
+        confirmed_missing_lifecycle[str(issue_id)] = {"since": since}
 
     periods: dict[str, dict[str, Any]] = {}
     for label, state in raw_periods:
@@ -475,12 +499,13 @@ def build_payload(
 
     return {
         "schema_version": "1.2",
-        "updated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+        "updated_at": observation_stamp,
         "summary": summarize(reconciled),
         "coverage": coverage,
         "journal_coverage": journal_coverage,
         "lifecycle": {
             "source_pending": source_pending_lifecycle,
+            "confirmed_missing": confirmed_missing_lifecycle,
         },
         "journals": group_by_journal(reconciled),
         "periods": periods,
@@ -502,12 +527,19 @@ def main() -> int:
     parser.add_argument("--journals-config", default=str(DEFAULT_JOURNALS_CONFIG))
     args = parser.parse_args()
 
+    out_json = Path(args.out_json)
+    previous_payload: dict[str, Any] | None = None
+    if out_json.exists():
+        previous_raw = json.loads(out_json.read_text(encoding="utf-8"))
+        if not isinstance(previous_raw, dict):
+            raise ValueError(f"{out_json}: previous status must be a JSON object")
+        previous_payload = previous_raw
     payload = build_payload(
         [Path(value) for value in args.state],
         journals=load_journals(Path(args.journals_config)),
         api_root=Path(args.api_root),
+        previous_payload=previous_payload,
     )
-    out_json = Path(args.out_json)
     out_json.parent.mkdir(parents=True, exist_ok=True)
     out_json.write_text(
         json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
