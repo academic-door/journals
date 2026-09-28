@@ -153,6 +153,23 @@ def build_slo_metrics(
     else:
         source_pending_measurement_state = "count_only"
 
+    confirmed_missing_lifecycle = lifecycle_backfill.get("confirmed_missing", {})
+    if not isinstance(confirmed_missing_lifecycle, dict):
+        confirmed_missing_lifecycle = {}
+    confirmed_missing_ages = sorted(
+        age
+        for raw in confirmed_missing_lifecycle.values()
+        if isinstance(raw, dict)
+        and (age := _age_seconds(now, raw.get("since"))) is not None
+    )
+    confirmed_missing_timestamped_count = len(confirmed_missing_ages)
+    if missing_count == confirmed_missing_timestamped_count:
+        confirmed_missing_measurement_state = "direct"
+    elif confirmed_missing_timestamped_count:
+        confirmed_missing_measurement_state = "partial"
+    else:
+        confirmed_missing_measurement_state = "count_only"
+
     reconciliation = completeness.get("reconciliation", {})
     if not isinstance(reconciliation, dict):
         reconciliation = {}
@@ -297,14 +314,24 @@ def build_slo_metrics(
                 "required_instrumentation": ["source_pending_since"],
             },
             "confirmed_missing_age": {
-                "measurement_state": "count_only",
+                "measurement_state": confirmed_missing_measurement_state,
                 "open_count": missing_count,
-                "age_measurable": False,
-                "reason": (
-                    "current completeness/backfill surfaces identify missing issues but "
-                    "do not persist the first confirmed-missing transition timestamp"
+                "timestamped_count": confirmed_missing_timestamped_count,
+                "age_measurable": (
+                    missing_count == confirmed_missing_timestamped_count
                 ),
-                "required_instrumentation": ["missing_since"],
+                "min_age_seconds": (
+                    confirmed_missing_ages[0] if confirmed_missing_ages else None
+                ),
+                "max_age_seconds": (
+                    confirmed_missing_ages[-1] if confirmed_missing_ages else None
+                ),
+                "reason": (
+                    "age is measured from the first release snapshot that confirms "
+                    "an authoritative expected issue is absent from the canonical "
+                    "archive; the timestamp is preserved while the issue remains missing"
+                ),
+                "required_instrumentation": ["confirmed_missing_since"],
             },
         },
     }

@@ -89,8 +89,11 @@ class SloMetricsBaselineTests(unittest.TestCase):
         self.assertTrue(payload["metrics"]["source_pending_age"]["age_measurable"])
         self.assertEqual(0, payload["metrics"]["source_pending_age"]["timestamped_count"])
         self.assertEqual(
-            "count_only",
+            "direct",
             payload["metrics"]["confirmed_missing_age"]["measurement_state"],
+        )
+        self.assertTrue(
+            payload["metrics"]["confirmed_missing_age"]["age_measurable"]
         )
 
     def test_first_party_lifecycle_latency_is_measured_only_for_matching_issue(self) -> None:
@@ -191,6 +194,52 @@ class SloMetricsBaselineTests(unittest.TestCase):
             generated_at="2026-09-27T11:00:00+00:00",
         )
         metric = payload["metrics"]["source_pending_age"]
+        self.assertEqual("direct", metric["measurement_state"])
+        self.assertEqual(1, metric["open_count"])
+        self.assertEqual(1, metric["timestamped_count"])
+        self.assertTrue(metric["age_measurable"])
+        self.assertEqual(10800, metric["min_age_seconds"])
+        self.assertEqual(10800, metric["max_age_seconds"])
+
+    def test_confirmed_missing_age_uses_first_release_confirmation(self) -> None:
+        completeness = {
+            "reconciliation": {
+                "journal_count": 1,
+                "complete": 0,
+                "partial": 1,
+                "not_measured": 0,
+                "source_blocked": 0,
+            },
+            "journals": [
+                {
+                    "journalKey": "AER",
+                    "status": "PARTIAL",
+                    "measuredThrough": "2026-09-27",
+                    "freshnessStatus": "CURRENT_FOR_AUDIT_END",
+                }
+            ],
+        }
+        backfill = {
+            "coverage": {
+                "publication_ready": 0,
+                "missing": 1,
+                "source_pending": 0,
+            },
+            "lifecycle": {
+                "confirmed_missing": {
+                    "aer-116-9": {
+                        "since": "2026-09-27T08:00:00+00:00",
+                    }
+                }
+            },
+        }
+        payload = build_slo_metrics(
+            completeness,
+            {"summary": {"configured_journals": 1}, "last_successful_checks": {}},
+            backfill,
+            generated_at="2026-09-27T11:00:00+00:00",
+        )
+        metric = payload["metrics"]["confirmed_missing_age"]
         self.assertEqual("direct", metric["measurement_state"])
         self.assertEqual(1, metric["open_count"])
         self.assertEqual(1, metric["timestamped_count"])

@@ -278,6 +278,61 @@ class BackfillStatusTests(unittest.TestCase):
             payload["lifecycle"]["source_pending"],
         )
 
+    def test_confirmed_missing_since_is_preserved_across_status_rebuilds(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            state_path = root / "field-2026-2026.json"
+            state_path.write_text(
+                json.dumps(
+                    {
+                        "schema_version": "1.1",
+                        "issues": {},
+                        "discovery": {
+                            "AER": {
+                                "issue_ids": ["aer-116-9"],
+                                "issue_years": {"aer-116-9": 2026},
+                                "issue_refs": {
+                                    "aer-116-9": {
+                                        "journal": "AER",
+                                        "year": 2026,
+                                        "volume": "116",
+                                        "issue": "9",
+                                        "official_url": "https://example.org/issue",
+                                    }
+                                },
+                                "authority": "official_archive",
+                                "refreshed_at": "2026-09-27T08:00:00+00:00",
+                                "collector_revision": COLLECTOR_REVISION,
+                            }
+                        },
+                    }
+                ),
+                encoding="utf-8",
+            )
+            first = build_payload(
+                [state_path],
+                journals={"AER": {"id": "aer", "name": "AER"}},
+                api_root=root / "api",
+                observed_at="2026-09-27T10:00:00+00:00",
+            )
+            second = build_payload(
+                [state_path],
+                journals={"AER": {"id": "aer", "name": "AER"}},
+                api_root=root / "api",
+                previous_payload=first,
+                observed_at="2026-09-28T10:00:00+00:00",
+            )
+
+        self.assertEqual(1, first["coverage"]["missing"])
+        self.assertEqual(
+            {"aer-116-9": {"since": "2026-09-27T10:00:00+00:00"}},
+            first["lifecycle"]["confirmed_missing"],
+        )
+        self.assertEqual(
+            first["lifecycle"]["confirmed_missing"],
+            second["lifecycle"]["confirmed_missing"],
+        )
+
     def test_schema_12_coverage_uses_discovery_and_archive_readback(self) -> None:
         article = {
             "paper_id": "doi:10.1/demo",
