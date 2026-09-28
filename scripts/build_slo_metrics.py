@@ -133,6 +133,26 @@ def build_slo_metrics(
     source_pending_count = int(coverage.get("source_pending", 0) or 0)
     missing_count = int(coverage.get("missing", 0) or 0)
 
+    lifecycle_backfill = backfill_status.get("lifecycle", {})
+    if not isinstance(lifecycle_backfill, dict):
+        lifecycle_backfill = {}
+    source_pending_lifecycle = lifecycle_backfill.get("source_pending", {})
+    if not isinstance(source_pending_lifecycle, dict):
+        source_pending_lifecycle = {}
+    source_pending_ages = sorted(
+        age
+        for raw in source_pending_lifecycle.values()
+        if isinstance(raw, dict)
+        and (age := _age_seconds(now, raw.get("since"))) is not None
+    )
+    source_pending_timestamped_count = len(source_pending_ages)
+    if source_pending_count == source_pending_timestamped_count:
+        source_pending_measurement_state = "direct"
+    elif source_pending_timestamped_count:
+        source_pending_measurement_state = "partial"
+    else:
+        source_pending_measurement_state = "count_only"
+
     reconciliation = completeness.get("reconciliation", {})
     if not isinstance(reconciliation, dict):
         reconciliation = {}
@@ -257,15 +277,24 @@ def build_slo_metrics(
                 ],
             },
             "source_pending_age": {
-                "measurement_state": "count_only",
+                "measurement_state": source_pending_measurement_state,
                 "open_count": source_pending_count,
-                "age_measurable": False,
-                "reason": (
-                    "historical lifecycle now persists future source_pending_since "
-                    "transitions, but the public coverage input does not yet expose "
-                    "per-issue timestamps for age aggregation"
+                "timestamped_count": source_pending_timestamped_count,
+                "age_measurable": (
+                    source_pending_count == source_pending_timestamped_count
                 ),
-                "required_instrumentation": ["source_pending_since_public_rollup"],
+                "min_age_seconds": (
+                    source_pending_ages[0] if source_pending_ages else None
+                ),
+                "max_age_seconds": (
+                    source_pending_ages[-1] if source_pending_ages else None
+                ),
+                "reason": (
+                    "age is computed only from monotonic source_pending_since "
+                    "timestamps persisted by the historical lifecycle state; "
+                    "untimestamped legacy entries remain explicitly partial"
+                ),
+                "required_instrumentation": ["source_pending_since"],
             },
             "confirmed_missing_age": {
                 "measurement_state": "count_only",
