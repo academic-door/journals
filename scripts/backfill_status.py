@@ -424,6 +424,15 @@ def build_payload(
         expected, reconciled, journals, api_root
     )
 
+    source_pending_lifecycle: dict[str, dict[str, str]] = {}
+    for issue_id in coverage.get("source_pending_issue_ids", []):
+        entry = reconciled.get(str(issue_id), {})
+        if not isinstance(entry, dict):
+            continue
+        since = str(entry.get("source_pending_since", "") or "").strip()
+        if since:
+            source_pending_lifecycle[str(issue_id)] = {"since": since}
+
     periods: dict[str, dict[str, Any]] = {}
     for label, state in raw_periods:
         issue_ids = list((state.get("issues", {}) or {}).keys())
@@ -470,6 +479,9 @@ def build_payload(
         "summary": summarize(reconciled),
         "coverage": coverage,
         "journal_coverage": journal_coverage,
+        "lifecycle": {
+            "source_pending": source_pending_lifecycle,
+        },
         "journals": group_by_journal(reconciled),
         "periods": periods,
         "years": years,
