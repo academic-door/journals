@@ -186,6 +186,98 @@ class BackfillStatusTests(unittest.TestCase):
         self.assertIn("2025", payload["years"])
         self.assertEqual(1, payload["years"]["2024"]["summary"]["translation_partial"])
 
+    def test_source_pending_lifecycle_is_exposed_only_for_open_canonical_issue(self) -> None:
+        article = {
+            "paper_id": "doi:10.1/demo",
+            "sequence": 1,
+            "article_type": "research-article",
+            "doi": "10.1/demo",
+            "title_en": "English title",
+            "title_cn": "中文标题",
+            "authors": ["A. Author"],
+            "abstract_en": "English abstract.",
+            "abstract_cn": "中文摘要。",
+            "source_url": "https://example.org/article",
+            "sources": {},
+            "translation": {"status": "complete"},
+            "quality_flags": [],
+        }
+        issue = {
+            "schema_version": "1.0",
+            "issue_id": "aer-114-1",
+            "journal_id": "aer",
+            "journal_name": "American Economic Review",
+            "volume": "114",
+            "issue": "1",
+            "source_url": "https://example.org/issue",
+            "retrieved_at": "2026-09-27T00:00:00+00:00",
+            "expected_article_count": 1,
+            "research_article_count": 1,
+            "status": "source_pending",
+            "content_status": "complete",
+            "source_status": "source_pending",
+            "publication_state": "source_pending",
+            "articles": [article],
+            "quality": {
+                "roster_match": True,
+                "order_preserved": True,
+                "roster_authority": "crossref-provisional",
+                "roster_transport": "crossref",
+                "doi_complete": 1,
+                "authors_complete": 1,
+                "abstract_en_complete": 1,
+                "translation_complete": 1,
+                "duplicate_count": 0,
+                "flags": ["crossref_provisional_roster"],
+            },
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            archive_dir = root / "api" / "journals" / "aer" / "issues"
+            archive_dir.mkdir(parents=True)
+            (archive_dir / "aer-114-1.json").write_text(
+                json.dumps(issue), encoding="utf-8"
+            )
+            state_path = root / "field-2023-2024.json"
+            state_path.write_text(
+                json.dumps(
+                    {
+                        "schema_version": "1.1",
+                        "issues": {
+                            "aer-114-1": {
+                                "journal": "AER",
+                                "year": 2024,
+                                "volume": "114",
+                                "issue": "1",
+                                "status": "source_pending",
+                                "source_pending_since": "2026-09-26T10:00:00+00:00",
+                            }
+                        },
+                        "discovery": {
+                            "AER": {
+                                "issue_ids": ["aer-114-1"],
+                                "issue_years": {"aer-114-1": 2024},
+                                "authority": "official_archive",
+                                "refreshed_at": "2026-09-26T10:00:00+00:00",
+                                "collector_revision": COLLECTOR_REVISION,
+                            }
+                        },
+                    }
+                ),
+                encoding="utf-8",
+            )
+            payload = build_payload(
+                [state_path],
+                journals={"AER": {"id": "aer", "name": "AER"}},
+                api_root=root / "api",
+            )
+
+        self.assertEqual(1, payload["coverage"]["source_pending"])
+        self.assertEqual(
+            {"aer-114-1": {"since": "2026-09-26T10:00:00+00:00"}},
+            payload["lifecycle"]["source_pending"],
+        )
+
     def test_schema_12_coverage_uses_discovery_and_archive_readback(self) -> None:
         article = {
             "paper_id": "doi:10.1/demo",
