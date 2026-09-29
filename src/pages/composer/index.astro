@@ -14,7 +14,7 @@ try {
   const top5 = JSON.parse(
     readFileSync(path.join(apiRoot, "collections", "top5.json"), "utf-8"),
   );
-  const journal = top5.journals?.find((item) => item.journal_id === "aer") || top5.journals?.[0];
+  const journal = top5.journals?.find((item: any) => item.journal_id === "aer") || top5.journals?.[0];
   initialJournal = journal?.journal_id || "aer";
   initialIssueId = journal?.latest_issue_id || "";
   if (journal?.latest_issue_url) {
@@ -89,7 +89,6 @@ const privateComposer = "https://academic-door-composer.academic-door.workers.de
   </main>
 
   <script is:inline define:vars={{ base, initialIssue, initialJournal, initialIssueId, privateComposer }}>
-    const root = document.querySelector(".composer-preview-page");
     const preview = document.querySelector("#composer-preview-card");
     const context = document.querySelector("#preview-context");
     const privateLink = document.querySelector("#private-composer-link");
