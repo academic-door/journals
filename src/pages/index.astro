@@ -97,7 +97,7 @@ const top5Highlights = (top5.journals || []).slice(0, 5);
       </div>
       <div class="latest-journal-grid">
         {top5Highlights.map((journal) => (
-          <a class="latest-journal-card" href={`./top5/?journal=${journal.journal_id}`}>
+          <a class="latest-journal-card" href="./top5/">
             <span>{journal.short_name}</span>
             <strong>{journal.latest_issue_label || journal.latest_issue_id}</strong>
             <small>{journal.publication_date || "最新可读卷期"} · {journal.article_count || 0} 篇</small>
