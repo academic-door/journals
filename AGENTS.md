@@ -2,9 +2,7 @@
 
 ## Mission
 
-Build the Academic Door unified journal data engine, TOP5/Field Journals
-public site, and Composer. Optimize for a three-minute human publishing flow:
-open the notified issue, make any optional selection, copy, paste, and publish.
+Build the Academic Door unified journal data engine and the public 顶刊之门 / 领域之门 reader surfaces. Journals owns the public Composer Preview / Entry and canonical journal/issue handoff; the authenticated editing, renderer, theme, copy/export, draft and publication-history workbench belongs to private ⑥ Composer.
 
 ## Required boundaries
 
@@ -25,8 +23,8 @@ open the notified issue, make any optional selection, copy, paste, and publish.
 - Run the Astro build.
 - Validate public JSON against the schema.
 - Confirm no secrets or local absolute paths are staged.
-- After deployment, read back the site, data API, Composer, health endpoint,
-  and project manifest.
+- After deployment, read back the site, data API, public Composer Preview, health endpoint,
+  and project manifest. Do not reintroduce anonymous editing/copy-export/theme-engine functionality into Journals.
 
 ## 任务结束汇报（必读）
 
