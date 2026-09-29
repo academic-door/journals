@@ -1,0 +1,111 @@
+name: Journals Public UX Preview
+
+on:
+  push:
+    branches:
+      - g12/public-ux-reset-preview
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: journals-public-ux-preview
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Check out preview branch
+        uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 11
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build isolated preview
+        env:
+          ASTRO_BASE: /journals/preview/public-ux-reset-v1
+          PUBLIC_PREVIEW_MODE: "1"
+          PUBLIC_JOURNAL_DATA_BASE: /journals/
+        run: |
+          pnpm run build
+          rm -rf dist/api
+          test -f dist/index.html
+          test -f dist/top5/index.html
+          test -f dist/fields/index.html
+          test -f dist/search/index.html
+          test -f dist/status/index.html
+          test -f dist/composer/index.html
+
+      - name: Install browser
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start local preview
+        run: python -m http.server 8777 --directory dist > /tmp/journals-preview.log 2>&1 &
+
+      - name: Browser QA desktop
+        env:
+          PREVIEW_URL: http://127.0.0.1:8777/
+          VIEWPORT_WIDTH: 1440
+        run: node tests/public_ux_preview_smoke.mjs
+
+      - name: Browser QA mobile
+        env:
+          PREVIEW_URL: http://127.0.0.1:8777/
+          VIEWPORT_WIDTH: 390
+        run: node tests/public_ux_preview_smoke.mjs
+
+      - name: Check out main for isolated preview publish
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          path: publish-main
+          fetch-depth: 1
+
+      - name: Publish preview subtree only
+        shell: bash
+        run: |
+          set -euo pipefail
+          target="$GITHUB_WORKSPACE/publish-main"
+          subtree="$target/public/preview/public-ux-reset-v1"
+          rm -rf "$subtree"
+          mkdir -p "$subtree"
+          cp -a dist/. "$subtree/"
+          cd "$target"
+          git config user.name "academic-door-preview-bot"
+          git config user.email "academic-door-preview-bot@users.noreply.github.com"
+          git add public/preview/public-ux-reset-v1
+          if git diff --cached --quiet; then
+            echo "Preview subtree already current."
+            exit 0
+          fi
+          git commit -m "preview: Journals public UX reset @ \${GITHUB_SHA}"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Verify public preview
+        shell: bash
+        run: |
+          preview="https://academic-door.github.io/journals/preview/public-ux-reset-v1/"
+          for attempt in $(seq 1 48); do
+            body="$(curl -fsSL "\${preview}?sha=\${GITHUB_SHA}&attempt=\${attempt}" || true)"
+            if grep -q "G12 Public UX Reset" <<<"$body"; then
+              echo "Preview published: $preview"
+              exit 0
+            fi
+            sleep 10
+          done
+          exit 1
