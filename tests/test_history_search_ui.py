@@ -31,8 +31,8 @@ class HistoryAndSearchUiTests(unittest.TestCase):
     def test_search_page_uses_china_dedicated_and_year_sliced_indexes(self) -> None:
         script = (ROOT / "public/search.js").read_text(encoding="utf-8")
         self.assertIn("api/v1/search/china-latest.json", script)
-        self.assertIn("api/v1/search/years/\${filters.year}.json", script)
-        self.assertIn("api/v1/search/years/\${year}.json", script)
+        self.assertIn("api/v1/search/years/${filters.year}.json", script)
+        self.assertIn("api/v1/search/years/${year}.json", script)
         self.assertIn("继续载入更早年份", script)
         self.assertIn("显示更多结果", script)
         self.assertIn('class="search-result skeleton"', script)
@@ -74,7 +74,7 @@ class HistoryAndSearchUiTests(unittest.TestCase):
         self.assertIn('role={collectionId === "top5" ? "tabpanel" : "region"}', explorer)
         self.assertIn('aria-label={collectionId === "fields" ? "当前卷期" : undefined}', explorer)
         self.assertIn('aria-controls="issue-panel"', explorer)
-        self.assertIn('id="journal-tab-\${escapeHtml(journal.journal_id)}"', explorer)
+        self.assertIn('id="journal-tab-${escapeHtml(journal.journal_id)}"', explorer)
         self.assertIn('issuePanel.setAttribute("aria-labelledby", activeTab.id)', explorer)
 
     def test_status_separates_source_acceptance_from_official_order(self) -> None:
