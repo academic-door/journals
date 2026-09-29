@@ -173,7 +173,7 @@ const formatTime = (value) => {
         const stale = Number(metric.stale_for_audit_end_count || 0);
         if (!target || !measured) return;
         target.textContent =
-          `当前 ${measured} 本期刊拥有权威 expected-set 测量；其中 ${current} 本测量至当前审计日，${stale} 本的权威测量时间较早。历史 missing=0/1 等数字只描述这些已建立 authority 的测量范围，不代表出版社未来尚未发布的卷期。`;
+          `当前 ${measured} 本期刊拥有权威 expected-set 测量；其中 ${current} 本测量至当前审计日，${stale} 本的权威测量时间较早。页面中的确认缺失数字只描述这些已建立 authority 的测量范围，不代表出版社未来尚未发布的卷期。`;
       })
       .catch(() => {
         if (target) {
