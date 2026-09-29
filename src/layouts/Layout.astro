@@ -18,6 +18,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   ? import.meta.env.BASE_URL
   : `${import.meta.env.BASE_URL}/`;
 const pathname = Astro.url.pathname;
+const previewMode = import.meta.env.PUBLIC_PREVIEW_MODE === "1";
 const canonical = `https://academic-door.github.io${pathname.endsWith("/") ? pathname : `${pathname}/`}`;
 const navItems = [
   { href: `${base}top5/`, label: "顶刊之门", match: "/journals/top5/" },
@@ -33,7 +34,10 @@ const navItems = [
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#173f35" />
-    <meta name="robots" content={noindex ? "noindex,follow" : "index,follow"} />
+    <meta
+      name="robots"
+      content={previewMode ? "noindex,nofollow,noarchive" : noindex ? "noindex,follow" : "index,follow"}
+    />
     <link rel="canonical" href={canonical} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Academic Door" />
@@ -46,6 +50,11 @@ const navItems = [
     <title>{title}</title>
   </head>
   <body class={workspace ? "workspace-layout" : undefined}>
+    {previewMode && (
+      <div class="preview-banner" role="status">
+        Preview · G12 Public UX Reset · 仅供验收，当前生产站未切换
+      </div>
+    )}
     <header class="site-header">
       <div class="brand-stack" aria-label="Academic Door 期刊">
         <a class="parent-brand" href="https://academic-door.github.io/" aria-label="返回 Academic Door 门厅">
