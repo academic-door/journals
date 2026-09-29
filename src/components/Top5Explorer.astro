@@ -30,6 +30,7 @@ const {
 const base = import.meta.env.BASE_URL.endsWith("/")
   ? import.meta.env.BASE_URL
   : `${import.meta.env.BASE_URL}/`;
+const dataBase = import.meta.env.PUBLIC_JOURNAL_DATA_BASE || base;
 const publicApi = new URL("../../public/api/v1/", import.meta.url);
 const initialCollection = JSON.parse(
   readFileSync(new URL(`collections/${collectionId}.json`, publicApi), "utf8"),
@@ -118,7 +119,7 @@ const initialIssue = initialIssuePath
   <section id="article-list" class="article-list"></section>
 </section>
 
-<script is:inline define:vars={{ base, collectionId, initialCollection, initialIssue }}>
+<script is:inline define:vars={{ base, dataBase, collectionId, initialCollection, initialIssue }}>
   const displayIssueUrl = (journal) =>
     journal?.latest_display_issue_url || journal?.latest_detected_issue_url || journal?.latest_issue_url || "";
   const initialJournal = initialCollection.journals.find(
@@ -263,7 +264,7 @@ const initialIssue = initialIssuePath
   const fetchIssue = (journal) => fetchIssueUrl(displayIssueUrl(journal));
 
   const fetchIssueIndex = (journal) => {
-    const url = `${base}api/v1/journals/${encodeURIComponent(journal.journal_id)}/issues/index.json`;
+    const url = `${dataBase}api/v1/journals/${encodeURIComponent(journal.journal_id)}/issues/index.json`;
     if (!state.issueIndexCache.has(url)) {
       const request = fetch(url)
         .then((response) => {
