@@ -56,12 +56,12 @@ const initialIssue = initialIssuePath
     <h1>{heading}</h1>
     <p>{description}</p>
     <nav class="collection-switcher" aria-label="期刊分类">
-      <a class:list={["button", { active: collectionId === "top5" }]} href={base}>TOP5</a>
-      <a class:list={["button", { active: collectionId === "fields" }]} href={`${base}fields/`}>领域顶刊</a>
+      <a class:list={["button", { active: collectionId === "top5" }]} href={`${base}top5/`}>顶刊之门</a>
+      <a class:list={["button", { active: collectionId === "fields" }]} href={`${base}fields/`}>领域之门</a>
     </nav>
   </div>
   <a id="composer-link" class="button button-primary" href={`${base}composer/`}>
-    在 Composer 中编辑
+    查看发布预览
   </a>
 </section>
 
