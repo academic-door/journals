@@ -31,10 +31,10 @@ class PublicProductBoundaryTests(unittest.TestCase):
         self.assertIn("跨刊检索", self.layout)
 
     def test_primary_nav_is_reader_first(self):
+        self.assertIn('{ href: `${base}top5/`, label: "顶刊之门"', self.layout)
+        self.assertIn('{ href: `${base}fields/`, label: "领域之门"', self.layout)
+        self.assertIn('{ href: `${base}search/`, label: "跨刊检索"', self.layout)
         nav = self.layout.split('class="reader-nav"', 1)[1].split("</nav>", 1)[0]
-        self.assertIn("顶刊之门", nav)
-        self.assertIn("领域之门", nav)
-        self.assertIn("跨刊检索", nav)
         self.assertNotIn("Composer", nav)
         self.assertNotIn("数据状态", nav)
 
@@ -63,7 +63,7 @@ class PublicProductBoundaryTests(unittest.TestCase):
         self.assertIn('params.get("issue")', self.composer)
         self.assertIn('privateUrl.searchParams.set("journal", journal)', self.composer)
         self.assertIn('privateUrl.searchParams.set("issue", issue)', self.composer)
-        self.assertIn("api/v1/journals/\${encodeURIComponent(journal)}/issues/\${encodeURIComponent(issue)}.json", self.composer)
+        self.assertIn("api/v1/journals/${encodeURIComponent(journal)}/issues/${encodeURIComponent(issue)}.json", self.composer)
 
     def test_public_composer_does_not_ship_private_theme_engine(self):
         for selector in (
@@ -109,8 +109,8 @@ class PublicProductBoundaryTests(unittest.TestCase):
         self.assertIn('meta name="robots"', self.layout)
 
     def test_catalog_links_use_canonical_door_routes(self):
-        self.assertIn('href={\`\${base}top5/\`}>顶刊之门</a>', self.explorer)
-        self.assertIn('href={\`\${base}fields/\`}>领域之门</a>', self.explorer)
+        self.assertIn('href={`${base}top5/`}>顶刊之门</a>', self.explorer)
+        self.assertIn('href={`${base}fields/`}>领域之门</a>', self.explorer)
         self.assertIn("查看发布预览", self.explorer)
 
     def test_homepage_reader_keeps_concise_abstract_labels(self):
@@ -122,7 +122,7 @@ class PublicProductBoundaryTests(unittest.TestCase):
         self.assertNotIn("Crossref 备用来源", self.explorer)
 
     def test_top5_tabs_use_roving_keyboard_navigation(self):
-        self.assertIn('tabindex="\${active && enabled ? "0" : "-1"}"', self.explorer)
+        self.assertIn('tabindex="${active && enabled ? "0" : "-1"}"', self.explorer)
         for key in ("ArrowLeft", "ArrowRight", "Home", "End"):
             self.assertIn(key, self.explorer)
         self.assertIn("state.pendingTabFocus", self.explorer)
