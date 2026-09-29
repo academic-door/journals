@@ -47,7 +47,6 @@ jobs:
           PUBLIC_JOURNAL_DATA_BASE: /journals/
         run: |
           pnpm run build
-          rm -rf dist/api
           test -f dist/index.html
           test -f dist/top5/index.html
           test -f dist/fields/index.html
@@ -61,17 +60,24 @@ jobs:
           npx playwright install --with-deps chromium
 
       - name: Start local preview
-        run: python -m http.server 8777 --directory dist > /tmp/journals-preview.log 2>&1 &
+        run: |
+          root="$RUNNER_TEMP/preview-root"
+          preview="$root/journals/preview/public-ux-reset-v1"
+          mkdir -p "$preview" "$root/journals"
+          cp -a dist/. "$preview/"
+          rm -rf "$preview/api"
+          cp -a public/api "$root/journals/api"
+          python -m http.server 8777 --directory "$root" > /tmp/journals-preview.log 2>&1 &
 
       - name: Browser QA desktop
         env:
-          PREVIEW_URL: http://127.0.0.1:8777/
+          PREVIEW_URL: http://127.0.0.1:8777/journals/preview/public-ux-reset-v1/
           VIEWPORT_WIDTH: 1440
         run: node tests/public_ux_preview_smoke.mjs
 
       - name: Browser QA mobile
         env:
-          PREVIEW_URL: http://127.0.0.1:8777/
+          PREVIEW_URL: http://127.0.0.1:8777/journals/preview/public-ux-reset-v1/
           VIEWPORT_WIDTH: 390
         run: node tests/public_ux_preview_smoke.mjs
 
@@ -88,6 +94,7 @@ jobs:
           set -euo pipefail
           target="$GITHUB_WORKSPACE/publish-main"
           subtree="$target/public/preview/public-ux-reset-v1"
+          rm -rf dist/api
           rm -rf "$subtree"
           mkdir -p "$subtree"
           cp -a dist/. "$subtree/"
