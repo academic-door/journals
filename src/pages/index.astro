@@ -4,14 +4,14 @@ import path from "node:path";
 import Layout from "../layouts/Layout.astro";
 
 const api = path.join(process.cwd(), "public", "api", "v1");
-const readJson = (file, fallback) => {
+const readJson = <T,>(file: string, fallback: T): T => {
   try {
     return JSON.parse(readFileSync(path.join(api, file), "utf-8"));
   } catch {
     return fallback;
   }
 };
-const top5 = readJson("collections/top5.json", { summary: {}, journals: [] });
+const top5: any = readJson("collections/top5.json", { summary: {}, journals: [] });
 const fields = readJson("collections/fields.json", { summary: {}, journals: [] });
 const backfill = readJson("backfill-status.json", { coverage: {} });
 const monitoring = readJson("monitoring.json", { summary: {}, status: "unknown" });
@@ -22,7 +22,7 @@ const coverage = backfill.coverage || {};
 const readyIssues = Number(coverage.publication_ready || 0);
 const missingIssues = Number(coverage.missing || 0);
 const failedJournals = Number(monitoring.summary?.failed || 0);
-const top5Highlights = (top5.journals || []).slice(0, 5);
+const top5Highlights: any[] = (top5.journals || []).slice(0, 5);
 ---
 
 <Layout
