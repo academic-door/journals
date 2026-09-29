@@ -51,7 +51,11 @@ const navItems = [
   </head>
   <body class={workspace ? "workspace-layout" : undefined}>
     {previewMode && (
-      <div class="preview-banner" role="status">
+      <div
+        class="preview-banner"
+        role="status"
+        style="width:100%;padding:8px 16px;color:#fff;background:#6f4c16;font-size:.72rem;font-weight:800;text-align:center;"
+      >
         Preview · G12 Public UX Reset · 仅供验收，当前生产站未切换
       </div>
     )}
