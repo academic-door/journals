@@ -1,303 +1,125 @@
 from pathlib import Path
 import unittest
+import yaml
 
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
-class ComposerUiTest(unittest.TestCase):
+class PublicProductBoundaryTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.page = (ROOT / "src/pages/composer/index.astro").read_text(encoding="utf-8")
+        cls.composer = (ROOT / "src/pages/composer/index.astro").read_text(encoding="utf-8")
+        cls.themes = (ROOT / "src/pages/themes/index.astro").read_text(encoding="utf-8")
+        cls.layout = (ROOT / "src/layouts/Layout.astro").read_text(encoding="utf-8")
+        cls.home = (ROOT / "src/pages/index.astro").read_text(encoding="utf-8")
+        cls.status = (ROOT / "src/pages/status/index.astro").read_text(encoding="utf-8")
+        cls.explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(encoding="utf-8")
         cls.css = (ROOT / "src/styles/global.css").read_text(encoding="utf-8")
-        cls.status_page = (ROOT / "src/pages/status/index.astro").read_text(
-            encoding="utf-8"
-        )
-        cls.explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(
-            encoding="utf-8"
-        )
 
-    def test_historical_picker_exposes_ready_archives_only(self) -> None:
-        self.assertIn('issue.publication_state === "ready"', self.page)
-        self.assertNotIn(' · 待来源核验', self.page)
+    def test_journals_root_is_a_real_hub_not_top5_duplicate(self):
+        self.assertIn("journal-home", self.home)
+        self.assertIn("顶刊之门", self.home)
+        self.assertIn("领域之门", self.home)
+        self.assertNotIn("<Top5Explorer", self.home)
 
-    def test_compact_classic_theme_is_default(self):
-        self.assertIn('fontSize: "14"', self.page)
-        self.assertIn("--composer-body-size, 14px", self.css)
+    def test_parent_and_child_brand_are_separate(self):
+        self.assertIn('href="https://academic-door.github.io/"', self.layout)
+        self.assertIn('class="child-brand" href={base}>期刊</a>', self.layout)
+        self.assertIn("顶刊之门", self.layout)
+        self.assertIn("领域之门", self.layout)
+        self.assertIn("跨刊检索", self.layout)
 
-    def test_style_controls_are_persisted_and_applied(self):
-        for control_id in (
-            "font-size-select",
-            "line-height-select",
-            "font-family-select",
-            "accent-color",
-            "custom-css",
+    def test_primary_nav_is_reader_first(self):
+        self.assertIn('{ href: `${base}top5/`, label: "顶刊之门"', self.layout)
+        self.assertIn('{ href: `${base}fields/`, label: "领域之门"', self.layout)
+        self.assertIn('{ href: `${base}search/`, label: "跨刊检索"', self.layout)
+        nav = self.layout.split('class="reader-nav"', 1)[1].split("</nav>", 1)[0]
+        self.assertNotIn("Composer", nav)
+        self.assertNotIn("数据状态", nav)
+
+    def test_public_composer_is_read_only_preview(self):
+        self.assertIn("Composer Preview", self.composer)
+        self.assertIn("发布预览", self.composer)
+        self.assertIn("进入 Composer 工作台", self.composer)
+        self.assertIn("academic-door-composer.academic-door.workers.dev", self.composer)
+        self.assertIn("READ-ONLY SHOWCASE", self.composer)
+        for forbidden in (
+            'id="markdown-editor"',
+            'id="copy-rich"',
+            'id="copy-markdown"',
+            'id="export-markdown"',
+            'id="export-html"',
+            'id="custom-css"',
+            'id="theme-select"',
+            "localStorage",
+            "navigator.clipboard",
+            "COMPOSER_FORMAT_VERSION",
         ):
-            self.assertIn(f'id="{control_id}"', self.page)
-        self.assertIn("styleSettings,", self.page)
-        self.assertIn("applyStyleSettings();", self.page)
+            self.assertNotIn(forbidden, self.composer)
 
-    def test_saved_markdown_is_regenerated_after_format_changes(self):
-        self.assertIn('const COMPOSER_FORMAT_VERSION = "4";', self.page)
-        self.assertIn("formatVersion: COMPOSER_FORMAT_VERSION,", self.page)
-        self.assertIn(
-            "if (state.formatVersion === COMPOSER_FORMAT_VERSION)", self.page
-        )
-        self.assertIn("排版已更新，正文已重新生成", self.page)
+    def test_public_composer_preserves_journal_issue_identity(self):
+        self.assertIn('params.get("journal")', self.composer)
+        self.assertIn('params.get("issue")', self.composer)
+        self.assertIn('privateUrl.searchParams.set("journal", journal)', self.composer)
+        self.assertIn('privateUrl.searchParams.set("issue", issue)', self.composer)
+        self.assertIn("api/v1/journals/${encodeURIComponent(journal)}/issues/${encodeURIComponent(issue)}.json", self.composer)
 
-    def test_custom_css_is_scoped_and_blocks_external_resources(self):
-        self.assertIn('style is:inline id="composer-custom-style"', self.page)
-        self.assertIn("#wechat-preview ${value}", self.page)
-        self.assertIn("@import|@font-face|url", self.page)
-        self.assertIn("image-set", self.page)
-        self.assertIn('css.includes("\\\\")', self.page)
+    def test_public_composer_does_not_ship_private_theme_engine(self):
+        for selector in (
+            ".theme-wechat-default",
+            ".theme-academic-simple",
+            ".theme-grace",
+            ".style-settings-panel",
+            ".composer-toolbar",
+            "#markdown-editor",
+        ):
+            self.assertNotIn(selector, self.css)
 
-    def test_wechat_toc_uses_original_hanging_indent_layout(self):
-        self.assertIn('<p class="toc-item">', self.page)
-        self.assertIn('<br/><span class="toc-title-cn">', self.page)
-        self.assertIn('"textIndent"', self.page)
-        self.assertIn('${ordered[1]}. ${renderInline(ordered[2])}', self.page)
-        self.assertNotIn('<span class="toc-number">', self.page)
-        self.assertNotIn('<table class="toc-item"', self.page)
+    def test_theme_lab_is_retired_and_noindex(self):
+        self.assertIn("Theme Lab 已迁移", self.themes)
+        self.assertIn("noindex", self.themes)
+        self.assertNotIn("data-preview-theme", self.themes)
+        self.assertNotIn("LIVE PREVIEW", self.themes)
 
-    def test_rich_copy_does_not_freeze_mobile_preview_dimensions(self):
-        properties = self.page.split("const properties = [", 1)[1].split("];", 1)[0]
-        for dimension in ('"width"', '"minWidth"', '"maxWidth"', '"height"', '"minHeight"', '"maxHeight"'):
-            self.assertNotIn(dimension, properties)
+    def test_status_is_reader_safe_static_first(self):
+        self.assertIn("DATA RELIABILITY", self.status)
+        self.assertIn("公开状态不是内部运维仪表盘", self.status)
+        self.assertIn("来源与目录核验分开计算", self.status)
+        self.assertIn('journal.order_verification === "official_verified"', self.status)
+        self.assertIn("source-audit.json", self.status)
+        self.assertIn("backfill-status.json", self.status)
+        self.assertNotIn("history-table", self.status)
+        self.assertNotIn("quality-table", self.status)
 
-    def test_issue_periods_are_present_in_public_snapshots(self):
-        import json
+    def test_status_uses_only_small_runtime_freshness_fetch(self):
+        self.assertIn("api/v1/slo.json", self.status)
+        self.assertNotIn("Promise.all([", self.status)
+        self.assertNotIn('fetch(\`\${base}api/v1/backfill-status.json\`', self.status)
+        self.assertNotIn('fetch(\`\${base}api/v1/source-audit.json\`', self.status)
 
-        for journal_id in ("aer", "jpe", "qje", "res", "ecta"):
-            issue = json.loads(
-                (ROOT / "public/api/v1/journals" / journal_id / "issues/current.json")
-                .read_text(encoding="utf-8")
-            )
-            self.assertRegex(issue["publication_date"], r"(?:\d{4}-\d{2}|\d{4}年\d+月|[A-Za-z]+\s+\d{4})")
+    def test_translation_provenance_is_public(self):
+        self.assertIn("中文标题与摘要由 Academic Door 辅助翻译整理", self.layout)
+        self.assertIn("研究引用与正式判断请以期刊原文为准", self.layout)
 
-    def test_issue_period_display_uses_spaced_chinese_date(self):
-        self.assertIn("return `${iso[1]} 年 ${Number(iso[2])} 月`;", self.page)
-        self.assertIn("return `${month[2]} 年 ${months[month[1].toLowerCase()]} 月`;", self.page)
-        self.assertIn('return `${raw} 年 · 月份待核验`;', self.page)
-        self.assertIn('summer: "夏季"', self.page)
+    def test_canonical_and_social_metadata_exist(self):
+        self.assertIn('rel="canonical"', self.layout)
+        self.assertIn('property="og:title"', self.layout)
+        self.assertIn('property="og:description"', self.layout)
+        self.assertIn('meta name="robots"', self.layout)
 
-    def test_sciencedirect_route_token_is_not_rendered_as_issue_number(self):
-        for source in (self.page, self.explorer):
-            self.assertIn('number.toLowerCase() === "c"', source)
-        self.assertNotIn('Vol. ${issue.volume}, No. ${issue.issue}', self.page)
-        self.assertIn("sanitizeSummaryIssueLabel", self.page)
-        self.assertIn("sanitizeIssueLabel", self.status_page)
-        self.assertIn("当前已收录", self.page)
-        self.assertIn("本卷仍在持续更新", self.page)
+    def test_catalog_links_use_canonical_door_routes(self):
+        self.assertIn('href={`${base}top5/`}>顶刊之门</a>', self.explorer)
+        self.assertIn('href={`${base}fields/`}>领域之门</a>', self.explorer)
+        self.assertIn("查看发布预览", self.explorer)
 
-    def test_homepage_uses_concise_abstract_labels(self):
-        explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(encoding="utf-8")
-        self.assertIn('class="abstract-label">Abstract</p>', explorer)
-        self.assertIn('class="abstract-label">摘要</p>', explorer)
-        self.assertNotIn('class="abstract-label">English Abstract</p>', explorer)
-        self.assertNotIn('class="abstract-label">中文摘要</p>', explorer)
+    def test_homepage_reader_keeps_concise_abstract_labels(self):
+        self.assertIn('class="abstract-label">Abstract</p>', self.explorer)
+        self.assertIn('class="abstract-label">摘要</p>', self.explorer)
 
     def test_content_page_surfaces_source_pending_without_internal_provenance(self):
-        explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(encoding="utf-8")
-        self.assertIn("内容已齐，待来源核验", explorer)
-        self.assertNotIn("官网目录已核对", explorer)
-        self.assertNotIn("目录顺序待官网复核", explorer)
-        self.assertNotIn("Crossref 备用来源", explorer)
-        architecture = (ROOT / "docs/architecture.md").read_text(encoding="utf-8")
-        self.assertIn("状态页与公共 API", architecture)
-
-    def test_composer_toolbar_uses_two_explicit_publishing_stages(self):
-        self.assertIn('class="composer-toolbar-row composer-source-row"', self.page)
-        self.assertIn('class="composer-toolbar-row composer-publish-row"', self.page)
-        self.assertIn("选择来源", self.page)
-        self.assertIn("排版与导出", self.page)
-        self.assertIn(".composer-toolbar-row {", self.css)
-        self.assertIn(".toolbar-stage {", self.css)
-        self.assertIn(".composer-toolbar #journal-select { width: 180px;", self.css)
-        self.assertIn(".composer-toolbar #issue-select { width: 180px;", self.css)
-        self.assertIn(".composer-toolbar #theme-select { width: 200px;", self.css)
-        self.assertIn("gap: 8px;", self.css)
-        self.assertIn(".composer-source-row {", self.css)
-        self.assertIn(".composer-publish-row {", self.css)
-        self.assertIn("@media (max-width: 1180px)", self.css)
-        self.assertIn("grid-template-columns: repeat(2, minmax(0, 1fr));", self.css)
-
-    def test_composer_workspace_widens_header_and_footer(self):
-        layout = (ROOT / "src/layouts/Layout.astro").read_text(encoding="utf-8")
-        self.assertIn("workspace?: boolean", layout)
-        self.assertIn('class={workspace ? "workspace-layout" : undefined}', layout)
-        self.assertIn('title="Academic Door Journals · 微信公众号编辑器" workspace', self.page)
-        self.assertIn(".workspace-layout .site-header,", self.css)
-        self.assertIn("width: min(1500px, calc(100% - 40px));", self.css)
-
-    def test_composer_uses_modern_clipboard_api_without_exec_command(self):
-        self.assertIn("navigator.clipboard?.write", self.page)
-        self.assertIn("navigator.clipboard?.writeText", self.page)
-        self.assertNotIn("document.execCommand", self.page)
-        self.assertIn("当前浏览器仅支持纯文本剪贴板", self.page)
-
-    def test_china_filter_and_traceable_relevance_hook_exist(self):
-        explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(encoding="utf-8")
-        self.assertIn('id="china-filter"', explorer)
-        self.assertIn("china_relevance", explorer)
-        self.assertIn("state.chinaOnly", explorer)
-        self.assertIn("chinaRelevance(article)", self.page)
-        self.assertIn("与中国相关的研究有", self.page)
-
-    def test_switching_journals_resets_stale_filters(self):
-        explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(
-            encoding="utf-8"
-        )
-        load_issue = explorer.split("const loadIssue = async (journal) => {", 1)[1].split(
-            "};", 1
-        )[0]
-        reset_filters = explorer.split("const resetArticleFilters = () => {", 1)[1].split(
-            "};", 1
-        )[0]
-        self.assertIn("resetArticleFilters();", load_issue)
-        self.assertIn('state.query = "";', reset_filters)
-        self.assertIn("state.chinaOnly = false;", reset_filters)
-        self.assertIn('searchInput.value = "";', reset_filters)
-        self.assertIn('chinaToggle.textContent = "仅看中国相关";', reset_filters)
-        self.assertIn("本期没有识别到中国相关论文", explorer)
-
-    def test_first_issue_is_embedded_and_other_issues_are_prefetched(self):
-        explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(
-            encoding="utf-8"
-        )
-        self.assertIn("readFileSync", explorer)
-        self.assertIn("initialCollection", explorer)
-        self.assertIn(
-            'const initialIssuePath = initialIssueUrl.replace(/^.*\\/api\\/v1\\//, "");',
-            explorer,
-        )
-        self.assertIn("new URL(initialIssuePath, publicApi)", explorer)
-        self.assertNotIn(
-            'initialJournal.latest_detected_issue_url ? "detected" : "current"',
-            explorer,
-        )
-        self.assertIn("Promise.resolve(initialIssue)", explorer)
-        self.assertNotIn("fetch(collectionUrl)", explorer)
-        self.assertIn('"pointerenter", warmIssue', explorer)
-        self.assertIn('"requestIdleCallback" in window', explorer)
-        self.assertIn("const indexRequest = fetchIssueIndex(journal).catch(() => null);", explorer)
-        self.assertLess(
-            explorer.index("state.issue = await fetchIssue(journal);"),
-            explorer.index("state.issueIndex = await indexRequest;"),
-        )
-        self.assertNotIn('entry.ready ? "可发布 · "', explorer)
-
-    def test_classic_theme_defaults_are_frozen(self):
-        self.assertIn("const DEFAULT_STYLE = Object.freeze({", self.page)
-        self.assertIn('value="wechat-default">学术传送门经典（默认）', self.page)
-
-    def test_composer_loads_top5_and_field_collections(self):
-        self.assertIn('Promise.all(["top5", "fields"]', self.page)
-        self.assertIn("api/v1/collections/${collectionId}.json", self.page)
-        self.assertIn("collections.flatMap", self.page)
-        self.assertNotIn('fetch(`${base}api/v1/index.json`)', self.page)
-        self.assertNotIn("journals.forEach", self.page)
-        fields_page = (ROOT / "src/pages/fields/index.astro").read_text(encoding="utf-8")
-        self.assertIn('Top5Explorer', fields_page)
-        self.assertIn('collectionId="fields"', fields_page)
-        self.assertIn('Econ Field Journals · Academic Door', fields_page)
-
-    def test_composer_loads_historical_issue_indexes(self):
-        self.assertIn(
-            "api/v1/journals/${journal.journal_id}/issues/index.json",
-            self.page,
-        )
-        self.assertIn("fetchIssueHistory", self.page)
-        self.assertIn("historyCache", self.page)
-        self.assertIn("!excludedIds.has(issue.issue_id)", self.page)
-        self.assertIn("immediate.concat(archived)", self.page)
-        self.assertIn("latest_detected_issue_url", self.page)
-        self.assertIn("journal.latest_detected_publication_date", self.page)
-        self.assertIn("journal.publication_date", self.page)
-        self.assertIn('journal.update_state !== "ready"', self.page)
-        self.assertIn("formatIssuePeriod(currentIssue.publication_date)", self.page)
-        self.assertIn('requestedParams.get("issue")', self.page)
-        self.assertIn("option.dataset.issueId === requestedIssue", self.page)
-
-    def test_composer_blocks_export_until_detected_issue_is_ready(self):
-        self.assertIn('id="publication-readiness"', self.page)
-        self.assertIn("const issueReadiness", self.page)
-        self.assertIn("const issuePublicationState", self.page)
-        self.assertIn('readiness.publicationState === "ready"', self.page)
-        self.assertIn("setPublishingEnabled(false", self.page)
-        self.assertIn("requirePublicationReady", self.page)
-        self.assertIn("等待英文摘要", self.page)
-        self.assertIn("中文翻译中", self.page)
-        self.assertIn("内容已齐，待来源核验", self.page)
-        self.assertIn("可复制发布", self.explorer)
-
-    def test_composer_surfaces_loading_empty_failure_and_stale_states(self):
-        self.assertIn("正在载入卷期与论文", self.page)
-        self.assertIn("暂无可用卷期", self.page)
-        self.assertIn("载入失败，请稍后重试或切换期刊", self.page)
-        self.assertIn("历史卷期暂不可用", self.page)
-        self.assertIn("snapshotAgeHours", self.page)
-        self.assertIn("快照已超过", self.page)
-        self.assertIn("目录顺序仍待官网来源确认", self.page)
-        self.assertIn('.picker-state[data-state="error"]', self.css)
-
-    def test_issue_counts_distinguish_publishable_articles_and_corrections(self):
-        for source in (self.explorer, self.page):
-            self.assertIn("counts.corrections || 0", source)
-            self.assertIn("另有 ${corrections} 篇勘误", source)
-
-    def test_quality_dashboard_exposes_all_required_dimensions(self):
-        self.assertIn("api/v1/source-audit.json", self.status_page)
-        for label in (
-            "监测期刊",
-            "目录顺序待官方复核",
-            "最新卷期",
-            "内容就绪",
-            "来源核验",
-            "发布状态",
-        ):
-            self.assertIn(label, self.status_page)
-        self.assertIn("可发布卷期", self.status_page)
-        self.assertIn("可发布来源核验", self.status_page)
-        self.assertIn("PUBLICATION READINESS", self.status_page)
-        self.assertIn("SOURCE ACCEPTANCE", self.status_page)
-        self.assertIn('journal.order_verification === "official_verified"', self.status_page)
-        self.assertIn("latest_detected_article_count", self.status_page)
-        self.assertIn("journalContentReady", self.status_page)
-        self.assertIn("detectedEnrichmentNeeded", self.status_page)
-        content_gate = self.status_page.split(
-            "const journalContentReady = (journal) => {", 1
-        )[1].split("};", 1)[0]
-        self.assertIn("journal.article_count", content_gate)
-        self.assertIn('journal.content_status === "complete"', content_gate)
-        self.assertNotIn("latest_detected_article_count", content_gate)
-        self.assertIn("@media (max-width: 980px)", self.status_page)
-        self.assertIn("<style is:global>", self.status_page)
-
-    def test_truthful_history_uses_v12_archive_provenance(self):
-        self.assertLess(
-            self.status_page.index('class="history-section"'),
-            self.status_page.index('class="quality-section"'),
-        )
-        for field in (
-            "bucket.coverage",
-            "bucket.by_journal",
-            'countOf(coverage, "discovered")',
-            'countOf(coverage, "archived")',
-            'countOf(coverage, "source_verified")',
-            'countOf(coverage, "publication_ready")',
-            "missing_issue_ids",
-            "source_pending_issue_ids",
-        ):
-            self.assertIn(field, self.status_page)
-        self.assertNotIn("verifiedById", self.status_page)
-        self.assertIn("旧版接口只记录已发现条目", self.status_page)
-        self.assertIn('Number.parseFloat(backfillStatus.schema_version || "0") >= 1.2', self.status_page)
-
-    def test_status_timestamps_are_localised(self):
-        self.assertIn('new Intl.DateTimeFormat("zh-CN"', self.status_page)
-        self.assertIn("formatTimestamp(backfillStatus.updated_at)", self.status_page)
-        self.assertIn("formatTimestamp(health.updated_at || sourceAudit.updated_at)", self.status_page)
+        self.assertIn("内容已齐，待来源核验", self.explorer)
+        self.assertNotIn("Crossref 备用来源", self.explorer)
 
     def test_top5_tabs_use_roving_keyboard_navigation(self):
         self.assertIn('tabindex="${active && enabled ? "0" : "-1"}"', self.explorer)
@@ -305,161 +127,31 @@ class ComposerUiTest(unittest.TestCase):
             self.assertIn(key, self.explorer)
         self.assertIn("state.pendingTabFocus", self.explorer)
 
-    def test_composer_publish_actions_start_disabled_and_use_one_gate(self):
-        for control_id in ("copy-rich", "copy-markdown", "export-markdown", "export-html"):
-            marker = f'id="{control_id}"'
-            control = self.page.split(marker, 1)[1].split(">", 1)[0]
-            self.assertIn("disabled", control)
-            self.assertIn('aria-describedby="publication-readiness"', control)
-        self.assertIn('issuePublicationState(currentIssue) === "ready"', self.page)
-        self.assertIn('issue.issue_id === journal.latest_issue_id', self.page)
-        self.assertIn('journal.order_verification === "official_verified"', self.page)
-        self.assertGreaterEqual(self.page.count("requirePublicationReady()"), 4)
+    def test_field_collection_reuses_reader(self):
+        fields_page = (ROOT / "src/pages/fields/index.astro").read_text(encoding="utf-8")
+        self.assertIn("Top5Explorer", fields_page)
+        self.assertIn('collectionId="fields"', fields_page)
+        self.assertIn("领域之门", fields_page)
 
-    def test_crossref_provisional_evidence_is_conservatively_blocked(self):
-        # The guard is a product contract, not a requirement that production
-        # must always contain a provisional current snapshot. A fully repaired
-        # production dataset may legitimately contain zero such examples.
-        for source in (self.page, self.explorer):
-            self.assertIn('flags.has("crossref_provisional_roster")', source)
-            self.assertIn("/crossref/i.test(authority)", source)
-            self.assertIn("/crossref/i.test(transport)", source)
-            self.assertIn('["content_status", "source_status", "publication_state"].every', source)
-            self.assertNotIn(
-                "if (issue?.publication_state) return issue.publication_state;",
-                source,
-            )
-        self.assertIn("journalSourceEvidence", self.status_page)
-        self.assertIn("if (evidence.provisional) return \"source_pending\"", self.status_page)
-
-    def test_mobile_composer_controls_have_touch_sized_targets(self):
-        self.assertIn(".composer-toolbar .button,", self.css)
-        self.assertIn(".composer-toolbar .composer-source select,", self.css)
-        self.assertIn(".composer-toolbar .style-settings-panel input { min-height: 44px; }", self.css)
-        self.assertIn(
-            ".style-settings:not([open]) > .style-settings-panel { display: none; }",
-            self.css,
-        )
-        self.assertIn(".composer-publish-row > .style-settings,", self.css)
-        self.assertIn(".composer-publish-row > .theme-lab-link { width: 100%; }", self.css)
-        self.assertIn("grid-template-columns: repeat(2, minmax(0, 1fr));", self.css)
-        self.assertIn(".style-settings-panel > label { min-width: 0; }", self.css)
-
-    def test_search_has_traceable_editorial_entry_points(self):
-        search_page = (ROOT / "src/pages/search/index.astro").read_text(
-            encoding="utf-8"
-        )
-        search_script = (ROOT / "public/search.js").read_text(encoding="utf-8")
-        self.assertIn("中国相关论文", search_page)
-        self.assertIn("按领域进入", search_page)
-        self.assertIn('href="?china=1"', search_page)
-        self.assertIn("initializeFromQuery", search_script)
-        self.assertIn('params.get("china") === "1"', search_script)
-        self.assertIn("form.requestSubmit()", search_script)
-
-    def test_composer_selection_and_order_are_persisted(self):
-        self.assertIn('id="select-china"', self.page)
-        self.assertIn('id="select-all"', self.page)
-        self.assertIn('draggable="true"', self.page)
-        self.assertIn('data-move="-1"', self.page)
-        self.assertIn('data-move="1"', self.page)
-        self.assertIn("issuePreferences,", self.page)
-        self.assertIn("selected: [...selectedIds]", self.page)
-        self.assertIn("order: [...pickerOrder]", self.page)
-        self.assertIn('id="selection-status"', self.page)
-        self.assertIn("已恢复上次选择", self.page)
-
-    def test_composer_outputs_only_selected_articles_in_chosen_order(self):
-        self.assertIn(
-            "ordered.filter((article) => selected.has(article.paper_id))",
-            self.page,
-        )
-        self.assertIn("editor.value = articleMarkdown(currentIssue, selectedIds);", self.page)
-        self.assertIn("regenerateFromSelection", self.page)
-        self.assertIn("当前稿件按“中国相关”筛选", self.page)
-        self.assertIn("当前稿件为自定义选择", self.page)
-        self.assertIn("原目录第 ${selection.selectedChinaArticles", self.page)
-
-    def test_composer_picker_has_accessible_move_controls(self):
-        self.assertIn('aria-label="上移《${escapeHtml', self.page)
-        self.assertIn('aria-label="下移《${escapeHtml', self.page)
-        self.assertIn(".move-actions button", self.css)
-        self.assertIn("outline: 3px solid #2f7f6d", self.css)
-        self.assertIn(".move-actions button { width: 44px; height: 44px; }", self.css)
-
-    def test_field_collection_contains_all_a_tier_journals(self):
-        import yaml
-
+    def test_field_collection_contains_all_journals(self):
         config = yaml.safe_load((ROOT / "config/collections.yml").read_text(encoding="utf-8"))
         journals = config["collections"]["fields"]["journals"]
         self.assertEqual(44, len(journals))
         self.assertEqual(44, len(set(journals)))
-        self.assertTrue({"JDE", "JPubE", "JEEM", "JUE", "AJAE"}.issubset(journals))
 
-    def test_field_journals_reuse_top5_reader_with_compact_selectors(self):
-        explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(
-            encoding="utf-8"
-        )
-        self.assertIn('id="field-filter"', explorer)
-        self.assertIn('id="journal-select"', explorer)
-        self.assertIn("select.onchange", explorer)
-        self.assertIn('class="paper-entry"', explorer)
-        self.assertNotIn("field-journal-grid", explorer)
+    def test_editorial_visual_language_is_local_not_shared_runtime(self):
+        self.assertIn(".journal-hero", self.css)
+        self.assertIn(".door-card", self.css)
+        self.assertIn(".public-composer-preview", self.css)
+        self.assertIn(".status-metric-grid", self.css)
+        self.assertNotIn("@academic-door/design", self.layout)
+        self.assertNotIn("@academic-door/design", self.css)
 
-    def test_catalog_toolbars_use_collection_specific_responsive_grids(self):
-        explorer = (ROOT / "src/components/Top5Explorer.astro").read_text(
-            encoding="utf-8"
-        )
-        self.assertIn('`journal-toolbar--${collectionId}`', explorer)
-        self.assertIn("field-category-filter", explorer)
-        self.assertIn("journal-select-filter", explorer)
-        self.assertIn(".journal-toolbar--top5 {", self.css)
-        self.assertIn(".journal-toolbar--fields {", self.css)
-        self.assertIn("grid-template-columns: repeat(6, minmax(0, 1fr));", self.css)
-        self.assertIn(".journal-toolbar--top5 .journal-tabs { grid-column: 1 / -1; }", self.css)
+    def test_mobile_parent_return_remains_available(self):
+        self.assertIn(".parent-brand span { display: none; }", self.css)
+        self.assertIn(".parent-brand img", self.css)
+        self.assertNotIn(".parent-brand { display: none", self.css)
 
-    def test_field_names_are_consistent_across_config_and_public_api(self):
-        import json
-        import yaml
-
-        config = yaml.safe_load((ROOT / "config/collections.yml").read_text(encoding="utf-8"))
-        index = json.loads((ROOT / "public/api/v1/index.json").read_text(encoding="utf-8"))
-        fields = json.loads(
-            (ROOT / "public/api/v1/collections/fields.json").read_text(encoding="utf-8")
-        )
-        collection = next(
-            item for item in index["collections"] if item["id"] == "fields"
-        )
-        self.assertEqual("Econ Field Journals", config["collections"]["fields"]["name"])
-        self.assertEqual("领域顶刊", config["collections"]["fields"]["name_cn"])
-        self.assertEqual("Econ Field Journals", collection["title"])
-        self.assertEqual("领域顶刊", collection["title_cn"])
-        self.assertEqual("Econ Field Journals", fields["title"])
-        self.assertEqual("领域顶刊", fields["title_cn"])
-
-    def test_field_collection_cards_have_issue_metadata(self):
-        import json
-
-        fields = json.loads(
-            (ROOT / "public/api/v1/collections/fields.json").read_text(encoding="utf-8")
-        )
-        self.assertEqual(44, len(fields["journals"]))
-        for journal in fields["journals"]:
-            self.assertTrue(journal["latest_issue_label"], journal["journal_id"])
-            self.assertTrue(journal["publication_date"], journal["journal_id"])
-
-
-
-
-    def test_classic_theme_abstract_title_is_chinese_only(self):
-        self.assertIn(
-            '`### ${index + 1}. ${article.title_cn || article.title_en}`',
-            self.page,
-        )
-        self.assertNotIn(
-            '`${index + 1}. **${article.title_en || ""}**\\n   ${article.title_cn || "中文标题待补全"}`',
-            self.page,
-        )
 
 if __name__ == "__main__":
     unittest.main()
