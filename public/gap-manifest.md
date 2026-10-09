@@ -1,11 +1,11 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-09-29T09:14:40+00:00
+Generated: 2026-10-09T13:04:36+00:00
 
 ## Summary
 
 - ready: 1206
-- recoverable: 1
+- recoverable: 3
 
 ## Issue queue
 
@@ -42,6 +42,7 @@ Generated: 2026-09-29T09:14:40+00:00
 | AEJMACRO | aejmacro-18-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AEJMACRO | aejmacro-18-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AEJMACRO | aejmacro-18-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| AEJMACRO | aejmacro-18-4 | 2026 | recoverable | blocked | source_pending | archive_missing |
 | AEJMICRO | aejmicro-15-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | AEJMICRO | aejmicro-15-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | AEJMICRO | aejmicro-15-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
@@ -109,6 +110,7 @@ Generated: 2026-09-29T09:14:40+00:00
 | AER | aer-115-8 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | AER | aer-115-9 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | AER | aer-116-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| AER | aer-116-10 | 2026 | recoverable | blocked | source_pending | archive_missing |
 | AER | aer-116-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AER | aer-116-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AER | aer-116-4 | 2026 | ready | complete | official_verified | content and official source gates passed |

@@ -1,13 +1,18 @@
 # Field journal history backfill status
 
-Updated: 2026-10-09T03:06:16+00:00
+Updated: 2026-10-09T13:03:51+00:00
 
-Discovery coverage: 1194 discovered · 1186 archived · 1186 publication ready · 8 missing · 0 source pending
+Discovery coverage: 1209 discovered · 1206 archived · 1206 publication ready · 3 missing · 0 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
 | 2023-2024 | 671 | 0 | 2 | 35 |
-| 2025-2026 | 622 | 0 | 6 | 0 |
+| 2023-2026 | 300 | 0 | 0 | 0 |
+| 2024-2024 | 12 | 0 | 0 | 0 |
+| 2025-2026 | 1 | 0 | 0 | 0 |
+| 2026-2026 | 10 | 0 | 0 | 0 |
+| elsevier-2026-browser | 0 | 0 | 0 | 0 |
+| final3-2026-browser | 0 | 0 | 0 | 0 |
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -548,7 +553,7 @@ Discovery coverage: 1194 discovered · 1186 archived · 1186 publication ready �
 | JEBO | jebo-217-c | 2024 | ready |  |
 | JEBO | jebo-218-c | 2024 | ready |  |
 | JEBO | jebo-219-c | 2024 | ready |  |
-| JEBO | jebo-220-c | 2024 | ready |  |
+| JEBO | jebo-220-c | 2024 | ready | archive_missing |
 | JEBO | jebo-221-c | 2024 | ready |  |
 | JEBO | jebo-222-c | 2024 | ready |  |
 | JEBO | jebo-223-c | 2024 | ready |  |
@@ -1046,7 +1051,7 @@ Discovery coverage: 1194 discovered · 1186 archived · 1186 publication ready �
 | JUE | jue-152-c | 2026 | ready |  |
 | JUE | jue-153-c | 2026 | ready |  |
 | JUE | jue-154-c | 2026 | ready |  |
-| JUE | jue-156-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 156/ |
+| JUE | jue-156-c | 2026 | ready | MetadataFallbackError: Crossref returned no usable issue 156/ |
 | LABECO | labeco-100-c | 2026 | ready |  |
 | LABECO | labeco-101-c | 2026 | ready |  |
 | LABECO | labeco-102-c | 2026 | ready |  |
@@ -1193,7 +1198,7 @@ Discovery coverage: 1194 discovered · 1186 archived · 1186 publication ready �
 | RED | red-59-c | 2026 | ready |  |
 | RED | red-60-c | 2026 | ready |  |
 | RED | red-61-c | 2026 | ready |  |
-| RED | red-62-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 62/ |
+| RED | red-62-c | 2026 | ready | MetadataFallbackError: Crossref returned no usable issue 62/ |
 | RES | res-90-1 | 2023 | ready |  |
 | RES | res-90-2 | 2023 | ready |  |
 | RES | res-90-3 | 2023 | ready |  |
