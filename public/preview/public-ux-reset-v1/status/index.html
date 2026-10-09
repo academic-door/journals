@@ -1,0 +1,38 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><meta name="description" content="Academic Door 期刊公开数据的可用性、历史覆盖、来源核验与更新监测状态。"><meta name="theme-color" content="#173f35"><meta name="robots" content="noindex,nofollow,noarchive"><link rel="canonical" href="https://academic-door.github.io/journals/preview/public-ux-reset-v1/status/"><meta property="og:type" content="website"><meta property="og:site_name" content="Academic Door"><meta property="og:title" content="数据状态 · Academic Door 期刊"><meta property="og:description" content="Academic Door 期刊公开数据的可用性、历史覆盖、来源核验与更新监测状态。"><meta property="og:url" content="https://academic-door.github.io/journals/preview/public-ux-reset-v1/status/"><meta property="og:image" content="https://academic-door.github.io/assets/academic-door-logo.png"><link rel="icon" type="image/png" href="https://academic-door.github.io/assets/academic-door-mark.png"><link rel="apple-touch-icon" href="https://academic-door.github.io/assets/academic-door-mark.png"><title>数据状态 · Academic Door 期刊</title><link rel="stylesheet" href="/journals/preview/public-ux-reset-v1/_astro/index.CFKZ4_Ve.css"></head> <body> <div class="preview-banner" role="status" style="width:100%;padding:8px 16px;color:#fff;background:#6f4c16;font-size:.72rem;font-weight:800;text-align:center;">
+Preview · G12 Public UX Reset · 仅供验收，当前生产站未切换
+</div> <header class="site-header"> <div class="brand-stack" aria-label="Academic Door 期刊"> <a class="parent-brand" href="https://academic-door.github.io/" aria-label="返回 Academic Door 门厅"> <img src="https://academic-door.github.io/assets/academic-door-mark.png" alt="" width="40" height="40"> <span>Academic Door</span> </a> <span class="brand-separator" aria-hidden="true">/</span> <a class="child-brand" href="/journals/preview/public-ux-reset-v1/">期刊</a> </div> <nav class="reader-nav" aria-label="期刊主导航"> <a href="/journals/preview/public-ux-reset-v1/top5/"> 顶刊之门 </a><a href="/journals/preview/public-ux-reset-v1/fields/"> 领域之门 </a><a href="/journals/preview/public-ux-reset-v1/search/"> 跨刊检索 </a> </nav> </header>  <main class="public-status-page"> <section class="status-hero"> <div> <p class="section-kicker">DATA RELIABILITY</p> <h1>数据状态</h1> <p>
+这里展示读者真正需要知道的公开数据状态。采集器、checkpoint、transport 等内部诊断细节
+          不作为读者层面的“完整率”。
+</p> </div> <div class="status-beacon healthy"> <span aria-hidden="true"></span> <strong>公开数据运行正常</strong> <small>监测失败 0 · 来源需人工关注 0</small> </div> </section> <section class="status-metric-grid" aria-label="公开数据核心状态"> <article> <p>JOURNALS</p> <strong>49</strong> <span>监测期刊</span> </article> <article> <p>HISTORY READY</p> <strong>1186</strong> <span>历史卷期可发布</span> </article> <article class="attention"> <p>CONFIRMED MISSING</p> <strong>8</strong> <span>确认缺失卷期</span> </article> <article> <p>SOURCE PENDING</p> <strong>0</strong> <span>来源待核验卷期</span> </article> </section> <section class="status-detail-grid"> <article class="status-detail-card"> <p class="section-kicker">SOURCE TRUST</p> <h2>来源与目录核验分开计算</h2> <dl> <div> <dt>达到当前可发布来源契约</dt> <dd>49 / 49</dd> </div> <div> <dt>目录顺序已官方核对</dt> <dd>32 / 49</dd> </div> <div> <dt>目录顺序待官方复核</dt> <dd>17</dd> </div> </dl> <p>
+“来源可发布”不等于“目录顺序已由官方页面逐项核验”。两者在 Academic Door 中保持独立语义。
+</p> </article> <article class="status-detail-card"> <p class="section-kicker">FRESHNESS</p> <h2>完整性必须带时间语境</h2> <p id="expected-set-freshness">
+历史缺失数字针对最近一次已建立权威 expected set 的范围；正在读取当前 freshness 语境……
+</p> <dl> <div> <dt>等待官方新一期确认</dt> <dd>2</dd> </div> <div> <dt>监测失败</dt> <dd>0</dd> </div> </dl> </article> </section> <section class="status-scope-note" aria-labelledby="scope-title"> <div> <p class="section-kicker">WHAT THESE NUMBERS MEAN</p> <h2 id="scope-title">公开状态不是内部运维仪表盘</h2> </div> <div class="status-scope-copy"> <p> <strong>确认缺失</strong>：在当前已建立权威 expected set 的范围内，官方应有但 canonical archive 尚不存在的卷期。
+</p> <p> <strong>来源待核验</strong>：内容可能已经发现，但尚未达到当前 source-authority 发布契约。
+</p> <p> <strong>监测正常</strong>：监测任务可以运行，不代表每家出版社在同一时刻都有最新 authoritative observation。
+</p> </div> </section> <section class="status-meta"> <span>历史覆盖更新：2026/10/09 03:06 UTC</span> <span>监测更新：2026/09/29 09:11 UTC</span> <span>来源审计更新：2026/10/09 03:06 UTC</span> </section> </main> <script>(function(){const dataBase = "/journals/";
+
+    const target = document.querySelector("#expected-set-freshness");
+    fetch(`${dataBase}api/v1/slo.json`)
+      .then((response) => {
+        if (!response.ok) throw new Error("SLO unavailable");
+        return response.json();
+      })
+      .then((payload) => {
+        const metric = payload.metrics?.expected_set_freshness || {};
+        const measured = Number(metric.measured_count || 0);
+        const current = Number(metric.current_to_audit_end_count || 0);
+        const stale = Number(metric.stale_for_audit_end_count || 0);
+        if (!target || !measured) return;
+        target.textContent =
+          `当前 ${measured} 本期刊拥有权威 expected-set 测量；其中 ${current} 本测量至当前审计日，${stale} 本的权威测量时间较早。页面中的确认缺失数字只描述这些已建立 authority 的测量范围，不代表出版社未来尚未发布的卷期。`;
+      })
+      .catch(() => {
+        if (target) {
+          target.textContent =
+            "历史缺失数字针对最近一次已建立权威 expected set 的范围；当前 freshness 明细暂不可用。";
+        }
+      });
+  })();</script>  <footer class="site-footer"> <div class="footer-brand"> <strong>Academic Door · 期刊</strong> <span>顶刊之门与领域之门，共享同一套可追溯期刊数据。</span> </div> <nav class="footer-links" aria-label="期刊辅助链接"> <a href="/journals/preview/public-ux-reset-v1/status/">数据状态</a> <a href="/journals/preview/public-ux-reset-v1/composer/">Composer Preview / 发布预览</a> <a href="https://academic-door.github.io/">Academic Door 门厅</a> </nav> <p class="footer-disclaimer">论文信息与版权以期刊官网和原文为准。</p> <p class="translation-provenance">
+中文标题与摘要由 Academic Door 辅助翻译整理；研究引用与正式判断请以期刊原文为准。
+</p> </footer> </body></html>
