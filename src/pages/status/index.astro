@@ -15,11 +15,20 @@ const readJson = <T,>(relative: string, fallback: T): T => {
     return fallback;
   }
 };
-const top5 = readJson("collections/top5.json", { journals: [] });
-const fields = readJson("collections/fields.json", { journals: [] });
-const monitoring = readJson("monitoring.json", { status: "unknown", summary: {} });
-const sourceAudit = readJson("source-audit.json", { status: "unknown", summary: {} });
-const backfill = readJson("backfill-status.json", { coverage: {} });
+const top5 = readJson("collections/top5.json", { journals: [] as any[] });
+const fields = readJson("collections/fields.json", { journals: [] as any[] });
+const monitoring = readJson("monitoring.json", {
+  status: "unknown", updated_at: "",
+  summary: { failed: 0, awaiting_official: 0 },
+});
+const sourceAudit = readJson("source-audit.json", {
+  status: "unknown", updated_at: "",
+  summary: { needs_attention: 0 },
+});
+const backfill = readJson("backfill-status.json", {
+  updated_at: "",
+  coverage: { publication_ready: 0, missing: 0, source_pending: 0 },
+});
 const journals: any[] = [...(top5.journals || []), ...(fields.journals || [])];
 const coverage = backfill.coverage || {};
 const sourceAccepted = journals.filter((journal) =>
