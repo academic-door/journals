@@ -10,12 +10,14 @@ from collectors.metadata_fallback import (
     _get_content,
     _official_issue_abstracts,
     _publication_date,
+    _publisher_issue_cover_date,
     _elsevier_abstract,
     _elsevier_lookup,
     _defer_elsevier_entitlement,
     _sciencedirect_rss_groups,
     _semantic_scholar_metadata_batch,
     fetch_crossref_current_issue,
+    fetch_official_rss_issue,
     fetch_repec_history_issue,
     fetch_sciencedirect_rss_issue,
 )
@@ -233,6 +235,52 @@ class RepecEconometricaSession:
 
 
 class MetadataFallbackTests(unittest.TestCase):
+    def test_year_only_jpe_rss_cover_uses_accepted_calendar(self) -> None:
+        self.assertEqual(
+            "September 2026",
+            _publisher_issue_cover_date("0022-3808", "9", "2026"),
+        )
+        self.assertEqual(
+            "September 2026",
+            _publisher_issue_cover_date("0022-3808", "9", "September 2026"),
+        )
+        self.assertEqual(
+            "",
+            _publisher_issue_cover_date("0000-0000", "9", "2026"),
+        )
+
+    def test_jpe_rss_year_only_cover_is_month_qualified_end_to_end(self) -> None:
+        feed = b"""<rss><channel>
+          <item><volume>134</volume><number>9</number><coverdate>2026</coverdate>
+            <title>First paper</title><startingpage>1</startingpage>
+            <link>https://doi.org/10.1086/740001</link>
+          </item>
+          <item><volume>134</volume><number>9</number><coverdate>2026</coverdate>
+            <title>Second paper</title><startingpage>11</startingpage>
+            <link>https://doi.org/10.1086/740002</link>
+          </item>
+        </channel></rss>"""
+        first = {**item("First paper", "1-10", "10.1086/740001"), "volume": "134", "issue": "9"}
+        second = {**item("Second paper", "11-20", "10.1086/740002"), "volume": "134", "issue": "9"}
+
+        class RssSession:
+            def get(self, url: str, **kwargs) -> Response:
+                if "showFeed" in url:
+                    return Response({}, feed)
+                return Response({"message": {"items": [first, second]}})
+
+        issue = fetch_official_rss_issue(
+            journal_id="jpe",
+            journal_name="Journal of Political Economy",
+            issn="0022-3808",
+            current_issue_url="https://www.journals.uchicago.edu/toc/jpe/current",
+            rss_url="https://www.journals.uchicago.edu/action/showFeed?type=etoc",
+            session=RssSession(),
+        )
+        self.assertEqual("jpe-134-9", issue["issue_id"])
+        self.assertEqual("September 2026", issue["publication_date"])
+        self.assertEqual("publisher-rss", issue["quality"]["roster_authority"])
+
     def test_known_entitlement_failure_waits_for_insttoken(self) -> None:
         previous = {
             "sources": {
