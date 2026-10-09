@@ -938,9 +938,19 @@ def _publisher_issue_cover_date(issn: str, issue: str, value: str) -> str:
     calendar must remain unmeasured rather than inventing date precision.
     """
     cover = str(value or "").strip()
-    if re.fullmatch(r"(?:19|20)\d{2}", cover):
+    # eTOC RSS may expose its item *timestamp* under <date>, not a cover
+    # period. An ISO timestamp cannot claim the issue's official month.
+    # For known publisher issue calendars use only its year, then the
+    # separately accepted issue number -> cover month mapping.
+    year_only = re.fullmatch(r"((?:19|20)\d{2})", cover)
+    item_timestamp = re.fullmatch(
+        r"((?:19|20)\d{2})-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}"
+        r"(?:\.\d+)?(?:Z|[+-]\d{2}:?\d{2})",
+        cover,
+    )
+    if year_only or item_timestamp:
         month = MONTHS_BY_ISSUE.get(issn, {}).get(str(issue).strip(), "")
-        return f"{month} {cover}" if month else ""
+        return f"{month} {cover[:4]}" if month else ""
     return cover
 
 
