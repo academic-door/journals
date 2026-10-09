@@ -1,0 +1,122 @@
+name: Journals Public UX Preview
+
+on:
+  push:
+    branches:
+      - g12/public-ux-reset-preview
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: journals-public-ux-preview
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Check out preview branch
+        uses: actions/checkout@v7
+
+      - name: Overlay current generated data
+        shell: bash
+        run: |
+          git fetch origin data
+          rm -rf public/api
+          git archive origin/data public/api public/project-manifest.json | tar -x
+
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 11
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build isolated preview
+        env:
+          ASTRO_BASE: /journals/preview/public-ux-reset-v1
+          PUBLIC_PREVIEW_MODE: "1"
+          PUBLIC_JOURNAL_DATA_BASE: /journals/
+        run: |
+          pnpm run build
+          test -f dist/index.html
+          test -f dist/top5/index.html
+          test -f dist/fields/index.html
+          test -f dist/search/index.html
+          test -f dist/status/index.html
+          test -f dist/composer/index.html
+
+      - name: Install browser
+        run: |
+          # Stay on the project's pnpm dependency graph; npm's Arborist
+          # occasionally crashes against the pnpm-managed node_modules.
+          # These runner-only changes are not included in the preview publish.
+          pnpm add --workspace-root --save-dev playwright@1.55.0
+          pnpm exec playwright install --with-deps chromium
+
+      - name: Start local preview
+        run: |
+          root="$RUNNER_TEMP/preview-root"
+          preview="$root/journals/preview/public-ux-reset-v1"
+          mkdir -p "$preview" "$root/journals"
+          cp -a dist/. "$preview/"
+          rm -rf "$preview/api"
+          cp -a public/api "$root/journals/api"
+          python -m http.server 8777 --directory "$root" > /tmp/journals-preview.log 2>&1 &
+
+      - name: Browser QA desktop
+        env:
+          PREVIEW_URL: http://127.0.0.1:8777/journals/preview/public-ux-reset-v1/
+          VIEWPORT_WIDTH: 1440
+        run: node tests/public_ux_preview_smoke.mjs
+
+      - name: Browser QA mobile
+        env:
+          PREVIEW_URL: http://127.0.0.1:8777/journals/preview/public-ux-reset-v1/
+          VIEWPORT_WIDTH: 390
+        run: node tests/public_ux_preview_smoke.mjs
+
+      - name: Check out main for protected preview candidate
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          path: publish-main
+          fetch-depth: 1
+
+      - name: Stage isolated preview candidate branch
+        shell: bash
+        env:
+          PREVIEW_SOURCE_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          target="$GITHUB_WORKSPACE/publish-main"
+          subtree="$target/public/preview/public-ux-reset-v1"
+          rm -rf dist/api
+          rm -rf "$subtree"
+          mkdir -p "$subtree"
+          cp -a dist/. "$subtree/"
+          cd "$target"
+          git config user.name "academic-door-preview-bot"
+          git config user.email "academic-door-preview-bot@users.noreply.github.com"
+          git add public/preview/public-ux-reset-v1
+          if git diff --cached --quiet; then
+            echo "Preview subtree already current on main."
+            exit 0
+          fi
+          # No protected-main direct push. A trusted owner creates the PR,
+          # so required Test and repository reviews remain binding.
+          candidate="preview/public-ux-reset-v1-${PREVIEW_SOURCE_SHA:0:12}"
+          git switch -c "$candidate"
+          git commit -m "preview: Journals public UX reset @ ${PREVIEW_SOURCE_SHA}"
+          git push origin "HEAD:refs/heads/$candidate"
+          echo "Preview candidate: $candidate"
+          echo "Create an owner PR into protected main; do not enable production UX."
+

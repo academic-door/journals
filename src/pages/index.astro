@@ -1,13 +1,140 @@
 ---
-import Top5Explorer from "../components/Top5Explorer.astro";
+import { readFileSync } from "node:fs";
+import path from "node:path";
 import Layout from "../layouts/Layout.astro";
+
+const api = path.join(process.cwd(), "public", "api", "v1");
+const readJson = <T,>(file: string, fallback: T): T => {
+  try {
+    return JSON.parse(readFileSync(path.join(api, file), "utf-8"));
+  } catch {
+    return fallback;
+  }
+};
+const top5: any = readJson("collections/top5.json", { summary: {}, journals: [] });
+const fields = readJson("collections/fields.json", {
+  summary: { configured_journals: 0 },
+  journals: [] as Record<string, unknown>[],
+});
+const backfill = readJson("backfill-status.json", {
+  coverage: { publication_ready: 0, missing: 0 },
+});
+const monitoring = readJson("monitoring.json", {
+  summary: { failed: 0 },
+  status: "unknown",
+});
+const top5Count = Number(top5.summary?.configured_journals || top5.journals?.length || 5);
+const fieldCount = Number(fields.summary?.configured_journals || fields.journals?.length || 44);
+const journalCount = top5Count + fieldCount;
+const coverage = backfill.coverage || {};
+const readyIssues = Number(coverage.publication_ready || 0);
+const missingIssues = Number(coverage.missing || 0);
+const failedJournals = Number(monitoring.summary?.failed || 0);
+const top5Highlights: any[] = (top5.journals || []).slice(0, 5);
 ---
 
 <Layout
-  title="经济学 TOP5 最新卷期 · Academic Door"
-  description="AER、JPE、QJE、REStud 与 Econometrica 最新卷期中英文目录和摘要"
+  title="Academic Door · 期刊"
+  description="Academic Door 顶刊之门与领域之门：49 本经济学期刊的卷期档案、双语摘要与跨刊检索。"
 >
-  <main>
-    <Top5Explorer />
+  <main class="journal-home">
+    <section class="journal-hero">
+      <div class="journal-hero-copy">
+        <p class="section-kicker">ACADEMIC DOOR · JOURNALS</p>
+        <h1>从顶刊最新一期，到领域期刊历史卷期。</h1>
+        <p class="journal-hero-lead">
+          Academic Door · 期刊连接「顶刊之门」与「领域之门」，提供可追溯的中英文卷期档案、
+          论文摘要与跨刊检索。
+        </p>
+        <div class="hero-actions" aria-label="期刊主要入口">
+          <a class="button button-primary" href="./top5/">进入顶刊之门</a>
+          <a class="button" href="./fields/">浏览领域之门</a>
+          <a class="text-action" href="./search/">跨刊检索 <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <aside class="journal-trust-card" aria-label="当前数据概览">
+        <p class="trust-eyebrow">CURRENT LIBRARY</p>
+        <strong>{journalCount}</strong>
+        <span>本监测期刊</span>
+        <dl>
+          <div><dt>历史卷期可发布</dt><dd>{readyIssues || "—"}</dd></div>
+          <div><dt>确认缺失</dt><dd class:list={[{ warning: missingIssues > 0 }]}>{missingIssues}</dd></div>
+          <div><dt>监测失败</dt><dd class:list={[{ warning: failedJournals > 0 }]}>{failedJournals}</dd></div>
+        </dl>
+        <a href="./status/">查看数据状态</a>
+      </aside>
+    </section>
+
+    <section class="door-grid" aria-labelledby="doors-title">
+      <div class="section-heading editorial-heading">
+        <div>
+          <p class="section-kicker">TWO JOURNAL DOORS</p>
+          <h2 id="doors-title">两种进入期刊世界的方式</h2>
+        </div>
+        <p>一个聚焦经济学 Top Five，一个按研究领域展开。</p>
+      </div>
+      <div class="door-cards">
+        <a class="door-card top5-door" href="./top5/">
+          <span class="door-index">01</span>
+          <div>
+            <p>TOP FIVE</p>
+            <h3>顶刊之门</h3>
+            <span>AER · JPE · QJE · Review of Economic Studies · Econometrica</span>
+          </div>
+          <strong>{top5Count} 刊</strong>
+        </a>
+        <a class="door-card fields-door" href="./fields/">
+          <span class="door-index">02</span>
+          <div>
+            <p>BY FIELD</p>
+            <h3>领域之门</h3>
+            <span>金融、发展、劳动、宏观、计量、环境、农业资源等研究领域。</span>
+          </div>
+          <strong>{fieldCount} 刊</strong>
+        </a>
+      </div>
+    </section>
+
+    <section class="latest-shelf" aria-labelledby="latest-title">
+      <div class="section-heading editorial-heading">
+        <div>
+          <p class="section-kicker">TOP FIVE · LATEST</p>
+          <h2 id="latest-title">Top Five 当前卷期</h2>
+        </div>
+        <a class="text-action" href="./top5/">查看完整目录 <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="latest-journal-grid">
+        {top5Highlights.map((journal) => (
+          <a class="latest-journal-card" href="./top5/">
+            <span>{journal.short_name}</span>
+            <strong>{journal.latest_issue_label || journal.latest_issue_id}</strong>
+            <small>{journal.publication_date || "最新可读卷期"} · {journal.article_count || 0} 篇</small>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="research-tools" aria-labelledby="tools-title">
+      <div class="section-heading editorial-heading">
+        <div>
+          <p class="section-kicker">DISCOVER & PUBLISH</p>
+          <h2 id="tools-title">检索与发布</h2>
+        </div>
+      </div>
+      <div class="tool-cards">
+        <a class="tool-card" href="./search/">
+          <span class="tool-label">SEARCH</span>
+          <h3>跨刊检索</h3>
+          <p>按标题、作者、摘要、年份、卷期与研究领域检索当前期刊档案。</p>
+          <strong>开始检索 →</strong>
+        </a>
+        <a class="tool-card" href="./composer/">
+          <span class="tool-label">COMPOSER PREVIEW</span>
+          <h3>发布预览</h3>
+          <p>了解 Academic Door 如何把结构化期刊数据转化为内部出版工作流。</p>
+          <strong>查看能力预览 →</strong>
+        </a>
+      </div>
+    </section>
   </main>
 </Layout>

@@ -30,6 +30,7 @@ const {
 const base = import.meta.env.BASE_URL.endsWith("/")
   ? import.meta.env.BASE_URL
   : `${import.meta.env.BASE_URL}/`;
+const dataBase = import.meta.env.PUBLIC_JOURNAL_DATA_BASE || base;
 const publicApi = new URL("../../public/api/v1/", import.meta.url);
 const initialCollection = JSON.parse(
   readFileSync(new URL(`collections/${collectionId}.json`, publicApi), "utf8"),
@@ -56,12 +57,12 @@ const initialIssue = initialIssuePath
     <h1>{heading}</h1>
     <p>{description}</p>
     <nav class="collection-switcher" aria-label="期刊分类">
-      <a class:list={["button", { active: collectionId === "top5" }]} href={base}>TOP5</a>
-      <a class:list={["button", { active: collectionId === "fields" }]} href={`${base}fields/`}>领域顶刊</a>
+      <a class:list={["button", { active: collectionId === "top5" }]} href={`${base}top5/`}>顶刊之门</a>
+      <a class:list={["button", { active: collectionId === "fields" }]} href={`${base}fields/`}>领域之门</a>
     </nav>
   </div>
   <a id="composer-link" class="button button-primary" href={`${base}composer/`}>
-    在 Composer 中编辑
+    查看发布预览
   </a>
 </section>
 
@@ -118,7 +119,7 @@ const initialIssue = initialIssuePath
   <section id="article-list" class="article-list"></section>
 </section>
 
-<script is:inline define:vars={{ base, collectionId, initialCollection, initialIssue }}>
+<script is:inline define:vars={{ base, dataBase, collectionId, initialCollection, initialIssue }}>
   const displayIssueUrl = (journal) =>
     journal?.latest_display_issue_url || journal?.latest_detected_issue_url || journal?.latest_issue_url || "";
   const initialJournal = initialCollection.journals.find(
@@ -263,7 +264,7 @@ const initialIssue = initialIssuePath
   const fetchIssue = (journal) => fetchIssueUrl(displayIssueUrl(journal));
 
   const fetchIssueIndex = (journal) => {
-    const url = `${base}api/v1/journals/${encodeURIComponent(journal.journal_id)}/issues/index.json`;
+    const url = `${dataBase}api/v1/journals/${encodeURIComponent(journal.journal_id)}/issues/index.json`;
     if (!state.issueIndexCache.has(url)) {
       const request = fetch(url)
         .then((response) => {
