@@ -1,36 +1,34 @@
 {
   "schema_version": "1.0",
-  "issue_id": "aejmacro-18-3",
+  "issue_id": "aejmacro-18-4",
   "journal_id": "aejmacro",
   "journal_name": "American Economic Journal: Macroeconomics",
   "volume": "18",
-  "issue": "3",
-  "publication_date": "July 2026",
+  "issue": "4",
+  "publication_date": "October 2026",
   "source_url": "https://www.aeaweb.org/journals/mac/current-issue",
-  "retrieved_at": "2026-08-11T22:20:52+00:00",
-  "expected_article_count": 13,
-  "research_article_count": 13,
+  "retrieved_at": "2026-10-09T14:20:39+00:00",
+  "expected_article_count": 14,
+  "research_article_count": 14,
   "status": "ready",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1257/mac.20240107",
+      "paper_id": "doi:10.1257/mac.20230289",
       "sequence": 1,
       "source_sequence": 2,
       "article_type": "research-article",
-      "title_en": "Central Banks as Dollar Lenders of Last Resort: Implications for Regulation and Reserve Holdings",
-      "title_cn": "中央银行作为最后贷款人的美元贷方：对监管和储备持有的影响",
+      "title_en": "Information and the Formation of Inflation Expectations by Firms: Evidence from a Survey of Israeli Firms",
+      "title_cn": "信息与企业通胀预期的形成：来自以色列企业调查的证据",
       "authors": [
-        "Mitali Das",
-        "Gita Gopinath",
-        "Helene Hall",
-        "Taehoon Kim",
-        "Jeremy C. Stein"
+        "Yuriy Gorodnichenko",
+        "Ari Kutai",
+        "Rafi Melnick"
       ],
-      "abstract_en": "We explore how foreign central banks behave when firms engage in currency mismatch, borrowing heavily in dollars. A central bank can deal with risky private-sector mismatch in two ways: (i) with financial regulation or (ii) by accumulating reserves to better serve as a dollar lender of last resort. We highlight a novel externality:Individual central banks may over accumulate dollar reserves, as this exacerbates a global scarcity of dollar-denominated assets, lowering dollar interest rates and encouraging firms to further increase their currency mismatch. Relative to the decentralized outcome, a global planner may prefer tighter financial regulation and reduced holdings of dollar reserves.",
-      "abstract_cn": "我们探讨了当企业在美元中大量借款时，外国中央银行的行为。中央银行可以通过两种方式应对私营部门的风险性错配：(i) 通过金融监管，或 (ii) 通过积累储备以更好地作为最后贷款人的美元贷方。我们强调了一种新颖的外部性：各个中央银行可能会过度积累美元储备，因为这加剧了美元计价资产的全球稀缺，降低美元利率，并鼓励企业进一步增加其货币错配。相较于分散的结果，全球规划者可能更倾向于更严格的金融监管和减少美元储备的持有。",
-      "doi": "10.1257/mac.20240107",
-      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mac.20240107",
+      "abstract_en": "This study analyzes how firms form their inflation expectations after a regime change in monetary policy and a transition to a low-inflation environment. Using the Bank of Israel survey of firms, we document the basic properties of firms' inflation expectations and examine how Israeli firms update their inflation expectations after receiving new information about inflation or monetary policy. We find that even after successful de-dollarization and disinflation, a positive inflation surprise leads to a sizable upward adjustment in inflation expectations. Our results suggest that managers' experiences keep firms attentive to inflation long after price stability is achieved.",
+      "abstract_cn": "本研究分析了在货币政策制度变迁和向低通胀环境过渡之后，企业如何形成其通胀预期。利用以色列银行的企业调查，我们记录了企业通胀预期的基础特征，并考察了以色列企业在收到关于通胀或货币政策的新信息后如何更新其通胀预期。我们发现，即使在成功去美元化和反通胀之后，正向通胀意外仍会导致通胀预期出现相当幅度的向上调整。我们的结果表明，在价格稳定实现很久之后，管理者的经历仍使企业持续关注通胀。",
+      "doi": "10.1257/mac.20230289",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mac.20230289",
       "publication_date": "",
       "sources": {
         "inventory": "official-issue-page",
@@ -41,12 +39,12 @@
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T20:01:58+00:00",
-        "source_hash": "5438604809f808233fe20b3c45694eca1eb893419aca8c68e960e67f4fd7c085"
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-10-09T14:20:40+00:00",
+        "source_hash": "b47e1af4d6649d59ddcd88a370ede402e7ec3c8be6fca840cad345ab16d3bf5e"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -57,21 +55,23 @@
       }
     },
     {
-      "paper_id": "doi:10.1257/mac.20230356",
+      "paper_id": "doi:10.1257/mac.20240209",
       "sequence": 2,
       "source_sequence": 3,
       "article_type": "research-article",
-      "title_en": "Expecting Floods: Firm Entry, Employment, and Aggregate Implications",
-      "title_cn": "预期洪水：企业进入、就业与总体影响",
+      "title_en": "What Drives the Recent Surge in Inflation? The Historical Decomposition Roller Coaster",
+      "title_cn": "是什么推动了近期通胀的飙升？历史分解的过山车",
       "authors": [
-        "Ruixue Jia",
-        "Xiao Ma",
-        "Victoria Wenxin Xie"
+        "Drago Bergholt",
+        "Fabio Canova",
+        "Francesco Furlanetto",
+        "Nicolò Maffei-Faccioli",
+        "Pål Ulvedal"
       ],
-      "abstract_en": "Using county-level and zip-code-level data from the United States during the period 1998–2018, we document: (i) Increased flood risk has a large negative impact on firm entry, employment, and output in the long run; (ii) Flood events reduce output in the short run while impact on firm entry and employment is limited. We then develop a quantitative spatial model to characterize how flood risk shapes firms' location choices and employment. We find flood risk reduced US aggregate output by 0.53 percent in 2018, 23 percent of which stemmed from direct damages and 77 percent from long-run adjustments of firms and workers.",
-      "abstract_cn": "利用美国在1998-2018期间的县级和邮政编码级数据，我们记录到：（i）增加的洪水风险对企业进入、就业和长期产出产生了较大的负面影响；（ii）洪水事件在短期内减少了产出，而对企业进入和就业的影响有限。然后，我们开发了一个定量空间模型，以描述洪水风险如何影响企业的选址选择和就业。我们发现洪水风险在0.53%减少了美国的总体产出2018，其中23%来自直接损失，77%来自企业和工人的长期调整。",
-      "doi": "10.1257/mac.20230356",
-      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mac.20230356",
+      "abstract_en": "What drives the recent inflation surge? To answer, one must decompose inflation fluctuations into the contribution of structural shocks. We document how whimsical such a shock decomposition can be in standard vector autoregression (VAR) models. We show that the deterministic component of the VAR is imprecisely estimated, making the shock contributions poorly identified. Our preferred approach to solving this problem can massively shrink the uncertainty around the estimated deterministic component. Once this uncertainty is accounted for, demand shocks appear as the main drivers of the inflation surge in the United States, the euro area, and four small open economies.",
+      "abstract_cn": "是什么推动了近期通胀的飙升？要回答这个问题，必须将通胀波动分解为结构性冲击的贡献。我们记录了在标准向量自回归（VAR）模型中，这种冲击分解可以有多么随意。我们表明，VAR的确定性成分估计不精确，使得冲击贡献难以识别。我们解决这一问题的首选方法可以大幅缩小围绕估计的确定性成分的不确定性。一旦考虑了这种不确定性，需求冲击就表现为美国、欧元区和四个小型开放经济体通胀飙升的主要驱动因素。",
+      "doi": "10.1257/mac.20240209",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mac.20240209",
       "publication_date": "",
       "sources": {
         "inventory": "official-issue-page",
@@ -82,12 +82,12 @@
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T20:02:06+00:00",
-        "source_hash": "f3ac1aacc63c65fabca27a90d81848a80c7e7b7f3a5694bccbe74912ab1bcd9c"
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-10-09T14:20:42+00:00",
+        "source_hash": "a06391488f70c971ea65d3328503355be9d38d2c09306b6ef4541d838a11929f"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -98,22 +98,20 @@
       }
     },
     {
-      "paper_id": "doi:10.1257/mac.20230213",
+      "paper_id": "doi:10.1257/mac.20240248",
       "sequence": 3,
       "source_sequence": 4,
       "article_type": "research-article",
-      "title_en": "Import Liberalization as Export Destruction? Evidence from the United States",
-      "title_cn": "进口自由化是否导致出口破坏？来自美国的证据",
+      "title_en": "Optimal Taxation of Inflation",
+      "title_cn": "通货膨胀的最优税收",
       "authors": [
-        "Holger Breinlich",
-        "Elsa Leromain",
-        "Dennis Novy",
-        "Thomas Sampson"
+        "Damien Capelle",
+        "Yang Liu"
       ],
-      "abstract_en": "In trade models with scale economies, import liberalization reduces exports within industries by shrinking real market potential. We find this export destruction mechanism reduced US export growth following the permanent normalization of trade relations with China (PNTR). There was also an offsetting boost to exports from lower input costs. We use our estimates to calibrate a quantitative model and show that scale economies are economically important for trade policy analysis. Although PNTR increased aggregate US exports relative to GDP, exports declined in the most exposed industries. US gains from PNTR are positive but 30 percent smaller than under constant returns.",
-      "abstract_cn": "在具有规模经济的贸易模型中，进口自由化通过缩小实际市场潜力来减少行业内的出口。我们发现这一出口破坏机制在与中国的永久正常化贸易关系（PNTR）后减少了美国的出口增长。同时，较低的输入成本也对出口产生了抵消的推动作用。我们使用我们的估计来校准一个定量模型，并表明规模经济在贸易政策分析中具有经济重要性。尽管PNTR相对于GDP增加了美国的整体出口，但在最受影响的行业中，出口却出现了下降。美国从PNTR中获得的收益是正的，但30%小于在恒定收益下的收益。",
-      "doi": "10.1257/mac.20230213",
-      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mac.20230213",
+      "abstract_en": "This paper analyzes the effectiveness of a tax on inflation policy (TIP), which would require firms to pay a tax proportional to the increase in their prices or wages, in stabilizing inflation. We show that TIP would effectively correct externalities in firms' pricing decisions, tackle excessive inflation and reduce output volatility. While proposals from the 1970s saw TIP as a substitute for MP, we find that they are complementary, with TIP addressing cost-push shocks, and MP addressing demand shocks. In sharp contrast with price controls, TIP doesn't exacerbate relative price distortions.",
+      "abstract_cn": "本文分析了通货膨胀税政策（TIP）在稳定通货膨胀方面的有效性，该政策要求企业按其价格或工资的上涨比例缴纳税款。我们表明，TIP将有效纠正企业定价决策中的外部性，应对过度通货膨胀并降低产出波动。虽然来自1970的提案将TIP视为货币政策的替代品，但我们发现它们是互补的，TIP应对成本推动冲击，而货币政策应对需求冲击。与价格控制形成鲜明对比的是，TIP不会加剧相对价格扭曲。",
+      "doi": "10.1257/mac.20240248",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mac.20240248",
       "publication_date": "",
       "sources": {
         "inventory": "official-issue-page",
@@ -124,12 +122,12 @@
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T20:02:23+00:00",
-        "source_hash": "f605b35922d6eee6518143bda21a3885b5e83de4d2d3ae1fb85e9b7fa675b7e0"
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-10-09T14:20:43+00:00",
+        "source_hash": "3f43bc85a40336c62c5e0a5cdf0b852c52f20c02f3efcc27f2a7e8f6cd27ed17"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -140,20 +138,20 @@
       }
     },
     {
-      "paper_id": "doi:10.1257/mac.20230357",
+      "paper_id": "doi:10.1257/mac.20240013",
       "sequence": 4,
       "source_sequence": 5,
       "article_type": "research-article",
-      "title_en": "Did the United States Really Grow Out of Its World War II Debt?",
-      "title_cn": "美国真的摆脱了二战债务吗？",
+      "title_en": "Health Sector Structural Change",
+      "title_cn": "卫生部门结构变迁",
       "authors": [
-        "Julien Acalin",
-        "Laurence Ball"
+        "Nick Pretnar",
+        "Maria Feldman"
       ],
-      "abstract_en": "This paper examines the effects of primary budget surpluses, surprise inflation, and pegged interest rates before the Fed-Treasury Accord of 1951 on the US public debt/GDP ratio. We find that with the primary budget balance and without distortions in real interest rates caused by surprise inflation and the pre-Accord peg, debt/GDP would have declined only from 106 percent in 1946 to 74 percent in 1974, not to 23 percent as in actual history. Our findings imply that, over the last 76 years, only a small amount of debt reduction has been achieved through growth rates that exceed undistorted interest rates.",
-      "abstract_cn": "本文考察了在1951之前，主要预算盈余、意外通胀和固定利率对美国公共债务/GDP比率的影响。我们发现，如果没有意外通胀和协议前的固定利率造成的实际利率扭曲，主要预算平衡下，债务/GDP比率仅会从106%在1946下降到74%在1974，而不是像实际历史中那样下降到23%。我们的研究结果表明，在过去的76年中，仅通过超过未扭曲利率的增长率实现了少量的债务减少。",
-      "doi": "10.1257/mac.20230357",
-      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mac.20230357",
+      "abstract_en": "The US health-services sector has grown in terms of its expenditure share and relative price. Using a two-sector general equilibrium model with monopolistic competition and endogenous population, we find that relative price growth is almost entirely attributable to increasing relative sectoral markups. Demand effects from aging play only a minor role driving up prices and expenditure shares. Controlling for GE effects and rising relative markups, we estimate that health-sector TFP has grown since the 1980s at a rate greater than 1 percent annually, dampening relative price growth while leading to higher health-sector output, partially driving up aggregate expenditure shares.",
+      "abstract_cn": "美国卫生服务部门在支出份额和相对价格方面均有所增长。使用一个包含垄断竞争和内生人口的两部门一般均衡模型，我们发现相对价格的增长几乎完全归因于部门相对加价的上升。老龄化带来的需求效应在推高价格和支出份额方面仅起次要作用。在控制一般均衡效应和相对加价上升后，我们估计自1980以来，卫生部门全要素生产率以每年超过1%的速度增长，抑制了相对价格增长，同时导致更高的卫生部门产出，部分推高了总支出份额。",
+      "doi": "10.1257/mac.20240013",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mac.20240013",
       "publication_date": "",
       "sources": {
         "inventory": "official-issue-page",
@@ -164,12 +162,12 @@
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T20:02:31+00:00",
-        "source_hash": "6d90cabb8012e2cfe6fe24c19ab24086d09090b68ee9b07942b4be25e804122d"
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-10-09T14:20:44+00:00",
+        "source_hash": "846623e66a383929f6c82ff5786f8f6f79ea0257977d683fad2147b28520d800"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -180,19 +178,21 @@
       }
     },
     {
-      "paper_id": "doi:10.1257/mac.20230299",
+      "paper_id": "doi:10.1257/mac.20240526",
       "sequence": 5,
       "source_sequence": 6,
       "article_type": "research-article",
-      "title_en": "An Analytical Model of Behavior and Policy in an Epidemic",
-      "title_cn": "流行病中的行为与政策分析模型",
+      "title_en": "Distortions, Producer Dynamics, and Aggregate Productivity: A General Equilibrium Analysis",
+      "title_cn": "扭曲、生产者动态与总生产率：一般均衡分析",
       "authors": [
-        "Lukasz Rachel"
+        "Stephen Ayerst",
+        "Loren Brandt",
+        "Diego Restuccia"
       ],
-      "abstract_en": "This paper examines the behavior of individuals susceptible to a deadly disease in a tractable equilibrium setting. We analytically characterize individually optimal mitigation behavior and the resulting equilibrium trajectory. Analysis is facilitated by a phase diagram. A key insight is that individually optimal behavior of those susceptible to the disease results in excessive caution. This behavior flattens the epidemic curve and prolongs the epidemic. In contrast, socially optimal behavior results in a higher infection rate, with a focus on minimizing cumulative deaths at minimum cost. The paper offers novel technical contributions and an improved understanding of externalities in econ-epi models.",
-      "abstract_cn": "本文考察了在可处理的均衡环境中，易感于致命疾病的个体行为。我们从分析上刻画了个体最优的减缓行为及其导致的均衡轨迹。分析通过相图得以简化。一个关键的见解是，易感于疾病的个体最优行为导致了过度谨慎。这种行为扁平化了流行病曲线并延长了流行病的持续时间。相反，社会最优行为导致了更高的感染率，重点在于以最低成本最小化累计死亡人数。本文提供了新的技术贡献，并改善了对经济流行病模型中外部性的理解。",
-      "doi": "10.1257/mac.20230299",
-      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mac.20230299",
+      "abstract_en": "In less developed economies, the allocation of factor inputs to more productive farms is often hindered. To analyze how distortions affect farm dynamics and agricultural productivity, we develop a model of heterogeneous farms investing in productivity improvements. We calibrate the model using detailed farm-level panel data from Vietnam, exploiting regional differences in agricultural institutions. We focus on southern Vietnam and quantify the effect of higher measured distortions in the north. We find that the higher distortions in the north reduce agricultural productivity by 38 percent, accounting for 55 percent of the observed 2.5-fold difference between regions.",
+      "abstract_cn": "在欠发达经济体中，生产要素向更高生产率农场的配置往往受到阻碍。为了分析扭曲如何影响农场动态和农业生产力，我们构建了一个异质性农场投资于生产率改进的模型。我们利用来自越南的详细农场层面面板数据校准该模型，并利用农业制度的地区差异。我们聚焦于越南南部，并量化北部较高的测度扭曲的影响。我们发现，北部较高的扭曲使农业生产力降低38%，解释了地区间观察到的2.5倍差异中的55%。",
+      "doi": "10.1257/mac.20240526",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mac.20240526",
       "publication_date": "",
       "sources": {
         "inventory": "official-issue-page",
@@ -203,12 +203,12 @@
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T20:02:37+00:00",
-        "source_hash": "ad12258b19a78917ce00a569a358bbdafaf6615be43d75858a61dfc68ba3f84f"
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-10-09T14:20:46+00:00",
+        "source_hash": "ca6bd4ae8d066e9b491924303fd979e0f88cb14d5f4114fcdfbe5bcc2d706dc0"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -219,19 +219,19 @@
       }
     },
     {
-      "paper_id": "doi:10.1257/mac.20230083",
+      "paper_id": "doi:10.1257/mac.20210258",
       "sequence": 6,
       "source_sequence": 7,
       "article_type": "research-article",
-      "title_en": "The Economic Consequences of Effective Carbon Taxes",
-      "title_cn": "有效碳税的经济后果",
+      "title_en": "Price Setting and Volatility: Evidence from Oil Price Volatility Shocks",
+      "title_cn": "价格设定与波动性：来自油价波动冲击的证据",
       "authors": [
-        "Felix Kapfhammer"
+        "Matthew Klepacz"
       ],
-      "abstract_en": "This paper studies the sectoral and macroeconomic consequences of carbon taxes in four Nordic countries using a novel monthly measure of effective carbon tax rates. The suggested measure accounts for the time-varying emission coverage of taxes that are both explicitly and implicitly levied on greenhouse gas-emitting goods, thereby solving several issues of existing carbon tax measures currently used by the literature. Employing the new measure in a local projection setting, I find that carbon taxes reduce emissions as expected but also impair macroeconomic activity—though there is some heterogeneity in the effects across sectors and countries.",
-      "abstract_cn": "本文研究了四北欧国家碳税的部门和宏观经济后果，使用了一种新颖的有效碳税率的月度测量方法。所建议的测量方法考虑了对温室气体排放商品征收的税收的时间变化覆盖范围，包括显性和隐性征收，从而解决了当前文献中使用的现有碳税测量方法的几个问题。在局部投影设置中使用新测量方法，我发现碳税如预期那样减少排放，但也损害了宏观经济活动——尽管不同部门和国家之间的影响存在一定的异质性。",
-      "doi": "10.1257/mac.20230083",
-      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mac.20230083",
+      "abstract_en": "Do changes in aggregate volatility alter the impulse response of output to monetary policy? I use plausibly exogenous oil price volatility shocks and exploit heterogeneity in oil usage across industries to show that PPI item-level price changes become less frequent and more dispersed when volatility is high. This implies aggregate price flexibility does not increase when aggregate volatility is high. I construct a state-dependent pricing model with random menu costs to interpret the findings. Matching the new empirical facts, the model shows that increases in aggregate volatility do not substantially reduce monetary policy effectiveness.",
+      "abstract_cn": "总体波动性的变化是否会改变产出对货币政策的脉冲响应？我使用看似外生的油价波动冲击，并利用各行业石油使用量的异质性来表明，当波动性较高时，PPI 项目层面的价格变化变得更不频繁且更为分散。这意味着当总体波动性较高时，总体价格灵活性并不会增加。我构建了一个带有随机菜单成本的状态依赖定价模型来解释这些发现。与新经验事实相匹配，该模型表明总体波动性的上升并不会大幅降低货币政策有效性。",
+      "doi": "10.1257/mac.20210258",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mac.20210258",
       "publication_date": "",
       "sources": {
         "inventory": "official-issue-page",
@@ -242,12 +242,12 @@
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T20:02:46+00:00",
-        "source_hash": "c7c9e2449569ea837534c23f7484686b7bbb4c66464ddb0667a95cba3e7e47b5"
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-10-09T14:20:47+00:00",
+        "source_hash": "2b2f3ff7d1ee9615b1c37cd1a04fbd0b16959f16478e28cce7df08173e55adee"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -258,19 +258,22 @@
       }
     },
     {
-      "paper_id": "doi:10.1257/mac.20230376",
+      "paper_id": "doi:10.1257/mac.20220388",
       "sequence": 7,
       "source_sequence": 8,
       "article_type": "research-article",
-      "title_en": "The Life Cycle Implications of Temporary Employment Contracts",
-      "title_cn": "临时雇佣合同的生命周期影响",
+      "title_en": "Leaning against the Global Financial Cycle",
+      "title_cn": "逆全球金融周期而行",
       "authors": [
-        "Rosemary Kaiser"
+        "Andrea Ferrero",
+        "Maurizio Michael Habib",
+        "Livio Stracca",
+        "Fabrizio Venditti"
       ],
-      "abstract_en": "Employment protections often create two-tiered labor markets with substantial differences in job security. I estimate the effects of removing these protections using a quantitative life cycle model, where younger workers are more likely to select into precarious jobs. Workers accumulate human capital when employed and face the possibility of human capital losses in unemployment. Because workers with greater job security experience fewer unemployment spells, they tend to accumulate more human capital over their careers. I show that reducing employment protections boosts younger workers' job-finding rates but lowers human capital, GDP, and employment. Impacts of these policies differ significantly by age.",
-      "abstract_cn": "就业保护往往导致二分层劳动市场，造成工作安全性存在显著差异。我使用定量生命周期模型估计取消这些保护的影响，其中年轻工人更可能选择不稳定的工作。工人在就业时积累人力资本，并在失业时面临人力资本损失的可能性。由于拥有更高工作安全性的工人经历的失业期较少，他们在职业生涯中往往积累更多的人力资本。我表明，减少就业保护提高了年轻工人的求职成功率，但降低了人力资本、GDP和就业。这些政策的影响在不同年龄段之间存在显著差异。",
-      "doi": "10.1257/mac.20230376",
-      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mac.20230376",
+      "abstract_en": "We investigate the impact of institutional quality on shielding emerging economies from the global financial cycle. Our findings indicate that countries with a higher rule of law, characterized by superior contract enforcement and more robust protection of property rights, experience a less severe tightening of domestic financial and macroeconomic conditions when faced with adverse global financial shocks. We explain this outcome through a simplified model that incorporates financial frictions, showing how strong institutions and effective governance alleviate collateral constraints and mitigate the effects of global financial pressures on the domestic economy.",
+      "abstract_cn": "我们考察了制度质量对新兴经济体抵御全球金融周期的影响。我们的发现表明，法治水平较高、以更优的合同执行和更稳健的产权保护为特征的国家，在面临不利的全球金融冲击时，国内金融和宏观经济条件的收紧程度较轻。我们通过一个纳入金融摩擦的简化模型来解释这一结果，展示了强有力的制度和有效的治理如何缓解抵押约束，并减轻全球金融压力对国内经济的影响。",
+      "doi": "10.1257/mac.20220388",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mac.20220388",
       "publication_date": "",
       "sources": {
         "inventory": "official-issue-page",
@@ -281,12 +284,12 @@
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T20:02:54+00:00",
-        "source_hash": "c1d37ce3ae7200a948a51927b1aacd437d4cc129cf0ca5b354dc0e7ffba5e4d3"
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-10-09T14:20:49+00:00",
+        "source_hash": "089e64c2005f01883715befda1e330218a61ea0406efc981508c797ab2dcf02a"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -297,21 +300,22 @@
       }
     },
     {
-      "paper_id": "doi:10.1257/mac.20240057",
+      "paper_id": "doi:10.1257/mac.20220304",
       "sequence": 8,
       "source_sequence": 9,
       "article_type": "research-article",
-      "title_en": "University Research and the Market for Higher Education",
-      "title_cn": "大学研究与高等教育市场",
+      "title_en": "Procyclical Fiscal Policy and Asset Market Incompleteness",
+      "title_cn": "顺周期财政政策与资产市场不完全性",
       "authors": [
-        "Titan Alon",
-        "Damien Capelle",
-        "Kazushige Matsuda"
+        "Andrés Fernández",
+        "Daniel Guzmán-Girón",
+        "Ruy Lama",
+        "Carlos Vegh"
       ],
-      "abstract_en": "This paper develops a framework in which university research depends endogenously on competition for tuition and talented students in the market for higher education. When students are highly stratified across colleges, or when tuition rises sharply with school rank, universities spend on R&D even if the direct contribution of research to teaching is small. The model is consistent with causal evidence and matches new features of the microdata. It explains why universities internally fund research with tuition, despite negligible returns to patenting. Calibrated simulations suggest that existing tuition policies boost university research while research subsidies crowd it out.",
-      "abstract_cn": "本文构建了一个框架，其中大学研究内生地依赖于高等教育市场中对学费和优秀学生的竞争。当学生在各个学院之间高度分层，或者当学费随着学校排名急剧上升时，大学即使在研究对教学的直接贡献较小的情况下也会在研发上投入。该模型与因果证据一致，并与微观数据的新特征相匹配。它解释了为什么大学用学费内部资助研究，尽管专利的回报微乎其微。标定的模拟表明，现有的学费政策促进了大学研究，而研究补贴则挤出了研究。",
-      "doi": "10.1257/mac.20240057",
-      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mac.20240057",
+      "abstract_en": "We develop a model of the joint behavior of optimal tax rates and government spending over the business cycle to explain procyclical fiscal policy in emerging markets. Our setup relies on financial frictions, which have been shown to be critical features of emerging markets, captured by various degrees of asset market incompleteness as well as varying levels of debt-elastic interest rate spreads. We show that incomplete markets can account for procyclical government spending but not necessarily procyclical tax policy. Explaining procyclical tax policy also requires that the ratio of private to public consumption comoves positively with the business cycle.",
+      "abstract_cn": "我们构建了一个关于最优税率与政府支出在经济周期中联合行为的模型，以解释新兴市场的顺周期财政政策。我们的设定依赖于金融摩擦，这些摩擦已被证明是新兴市场的关键特征，表现为不同程度的资产市场不完全性以及不同的债务弹性利率利差水平。我们表明，不完全市场可以解释顺周期的政府支出，但不一定能解释顺周期的税收政策。解释顺周期的税收政策还要求私人消费与公共消费的比率与经济周期正相关。",
+      "doi": "10.1257/mac.20220304",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mac.20220304",
       "publication_date": "",
       "sources": {
         "inventory": "official-issue-page",
@@ -322,12 +326,12 @@
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T20:03:01+00:00",
-        "source_hash": "f7b7fc402927ce6d860c0f9f578ebc0f5e972d7d168460c4225eb96c99a6ed7f"
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-10-09T14:20:50+00:00",
+        "source_hash": "a578f9cd203026ed27a03b03d47f69d372effcbfac9cf8d5d806d8a7e15ae655"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -338,20 +342,22 @@
       }
     },
     {
-      "paper_id": "doi:10.1257/mac.20220264",
+      "paper_id": "doi:10.1257/mac.20230278",
       "sequence": 9,
       "source_sequence": 10,
       "article_type": "research-article",
-      "title_en": "TFPR: Dispersion and Cyclicality",
-      "title_cn": "TFPR：分散性与周期性",
+      "title_en": "Wage Adjustment in Efficient Long-Term Employment Relationships",
+      "title_cn": "有效长期雇佣关系中的工资调整",
       "authors": [
-        "Russell Cooper",
-        "Ozgen Ozturk"
+        "Michael W. L. Elsby",
+        "Axel Gottfries",
+        "Pawel Krolikowski",
+        "Gary Solon"
       ],
-      "abstract_en": "This paper studies the dispersion and cyclicality of TFPR. Recent business cycle models assume countercyclical dispersion in TFPQ based on evidence of countercyclical dispersion in TFPR, though TFPR reflects endogenous prices. An overlapping generations model with monopolistic competition and state-dependent pricing is constructed to match three key data patterns: (i) countercyclical dispersion of TFPR, (ii) countercyclical dispersion of price changes, and (iii) countercyclical frequency of price adjustment. These patterns are matched either if shocks to the dispersion of TFPQ are negatively correlated with the mean of TFPQ, or if the monetary authority responds to them by \"leaning against the wind.\"",
-      "abstract_cn": "本文研究了TFPR的分散性和周期性。最近的商业周期模型假设TFPQ的分散性是反周期的，这基于TFPR中反周期分散性的证据，尽管TFPR反映了内生价格。构建了一个具有垄断竞争和状态依赖定价的重叠世代模型，以匹配三的关键数据模式：（i）TFPR的反周期分散性，（ii）价格变化的反周期分散性，以及（iii）价格调整的反周期频率。这些模式的匹配要么是TFPQ的分散性冲击与TFPQ的均值呈负相关，要么是货币当局通过“逆风而行”来应对这些冲击。",
-      "doi": "10.1257/mac.20220264",
-      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mac.20220264",
+      "abstract_en": "We present a model in which efficient long-term employment relationships are sustained by wage adjustments prompted by productivity shocks and outside job offers. These wage adjustments occur only sporadically, due to the presence of renegotiation costs. The model is amenable to analytical solution, yielding new insights for several labor market phenomena, including (i) key features of empirical distributions of changes in pay among job stayers, (ii) a near-\"memorylessness\" property in wage dynamics whereby hiring wages have only limited influence on later wages and allocation decisions, and (iii) a crucial role for recruitment and retention bonuses in sustaining efficient employment relationships.",
+      "abstract_cn": "我们提出了一个模型，其中有效的长期雇佣关系通过由生产率冲击和外部工作机会引发的工资调整来维持。由于存在再谈判成本，这些工资调整仅偶尔发生。该模型易于解析求解，为若干劳动力市场现象提供了新的见解，包括（i）在职者薪酬变化经验分布的关键特征，（ii）工资动态中近乎“无记忆性”的性质，即雇佣工资对后续工资和配置决策仅有有限影响，以及（iii）招聘和留任奖金在维持有效雇佣关系中的关键作用。",
+      "doi": "10.1257/mac.20230278",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mac.20230278",
       "publication_date": "",
       "sources": {
         "inventory": "official-issue-page",
@@ -362,12 +368,12 @@
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T20:03:08+00:00",
-        "source_hash": "ad34eff4020b6b80e950b6159c8812e1d692358a5bf2c16e93de6a428c338926"
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-10-09T14:20:51+00:00",
+        "source_hash": "2666e7f0f14b3aec949a3df025f1dbc6875026460612820f9da9533933eab540"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -378,20 +384,19 @@
       }
     },
     {
-      "paper_id": "doi:10.1257/mac.20220316",
+      "paper_id": "doi:10.1257/mac.20230017",
       "sequence": 10,
       "source_sequence": 11,
       "article_type": "research-article",
-      "title_en": "Self-Fulfilling Prophecies in the Transition to Clean Technology",
-      "title_cn": "向清洁技术过渡中的自我实现预言",
+      "title_en": "Long-Distance Trade and Long-Term Persistence",
+      "title_cn": "远距离贸易与长期持续性",
       "authors": [
-        "Sjak Smulders",
-        "Sophie Zhou"
+        "Sebastian Ellingsen"
       ],
-      "abstract_en": "Technological lock-in has been a standard explanation for the slow take-off of clean innovation, but is hard to reconcile with forward-looking investors who anticipate the eventual switch to clean technologies. We provide an alternative explanation: strategic investment complementarities shape innovation and self-fulfilling prophecies can lead to delayed low-carbon transition. We analyze a standard directed technical change model with clean and dirty inputs. Under good input substitutability, two stable steady states co-exist, each allowing multiple transitional paths. Optimal low-carbon transition requires a Pigouvian tax rule combined with a coordination device; commitment to a Pigouvian tax trajectory cannot solve a coordination failure.",
-      "abstract_cn": "技术锁定一直是清洁创新缓慢起步的标准解释，但与预期最终转向清洁技术的前瞻性投资者难以调和。我们提供了一种替代解释：战略投资互补性塑造创新，自我实现的预言可能导致低碳转型的延迟。我们分析了一个标准的定向技术变革模型，包含清洁和污染输入。在良好的输入可替代性下，二 稳定的稳态共存，每个稳态允许多条过渡路径。最优的低碳转型需要结合协调机制的庇古税规则；对庇古税轨迹的承诺无法解决协调失败。",
-      "doi": "10.1257/mac.20220316",
-      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mac.20220316",
+      "abstract_en": "Do changes in the location of trading opportunities cause changes in the location of economic activity? I explore this question using a lifting of restrictions on trade across the Spanish Empire in the eighteenth century. I combine a difference-in-differences approach with a dynamic spatial model to examine this issue. I find that the reform improved market integration and induced urban growth, but had a smaller effect in locations with larger internal markets. The findings show that the location of economic activity adapts to changes in the location of trading opportunities, but persists when these changes are preceded by urban growth.",
+      "abstract_cn": "贸易机会位置的变化是否会导致经济活动位置的变化？我利用十八世纪西班牙帝国贸易限制的解除来探讨这一问题。我将双重差分方法与动态空间模型相结合来考察该问题。我发现，该改革改善了市场一体化并引致了城市增长，但在内部市场较大的地点影响较小。研究结果表明，经济活动的位置会适应贸易机会位置的变化，但当这些变化之前伴随城市增长时，则会持续。",
+      "doi": "10.1257/mac.20230017",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mac.20230017",
       "publication_date": "",
       "sources": {
         "inventory": "official-issue-page",
@@ -402,12 +407,12 @@
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T20:03:17+00:00",
-        "source_hash": "5fff07811b1a2115b94b32716b4ac152c31ec8eb604dc530b41af01ac967eeee"
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-10-09T14:20:52+00:00",
+        "source_hash": "60e78d485da8a35c53f02599534654f733c4fdc8491710bf9a635b75c7a5975c"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -418,19 +423,22 @@
       }
     },
     {
-      "paper_id": "doi:10.1257/mac.20230241",
+      "paper_id": "doi:10.1257/mac.20250382",
       "sequence": 11,
       "source_sequence": 12,
       "article_type": "research-article",
-      "title_en": "Selection, Structural Transformation, and the Cost Disease of Services",
-      "title_cn": "选择、结构转型与服务业成本病",
+      "title_en": "Population and Welfare: Measuring Growth When Life Is Worth Living",
+      "title_cn": "人口与福利：衡量生命有价值时的增长",
       "authors": [
-        "Martin Shu"
+        "Mohamad Adhami",
+        "Mark Bils",
+        "Charles I. Jones",
+        "Peter J. Klenow"
       ],
-      "abstract_en": "Labor productivity growth in the service sector may be mismeasured if workers with heterogeneous skills self-select into sectors. I document with US data that workers reallocated from manufacturing earn more than incumbent workers in professional services but less than incumbent workers in education, health, and public services. A generalized quantitative Roy model predicts a selection effect on labor productivity growth in professional services that is 10 percentage points higher than what a conventional selection model predicts. Overall, the selection effect contributes little to the cost disease of services, which contrasts sharply with the hypothesis in the literature.",
-      "abstract_cn": "如果具有异质技能的工人自我选择进入不同部门，服务部门的劳动生产率增长可能被误测。我用美国数据记录到，从制造业重新分配的工人比专业服务的在职工人赚得更多，但比教育、健康和公共服务的在职工人赚得更少。一个广义的定量罗伊模型预测，专业服务的劳动生产率增长的选择效应比传统选择模型预测的高出10个百分点。总体而言，选择效应对服务业的成本病贡献不大，这与文献中的假设形成鲜明对比。",
-      "doi": "10.1257/mac.20230241",
-      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mac.20230241",
+      "abstract_en": "Economic growth is typically measured in per capita terms. A long tradition in philosophy, however, suggests that social welfare may depend on the number of people as well. To illustrate how much this matters quantitatively, we decompose welfare growth—measured in consumption-equivalent (CE) units—into contributions from rising population and rising per capita consumption. Because of diminishing marginal utility from consumption, population growth is scaled up by a value-of-life factor that empirically averages nearly 3 across countries since 1960. Population increases are therefore a major contributor to growth if one takes a total utilitarian perspective.",
+      "abstract_cn": "经济增长通常以人均指标衡量。然而，哲学中的一个悠久传统表明，社会福利可能也取决于人口数量。为了说明这在数量上有多重要，我们将以消费等价（CE）单位衡量的福利增长分解为来自人口增长和人均消费增长的贡献。由于消费的边际效用递减，人口增长被一个生命价值因子放大，该因子自1960以来在各国的经验平均值接近3。因此，如果采取总功利主义视角，人口增长是增长的主要贡献因素。",
+      "doi": "10.1257/mac.20250382",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mac.20250382",
       "publication_date": "",
       "sources": {
         "inventory": "official-issue-page",
@@ -441,12 +449,12 @@
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T20:03:22+00:00",
-        "source_hash": "e5350b77c2001336bdd76782a8ac62a2363730732e1a313ffacc19575c9bac58"
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-10-09T14:20:53+00:00",
+        "source_hash": "df78bc49eb8ab9f1a1486c1cb1a30f1faed73166fe9440ad429d698305c8fac8"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -457,21 +465,20 @@
       }
     },
     {
-      "paper_id": "doi:10.1257/mac.20220312",
+      "paper_id": "doi:10.1257/mac.20240207",
       "sequence": 12,
       "source_sequence": 13,
       "article_type": "research-article",
-      "title_en": "Deciphering Federal Reserve Communication via Text Analysis of Alternative FOMC Statements",
-      "title_cn": "通过对替代FOMC声明的文本分析解读美联储沟通",
+      "title_en": "Labor Market Discrimination and the Racial Unemployment Gap: Can Monetary Policy Make a Difference?",
+      "title_cn": "劳动力市场歧视与种族失业差距：货币政策能否有所作为？",
       "authors": [
-        "Taeyoung Doh",
-        "Dongho Song",
-        "Shu-Kuei Yang"
+        "Isabel Cairó",
+        "Avi Lipton"
       ],
-      "abstract_en": "We propose a text-based measure of monetary policy stance that models FOMC statements as convex combinations of dovish and hawkish alternatives, providing a tractable representation of the Committee's position along the policy spectrum. Leveraging staff-drafted alternative statements, we fine-tune a pretrained language model to capture both quantitative precision and semantic tone. Stance is defined as the product of tone and novelty, and decomposed into expected and surprise components using high-frequency financial data. Surprises arise from shifts in tone relative to expectations or from statement novelty. Our framework enables counterfactuals showing how alternative communication could have moved markets.",
-      "abstract_cn": "我们提出了一种基于文本的货币政策立场度量，模型化FOMC声明为鸽派和鹰派替代方案的凸组合，提供了委员会在政策光谱上的位置的可处理表示。利用工作人员起草的替代声明，我们微调了一个预训练的语言模型，以捕捉定量精确性和语义语调。立场被定义为语调和新颖性的乘积，并使用高频金融数据分解为预期和意外成分。意外来自于相对于预期的语调变化或声明的新颖性。我们的框架能够进行反事实分析，展示替代沟通如何影响市场。",
-      "doi": "10.1257/mac.20220312",
-      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mac.20220312",
+      "abstract_en": "Black workers experience higher, more volatile unemployment than White workers, a racial disparity unexplained by observables. A New Keynesian model with a frictional labor market, endogenous separations, and employer discrimination explains these outcomes. We use the model to assess how alternative monetary policy strategies affect labor market outcomes by race. Switching to a monetary policy rule where interest rates respond to shortfalls of employment from its maximum level instead of deviations raises inflation and does not reduce the racial unemployment gap. A monetary policy rule where interest rates respond to the racial unemployment gap also fails to reduce the gap.",
+      "abstract_cn": "黑人劳动者比白人劳动者经历更高且更易波动的失业率，这一种族差异无法由可观测因素解释。一个包含摩擦性劳动力市场、内生分离和雇主歧视的新凯恩斯模型解释了这些结果。我们使用该模型评估替代性货币政策策略如何影响不同种族的劳动力市场结果。转向一种利率对就业与其最高水平之缺口而非对偏离做出反应的货币政策规则会提高通胀，且不会缩小种族失业差距。一种利率对种族失业差距做出反应的货币政策规则同样未能缩小该差距。",
+      "doi": "10.1257/mac.20240207",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mac.20240207",
       "publication_date": "",
       "sources": {
         "inventory": "official-issue-page",
@@ -482,12 +489,12 @@
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T20:03:30+00:00",
-        "source_hash": "5d6766469d34c31f0a83dc0879286f6a767ddf691919f22f23f0de4fb87962d5"
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-10-09T14:20:55+00:00",
+        "source_hash": "19246274027cb89193170b043bbc07c048b88d0e4af9c48894404f3cfb7e158a"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -498,22 +505,20 @@
       }
     },
     {
-      "paper_id": "doi:10.1257/mac.20210220",
+      "paper_id": "doi:10.1257/mac.20230033",
       "sequence": 13,
       "source_sequence": 14,
       "article_type": "research-article",
-      "title_en": "Resource Misallocation in European Firms: The Role of Constraints, Firm Characteristics, and Managerial Decisions",
-      "title_cn": "欧洲企业中的资源错配：约束、企业特征和管理决策的作用",
+      "title_en": "Firm Heterogeneity, Market Power, and Macroeconomic Fragility",
+      "title_cn": "企业异质性、市场势力与宏观经济脆弱性",
       "authors": [
-        "Yuriy Gorodnichenko",
-        "Debora Revoltella",
-        "Jan Svejnar",
-        "Christoph T. Weiss"
+        "Alessandro Ferrari",
+        "Francisco Queirós"
       ],
-      "abstract_en": "Using a new survey, we document high dispersion of marginal revenue products across firms in the European Union. To interpret this dispersion, we develop a highly portable framework to quantify gains from better allocation of resources. We demonstrate that apart from direct measures of distortions, firm characteristics, such as demographics, quality of inputs, utilization of resources, and dynamic adjustment of inputs, are predictors of the marginal revenue products of capital and labor. We emphasize that some firm characteristics may reflect compensating differentials rather than constraints and the effect of constraints on the dispersion of marginal products maybe smaller.",
-      "abstract_cn": "通过一项新调查，我们记录了欧盟企业边际收益产品的高度分散。为了解释这种分散，我们开发了一个高度可移植的框架来量化更好资源配置的收益。我们证明，除了扭曲的直接测量，企业特征，如人口统计、投入质量、资源利用和投入的动态调整，是资本和劳动边际收益产品的预测因素。我们强调，一些企业特征可能反映补偿性差异而非约束，约束对边际产品分散的影响可能较小。",
-      "doi": "10.1257/mac.20210220",
-      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mac.20210220",
+      "abstract_en": "We study how firm heterogeneity and market power affect macroeconomic fragility, defined as the probability of long slumps. We propose a theory in which the positive interaction between firm entry, competition and factor supply can give rise to multiple steady states. When firms are highly heterogeneous, even small temporary shocks can trigger firm exit and make the economy spiral into a competition-driven poverty trap. We calibrate our model to incorporate the trends on rising firm heterogeneity, and show that they significantly increase the likelihood and length of slow recoveries.",
+      "abstract_cn": "我们研究企业异质性和市场势力如何影响宏观经济脆弱性，即长期衰退的概率。我们提出一种理论，其中企业进入、竞争与要素供给之间的正向互动可以导致多重稳态。当企业高度异质时，即使是小的暂时性冲击也可能引发企业退出，并使经济螺旋式陷入竞争驱动的贫困陷阱。我们校准模型以纳入企业异质性上升的趋势，并表明这些趋势显著增加了缓慢复苏的可能性和长度。",
+      "doi": "10.1257/mac.20230033",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mac.20230033",
       "publication_date": "",
       "sources": {
         "inventory": "official-issue-page",
@@ -524,12 +529,52 @@
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "openai/gpt-4o-mini",
-        "translated_at": "2026-07-26T20:03:39+00:00",
-        "source_hash": "dcd6b0297ef176881eb2b5abd9b7ff7ead966b4801f7d72ccf2ced0e20e251fb"
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-10-09T14:20:56+00:00",
+        "source_hash": "69700048c6fcd9adf34c285b6deeb1838f032bd2dc0cf54e77b6c87abca8fcfe"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1257/mac.20240295",
+      "sequence": 14,
+      "source_sequence": 15,
+      "article_type": "research-article",
+      "title_en": "Oil Prices, Monetary Policy, and Inflation Surges",
+      "title_cn": "油价、货币政策与通胀飙升",
+      "authors": [
+        "Luca Gagliardone",
+        "Mark Gertler"
+      ],
+      "abstract_en": "We develop a simple quantitative New Keynesian model aimed at analyzing how the reaction of monetary policy contributed to the recent rise and fall in inflation. The model includes several shocks but features oil price shocks for two reasons: (i) energy prices have been among the central factors in discussions about the surge; and (ii) we can use identified oil shocks along with monetary shocks to estimate and discipline the model. We then employ the estimated framework to recover shocks without targeting inflation. Both the oil shocks and the shocks to policy accommodation played important roles in the inflation rise.",
+      "abstract_cn": "我们构建了一个简单的定量新凯恩斯模型，旨在分析货币政策的反应如何促成了近期通胀的上升和下降。该模型包含若干冲击，但以油价冲击为特征，原因有二：(i) 能源价格一直是关于此次飙升讨论的核心因素之一；(ii) 我们可以利用识别出的油价冲击以及货币冲击来估计和约束模型。随后，我们运用估计出的框架在不以通胀为目标的情况下恢复冲击。油价冲击和政策宽松冲击在通胀上升中都发挥了重要作用。",
+      "doi": "10.1257/mac.20240295",
+      "source_url": "https://www.aeaweb.org/articles?id=10.1257/mac.20240295",
+      "publication_date": "",
+      "sources": {
+        "inventory": "official-issue-page",
+        "title": "official-article-page",
+        "authors": "official-article-page",
+        "abstract": "official-article-page",
+        "doi": "official-article-id"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-10-09T14:20:57+00:00",
+        "source_hash": "cf0159ec5acbdc0c4e0fb176857d7033bb2e9250ab95385cf2632feac62a9025"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -543,7 +588,7 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "official_item_count": 14,
+    "official_item_count": 15,
     "excluded_item_count": 1,
     "excluded_items": [
       {
@@ -554,40 +599,42 @@
       }
     ],
     "detail_failure_count": 0,
-    "doi_complete": 13,
-    "authors_complete": 13,
-    "abstract_en_complete": 13,
-    "translation_complete": 13,
+    "doi_complete": 14,
+    "authors_complete": 14,
+    "abstract_en_complete": 14,
+    "translation_complete": 14,
     "duplicate_count": 0,
     "flags": [],
-    "publishable_item_count": 13,
+    "publishable_item_count": 14,
     "content_counts": {
-      "official_items": 14,
-      "observed_items": 14,
-      "publishable_items": 13,
-      "research_articles": 13,
+      "official_items": 15,
+      "observed_items": 15,
+      "publishable_items": 14,
+      "research_articles": 14,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 1,
       "other_excluded": 0,
-      "catalog_content_items": 13
+      "catalog_content_items": 14
     }
   },
   "content_counts": {
-    "official_items": 14,
-    "observed_items": 14,
-    "publishable_items": 13,
-    "research_articles": 13,
+    "official_items": 15,
+    "observed_items": 15,
+    "publishable_items": 14,
+    "research_articles": 14,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 1,
     "other_excluded": 0,
-    "catalog_content_items": 13
+    "catalog_content_items": 14
   },
-  "issue_label": "Vol. 18 · No. 3",
+  "issue_label": "Vol. 18 · No. 4",
+  "content_status": "complete",
+  "source_status": "official_verified",
   "publication_state": "ready"
 }

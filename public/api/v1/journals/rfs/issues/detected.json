@@ -1,48 +1,50 @@
 {
   "schema_version": "1.0",
-  "issue_id": "rfs-39-8",
+  "issue_id": "rfs-39-10",
   "journal_id": "rfs",
   "journal_name": "The Review of Financial Studies",
   "volume": "39",
-  "issue": "8",
-  "publication_date": "August 2026",
+  "issue": "10",
+  "publication_date": "October 2026",
   "source_url": "https://academic.oup.com/rfs/issue",
-  "retrieved_at": "2026-08-01T13:56:38+00:00",
+  "retrieved_at": "2026-10-09T14:19:48+00:00",
   "expected_article_count": 8,
   "research_article_count": 8,
-  "status": "incomplete",
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1093/rfs/hhag030",
+      "paper_id": "doi:10.1093/rfs/hhag022",
       "sequence": 1,
-      "source_sequence": 2317,
+      "source_sequence": 3035,
       "article_type": "research-article",
-      "title_en": "Who Bears Flood Risk? Evidence from Mortgage Markets in Florida",
-      "title_cn": "谁承担洪水风险？来自佛罗里达州抵押贷款市场的证据",
+      "title_en": "Machine Learning and the Implementable Efficient Frontier",
+      "title_cn": "机器学习与可实施的有效前沿",
       "authors": [
-        "Parinitha Sastry"
+        "Theis Ingerslev Jensen",
+        "Bryan Kelly",
+        "Semyon Malamud",
+        "Lasse Heje Pedersen"
       ],
-      "abstract_en": "Government-provided flood insurance contracts have strict coverage limits, leaving some households underinsured against flood risk. This paper exploits these strict coverage limits as well as staggered flood map updates to show that mortgage lenders screen for uninsurable flood risk by requiring lower loan-to-value ratios at origination. This credit rationing leads delinquency rates to equalize inside and outside of flood zones, and shifts the composition of mortgage borrowers in flood zones toward richer and higher credit quality individuals. I conclude that lenders reduce credit supply when they retain residual uninsured exposures to flood risk, which has distributional consequences for flood zones.",
-      "abstract_cn": "政府提供的洪水保险合同有严格的承保范围限制，导致一些家庭的洪水风险保险不足。本文利用这些严格的承保范围限制以及交错的洪水地图更新来表明抵押贷款机构通过在发起时要求较低的贷款与价值比率来筛选不可保险的洪水风险。这种信贷配给导致洪泛区内外的拖欠率趋于平衡，并使洪泛区抵押贷款借款人的构成转向更富有和信用质量更高的个人。我的结论是，当贷款人保留剩余的未保险的洪水风险敞口时，他们就会减少信贷供应，这会对洪水地区产生分配影响。",
-      "abstract_snippet_en": "",
-      "doi": "10.1093/rfs/hhag030",
-      "source_url": "https://doi.org/10.1093/rfs/hhag030",
-      "publication_date": "2026",
+      "abstract_en": "We propose that investment strategies should be evaluated based on their net-of-trading-cost return for each level of risk, which we term the “implementable efficient frontier.” While numerous studies use machine learning return forecasts to generate portfolios, their agnosticism toward trading costs leads to excessive reliance on fleeting small-scale characteristics, resulting in poor net returns. We develop a framework that produces a superior frontier by integrating trading-cost-aware portfolio optimization with machine learning. The superior net-of-cost performance is achieved by learning directly about portfolio weights using an economic objective. Further, our model gives rise to a new measure of “economic feature importance.”",
+      "abstract_cn": "我们提出，投资策略应根据其在每一风险水平下的扣除交易成本后的收益来评估，我们将其称为“可实施的有效前沿”。尽管大量研究使用机器学习收益预测来生成投资组合，但它们对交易成本的忽视导致过度依赖转瞬即逝的小规模特征，从而造成净收益不佳。我们开发了一个框架，通过将交易成本感知的投资组合优化与机器学习相结合，产生更优的前沿。更优的扣除成本后表现是通过使用经济目标直接学习投资组合权重来实现的。此外，我们的模型催生了一种新的“经济特征重要性”度量。",
+      "doi": "10.1093/rfs/hhag022",
+      "source_url": "https://academic.oup.com/rfs/article/39/10/3035/8524346?rss=1",
+      "publication_date": "",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rss/site_5511/3372.xml",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
-        "provider": "google-translate",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-01T05:25:59+00:00",
-        "source_hash": "ce1b50ac082e515b5bbf506267f18e4c7cacd1816d89189a8646e4c497860ac2"
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-10-09T14:19:49+00:00",
+        "source_hash": "f82ab12e9c0b673d3c53e3dd03e7905cef2f4aaccb547b020abd5e5c039874d7"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -53,35 +55,36 @@
       }
     },
     {
-      "paper_id": "doi:10.1093/rfs/hhag031",
+      "paper_id": "doi:10.1093/rfs/hhag041",
       "sequence": 2,
-      "source_sequence": 2358,
+      "source_sequence": 3079,
       "article_type": "research-article",
-      "title_en": "The Response of Mortgage Supply to Expected Flood Insurance Lapses",
-      "title_cn": "抵押贷款供应对预期洪水保险失效的反应",
+      "title_en": "Dynamics of Asset Demands with Confidence Heterogeneity",
+      "title_cn": "信心异质性下的资产需求动态",
       "authors": [
-        "Zhongchen Hu"
+        "Adrian Buss",
+        "Raman Uppal",
+        "Grigory Vilkov"
       ],
-      "abstract_en": "Flooding is among the costliest natural disasters in many countries. To protect collateral, many mortgage borrowers in the United States are legally required to maintain flood insurance. However, lax enforcement leads to frequent policy lapses. This paper shows that lenders provide credit contingent on borrowers’ insurance incentives. Exploiting exogenous premium rises ($266 annually) that disincentivize insurance take-up, I find mortgage denial rates dramatically increase by 0.49–0.81 pp. By comparison, lowering income by $266 has an effect of only 0.01 pp. Mortgage applicants’ composition remains unchanged, refuting demand-side explanations. Evidence suggests lenders internalize ex-post monitoring costs into ex-ante credit restrictions.",
-      "abstract_cn": "洪水是许多国家损失最惨重的自然灾害之一。为了保护抵押品，美国的许多抵押贷款借款人都被法律要求维持洪水保险。然而，执法不严导致政策失误频频发生。本文表明，贷款人根据借款人的保险激励措施提供信贷。利用外生保费上涨（每年266美元）抑制保险购买的积极性，我发现抵押贷款拒绝率急剧增加0.49-0.81个百分点。相比之下，收入降低266美元仅产生0.01个百分点的影响。抵押贷款申请人的构成保持不变，驳斥了需求方的解释。有证据表明，贷方将事后监控成本内部化为事前信贷限制。",
-      "abstract_snippet_en": "",
-      "doi": "10.1093/rfs/hhag031",
-      "source_url": "https://doi.org/10.1093/rfs/hhag031",
-      "publication_date": "2026",
+      "abstract_en": "To understand the dynamics of investors’ asset demands, we develop a general-equilibrium model driven by a single latent variable: heterogeneity in investors’ confidence about mean endowment growth. The model predicts persistent heterogeneity in asset demands and concentrated portfolios. Consistent with the data, limited confidence reduces investors’ demand elasticities and makes stock prices excessively volatile—driven by latent demand rather than observable characteristics. The underlying economic mechanisms are driven primarily by investors’ desire to hedge changes in future beliefs instead of current disagreement. Finally, consistent with survey data, investors’ expectations correlate positively with past returns and negatively with future returns.",
+      "abstract_cn": "为了理解投资者资产需求的动态，我们构建了一个由单一潜在变量驱动的广义均衡模型：投资者对平均禀赋增长信心的异质性。该模型预测资产需求存在持续异质性以及集中投资组合。与数据一致，有限的信心降低了投资者的需求弹性，并使股价过度波动——由潜在需求而非可观察特征驱动。其背后的经济机制主要由投资者对冲未来信念变化而非当前分歧的意愿所驱动。最后，与调查数据一致，投资者的预期与过去回报正相关，与未来回报负相关。",
+      "doi": "10.1093/rfs/hhag041",
+      "source_url": "https://academic.oup.com/rfs/article/39/10/3079/8660473?rss=1",
+      "publication_date": "",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rss/site_5511/3372.xml",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
-        "provider": "google-translate",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-01T05:26:01+00:00",
-        "source_hash": "e57aca4f1dace4d7458d8bf10961d56d9f35c2c015b81fefac0bea7f4d958af9"
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-10-09T14:19:50+00:00",
+        "source_hash": "ab21bace800df71cfd66f12f7c05a087bd362f68f620ded64e63ac8867b5c908"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -92,36 +95,35 @@
       }
     },
     {
-      "paper_id": "doi:10.1093/rfs/hhaf101",
+      "paper_id": "doi:10.1093/rfs/hhag053",
       "sequence": 3,
-      "source_sequence": 2421,
+      "source_sequence": 3122,
       "article_type": "research-article",
-      "title_en": "Cooling Auction Fever: Evidence from the Housing Market",
-      "title_cn": "拍卖热潮降温：来自房地产市场的证据",
+      "title_en": "Partial Equilibrium Thinking, Extrapolation, and Bubbles",
+      "title_cn": "局部均衡思维、外推与泡沫",
       "authors": [
-        "Antonio Gargano",
-        "Marco Giacoletti"
+        "Francesca Bastianello",
+        "Paul Fontanier"
       ],
-      "abstract_en": "We study the effects of underquoting, the practice of setting listing prices below sellers’ reservation values, on housing auctions. Laws introduced in Australia to deter underquoting lead to higher listing prices, but also to declines in sales prices and sales probabilities. We develop a quantitative model to formalize predictions under different assumptions about bidders’ information and rationality. The effects of the laws are matched by a version of the model in which participating bidders overbid. While both behavioral biases arising during the auction and switching costs can explain overbidding, empirical and survey evidence points to behavioral biases as the main mechanism.",
-      "abstract_cn": "我们研究了低价报价（将挂牌价格设定为低于卖家保留价值的做法）对房屋拍卖的影响。澳大利亚为阻止低价报价而出台的法律导致挂牌价格上涨，但也导致销售价格和销售概率下降。我们开发了一个定量模型，以在有关投标人信息和合理性的不同假设下将预测形式化。法律的效果与参与竞标者出价过高的模型版本相匹配。虽然拍卖过程中出现的行为偏差和转换成本都可以解释竞价过高，但经验和调查证据表明行为偏差是主要机制。",
-      "abstract_snippet_en": "",
-      "doi": "10.1093/rfs/hhaf101",
-      "source_url": "https://doi.org/10.1093/rfs/hhaf101",
-      "publication_date": "2026",
+      "abstract_en": "We develop a dynamic theory of “Partial Equilibrium Thinking” (PET), which micro-founds time-varying return extrapolation: extrapolative beliefs are present at all times, but only sometimes manifest themselves in explosive ways. We formalize the distinction between normal times shocks and “displacement shocks,” and study their interaction with extrapolative beliefs. In normal times, PET generates constant extrapolation and momentum. After a displacement shock that increases uncertainty, PET leads to stronger and time-varying extrapolation, triggering bubbles and endogenous crashes. Our theory sheds light on both market dynamics in normal times and Kindleberger’s narrative of bubbles within a unified framework.",
+      "abstract_cn": "我们发展了一种“局部均衡思维”（PET）的动态理论，该理论为时变收益外推提供了微观基础：外推信念始终存在，但仅有时以爆炸性方式显现。我们形式化了正常时期冲击与“位移冲击”之间的区别，并研究了它们与外推信念的相互作用。在正常时期，PET 产生恒定的外推和动量。在增加不确定性的位移冲击之后，PET 导致更强且时变的外推，引发泡沫和内生性崩溃。我们的理论在一个统一框架内阐明了正常时期的市场动态以及 Kindleberger 关于泡沫的叙述。",
+      "doi": "10.1093/rfs/hhag053",
+      "source_url": "https://academic.oup.com/rfs/article/39/10/3122/8700953?rss=1",
+      "publication_date": "",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rss/site_5511/3372.xml",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
-        "provider": "google-translate",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-01T05:26:02+00:00",
-        "source_hash": "b8933addb5a92d52d9c1573f6b230a28e5228da28b0ecafff14282756c34a85f"
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-10-09T14:19:51+00:00",
+        "source_hash": "2b78473b4714305c61ac2a5769a94028b3c27e8a5043b14e7f3dbea3ac55ea3e"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -132,36 +134,36 @@
       }
     },
     {
-      "paper_id": "doi:10.1093/rfs/hhag040",
+      "paper_id": "doi:10.1093/rfs/hhag062",
       "sequence": 4,
-      "source_sequence": 2476,
+      "source_sequence": 3191,
       "article_type": "research-article",
-      "title_en": "Global Capital and Local Assets: House Prices, Quantities, and Elasticities",
-      "title_cn": "全球资本和本地资产：房价、数量和弹性",
+      "title_en": "What Hundreds of Economic News Events Say About Belief Overreaction in the Stock Market",
+      "title_cn": "数百个经济新闻事件对股市中信念过度反应有何启示",
       "authors": [
-        "Caitlin S Gorback",
-        "Benjamin J Keys"
+        "Francesco Bianchi",
+        "Sydney C Ludvigson",
+        "Sai Ma"
       ],
-      "abstract_en": "We estimate price elasticities of housing supply for U.S. cities by examining the impact of foreign purchases on housing prices and quantities. After other countries introduced foreign-buyer taxes beginning in 2011, both house prices and quantities increased more in locations with high foreign-born populations. An increase in global capital inflows, instrumented with tax policy changes scaled by immigrant exposure, increased prices and quantities over 2011–2018. We combine these estimates to construct new local supply elasticities, which average 0.26 and range from 0.06 to 0.9. Compared to prior estimates, our elasticities are more inelastic and change cities’ relative rankings.",
-      "abstract_cn": "我们通过研究外国购买对房价和数量的影响来估计美国城市住房供应的价格弹性。在其他国家从2011开始引入外国买家税后，外国出生人口较多的地区的房价和数量都增加了更多。全球资本流入增加，伴随着移民风险规模的税收政策变化，2011-2018期间价格和数量增加。我们结合这些估计来构建新的当地供应弹性，其平均值为 0.26，范围从 0.06 到 0.9。与之前的估计相比，我们的弹性更加缺乏弹性，并改变了城市的相对排名。",
-      "abstract_snippet_en": "",
-      "doi": "10.1093/rfs/hhag040",
-      "source_url": "https://doi.org/10.1093/rfs/hhag040",
-      "publication_date": "2026",
+      "abstract_en": "We measure the nature and severity of a variety of belief distortions in market reactions to hundreds of economic news events by synthesizing structural estimation with algorithmic machine learning to quantify bias. We find that investors systematically overreact to perceptions about multiple fundamental shocks, a phenomenon we show often dampens rather than amplifies market volatility via a “shock composition effect.” Such effects imply that the stock market can underreact to news, even when investors overreact to all shocks.",
+      "abstract_cn": "我们通过将结构估计与算法机器学习相结合来量化偏差，衡量了市场对数百个经济新闻事件反应中各种信念扭曲的性质和严重程度。我们发现，投资者系统性地对多种基本面冲击的感知过度反应，我们表明这种现象通常通过“冲击构成效应”抑制而非放大市场波动。此类效应意味着，即使投资者对所有冲击都过度反应，股市也可能对新闻反应不足。",
+      "doi": "10.1093/rfs/hhag062",
+      "source_url": "https://academic.oup.com/rfs/article/39/10/3191/8739216?rss=1",
+      "publication_date": "",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rss/site_5511/3372.xml",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
-        "provider": "google-translate",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-01T05:26:05+00:00",
-        "source_hash": "643fcba4318a1f9ff72498726ac1ca37bdc8cd08352f93de23768ebcb2c53ff1"
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-10-09T14:19:52+00:00",
+        "source_hash": "fe83e15e64f6d164cac6efa67cf62feb757d2d04e231130abd6cc495a8418806"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -172,40 +174,37 @@
       }
     },
     {
-      "paper_id": "doi:10.1093/rfs/hhag006",
+      "paper_id": "doi:10.1093/rfs/hhag011",
       "sequence": 5,
-      "source_sequence": 2517,
+      "source_sequence": 3240,
       "article_type": "research-article",
-      "title_en": "The Impact of Carcinogenic Risk Exposure on Housing Values: Estimates from Chemical Reclassifications",
-      "title_cn": "",
+      "title_en": "Beliefs and Portfolios: Causal Evidence",
+      "title_cn": "信念与投资组合：因果证据",
       "authors": [
-        "Jules van Binsbergen",
-        "João F Cocco",
-        "Marco Grotteria",
-        "S Lakshmi Naaraayanan"
+        "Johannes Beutel",
+        "Michael Weber"
       ],
-      "abstract_en": "We quantify the impact of perceived cancer risk on housing values using widely advertised national reclassifications of chemical carcinogenicity in the United States. Combining these information events with an empirical design that compares changes in house values closer to affected toxic plants against those farther away isolates the effect of cancer risk news from other local factors. Focusing on plants previously emitting reclassified carcinogenic chemicals, we estimate a 1–2% decline in housing values within a 3-mile radius compared to those located farther away. The effects are stronger in areas with higher media presence underscoring the role of salience as a mechanism.",
-      "abstract_cn": "",
-      "abstract_snippet_en": "",
-      "doi": "10.1093/rfs/hhag006",
-      "source_url": "https://doi.org/10.1093/rfs/hhag006",
-      "publication_date": "2026",
+      "abstract_en": "We causally test alternative theories of expectation formation. Using a randomized information experiment we show overreaction is a key feature of individuals’ return expectations, and individuals’ response to the price-earnings ratio is opposite of academic consensus. Our evidence is inconsistent with standard models of expectation formation, but subjective mental models that deviate from objective benchmarks can jointly explain the updating behavior in the experiment, the link between individuals’ prior perceptions and expectations, and the heterogeneity of updating. Conditional on their beliefs, individuals’ sensitivity of equity shares in a hypothetical portfolio choice experiment is consistent with the standard Merton model.",
+      "abstract_cn": "我们通过因果检验来验证关于预期形成的替代理论。利用一项随机信息实验，我们表明过度反应是个体回报预期的一个关键特征，并且个体对市盈率的反应与学术共识相反。我们的证据与预期形成的标准模型不一致，但偏离客观基准的主观心智模型能够共同解释实验中的更新行为、个体先前感知与预期之间的联系以及更新行为的异质性。在其信念给定的条件下，个体在假设性投资组合选择实验中股权份额的敏感性与标准默顿模型一致。",
+      "doi": "10.1093/rfs/hhag011",
+      "source_url": "https://academic.oup.com/rfs/article/39/10/3240/8561088?rss=1",
+      "publication_date": "",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rss/site_5511/3372.xml",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-10-09T14:19:54+00:00",
+        "source_hash": "77c8a98a4f589b470858d2d127904cb0e5e8a1b20aa8d322962ea626555baecf"
       },
-      "quality_flags": [
-        "abstract_cn_missing",
-        "title_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -214,37 +213,36 @@
       }
     },
     {
-      "paper_id": "doi:10.1093/rfs/hhaf115",
+      "paper_id": "doi:10.1093/rfs/hhag044",
       "sequence": 6,
-      "source_sequence": 2549,
+      "source_sequence": 3276,
       "article_type": "research-article",
-      "title_en": "Mortgage Design, Repayment Schedules, and Household Borrowing",
-      "title_cn": "抵押贷款设计、还款计划和家庭借贷",
+      "title_en": "What Drives Variation in Investor Portfolios? Estimating the Roles of Beliefs and Risk Preferences",
+      "title_cn": "什么驱动了投资者投资组合的变异？估计信念与风险偏好的作用",
       "authors": [
-        "Claes Bäckman",
-        "Patrick Moran",
-        "Peter van Santen"
+        "Mark Egan",
+        "Alexander MacKay",
+        "Hanbin Yang"
       ],
-      "abstract_en": "How does the design of debt repayment schedules affect household borrowing? To answer this question, we exploit a Swedish policy reform that eliminated interest-only mortgages for loan-to-value ratios above 50%. We document substantial bunching at the threshold, leading to 5% lower borrowing. Wealthy borrowers drive the results, challenging credit constraints as the primary explanation. We develop a model to evaluate the mechanisms driving household behavior and find that much of the effect comes from households experiencing ongoing flow disutility to amortization payments. Our results indicate that mortgage contracts with low initial payments substantially increase household borrowing and lifetime interest costs.",
-      "abstract_cn": "债务偿还时间表的设计如何影响家庭借贷？为了回答这个问题，我们利用瑞典的一项政策改革，取消了贷款价值比高于50%的只付息抵押贷款。我们记录了门槛上的大量聚集，导致5%借款减少。富裕的借款人推动了结果，挑战信贷限制作为主要解释。我们开发了一个模型来评估驱动家庭行为的机制，发现大部分影响来自于家庭正在经历摊销支付的持续流量负效用。我们的研究结果表明，初始付款较低的抵押贷款合同会大幅增加家庭借贷和终生利息成本。",
-      "abstract_snippet_en": "",
-      "doi": "10.1093/rfs/hhaf115",
-      "source_url": "https://doi.org/10.1093/rfs/hhaf115",
-      "publication_date": "2026",
+      "abstract_en": "We present a portfolio choice demand model that allows for the nonparametric estimation of investors’ (subjective) expectations and risk preferences. Using comprehensive 401(k)-plan-level data from 2009 through 2019, we explore heterogeneity in asset allocations using our empirical framework. We recover investors’ beliefs about each asset and examine the implications and potential sources of those beliefs. Heterogeneity in expectations across investors accounts for twice as much variation in portfolio holdings as heterogeneity in risk aversion. Belief heterogeneity is partly driven by investors’ characteristics and experiences, reflecting local sources of information such as county-level GDP and employers’ past performance.",
+      "abstract_cn": "我们提出了一个投资组合选择需求模型，该模型允许对投资者的（主观）预期和风险偏好进行非参数估计。利用从2009到2019的全面401(k)-计划层面数据，我们使用我们的实证框架探讨了资产配置中的异质性。我们恢复了投资者对每种资产的信念，并考察了这些信念的含义和潜在来源。投资者之间预期的异质性在投资组合持有量变异中所占的比重是风险厌恶异质性的两倍。信念异质性部分由投资者的特征和经历驱动，反映了县级GDP和雇主过往业绩等本地信息来源。",
+      "doi": "10.1093/rfs/hhag044",
+      "source_url": "https://academic.oup.com/rfs/article/39/10/3276/8660476?rss=1",
+      "publication_date": "",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rss/site_5511/3372.xml",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
-        "provider": "google-translate",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-01T05:26:13+00:00",
-        "source_hash": "1f440fa869df213ff2b6cdae60eee9c86b15435e62e7cafbfdf7812a3f1a718d"
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-10-09T14:19:55+00:00",
+        "source_hash": "4b3c1a5eae980b0073994a1c7fcb7c0d4b5e2b0b1e776b2ca9aebc8ae20f9cb0"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -255,36 +253,35 @@
       }
     },
     {
-      "paper_id": "doi:10.1093/rfs/hhaf114",
+      "paper_id": "doi:10.1093/rfs/hhag032",
       "sequence": 7,
-      "source_sequence": 2595,
+      "source_sequence": 3330,
       "article_type": "research-article",
-      "title_en": "When Two Become One: Foreign Capital and Household Credit Expansion",
-      "title_cn": "当二变成一：外资与家庭信贷扩张",
+      "title_en": "Who Clears the Market When Passive Investors Trade?",
+      "title_cn": "当被动投资者交易时，谁清算市场？",
       "authors": [
-        "Lukas Diebold",
-        "Björn Richter"
+        "Marco Sammon",
+        "John J Shim"
       ],
-      "abstract_en": "Rapid credit expansions predict lower output growth and banking crises, but does it matter who finances them? We identify the ultimate counterparties financing credit expansions in a panel of 33 advanced economies and find that foreign-financed household credit expansions predict lower GDP growth and higher crisis risk, but domestically financed credit expansions do not. Studying the mechanisms, we find that foreign-financed household credit expansions are accompanied by higher supply of foreign capital (reflected in low credit spreads), are followed by elevated credit cycle reversal risk, and lead to higher debt service payments to foreigners which depress aggregate demand.",
-      "abstract_cn": "快速的信贷扩张预示着产出增长放缓和银行危机，但谁为它们提供资金重要吗？我们确定了一组 33 发达经济体中为信贷扩张融资的最终交易对手，并发现外国融资的家庭信贷扩张预示着 GDP 增长率较低和危机风险较高，但国内融资的信贷扩张则不然。通过研究这些机制，我们发现，外国融资的家庭信贷扩张伴随着外国资本供应的增加（反映在较低的信贷利差中），随之而来的是信贷周期逆转风险的上升，并导致对外国人的偿债支付增加，从而抑制了总需求。",
-      "abstract_snippet_en": "",
-      "doi": "10.1093/rfs/hhaf114",
-      "source_url": "https://doi.org/10.1093/rfs/hhaf114",
-      "publication_date": "2026",
+      "abstract_en": "We find that firms are the primary sellers who clear the market for index fund buying, providing shares at a nearly one-for-one rate. Most demand-side institutions trade in the same direction as index funds rather than accommodating passive demand. We use two instruments for index fund demand and show that firms causally respond to exogenous passive demand, with prices serving as the coordinating mechanism. Firms satisfy passive demand mostly through nonprimary market issuance, for example, through employee stock-based compensation. Our results suggest that passive investing has systematically supplied capital to firms by enabling equity issuance over the last two decades.",
+      "abstract_cn": "我们发现，公司是为指数基金买入清算市场的主要卖方，以几乎一比一的比例提供股份。大多数需求侧机构的交易方向与指数基金相同，而不是迎合被动需求。我们为指数基金需求使用了两个工具变量，并表明公司对外生的被动需求做出因果反应，价格作为协调机制。公司主要通过非一级市场发行来满足被动需求，例如通过员工股票薪酬。我们的结果表明，在过去二十年中，被动投资通过使股权发行成为可能，系统性地为公司提供了资本。",
+      "doi": "10.1093/rfs/hhag032",
+      "source_url": "https://academic.oup.com/rfs/article/39/10/3330/8572664?rss=1",
+      "publication_date": "",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rss/site_5511/3372.xml",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
-        "provider": "google-translate",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-01T05:26:15+00:00",
-        "source_hash": "9e8cecda27fe9668d4bc071edbc59e9e894fbb9acf2c3673238ef08668043442"
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-10-09T14:19:57+00:00",
+        "source_hash": "d2908fda3a2fc63aaf4fc7b836b3cc1f4f9fb2ebbbf9e75e8f3e2860443424ba"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -295,37 +292,36 @@
       }
     },
     {
-      "paper_id": "doi:10.1093/rfs/hhaf079",
+      "paper_id": "doi:10.1093/rfs/hhag036",
       "sequence": 8,
-      "source_sequence": 2643,
+      "source_sequence": 3378,
       "article_type": "research-article",
-      "title_en": "Macroeconomic Expectations and Credit Card Spending",
-      "title_cn": "宏观经济预期和信用卡支出",
+      "title_en": "What Drives Momentum and Reversal? Evidence from Day and Night Signals",
+      "title_cn": "什么驱动了动量与反转？来自日间和夜间信号的证据",
       "authors": [
-        "Mikhail Galashin",
-        "Martin Kanz",
-        "Ricardo Perez-Truglia"
+        "Yashar H Barardehi",
+        "Vincent Bogousslavsky",
+        "Dmitriy Muravyev"
       ],
-      "abstract_en": "We examine how macroeconomic expectations affect consumer decisions, using an experiment with 2,872 credit card customers at a large commercial bank. In the experiment, participants are randomized into receiving expert forecasts of inflation and the nominal exchange rate. We find that forecasts shift inflation and exchange rate expectations, but do not change spending or self-reported consumption plans as predicted by standard models of intertemporal choice. Results from a supplementary survey experiment suggest that consumers are sophisticated enough to anticipate nominal rigidities and reduce spending on durables for precautionary reasons, counteracting the effects predicted by standard models of intertemporal optimization.",
-      "abstract_cn": "我们通过对一家大型商业银行的 2,872 信用卡客户进行实验，研究宏观经济预期如何影响消费者决策。在实验中，参与者被随机分配接受专家对通货膨胀和名义汇率的预测。我们发现，预测会改变通胀和汇率预期，但不会改变跨期选择标准模型预测的支出或自我报告的消费计划。补充调查实验的结果表明，消费者足够成熟，能够预测名义刚性并出于预防性原因减少耐用品支出，抵消跨期优化标准模型预测的影响。",
-      "abstract_snippet_en": "",
-      "doi": "10.1093/rfs/hhaf079",
-      "source_url": "https://doi.org/10.1093/rfs/hhaf079",
-      "publication_date": "2026",
+      "abstract_en": "We study how intraday and overnight components of past returns predict future stock returns from 1926 to 2019. Portfolios formed on past intraday returns display momentum without long-term reversal, whereas portfolios formed on past overnight returns display no momentum. We link this asymmetric day-night pattern to the fact that most trading occurs intraday, which has remained stable over time. Evidence from international stock markets, intraday intervals, and analyst expectations suggests that investors underreact to private information revealed through trading. This underreaction mechanism is most consistent with Hong and Stein’s (1999) theory of momentum.",
+      "abstract_cn": "我们研究了从1926到2019期间，过去收益的日内和隔夜成分如何预测未来股票收益。基于过去日内收益构建的投资组合显示出动量而无长期反转，而基于过去隔夜收益构建的投资组合则没有动量。我们将这种日间-夜间不对称模式与大多数交易发生在日内这一事实联系起来，而日内交易随时间保持稳定。来自国际股票市场、日内间隔和分析师预期的证据表明，投资者对通过交易揭示的私有信息反应不足。这种反应不足机制与Hong和Stein（1999）的动量理论最为一致。",
+      "doi": "10.1093/rfs/hhag036",
+      "source_url": "https://academic.oup.com/rfs/article/39/10/3378/8626980?rss=1",
+      "publication_date": "",
       "sources": {
         "issue": "https://academic.oup.com/rfs/issue",
-        "roster": "crossref:issn:0893-9454",
+        "roster": "https://academic.oup.com/rss/site_5511/3372.xml",
         "metadata": "crossref",
         "abstract_en": "crossref"
       },
       "translation": {
         "status": "complete",
-        "provider": "google-translate",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-08-01T05:26:16+00:00",
-        "source_hash": "7fe36783930fbd64a404173571c4752d158180ece51cf4dc42522d8b25118209"
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-10-09T14:19:58+00:00",
+        "source_hash": "93e98cbc9796b25c15de6940ee8b594bcd405e40ad2072f3c3a5ca3b3785d5d5"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -339,22 +335,18 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "crossref",
-    "roster_authority": "crossref-provisional",
-    "roster_match_scope": "crossref-issue-group",
-    "publisher_page_status": "blocked",
+    "roster_authority": "publisher-rss",
+    "roster_crosscheck": "crossref",
+    "roster_transport": "publisher-rss",
+    "rss_url": "https://academic.oup.com/rss/site_5511/3372.xml",
     "excluded_item_count": 0,
     "excluded_items": [],
     "doi_complete": 8,
     "authors_complete": 8,
     "abstract_en_complete": 8,
-    "translation_complete": 7,
+    "translation_complete": 8,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster",
-      "translation_incomplete"
-    ],
+    "flags": [],
     "official_item_count": 8,
     "publishable_item_count": 8,
     "content_counts": {
@@ -384,5 +376,8 @@
     "other_excluded": 0,
     "catalog_content_items": 8
   },
-  "publication_state": "enriching"
+  "issue_label": "Vol. 39 · No. 10",
+  "content_status": "complete",
+  "source_status": "publisher_verified",
+  "publication_state": "ready"
 }
