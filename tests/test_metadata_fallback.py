@@ -248,14 +248,24 @@ class MetadataFallbackTests(unittest.TestCase):
             "",
             _publisher_issue_cover_date("0000-0000", "9", "2026"),
         )
+        # Observed historical JPE eTOC <date> is an item metadata timestamp,
+        # not the official volume/issue publication period.
+        self.assertEqual(
+            "September 2026",
+            _publisher_issue_cover_date("0022-3808", "9", "2026-04-02T04:52:53Z"),
+        )
+        self.assertEqual(
+            "",
+            _publisher_issue_cover_date("0000-0000", "9", "2026-04-02T04:52:53Z"),
+        )
 
-    def test_jpe_rss_year_only_cover_is_month_qualified_end_to_end(self) -> None:
+    def test_jpe_rss_item_timestamp_is_not_issue_cover_date(self) -> None:
         feed = b"""<rss><channel>
-          <item><volume>134</volume><number>9</number><coverdate>2026</coverdate>
+          <item><volume>134</volume><number>9</number><date>2026-04-02T04:52:53Z</date>
             <title>First paper</title><startingpage>1</startingpage>
             <link>https://doi.org/10.1086/740001</link>
           </item>
-          <item><volume>134</volume><number>9</number><coverdate>2026</coverdate>
+          <item><volume>134</volume><number>9</number><date>2026-04-02T04:52:53Z</date>
             <title>Second paper</title><startingpage>11</startingpage>
             <link>https://doi.org/10.1086/740002</link>
           </item>
