@@ -931,6 +931,19 @@ def _publication_date(issn: str, volume: str, issue: str, items: list[dict]) -> 
     return year
 
 
+def _publisher_issue_cover_date(issn: str, issue: str, value: str) -> str:
+    """Qualify year-only publisher RSS cover dates using an established issue calendar.
+
+    A year alone is not a defensible issue publication month. An unknown
+    calendar must remain unmeasured rather than inventing date precision.
+    """
+    cover = str(value or "").strip()
+    if re.fullmatch(r"(?:19|20)\d{2}", cover):
+        month = MONTHS_BY_ISSUE.get(issn, {}).get(str(issue).strip(), "")
+        return f"{month} {cover}" if month else ""
+    return cover
+
+
 def _issue_is_not_future(
     issn: str,
     volume: str,
@@ -2219,7 +2232,7 @@ def fetch_official_rss_issue(
         "journal_name": journal_name,
         "volume": volume,
         "issue": issue,
-        "publication_date": cover_date
+        "publication_date": _publisher_issue_cover_date(issn, issue, cover_date)
         or _publication_date(issn, volume, issue, list(crossref_by_doi.values())),
         "source_url": current_issue_url,
         "retrieved_at": now,
