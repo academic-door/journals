@@ -84,15 +84,17 @@ jobs:
           VIEWPORT_WIDTH: 390
         run: node tests/public_ux_preview_smoke.mjs
 
-      - name: Check out main for isolated preview publish
+      - name: Check out main for protected preview candidate
         uses: actions/checkout@v7
         with:
           ref: main
           path: publish-main
           fetch-depth: 1
 
-      - name: Publish preview subtree only
+      - name: Stage isolated preview candidate branch
         shell: bash
+        env:
+          PREVIEW_SOURCE_SHA: ${{ github.sha }}
         run: |
           set -euo pipefail
           target="$GITHUB_WORKSPACE/publish-main"
@@ -106,23 +108,15 @@ jobs:
           git config user.email "academic-door-preview-bot@users.noreply.github.com"
           git add public/preview/public-ux-reset-v1
           if git diff --cached --quiet; then
-            echo "Preview subtree already current."
+            echo "Preview subtree already current on main."
             exit 0
           fi
-          git commit -m "preview: Journals public UX reset @ \${GITHUB_SHA}"
-          git pull --rebase origin main
-          git push origin HEAD:main
+          # No protected-main direct push. A trusted owner creates the PR,
+          # so required Test and repository reviews remain binding.
+          candidate="preview/public-ux-reset-v1-${PREVIEW_SOURCE_SHA:0:12}"
+          git switch -c "$candidate"
+          git commit -m "preview: Journals public UX reset @ ${PREVIEW_SOURCE_SHA}"
+          git push origin "HEAD:refs/heads/$candidate"
+          echo "Preview candidate: $candidate"
+          echo "Create an owner PR into protected main; do not enable production UX."
 
-      - name: Verify public preview
-        shell: bash
-        run: |
-          preview="https://academic-door.github.io/journals/preview/public-ux-reset-v1/"
-          for attempt in $(seq 1 48); do
-            body="$(curl -fsSL "\${preview}?sha=\${GITHUB_SHA}&attempt=\${attempt}" || true)"
-            if grep -q "G12 Public UX Reset" <<<"$body"; then
-              echo "Preview published: $preview"
-              exit 0
-            fi
-            sleep 10
-          done
-          exit 1
