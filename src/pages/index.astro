@@ -12,9 +12,17 @@ const readJson = <T,>(file: string, fallback: T): T => {
   }
 };
 const top5: any = readJson("collections/top5.json", { summary: {}, journals: [] });
-const fields = readJson("collections/fields.json", { summary: {}, journals: [] });
-const backfill = readJson("backfill-status.json", { coverage: {} });
-const monitoring = readJson("monitoring.json", { summary: {}, status: "unknown" });
+const fields = readJson("collections/fields.json", {
+  summary: { configured_journals: 0 },
+  journals: [] as Record<string, unknown>[],
+});
+const backfill = readJson("backfill-status.json", {
+  coverage: { publication_ready: 0, missing: 0 },
+});
+const monitoring = readJson("monitoring.json", {
+  summary: { failed: 0 },
+  status: "unknown",
+});
 const top5Count = Number(top5.summary?.configured_journals || top5.journals?.length || 5);
 const fieldCount = Number(fields.summary?.configured_journals || fields.journals?.length || 44);
 const journalCount = top5Count + fieldCount;
