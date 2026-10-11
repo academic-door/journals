@@ -3,10 +3,6 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import Layout from "../../layouts/Layout.astro";
 
-const base = import.meta.env.BASE_URL.endsWith("/")
-  ? import.meta.env.BASE_URL
-  : `${import.meta.env.BASE_URL}/`;
-const dataBase = import.meta.env.PUBLIC_JOURNAL_DATA_BASE || base;
 const apiRoot = path.join(process.cwd(), "public", "api", "v1");
 const readJson = <T,>(relative: string, fallback: T): T => {
   try {
@@ -17,175 +13,62 @@ const readJson = <T,>(relative: string, fallback: T): T => {
 };
 const top5 = readJson("collections/top5.json", { journals: [] as any[] });
 const fields = readJson("collections/fields.json", { journals: [] as any[] });
-const monitoring = readJson("monitoring.json", {
-  status: "unknown", updated_at: "",
-  summary: { failed: 0, awaiting_official: 0 },
-});
-const sourceAudit = readJson("source-audit.json", {
-  status: "unknown", updated_at: "",
-  summary: { needs_attention: 0 },
-});
 const backfill = readJson("backfill-status.json", {
   updated_at: "",
-  coverage: { publication_ready: 0, missing: 0, source_pending: 0 },
+  coverage: { publication_ready: 0, missing: 0 },
 });
-const journals: any[] = [...(top5.journals || []), ...(fields.journals || [])];
-const coverage = backfill.coverage || {};
-const sourceAccepted = journals.filter((journal) =>
-  ["official_verified", "publisher_verified"].includes(journal.source_status)
-).length;
-const officialOrder = journals.filter(
-  (journal) => journal.order_verification === "official_verified"
-).length;
-const orderPending = Math.max(0, journals.length - officialOrder);
-const failed = Number(monitoring.summary?.failed || 0);
-const awaitingOfficial = Number(monitoring.summary?.awaiting_official || 0);
-const readyIssues = Number(coverage.publication_ready || 0);
-const missingIssues = Number(coverage.missing || 0);
-const sourcePendingIssues = Number(coverage.source_pending || 0);
-const statusHealthy = failed === 0 && Number(sourceAudit.summary?.needs_attention || 0) === 0;
-const formatTime = (value: unknown) => {
-  if (!value) return "未知";
-  try {
-    return new Intl.DateTimeFormat("zh-CN", {
-      year: "numeric", month: "2-digit", day: "2-digit",
-      hour: "2-digit", minute: "2-digit", hour12: false,
+const journals = [...(top5.journals || []), ...(fields.journals || [])];
+const readyIssues = Number(backfill.coverage?.publication_ready || 0);
+const missingIssues = Number(backfill.coverage?.missing || 0);
+const updateDate = backfill.updated_at
+  ? new Intl.DateTimeFormat("zh-CN", {
+      year: "numeric", month: "long", day: "numeric",
       timeZone: "UTC",
-    }).format(new Date(String(value))) + " UTC";
-  } catch {
-    return String(value);
-  }
-};
+    }).format(new Date(String(backfill.updated_at)))
+  : "暂无";
 ---
 
 <Layout
-  title="数据状态 · Academic Door 期刊"
-  description="Academic Door 期刊公开数据的可用性、历史覆盖、来源核验与更新监测状态。"
+  title="数据说明 · Academic Door 期刊"
+  description="Academic Door 期刊数据的收录范围、出版来源与最近更新日期。"
 >
   <main class="public-status-page">
     <section class="status-hero">
       <div>
-        <p class="section-kicker">DATA RELIABILITY</p>
-        <h1>数据状态</h1>
-        <p>
-          查看已收录卷期、资料核对情况和最近更新结果。
-        </p>
-      </div>
-      <div class:list={["status-beacon", { healthy: statusHealthy }]}>
-        <span aria-hidden="true"></span>
-        <strong>{statusHealthy ? "期刊数据更新正常" : "部分期刊更新未完成"}</strong>
-        <small>更新异常 {failed} 本期刊 · 来源待复核 {Number(sourceAudit.summary?.needs_attention || 0)} 本</small>
+        <p class="section-kicker">ABOUT THE DATA</p>
+        <h1>数据说明</h1>
+        <p>本站整理经济学期刊的卷期目录、论文标题与摘要。数据统计以最近一次更新为准。</p>
       </div>
     </section>
 
-    <section class="status-metric-grid" aria-label="公开数据核心状态">
+    <section class="status-metric-grid" aria-label="当前收录范围">
       <article>
         <p>JOURNALS</p>
         <strong>{journals.length}</strong>
-        <span>监测期刊</span>
+        <span>收录期刊</span>
       </article>
       <article>
-        <p>HISTORY READY</p>
+        <p>ISSUES</p>
         <strong>{readyIssues}</strong>
-        <span>可阅读卷期</span>
+        <span>已收录卷期</span>
       </article>
       <article class:list={[{ attention: missingIssues > 0 }]}>
-        <p>CONFIRMED MISSING</p>
+        <p>TO BE ADDED</p>
         <strong>{missingIssues}</strong>
-        <span>确认缺失卷期</span>
-      </article>
-      <article class:list={[{ attention: sourcePendingIssues > 0 }]}>
-        <p>SOURCE PENDING</p>
-        <strong>{sourcePendingIssues}</strong>
-        <span>资料待核对的卷期</span>
-      </article>
-    </section>
-
-    <section class="status-detail-grid">
-      <article class="status-detail-card">
-        <p class="section-kicker">SOURCE TRUST</p>
-        <h2>来源与目录</h2>
-        <dl>
-          <div>
-            <dt>已核对官网或出版社来源</dt>
-            <dd>{sourceAccepted} / {journals.length}</dd>
-          </div>
-          <div>
-            <dt>论文顺序已官方核对</dt>
-            <dd>{officialOrder} / {journals.length}</dd>
-          </div>
-          <div>
-            <dt>论文顺序待核对</dt>
-            <dd>{orderPending}</dd>
-          </div>
-        </dl>
-      </article>
-
-      <article class="status-detail-card">
-        <p class="section-kicker">FRESHNESS</p>
-        <h2>更新与核对时间</h2>
-        <p id="expected-set-freshness">
-          正在读取各期刊最近一次目录核对时间……
-        </p>
-        <dl>
-          <div>
-            <dt>等待官方新一期确认</dt>
-            <dd>{awaitingOfficial}</dd>
-          </div>
-          <div>
-            <dt>监测失败</dt>
-            <dd>{failed}</dd>
-          </div>
-        </dl>
+        <span>已确认尚未收录的卷期</span>
       </article>
     </section>
 
     <section class="status-scope-note" aria-labelledby="scope-title">
       <div>
-        <p class="section-kicker">WHAT THESE NUMBERS MEAN</p>
-        <h2 id="scope-title">指标说明</h2>
+        <p class="section-kicker">DATA SOURCES</p>
+        <h2 id="scope-title">来源与更新</h2>
       </div>
       <div class="status-scope-copy">
-        <p>
-          <strong>确认缺失卷期</strong>：官方目录中已列出、但本站尚未收录的卷期；不包含尚未出版的新一期。
-        </p>
-        <p>
-          <strong>资料待核对</strong>：已发现相关卷期，但出版资料仍需进一步核对。
-        </p>
-        <p>
-          <strong>更新状态</strong>：已发布的新一期可能仍在整理；已收录的完整卷期可继续阅读。
-        </p>
+        <p>卷期和论文信息依据期刊官网、出版社的公开出版资料整理；中文标题与摘要由 Academic Door 辅助翻译。</p>
+        <p>新一期内容可能需要核对后才会显示。上方“尚未收录”仅指已在官方目录中确认、但本站尚未完整收录的卷期。</p>
+        <p>数据最近更新：{updateDate}（UTC 日期）。引用与版权信息请以期刊原文为准。</p>
       </div>
     </section>
-
-    <section class="status-meta">
-      <span>历史覆盖更新：{formatTime(backfill.updated_at)}</span>
-      <span>监测更新：{formatTime(monitoring.updated_at)}</span>
-      <span>来源审计更新：{formatTime(sourceAudit.updated_at)}</span>
-    </section>
   </main>
-
-  <script is:inline define:vars={{ dataBase }}>
-    const target = document.querySelector("#expected-set-freshness");
-    fetch(`${dataBase}api/v1/slo.json`)
-      .then((response) => {
-        if (!response.ok) throw new Error("SLO unavailable");
-        return response.json();
-      })
-      .then((payload) => {
-        const metric = payload.metrics?.expected_set_freshness || {};
-        const measured = Number(metric.measured_count || 0);
-        const current = Number(metric.current_to_audit_end_count || 0);
-        const stale = Number(metric.stale_for_audit_end_count || 0);
-        if (!target || !measured) return;
-        target.textContent =
-          `已核对 ${measured} 本期刊的出版目录；其中 ${current} 本已核对到本次统计日期，${stale} 本的核对记录较早。缺失卷期数量仅按已核对的目录计算。`;
-      })
-      .catch(() => {
-        if (target) {
-          target.textContent =
-            "确认缺失卷期按已核对的出版目录统计；最近核对时间暂时无法显示。";
-        }
-      });
-  </script>
 </Layout>
