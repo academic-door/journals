@@ -306,6 +306,17 @@ jobs:
           echo "Composer changed concurrently and could not be updated after three attempts."
           exit 1
 
+      # Event-only acceleration; the ⑥ runner resolves the private source SHA.
+      # A failed request must not block READY email or the scheduled fallback.
+      - name: Request Composer runner reconciliation
+        id: composer_reconcile
+        if: steps.collect.outcome == 'success' && steps.composer.outcome == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.COMPOSER_RUNNER_DISPATCH_TOKEN }}
+        shell: bash
+        run: bash scripts/request_composer_reconcile.sh
+
       - name: Send private new-issue email
         id: email
         if: steps.collect.outcome == 'success' && steps.composer.outcome == 'success'
