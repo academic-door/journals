@@ -684,6 +684,17 @@ _EN_DECADE_AND_HALF_RE = re.compile(
     r"(?i)(?<![A-Za-z])(?:a\s+|one\s+)?decade\s+and\s+a\s+half\b"
 )
 
+# A percentage-point unit can be inherited by a following *rate/probability*
+# outcome in the same sentence.  AEJPOL DOI 10.1257/pol.20240361 uses
+# "... 14 percentage points (pp), the likelihood ... by 19 points".
+# This bounded syntax MUST NOT turn unrelated bare index/AQI points into %.
+_EN_RATE_CONTEXT_POINTS_RE = re.compile(
+    r"(?i)\bpercentage\s+points?(?:\s*\(pp\))?"
+    r"[^.!?]{0,200}?\b(?:likelihood|probability|rate|share)\b"
+    r"[^.!?]{0,120}?\bby\s+"
+    r"(?P<amount>\d+(?:\.\d+)?)\s+points\b"
+)
+
 # English "percentage points" range ("3.6-6.9 percentage points"):
 _EN_PERCENTAGE_POINTS_RANGE_RE = re.compile(
     r"(?i)(?<![A-Za-z0-9])"
@@ -1353,6 +1364,14 @@ def _semantic_numbers(value: str) -> list[str]:
         amt=match.group("value")
         num=_quantity_token(Decimal(_canonical_number(amt))) if any(ch.isdigit() for ch in amt) else str(_parse_chinese_numeral(amt))
         record(num+"%", span)
+
+    # Context-bound implicit unit: prior explicit percentage points and a
+    # subsequent rate/probability outcome in the same sentence.
+    for match in _EN_RATE_CONTEXT_POINTS_RE.finditer(value):
+        span = match.span("amount")
+        if overlaps(span):
+            continue
+        record(_quantity_token(Decimal(_canonical_number(match.group("amount"))))+"%", span)
 
     # 0h. English "percentage points" ("by 5.1 percentage points" -> 5.1%).
     for match in _EN_PERCENTAGE_POINTS_RANGE_RE.finditer(value):
