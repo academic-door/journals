@@ -43,7 +43,11 @@ class PublicProductBoundaryTests(unittest.TestCase):
         self.assertIn("发布预览", self.composer)
         self.assertIn("进入 Composer 工作台", self.composer)
         self.assertIn("academic-door-composer.academic-door.workers.dev", self.composer)
-        self.assertIn("READ-ONLY SHOWCASE", self.composer)
+        self.assertIn("ARTICLE PREVIEW", self.composer)
+        self.assertIn("文章排版示例", self.composer)
+        self.assertIn("Composer 工作台需要登录。", self.composer)
+        for noisy_copy in ("公开页面只展示结果", "公开端不会加载私有", "Canonical intake"):
+            self.assertNotIn(noisy_copy, self.composer)
         for forbidden in (
             'id="markdown-editor"',
             'id="copy-rich"',
@@ -77,15 +81,17 @@ class PublicProductBoundaryTests(unittest.TestCase):
             self.assertNotIn(selector, self.css)
 
     def test_theme_lab_is_retired_and_noindex(self):
-        self.assertIn("Theme Lab 已迁移", self.themes)
+        self.assertIn("此页面已停止使用", self.themes)
+        self.assertIn("查看发布预览", self.themes)
         self.assertIn("noindex", self.themes)
         self.assertNotIn("data-preview-theme", self.themes)
         self.assertNotIn("LIVE PREVIEW", self.themes)
 
     def test_status_is_reader_safe_static_first(self):
         self.assertIn("DATA RELIABILITY", self.status)
-        self.assertIn("公开状态不是内部运维仪表盘", self.status)
-        self.assertIn("来源与目录核验分开计算", self.status)
+        self.assertIn("指标说明", self.status)
+        self.assertNotIn("内部运维仪表盘", self.status)
+        self.assertIn("来源与目录", self.status)
         self.assertIn('journal.order_verification === "official_verified"', self.status)
         self.assertIn("source-audit.json", self.status)
         self.assertIn("backfill-status.json", self.status)
@@ -99,8 +105,8 @@ class PublicProductBoundaryTests(unittest.TestCase):
         self.assertNotIn('fetch(\`\${base}api/v1/source-audit.json\`', self.status)
 
     def test_translation_provenance_is_public(self):
-        self.assertIn("中文标题与摘要由 Academic Door 辅助翻译整理", self.layout)
-        self.assertIn("研究引用与正式判断请以期刊原文为准", self.layout)
+        self.assertIn("中文标题与摘要由 Academic Door 辅助翻译", self.layout)
+        self.assertIn("引用与版权信息请以期刊原文为准", self.layout)
 
     def test_canonical_and_social_metadata_exist(self):
         self.assertIn('rel="canonical"', self.layout)
