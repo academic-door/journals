@@ -88,19 +88,19 @@ class PublicProductBoundaryTests(unittest.TestCase):
         self.assertNotIn("LIVE PREVIEW", self.themes)
 
     def test_status_is_reader_safe_static_first(self):
-        self.assertIn("DATA RELIABILITY", self.status)
-        self.assertIn("指标说明", self.status)
-        self.assertNotIn("内部运维仪表盘", self.status)
-        self.assertIn("来源与目录", self.status)
-        self.assertIn('journal.order_verification === "official_verified"', self.status)
-        self.assertIn("source-audit.json", self.status)
+        self.assertIn("数据说明", self.status)
+        self.assertIn("来源与更新", self.status)
         self.assertIn("backfill-status.json", self.status)
+        self.assertIn("已确认尚未收录的卷期", self.status)
+        for operator_label in ("监测失败", "等待官方新一期确认", "更新异常", "内部运维仪表盘"):
+            self.assertNotIn(operator_label, self.status)
         self.assertNotIn("history-table", self.status)
         self.assertNotIn("quality-table", self.status)
 
     def test_status_uses_only_small_runtime_freshness_fetch(self):
-        self.assertIn("api/v1/slo.json", self.status)
-        self.assertNotIn("Promise.all([", self.status)
+        self.assertNotIn("fetch(", self.status)
+        self.assertIn("backfill.updated_at", self.status)
+        self.assertIn('timeZone: "UTC"', self.status)
         self.assertNotIn('fetch(\`\${base}api/v1/backfill-status.json\`', self.status)
         self.assertNotIn('fetch(\`\${base}api/v1/source-audit.json\`', self.status)
 
