@@ -40,9 +40,19 @@ try {
 
   {
     const { page } = await open("");
-    assert.ok(await page.getByRole("heading", { name: "从顶刊最新一期，到领域期刊历史卷期。" }).isVisible());
+    assert.ok(await page.getByRole("heading", { name: "Academic Door · 期刊" }).isVisible());
     assert.ok(await page.getByRole("link", { name: "进入顶刊之门" }).isVisible());
     assert.ok(await page.getByRole("link", { name: "浏览领域之门" }).isVisible());
+    assert.ok(await page.getByText(/监测期刊：顶刊 5 本 \+ 领域 44 本/).isVisible());
+    assert.ok(await page.getByText(/预览数据快照.*非实时统计/).isVisible());
+    assert.ok(await page.getByText("已确认缺失卷期").isVisible());
+    await page.close();
+  }
+
+  {
+    const { page } = await open("search/");
+    assert.ok(await page.getByText(/全部 49 本监测期刊（顶刊 5 \+ 领域 44）/).isVisible());
+    assert.ok(await page.getByText("浏览 44 本领域期刊（不含 Top Five）").isVisible());
     await page.close();
   }
 
