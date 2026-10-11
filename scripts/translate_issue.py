@@ -666,11 +666,14 @@ _EN_FOLD_RE = re.compile(
     r"(?P<fold>fold)\b"
     r"(?![A-Za-z])"
 )
+# Bare "points" can measure a numerical *index* (e.g. AQI 0.772 points),
+# not percentage-point changes. Only explicitly percent-qualified units count
+# as percentages; leaving bare points as numeric scalars prevents false errors.
 # English "percentage points" ("by 5.1 percentage points"):
 _EN_PERCENTAGE_POINTS_RE = re.compile(
     r"(?i)(?<![A-Za-z0-9])"
     r"(?P<amount>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
-    r"[-\s]*(?:percentage[-\s]*points?|points?|pp|p\.p\.|pct)\.?\b"
+    r"[-\s]*(?:percentage[-\s]*points?|pp|p\.p\.|pct)\.?\b"
 )
 _EN_WRITTEN_PERCENTAGE_POINTS_RE = re.compile(
     r"(?i)(?<![A-Za-z])"
@@ -687,7 +690,7 @@ _EN_PERCENTAGE_POINTS_RANGE_RE = re.compile(
     r"(?P<a>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
     r"\s*(?:to|[-–—])\s*"
     r"(?P<b>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
-    r"[-\s]*(?:percentage[-\s]*points?|points?|pp|p\.p\.|pct)\.?\b"
+    r"[-\s]*(?:percentage[-\s]*points?|pp|p\.p\.|pct)\.?\b"
 )
 
 # English written-cardinal percent range ("three to six percent"):
@@ -1083,7 +1086,10 @@ _CN_CURRENCY_CANONICAL = {
 
 
 _EN_EACH_PERCENTAGE_POINT_RE = re.compile(
-    r"(?i)\b(?:each|every)\s+percentage[-\s]*point\b"
+    # WD 208: "an additional percentage point" carries one unit increment,
+    # which Chinese can faithfully spell out as 每增加1个百分点. Only source-
+    # explicit unit expressions qualify; translated extra ones still fail.
+    r"(?i)\b(?:(?:each|every)|(?:an?\s+additional))\s+percentage[-\s]*point\b"
 )
 _CN_EACH_EXPLICIT_ONE_PERCENTAGE_POINT_RE = re.compile(
     r"每[^，。；;:!?]{0,24}?(?:1|一)\s*个?\s*百分点"
