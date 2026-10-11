@@ -68,14 +68,13 @@ const formatTime = (value: unknown) => {
         <p class="section-kicker">DATA RELIABILITY</p>
         <h1>数据状态</h1>
         <p>
-          这里展示读者真正需要知道的公开数据状态。采集器、checkpoint、transport 等内部诊断细节
-          不作为读者层面的“完整率”。
+          查看已收录卷期、资料核对情况和最近更新结果。
         </p>
       </div>
       <div class:list={["status-beacon", { healthy: statusHealthy }]}>
         <span aria-hidden="true"></span>
-        <strong>{statusHealthy ? "公开数据运行正常" : "部分数据正在更新"}</strong>
-        <small>监测失败 {failed} · 来源需人工关注 {Number(sourceAudit.summary?.needs_attention || 0)}</small>
+        <strong>{statusHealthy ? "期刊数据更新正常" : "部分期刊更新未完成"}</strong>
+        <small>更新异常 {failed} 本期刊 · 来源待复核 {Number(sourceAudit.summary?.needs_attention || 0)} 本</small>
       </div>
     </section>
 
@@ -88,7 +87,7 @@ const formatTime = (value: unknown) => {
       <article>
         <p>HISTORY READY</p>
         <strong>{readyIssues}</strong>
-        <span>历史卷期可发布</span>
+        <span>可阅读卷期</span>
       </article>
       <article class:list={[{ attention: missingIssues > 0 }]}>
         <p>CONFIRMED MISSING</p>
@@ -98,38 +97,35 @@ const formatTime = (value: unknown) => {
       <article class:list={[{ attention: sourcePendingIssues > 0 }]}>
         <p>SOURCE PENDING</p>
         <strong>{sourcePendingIssues}</strong>
-        <span>来源待核验卷期</span>
+        <span>资料待核对的卷期</span>
       </article>
     </section>
 
     <section class="status-detail-grid">
       <article class="status-detail-card">
         <p class="section-kicker">SOURCE TRUST</p>
-        <h2>来源与目录核验分开计算</h2>
+        <h2>来源与目录</h2>
         <dl>
           <div>
-            <dt>达到当前可发布来源契约</dt>
+            <dt>已核对官网或出版社来源</dt>
             <dd>{sourceAccepted} / {journals.length}</dd>
           </div>
           <div>
-            <dt>目录顺序已官方核对</dt>
+            <dt>论文顺序已官方核对</dt>
             <dd>{officialOrder} / {journals.length}</dd>
           </div>
           <div>
-            <dt>目录顺序待官方复核</dt>
+            <dt>论文顺序待核对</dt>
             <dd>{orderPending}</dd>
           </div>
         </dl>
-        <p>
-          “来源可发布”不等于“目录顺序已由官方页面逐项核验”。两者在 Academic Door 中保持独立语义。
-        </p>
       </article>
 
       <article class="status-detail-card">
         <p class="section-kicker">FRESHNESS</p>
-        <h2>完整性必须带时间语境</h2>
+        <h2>更新与核对时间</h2>
         <p id="expected-set-freshness">
-          历史缺失数字针对最近一次已建立权威 expected set 的范围；正在读取当前 freshness 语境……
+          正在读取各期刊最近一次目录核对时间……
         </p>
         <dl>
           <div>
@@ -147,17 +143,17 @@ const formatTime = (value: unknown) => {
     <section class="status-scope-note" aria-labelledby="scope-title">
       <div>
         <p class="section-kicker">WHAT THESE NUMBERS MEAN</p>
-        <h2 id="scope-title">公开状态不是内部运维仪表盘</h2>
+        <h2 id="scope-title">指标说明</h2>
       </div>
       <div class="status-scope-copy">
         <p>
-          <strong>确认缺失</strong>：在当前已建立权威 expected set 的范围内，官方应有但 canonical archive 尚不存在的卷期。
+          <strong>确认缺失卷期</strong>：官方目录中已列出、但本站尚未收录的卷期；不包含尚未出版的新一期。
         </p>
         <p>
-          <strong>来源待核验</strong>：内容可能已经发现，但尚未达到当前 source-authority 发布契约。
+          <strong>资料待核对</strong>：已发现相关卷期，但出版资料仍需进一步核对。
         </p>
         <p>
-          <strong>监测正常</strong>：监测任务可以运行，不代表每家出版社在同一时刻都有最新 authoritative observation。
+          <strong>更新状态</strong>：已发布的新一期可能仍在整理；已收录的完整卷期可继续阅读。
         </p>
       </div>
     </section>
@@ -183,12 +179,12 @@ const formatTime = (value: unknown) => {
         const stale = Number(metric.stale_for_audit_end_count || 0);
         if (!target || !measured) return;
         target.textContent =
-          `当前 ${measured} 本期刊拥有权威 expected-set 测量；其中 ${current} 本测量至当前审计日，${stale} 本的权威测量时间较早。页面中的确认缺失数字只描述这些已建立 authority 的测量范围，不代表出版社未来尚未发布的卷期。`;
+          `已核对 ${measured} 本期刊的出版目录；其中 ${current} 本已核对到本次统计日期，${stale} 本的核对记录较早。缺失卷期数量仅按已核对的目录计算。`;
       })
       .catch(() => {
         if (target) {
           target.textContent =
-            "历史缺失数字针对最近一次已建立权威 expected set 的范围；当前 freshness 明细暂不可用。";
+            "确认缺失卷期按已核对的出版目录统计；最近核对时间暂时无法显示。";
         }
       });
   </script>
