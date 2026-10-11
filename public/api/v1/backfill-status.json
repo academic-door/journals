@@ -1,6 +1,6 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-10-11T01:54:53+00:00",
+  "updated_at": "2026-10-11T02:04:03+00:00",
   "summary": {
     "complete": 1294,
     "translation_partial": 0,
@@ -9,15 +9,16 @@
     "pending": 35
   },
   "coverage": {
-    "discovered": 1194,
+    "discovered": 1195,
     "archived": 1191,
     "content_ready": 1191,
     "source_verified": 1191,
     "publication_ready": 1191,
-    "missing": 3,
+    "missing": 4,
     "source_pending": 0,
     "missing_issue_ids": [
       "jaere-13-6",
+      "jeh-86-3",
       "jie-164-c",
       "wd-208-c"
     ],
@@ -1198,14 +1199,16 @@
       }
     },
     "JEH": {
-      "discovered": 14,
+      "discovered": 15,
       "archived": 14,
       "content_ready": 14,
       "source_verified": 14,
       "publication_ready": 14,
-      "missing": 0,
+      "missing": 1,
       "source_pending": 0,
-      "missing_issue_ids": [],
+      "missing_issue_ids": [
+        "jeh-86-3"
+      ],
       "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
       "years": {
@@ -1246,14 +1249,16 @@
           "blocked_issue_ids": []
         },
         "2026": {
-          "discovered": 2,
+          "discovered": 3,
           "archived": 2,
           "content_ready": 2,
           "source_verified": 2,
           "publication_ready": 2,
-          "missing": 0,
+          "missing": 1,
           "source_pending": 0,
-          "missing_issue_ids": [],
+          "missing_issue_ids": [
+            "jeh-86-3"
+          ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         }
@@ -2817,6 +2822,9 @@
     "confirmed_missing": {
       "jaere-13-6": {
         "since": "2026-10-11T01:17:17+00:00"
+      },
+      "jeh-86-3": {
+        "since": "2026-10-11T02:04:03+00:00"
       },
       "jie-164-c": {
         "since": "2026-10-11T01:17:17+00:00"
@@ -18979,17 +18987,18 @@
         "pending": 0
       },
       "issue_count": 628,
-      "updated_at": "2026-10-11T01:52:28+00:00",
+      "updated_at": "2026-10-11T02:01:22+00:00",
       "coverage": {
-        "discovered": 632,
+        "discovered": 633,
         "archived": 629,
         "content_ready": 629,
         "source_verified": 629,
         "publication_ready": 629,
-        "missing": 3,
+        "missing": 4,
         "source_pending": 0,
         "missing_issue_ids": [
           "jaere-13-6",
+          "jeh-86-3",
           "jie-164-c",
           "wd-208-c"
         ],
@@ -20785,15 +20794,16 @@
         "WD"
       ],
       "coverage": {
-        "discovered": 287,
+        "discovered": 288,
         "archived": 284,
         "content_ready": 284,
         "source_verified": 284,
         "publication_ready": 284,
-        "missing": 3,
+        "missing": 4,
         "source_pending": 0,
         "missing_issue_ids": [
           "jaere-13-6",
+          "jeh-86-3",
           "jie-164-c",
           "wd-208-c"
         ],
@@ -21092,14 +21102,16 @@
           "blocked_issue_ids": []
         },
         "JEH": {
-          "discovered": 2,
+          "discovered": 3,
           "archived": 2,
           "content_ready": 2,
           "source_verified": 2,
           "publication_ready": 2,
-          "missing": 0,
+          "missing": 1,
           "source_pending": 0,
-          "missing_issue_ids": [],
+          "missing_issue_ids": [
+            "jeh-86-3"
+          ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
