@@ -20,20 +20,14 @@ const backfill = readJson("backfill-status.json", {
   updated_at: "",
   coverage: { publication_ready: 0, missing: 0 },
 });
-const monitoring = readJson("monitoring.json", {
-  summary: { failed: 0 },
-  updated_at: "",
-  status: "unknown",
-});
 const top5Count = Number(top5.summary?.configured_journals || top5.journals?.length || 5);
 const fieldCount = Number(fields.summary?.configured_journals || fields.journals?.length || 44);
 const journalCount = top5Count + fieldCount;
 const coverage = backfill.coverage || {};
 const readyIssues = Number(coverage.publication_ready || 0);
 const missingIssues = Number(coverage.missing || 0);
-const snapshotDate = String(backfill.updated_at || monitoring.updated_at || "").slice(0, 10);
+const snapshotDate = String(backfill.updated_at || "").slice(0, 10);
 const previewMode = import.meta.env.PUBLIC_PREVIEW_MODE === "1";
-const failedJournals = Number(monitoring.summary?.failed || 0);
 const top5Highlights: any[] = (top5.journals || []).slice(0, 5);
 ---
 
@@ -63,11 +57,10 @@ const top5Highlights: any[] = (top5.journals || []).slice(0, 5);
         <dl>
           <div><dt>历史卷期可发布</dt><dd>{readyIssues || "—"}</dd></div>
           <div><dt>已确认缺失卷期</dt><dd class:list={[{ warning: missingIssues > 0 }]}>{missingIssues}</dd></div>
-          <div><dt>监测失败</dt><dd class:list={[{ warning: failedJournals > 0 }]}>{failedJournals}</dd></div>
-        </dl>
+          </dl>
         <p class="trust-explainer">“缺失”指权威出版目录中应有、但档案尚未收录的卷期，并非缺失论文数。</p>
         {previewMode && <p class="trust-snapshot">预览数据快照{snapshotDate ? ` · ${snapshotDate} UTC` : ""} · 非实时统计</p>}
-        <a href="./status/#scope-title">查看指标定义及数据状态</a>
+        <a href="./status/#scope-title">数据来源与说明</a>
       </aside>
     </section>
 
