@@ -81,21 +81,23 @@ class HistoryAndSearchUiTests(unittest.TestCase):
         page = (ROOT / "src/pages/status/index.astro").read_text(encoding="utf-8")
         self.assertIn("sourceAccepted", page)
         self.assertIn('journal.order_verification === "official_verified"', page)
-        self.assertIn("达到当前可发布来源契约", page)
-        self.assertIn("目录顺序待官方复核", page)
+        self.assertIn("已核对官网或出版社来源", page)
+        self.assertIn("论文顺序待核对", page)
         self.assertNotIn("数据快照在正常更新窗口内", page)
 
     def test_status_consumes_release_freshness_contract_without_large_client_fetches(self) -> None:
         page = (ROOT / "src/pages/status/index.astro").read_text(encoding="utf-8")
         self.assertIn("api/v1/slo.json", page)
-        self.assertIn("最近一次已建立权威 expected set", page)
+        self.assertIn("已核对的出版目录", page)
+        self.assertNotIn("expected set", page)
+        self.assertNotIn("source-authority", page)
         self.assertNotIn('fetch(\`\${base}api/v1/backfill-status.json\`', page)
         self.assertNotIn('fetch(\`\${base}api/v1/source-audit.json\`', page)
 
     def test_reader_footer_discloses_ai_assisted_translation(self) -> None:
         layout = (ROOT / "src/layouts/Layout.astro").read_text(encoding="utf-8")
-        self.assertIn("中文标题与摘要由 Academic Door 辅助翻译整理", layout)
-        self.assertIn("研究引用与正式判断请以期刊原文为准", layout)
+        self.assertIn("中文标题与摘要由 Academic Door 辅助翻译", layout)
+        self.assertIn("引用与版权信息请以期刊原文为准", layout)
 
     def test_main_navigation_links_to_canonical_routes(self) -> None:
         source = (ROOT / "src/layouts/Layout.astro").read_text(encoding="utf-8")
