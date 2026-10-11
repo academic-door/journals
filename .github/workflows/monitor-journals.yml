@@ -308,6 +308,17 @@ jobs:
           done
           exit 1
 
+      # Routine monitor is the normal owner writer, and separately syncs
+      # newly READY issues to private Composer. Signal ⑥ only after that sync.
+      - name: Request Composer runner reconciliation
+        id: composer_reconcile
+        if: steps.changed.outputs.has_updates == 'true' && steps.composer.outcome == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.COMPOSER_RUNNER_DISPATCH_TOKEN }}
+        shell: bash
+        run: bash scripts/request_composer_reconcile.sh
+
       - name: Send private new-issue email
         id: email
         if: always() && steps.publish.outcome == 'success'
