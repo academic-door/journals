@@ -852,10 +852,15 @@ def _is_english_century_ordinal(value: str, match: "re.Match[str]") -> bool:
             re.IGNORECASE,
         ):
             return True
-    # Pronoun / partitive "one's rival", "one of the ..." and non-count method
-    # compounds "one-step", "two-way", "three-fold", "one-to-one",
-    # "two-quantile-regression".
-    if re.match(r"(?:\'s|\bof\b|[-\s](?:steps?|ways?|folds?|sided|to-one|"
+    # Singular partitive pronoun "one of the ..." can be omitted as prose,
+    # but a quantified subset ("twenty-two of the 25 pairs") is a measured
+    # count.  Never exempt its written cardinal: doing so rejects a faithful
+    # Chinese "22 of 25" and would silently miss a wrong "23 of 25".
+    if num == "one" and re.match(r"of\b", rest, re.IGNORECASE):
+        return True
+    # Possessive and non-count method descriptors (one's rival, two-way,
+    # one-step, two-quantile-regression) are not numeric measurements.
+    if re.match(r"(?:\'s|[-\s](?:steps?|ways?|folds?|sided|to-one|"
                 r"to-two|to-three|to-four|degree|degrees|period|periods|"
                 r"sample|samples|stage|stages|round|rounds|order|orders|"
                 r"quantile|quantiles|regression|regressions)\b)",
